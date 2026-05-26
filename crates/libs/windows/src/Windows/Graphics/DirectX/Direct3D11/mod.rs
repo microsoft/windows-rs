@@ -18,6 +18,7 @@ impl windows_core::TypeKind for Direct3DBindings {
 }
 impl windows_core::RuntimeType for Direct3DBindings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.Direct3DBindings");
 }
 impl Direct3DBindings {
     pub const fn contains(&self, other: Self) -> bool {
@@ -63,6 +64,7 @@ impl windows_core::TypeKind for Direct3DMultisampleDescription {
 }
 impl windows_core::RuntimeType for Direct3DMultisampleDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -77,6 +79,7 @@ impl windows_core::TypeKind for Direct3DSurfaceDescription {
 }
 impl windows_core::RuntimeType for Direct3DSurfaceDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -92,10 +95,12 @@ impl windows_core::TypeKind for Direct3DUsage {
 }
 impl windows_core::RuntimeType for Direct3DUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.Direct3DUsage");
 }
 windows_core::imp::define_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 impl windows_core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice");
 }
 windows_core::imp::interface_hierarchy!(IDirect3DDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IDirect3DDevice, super::super::super::Foundation::IClosable);
@@ -137,6 +142,7 @@ pub struct IDirect3DDevice_Vtbl {
 windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 impl windows_core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface");
 }
 windows_core::imp::interface_hierarchy!(IDirect3DSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IDirect3DSurface, super::super::super::Foundation::IClosable);

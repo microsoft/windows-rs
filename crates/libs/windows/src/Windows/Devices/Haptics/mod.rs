@@ -13,6 +13,7 @@ impl windows_core::TypeKind for HapticDeviceType {
 }
 impl windows_core::RuntimeType for HapticDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.HapticDeviceType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.HapticDeviceType");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -24,10 +25,12 @@ impl windows_core::TypeKind for HapticsControllerOverrideToken {
 }
 impl windows_core::RuntimeType for HapticsControllerOverrideToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Haptics.HapticsControllerOverrideToken;i8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.HapticsControllerOverrideToken");
 }
 windows_core::imp::define_interface!(IInputHapticsManager, IInputHapticsManager_Vtbl, 0x040e91df_bb3a_507c_9e25_a2d2c685b2e5);
 impl windows_core::RuntimeType for IInputHapticsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IInputHapticsManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,6 +50,7 @@ pub struct IInputHapticsManager_Vtbl {
 windows_core::imp::define_interface!(IInputHapticsManagerStatics, IInputHapticsManagerStatics_Vtbl, 0x7bb40f77_e187_5322_844e_aa58223c281a);
 impl windows_core::RuntimeType for IInputHapticsManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IInputHapticsManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -60,6 +64,7 @@ pub struct IInputHapticsManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -74,6 +79,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics2, IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl, 0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
 impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,6 +99,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
 windows_core::imp::define_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for ISimpleHapticsController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.ISimpleHapticsController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,6 +120,7 @@ pub struct ISimpleHapticsController_Vtbl {
 windows_core::imp::define_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for ISimpleHapticsControllerFeedback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.ISimpleHapticsControllerFeedback");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -124,6 +132,7 @@ pub struct ISimpleHapticsControllerFeedback_Vtbl {
 windows_core::imp::define_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da);
 impl windows_core::RuntimeType for IVibrationDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IVibrationDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -135,6 +144,7 @@ pub struct IVibrationDevice_Vtbl {
 windows_core::imp::define_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
 impl windows_core::RuntimeType for IVibrationDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.IVibrationDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,6 +491,7 @@ impl windows_core::TypeKind for VibrationAccessStatus {
 }
 impl windows_core::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.VibrationAccessStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -7,6 +7,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IThing {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IThing");
     }
     windows_core::imp::interface_hierarchy!(
         IThing,

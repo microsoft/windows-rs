@@ -7,6 +7,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IDerived {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IDerived");
     }
     windows_core::imp::interface_hierarchy!(
         IDerived,
@@ -44,6 +46,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IRequired {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IRequired");
     }
     windows_core::imp::interface_hierarchy!(
         IRequired,

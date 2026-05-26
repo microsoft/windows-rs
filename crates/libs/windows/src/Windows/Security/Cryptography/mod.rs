@@ -17,6 +17,7 @@ impl windows_core::TypeKind for BinaryStringEncoding {
 }
 impl windows_core::RuntimeType for BinaryStringEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.BinaryStringEncoding");
 }
 pub struct CryptographicBuffer;
 impl CryptographicBuffer {
@@ -120,6 +121,7 @@ impl windows_core::RuntimeName for CryptographicBuffer {
 windows_core::imp::define_interface!(ICryptographicBufferStatics, ICryptographicBufferStatics_Vtbl, 0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
 impl windows_core::RuntimeType for ICryptographicBufferStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.ICryptographicBufferStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

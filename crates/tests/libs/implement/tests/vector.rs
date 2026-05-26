@@ -247,8 +247,8 @@ fn test() -> Result<()> {
     let c: &IInspectable = unsafe { std::mem::transmute(&v) };
     assert_eq!(
         c.GetRuntimeClassName()?,
-        "Windows.Foundation.Collections.IVector"
-    ); // TODO: needs to have `1<Int32>
+        "Windows.Foundation.Collections.IVector`1<Int32>"
+    );
 
     let mut index = 0;
     assert!(v.IndexOf(20, &mut index)?);

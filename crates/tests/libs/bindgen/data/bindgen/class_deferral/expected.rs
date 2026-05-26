@@ -50,6 +50,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IClosable");
 }
 windows_core::imp::interface_hierarchy!(
     IClosable,
@@ -104,6 +106,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -119,6 +123,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferralFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

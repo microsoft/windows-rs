@@ -323,6 +323,7 @@ impl windows_core::TypeKind for HttpDiagnosticRequestInitiator {
 }
 impl windows_core::RuntimeType for HttpDiagnosticRequestInitiator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -363,6 +364,7 @@ unsafe impl Sync for HttpDiagnosticSourceLocation {}
 windows_core::imp::define_interface!(IHttpDiagnosticProvider, IHttpDiagnosticProvider_Vtbl, 0xbd811501_a056_4d39_b174_833b7b03b02c);
 impl windows_core::RuntimeType for IHttpDiagnosticProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,6 +382,7 @@ pub struct IHttpDiagnosticProvider_Vtbl {
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseCompletedEventArgs, IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl, 0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -396,6 +399,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseTimestamps {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -414,6 +418,7 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestSentEventArgs, IHttpDiagnosticProviderRequestSentEventArgs_Vtbl, 0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestSentEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,6 +435,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderResponseReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -442,6 +448,7 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHttpDiagnosticProviderStatics, IHttpDiagnosticProviderStatics_Vtbl, 0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 impl windows_core::RuntimeType for IHttpDiagnosticProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -455,6 +462,7 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpDiagnosticSourceLocation, IHttpDiagnosticSourceLocation_Vtbl, 0x54a9d260_8860_423f_b6fa_d77716f647a7);
 impl windows_core::RuntimeType for IHttpDiagnosticSourceLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation");
 }
 #[repr(C)]
 #[doc(hidden)]

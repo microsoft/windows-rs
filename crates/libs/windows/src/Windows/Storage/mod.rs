@@ -563,6 +563,7 @@ impl windows_core::TypeKind for ApplicationDataCreateDisposition {
 }
 impl windows_core::RuntimeType for ApplicationDataCreateDisposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ApplicationDataCreateDisposition");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -579,6 +580,7 @@ impl windows_core::TypeKind for ApplicationDataLocality {
 }
 impl windows_core::RuntimeType for ApplicationDataLocality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ApplicationDataLocality");
 }
 windows_core::imp::define_interface!(ApplicationDataSetVersionHandler, ApplicationDataSetVersionHandler_Vtbl, 0xa05791e6_cc9f_4687_acab_a364fd785463);
 impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
@@ -660,6 +662,7 @@ impl windows_core::TypeKind for CreationCollisionOption {
 }
 impl windows_core::RuntimeType for CreationCollisionOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.CreationCollisionOption");
 }
 pub struct DownloadsFolder;
 impl DownloadsFolder {
@@ -755,6 +758,7 @@ impl windows_core::TypeKind for FileAccessMode {
 }
 impl windows_core::RuntimeType for FileAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileAccessMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -772,6 +776,7 @@ impl windows_core::TypeKind for FileAttributes {
 }
 impl windows_core::RuntimeType for FileAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.FileAttributes");
 }
 impl FileAttributes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -974,6 +979,7 @@ impl windows_core::RuntimeName for FileIO {
 windows_core::imp::define_interface!(IAppDataPaths, IAppDataPaths_Vtbl, 0x7301d60a_79a2_48c9_9ec0_3fda092f79e1);
 impl windows_core::RuntimeType for IAppDataPaths {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IAppDataPaths");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -992,6 +998,7 @@ pub struct IAppDataPaths_Vtbl {
 windows_core::imp::define_interface!(IAppDataPathsStatics, IAppDataPathsStatics_Vtbl, 0xd8eb2afe_a9d9_4b14_b999_e3921379d903);
 impl windows_core::RuntimeType for IAppDataPathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IAppDataPathsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1006,6 +1013,7 @@ pub struct IAppDataPathsStatics_Vtbl {
 windows_core::imp::define_interface!(IApplicationData, IApplicationData_Vtbl, 0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc);
 impl windows_core::RuntimeType for IApplicationData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IApplicationData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1037,6 +1045,7 @@ pub struct IApplicationData_Vtbl {
 windows_core::imp::define_interface!(IApplicationData2, IApplicationData2_Vtbl, 0x9e65cd69_0ba3_4e32_be29_b02de6607638);
 impl windows_core::RuntimeType for IApplicationData2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IApplicationData2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1050,6 +1059,7 @@ pub struct IApplicationData2_Vtbl {
 windows_core::imp::define_interface!(IApplicationData3, IApplicationData3_Vtbl, 0xdc222cf4_2772_4c1d_aa2c_c9f743ade8d1);
 impl windows_core::RuntimeType for IApplicationData3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IApplicationData3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1068,6 +1078,7 @@ pub struct IApplicationData3_Vtbl {
 windows_core::imp::define_interface!(IApplicationDataContainer, IApplicationDataContainer_Vtbl, 0xc5aefd1e_f467_40ba_8566_ab640a441e1d);
 impl windows_core::RuntimeType for IApplicationDataContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IApplicationDataContainer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1086,6 +1097,7 @@ pub struct IApplicationDataContainer_Vtbl {
 windows_core::imp::define_interface!(IApplicationDataStatics, IApplicationDataStatics_Vtbl, 0x5612147b_e843_45e3_94d8_06169e3c8e17);
 impl windows_core::RuntimeType for IApplicationDataStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IApplicationDataStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1096,6 +1108,7 @@ pub struct IApplicationDataStatics_Vtbl {
 windows_core::imp::define_interface!(IApplicationDataStatics2, IApplicationDataStatics2_Vtbl, 0xcd606211_cf49_40a4_a47c_c7f0dbba8107);
 impl windows_core::RuntimeType for IApplicationDataStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IApplicationDataStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1109,6 +1122,7 @@ pub struct IApplicationDataStatics2_Vtbl {
 windows_core::imp::define_interface!(ICachedFileManagerStatics, ICachedFileManagerStatics_Vtbl, 0x8ffc224a_e782_495d_b614_654c4f0b2370);
 impl windows_core::RuntimeType for ICachedFileManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ICachedFileManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1126,6 +1140,7 @@ pub struct ICachedFileManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IDownloadsFolderStatics, IDownloadsFolderStatics_Vtbl, 0x27862ed0_404e_47df_a1e2_e37308be7b37);
 impl windows_core::RuntimeType for IDownloadsFolderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IDownloadsFolderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1151,6 +1166,7 @@ pub struct IDownloadsFolderStatics_Vtbl {
 windows_core::imp::define_interface!(IDownloadsFolderStatics2, IDownloadsFolderStatics2_Vtbl, 0xe93045bd_8ef8_4f8e_8d15_ac0e265f390d);
 impl windows_core::RuntimeType for IDownloadsFolderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IDownloadsFolderStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1176,6 +1192,7 @@ pub struct IDownloadsFolderStatics2_Vtbl {
 windows_core::imp::define_interface!(IFileIOStatics, IFileIOStatics_Vtbl, 0x887411eb_7f54_4732_a5f0_5e43e3b8c2f5);
 impl windows_core::RuntimeType for IFileIOStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IFileIOStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1245,6 +1262,7 @@ pub struct IFileIOStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersCameraRollStatics, IKnownFoldersCameraRollStatics_Vtbl, 0x5d115e66_27e8_492f_b8e5_2f90896cd4cd);
 impl windows_core::RuntimeType for IKnownFoldersCameraRollStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersCameraRollStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1258,6 +1276,7 @@ pub struct IKnownFoldersCameraRollStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersPlaylistsStatics, IKnownFoldersPlaylistsStatics_Vtbl, 0xdad5ecd6_306f_4d6a_b496_46ba8eb106ce);
 impl windows_core::RuntimeType for IKnownFoldersPlaylistsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersPlaylistsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1271,6 +1290,7 @@ pub struct IKnownFoldersPlaylistsStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersSavedPicturesStatics, IKnownFoldersSavedPicturesStatics_Vtbl, 0x055c93ea_253d_467c_b6ca_a97da1e9a18d);
 impl windows_core::RuntimeType for IKnownFoldersSavedPicturesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersSavedPicturesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1284,6 +1304,7 @@ pub struct IKnownFoldersSavedPicturesStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersStatics, IKnownFoldersStatics_Vtbl, 0x5a2a7520_4802_452d_9ad9_4351ada7ec35);
 impl windows_core::RuntimeType for IKnownFoldersStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1321,6 +1342,7 @@ pub struct IKnownFoldersStatics_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersStatics2, IKnownFoldersStatics2_Vtbl, 0x194bd0cd_cf6e_4d07_9d53_e9163a2536e9);
 impl windows_core::RuntimeType for IKnownFoldersStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1342,6 +1364,7 @@ pub struct IKnownFoldersStatics2_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersStatics3, IKnownFoldersStatics3_Vtbl, 0xc5194341_9742_4ed5_823d_fc1401148764);
 impl windows_core::RuntimeType for IKnownFoldersStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1355,6 +1378,7 @@ pub struct IKnownFoldersStatics3_Vtbl {
 windows_core::imp::define_interface!(IKnownFoldersStatics4, IKnownFoldersStatics4_Vtbl, 0x1722e6bf_9ff9_4b21_bed5_90ecb13a192e);
 impl windows_core::RuntimeType for IKnownFoldersStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IKnownFoldersStatics4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1373,6 +1397,7 @@ pub struct IKnownFoldersStatics4_Vtbl {
 windows_core::imp::define_interface!(IPathIOStatics, IPathIOStatics_Vtbl, 0x0f2f3758_8ec7_4381_922b_8f6c07d288f3);
 impl windows_core::RuntimeType for IPathIOStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IPathIOStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1421,6 +1446,7 @@ pub struct IPathIOStatics_Vtbl {
 windows_core::imp::define_interface!(ISetVersionDeferral, ISetVersionDeferral_Vtbl, 0x033508a2_781a_437a_b078_3f32badcfe47);
 impl windows_core::RuntimeType for ISetVersionDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISetVersionDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1431,6 +1457,7 @@ pub struct ISetVersionDeferral_Vtbl {
 windows_core::imp::define_interface!(ISetVersionRequest, ISetVersionRequest_Vtbl, 0xb9c76b9b_1056_4e69_8330_162619956f9b);
 impl windows_core::RuntimeType for ISetVersionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISetVersionRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1445,6 +1472,7 @@ windows_core::imp::define_interface!(IStorageFile, IStorageFile_Vtbl, 0xfa3f6186
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for IStorageFile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFile");
 }
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(IStorageFile, windows_core::IUnknown, windows_core::IInspectable);
@@ -1853,6 +1881,7 @@ pub struct IStorageFile_Vtbl {
 windows_core::imp::define_interface!(IStorageFile2, IStorageFile2_Vtbl, 0x954e4bcf_0a77_42fb_b777_c2ed58a52e44);
 impl windows_core::RuntimeType for IStorageFile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFile2");
 }
 windows_core::imp::interface_hierarchy!(IStorageFile2, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageFile2 {
@@ -1931,6 +1960,7 @@ pub struct IStorageFile2_Vtbl {
 windows_core::imp::define_interface!(IStorageFilePropertiesWithAvailability, IStorageFilePropertiesWithAvailability_Vtbl, 0xafcbbe9b_582b_4133_9648_e44ca46ee491);
 impl windows_core::RuntimeType for IStorageFilePropertiesWithAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFilePropertiesWithAvailability");
 }
 windows_core::imp::interface_hierarchy!(IStorageFilePropertiesWithAvailability, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageFilePropertiesWithAvailability {
@@ -1979,6 +2009,7 @@ pub struct IStorageFilePropertiesWithAvailability_Vtbl {
 windows_core::imp::define_interface!(IStorageFileStatics, IStorageFileStatics_Vtbl, 0x5984c710_daf2_43c8_8bb4_a4d3eacfd03f);
 impl windows_core::RuntimeType for IStorageFileStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFileStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2012,6 +2043,7 @@ pub struct IStorageFileStatics_Vtbl {
 windows_core::imp::define_interface!(IStorageFileStatics2, IStorageFileStatics2_Vtbl, 0x5c76a781_212e_4af9_8f04_740cae108974);
 impl windows_core::RuntimeType for IStorageFileStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFileStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2025,6 +2057,7 @@ pub struct IStorageFileStatics2_Vtbl {
 windows_core::imp::define_interface!(IStorageFolder, IStorageFolder_Vtbl, 0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
 impl windows_core::RuntimeType for IStorageFolder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFolder");
 }
 windows_core::imp::interface_hierarchy!(IStorageFolder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IStorageFolder, IStorageItem);
@@ -2379,6 +2412,7 @@ pub struct IStorageFolder_Vtbl {
 windows_core::imp::define_interface!(IStorageFolder2, IStorageFolder2_Vtbl, 0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3);
 impl windows_core::RuntimeType for IStorageFolder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFolder2");
 }
 windows_core::imp::interface_hierarchy!(IStorageFolder2, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageFolder2 {
@@ -2425,6 +2459,7 @@ pub struct IStorageFolder2_Vtbl {
 windows_core::imp::define_interface!(IStorageFolder3, IStorageFolder3_Vtbl, 0x9f617899_bde1_4124_aeb3_b06ad96f98d4);
 impl windows_core::RuntimeType for IStorageFolder3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFolder3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2435,6 +2470,7 @@ pub struct IStorageFolder3_Vtbl {
 windows_core::imp::define_interface!(IStorageFolderStatics, IStorageFolderStatics_Vtbl, 0x08f327ff_85d5_48b9_aee9_28511e339f9f);
 impl windows_core::RuntimeType for IStorageFolderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFolderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2448,6 +2484,7 @@ pub struct IStorageFolderStatics_Vtbl {
 windows_core::imp::define_interface!(IStorageFolderStatics2, IStorageFolderStatics2_Vtbl, 0xb4656dc3_71d2_467d_8b29_371f0f62bf6f);
 impl windows_core::RuntimeType for IStorageFolderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageFolderStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2461,6 +2498,7 @@ pub struct IStorageFolderStatics2_Vtbl {
 windows_core::imp::define_interface!(IStorageItem, IStorageItem_Vtbl, 0x4207a996_ca2f_42f7_bde8_8b10457a7f30);
 impl windows_core::RuntimeType for IStorageItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageItem");
 }
 windows_core::imp::interface_hierarchy!(IStorageItem, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItem {
@@ -2712,6 +2750,7 @@ pub struct IStorageItem_Vtbl {
 windows_core::imp::define_interface!(IStorageItem2, IStorageItem2_Vtbl, 0x53f926d2_083c_4283_b45b_81c007237e44);
 impl windows_core::RuntimeType for IStorageItem2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageItem2");
 }
 windows_core::imp::interface_hierarchy!(IStorageItem2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IStorageItem2, IStorageItem);
@@ -2864,6 +2903,7 @@ pub struct IStorageItem2_Vtbl {
 windows_core::imp::define_interface!(IStorageItemProperties, IStorageItemProperties_Vtbl, 0x86664478_8029_46fe_a789_1c2f3e2ffb5c);
 impl windows_core::RuntimeType for IStorageItemProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageItemProperties");
 }
 windows_core::imp::interface_hierarchy!(IStorageItemProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItemProperties {
@@ -3064,6 +3104,7 @@ pub struct IStorageItemProperties_Vtbl {
 windows_core::imp::define_interface!(IStorageItemProperties2, IStorageItemProperties2_Vtbl, 0x8e86a951_04b9_4bd2_929d_fef3f71621d0);
 impl windows_core::RuntimeType for IStorageItemProperties2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageItemProperties2");
 }
 windows_core::imp::interface_hierarchy!(IStorageItemProperties2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IStorageItemProperties2, IStorageItemProperties);
@@ -3226,6 +3267,7 @@ pub struct IStorageItemProperties2_Vtbl {
 windows_core::imp::define_interface!(IStorageItemPropertiesWithProvider, IStorageItemPropertiesWithProvider_Vtbl, 0x861bf39b_6368_4dee_b40e_74684a5ce714);
 impl windows_core::RuntimeType for IStorageItemPropertiesWithProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageItemPropertiesWithProvider");
 }
 windows_core::imp::interface_hierarchy!(IStorageItemPropertiesWithProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IStorageItemPropertiesWithProvider, IStorageItemProperties);
@@ -3329,6 +3371,7 @@ pub struct IStorageItemPropertiesWithProvider_Vtbl {
 windows_core::imp::define_interface!(IStorageLibrary, IStorageLibrary_Vtbl, 0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
 impl windows_core::RuntimeType for IStorageLibrary {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibrary");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3356,6 +3399,7 @@ pub struct IStorageLibrary_Vtbl {
 windows_core::imp::define_interface!(IStorageLibrary2, IStorageLibrary2_Vtbl, 0x5b0ce348_fcb3_4031_afb0_a68d7bd44534);
 impl windows_core::RuntimeType for IStorageLibrary2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibrary2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3366,6 +3410,7 @@ pub struct IStorageLibrary2_Vtbl {
 windows_core::imp::define_interface!(IStorageLibrary3, IStorageLibrary3_Vtbl, 0x8a281291_2154_4201_8113_d2c05ce1ad23);
 impl windows_core::RuntimeType for IStorageLibrary3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibrary3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3376,6 +3421,7 @@ pub struct IStorageLibrary3_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryChange, IStorageLibraryChange_Vtbl, 0x00980b23_2be2_4909_aa48_159f5203a51e);
 impl windows_core::RuntimeType for IStorageLibraryChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryChange");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3390,6 +3436,7 @@ pub struct IStorageLibraryChange_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryChangeReader, IStorageLibraryChangeReader_Vtbl, 0xf205bc83_fca2_41f9_8954_ee2e991eb96f);
 impl windows_core::RuntimeType for IStorageLibraryChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryChangeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3401,6 +3448,7 @@ pub struct IStorageLibraryChangeReader_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryChangeReader2, IStorageLibraryChangeReader2_Vtbl, 0xabf4868b_fbcc_4a4f_999e_e7ab7c646dbe);
 impl windows_core::RuntimeType for IStorageLibraryChangeReader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryChangeReader2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3411,6 +3459,7 @@ pub struct IStorageLibraryChangeReader2_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryChangeTracker, IStorageLibraryChangeTracker_Vtbl, 0x9e157316_6073_44f6_9681_7492d1286c90);
 impl windows_core::RuntimeType for IStorageLibraryChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryChangeTracker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3423,6 +3472,7 @@ pub struct IStorageLibraryChangeTracker_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryChangeTracker2, IStorageLibraryChangeTracker2_Vtbl, 0xcd051c3b_0f9f_42f9_8fb3_158d82e13821);
 impl windows_core::RuntimeType for IStorageLibraryChangeTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryChangeTracker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3434,6 +3484,7 @@ pub struct IStorageLibraryChangeTracker2_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryChangeTrackerOptions, IStorageLibraryChangeTrackerOptions_Vtbl, 0xbb52bcd4_1a6d_59c0_ad2a_823a20532483);
 impl windows_core::RuntimeType for IStorageLibraryChangeTrackerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryChangeTrackerOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3445,6 +3496,7 @@ pub struct IStorageLibraryChangeTrackerOptions_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryLastChangeId, IStorageLibraryLastChangeId_Vtbl, 0x5281826a_bbe1_53bc_82ca_81cc7f039329);
 impl windows_core::RuntimeType for IStorageLibraryLastChangeId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryLastChangeId");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3454,6 +3506,7 @@ pub struct IStorageLibraryLastChangeId_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryLastChangeIdStatics, IStorageLibraryLastChangeIdStatics_Vtbl, 0x81a49128_2ca3_5309_b0d1_cf0788e40762);
 impl windows_core::RuntimeType for IStorageLibraryLastChangeIdStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryLastChangeIdStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3464,6 +3517,7 @@ pub struct IStorageLibraryLastChangeIdStatics_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryStatics, IStorageLibraryStatics_Vtbl, 0x4208a6db_684a_49c6_9e59_90121ee050d6);
 impl windows_core::RuntimeType for IStorageLibraryStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3474,6 +3528,7 @@ pub struct IStorageLibraryStatics_Vtbl {
 windows_core::imp::define_interface!(IStorageLibraryStatics2, IStorageLibraryStatics2_Vtbl, 0xffb08ddc_fa75_4695_b9d1_7f81f97832e3);
 impl windows_core::RuntimeType for IStorageLibraryStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageLibraryStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3487,6 +3542,7 @@ pub struct IStorageLibraryStatics2_Vtbl {
 windows_core::imp::define_interface!(IStorageProvider, IStorageProvider_Vtbl, 0xe705eed4_d478_47d6_ba46_1a8ebe114a20);
 impl windows_core::RuntimeType for IStorageProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3498,6 +3554,7 @@ pub struct IStorageProvider_Vtbl {
 windows_core::imp::define_interface!(IStorageProvider2, IStorageProvider2_Vtbl, 0x010d1917_3404_414b_9fd7_cd44472eaa39);
 impl windows_core::RuntimeType for IStorageProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageProvider2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3508,6 +3565,7 @@ pub struct IStorageProvider2_Vtbl {
 windows_core::imp::define_interface!(IStorageStreamTransaction, IStorageStreamTransaction_Vtbl, 0xf67cf363_a53d_4d94_ae2c_67232d93acdd);
 impl windows_core::RuntimeType for IStorageStreamTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStorageStreamTransaction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3522,6 +3580,7 @@ pub struct IStorageStreamTransaction_Vtbl {
 windows_core::imp::define_interface!(IStreamedFileDataRequest, IStreamedFileDataRequest_Vtbl, 0x1673fcce_dabd_4d50_beee_180b8a8191b6);
 impl windows_core::RuntimeType for IStreamedFileDataRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IStreamedFileDataRequest");
 }
 windows_core::imp::interface_hierarchy!(IStreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl IStreamedFileDataRequest {
@@ -3558,6 +3617,7 @@ pub struct IStreamedFileDataRequest_Vtbl {
 windows_core::imp::define_interface!(ISystemAudioProperties, ISystemAudioProperties_Vtbl, 0x3f8f38b7_308c_47e1_924d_8645348e5db7);
 impl windows_core::RuntimeType for ISystemAudioProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemAudioProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3568,6 +3628,7 @@ pub struct ISystemAudioProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemDataPaths, ISystemDataPaths_Vtbl, 0xe32abf70_d8fa_45ec_a942_d2e26fb60ba5);
 impl windows_core::RuntimeType for ISystemDataPaths {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemDataPaths");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3593,6 +3654,7 @@ pub struct ISystemDataPaths_Vtbl {
 windows_core::imp::define_interface!(ISystemDataPathsStatics, ISystemDataPathsStatics_Vtbl, 0xe0f96fd0_9920_4bca_b379_f96fdf7caad8);
 impl windows_core::RuntimeType for ISystemDataPathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemDataPathsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3603,6 +3665,7 @@ pub struct ISystemDataPathsStatics_Vtbl {
 windows_core::imp::define_interface!(ISystemGPSProperties, ISystemGPSProperties_Vtbl, 0xc0f46eb4_c174_481a_bc25_921986f6a6f3);
 impl windows_core::RuntimeType for ISystemGPSProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemGPSProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3614,6 +3677,7 @@ pub struct ISystemGPSProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemImageProperties, ISystemImageProperties_Vtbl, 0x011b2e30_8b39_4308_bea1_e8aa61e47826);
 impl windows_core::RuntimeType for ISystemImageProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemImageProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3625,6 +3689,7 @@ pub struct ISystemImageProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemMediaProperties, ISystemMediaProperties_Vtbl, 0xa42b3316_8415_40dc_8c44_98361d235430);
 impl windows_core::RuntimeType for ISystemMediaProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemMediaProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3640,6 +3705,7 @@ pub struct ISystemMediaProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemMusicProperties, ISystemMusicProperties_Vtbl, 0xb47988d5_67af_4bc3_8d39_5b89022026a1);
 impl windows_core::RuntimeType for ISystemMusicProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemMusicProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3657,6 +3723,7 @@ pub struct ISystemMusicProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemPhotoProperties, ISystemPhotoProperties_Vtbl, 0x4734fc3d_ab21_4424_b735_f4353a56c8fc);
 impl windows_core::RuntimeType for ISystemPhotoProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemPhotoProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3671,6 +3738,7 @@ pub struct ISystemPhotoProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemProperties, ISystemProperties_Vtbl, 0x917a71c1_85f3_4dd1_b001_a50bfd21c8d2);
 impl windows_core::RuntimeType for ISystemProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3693,6 +3761,7 @@ pub struct ISystemProperties_Vtbl {
 windows_core::imp::define_interface!(ISystemVideoProperties, ISystemVideoProperties_Vtbl, 0x2040f715_67f8_4322_9b80_4fa9fefb83e8);
 impl windows_core::RuntimeType for ISystemVideoProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.ISystemVideoProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3707,6 +3776,7 @@ pub struct ISystemVideoProperties_Vtbl {
 windows_core::imp::define_interface!(IUserDataPaths, IUserDataPaths_Vtbl, 0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f);
 impl windows_core::RuntimeType for IUserDataPaths {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IUserDataPaths");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3735,6 +3805,7 @@ pub struct IUserDataPaths_Vtbl {
 windows_core::imp::define_interface!(IUserDataPathsStatics, IUserDataPathsStatics_Vtbl, 0x01b29def_e062_48a1_8b0c_f2c7a9ca56c0);
 impl windows_core::RuntimeType for IUserDataPathsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.IUserDataPathsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3773,6 +3844,7 @@ impl windows_core::TypeKind for KnownFolderId {
 }
 impl windows_core::RuntimeType for KnownFolderId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.KnownFolderId");
 }
 pub struct KnownFolders;
 impl KnownFolders {
@@ -3948,6 +4020,7 @@ impl windows_core::TypeKind for KnownFoldersAccessStatus {
 }
 impl windows_core::RuntimeType for KnownFoldersAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.KnownFoldersAccessStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3963,6 +4036,7 @@ impl windows_core::TypeKind for KnownLibraryId {
 }
 impl windows_core::RuntimeType for KnownLibraryId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.KnownLibraryId");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3977,6 +4051,7 @@ impl windows_core::TypeKind for NameCollisionOption {
 }
 impl windows_core::RuntimeType for NameCollisionOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.NameCollisionOption");
 }
 pub struct PathIO;
 impl PathIO {
@@ -4170,6 +4245,7 @@ impl windows_core::TypeKind for StorageDeleteOption {
 }
 impl windows_core::RuntimeType for StorageDeleteOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.StorageDeleteOption");
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
@@ -5018,6 +5094,7 @@ impl windows_core::TypeKind for StorageItemTypes {
 }
 impl windows_core::RuntimeType for StorageItemTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.StorageItemTypes");
 }
 impl StorageItemTypes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5329,6 +5406,7 @@ impl windows_core::TypeKind for StorageLibraryChangeType {
 }
 impl windows_core::RuntimeType for StorageLibraryChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.StorageLibraryChangeType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -5371,6 +5449,7 @@ impl windows_core::TypeKind for StorageOpenOptions {
 }
 impl windows_core::RuntimeType for StorageOpenOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.StorageOpenOptions");
 }
 impl StorageOpenOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5579,6 +5658,7 @@ impl windows_core::TypeKind for StreamedFileFailureMode {
 }
 impl windows_core::RuntimeType for StreamedFileFailureMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StreamedFileFailureMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.StreamedFileFailureMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -39,6 +39,7 @@ impl windows_core::TypeKind for Color {
 }
 impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Color");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -949,6 +950,7 @@ unsafe impl Sync for Colors {}
 windows_core::imp::define_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 impl windows_core::RuntimeType for IColorHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorHelper");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -958,6 +960,7 @@ pub struct IColorHelper_Vtbl {
 windows_core::imp::define_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
 impl windows_core::RuntimeType for IColorHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorHelperStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -968,6 +971,7 @@ pub struct IColorHelperStatics_Vtbl {
 windows_core::imp::define_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 impl windows_core::RuntimeType for IColorHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorHelperStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -978,6 +982,7 @@ pub struct IColorHelperStatics2_Vtbl {
 windows_core::imp::define_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 impl windows_core::RuntimeType for IColors {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColors");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -987,6 +992,7 @@ pub struct IColors_Vtbl {
 windows_core::imp::define_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99);
 impl windows_core::RuntimeType for IColorsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IColorsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1137,6 +1143,7 @@ pub struct IColorsStatics_Vtbl {
 windows_core::imp::define_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 impl windows_core::RuntimeType for IUIContentRoot {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IUIContentRoot");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1147,6 +1154,7 @@ pub struct IUIContentRoot_Vtbl {
 windows_core::imp::define_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 impl windows_core::RuntimeType for IUIContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.IUIContext");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1204,4 +1212,5 @@ impl windows_core::TypeKind for WindowId {
 }
 impl windows_core::RuntimeType for WindowId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WindowId");
 }

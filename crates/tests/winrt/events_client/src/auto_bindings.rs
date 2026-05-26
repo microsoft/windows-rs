@@ -81,6 +81,8 @@ windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x692a46c8_496e_525b_8
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_events.IClass");
 }
 impl IClass {
     pub fn Signal(&self, value: i32) -> windows_core::Result<i32> {
@@ -140,6 +142,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IClassStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_events.IClassStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

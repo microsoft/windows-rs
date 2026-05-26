@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(ISceneBoundingBox, ISceneBoundingBox_Vtbl, 0x5d8ffc70_c618_4083_8251_9962593114aa);
 impl windows_core::RuntimeType for ISceneBoundingBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneBoundingBox");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct ISceneBoundingBox_Vtbl {
 windows_core::imp::define_interface!(ISceneComponent, ISceneComponent_Vtbl, 0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
 impl windows_core::RuntimeType for ISceneComponent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneComponent");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,6 +27,7 @@ pub struct ISceneComponent_Vtbl {
 windows_core::imp::define_interface!(ISceneComponentCollection, ISceneComponentCollection_Vtbl, 0xc483791c_5f46_45e4_b666_a3d2259f9b2e);
 impl windows_core::RuntimeType for ISceneComponentCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneComponentCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34,6 +37,7 @@ pub struct ISceneComponentCollection_Vtbl {
 windows_core::imp::define_interface!(ISceneComponentFactory, ISceneComponentFactory_Vtbl, 0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e);
 impl windows_core::RuntimeType for ISceneComponentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneComponentFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,6 +47,7 @@ pub struct ISceneComponentFactory_Vtbl {
 windows_core::imp::define_interface!(ISceneMaterial, ISceneMaterial_Vtbl, 0x8ca74b7c_30df_4e07_9490_37875af1a123);
 impl windows_core::RuntimeType for ISceneMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMaterial");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +57,7 @@ pub struct ISceneMaterial_Vtbl {
 windows_core::imp::define_interface!(ISceneMaterialFactory, ISceneMaterialFactory_Vtbl, 0x67536c19_a707_5254_a495_7fdc799893b9);
 impl windows_core::RuntimeType for ISceneMaterialFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMaterialFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -61,6 +67,7 @@ pub struct ISceneMaterialFactory_Vtbl {
 windows_core::imp::define_interface!(ISceneMaterialInput, ISceneMaterialInput_Vtbl, 0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
 impl windows_core::RuntimeType for ISceneMaterialInput {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMaterialInput");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +77,7 @@ pub struct ISceneMaterialInput_Vtbl {
 windows_core::imp::define_interface!(ISceneMaterialInputFactory, ISceneMaterialInputFactory_Vtbl, 0xa88feb74_7d0a_5e4c_a748_1015af9ca74f);
 impl windows_core::RuntimeType for ISceneMaterialInputFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMaterialInputFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,6 +87,7 @@ pub struct ISceneMaterialInputFactory_Vtbl {
 windows_core::imp::define_interface!(ISceneMesh, ISceneMesh_Vtbl, 0xee9a1530_1155_4c0c_92bd_40020cf78347);
 impl windows_core::RuntimeType for ISceneMesh {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMesh");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -101,6 +110,7 @@ pub struct ISceneMesh_Vtbl {
 windows_core::imp::define_interface!(ISceneMeshMaterialAttributeMap, ISceneMeshMaterialAttributeMap_Vtbl, 0xce843171_3d43_4855_aa69_31ff988d049d);
 impl windows_core::RuntimeType for ISceneMeshMaterialAttributeMap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMeshMaterialAttributeMap");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -110,6 +120,7 @@ pub struct ISceneMeshMaterialAttributeMap_Vtbl {
 windows_core::imp::define_interface!(ISceneMeshRendererComponent, ISceneMeshRendererComponent_Vtbl, 0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
 impl windows_core::RuntimeType for ISceneMeshRendererComponent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMeshRendererComponent");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -124,6 +135,7 @@ pub struct ISceneMeshRendererComponent_Vtbl {
 windows_core::imp::define_interface!(ISceneMeshRendererComponentStatics, ISceneMeshRendererComponentStatics_Vtbl, 0x4954f37a_4459_4521_bd6e_2b38b8d711ea);
 impl windows_core::RuntimeType for ISceneMeshRendererComponentStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMeshRendererComponentStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,6 +146,7 @@ pub struct ISceneMeshRendererComponentStatics_Vtbl {
 windows_core::imp::define_interface!(ISceneMeshStatics, ISceneMeshStatics_Vtbl, 0x8412316c_7b57_473f_966b_81dc277b1751);
 impl windows_core::RuntimeType for ISceneMeshStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMeshStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,6 +157,7 @@ pub struct ISceneMeshStatics_Vtbl {
 windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterial_Vtbl, 0xc1d91446_799c_429e_a4e4_5da645f18e61);
 impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterial");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -163,6 +177,7 @@ pub struct ISceneMetallicRoughnessMaterial_Vtbl {
 windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterialStatics, ISceneMetallicRoughnessMaterialStatics_Vtbl, 0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab);
 impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterialStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterialStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,6 +188,7 @@ pub struct ISceneMetallicRoughnessMaterialStatics_Vtbl {
 windows_core::imp::define_interface!(ISceneModelTransform, ISceneModelTransform_Vtbl, 0xc05576c2_32b1_4269_980d_b98537100ae4);
 impl windows_core::RuntimeType for ISceneModelTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneModelTransform");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -200,6 +216,7 @@ pub struct ISceneModelTransform_Vtbl {
 windows_core::imp::define_interface!(ISceneNode, ISceneNode_Vtbl, 0xacf2c247_f307_4581_9c41_af2e29c3b016);
 impl windows_core::RuntimeType for ISceneNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -214,6 +231,7 @@ pub struct ISceneNode_Vtbl {
 windows_core::imp::define_interface!(ISceneNodeCollection, ISceneNodeCollection_Vtbl, 0x29ada101_2dd9_4332_be63_60d2cf4269f2);
 impl windows_core::RuntimeType for ISceneNodeCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneNodeCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -223,6 +241,7 @@ pub struct ISceneNodeCollection_Vtbl {
 windows_core::imp::define_interface!(ISceneNodeStatics, ISceneNodeStatics_Vtbl, 0x579a0faa_be9d_4210_908c_93d15feed0b7);
 impl windows_core::RuntimeType for ISceneNodeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneNodeStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,6 +252,7 @@ pub struct ISceneNodeStatics_Vtbl {
 windows_core::imp::define_interface!(ISceneObject, ISceneObject_Vtbl, 0x1e94249b_0f1b_49eb_a819_877d8450005b);
 impl windows_core::RuntimeType for ISceneObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneObject");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,6 +262,7 @@ pub struct ISceneObject_Vtbl {
 windows_core::imp::define_interface!(ISceneObjectFactory, ISceneObjectFactory_Vtbl, 0x14fe799a_33e4_52ef_956c_44229d21f2c1);
 impl windows_core::RuntimeType for ISceneObjectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneObjectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -251,6 +272,7 @@ pub struct ISceneObjectFactory_Vtbl {
 windows_core::imp::define_interface!(IScenePbrMaterial, IScenePbrMaterial_Vtbl, 0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
 impl windows_core::RuntimeType for IScenePbrMaterial {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.IScenePbrMaterial");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +300,7 @@ pub struct IScenePbrMaterial_Vtbl {
 windows_core::imp::define_interface!(IScenePbrMaterialFactory, IScenePbrMaterialFactory_Vtbl, 0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa);
 impl windows_core::RuntimeType for IScenePbrMaterialFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.IScenePbrMaterialFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -287,6 +310,7 @@ pub struct IScenePbrMaterialFactory_Vtbl {
 windows_core::imp::define_interface!(ISceneRendererComponent, ISceneRendererComponent_Vtbl, 0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
 impl windows_core::RuntimeType for ISceneRendererComponent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneRendererComponent");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -296,6 +320,7 @@ pub struct ISceneRendererComponent_Vtbl {
 windows_core::imp::define_interface!(ISceneRendererComponentFactory, ISceneRendererComponentFactory_Vtbl, 0x1db6ed6c_aa2c_5967_9035_56352dc69658);
 impl windows_core::RuntimeType for ISceneRendererComponentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneRendererComponentFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -305,6 +330,7 @@ pub struct ISceneRendererComponentFactory_Vtbl {
 windows_core::imp::define_interface!(ISceneSurfaceMaterialInput, ISceneSurfaceMaterialInput_Vtbl, 0x9937da5c_a9ca_4cfc_b3aa_088356518742);
 impl windows_core::RuntimeType for ISceneSurfaceMaterialInput {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInput");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -322,6 +348,7 @@ pub struct ISceneSurfaceMaterialInput_Vtbl {
 windows_core::imp::define_interface!(ISceneSurfaceMaterialInputStatics, ISceneSurfaceMaterialInputStatics_Vtbl, 0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe);
 impl windows_core::RuntimeType for ISceneSurfaceMaterialInputStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInputStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,6 +359,7 @@ pub struct ISceneSurfaceMaterialInputStatics_Vtbl {
 windows_core::imp::define_interface!(ISceneVisual, ISceneVisual_Vtbl, 0x8e672c1e_d734_47b1_be14_3d694ffa4301);
 impl windows_core::RuntimeType for ISceneVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneVisual");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,6 +371,7 @@ pub struct ISceneVisual_Vtbl {
 windows_core::imp::define_interface!(ISceneVisualStatics, ISceneVisualStatics_Vtbl, 0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4);
 impl windows_core::RuntimeType for ISceneVisualStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.ISceneVisualStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -363,6 +392,7 @@ impl windows_core::TypeKind for SceneAlphaMode {
 }
 impl windows_core::RuntimeType for SceneAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.SceneAlphaMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -381,6 +411,7 @@ impl windows_core::TypeKind for SceneAttributeSemantic {
 }
 impl windows_core::RuntimeType for SceneAttributeSemantic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.SceneAttributeSemantic");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -888,6 +919,7 @@ impl windows_core::TypeKind for SceneComponentType {
 }
 impl windows_core::RuntimeType for SceneComponentType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.SceneComponentType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3585,4 +3617,5 @@ impl windows_core::TypeKind for SceneWrappingMode {
 }
 impl windows_core::RuntimeType for SceneWrappingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Scenes.SceneWrappingMode");
 }

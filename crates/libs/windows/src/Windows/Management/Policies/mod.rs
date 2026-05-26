@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(INamedPolicyData, INamedPolicyData_Vtbl, 0x38dcb198_95ac_4077_a643_8078cae26400);
 impl windows_core::RuntimeType for INamedPolicyData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Policies.INamedPolicyData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,6 +30,7 @@ pub struct INamedPolicyData_Vtbl {
 windows_core::imp::define_interface!(INamedPolicyStatics, INamedPolicyStatics_Vtbl, 0x7f793be7_76c4_4058_8cad_67662cd05f0d);
 impl windows_core::RuntimeType for INamedPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Policies.INamedPolicyStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -180,4 +182,5 @@ impl windows_core::TypeKind for NamedPolicyKind {
 }
 impl windows_core::RuntimeType for NamedPolicyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Policies.NamedPolicyKind");
 }

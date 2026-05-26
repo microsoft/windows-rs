@@ -40,6 +40,7 @@ impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorVi
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironment, IIsolatedWindowsEnvironment_Vtbl, 0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -60,6 +61,7 @@ pub struct IIsolatedWindowsEnvironment_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironment2, IIsolatedWindowsEnvironment2_Vtbl, 0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -71,6 +73,7 @@ pub struct IIsolatedWindowsEnvironment2_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironment3, IIsolatedWindowsEnvironment3_Vtbl, 0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,6 +86,7 @@ pub struct IIsolatedWindowsEnvironment3_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironment4, IIsolatedWindowsEnvironment4_Vtbl, 0x11e3701a_dd9e_4f1b_812c_4020f307f93c);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironment4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -93,6 +97,7 @@ pub struct IIsolatedWindowsEnvironment4_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentCreateResult, IIsolatedWindowsEnvironmentCreateResult_Vtbl, 0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentCreateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -105,6 +110,7 @@ pub struct IIsolatedWindowsEnvironmentCreateResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentCreateResult2, IIsolatedWindowsEnvironmentCreateResult2_Vtbl, 0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentCreateResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -115,6 +121,7 @@ pub struct IIsolatedWindowsEnvironmentCreateResult2_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFactory, IIsolatedWindowsEnvironmentFactory_Vtbl, 0x1aca93e7_e804_454d_8466_f9897c20b0f6);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,6 +135,7 @@ pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFile, IIsolatedWindowsEnvironmentFile_Vtbl, 0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -140,6 +148,7 @@ pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentFile2, IIsolatedWindowsEnvironmentFile2_Vtbl, 0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentFile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -151,6 +160,7 @@ pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentHostStatics, IIsolatedWindowsEnvironmentHostStatics_Vtbl, 0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentHostStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -162,6 +172,7 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentLaunchFileResult, IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl, 0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentLaunchFileResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -174,6 +185,7 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions, IIsolatedWindowsEnvironmentOptions_Vtbl, 0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -200,6 +212,7 @@ pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions2, IIsolatedWindowsEnvironmentOptions2_Vtbl, 0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,6 +224,7 @@ pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOptions3, IIsolatedWindowsEnvironmentOptions3_Vtbl, 0x98d5aa23_161f_4cd9_8a9c_269b30122b0d);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -226,6 +240,7 @@ pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationData, IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl, 0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -239,6 +254,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationResult, IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl, 0x6dab9451_6169_55df_8f51_790e99d7277d);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -250,6 +266,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationStatics, IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl, 0x10951754_204b_5ec9_9de3_df792d074a61);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -261,6 +278,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentPostMessageResult, IIsolatedWindowsEnvironmentPostMessageResult_Vtbl, 0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentPostMessageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,6 +290,7 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentProcess, IIsolatedWindowsEnvironmentProcess_Vtbl, 0xa858c3ef_8172_4f10_af93_cbe60af88d09);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentProcess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -286,6 +305,7 @@ pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFileRequestOptions, IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl, 0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFileRequestOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -297,6 +317,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFileResult, IIsolatedWindowsEnvironmentShareFileResult_Vtbl, 0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFileResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -309,6 +330,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFolderRequestOptions, IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl, 0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,6 +342,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentShareFolderResult, IIsolatedWindowsEnvironmentShareFolderResult_Vtbl, 0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentShareFolderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -331,6 +354,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentStartProcessResult, IIsolatedWindowsEnvironmentStartProcessResult_Vtbl, 0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentStartProcessResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,6 +367,7 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentTelemetryParameters, IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl, 0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentTelemetryParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -354,6 +379,7 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentUserInfo, IIsolatedWindowsEnvironmentUserInfo_Vtbl, 0x8a9c75ae_69ba_4001_96fc_19a02703b340);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentUserInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -366,6 +392,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironmentUserInfo2, IIsolatedWindowsEnvironmentUserInfo2_Vtbl, 0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironmentUserInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -376,6 +403,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsHostMessengerStatics, IIsolatedWindowsHostMessengerStatics_Vtbl, 0x06e444bb_53c0_4889_8fa3_53592e37cf21);
 impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -387,6 +415,7 @@ pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
 windows_core::imp::define_interface!(IIsolatedWindowsHostMessengerStatics2, IIsolatedWindowsHostMessengerStatics2_Vtbl, 0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
 impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -592,6 +621,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentActivator {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentActivator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -607,6 +637,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentAllowedClipboardFormat
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats");
 }
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
     pub const fn contains(&self, other: Self) -> bool {
@@ -656,6 +687,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentAvailablePrinters {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters");
 }
 impl IsolatedWindowsEnvironmentAvailablePrinters {
     pub const fn contains(&self, other: Self) -> bool {
@@ -703,6 +735,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentClipboardCopyPasteDire
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections");
 }
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     pub const fn contains(&self, other: Self) -> bool {
@@ -748,6 +781,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateProgress {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -802,6 +836,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateStatus {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -815,6 +850,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreationPriority {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreationPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -900,6 +936,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentHostError {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentHostError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -953,6 +990,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentLaunchFileStatus {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1217,6 +1255,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentOwnerRegistrationStatu
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1261,6 +1300,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentPostMessageStatus {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1317,6 +1357,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentProcessState {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1335,6 +1376,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentProgressState {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1422,6 +1464,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFileStatus {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1502,6 +1545,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFolderStatus {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1519,6 +1563,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentSignInProgress {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentSignInProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1571,6 +1616,7 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentStartProcessStatus {
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

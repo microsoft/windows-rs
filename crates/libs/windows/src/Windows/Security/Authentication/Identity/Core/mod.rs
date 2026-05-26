@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticationManager, IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl, 0x0fd340a5_f574_4320_a08e_0a19a82322aa);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorAuthenticationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20,6 +21,7 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticatorStatics, IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl, 0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorAuthenticatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticatorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,6 +32,7 @@ pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorGetSessionsResult, IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl, 0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorGetSessionsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,6 +44,7 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorOneTimeCodedInfo, IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl, 0x82ba264b_d87c_4668_a976_40cfae547d08);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,6 +58,7 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorSessionInfo, IMicrosoftAccountMultiFactorSessionInfo_Vtbl, 0x5f7eabb4_a278_4635_b765_b494eb260af4);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +75,7 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl, 0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -191,6 +197,7 @@ impl windows_core::TypeKind for MicrosoftAccountMultiFactorAuthenticationType {
 }
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -296,6 +303,7 @@ impl windows_core::TypeKind for MicrosoftAccountMultiFactorServiceResponse {
 }
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -310,6 +318,7 @@ impl windows_core::TypeKind for MicrosoftAccountMultiFactorSessionApprovalStatus
 }
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -323,6 +332,7 @@ impl windows_core::TypeKind for MicrosoftAccountMultiFactorSessionAuthentication
 }
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

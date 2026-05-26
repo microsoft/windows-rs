@@ -5,6 +5,7 @@ pub mod Provider;
 windows_core::imp::define_interface!(IInteractiveSessionStatics, IInteractiveSessionStatics_Vtbl, 0x60884631_dd3a_4576_9c8d_e8027618bdce);
 impl windows_core::RuntimeType for IInteractiveSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.IInteractiveSessionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

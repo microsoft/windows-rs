@@ -351,3 +351,46 @@ fn property_type_other() {
     assert_eq!(pv.GetSize().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetRect().unwrap_err().code(), E_NOTIMPL);
 }
+
+// ---------- GetRuntimeClassName ----------
+
+#[test]
+fn runtime_class_name_i32() {
+    let r = IReference::<i32>::from(42);
+    let inspectable: IInspectable = r.cast().unwrap();
+    let name = inspectable.GetRuntimeClassName().unwrap();
+    assert_eq!(&name, "Windows.Foundation.IReference`1<Int32>");
+}
+
+#[test]
+fn runtime_class_name_string() {
+    let r = IReference::<HSTRING>::from("hello");
+    let inspectable: IInspectable = r.cast().unwrap();
+    let name = inspectable.GetRuntimeClassName().unwrap();
+    assert_eq!(&name, "Windows.Foundation.IReference`1<String>");
+}
+
+#[test]
+fn runtime_class_name_bool() {
+    let r = IReference::<bool>::from(true);
+    let inspectable: IInspectable = r.cast().unwrap();
+    let name = inspectable.GetRuntimeClassName().unwrap();
+    assert_eq!(&name, "Windows.Foundation.IReference`1<Boolean>");
+}
+
+#[test]
+fn runtime_class_name_f64() {
+    let r = IReference::<f64>::from(1.5);
+    let inspectable: IInspectable = r.cast().unwrap();
+    let name = inspectable.GetRuntimeClassName().unwrap();
+    assert_eq!(&name, "Windows.Foundation.IReference`1<Double>");
+}
+
+#[test]
+fn runtime_class_name_guid() {
+    let g = GUID::from_u128(0x11223344_5566_7788_99AA_BBCCDDEEFF00);
+    let r = IReference::<GUID>::from(g);
+    let inspectable: IInspectable = r.cast().unwrap();
+    let name = inspectable.GetRuntimeClassName().unwrap();
+    assert_eq!(&name, "Windows.Foundation.IReference`1<Guid>");
+}

@@ -3651,6 +3651,7 @@ impl IntoIterator for &HttpTransferCodingHeaderValueCollection {
 windows_core::imp::define_interface!(IHttpCacheDirectiveHeaderValueCollection, IHttpCacheDirectiveHeaderValueCollection_Vtbl, 0x9a586b89_d5d0_4fbe_bd9d_b5b3636811b4);
 impl windows_core::RuntimeType for IHttpCacheDirectiveHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCacheDirectiveHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3670,6 +3671,7 @@ pub struct IHttpCacheDirectiveHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpChallengeHeaderValue, IHttpChallengeHeaderValue_Vtbl, 0x393361af_0f7d_4820_9fdd_a2b956eeaeab);
 impl windows_core::RuntimeType for IHttpChallengeHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpChallengeHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3682,6 +3684,7 @@ pub struct IHttpChallengeHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpChallengeHeaderValueCollection, IHttpChallengeHeaderValueCollection_Vtbl, 0xca9e5f81_aee0_4353_a10b_e625babd64c2);
 impl windows_core::RuntimeType for IHttpChallengeHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpChallengeHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3693,6 +3696,7 @@ pub struct IHttpChallengeHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpChallengeHeaderValueFactory, IHttpChallengeHeaderValueFactory_Vtbl, 0xc452c451_d99c_40aa_9399_90eeb98fc613);
 impl windows_core::RuntimeType for IHttpChallengeHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpChallengeHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3704,6 +3708,7 @@ pub struct IHttpChallengeHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpChallengeHeaderValueStatics, IHttpChallengeHeaderValueStatics_Vtbl, 0xf3d38a72_fc01_4d01_a008_fcb7c459d635);
 impl windows_core::RuntimeType for IHttpChallengeHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpChallengeHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3715,6 +3720,7 @@ pub struct IHttpChallengeHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpConnectionOptionHeaderValue, IHttpConnectionOptionHeaderValue_Vtbl, 0xcb4af27a_4e90_45eb_8dcd_fd1408f4c44f);
 impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3725,6 +3731,7 @@ pub struct IHttpConnectionOptionHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpConnectionOptionHeaderValueCollection, IHttpConnectionOptionHeaderValueCollection_Vtbl, 0xe4f56c1d_5142_4e00_8e0f_019509337629);
 impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3736,6 +3743,7 @@ pub struct IHttpConnectionOptionHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpConnectionOptionHeaderValueFactory, IHttpConnectionOptionHeaderValueFactory_Vtbl, 0xd93ccc1e_0b7d_4c3f_a58d_a2a1bdeabc0a);
 impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3746,6 +3754,7 @@ pub struct IHttpConnectionOptionHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpConnectionOptionHeaderValueStatics, IHttpConnectionOptionHeaderValueStatics_Vtbl, 0xaaa75d37_a946_4b1f_85af_48b68b3c50bd);
 impl windows_core::RuntimeType for IHttpConnectionOptionHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3757,6 +3766,7 @@ pub struct IHttpConnectionOptionHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingHeaderValue, IHttpContentCodingHeaderValue_Vtbl, 0xbcf7f92a_9376_4d85_bccc_9f4f9acab434);
 impl windows_core::RuntimeType for IHttpContentCodingHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3767,6 +3777,7 @@ pub struct IHttpContentCodingHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingHeaderValueCollection, IHttpContentCodingHeaderValueCollection_Vtbl, 0x7d221721_a6db_436e_8e83_91596192819c);
 impl windows_core::RuntimeType for IHttpContentCodingHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3778,6 +3789,7 @@ pub struct IHttpContentCodingHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingHeaderValueFactory, IHttpContentCodingHeaderValueFactory_Vtbl, 0xc53d2bd7_332b_4350_8510_2e67a2289a5a);
 impl windows_core::RuntimeType for IHttpContentCodingHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3788,6 +3800,7 @@ pub struct IHttpContentCodingHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingHeaderValueStatics, IHttpContentCodingHeaderValueStatics_Vtbl, 0x94d8602e_f9bf_42f7_aa46_ed272a41e212);
 impl windows_core::RuntimeType for IHttpContentCodingHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3799,6 +3812,7 @@ pub struct IHttpContentCodingHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingWithQualityHeaderValue, IHttpContentCodingWithQualityHeaderValue_Vtbl, 0x94531cd5_8b13_4d73_8651_f76b38f88495);
 impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3810,6 +3824,7 @@ pub struct IHttpContentCodingWithQualityHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingWithQualityHeaderValueCollection, IHttpContentCodingWithQualityHeaderValueCollection_Vtbl, 0x7c0d753e_e899_4378_b5c8_412d820711cc);
 impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3821,6 +3836,7 @@ pub struct IHttpContentCodingWithQualityHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingWithQualityHeaderValueFactory, IHttpContentCodingWithQualityHeaderValueFactory_Vtbl, 0xc45eee1a_c553_46fc_ade2_d75c1d53df7b);
 impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3832,6 +3848,7 @@ pub struct IHttpContentCodingWithQualityHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpContentCodingWithQualityHeaderValueStatics, IHttpContentCodingWithQualityHeaderValueStatics_Vtbl, 0xe8c9357c_8f89_4801_8e75_4c9abfc3de71);
 impl windows_core::RuntimeType for IHttpContentCodingWithQualityHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3843,6 +3860,7 @@ pub struct IHttpContentCodingWithQualityHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpContentDispositionHeaderValue, IHttpContentDispositionHeaderValue_Vtbl, 0xf2a2eedc_2629_4b49_9908_96a168e9365e);
 impl windows_core::RuntimeType for IHttpContentDispositionHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentDispositionHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3863,6 +3881,7 @@ pub struct IHttpContentDispositionHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpContentDispositionHeaderValueFactory, IHttpContentDispositionHeaderValueFactory_Vtbl, 0x9915bbc4_456c_4e81_8295_b2ab3cbcf545);
 impl windows_core::RuntimeType for IHttpContentDispositionHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentDispositionHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3873,6 +3892,7 @@ pub struct IHttpContentDispositionHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpContentDispositionHeaderValueStatics, IHttpContentDispositionHeaderValueStatics_Vtbl, 0x29c56067_5a37_46e4_b074_c5177d69ca66);
 impl windows_core::RuntimeType for IHttpContentDispositionHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentDispositionHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3884,6 +3904,7 @@ pub struct IHttpContentDispositionHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpContentHeaderCollection, IHttpContentHeaderCollection_Vtbl, 0x40612a44_47ae_4b7e_9124_69628b64aa18);
 impl windows_core::RuntimeType for IHttpContentHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentHeaderCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3922,6 +3943,7 @@ pub struct IHttpContentHeaderCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpContentRangeHeaderValue, IHttpContentRangeHeaderValue_Vtbl, 0x04d967d3_a4f6_495c_9530_8579fcba8aa9);
 impl windows_core::RuntimeType for IHttpContentRangeHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentRangeHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3936,6 +3958,7 @@ pub struct IHttpContentRangeHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpContentRangeHeaderValueFactory, IHttpContentRangeHeaderValueFactory_Vtbl, 0x3f5bd691_a03c_4456_9a6f_ef27ecd03cae);
 impl windows_core::RuntimeType for IHttpContentRangeHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentRangeHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3948,6 +3971,7 @@ pub struct IHttpContentRangeHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpContentRangeHeaderValueStatics, IHttpContentRangeHeaderValueStatics_Vtbl, 0x80a346ca_174c_4fae_821c_134cd294aa38);
 impl windows_core::RuntimeType for IHttpContentRangeHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpContentRangeHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3959,6 +3983,7 @@ pub struct IHttpContentRangeHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpCookiePairHeaderValue, IHttpCookiePairHeaderValue_Vtbl, 0xcbd46217_4b29_412b_bd90_b3d814ab8e1b);
 impl windows_core::RuntimeType for IHttpCookiePairHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCookiePairHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3971,6 +3996,7 @@ pub struct IHttpCookiePairHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpCookiePairHeaderValueCollection, IHttpCookiePairHeaderValueCollection_Vtbl, 0xf3f44350_581e_4ecc_9f59_e507d04f06e6);
 impl windows_core::RuntimeType for IHttpCookiePairHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCookiePairHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3982,6 +4008,7 @@ pub struct IHttpCookiePairHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpCookiePairHeaderValueFactory, IHttpCookiePairHeaderValueFactory_Vtbl, 0x635e326f_146f_4f56_aa21_2cb7d6d58b1e);
 impl windows_core::RuntimeType for IHttpCookiePairHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCookiePairHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3993,6 +4020,7 @@ pub struct IHttpCookiePairHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpCookiePairHeaderValueStatics, IHttpCookiePairHeaderValueStatics_Vtbl, 0x6e866d48_06af_4462_8158_99388d5dca81);
 impl windows_core::RuntimeType for IHttpCookiePairHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCookiePairHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4004,6 +4032,7 @@ pub struct IHttpCookiePairHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpCredentialsHeaderValue, IHttpCredentialsHeaderValue_Vtbl, 0xc34cc3cb_542e_4177_a6c7_b674ce193fbf);
 impl windows_core::RuntimeType for IHttpCredentialsHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCredentialsHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4016,6 +4045,7 @@ pub struct IHttpCredentialsHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpCredentialsHeaderValueFactory, IHttpCredentialsHeaderValueFactory_Vtbl, 0xf21d9e91_4d1c_4182_bfd1_34470a62f950);
 impl windows_core::RuntimeType for IHttpCredentialsHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCredentialsHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4027,6 +4057,7 @@ pub struct IHttpCredentialsHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpCredentialsHeaderValueStatics, IHttpCredentialsHeaderValueStatics_Vtbl, 0xa69b2be6_ce8c_4443_a35a_1b727b131036);
 impl windows_core::RuntimeType for IHttpCredentialsHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpCredentialsHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4038,6 +4069,7 @@ pub struct IHttpCredentialsHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpDateOrDeltaHeaderValue, IHttpDateOrDeltaHeaderValue_Vtbl, 0xeafcaa6a_c4dc_49e2_a27d_043adf5867a3);
 impl windows_core::RuntimeType for IHttpDateOrDeltaHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpDateOrDeltaHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4049,6 +4081,7 @@ pub struct IHttpDateOrDeltaHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpDateOrDeltaHeaderValueStatics, IHttpDateOrDeltaHeaderValueStatics_Vtbl, 0x7c2659a8_6672_4e90_9a9a_f39766f7f576);
 impl windows_core::RuntimeType for IHttpDateOrDeltaHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpDateOrDeltaHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4060,6 +4093,7 @@ pub struct IHttpDateOrDeltaHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpExpectationHeaderValue, IHttpExpectationHeaderValue_Vtbl, 0x4ce585cd_3a99_43af_a2e6_ec232fea9658);
 impl windows_core::RuntimeType for IHttpExpectationHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpExpectationHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4073,6 +4107,7 @@ pub struct IHttpExpectationHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpExpectationHeaderValueCollection, IHttpExpectationHeaderValueCollection_Vtbl, 0xe78521b3_a0e2_4ac4_9e66_79706cb9fd58);
 impl windows_core::RuntimeType for IHttpExpectationHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpExpectationHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4084,6 +4119,7 @@ pub struct IHttpExpectationHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpExpectationHeaderValueFactory, IHttpExpectationHeaderValueFactory_Vtbl, 0x4ea275cb_d53e_4868_8856_1e21a5030dc0);
 impl windows_core::RuntimeType for IHttpExpectationHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpExpectationHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4095,6 +4131,7 @@ pub struct IHttpExpectationHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpExpectationHeaderValueStatics, IHttpExpectationHeaderValueStatics_Vtbl, 0x3019abe2_cfe5_473b_a57f_fba5b14eb257);
 impl windows_core::RuntimeType for IHttpExpectationHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpExpectationHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4106,6 +4143,7 @@ pub struct IHttpExpectationHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpLanguageHeaderValueCollection, IHttpLanguageHeaderValueCollection_Vtbl, 0x9ebd7ca3_8219_44f6_9902_8c56dfd3340c);
 impl windows_core::RuntimeType for IHttpLanguageHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpLanguageHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4117,6 +4155,7 @@ pub struct IHttpLanguageHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpLanguageRangeWithQualityHeaderValue, IHttpLanguageRangeWithQualityHeaderValue_Vtbl, 0x7256e102_0080_4db4_a083_7de7b2e5ba4c);
 impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4128,6 +4167,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpLanguageRangeWithQualityHeaderValueCollection, IHttpLanguageRangeWithQualityHeaderValueCollection_Vtbl, 0x885d5abd_4b4f_480a_89ce_8aedcee6e3a0);
 impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4139,6 +4179,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpLanguageRangeWithQualityHeaderValueFactory, IHttpLanguageRangeWithQualityHeaderValueFactory_Vtbl, 0x7bb83970_780f_4c83_9fe4_dc3087f6bd55);
 impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4150,6 +4191,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpLanguageRangeWithQualityHeaderValueStatics, IHttpLanguageRangeWithQualityHeaderValueStatics_Vtbl, 0x2541e146_f308_46f5_b695_42f54024ec68);
 impl windows_core::RuntimeType for IHttpLanguageRangeWithQualityHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4161,6 +4203,7 @@ pub struct IHttpLanguageRangeWithQualityHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeHeaderValue, IHttpMediaTypeHeaderValue_Vtbl, 0x16b28533_e728_4fcb_bdb0_08a431a14844);
 impl windows_core::RuntimeType for IHttpMediaTypeHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4175,6 +4218,7 @@ pub struct IHttpMediaTypeHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeHeaderValueFactory, IHttpMediaTypeHeaderValueFactory_Vtbl, 0xbed747a8_cd17_42dd_9367_ab9c5b56dd7d);
 impl windows_core::RuntimeType for IHttpMediaTypeHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4185,6 +4229,7 @@ pub struct IHttpMediaTypeHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeHeaderValueStatics, IHttpMediaTypeHeaderValueStatics_Vtbl, 0xe04d83df_1d41_4d8c_a2de_6fd2ed87399b);
 impl windows_core::RuntimeType for IHttpMediaTypeHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4196,6 +4241,7 @@ pub struct IHttpMediaTypeHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeWithQualityHeaderValue, IHttpMediaTypeWithQualityHeaderValue_Vtbl, 0x188d5e32_76be_44a0_b1cd_2074bded2dde);
 impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4212,6 +4258,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeWithQualityHeaderValueCollection, IHttpMediaTypeWithQualityHeaderValueCollection_Vtbl, 0x3c0c6b73_1342_4587_a056_18d02ff67165);
 impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4223,6 +4270,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeWithQualityHeaderValueFactory, IHttpMediaTypeWithQualityHeaderValueFactory_Vtbl, 0x4c6d20f4_9457_44e6_a323_d122b958780b);
 impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4234,6 +4282,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpMediaTypeWithQualityHeaderValueStatics, IHttpMediaTypeWithQualityHeaderValueStatics_Vtbl, 0x5b070cd9_b560_4fc8_9835_7e6c0a657b24);
 impl windows_core::RuntimeType for IHttpMediaTypeWithQualityHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4245,6 +4294,7 @@ pub struct IHttpMediaTypeWithQualityHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpMethodHeaderValueCollection, IHttpMethodHeaderValueCollection_Vtbl, 0x43bc3ff4_6119_4adf_938c_34bfffcf92ed);
 impl windows_core::RuntimeType for IHttpMethodHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpMethodHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4256,6 +4306,7 @@ pub struct IHttpMethodHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpNameValueHeaderValue, IHttpNameValueHeaderValue_Vtbl, 0xd8ba7463_5b9a_4d1b_93f9_aa5b44ecfddf);
 impl windows_core::RuntimeType for IHttpNameValueHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpNameValueHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4268,6 +4319,7 @@ pub struct IHttpNameValueHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpNameValueHeaderValueFactory, IHttpNameValueHeaderValueFactory_Vtbl, 0x770e2267_cbf8_4736_a925_93fbe10c7ca8);
 impl windows_core::RuntimeType for IHttpNameValueHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpNameValueHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4279,6 +4331,7 @@ pub struct IHttpNameValueHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpNameValueHeaderValueStatics, IHttpNameValueHeaderValueStatics_Vtbl, 0xffd4030f_1130_4152_8659_256909a9d115);
 impl windows_core::RuntimeType for IHttpNameValueHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpNameValueHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4290,6 +4343,7 @@ pub struct IHttpNameValueHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpProductHeaderValue, IHttpProductHeaderValue_Vtbl, 0xf4feee03_ebd4_4160_b9ff_807c5183b6e6);
 impl windows_core::RuntimeType for IHttpProductHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4301,6 +4355,7 @@ pub struct IHttpProductHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpProductHeaderValueFactory, IHttpProductHeaderValueFactory_Vtbl, 0x611aa4f5_82bc_42fb_977b_dc00536e5e86);
 impl windows_core::RuntimeType for IHttpProductHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4312,6 +4367,7 @@ pub struct IHttpProductHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpProductHeaderValueStatics, IHttpProductHeaderValueStatics_Vtbl, 0x90c33e29_befc_4337_be62_49f097975f53);
 impl windows_core::RuntimeType for IHttpProductHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4323,6 +4379,7 @@ pub struct IHttpProductHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpProductInfoHeaderValue, IHttpProductInfoHeaderValue_Vtbl, 0x1b1a8732_4c35_486a_966f_646489198e4d);
 impl windows_core::RuntimeType for IHttpProductInfoHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductInfoHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4334,6 +4391,7 @@ pub struct IHttpProductInfoHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpProductInfoHeaderValueCollection, IHttpProductInfoHeaderValueCollection_Vtbl, 0x877df74a_d69b_44f8_ad4f_453af9c42ed0);
 impl windows_core::RuntimeType for IHttpProductInfoHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductInfoHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4345,6 +4403,7 @@ pub struct IHttpProductInfoHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpProductInfoHeaderValueFactory, IHttpProductInfoHeaderValueFactory_Vtbl, 0x24220fbe_eabe_4464_b460_ec010b7c41e2);
 impl windows_core::RuntimeType for IHttpProductInfoHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductInfoHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4356,6 +4415,7 @@ pub struct IHttpProductInfoHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpProductInfoHeaderValueStatics, IHttpProductInfoHeaderValueStatics_Vtbl, 0xdb7fd857_327a_4e73_81e5_7059a302b042);
 impl windows_core::RuntimeType for IHttpProductInfoHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpProductInfoHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4367,6 +4427,7 @@ pub struct IHttpProductInfoHeaderValueStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpRequestHeaderCollection, IHttpRequestHeaderCollection_Vtbl, 0xaf40329b_b544_469b_86b9_ac3d466fea36);
 impl windows_core::RuntimeType for IHttpRequestHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpRequestHeaderCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4411,6 +4472,7 @@ pub struct IHttpRequestHeaderCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpResponseHeaderCollection, IHttpResponseHeaderCollection_Vtbl, 0x7a990969_fa3f_41ed_aac6_bf957975c16b);
 impl windows_core::RuntimeType for IHttpResponseHeaderCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpResponseHeaderCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4436,6 +4498,7 @@ pub struct IHttpResponseHeaderCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpTransferCodingHeaderValue, IHttpTransferCodingHeaderValue_Vtbl, 0x436f32f9_3ded_42bd_b38a_5496a2511ce6);
 impl windows_core::RuntimeType for IHttpTransferCodingHeaderValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4447,6 +4510,7 @@ pub struct IHttpTransferCodingHeaderValue_Vtbl {
 windows_core::imp::define_interface!(IHttpTransferCodingHeaderValueCollection, IHttpTransferCodingHeaderValueCollection_Vtbl, 0x202c8c34_2c03_49b8_9665_73e27cb2fc79);
 impl windows_core::RuntimeType for IHttpTransferCodingHeaderValueCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpTransferCodingHeaderValueCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4458,6 +4522,7 @@ pub struct IHttpTransferCodingHeaderValueCollection_Vtbl {
 windows_core::imp::define_interface!(IHttpTransferCodingHeaderValueFactory, IHttpTransferCodingHeaderValueFactory_Vtbl, 0xbb62dffc_e361_4f08_8e4f_c9e723de703b);
 impl windows_core::RuntimeType for IHttpTransferCodingHeaderValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpTransferCodingHeaderValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4468,6 +4533,7 @@ pub struct IHttpTransferCodingHeaderValueFactory_Vtbl {
 windows_core::imp::define_interface!(IHttpTransferCodingHeaderValueStatics, IHttpTransferCodingHeaderValueStatics_Vtbl, 0x6ab8892a_1a98_4d32_a906_7470a9875ce5);
 impl windows_core::RuntimeType for IHttpTransferCodingHeaderValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Headers.IHttpTransferCodingHeaderValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

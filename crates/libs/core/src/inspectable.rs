@@ -55,6 +55,7 @@ unsafe impl Interface for IInspectable {
 
 impl RuntimeType for IInspectable {
     const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
+    const NAME: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"Object");
 }
 
 impl RuntimeName for IInspectable {}
@@ -87,7 +88,9 @@ impl IInspectable_Vtbl {
                     return imp::E_POINTER;
                 }
 
-                *value = core::mem::transmute::<HSTRING, *mut c_void>(T::NAME.into());
+                let name = T::RUNTIME_CLASS_NAME;
+                let name_str = core::str::from_utf8_unchecked(name.as_slice());
+                *value = core::mem::transmute::<HSTRING, *mut c_void>(name_str.into());
 
                 HRESULT(0)
             }

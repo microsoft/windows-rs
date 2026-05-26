@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IIndexedResourceCandidate, IIndexedResourceCandidate_Vtbl, 0x0e619ef3_faec_4414_a9d7_54acd5953f29);
 impl windows_core::RuntimeType for IIndexedResourceCandidate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Management.IIndexedResourceCandidate");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16,6 +17,7 @@ pub struct IIndexedResourceCandidate_Vtbl {
 windows_core::imp::define_interface!(IIndexedResourceQualifier, IIndexedResourceQualifier_Vtbl, 0xdae3bb9b_d304_497f_a168_a340042c8adb);
 impl windows_core::RuntimeType for IIndexedResourceQualifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,6 +29,7 @@ pub struct IIndexedResourceQualifier_Vtbl {
 windows_core::imp::define_interface!(IResourceIndexer, IResourceIndexer_Vtbl, 0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
 impl windows_core::RuntimeType for IResourceIndexer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Management.IResourceIndexer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -38,6 +41,7 @@ pub struct IResourceIndexer_Vtbl {
 windows_core::imp::define_interface!(IResourceIndexerFactory, IResourceIndexerFactory_Vtbl, 0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
 impl windows_core::RuntimeType for IResourceIndexerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Management.IResourceIndexerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -48,6 +52,7 @@ pub struct IResourceIndexerFactory_Vtbl {
 windows_core::imp::define_interface!(IResourceIndexerFactory2, IResourceIndexerFactory2_Vtbl, 0x6040f18d_d5e5_4b60_9201_cd279cbcfed9);
 impl windows_core::RuntimeType for IResourceIndexerFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Management.IResourceIndexerFactory2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,6 +157,7 @@ impl windows_core::TypeKind for IndexedResourceType {
 }
 impl windows_core::RuntimeType for IndexedResourceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Resources.Management.IndexedResourceType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

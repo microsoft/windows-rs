@@ -15,6 +15,7 @@ impl windows_core::TypeKind for AddPackageByAppInstallerOptions {
 }
 impl windows_core::RuntimeType for AddPackageByAppInstallerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.AddPackageByAppInstallerOptions");
 }
 impl AddPackageByAppInstallerOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -622,6 +623,7 @@ impl windows_core::TypeKind for DeploymentOptions {
 }
 impl windows_core::RuntimeType for DeploymentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.DeploymentOptions");
 }
 impl DeploymentOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -667,6 +669,7 @@ impl windows_core::TypeKind for DeploymentProgress {
 }
 impl windows_core::RuntimeType for DeploymentProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.DeploymentProgress");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -680,6 +683,7 @@ impl windows_core::TypeKind for DeploymentProgressState {
 }
 impl windows_core::RuntimeType for DeploymentProgressState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.DeploymentProgressState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -770,6 +774,7 @@ unsafe impl Sync for FindSharedPackageContainerOptions {}
 windows_core::imp::define_interface!(IAddPackageOptions, IAddPackageOptions_Vtbl, 0x05cee018_f68f_422b_95a4_66679ec77fc0);
 impl windows_core::RuntimeType for IAddPackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAddPackageOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -809,6 +814,7 @@ pub struct IAddPackageOptions_Vtbl {
 windows_core::imp::define_interface!(IAddPackageOptions2, IAddPackageOptions2_Vtbl, 0xee515828_bf33_40f7_84af_1b6fad2919d7);
 impl windows_core::RuntimeType for IAddPackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAddPackageOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -821,6 +827,7 @@ pub struct IAddPackageOptions2_Vtbl {
 windows_core::imp::define_interface!(IAddPackageOptions3, IAddPackageOptions3_Vtbl, 0xcba622a7_aa31_45ab_8b88_40d08b0a8b27);
 impl windows_core::RuntimeType for IAddPackageOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAddPackageOptions3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -832,6 +839,7 @@ pub struct IAddPackageOptions3_Vtbl {
 windows_core::imp::define_interface!(IAppInstallerManager, IAppInstallerManager_Vtbl, 0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 impl windows_core::RuntimeType for IAppInstallerManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAppInstallerManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -844,6 +852,7 @@ pub struct IAppInstallerManager_Vtbl {
 windows_core::imp::define_interface!(IAppInstallerManagerStatics, IAppInstallerManagerStatics_Vtbl, 0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
 impl windows_core::RuntimeType for IAppInstallerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAppInstallerManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -855,6 +864,7 @@ pub struct IAppInstallerManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IAutoUpdateSettingsOptions, IAutoUpdateSettingsOptions_Vtbl, 0x67491d87_35e1_512a_8968_1ae88d1be6d3);
 impl windows_core::RuntimeType for IAutoUpdateSettingsOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAutoUpdateSettingsOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -892,6 +902,7 @@ pub struct IAutoUpdateSettingsOptions_Vtbl {
 windows_core::imp::define_interface!(IAutoUpdateSettingsOptionsStatics, IAutoUpdateSettingsOptionsStatics_Vtbl, 0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
 impl windows_core::RuntimeType for IAutoUpdateSettingsOptionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IAutoUpdateSettingsOptionsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -905,6 +916,7 @@ pub struct IAutoUpdateSettingsOptionsStatics_Vtbl {
 windows_core::imp::define_interface!(ICreateSharedPackageContainerOptions, ICreateSharedPackageContainerOptions_Vtbl, 0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
 impl windows_core::RuntimeType for ICreateSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ICreateSharedPackageContainerOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -919,6 +931,7 @@ pub struct ICreateSharedPackageContainerOptions_Vtbl {
 windows_core::imp::define_interface!(ICreateSharedPackageContainerResult, ICreateSharedPackageContainerResult_Vtbl, 0xce8810bf_151c_5707_b936_497e564afc7a);
 impl windows_core::RuntimeType for ICreateSharedPackageContainerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ICreateSharedPackageContainerResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -931,6 +944,7 @@ pub struct ICreateSharedPackageContainerResult_Vtbl {
 windows_core::imp::define_interface!(IDeleteSharedPackageContainerOptions, IDeleteSharedPackageContainerOptions_Vtbl, 0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
 impl windows_core::RuntimeType for IDeleteSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeleteSharedPackageContainerOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -944,6 +958,7 @@ pub struct IDeleteSharedPackageContainerOptions_Vtbl {
 windows_core::imp::define_interface!(IDeleteSharedPackageContainerResult, IDeleteSharedPackageContainerResult_Vtbl, 0x35398884_5736_517b_85bc_e598c81ab284);
 impl windows_core::RuntimeType for IDeleteSharedPackageContainerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeleteSharedPackageContainerResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -955,6 +970,7 @@ pub struct IDeleteSharedPackageContainerResult_Vtbl {
 windows_core::imp::define_interface!(IDeploymentResult, IDeploymentResult_Vtbl, 0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
 impl windows_core::RuntimeType for IDeploymentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeploymentResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -967,6 +983,7 @@ pub struct IDeploymentResult_Vtbl {
 windows_core::imp::define_interface!(IDeploymentResult2, IDeploymentResult2_Vtbl, 0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
 impl windows_core::RuntimeType for IDeploymentResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IDeploymentResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -977,6 +994,7 @@ pub struct IDeploymentResult2_Vtbl {
 windows_core::imp::define_interface!(IFindSharedPackageContainerOptions, IFindSharedPackageContainerOptions_Vtbl, 0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
 impl windows_core::RuntimeType for IFindSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IFindSharedPackageContainerOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -990,6 +1008,7 @@ pub struct IFindSharedPackageContainerOptions_Vtbl {
 windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions, IPackageAllUserProvisioningOptions_Vtbl, 0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageAllUserProvisioningOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1001,6 +1020,7 @@ pub struct IPackageAllUserProvisioningOptions_Vtbl {
 windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions2, IPackageAllUserProvisioningOptions2_Vtbl, 0xb9e3cab5_2d97_579f_9368_d10bb4d4542b);
 impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageAllUserProvisioningOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1012,6 +1032,7 @@ pub struct IPackageAllUserProvisioningOptions2_Vtbl {
 windows_core::imp::define_interface!(IPackageManager, IPackageManager_Vtbl, 0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 impl windows_core::RuntimeType for IPackageManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1061,6 +1082,7 @@ pub struct IPackageManager_Vtbl {
 windows_core::imp::define_interface!(IPackageManager10, IPackageManager10_Vtbl, 0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
 impl windows_core::RuntimeType for IPackageManager10 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager10");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1071,6 +1093,7 @@ pub struct IPackageManager10_Vtbl {
 windows_core::imp::define_interface!(IPackageManager11, IPackageManager11_Vtbl, 0x12950b24_c77e_4ea7_8859_325318074e15);
 impl windows_core::RuntimeType for IPackageManager11 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager11");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1081,6 +1104,7 @@ pub struct IPackageManager11_Vtbl {
 windows_core::imp::define_interface!(IPackageManager12, IPackageManager12_Vtbl, 0x5d233adf_f9e3_4d96_b40d_96788e39539f);
 impl windows_core::RuntimeType for IPackageManager12 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager12");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1094,6 +1118,7 @@ pub struct IPackageManager12_Vtbl {
 windows_core::imp::define_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095);
 impl windows_core::RuntimeType for IPackageManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1131,6 +1156,7 @@ pub struct IPackageManager2_Vtbl {
 windows_core::imp::define_interface!(IPackageManager3, IPackageManager3_Vtbl, 0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
 impl windows_core::RuntimeType for IPackageManager3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1155,6 +1181,7 @@ pub struct IPackageManager3_Vtbl {
 windows_core::imp::define_interface!(IPackageManager4, IPackageManager4_Vtbl, 0x3c719963_bab6_46bf_8ff7_da4719230ae6);
 impl windows_core::RuntimeType for IPackageManager4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1165,6 +1192,7 @@ pub struct IPackageManager4_Vtbl {
 windows_core::imp::define_interface!(IPackageManager5, IPackageManager5_Vtbl, 0x711f3117_1afd_4313_978c_9bb6e1b864a7);
 impl windows_core::RuntimeType for IPackageManager5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1178,6 +1206,7 @@ pub struct IPackageManager5_Vtbl {
 windows_core::imp::define_interface!(IPackageManager6, IPackageManager6_Vtbl, 0x0847e909_53cd_4e4f_832e_57d180f6e447);
 impl windows_core::RuntimeType for IPackageManager6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager6");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1193,6 +1222,7 @@ pub struct IPackageManager6_Vtbl {
 windows_core::imp::define_interface!(IPackageManager7, IPackageManager7_Vtbl, 0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
 impl windows_core::RuntimeType for IPackageManager7 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager7");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1203,6 +1233,7 @@ pub struct IPackageManager7_Vtbl {
 windows_core::imp::define_interface!(IPackageManager8, IPackageManager8_Vtbl, 0xb8575330_1298_4ee2_80ee_7f659c5d2782);
 impl windows_core::RuntimeType for IPackageManager8 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager8");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1213,6 +1244,7 @@ pub struct IPackageManager8_Vtbl {
 windows_core::imp::define_interface!(IPackageManager9, IPackageManager9_Vtbl, 0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
 impl windows_core::RuntimeType for IPackageManager9 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManager9");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1232,6 +1264,7 @@ pub struct IPackageManager9_Vtbl {
 windows_core::imp::define_interface!(IPackageManagerDebugSettings, IPackageManagerDebugSettings_Vtbl, 0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 impl windows_core::RuntimeType for IPackageManagerDebugSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageManagerDebugSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1249,6 +1282,7 @@ pub struct IPackageManagerDebugSettings_Vtbl {
 windows_core::imp::define_interface!(IPackageUserInformation, IPackageUserInformation_Vtbl, 0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 impl windows_core::RuntimeType for IPackageUserInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageUserInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1260,6 +1294,7 @@ pub struct IPackageUserInformation_Vtbl {
 windows_core::imp::define_interface!(IPackageVolume, IPackageVolume_Vtbl, 0xcf2672c3_1a40_4450_9739_2ace2e898853);
 impl windows_core::RuntimeType for IPackageVolume {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageVolume");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1331,6 +1366,7 @@ pub struct IPackageVolume_Vtbl {
 windows_core::imp::define_interface!(IPackageVolume2, IPackageVolume2_Vtbl, 0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
 impl windows_core::RuntimeType for IPackageVolume2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IPackageVolume2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1343,6 +1379,7 @@ pub struct IPackageVolume2_Vtbl {
 windows_core::imp::define_interface!(IRegisterPackageOptions, IRegisterPackageOptions_Vtbl, 0x677112a7_50d4_496c_8415_0602b4c6d3bf);
 impl windows_core::RuntimeType for IRegisterPackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRegisterPackageOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1374,6 +1411,7 @@ pub struct IRegisterPackageOptions_Vtbl {
 windows_core::imp::define_interface!(IRegisterPackageOptions2, IRegisterPackageOptions2_Vtbl, 0x3dfa9743_86ff_4a11_bc93_434eb6be3a0b);
 impl windows_core::RuntimeType for IRegisterPackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRegisterPackageOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1384,6 +1422,7 @@ pub struct IRegisterPackageOptions2_Vtbl {
 windows_core::imp::define_interface!(IRemovePackageOptions, IRemovePackageOptions_Vtbl, 0x13cf01f3_c450_4f7c_a5a3_5e3c631b7462);
 impl windows_core::RuntimeType for IRemovePackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRemovePackageOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1399,6 +1438,7 @@ pub struct IRemovePackageOptions_Vtbl {
 windows_core::imp::define_interface!(IRemovePackageOptions2, IRemovePackageOptions2_Vtbl, 0x3fcc61e5_22c5_423b_b4b4_cf10bb50830c);
 impl windows_core::RuntimeType for IRemovePackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IRemovePackageOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1410,6 +1450,7 @@ pub struct IRemovePackageOptions2_Vtbl {
 windows_core::imp::define_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 impl windows_core::RuntimeType for ISharedPackageContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1424,6 +1465,7 @@ pub struct ISharedPackageContainer_Vtbl {
 windows_core::imp::define_interface!(ISharedPackageContainerManager, ISharedPackageContainerManager_Vtbl, 0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
 impl windows_core::RuntimeType for ISharedPackageContainerManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1438,6 +1480,7 @@ pub struct ISharedPackageContainerManager_Vtbl {
 windows_core::imp::define_interface!(ISharedPackageContainerManagerStatics, ISharedPackageContainerManagerStatics_Vtbl, 0x2ef56348_838a_5f55_a89e_1198a2c627e6);
 impl windows_core::RuntimeType for ISharedPackageContainerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1450,6 +1493,7 @@ pub struct ISharedPackageContainerManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ISharedPackageContainerMember, ISharedPackageContainerMember_Vtbl, 0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 impl windows_core::RuntimeType for ISharedPackageContainerMember {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerMember");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1460,6 +1504,7 @@ pub struct ISharedPackageContainerMember_Vtbl {
 windows_core::imp::define_interface!(ISharedPackageContainerMemberFactory, ISharedPackageContainerMemberFactory_Vtbl, 0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
 impl windows_core::RuntimeType for ISharedPackageContainerMemberFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.ISharedPackageContainerMemberFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1470,6 +1515,7 @@ pub struct ISharedPackageContainerMemberFactory_Vtbl {
 windows_core::imp::define_interface!(IStagePackageOptions, IStagePackageOptions_Vtbl, 0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
 impl windows_core::RuntimeType for IStagePackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IStagePackageOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1501,6 +1547,7 @@ pub struct IStagePackageOptions_Vtbl {
 windows_core::imp::define_interface!(IStagePackageOptions2, IStagePackageOptions2_Vtbl, 0x990c4ccc_6226_4192_ba92_79875fce0d9c);
 impl windows_core::RuntimeType for IStagePackageOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IStagePackageOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1511,6 +1558,7 @@ pub struct IStagePackageOptions2_Vtbl {
 windows_core::imp::define_interface!(IStagePackageOptions3, IStagePackageOptions3_Vtbl, 0xce392e55_1743_4945_ad43_9e5add4be96d);
 impl windows_core::RuntimeType for IStagePackageOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IStagePackageOptions3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1522,6 +1570,7 @@ pub struct IStagePackageOptions3_Vtbl {
 windows_core::imp::define_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a);
 impl windows_core::RuntimeType for IUpdateSharedPackageContainerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IUpdateSharedPackageContainerOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1535,6 +1584,7 @@ pub struct IUpdateSharedPackageContainerOptions_Vtbl {
 windows_core::imp::define_interface!(IUpdateSharedPackageContainerResult, IUpdateSharedPackageContainerResult_Vtbl, 0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
 impl windows_core::RuntimeType for IUpdateSharedPackageContainerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.IUpdateSharedPackageContainerResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1605,6 +1655,7 @@ impl windows_core::TypeKind for PackageInstallState {
 }
 impl windows_core::RuntimeType for PackageInstallState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageInstallState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2275,6 +2326,7 @@ impl windows_core::TypeKind for PackageOperationPriority {
 }
 impl windows_core::RuntimeType for PackageOperationPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageOperationPriority;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageOperationPriority");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2290,6 +2342,7 @@ impl windows_core::TypeKind for PackageState {
 }
 impl windows_core::RuntimeType for PackageState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2306,6 +2359,7 @@ impl windows_core::TypeKind for PackageStatus {
 }
 impl windows_core::RuntimeType for PackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageStatus");
 }
 impl PackageStatus {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2352,6 +2406,7 @@ impl windows_core::TypeKind for PackageStubPreference {
 }
 impl windows_core::RuntimeType for PackageStubPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageStubPreference");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2371,6 +2426,7 @@ impl windows_core::TypeKind for PackageTypes {
 }
 impl windows_core::RuntimeType for PackageTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageTypes");
 }
 impl PackageTypes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2763,6 +2819,7 @@ impl windows_core::TypeKind for RemovalOptions {
 }
 impl windows_core::RuntimeType for RemovalOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.RemovalOptions");
 }
 impl RemovalOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2924,6 +2981,7 @@ impl windows_core::TypeKind for SharedPackageContainerCreationCollisionOptions {
 }
 impl windows_core::RuntimeType for SharedPackageContainerCreationCollisionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3054,6 +3112,7 @@ impl windows_core::TypeKind for SharedPackageContainerOperationStatus {
 }
 impl windows_core::RuntimeType for SharedPackageContainerOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.SharedPackageContainerOperationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3223,6 +3282,7 @@ impl windows_core::TypeKind for StubPackageOption {
 }
 impl windows_core::RuntimeType for StubPackageOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.StubPackageOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

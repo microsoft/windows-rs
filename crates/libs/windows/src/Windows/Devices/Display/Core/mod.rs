@@ -107,6 +107,7 @@ impl windows_core::TypeKind for DisplayBitsPerChannel {
 }
 impl windows_core::RuntimeType for DisplayBitsPerChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayBitsPerChannel");
 }
 impl DisplayBitsPerChannel {
     pub const fn contains(&self, other: Self) -> bool {
@@ -247,6 +248,7 @@ impl windows_core::TypeKind for DisplayDeviceCapability {
 }
 impl windows_core::RuntimeType for DisplayDeviceCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayDeviceCapability");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -552,6 +554,7 @@ impl windows_core::TypeKind for DisplayManagerOptions {
 }
 impl windows_core::RuntimeType for DisplayManagerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayManagerOptions");
 }
 impl DisplayManagerOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -634,6 +637,7 @@ impl windows_core::TypeKind for DisplayManagerResult {
 }
 impl windows_core::RuntimeType for DisplayManagerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayManagerResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -770,6 +774,7 @@ impl windows_core::TypeKind for DisplayModeQueryOptions {
 }
 impl windows_core::RuntimeType for DisplayModeQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayModeQueryOptions");
 }
 impl DisplayModeQueryOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1086,6 +1091,7 @@ impl windows_core::TypeKind for DisplayPathScaling {
 }
 impl windows_core::RuntimeType for DisplayPathScaling {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayPathScaling");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1103,6 +1109,7 @@ impl windows_core::TypeKind for DisplayPathStatus {
 }
 impl windows_core::RuntimeType for DisplayPathStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayPathStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1120,6 +1127,7 @@ impl windows_core::TypeKind for DisplayPresentStatus {
 }
 impl windows_core::RuntimeType for DisplayPresentStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayPresentStatus");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1132,6 +1140,7 @@ impl windows_core::TypeKind for DisplayPresentationRate {
 }
 impl windows_core::RuntimeType for DisplayPresentationRate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayPresentationRate");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1235,6 +1244,7 @@ impl windows_core::TypeKind for DisplayRotation {
 }
 impl windows_core::RuntimeType for DisplayRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayRotation");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1265,6 +1275,7 @@ impl windows_core::TypeKind for DisplayScanoutOptions {
 }
 impl windows_core::RuntimeType for DisplayScanoutOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayScanoutOptions");
 }
 impl DisplayScanoutOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1373,6 +1384,7 @@ impl windows_core::TypeKind for DisplaySourceStatus {
 }
 impl windows_core::RuntimeType for DisplaySourceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplaySourceStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1507,6 +1519,7 @@ impl windows_core::TypeKind for DisplayStateApplyOptions {
 }
 impl windows_core::RuntimeType for DisplayStateApplyOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayStateApplyOptions");
 }
 impl DisplayStateApplyOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1554,6 +1567,7 @@ impl windows_core::TypeKind for DisplayStateFunctionalizeOptions {
 }
 impl windows_core::RuntimeType for DisplayStateFunctionalizeOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions");
 }
 impl DisplayStateFunctionalizeOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1636,6 +1650,7 @@ impl windows_core::TypeKind for DisplayStateOperationStatus {
 }
 impl windows_core::RuntimeType for DisplayStateOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayStateOperationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1776,6 +1791,7 @@ impl windows_core::TypeKind for DisplayTargetPersistence {
 }
 impl windows_core::RuntimeType for DisplayTargetPersistence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayTargetPersistence");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1902,6 +1918,7 @@ impl windows_core::TypeKind for DisplayTaskSignalKind {
 }
 impl windows_core::RuntimeType for DisplayTaskSignalKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayTaskSignalKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2041,6 +2058,7 @@ impl windows_core::TypeKind for DisplayWireFormatColorSpace {
 }
 impl windows_core::RuntimeType for DisplayWireFormatColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayWireFormatColorSpace");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2054,6 +2072,7 @@ impl windows_core::TypeKind for DisplayWireFormatEotf {
 }
 impl windows_core::RuntimeType for DisplayWireFormatEotf {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayWireFormatEotf");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2069,6 +2088,7 @@ impl windows_core::TypeKind for DisplayWireFormatHdrMetadata {
 }
 impl windows_core::RuntimeType for DisplayWireFormatHdrMetadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2085,10 +2105,12 @@ impl windows_core::TypeKind for DisplayWireFormatPixelEncoding {
 }
 impl windows_core::RuntimeType for DisplayWireFormatPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding");
 }
 windows_core::imp::define_interface!(IDisplayAdapter, IDisplayAdapter_Vtbl, 0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 impl windows_core::RuntimeType for IDisplayAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayAdapter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2109,6 +2131,7 @@ pub struct IDisplayAdapter_Vtbl {
 windows_core::imp::define_interface!(IDisplayAdapter2, IDisplayAdapter2_Vtbl, 0x9ab49b18_b3c7_5546_8374_a9127111edd8);
 impl windows_core::RuntimeType for IDisplayAdapter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayAdapter2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2120,6 +2143,7 @@ pub struct IDisplayAdapter2_Vtbl {
 windows_core::imp::define_interface!(IDisplayAdapterStatics, IDisplayAdapterStatics_Vtbl, 0x1dac3cda_481f_5469_8470_82c4ba680a28);
 impl windows_core::RuntimeType for IDisplayAdapterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayAdapterStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2133,6 +2157,7 @@ pub struct IDisplayAdapterStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayDevice, IDisplayDevice_Vtbl, 0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
 impl windows_core::RuntimeType for IDisplayDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2149,6 +2174,7 @@ pub struct IDisplayDevice_Vtbl {
 windows_core::imp::define_interface!(IDisplayDevice2, IDisplayDevice2_Vtbl, 0x3fefe50c_0940_54bd_a02f_f9c7a536ad60);
 impl windows_core::RuntimeType for IDisplayDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayDevice2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2162,6 +2188,7 @@ pub struct IDisplayDevice2_Vtbl {
 windows_core::imp::define_interface!(IDisplayDeviceRenderAdapter, IDisplayDeviceRenderAdapter_Vtbl, 0x41c86ce5_b18f_573f_9d59_70463115e4cc);
 impl windows_core::RuntimeType for IDisplayDeviceRenderAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayDeviceRenderAdapter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2175,6 +2202,7 @@ pub struct IDisplayDeviceRenderAdapter_Vtbl {
 windows_core::imp::define_interface!(IDisplayFence, IDisplayFence_Vtbl, 0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 impl windows_core::RuntimeType for IDisplayFence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayFence");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2184,6 +2212,7 @@ pub struct IDisplayFence_Vtbl {
 windows_core::imp::define_interface!(IDisplayManager, IDisplayManager_Vtbl, 0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
 impl windows_core::RuntimeType for IDisplayManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2212,6 +2241,7 @@ pub struct IDisplayManager_Vtbl {
 windows_core::imp::define_interface!(IDisplayManager2, IDisplayManager2_Vtbl, 0xe001ec1e_7eb1_597f_9a30_14d3fe3714cd);
 impl windows_core::RuntimeType for IDisplayManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2222,6 +2252,7 @@ pub struct IDisplayManager2_Vtbl {
 windows_core::imp::define_interface!(IDisplayManager3, IDisplayManager3_Vtbl, 0x6f14cb89_7f49_587d_93ce_77487cbcb530);
 impl windows_core::RuntimeType for IDisplayManager3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManager3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2232,6 +2263,7 @@ pub struct IDisplayManager3_Vtbl {
 windows_core::imp::define_interface!(IDisplayManagerChangedEventArgs, IDisplayManagerChangedEventArgs_Vtbl, 0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 impl windows_core::RuntimeType for IDisplayManagerChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManagerChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2244,6 +2276,7 @@ pub struct IDisplayManagerChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDisplayManagerDisabledEventArgs, IDisplayManagerDisabledEventArgs_Vtbl, 0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
 impl windows_core::RuntimeType for IDisplayManagerDisabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManagerDisabledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2256,6 +2289,7 @@ pub struct IDisplayManagerDisabledEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDisplayManagerEnabledEventArgs, IDisplayManagerEnabledEventArgs_Vtbl, 0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 impl windows_core::RuntimeType for IDisplayManagerEnabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManagerEnabledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2268,6 +2302,7 @@ pub struct IDisplayManagerEnabledEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDisplayManagerPathsFailedOrInvalidatedEventArgs, IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl, 0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
 impl windows_core::RuntimeType for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManagerPathsFailedOrInvalidatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2280,6 +2315,7 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDisplayManagerResultWithState, IDisplayManagerResultWithState_Vtbl, 0x8e656aa6_6614_54be_bfef_4994547f7be1);
 impl windows_core::RuntimeType for IDisplayManagerResultWithState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManagerResultWithState");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2292,6 +2328,7 @@ pub struct IDisplayManagerResultWithState_Vtbl {
 windows_core::imp::define_interface!(IDisplayManagerStatics, IDisplayManagerStatics_Vtbl, 0x2b6b9446_b999_5535_9d69_53f092c780a1);
 impl windows_core::RuntimeType for IDisplayManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2302,6 +2339,7 @@ pub struct IDisplayManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayModeInfo, IDisplayModeInfo_Vtbl, 0x48d513a0_f79b_5a74_a05e_da821f470868);
 impl windows_core::RuntimeType for IDisplayModeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayModeInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2332,6 +2370,7 @@ pub struct IDisplayModeInfo_Vtbl {
 windows_core::imp::define_interface!(IDisplayModeInfo2, IDisplayModeInfo2_Vtbl, 0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
 impl windows_core::RuntimeType for IDisplayModeInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayModeInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2345,6 +2384,7 @@ pub struct IDisplayModeInfo2_Vtbl {
 windows_core::imp::define_interface!(IDisplayMuxDevice, IDisplayMuxDevice_Vtbl, 0xd81c4925_83dd_52c9_ab4e_e0833fc75068);
 impl windows_core::RuntimeType for IDisplayMuxDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayMuxDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2364,6 +2404,7 @@ pub struct IDisplayMuxDevice_Vtbl {
 windows_core::imp::define_interface!(IDisplayMuxDeviceStatics, IDisplayMuxDeviceStatics_Vtbl, 0x7b37a64a_0465_53da_baee_70028480ced0);
 impl windows_core::RuntimeType for IDisplayMuxDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayMuxDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2375,6 +2416,7 @@ pub struct IDisplayMuxDeviceStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayPath, IDisplayPath_Vtbl, 0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 impl windows_core::RuntimeType for IDisplayPath {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayPath");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2432,6 +2474,7 @@ pub struct IDisplayPath_Vtbl {
 windows_core::imp::define_interface!(IDisplayPath2, IDisplayPath2_Vtbl, 0xf32459c5_e994_570b_9ec8_ef42c35a8547);
 impl windows_core::RuntimeType for IDisplayPath2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayPath2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2449,6 +2492,7 @@ pub struct IDisplayPath2_Vtbl {
 windows_core::imp::define_interface!(IDisplayPrimaryDescription, IDisplayPrimaryDescription_Vtbl, 0x872591d2_d533_50ff_a85e_06696194b77c);
 impl windows_core::RuntimeType for IDisplayPrimaryDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayPrimaryDescription");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2474,6 +2518,7 @@ pub struct IDisplayPrimaryDescription_Vtbl {
 windows_core::imp::define_interface!(IDisplayPrimaryDescriptionFactory, IDisplayPrimaryDescriptionFactory_Vtbl, 0x1a6aff7b_3637_5c46_b479_76d576216e65);
 impl windows_core::RuntimeType for IDisplayPrimaryDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayPrimaryDescriptionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2487,6 +2532,7 @@ pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
 windows_core::imp::define_interface!(IDisplayPrimaryDescriptionStatics, IDisplayPrimaryDescriptionStatics_Vtbl, 0xe60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07);
 impl windows_core::RuntimeType for IDisplayPrimaryDescriptionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayPrimaryDescriptionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2500,6 +2546,7 @@ pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayScanout, IDisplayScanout_Vtbl, 0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 impl windows_core::RuntimeType for IDisplayScanout {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayScanout");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2509,6 +2556,7 @@ pub struct IDisplayScanout_Vtbl {
 windows_core::imp::define_interface!(IDisplaySource, IDisplaySource_Vtbl, 0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
 impl windows_core::RuntimeType for IDisplaySource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplaySource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2527,6 +2575,7 @@ pub struct IDisplaySource_Vtbl {
 windows_core::imp::define_interface!(IDisplaySource2, IDisplaySource2_Vtbl, 0x71e18952_b321_5af4_bfe8_03fbea31e40d);
 impl windows_core::RuntimeType for IDisplaySource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplaySource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2539,6 +2588,7 @@ pub struct IDisplaySource2_Vtbl {
 windows_core::imp::define_interface!(IDisplayState, IDisplayState_Vtbl, 0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
 impl windows_core::RuntimeType for IDisplayState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayState");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2562,6 +2612,7 @@ pub struct IDisplayState_Vtbl {
 windows_core::imp::define_interface!(IDisplayStateOperationResult, IDisplayStateOperationResult_Vtbl, 0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 impl windows_core::RuntimeType for IDisplayStateOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayStateOperationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2573,6 +2624,7 @@ pub struct IDisplayStateOperationResult_Vtbl {
 windows_core::imp::define_interface!(IDisplaySurface, IDisplaySurface_Vtbl, 0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 impl windows_core::RuntimeType for IDisplaySurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplaySurface");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2582,6 +2634,7 @@ pub struct IDisplaySurface_Vtbl {
 windows_core::imp::define_interface!(IDisplayTarget, IDisplayTarget_Vtbl, 0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
 impl windows_core::RuntimeType for IDisplayTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayTarget");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2605,6 +2658,7 @@ pub struct IDisplayTarget_Vtbl {
 windows_core::imp::define_interface!(IDisplayTask, IDisplayTask_Vtbl, 0x5e087448_135b_5bb0_bf63_637f84227c7a);
 impl windows_core::RuntimeType for IDisplayTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayTask");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2616,6 +2670,7 @@ pub struct IDisplayTask_Vtbl {
 windows_core::imp::define_interface!(IDisplayTask2, IDisplayTask2_Vtbl, 0x0957ea19_bd55_55de_9267_c97b61e71c37);
 impl windows_core::RuntimeType for IDisplayTask2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayTask2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2626,6 +2681,7 @@ pub struct IDisplayTask2_Vtbl {
 windows_core::imp::define_interface!(IDisplayTaskPool, IDisplayTaskPool_Vtbl, 0xc676253d_237d_5548_aafa_3e517fefef1c);
 impl windows_core::RuntimeType for IDisplayTaskPool {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayTaskPool");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2637,6 +2693,7 @@ pub struct IDisplayTaskPool_Vtbl {
 windows_core::imp::define_interface!(IDisplayTaskPool2, IDisplayTaskPool2_Vtbl, 0x46b879b6_5d17_5955_a872_eb38003db586);
 impl windows_core::RuntimeType for IDisplayTaskPool2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayTaskPool2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2647,6 +2704,7 @@ pub struct IDisplayTaskPool2_Vtbl {
 windows_core::imp::define_interface!(IDisplayTaskResult, IDisplayTaskResult_Vtbl, 0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
 impl windows_core::RuntimeType for IDisplayTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayTaskResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2659,6 +2717,7 @@ pub struct IDisplayTaskResult_Vtbl {
 windows_core::imp::define_interface!(IDisplayView, IDisplayView_Vtbl, 0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
 impl windows_core::RuntimeType for IDisplayView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayView");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2679,6 +2738,7 @@ pub struct IDisplayView_Vtbl {
 windows_core::imp::define_interface!(IDisplayWireFormat, IDisplayWireFormat_Vtbl, 0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 impl windows_core::RuntimeType for IDisplayWireFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayWireFormat");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2694,6 +2754,7 @@ pub struct IDisplayWireFormat_Vtbl {
 windows_core::imp::define_interface!(IDisplayWireFormatFactory, IDisplayWireFormatFactory_Vtbl, 0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
 impl windows_core::RuntimeType for IDisplayWireFormatFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayWireFormatFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2704,6 +2765,7 @@ pub struct IDisplayWireFormatFactory_Vtbl {
 windows_core::imp::define_interface!(IDisplayWireFormatStatics, IDisplayWireFormatStatics_Vtbl, 0xc575a22d_c3e6_5f7a_bdfb_87c6ab8661d5);
 impl windows_core::RuntimeType for IDisplayWireFormatStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.IDisplayWireFormatStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

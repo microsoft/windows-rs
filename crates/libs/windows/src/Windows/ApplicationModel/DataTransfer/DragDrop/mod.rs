@@ -17,6 +17,7 @@ impl windows_core::TypeKind for DragDropModifiers {
 }
 impl windows_core::RuntimeType for DragDropModifiers {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers");
 }
 impl DragDropModifiers {
     pub const fn contains(&self, other: Self) -> bool {

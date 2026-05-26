@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPaymentAppCanMakePaymentTriggerDetails, IPaymentAppCanMakePaymentTriggerDetails_Vtbl, 0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 impl windows_core::RuntimeType for IPaymentAppCanMakePaymentTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Payments.Provider.IPaymentAppCanMakePaymentTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12,6 +13,7 @@ pub struct IPaymentAppCanMakePaymentTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPaymentAppManager, IPaymentAppManager_Vtbl, 0x0e47aa53_8521_4969_a957_df2538a3a98f);
 impl windows_core::RuntimeType for IPaymentAppManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Payments.Provider.IPaymentAppManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,6 +25,7 @@ pub struct IPaymentAppManager_Vtbl {
 windows_core::imp::define_interface!(IPaymentAppManagerStatics, IPaymentAppManagerStatics_Vtbl, 0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
 impl windows_core::RuntimeType for IPaymentAppManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Payments.Provider.IPaymentAppManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +36,7 @@ pub struct IPaymentAppManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IPaymentTransaction, IPaymentTransaction_Vtbl, 0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
 impl windows_core::RuntimeType for IPaymentTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Payments.Provider.IPaymentTransaction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,6 +57,7 @@ pub struct IPaymentTransaction_Vtbl {
 windows_core::imp::define_interface!(IPaymentTransactionAcceptResult, IPaymentTransactionAcceptResult_Vtbl, 0x060e3276_d30c_4817_95a2_df7ae9273b56);
 impl windows_core::RuntimeType for IPaymentTransactionAcceptResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,6 +68,7 @@ pub struct IPaymentTransactionAcceptResult_Vtbl {
 windows_core::imp::define_interface!(IPaymentTransactionStatics, IPaymentTransactionStatics_Vtbl, 0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881);
 impl windows_core::RuntimeType for IPaymentTransactionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

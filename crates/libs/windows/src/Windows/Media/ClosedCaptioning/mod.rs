@@ -17,6 +17,7 @@ impl windows_core::TypeKind for ClosedCaptionColor {
 }
 impl windows_core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.ClosedCaptionColor");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -34,6 +35,7 @@ impl windows_core::TypeKind for ClosedCaptionEdgeEffect {
 }
 impl windows_core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -50,6 +52,7 @@ impl windows_core::TypeKind for ClosedCaptionOpacity {
 }
 impl windows_core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.ClosedCaptionOpacity");
 }
 pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {
@@ -167,6 +170,7 @@ impl windows_core::TypeKind for ClosedCaptionSize {
 }
 impl windows_core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.ClosedCaptionSize");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -186,10 +190,12 @@ impl windows_core::TypeKind for ClosedCaptionStyle {
 }
 impl windows_core::RuntimeType for ClosedCaptionStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.ClosedCaptionStyle");
 }
 windows_core::imp::define_interface!(IClosedCaptionPropertiesStatics, IClosedCaptionPropertiesStatics_Vtbl, 0x10aa1f84_cc30_4141_b503_5272289e0c20);
 impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -220,6 +226,7 @@ pub struct IClosedCaptionPropertiesStatics_Vtbl {
 windows_core::imp::define_interface!(IClosedCaptionPropertiesStatics2, IClosedCaptionPropertiesStatics2_Vtbl, 0x9de26870_37de_4197_8845_9a48dc5ac317);
 impl windows_core::RuntimeType for IClosedCaptionPropertiesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]

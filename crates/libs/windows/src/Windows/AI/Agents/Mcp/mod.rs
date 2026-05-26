@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IMcpMessageFilterExperimental, IMcpMessageFilterExperimental_Vtbl, 0xc5f8f821_895c_5241_b45a_92e249a7d873);
 impl windows_core::RuntimeType for IMcpMessageFilterExperimental {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterExperimental");
 }
 windows_core::imp::interface_hierarchy!(IMcpMessageFilterExperimental, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpMessageFilterExperimental {
@@ -55,6 +56,7 @@ pub struct IMcpMessageFilterExperimental_Vtbl {
 windows_core::imp::define_interface!(IMcpMessageFilterResponse, IMcpMessageFilterResponse_Vtbl, 0x363ce02c_7098_5e13_a408_7b43e1f452ac);
 impl windows_core::RuntimeType for IMcpMessageFilterResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterResponse");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,6 +66,7 @@ pub struct IMcpMessageFilterResponse_Vtbl {
 windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental, IMcpMessageFilterResponseExperimental_Vtbl, 0xe215b5f2_cb02_56cf_aab0_84aef65d1665);
 impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterResponseExperimental");
 }
 windows_core::imp::interface_hierarchy!(IMcpMessageFilterResponseExperimental, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpMessageFilterResponseExperimental {
@@ -158,6 +161,7 @@ pub struct IMcpMessageFilterResponseExperimental_Vtbl {
 windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental2, IMcpMessageFilterResponseExperimental2_Vtbl, 0x10f4b099_6632_505a_a638_e704c7e47abf);
 impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.IMcpMessageFilterResponseExperimental2");
 }
 windows_core::imp::interface_hierarchy!(IMcpMessageFilterResponseExperimental2, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpMessageFilterResponseExperimental2 {
@@ -218,6 +222,7 @@ impl windows_core::TypeKind for McpMessageDirection {
 }
 impl windows_core::RuntimeType for McpMessageDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.Agents.Mcp.McpMessageDirection;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Agents.Mcp.McpMessageDirection");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

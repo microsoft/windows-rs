@@ -13,6 +13,8 @@ impl windows_core::TypeKind for AsyncStatus {
 impl windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.AsyncStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -29,5 +31,8 @@ impl windows_core::TypeKind for CollectionChange {
 impl windows_core::RuntimeType for CollectionChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Windows.Foundation.Collections.CollectionChange;i4)",
+    );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Windows.Foundation.Collections.CollectionChange",
     );
 }

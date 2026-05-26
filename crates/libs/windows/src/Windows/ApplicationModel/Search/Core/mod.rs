@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IRequestingFocusOnKeyboardInputEventArgs, IRequestingFocusOnKeyboardInputEventArgs_Vtbl, 0xa1195f27_b1a7_41a2_879d_6a68687e5985);
 impl windows_core::RuntimeType for IRequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10,6 +11,7 @@ pub struct IRequestingFocusOnKeyboardInputEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISearchSuggestion, ISearchSuggestion_Vtbl, 0x5b5554b0_1527_437b_95c5_8d18d2b8af55);
 impl windows_core::RuntimeType for ISearchSuggestion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Search.Core.ISearchSuggestion");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,6 +30,7 @@ pub struct ISearchSuggestion_Vtbl {
 windows_core::imp::define_interface!(ISearchSuggestionManager, ISearchSuggestionManager_Vtbl, 0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2);
 impl windows_core::RuntimeType for ISearchSuggestionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Search.Core.ISearchSuggestionManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,6 +56,7 @@ pub struct ISearchSuggestionManager_Vtbl {
 windows_core::imp::define_interface!(ISearchSuggestionsRequestedEventArgs, ISearchSuggestionsRequestedEventArgs_Vtbl, 0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a);
 impl windows_core::RuntimeType for ISearchSuggestionsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Search.Core.ISearchSuggestionsRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,6 +150,7 @@ impl windows_core::TypeKind for SearchSuggestionKind {
 }
 impl windows_core::RuntimeType for SearchSuggestionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Search.Core.SearchSuggestionKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

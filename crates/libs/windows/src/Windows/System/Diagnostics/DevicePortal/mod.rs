@@ -149,6 +149,7 @@ impl windows_core::TypeKind for DevicePortalConnectionClosedReason {
 }
 impl windows_core::RuntimeType for DevicePortalConnectionClosedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -206,6 +207,7 @@ unsafe impl Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 windows_core::imp::define_interface!(IDevicePortalConnection, IDevicePortalConnection_Vtbl, 0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 impl windows_core::RuntimeType for IDevicePortalConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -219,6 +221,7 @@ pub struct IDevicePortalConnection_Vtbl {
 windows_core::imp::define_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 impl windows_core::RuntimeType for IDevicePortalConnectionClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,6 +232,7 @@ pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
 impl windows_core::RuntimeType for IDevicePortalConnectionRequestReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -246,6 +250,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDevicePortalConnectionStatics, IDevicePortalConnectionStatics_Vtbl, 0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
 impl windows_core::RuntimeType for IDevicePortalConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -259,6 +264,7 @@ pub struct IDevicePortalConnectionStatics_Vtbl {
 windows_core::imp::define_interface!(IDevicePortalWebSocketConnection, IDevicePortalWebSocketConnection_Vtbl, 0x67657920_d65a_42f0_aef4_787808098b7b);
 impl windows_core::RuntimeType for IDevicePortalWebSocketConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,6 +294,7 @@ pub struct IDevicePortalWebSocketConnection_Vtbl {
 windows_core::imp::define_interface!(IDevicePortalWebSocketConnectionRequestReceivedEventArgs, IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl, 0x79fdcaba_175c_4739_9f74_dda797c35b3f);
 impl windows_core::RuntimeType for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnectionRequestReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]

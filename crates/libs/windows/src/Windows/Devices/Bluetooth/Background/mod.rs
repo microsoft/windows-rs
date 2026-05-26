@@ -11,6 +11,7 @@ impl windows_core::TypeKind for BluetoothEventTriggeringMode {
 }
 impl windows_core::RuntimeType for BluetoothEventTriggeringMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -220,6 +221,7 @@ unsafe impl Sync for GattServiceProviderTriggerDetails {}
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTriggerDetails, IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl, 0x610eca86_3480_41c9_a918_7ddadf207e00);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IBluetoothLEAdvertisementPublisherTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,6 +236,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTriggerDetails2, IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl, 0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IBluetoothLEAdvertisementPublisherTriggerDetails2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -244,6 +247,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl {
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTriggerDetails, IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl, 0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IBluetoothLEAdvertisementWatcherTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -259,6 +263,7 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerDetails, IGattCharacteristicNotificationTriggerDetails_Vtbl, 0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IGattCharacteristicNotificationTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -276,6 +281,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerDetails2, IGattCharacteristicNotificationTriggerDetails2_Vtbl, 0x727a50dc_949d_454a_b192_983467e3d50f);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IGattCharacteristicNotificationTriggerDetails2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,6 +297,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderConnection, IGattServiceProviderConnection_Vtbl, 0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 impl windows_core::RuntimeType for IGattServiceProviderConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IGattServiceProviderConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -306,6 +313,7 @@ pub struct IGattServiceProviderConnection_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderConnection2, IGattServiceProviderConnection2_Vtbl, 0x90d12be0_ebc0_484f_ae0a_7eb8b6266bac);
 impl windows_core::RuntimeType for IGattServiceProviderConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IGattServiceProviderConnection2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,6 +327,7 @@ pub struct IGattServiceProviderConnection2_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderConnectionStatics, IGattServiceProviderConnectionStatics_Vtbl, 0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
 impl windows_core::RuntimeType for IGattServiceProviderConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IGattServiceProviderConnectionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -329,6 +338,7 @@ pub struct IGattServiceProviderConnectionStatics_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderTriggerDetails, IGattServiceProviderTriggerDetails_Vtbl, 0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 impl windows_core::RuntimeType for IGattServiceProviderTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IGattServiceProviderTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -339,6 +349,7 @@ pub struct IGattServiceProviderTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IRfcommConnectionTriggerDetails, IRfcommConnectionTriggerDetails_Vtbl, 0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
 impl windows_core::RuntimeType for IRfcommConnectionTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IRfcommConnectionTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -354,6 +365,7 @@ pub struct IRfcommConnectionTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IRfcommInboundConnectionInformation, IRfcommInboundConnectionInformation_Vtbl, 0x6d3e75a8_5429_4059_92e3_1e8b65528707);
 impl windows_core::RuntimeType for IRfcommInboundConnectionInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IRfcommInboundConnectionInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -381,6 +393,7 @@ pub struct IRfcommInboundConnectionInformation_Vtbl {
 windows_core::imp::define_interface!(IRfcommOutboundConnectionInformation, IRfcommOutboundConnectionInformation_Vtbl, 0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
 impl windows_core::RuntimeType for IRfcommOutboundConnectionInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Background.IRfcommOutboundConnectionInformation");
 }
 #[repr(C)]
 #[doc(hidden)]

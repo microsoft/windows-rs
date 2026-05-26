@@ -97,6 +97,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo");
     }
     windows_core::imp::interface_hierarchy!(
         IFoo,

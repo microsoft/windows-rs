@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(ILampArrayBitmapEffect, ILampArrayBitmapEffect_Vtbl, 0x3238e065_d877_4627_89e5_2a88f7052fa6);
 impl windows_core::RuntimeType for ILampArrayBitmapEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBitmapEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19,6 +20,7 @@ pub struct ILampArrayBitmapEffect_Vtbl {
 windows_core::imp::define_interface!(ILampArrayBitmapEffectFactory, ILampArrayBitmapEffectFactory_Vtbl, 0x13608090_e336_4c8f_9053_a92407ca7b1d);
 impl windows_core::RuntimeType for ILampArrayBitmapEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBitmapEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,6 +31,7 @@ pub struct ILampArrayBitmapEffectFactory_Vtbl {
 windows_core::imp::define_interface!(ILampArrayBitmapRequestedEventArgs, ILampArrayBitmapRequestedEventArgs_Vtbl, 0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 impl windows_core::RuntimeType for ILampArrayBitmapRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBitmapRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,6 +46,7 @@ pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ILampArrayBlinkEffect, ILampArrayBlinkEffect_Vtbl, 0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 impl windows_core::RuntimeType for ILampArrayBlinkEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBlinkEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -74,6 +78,7 @@ pub struct ILampArrayBlinkEffect_Vtbl {
 windows_core::imp::define_interface!(ILampArrayBlinkEffectFactory, ILampArrayBlinkEffectFactory_Vtbl, 0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
 impl windows_core::RuntimeType for ILampArrayBlinkEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayBlinkEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,6 +89,7 @@ pub struct ILampArrayBlinkEffectFactory_Vtbl {
 windows_core::imp::define_interface!(ILampArrayColorRampEffect, ILampArrayColorRampEffect_Vtbl, 0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 impl windows_core::RuntimeType for ILampArrayColorRampEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayColorRampEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -107,6 +113,7 @@ pub struct ILampArrayColorRampEffect_Vtbl {
 windows_core::imp::define_interface!(ILampArrayColorRampEffectFactory, ILampArrayColorRampEffectFactory_Vtbl, 0x520bd133_0c74_4df5_bea7_4899e0266b0f);
 impl windows_core::RuntimeType for ILampArrayColorRampEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayColorRampEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,6 +124,7 @@ pub struct ILampArrayColorRampEffectFactory_Vtbl {
 windows_core::imp::define_interface!(ILampArrayCustomEffect, ILampArrayCustomEffect_Vtbl, 0xec579170_3c34_4876_818b_5765f78b0ee4);
 impl windows_core::RuntimeType for ILampArrayCustomEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayCustomEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,6 +140,7 @@ pub struct ILampArrayCustomEffect_Vtbl {
 windows_core::imp::define_interface!(ILampArrayCustomEffectFactory, ILampArrayCustomEffectFactory_Vtbl, 0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
 impl windows_core::RuntimeType for ILampArrayCustomEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayCustomEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,6 +151,7 @@ pub struct ILampArrayCustomEffectFactory_Vtbl {
 windows_core::imp::define_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df);
 impl windows_core::RuntimeType for ILampArrayEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayEffect");
 }
 windows_core::imp::interface_hierarchy!(ILampArrayEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl ILampArrayEffect {
@@ -202,6 +212,7 @@ pub struct ILampArrayEffect_Vtbl {
 windows_core::imp::define_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 impl windows_core::RuntimeType for ILampArrayEffectPlaylist {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylist");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -222,6 +233,7 @@ pub struct ILampArrayEffectPlaylist_Vtbl {
 windows_core::imp::define_interface!(ILampArrayEffectPlaylistStatics, ILampArrayEffectPlaylistStatics_Vtbl, 0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
 impl windows_core::RuntimeType for ILampArrayEffectPlaylistStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylistStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,6 +246,7 @@ pub struct ILampArrayEffectPlaylistStatics_Vtbl {
 windows_core::imp::define_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 impl windows_core::RuntimeType for ILampArraySolidEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArraySolidEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -257,6 +270,7 @@ pub struct ILampArraySolidEffect_Vtbl {
 windows_core::imp::define_interface!(ILampArraySolidEffectFactory, ILampArraySolidEffectFactory_Vtbl, 0xf862a32c_5576_4341_961b_aee1f13cf9dd);
 impl windows_core::RuntimeType for ILampArraySolidEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArraySolidEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -267,6 +281,7 @@ pub struct ILampArraySolidEffectFactory_Vtbl {
 windows_core::imp::define_interface!(ILampArrayUpdateRequestedEventArgs, ILampArrayUpdateRequestedEventArgs_Vtbl, 0x73560d6a_576a_48af_8539_67ffa0ab3516);
 impl windows_core::RuntimeType for ILampArrayUpdateRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.ILampArrayUpdateRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -692,6 +707,7 @@ impl windows_core::TypeKind for LampArrayEffectCompletionBehavior {
 }
 impl windows_core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -850,6 +866,7 @@ impl windows_core::TypeKind for LampArrayEffectStartMode {
 }
 impl windows_core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.LampArrayEffectStartMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -863,6 +880,7 @@ impl windows_core::TypeKind for LampArrayRepetitionMode {
 }
 impl windows_core::RuntimeType for LampArrayRepetitionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Lights.Effects.LampArrayRepetitionMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

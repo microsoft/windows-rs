@@ -97,6 +97,7 @@ impl windows_core::TypeKind for AdvancedColorKind {
 }
 impl windows_core::RuntimeType for AdvancedColorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.AdvancedColorKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -311,6 +312,7 @@ impl windows_core::TypeKind for DisplayBrightnessOverrideOptions {
 }
 impl windows_core::RuntimeType for DisplayBrightnessOverrideOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.DisplayBrightnessOverrideOptions");
 }
 impl DisplayBrightnessOverrideOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -358,6 +360,7 @@ impl windows_core::TypeKind for DisplayBrightnessOverrideScenario {
 }
 impl windows_core::RuntimeType for DisplayBrightnessOverrideScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.DisplayBrightnessOverrideScenario");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -373,6 +376,7 @@ impl windows_core::TypeKind for DisplayBrightnessScenario {
 }
 impl windows_core::RuntimeType for DisplayBrightnessScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.DisplayBrightnessScenario");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -385,6 +389,7 @@ impl windows_core::TypeKind for DisplayColorOverrideScenario {
 }
 impl windows_core::RuntimeType for DisplayColorOverrideScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.DisplayColorOverrideScenario");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -768,6 +773,7 @@ impl windows_core::TypeKind for DisplayOrientations {
 }
 impl windows_core::RuntimeType for DisplayOrientations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.DisplayOrientations");
 }
 impl DisplayOrientations {
     pub const fn contains(&self, other: Self) -> bool {
@@ -997,10 +1003,12 @@ impl windows_core::TypeKind for HdrMetadataFormat {
 }
 impl windows_core::RuntimeType for HdrMetadataFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.HdrMetadataFormat");
 }
 windows_core::imp::define_interface!(IAdvancedColorInfo, IAdvancedColorInfo_Vtbl, 0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 impl windows_core::RuntimeType for IAdvancedColorInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IAdvancedColorInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,6 +1029,7 @@ pub struct IAdvancedColorInfo_Vtbl {
 windows_core::imp::define_interface!(IBrightnessOverride, IBrightnessOverride_Vtbl, 0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
 impl windows_core::RuntimeType for IBrightnessOverride {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IBrightnessOverride");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1044,6 +1053,7 @@ pub struct IBrightnessOverride_Vtbl {
 windows_core::imp::define_interface!(IBrightnessOverrideSettings, IBrightnessOverrideSettings_Vtbl, 0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 impl windows_core::RuntimeType for IBrightnessOverrideSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IBrightnessOverrideSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1055,6 +1065,7 @@ pub struct IBrightnessOverrideSettings_Vtbl {
 windows_core::imp::define_interface!(IBrightnessOverrideSettingsStatics, IBrightnessOverrideSettingsStatics_Vtbl, 0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
 impl windows_core::RuntimeType for IBrightnessOverrideSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IBrightnessOverrideSettingsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1067,6 +1078,7 @@ pub struct IBrightnessOverrideSettingsStatics_Vtbl {
 windows_core::imp::define_interface!(IBrightnessOverrideStatics, IBrightnessOverrideStatics_Vtbl, 0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
 impl windows_core::RuntimeType for IBrightnessOverrideStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IBrightnessOverrideStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1079,6 +1091,7 @@ pub struct IBrightnessOverrideStatics_Vtbl {
 windows_core::imp::define_interface!(IColorOverrideSettings, IColorOverrideSettings_Vtbl, 0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 impl windows_core::RuntimeType for IColorOverrideSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IColorOverrideSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1089,6 +1102,7 @@ pub struct IColorOverrideSettings_Vtbl {
 windows_core::imp::define_interface!(IColorOverrideSettingsStatics, IColorOverrideSettingsStatics_Vtbl, 0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
 impl windows_core::RuntimeType for IColorOverrideSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IColorOverrideSettingsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1099,6 +1113,7 @@ pub struct IColorOverrideSettingsStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayEnhancementOverride, IDisplayEnhancementOverride_Vtbl, 0x429594cf_d97a_4b02_a428_5c4292f7f522);
 impl windows_core::RuntimeType for IDisplayEnhancementOverride {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayEnhancementOverride");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1123,6 +1138,7 @@ pub struct IDisplayEnhancementOverride_Vtbl {
 windows_core::imp::define_interface!(IDisplayEnhancementOverrideCapabilities, IDisplayEnhancementOverrideCapabilities_Vtbl, 0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 impl windows_core::RuntimeType for IDisplayEnhancementOverrideCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1135,6 +1151,7 @@ pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
 windows_core::imp::define_interface!(IDisplayEnhancementOverrideCapabilitiesChangedEventArgs, IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl, 0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 impl windows_core::RuntimeType for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayEnhancementOverrideCapabilitiesChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1145,6 +1162,7 @@ pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDisplayEnhancementOverrideStatics, IDisplayEnhancementOverrideStatics_Vtbl, 0xcf5b7ec1_9791_4453_b013_29b6f778e519);
 impl windows_core::RuntimeType for IDisplayEnhancementOverrideStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayEnhancementOverrideStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1155,6 +1173,7 @@ pub struct IDisplayEnhancementOverrideStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayInformation, IDisplayInformation_Vtbl, 0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
 impl windows_core::RuntimeType for IDisplayInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1183,6 +1202,7 @@ pub struct IDisplayInformation_Vtbl {
 windows_core::imp::define_interface!(IDisplayInformation2, IDisplayInformation2_Vtbl, 0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
 impl windows_core::RuntimeType for IDisplayInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayInformation2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1193,6 +1213,7 @@ pub struct IDisplayInformation2_Vtbl {
 windows_core::imp::define_interface!(IDisplayInformation3, IDisplayInformation3_Vtbl, 0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
 impl windows_core::RuntimeType for IDisplayInformation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayInformation3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1203,6 +1224,7 @@ pub struct IDisplayInformation3_Vtbl {
 windows_core::imp::define_interface!(IDisplayInformation4, IDisplayInformation4_Vtbl, 0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
 impl windows_core::RuntimeType for IDisplayInformation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayInformation4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1214,6 +1236,7 @@ pub struct IDisplayInformation4_Vtbl {
 windows_core::imp::define_interface!(IDisplayInformation5, IDisplayInformation5_Vtbl, 0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
 impl windows_core::RuntimeType for IDisplayInformation5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayInformation5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1226,6 +1249,7 @@ pub struct IDisplayInformation5_Vtbl {
 windows_core::imp::define_interface!(IDisplayInformationStatics, IDisplayInformationStatics_Vtbl, 0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
 impl windows_core::RuntimeType for IDisplayInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayInformationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1240,6 +1264,7 @@ pub struct IDisplayInformationStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayPropertiesStatics, IDisplayPropertiesStatics_Vtbl, 0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
 impl windows_core::RuntimeType for IDisplayPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayPropertiesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1270,6 +1295,7 @@ pub struct IDisplayPropertiesStatics_Vtbl {
 windows_core::imp::define_interface!(IDisplayServices, IDisplayServices_Vtbl, 0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 impl windows_core::RuntimeType for IDisplayServices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayServices");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1279,6 +1305,7 @@ pub struct IDisplayServices_Vtbl {
 windows_core::imp::define_interface!(IDisplayServicesStatics, IDisplayServicesStatics_Vtbl, 0xdc2096bf_730a_5560_b461_91c13d692e0c);
 impl windows_core::RuntimeType for IDisplayServicesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.IDisplayServicesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1298,6 +1325,7 @@ impl windows_core::TypeKind for NitRange {
 }
 impl windows_core::RuntimeType for NitRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.NitRange");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1326,4 +1354,5 @@ impl windows_core::TypeKind for ResolutionScale {
 }
 impl windows_core::RuntimeType for ResolutionScale {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.ResolutionScale");
 }

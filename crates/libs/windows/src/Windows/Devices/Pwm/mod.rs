@@ -3,6 +3,7 @@ pub mod Provider;
 windows_core::imp::define_interface!(IPwmController, IPwmController_Vtbl, 0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 impl windows_core::RuntimeType for IPwmController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.IPwmController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18,6 +19,7 @@ pub struct IPwmController_Vtbl {
 windows_core::imp::define_interface!(IPwmControllerStatics, IPwmControllerStatics_Vtbl, 0x4263bda1_8946_4404_bd48_81dd124af4d9);
 impl windows_core::RuntimeType for IPwmControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.IPwmControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,6 +33,7 @@ pub struct IPwmControllerStatics_Vtbl {
 windows_core::imp::define_interface!(IPwmControllerStatics2, IPwmControllerStatics2_Vtbl, 0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
 impl windows_core::RuntimeType for IPwmControllerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.IPwmControllerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,6 +44,7 @@ pub struct IPwmControllerStatics2_Vtbl {
 windows_core::imp::define_interface!(IPwmControllerStatics3, IPwmControllerStatics3_Vtbl, 0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
 impl windows_core::RuntimeType for IPwmControllerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.IPwmControllerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,6 +57,7 @@ pub struct IPwmControllerStatics3_Vtbl {
 windows_core::imp::define_interface!(IPwmPin, IPwmPin_Vtbl, 0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 impl windows_core::RuntimeType for IPwmPin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.IPwmPin");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -238,4 +243,5 @@ impl windows_core::TypeKind for PwmPulsePolarity {
 }
 impl windows_core::RuntimeType for PwmPulsePolarity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.PwmPulsePolarity");
 }

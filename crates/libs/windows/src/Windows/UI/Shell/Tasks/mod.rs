@@ -247,10 +247,12 @@ impl windows_core::TypeKind for AppTaskState {
 }
 impl windows_core::RuntimeType for AppTaskState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.Tasks.AppTaskState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.AppTaskState");
 }
 windows_core::imp::define_interface!(IAppTaskContent, IAppTaskContent_Vtbl, 0x2411bf59_1b2d_5b63_8181_03d6c2248a68);
 impl windows_core::RuntimeType for IAppTaskContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskContent");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -263,6 +265,7 @@ pub struct IAppTaskContent_Vtbl {
 windows_core::imp::define_interface!(IAppTaskContentStatics, IAppTaskContentStatics_Vtbl, 0xaabd19f6_7afc_5b1b_94f6_5dc9dc9af9e7);
 impl windows_core::RuntimeType for IAppTaskContentStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskContentStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,6 +280,7 @@ pub struct IAppTaskContentStatics_Vtbl {
 windows_core::imp::define_interface!(IAppTaskInfo, IAppTaskInfo_Vtbl, 0x6720eed6_435b_5db9_be66_9343b70654f7);
 impl windows_core::RuntimeType for IAppTaskInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -299,6 +303,7 @@ pub struct IAppTaskInfo_Vtbl {
 windows_core::imp::define_interface!(IAppTaskInfo2, IAppTaskInfo2_Vtbl, 0xad724d71_f137_51c0_8111_3552436bf447);
 impl windows_core::RuntimeType for IAppTaskInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,6 +316,7 @@ pub struct IAppTaskInfo2_Vtbl {
 windows_core::imp::define_interface!(IAppTaskInfoStatics, IAppTaskInfoStatics_Vtbl, 0xa0b0434f_c640_5800_88c9_d7691ac2f48f);
 impl windows_core::RuntimeType for IAppTaskInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -323,6 +329,7 @@ pub struct IAppTaskInfoStatics_Vtbl {
 windows_core::imp::define_interface!(IAppTaskResultAsset, IAppTaskResultAsset_Vtbl, 0x75d0c2b3_8a31_5f8f_bda4_bdca96e95532);
 impl windows_core::RuntimeType for IAppTaskResultAsset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskResultAsset");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,6 +339,7 @@ pub struct IAppTaskResultAsset_Vtbl {
 windows_core::imp::define_interface!(IAppTaskResultAssetFactory, IAppTaskResultAssetFactory_Vtbl, 0x0334d9df_0e06_5999_ba41_85d72e980085);
 impl windows_core::RuntimeType for IAppTaskResultAssetFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.Tasks.IAppTaskResultAssetFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

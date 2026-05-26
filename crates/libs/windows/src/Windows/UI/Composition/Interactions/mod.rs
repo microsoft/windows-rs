@@ -330,6 +330,7 @@ impl IntoIterator for &CompositionInteractionSourceCollection {
 windows_core::imp::define_interface!(ICompositionConditionalValue, ICompositionConditionalValue_Vtbl, 0x43250538_eb73_4561_a71d_1a43eaeb7a9b);
 impl windows_core::RuntimeType for ICompositionConditionalValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.ICompositionConditionalValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,6 +344,7 @@ pub struct ICompositionConditionalValue_Vtbl {
 windows_core::imp::define_interface!(ICompositionConditionalValueStatics, ICompositionConditionalValueStatics_Vtbl, 0x090c4b72_8467_4d0a_9065_ac46b80a5522);
 impl windows_core::RuntimeType for ICompositionConditionalValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.ICompositionConditionalValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -353,6 +355,7 @@ pub struct ICompositionConditionalValueStatics_Vtbl {
 windows_core::imp::define_interface!(ICompositionInteractionSource, ICompositionInteractionSource_Vtbl, 0x043b2431_06e3_495a_ba54_409f0017fac0);
 impl windows_core::RuntimeType for ICompositionInteractionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.ICompositionInteractionSource");
 }
 windows_core::imp::interface_hierarchy!(ICompositionInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for ICompositionInteractionSource {
@@ -375,6 +378,7 @@ pub struct ICompositionInteractionSource_Vtbl {
 windows_core::imp::define_interface!(ICompositionInteractionSourceCollection, ICompositionInteractionSourceCollection_Vtbl, 0x1b468e4b_a5bf_47d8_a547_3894155a158c);
 impl windows_core::RuntimeType for ICompositionInteractionSourceCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.ICompositionInteractionSourceCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -388,6 +392,7 @@ pub struct ICompositionInteractionSourceCollection_Vtbl {
 windows_core::imp::define_interface!(IInteractionSourceConfiguration, IInteractionSourceConfiguration_Vtbl, 0xa78347e5_a9d1_4d02_985e_b930cd0b9da4);
 impl windows_core::RuntimeType for IInteractionSourceConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionSourceConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -403,6 +408,7 @@ pub struct IInteractionSourceConfiguration_Vtbl {
 windows_core::imp::define_interface!(IInteractionTracker, IInteractionTracker_Vtbl, 0x2a8e8cb1_1000_4416_8363_cc27fb877308);
 impl windows_core::RuntimeType for IInteractionTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTracker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -445,6 +451,7 @@ pub struct IInteractionTracker_Vtbl {
 windows_core::imp::define_interface!(IInteractionTracker2, IInteractionTracker2_Vtbl, 0x25769a3e_ce6d_448c_8386_92620d240756);
 impl windows_core::RuntimeType for IInteractionTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTracker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -456,6 +463,7 @@ pub struct IInteractionTracker2_Vtbl {
 windows_core::imp::define_interface!(IInteractionTracker3, IInteractionTracker3_Vtbl, 0xe6c5d7a2_5c4b_42c6_84b7_f69441b18091);
 impl windows_core::RuntimeType for IInteractionTracker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTracker3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,6 +474,7 @@ pub struct IInteractionTracker3_Vtbl {
 windows_core::imp::define_interface!(IInteractionTracker4, IInteractionTracker4_Vtbl, 0xebd222bc_04af_4ac7_847d_06ea36e80a16);
 impl windows_core::RuntimeType for IInteractionTracker4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTracker4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -478,6 +487,7 @@ pub struct IInteractionTracker4_Vtbl {
 windows_core::imp::define_interface!(IInteractionTracker5, IInteractionTracker5_Vtbl, 0xd3ef5da2_a254_40e4_88d5_44e4e16b5809);
 impl windows_core::RuntimeType for IInteractionTracker5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTracker5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -488,6 +498,7 @@ pub struct IInteractionTracker5_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs, IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl, 0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834);
 impl windows_core::RuntimeType for IInteractionTrackerCustomAnimationStateEnteredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -498,6 +509,7 @@ pub struct IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs2, IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl, 0x47d579b7_0985_5e99_b024_2f32c380c1a4);
 impl windows_core::RuntimeType for IInteractionTrackerCustomAnimationStateEnteredArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -508,6 +520,7 @@ pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerIdleStateEnteredArgs, IInteractionTrackerIdleStateEnteredArgs_Vtbl, 0x50012faa_1510_4142_a1a5_019b09f8857b);
 impl windows_core::RuntimeType for IInteractionTrackerIdleStateEnteredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -518,6 +531,7 @@ pub struct IInteractionTrackerIdleStateEnteredArgs_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerIdleStateEnteredArgs2, IInteractionTrackerIdleStateEnteredArgs2_Vtbl, 0xf2e771ed_b803_5137_9435_1c96e48721e9);
 impl windows_core::RuntimeType for IInteractionTrackerIdleStateEnteredArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -528,6 +542,7 @@ pub struct IInteractionTrackerIdleStateEnteredArgs2_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaModifier, IInteractionTrackerInertiaModifier_Vtbl, 0xa0e2c920_26b4_4da2_8b61_5e683979bbe2);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaModifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -537,6 +552,7 @@ pub struct IInteractionTrackerInertiaModifier_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaModifierFactory, IInteractionTrackerInertiaModifierFactory_Vtbl, 0x993818fe_c94e_4b86_87f3_922665ba46b9);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaModifierFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifierFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -546,6 +562,7 @@ pub struct IInteractionTrackerInertiaModifierFactory_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotion_Vtbl, 0x04922fdc_f154_4cb8_bf33_cc1ba611e6db);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaMotion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -559,6 +576,7 @@ pub struct IInteractionTrackerInertiaMotion_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaMotionStatics, IInteractionTrackerInertiaMotionStatics_Vtbl, 0x8cc83dd6_ba7b_431a_844b_6eac9130f99a);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaMotionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -569,6 +587,7 @@ pub struct IInteractionTrackerInertiaMotionStatics_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotion_Vtbl, 0x70acdaae_27dc_48ed_a3c3_6d61c9a029d2);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaNaturalMotion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -582,6 +601,7 @@ pub struct IInteractionTrackerInertiaNaturalMotion_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaNaturalMotionStatics, IInteractionTrackerInertiaNaturalMotionStatics_Vtbl, 0xcfda55b0_5e3e_4289_932d_ee5f50e74283);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaNaturalMotionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -592,6 +612,7 @@ pub struct IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValue_Vtbl, 0x86f7ec09_5096_4170_9cc8_df2fe101bb93);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaRestingValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,6 +626,7 @@ pub struct IInteractionTrackerInertiaRestingValue_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaRestingValueStatics, IInteractionTrackerInertiaRestingValueStatics_Vtbl, 0x18ed4699_0745_4096_bcab_3a4e99569bcf);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaRestingValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -615,6 +637,7 @@ pub struct IInteractionTrackerInertiaRestingValueStatics_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaStateEnteredArgs, IInteractionTrackerInertiaStateEnteredArgs_Vtbl, 0x87108cf2_e7ff_4f7d_9ffd_d72f1e409b63);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -631,6 +654,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaStateEnteredArgs2, IInteractionTrackerInertiaStateEnteredArgs2_Vtbl, 0xb1eb32f6_c26c_41f6_a189_fabc22b323cc);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -641,6 +665,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInertiaStateEnteredArgs3, IInteractionTrackerInertiaStateEnteredArgs3_Vtbl, 0x48ac1c2f_47bd_59af_a58c_79bd2eb9ef71);
 impl windows_core::RuntimeType for IInteractionTrackerInertiaStateEnteredArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -651,6 +676,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs3_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInteractingStateEnteredArgs, IInteractionTrackerInteractingStateEnteredArgs_Vtbl, 0xa7263939_a17b_4011_99fd_b5c24f143748);
 impl windows_core::RuntimeType for IInteractionTrackerInteractingStateEnteredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -661,6 +687,7 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerInteractingStateEnteredArgs2, IInteractionTrackerInteractingStateEnteredArgs2_Vtbl, 0x509652d6_d488_59cd_819f_f52310295b11);
 impl windows_core::RuntimeType for IInteractionTrackerInteractingStateEnteredArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -671,6 +698,7 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerOwner, IInteractionTrackerOwner_Vtbl, 0xdb2e8af3_4deb_4e53_b29c_b06c9f96d651);
 impl windows_core::RuntimeType for IInteractionTrackerOwner {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerOwner");
 }
 windows_core::imp::interface_hierarchy!(IInteractionTrackerOwner, windows_core::IUnknown, windows_core::IInspectable);
 impl IInteractionTrackerOwner {
@@ -794,6 +822,7 @@ pub struct IInteractionTrackerOwner_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerRequestIgnoredArgs, IInteractionTrackerRequestIgnoredArgs_Vtbl, 0x80dd82f1_ce25_488f_91dd_cb6455ccff2e);
 impl windows_core::RuntimeType for IInteractionTrackerRequestIgnoredArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerRequestIgnoredArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -804,6 +833,7 @@ pub struct IInteractionTrackerRequestIgnoredArgs_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerStatics, IInteractionTrackerStatics_Vtbl, 0xbba5d7b7_6590_4498_8d6c_eb62b514c92a);
 impl windows_core::RuntimeType for IInteractionTrackerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -815,6 +845,7 @@ pub struct IInteractionTrackerStatics_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerStatics2, IInteractionTrackerStatics2_Vtbl, 0x35e53720_46b7_5cb0_b505_f3d6884a6163);
 impl windows_core::RuntimeType for IInteractionTrackerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -826,6 +857,7 @@ pub struct IInteractionTrackerStatics2_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerValuesChangedArgs, IInteractionTrackerValuesChangedArgs_Vtbl, 0xcf1578ef_d3df_4501_b9e6_f02fb22f73d0);
 impl windows_core::RuntimeType for IInteractionTrackerValuesChangedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -838,6 +870,7 @@ pub struct IInteractionTrackerValuesChangedArgs_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaModifier, IInteractionTrackerVector2InertiaModifier_Vtbl, 0x87e08ab0_3086_4853_a4b7_77882ad5d7e3);
 impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaModifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -847,6 +880,7 @@ pub struct IInteractionTrackerVector2InertiaModifier_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaModifierFactory, IInteractionTrackerVector2InertiaModifierFactory_Vtbl, 0x7401d6c4_6c6d_48df_bc3e_171e227e7d7f);
 impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaModifierFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifierFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -856,6 +890,7 @@ pub struct IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotion_Vtbl, 0x5f17695c_162d_4c07_9400_c282b28276ca);
 impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaNaturalMotion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -869,6 +904,7 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
 windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaNaturalMotionStatics, IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl, 0x82001a48_09c0_434f_8189_141c66df362f);
 impl windows_core::RuntimeType for IInteractionTrackerVector2InertiaNaturalMotionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -879,6 +915,7 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
 windows_core::imp::define_interface!(IVisualInteractionSource, IVisualInteractionSource_Vtbl, 0xca0e8a86_d8d6_4111_b088_70347bd2b0ed);
 impl windows_core::RuntimeType for IVisualInteractionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IVisualInteractionSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -911,6 +948,7 @@ pub struct IVisualInteractionSource_Vtbl {
 windows_core::imp::define_interface!(IVisualInteractionSource2, IVisualInteractionSource2_Vtbl, 0xaa914893_a73c_414d_80d0_249bad2fbd93);
 impl windows_core::RuntimeType for IVisualInteractionSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IVisualInteractionSource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -931,6 +969,7 @@ pub struct IVisualInteractionSource2_Vtbl {
 windows_core::imp::define_interface!(IVisualInteractionSource3, IVisualInteractionSource3_Vtbl, 0xd941ef2a_0d5c_4057_92d7_c9711533204f);
 impl windows_core::RuntimeType for IVisualInteractionSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IVisualInteractionSource3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -941,6 +980,7 @@ pub struct IVisualInteractionSource3_Vtbl {
 windows_core::imp::define_interface!(IVisualInteractionSourceObjectFactory, IVisualInteractionSourceObjectFactory_Vtbl, 0xb2ca917c_e98a_41f2_b3c9_891c9266c8f6);
 impl windows_core::RuntimeType for IVisualInteractionSourceObjectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IVisualInteractionSourceObjectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -950,6 +990,7 @@ pub struct IVisualInteractionSourceObjectFactory_Vtbl {
 windows_core::imp::define_interface!(IVisualInteractionSourceStatics, IVisualInteractionSourceStatics_Vtbl, 0x369965e1_8645_4f75_ba00_6479cd10c8e6);
 impl windows_core::RuntimeType for IVisualInteractionSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -960,6 +1001,7 @@ pub struct IVisualInteractionSourceStatics_Vtbl {
 windows_core::imp::define_interface!(IVisualInteractionSourceStatics2, IVisualInteractionSourceStatics2_Vtbl, 0xa979c032_5764_55e0_bc1f_0778786dcfde);
 impl windows_core::RuntimeType for IVisualInteractionSourceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -981,6 +1023,7 @@ impl windows_core::TypeKind for InteractionBindingAxisModes {
 }
 impl windows_core::RuntimeType for InteractionBindingAxisModes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.InteractionBindingAxisModes");
 }
 impl InteractionBindingAxisModes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1028,6 +1071,7 @@ impl windows_core::TypeKind for InteractionChainingMode {
 }
 impl windows_core::RuntimeType for InteractionChainingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.InteractionChainingMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1194,6 +1238,7 @@ impl windows_core::TypeKind for InteractionSourceMode {
 }
 impl windows_core::RuntimeType for InteractionSourceMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.InteractionSourceMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1207,6 +1252,7 @@ impl windows_core::TypeKind for InteractionSourceRedirectionMode {
 }
 impl windows_core::RuntimeType for InteractionSourceRedirectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1620,6 +1666,7 @@ impl windows_core::TypeKind for InteractionTrackerClampingOption {
 }
 impl windows_core::RuntimeType for InteractionTrackerClampingOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.InteractionTrackerClampingOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2411,6 +2458,7 @@ impl windows_core::TypeKind for InteractionTrackerPositionUpdateOption {
 }
 impl windows_core::RuntimeType for InteractionTrackerPositionUpdateOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3102,4 +3150,5 @@ impl windows_core::TypeKind for VisualInteractionSourceRedirectionMode {
 }
 impl windows_core::RuntimeType for VisualInteractionSourceRedirectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode");
 }

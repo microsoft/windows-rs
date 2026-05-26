@@ -83,6 +83,7 @@ impl windows_core::TypeKind for DeviceAccessMode {
 }
 impl windows_core::RuntimeType for DeviceAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.DeviceAccessMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -96,10 +97,12 @@ impl windows_core::TypeKind for DeviceSharingMode {
 }
 impl windows_core::RuntimeType for DeviceSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.DeviceSharingMode");
 }
 windows_core::imp::define_interface!(ICustomDevice, ICustomDevice_Vtbl, 0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 impl windows_core::RuntimeType for ICustomDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.ICustomDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,6 +128,7 @@ pub struct ICustomDevice_Vtbl {
 windows_core::imp::define_interface!(ICustomDeviceStatics, ICustomDeviceStatics_Vtbl, 0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
 impl windows_core::RuntimeType for ICustomDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.ICustomDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,6 +140,7 @@ pub struct ICustomDeviceStatics_Vtbl {
 windows_core::imp::define_interface!(IIOControlCode, IIOControlCode_Vtbl, 0x0e9559e7_60c8_4375_a761_7f8808066c60);
 impl windows_core::RuntimeType for IIOControlCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.IIOControlCode");
 }
 windows_core::imp::interface_hierarchy!(IIOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 impl IIOControlCode {
@@ -268,6 +273,7 @@ pub struct IIOControlCode_Vtbl {
 windows_core::imp::define_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 impl windows_core::RuntimeType for IIOControlCodeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.IIOControlCodeFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +284,7 @@ pub struct IIOControlCodeFactory_Vtbl {
 windows_core::imp::define_interface!(IKnownDeviceTypesStatics, IKnownDeviceTypesStatics_Vtbl, 0xee5479c2_5448_45da_ad1b_24948c239094);
 impl windows_core::RuntimeType for IKnownDeviceTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.IKnownDeviceTypesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -299,6 +306,7 @@ impl windows_core::TypeKind for IOControlAccessMode {
 }
 impl windows_core::RuntimeType for IOControlAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.IOControlAccessMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -314,6 +322,7 @@ impl windows_core::TypeKind for IOControlBufferingMethod {
 }
 impl windows_core::RuntimeType for IOControlBufferingMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Custom.IOControlBufferingMethod");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

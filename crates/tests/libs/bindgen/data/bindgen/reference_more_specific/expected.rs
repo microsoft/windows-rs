@@ -19,6 +19,10 @@ pub mod Windows {
                     windows_core::imp::ConstBuffer::from_slice(
                         b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)",
                     );
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Matrix3x2",
+                    );
             }
             #[repr(C)]
             #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -31,6 +35,10 @@ pub mod Windows {
             }
             impl windows_core::RuntimeType for Plane {
                 const SIGNATURE : windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice (b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)") ;
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Plane",
+                    );
             }
             #[repr(C)]
             #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -48,6 +56,10 @@ pub mod Windows {
                     windows_core::imp::ConstBuffer::from_slice(
                         b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)",
                     );
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Quaternion",
+                    );
             }
             #[repr(C)]
             #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -63,6 +75,10 @@ pub mod Windows {
                     windows_core::imp::ConstBuffer::from_slice(
                         b"struct(Windows.Foundation.Numerics.Rational;u4;u4)",
                     );
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Rational",
+                    );
             }
             #[repr(C)]
             #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -77,6 +93,10 @@ pub mod Windows {
                 const SIGNATURE: windows_core::imp::ConstBuffer =
                     windows_core::imp::ConstBuffer::from_slice(
                         b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)",
+                    );
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Vector2",
                     );
             }
             #[repr(C)]
@@ -94,6 +114,10 @@ pub mod Windows {
                     windows_core::imp::ConstBuffer::from_slice(
                         b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)",
                     );
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Vector3",
+                    );
             }
             #[repr(C)]
             #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -110,6 +134,10 @@ pub mod Windows {
                 const SIGNATURE: windows_core::imp::ConstBuffer =
                     windows_core::imp::ConstBuffer::from_slice(
                         b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)",
+                    );
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(
+                        b"Windows.Foundation.Numerics.Vector4",
                     );
             }
         }

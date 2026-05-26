@@ -17,6 +17,7 @@ impl windows_core::RuntimeName for ClassicAppManager {
 windows_core::imp::define_interface!(IClassicAppManagerStatics, IClassicAppManagerStatics_Vtbl, 0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 impl windows_core::RuntimeType for IClassicAppManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.Preview.IClassicAppManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,6 +28,7 @@ pub struct IClassicAppManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IInstalledClassicAppInfo, IInstalledClassicAppInfo_Vtbl, 0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 impl windows_core::RuntimeType for IInstalledClassicAppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.Preview.IInstalledClassicAppInfo");
 }
 #[repr(C)]
 #[doc(hidden)]

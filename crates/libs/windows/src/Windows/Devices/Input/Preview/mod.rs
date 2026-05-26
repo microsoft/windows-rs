@@ -13,6 +13,7 @@ impl windows_core::TypeKind for GazeDeviceConfigurationStatePreview {
 }
 impl windows_core::RuntimeType for GazeDeviceConfigurationStatePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -447,6 +448,7 @@ unsafe impl Sync for GazePointPreview {}
 windows_core::imp::define_interface!(IGazeDevicePreview, IGazeDevicePreview_Vtbl, 0xe79e7ee9_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazeDevicePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDevicePreview");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -469,6 +471,7 @@ pub struct IGazeDevicePreview_Vtbl {
 windows_core::imp::define_interface!(IGazeDeviceWatcherAddedPreviewEventArgs, IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl, 0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazeDeviceWatcherAddedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherAddedPreviewEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -479,6 +482,7 @@ pub struct IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGazeDeviceWatcherPreview, IGazeDeviceWatcherPreview_Vtbl, 0xe79e7ee7_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazeDeviceWatcherPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -498,6 +502,7 @@ pub struct IGazeDeviceWatcherPreview_Vtbl {
 windows_core::imp::define_interface!(IGazeDeviceWatcherRemovedPreviewEventArgs, IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl, 0xf2631f08_0e3f_431f_a606_50b35af94a1c);
 impl windows_core::RuntimeType for IGazeDeviceWatcherRemovedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherRemovedPreviewEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -508,6 +513,7 @@ pub struct IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGazeDeviceWatcherUpdatedPreviewEventArgs, IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl, 0x7fe830ef_7f08_4737_88e1_4a83ae4e4885);
 impl windows_core::RuntimeType for IGazeDeviceWatcherUpdatedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeDeviceWatcherUpdatedPreviewEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -518,6 +524,7 @@ pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGazeEnteredPreviewEventArgs, IGazeEnteredPreviewEventArgs_Vtbl, 0x2567bf43_1225_489f_9dd1_daa7c50fbf4b);
 impl windows_core::RuntimeType for IGazeEnteredPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeEnteredPreviewEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -530,6 +537,7 @@ pub struct IGazeEnteredPreviewEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGazeExitedPreviewEventArgs, IGazeExitedPreviewEventArgs_Vtbl, 0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac);
 impl windows_core::RuntimeType for IGazeExitedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeExitedPreviewEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -542,6 +550,7 @@ pub struct IGazeExitedPreviewEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGazeInputSourcePreview, IGazeInputSourcePreview_Vtbl, 0xe79e7ee8_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazeInputSourcePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeInputSourcePreview");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -557,6 +566,7 @@ pub struct IGazeInputSourcePreview_Vtbl {
 windows_core::imp::define_interface!(IGazeInputSourcePreviewStatics, IGazeInputSourcePreviewStatics_Vtbl, 0xe79e7ee6_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazeInputSourcePreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeInputSourcePreviewStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -568,6 +578,7 @@ pub struct IGazeInputSourcePreviewStatics_Vtbl {
 windows_core::imp::define_interface!(IGazeMovedPreviewEventArgs, IGazeMovedPreviewEventArgs_Vtbl, 0xe79e7eeb_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazeMovedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -581,6 +592,7 @@ pub struct IGazeMovedPreviewEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGazePointPreview, IGazePointPreview_Vtbl, 0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
 impl windows_core::RuntimeType for IGazePointPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Input.Preview.IGazePointPreview");
 }
 #[repr(C)]
 #[doc(hidden)]

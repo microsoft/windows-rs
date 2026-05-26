@@ -190,6 +190,7 @@ impl windows_core::TypeKind for GeofenceMonitorStatus {
 }
 impl windows_core::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -203,6 +204,7 @@ impl windows_core::TypeKind for GeofenceRemovalReason {
 }
 impl windows_core::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -218,6 +220,7 @@ impl windows_core::TypeKind for GeofenceState {
 }
 impl windows_core::RuntimeType for GeofenceState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.GeofenceState");
 }
 impl GeofenceState {
     pub const fn contains(&self, other: Self) -> bool {
@@ -297,6 +300,7 @@ unsafe impl Sync for GeofenceStateChangeReport {}
 windows_core::imp::define_interface!(IGeofence, IGeofence_Vtbl, 0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 impl windows_core::RuntimeType for IGeofence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofence");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,6 +317,7 @@ pub struct IGeofence_Vtbl {
 windows_core::imp::define_interface!(IGeofenceFactory, IGeofenceFactory_Vtbl, 0x841f624b_325f_4b90_bca7_2b8022a93796);
 impl windows_core::RuntimeType for IGeofenceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -326,6 +331,7 @@ pub struct IGeofenceFactory_Vtbl {
 windows_core::imp::define_interface!(IGeofenceMonitor, IGeofenceMonitor_Vtbl, 0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 impl windows_core::RuntimeType for IGeofenceMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -343,6 +349,7 @@ pub struct IGeofenceMonitor_Vtbl {
 windows_core::imp::define_interface!(IGeofenceMonitorStatics, IGeofenceMonitorStatics_Vtbl, 0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
 impl windows_core::RuntimeType for IGeofenceMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceMonitorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -353,6 +360,7 @@ pub struct IGeofenceMonitorStatics_Vtbl {
 windows_core::imp::define_interface!(IGeofenceStateChangeReport, IGeofenceStateChangeReport_Vtbl, 0x9a243c18_2464_4c89_be05_b3ffff5babc5);
 impl windows_core::RuntimeType for IGeofenceStateChangeReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,6 +385,7 @@ impl windows_core::TypeKind for MonitoredGeofenceStates {
 }
 impl windows_core::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates");
 }
 impl MonitoredGeofenceStates {
     pub const fn contains(&self, other: Self) -> bool {

@@ -341,6 +341,7 @@ impl windows_core::TypeKind for GameSaveErrorStatus {
 }
 impl windows_core::RuntimeType for GameSaveErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -484,6 +485,7 @@ unsafe impl Sync for GameSaveProviderGetResult {}
 windows_core::imp::define_interface!(IGameSaveBlobGetResult, IGameSaveBlobGetResult_Vtbl, 0x917281e0_7201_4953_aa2c_4008f03aef45);
 impl windows_core::RuntimeType for IGameSaveBlobGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveBlobGetResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -498,6 +500,7 @@ pub struct IGameSaveBlobGetResult_Vtbl {
 windows_core::imp::define_interface!(IGameSaveBlobInfo, IGameSaveBlobInfo_Vtbl, 0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 impl windows_core::RuntimeType for IGameSaveBlobInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,6 +512,7 @@ pub struct IGameSaveBlobInfo_Vtbl {
 windows_core::imp::define_interface!(IGameSaveBlobInfoGetResult, IGameSaveBlobInfoGetResult_Vtbl, 0xc7578582_3697_42bf_989c_665d923b5231);
 impl windows_core::RuntimeType for IGameSaveBlobInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoGetResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -520,6 +524,7 @@ pub struct IGameSaveBlobInfoGetResult_Vtbl {
 windows_core::imp::define_interface!(IGameSaveBlobInfoQuery, IGameSaveBlobInfoQuery_Vtbl, 0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 impl windows_core::RuntimeType for IGameSaveBlobInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoQuery");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -532,6 +537,7 @@ pub struct IGameSaveBlobInfoQuery_Vtbl {
 windows_core::imp::define_interface!(IGameSaveContainer, IGameSaveContainer_Vtbl, 0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 impl windows_core::RuntimeType for IGameSaveContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveContainer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -557,6 +563,7 @@ pub struct IGameSaveContainer_Vtbl {
 windows_core::imp::define_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 impl windows_core::RuntimeType for IGameSaveContainerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -571,6 +578,7 @@ pub struct IGameSaveContainerInfo_Vtbl {
 windows_core::imp::define_interface!(IGameSaveContainerInfoGetResult, IGameSaveContainerInfoGetResult_Vtbl, 0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 impl windows_core::RuntimeType for IGameSaveContainerInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoGetResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -582,6 +590,7 @@ pub struct IGameSaveContainerInfoGetResult_Vtbl {
 windows_core::imp::define_interface!(IGameSaveContainerInfoQuery, IGameSaveContainerInfoQuery_Vtbl, 0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 impl windows_core::RuntimeType for IGameSaveContainerInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoQuery");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -594,6 +603,7 @@ pub struct IGameSaveContainerInfoQuery_Vtbl {
 windows_core::imp::define_interface!(IGameSaveOperationResult, IGameSaveOperationResult_Vtbl, 0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 impl windows_core::RuntimeType for IGameSaveOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveOperationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -604,6 +614,7 @@ pub struct IGameSaveOperationResult_Vtbl {
 windows_core::imp::define_interface!(IGameSaveProvider, IGameSaveProvider_Vtbl, 0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 impl windows_core::RuntimeType for IGameSaveProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -623,6 +634,7 @@ pub struct IGameSaveProvider_Vtbl {
 windows_core::imp::define_interface!(IGameSaveProviderGetResult, IGameSaveProviderGetResult_Vtbl, 0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 impl windows_core::RuntimeType for IGameSaveProviderGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveProviderGetResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -634,6 +646,7 @@ pub struct IGameSaveProviderGetResult_Vtbl {
 windows_core::imp::define_interface!(IGameSaveProviderStatics, IGameSaveProviderStatics_Vtbl, 0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 impl windows_core::RuntimeType for IGameSaveProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.XboxLive.Storage.IGameSaveProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

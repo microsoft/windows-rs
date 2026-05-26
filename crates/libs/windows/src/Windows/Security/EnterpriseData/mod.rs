@@ -147,6 +147,7 @@ impl windows_core::TypeKind for DataProtectionStatus {
 }
 impl windows_core::RuntimeType for DataProtectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.DataProtectionStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -162,6 +163,7 @@ impl windows_core::TypeKind for EnforcementLevel {
 }
 impl windows_core::RuntimeType for EnforcementLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.EnforcementLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -371,6 +373,7 @@ impl windows_core::TypeKind for FileProtectionStatus {
 }
 impl windows_core::RuntimeType for FileProtectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.FileProtectionStatus");
 }
 pub struct FileRevocationManager;
 impl FileRevocationManager {
@@ -456,6 +459,7 @@ unsafe impl Sync for FileUnprotectOptions {}
 windows_core::imp::define_interface!(IBufferProtectUnprotectResult, IBufferProtectUnprotectResult_Vtbl, 0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
 impl windows_core::RuntimeType for IBufferProtectUnprotectResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IBufferProtectUnprotectResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -470,6 +474,7 @@ pub struct IBufferProtectUnprotectResult_Vtbl {
 windows_core::imp::define_interface!(IDataProtectionInfo, IDataProtectionInfo_Vtbl, 0x8420b0c1_5e31_4405_9540_3f943af0cb26);
 impl windows_core::RuntimeType for IDataProtectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IDataProtectionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,6 +486,7 @@ pub struct IDataProtectionInfo_Vtbl {
 windows_core::imp::define_interface!(IDataProtectionManagerStatics, IDataProtectionManagerStatics_Vtbl, 0xb6149b74_9144_4ee4_8a8a_30b5f361430e);
 impl windows_core::RuntimeType for IDataProtectionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IDataProtectionManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -514,6 +520,7 @@ pub struct IDataProtectionManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IFileProtectionInfo, IFileProtectionInfo_Vtbl, 0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
 impl windows_core::RuntimeType for IFileProtectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileProtectionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,6 +533,7 @@ pub struct IFileProtectionInfo_Vtbl {
 windows_core::imp::define_interface!(IFileProtectionInfo2, IFileProtectionInfo2_Vtbl, 0x82123a4c_557a_498d_8e94_944cd5836432);
 impl windows_core::RuntimeType for IFileProtectionInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileProtectionInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -536,6 +544,7 @@ pub struct IFileProtectionInfo2_Vtbl {
 windows_core::imp::define_interface!(IFileProtectionManagerStatics, IFileProtectionManagerStatics_Vtbl, 0x5846fc9b_e613_426b_bb38_88cba1dc9adb);
 impl windows_core::RuntimeType for IFileProtectionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileProtectionManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -573,6 +582,7 @@ pub struct IFileProtectionManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IFileProtectionManagerStatics2, IFileProtectionManagerStatics2_Vtbl, 0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb);
 impl windows_core::RuntimeType for IFileProtectionManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileProtectionManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -594,6 +604,7 @@ pub struct IFileProtectionManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IFileProtectionManagerStatics3, IFileProtectionManagerStatics3_Vtbl, 0x6918849a_624f_46d6_b241_e9cd5fdf3e3f);
 impl windows_core::RuntimeType for IFileProtectionManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileProtectionManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -611,6 +622,7 @@ pub struct IFileProtectionManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IFileRevocationManagerStatics, IFileRevocationManagerStatics_Vtbl, 0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
 impl windows_core::RuntimeType for IFileRevocationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileRevocationManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -633,6 +645,7 @@ pub struct IFileRevocationManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IFileUnprotectOptions, IFileUnprotectOptions_Vtbl, 0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
 impl windows_core::RuntimeType for IFileUnprotectOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileUnprotectOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -644,6 +657,7 @@ pub struct IFileUnprotectOptions_Vtbl {
 windows_core::imp::define_interface!(IFileUnprotectOptionsFactory, IFileUnprotectOptionsFactory_Vtbl, 0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd);
 impl windows_core::RuntimeType for IFileUnprotectOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IFileUnprotectOptionsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -654,6 +668,7 @@ pub struct IFileUnprotectOptionsFactory_Vtbl {
 windows_core::imp::define_interface!(IProtectedAccessResumedEventArgs, IProtectedAccessResumedEventArgs_Vtbl, 0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
 impl windows_core::RuntimeType for IProtectedAccessResumedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,6 +679,7 @@ pub struct IProtectedAccessResumedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IProtectedAccessSuspendingEventArgs, IProtectedAccessSuspendingEventArgs_Vtbl, 0x75a193e0_a344_429f_b975_04fc1f88c185);
 impl windows_core::RuntimeType for IProtectedAccessSuspendingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -676,6 +692,7 @@ pub struct IProtectedAccessSuspendingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IProtectedContainerExportResult, IProtectedContainerExportResult_Vtbl, 0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
 impl windows_core::RuntimeType for IProtectedContainerExportResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectedContainerExportResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -690,6 +707,7 @@ pub struct IProtectedContainerExportResult_Vtbl {
 windows_core::imp::define_interface!(IProtectedContainerImportResult, IProtectedContainerImportResult_Vtbl, 0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
 impl windows_core::RuntimeType for IProtectedContainerImportResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectedContainerImportResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,6 +722,7 @@ pub struct IProtectedContainerImportResult_Vtbl {
 windows_core::imp::define_interface!(IProtectedContentRevokedEventArgs, IProtectedContentRevokedEventArgs_Vtbl, 0x63686821_58b9_47ee_93d9_f0f741cf43f0);
 impl windows_core::RuntimeType for IProtectedContentRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectedContentRevokedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -714,6 +733,7 @@ pub struct IProtectedContentRevokedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IProtectedFileCreateResult, IProtectedFileCreateResult_Vtbl, 0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
 impl windows_core::RuntimeType for IProtectedFileCreateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectedFileCreateResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -732,6 +752,7 @@ pub struct IProtectedFileCreateResult_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyAuditInfo, IProtectionPolicyAuditInfo_Vtbl, 0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
 impl windows_core::RuntimeType for IProtectionPolicyAuditInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -749,6 +770,7 @@ pub struct IProtectionPolicyAuditInfo_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyAuditInfoFactory, IProtectionPolicyAuditInfoFactory_Vtbl, 0x7ed4180b_92e8_42d5_83d4_25440b423549);
 impl windows_core::RuntimeType for IProtectionPolicyAuditInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyAuditInfoFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -760,6 +782,7 @@ pub struct IProtectionPolicyAuditInfoFactory_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyManager, IProtectionPolicyManager_Vtbl, 0xd5703e18_a08d_47e6_a240_9934d7165eb5);
 impl windows_core::RuntimeType for IProtectionPolicyManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -771,6 +794,7 @@ pub struct IProtectionPolicyManager_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyManager2, IProtectionPolicyManager2_Vtbl, 0xabf7527a_8435_417f_99b6_51beaf365888);
 impl windows_core::RuntimeType for IProtectionPolicyManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -782,6 +806,7 @@ pub struct IProtectionPolicyManager2_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics, IProtectionPolicyManagerStatics_Vtbl, 0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5);
 impl windows_core::RuntimeType for IProtectionPolicyManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -809,6 +834,7 @@ pub struct IProtectionPolicyManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics2, IProtectionPolicyManagerStatics2_Vtbl, 0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3);
 impl windows_core::RuntimeType for IProtectionPolicyManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -827,6 +853,7 @@ pub struct IProtectionPolicyManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics3, IProtectionPolicyManagerStatics3_Vtbl, 0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015);
 impl windows_core::RuntimeType for IProtectionPolicyManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -841,6 +868,7 @@ pub struct IProtectionPolicyManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics4, IProtectionPolicyManagerStatics4_Vtbl, 0x20b794db_ccbd_490f_8c83_49ccb77aea6c);
 impl windows_core::RuntimeType for IProtectionPolicyManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -879,6 +907,7 @@ pub struct IProtectionPolicyManagerStatics4_Vtbl {
 windows_core::imp::define_interface!(IThreadNetworkContext, IThreadNetworkContext_Vtbl, 0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
 impl windows_core::RuntimeType for IThreadNetworkContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.IThreadNetworkContext");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1087,6 +1116,7 @@ impl windows_core::TypeKind for ProtectedImportExportStatus {
 }
 impl windows_core::RuntimeType for ProtectedImportExportStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.ProtectedImportExportStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1102,6 +1132,7 @@ impl windows_core::TypeKind for ProtectionPolicyAuditAction {
 }
 impl windows_core::RuntimeType for ProtectionPolicyAuditAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.ProtectionPolicyAuditAction");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1186,6 +1217,7 @@ impl windows_core::TypeKind for ProtectionPolicyEvaluationResult {
 }
 impl windows_core::RuntimeType for ProtectionPolicyEvaluationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1537,6 +1569,7 @@ impl windows_core::TypeKind for ProtectionPolicyRequestAccessBehavior {
 }
 impl windows_core::RuntimeType for ProtectionPolicyRequestAccessBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

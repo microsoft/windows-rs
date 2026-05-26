@@ -264,6 +264,7 @@ impl windows_core::TypeKind for CoreWetStrokeDisposition {
 }
 impl windows_core::RuntimeType for CoreWetStrokeDisposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -404,6 +405,7 @@ unsafe impl Sync for CoreWetStrokeUpdateSource {}
 windows_core::imp::define_interface!(ICoreIncrementalInkStroke, ICoreIncrementalInkStroke_Vtbl, 0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 impl windows_core::RuntimeType for ICoreIncrementalInkStroke {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreIncrementalInkStroke");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -418,6 +420,7 @@ pub struct ICoreIncrementalInkStroke_Vtbl {
 windows_core::imp::define_interface!(ICoreIncrementalInkStrokeFactory, ICoreIncrementalInkStrokeFactory_Vtbl, 0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
 impl windows_core::RuntimeType for ICoreIncrementalInkStrokeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreIncrementalInkStrokeFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -428,6 +431,7 @@ pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
 windows_core::imp::define_interface!(ICoreInkIndependentInputSource, ICoreInkIndependentInputSource_Vtbl, 0x39b38da9_7639_4499_a5b5_191d00e35b16);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -473,6 +477,7 @@ pub struct ICoreInkIndependentInputSource_Vtbl {
 windows_core::imp::define_interface!(ICoreInkIndependentInputSource2, ICoreInkIndependentInputSource2_Vtbl, 0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,6 +495,7 @@ pub struct ICoreInkIndependentInputSource2_Vtbl {
 windows_core::imp::define_interface!(ICoreInkIndependentInputSourceStatics, ICoreInkIndependentInputSourceStatics_Vtbl, 0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSourceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -500,6 +506,7 @@ pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
 windows_core::imp::define_interface!(ICoreInkPresenterHost, ICoreInkPresenterHost_Vtbl, 0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 impl windows_core::RuntimeType for ICoreInkPresenterHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreInkPresenterHost");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -518,6 +525,7 @@ pub struct ICoreInkPresenterHost_Vtbl {
 windows_core::imp::define_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xfb07d14c_3380_457a_a987_991357896c1b);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -531,6 +539,7 @@ pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSource_Vtbl, 0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -551,6 +560,7 @@ pub struct ICoreWetStrokeUpdateSource_Vtbl {
 windows_core::imp::define_interface!(ICoreWetStrokeUpdateSourceStatics, ICoreWetStrokeUpdateSourceStatics_Vtbl, 0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSourceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

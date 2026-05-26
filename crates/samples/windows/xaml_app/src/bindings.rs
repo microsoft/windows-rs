@@ -4656,6 +4656,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplication {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplication");
 }
 impl windows_core::RuntimeName for IApplication {
     const NAME: &'static str = "Windows.UI.Xaml.IApplication";
@@ -4692,6 +4694,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplication2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplication2");
 }
 impl windows_core::RuntimeName for IApplication2 {
     const NAME: &'static str = "Windows.UI.Xaml.IApplication2";
@@ -4719,6 +4723,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplication3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplication3");
 }
 impl windows_core::RuntimeName for IApplication3 {
     const NAME: &'static str = "Windows.UI.Xaml.IApplication3";
@@ -4738,6 +4744,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplicationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplicationFactory");
 }
 impl windows_core::RuntimeName for IApplicationFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationFactory";
@@ -4805,6 +4813,9 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplicationInitializationCallbackParams {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Windows.UI.Xaml.IApplicationInitializationCallbackParams",
+    );
 }
 impl windows_core::RuntimeName for IApplicationInitializationCallbackParams {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationInitializationCallbackParams";
@@ -4840,6 +4851,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplicationOverrides {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplicationOverrides");
 }
 impl windows_core::RuntimeName for IApplicationOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationOverrides";
@@ -5100,6 +5113,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplicationOverrides2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplicationOverrides2");
 }
 impl windows_core::RuntimeName for IApplicationOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationOverrides2";
@@ -5158,6 +5173,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IApplicationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IApplicationStatics");
 }
 impl windows_core::RuntimeName for IApplicationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationStatics";
@@ -5189,6 +5206,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControl {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControl");
 }
 impl windows_core::RuntimeName for IControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl";
@@ -5277,6 +5296,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControl2");
 }
 impl windows_core::RuntimeName for IControl2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl2";
@@ -5346,6 +5367,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControl3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControl3");
 }
 impl windows_core::RuntimeName for IControl3 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl3";
@@ -5415,6 +5438,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControl4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControl4");
 }
 impl windows_core::RuntimeName for IControl4 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl4";
@@ -5484,6 +5509,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControl5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControl5");
 }
 impl windows_core::RuntimeName for IControl5 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl5";
@@ -5562,6 +5589,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControl7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControl7");
 }
 impl windows_core::RuntimeName for IControl7 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl7";
@@ -5583,6 +5612,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlFactory");
 }
 impl windows_core::RuntimeName for IControlFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlFactory";
@@ -5650,6 +5681,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlOverrides {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlOverrides");
 }
 impl windows_core::RuntimeName for IControlOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlOverrides";
@@ -5692,6 +5725,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlOverrides6 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlOverrides6");
 }
 impl windows_core::RuntimeName for IControlOverrides6 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlOverrides6";
@@ -5712,6 +5747,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlProtected {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlProtected");
 }
 impl windows_core::RuntimeName for IControlProtected {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlProtected";
@@ -5824,6 +5861,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlStatics");
 }
 impl windows_core::RuntimeName for IControlStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlStatics";
@@ -5861,6 +5900,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlStatics2");
 }
 impl windows_core::RuntimeName for IControlStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlStatics2";
@@ -5879,6 +5920,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlStatics3");
 }
 impl windows_core::RuntimeName for IControlStatics3 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlStatics3";
@@ -5908,6 +5951,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlStatics4");
 }
 impl windows_core::RuntimeName for IControlStatics4 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlStatics4";
@@ -5933,6 +5978,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlStatics5");
 }
 impl windows_core::RuntimeName for IControlStatics5 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlStatics5";
@@ -5962,6 +6009,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IControlStatics7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.IControlStatics7");
 }
 impl windows_core::RuntimeName for IControlStatics7 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlStatics7";
@@ -5981,6 +6030,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IDependencyObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IDependencyObject");
 }
 impl windows_core::RuntimeName for IDependencyObject {
     const NAME: &'static str = "Windows.UI.Xaml.IDependencyObject";
@@ -6007,6 +6058,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IDependencyObject2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IDependencyObject2");
 }
 impl windows_core::RuntimeName for IDependencyObject2 {
     const NAME: &'static str = "Windows.UI.Xaml.IDependencyObject2";
@@ -6026,6 +6079,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IDependencyObjectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IDependencyObjectFactory");
 }
 impl windows_core::RuntimeName for IDependencyObjectFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IDependencyObjectFactory";
@@ -6097,6 +6152,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElement");
 }
 impl windows_core::RuntimeName for IFrameworkElement {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement";
@@ -6214,6 +6271,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElement2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElement2");
 }
 impl windows_core::RuntimeName for IFrameworkElement2 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement2";
@@ -6237,6 +6296,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElement3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElement3");
 }
 impl windows_core::RuntimeName for IFrameworkElement3 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement3";
@@ -6315,6 +6376,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElement4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElement4");
 }
 impl windows_core::RuntimeName for IFrameworkElement4 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement4";
@@ -6350,6 +6413,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElement6 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElement6");
 }
 impl windows_core::RuntimeName for IFrameworkElement6 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement6";
@@ -6375,6 +6440,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElement7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElement7");
 }
 impl windows_core::RuntimeName for IFrameworkElement7 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement7";
@@ -6397,6 +6464,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementFactory");
 }
 impl windows_core::RuntimeName for IFrameworkElementFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementFactory";
@@ -6468,6 +6537,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementOverrides {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementOverrides");
 }
 impl windows_core::RuntimeName for IFrameworkElementOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementOverrides";
@@ -6582,6 +6653,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementOverrides2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementOverrides2");
 }
 impl windows_core::RuntimeName for IFrameworkElementOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementOverrides2";
@@ -6652,6 +6725,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementProtected7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementProtected7");
 }
 impl windows_core::RuntimeName for IFrameworkElementProtected7 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementProtected7";
@@ -6701,6 +6776,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementStatics");
 }
 impl windows_core::RuntimeName for IFrameworkElementStatics {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementStatics";
@@ -6735,6 +6812,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementStatics2");
 }
 impl windows_core::RuntimeName for IFrameworkElementStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementStatics2";
@@ -6753,6 +6832,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementStatics4");
 }
 impl windows_core::RuntimeName for IFrameworkElementStatics4 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementStatics4";
@@ -6777,6 +6858,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementStatics5");
 }
 impl windows_core::RuntimeName for IFrameworkElementStatics5 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementStatics5";
@@ -6830,6 +6913,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFrameworkElementStatics6 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IFrameworkElementStatics6");
 }
 impl windows_core::RuntimeName for IFrameworkElementStatics6 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementStatics6";
@@ -6848,6 +6933,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox");
 }
 impl windows_core::RuntimeName for ITextBox {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox";
@@ -6933,6 +7020,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox2");
 }
 impl windows_core::RuntimeName for ITextBox2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox2";
@@ -6981,6 +7070,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox3");
 }
 impl windows_core::RuntimeName for ITextBox3 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox3";
@@ -7017,6 +7108,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox4");
 }
 impl windows_core::RuntimeName for ITextBox4 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox4";
@@ -7076,6 +7169,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox5");
 }
 impl windows_core::RuntimeName for ITextBox5 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox5";
@@ -7095,6 +7190,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox6 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox6");
 }
 impl windows_core::RuntimeName for ITextBox6 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox6";
@@ -7127,6 +7224,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox7");
 }
 impl windows_core::RuntimeName for ITextBox7 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox7";
@@ -7150,6 +7249,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBox8 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBox8");
 }
 impl windows_core::RuntimeName for ITextBox8 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox8";
@@ -7197,6 +7298,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxFactory");
 }
 impl windows_core::RuntimeName for ITextBoxFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxFactory";
@@ -7264,6 +7367,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics");
 }
 impl windows_core::RuntimeName for ITextBoxStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics";
@@ -7290,6 +7395,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics2");
 }
 impl windows_core::RuntimeName for ITextBoxStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics2";
@@ -7313,6 +7420,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics3");
 }
 impl windows_core::RuntimeName for ITextBoxStatics3 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics3";
@@ -7332,6 +7441,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics5");
 }
 impl windows_core::RuntimeName for ITextBoxStatics5 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics5";
@@ -7350,6 +7461,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics6 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics6");
 }
 impl windows_core::RuntimeName for ITextBoxStatics6 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics6";
@@ -7370,6 +7483,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics7");
 }
 impl windows_core::RuntimeName for ITextBoxStatics7 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics7";
@@ -7389,6 +7504,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ITextBoxStatics8 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.Controls.ITextBoxStatics8");
 }
 impl windows_core::RuntimeName for ITextBoxStatics8 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxStatics8";
@@ -7412,6 +7529,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement");
 }
 impl windows_core::RuntimeName for IUIElement {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement";
@@ -7585,6 +7704,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement10 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement10");
 }
 impl windows_core::RuntimeName for IUIElement10 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement10";
@@ -7615,6 +7736,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement2");
 }
 impl windows_core::RuntimeName for IUIElement2 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement2";
@@ -7636,6 +7759,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement3");
 }
 impl windows_core::RuntimeName for IUIElement3 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement3";
@@ -7670,6 +7795,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement4");
 }
 impl windows_core::RuntimeName for IUIElement4 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement4";
@@ -7728,6 +7855,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement5");
 }
 impl windows_core::RuntimeName for IUIElement5 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement5";
@@ -7782,6 +7911,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement7");
 }
 impl windows_core::RuntimeName for IUIElement7 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement7";
@@ -7813,6 +7944,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement8 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement8");
 }
 impl windows_core::RuntimeName for IUIElement8 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement8";
@@ -7852,6 +7985,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElement9 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElement9");
 }
 impl windows_core::RuntimeName for IUIElement9 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElement9";
@@ -7933,6 +8068,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementFactory");
 }
 impl windows_core::RuntimeName for IUIElementFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementFactory";
@@ -7961,6 +8098,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementOverrides {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementOverrides");
 }
 impl windows_core::RuntimeName for IUIElementOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementOverrides";
@@ -7987,6 +8126,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementOverrides7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementOverrides7");
 }
 impl windows_core::RuntimeName for IUIElementOverrides7 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementOverrides7";
@@ -8009,6 +8150,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementOverrides8 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementOverrides8");
 }
 impl windows_core::RuntimeName for IUIElementOverrides8 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementOverrides8";
@@ -8028,6 +8171,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementOverrides9 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementOverrides9");
 }
 impl windows_core::RuntimeName for IUIElementOverrides9 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementOverrides9";
@@ -8088,6 +8233,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics");
 }
 impl windows_core::RuntimeName for IUIElementStatics {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics";
@@ -8145,6 +8292,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics10 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics10");
 }
 impl windows_core::RuntimeName for IUIElementStatics10 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics10";
@@ -8163,6 +8312,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics2");
 }
 impl windows_core::RuntimeName for IUIElementStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics2";
@@ -8181,6 +8332,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics3");
 }
 impl windows_core::RuntimeName for IUIElementStatics3 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics3";
@@ -8201,6 +8354,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics4");
 }
 impl windows_core::RuntimeName for IUIElementStatics4 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics4";
@@ -8223,6 +8378,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics5");
 }
 impl windows_core::RuntimeName for IUIElementStatics5 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics5";
@@ -8251,6 +8408,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics6 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics6");
 }
 impl windows_core::RuntimeName for IUIElementStatics6 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics6";
@@ -8271,6 +8430,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics7 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics7");
 }
 impl windows_core::RuntimeName for IUIElementStatics7 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics7";
@@ -8291,6 +8452,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics8 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics8");
 }
 impl windows_core::RuntimeName for IUIElementStatics8 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics8";
@@ -8317,6 +8480,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IUIElementStatics9 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IUIElementStatics9");
 }
 impl windows_core::RuntimeName for IUIElementStatics9 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementStatics9";
@@ -8335,6 +8500,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IWindow");
 }
 impl windows_core::RuntimeName for IWindow {
     const NAME: &'static str = "Windows.UI.Xaml.IWindow";
@@ -8388,6 +8555,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWindow2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IWindow2");
 }
 impl windows_core::RuntimeName for IWindow2 {
     const NAME: &'static str = "Windows.UI.Xaml.IWindow2";
@@ -8433,6 +8602,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWindow3 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IWindow3");
 }
 impl windows_core::RuntimeName for IWindow3 {
     const NAME: &'static str = "Windows.UI.Xaml.IWindow3";
@@ -8485,6 +8656,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWindow4 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IWindow4");
 }
 impl windows_core::RuntimeName for IWindow4 {
     const NAME: &'static str = "Windows.UI.Xaml.IWindow4";
@@ -8503,6 +8676,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWindowCreatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IWindowCreatedEventArgs");
 }
 impl windows_core::RuntimeName for IWindowCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.IWindowCreatedEventArgs";
@@ -8559,6 +8734,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWindowStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Xaml.IWindowStatics");
 }
 impl windows_core::RuntimeName for IWindowStatics {
     const NAME: &'static str = "Windows.UI.Xaml.IWindowStatics";

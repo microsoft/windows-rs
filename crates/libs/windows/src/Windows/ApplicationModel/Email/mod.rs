@@ -170,6 +170,7 @@ impl windows_core::TypeKind for EmailAttachmentDownloadState {
 }
 impl windows_core::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailAttachmentDownloadState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -184,6 +185,7 @@ impl windows_core::TypeKind for EmailBatchStatus {
 }
 impl windows_core::RuntimeType for EmailBatchStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailBatchStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -206,6 +208,7 @@ impl windows_core::TypeKind for EmailCertificateValidationStatus {
 }
 impl windows_core::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailCertificateValidationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -383,6 +386,7 @@ impl windows_core::TypeKind for EmailFlagState {
 }
 impl windows_core::RuntimeType for EmailFlagState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailFlagState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -568,6 +572,7 @@ impl windows_core::TypeKind for EmailImportance {
 }
 impl windows_core::RuntimeType for EmailImportance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailImportance");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1284,6 +1289,7 @@ impl windows_core::TypeKind for EmailMailboxActionKind {
 }
 impl windows_core::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxActionKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1298,6 +1304,7 @@ impl windows_core::TypeKind for EmailMailboxAllowedSmimeEncryptionAlgorithmNegot
 }
 impl windows_core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1347,6 +1354,7 @@ impl windows_core::TypeKind for EmailMailboxAutoReplyMessageResponseKind {
 }
 impl windows_core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1721,6 +1729,7 @@ impl windows_core::TypeKind for EmailMailboxChangeType {
 }
 impl windows_core::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxChangeType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1814,6 +1823,7 @@ impl windows_core::TypeKind for EmailMailboxCreateFolderStatus {
 }
 impl windows_core::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1831,6 +1841,7 @@ impl windows_core::TypeKind for EmailMailboxDeleteFolderStatus {
 }
 impl windows_core::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1848,6 +1859,7 @@ impl windows_core::TypeKind for EmailMailboxEmptyFolderStatus {
 }
 impl windows_core::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1862,6 +1874,7 @@ impl windows_core::TypeKind for EmailMailboxOtherAppReadAccess {
 }
 impl windows_core::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1875,6 +1888,7 @@ impl windows_core::TypeKind for EmailMailboxOtherAppWriteAccess {
 }
 impl windows_core::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1974,6 +1988,7 @@ impl windows_core::TypeKind for EmailMailboxSmimeEncryptionAlgorithm {
 }
 impl windows_core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1988,6 +2003,7 @@ impl windows_core::TypeKind for EmailMailboxSmimeSigningAlgorithm {
 }
 impl windows_core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2072,6 +2088,7 @@ impl windows_core::TypeKind for EmailMailboxSyncStatus {
 }
 impl windows_core::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMailboxSyncStatus");
 }
 pub struct EmailManager;
 impl EmailManager {
@@ -2327,6 +2344,7 @@ impl windows_core::TypeKind for EmailMeetingResponseType {
 }
 impl windows_core::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMeetingResponseType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2764,6 +2782,7 @@ impl windows_core::TypeKind for EmailMessageBodyKind {
 }
 impl windows_core::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMessageBodyKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2779,6 +2798,7 @@ impl windows_core::TypeKind for EmailMessageDownloadState {
 }
 impl windows_core::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMessageDownloadState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2818,6 +2838,7 @@ impl windows_core::TypeKind for EmailMessageResponseKind {
 }
 impl windows_core::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMessageResponseKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2833,6 +2854,7 @@ impl windows_core::TypeKind for EmailMessageSmimeKind {
 }
 impl windows_core::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailMessageSmimeKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2850,6 +2872,7 @@ impl windows_core::TypeKind for EmailQueryKind {
 }
 impl windows_core::RuntimeType for EmailQueryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailQueryKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2947,6 +2970,7 @@ impl windows_core::TypeKind for EmailQuerySearchFields {
 }
 impl windows_core::RuntimeType for EmailQuerySearchFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailQuerySearchFields");
 }
 impl EmailQuerySearchFields {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2993,6 +3017,7 @@ impl windows_core::TypeKind for EmailQuerySearchScope {
 }
 impl windows_core::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailQuerySearchScope");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3006,6 +3031,7 @@ impl windows_core::TypeKind for EmailQuerySortDirection {
 }
 impl windows_core::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailQuerySortDirection");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3018,6 +3044,7 @@ impl windows_core::TypeKind for EmailQuerySortProperty {
 }
 impl windows_core::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailQuerySortProperty");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3191,6 +3218,7 @@ impl windows_core::TypeKind for EmailRecipientResolutionStatus {
 }
 impl windows_core::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailRecipientResolutionStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3209,6 +3237,7 @@ impl windows_core::TypeKind for EmailSpecialFolderKind {
 }
 impl windows_core::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailSpecialFolderKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3312,6 +3341,7 @@ impl windows_core::TypeKind for EmailStoreAccessType {
 }
 impl windows_core::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.EmailStoreAccessType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3333,6 +3363,7 @@ unsafe impl Sync for EmailStoreNotificationTriggerDetails {}
 windows_core::imp::define_interface!(IEmailAttachment, IEmailAttachment_Vtbl, 0xf353caf9_57c8_4adb_b992_60fceb584f54);
 impl windows_core::RuntimeType for IEmailAttachment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailAttachment");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3352,6 +3383,7 @@ pub struct IEmailAttachment_Vtbl {
 windows_core::imp::define_interface!(IEmailAttachment2, IEmailAttachment2_Vtbl, 0x225f1070_b0ff_4571_9d54_a706c48d55c6);
 impl windows_core::RuntimeType for IEmailAttachment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailAttachment2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3375,6 +3407,7 @@ pub struct IEmailAttachment2_Vtbl {
 windows_core::imp::define_interface!(IEmailAttachmentFactory, IEmailAttachmentFactory_Vtbl, 0x796eac46_ed56_4979_8708_abb8bc854b7d);
 impl windows_core::RuntimeType for IEmailAttachmentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailAttachmentFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3388,6 +3421,7 @@ pub struct IEmailAttachmentFactory_Vtbl {
 windows_core::imp::define_interface!(IEmailAttachmentFactory2, IEmailAttachmentFactory2_Vtbl, 0x23259435_51f9_427d_adcd_241023c8cfb7);
 impl windows_core::RuntimeType for IEmailAttachmentFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailAttachmentFactory2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3401,6 +3435,7 @@ pub struct IEmailAttachmentFactory2_Vtbl {
 windows_core::imp::define_interface!(IEmailConversation, IEmailConversation_Vtbl, 0xda18c248_a0bc_4349_902d_90f66389f51b);
 impl windows_core::RuntimeType for IEmailConversation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailConversation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3425,6 +3460,7 @@ pub struct IEmailConversation_Vtbl {
 windows_core::imp::define_interface!(IEmailConversationBatch, IEmailConversationBatch_Vtbl, 0xb8c1ab81_01c5_432a_9df1_fe85d98a279a);
 impl windows_core::RuntimeType for IEmailConversationBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailConversationBatch");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3436,6 +3472,7 @@ pub struct IEmailConversationBatch_Vtbl {
 windows_core::imp::define_interface!(IEmailConversationReader, IEmailConversationReader_Vtbl, 0xb4630f82_2875_44c8_9b8c_85beb3a3c653);
 impl windows_core::RuntimeType for IEmailConversationReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailConversationReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3446,6 +3483,7 @@ pub struct IEmailConversationReader_Vtbl {
 windows_core::imp::define_interface!(IEmailFolder, IEmailFolder_Vtbl, 0xa24f7771_996c_4864_b1ba_ed1240e57d11);
 impl windows_core::RuntimeType for IEmailFolder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailFolder");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3480,6 +3518,7 @@ pub struct IEmailFolder_Vtbl {
 windows_core::imp::define_interface!(IEmailIrmInfo, IEmailIrmInfo_Vtbl, 0x90f52193_b1a0_4ebd_a6b6_ddca55606e0e);
 impl windows_core::RuntimeType for IEmailIrmInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailIrmInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3513,6 +3552,7 @@ pub struct IEmailIrmInfo_Vtbl {
 windows_core::imp::define_interface!(IEmailIrmInfoFactory, IEmailIrmInfoFactory_Vtbl, 0x314bb18c_e3e6_4d7b_be8d_91a96311b01b);
 impl windows_core::RuntimeType for IEmailIrmInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailIrmInfoFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3523,6 +3563,7 @@ pub struct IEmailIrmInfoFactory_Vtbl {
 windows_core::imp::define_interface!(IEmailIrmTemplate, IEmailIrmTemplate_Vtbl, 0xf327758d_546d_4bea_a963_54a38b2cc016);
 impl windows_core::RuntimeType for IEmailIrmTemplate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailIrmTemplate");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3538,6 +3579,7 @@ pub struct IEmailIrmTemplate_Vtbl {
 windows_core::imp::define_interface!(IEmailIrmTemplateFactory, IEmailIrmTemplateFactory_Vtbl, 0x3da31876_8738_4418_b9cb_471b936fe71e);
 impl windows_core::RuntimeType for IEmailIrmTemplateFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailIrmTemplateFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3548,6 +3590,7 @@ pub struct IEmailIrmTemplateFactory_Vtbl {
 windows_core::imp::define_interface!(IEmailItemCounts, IEmailItemCounts_Vtbl, 0x5bd13321_fec8_4bab_83ba_0baf3c1f6cbd);
 impl windows_core::RuntimeType for IEmailItemCounts {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailItemCounts");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3561,6 +3604,7 @@ pub struct IEmailItemCounts_Vtbl {
 windows_core::imp::define_interface!(IEmailMailbox, IEmailMailbox_Vtbl, 0xa8790649_cf5b_411b_80b1_4a6a1484ce25);
 impl windows_core::RuntimeType for IEmailMailbox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailbox");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3620,6 +3664,7 @@ pub struct IEmailMailbox_Vtbl {
 windows_core::imp::define_interface!(IEmailMailbox2, IEmailMailbox2_Vtbl, 0x14f8e404_6ca2_4ab2_9241_79cd7bf46346);
 impl windows_core::RuntimeType for IEmailMailbox2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailbox2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3632,6 +3677,7 @@ pub struct IEmailMailbox2_Vtbl {
 windows_core::imp::define_interface!(IEmailMailbox3, IEmailMailbox3_Vtbl, 0x3da5897b_458b_408a_8e37_ac8b05d8af56);
 impl windows_core::RuntimeType for IEmailMailbox3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailbox3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3649,6 +3695,7 @@ pub struct IEmailMailbox3_Vtbl {
 windows_core::imp::define_interface!(IEmailMailbox4, IEmailMailbox4_Vtbl, 0x5d1f301b_f222_48a7_b7b6_716356cd26a1);
 impl windows_core::RuntimeType for IEmailMailbox4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailbox4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3659,6 +3706,7 @@ pub struct IEmailMailbox4_Vtbl {
 windows_core::imp::define_interface!(IEmailMailbox5, IEmailMailbox5_Vtbl, 0x39967087_0092_49be_bd0e_5d4dc9d96d90);
 impl windows_core::RuntimeType for IEmailMailbox5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailbox5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3669,6 +3717,7 @@ pub struct IEmailMailbox5_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxAction, IEmailMailboxAction_Vtbl, 0xac9889fa_21fa_4927_9210_d410582fdf3e);
 impl windows_core::RuntimeType for IEmailMailboxAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxAction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3680,6 +3729,7 @@ pub struct IEmailMailboxAction_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxAutoReply, IEmailMailboxAutoReply_Vtbl, 0xe223254c_8ab4_485b_b31f_04d15476bd59);
 impl windows_core::RuntimeType for IEmailMailboxAutoReply {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxAutoReply");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3693,6 +3743,7 @@ pub struct IEmailMailboxAutoReply_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxAutoReplySettings, IEmailMailboxAutoReplySettings_Vtbl, 0xa87a9fa8_0ac6_4b77_ba77_a6b99e9a27b8);
 impl windows_core::RuntimeType for IEmailMailboxAutoReplySettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3713,6 +3764,7 @@ pub struct IEmailMailboxAutoReplySettings_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxCapabilities, IEmailMailboxCapabilities_Vtbl, 0xeedec3a6_89db_4305_82c4_439e0a33da11);
 impl windows_core::RuntimeType for IEmailMailboxCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3730,6 +3782,7 @@ pub struct IEmailMailboxCapabilities_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxCapabilities2, IEmailMailboxCapabilities2_Vtbl, 0x69723ee4_2f21_4cbc_88ab_2e7602a4806b);
 impl windows_core::RuntimeType for IEmailMailboxCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxCapabilities2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3745,6 +3798,7 @@ pub struct IEmailMailboxCapabilities2_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxCapabilities3, IEmailMailboxCapabilities3_Vtbl, 0xf690e944_56f2_45aa_872c_0ce9f3db0b5c);
 impl windows_core::RuntimeType for IEmailMailboxCapabilities3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxCapabilities3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3768,6 +3822,7 @@ pub struct IEmailMailboxCapabilities3_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxChange, IEmailMailboxChange_Vtbl, 0x61edf54b_11ef_400c_adde_8cde65c85e66);
 impl windows_core::RuntimeType for IEmailMailboxChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxChange");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3781,6 +3836,7 @@ pub struct IEmailMailboxChange_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxChangeReader, IEmailMailboxChangeReader_Vtbl, 0xbdbd0ebb_c53d_4331_97be_be75a2146a75);
 impl windows_core::RuntimeType for IEmailMailboxChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxChangeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3793,6 +3849,7 @@ pub struct IEmailMailboxChangeReader_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxChangeTracker, IEmailMailboxChangeTracker_Vtbl, 0x7ae48638_5166_42b7_8882_fd21c92bdd4b);
 impl windows_core::RuntimeType for IEmailMailboxChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxChangeTracker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3806,6 +3863,7 @@ pub struct IEmailMailboxChangeTracker_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxChangedDeferral, IEmailMailboxChangedDeferral_Vtbl, 0x779a74c1_97c5_4b54_b30d_306232623e6d);
 impl windows_core::RuntimeType for IEmailMailboxChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxChangedDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3816,6 +3874,7 @@ pub struct IEmailMailboxChangedDeferral_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxChangedEventArgs, IEmailMailboxChangedEventArgs_Vtbl, 0x3cfd5f6e_01d4_4e4a_a44c_b22dd42ec207);
 impl windows_core::RuntimeType for IEmailMailboxChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3826,6 +3885,7 @@ pub struct IEmailMailboxChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxCreateFolderResult, IEmailMailboxCreateFolderResult_Vtbl, 0xb228557f_2885_4998_b595_8a2d374ce950);
 impl windows_core::RuntimeType for IEmailMailboxCreateFolderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxCreateFolderResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3837,6 +3897,7 @@ pub struct IEmailMailboxCreateFolderResult_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxPolicies, IEmailMailboxPolicies_Vtbl, 0x1f3345c5_1c3b_4dc7_b410_6373783e545d);
 impl windows_core::RuntimeType for IEmailMailboxPolicies {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxPolicies");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3850,6 +3911,7 @@ pub struct IEmailMailboxPolicies_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxPolicies2, IEmailMailboxPolicies2_Vtbl, 0xbab58afb_a14b_497c_a8e2_55eac29cc4b5);
 impl windows_core::RuntimeType for IEmailMailboxPolicies2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxPolicies2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3861,6 +3923,7 @@ pub struct IEmailMailboxPolicies2_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxPolicies3, IEmailMailboxPolicies3_Vtbl, 0xbdd4a01f_4867_414a_81a2_803919c44191);
 impl windows_core::RuntimeType for IEmailMailboxPolicies3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxPolicies3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3876,6 +3939,7 @@ pub struct IEmailMailboxPolicies3_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxSyncManager, IEmailMailboxSyncManager_Vtbl, 0x517ac55a_3591_4b5d_85bc_c71dde862263);
 impl windows_core::RuntimeType for IEmailMailboxSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxSyncManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3891,6 +3955,7 @@ pub struct IEmailMailboxSyncManager_Vtbl {
 windows_core::imp::define_interface!(IEmailMailboxSyncManager2, IEmailMailboxSyncManager2_Vtbl, 0xcd8dc97e_95c1_4f89_81b7_e6aecb6695fc);
 impl windows_core::RuntimeType for IEmailMailboxSyncManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMailboxSyncManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3903,6 +3968,7 @@ pub struct IEmailMailboxSyncManager2_Vtbl {
 windows_core::imp::define_interface!(IEmailManagerForUser, IEmailManagerForUser_Vtbl, 0xf773de9f_3ca5_4b0f_90c1_156e40174ce5);
 impl windows_core::RuntimeType for IEmailManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailManagerForUser");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3918,6 +3984,7 @@ pub struct IEmailManagerForUser_Vtbl {
 windows_core::imp::define_interface!(IEmailManagerStatics, IEmailManagerStatics_Vtbl, 0xf5128654_55c5_4890_a824_216c2618ce7f);
 impl windows_core::RuntimeType for IEmailManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3928,6 +3995,7 @@ pub struct IEmailManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IEmailManagerStatics2, IEmailManagerStatics2_Vtbl, 0xac052da3_b194_425d_b6d9_d0f04135eda2);
 impl windows_core::RuntimeType for IEmailManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3938,6 +4006,7 @@ pub struct IEmailManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IEmailManagerStatics3, IEmailManagerStatics3_Vtbl, 0x4a722395_843e_4945_b3aa_349e07a362c5);
 impl windows_core::RuntimeType for IEmailManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3951,6 +4020,7 @@ pub struct IEmailManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IEmailMeetingInfo, IEmailMeetingInfo_Vtbl, 0x31c03fa9_7933_415f_a275_d165ba07026b);
 impl windows_core::RuntimeType for IEmailMeetingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMeetingInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3992,6 +4062,7 @@ pub struct IEmailMeetingInfo_Vtbl {
 windows_core::imp::define_interface!(IEmailMeetingInfo2, IEmailMeetingInfo2_Vtbl, 0x7e59386d_b0d9_4fe5_867c_e31ed2b588b8);
 impl windows_core::RuntimeType for IEmailMeetingInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMeetingInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4002,6 +4073,7 @@ pub struct IEmailMeetingInfo2_Vtbl {
 windows_core::imp::define_interface!(IEmailMessage, IEmailMessage_Vtbl, 0x6c6d948d_80b5_48f8_b0b1_e04e430f44e5);
 impl windows_core::RuntimeType for IEmailMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMessage");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4019,6 +4091,7 @@ pub struct IEmailMessage_Vtbl {
 windows_core::imp::define_interface!(IEmailMessage2, IEmailMessage2_Vtbl, 0xfdc8248b_9f1a_44db_bd3c_65c384770f86);
 impl windows_core::RuntimeType for IEmailMessage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMessage2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4079,6 +4152,7 @@ pub struct IEmailMessage2_Vtbl {
 windows_core::imp::define_interface!(IEmailMessage3, IEmailMessage3_Vtbl, 0xa1ea675c_e598_4d29_a018_fc7b7eece0a1);
 impl windows_core::RuntimeType for IEmailMessage3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMessage3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4098,6 +4172,7 @@ pub struct IEmailMessage3_Vtbl {
 windows_core::imp::define_interface!(IEmailMessage4, IEmailMessage4_Vtbl, 0x317cf181_3e7f_4a05_8394_3e10336dd435);
 impl windows_core::RuntimeType for IEmailMessage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMessage4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4110,6 +4185,7 @@ pub struct IEmailMessage4_Vtbl {
 windows_core::imp::define_interface!(IEmailMessageBatch, IEmailMessageBatch_Vtbl, 0x605cd08f_25d9_4f1b_9e51_0514c0149653);
 impl windows_core::RuntimeType for IEmailMessageBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMessageBatch");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4121,6 +4197,7 @@ pub struct IEmailMessageBatch_Vtbl {
 windows_core::imp::define_interface!(IEmailMessageReader, IEmailMessageReader_Vtbl, 0x2f4abe9f_6213_4a85_a3b0_f92d1a839d19);
 impl windows_core::RuntimeType for IEmailMessageReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailMessageReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4131,6 +4208,7 @@ pub struct IEmailMessageReader_Vtbl {
 windows_core::imp::define_interface!(IEmailQueryOptions, IEmailQueryOptions_Vtbl, 0x45504b9b_3e7f_4d52_b6dd_d6fd4e1fbd9a);
 impl windows_core::RuntimeType for IEmailQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailQueryOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4148,6 +4226,7 @@ pub struct IEmailQueryOptions_Vtbl {
 windows_core::imp::define_interface!(IEmailQueryOptionsFactory, IEmailQueryOptionsFactory_Vtbl, 0x88f1a1b8_78ab_4ee8_b4e3_046d6e2fe5e2);
 impl windows_core::RuntimeType for IEmailQueryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailQueryOptionsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4159,6 +4238,7 @@ pub struct IEmailQueryOptionsFactory_Vtbl {
 windows_core::imp::define_interface!(IEmailQueryTextSearch, IEmailQueryTextSearch_Vtbl, 0x9fa0a288_3c5d_46a5_a6e2_31d6fd17e540);
 impl windows_core::RuntimeType for IEmailQueryTextSearch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailQueryTextSearch");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4174,6 +4254,7 @@ pub struct IEmailQueryTextSearch_Vtbl {
 windows_core::imp::define_interface!(IEmailRecipient, IEmailRecipient_Vtbl, 0xcae825b3_4478_4814_b900_c902b5e19b53);
 impl windows_core::RuntimeType for IEmailRecipient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailRecipient");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4187,6 +4268,7 @@ pub struct IEmailRecipient_Vtbl {
 windows_core::imp::define_interface!(IEmailRecipientFactory, IEmailRecipientFactory_Vtbl, 0x5500b84d_c79a_4ef8_b909_722e18e3935d);
 impl windows_core::RuntimeType for IEmailRecipientFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailRecipientFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4198,6 +4280,7 @@ pub struct IEmailRecipientFactory_Vtbl {
 windows_core::imp::define_interface!(IEmailRecipientResolutionResult, IEmailRecipientResolutionResult_Vtbl, 0x918338fa_8d8d_4573_80d1_07172a34b98d);
 impl windows_core::RuntimeType for IEmailRecipientResolutionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailRecipientResolutionResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4212,6 +4295,7 @@ pub struct IEmailRecipientResolutionResult_Vtbl {
 windows_core::imp::define_interface!(IEmailRecipientResolutionResult2, IEmailRecipientResolutionResult2_Vtbl, 0x5e420bb6_ce5b_4bde_b9d4_e16da0b09fca);
 impl windows_core::RuntimeType for IEmailRecipientResolutionResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailRecipientResolutionResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4226,6 +4310,7 @@ pub struct IEmailRecipientResolutionResult2_Vtbl {
 windows_core::imp::define_interface!(IEmailStore, IEmailStore_Vtbl, 0xf803226e_9137_4f8b_a470_279ac3058eb6);
 impl windows_core::RuntimeType for IEmailStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4246,6 +4331,7 @@ pub struct IEmailStore_Vtbl {
 windows_core::imp::define_interface!(IEmailStoreNotificationTriggerDetails, IEmailStoreNotificationTriggerDetails_Vtbl, 0xce17563c_46e6_43c9_96f7_facf7dd710cb);
 impl windows_core::RuntimeType for IEmailStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Email.IEmailStoreNotificationTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]

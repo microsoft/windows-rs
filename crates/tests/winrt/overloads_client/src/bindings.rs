@@ -321,6 +321,8 @@ windows_core::imp::define_interface!(IA, IA_Vtbl, 0xea3ed6f8_2f81_5cfc_a281_4bf0
 impl windows_core::RuntimeType for IA {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IA");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -335,6 +337,8 @@ windows_core::imp::define_interface!(IB, IB_Vtbl, 0xc6f02ea8_68b6_5a1c_86fe_f8c0
 impl windows_core::RuntimeType for IB {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IB");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,6 +353,8 @@ windows_core::imp::define_interface!(IC, IC_Vtbl, 0xdf8ad52f_5629_5e9b_a662_5723
 impl windows_core::RuntimeType for IC {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IC");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -363,6 +369,8 @@ windows_core::imp::define_interface!(ID, ID_Vtbl, 0xa9cf9a9f_9389_5f27_bb69_a094
 impl windows_core::RuntimeType for ID {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.ID");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,6 +385,8 @@ windows_core::imp::define_interface!(ID2, ID2_Vtbl, 0x5cbf6f2f_250f_57a9_82d9_d7
 impl windows_core::RuntimeType for ID2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.ID2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -400,6 +410,8 @@ windows_core::imp::define_interface!(IE, IE_Vtbl, 0x179af921_706b_5a49_8624_7889
 impl windows_core::RuntimeType for IE {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IE");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -414,6 +426,8 @@ windows_core::imp::define_interface!(IE2, IE2_Vtbl, 0x9e8f2cad_09de_5f31_b940_81
 impl windows_core::RuntimeType for IE2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IE2");
 }
 #[repr(C)]
 #[doc(hidden)]

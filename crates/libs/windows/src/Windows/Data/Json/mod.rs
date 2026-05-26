@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IJsonArray, IJsonArray_Vtbl, 0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 impl windows_core::RuntimeType for IJsonArray {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonArray");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct IJsonArray_Vtbl {
 windows_core::imp::define_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
 impl windows_core::RuntimeType for IJsonArrayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonArrayStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26,6 +28,7 @@ pub struct IJsonArrayStatics_Vtbl {
 windows_core::imp::define_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26);
 impl windows_core::RuntimeType for IJsonErrorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonErrorStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -36,6 +39,7 @@ pub struct IJsonErrorStatics2_Vtbl {
 windows_core::imp::define_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 impl windows_core::RuntimeType for IJsonObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonObject");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +56,7 @@ pub struct IJsonObject_Vtbl {
 windows_core::imp::define_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0);
 impl windows_core::RuntimeType for IJsonObjectStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonObjectStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,6 +68,7 @@ pub struct IJsonObjectStatics_Vtbl {
 windows_core::imp::define_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
 impl windows_core::RuntimeType for IJsonObjectWithDefaultValues {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonObjectWithDefaultValues");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -78,6 +84,7 @@ pub struct IJsonObjectWithDefaultValues_Vtbl {
 windows_core::imp::define_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 impl windows_core::RuntimeType for IJsonValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonValue");
 }
 windows_core::imp::interface_hierarchy!(IJsonValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IJsonValue {
@@ -256,6 +263,7 @@ pub struct IJsonValue_Vtbl {
 windows_core::imp::define_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 impl windows_core::RuntimeType for IJsonValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -270,6 +278,7 @@ pub struct IJsonValueStatics_Vtbl {
 windows_core::imp::define_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
 impl windows_core::RuntimeType for IJsonValueStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.IJsonValueStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -532,6 +541,7 @@ impl windows_core::TypeKind for JsonErrorStatus {
 }
 impl windows_core::RuntimeType for JsonErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.JsonErrorStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -919,4 +929,5 @@ impl windows_core::TypeKind for JsonValueType {
 }
 impl windows_core::RuntimeType for JsonValueType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonValueType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Json.JsonValueType");
 }

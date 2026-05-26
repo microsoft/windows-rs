@@ -5,6 +5,7 @@ pub mod Provider;
 windows_core::imp::define_interface!(IWebAuthenticationBrokerStatics, IWebAuthenticationBrokerStatics_Vtbl, 0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 impl windows_core::RuntimeType for IWebAuthenticationBrokerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17,6 +18,7 @@ pub struct IWebAuthenticationBrokerStatics_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationBrokerStatics2, IWebAuthenticationBrokerStatics2_Vtbl, 0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
 impl windows_core::RuntimeType for IWebAuthenticationBrokerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34,6 +36,7 @@ pub struct IWebAuthenticationBrokerStatics2_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationResult, IWebAuthenticationResult_Vtbl, 0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 impl windows_core::RuntimeType for IWebAuthenticationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.IWebAuthenticationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -56,6 +59,7 @@ impl windows_core::TypeKind for TokenBindingKeyType {
 }
 impl windows_core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.TokenBindingKeyType");
 }
 pub struct WebAuthenticationBroker;
 impl WebAuthenticationBroker {
@@ -151,6 +155,7 @@ impl windows_core::TypeKind for WebAuthenticationOptions {
 }
 impl windows_core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.WebAuthenticationOptions");
 }
 impl WebAuthenticationOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -232,4 +237,5 @@ impl windows_core::TypeKind for WebAuthenticationStatus {
 }
 impl windows_core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.WebAuthenticationStatus");
 }

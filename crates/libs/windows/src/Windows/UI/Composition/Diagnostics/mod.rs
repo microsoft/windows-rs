@@ -59,6 +59,7 @@ impl windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
 }
 impl windows_core::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds");
 }
 impl CompositionDebugOverdrawContentKinds {
     pub const fn contains(&self, other: Self) -> bool {
@@ -133,6 +134,7 @@ unsafe impl Sync for CompositionDebugSettings {}
 windows_core::imp::define_interface!(ICompositionDebugHeatMaps, ICompositionDebugHeatMaps_Vtbl, 0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 impl windows_core::RuntimeType for ICompositionDebugHeatMaps {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Diagnostics.ICompositionDebugHeatMaps");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,6 +148,7 @@ pub struct ICompositionDebugHeatMaps_Vtbl {
 windows_core::imp::define_interface!(ICompositionDebugSettings, ICompositionDebugSettings_Vtbl, 0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 impl windows_core::RuntimeType for ICompositionDebugSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Diagnostics.ICompositionDebugSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,6 +159,7 @@ pub struct ICompositionDebugSettings_Vtbl {
 windows_core::imp::define_interface!(ICompositionDebugSettingsStatics, ICompositionDebugSettingsStatics_Vtbl, 0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
 impl windows_core::RuntimeType for ICompositionDebugSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Diagnostics.ICompositionDebugSettingsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

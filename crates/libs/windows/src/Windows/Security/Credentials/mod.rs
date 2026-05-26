@@ -66,10 +66,12 @@ impl windows_core::TypeKind for ChallengeResponseKind {
 }
 impl windows_core::RuntimeType for ChallengeResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.ChallengeResponseKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.ChallengeResponseKind");
 }
 windows_core::imp::define_interface!(ICredentialFactory, ICredentialFactory_Vtbl, 0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
 impl windows_core::RuntimeType for ICredentialFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.ICredentialFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -80,6 +82,7 @@ pub struct ICredentialFactory_Vtbl {
 windows_core::imp::define_interface!(IKeyCredential, IKeyCredential_Vtbl, 0x9585ef8d_457b_4847_b11a_fa960bbdb138);
 impl windows_core::RuntimeType for IKeyCredential {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredential");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -103,6 +106,7 @@ pub struct IKeyCredential_Vtbl {
 windows_core::imp::define_interface!(IKeyCredential2, IKeyCredential2_Vtbl, 0x3b7c5e09_7b72_5a05_b2f0_7119ca3fd5df);
 impl windows_core::RuntimeType for IKeyCredential2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredential2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -120,6 +124,7 @@ pub struct IKeyCredential2_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialAttestationResult, IKeyCredentialAttestationResult_Vtbl, 0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
 impl windows_core::RuntimeType for IKeyCredentialAttestationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialAttestationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,6 +143,7 @@ pub struct IKeyCredentialAttestationResult_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialCacheConfiguration, IKeyCredentialCacheConfiguration_Vtbl, 0x438bd21a_61ff_5468_95a6_b1d5216e458d);
 impl windows_core::RuntimeType for IKeyCredentialCacheConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialCacheConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -150,6 +156,7 @@ pub struct IKeyCredentialCacheConfiguration_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialCacheConfigurationFactory, IKeyCredentialCacheConfigurationFactory_Vtbl, 0x9948c31b_c827_5b58_9442_40acd8ab1e7d);
 impl windows_core::RuntimeType for IKeyCredentialCacheConfigurationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialCacheConfigurationFactory");
 }
 windows_core::imp::interface_hierarchy!(IKeyCredentialCacheConfigurationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IKeyCredentialCacheConfigurationFactory {
@@ -199,6 +206,7 @@ pub struct IKeyCredentialCacheConfigurationFactory_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialManagerCreateWithWindowStatics, IKeyCredentialManagerCreateWithWindowStatics_Vtbl, 0x30b1b9c9_61ef_43e8_88ac_cc433b38d1a6);
 impl windows_core::RuntimeType for IKeyCredentialManagerCreateWithWindowStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialManagerCreateWithWindowStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -212,6 +220,7 @@ pub struct IKeyCredentialManagerCreateWithWindowStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialManagerStatics, IKeyCredentialManagerStatics_Vtbl, 0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
 impl windows_core::RuntimeType for IKeyCredentialManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -226,6 +235,7 @@ pub struct IKeyCredentialManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialManagerStatics2, IKeyCredentialManagerStatics2_Vtbl, 0x6439895d_68c5_521b_9dc4_7c199794f0d8);
 impl windows_core::RuntimeType for IKeyCredentialManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -247,6 +257,7 @@ pub struct IKeyCredentialManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialOperationResult, IKeyCredentialOperationResult_Vtbl, 0xf53786c1_5261_4cdd_976d_cc909ac71620);
 impl windows_core::RuntimeType for IKeyCredentialOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialOperationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -261,6 +272,7 @@ pub struct IKeyCredentialOperationResult_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialRetrievalResult, IKeyCredentialRetrievalResult_Vtbl, 0x58cd7703_8d87_4249_9b58_f6598cc9644e);
 impl windows_core::RuntimeType for IKeyCredentialRetrievalResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialRetrievalResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,6 +284,7 @@ pub struct IKeyCredentialRetrievalResult_Vtbl {
 windows_core::imp::define_interface!(IKeyCredentialWithWindow, IKeyCredentialWithWindow_Vtbl, 0x050deb3b_b19c_4635_9df6_5650d66c62b1);
 impl windows_core::RuntimeType for IKeyCredentialWithWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IKeyCredentialWithWindow");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -285,6 +298,7 @@ pub struct IKeyCredentialWithWindow_Vtbl {
 windows_core::imp::define_interface!(IPasswordCredential, IPasswordCredential_Vtbl, 0x6ab18989_c720_41a7_a6c1_feadb36329a0);
 impl windows_core::RuntimeType for IPasswordCredential {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IPasswordCredential");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -305,6 +319,7 @@ pub struct IPasswordCredential_Vtbl {
 windows_core::imp::define_interface!(IPasswordVault, IPasswordVault_Vtbl, 0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
 impl windows_core::RuntimeType for IPasswordVault {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IPasswordVault");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,6 +335,7 @@ pub struct IPasswordVault_Vtbl {
 windows_core::imp::define_interface!(IWebAccount, IWebAccount_Vtbl, 0x69473eb2_8031_49be_80bb_96cb46d99aba);
 impl windows_core::RuntimeType for IWebAccount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccount");
 }
 windows_core::imp::interface_hierarchy!(IWebAccount, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebAccount {
@@ -412,6 +428,7 @@ pub struct IWebAccount_Vtbl {
 windows_core::imp::define_interface!(IWebAccount2, IWebAccount2_Vtbl, 0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
 impl windows_core::RuntimeType for IWebAccount2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccount2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -429,6 +446,7 @@ pub struct IWebAccount2_Vtbl {
 windows_core::imp::define_interface!(IWebAccountFactory, IWebAccountFactory_Vtbl, 0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
 impl windows_core::RuntimeType for IWebAccountFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccountFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -439,6 +457,7 @@ pub struct IWebAccountFactory_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 impl windows_core::RuntimeType for IWebAccountProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccountProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -451,6 +470,7 @@ pub struct IWebAccountProvider_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProvider2, IWebAccountProvider2_Vtbl, 0x4a01eb05_4e42_41d4_b518_e008a5163614);
 impl windows_core::RuntimeType for IWebAccountProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccountProvider2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -462,6 +482,7 @@ pub struct IWebAccountProvider2_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProvider3, IWebAccountProvider3_Vtbl, 0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
 impl windows_core::RuntimeType for IWebAccountProvider3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccountProvider3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -475,6 +496,7 @@ pub struct IWebAccountProvider3_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProvider4, IWebAccountProvider4_Vtbl, 0x718fd8db_e796_4210_b74e_84d29894b080);
 impl windows_core::RuntimeType for IWebAccountProvider4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccountProvider4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -485,6 +507,7 @@ pub struct IWebAccountProvider4_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProviderFactory, IWebAccountProviderFactory_Vtbl, 0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
 impl windows_core::RuntimeType for IWebAccountProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.IWebAccountProviderFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -631,6 +654,7 @@ impl windows_core::TypeKind for KeyCredentialAttestationStatus {
 }
 impl windows_core::RuntimeType for KeyCredentialAttestationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.KeyCredentialAttestationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -691,6 +715,7 @@ impl windows_core::TypeKind for KeyCredentialCacheOption {
 }
 impl windows_core::RuntimeType for KeyCredentialCacheOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCacheOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.KeyCredentialCacheOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -704,6 +729,7 @@ impl windows_core::TypeKind for KeyCredentialCreationOption {
 }
 impl windows_core::RuntimeType for KeyCredentialCreationOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.KeyCredentialCreationOption");
 }
 pub struct KeyCredentialManager;
 impl KeyCredentialManager {
@@ -867,6 +893,7 @@ impl windows_core::TypeKind for KeyCredentialStatus {
 }
 impl windows_core::RuntimeType for KeyCredentialStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.KeyCredentialStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1218,6 +1245,7 @@ impl windows_core::TypeKind for WebAccountPictureSize {
 }
 impl windows_core::RuntimeType for WebAccountPictureSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.WebAccountPictureSize");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1310,4 +1338,5 @@ impl windows_core::TypeKind for WebAccountState {
 }
 impl windows_core::RuntimeType for WebAccountState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Credentials.WebAccountState");
 }

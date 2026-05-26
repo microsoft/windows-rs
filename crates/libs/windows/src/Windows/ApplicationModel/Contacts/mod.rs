@@ -551,6 +551,7 @@ impl windows_core::TypeKind for ContactAddressKind {
 }
 impl windows_core::RuntimeType for ContactAddressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactAddressKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -736,6 +737,7 @@ impl windows_core::TypeKind for ContactAnnotationOperations {
 }
 impl windows_core::RuntimeType for ContactAnnotationOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactAnnotationOperations");
 }
 impl ContactAnnotationOperations {
     pub const fn contains(&self, other: Self) -> bool {
@@ -861,6 +863,7 @@ impl windows_core::TypeKind for ContactAnnotationStoreAccessType {
 }
 impl windows_core::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -905,6 +908,7 @@ impl windows_core::TypeKind for ContactBatchStatus {
 }
 impl windows_core::RuntimeType for ContactBatchStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactBatchStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -948,6 +952,7 @@ impl windows_core::TypeKind for ContactCardHeaderKind {
 }
 impl windows_core::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactCardHeaderKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1015,6 +1020,7 @@ impl windows_core::TypeKind for ContactCardTabKind {
 }
 impl windows_core::RuntimeType for ContactCardTabKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactCardTabKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1130,6 +1136,7 @@ impl windows_core::TypeKind for ContactChangeType {
 }
 impl windows_core::RuntimeType for ContactChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactChangeType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1305,6 +1312,7 @@ impl windows_core::TypeKind for ContactDateKind {
 }
 impl windows_core::RuntimeType for ContactDateKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactDateKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1371,6 +1379,7 @@ impl windows_core::TypeKind for ContactEmailKind {
 }
 impl windows_core::RuntimeType for ContactEmailKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactEmailKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1452,6 +1461,7 @@ impl windows_core::TypeKind for ContactFieldCategory {
 }
 impl windows_core::RuntimeType for ContactFieldCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactFieldCategory");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1564,6 +1574,7 @@ impl windows_core::TypeKind for ContactFieldType {
 }
 impl windows_core::RuntimeType for ContactFieldType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactFieldType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2124,6 +2135,7 @@ impl windows_core::TypeKind for ContactListOtherAppReadAccess {
 }
 impl windows_core::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2138,6 +2150,7 @@ impl windows_core::TypeKind for ContactListOtherAppWriteAccess {
 }
 impl windows_core::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2519,6 +2532,7 @@ impl windows_core::TypeKind for ContactListSyncStatus {
 }
 impl windows_core::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactListSyncStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2949,6 +2963,7 @@ impl windows_core::TypeKind for ContactMatchReasonKind {
 }
 impl windows_core::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactMatchReasonKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2962,6 +2977,7 @@ impl windows_core::TypeKind for ContactNameOrder {
 }
 impl windows_core::RuntimeType for ContactNameOrder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactNameOrder");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3143,6 +3159,7 @@ impl windows_core::TypeKind for ContactPhoneKind {
 }
 impl windows_core::RuntimeType for ContactPhoneKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactPhoneKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3266,6 +3283,7 @@ impl windows_core::TypeKind for ContactQueryDesiredFields {
 }
 impl windows_core::RuntimeType for ContactQueryDesiredFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactQueryDesiredFields");
 }
 impl ContactQueryDesiredFields {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3401,6 +3419,7 @@ impl windows_core::TypeKind for ContactQuerySearchFields {
 }
 impl windows_core::RuntimeType for ContactQuerySearchFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactQuerySearchFields");
 }
 impl ContactQuerySearchFields {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3447,6 +3466,7 @@ impl windows_core::TypeKind for ContactQuerySearchScope {
 }
 impl windows_core::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactQuerySearchScope");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3542,6 +3562,7 @@ impl windows_core::TypeKind for ContactRelationship {
 }
 impl windows_core::RuntimeType for ContactRelationship {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactRelationship");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3555,6 +3576,7 @@ impl windows_core::TypeKind for ContactSelectionMode {
 }
 impl windows_core::RuntimeType for ContactSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactSelectionMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3746,6 +3768,7 @@ impl windows_core::TypeKind for ContactStoreAccessType {
 }
 impl windows_core::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.ContactStoreAccessType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3860,6 +3883,7 @@ unsafe impl Sync for FullContactCardOptions {}
 windows_core::imp::define_interface!(IAggregateContactManager, IAggregateContactManager_Vtbl, 0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
 impl windows_core::RuntimeType for IAggregateContactManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IAggregateContactManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3873,6 +3897,7 @@ pub struct IAggregateContactManager_Vtbl {
 windows_core::imp::define_interface!(IAggregateContactManager2, IAggregateContactManager2_Vtbl, 0x5e8cc2d8_a9cd_4430_9c4b_01348db2ca50);
 impl windows_core::RuntimeType for IAggregateContactManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IAggregateContactManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3883,6 +3908,7 @@ pub struct IAggregateContactManager2_Vtbl {
 windows_core::imp::define_interface!(IContact, IContact_Vtbl, 0xec0072f3_2118_4049_9ebc_17f0ab692b64);
 impl windows_core::RuntimeType for IContact {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContact");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3903,6 +3929,7 @@ pub struct IContact_Vtbl {
 windows_core::imp::define_interface!(IContact2, IContact2_Vtbl, 0xf312f365_bb77_4c94_802d_8328cee40c08);
 impl windows_core::RuntimeType for IContact2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContact2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3929,6 +3956,7 @@ pub struct IContact2_Vtbl {
 windows_core::imp::define_interface!(IContact3, IContact3_Vtbl, 0x48201e67_e08e_42a4_b561_41d08ca9575d);
 impl windows_core::RuntimeType for IContact3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContact3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3973,6 +4001,7 @@ pub struct IContact3_Vtbl {
 windows_core::imp::define_interface!(IContactAddress, IContactAddress_Vtbl, 0x9739d39a_42ce_4872_8d70_3063aa584b70);
 impl windows_core::RuntimeType for IContactAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactAddress");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3996,6 +4025,7 @@ pub struct IContactAddress_Vtbl {
 windows_core::imp::define_interface!(IContactAnnotation, IContactAnnotation_Vtbl, 0x821fc2ef_7d41_44a2_84c3_60a281dd7b86);
 impl windows_core::RuntimeType for IContactAnnotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactAnnotation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4018,6 +4048,7 @@ pub struct IContactAnnotation_Vtbl {
 windows_core::imp::define_interface!(IContactAnnotation2, IContactAnnotation2_Vtbl, 0xb691ecf3_4ab7_4a1f_9941_0c9cf3171b75);
 impl windows_core::RuntimeType for IContactAnnotation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactAnnotation2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4029,6 +4060,7 @@ pub struct IContactAnnotation2_Vtbl {
 windows_core::imp::define_interface!(IContactAnnotationList, IContactAnnotationList_Vtbl, 0x92a486aa_5c88_45b9_aad0_461888e68d8a);
 impl windows_core::RuntimeType for IContactAnnotationList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactAnnotationList");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4047,6 +4079,7 @@ pub struct IContactAnnotationList_Vtbl {
 windows_core::imp::define_interface!(IContactAnnotationStore, IContactAnnotationStore_Vtbl, 0x23acf4aa_7a77_457d_8203_987f4b31af09);
 impl windows_core::RuntimeType for IContactAnnotationStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactAnnotationStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4064,6 +4097,7 @@ pub struct IContactAnnotationStore_Vtbl {
 windows_core::imp::define_interface!(IContactAnnotationStore2, IContactAnnotationStore2_Vtbl, 0x7ede23fd_61e7_4967_8ec5_bdf280a24063);
 impl windows_core::RuntimeType for IContactAnnotationStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactAnnotationStore2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4074,6 +4108,7 @@ pub struct IContactAnnotationStore2_Vtbl {
 windows_core::imp::define_interface!(IContactBatch, IContactBatch_Vtbl, 0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
 impl windows_core::RuntimeType for IContactBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactBatch");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4085,6 +4120,7 @@ pub struct IContactBatch_Vtbl {
 windows_core::imp::define_interface!(IContactCardDelayedDataLoader, IContactCardDelayedDataLoader_Vtbl, 0xb60af902_1546_434d_869c_6e3520760ef3);
 impl windows_core::RuntimeType for IContactCardDelayedDataLoader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactCardDelayedDataLoader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4095,6 +4131,7 @@ pub struct IContactCardDelayedDataLoader_Vtbl {
 windows_core::imp::define_interface!(IContactCardOptions, IContactCardOptions_Vtbl, 0x8c0a4f7e_6ab6_4f3f_be72_817236eeea5b);
 impl windows_core::RuntimeType for IContactCardOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactCardOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4108,6 +4145,7 @@ pub struct IContactCardOptions_Vtbl {
 windows_core::imp::define_interface!(IContactCardOptions2, IContactCardOptions2_Vtbl, 0x8f271ba0_d74b_4cc6_9f53_1b0eb5d1273c);
 impl windows_core::RuntimeType for IContactCardOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactCardOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4118,6 +4156,7 @@ pub struct IContactCardOptions2_Vtbl {
 windows_core::imp::define_interface!(IContactChange, IContactChange_Vtbl, 0x951d4b10_6a59_4720_a4e1_363d98c135d5);
 impl windows_core::RuntimeType for IContactChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactChange");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4129,6 +4168,7 @@ pub struct IContactChange_Vtbl {
 windows_core::imp::define_interface!(IContactChangeReader, IContactChangeReader_Vtbl, 0x217319fa_2d0c_42e0_a9da_3ecd56a78a47);
 impl windows_core::RuntimeType for IContactChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactChangeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4141,6 +4181,7 @@ pub struct IContactChangeReader_Vtbl {
 windows_core::imp::define_interface!(IContactChangeTracker, IContactChangeTracker_Vtbl, 0x6e992952_309b_404d_9712_b37bd30278aa);
 impl windows_core::RuntimeType for IContactChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactChangeTracker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4153,6 +4194,7 @@ pub struct IContactChangeTracker_Vtbl {
 windows_core::imp::define_interface!(IContactChangeTracker2, IContactChangeTracker2_Vtbl, 0x7f8ad0fc_9321_4d18_9c09_d708c63fcd31);
 impl windows_core::RuntimeType for IContactChangeTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactChangeTracker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4163,6 +4205,7 @@ pub struct IContactChangeTracker2_Vtbl {
 windows_core::imp::define_interface!(IContactChangedDeferral, IContactChangedDeferral_Vtbl, 0xc5143ae8_1b03_46f8_b694_a523e83cfcb6);
 impl windows_core::RuntimeType for IContactChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactChangedDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4173,6 +4216,7 @@ pub struct IContactChangedDeferral_Vtbl {
 windows_core::imp::define_interface!(IContactChangedEventArgs, IContactChangedEventArgs_Vtbl, 0x525e7fd1_73f3_4b7d_a918_580be4366121);
 impl windows_core::RuntimeType for IContactChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4183,6 +4227,7 @@ pub struct IContactChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IContactConnectedServiceAccount, IContactConnectedServiceAccount_Vtbl, 0xf6f83553_aa27_4731_8e4a_3dec5ce9eec9);
 impl windows_core::RuntimeType for IContactConnectedServiceAccount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4196,6 +4241,7 @@ pub struct IContactConnectedServiceAccount_Vtbl {
 windows_core::imp::define_interface!(IContactDate, IContactDate_Vtbl, 0xfe98ae66_b205_4934_9174_0ff2b0565707);
 impl windows_core::RuntimeType for IContactDate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactDate");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4215,6 +4261,7 @@ pub struct IContactDate_Vtbl {
 windows_core::imp::define_interface!(IContactEmail, IContactEmail_Vtbl, 0x90a219a9_e3d3_4d63_993b_05b9a5393abf);
 impl windows_core::RuntimeType for IContactEmail {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactEmail");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4230,6 +4277,7 @@ pub struct IContactEmail_Vtbl {
 windows_core::imp::define_interface!(IContactField, IContactField_Vtbl, 0xb176486a_d293_492c_a058_db575b3e3c0f);
 impl windows_core::RuntimeType for IContactField {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactField");
 }
 windows_core::imp::interface_hierarchy!(IContactField, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactField {
@@ -4343,6 +4391,7 @@ pub struct IContactField_Vtbl {
 windows_core::imp::define_interface!(IContactFieldFactory, IContactFieldFactory_Vtbl, 0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
 impl windows_core::RuntimeType for IContactFieldFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactFieldFactory");
 }
 windows_core::imp::interface_hierarchy!(IContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactFieldFactory {
@@ -4436,6 +4485,7 @@ pub struct IContactFieldFactory_Vtbl {
 windows_core::imp::define_interface!(IContactGroup, IContactGroup_Vtbl, 0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
 impl windows_core::RuntimeType for IContactGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactGroup");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4445,6 +4495,7 @@ pub struct IContactGroup_Vtbl {
 windows_core::imp::define_interface!(IContactInformation, IContactInformation_Vtbl, 0x275eb6d4_6a2e_4278_a914_e460d5f088f6);
 impl windows_core::RuntimeType for IContactInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4465,6 +4516,7 @@ pub struct IContactInformation_Vtbl {
 windows_core::imp::define_interface!(IContactInstantMessageField, IContactInstantMessageField_Vtbl, 0xcce33b37_0d85_41fa_b43d_da599c3eb009);
 impl windows_core::RuntimeType for IContactInstantMessageField {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactInstantMessageField");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4478,6 +4530,7 @@ pub struct IContactInstantMessageField_Vtbl {
 windows_core::imp::define_interface!(IContactInstantMessageFieldFactory, IContactInstantMessageFieldFactory_Vtbl, 0xba0b6794_91a3_4bb2_b1b9_69a5dff0ba09);
 impl windows_core::RuntimeType for IContactInstantMessageFieldFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory");
 }
 windows_core::imp::interface_hierarchy!(IContactInstantMessageFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactInstantMessageFieldFactory {
@@ -4574,6 +4627,7 @@ pub struct IContactInstantMessageFieldFactory_Vtbl {
 windows_core::imp::define_interface!(IContactJobInfo, IContactJobInfo_Vtbl, 0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
 impl windows_core::RuntimeType for IContactJobInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactJobInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4599,6 +4653,7 @@ pub struct IContactJobInfo_Vtbl {
 windows_core::imp::define_interface!(IContactLaunchActionVerbsStatics, IContactLaunchActionVerbsStatics_Vtbl, 0xfb1232d6_ee73_46e7_8761_11cd0157728f);
 impl windows_core::RuntimeType for IContactLaunchActionVerbsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactLaunchActionVerbsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4613,6 +4668,7 @@ pub struct IContactLaunchActionVerbsStatics_Vtbl {
 windows_core::imp::define_interface!(IContactList, IContactList_Vtbl, 0x16ddec75_392c_4845_9dfb_51a3e7ef3e42);
 impl windows_core::RuntimeType for IContactList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactList");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4647,6 +4703,7 @@ pub struct IContactList_Vtbl {
 windows_core::imp::define_interface!(IContactList2, IContactList2_Vtbl, 0xcb3943b4_4550_4dcb_9229_40ff91fb0203);
 impl windows_core::RuntimeType for IContactList2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactList2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4659,6 +4716,7 @@ pub struct IContactList2_Vtbl {
 windows_core::imp::define_interface!(IContactList3, IContactList3_Vtbl, 0x1578ee57_26fc_41e8_a850_5aa32514aca9);
 impl windows_core::RuntimeType for IContactList3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactList3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4670,6 +4728,7 @@ pub struct IContactList3_Vtbl {
 windows_core::imp::define_interface!(IContactListLimitedWriteOperations, IContactListLimitedWriteOperations_Vtbl, 0xe19813da_4a0b_44b8_9a1f_a0f3d218175f);
 impl windows_core::RuntimeType for IContactListLimitedWriteOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactListLimitedWriteOperations");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4681,6 +4740,7 @@ pub struct IContactListLimitedWriteOperations_Vtbl {
 windows_core::imp::define_interface!(IContactListSyncConstraints, IContactListSyncConstraints_Vtbl, 0xb2b0bf01_3062_4e2e_969d_018d1987f314);
 impl windows_core::RuntimeType for IContactListSyncConstraints {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactListSyncConstraints");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4746,6 +4806,7 @@ pub struct IContactListSyncConstraints_Vtbl {
 windows_core::imp::define_interface!(IContactListSyncManager, IContactListSyncManager_Vtbl, 0x146e83be_7925_4acc_9de5_21ddd06f8674);
 impl windows_core::RuntimeType for IContactListSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactListSyncManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4761,6 +4822,7 @@ pub struct IContactListSyncManager_Vtbl {
 windows_core::imp::define_interface!(IContactListSyncManager2, IContactListSyncManager2_Vtbl, 0xa9591247_bb55_4e23_8128_370134a85d0d);
 impl windows_core::RuntimeType for IContactListSyncManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactListSyncManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4773,6 +4835,7 @@ pub struct IContactListSyncManager2_Vtbl {
 windows_core::imp::define_interface!(IContactLocationField, IContactLocationField_Vtbl, 0x9ec00f82_ab6e_4b36_89e3_b23bc0a1dacc);
 impl windows_core::RuntimeType for IContactLocationField {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactLocationField");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4788,6 +4851,7 @@ pub struct IContactLocationField_Vtbl {
 windows_core::imp::define_interface!(IContactLocationFieldFactory, IContactLocationFieldFactory_Vtbl, 0xf79932d7_2fdf_43fe_8f18_41897390bcfe);
 impl windows_core::RuntimeType for IContactLocationFieldFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactLocationFieldFactory");
 }
 windows_core::imp::interface_hierarchy!(IContactLocationFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactLocationFieldFactory {
@@ -4881,6 +4945,7 @@ pub struct IContactLocationFieldFactory_Vtbl {
 windows_core::imp::define_interface!(IContactManagerForUser, IContactManagerForUser_Vtbl, 0xb74bba57_1076_4bef_aef3_54686d18387d);
 impl windows_core::RuntimeType for IContactManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerForUser");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4912,6 +4977,7 @@ pub struct IContactManagerForUser_Vtbl {
 windows_core::imp::define_interface!(IContactManagerForUser2, IContactManagerForUser2_Vtbl, 0x4d469c2e_3b75_4a73_bb30_736645472256);
 impl windows_core::RuntimeType for IContactManagerForUser2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerForUser2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4922,6 +4988,7 @@ pub struct IContactManagerForUser2_Vtbl {
 windows_core::imp::define_interface!(IContactManagerStatics, IContactManagerStatics_Vtbl, 0x81f21ac0_f661_4708_ba4f_d386bd0d622e);
 impl windows_core::RuntimeType for IContactManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4940,6 +5007,7 @@ pub struct IContactManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IContactManagerStatics2, IContactManagerStatics2_Vtbl, 0xa178e620_47d8_48cc_963c_9592b6e510c6);
 impl windows_core::RuntimeType for IContactManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4950,6 +5018,7 @@ pub struct IContactManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IContactManagerStatics3, IContactManagerStatics3_Vtbl, 0xc4cc3d42_7586_492a_930b_7bc138fc2139);
 impl windows_core::RuntimeType for IContactManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4988,6 +5057,7 @@ pub struct IContactManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IContactManagerStatics4, IContactManagerStatics4_Vtbl, 0x24982272_347b_46dc_8d95_51bd41e15aaf);
 impl windows_core::RuntimeType for IContactManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerStatics4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5001,6 +5071,7 @@ pub struct IContactManagerStatics4_Vtbl {
 windows_core::imp::define_interface!(IContactManagerStatics5, IContactManagerStatics5_Vtbl, 0xf7591a87_acb7_4fad_90f2_a8ab64cdbba4);
 impl windows_core::RuntimeType for IContactManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactManagerStatics5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5013,6 +5084,7 @@ pub struct IContactManagerStatics5_Vtbl {
 windows_core::imp::define_interface!(IContactMatchReason, IContactMatchReason_Vtbl, 0xbc922504_e7d8_413e_95f4_b75c54c74077);
 impl windows_core::RuntimeType for IContactMatchReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactMatchReason");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5028,6 +5100,7 @@ pub struct IContactMatchReason_Vtbl {
 windows_core::imp::define_interface!(IContactName, IContactName_Vtbl, 0xf404e97b_9034_453c_8ebf_140a38c86f1d);
 impl windows_core::RuntimeType for IContactName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactName");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5053,6 +5126,7 @@ pub struct IContactName_Vtbl {
 windows_core::imp::define_interface!(IContactPanel, IContactPanel_Vtbl, 0x41bf1265_d2ee_4b97_a80a_7d8d64cca6f5);
 impl windows_core::RuntimeType for IContactPanel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPanel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5075,6 +5149,7 @@ pub struct IContactPanel_Vtbl {
 windows_core::imp::define_interface!(IContactPanelClosingEventArgs, IContactPanelClosingEventArgs_Vtbl, 0x222174d3_cf4b_46d7_b739_6edc16110bfb);
 impl windows_core::RuntimeType for IContactPanelClosingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5085,6 +5160,7 @@ pub struct IContactPanelClosingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IContactPanelLaunchFullAppRequestedEventArgs, IContactPanelLaunchFullAppRequestedEventArgs_Vtbl, 0x88d61c0e_23b4_4be8_8afc_072c25a4190d);
 impl windows_core::RuntimeType for IContactPanelLaunchFullAppRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPanelLaunchFullAppRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5096,6 +5172,7 @@ pub struct IContactPanelLaunchFullAppRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IContactPhone, IContactPhone_Vtbl, 0x467dab65_2712_4f52_b783_9ea8111c63cd);
 impl windows_core::RuntimeType for IContactPhone {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPhone");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5111,6 +5188,7 @@ pub struct IContactPhone_Vtbl {
 windows_core::imp::define_interface!(IContactPicker, IContactPicker_Vtbl, 0x0e09fd91_42f8_4055_90a0_896f96738936);
 impl windows_core::RuntimeType for IContactPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPicker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5127,6 +5205,7 @@ pub struct IContactPicker_Vtbl {
 windows_core::imp::define_interface!(IContactPicker2, IContactPicker2_Vtbl, 0xb35011cf_5cef_4d24_aa0c_340c5208725d);
 impl windows_core::RuntimeType for IContactPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPicker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5139,6 +5218,7 @@ pub struct IContactPicker2_Vtbl {
 windows_core::imp::define_interface!(IContactPicker3, IContactPicker3_Vtbl, 0x0e723315_b243_4bed_8516_22b1a7ac0ace);
 impl windows_core::RuntimeType for IContactPicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPicker3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5152,6 +5232,7 @@ pub struct IContactPicker3_Vtbl {
 windows_core::imp::define_interface!(IContactPickerStatics, IContactPickerStatics_Vtbl, 0x7488c029_6a53_4258_a3e9_62dff6784b6c);
 impl windows_core::RuntimeType for IContactPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactPickerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5166,6 +5247,7 @@ pub struct IContactPickerStatics_Vtbl {
 windows_core::imp::define_interface!(IContactQueryOptions, IContactQueryOptions_Vtbl, 0x4408cc9e_7d7c_42f0_8ac7_f50733ecdbc1);
 impl windows_core::RuntimeType for IContactQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactQueryOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5184,6 +5266,7 @@ pub struct IContactQueryOptions_Vtbl {
 windows_core::imp::define_interface!(IContactQueryOptionsFactory, IContactQueryOptionsFactory_Vtbl, 0x543fba47_8ce7_46cb_9dac_9aa42a1bc8e2);
 impl windows_core::RuntimeType for IContactQueryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5195,6 +5278,7 @@ pub struct IContactQueryOptionsFactory_Vtbl {
 windows_core::imp::define_interface!(IContactQueryTextSearch, IContactQueryTextSearch_Vtbl, 0xf7e3f9cb_a957_439b_a0b7_1c02a1963ff0);
 impl windows_core::RuntimeType for IContactQueryTextSearch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactQueryTextSearch");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5210,6 +5294,7 @@ pub struct IContactQueryTextSearch_Vtbl {
 windows_core::imp::define_interface!(IContactReader, IContactReader_Vtbl, 0xd397e42e_1488_42f2_bf64_253f4884bfed);
 impl windows_core::RuntimeType for IContactReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5221,6 +5306,7 @@ pub struct IContactReader_Vtbl {
 windows_core::imp::define_interface!(IContactSignificantOther, IContactSignificantOther_Vtbl, 0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
 impl windows_core::RuntimeType for IContactSignificantOther {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactSignificantOther");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5234,6 +5320,7 @@ pub struct IContactSignificantOther_Vtbl {
 windows_core::imp::define_interface!(IContactSignificantOther2, IContactSignificantOther2_Vtbl, 0x8d7bd474_3f03_45f8_ba0f_c4ed37d64219);
 impl windows_core::RuntimeType for IContactSignificantOther2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactSignificantOther2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5245,6 +5332,7 @@ pub struct IContactSignificantOther2_Vtbl {
 windows_core::imp::define_interface!(IContactStore, IContactStore_Vtbl, 0x2c220b10_3a6c_4293_b9bc_fe987f6e0d52);
 impl windows_core::RuntimeType for IContactStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5257,6 +5345,7 @@ pub struct IContactStore_Vtbl {
 windows_core::imp::define_interface!(IContactStore2, IContactStore2_Vtbl, 0x18ce1c22_ebd5_4bfb_b690_5f4f27c4f0e8);
 impl windows_core::RuntimeType for IContactStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactStore2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5277,6 +5366,7 @@ pub struct IContactStore2_Vtbl {
 windows_core::imp::define_interface!(IContactStore3, IContactStore3_Vtbl, 0xcb882c6c_004e_4050_87f0_840407ee6818);
 impl windows_core::RuntimeType for IContactStore3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactStore3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5287,6 +5377,7 @@ pub struct IContactStore3_Vtbl {
 windows_core::imp::define_interface!(IContactStoreNotificationTriggerDetails, IContactStoreNotificationTriggerDetails_Vtbl, 0xabb298d6_878a_4f8b_a9ce_46bb7d1c84ce);
 impl windows_core::RuntimeType for IContactStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactStoreNotificationTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5296,6 +5387,7 @@ pub struct IContactStoreNotificationTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IContactWebsite, IContactWebsite_Vtbl, 0x9f130176_dc1b_4055_ad66_652f39d990e8);
 impl windows_core::RuntimeType for IContactWebsite {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactWebsite");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5309,6 +5401,7 @@ pub struct IContactWebsite_Vtbl {
 windows_core::imp::define_interface!(IContactWebsite2, IContactWebsite2_Vtbl, 0xf87ee91e_5647_4068_bb5e_4b6f437ce308);
 impl windows_core::RuntimeType for IContactWebsite2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IContactWebsite2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5320,6 +5413,7 @@ pub struct IContactWebsite2_Vtbl {
 windows_core::imp::define_interface!(IFullContactCardOptions, IFullContactCardOptions_Vtbl, 0x8744436c_5cf9_4683_bdca_a1fdebf8dbce);
 impl windows_core::RuntimeType for IFullContactCardOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IFullContactCardOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5337,6 +5431,7 @@ pub struct IFullContactCardOptions_Vtbl {
 windows_core::imp::define_interface!(IKnownContactFieldStatics, IKnownContactFieldStatics_Vtbl, 0x2e0e1b12_d627_4fca_bad4_1faf168c7d14);
 impl windows_core::RuntimeType for IKnownContactFieldStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IKnownContactFieldStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5352,6 +5447,7 @@ pub struct IKnownContactFieldStatics_Vtbl {
 windows_core::imp::define_interface!(IPinnedContactIdsQueryResult, IPinnedContactIdsQueryResult_Vtbl, 0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
 impl windows_core::RuntimeType for IPinnedContactIdsQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IPinnedContactIdsQueryResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5362,6 +5458,7 @@ pub struct IPinnedContactIdsQueryResult_Vtbl {
 windows_core::imp::define_interface!(IPinnedContactManager, IPinnedContactManager_Vtbl, 0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
 impl windows_core::RuntimeType for IPinnedContactManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IPinnedContactManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5382,6 +5479,7 @@ pub struct IPinnedContactManager_Vtbl {
 windows_core::imp::define_interface!(IPinnedContactManagerStatics, IPinnedContactManagerStatics_Vtbl, 0xf65ccc7e_fdf9_486a_ace9_bc311d0ae7f0);
 impl windows_core::RuntimeType for IPinnedContactManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.IPinnedContactManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5581,4 +5679,5 @@ impl windows_core::TypeKind for PinnedContactSurface {
 }
 impl windows_core::RuntimeType for PinnedContactSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.PinnedContactSurface");
 }

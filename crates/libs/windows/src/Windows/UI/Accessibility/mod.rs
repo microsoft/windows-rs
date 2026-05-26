@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IScreenReaderPositionChangedEventArgs, IScreenReaderPositionChangedEventArgs_Vtbl, 0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 impl windows_core::RuntimeType for IScreenReaderPositionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Accessibility.IScreenReaderPositionChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12,6 +13,7 @@ pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IScreenReaderService, IScreenReaderService_Vtbl, 0x19475427_eac0_50d3_bdd9_9b487a226256);
 impl windows_core::RuntimeType for IScreenReaderService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Accessibility.IScreenReaderService");
 }
 #[repr(C)]
 #[doc(hidden)]

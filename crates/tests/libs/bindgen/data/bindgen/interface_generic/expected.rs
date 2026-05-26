@@ -6,6 +6,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,
@@ -90,6 +92,10 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
         .push_slice(b";")
         .push_other(TResult::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IAsyncOperation`1<")
+        .push_other(TResult::NAME)
+        .push_slice(b">");
 }
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
     for IAsyncOperation<TResult>
@@ -150,6 +156,8 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeName
     for IAsyncOperation<TResult>
 {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 #[repr(C)]
 #[doc(hidden)]

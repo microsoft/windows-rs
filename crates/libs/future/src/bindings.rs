@@ -750,6 +750,8 @@ impl windows_core::TypeKind for AsyncStatus {
 impl windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.AsyncStatus");
 }
 windows_core::imp::define_interface!(
     IAsyncAction,
@@ -759,6 +761,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncAction");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncAction,
@@ -952,6 +956,10 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType
         .push_slice(b";")
         .push_other(TProgress::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IAsyncActionWithProgress`1<")
+        .push_other(TProgress::NAME)
+        .push_slice(b">");
 }
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
     for IAsyncActionWithProgress<TProgress>
@@ -1073,6 +1081,8 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeName
     for IAsyncActionWithProgress<TProgress>
 {
     const NAME: &'static str = "Windows.Foundation.IAsyncActionWithProgress";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IAsyncActionWithProgress_Impl<TProgress>: IAsyncInfo_Impl
 where
@@ -1237,6 +1247,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,
@@ -1422,6 +1434,10 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
         .push_slice(b";")
         .push_other(TResult::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IAsyncOperation`1<")
+        .push_other(TResult::NAME)
+        .push_slice(b">");
 }
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
     for IAsyncOperation<TResult>
@@ -1515,6 +1531,8 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeName
     for IAsyncOperation<TResult>
 {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IAsyncOperation_Impl<TResult>: IAsyncInfo_Impl
 where
@@ -1667,6 +1685,12 @@ impl<
         .push_slice(b";")
         .push_other(TProgress::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IAsyncOperationWithProgress`2<")
+        .push_other(TResult::NAME)
+        .push_slice(b", ")
+        .push_other(TProgress::NAME)
+        .push_slice(b">");
 }
 impl<
         TResult: windows_core::RuntimeType + 'static,
@@ -1804,6 +1828,8 @@ impl<
     > windows_core::RuntimeName for IAsyncOperationWithProgress<TResult, TProgress>
 {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperationWithProgress";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IAsyncOperationWithProgress_Impl<TResult, TProgress>: IAsyncInfo_Impl
 where

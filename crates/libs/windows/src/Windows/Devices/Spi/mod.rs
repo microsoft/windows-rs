@@ -3,6 +3,7 @@ pub mod Provider;
 windows_core::imp::define_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
 impl windows_core::RuntimeType for ISpiBusInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiBusInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16,6 +17,7 @@ pub struct ISpiBusInfo_Vtbl {
 windows_core::imp::define_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
 impl windows_core::RuntimeType for ISpiConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiConnectionSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,6 +37,7 @@ pub struct ISpiConnectionSettings_Vtbl {
 windows_core::imp::define_interface!(ISpiConnectionSettingsFactory, ISpiConnectionSettingsFactory_Vtbl, 0xff99081e_10c4_44b7_9fea_a748b5a46f31);
 impl windows_core::RuntimeType for ISpiConnectionSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiConnectionSettingsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,6 +48,7 @@ pub struct ISpiConnectionSettingsFactory_Vtbl {
 windows_core::imp::define_interface!(ISpiController, ISpiController_Vtbl, 0xa8d3c829_9895_4159_a934_8741f1ee6d27);
 impl windows_core::RuntimeType for ISpiController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,6 +59,7 @@ pub struct ISpiController_Vtbl {
 windows_core::imp::define_interface!(ISpiControllerStatics, ISpiControllerStatics_Vtbl, 0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
 impl windows_core::RuntimeType for ISpiControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,6 +74,7 @@ pub struct ISpiControllerStatics_Vtbl {
 windows_core::imp::define_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
 impl windows_core::RuntimeType for ISpiDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,6 +90,7 @@ pub struct ISpiDevice_Vtbl {
 windows_core::imp::define_interface!(ISpiDeviceStatics, ISpiDeviceStatics_Vtbl, 0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
 impl windows_core::RuntimeType for ISpiDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.ISpiDeviceStatics");
 }
 windows_core::imp::interface_hierarchy!(ISpiDeviceStatics, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiDeviceStatics {
@@ -453,6 +460,7 @@ impl windows_core::TypeKind for SpiMode {
 }
 impl windows_core::RuntimeType for SpiMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.SpiMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -466,4 +474,5 @@ impl windows_core::TypeKind for SpiSharingMode {
 }
 impl windows_core::RuntimeType for SpiSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiSharingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.SpiSharingMode");
 }

@@ -244,6 +244,7 @@ impl windows_core::TypeKind for Capi1KdfTargetAlgorithm {
 }
 impl windows_core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm");
 }
 pub struct CryptographicEngine;
 impl CryptographicEngine {
@@ -499,6 +500,7 @@ impl windows_core::TypeKind for CryptographicPadding {
 }
 impl windows_core::RuntimeType for CryptographicPadding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.CryptographicPadding");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -515,6 +517,7 @@ impl windows_core::TypeKind for CryptographicPrivateKeyBlobType {
 }
 impl windows_core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -531,6 +534,7 @@ impl windows_core::TypeKind for CryptographicPublicKeyBlobType {
 }
 impl windows_core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType");
 }
 pub struct EccCurveNames;
 impl EccCurveNames {
@@ -949,6 +953,7 @@ unsafe impl Sync for HashAlgorithmProvider {}
 windows_core::imp::define_interface!(IAsymmetricAlgorithmNamesStatics, IAsymmetricAlgorithmNamesStatics_Vtbl, 0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
 impl windows_core::RuntimeType for IAsymmetricAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -976,6 +981,7 @@ pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IAsymmetricAlgorithmNamesStatics2, IAsymmetricAlgorithmNamesStatics2_Vtbl, 0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
 impl windows_core::RuntimeType for IAsymmetricAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -988,6 +994,7 @@ pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
 windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProvider_Vtbl, 0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1015,6 +1022,7 @@ pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
 windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProvider2, IAsymmetricKeyAlgorithmProvider2_Vtbl, 0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
 impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1026,6 +1034,7 @@ pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
 windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProviderStatics, IAsymmetricKeyAlgorithmProviderStatics_Vtbl, 0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
 impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1036,6 +1045,7 @@ pub struct IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
 windows_core::imp::define_interface!(ICryptographicEngineStatics, ICryptographicEngineStatics_Vtbl, 0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
 impl windows_core::RuntimeType for ICryptographicEngineStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.ICryptographicEngineStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1073,6 +1083,7 @@ pub struct ICryptographicEngineStatics_Vtbl {
 windows_core::imp::define_interface!(ICryptographicEngineStatics2, ICryptographicEngineStatics2_Vtbl, 0x675948fe_df9f_4191_92c7_6ce6f58420e0);
 impl windows_core::RuntimeType for ICryptographicEngineStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.ICryptographicEngineStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1102,6 +1113,7 @@ pub struct ICryptographicEngineStatics2_Vtbl {
 windows_core::imp::define_interface!(ICryptographicKey, ICryptographicKey_Vtbl, 0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 impl windows_core::RuntimeType for ICryptographicKey {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.ICryptographicKey");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1128,6 +1140,7 @@ pub struct ICryptographicKey_Vtbl {
 windows_core::imp::define_interface!(IEccCurveNamesStatics, IEccCurveNamesStatics_Vtbl, 0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
 impl windows_core::RuntimeType for IEccCurveNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IEccCurveNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1183,6 +1196,7 @@ pub struct IEccCurveNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IEncryptedAndAuthenticatedData, IEncryptedAndAuthenticatedData_Vtbl, 0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 impl windows_core::RuntimeType for IEncryptedAndAuthenticatedData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1200,6 +1214,7 @@ pub struct IEncryptedAndAuthenticatedData_Vtbl {
 windows_core::imp::define_interface!(IHashAlgorithmNamesStatics, IHashAlgorithmNamesStatics_Vtbl, 0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
 impl windows_core::RuntimeType for IHashAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IHashAlgorithmNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1214,6 +1229,7 @@ pub struct IHashAlgorithmNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IHashAlgorithmProvider, IHashAlgorithmProvider_Vtbl, 0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 impl windows_core::RuntimeType for IHashAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IHashAlgorithmProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1230,6 +1246,7 @@ pub struct IHashAlgorithmProvider_Vtbl {
 windows_core::imp::define_interface!(IHashAlgorithmProviderStatics, IHashAlgorithmProviderStatics_Vtbl, 0x9fac9741_5cc4_4336_ae38_6212b75a915a);
 impl windows_core::RuntimeType for IHashAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IHashAlgorithmProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1240,6 +1257,7 @@ pub struct IHashAlgorithmProviderStatics_Vtbl {
 windows_core::imp::define_interface!(IHashComputation, IHashComputation_Vtbl, 0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 impl windows_core::RuntimeType for IHashComputation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IHashComputation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1257,6 +1275,7 @@ pub struct IHashComputation_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationAlgorithmNamesStatics, IKeyDerivationAlgorithmNamesStatics_Vtbl, 0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1281,6 +1300,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationAlgorithmNamesStatics2, IKeyDerivationAlgorithmNamesStatics2_Vtbl, 0x57953fab_6044_466f_97f4_337b7808384d);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1295,6 +1315,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProvider_Vtbl, 0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1309,6 +1330,7 @@ pub struct IKeyDerivationAlgorithmProvider_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationAlgorithmProviderStatics, IKeyDerivationAlgorithmProviderStatics_Vtbl, 0x0a22097a_0a1c_443b_9418_b9498aeb1603);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1319,6 +1341,7 @@ pub struct IKeyDerivationAlgorithmProviderStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationParameters, IKeyDerivationParameters_Vtbl, 0x7bf05967_047b_4a8c_964a_469ffd5522e2);
 impl windows_core::RuntimeType for IKeyDerivationParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1337,6 +1360,7 @@ pub struct IKeyDerivationParameters_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationParameters2, IKeyDerivationParameters2_Vtbl, 0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
 impl windows_core::RuntimeType for IKeyDerivationParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationParameters2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1348,6 +1372,7 @@ pub struct IKeyDerivationParameters2_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationParametersStatics, IKeyDerivationParametersStatics_Vtbl, 0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
 impl windows_core::RuntimeType for IKeyDerivationParametersStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1369,6 +1394,7 @@ pub struct IKeyDerivationParametersStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyDerivationParametersStatics2, IKeyDerivationParametersStatics2_Vtbl, 0xa5783dd5_58e3_4efb_b283_a1653126e1be);
 impl windows_core::RuntimeType for IKeyDerivationParametersStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1379,6 +1405,7 @@ pub struct IKeyDerivationParametersStatics2_Vtbl {
 windows_core::imp::define_interface!(IMacAlgorithmNamesStatics, IMacAlgorithmNamesStatics_Vtbl, 0x41412678_fb1e_43a4_895e_a9026e4390a3);
 impl windows_core::RuntimeType for IMacAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IMacAlgorithmNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1394,6 +1421,7 @@ pub struct IMacAlgorithmNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IMacAlgorithmProvider, IMacAlgorithmProvider_Vtbl, 0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 impl windows_core::RuntimeType for IMacAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IMacAlgorithmProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1409,6 +1437,7 @@ pub struct IMacAlgorithmProvider_Vtbl {
 windows_core::imp::define_interface!(IMacAlgorithmProvider2, IMacAlgorithmProvider2_Vtbl, 0x6da32a15_d931_42ed_8e7e_c301caee119c);
 impl windows_core::RuntimeType for IMacAlgorithmProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IMacAlgorithmProvider2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1422,6 +1451,7 @@ pub struct IMacAlgorithmProvider2_Vtbl {
 windows_core::imp::define_interface!(IMacAlgorithmProviderStatics, IMacAlgorithmProviderStatics_Vtbl, 0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
 impl windows_core::RuntimeType for IMacAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IMacAlgorithmProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1432,6 +1462,7 @@ pub struct IMacAlgorithmProviderStatics_Vtbl {
 windows_core::imp::define_interface!(IPersistedKeyProviderStatics, IPersistedKeyProviderStatics_Vtbl, 0x77274814_d9d4_4cf5_b668_e0457df30894);
 impl windows_core::RuntimeType for IPersistedKeyProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.IPersistedKeyProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1449,6 +1480,7 @@ pub struct IPersistedKeyProviderStatics_Vtbl {
 windows_core::imp::define_interface!(ISymmetricAlgorithmNamesStatics, ISymmetricAlgorithmNamesStatics_Vtbl, 0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
 impl windows_core::RuntimeType for ISymmetricAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.ISymmetricAlgorithmNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1477,6 +1509,7 @@ pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
 windows_core::imp::define_interface!(ISymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProvider_Vtbl, 0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 impl windows_core::RuntimeType for ISymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1492,6 +1525,7 @@ pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
 windows_core::imp::define_interface!(ISymmetricKeyAlgorithmProviderStatics, ISymmetricKeyAlgorithmProviderStatics_Vtbl, 0x8d3b2326_1f37_491f_b60e_f5431b26b483);
 impl windows_core::RuntimeType for ISymmetricKeyAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

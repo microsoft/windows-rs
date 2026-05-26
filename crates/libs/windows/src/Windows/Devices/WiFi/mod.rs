@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IWiFiAdapter, IWiFiAdapter_Vtbl, 0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
 impl windows_core::RuntimeType for IWiFiAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiAdapter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,6 +29,7 @@ pub struct IWiFiAdapter_Vtbl {
 windows_core::imp::define_interface!(IWiFiAdapter2, IWiFiAdapter2_Vtbl, 0x5bc4501d_81e4_453d_9430_1fcafbadd6b6);
 impl windows_core::RuntimeType for IWiFiAdapter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiAdapter2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,6 +44,7 @@ pub struct IWiFiAdapter2_Vtbl {
 windows_core::imp::define_interface!(IWiFiAdapterStatics, IWiFiAdapterStatics_Vtbl, 0xda25fddd_d24c_43e3_aabd_c4659f730f99);
 impl windows_core::RuntimeType for IWiFiAdapterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiAdapterStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,6 +58,7 @@ pub struct IWiFiAdapterStatics_Vtbl {
 windows_core::imp::define_interface!(IWiFiAvailableNetwork, IWiFiAvailableNetwork_Vtbl, 0x26e96246_183e_4704_9826_71b4a2f0f668);
 impl windows_core::RuntimeType for IWiFiAvailableNetwork {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiAvailableNetwork");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -78,6 +82,7 @@ pub struct IWiFiAvailableNetwork_Vtbl {
 windows_core::imp::define_interface!(IWiFiConnectionResult, IWiFiConnectionResult_Vtbl, 0x143bdfd9_c37d_40be_a5c8_857bce85a931);
 impl windows_core::RuntimeType for IWiFiConnectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiConnectionResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,6 +93,7 @@ pub struct IWiFiConnectionResult_Vtbl {
 windows_core::imp::define_interface!(IWiFiNetworkReport, IWiFiNetworkReport_Vtbl, 0x9524ded2_5911_445e_8194_be4f1a704895);
 impl windows_core::RuntimeType for IWiFiNetworkReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiNetworkReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,6 +105,7 @@ pub struct IWiFiNetworkReport_Vtbl {
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotConnectTriggerDetails, IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl, 0xa268eb58_68f5_59cf_8d38_35bf44b097ef);
 impl windows_core::RuntimeType for IWiFiOnDemandHotspotConnectTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiOnDemandHotspotConnectTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,6 +119,7 @@ pub struct IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotConnectionResult, IWiFiOnDemandHotspotConnectionResult_Vtbl, 0x911794a1_6c82_5de3_8a4a_f9ff22a4957a);
 impl windows_core::RuntimeType for IWiFiOnDemandHotspotConnectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiOnDemandHotspotConnectionResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -122,6 +130,7 @@ pub struct IWiFiOnDemandHotspotConnectionResult_Vtbl {
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotNetwork, IWiFiOnDemandHotspotNetwork_Vtbl, 0x18dc7115_a04e_507c_bbaf_b78369d29fa7);
 impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetwork {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiOnDemandHotspotNetwork");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,6 +143,7 @@ pub struct IWiFiOnDemandHotspotNetwork_Vtbl {
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotNetworkProperties, IWiFiOnDemandHotspotNetworkProperties_Vtbl, 0xc810a1f2_c81d_5852_be50_e4bd4d81e98d);
 impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetworkProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiOnDemandHotspotNetworkProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -163,6 +173,7 @@ pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotNetworkStatics, IWiFiOnDemandHotspotNetworkStatics_Vtbl, 0x00f5b8ac_80e7_5054_871c_8739f374e3c9);
 impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetworkStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiOnDemandHotspotNetworkStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,6 +184,7 @@ pub struct IWiFiOnDemandHotspotNetworkStatics_Vtbl {
 windows_core::imp::define_interface!(IWiFiWpsConfigurationResult, IWiFiWpsConfigurationResult_Vtbl, 0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
 impl windows_core::RuntimeType for IWiFiWpsConfigurationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.IWiFiWpsConfigurationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -195,6 +207,7 @@ impl windows_core::TypeKind for WiFiAccessStatus {
 }
 impl windows_core::RuntimeType for WiFiAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiAccessStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -427,6 +440,7 @@ impl windows_core::TypeKind for WiFiConnectionMethod {
 }
 impl windows_core::RuntimeType for WiFiConnectionMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiConnectionMethod");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -469,6 +483,7 @@ impl windows_core::TypeKind for WiFiConnectionStatus {
 }
 impl windows_core::RuntimeType for WiFiConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiConnectionStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -483,6 +498,7 @@ impl windows_core::TypeKind for WiFiNetworkKind {
 }
 impl windows_core::RuntimeType for WiFiNetworkKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiNetworkKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -526,6 +542,7 @@ impl windows_core::TypeKind for WiFiOnDemandHotspotAvailability {
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotAvailability;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiOnDemandHotspotAvailability");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -543,6 +560,7 @@ impl windows_core::TypeKind for WiFiOnDemandHotspotCellularBars {
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotCellularBars {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotCellularBars;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiOnDemandHotspotCellularBars");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -573,6 +591,7 @@ impl windows_core::TypeKind for WiFiOnDemandHotspotConnectStatus {
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiOnDemandHotspotConnectStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -793,6 +812,7 @@ impl windows_core::TypeKind for WiFiPhyKind {
 }
 impl windows_core::RuntimeType for WiFiPhyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiPhyKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -806,6 +826,7 @@ impl windows_core::TypeKind for WiFiReconnectionKind {
 }
 impl windows_core::RuntimeType for WiFiReconnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiReconnectionKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -850,6 +871,7 @@ impl windows_core::TypeKind for WiFiWpsConfigurationStatus {
 }
 impl windows_core::RuntimeType for WiFiWpsConfigurationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiWpsConfigurationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -867,4 +889,5 @@ impl windows_core::TypeKind for WiFiWpsKind {
 }
 impl windows_core::RuntimeType for WiFiWpsKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFi.WiFiWpsKind");
 }

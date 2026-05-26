@@ -31,5 +31,9 @@ workspace = true
 workspace = true
 features = ["std"]
 
+[dev-dependencies.windows-reference]
+workspace = true
+features = ["std"]
+
 [lints]
 workspace = true

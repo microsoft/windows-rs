@@ -3,6 +3,7 @@ pub mod Core;
 windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 impl windows_core::RuntimeType for IThreadPoolStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct IThreadPoolStatics_Vtbl {
 windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 impl windows_core::RuntimeType for IThreadPoolTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolTimer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,6 +29,7 @@ pub struct IThreadPoolTimer_Vtbl {
 windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 impl windows_core::RuntimeType for IThreadPoolTimerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolTimerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +281,7 @@ impl windows_core::TypeKind for WorkItemOptions {
 }
 impl windows_core::RuntimeType for WorkItemOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.WorkItemOptions");
 }
 impl WorkItemOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -325,4 +329,5 @@ impl windows_core::TypeKind for WorkItemPriority {
 }
 impl windows_core::RuntimeType for WorkItemPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.WorkItemPriority");
 }

@@ -11,6 +11,7 @@ impl windows_core::TypeKind for GpioChangeCount {
 }
 impl windows_core::RuntimeType for GpioChangeCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioChangeCount");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -94,6 +95,7 @@ impl windows_core::TypeKind for GpioChangePolarity {
 }
 impl windows_core::RuntimeType for GpioChangePolarity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioChangePolarity");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -223,6 +225,7 @@ impl windows_core::TypeKind for GpioChangeRecord {
 }
 impl windows_core::RuntimeType for GpioChangeRecord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioChangeRecord");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -311,6 +314,7 @@ impl windows_core::TypeKind for GpioOpenStatus {
 }
 impl windows_core::RuntimeType for GpioOpenStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioOpenStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -410,6 +414,7 @@ impl windows_core::TypeKind for GpioPinDriveMode {
 }
 impl windows_core::RuntimeType for GpioPinDriveMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioPinDriveMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -423,6 +428,7 @@ impl windows_core::TypeKind for GpioPinEdge {
 }
 impl windows_core::RuntimeType for GpioPinEdge {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioPinEdge");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -436,6 +442,7 @@ impl windows_core::TypeKind for GpioPinValue {
 }
 impl windows_core::RuntimeType for GpioPinValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioPinValue");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -473,10 +480,12 @@ impl windows_core::TypeKind for GpioSharingMode {
 }
 impl windows_core::RuntimeType for GpioSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.GpioSharingMode");
 }
 windows_core::imp::define_interface!(IGpioChangeCounter, IGpioChangeCounter_Vtbl, 0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 impl windows_core::RuntimeType for IGpioChangeCounter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioChangeCounter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -493,6 +502,7 @@ pub struct IGpioChangeCounter_Vtbl {
 windows_core::imp::define_interface!(IGpioChangeCounterFactory, IGpioChangeCounterFactory_Vtbl, 0x147d94b6_0a9e_410c_b4fa_f89f4052084d);
 impl windows_core::RuntimeType for IGpioChangeCounterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioChangeCounterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -503,6 +513,7 @@ pub struct IGpioChangeCounterFactory_Vtbl {
 windows_core::imp::define_interface!(IGpioChangeReader, IGpioChangeReader_Vtbl, 0x0abc885f_e031_48e8_8590_70de78363c6d);
 impl windows_core::RuntimeType for IGpioChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioChangeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,6 +537,7 @@ pub struct IGpioChangeReader_Vtbl {
 windows_core::imp::define_interface!(IGpioChangeReaderFactory, IGpioChangeReaderFactory_Vtbl, 0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
 impl windows_core::RuntimeType for IGpioChangeReaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioChangeReaderFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -537,6 +549,7 @@ pub struct IGpioChangeReaderFactory_Vtbl {
 windows_core::imp::define_interface!(IGpioController, IGpioController_Vtbl, 0x284012e3_7461_469c_a8bc_61d69d08a53c);
 impl windows_core::RuntimeType for IGpioController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -550,6 +563,7 @@ pub struct IGpioController_Vtbl {
 windows_core::imp::define_interface!(IGpioControllerStatics, IGpioControllerStatics_Vtbl, 0x2ed6f42e_7af7_4116_9533_c43d99a1fb64);
 impl windows_core::RuntimeType for IGpioControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -560,6 +574,7 @@ pub struct IGpioControllerStatics_Vtbl {
 windows_core::imp::define_interface!(IGpioControllerStatics2, IGpioControllerStatics2_Vtbl, 0x912b7d20_6ca4_4106_a373_fffd346b0e5b);
 impl windows_core::RuntimeType for IGpioControllerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioControllerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -574,6 +589,7 @@ pub struct IGpioControllerStatics2_Vtbl {
 windows_core::imp::define_interface!(IGpioPin, IGpioPin_Vtbl, 0x11d9b087_afae_4790_9ee9_e0eac942d201);
 impl windows_core::RuntimeType for IGpioPin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioPin");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -594,6 +610,7 @@ pub struct IGpioPin_Vtbl {
 windows_core::imp::define_interface!(IGpioPinValueChangedEventArgs, IGpioPinValueChangedEventArgs_Vtbl, 0x3137aae1_703d_4059_bd24_b5b25dffb84e);
 impl windows_core::RuntimeType for IGpioPinValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Gpio.IGpioPinValueChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]

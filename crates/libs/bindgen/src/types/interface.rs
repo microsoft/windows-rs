@@ -175,6 +175,7 @@ impl Interface {
         } else {
             let mut result = if self.generics.is_empty() {
                 let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
+                let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
 
                 quote! {
                     #cfg
@@ -182,6 +183,7 @@ impl Interface {
                     #cfg
                     impl windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
                     }
                 }
             } else {
@@ -196,6 +198,22 @@ impl Interface {
                     }
                 });
 
+                let arity = self.generics.len();
+                let name_prefix = Literal::byte_string(format!("{type_name}`{arity}<").as_bytes());
+                let name_generics: Vec<_> = self
+                    .generics
+                    .iter()
+                    .enumerate()
+                    .map(|(i, generic)| {
+                        let gen_name = generic.write_name(config);
+                        if i == 0 {
+                            quote! { .push_other(#gen_name::NAME) }
+                        } else {
+                            quote! { .push_slice(b", ").push_other(#gen_name::NAME) }
+                        }
+                    })
+                    .collect();
+
                 quote! {
                     #[repr(transparent)]
                     #[derive(Clone, Debug, Eq, PartialEq)]
@@ -208,6 +226,7 @@ impl Interface {
                     }
                     impl<#constraints> windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
+                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#name_prefix)#(#name_generics)*.push_slice(b">");
                     }
                 }
             };
@@ -406,10 +425,20 @@ impl Interface {
                     quote! {}
                 };
 
-                result.combine(quote! {
-                    #cfg
-                    impl<#constraints> windows_core::RuntimeName for #name {
-                        const NAME: &'static str = #runtime_name;
+                result.combine(if self.generics.is_empty() {
+                    quote! {
+                        #cfg
+                        impl<#constraints> windows_core::RuntimeName for #name {
+                            const NAME: &'static str = #runtime_name;
+                        }
+                    }
+                } else {
+                    quote! {
+                        #cfg
+                        impl<#constraints> windows_core::RuntimeName for #name {
+                            const NAME: &'static str = #runtime_name;
+                            const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer = <Self as windows_core::RuntimeType>::NAME;
+                        }
                     }
                 });
 

@@ -262,6 +262,7 @@ impl windows_core::TypeKind for ActivationSignalDetectionConfigurationCreationSt
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -277,6 +278,7 @@ impl windows_core::TypeKind for ActivationSignalDetectionConfigurationRemovalRes
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -296,6 +298,7 @@ impl windows_core::TypeKind for ActivationSignalDetectionConfigurationSetModelDa
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -310,6 +313,7 @@ impl windows_core::TypeKind for ActivationSignalDetectionConfigurationStateChang
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -332,6 +336,7 @@ impl windows_core::TypeKind for ActivationSignalDetectionTrainingDataFormat {
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -503,6 +508,7 @@ impl windows_core::TypeKind for ActivationSignalDetectorKind {
 }
 impl windows_core::RuntimeType for ActivationSignalDetectorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -517,6 +523,7 @@ impl windows_core::TypeKind for ActivationSignalDetectorPowerState {
 }
 impl windows_core::RuntimeType for ActivationSignalDetectorPowerState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -530,6 +537,7 @@ impl windows_core::TypeKind for ConversationalAgentActivationKind {
 }
 impl windows_core::RuntimeType for ConversationalAgentActivationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -545,6 +553,7 @@ impl windows_core::TypeKind for ConversationalAgentActivationResult {
 }
 impl windows_core::RuntimeType for ConversationalAgentActivationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -931,6 +940,7 @@ impl windows_core::TypeKind for ConversationalAgentSessionUpdateResponse {
 }
 impl windows_core::RuntimeType for ConversationalAgentSessionUpdateResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1054,6 +1064,7 @@ impl windows_core::TypeKind for ConversationalAgentState {
 }
 impl windows_core::RuntimeType for ConversationalAgentState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1069,6 +1080,7 @@ impl windows_core::TypeKind for ConversationalAgentSystemStateChangeType {
 }
 impl windows_core::RuntimeType for ConversationalAgentSystemStateChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1110,6 +1122,7 @@ impl windows_core::TypeKind for ConversationalAgentVoiceActivationPrerequisiteKi
 }
 impl windows_core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1124,6 +1137,7 @@ impl windows_core::TypeKind for DetectionConfigurationAvailabilityChangeKind {
 }
 impl windows_core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1218,10 +1232,12 @@ impl windows_core::TypeKind for DetectionConfigurationTrainingStatus {
 }
 impl windows_core::RuntimeType for DetectionConfigurationTrainingStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus");
 }
 windows_core::imp::define_interface!(IActivationSignalDetectionConfiguration, IActivationSignalDetectionConfiguration_Vtbl, 0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 impl windows_core::RuntimeType for IActivationSignalDetectionConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1273,6 +1289,7 @@ pub struct IActivationSignalDetectionConfiguration_Vtbl {
 windows_core::imp::define_interface!(IActivationSignalDetectionConfiguration2, IActivationSignalDetectionConfiguration2_Vtbl, 0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
 impl windows_core::RuntimeType for IActivationSignalDetectionConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1293,6 +1310,7 @@ pub struct IActivationSignalDetectionConfiguration2_Vtbl {
 windows_core::imp::define_interface!(IActivationSignalDetectionConfigurationCreationResult, IActivationSignalDetectionConfigurationCreationResult_Vtbl, 0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 impl windows_core::RuntimeType for IActivationSignalDetectionConfigurationCreationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfigurationCreationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1304,6 +1322,7 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
 windows_core::imp::define_interface!(IActivationSignalDetector, IActivationSignalDetector_Vtbl, 0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 impl windows_core::RuntimeType for IActivationSignalDetector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1329,6 +1348,7 @@ pub struct IActivationSignalDetector_Vtbl {
 windows_core::imp::define_interface!(IActivationSignalDetector2, IActivationSignalDetector2_Vtbl, 0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
 impl windows_core::RuntimeType for IActivationSignalDetector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1345,6 +1365,7 @@ pub struct IActivationSignalDetector2_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentDetectorManager, IConversationalAgentDetectorManager_Vtbl, 0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 impl windows_core::RuntimeType for IConversationalAgentDetectorManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1358,6 +1379,7 @@ pub struct IConversationalAgentDetectorManager_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentDetectorManager2, IConversationalAgentDetectorManager2_Vtbl, 0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
 impl windows_core::RuntimeType for IConversationalAgentDetectorManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1369,6 +1391,7 @@ pub struct IConversationalAgentDetectorManager2_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentDetectorManagerStatics, IConversationalAgentDetectorManagerStatics_Vtbl, 0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
 impl windows_core::RuntimeType for IConversationalAgentDetectorManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1379,6 +1402,7 @@ pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSession, IConversationalAgentSession_Vtbl, 0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 impl windows_core::RuntimeType for IConversationalAgentSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1428,6 +1452,7 @@ pub struct IConversationalAgentSession_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSession2, IConversationalAgentSession2_Vtbl, 0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
 impl windows_core::RuntimeType for IConversationalAgentSession2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1443,6 +1468,7 @@ pub struct IConversationalAgentSession2_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSessionInterruptedEventArgs, IConversationalAgentSessionInterruptedEventArgs_Vtbl, 0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 impl windows_core::RuntimeType for IConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionInterruptedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1452,6 +1478,7 @@ pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSessionStatics, IConversationalAgentSessionStatics_Vtbl, 0xa005166e_e954_576e_be04_11b8ed10f37b);
 impl windows_core::RuntimeType for IConversationalAgentSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1463,6 +1490,7 @@ pub struct IConversationalAgentSessionStatics_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSignal, IConversationalAgentSignal_Vtbl, 0x20ed25f7_b120_51f2_8603_265d6a47f232);
 impl windows_core::RuntimeType for IConversationalAgentSignal {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignal");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1484,6 +1512,7 @@ pub struct IConversationalAgentSignal_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSignal2, IConversationalAgentSignal2_Vtbl, 0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
 impl windows_core::RuntimeType for IConversationalAgentSignal2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignal2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1495,6 +1524,7 @@ pub struct IConversationalAgentSignal2_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSignalDetectedEventArgs, IConversationalAgentSignalDetectedEventArgs_Vtbl, 0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 impl windows_core::RuntimeType for IConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignalDetectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1504,6 +1534,7 @@ pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IConversationalAgentSystemStateChangedEventArgs, IConversationalAgentSystemStateChangedEventArgs_Vtbl, 0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 impl windows_core::RuntimeType for IConversationalAgentSystemStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSystemStateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1514,6 +1545,7 @@ pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDetectionConfigurationAvailabilityChangedEventArgs, IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl, 0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 impl windows_core::RuntimeType for IDetectionConfigurationAvailabilityChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1524,6 +1556,7 @@ pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDetectionConfigurationAvailabilityInfo, IDetectionConfigurationAvailabilityInfo_Vtbl, 0xb5affeb0_40f0_5398_b838_91979c2c6208);
 impl windows_core::RuntimeType for IDetectionConfigurationAvailabilityInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1537,6 +1570,7 @@ pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
 windows_core::imp::define_interface!(IDetectionConfigurationAvailabilityInfo2, IDetectionConfigurationAvailabilityInfo2_Vtbl, 0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
 impl windows_core::RuntimeType for IDetectionConfigurationAvailabilityInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1568,4 +1602,5 @@ impl windows_core::TypeKind for SignalDetectorResourceKind {
 }
 impl windows_core::RuntimeType for SignalDetectorResourceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind");
 }

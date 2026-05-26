@@ -12,6 +12,7 @@ impl windows_core::TypeKind for HdmiDisplayColorSpace {
 }
 impl windows_core::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.HdmiDisplayColorSpace");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -34,6 +35,7 @@ impl windows_core::TypeKind for HdmiDisplayHdr2086Metadata {
 }
 impl windows_core::RuntimeType for HdmiDisplayHdr2086Metadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -49,6 +51,7 @@ impl windows_core::TypeKind for HdmiDisplayHdrOption {
 }
 impl windows_core::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.HdmiDisplayHdrOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -243,10 +246,12 @@ impl windows_core::TypeKind for HdmiDisplayPixelEncoding {
 }
 impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding");
 }
 windows_core::imp::define_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 impl windows_core::RuntimeType for IHdmiDisplayInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -264,6 +269,7 @@ pub struct IHdmiDisplayInformation_Vtbl {
 windows_core::imp::define_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 impl windows_core::RuntimeType for IHdmiDisplayInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayInformationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -274,6 +280,7 @@ pub struct IHdmiDisplayInformationStatics_Vtbl {
 windows_core::imp::define_interface!(IHdmiDisplayMode, IHdmiDisplayMode_Vtbl, 0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 impl windows_core::RuntimeType for IHdmiDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayMode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -294,6 +301,7 @@ pub struct IHdmiDisplayMode_Vtbl {
 windows_core::imp::define_interface!(IHdmiDisplayMode2, IHdmiDisplayMode2_Vtbl, 0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 impl windows_core::RuntimeType for IHdmiDisplayMode2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.IHdmiDisplayMode2");
 }
 #[repr(C)]
 #[doc(hidden)]

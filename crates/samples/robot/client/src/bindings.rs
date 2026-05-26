@@ -13,6 +13,8 @@ windows_core::imp::define_interface!(IRobot, IRobot_Vtbl, 0xd93d56c9_37a7_537e_b
 impl windows_core::RuntimeType for IRobot {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Robotics.IRobot");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -170,6 +170,7 @@ impl windows_core::TypeKind for HidCollectionType {
 }
 impl windows_core::RuntimeType for HidCollectionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.HidCollectionType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -763,10 +764,12 @@ impl windows_core::TypeKind for HidReportType {
 }
 impl windows_core::RuntimeType for HidReportType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.HidReportType");
 }
 windows_core::imp::define_interface!(IHidBooleanControl, IHidBooleanControl_Vtbl, 0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 impl windows_core::RuntimeType for IHidBooleanControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidBooleanControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -782,6 +785,7 @@ pub struct IHidBooleanControl_Vtbl {
 windows_core::imp::define_interface!(IHidBooleanControlDescription, IHidBooleanControlDescription_Vtbl, 0x6196e543_29d8_4a2a_8683_849e207bbe31);
 impl windows_core::RuntimeType for IHidBooleanControlDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -797,6 +801,7 @@ pub struct IHidBooleanControlDescription_Vtbl {
 windows_core::imp::define_interface!(IHidBooleanControlDescription2, IHidBooleanControlDescription2_Vtbl, 0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 impl windows_core::RuntimeType for IHidBooleanControlDescription2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -807,6 +812,7 @@ pub struct IHidBooleanControlDescription2_Vtbl {
 windows_core::imp::define_interface!(IHidCollection, IHidCollection_Vtbl, 0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 impl windows_core::RuntimeType for IHidCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -820,6 +826,7 @@ pub struct IHidCollection_Vtbl {
 windows_core::imp::define_interface!(IHidDevice, IHidDevice_Vtbl, 0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 impl windows_core::RuntimeType for IHidDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -848,6 +855,7 @@ pub struct IHidDevice_Vtbl {
 windows_core::imp::define_interface!(IHidDeviceStatics, IHidDeviceStatics_Vtbl, 0x9e5981e4_9856_418c_9f73_77de0cd85754);
 impl windows_core::RuntimeType for IHidDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -863,6 +871,7 @@ pub struct IHidDeviceStatics_Vtbl {
 windows_core::imp::define_interface!(IHidFeatureReport, IHidFeatureReport_Vtbl, 0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 impl windows_core::RuntimeType for IHidFeatureReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidFeatureReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -885,6 +894,7 @@ pub struct IHidFeatureReport_Vtbl {
 windows_core::imp::define_interface!(IHidInputReport, IHidInputReport_Vtbl, 0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 impl windows_core::RuntimeType for IHidInputReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidInputReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -905,6 +915,7 @@ pub struct IHidInputReport_Vtbl {
 windows_core::imp::define_interface!(IHidInputReportReceivedEventArgs, IHidInputReportReceivedEventArgs_Vtbl, 0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 impl windows_core::RuntimeType for IHidInputReportReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -915,6 +926,7 @@ pub struct IHidInputReportReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHidNumericControl, IHidNumericControl_Vtbl, 0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 impl windows_core::RuntimeType for IHidNumericControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidNumericControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -933,6 +945,7 @@ pub struct IHidNumericControl_Vtbl {
 windows_core::imp::define_interface!(IHidNumericControlDescription, IHidNumericControlDescription_Vtbl, 0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 impl windows_core::RuntimeType for IHidNumericControlDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -958,6 +971,7 @@ pub struct IHidNumericControlDescription_Vtbl {
 windows_core::imp::define_interface!(IHidOutputReport, IHidOutputReport_Vtbl, 0x62cb2544_c896_4463_93c1_df9db053c450);
 impl windows_core::RuntimeType for IHidOutputReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.HumanInterfaceDevice.IHidOutputReport");
 }
 #[repr(C)]
 #[doc(hidden)]

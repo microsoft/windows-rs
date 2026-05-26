@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPlatformTelemetryClientStatics, IPlatformTelemetryClientStatics_Vtbl, 0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f);
 impl windows_core::RuntimeType for IPlatformTelemetryClientStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.Telemetry.IPlatformTelemetryClientStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12,6 +13,7 @@ pub struct IPlatformTelemetryClientStatics_Vtbl {
 windows_core::imp::define_interface!(IPlatformTelemetryRegistrationResult, IPlatformTelemetryRegistrationResult_Vtbl, 0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 impl windows_core::RuntimeType for IPlatformTelemetryRegistrationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,6 +24,7 @@ pub struct IPlatformTelemetryRegistrationResult_Vtbl {
 windows_core::imp::define_interface!(IPlatformTelemetryRegistrationSettings, IPlatformTelemetryRegistrationSettings_Vtbl, 0x819a8582_ca19_415e_bb79_9c224bfa3a73);
 impl windows_core::RuntimeType for IPlatformTelemetryRegistrationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,4 +140,5 @@ impl windows_core::TypeKind for PlatformTelemetryRegistrationStatus {
 }
 impl windows_core::RuntimeType for PlatformTelemetryRegistrationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus");
 }

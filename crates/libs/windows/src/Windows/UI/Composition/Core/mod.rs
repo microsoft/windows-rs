@@ -58,6 +58,7 @@ unsafe impl Sync for CompositorController {}
 windows_core::imp::define_interface!(ICompositorController, ICompositorController_Vtbl, 0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 impl windows_core::RuntimeType for ICompositorController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Core.ICompositorController");
 }
 #[repr(C)]
 #[doc(hidden)]

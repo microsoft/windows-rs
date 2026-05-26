@@ -162,10 +162,12 @@ impl windows_core::TypeKind for CompanionWindowRequestResultStatus {
 }
 impl windows_core::RuntimeType for CompanionWindowRequestResultStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.CompanionWindows.CompanionWindowRequestResultStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.CompanionWindowRequestResultStatus");
 }
 windows_core::imp::define_interface!(ICompanionWindowCoordinator, ICompanionWindowCoordinator_Vtbl, 0x05620e87_b0f7_59ba_b3a5_d614bdc1ebe3);
 impl windows_core::RuntimeType for ICompanionWindowCoordinator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowCoordinator");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -180,6 +182,7 @@ pub struct ICompanionWindowCoordinator_Vtbl {
 windows_core::imp::define_interface!(ICompanionWindowCoordinatorStatics, ICompanionWindowCoordinatorStatics_Vtbl, 0x964022fa_380e_518c_bfc8_0f3b84fafea3);
 impl windows_core::RuntimeType for ICompanionWindowCoordinatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowCoordinatorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -190,6 +193,7 @@ pub struct ICompanionWindowCoordinatorStatics_Vtbl {
 windows_core::imp::define_interface!(ICompanionWindowRequest, ICompanionWindowRequest_Vtbl, 0xd92c351a_2d66_59a8_b345_78489562c4d8);
 impl windows_core::RuntimeType for ICompanionWindowRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -203,6 +207,7 @@ pub struct ICompanionWindowRequest_Vtbl {
 windows_core::imp::define_interface!(ICompanionWindowRequestResult, ICompanionWindowRequestResult_Vtbl, 0xd728d2ef_e6d4_5cc0_9ff4_20c17a2ce72d);
 impl windows_core::RuntimeType for ICompanionWindowRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequestResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,6 +221,7 @@ pub struct ICompanionWindowRequestResult_Vtbl {
 windows_core::imp::define_interface!(ICompanionWindowRequestStatics, ICompanionWindowRequestStatics_Vtbl, 0x585e4544_d474_506a_96c2_3597a44882da);
 impl windows_core::RuntimeType for ICompanionWindowRequestStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.CompanionWindows.ICompanionWindowRequestStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

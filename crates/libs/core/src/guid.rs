@@ -99,6 +99,7 @@ impl GUID {
 
 impl RuntimeType for GUID {
     const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"g16");
+    const NAME: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"Guid");
 }
 
 impl TypeKind for GUID {
