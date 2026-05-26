@@ -64,8 +64,8 @@ impl Interface {
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def) {
-                    // Method-level `--filter` demoted this slot to opaque.
+                } else if !config.includes_method(type_name, def) {
+                    // Method-level filter demoted this slot to opaque.
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -82,7 +82,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
+            !method.dependencies.included(config) || !config.includes_method(type_name, def)
         })
     }
 
@@ -105,7 +105,7 @@ impl Interface {
         let (class_cfg, cfg) = self.write_cfg(config);
 
         let vtbl = {
-            let virtual_names = &mut MethodNames::new();
+            let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
             let result = config.write_result();
 
             let vtbl_methods = methods.iter().map(|method| match method {
@@ -277,8 +277,8 @@ impl Interface {
             let is_trait_only = config.filter.is_trait_only(type_name);
             if !is_exclusive || (config.bindgen.style.is_minimal() && !is_factory) {
                 if !is_trait_only {
-                    let method_names = &mut MethodNames::new();
-                    let virtual_names = &mut MethodNames::new();
+                    let method_names = &mut MethodNames::for_style(&config.bindgen.style);
+                    let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
                     let mut method_tokens = TokenStream::new();
 
                     for method in methods.iter().filter_map(|method| match &method {
@@ -306,7 +306,7 @@ impl Interface {
                         if config.bindgen.style.is_minimal() {
                             continue;
                         }
-                        let virtual_names = &mut MethodNames::new();
+                        let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
 
                         for method in
                             interface.get_methods(config).iter().filter_map(
@@ -457,7 +457,7 @@ impl Interface {
                 if has_skipped_methods {
                     config.warnings.skip_implement(self.def);
                 } else {
-                    let mut names = MethodNames::new();
+                    let mut names = MethodNames::for_style(&config.bindgen.style);
 
                     let field_methods: Vec<_> = methods
                         .iter()
@@ -473,7 +473,7 @@ impl Interface {
                         })
                         .collect();
 
-                    let mut names = MethodNames::new();
+                    let mut names = MethodNames::for_style(&config.bindgen.style);
 
                     let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
@@ -494,7 +494,7 @@ impl Interface {
                 _ => quote! {},
             }).collect();
 
-                    let mut names = MethodNames::new();
+                    let mut names = MethodNames::for_style(&config.bindgen.style);
 
                     let trait_methods: Vec<_> = methods
                         .iter()

@@ -1,69 +1,7 @@
 pub mod Test {
     windows_link::link!("test.dll" "system" fn GetValue() -> u32);
     windows_link::link!("test.dll" "system" fn SetValue(value : u32));
-    pub const Blue: Color = 2i32;
     pub type Color = i32;
-    #[repr(transparent)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
-    pub struct Foo(windows_core::IUnknown);
-    windows_core::imp::interface_hierarchy!(
-        Foo,
-        windows_core::IUnknown,
-        windows_core::IInspectable
-    );
-    windows_core::imp::required_hierarchy!(Foo, IFoo2);
-    impl Foo {
-        pub fn new() -> windows_result::Result<Self> {
-            Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-        }
-        fn IActivationFactory<
-            R,
-            F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
-        >(
-            callback: F,
-        ) -> windows_result::Result<R> {
-            static SHARED: windows_core::imp::FactoryCache<
-                Foo,
-                windows_core::imp::IGenericFactory,
-            > = windows_core::imp::FactoryCache::new();
-            SHARED.call(callback)
-        }
-        pub fn Stat() -> windows_result::Result<i32> {
-            Self::IFooStatics(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(this).Stat)(
-                    windows_core::Interface::as_raw(this),
-                    &mut result__,
-                )
-                .map(|| result__)
-            })
-        }
-        fn IFooStatics<R, F: FnOnce(&IFooStatics) -> windows_result::Result<R>>(
-            callback: F,
-        ) -> windows_result::Result<R> {
-            static SHARED: windows_core::imp::FactoryCache<Foo, IFooStatics> =
-                windows_core::imp::FactoryCache::new();
-            SHARED.call(callback)
-        }
-    }
-    impl windows_core::RuntimeType for Foo {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::for_class::<Self, IFoo>();
-    }
-    unsafe impl windows_core::Interface for Foo {
-        type Vtable = <IFoo as windows_core::Interface>::Vtable;
-        const IID: windows_core::GUID = <IFoo as windows_core::Interface>::IID;
-    }
-    impl core::ops::Deref for Foo {
-        type Target = IFoo;
-        fn deref(&self) -> &Self::Target {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl windows_core::RuntimeName for Foo {
-        const NAME: &'static str = "Test.Foo";
-    }
-    pub const Green: Color = 1i32;
     pub type HANDLE = *mut core::ffi::c_void;
     windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x29b2ee6f_e8bf_5d03_8e01_81e8ad109076);
     impl windows_core::RuntimeType for IFoo {
@@ -204,5 +142,4 @@ pub mod Test {
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
     }
     pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
-    pub const Red: Color = 0i32;
 }

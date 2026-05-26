@@ -34,16 +34,43 @@ pub fn method_overload_name(row: MethodDef) -> Option<String> {
 }
 
 #[derive(Default)]
-pub struct MethodNames(HashMap<String, u32>);
+pub struct MethodNames {
+    map: HashMap<String, u32>,
+    raw: bool,
+}
 
 impl MethodNames {
     pub fn new() -> Self {
-        Self(HashMap::new())
+        Self {
+            map: HashMap::new(),
+            raw: false,
+        }
+    }
+
+    pub fn new_raw() -> Self {
+        Self {
+            map: HashMap::new(),
+            raw: true,
+        }
+    }
+
+    /// Creates a MethodNames that uses raw metadata names when `minimal` is true.
+    pub(crate) fn for_style(style: &Style) -> Self {
+        if style.is_minimal() {
+            Self::new_raw()
+        } else {
+            Self::new()
+        }
     }
 
     pub fn add(&mut self, method: MethodDef) -> TokenStream {
-        let name = method_def_special_name(method);
-        let overload = self.0.entry(name.to_string()).or_insert(0);
+        let name = if self.raw && method.flags().contains(MethodAttributes::SpecialName) {
+            // In raw/minimal mode, keep the raw metadata name for property/event accessors
+            method.name().to_string()
+        } else {
+            method_def_special_name(method)
+        };
+        let overload = self.map.entry(name.to_string()).or_insert(0);
         *overload += 1;
         if *overload > 1 {
             format!("{name}{overload}").parse().unwrap()

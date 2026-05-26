@@ -29,44 +29,73 @@ impl Class {
         };
 
         let mut methods = quote! {};
-        let mut method_names = MethodNames::new();
 
-        for interface in &required_interfaces {
-            // In `minimal` mode keep only static and composable factory helpers; callers
-            // invoke instance methods via `cast::<IFoo>()?`.
-            if config.bindgen.style.is_minimal()
-                && !matches!(
-                    interface.kind,
-                    InterfaceKind::Static | InterfaceKind::Composable
-                )
-            {
-                continue;
+        if !config.bindgen.style.is_minimal() {
+            let mut method_names = MethodNames::for_style(&config.bindgen.style);
+
+            for interface in &required_interfaces {
+                let mut virtual_names = MethodNames::for_style(&config.bindgen.style);
+
+                for method in
+                    interface
+                        .get_methods(config)
+                        .iter()
+                        .filter_map(|method| match &method {
+                            MethodOrName::Method(method) => Some(method),
+                            _ => None,
+                        })
+                {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
+
+                    let method = method.write(
+                        config,
+                        Some(interface),
+                        interface.kind,
+                        &mut method_names,
+                        &mut virtual_names,
+                    );
+
+                    methods.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
             }
+        } else {
+            // In minimal mode, only flatten static/factory methods onto the class
+            // (needed for static caching). Instance methods live on their interfaces.
+            let mut method_names = MethodNames::for_style(&config.bindgen.style);
 
-            let mut virtual_names = MethodNames::new();
-
-            for method in interface
-                .get_methods(config)
+            for interface in required_interfaces
                 .iter()
-                .filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                })
+                .filter(|i| matches!(i.kind, InterfaceKind::Static | InterfaceKind::Composable))
             {
-                let cfg = method.write_cfg(config, &class_cfg, false);
+                let mut virtual_names = MethodNames::for_style(&config.bindgen.style);
 
-                let method = method.write(
-                    config,
-                    Some(interface),
-                    interface.kind,
-                    &mut method_names,
-                    &mut virtual_names,
-                );
+                for method in
+                    interface
+                        .get_methods(config)
+                        .iter()
+                        .filter_map(|method| match &method {
+                            MethodOrName::Method(method) => Some(method),
+                            _ => None,
+                        })
+                {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
 
-                methods.combine(quote! {
-                    #cfg
-                    #method
-                });
+                    let method = method.write(
+                        config,
+                        Some(interface),
+                        interface.kind,
+                        &mut method_names,
+                        &mut virtual_names,
+                    );
+
+                    methods.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
             }
         }
 

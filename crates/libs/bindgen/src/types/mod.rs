@@ -135,7 +135,7 @@ impl Type {
         (kind != 0, self.type_name(), arches, kind)
     }
 
-    fn is_intrinsic(&self) -> bool {
+    pub(crate) fn is_intrinsic(&self) -> bool {
         matches!(
             self,
             Self::Generic(..)

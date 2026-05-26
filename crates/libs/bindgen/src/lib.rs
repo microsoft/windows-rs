@@ -55,7 +55,11 @@ use value::*;
 pub use warnings::*;
 use winmd::*;
 mod method_names;
+mod minimal_filter;
+mod minimal_type_map;
 use method_names::*;
+use minimal_filter::*;
+use minimal_type_map::*;
 
 pub fn builder() -> Bindgen {
     Bindgen::new()
@@ -952,9 +956,25 @@ impl Bindgen {
             Implements::new(&names_str)
         });
 
-        let filter = Filter::new(&reader, &include, &exclude);
         let references = References::new(&reader, references);
-        let types = TypeMap::filter(&reader, &filter, &references);
+
+        // In minimal mode, use the method-centric filter and automatic type
+        // closure instead of the traditional type-level include/exclude filter.
+        let minimal_filter = if self.style.is_minimal() {
+            Some(MinimalFilter::new(&reader, &include))
+        } else {
+            None
+        };
+
+        let (filter, types) = if let Some(minimal) = &minimal_filter {
+            let (types, filter) = MinimalTypeMap::build(&reader, minimal, &references);
+            (filter, types)
+        } else {
+            let filter = Filter::new(&reader, &include, &exclude);
+            let types = TypeMap::filter(&reader, &filter, &references);
+            (filter, types)
+        };
+
         let derive = Derive::new(&reader, &types, &derive_str);
         if let Some(implements) = &implements {
             filter.validate_implements(implements);
@@ -982,6 +1002,7 @@ impl Bindgen {
             warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
+            minimal_filter: minimal_filter.as_ref(),
         };
 
         let tree = TypeTree::new(&types);
@@ -1032,7 +1053,32 @@ where
     // This function is needed to avoid a recursion limit in the Rust compiler.
     #[track_caller]
     fn from_string(result: &mut Vec<String>, value: &str) {
-        expand_args(result, value.split_whitespace().map(|arg| arg.to_string()));
+        // Split on whitespace but keep `{...}` groups together so that
+        // `Type::{a, b}` is not split across multiple args.
+        let mut args = Vec::new();
+        let mut current = String::new();
+        let mut brace_depth = 0u32;
+
+        for ch in value.chars() {
+            if ch == '{' {
+                brace_depth += 1;
+                current.push(ch);
+            } else if ch == '}' {
+                brace_depth = brace_depth.saturating_sub(1);
+                current.push(ch);
+            } else if ch.is_whitespace() && brace_depth == 0 {
+                if !current.is_empty() {
+                    args.push(std::mem::take(&mut current));
+                }
+            } else {
+                current.push(ch);
+            }
+        }
+        if !current.is_empty() {
+            args.push(current);
+        }
+
+        expand_args(result, args);
     }
 
     #[track_caller]
