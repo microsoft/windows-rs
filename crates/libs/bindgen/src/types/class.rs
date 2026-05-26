@@ -91,6 +91,11 @@ impl Class {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
                     None
+                } else if config.filter.is_full_demote(interface.def.type_name()) {
+                    // The statics/factory interface is fully demoted (??): all vtable
+                    // slots are `usize` so no caller can invoke through it. Suppress
+                    // the accessor function to avoid dead_code warnings.
+                    None
                 } else {
                         let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);

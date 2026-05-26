@@ -242,6 +242,16 @@ impl Filter {
         let key = (name.namespace().to_string(), name.name().to_string());
         self.trait_only.contains(&key) || self.full_demote.contains(&key)
     }
+
+    /// Returns `true` if `name` was marked with the `??Ns.Type` prefix
+    /// in `--filter`, indicating full vtable demotion (skeleton-only).
+    /// Used to suppress statics/factory accessor functions on classes
+    /// when the target interface is fully demoted — since all slots are
+    /// `usize`, no caller can invoke through it.
+    pub fn is_full_demote(&self, name: TypeName) -> bool {
+        self.full_demote
+            .contains(&(name.namespace().to_string(), name.name().to_string()))
+    }
 }
 
 #[track_caller]
