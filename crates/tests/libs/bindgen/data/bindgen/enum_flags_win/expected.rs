@@ -15,6 +15,8 @@ impl windows_core::RuntimeType for ErrorOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)",
     );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Diagnostics.ErrorOptions");
 }
 impl ErrorOptions {
     pub const fn contains(&self, other: Self) -> bool {

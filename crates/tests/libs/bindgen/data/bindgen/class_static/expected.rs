@@ -54,6 +54,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IGuidHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGuidHelperStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -22,6 +22,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IIterable`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {
@@ -37,6 +41,8 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IIterable_Impl<T>: windows_core::IUnknownImpl
 where
@@ -128,6 +134,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IIterator`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
@@ -178,6 +188,8 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IIterator_Impl<T>: windows_core::IUnknownImpl
 where
@@ -356,6 +368,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVect
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IVectorView`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
     for IVectorView<T>
@@ -444,6 +460,8 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVectorView<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IVectorView_Impl<T>: IIterable_Impl<T>
 where
@@ -607,6 +625,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderEntry");
 }
 windows_core::imp::interface_hierarchy!(
     IWwwFormUrlDecoderEntry,
@@ -716,6 +736,9 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClass",
+    );
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -735,6 +758,9 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory",
+    );
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -8,6 +8,8 @@ pub mod Windows {
         impl windows_core::RuntimeType for IClosable {
             const SIGNATURE: windows_core::imp::ConstBuffer =
                 windows_core::imp::ConstBuffer::for_interface::<Self>();
+            const NAME: windows_core::imp::ConstBuffer =
+                windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IClosable");
         }
         windows_core::imp::interface_hierarchy!(
             IClosable,
@@ -64,6 +66,9 @@ pub mod Windows {
         impl windows_core::RuntimeType for IMemoryBufferReference {
             const SIGNATURE: windows_core::imp::ConstBuffer =
                 windows_core::imp::ConstBuffer::for_interface::<Self>();
+            const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+                b"Windows.Foundation.IMemoryBufferReference",
+            );
         }
         windows_core::imp::interface_hierarchy!(
             IMemoryBufferReference,

@@ -68,6 +68,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo");
     }
     #[repr(C)]
     #[doc(hidden)]
@@ -84,6 +86,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IFooFactory {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IFooFactory");
     }
     #[repr(C)]
     #[doc(hidden)]
@@ -103,6 +107,8 @@ pub mod Test {
     impl windows_core::RuntimeType for IFooStatics {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
+        const NAME: windows_core::imp::ConstBuffer =
+            windows_core::imp::ConstBuffer::from_slice(b"Test.IFooStatics");
     }
     #[repr(C)]
     #[doc(hidden)]

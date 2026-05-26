@@ -13,4 +13,6 @@ impl windows_core::RuntimeType for RectInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)",
     );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.RectInt32");
 }
