@@ -234,6 +234,7 @@ impl MinimalFilter {
         }
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn insert_method_for_type(
         &mut self,
         entry: &str,
@@ -290,8 +291,7 @@ impl MinimalFilter {
                             let iface_ns = iface.def.namespace();
                             let iface_name = iface.def.name();
                             let r_ns = reader.keys().find(|ns| *ns == &iface_ns).unwrap();
-                            let r_name =
-                                reader[r_ns].keys().find(|n| *n == &iface_name).unwrap();
+                            let r_name = reader[r_ns].keys().find(|n| *n == &iface_name).unwrap();
                             self.insert_method((r_ns, r_name), method_name.to_string());
                             if !self.types.contains(&(resolved_ns, resolved_name)) {
                                 self.types.push((resolved_ns, resolved_name));
@@ -304,11 +304,11 @@ impl MinimalFilter {
                 // Also search composable factory interfaces for the method.
                 if !found {
                     for iface in &required {
-                        if matches!(iface.kind, InterfaceKind::Composable) {
-                            if iface.def.methods().any(|m| method_matches(m, method_name)) {
-                                found = true;
-                                break;
-                            }
+                        if matches!(iface.kind, InterfaceKind::Composable)
+                            && iface.def.methods().any(|m| method_matches(m, method_name))
+                        {
+                            found = true;
+                            break;
                         }
                     }
                 }

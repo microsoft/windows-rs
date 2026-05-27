@@ -107,7 +107,6 @@ impl MinimalTypeMap {
         let exclude: Vec<&str> = Vec::new();
         Filter::new(reader, &include, &exclude)
     }
-
 }
 
 /// Extension trait providing a minimal-mode dependency walk.
