@@ -52,13 +52,9 @@ impl MinimalTypeMap {
                                 &iface.generics,
                                 reader,
                             );
-                            let mut sig_deps = TypeMap::new();
-                            sig.combine(&mut sig_deps, reader);
-                            // Remove statics/composable factory interfaces that
-                            // were pulled in transitively through class dependencies.
-                            // They bloat the type map with unused factories.
-                            Self::prune_factory_interfaces(&mut sig_deps, reader);
-                            types.combine_references(&sig_deps, references);
+                            for dep_ty in sig.types() {
+                                dep_ty.combine_minimal(&mut types, reader, references);
+                            }
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
@@ -66,10 +62,9 @@ impl MinimalTypeMap {
                     for method in iface.def.methods() {
                         if method_set.includes(method.name()) {
                             let sig = method.method_signature(iface.def.namespace(), &[], reader);
-                            let mut sig_deps = TypeMap::new();
-                            sig.combine(&mut sig_deps, reader);
-                            Self::prune_factory_interfaces(&mut sig_deps, reader);
-                            types.combine_references(&sig_deps, references);
+                            for dep_ty in sig.types() {
+                                dep_ty.combine_minimal(&mut types, reader, references);
+                            }
                         }
                     }
                 }
@@ -113,65 +108,6 @@ impl MinimalTypeMap {
         Filter::new(reader, &include, &exclude)
     }
 
-    /// Remove statics/composable factory interfaces from a dependency map.
-    ///
-    /// When `sig.combine` walks a class's dependencies, it pulls in all
-    /// required interfaces including statics (IFooStatics) and composable
-    /// factories (IFooFactory). In minimal mode, these are only needed when
-    /// explicitly requested in the filter. Remove interfaces that are marked
-    /// as Static or Composable by their owning class.
-    fn prune_factory_interfaces(deps: &mut TypeMap, reader: &Reader) {
-        let to_remove: Vec<TypeName> = deps
-            .keys()
-            .filter(|tn| {
-                // Check if this interface is a statics or composable factory
-                // by checking if any class lists it as Static/Composable.
-                for ty in reader.with_full_name(tn.namespace(), tn.name()) {
-                    if let Type::Interface(iface) = &ty {
-                        if !iface.def.has_attribute("ExclusiveToAttribute") {
-                            continue;
-                        }
-                        // Get the owning class from ExclusiveToAttribute
-                        for attr in iface.def.attributes() {
-                            if attr.name() != "ExclusiveToAttribute" {
-                                continue;
-                            }
-                            for (_, arg) in attr.value() {
-                                if let Value::TypeName(owner_tn) = arg {
-                                    // Check if the owning class has this interface
-                                    // listed as Static or Composable.
-                                    for owner_ty in reader.with_full_name(
-                                        owner_tn.namespace.as_str(),
-                                        owner_tn.name.as_str(),
-                                    ) {
-                                        if let Type::Class(owner_class) = &owner_ty {
-                                            for req in owner_class.required_interfaces(reader) {
-                                                if req.def == iface.def
-                                                    && matches!(
-                                                        req.kind,
-                                                        InterfaceKind::Static
-                                                            | InterfaceKind::Composable
-                                                    )
-                                                {
-                                                    return true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                false
-            })
-            .copied()
-            .collect();
-
-        for tn in to_remove {
-            deps.remove(&tn);
-        }
-    }
 }
 
 /// Extension trait providing a minimal-mode dependency walk.
@@ -191,9 +127,15 @@ impl CombineMinimal for Type {
             return;
         }
 
-        // Skip types owned by references (they come from external crates).
+        // Skip types owned by references (they come from external crates),
+        // but still recurse into generic arguments which may be local types.
         let tn = ty.type_name();
         if !tn.namespace().is_empty() && references.contains(tn).is_some() {
+            // Still need to process generic args (e.g., IVector<LocalType>).
+            let (_ty_inner, generics) = ty.split_generic(reader);
+            for g in &generics {
+                g.combine_minimal(types, reader, references);
+            }
             return;
         }
 
@@ -279,10 +221,10 @@ impl CombineMinimal for Type {
                 // Constants are self-contained.
             }
             Type::Class(c) => {
-                // Pull in required instance/base interfaces so class codegen
-                // can reference them. Skip statics and composable — they are
-                // only needed when explicitly requested via the filter (and are
-                // already in the interfaces map from filter expansion).
+                // In minimal mode, only pull in the default interface (needed for
+                // Deref and class identity). All other instance/base interfaces are
+                // only included if they appear explicitly in the filter's interfaces
+                // map (which is handled by step 1 of build()).
                 for iface in c.required_interfaces(reader) {
                     if matches!(
                         iface.kind,
@@ -290,18 +232,17 @@ impl CombineMinimal for Type {
                     ) {
                         continue;
                     }
+                    if iface.kind != InterfaceKind::Default {
+                        continue;
+                    }
                     let iface_ty = Type::Interface(iface.clone());
                     let iface_tn = iface_ty.type_name();
                     if references.contains(iface_tn).is_some() {
-                        // Even though the interface itself is from a reference crate,
-                        // its generic arguments might be local types that need inclusion.
                         for g in &iface.generics {
                             g.combine_minimal(types, reader, references);
                         }
                         continue;
                     }
-                    // Use combine_minimal so that the interface's own dependencies
-                    // (e.g. method signature types for factories) are walked.
                     iface_ty.combine_minimal(types, reader, references);
                 }
                 // Pull in base classes for the required_hierarchy! macro.

@@ -240,12 +240,24 @@ impl Interface {
 
             if !is_exclusive && !required_interfaces.is_empty() {
                 if self.generics.is_empty() {
-                    let interfaces = required_interfaces.iter().map(|ty| ty.write_name(config));
+                    let interfaces: Vec<_> = required_interfaces.iter()
+                        .filter(|ty| {
+                            if config.bindgen.style.is_minimal() {
+                                let tn = Type::Interface((*ty).clone()).type_name();
+                                config.types.contains_key(&tn)
+                            } else {
+                                true
+                            }
+                        })
+                        .map(|ty| ty.write_name(config))
+                        .collect();
 
-                    result.combine(quote! {
-                        #cfg
-                        windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
-                    });
+                    if !interfaces.is_empty() {
+                        result.combine(quote! {
+                            #cfg
+                            windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                        });
+                    }
                 } else {
                     let interfaces = required_interfaces.iter().map(|ty| {
                     let ty = ty.write_name(config);

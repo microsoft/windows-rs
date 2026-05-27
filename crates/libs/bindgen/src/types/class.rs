@@ -176,12 +176,32 @@ impl Class {
                 let mut interfaces: Vec<_> = required_interfaces
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
+                    .filter(|ty| {
+                        // In minimal mode, only include interfaces that are actually
+                        // in the type map (i.e., have requested methods or were pulled
+                        // in by other means). This avoids referencing interfaces that
+                        // were pruned from the closure.
+                        if config.bindgen.style.is_minimal() {
+                            let tn = Type::Interface((*ty).clone()).type_name();
+                            config.types.contains_key(&tn)
+                        } else {
+                            true
+                        }
+                    })
                     .map(|ty| ty.write_name(config))
                     .collect();
 
                 interfaces.extend(
                     self.bases(config.reader)
                         .iter()
+                        .filter(|ty| {
+                            if config.bindgen.style.is_minimal() {
+                                let tn = Type::Class((*ty).clone()).type_name();
+                                config.types.contains_key(&tn)
+                            } else {
+                                true
+                            }
+                        })
                         .map(|ty| ty.write_name(config)),
                 );
 
