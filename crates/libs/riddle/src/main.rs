@@ -33,7 +33,7 @@ Options:
                     "--split" => split = true,
                     _ => panic!("invalid option `{arg}`"),
                 },
-                ArgKind::Output => output = arg.clone(),
+                ArgKind::Output => output.clone_from(arg),
                 ArgKind::Input => input.push(arg.clone()),
                 ArgKind::Filter => filter.push(arg.clone()),
             }
