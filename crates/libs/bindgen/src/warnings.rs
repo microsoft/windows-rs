@@ -48,9 +48,7 @@ impl Warnings {
     /// Panics if any warnings are present.
     #[track_caller]
     pub fn unwrap(&self) {
-        if !self.is_empty() {
-            panic!("{self}");
-        }
+        assert!(self.is_empty(), "{self}");
     }
 }
 

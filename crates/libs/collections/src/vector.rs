@@ -57,7 +57,8 @@ where
         let values = self.values.read().unwrap();
         if let Some(index) = values
             .iter()
-            .position(|element| element == ref_as_default::<T>(&value)) {
+            .position(|element| element == ref_as_default::<T>(&value))
+        {
             *result = index as u32;
             Ok(true)
         } else {

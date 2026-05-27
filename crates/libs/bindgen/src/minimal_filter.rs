@@ -177,9 +177,10 @@ impl MinimalFilter {
             }
         }
 
-        if filter.interfaces.is_empty() && filter.types.is_empty() {
-            panic!("at least one `--filter` entry required for minimal mode");
-        }
+        assert!(
+            !(filter.interfaces.is_empty() && filter.types.is_empty()),
+            "at least one `--filter` entry required for minimal mode"
+        );
 
         filter
     }
@@ -247,30 +248,27 @@ impl MinimalFilter {
     ) {
         match ty {
             Type::Interface(t) => {
-                if !t.def.methods().any(|m| method_matches(m, method_name)) {
-                    panic!(
-                        "method `{method_name}` not found on `{type_part}` \
-                         (in filter entry `{entry}`)"
-                    );
-                }
+                assert!(
+                    t.def.methods().any(|m| method_matches(m, method_name)),
+                    "method `{method_name}` not found on `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
                 self.insert_method((resolved_ns, resolved_name), method_name.to_string());
             }
             Type::CppInterface(t) => {
-                if !t.def.methods().any(|m| method_matches(m, method_name)) {
-                    panic!(
-                        "method `{method_name}` not found on `{type_part}` \
-                         (in filter entry `{entry}`)"
-                    );
-                }
+                assert!(
+                    t.def.methods().any(|m| method_matches(m, method_name)),
+                    "method `{method_name}` not found on `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
                 self.insert_method((resolved_ns, resolved_name), method_name.to_string());
             }
             Type::Delegate(t) => {
-                if !t.def.methods().any(|m| method_matches(m, method_name)) {
-                    panic!(
-                        "method `{method_name}` not found on `{type_part}` \
-                         (in filter entry `{entry}`)"
-                    );
-                }
+                assert!(
+                    t.def.methods().any(|m| method_matches(m, method_name)),
+                    "method `{method_name}` not found on `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
                 self.insert_method((resolved_ns, resolved_name), method_name.to_string());
             }
             Type::Class(c) => {
@@ -312,12 +310,11 @@ impl MinimalFilter {
                         }
                     }
                 }
-                if !found {
-                    panic!(
-                        "method `{method_name}` not found on \
-                         class `{type_part}` (in filter entry `{entry}`)"
-                    );
-                }
+                assert!(
+                    found,
+                    "method `{method_name}` not found on \
+                     class `{type_part}` (in filter entry `{entry}`)"
+                );
                 // Include composable factory interfaces so new()/compose() work.
                 for iface in &required {
                     if matches!(iface.kind, InterfaceKind::Composable) {

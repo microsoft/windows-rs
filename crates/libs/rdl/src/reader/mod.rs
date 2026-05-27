@@ -225,7 +225,7 @@ fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>,
             Error::new(&error.to_string(), path, start.line, start.column)
         })?;
 
-        file.source = path.clone();
+        file.source.clone_from(path);
         input.push(file);
     }
 

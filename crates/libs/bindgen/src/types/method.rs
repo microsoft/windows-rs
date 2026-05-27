@@ -595,7 +595,9 @@ impl Method {
             None
         };
 
-        let return_type = if self.signature.return_type == Type::Void { quote! { () } } else {
+        let return_type = if self.signature.return_type == Type::Void {
+            quote! { () }
+        } else {
             let tokens = if config.bindgen.style.is_minimal()
                 && matches!(self.signature.return_type, Type::String)
             {
@@ -934,13 +936,7 @@ impl Method {
                     )
                 } else {
                     // No delegate parameter detected: fall back to the existing signature.
-                    (
-                        generics,
-                        where_clause,
-                        params,
-                        args,
-                        prelude,
-                    )
+                    (generics, where_clause, params, args, prelude)
                 };
 
             // Raw vtable call that maps the HRESULT into Result<i64> via `?`.

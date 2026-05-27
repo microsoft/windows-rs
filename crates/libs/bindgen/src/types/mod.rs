@@ -606,7 +606,12 @@ impl Type {
 
     pub fn decay(&self) -> &Self {
         match self {
-            Self::PtrMut(ty, _) | Self::PtrConst(ty, _) | Self::Array(ty) | Self::ArrayRef(ty) | Self::ConstRef(ty) | Self::PrimitiveOrEnum(_, ty) => ty,
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::PrimitiveOrEnum(_, ty) => ty,
             Self::ArrayFixed(ty, _) => ty.decay(),
             _ => self,
         }

@@ -513,7 +513,7 @@ impl Encoder<'_> {
                 "Windows.Win32.Foundation.Metadata",
                 "SupportedArchitectureAttribute",
             ),
-            args: vec![("".to_string(), metadata::Value::I32(arch_bits))],
+            args: vec![(String::new(), metadata::Value::I32(arch_bits))],
         };
         self.encode_named_attribute(target, &attr_ref);
     }

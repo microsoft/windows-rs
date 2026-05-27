@@ -427,9 +427,7 @@ where
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
-                if has_output {
-                    panic!("exactly one `--out` is required");
-                }
+                assert!(!has_output, "exactly one `--out` is required");
                 builder.output(arg);
                 has_output = true;
             }
@@ -813,9 +811,10 @@ impl Bindgen {
     pub fn write(&self) -> Warnings {
         // Validate up front so we fail fast before any expensive plumbing
         // (link string, input vec, references, reader, …) runs.
-        if self.output.is_empty() {
-            panic!("output is required (call `.output()` or pass `--out`)");
-        }
+        assert!(
+            !self.output.is_empty(),
+            "output is required (call `.output()` or pass `--out`)"
+        );
 
         let mut include: Vec<&str> = vec![];
         let mut exclude: Vec<&str> = vec![];
@@ -828,9 +827,7 @@ impl Bindgen {
             }
         }
 
-        if include.is_empty() {
-            panic!("at least one `--filter` required");
-        }
+        assert!(!include.is_empty(), "at least one `--filter` required");
 
         let sys = self.is_sys();
 
@@ -1136,9 +1133,10 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 }
             }
 
-            if result.len() == prev_len {
-                panic!("failed to find .winmd files in directory `{input}`");
-            }
+            assert!(
+                result.len() != prev_len,
+                "failed to find .winmd files in directory `{input}`"
+            );
         } else {
             result.push(input.to_string());
         }

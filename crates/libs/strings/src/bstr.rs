@@ -27,9 +27,7 @@ impl BSTR {
             ))
         };
 
-        if result.is_empty() {
-            panic!("allocation failed");
-        }
+        assert!(!result.is_empty(), "allocation failed");
 
         result
     }

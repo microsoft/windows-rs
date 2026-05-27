@@ -27,9 +27,7 @@ fn msvc_main() {
         "src/test.idl",
     ]);
 
-    if !command.status().unwrap().success() {
-        panic!("Failed to run midlrt");
-    }
+    assert!(command.status().unwrap().success(), "Failed to run midlrt");
 
     windows_bindgen::bindgen([
         "--in",
