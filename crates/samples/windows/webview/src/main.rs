@@ -58,7 +58,7 @@ fn main() -> windows::core::Result<()> {
                 let webview = controller.CoreWebView2()?;
 
                 let uri = w!("https://github.com/microsoft/windows-rs");
-                webview.Navigate(*uri)?;
+                webview.Navigate(LPCWSTR(uri.0 as _))?;
             }
 
             // TODO: need to keep the controller alive.
@@ -118,7 +118,7 @@ fn main() -> windows::core::Result<()> {
         let handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
             EnvironmentHandler(hwnd).into();
 
-        CreateCoreWebView2Environment(handler.as_raw()).ok()?;
+        CreateCoreWebView2Environment(&handler)?;
         let mut message = MSG::default();
 
         while GetMessageA(&mut message, None, 0, 0).into() {

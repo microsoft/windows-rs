@@ -758,9 +758,15 @@ impl Method {
 
         if is_event_add && kind != InterfaceKind::Composable {
             // The event part (e.g. "Click" from "add_Click") determines the
-            // vtable field name for the paired remove method ("RemoveClick").
+            // vtable field name for the paired remove method.
             let event_part = &raw_method_name[4..];
-            let remove_vname = to_ident(&format!("Remove{event_part}"));
+            let remove_vname = if config.bindgen.style.is_minimal() {
+                // Raw mode: vtbl field is "remove_Click"
+                to_ident(&format!("remove_{event_part}"))
+            } else {
+                // Default mode: vtbl field is "RemoveClick"
+                to_ident(&format!("Remove{event_part}"))
+            };
 
             // Promote the delegate parameter (typically the only input) to a
             // generic closure so callers can pass a closure directly without

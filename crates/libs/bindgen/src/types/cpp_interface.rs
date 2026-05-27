@@ -41,8 +41,8 @@ impl CppInterface {
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     CppMethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def) {
-                    // Method-level `--filter` demoted this slot to opaque.
+                } else if !config.includes_method(type_name, def) {
+                    // Method-level filter demoted this slot to opaque.
                     CppMethodOrName::Name(method.def)
                 } else {
                     CppMethodOrName::Method(method)
@@ -60,7 +60,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
+            !method.dependencies.included(config) || !config.includes_method(type_name, def)
         })
     }
 
@@ -93,7 +93,7 @@ impl CppInterface {
                 _ => quote! {},
             };
 
-            let mut names = MethodNames::new();
+            let mut names = MethodNames::for_style(&config.bindgen.style);
 
             let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
@@ -202,8 +202,8 @@ impl CppInterface {
                 });
             }
 
-            let method_names = &mut MethodNames::new();
-            let virtual_names = &mut MethodNames::new();
+            let method_names = &mut MethodNames::for_style(&config.bindgen.style);
+            let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
             let mut methods_tokens = quote! {};
 
             for method in methods.iter().filter_map(|method| match &method {
@@ -269,7 +269,7 @@ impl CppInterface {
                     quote! {}
                 };
 
-                let mut names = MethodNames::new();
+                let mut names = MethodNames::for_style(&config.bindgen.style);
 
                 let field_methods: Vec<_> = methods
                     .iter()
@@ -289,7 +289,7 @@ impl CppInterface {
                     })
                     .collect();
 
-                let mut names = MethodNames::new();
+                let mut names = MethodNames::for_style(&config.bindgen.style);
 
                 let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
@@ -321,7 +321,7 @@ impl CppInterface {
                 _ => quote! {},
             }).collect();
 
-                let mut names = MethodNames::new();
+                let mut names = MethodNames::for_style(&config.bindgen.style);
 
                 let trait_methods: Vec<_> = methods
                     .iter()

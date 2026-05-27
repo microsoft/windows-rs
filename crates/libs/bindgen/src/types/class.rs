@@ -29,44 +29,73 @@ impl Class {
         };
 
         let mut methods = quote! {};
-        let mut method_names = MethodNames::new();
 
-        for interface in &required_interfaces {
-            // In `minimal` mode keep only static and composable factory helpers; callers
-            // invoke instance methods via `cast::<IFoo>()?`.
-            if config.bindgen.style.is_minimal()
-                && !matches!(
-                    interface.kind,
-                    InterfaceKind::Static | InterfaceKind::Composable
-                )
-            {
-                continue;
+        if !config.bindgen.style.is_minimal() {
+            let mut method_names = MethodNames::for_style(&config.bindgen.style);
+
+            for interface in &required_interfaces {
+                let mut virtual_names = MethodNames::for_style(&config.bindgen.style);
+
+                for method in
+                    interface
+                        .get_methods(config)
+                        .iter()
+                        .filter_map(|method| match &method {
+                            MethodOrName::Method(method) => Some(method),
+                            _ => None,
+                        })
+                {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
+
+                    let method = method.write(
+                        config,
+                        Some(interface),
+                        interface.kind,
+                        &mut method_names,
+                        &mut virtual_names,
+                    );
+
+                    methods.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
             }
+        } else {
+            // In minimal mode, only flatten static/factory methods onto the class
+            // (needed for static caching). Instance methods live on their interfaces.
+            let mut method_names = MethodNames::for_style(&config.bindgen.style);
 
-            let mut virtual_names = MethodNames::new();
-
-            for method in interface
-                .get_methods(config)
+            for interface in required_interfaces
                 .iter()
-                .filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                })
+                .filter(|i| matches!(i.kind, InterfaceKind::Static | InterfaceKind::Composable))
             {
-                let cfg = method.write_cfg(config, &class_cfg, false);
+                let mut virtual_names = MethodNames::for_style(&config.bindgen.style);
 
-                let method = method.write(
-                    config,
-                    Some(interface),
-                    interface.kind,
-                    &mut method_names,
-                    &mut virtual_names,
-                );
+                for method in
+                    interface
+                        .get_methods(config)
+                        .iter()
+                        .filter_map(|method| match &method {
+                            MethodOrName::Method(method) => Some(method),
+                            _ => None,
+                        })
+                {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
 
-                methods.combine(quote! {
-                    #cfg
-                    #method
-                });
+                    let method = method.write(
+                        config,
+                        Some(interface),
+                        interface.kind,
+                        &mut method_names,
+                        &mut virtual_names,
+                    );
+
+                    methods.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
             }
         }
 
@@ -90,6 +119,14 @@ impl Class {
         let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
+                    None
+                } else if config.bindgen.style == Style::Minimal
+                    && !interface
+                        .get_methods(config)
+                        .iter()
+                        .any(|m| matches!(m, MethodOrName::Method(_)))
+                {
+                    // In minimal mode, skip the factory cache if no methods survived filtering.
                     None
                 } else {
                         let method_name = to_ident(trim_tick(interface.def.name()));
@@ -139,12 +176,32 @@ impl Class {
                 let mut interfaces: Vec<_> = required_interfaces
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
+                    .filter(|ty| {
+                        // In minimal mode, only include interfaces that are actually
+                        // in the type map (i.e., have requested methods or were pulled
+                        // in by other means). This avoids referencing interfaces that
+                        // were pruned from the closure.
+                        if config.bindgen.style.is_minimal() {
+                            let tn = Type::Interface((*ty).clone()).type_name();
+                            config.types.contains_key(&tn)
+                        } else {
+                            true
+                        }
+                    })
                     .map(|ty| ty.write_name(config))
                     .collect();
 
                 interfaces.extend(
                     self.bases(config.reader)
                         .iter()
+                        .filter(|ty| {
+                            if config.bindgen.style.is_minimal() {
+                                let tn = Type::Class((*ty).clone()).type_name();
+                                config.types.contains_key(&tn)
+                            } else {
+                                true
+                            }
+                        })
                         .map(|ty| ty.write_name(config)),
                 );
 
