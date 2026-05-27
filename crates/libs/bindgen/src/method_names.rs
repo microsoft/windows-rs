@@ -105,7 +105,7 @@ fn method_def_special_name(row: MethodDef) -> String {
                         }
                     }
 
-                    return overload.to_string();
+                    return overload;
                 }
             }
         }

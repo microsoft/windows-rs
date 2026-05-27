@@ -938,11 +938,11 @@ impl Method {
                 } else {
                     // No delegate parameter detected: fall back to the existing signature.
                     (
-                        generics.clone(),
-                        where_clause.clone(),
-                        params.clone(),
-                        args.clone(),
-                        prelude.clone(),
+                        generics,
+                        where_clause,
+                        params,
+                        args,
+                        prelude,
                     )
                 };
 
