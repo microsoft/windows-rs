@@ -595,23 +595,22 @@ impl Method {
             None
         };
 
-        let return_type = match &self.signature.return_type {
-            Type::Void => quote! { () },
-            _ => {
-                let tokens = if config.bindgen.style.is_minimal()
-                    && matches!(self.signature.return_type, Type::String)
-                {
-                    quote! { String }
-                } else if let Some(inner) = return_unwrap_inner {
-                    inner.write_name(config)
-                } else {
-                    self.signature.return_type.write_name(config)
-                };
-                if self.signature.return_type.is_winrt_array() {
-                    quote! { windows_core::Array<#tokens> }
-                } else {
-                    quote! { #tokens }
-                }
+        let return_type = if self.signature.return_type == Type::Void {
+            quote! { () }
+        } else {
+            let tokens = if config.bindgen.style.is_minimal()
+                && matches!(self.signature.return_type, Type::String)
+            {
+                quote! { String }
+            } else if let Some(inner) = return_unwrap_inner {
+                inner.write_name(config)
+            } else {
+                self.signature.return_type.write_name(config)
+            };
+            if self.signature.return_type.is_winrt_array() {
+                quote! { windows_core::Array<#tokens> }
+            } else {
+                quote! { #tokens }
             }
         };
 
@@ -937,13 +936,7 @@ impl Method {
                     )
                 } else {
                     // No delegate parameter detected: fall back to the existing signature.
-                    (
-                        generics.clone(),
-                        where_clause.clone(),
-                        params.clone(),
-                        args.clone(),
-                        prelude.clone(),
-                    )
+                    (generics, where_clause, params, args, prelude)
                 };
 
             // Raw vtable call that maps the HRESULT into Result<i64> via `?`.

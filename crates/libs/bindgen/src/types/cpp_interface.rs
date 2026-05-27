@@ -248,7 +248,7 @@ impl CppInterface {
                         dependencies: &mut TypeMap,
                         config: &Config,
                     ) {
-                        for method in interface.get_methods(config).iter() {
+                        for method in &interface.get_methods(config) {
                             if let CppMethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }

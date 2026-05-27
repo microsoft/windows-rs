@@ -74,7 +74,7 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
         identity: &'static ::windows_core::IInspectable_Vtbl,
     };
 
-    for interface_chain in inputs.interface_chains.iter() {
+    for interface_chain in &inputs.interface_chains {
         let vtbl_ty = interface_chain.implement.to_vtbl_ident();
         let chain_field_ident = &interface_chain.field_ident;
         impl_fields.extend(quote! {
@@ -430,7 +430,7 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
         identity: &#impl_ident::#generics_idents::VTABLE_IDENTITY,
     };
 
-    for interface_chain in inputs.interface_chains.iter() {
+    for interface_chain in &inputs.interface_chains {
         let vtbl_field_ident = &interface_chain.field_ident;
         let vtable_const_ident = &interface_chain.vtable_const_ident;
 
@@ -538,7 +538,7 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
         }
     });
 
-    for interface_chain in inputs.interface_chains.iter() {
+    for interface_chain in &inputs.interface_chains {
         let interface_ident = interface_chain.implement.to_ident();
 
         items.push(parse_quote_spanned! {
@@ -593,7 +593,7 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
         }
     });
 
-    for interface_chain in inputs.interface_chains.iter() {
+    for interface_chain in &inputs.interface_chains {
         let chain_field = &interface_chain.field_ident;
         let interface_ident = interface_chain.implement.to_ident();
 

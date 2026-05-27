@@ -395,6 +395,6 @@ fn write_supported_architecture_attr(
     file.Attribute(
         parent,
         writer::AttributeType::MemberRef(ctor_ref),
-        &[("".to_string(), Value::I32(arch_bits))],
+        &[(String::new(), Value::I32(arch_bits))],
     );
 }

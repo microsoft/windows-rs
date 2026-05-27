@@ -128,12 +128,11 @@ impl Filter {
             return;
         }
         for (namespace, name) in self.methods.keys() {
-            if implements.matches_str(namespace, name) {
-                panic!(
-                    "method-level filter on `{namespace}.{name}` conflicts with `--implement`: \
-                     methods on implemented interfaces are always emitted"
-                );
-            }
+            assert!(
+                !implements.matches_str(namespace, name),
+                "method-level filter on `{namespace}.{name}` conflicts with `--implement`: \
+                 methods on implemented interfaces are always emitted"
+            );
         }
     }
 
@@ -268,22 +267,18 @@ fn push_filter(
     // block. Only valid on include entries — exclusion is orthogonal.
     let (filter, mark_trait_only, mark_full_demote) = if let Some(rest) = filter.strip_prefix("??")
     {
-        if !include {
-            panic!("cannot combine `??` (skeleton-only) with `!` (exclude) on the same filter entry: `{filter}`");
-        }
-        if rest.contains("::") {
-            panic!(
-                "`??` (skeleton-only) cannot be combined with a method-level filter: `{filter}`"
-            );
-        }
+        assert!(include, "cannot combine `??` (skeleton-only) with `!` (exclude) on the same filter entry: `{filter}`");
+        assert!(
+            !rest.contains("::"),
+            "`??` (skeleton-only) cannot be combined with a method-level filter: `{filter}`"
+        );
         (rest, true, true)
     } else if let Some(rest) = filter.strip_prefix('?') {
-        if !include {
-            panic!("cannot combine `?` (trait-only) with `!` (exclude) on the same filter entry: `{filter}`");
-        }
-        if rest.contains("::") {
-            panic!("`?` (trait-only) cannot be combined with a method-level filter: `{filter}`");
-        }
+        assert!(include, "cannot combine `?` (trait-only) with `!` (exclude) on the same filter entry: `{filter}`");
+        assert!(
+            !rest.contains("::"),
+            "`?` (trait-only) cannot be combined with a method-level filter: `{filter}`"
+        );
         (rest, true, false)
     } else {
         (filter, false, false)
@@ -418,12 +413,14 @@ fn push_method_filter(
     include: bool,
     raw: &str,
 ) {
-    if method_part.is_empty() || method_part.contains("::") {
-        panic!("invalid method filter `{raw}`: expected `Namespace.Type::Method`");
-    }
-    if type_part.contains("::") {
-        panic!("invalid method filter `{raw}`: expected `Namespace.Type::Method`");
-    }
+    assert!(
+        !(method_part.is_empty() || method_part.contains("::")),
+        "invalid method filter `{raw}`: expected `Namespace.Type::Method`"
+    );
+    assert!(
+        !type_part.contains("::"),
+        "invalid method filter `{raw}`: expected `Namespace.Type::Method`"
+    );
 
     let (namespace, type_name) = type_part
         .rsplit_once('.')
@@ -475,13 +472,12 @@ fn push_method_filter(
             );
         }
 
-        if !any_match {
-            panic!(
-                "method `{method_part}` not found on `{type_part}` or any of its \
-                 required interfaces (in method filter `{raw}`); searched: [{}]",
-                searched.join(", ")
-            );
-        }
+        assert!(
+            any_match,
+            "method `{method_part}` not found on `{type_part}` or any of its \
+             required interfaces (in method filter `{raw}`); searched: [{}]",
+            searched.join(", ")
+        );
         return;
     }
 
@@ -494,12 +490,11 @@ fn push_method_filter(
     let defs: Vec<MethodDef> = def.methods().collect();
 
     let expanded = expand_method_part(method_part, &defs);
-    if expanded.is_empty() {
-        panic!(
-            "method `{method_part}` not found on `{type_part}` \
-             (in method filter `{raw}`)"
-        );
-    }
+    assert!(
+        !expanded.is_empty(),
+        "method `{method_part}` not found on `{type_part}` \
+         (in method filter `{raw}`)"
+    );
 
     maybe_warn_ambiguous_overload(
         warnings,

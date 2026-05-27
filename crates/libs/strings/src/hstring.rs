@@ -32,7 +32,7 @@ impl HSTRING {
 
     /// Allow this string to be displayed.
     pub fn display(&self) -> impl core::fmt::Display + '_ {
-        Decode(move || core::char::decode_utf16(self.iter().cloned()))
+        Decode(move || core::char::decode_utf16(self.iter().copied()))
     }
 
     /// # Safety

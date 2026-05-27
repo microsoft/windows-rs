@@ -13,9 +13,7 @@ impl Derive {
 
             let tn = get_type_name(reader, name);
 
-            if !types.contains_key(&tn) {
-                panic!("type not included: `{name}`");
-            }
+            assert!(types.contains_key(&tn), "type not included: `{name}`");
 
             let derive = derive
                 .split(',')

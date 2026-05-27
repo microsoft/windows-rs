@@ -77,7 +77,7 @@ impl PWSTR {
     ///
     /// See the safety information for `PWSTR::as_wide`.
     pub unsafe fn display(&self) -> impl core::fmt::Display + '_ {
-        unsafe { Decode(move || core::char::decode_utf16(self.as_wide().iter().cloned())) }
+        unsafe { Decode(move || core::char::decode_utf16(self.as_wide().iter().copied())) }
     }
 }
 

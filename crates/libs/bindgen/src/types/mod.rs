@@ -385,11 +385,10 @@ impl Type {
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
             Self::U8 => quote! { u8 },
             Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
+            Self::U16 | Self::Char => quote! { u16 },
             Self::I32 => quote! { i32 },
             Self::U32 => quote! { u32 },
             Self::I64 => quote! { i64 },
@@ -469,9 +468,7 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::Array(ty) => ty.write_name(config),
-            Self::ArrayRef(ty) => ty.write_name(config),
-            Self::ConstRef(ty) => ty.write_name(config),
+            Self::Array(ty) | Self::ArrayRef(ty) | Self::ConstRef(ty) => ty.write_name(config),
             Self::PrimitiveOrEnum(primitive, ty) => {
                 if config.bindgen.style.is_sys() {
                     primitive.write_name(config)
@@ -609,13 +606,13 @@ impl Type {
 
     pub fn decay(&self) -> &Self {
         match self {
-            Self::PtrMut(ty, _) => ty,
-            Self::PtrConst(ty, _) => ty,
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::PrimitiveOrEnum(_, ty) => ty,
             Self::ArrayFixed(ty, _) => ty.decay(),
-            Self::Array(ty) => ty,
-            Self::ArrayRef(ty) => ty,
-            Self::ConstRef(ty) => ty,
-            Self::PrimitiveOrEnum(_, ty) => ty,
             _ => self,
         }
     }
@@ -646,17 +643,11 @@ impl Type {
         match self {
             Self::Struct(ty) => ty.is_copyable(reader),
             Self::CppStruct(ty) => ty.is_copyable(reader),
-            Self::Enum(_) => true,
-            Self::CppEnum(_) => true,
-            Self::CppDelegate(_) => true,
-
             Self::Interface(..) | Self::CppInterface(..) | Self::Class(..) | Self::Delegate(..) => {
                 false
             }
-
             Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Generic(_) => false,
-            Self::ArrayFixed(ty, _) => ty.is_copyable(reader),
-            Self::Array(ty) => ty.is_copyable(reader),
+            Self::ArrayFixed(ty, _) | Self::Array(ty) => ty.is_copyable(reader),
             _ => true,
         }
     }

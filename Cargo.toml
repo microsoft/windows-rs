@@ -23,6 +23,14 @@ semicolon_if_nothing_returned = "warn"
 map_unwrap_or = "warn"
 manual_let_else = "warn"
 uninlined_format_args = "warn"
+redundant_clone = "warn"
+implicit_clone = "warn"
+single_match_else = "warn"
+cloned_instead_of_copied = "warn"
+manual_string_new = "warn"
+manual_assert = "warn"
+assigning_clones = "warn"
+explicit_iter_loop = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }

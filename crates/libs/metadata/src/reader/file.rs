@@ -97,8 +97,7 @@ impl File {
                 b"#Strings" => result.strings = metadata_offset + stream_offset,
                 b"#Blob" => result.blobs = metadata_offset + stream_offset,
                 b"#~" => tables_data = (metadata_offset + stream_offset, stream_len),
-                b"#GUID" => {}
-                b"#US" => {}
+                b"#GUID" | b"#US" => {}
                 rest => panic!("{rest:?}"),
             }
             let mut padding = 4 - stream_name.len() % 4;

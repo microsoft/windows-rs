@@ -27,16 +27,14 @@ impl BSTR {
             ))
         };
 
-        if result.is_empty() {
-            panic!("allocation failed");
-        }
+        assert!(!result.is_empty(), "allocation failed");
 
         result
     }
 
     /// Allow this string to be displayed.
     pub fn display(&self) -> impl core::fmt::Display + '_ {
-        Decode(move || core::char::decode_utf16(self.iter().cloned()))
+        Decode(move || core::char::decode_utf16(self.iter().copied()))
     }
 
     /// # Safety

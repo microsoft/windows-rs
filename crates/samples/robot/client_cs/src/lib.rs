@@ -9,13 +9,12 @@ fn main() {
 
     let output = command.output().expect("failed to run dotnet");
 
-    if !output.status.success() {
-        panic!(
-            "stdout:\n{}\n\nstderr:\n{}",
-            String::from_utf8_lossy(&output.stdout),
-            String::from_utf8_lossy(&output.stderr)
-        );
-    }
+    assert!(
+        output.status.success(),
+        "stdout:\n{}\n\nstderr:\n{}",
+        String::from_utf8_lossy(&output.stdout),
+        String::from_utf8_lossy(&output.stderr)
+    );
 
     let result = String::from_utf8_lossy(&output.stdout);
 

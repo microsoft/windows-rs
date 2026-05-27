@@ -225,7 +225,7 @@ fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>,
             Error::new(&error.to_string(), path, start.line, start.column)
         })?;
 
-        file.source = path.to_string();
+        file.source.clone_from(path);
         input.push(file);
     }
 
@@ -501,7 +501,7 @@ impl Encoder<'_> {
                     {
                         let tn = metadata::TypeName {
                             namespace: candidate_ns.clone(),
-                            name: name.to_string(),
+                            name: name.clone(),
                             generics: vec![],
                         };
                         return Ok(if self.type_is_value(&candidate_ns, name) {
@@ -819,7 +819,7 @@ impl Encoder<'_> {
             {
                 let tn = metadata::TypeName {
                     namespace: namespace.to_string(),
-                    name: name.to_string(),
+                    name: name.clone(),
                     generics: generics.clone(),
                 };
                 if self.type_is_value(namespace, name) {

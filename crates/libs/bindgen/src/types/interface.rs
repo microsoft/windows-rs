@@ -445,7 +445,7 @@ impl Interface {
 
                 let cfg = if config.bindgen.layout.is_package() {
                     fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
-                        for method in interface.get_methods(config).iter() {
+                        for method in &interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
