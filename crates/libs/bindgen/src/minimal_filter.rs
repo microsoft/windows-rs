@@ -1,6 +1,15 @@
 use super::*;
 use std::collections::{BTreeSet, HashMap};
 
+/// Returns true if `method_name` matches either the raw metadata name or the
+/// overload-disambiguated name of `m`.
+fn method_matches(m: MethodDef, method_name: &str) -> bool {
+    if m.name() == method_name {
+        return true;
+    }
+    method_overload_name(m).as_deref() == Some(method_name)
+}
+
 /// Method-centric filter for `--minimal` mode.
 ///
 /// Instead of the traditional type-level include/exclude filter, this parser
@@ -237,7 +246,7 @@ impl MinimalFilter {
     ) {
         match ty {
             Type::Interface(t) => {
-                if !t.def.methods().any(|m| m.name() == method_name) {
+                if !t.def.methods().any(|m| method_matches(m, method_name)) {
                     panic!(
                         "method `{method_name}` not found on `{type_part}` \
                          (in filter entry `{entry}`)"
@@ -246,7 +255,7 @@ impl MinimalFilter {
                 self.insert_method((resolved_ns, resolved_name), method_name.to_string());
             }
             Type::CppInterface(t) => {
-                if !t.def.methods().any(|m| m.name() == method_name) {
+                if !t.def.methods().any(|m| method_matches(m, method_name)) {
                     panic!(
                         "method `{method_name}` not found on `{type_part}` \
                          (in filter entry `{entry}`)"
@@ -255,7 +264,7 @@ impl MinimalFilter {
                 self.insert_method((resolved_ns, resolved_name), method_name.to_string());
             }
             Type::Delegate(t) => {
-                if !t.def.methods().any(|m| m.name() == method_name) {
+                if !t.def.methods().any(|m| method_matches(m, method_name)) {
                     panic!(
                         "method `{method_name}` not found on `{type_part}` \
                          (in filter entry `{entry}`)"
@@ -266,18 +275,41 @@ impl MinimalFilter {
             Type::Class(c) => {
                 let required = c.required_interfaces(reader);
                 let mut found = false;
-                for iface in &required {
-                    if iface.def.methods().any(|m| m.name() == method_name) {
-                        let iface_ns = iface.def.namespace();
-                        let iface_name = iface.def.name();
-                        let r_ns = reader.keys().find(|ns| *ns == &iface_ns).unwrap();
-                        let r_name = reader[r_ns].keys().find(|n| *n == &iface_name).unwrap();
-                        self.insert_method((r_ns, r_name), method_name.to_string());
-                        if !self.types.contains(&(resolved_ns, resolved_name)) {
-                            self.types.push((resolved_ns, resolved_name));
+                // Special case: `CreateInstance` means "include for instantiation".
+                // Works for both composable classes (with a factory) and
+                // default-activatable classes (via IActivationFactory).
+                if method_name == "CreateInstance" {
+                    if !self.types.contains(&(resolved_ns, resolved_name)) {
+                        self.types.push((resolved_ns, resolved_name));
+                    }
+                    found = true;
+                }
+                if !found {
+                    for iface in &required {
+                        if iface.def.methods().any(|m| method_matches(m, method_name)) {
+                            let iface_ns = iface.def.namespace();
+                            let iface_name = iface.def.name();
+                            let r_ns = reader.keys().find(|ns| *ns == &iface_ns).unwrap();
+                            let r_name =
+                                reader[r_ns].keys().find(|n| *n == &iface_name).unwrap();
+                            self.insert_method((r_ns, r_name), method_name.to_string());
+                            if !self.types.contains(&(resolved_ns, resolved_name)) {
+                                self.types.push((resolved_ns, resolved_name));
+                            }
+                            found = true;
+                            break;
                         }
-                        found = true;
-                        break;
+                    }
+                }
+                // Also search composable factory interfaces for the method.
+                if !found {
+                    for iface in &required {
+                        if matches!(iface.kind, InterfaceKind::Composable) {
+                            if iface.def.methods().any(|m| method_matches(m, method_name)) {
+                                found = true;
+                                break;
+                            }
+                        }
                     }
                 }
                 if !found {

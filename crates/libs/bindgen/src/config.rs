@@ -55,8 +55,14 @@ impl Config<'_> {
                     return true;
                 }
             }
-            // In minimal mode, check the raw method name directly.
-            mf.includes_method(type_name, method.name())
+            // In minimal mode, check both the raw method name and any overload name.
+            if mf.includes_method(type_name, method.name()) {
+                return true;
+            }
+            if let Some(overload) = method_overload_name(method) {
+                return mf.includes_method(type_name, &overload);
+            }
+            false
         } else {
             self.filter.includes_method(type_name, method)
         }
