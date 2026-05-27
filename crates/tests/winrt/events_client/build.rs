@@ -16,19 +16,4 @@ fn main() {
         "windows",
     ])
     .unwrap();
-
-    windows_bindgen::bindgen([
-        "--in",
-        "../events/metadata.winmd",
-        "../../../libs/bindgen/default",
-        "--out",
-        "src/auto_bindings.rs",
-        "--filter",
-        "test_events",
-        "--flat",
-        "--reference",
-        "windows",
-        "--minimal",
-    ])
-    .unwrap();
 }

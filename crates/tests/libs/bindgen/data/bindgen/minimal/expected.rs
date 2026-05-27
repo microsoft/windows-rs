@@ -7,8 +7,6 @@ pub mod Test {
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo");
     }
     impl IFoo {
         pub fn Direct(&self) -> windows_result::Result<i32> {
@@ -21,10 +19,10 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn Name(&self) -> windows_result::Result<String> {
+        pub fn get_Name(&self) -> windows_result::Result<String> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(self).Name)(
+                (windows_core::Interface::vtable(self).get_Name)(
                     windows_core::Interface::as_raw(self),
                     &mut result__,
                 )
@@ -34,9 +32,9 @@ pub mod Test {
                 })
             }
         }
-        pub fn SetName(&self, value: &str) -> windows_result::Result<()> {
+        pub fn put_Name(&self, value: &str) -> windows_result::Result<()> {
             unsafe {
-                (windows_core::Interface::vtable(self).SetName)(
+                (windows_core::Interface::vtable(self).put_Name)(
                     windows_core::Interface::as_raw(self),
                     core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
                 )
@@ -50,11 +48,11 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        pub Name: unsafe extern "system" fn(
+        pub get_Name: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
         ) -> windows_result::HRESULT,
-        pub SetName: unsafe extern "system" fn(
+        pub put_Name: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut core::ffi::c_void,
         ) -> windows_result::HRESULT,
@@ -63,8 +61,6 @@ pub mod Test {
     impl windows_core::RuntimeType for IFoo2 {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo2");
     }
     windows_core::imp::interface_hierarchy!(
         IFoo2,
@@ -131,8 +127,6 @@ pub mod Test {
     impl windows_core::RuntimeType for IFooStatics {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IFooStatics");
     }
     #[repr(C)]
     #[doc(hidden)]
