@@ -24,6 +24,7 @@ map_unwrap_or = "warn"
 manual_let_else = "warn"
 uninlined_format_args = "warn"
 redundant_clone = "warn"
+implicit_clone = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }

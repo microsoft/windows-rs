@@ -70,7 +70,7 @@ impl MethodNames {
         } else {
             method_def_special_name(method)
         };
-        let overload = self.map.entry(name.to_string()).or_insert(0);
+        let overload = self.map.entry(name.clone()).or_insert(0);
         *overload += 1;
         if *overload > 1 {
             format!("{name}{overload}").parse().unwrap()

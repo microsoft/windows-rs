@@ -449,7 +449,7 @@ where
                 builder
                     .implement
                     .get_or_insert_with(Vec::new)
-                    .push(arg.to_string());
+                    .push(arg.clone());
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
