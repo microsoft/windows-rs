@@ -101,6 +101,12 @@ impl MinimalFilter {
                                     filter.types.push((resolved_ns, resolved_name));
                                 }
                                 for iface in c.required_interfaces(reader) {
+                                    // Skip statics — they only need expansion when specific
+                                    // static methods are explicitly listed in the filter.
+                                    // Keep composable interfaces (needed for new()/compose()).
+                                    if matches!(iface.kind, InterfaceKind::Static) {
+                                        continue;
+                                    }
                                     let iface_ns = iface.def.namespace();
                                     let iface_name = iface.def.name();
                                     let Some(r_ns) = reader.keys().find(|ns| *ns == &iface_ns)
@@ -279,24 +285,6 @@ impl MinimalFilter {
                         "method `{method_name}` not found on \
                          class `{type_part}` (in filter entry `{entry}`)"
                     );
-                }
-                // Always include factory/composable/static interface methods
-                // so that class construction (`new()`) and statics work.
-                for iface in &required {
-                    if matches!(
-                        iface.kind,
-                        InterfaceKind::Static | InterfaceKind::Composable
-                    ) {
-                        let iface_ns = iface.def.namespace();
-                        let iface_name = iface.def.name();
-                        let Some(r_ns) = reader.keys().find(|ns| *ns == &iface_ns) else {
-                            continue;
-                        };
-                        let Some(r_name) = reader[r_ns].keys().find(|n| *n == &iface_name) else {
-                            continue;
-                        };
-                        self.interfaces.entry((r_ns, r_name)).or_insert(MethodSet::All);
-                    }
                 }
             }
             _ => panic!(

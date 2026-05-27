@@ -120,6 +120,14 @@ impl Class {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
                     None
+                } else if config.bindgen.style == Style::Minimal
+                    && !interface
+                        .get_methods(config)
+                        .iter()
+                        .any(|m| matches!(m, MethodOrName::Method(_)))
+                {
+                    // In minimal mode, skip the factory cache if no methods survived filtering.
+                    None
                 } else {
                         let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);
