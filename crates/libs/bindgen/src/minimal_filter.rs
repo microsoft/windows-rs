@@ -297,7 +297,9 @@ impl MinimalFilter {
                         let Some(r_name) = reader[r_ns].keys().find(|n| *n == &iface_name) else {
                             continue;
                         };
-                        self.interfaces.entry((r_ns, r_name)).or_insert(MethodSet::All);
+                        self.interfaces
+                            .entry((r_ns, r_name))
+                            .or_insert(MethodSet::All);
                     }
                 }
             }

@@ -59,7 +59,7 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !method.dependencies.included(config) {
+                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
