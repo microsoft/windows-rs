@@ -595,23 +595,20 @@ impl Method {
             None
         };
 
-        let return_type = match &self.signature.return_type {
-            Type::Void => quote! { () },
-            _ => {
-                let tokens = if config.bindgen.style.is_minimal()
-                    && matches!(self.signature.return_type, Type::String)
-                {
-                    quote! { String }
-                } else if let Some(inner) = return_unwrap_inner {
-                    inner.write_name(config)
-                } else {
-                    self.signature.return_type.write_name(config)
-                };
-                if self.signature.return_type.is_winrt_array() {
-                    quote! { windows_core::Array<#tokens> }
-                } else {
-                    quote! { #tokens }
-                }
+        let return_type = if self.signature.return_type == Type::Void { quote! { () } } else {
+            let tokens = if config.bindgen.style.is_minimal()
+                && matches!(self.signature.return_type, Type::String)
+            {
+                quote! { String }
+            } else if let Some(inner) = return_unwrap_inner {
+                inner.write_name(config)
+            } else {
+                self.signature.return_type.write_name(config)
+            };
+            if self.signature.return_type.is_winrt_array() {
+                quote! { windows_core::Array<#tokens> }
+            } else {
+                quote! { #tokens }
             }
         };
 

@@ -114,18 +114,15 @@ fn apply_inside_macros(src: &str) -> String {
     let mut out = String::with_capacity(src.len());
     let mut i = 0;
     while i < bytes.len() {
-        match find_macro_invocation(bytes, i) {
-            Some(open) => {
-                let header_start = macro_path_start(bytes, open.bang);
-                out.push_str(&src[i..header_start]);
-                let close = find_matching_delim(bytes, open.open_idx, open.open, open.close);
-                out.push_str(&tighten_macro_segment(&src[header_start..=close]));
-                i = close + 1;
-            }
-            None => {
-                out.push_str(&src[i..]);
-                break;
-            }
+        if let Some(open) = find_macro_invocation(bytes, i) {
+            let header_start = macro_path_start(bytes, open.bang);
+            out.push_str(&src[i..header_start]);
+            let close = find_matching_delim(bytes, open.open_idx, open.open, open.close);
+            out.push_str(&tighten_macro_segment(&src[header_start..=close]));
+            i = close + 1;
+        } else {
+            out.push_str(&src[i..]);
+            break;
         }
     }
     out

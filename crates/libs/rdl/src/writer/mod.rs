@@ -307,31 +307,28 @@ fn write_type_def_items(
     namespace: &str,
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
-    match item.category() {
-        metadata::reader::TypeCategory::Struct => {
-            // A struct with NativeTypedefAttribute is written as `type NAME = TYPE;`.
-            if item.attributes().any(|attr| {
-                attr.namespace() == "Windows.Win32.Foundation.Metadata"
-                    && attr.name() == "NativeTypedefAttribute"
-            }) {
-                let name = write_ident(item.name());
-                let field = item
-                    .fields()
-                    .next()
-                    .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
-                let ty = write_type(namespace, &field.ty());
-                let tokens = quote! { type #name = #ty; };
-                return Ok(vec![(item.name().to_string(), tokens)]);
-            }
-            write_struct_items(item)
+    if item.category() == metadata::reader::TypeCategory::Struct {
+        // A struct with NativeTypedefAttribute is written as `type NAME = TYPE;`.
+        if item.attributes().any(|attr| {
+            attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                && attr.name() == "NativeTypedefAttribute"
+        }) {
+            let name = write_ident(item.name());
+            let field = item
+                .fields()
+                .next()
+                .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
+            let ty = write_type(namespace, &field.ty());
+            let tokens = quote! { type #name = #ty; };
+            return Ok(vec![(item.name().to_string(), tokens)]);
         }
-        _ => {
-            let tokens = write_type_def(item)?;
-            if tokens.is_empty() {
-                Ok(vec![])
-            } else {
-                Ok(vec![(item.name().to_string(), tokens)])
-            }
+        write_struct_items(item)
+    } else {
+        let tokens = write_type_def(item)?;
+        if tokens.is_empty() {
+            Ok(vec![])
+        } else {
+            Ok(vec![(item.name().to_string(), tokens)])
         }
     }
 }

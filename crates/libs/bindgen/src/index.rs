@@ -25,12 +25,9 @@ impl Index {
     }
 
     fn get_or_create_namespace_index(&mut self, namespace: &str) -> usize {
-        match self.namespaces.iter().position(|ns| ns == namespace) {
-            Some(idx) => idx,
-            None => {
-                self.namespaces.push(namespace.to_string());
-                self.namespaces.len() - 1
-            }
+        if let Some(idx) = self.namespaces.iter().position(|ns| ns == namespace) { idx } else {
+            self.namespaces.push(namespace.to_string());
+            self.namespaces.len() - 1
         }
     }
 

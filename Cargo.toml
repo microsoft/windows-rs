@@ -25,6 +25,7 @@ manual_let_else = "warn"
 uninlined_format_args = "warn"
 redundant_clone = "warn"
 implicit_clone = "warn"
+single_match_else = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }

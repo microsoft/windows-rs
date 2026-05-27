@@ -55,18 +55,14 @@ where
 
     fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
         let values = self.values.read().unwrap();
-        match values
+        if let Some(index) = values
             .iter()
-            .position(|element| element == ref_as_default::<T>(&value))
-        {
-            Some(index) => {
-                *result = index as u32;
-                Ok(true)
-            }
-            None => {
-                *result = 0;
-                Ok(false)
-            }
+            .position(|element| element == ref_as_default::<T>(&value)) {
+            *result = index as u32;
+            Ok(true)
+        } else {
+            *result = 0;
+            Ok(false)
         }
     }
 
