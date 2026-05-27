@@ -26,6 +26,7 @@ uninlined_format_args = "warn"
 redundant_clone = "warn"
 implicit_clone = "warn"
 single_match_else = "warn"
+cloned_instead_of_copied = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }
