@@ -175,7 +175,20 @@ impl Interface {
         } else {
             let mut result = if self.generics.is_empty() {
                 let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
-                let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
+
+                // In minimal mode, NAME is only needed for interfaces that are
+                // being implemented (for GetRuntimeClassName). The trait provides
+                // an empty default, so omitting it is safe.
+                let name_const = if config.bindgen.style.is_minimal()
+                    && !config.should_implement(type_name, false)
+                {
+                    quote! {}
+                } else {
+                    let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
+                    quote! {
+                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
+                    }
+                };
 
                 quote! {
                     #cfg
@@ -183,7 +196,7 @@ impl Interface {
                     #cfg
                     impl windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
+                        #name_const
                     }
                 }
             } else {
@@ -198,21 +211,34 @@ impl Interface {
                     }
                 });
 
-                let arity = self.generics.len();
-                let name_prefix = Literal::byte_string(format!("{type_name}`{arity}<").as_bytes());
-                let name_generics: Vec<_> = self
-                    .generics
-                    .iter()
-                    .enumerate()
-                    .map(|(i, generic)| {
-                        let gen_name = generic.write_name(config);
-                        if i == 0 {
-                            quote! { .push_other(#gen_name::NAME) }
-                        } else {
-                            quote! { .push_slice(b", ").push_other(#gen_name::NAME) }
-                        }
-                    })
-                    .collect();
+                // In minimal mode, NAME on parameterized interfaces is only needed
+                // when the interface is implemented (for GetRuntimeClassName via
+                // RUNTIME_CLASS_NAME). Skip it otherwise.
+                let name_const = if config.bindgen.style.is_minimal()
+                    && !config.should_implement(type_name, false)
+                {
+                    quote! {}
+                } else {
+                    let arity = self.generics.len();
+                    let name_prefix =
+                        Literal::byte_string(format!("{type_name}`{arity}<").as_bytes());
+                    let name_generics: Vec<_> = self
+                        .generics
+                        .iter()
+                        .enumerate()
+                        .map(|(i, generic)| {
+                            let gen_name = generic.write_name(config);
+                            if i == 0 {
+                                quote! { .push_other(#gen_name::NAME) }
+                            } else {
+                                quote! { .push_slice(b", ").push_other(#gen_name::NAME) }
+                            }
+                        })
+                        .collect();
+                    quote! {
+                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#name_prefix)#(#name_generics)*.push_slice(b">");
+                    }
+                };
 
                 quote! {
                     #[repr(transparent)]
@@ -226,7 +252,7 @@ impl Interface {
                     }
                     impl<#constraints> windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
-                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#name_prefix)#(#name_generics)*.push_slice(b">");
+                        #name_const
                     }
                 }
             };
@@ -240,7 +266,8 @@ impl Interface {
 
             if !is_exclusive && !required_interfaces.is_empty() {
                 if self.generics.is_empty() {
-                    let interfaces: Vec<_> = required_interfaces.iter()
+                    let interfaces: Vec<_> = required_interfaces
+                        .iter()
                         .filter(|ty| {
                             if config.bindgen.style.is_minimal() {
                                 let tn = Type::Interface((*ty).clone()).type_name();
