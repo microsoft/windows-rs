@@ -286,6 +286,20 @@ impl MinimalFilter {
                          class `{type_part}` (in filter entry `{entry}`)"
                     );
                 }
+                // Include composable factory interfaces so new()/compose() work.
+                for iface in &required {
+                    if matches!(iface.kind, InterfaceKind::Composable) {
+                        let iface_ns = iface.def.namespace();
+                        let iface_name = iface.def.name();
+                        let Some(r_ns) = reader.keys().find(|ns| *ns == &iface_ns) else {
+                            continue;
+                        };
+                        let Some(r_name) = reader[r_ns].keys().find(|n| *n == &iface_name) else {
+                            continue;
+                        };
+                        self.interfaces.entry((r_ns, r_name)).or_insert(MethodSet::All);
+                    }
+                }
             }
             _ => panic!(
                 "type `{type_part}` is not an interface, delegate, \
