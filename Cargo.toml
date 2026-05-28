@@ -11,6 +11,10 @@ exclude = [
     "crates/targets/baseline",
 ]
 
+[profile.release]
+lto = "thin"
+strip = "debuginfo"
+
 [profile.dev.package."*"]
 opt-level = 2
 
@@ -19,6 +23,7 @@ unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows
 missing_unsafe_on_extern = "warn"
 
 [workspace.lints.clippy]
+type_complexity = "allow"
 semicolon_if_nothing_returned = "warn"
 map_unwrap_or = "warn"
 manual_let_else = "warn"
@@ -39,6 +44,7 @@ quote = { version = "1.0", default-features = false }
 serde = { version = "1.0", default-features = false }
 syn = { version = "2.0", default-features = false }
 serde_json = {version = "1.0", default-features = false }
+rustc-hash = { version = "2" }
 # generated dependencies
 cppwinrt = { version = "0.3.4", path = "crates/libs/cppwinrt", default-features = false }
 riddle = { version = "0.0.0", path = "crates/libs/riddle", default-features = false }
@@ -53,6 +59,7 @@ windows-link = { version = "0.2.1", path = "crates/libs/link", default-features 
 windows-metadata = { version = "0.60.0", path = "crates/libs/metadata", default-features = false }
 windows-numerics = { version = "0.3.1", path = "crates/libs/numerics", default-features = false }
 windows-rdl = { version = "0.0.0", path = "crates/libs/rdl", default-features = false }
+windows-reactor = { version = "0.0.0", path = "crates/libs/reactor", default-features = false }
 windows-reference = { version = "0.1.0", path = "crates/libs/reference", default-features = false }
 windows-registry = { version = "0.6.1", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.4.1", path = "crates/libs/result", default-features = false }

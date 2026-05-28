@@ -24,13 +24,13 @@ pub fn read_file_lines(path: &str) -> Vec<String> {
 pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
     if let Some(parent) = std::path::Path::new(path).parent() {
         assert!(
-            !std::fs::create_dir_all(parent).is_err(),
+            std::fs::create_dir_all(parent).is_ok(),
             "failed to create directory `{path}`"
         );
     }
 
     assert!(
-        !std::fs::write(path, contents).is_err(),
+        std::fs::write(path, contents).is_ok(),
         "failed to write file `{path}`"
     );
 }

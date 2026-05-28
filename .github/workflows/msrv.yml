@@ -79,6 +79,10 @@ jobs:
       - name: Check windows-rdl
         run:  cargo check -p windows-rdl --all-features
       - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-reactor
+        run:  cargo check -p windows-reactor --all-features
+      - name: Rust version
         run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows-reference
         run:  cargo check -p windows-reference --all-features

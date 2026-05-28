@@ -5,6 +5,9 @@ rustflags = [
     # "-C", "target-feature=+crt-static",
 ]
 
+[env]
+CARGO_WORKSPACE_DIR = { value = "", relative = true }
+
 # GCC 15.x (mingw-w64) changed weak symbol handling, causing multiple-definition
 # errors for `.weak.__rustc_debug_gdb_scripts_section__` during linking. This
 # flag works around the regression until the upstream toolchain is fixed.

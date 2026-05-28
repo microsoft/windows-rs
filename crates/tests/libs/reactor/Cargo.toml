@@ -1,0 +1,14 @@
+[package]
+name = "test_reactor"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dev-dependencies]
+rustc-hash = { workspace = true }
+
+[dependencies]
+windows-reactor = { workspace = true }
+
+[lints]
+workspace = true

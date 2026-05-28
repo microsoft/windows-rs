@@ -2,6 +2,7 @@
 /.vs
 /target
 /llvm
+/temp
 *.lock
 *.winmd
 obj

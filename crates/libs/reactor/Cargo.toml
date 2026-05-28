@@ -1,0 +1,27 @@
+[package]
+name = "windows-reactor"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Windows UI library"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[features]
+default = ["diagnostics"]
+diagnostics = []
+
+[dependencies]
+rustc-hash = { workspace = true }
+windows-core = { workspace = true }
+windows-numerics = { workspace = true }
+windows-collections = { workspace = true, features = ["std"] }
+windows-future = { workspace = true }
+windows-reference = { workspace = true, features = ["std"] }
+windows-threading = { workspace = true, features = ["std"] }
+windows-time = { workspace = true }
+
+[lints]
+workspace = true
