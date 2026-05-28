@@ -1,0 +1,73 @@
+use std::cell::RefCell;
+use windows_core::*;
+
+use super::bindings::*;
+
+implement_decl! {
+    impl ReactorApplicationOverrides as pub ReactorApplicationOverrides_Impl: [IApplicationOverrides, IXamlMetadataProvider]
+}
+
+pub struct ReactorApplicationOverrides {
+    controls_provider: RefCell<Option<XamlControlsXamlMetaDataProvider>>,
+    on_launched: RefCell<Option<Box<dyn FnOnce() -> Result<()>>>>,
+}
+
+impl ReactorApplicationOverrides {
+    fn new(on_launched: Box<dyn FnOnce() -> Result<()>>) -> Self {
+        Self {
+            controls_provider: RefCell::new(None),
+            on_launched: RefCell::new(Some(on_launched)),
+        }
+    }
+
+    fn provider(&self) -> Result<XamlControlsXamlMetaDataProvider> {
+        if let Some(p) = self.controls_provider.borrow().as_ref() {
+            return Ok(p.clone());
+        }
+        let p = XamlControlsXamlMetaDataProvider::new()?;
+        *self.controls_provider.borrow_mut() = Some(p.clone());
+        Ok(p)
+    }
+}
+
+impl IApplicationOverrides_Impl for ReactorApplicationOverrides_Impl {
+    fn OnLaunched(&self, _args: windows_core::Ref<LaunchActivatedEventArgs>) -> Result<()> {
+        if let Some(cb) = self.on_launched.borrow_mut().take() {
+            cb()?;
+        }
+        Ok(())
+    }
+}
+
+impl IXamlMetadataProvider_Impl for ReactorApplicationOverrides_Impl {
+    fn GetXamlType(&self, r#type: &TypeName) -> Result<IXamlType> {
+        let provider: IXamlMetadataProvider = self.provider()?.cast()?;
+        provider.GetXamlType(r#type)
+    }
+
+    fn GetXamlTypeByFullName(&self, full_name: &windows_core::HSTRING) -> Result<IXamlType> {
+        let provider: IXamlMetadataProvider = self.provider()?.cast()?;
+        let full_name = full_name.to_string_lossy();
+        provider.GetXamlTypeByFullName(&full_name)
+    }
+
+    fn GetXmlnsDefinitions(&self) -> Result<windows_core::Array<XmlnsDefinition>> {
+        let provider: IXamlMetadataProvider = self.provider()?.cast()?;
+        provider.GetXmlnsDefinitions()
+    }
+}
+
+pub(crate) fn create_reactor_application(
+    on_launched: Box<dyn FnOnce() -> Result<()>>,
+) -> Result<Application> {
+    Application::compose(ReactorApplicationOverrides::new(on_launched))
+}
+
+pub(crate) fn install_xaml_controls_resources(app: &Application) -> Result<()> {
+    let controls = XamlControlsResources::new()?;
+    let as_rd: ResourceDictionary = controls.cast()?;
+    let resources = app.get_Resources()?;
+    let merged = resources.get_MergedDictionaries()?;
+    merged.Append(&as_rd)?;
+    Ok(())
+}

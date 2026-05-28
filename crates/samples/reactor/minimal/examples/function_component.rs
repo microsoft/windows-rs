@@ -1,0 +1,52 @@
+//! Minimal sample demonstrating function components.
+//!
+//! Instead of `struct + impl Component`, simply define a function with
+//! signature `fn(&P, &mut RenderCx) -> impl Into<Element>` and use it directly.
+
+use windows_reactor::*;
+
+/// A function component — no struct, no impl block needed.
+fn counter(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+    let (count, set_count) = cx.use_state(0_i32);
+
+    let bump = move || set_count.call(count + 1);
+
+    vstack((
+        text_block(format!("count = {count}"))
+            .font_size(24.0)
+            .bold(),
+        button("Increment").on_click(bump),
+    ))
+    .spacing(8.0)
+}
+
+/// A function component with typed props.
+#[derive(Clone, PartialEq)]
+struct GreetingProps {
+    name: String,
+}
+
+fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> impl Into<Element> {
+    text_block(format!("Hello, {}!", props.name))
+        .font_size(20.0)
+        .bold()
+}
+
+/// Root component that composes both function components.
+fn app(cx: &mut RenderCx) -> impl Into<Element> {
+    let (name, set_name) = cx.use_state(String::from("world"));
+
+    vstack((
+        component(greeting, GreetingProps { name: name.clone() }),
+        text_box(name)
+            .header("Your name")
+            .placeholder("Type a name…")
+            .on_changed(set_name),
+        component(counter, ()),
+    ))
+    .spacing(12.0)
+}
+
+fn main() -> Result<()> {
+    App::new().title("function_component").render(app)
+}

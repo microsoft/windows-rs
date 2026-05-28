@@ -1,0 +1,5 @@
+Microsoft.UI.Xaml.Automation.Peers.ButtonAutomationPeer::*
+Microsoft.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer::*
+Microsoft.UI.Xaml.Automation.Peers.PatternInterface
+Microsoft.UI.Xaml.Automation.Provider.IInvokeProvider::*
+Microsoft.UI.Xaml.Media.VisualTreeHelper::*

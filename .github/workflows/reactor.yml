@@ -1,0 +1,41 @@
+name: test_reactor_backend
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: selftest-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  RUST_BACKTRACE: "1"
+  CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
+
+jobs:
+  selftest:
+    name: cargo run -p test_reactor_backend
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - name: Install Windows App Runtime
+        shell: pwsh
+        run: |
+          $installerUrl = "https://aka.ms/windowsappsdk/2.0/2.0.1/windowsappruntimeinstall-x64.exe"
+          $installerPath = "$env:TEMP\WindowsAppRuntimeInstall.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru | Out-Null
+
+      - name: cargo run -p test_reactor_backend -- --headless
+        run: cargo run -p test_reactor_backend -- --headless
+        shell: pwsh

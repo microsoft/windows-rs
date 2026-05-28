@@ -1,0 +1,148 @@
+use std::rc::Rc;
+
+use windows_reactor::core::backend::{ControlId, Op, Prop, PropValue, RecordingBackend};
+use windows_reactor::core::element::{Element, TextBlock};
+use windows_reactor::core::reconciler::Reconciler;
+
+fn noop_rr() -> Rc<dyn Fn()> {
+    Rc::new(|| {})
+}
+
+fn mount(el: &Element) -> (Reconciler<RecordingBackend>, Option<ControlId>) {
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = r.reconcile(None, el, None, noop_rr());
+    (r, id)
+}
+
+fn update_ops(old: Element, new: Element) -> Vec<Op> {
+    let (mut r, id) = mount(&old);
+    r.backend.clear_ops();
+    let _ = r.reconcile(Some(&old), &new, id, noop_rr());
+    r.backend.ops.clone()
+}
+
+fn text_with(content: &str, font_size: Option<f64>, font_weight: Option<u16>) -> Element {
+    let mut t = TextBlock::new(content);
+    t.font_size = font_size;
+    t.font_weight = font_weight;
+    Element::TextBlock(t)
+}
+
+#[test]
+fn mount_text_with_no_optionals_emits_only_text_prop() {
+    let (r, _id) = mount(&Element::TextBlock(TextBlock::new("hi")));
+    let ops = &r.backend.ops;
+    assert_eq!(
+        ops.len(),
+        2,
+        "expected Create + SetProp(TextBlock), got {ops:?}"
+    );
+    assert!(matches!(ops[0], Op::Create { .. }));
+    match &ops[1] {
+        Op::SetProp { prop, value, .. } => {
+            assert_eq!(*prop, Prop::Text);
+            assert_eq!(*value, PropValue::Str("hi".into()));
+        }
+        other => panic!("expected SetProp(TextBlock), got {other:?}"),
+    }
+}
+
+#[test]
+fn mount_text_with_optionals_emits_each_in_declaration_order() {
+    let (r, _id) = mount(&text_with("hi", Some(14.0), Some(700)));
+    let ops: Vec<&Op> = r
+        .backend
+        .ops
+        .iter()
+        .filter(|op| matches!(op, Op::SetProp { .. }))
+        .collect();
+    assert_eq!(ops.len(), 3);
+    let props: Vec<Prop> = ops
+        .iter()
+        .map(|op| match op {
+            Op::SetProp { prop, .. } => *prop,
+            _ => unreachable!(),
+        })
+        .collect();
+    assert_eq!(props, vec![Prop::Text, Prop::FontSize, Prop::FontWeight]);
+}
+
+#[test]
+fn diff_props_unchanged_text_emits_nothing_for_widget_props() {
+    let ops = update_ops(
+        text_with("hi", Some(12.0), None),
+        text_with("hi", Some(12.0), None),
+    );
+    assert!(ops.is_empty(), "expected no ops, got {ops:?}");
+}
+
+#[test]
+fn diff_props_adds_optional_prop_some_to_some_change() {
+    let ops = update_ops(
+        text_with("hi", Some(12.0), None),
+        text_with("hi", Some(14.0), None),
+    );
+    assert_eq!(ops.len(), 1, "expected 1 op, got {ops:?}");
+    match &ops[0] {
+        Op::SetProp { prop, value, .. } => {
+            assert_eq!(*prop, Prop::FontSize);
+            assert_eq!(*value, PropValue::F64(14.0));
+        }
+        other => panic!("expected SetProp(FontSize), got {other:?}"),
+    }
+}
+
+#[test]
+fn diff_props_adds_prop_on_none_to_some_transition() {
+    let ops = update_ops(
+        text_with("hi", None, None),
+        text_with("hi", Some(14.0), None),
+    );
+    assert_eq!(ops.len(), 1, "expected 1 op, got {ops:?}");
+    match &ops[0] {
+        Op::SetProp { prop, value, .. } => {
+            assert_eq!(*prop, Prop::FontSize);
+            assert_eq!(*value, PropValue::F64(14.0));
+        }
+        other => panic!("expected SetProp(FontSize), got {other:?}"),
+    }
+}
+
+#[test]
+fn diff_props_emits_unset_on_some_to_none_transition() {
+    let ops = update_ops(
+        text_with("hi", Some(14.0), None),
+        text_with("hi", None, None),
+    );
+    assert_eq!(ops.len(), 1, "expected 1 op, got {ops:?}");
+    match &ops[0] {
+        Op::SetProp { prop, value, .. } => {
+            assert_eq!(*prop, Prop::FontSize);
+            assert_eq!(*value, PropValue::Unset);
+        }
+        other => panic!("expected SetProp(FontSize, Unset), got {other:?}"),
+    }
+}
+
+#[test]
+fn diff_props_handles_multiple_simultaneous_transitions() {
+    let ops = update_ops(
+        text_with("hi", None, Some(700)),
+        text_with("bye", Some(14.0), None),
+    );
+    let setprops: Vec<(Prop, PropValue)> = ops
+        .iter()
+        .filter_map(|op| match op {
+            Op::SetProp { prop, value, .. } => Some((*prop, value.clone())),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(setprops.len(), 3, "expected 3 set_prop ops, got {ops:?}");
+
+    assert_eq!(setprops[0].0, Prop::Text);
+    assert_eq!(setprops[0].1, PropValue::Str("bye".into()));
+    assert_eq!(setprops[1].0, Prop::FontSize);
+    assert_eq!(setprops[1].1, PropValue::F64(14.0));
+    assert_eq!(setprops[2].0, Prop::FontWeight);
+    assert_eq!(setprops[2].1, PropValue::Unset);
+}
