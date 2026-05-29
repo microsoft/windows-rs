@@ -1,5 +1,8 @@
 #![deny(clippy::correctness)]
 
+#[doc(hidden)]
+pub use windows_reactor_setup as setup;
+
 #[allow(
     dead_code,
     non_snake_case,

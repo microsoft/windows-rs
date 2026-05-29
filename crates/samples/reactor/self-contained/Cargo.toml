@@ -1,5 +1,5 @@
 [package]
-name = "gallery"
+name = "self-contained"
 version = "0.0.0"
 edition = "2021"
 publish = false
