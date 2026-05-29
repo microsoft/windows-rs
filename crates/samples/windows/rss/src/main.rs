@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
-    use windows::{core::*, Foundation::Uri, Web::Syndication::SyndicationClient};
+    use windows::{Foundation::Uri, Web::Syndication::SyndicationClient, core::*};
 
     async fn main_async() -> Result<()> {
         let uri = Uri::CreateUri(h!("https://blogs.windows.com/feed"))?;

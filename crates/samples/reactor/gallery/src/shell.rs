@@ -1,5 +1,5 @@
-use crate::controls::{card_grid, CardItem};
-use crate::registry::{self, ControlInfo, CATEGORIES};
+use crate::controls::{CardItem, card_grid};
+use crate::registry::{self, CATEGORIES, ControlInfo};
 use crate::router;
 use windows_reactor::*;
 

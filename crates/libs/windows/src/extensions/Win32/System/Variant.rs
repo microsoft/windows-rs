@@ -1,9 +1,9 @@
-use crate::core::*;
 use crate::Win32::Foundation::*;
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 use crate::Win32::System::Com::StructuredStorage::*;
 use crate::Win32::System::Com::*;
 use crate::Win32::System::Variant::*;
+use crate::core::*;
 use core::mem::*;
 
 macro_rules! variant_from_value {
@@ -32,7 +32,9 @@ impl Clone for VARIANT {
 
 impl Free for VARIANT {
     unsafe fn free(&mut self) {
-        _ = VariantClear(self);
+        unsafe {
+            _ = VariantClear(self);
+        }
     }
 }
 
@@ -79,11 +81,7 @@ impl PartialEq for VARIANT {
             let this = PROPVARIANT::try_from(self);
             let other = PROPVARIANT::try_from(other);
 
-            if let (Ok(this), Ok(other)) = (this, other) {
-                this.eq(&other)
-            } else {
-                false
-            }
+            if let (Ok(this), Ok(other)) = (this, other) { this.eq(&other) } else { false }
         }
     }
 }

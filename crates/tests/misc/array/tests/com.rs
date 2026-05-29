@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Win32::Media::MediaFoundation::*, Win32::System::Com::*};
+use windows::{Win32::Media::MediaFoundation::*, Win32::System::Com::*, core::*};
 
 #[test]
 fn test() -> Result<()> {

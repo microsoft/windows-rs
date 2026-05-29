@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Foundation::*, Media::Control::*};
+use windows::{Foundation::*, Media::Control::*, core::*};
 
 #[test]
 fn agile_send() -> Result<()> {

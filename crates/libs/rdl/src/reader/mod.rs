@@ -23,17 +23,17 @@ use super::*;
 use attribute::*;
 use callback::*;
 use class::*;
+use r#const::*;
 use delegate::*;
+use r#enum::*;
 use field::*;
 use file::*;
+use r#fn::*;
 use index::*;
 use interface::*;
 use item::*;
 use method::*;
 use module::*;
-use r#const::*;
-use r#enum::*;
-use r#fn::*;
 use r#struct::*;
 use typedef::*;
 use union::*;
@@ -583,7 +583,7 @@ impl Encoder<'_> {
                 match underlying {
                     Some(underlying) => return self.encode_value(&underlying, value),
                     None => {
-                        return self.err(value, &format!("constant type not supported: {ty:?}"))
+                        return self.err(value, &format!("constant type not supported: {ty:?}"));
                     }
                 }
             }
@@ -795,7 +795,7 @@ impl Encoder<'_> {
                 "Type" => return Ok(metadata::Type::class_named("System", "Type")),
                 "GUID" => return Ok(metadata::Type::value_named("System", "Guid")),
                 "HRESULT" => {
-                    return Ok(metadata::Type::value_named("Windows.Foundation", "HResult"))
+                    return Ok(metadata::Type::value_named("Windows.Foundation", "HResult"));
                 }
 
                 _ => {}

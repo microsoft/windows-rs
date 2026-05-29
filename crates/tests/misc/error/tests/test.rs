@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Win32::Foundation::*, Win32::System::Rpc::*};
+use windows::{Win32::Foundation::*, Win32::System::Rpc::*, core::*};
 
 #[test]
 fn hresult() -> Result<()> {

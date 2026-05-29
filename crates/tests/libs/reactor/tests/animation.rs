@@ -1,6 +1,7 @@
 use std::rc::Rc;
 use std::time::Duration;
 
+use windows_reactor::ElementExt;
 use windows_reactor::core::animation::{
     AnimationConfig, Easing, ImplicitTransitions, LayoutAnimationConfig, ScalarTransition,
     Vector3Axes, Vector3Transition,
@@ -10,7 +11,6 @@ use windows_reactor::core::element::Element;
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::dsl::factories::button;
 use windows_reactor::vstack;
-use windows_reactor::ElementExt;
 
 fn fresh() -> Reconciler<RecordingBackend> {
     Reconciler::new(RecordingBackend::new())

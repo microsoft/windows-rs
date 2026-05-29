@@ -4,8 +4,8 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::Owned,
         Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
+        core::Owned,
     };
 
     unsafe {

@@ -797,12 +797,12 @@ fn app(cx: &mut RenderCx) -> Element {
         let u = update.clone();
         Rc::new(move |commit: bool| {
             u.call(move |mut s| {
-                if let Some((r, c)) = s.chord_preview.take() {
-                    if commit {
-                        let mut rng = Lcg::new(s.rng_seed);
-                        s.board = chord(s.board, r, c, &mut rng);
-                        s.rng_seed = rng.state;
-                    }
+                if let Some((r, c)) = s.chord_preview.take()
+                    && commit
+                {
+                    let mut rng = Lcg::new(s.rng_seed);
+                    s.board = chord(s.board, r, c, &mut rng);
+                    s.rng_seed = rng.state;
                 }
                 s
             });

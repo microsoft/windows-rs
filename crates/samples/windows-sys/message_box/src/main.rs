@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() {
-    use windows_sys::{core::*, Win32::UI::Shell::*, Win32::UI::WindowsAndMessaging::*};
+    use windows_sys::{Win32::UI::Shell::*, Win32::UI::WindowsAndMessaging::*, core::*};
 
     unsafe {
         MessageBoxA(core::ptr::null_mut(), s!("Ansi"), s!("World"), MB_OK);

@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() {
-    use windows_sys::{core::*, Win32::System::Performance::*};
+    use windows_sys::{Win32::System::Performance::*, core::*};
 
     unsafe {
         let mut query = std::ptr::null_mut();

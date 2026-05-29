@@ -12,6 +12,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use windows_reactor::ElementExt;
 use windows_reactor::core::backend::{
     Backend, ControlKind, Event, Op, Prop, PropValue, RecordingBackend,
 };
@@ -21,7 +22,6 @@ use windows_reactor::core::element::{
 use windows_reactor::core::element::{Element, TextBlock};
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::core::templated_list::{list_view, virtual_list};
-use windows_reactor::ElementExt;
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

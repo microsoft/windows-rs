@@ -2,9 +2,9 @@
 #![expect(non_snake_case)]
 
 use std::sync::RwLock;
-use windows::core::*;
 use windows::Foundation::*;
 use windows::Win32::Foundation::*;
+use windows::core::*;
 use windows_collections::*;
 
 pub(crate) fn err_bounds() -> Error {

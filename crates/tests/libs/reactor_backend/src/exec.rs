@@ -34,10 +34,10 @@ impl Task {
         let mut cx = Context::from_waker(&waker);
 
         let slot = unsafe { &mut *self.future.get() };
-        if let Some(fut) = slot.as_mut() {
-            if fut.as_mut().poll(&mut cx).is_ready() {
-                *slot = None;
-            }
+        if let Some(fut) = slot.as_mut()
+            && fut.as_mut().poll(&mut cx).is_ready()
+        {
+            *slot = None;
         }
     }
 }

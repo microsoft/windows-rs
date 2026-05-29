@@ -7,11 +7,7 @@ impl VARIANT_BOOL {
     }
     #[inline]
     pub fn ok(self) -> windows_core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(windows_core::Error::from_thread())
-        }
+        if self.as_bool() { Ok(()) } else { Err(windows_core::Error::from_thread()) }
     }
     #[inline]
     #[track_caller]
@@ -36,11 +32,7 @@ impl From<&VARIANT_BOOL> for bool {
 }
 impl From<bool> for VARIANT_BOOL {
     fn from(value: bool) -> Self {
-        if value {
-            VARIANT_TRUE
-        } else {
-            VARIANT_FALSE
-        }
+        if value { VARIANT_TRUE } else { VARIANT_FALSE }
     }
 }
 impl From<&bool> for VARIANT_BOOL {
@@ -61,10 +53,6 @@ impl PartialEq<VARIANT_BOOL> for bool {
 impl core::ops::Not for VARIANT_BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
-        if self.as_bool() {
-            VARIANT_FALSE
-        } else {
-            VARIANT_TRUE
-        }
+        if self.as_bool() { VARIANT_FALSE } else { VARIANT_TRUE }
     }
 }

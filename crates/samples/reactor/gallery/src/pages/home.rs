@@ -1,4 +1,4 @@
-use crate::controls::{card_grid, CardItem};
+use crate::controls::{CardItem, card_grid};
 use crate::registry::{self, CATEGORIES};
 use windows_reactor::*;
 

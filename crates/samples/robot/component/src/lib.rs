@@ -7,9 +7,9 @@
     clippy::all
 )]
 mod bindings;
-use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{Win32::Foundation::*, Win32::System::WinRT::*, core::*};
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
     factory: OutRef<IActivationFactory>,
@@ -22,7 +22,7 @@ extern "system" fn DllGetActivationFactory(
     }
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "system" fn CreateRobotFromHandle(
     handle: *mut std::ffi::c_void,
     robot: OutRef<bindings::Robot>,

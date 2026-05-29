@@ -4,7 +4,6 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*,
         Win32::{
             Foundation::*,
             Graphics::{
@@ -17,10 +16,11 @@ fn main() -> windows::core::Result<()> {
                 Gdi::*,
                 Imaging::{D2D::*, *},
             },
-            Security::Cryptography::{BCryptGenRandom, BCRYPT_USE_SYSTEM_PREFERRED_RNG},
+            Security::Cryptography::{BCRYPT_USE_SYSTEM_PREFERRED_RNG, BCryptGenRandom},
             System::{Com::*, LibraryLoader::*},
             UI::{Animation::*, HiDpi::*, Shell::*, WindowsAndMessaging::*},
         },
+        core::*,
     };
 
     use windows_numerics::*;

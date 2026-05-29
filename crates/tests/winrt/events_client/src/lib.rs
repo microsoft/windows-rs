@@ -10,7 +10,7 @@
 mod bindings;
 use bindings::*;
 use std::sync::{Mutex, MutexGuard};
-use windows::{core::*, Foundation::*};
+use windows::{Foundation::*, core::*};
 
 static STATIC_EVENT_TEST_LOCK: Mutex<()> = Mutex::new(());
 

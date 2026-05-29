@@ -4,7 +4,7 @@ use std::rc::Rc;
 use windows_reactor::core::backend::{ControlKind, Op, RecordingBackend};
 use windows_reactor::core::element::{Element, TextBlock};
 use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::templated_list::{grid_view, list_view, TemplatedKind};
+use windows_reactor::core::templated_list::{TemplatedKind, grid_view, list_view};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -132,11 +132,12 @@ fn simulate_clear_recycles_row_content() {
     assert!(r.backend.ops.iter().any(
         |op| matches!(op, Op::ClearRowContent { row_idx: 0, list_id: lid } if *lid == list_id)
     ));
-    assert!(r
-        .backend
-        .ops
-        .iter()
-        .any(|op| matches!(op, Op::Destroy { .. })));
+    assert!(
+        r.backend
+            .ops
+            .iter()
+            .any(|op| matches!(op, Op::Destroy { .. }))
+    );
 }
 
 #[test]
@@ -156,11 +157,12 @@ fn recycle_then_realize_does_not_recreate_list_container() {
     r.backend.simulate_prepare_row(list_id, 5);
     r.drain_realizations();
 
-    assert!(!r
-        .backend
-        .ops
-        .iter()
-        .any(|op| matches!(op, Op::Destroy { id } if *id == list_id)));
+    assert!(
+        !r.backend
+            .ops
+            .iter()
+            .any(|op| matches!(op, Op::Destroy { id } if *id == list_id))
+    );
     assert_eq!(r.backend.row_contents_of(list_id).len(), 1);
 }
 
@@ -197,11 +199,11 @@ fn selected_index_propagates_on_mount() {
         .selected_index(1)
         .build();
     let (r, list_id) = mount_and_drain(el);
-    assert!(r
-        .backend
-        .ops
-        .iter()
-        .any(|op| matches!(op, Op::SetTemplatedSelectedIndex { id, index: 1 } if *id == list_id)));
+    assert!(
+        r.backend.ops.iter().any(
+            |op| matches!(op, Op::SetTemplatedSelectedIndex { id, index: 1 } if *id == list_id)
+        )
+    );
 }
 
 #[test]

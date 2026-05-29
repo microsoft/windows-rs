@@ -16,8 +16,8 @@ fn main() -> windows::core::Result<()> {
     use crate::bindings::*;
 
     use windows::{
-        core::*, Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
-        Win32::UI::HiDpi::*, Win32::UI::WindowsAndMessaging::*,
+        Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
+        Win32::UI::HiDpi::*, Win32::UI::WindowsAndMessaging::*, core::*,
     };
 
     #[implement(ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]

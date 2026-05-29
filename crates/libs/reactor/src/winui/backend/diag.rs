@@ -1,5 +1,5 @@
-use crate::core::backend::{ControlId, Event};
 use crate::core::Prop;
+use crate::core::backend::{ControlId, Event};
 
 use super::{Handle, PropValue};
 

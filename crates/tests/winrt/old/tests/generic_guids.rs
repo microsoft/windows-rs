@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Devices::Enumeration::*, Foundation::*};
+use windows::{Devices::Enumeration::*, Foundation::*, core::*};
 use windows_collections::*;
 use windows_future::*;
 use windows_reference::*;
@@ -246,9 +246,15 @@ fn generic_class_guid() {
     // Then the generic case...
 
     unsafe {
-        assert_eq!(std::str::from_utf8_unchecked(IVectorView::<DeviceInformation>::SIGNATURE.as_slice()), "pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f}))");
+        assert_eq!(
+            std::str::from_utf8_unchecked(IVectorView::<DeviceInformation>::SIGNATURE.as_slice()),
+            "pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f}))"
+        );
 
-        assert_eq!(std::str::from_utf8_unchecked(DeviceInformationCollection::SIGNATURE.as_slice()), "rc(Windows.Devices.Enumeration.DeviceInformationCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})))");
+        assert_eq!(
+            std::str::from_utf8_unchecked(DeviceInformationCollection::SIGNATURE.as_slice()),
+            "rc(Windows.Devices.Enumeration.DeviceInformationCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})))"
+        );
     }
 
     assert_eq!(

@@ -2,7 +2,7 @@ use std::cell::RefCell;
 use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
-use windows_core::{Error, Result, HRESULT};
+use windows_core::{Error, HRESULT, Result};
 
 use super::app_shim::*;
 use super::bindings::*;

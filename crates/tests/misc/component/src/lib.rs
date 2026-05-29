@@ -8,7 +8,7 @@
 )]
 mod bindings;
 use std::sync::*;
-use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*, core::*};
 
 #[implement(bindings::Class)]
 struct Class(RwLock<i32>);
@@ -77,7 +77,7 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
 }
 
 // HRESULT __stdcall DllGetActivationFactory(HSTRING, IActivationFactory**)
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
     factory: OutRef<IActivationFactory>,

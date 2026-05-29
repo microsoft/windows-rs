@@ -122,10 +122,10 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Ele
     })
     .selection_mode(SelectionMode::Single)
     .on_selection_changed(move |idx| {
-        if idx >= 0 {
-            if let Some(item) = items_for_handler.get(idx as usize) {
-                on_click(item.key.clone());
-            }
+        if idx >= 0
+            && let Some(item) = items_for_handler.get(idx as usize)
+        {
+            on_click(item.key.clone());
         }
     })
     .with_key_selector(|item| item.key.clone())

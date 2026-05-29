@@ -26,11 +26,11 @@ use windows_reactor::core::element::{
 use windows_reactor::core::element::{Color, Element, GridLength};
 use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextRun};
 use windows_reactor::dsl::{
-    border, button, check_box, scroll_viewer, text_block, text_box, ElementExt,
+    ElementExt, border, button, check_box, scroll_viewer, text_block, text_box,
 };
 use windows_reactor::grid;
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 fn assert_widget_at_grid_row<T: windows_core::Interface>(

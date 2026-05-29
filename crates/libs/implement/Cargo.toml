@@ -1,8 +1,8 @@
 [package]
 name = "windows-implement"
 version = "0.60.2"
-edition = "2021"
-rust-version = "1.74"
+edition = "2024"
+rust-version = "1.85"
 license = "MIT OR Apache-2.0"
 description = "The implement macro for the Windows crates"
 repository = "https://github.com/microsoft/windows-rs"

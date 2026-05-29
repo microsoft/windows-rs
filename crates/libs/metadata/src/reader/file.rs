@@ -719,11 +719,7 @@ struct Table {
 
 impl Table {
     fn index_width(&self) -> usize {
-        if self.len < (1 << 16) {
-            2
-        } else {
-            4
-        }
+        if self.len < (1 << 16) { 2 } else { 4 }
     }
 
     fn set_columns(&mut self, a: usize, b: usize, c: usize, d: usize, e: usize, f: usize) {

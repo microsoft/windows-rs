@@ -312,11 +312,10 @@ impl RenderCx {
     {
         self.read_contexts.borrow_mut().insert(context.id);
 
-        if let Some(stack) = &self.context_stack {
-            if let Some(v) = stack.get::<T>(context.id) {
+        if let Some(stack) = &self.context_stack
+            && let Some(v) = stack.get::<T>(context.id) {
                 return v;
             }
-        }
         context.default.clone()
     }
 
@@ -636,23 +635,19 @@ impl RenderCx {
             if let HookSlot::Effect {
                 pending_cleanup, ..
             } = slot
-            {
-                if let Some(c) = pending_cleanup.take() {
+                && let Some(c) = pending_cleanup.take() {
                     c();
                 }
-            }
         }
 
         for slot in hooks.iter_mut() {
             if let HookSlot::Effect {
                 pending, cleanup, ..
             } = slot
-            {
-                if let Some(effect) = pending.take() {
+                && let Some(effect) = pending.take() {
                     let new_cleanup = effect();
                     *cleanup = new_cleanup;
                 }
-            }
         }
     }
 

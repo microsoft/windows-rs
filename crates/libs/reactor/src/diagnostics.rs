@@ -56,7 +56,9 @@ pub fn install() {
 #[cfg(feature = "diagnostics")]
 fn install_inner() {
     if std::env::var_os("RUST_BACKTRACE").is_none() {
-        std::env::set_var("RUST_BACKTRACE", "1");
+        unsafe {
+            std::env::set_var("RUST_BACKTRACE", "1");
+        }
     }
 
     let prev = std::panic::take_hook();
@@ -67,16 +69,16 @@ fn install_inner() {
 
         prev(info);
 
-        if let Some(path) = crash_log_path() {
-            if let Ok(mut f) = std::fs::File::create(&path) {
-                let bt = std::backtrace::Backtrace::force_capture();
-                let _ = writeln!(f, "{info}\n\nBacktrace:\n{bt}");
-                let _ = f.flush();
-                emit(&format!(
-                    "windows_reactor: panic log written to {}\n",
-                    path.display()
-                ));
-            }
+        if let Some(path) = crash_log_path()
+            && let Ok(mut f) = std::fs::File::create(&path)
+        {
+            let bt = std::backtrace::Backtrace::force_capture();
+            let _ = writeln!(f, "{info}\n\nBacktrace:\n{bt}");
+            let _ = f.flush();
+            emit(&format!(
+                "windows_reactor: panic log written to {}\n",
+                path.display()
+            ));
         }
 
         // Force-kill: std::process::abort() doesn't reliably terminate WinUI apps.

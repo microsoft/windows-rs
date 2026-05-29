@@ -1,11 +1,11 @@
 #![cfg(windows)]
 use windows::{
-    core::*,
     Win32::{
         Foundation::*,
         System::Com::{StructuredStorage::*, *},
         UI::Shell::PropertiesSystem::*,
     },
+    core::*,
 };
 
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]

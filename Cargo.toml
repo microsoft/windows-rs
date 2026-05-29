@@ -1,5 +1,5 @@
 [workspace]
-resolver = "2"
+resolver = "3"
 members = [
     "crates/libs/*",
     "crates/samples/*/*",
@@ -24,6 +24,7 @@ missing_unsafe_on_extern = "warn"
 
 [workspace.lints.clippy]
 type_complexity = "allow"
+manual_c_str_literals = "allow" # windows-bindgen needs to switch to signed char for this to work
 semicolon_if_nothing_returned = "warn"
 map_unwrap_or = "warn"
 manual_let_else = "warn"

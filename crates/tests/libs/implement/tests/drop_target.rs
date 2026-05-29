@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::{
-    core::*, Win32::Foundation::*, Win32::System::Com::*, Win32::System::Ole::*,
-    Win32::System::SystemServices::*,
+    Win32::Foundation::*, Win32::System::Com::*, Win32::System::Ole::*,
+    Win32::System::SystemServices::*, core::*,
 };
 
 #[implement(IDataObject)]

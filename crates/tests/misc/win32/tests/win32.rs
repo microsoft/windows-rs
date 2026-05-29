@@ -1,6 +1,5 @@
 #![cfg(windows)]
 use windows::{
-    core::*,
     Win32::Foundation::{CloseHandle, HANDLE, HWND, RECT},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::Direct3D::Fxc::*,
@@ -19,6 +18,7 @@ use windows::{
         Controls::Dialogs::CHOOSECOLORW,
         WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
+    core::*,
 };
 
 #[test]
@@ -180,9 +180,11 @@ fn com_inheritance() {
         let factory: IDXGIFactory7 = CreateDXGIFactory1().unwrap();
 
         // IDXGIFactory
-        assert!(factory
-            .MakeWindowAssociation(HWND::default(), DXGI_MWA_FLAGS::default())
-            .is_ok());
+        assert!(
+            factory
+                .MakeWindowAssociation(HWND::default(), DXGI_MWA_FLAGS::default())
+                .is_ok()
+        );
 
         // IDXGIFactory1
         assert!(factory.IsCurrent().as_bool());

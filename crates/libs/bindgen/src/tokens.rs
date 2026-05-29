@@ -5,7 +5,7 @@
 //! `quote` crate so the emitter operates on real token trees.
 
 pub use proc_macro2::{Literal, TokenStream};
-pub use quote::{quote, ToTokens};
+pub use quote::{ToTokens, quote};
 
 /// Extension methods on `TokenStream` that match the API of the previous
 /// hand-rolled `TokenStream(String)` wrapper.

@@ -1,5 +1,5 @@
-use windows_metadata::reader::Index;
 use windows_metadata::HasAttributes;
+use windows_metadata::reader::Index;
 use windows_rdl::*;
 
 /// Read back the GuidAttribute for the named type from `winmd` and assert it equals `expected`.

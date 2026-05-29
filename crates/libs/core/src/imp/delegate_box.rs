@@ -1,5 +1,5 @@
 use super::*;
-use crate::{IUnknown, Interface, GUID, HRESULT};
+use crate::{GUID, HRESULT, IUnknown, Interface};
 use core::ffi::c_void;
 
 /// A reference-counted, COM-compatible heap allocation used by generated WinRT delegate types.

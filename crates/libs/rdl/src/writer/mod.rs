@@ -13,12 +13,12 @@ use attribute::*;
 use callback::*;
 use class::*;
 use delegate::*;
+use r#enum::*;
+use r#fn::*;
 use interface::*;
 use layout::*;
 use metadata::AsRow;
 use metadata::HasAttributes;
-use r#enum::*;
-use r#fn::*;
 use r#struct::*;
 
 // The writer is primarily an internal tool as most developers will write their own

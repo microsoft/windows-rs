@@ -236,11 +236,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             .as_widget()
             .unwrap();
         let id = self.mount_widget(widget);
-        if let Element::RichTextBlock(rt) = el {
-            if !rt.paragraphs.is_empty() {
+        if let Element::RichTextBlock(rt) = el
+            && !rt.paragraphs.is_empty() {
                 self.backend.set_rich_text_paragraphs(id, &rt.paragraphs);
             }
-        }
         Some(id)
     }
 
@@ -296,11 +295,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             unreachable!("kind_matches guarantees same variant; non-widget variants handled above");
         };
         self.update_widget(ow, nw, id);
-        if let (Element::RichTextBlock(o), Element::RichTextBlock(n)) = (old, new) {
-            if o.paragraphs != n.paragraphs {
+        if let (Element::RichTextBlock(o), Element::RichTextBlock(n)) = (old, new)
+            && o.paragraphs != n.paragraphs {
                 self.backend.set_rich_text_paragraphs(id, &n.paragraphs);
             }
-        }
         Some(id)
     }
 
@@ -350,11 +348,10 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub(crate) fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
-        if let Some(list) = self.children_mirror.get_mut(&parent) {
-            if index < list.len() {
+        if let Some(list) = self.children_mirror.get_mut(&parent)
+            && index < list.len() {
                 list.remove(index);
             }
-        }
         self.backend.remove_child(parent, index);
     }
 
@@ -364,11 +361,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         index: usize,
         new: ControlId,
     ) {
-        if let Some(list) = self.children_mirror.get_mut(&parent) {
-            if index < list.len() {
+        if let Some(list) = self.children_mirror.get_mut(&parent)
+            && index < list.len() {
                 list[index] = new;
             }
-        }
         self.backend.replace_child(parent, index, new);
     }
 
@@ -376,12 +372,11 @@ impl<B: Backend + 'static> Reconciler<B> {
         if from == to {
             return;
         }
-        if let Some(list) = self.children_mirror.get_mut(&parent) {
-            if from < list.len() && to < list.len() {
+        if let Some(list) = self.children_mirror.get_mut(&parent)
+            && from < list.len() && to < list.len() {
                 let item = list.remove(from);
                 list.insert(to, item);
             }
-        }
         self.backend.move_child(parent, from, to);
     }
 
@@ -474,12 +469,11 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement(id, p);
         }
 
-        if let Some(res) = &mods.resources {
-            if !res.is_empty() {
+        if let Some(res) = &mods.resources
+            && !res.is_empty() {
                 self.backend
                     .set_prop(id, Prop::Resources, PropValue::Resources((**res).clone()));
             }
-        }
     }
 
     pub(crate) fn apply_tooltip_for(&mut self, id: ControlId, mods: &Modifiers) {
@@ -526,11 +520,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         if anim.is_empty() {
             return;
         }
-        if let Some(it) = anim.implicit_transitions {
-            if !it.is_empty() {
+        if let Some(it) = anim.implicit_transitions
+            && !it.is_empty() {
                 self.backend.set_implicit_transitions(id, Some(it));
             }
-        }
         if let Some(la) = anim.layout_animation {
             self.backend.set_layout_animation(id, Some(la));
         }
@@ -703,14 +696,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement_full(id, new.grid.unwrap_or_default());
         }
 
-        if old.resources != new.resources {
-            if let Some(res) = &new.resources {
-                if !res.is_empty() {
+        if old.resources != new.resources
+            && let Some(res) = &new.resources
+                && !res.is_empty() {
                     self.backend
                         .set_prop(id, Prop::Resources, PropValue::Resources((**res).clone()));
                 }
-            }
-        }
     }
 
     pub(crate) fn collect_affected_components(
@@ -721,11 +712,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut result = Vec::new();
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
-            if let Some(inst) = self.component_instances.get(&id) {
-                if inst.read_contexts.iter().any(|c| changed.contains(c)) {
+            if let Some(inst) = self.component_instances.get(&id)
+                && inst.read_contexts.iter().any(|c| changed.contains(c)) {
                     result.push(id);
                 }
-            }
             if let Some(kids) = self.children_mirror.get(&id) {
                 for k in kids {
                     stack.push(*k);

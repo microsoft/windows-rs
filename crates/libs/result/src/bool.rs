@@ -52,11 +52,7 @@ impl From<&BOOL> for bool {
 
 impl From<bool> for BOOL {
     fn from(value: bool) -> Self {
-        if value {
-            Self(1)
-        } else {
-            Self(0)
-        }
+        if value { Self(1) } else { Self(0) }
     }
 }
 
@@ -81,10 +77,6 @@ impl PartialEq<BOOL> for bool {
 impl core::ops::Not for BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
-        if self.as_bool() {
-            Self(0)
-        } else {
-            Self(1)
-        }
+        if self.as_bool() { Self(0) } else { Self(1) }
     }
 }

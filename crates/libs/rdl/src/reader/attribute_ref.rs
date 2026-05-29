@@ -28,11 +28,7 @@ struct SplitArgs<'a> {
 fn collect_bitor_variants(expr: &syn::Expr) -> Option<Vec<String>> {
     let mut names = Vec::new();
     collect_bitor_variants_inner(expr, &mut names)?;
-    if names.len() >= 2 {
-        Some(names)
-    } else {
-        None
-    }
+    if names.len() >= 2 { Some(names) } else { None }
 }
 
 fn collect_bitor_variants_inner(expr: &syn::Expr, names: &mut Vec<String>) -> Option<()> {
@@ -372,7 +368,7 @@ impl Encoder<'_> {
                                         return self.err(
                                             spanned,
                                             &format!("unsupported enum constant type: {other:?}"),
-                                        )
+                                        );
                                     }
                                 });
                             }

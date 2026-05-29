@@ -6,7 +6,7 @@
 use std::rc::Rc;
 
 use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{group, Button, Element, GroupElement, StackPanel, TextBlock};
+use windows_reactor::core::element::{Button, Element, GroupElement, StackPanel, TextBlock, group};
 use windows_reactor::core::reconciler::Reconciler;
 
 fn noop() -> Rc<dyn Fn()> {
@@ -55,10 +55,9 @@ fn child_text_contents(
                     prop: Prop::Text,
                     value: PropValue::Str(s),
                 } = op
+                    && *id == cid
                 {
-                    if *id == cid {
-                        last = Some(s.clone());
-                    }
+                    last = Some(s.clone());
                 }
             }
             last.unwrap_or_default()

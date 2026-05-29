@@ -27,7 +27,7 @@ Given these dependencies and what we learned about creating a DLL in Rust, here'
 ```toml
 [package]
 name = "json_validator"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -54,7 +54,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 And let's begin with the `CreateJsonValidator` API function. Here's how the C++ declaration might look in Rust:
 
 ```rust
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn CreateJsonValidator(
     schema: *const u8,
     schema_len: usize,
@@ -121,7 +121,7 @@ The JSON value, in this case the JSON schema, is passed to `JSONSchema::compile`
 Now let's move on to the `CloseJsonValidator` function since it's closely related to the boxing code above. Boxing just means to move the value on to the heap. The `CloseJsonValidator` function therefore needs to "drop" the object and free that heap allocation:
 
 ```rust
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn CloseJsonValidator(handle: usize) {
     if handle != 0 {
         _ = Box::from_raw(handle as *mut JSONSchema);
@@ -134,7 +134,7 @@ We can add a little safeguard if a zero handle is provided. This is a pretty sta
 Finally, let's consider the `ValidateJson` function's implementation:
 
 ```rust
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn ValidateJson(
     handle: usize,
     value: *const u8,
