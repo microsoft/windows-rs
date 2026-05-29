@@ -73,14 +73,14 @@ struct EventHandlerBox<
 where
     T: windows_core::RuntimeType + 'static;
 impl<
-        T: windows_core::RuntimeType + 'static,
-        F: Fn(
-                windows_core::Ref<windows_core::IInspectable>,
-                windows_core::Ref<T>,
-            ) -> windows_core::Result<()>
-            + Send
-            + 'static,
-    > EventHandlerBox<T, F>
+    T: windows_core::RuntimeType + 'static,
+    F: Fn(
+            windows_core::Ref<windows_core::IInspectable>,
+            windows_core::Ref<T>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> EventHandlerBox<T, F>
 {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl {

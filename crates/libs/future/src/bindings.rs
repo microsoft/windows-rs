@@ -49,8 +49,10 @@ struct AsyncActionCompletedHandlerBox<
     F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static,
-> AsyncActionCompletedHandlerBox<F>
+        F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > AsyncActionCompletedHandlerBox<F>
 {
     const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -155,14 +157,14 @@ struct AsyncActionProgressHandlerBox<
 where
     TProgress: windows_core::RuntimeType + 'static;
 impl<
-    TProgress: windows_core::RuntimeType + 'static,
-    F: Fn(
-            windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
-            windows_core::Ref<TProgress>,
-        ) -> windows_core::Result<()>
-        + Send
-        + 'static,
-> AsyncActionProgressHandlerBox<TProgress, F>
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+                windows_core::Ref<TProgress>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > AsyncActionProgressHandlerBox<TProgress, F>
 {
     const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<
         TProgress,
@@ -282,14 +284,14 @@ struct AsyncActionWithProgressCompletedHandlerBox<
 where
     TProgress: windows_core::RuntimeType + 'static;
 impl<
-    TProgress: windows_core::RuntimeType + 'static,
-    F: Fn(
-            windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
-            AsyncStatus,
-        ) -> windows_core::Result<()>
-        + Send
-        + 'static,
-> AsyncActionWithProgressCompletedHandlerBox<TProgress, F>
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+                AsyncStatus,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > AsyncActionWithProgressCompletedHandlerBox<TProgress, F>
 {
     const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> =
         AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
@@ -400,11 +402,11 @@ struct AsyncOperationCompletedHandlerBox<
 where
     TResult: windows_core::RuntimeType + 'static;
 impl<
-    TResult: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
-        + Send
-        + 'static,
-> AsyncOperationCompletedHandlerBox<TResult, F>
+        TResult: windows_core::RuntimeType + 'static,
+        F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > AsyncOperationCompletedHandlerBox<TResult, F>
 {
     const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> =
         AsyncOperationCompletedHandler_Vtbl::<TResult> {
@@ -449,16 +451,18 @@ where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
 unsafe impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-> windows_core::Interface for AsyncOperationProgressHandler<TResult, TProgress>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::Interface for AsyncOperationProgressHandler<TResult, TProgress>
 {
     type Vtable = AsyncOperationProgressHandler_Vtbl<TResult, TProgress>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
         .push_slice(b"pinterface({55690902-0aab-421a-8778-f8ce5026d758}")
@@ -468,8 +472,10 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         .push_other(TProgress::SIGNATURE)
         .push_slice(b")");
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    AsyncOperationProgressHandler<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > AsyncOperationProgressHandler<TResult, TProgress>
 {
     pub fn new<
         F: Fn(
@@ -535,15 +541,15 @@ where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
 impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-    F: Fn(
-            windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
-            windows_core::Ref<TProgress>,
-        ) -> windows_core::Result<()>
-        + Send
-        + 'static,
-> AsyncOperationProgressHandlerBox<TResult, TProgress, F>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+                windows_core::Ref<TProgress>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > AsyncOperationProgressHandlerBox<TResult, TProgress, F>
 {
     const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> =
         AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
@@ -595,16 +601,18 @@ where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
 unsafe impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-> windows_core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
 {
     type Vtable = AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::RuntimeType for AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::RuntimeType for AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
         .push_slice(b"pinterface({e85df41d-6aa7-46e3-a8e2-f009d840c627}")
@@ -614,8 +622,10 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         .push_other(TProgress::SIGNATURE)
         .push_slice(b")");
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
 {
     pub fn new<
         F: Fn(
@@ -680,15 +690,15 @@ where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
 impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-    F: Fn(
-            windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
-            AsyncStatus,
-        ) -> windows_core::Result<()>
-        + Send
-        + 'static,
-> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+                AsyncStatus,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F>
 {
     const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> =
         AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
@@ -1088,12 +1098,12 @@ where
         handler: windows_core::Ref<AsyncActionWithProgressCompletedHandler<TProgress>>,
     ) -> windows_core::Result<()>;
     fn Completed(&self)
-    -> windows_core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
+        -> windows_core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
     fn GetResults(&self) -> windows_core::Result<()>;
 }
 impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vtbl<TProgress> {
-    pub const fn new<Identity: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>()
-    -> Self {
+    pub const fn new<Identity: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>(
+    ) -> Self {
         unsafe extern "system" fn SetProgress<
             TProgress: windows_core::RuntimeType + 'static,
             Identity: IAsyncActionWithProgress_Impl<TProgress>,
@@ -1640,27 +1650,33 @@ pub struct IAsyncOperationWithProgress<TResult, TProgress>(
 where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IUnknown>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::imp::CanInto<windows_core::IUnknown>
     for IAsyncOperationWithProgress<TResult, TProgress>
 {
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_core::IInspectable>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::imp::CanInto<windows_core::IInspectable>
     for IAsyncOperationWithProgress<TResult, TProgress>
 {
 }
 unsafe impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-> windows_core::Interface for IAsyncOperationWithProgress<TResult, TProgress>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::Interface for IAsyncOperationWithProgress<TResult, TProgress>
 {
     type Vtable = IAsyncOperationWithProgress_Vtbl<TResult, TProgress>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
         .push_slice(b"pinterface({b5d036d7-e297-498f-ba60-0289e76e23dd}")
@@ -1676,13 +1692,17 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         .push_other(TProgress::NAME)
         .push_slice(b">");
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::imp::CanInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress>
 {
     const QUERY: bool = true;
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    IAsyncOperationWithProgress<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > IAsyncOperationWithProgress<TResult, TProgress>
 {
     pub fn SetProgress<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
@@ -1791,19 +1811,21 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
 }
 unsafe impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-> Send for IAsyncOperationWithProgress<TResult, TProgress>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > Send for IAsyncOperationWithProgress<TResult, TProgress>
 {
 }
 unsafe impl<
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-> Sync for IAsyncOperationWithProgress<TResult, TProgress>
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > Sync for IAsyncOperationWithProgress<TResult, TProgress>
 {
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    windows_core::RuntimeName for IAsyncOperationWithProgress<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > windows_core::RuntimeName for IAsyncOperationWithProgress<TResult, TProgress>
 {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperationWithProgress";
     const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
@@ -1828,8 +1850,10 @@ where
     ) -> windows_core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
     fn GetResults(&self) -> windows_core::Result<TResult>;
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static>
-    IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+    > IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
 {
     pub const fn new<
         Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,

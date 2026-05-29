@@ -3346,8 +3346,9 @@ pub struct DependencyPropertyChangedCallback_Vtbl {
 struct DependencyPropertyChangedCallbackBox<
     F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
-impl<F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) + 'static>
-    DependencyPropertyChangedCallbackBox<F>
+impl<
+        F: Fn(windows_core::Ref<DependencyObject>, windows_core::Ref<DependencyProperty>) + 'static,
+    > DependencyPropertyChangedCallbackBox<F>
 {
     const VTABLE: DependencyPropertyChangedCallback_Vtbl = DependencyPropertyChangedCallback_Vtbl {
         base__:
@@ -3823,9 +3824,9 @@ struct EventHandlerBox<
 where
     T: windows_core::RuntimeType + 'static;
 impl<
-    T: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) + 'static,
-> EventHandlerBox<T, F>
+        T: windows_core::RuntimeType + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) + 'static,
+    > EventHandlerBox<T, F>
 {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl {
@@ -24066,9 +24067,11 @@ struct PointerEventHandlerBox<
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<PointerRoutedEventArgs>)
-        + 'static,
-> PointerEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<PointerRoutedEventArgs>,
+            ) + 'static,
+    > PointerEventHandlerBox<F>
 {
     const VTABLE: PointerEventHandler_Vtbl = PointerEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -24577,11 +24580,11 @@ struct RangeBaseValueChangedEventHandlerBox<
         ) + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(
-            windows_core::Ref<windows_core::IInspectable>,
-            windows_core::Ref<RangeBaseValueChangedEventArgs>,
-        ) + 'static,
-> RangeBaseValueChangedEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<RangeBaseValueChangedEventArgs>,
+            ) + 'static,
+    > RangeBaseValueChangedEventHandlerBox<F>
 {
     const VTABLE: RangeBaseValueChangedEventHandler_Vtbl = RangeBaseValueChangedEventHandler_Vtbl {
         base__:
@@ -25215,11 +25218,11 @@ struct RightTappedEventHandlerBox<
         ) + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(
-            windows_core::Ref<windows_core::IInspectable>,
-            windows_core::Ref<RightTappedRoutedEventArgs>,
-        ) + 'static,
-> RightTappedEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<RightTappedRoutedEventArgs>,
+            ) + 'static,
+    > RightTappedEventHandlerBox<F>
 {
     const VTABLE: RightTappedEventHandler_Vtbl = RightTappedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -25342,8 +25345,9 @@ struct RoutedEventHandlerBox<
     F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>) + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>) + 'static,
-> RoutedEventHandlerBox<F>
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + 'static,
+    > RoutedEventHandlerBox<F>
 {
     const VTABLE: RoutedEventHandler_Vtbl = RoutedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -25752,11 +25756,11 @@ struct SelectionChangedEventHandlerBox<
         ) + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(
-            windows_core::Ref<windows_core::IInspectable>,
-            windows_core::Ref<SelectionChangedEventArgs>,
-        ) + 'static,
-> SelectionChangedEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<SelectionChangedEventArgs>,
+            ) + 'static,
+    > SelectionChangedEventHandlerBox<F>
 {
     const VTABLE: SelectionChangedEventHandler_Vtbl = SelectionChangedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -26170,9 +26174,11 @@ struct SizeChangedEventHandlerBox<
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SizeChangedEventArgs>)
-        + 'static,
-> SizeChangedEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<SizeChangedEventArgs>,
+            ) + 'static,
+    > SizeChangedEventHandlerBox<F>
 {
     const VTABLE: SizeChangedEventHandler_Vtbl = SizeChangedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -27156,9 +27162,11 @@ struct TappedEventHandlerBox<
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TappedRoutedEventArgs>)
-        + 'static,
-> TappedEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<TappedRoutedEventArgs>,
+            ) + 'static,
+    > TappedEventHandlerBox<F>
 {
     const VTABLE: TappedEventHandler_Vtbl = TappedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -27529,9 +27537,11 @@ struct TextChangedEventHandlerBox<
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<TextChangedEventArgs>)
-        + 'static,
-> TextChangedEventHandlerBox<F>
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<TextChangedEventArgs>,
+            ) + 'static,
+    > TextChangedEventHandlerBox<F>
 {
     const VTABLE: TextChangedEventHandler_Vtbl = TextChangedEventHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
@@ -28476,16 +28486,18 @@ where
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static;
 unsafe impl<
-    TSender: windows_core::RuntimeType + 'static,
-    TResult: windows_core::RuntimeType + 'static,
-> windows_core::Interface for TypedEventHandler<TSender, TResult>
+        TSender: windows_core::RuntimeType + 'static,
+        TResult: windows_core::RuntimeType + 'static,
+    > windows_core::Interface for TypedEventHandler<TSender, TResult>
 {
     type Vtable = TypedEventHandler_Vtbl<TSender, TResult>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
-impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static>
-    windows_core::RuntimeType for TypedEventHandler<TSender, TResult>
+impl<
+        TSender: windows_core::RuntimeType + 'static,
+        TResult: windows_core::RuntimeType + 'static,
+    > windows_core::RuntimeType for TypedEventHandler<TSender, TResult>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
         .push_slice(b"pinterface({9de1c534-6ae1-11e0-84e1-18a905bcc53f}")
@@ -28520,10 +28532,10 @@ where
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static;
 impl<
-    TSender: windows_core::RuntimeType + 'static,
-    TResult: windows_core::RuntimeType + 'static,
-    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
-> TypedEventHandlerBox<TSender, TResult, F>
+        TSender: windows_core::RuntimeType + 'static,
+        TResult: windows_core::RuntimeType + 'static,
+        F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+    > TypedEventHandlerBox<TSender, TResult, F>
 {
     const VTABLE : TypedEventHandler_Vtbl < TSender , TResult , > = TypedEventHandler_Vtbl::< TSender , TResult , > { base__ : windows_core::IUnknown_Vtbl { QueryInterface : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::QueryInterface , AddRef : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::AddRef , Release : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::Release , } , Invoke : Self::Invoke , TSender : core::marker::PhantomData::< TSender > , TResult : core::marker::PhantomData::< TResult > } ;
     unsafe extern "system" fn Invoke(
