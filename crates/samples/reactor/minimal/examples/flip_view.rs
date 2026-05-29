@@ -34,7 +34,6 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .selected_index(page)
         .on_selection_changed(on_sel)
         .height(180.0),
-        // External controls drive the same bound selection.
         hstack((
             button("Prev").on_click(prev),
             button("Next").on_click(next),

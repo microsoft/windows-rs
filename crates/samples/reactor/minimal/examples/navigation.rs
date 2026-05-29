@@ -1,19 +1,13 @@
-//! Multi-page navigation pattern using enum-based routing.
+//! Multi-page navigation using enum-based routing.
 //!
-//! Demonstrates the idiomatic Rust approach to page routing:
-//! - An enum defines all possible pages
-//! - `use_state` holds the current route
-//! - `NavigationView` drives navigation via `on_selection_changed`
-//! - A `match` on the route enum renders the correct page component
-//!
-//! This pattern requires NO framework router — just state + match.
+//! An enum defines pages, `use_state` holds the current route,
+//! `NavigationView` drives selection, and a `match` renders the page.
+//! No framework router needed — just state + match.
 
 use std::thread;
 use std::time::Duration;
 
 use windows_reactor::*;
-
-// ─── Route enum ─────────────────────────────────────────────────────────
 
 #[derive(Clone, PartialEq)]
 enum Page {
@@ -39,8 +33,6 @@ impl Page {
         }
     }
 }
-
-// ─── Page components ────────────────────────────────────────────────────
 
 fn home_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
     vstack((
@@ -104,8 +96,6 @@ fn settings_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(12.0)
 }
-
-// ─── App shell ──────────────────────────────────────────────────────────
 
 fn app(cx: &mut RenderCx) -> impl Into<Element> {
     let (page, set_page) = cx.use_state(Page::Home);

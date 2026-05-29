@@ -1,9 +1,5 @@
-//! Demonstrates `cx.use_resource` -- fetch data on a background thread
-//! with automatic loading states and dep-driven refetch.
-//!
-//! Simulates fetching a list of items from an API. When you click "Next",
-//! the page number changes, deps change, and the resource automatically
-//! refetches. Stale results from superseded fetches are discarded.
+//! Demonstrates `cx.use_resource` — fetch data on a background thread
+//! with automatic loading/error/ready states and dep-driven refetch.
 
 use std::thread;
 use std::time::Duration;

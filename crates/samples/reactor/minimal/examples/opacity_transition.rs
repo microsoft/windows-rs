@@ -1,7 +1,6 @@
 //! Minimal sample for `with_opacity_transition`.
 //!
-//! Registers a Composition `ScalarTransition` on opacity so subsequent
-//! `.opacity(..)` changes tween smoothly instead of snapping.
+//! Registers a Composition transition so opacity changes tween smoothly.
 
 use std::time::Duration;
 
@@ -24,7 +23,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     .max_width(280.0);
 
     vstack((
-        text_block("Toggle the button to drive opacity changes through an implicit transition."),
+        text_block("Toggle to drive opacity through an implicit transition."),
         button(if visible { "Fade out" } else { "Fade in" }).on_click(toggle),
         swatch,
     ))

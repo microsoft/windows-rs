@@ -1,17 +1,7 @@
-//! Minimal sample for the `cx.use_async_state` hook (gap H5,
-//! off-UI-thread setter auto-marshal).
+//! Minimal sample for the `cx.use_async_state` hook.
 //!
-//! Clicking the button spawns a background `std::thread::spawn`, sleeps
-//! briefly to simulate work, and then calls the setter. The
-//! `AsyncSetState` is `Send + Sync`, so it crosses into the thread
-//! freely; on call, the value write + rerender request are auto-marshalled
-//! back onto the UI thread via the host's `UiMarshaller`.
-//!
-//! The button is disabled while `busy` is `true`, so the captured
-//! `count` snapshot can't go stale between rapid clicks — each click is
-//! only re-enabled after the previous spawn's `set_count(current + 1)`
-//! has already been marshalled back and the component has re-rendered
-//! with the new value.
+//! `AsyncSetState` is `Send + Sync` — call it from any thread and the
+//! value write + rerender are auto-marshalled back to the UI thread.
 
 use std::thread;
 use std::time::Duration;
@@ -31,21 +21,12 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             let set_busy = set_busy.clone();
             let current = count;
             thread::spawn(move || {
-                // Off the UI thread: simulate some background work.
                 thread::sleep(Duration::from_millis(500));
-                // These setters auto-marshal back to the UI thread.
-                // set_count fires first so the next render sees the
-                // new value before the button is re-enabled.
                 set_count.call(current + 1);
                 set_busy.call(false);
             });
         }
     };
-
-    let mut bump_button = button("Bump (off-thread)").on_click(bump);
-    if busy {
-        bump_button = bump_button.enabled(false);
-    }
 
     vstack((
         text_block(format!("count = {count}"))
@@ -58,7 +39,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         })
         .font_size(12.0)
         .opacity(0.7),
-        bump_button,
+        button("Bump (off-thread)").on_click(bump).enabled(!busy),
     ))
     .spacing(8.0)
 }

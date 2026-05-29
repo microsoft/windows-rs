@@ -1,11 +1,11 @@
 //! Minimal sample demonstrating function components.
 //!
-//! Instead of `struct + impl Component`, simply define a function with
-//! signature `fn(&P, &mut RenderCx) -> impl Into<Element>` and use it directly.
+//! Define a function with signature `fn(&P, &mut RenderCx) -> impl Into<Element>`
+//! and compose with `component(f, props)`.
 
 use windows_reactor::*;
 
-/// A function component — no struct, no impl block needed.
+/// A function component — no struct needed.
 fn counter(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
     let (count, set_count) = cx.use_state(0_i32);
 

@@ -1,8 +1,7 @@
 //! Minimal sample for the `CalendarDatePicker` element.
 //!
-//! Demonstrates `windows-time` date arithmetic: computes the number of days
-//! between today and the selected date using `DateTime::now()` and
-//! `checked_duration_since`.
+//! Computes days between today and the selected date using
+//! `DateTime::now()` and `checked_duration_since`.
 
 use windows_reactor::*;
 

@@ -11,8 +11,8 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     .spacing(4.0);
 
     let wide_body = text_block(
-        "This line is intentionally long so the ScrollView must scroll \
-             horizontally to reveal the full sentence end-to-end.",
+        "This line is intentionally long so the ScrollView scrolls \
+             horizontally to reveal the full content.",
     )
     .font_size(13.0);
 

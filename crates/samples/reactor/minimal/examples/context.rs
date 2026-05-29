@@ -1,8 +1,8 @@
 //! Minimal sample for the context API.
 //!
-//! A root component owns a `theme` string in `use_state` and provides
-//! it via `Element::provide(&CTX, value)`. A nested `Leaf` reads it
-//! via `cx.use_context(&CTX)` without prop-drilling through ancestors.
+//! A parent provides a value via `Element::provide(&CTX, value)`. A
+//! nested component reads it via `cx.use_context(&CTX)` without
+//! prop-drilling through ancestors.
 
 use std::sync::LazyLock;
 

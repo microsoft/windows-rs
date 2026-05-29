@@ -1,6 +1,4 @@
 //! Minimal sample for the `TabView` element.
-//!
-//! Tabs live in `use_state` so the close handler can drop one by key.
 
 use windows_reactor::*;
 
@@ -15,7 +13,6 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     let items: Vec<TabItem> = tabs
         .iter()
         .map(|(key, header)| {
-            // The "overview" tab is permanent — hide its close button.
             let closable = *key != "overview";
             TabItem::new(
                 *header,
@@ -42,8 +39,6 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
                     .filter(|(k, _)| *k != key)
                     .copied()
                     .collect();
-                // Clamp the selection so it stays valid regardless of
-                // which tab was closed.
                 let max_index = next.len().saturating_sub(1) as i32;
                 let clamped = selected_for_close.min(max_index).max(0);
                 set_tabs_close.call(next);
