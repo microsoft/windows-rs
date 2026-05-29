@@ -48,7 +48,7 @@ fn main() {
         return;
     }
 
-    let workspace_root = PathBuf::from("/git/windows-rs/");
+    let workspace_root = PathBuf::from(env::var("CARGO_WORKSPACE_DIR").unwrap());
     let temp_dir = workspace_root.join("temp");
     fs::create_dir_all(&temp_dir).expect("Failed to create temp directory");
 
