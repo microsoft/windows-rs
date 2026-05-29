@@ -31,35 +31,35 @@ jobs:
         uses: actions/checkout@v6
 # generated - run `cargo run -p tool_yml` to update
       - name: Rust version
-        run: rustup update --no-self-update 1.74 && rustup default 1.74
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check riddle
         run:  cargo check -p riddle --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-bindgen
         run:  cargo check -p windows-bindgen --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-collections
         run:  cargo check -p windows-collections --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-core
         run:  cargo check -p windows-core --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-future
         run:  cargo check -p windows-future --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.74 && rustup default 1.74
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-implement
         run:  cargo check -p windows-implement --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.74 && rustup default 1.74
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-interface
         run:  cargo check -p windows-interface --all-features
       - name: Rust version
@@ -67,15 +67,15 @@ jobs:
       - name: Check windows-link
         run:  cargo check -p windows-link --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-metadata
         run:  cargo check -p windows-metadata --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-rdl
         run:  cargo check -p windows-rdl --all-features
       - name: Rust version
@@ -83,23 +83,23 @@ jobs:
       - name: Check windows-reactor
         run:  cargo check -p windows-reactor --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-reference
         run:  cargo check -p windows-reference --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-registry
         run:  cargo check -p windows-registry --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-result
         run:  cargo check -p windows-result --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-services
         run:  cargo check -p windows-services --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-strings
         run:  cargo check -p windows-strings --all-features
       - name: Rust version
@@ -111,14 +111,14 @@ jobs:
       - name: Check windows-targets
         run:  cargo check -p windows-targets --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-threading
         run:  cargo check -p windows-threading --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-time
         run:  cargo check -p windows-time --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.74 && rustup default 1.74
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-version
         run:  cargo check -p windows-version --all-features
