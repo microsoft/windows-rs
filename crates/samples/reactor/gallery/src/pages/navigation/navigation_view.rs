@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(String::from("page1"));
     let (top_selected, set_top_selected) = cx.use_state(String::from("home"));
 

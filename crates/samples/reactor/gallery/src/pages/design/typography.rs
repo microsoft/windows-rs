@@ -1,7 +1,7 @@
 use crate::controls::page_content;
 use windows_reactor::*;
 
-pub fn typography_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn typography_page(_: &(), _cx: &mut RenderCx) -> Element {
     let samples: Vec<Element> = vec![
         type_sample("Caption", 12.0, false),
         type_sample("Body", 14.0, false),

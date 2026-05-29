@@ -2,7 +2,7 @@ use crate::controls::{card_grid, CardItem};
 use crate::registry::{self, CATEGORIES};
 use windows_reactor::*;
 
-pub fn home_page(on_navigate: impl Fn(String) + Clone + 'static) -> impl Into<Element> {
+pub fn home_page(on_navigate: impl Fn(String) + Clone + 'static) -> Element {
     let items: Vec<CardItem> = CATEGORIES
         .iter()
         .map(|&category| {
@@ -46,10 +46,12 @@ pub fn home_page(on_navigate: impl Fn(String) + Clone + 'static) -> impl Into<El
     .columns([GridLength::Star(1.0)])
     .row_spacing(32.0);
 
-    border(root).padding(Thickness {
-        left: 36.0,
-        top: 40.0,
-        right: 36.0,
-        bottom: 36.0,
-    })
+    border(root)
+        .padding(Thickness {
+            left: 36.0,
+            top: 40.0,
+            right: 36.0,
+            bottom: 36.0,
+        })
+        .into()
 }

@@ -10,7 +10,7 @@ use windows_reactor::*;
 
 static THEME: LazyLock<Context<String>> = LazyLock::new(|| Context::new("light".to_string()));
 
-fn leaf(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+fn leaf(_: &(), cx: &mut RenderCx) -> Element {
     let theme = cx.use_context(&THEME);
     let (bg, fg) = match theme.as_str() {
         "dark" => (Color::rgb(30, 30, 30), Color::rgb(255, 255, 255)),
@@ -24,9 +24,10 @@ fn leaf(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             .padding(Thickness::uniform(16.0)),
     )
     .background(bg)
+    .into()
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (theme, set_theme) = cx.use_state("light".to_string());
 
     let pick = |name: &'static str| {

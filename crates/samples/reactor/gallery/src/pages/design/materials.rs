@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn materials_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn materials_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(0_i32);
 
     let options: Vec<String> = ["Mica", "Mica Alt", "Acrylic", "None (solid)"]

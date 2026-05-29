@@ -6,7 +6,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (status, set_status) = cx.use_state(String::from("Ready"));
 
     vstack((
@@ -28,6 +28,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .padding(Thickness::uniform(24.0))
+    .into()
 }
 
 fn main() -> Result<()> {

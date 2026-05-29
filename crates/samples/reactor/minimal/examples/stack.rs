@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         text_block("vstack — vertical orientation"),
         hstack((
@@ -14,6 +14,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         text_block("…back to the vstack"),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

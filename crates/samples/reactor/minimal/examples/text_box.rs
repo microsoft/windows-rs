@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (name, set_name) = cx.use_state(String::new());
     let (notes, set_notes) = cx.use_state(String::new());
 
@@ -31,6 +31,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_box("read-only").header("Disabled").enabled(false),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

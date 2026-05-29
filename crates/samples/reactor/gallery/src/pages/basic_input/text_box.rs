@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn text_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn text_box_page(_: &(), cx: &mut RenderCx) -> Element {
     let (text, set_text) = cx.use_state(String::new());
     let (multi_text, set_multi) = cx.use_state(String::from("Hello\nWorld"));
 

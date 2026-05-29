@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
     let (wifi_on, set_wifi_on) = cx.use_state(true);
     let (notifications_on, set_notifications_on) = cx.use_state(false);
     let (automation_enabled, set_automation_enabled) = cx.use_state(false);

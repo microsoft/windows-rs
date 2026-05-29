@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn color_picker_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn color_picker_page(_: &(), cx: &mut RenderCx) -> Element {
     let (color, set_color) = cx.use_state((50_u8, 120_u8, 200_u8, 255_u8));
 
     page_content(

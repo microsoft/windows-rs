@@ -1,7 +1,7 @@
 use crate::controls::page_content;
 use windows_reactor::*;
 
-pub fn spacing_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn spacing_page(_: &(), _cx: &mut RenderCx) -> Element {
     let spacings = [
         ("XXSmall", 2.0),
         ("XSmall", 4.0),

@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> Element {
     let (editor_text, set_editor_text) = cx.use_state(String::new());
 
     page_content(

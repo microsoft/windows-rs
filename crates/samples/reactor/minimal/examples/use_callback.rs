@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (rerenders, set_rerenders) = cx.use_state(0_u32);
 
     let fires = cx.use_ref(0_u32);
@@ -39,6 +39,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .spacing(8.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

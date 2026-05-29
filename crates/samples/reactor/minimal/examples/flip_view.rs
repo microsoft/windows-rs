@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(0_i32);
 
     let items: Vec<String> = ["Red", "Green", "Blue"]
@@ -43,6 +43,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(360.0)
+    .into()
 }
 
 fn main() -> Result<()> {

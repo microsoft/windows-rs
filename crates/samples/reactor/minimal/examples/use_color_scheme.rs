@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let scheme = cx.use_color_scheme();
     let is_dark = matches!(scheme, ColorScheme::Dark);
 
@@ -28,6 +28,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .foreground(ThemeRef::PrimaryText),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn info_bar_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn info_bar_page(_: &(), cx: &mut RenderCx) -> Element {
     let (visible, set_visible) = cx.use_state(true);
 
     page_content(

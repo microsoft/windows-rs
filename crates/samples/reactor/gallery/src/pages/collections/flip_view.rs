@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn flip_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn flip_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(0_i32);
     let items = vec!["Welcome", "Features", "Getting Started", "Resources"];
 

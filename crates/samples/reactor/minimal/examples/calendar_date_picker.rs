@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (label, set_label) = cx.use_state(String::from("Pick a date to see days from today"));
 
     let on_date = move |date: Option<DateTime>| {
@@ -39,6 +39,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(&*label),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -737,7 +737,7 @@ fn status_subtitle(state: &AppState) -> String {
 
 // ─── The component ────────────────────────────────────────────────────
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (state, update) = cx.use_reducer(AppState::initial(Difficulty::BEGINNER, fresh_seed()));
 
     // Left-tap on a covered cell → reveal.
@@ -925,6 +925,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         ))
         .spacing(8.0),
     ))
+    .into()
 }
 
 fn main() -> Result<()> {

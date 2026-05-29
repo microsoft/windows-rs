@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn check_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
     let (accepted, set_accepted) = cx.use_state(false);
     let (email_opt_in, set_email) = cx.use_state(true);
     let (sms_opt_in, set_sms) = cx.use_state(false);

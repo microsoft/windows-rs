@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn geometry_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn geometry_page(_: &(), _cx: &mut RenderCx) -> Element {
     page_content(
         "Geometry",
         "WinUI defines shared corner radius values so controls and surfaces have a consistent shape language.",

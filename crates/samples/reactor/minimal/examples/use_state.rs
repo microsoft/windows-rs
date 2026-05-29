@@ -6,7 +6,7 @@ fn main() -> Result<()> {
     App::new().title("sample").render(app)
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0);
     let click = move || set_count.call(count + 1);
 
@@ -16,4 +16,5 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .font_size(18.0)
             .bold(),
     ))
+    .into()
 }

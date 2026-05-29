@@ -8,7 +8,7 @@ use std::time::Duration;
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_async_state(0_i32);
     let (busy, set_busy) = cx.use_async_state(false);
 
@@ -42,6 +42,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         button("Bump (off-thread)").on_click(bump).enabled(!busy),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

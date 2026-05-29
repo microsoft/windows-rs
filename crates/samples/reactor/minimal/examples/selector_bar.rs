@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(String::from("Recent"));
 
     vstack((
@@ -15,6 +15,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Selected: {selected}")),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

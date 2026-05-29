@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let swatch = |label: &str, bg: ThemeRef, fg: ThemeRef| -> Element {
         border(
             text_block(label)
@@ -38,6 +38,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(6.0)
     .max_width(420.0)
+    .into()
 }
 
 fn main() -> Result<()> {

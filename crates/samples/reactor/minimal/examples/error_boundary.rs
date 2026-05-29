@@ -11,15 +11,17 @@ struct PanicMaybeProps {
     should_panic: bool,
 }
 
-fn panic_maybe(props: &PanicMaybeProps, _cx: &mut RenderCx) -> impl Into<Element> {
+fn panic_maybe(props: &PanicMaybeProps, _cx: &mut RenderCx) -> Element {
     assert!(
         !props.should_panic,
         "intentional render failure for the error-boundary demo"
     );
-    text_block("Healthy child renders normally.").font_size(14.0)
+    text_block("Healthy child renders normally.")
+        .font_size(14.0)
+        .into()
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (should_panic, set_should_panic) = cx.use_state(false);
 
     let toggle = move || set_should_panic.call(!should_panic);
@@ -47,7 +49,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         boundary,
     ))
     .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
+    .padding(Thickness::uniform(16.0)).into()
 }
 
 fn main() -> Result<()> {

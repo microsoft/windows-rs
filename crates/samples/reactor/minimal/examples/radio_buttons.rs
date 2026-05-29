@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(0_i32);
 
     let update_selected = move |i: i32| set_selected.call(i);
@@ -19,6 +19,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("selected_index = {selected} ({label})")),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

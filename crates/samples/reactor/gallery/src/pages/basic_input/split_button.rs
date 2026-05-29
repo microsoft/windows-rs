@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn split_button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn split_button_page(_: &(), cx: &mut RenderCx) -> Element {
     let (clicks, set_clicks) = cx.use_state(0_u32);
 
     page_content(

@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn split_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn split_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (open, set_open) = cx.use_state(true);
 
     page_content(

@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
 
     let set_inc = set_count.clone();
@@ -22,6 +22,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         repeat_button("Disabled").enabled(false),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

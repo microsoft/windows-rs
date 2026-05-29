@@ -17,7 +17,7 @@ fn fetch_weather(attempt: i32) -> std::result::Result<String, String> {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (attempt, set_attempt) = cx.use_state(0_i32);
 
     let weather = cx.use_resource(fetch_weather, attempt);
@@ -45,6 +45,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         button("Refresh").on_click(retry),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

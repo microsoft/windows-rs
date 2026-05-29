@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (back_clicks, set_back) = cx.use_state(0i32);
     let (pane_clicks, set_pane) = cx.use_state(0i32);
 
@@ -19,6 +19,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         )),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

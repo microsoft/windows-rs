@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn command_bar_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn command_bar_page(_: &(), cx: &mut RenderCx) -> Element {
     let (status, set_status) = cx.use_state(String::from("Choose a command"));
 
     page_content(

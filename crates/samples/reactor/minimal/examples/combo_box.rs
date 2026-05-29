@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(-1_i32);
 
     let update_selected = move |i: i32| set_selected.call(i);
@@ -35,6 +35,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(320.0)
+    .into()
 }
 
 fn main() -> Result<()> {

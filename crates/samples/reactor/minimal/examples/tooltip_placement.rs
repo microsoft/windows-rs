@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         button("Top")
             .tooltip_with(Tooltip::text("Anchored above").placement(TooltipPlacement::Top)),
@@ -17,6 +17,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
             .tooltip_with(Tooltip::text("Follows the cursor").placement(TooltipPlacement::Mouse)),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

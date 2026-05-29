@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (text, set_text) = cx.use_state(String::new());
 
     text_box(text)
@@ -11,6 +11,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .on_changed(set_text)
         .horizontal_alignment(HorizontalAlignment::Stretch)
         .vertical_alignment(VerticalAlignment::Stretch)
+        .into()
 }
 
 fn main() -> Result<()> {

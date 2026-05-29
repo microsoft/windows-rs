@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn info_badge_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn info_badge_page(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(3_i32);
 
     page_content(
