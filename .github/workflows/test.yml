@@ -49,6 +49,7 @@ jobs:
 
     env:
       RUSTFLAGS: -D warnings
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout

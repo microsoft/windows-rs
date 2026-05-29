@@ -71,6 +71,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       RUSTFLAGS: -D warnings
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
         uses: actions/checkout@v6

@@ -26,6 +26,8 @@ concurrency:
 jobs:
   clippy:
     runs-on: windows-2025-vs2026
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
         uses: actions/checkout@v6
