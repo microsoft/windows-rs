@@ -63,7 +63,7 @@ jobs:
       - name: Check windows-interface
         run:  cargo check -p windows-interface --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.71 && rustup default 1.71
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-link
         run:  cargo check -p windows-link --all-features
       - name: Rust version
@@ -103,11 +103,11 @@ jobs:
       - name: Check windows-strings
         run:  cargo check -p windows-strings --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.71 && rustup default 1.71
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-sys
         run:  cargo check -p windows-sys --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.71 && rustup default 1.71
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-targets
         run:  cargo check -p windows-targets --all-features
       - name: Rust version
