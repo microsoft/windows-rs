@@ -2941,15 +2941,15 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
 impl<
-        K: windows_core::RuntimeType + 'static,
-        V: windows_core::RuntimeType + 'static,
-        F: Fn(
-                windows_core::Ref<IObservableMap<K, V>>,
-                windows_core::Ref<IMapChangedEventArgs<K>>,
-            ) -> windows_core::Result<()>
-            + Send
-            + 'static,
-    > MapChangedEventHandlerBox<K, V, F>
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+    F: Fn(
+            windows_core::Ref<IObservableMap<K, V>>,
+            windows_core::Ref<IMapChangedEventArgs<K>>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> MapChangedEventHandlerBox<K, V, F>
 {
     const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
         base__: windows_core::IUnknown_Vtbl {
@@ -3057,14 +3057,14 @@ struct VectorChangedEventHandlerBox<
 where
     T: windows_core::RuntimeType + 'static;
 impl<
-        T: windows_core::RuntimeType + 'static,
-        F: Fn(
-                windows_core::Ref<IObservableVector<T>>,
-                windows_core::Ref<IVectorChangedEventArgs>,
-            ) -> windows_core::Result<()>
-            + Send
-            + 'static,
-    > VectorChangedEventHandlerBox<T, F>
+    T: windows_core::RuntimeType + 'static,
+    F: Fn(
+            windows_core::Ref<IObservableVector<T>>,
+            windows_core::Ref<IVectorChangedEventArgs>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> VectorChangedEventHandlerBox<T, F>
 {
     const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl {
