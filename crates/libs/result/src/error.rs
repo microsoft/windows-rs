@@ -160,7 +160,18 @@ impl From<HRESULT> for Error {
 #[cfg(feature = "std")]
 impl From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
-        Self::from_raw_os_error(from.code().0)
+        // If the HRESULT wraps a Win32 error (FACILITY_WIN32), unwrap it to the
+        // underlying Win32 error code so that `std::io::Error::kind` can decode
+        // it into a meaningful `ErrorKind`. For HRESULTs from other facilities
+        // (such as COM `E_*` codes or custom facilities), preserve the full
+        // HRESULT value to avoid losing information. This mirrors the behavior
+        // of .NET's `Marshal.GetExceptionForHR` and the conventions used by
+        // Rust's own Win32 error decoding.
+        if let Some(win32) = WIN32_ERROR::from_error(&from) {
+            Self::from_raw_os_error(win32.0 as i32)
+        } else {
+            Self::from_raw_os_error(from.code().0)
+        }
     }
 }
 
