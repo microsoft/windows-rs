@@ -6,6 +6,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncAction");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncAction,
@@ -80,6 +82,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,

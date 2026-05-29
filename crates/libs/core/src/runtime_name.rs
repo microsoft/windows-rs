@@ -1,5 +1,8 @@
+use super::*;
+
 #[doc(hidden)]
 pub trait RuntimeName {
-    // TODO: needs to use ConstBuffer like RuntimeType to allow generic interfaces to have names for GetRuntimeClassName
     const NAME: &'static str = "";
+    const RUNTIME_CLASS_NAME: imp::ConstBuffer =
+        imp::ConstBuffer::from_slice(Self::NAME.as_bytes());
 }

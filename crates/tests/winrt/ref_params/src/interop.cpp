@@ -5,11 +5,11 @@
 using namespace winrt;
 using namespace winrt::Test;
 
-struct Test : implements<Test, ITest>
+struct TestImpl : implements<TestImpl, ITest>
 {
     std::atomic_int32_t m_int32;
 
-    Test(int32_t value) : m_int32(value)
+    TestImpl(int32_t value) : m_int32(value)
     {
     }
 
@@ -25,7 +25,7 @@ struct Test : implements<Test, ITest>
 
     void Output(int32_t value, ITest& output)
     {
-        output = make<Test>(value);
+        output = make<TestImpl>(value);
     }
 
     int32_t Current()
@@ -45,8 +45,8 @@ void test_interface(ITest const& test)
     test.Current(-321);
     assert(test.Current() == -321);
 
-    ITest one_two_three = make<Test>(123);
-    ITest four_five_six = make<Test>(456);
+    ITest one_two_three = make<TestImpl>(123);
+    ITest four_five_six = make<TestImpl>(456);
 
     assert(test.Input(one_two_three) == 123);
     assert(test.Input(four_five_six) == 456);
@@ -73,7 +73,7 @@ extern "C"
     HRESULT __stdcall produce(void **abi) noexcept
     try
     {
-        *abi = detach_abi(make<Test>(0));
+        *abi = detach_abi(make<TestImpl>(0));
         return S_OK;
     }
     catch (...)

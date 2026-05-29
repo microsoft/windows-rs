@@ -564,7 +564,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmAccessDeniedRemediationClient_Impl::Show(this, core::mem::transmute_copy(&parentwnd), core::mem::transmute(&accesspath), core::mem::transmute_copy(&errortype), core::mem::transmute_copy(&flags), core::mem::transmute(&windowtitle), core::mem::transmute(&windowmessage)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -644,7 +644,7 @@ impl IFsrmAction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmAction_Impl::Id(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -656,7 +656,7 @@ impl IFsrmAction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmAction_Impl::ActionType(this) {
                     Ok(ok__) => {
-                        actiontype.write(core::mem::transmute(ok__));
+                        actiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IFsrmAction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmAction_Impl::RunLimitInterval(this) {
                     Ok(ok__) => {
-                        minutes.write(core::mem::transmute(ok__));
+                        minutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -860,7 +860,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::Account(this) {
                     Ok(ok__) => {
-                        account.write(core::mem::transmute(ok__));
+                        account.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::MonitorCommand(this) {
                     Ok(ok__) => {
-                        monitorcommand.write(core::mem::transmute(ok__));
+                        monitorcommand.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -914,7 +914,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::KillTimeOut(this) {
                     Ok(ok__) => {
-                        minutes.write(core::mem::transmute(ok__));
+                        minutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -932,7 +932,7 @@ impl IFsrmActionCommand_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionCommand_Impl::LogResult(this) {
                     Ok(ok__) => {
-                        logresults.write(core::mem::transmute(ok__));
+                        logresults.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1280,7 +1280,7 @@ impl IFsrmActionEmail2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEmail2_Impl::AttachmentFileListSize(this) {
                     Ok(ok__) => {
-                        attachmentfilelistsize.write(core::mem::transmute(ok__));
+                        attachmentfilelistsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IFsrmActionEventLog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionEventLog_Impl::EventType(this) {
                     Ok(ok__) => {
-                        eventtype.write(core::mem::transmute(ok__));
+                        eventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1464,7 +1464,7 @@ impl IFsrmActionReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmActionReport_Impl::ReportTypes(this) {
                     Ok(ok__) => {
-                        reporttypes.write(core::mem::transmute(ok__));
+                        reporttypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1561,7 +1561,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmAutoApplyQuota_Impl::ExcludeFolders(this) {
                     Ok(ok__) => {
-                        folders.write(core::mem::transmute(ok__));
+                        folders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1822,7 +1822,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::ClassificationReportFormats(this) {
                     Ok(ok__) => {
-                        formats.write(core::mem::transmute(ok__));
+                        formats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1840,7 +1840,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::Logging(this) {
                     Ok(ok__) => {
-                        logging.write(core::mem::transmute(ok__));
+                        logging.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1876,7 +1876,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::ClassificationReportEnabled(this) {
                     Ok(ok__) => {
-                        reportenabled.write(core::mem::transmute(ok__));
+                        reportenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1918,7 +1918,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::ClassificationRunningStatus(this) {
                     Ok(ok__) => {
-                        runningstatus.write(core::mem::transmute(ok__));
+                        runningstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2044,7 +2044,7 @@ impl IFsrmClassificationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationManager_Impl::WaitForClassificationCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
-                        completed.write(core::mem::transmute(ok__));
+                        completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2245,7 +2245,7 @@ impl IFsrmClassificationRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassificationRule_Impl::ExecutionOption(this) {
                     Ok(ok__) => {
-                        executionoption.write(core::mem::transmute(ok__));
+                        executionoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2380,7 +2380,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassifierModuleDefinition_Impl::PropertiesAffected(this) {
                     Ok(ok__) => {
-                        propertiesaffected.write(core::mem::transmute(ok__));
+                        propertiesaffected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2398,7 +2398,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassifierModuleDefinition_Impl::PropertiesUsed(this) {
                     Ok(ok__) => {
-                        propertiesused.write(core::mem::transmute(ok__));
+                        propertiesused.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2416,7 +2416,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmClassifierModuleDefinition_Impl::NeedsExplicitValue(this) {
                     Ok(ok__) => {
-                        needsexplicitvalue.write(core::mem::transmute(ok__));
+                        needsexplicitvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2689,7 +2689,7 @@ impl IFsrmCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl IFsrmCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmCollection_Impl::State(this) {
                     Ok(ok__) => {
-                        state.write(core::mem::transmute(ok__));
+                        state.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2719,7 +2719,7 @@ impl IFsrmCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmCollection_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
-                        completed.write(core::mem::transmute(ok__));
+                        completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3090,7 +3090,7 @@ impl IFsrmFileCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileCondition_Impl::Type(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3233,7 +3233,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileConditionProperty_Impl::PropertyId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3251,7 +3251,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileConditionProperty_Impl::Operator(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3269,7 +3269,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileConditionProperty_Impl::ValueType(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3505,7 +3505,7 @@ impl IFsrmFileGroupImported_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileGroupImported_Impl::OverwriteOnCommit(this) {
                     Ok(ok__) => {
-                        overwrite.write(core::mem::transmute(ok__));
+                        overwrite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4057,7 +4057,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::NamespaceRoots(this) {
                     Ok(ok__) => {
-                        namespaceroots.write(core::mem::transmute(ok__));
+                        namespaceroots.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4075,7 +4075,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4093,7 +4093,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::OperationType(this) {
                     Ok(ok__) => {
-                        operationtype.write(core::mem::transmute(ok__));
+                        operationtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4141,7 +4141,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::Notifications(this) {
                     Ok(ok__) => {
-                        notifications.write(core::mem::transmute(ok__));
+                        notifications.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4153,7 +4153,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::Logging(this) {
                     Ok(ok__) => {
-                        loggingflags.write(core::mem::transmute(ok__));
+                        loggingflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4171,7 +4171,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::ReportEnabled(this) {
                     Ok(ok__) => {
-                        reportenabled.write(core::mem::transmute(ok__));
+                        reportenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4189,7 +4189,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::Formats(this) {
                     Ok(ok__) => {
-                        formats.write(core::mem::transmute(ok__));
+                        formats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4225,7 +4225,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::DaysSinceFileCreated(this) {
                     Ok(ok__) => {
-                        dayssincecreation.write(core::mem::transmute(ok__));
+                        dayssincecreation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4243,7 +4243,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::DaysSinceFileLastAccessed(this) {
                     Ok(ok__) => {
-                        dayssinceaccess.write(core::mem::transmute(ok__));
+                        dayssinceaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4261,7 +4261,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::DaysSinceFileLastModified(this) {
                     Ok(ok__) => {
-                        dayssincemodify.write(core::mem::transmute(ok__));
+                        dayssincemodify.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4291,7 +4291,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::FromDate(this) {
                     Ok(ok__) => {
-                        fromdate.write(core::mem::transmute(ok__));
+                        fromdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4327,7 +4327,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::Parameters(this) {
                     Ok(ok__) => {
-                        parameters.write(core::mem::transmute(ok__));
+                        parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4345,7 +4345,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::RunningStatus(this) {
                     Ok(ok__) => {
-                        runningstatus.write(core::mem::transmute(ok__));
+                        runningstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4381,7 +4381,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::LastRun(this) {
                     Ok(ok__) => {
-                        lastrun.write(core::mem::transmute(ok__));
+                        lastrun.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4417,7 +4417,7 @@ impl IFsrmFileManagementJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJob_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
-                        completed.write(core::mem::transmute(ok__));
+                        completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4626,7 +4626,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJobManager_Impl::ActionVariables(this) {
                     Ok(ok__) => {
-                        variables.write(core::mem::transmute(ok__));
+                        variables.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4638,7 +4638,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileManagementJobManager_Impl::ActionVariableDescriptions(this) {
                     Ok(ok__) => {
-                        descriptions.write(core::mem::transmute(ok__));
+                        descriptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4796,7 +4796,7 @@ impl IFsrmFileScreen_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileScreen_Impl::MatchesSourceTemplate(this) {
                     Ok(ok__) => {
-                        matches.write(core::mem::transmute(ok__));
+                        matches.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4943,7 +4943,7 @@ impl IFsrmFileScreenBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileScreenBase_Impl::FileScreenFlags(this) {
                     Ok(ok__) => {
-                        filescreenflags.write(core::mem::transmute(ok__));
+                        filescreenflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5192,7 +5192,7 @@ impl IFsrmFileScreenManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileScreenManager_Impl::ActionVariables(this) {
                     Ok(ok__) => {
-                        variables.write(core::mem::transmute(ok__));
+                        variables.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5204,7 +5204,7 @@ impl IFsrmFileScreenManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileScreenManager_Impl::ActionVariableDescriptions(this) {
                     Ok(ok__) => {
-                        descriptions.write(core::mem::transmute(ok__));
+                        descriptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5460,7 +5460,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmFileScreenTemplateImported_Impl::OverwriteOnCommit(this) {
                     Ok(ok__) => {
-                        overwrite.write(core::mem::transmute(ok__));
+                        overwrite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5793,7 +5793,7 @@ impl IFsrmObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmObject_Impl::Id(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5884,7 +5884,7 @@ impl IFsrmPathMapper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPathMapper_Impl::GetSharePathsForLocalPath(this, core::mem::transmute(&localpath)) {
                     Ok(ok__) => {
-                        sharepaths.write(core::mem::transmute(ok__));
+                        sharepaths.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6010,7 +6010,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleConnector_Impl::HostingProcessPid(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6266,7 +6266,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::ModuleType(this) {
                     Ok(ok__) => {
-                        moduletype.write(core::mem::transmute(ok__));
+                        moduletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6278,7 +6278,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6296,7 +6296,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::NeedsFileContent(this) {
                     Ok(ok__) => {
-                        needsfilecontent.write(core::mem::transmute(ok__));
+                        needsfilecontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6314,7 +6314,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::Account(this) {
                     Ok(ok__) => {
-                        retrievalaccount.write(core::mem::transmute(ok__));
+                        retrievalaccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6332,7 +6332,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::SupportedExtensions(this) {
                     Ok(ok__) => {
-                        supportedextensions.write(core::mem::transmute(ok__));
+                        supportedextensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6350,7 +6350,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPipelineModuleDefinition_Impl::Parameters(this) {
                     Ok(ok__) => {
-                        parameters.write(core::mem::transmute(ok__));
+                        parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6551,7 +6551,7 @@ impl IFsrmProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmProperty_Impl::Sources(this) {
                     Ok(ok__) => {
-                        sources.write(core::mem::transmute(ok__));
+                        sources.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6563,7 +6563,7 @@ impl IFsrmProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmProperty_Impl::PropertyFlags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6857,7 +6857,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::VolumeIndex(this) {
                     Ok(ok__) => {
-                        volumeid.write(core::mem::transmute(ok__));
+                        volumeid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6953,7 +6953,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::Attributes(this) {
                     Ok(ok__) => {
-                        attributes.write(core::mem::transmute(ok__));
+                        attributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6977,7 +6977,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::FilePropertyNames(this) {
                     Ok(ok__) => {
-                        filepropertynames.write(core::mem::transmute(ok__));
+                        filepropertynames.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6989,7 +6989,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::Messages(this) {
                     Ok(ok__) => {
-                        messages.write(core::mem::transmute(ok__));
+                        messages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7001,7 +7001,7 @@ impl IFsrmPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyBag_Impl::PropertyBagFlags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7250,7 +7250,7 @@ impl IFsrmPropertyCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyCondition_Impl::Type(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7418,7 +7418,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition_Impl::Type(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7436,7 +7436,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition_Impl::PossibleValues(this) {
                     Ok(ok__) => {
-                        possiblevalues.write(core::mem::transmute(ok__));
+                        possiblevalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7454,7 +7454,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition_Impl::ValueDescriptions(this) {
                     Ok(ok__) => {
-                        valuedescriptions.write(core::mem::transmute(ok__));
+                        valuedescriptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7472,7 +7472,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition_Impl::Parameters(this) {
                     Ok(ok__) => {
-                        parameters.write(core::mem::transmute(ok__));
+                        parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7573,7 +7573,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition2_Impl::PropertyDefinitionFlags(this) {
                     Ok(ok__) => {
-                        propertydefinitionflags.write(core::mem::transmute(ok__));
+                        propertydefinitionflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7603,7 +7603,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmPropertyDefinition2_Impl::AppliesTo(this) {
                     Ok(ok__) => {
-                        appliesto.write(core::mem::transmute(ok__));
+                        appliesto.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7854,7 +7854,7 @@ impl IFsrmQuota_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuota_Impl::QuotaPeakUsageTime(this) {
                     Ok(ok__) => {
-                        peakusagedatetime.write(core::mem::transmute(ok__));
+                        peakusagedatetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8010,7 +8010,7 @@ impl IFsrmQuotaBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaBase_Impl::QuotaFlags(this) {
                     Ok(ok__) => {
-                        quotaflags.write(core::mem::transmute(ok__));
+                        quotaflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8028,7 +8028,7 @@ impl IFsrmQuotaBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaBase_Impl::Thresholds(this) {
                     Ok(ok__) => {
-                        thresholds.write(core::mem::transmute(ok__));
+                        thresholds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8221,7 +8221,7 @@ impl IFsrmQuotaManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaManager_Impl::ActionVariables(this) {
                     Ok(ok__) => {
-                        variables.write(core::mem::transmute(ok__));
+                        variables.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8233,7 +8233,7 @@ impl IFsrmQuotaManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaManager_Impl::ActionVariableDescriptions(this) {
                     Ok(ok__) => {
-                        descriptions.write(core::mem::transmute(ok__));
+                        descriptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8415,7 +8415,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaManagerEx_Impl::IsAffectedByQuota(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        affected.write(core::mem::transmute(ok__));
+                        affected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8554,7 +8554,7 @@ impl IFsrmQuotaObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaObject_Impl::MatchesSourceTemplate(this) {
                     Ok(ok__) => {
-                        matches.write(core::mem::transmute(ok__));
+                        matches.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8729,7 +8729,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmQuotaTemplateImported_Impl::OverwriteOnCommit(this) {
                     Ok(ok__) => {
-                        overwrite.write(core::mem::transmute(ok__));
+                        overwrite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9002,7 +9002,7 @@ impl IFsrmReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReport_Impl::Type(this) {
                     Ok(ok__) => {
-                        reporttype.write(core::mem::transmute(ok__));
+                        reporttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9267,7 +9267,7 @@ impl IFsrmReportJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReportJob_Impl::NamespaceRoots(this) {
                     Ok(ok__) => {
-                        namespaceroots.write(core::mem::transmute(ok__));
+                        namespaceroots.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9285,7 +9285,7 @@ impl IFsrmReportJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReportJob_Impl::Formats(this) {
                     Ok(ok__) => {
-                        formats.write(core::mem::transmute(ok__));
+                        formats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9321,7 +9321,7 @@ impl IFsrmReportJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReportJob_Impl::RunningStatus(this) {
                     Ok(ok__) => {
-                        runningstatus.write(core::mem::transmute(ok__));
+                        runningstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9333,7 +9333,7 @@ impl IFsrmReportJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReportJob_Impl::LastRun(this) {
                     Ok(ok__) => {
-                        lastrun.write(core::mem::transmute(ok__));
+                        lastrun.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9399,7 +9399,7 @@ impl IFsrmReportJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReportJob_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                     Ok(ok__) => {
-                        completed.write(core::mem::transmute(ok__));
+                        completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9611,7 +9611,7 @@ impl IFsrmReportManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmReportManager_Impl::IsFilterValidForReportType(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
-                        valid.write(core::mem::transmute(ok__));
+                        valid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9904,7 +9904,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::RuleType(this) {
                     Ok(ok__) => {
-                        ruletype.write(core::mem::transmute(ok__));
+                        ruletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9934,7 +9934,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::NamespaceRoots(this) {
                     Ok(ok__) => {
-                        namespaceroots.write(core::mem::transmute(ok__));
+                        namespaceroots.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9952,7 +9952,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::RuleFlags(this) {
                     Ok(ok__) => {
-                        ruleflags.write(core::mem::transmute(ok__));
+                        ruleflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9970,7 +9970,7 @@ impl IFsrmRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmRule_Impl::Parameters(this) {
                     Ok(ok__) => {
-                        parameters.write(core::mem::transmute(ok__));
+                        parameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10185,7 +10185,7 @@ impl IFsrmSetting_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmSetting_Impl::DisableCommandLine(this) {
                     Ok(ok__) => {
-                        disablecommandline.write(core::mem::transmute(ok__));
+                        disablecommandline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10203,7 +10203,7 @@ impl IFsrmSetting_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmSetting_Impl::EnableScreeningAudit(this) {
                     Ok(ok__) => {
-                        enablescreeningaudit.write(core::mem::transmute(ok__));
+                        enablescreeningaudit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10233,7 +10233,7 @@ impl IFsrmSetting_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmSetting_Impl::GetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype)) {
                     Ok(ok__) => {
-                        delaytimeminutes.write(core::mem::transmute(ok__));
+                        delaytimeminutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10333,7 +10333,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmStorageModuleDefinition_Impl::Capabilities(this) {
                     Ok(ok__) => {
-                        capabilities.write(core::mem::transmute(ok__));
+                        capabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10351,7 +10351,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmStorageModuleDefinition_Impl::StorageType(this) {
                     Ok(ok__) => {
-                        storagetype.write(core::mem::transmute(ok__));
+                        storagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10369,7 +10369,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsrmStorageModuleDefinition_Impl::UpdatesFileContent(this) {
                     Ok(ok__) => {
-                        updatesfilecontent.write(core::mem::transmute(ok__));
+                        updatesfilecontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

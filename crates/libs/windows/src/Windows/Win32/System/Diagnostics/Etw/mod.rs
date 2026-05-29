@@ -2038,7 +2038,7 @@ impl ITraceEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceEvent_Impl::GetUserContext(this) {
                     Ok(ok__) => {
-                        usercontext.write(core::mem::transmute(ok__));
+                        usercontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2050,7 +2050,7 @@ impl ITraceEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceEvent_Impl::GetEventRecord(this) {
                     Ok(ok__) => {
-                        eventrecord.write(core::mem::transmute(ok__));
+                        eventrecord.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2279,7 +2279,7 @@ impl ITraceRelogger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceRelogger_Impl::AddLogfileTraceStream(this, core::mem::transmute(&logfilename), core::mem::transmute_copy(&usercontext)) {
                     Ok(ok__) => {
-                        tracestreamid.write(core::mem::transmute(ok__));
+                        tracestreamid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2291,7 +2291,7 @@ impl ITraceRelogger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITraceRelogger_Impl::AddRealtimeTraceStream(this, core::mem::transmute(&loggername), core::mem::transmute_copy(&usercontext)) {
                     Ok(ok__) => {
-                        tracestreamid.write(core::mem::transmute(ok__));
+                        tracestreamid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

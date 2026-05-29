@@ -2177,7 +2177,7 @@ impl IProvideTaskPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideTaskPage_Impl::GetPage(this, core::mem::transmute_copy(&tptype), core::mem::transmute_copy(&fpersistchanges)) {
                     Ok(ok__) => {
-                        phpage.write(core::mem::transmute(ok__));
+                        phpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2387,7 +2387,7 @@ impl IRegisteredTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2399,7 +2399,7 @@ impl IRegisteredTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        penabled.write(core::mem::transmute(ok__));
+                        penabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2453,7 +2453,7 @@ impl IRegisteredTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::LastRunTime(this) {
                     Ok(ok__) => {
-                        plastruntime.write(core::mem::transmute(ok__));
+                        plastruntime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2465,7 +2465,7 @@ impl IRegisteredTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::LastTaskResult(this) {
                     Ok(ok__) => {
-                        plasttaskresult.write(core::mem::transmute(ok__));
+                        plasttaskresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2477,7 +2477,7 @@ impl IRegisteredTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::NumberOfMissedRuns(this) {
                     Ok(ok__) => {
-                        pnumberofmissedruns.write(core::mem::transmute(ok__));
+                        pnumberofmissedruns.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2489,7 +2489,7 @@ impl IRegisteredTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTask_Impl::NextRunTime(this) {
                     Ok(ok__) => {
-                        pnextruntime.write(core::mem::transmute(ok__));
+                        pnextruntime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2637,7 +2637,7 @@ impl IRegisteredTaskCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredTaskCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3230,7 +3230,7 @@ impl IRunningTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRunningTask_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3266,7 +3266,7 @@ impl IRunningTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRunningTask_Impl::EnginePID(this) {
                     Ok(ok__) => {
-                        ppid.write(core::mem::transmute(ok__));
+                        ppid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3350,7 +3350,7 @@ impl IRunningTaskCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRunningTaskCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3615,7 +3615,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetTriggerCount(this) {
                     Ok(ok__) => {
-                        pwcount.write(core::mem::transmute(ok__));
+                        pwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3639,7 +3639,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetTriggerString(this, core::mem::transmute_copy(&itrigger)) {
                     Ok(ok__) => {
-                        ppwsztrigger.write(core::mem::transmute(ok__));
+                        ppwsztrigger.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3693,7 +3693,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetMostRecentRunTime(this) {
                     Ok(ok__) => {
-                        pstlastrun.write(core::mem::transmute(ok__));
+                        pstlastrun.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3705,7 +3705,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        phrstatus.write(core::mem::transmute(ok__));
+                        phrstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3717,7 +3717,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetExitCode(this) {
                     Ok(ok__) => {
-                        pdwexitcode.write(core::mem::transmute(ok__));
+                        pdwexitcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3735,7 +3735,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetComment(this) {
                     Ok(ok__) => {
-                        ppwszcomment.write(core::mem::transmute(ok__));
+                        ppwszcomment.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3753,7 +3753,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetCreator(this) {
                     Ok(ok__) => {
-                        ppwszcreator.write(core::mem::transmute(ok__));
+                        ppwszcreator.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3783,7 +3783,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetErrorRetryCount(this) {
                     Ok(ok__) => {
-                        pwretrycount.write(core::mem::transmute(ok__));
+                        pwretrycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3801,7 +3801,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetErrorRetryInterval(this) {
                     Ok(ok__) => {
-                        pwretryinterval.write(core::mem::transmute(ok__));
+                        pwretryinterval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3819,7 +3819,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3837,7 +3837,7 @@ impl IScheduledWorkItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScheduledWorkItem_Impl::GetAccountInformation(this) {
                     Ok(ok__) => {
-                        ppwszaccountname.write(core::mem::transmute(ok__));
+                        ppwszaccountname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4191,7 +4191,7 @@ impl ITask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITask_Impl::GetApplicationName(this) {
                     Ok(ok__) => {
-                        ppwszapplicationname.write(core::mem::transmute(ok__));
+                        ppwszapplicationname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4209,7 +4209,7 @@ impl ITask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITask_Impl::GetParameters(this) {
                     Ok(ok__) => {
-                        ppwszparameters.write(core::mem::transmute(ok__));
+                        ppwszparameters.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4227,7 +4227,7 @@ impl ITask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITask_Impl::GetWorkingDirectory(this) {
                     Ok(ok__) => {
-                        ppwszworkingdirectory.write(core::mem::transmute(ok__));
+                        ppwszworkingdirectory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4245,7 +4245,7 @@ impl ITask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITask_Impl::GetPriority(this) {
                     Ok(ok__) => {
-                        pdwpriority.write(core::mem::transmute(ok__));
+                        pdwpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4263,7 +4263,7 @@ impl ITask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITask_Impl::GetTaskFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4281,7 +4281,7 @@ impl ITask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITask_Impl::GetMaxRunTime(this) {
                     Ok(ok__) => {
-                        pdwmaxruntimems.write(core::mem::transmute(ok__));
+                        pdwmaxruntimems.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4929,7 +4929,7 @@ impl ITaskFolderCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITaskFolderCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5023,7 +5023,7 @@ impl ITaskHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITaskHandler_Impl::Stop(this) {
                     Ok(ok__) => {
-                        pretcode.write(core::mem::transmute(ok__));
+                        pretcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5415,7 +5415,7 @@ impl ITaskScheduler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITaskScheduler_Impl::GetTargetComputer(this) {
                     Ok(ok__) => {
-                        ppwszcomputer.write(core::mem::transmute(ok__));
+                        ppwszcomputer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5639,7 +5639,7 @@ impl ITaskService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITaskService_Impl::Connected(this) {
                     Ok(ok__) => {
-                        pconnected.write(core::mem::transmute(ok__));
+                        pconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5687,7 +5687,7 @@ impl ITaskService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITaskService_Impl::HighestVersion(this) {
                     Ok(ok__) => {
-                        pversion.write(core::mem::transmute(ok__));
+                        pversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6550,7 +6550,7 @@ impl ITaskTrigger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITaskTrigger_Impl::GetTriggerString(this) {
                     Ok(ok__) => {
-                        ppwsztrigger.write(core::mem::transmute(ok__));
+                        ppwsztrigger.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

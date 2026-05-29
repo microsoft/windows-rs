@@ -217,7 +217,7 @@ impl ClipboardHistoryItem {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -285,6 +285,7 @@ impl windows_core::TypeKind for ClipboardHistoryItemsResultStatus {
 }
 impl windows_core::RuntimeType for ClipboardHistoryItemsResultStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -467,6 +468,7 @@ impl windows_core::TypeKind for DataPackageOperation {
 }
 impl windows_core::RuntimeType for DataPackageOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.DataPackageOperation");
 }
 impl DataPackageOperation {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1111,7 +1113,7 @@ impl DataProviderRequest {
             (windows_core::Interface::vtable(self).FormatId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1159,7 +1161,7 @@ impl DataRequest {
     {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1344,6 +1346,7 @@ impl windows_core::RuntimeName for HtmlFormatHelper {
 windows_core::imp::define_interface!(IClipboardContentOptions, IClipboardContentOptions_Vtbl, 0xe888a98c_ad4b_5447_a056_ab3556276d2b);
 impl windows_core::RuntimeType for IClipboardContentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardContentOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1359,6 +1362,7 @@ pub struct IClipboardContentOptions_Vtbl {
 windows_core::imp::define_interface!(IClipboardHistoryChangedEventArgs, IClipboardHistoryChangedEventArgs_Vtbl, 0xc0be453f_8ea2_53ce_9aba_8d2212573452);
 impl windows_core::RuntimeType for IClipboardHistoryChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1368,18 +1372,20 @@ pub struct IClipboardHistoryChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClipboardHistoryItem, IClipboardHistoryItem_Vtbl, 0x0173bd8a_afff_5c50_ab92_3d19f481ec58);
 impl windows_core::RuntimeType for IClipboardHistoryItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClipboardHistoryItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IClipboardHistoryItemsResult, IClipboardHistoryItemsResult_Vtbl, 0xe6dfdee6_0ee2_52e3_852b_f295db65939a);
 impl windows_core::RuntimeType for IClipboardHistoryItemsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1391,6 +1397,7 @@ pub struct IClipboardHistoryItemsResult_Vtbl {
 windows_core::imp::define_interface!(IClipboardStatics, IClipboardStatics_Vtbl, 0xc627e291_34e2_4963_8eed_93cbb0ea3d70);
 impl windows_core::RuntimeType for IClipboardStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1406,6 +1413,7 @@ pub struct IClipboardStatics_Vtbl {
 windows_core::imp::define_interface!(IClipboardStatics2, IClipboardStatics2_Vtbl, 0xd2ac1b6a_d29f_554b_b303_f0452345fe02);
 impl windows_core::RuntimeType for IClipboardStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IClipboardStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1428,6 +1436,7 @@ pub struct IClipboardStatics2_Vtbl {
 windows_core::imp::define_interface!(IDataPackage, IDataPackage_Vtbl, 0x61ebf5c7_efea_4346_9554_981d7e198ffe);
 impl windows_core::RuntimeType for IDataPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1467,6 +1476,7 @@ pub struct IDataPackage_Vtbl {
 windows_core::imp::define_interface!(IDataPackage2, IDataPackage2_Vtbl, 0x041c1fe9_2409_45e1_a538_4c53eeee04a7);
 impl windows_core::RuntimeType for IDataPackage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1478,6 +1488,7 @@ pub struct IDataPackage2_Vtbl {
 windows_core::imp::define_interface!(IDataPackage3, IDataPackage3_Vtbl, 0x88f31f5d_787b_4d32_965a_a9838105a056);
 impl windows_core::RuntimeType for IDataPackage3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1489,6 +1500,7 @@ pub struct IDataPackage3_Vtbl {
 windows_core::imp::define_interface!(IDataPackage4, IDataPackage4_Vtbl, 0x13a24ec8_9382_536f_852a_3045e1b29a3b);
 impl windows_core::RuntimeType for IDataPackage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackage4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1500,6 +1512,7 @@ pub struct IDataPackage4_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySet, IDataPackagePropertySet_Vtbl, 0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689);
 impl windows_core::RuntimeType for IDataPackagePropertySet {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1526,6 +1539,7 @@ pub struct IDataPackagePropertySet_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySet2, IDataPackagePropertySet2_Vtbl, 0xeb505d4a_9800_46aa_b181_7b6f0f2b919a);
 impl windows_core::RuntimeType for IDataPackagePropertySet2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1557,6 +1571,7 @@ pub struct IDataPackagePropertySet2_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySet3, IDataPackagePropertySet3_Vtbl, 0x9e87fd9b_5205_401b_874a_455653bd39e8);
 impl windows_core::RuntimeType for IDataPackagePropertySet3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1568,6 +1583,7 @@ pub struct IDataPackagePropertySet3_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySet4, IDataPackagePropertySet4_Vtbl, 0x6390ebf5_1739_4c74_b22f_865fab5e8545);
 impl windows_core::RuntimeType for IDataPackagePropertySet4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1579,6 +1595,7 @@ pub struct IDataPackagePropertySet4_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySetView, IDataPackagePropertySetView_Vtbl, 0xb94cec01_0c1a_4c57_be55_75d01289735d);
 impl windows_core::RuntimeType for IDataPackagePropertySetView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1597,6 +1614,7 @@ pub struct IDataPackagePropertySetView_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySetView2, IDataPackagePropertySetView2_Vtbl, 0x6054509b_8ebe_4feb_9c1e_75e69de54b84);
 impl windows_core::RuntimeType for IDataPackagePropertySetView2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1617,6 +1635,7 @@ pub struct IDataPackagePropertySetView2_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySetView3, IDataPackagePropertySetView3_Vtbl, 0xdb764ce5_d174_495c_84fc_1a51f6ab45d7);
 impl windows_core::RuntimeType for IDataPackagePropertySetView3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1627,6 +1646,7 @@ pub struct IDataPackagePropertySetView3_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySetView4, IDataPackagePropertySetView4_Vtbl, 0x4474c80d_d16f_40ae_9580_6f8562b94235);
 impl windows_core::RuntimeType for IDataPackagePropertySetView4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1637,6 +1657,7 @@ pub struct IDataPackagePropertySetView4_Vtbl {
 windows_core::imp::define_interface!(IDataPackagePropertySetView5, IDataPackagePropertySetView5_Vtbl, 0x6f0a9445_3760_50bb_8523_c4202ded7d78);
 impl windows_core::RuntimeType for IDataPackagePropertySetView5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1647,6 +1668,7 @@ pub struct IDataPackagePropertySetView5_Vtbl {
 windows_core::imp::define_interface!(IDataPackageView, IDataPackageView_Vtbl, 0x7b840471_5900_4d85_a90b_10cb85fe3552);
 impl windows_core::RuntimeType for IDataPackageView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,6 +1701,7 @@ pub struct IDataPackageView_Vtbl {
 windows_core::imp::define_interface!(IDataPackageView2, IDataPackageView2_Vtbl, 0x40ecba95_2450_4c1d_b6b4_ed45463dee9c);
 impl windows_core::RuntimeType for IDataPackageView2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1690,6 +1713,7 @@ pub struct IDataPackageView2_Vtbl {
 windows_core::imp::define_interface!(IDataPackageView3, IDataPackageView3_Vtbl, 0xd37771a8_ddad_4288_8428_d1cae394128b);
 impl windows_core::RuntimeType for IDataPackageView3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1711,6 +1735,7 @@ pub struct IDataPackageView3_Vtbl {
 windows_core::imp::define_interface!(IDataPackageView4, IDataPackageView4_Vtbl, 0xdfe96f1f_e042_4433_a09f_26d6ffda8b85);
 impl windows_core::RuntimeType for IDataPackageView4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataPackageView4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1721,6 +1746,7 @@ pub struct IDataPackageView4_Vtbl {
 windows_core::imp::define_interface!(IDataProviderDeferral, IDataProviderDeferral_Vtbl, 0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da);
 impl windows_core::RuntimeType for IDataProviderDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataProviderDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1731,19 +1757,21 @@ pub struct IDataProviderDeferral_Vtbl {
 windows_core::imp::define_interface!(IDataProviderRequest, IDataProviderRequest_Vtbl, 0xebbc7157_d3c8_47da_acde_f82388d5f716);
 impl windows_core::RuntimeType for IDataProviderRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataProviderRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProviderRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataRequest, IDataRequest_Vtbl, 0x4341ae3b_fc12_4e53_8c02_ac714c415a27);
 impl windows_core::RuntimeType for IDataRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1751,13 +1779,14 @@ pub struct IDataRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub FailWithDisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataRequestDeferral, IDataRequestDeferral_Vtbl, 0x6dc4b89f_0386_4263_87c1_ed7dce30890e);
 impl windows_core::RuntimeType for IDataRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataRequestDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1768,6 +1797,7 @@ pub struct IDataRequestDeferral_Vtbl {
 windows_core::imp::define_interface!(IDataRequestedEventArgs, IDataRequestedEventArgs_Vtbl, 0xcb8ba807_6ac5_43c9_8ac5_9ba232163182);
 impl windows_core::RuntimeType for IDataRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1778,6 +1808,7 @@ pub struct IDataRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDataTransferManager, IDataTransferManager_Vtbl, 0xa5caee9b_8708_49d1_8d36_67d25a8da00c);
 impl windows_core::RuntimeType for IDataTransferManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1791,6 +1822,7 @@ pub struct IDataTransferManager_Vtbl {
 windows_core::imp::define_interface!(IDataTransferManager2, IDataTransferManager2_Vtbl, 0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715);
 impl windows_core::RuntimeType for IDataTransferManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1802,6 +1834,7 @@ pub struct IDataTransferManager2_Vtbl {
 windows_core::imp::define_interface!(IDataTransferManagerStatics, IDataTransferManagerStatics_Vtbl, 0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8);
 impl windows_core::RuntimeType for IDataTransferManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1813,6 +1846,7 @@ pub struct IDataTransferManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IDataTransferManagerStatics2, IDataTransferManagerStatics2_Vtbl, 0xc54ec2ec_9f97_4d63_9868_395e271ad8f5);
 impl windows_core::RuntimeType for IDataTransferManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1823,6 +1857,7 @@ pub struct IDataTransferManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IDataTransferManagerStatics3, IDataTransferManagerStatics3_Vtbl, 0x05845473_6c82_4f5c_ac23_62e458361fac);
 impl windows_core::RuntimeType for IDataTransferManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1833,6 +1868,7 @@ pub struct IDataTransferManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IHtmlFormatHelperStatics, IHtmlFormatHelperStatics_Vtbl, 0xe22e7749_dd70_446f_aefc_61cee59f655e);
 impl windows_core::RuntimeType for IHtmlFormatHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IHtmlFormatHelperStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1844,6 +1880,7 @@ pub struct IHtmlFormatHelperStatics_Vtbl {
 windows_core::imp::define_interface!(IOperationCompletedEventArgs, IOperationCompletedEventArgs_Vtbl, 0xe7af329d_051d_4fab_b1a9_47fd77f70a41);
 impl windows_core::RuntimeType for IOperationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1854,6 +1891,7 @@ pub struct IOperationCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IOperationCompletedEventArgs2, IOperationCompletedEventArgs2_Vtbl, 0x858fa073_1e19_4105_b2f7_c8478808d562);
 impl windows_core::RuntimeType for IOperationCompletedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1864,6 +1902,7 @@ pub struct IOperationCompletedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IShareCompletedEventArgs, IShareCompletedEventArgs_Vtbl, 0x4574c442_f913_4f60_9df7_cc4060ab1916);
 impl windows_core::RuntimeType for IShareCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1874,6 +1913,7 @@ pub struct IShareCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IShareProvider, IShareProvider_Vtbl, 0x2fabe026_443e_4cda_af25_8d81070efd80);
 impl windows_core::RuntimeType for IShareProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1894,6 +1934,7 @@ pub struct IShareProvider_Vtbl {
 windows_core::imp::define_interface!(IShareProviderFactory, IShareProviderFactory_Vtbl, 0x172a174c_e79e_4f6d_b07d_128f469e0296);
 impl windows_core::RuntimeType for IShareProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProviderFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1907,6 +1948,7 @@ pub struct IShareProviderFactory_Vtbl {
 windows_core::imp::define_interface!(IShareProviderOperation, IShareProviderOperation_Vtbl, 0x19cef937_d435_4179_b6af_14e0492b69f6);
 impl windows_core::RuntimeType for IShareProviderOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProviderOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1919,6 +1961,7 @@ pub struct IShareProviderOperation_Vtbl {
 windows_core::imp::define_interface!(IShareProvidersRequestedEventArgs, IShareProvidersRequestedEventArgs_Vtbl, 0xf888f356_a3f8_4fce_85e4_8826e63be799);
 impl windows_core::RuntimeType for IShareProvidersRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1931,6 +1974,7 @@ pub struct IShareProvidersRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IShareTargetInfo, IShareTargetInfo_Vtbl, 0x385be607_c6e8_4114_b294_28f3bb6f9904);
 impl windows_core::RuntimeType for IShareTargetInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareTargetInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1942,6 +1986,7 @@ pub struct IShareTargetInfo_Vtbl {
 windows_core::imp::define_interface!(IShareUIOptions, IShareUIOptions_Vtbl, 0x72fa8a80_342f_4d90_9551_2ae04e37680c);
 impl windows_core::RuntimeType for IShareUIOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IShareUIOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1955,6 +2000,7 @@ pub struct IShareUIOptions_Vtbl {
 windows_core::imp::define_interface!(ISharedStorageAccessManagerStatics, ISharedStorageAccessManagerStatics_Vtbl, 0xc6132ada_34b1_4849_bd5f_d09fee3158c5);
 impl windows_core::RuntimeType for ISharedStorageAccessManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ISharedStorageAccessManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1973,6 +2019,7 @@ pub struct ISharedStorageAccessManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IStandardDataFormatsStatics, IStandardDataFormatsStatics_Vtbl, 0x7ed681a1_a880_40c9_b4ed_0bee1e15f549);
 impl windows_core::RuntimeType for IStandardDataFormatsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1988,6 +2035,7 @@ pub struct IStandardDataFormatsStatics_Vtbl {
 windows_core::imp::define_interface!(IStandardDataFormatsStatics2, IStandardDataFormatsStatics2_Vtbl, 0x42a254f4_9d76_42e8_861b_47c25dd0cf71);
 impl windows_core::RuntimeType for IStandardDataFormatsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1999,6 +2047,7 @@ pub struct IStandardDataFormatsStatics2_Vtbl {
 windows_core::imp::define_interface!(IStandardDataFormatsStatics3, IStandardDataFormatsStatics3_Vtbl, 0x3b57b069_01d4_474c_8b5f_bc8e27f38b21);
 impl windows_core::RuntimeType for IStandardDataFormatsStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2009,6 +2058,7 @@ pub struct IStandardDataFormatsStatics3_Vtbl {
 windows_core::imp::define_interface!(ITargetApplicationChosenEventArgs, ITargetApplicationChosenEventArgs_Vtbl, 0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d);
 impl windows_core::RuntimeType for ITargetApplicationChosenEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2019,6 +2069,7 @@ pub struct ITargetApplicationChosenEventArgs_Vtbl {
 windows_core::imp::define_interface!(ITransferTarget, ITransferTarget_Vtbl, 0x897e04e5_60c2_5eae_909f_e6257e32c644);
 impl windows_core::RuntimeType for ITransferTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTarget");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2035,6 +2086,7 @@ pub struct ITransferTarget_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetChangedEventArgs, ITransferTargetChangedEventArgs_Vtbl, 0xd513d198_4174_53cf_a06e_4cd263d0dfef);
 impl windows_core::RuntimeType for ITransferTargetChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2045,6 +2097,7 @@ pub struct ITransferTargetChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetDiscoveryOptions, ITransferTargetDiscoveryOptions_Vtbl, 0x712fe3b5_644f_5f6b_97b6_3a3400999ed7);
 impl windows_core::RuntimeType for ITransferTargetDiscoveryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetDiscoveryOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2059,6 +2112,7 @@ pub struct ITransferTargetDiscoveryOptions_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetDiscoveryOptionsFactory, ITransferTargetDiscoveryOptionsFactory_Vtbl, 0xec4b7ffc_cbc6_5e12_8e9b_d5e892f2c6f8);
 impl windows_core::RuntimeType for ITransferTargetDiscoveryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetDiscoveryOptionsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2069,6 +2123,7 @@ pub struct ITransferTargetDiscoveryOptionsFactory_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetInvokeResult, ITransferTargetInvokeResult_Vtbl, 0x15f220a6_cffe_56f5_b403_ed44e9c3ad38);
 impl windows_core::RuntimeType for ITransferTargetInvokeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetInvokeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2080,6 +2135,7 @@ pub struct ITransferTargetInvokeResult_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetStatics, ITransferTargetStatics_Vtbl, 0x815b8804_e7f1_5f37_b52f_be1ceba9a59e);
 impl windows_core::RuntimeType for ITransferTargetStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2090,6 +2146,7 @@ pub struct ITransferTargetStatics_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetWatcher, ITransferTargetWatcher_Vtbl, 0x2f85ca29_0100_5d09_907c_fe554d2fcd1a);
 impl windows_core::RuntimeType for ITransferTargetWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetWatcher");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2115,6 +2172,7 @@ pub struct ITransferTargetWatcher_Vtbl {
 windows_core::imp::define_interface!(ITransferTargetWatcherStatics, ITransferTargetWatcherStatics_Vtbl, 0xa24b3528_db4e_5bdd_9d30_dcb192c701f5);
 impl windows_core::RuntimeType for ITransferTargetWatcherStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ITransferTargetWatcherStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2166,6 +2224,7 @@ impl windows_core::TypeKind for SetHistoryItemAsContentStatus {
 }
 impl windows_core::RuntimeType for SetHistoryItemAsContentStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2451,6 +2510,7 @@ impl windows_core::TypeKind for ShareUITheme {
 }
 impl windows_core::RuntimeType for ShareUITheme {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareUITheme");
 }
 pub struct SharedStorageAccessManager;
 impl SharedStorageAccessManager {

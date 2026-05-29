@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IRfcommDeviceService, IRfcommDeviceService_Vtbl, 0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 impl windows_core::RuntimeType for IRfcommDeviceService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32,6 +33,7 @@ pub struct IRfcommDeviceService_Vtbl {
 windows_core::imp::define_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
 impl windows_core::RuntimeType for IRfcommDeviceService2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,6 +44,7 @@ pub struct IRfcommDeviceService2_Vtbl {
 windows_core::imp::define_interface!(IRfcommDeviceService3, IRfcommDeviceService3_Vtbl, 0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
 impl windows_core::RuntimeType for IRfcommDeviceService3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -59,6 +62,7 @@ pub struct IRfcommDeviceService3_Vtbl {
 windows_core::imp::define_interface!(IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics_Vtbl, 0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
 impl windows_core::RuntimeType for IRfcommDeviceServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +74,7 @@ pub struct IRfcommDeviceServiceStatics_Vtbl {
 windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
 impl windows_core::RuntimeType for IRfcommDeviceServiceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -83,6 +88,7 @@ pub struct IRfcommDeviceServiceStatics2_Vtbl {
 windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55);
 impl windows_core::RuntimeType for IRfcommDeviceServicesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServicesResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -94,6 +100,7 @@ pub struct IRfcommDeviceServicesResult_Vtbl {
 windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 impl windows_core::RuntimeType for IRfcommServiceId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,6 +113,7 @@ pub struct IRfcommServiceId_Vtbl {
 windows_core::imp::define_interface!(IRfcommServiceIdStatics, IRfcommServiceIdStatics_Vtbl, 0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
 impl windows_core::RuntimeType for IRfcommServiceIdStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceIdStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -123,6 +131,7 @@ pub struct IRfcommServiceIdStatics_Vtbl {
 windows_core::imp::define_interface!(IRfcommServiceProvider, IRfcommServiceProvider_Vtbl, 0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 impl windows_core::RuntimeType for IRfcommServiceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,6 +151,7 @@ pub struct IRfcommServiceProvider_Vtbl {
 windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
 impl windows_core::RuntimeType for IRfcommServiceProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProvider2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,6 +165,7 @@ pub struct IRfcommServiceProvider2_Vtbl {
 windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997);
 impl windows_core::RuntimeType for IRfcommServiceProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

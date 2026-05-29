@@ -9,7 +9,7 @@ impl AnimationDescription {
             (windows_core::Interface::vtable(self).Animations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StaggerDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn StaggerDelay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StaggerDelay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -21,7 +21,7 @@ impl AnimationDescription {
             (windows_core::Interface::vtable(self).StaggerDelayFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn DelayLimit(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DelayLimit(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DelayLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -102,6 +102,7 @@ impl windows_core::TypeKind for AnimationEffect {
 }
 impl windows_core::RuntimeType for AnimationEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.AnimationEffect");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -133,24 +134,27 @@ impl windows_core::TypeKind for AnimationEffectTarget {
 }
 impl windows_core::RuntimeType for AnimationEffectTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.AnimationEffectTarget");
 }
 windows_core::imp::define_interface!(IAnimationDescription, IAnimationDescription_Vtbl, 0x7d11a549_be3d_41de_b081_05c149962f9b);
 impl windows_core::RuntimeType for IAnimationDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IAnimationDescription");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescription_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Animations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StaggerDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub StaggerDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub StaggerDelayFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub DelayLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DelayLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 impl windows_core::RuntimeType for IAnimationDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IAnimationDescriptionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -161,6 +165,7 @@ pub struct IAnimationDescriptionFactory_Vtbl {
 windows_core::imp::define_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 impl windows_core::RuntimeType for IOpacityAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IOpacityAnimation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -172,6 +177,7 @@ pub struct IOpacityAnimation_Vtbl {
 windows_core::imp::define_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 impl windows_core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IPropertyAnimation");
 }
 windows_core::imp::interface_hierarchy!(IPropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyAnimation {
@@ -181,13 +187,13 @@ impl IPropertyAnimation {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -211,8 +217,8 @@ impl windows_core::RuntimeName for IPropertyAnimation {
 }
 pub trait IPropertyAnimation_Impl: windows_core::IUnknownImpl {
     fn Type(&self) -> windows_core::Result<PropertyAnimationType>;
-    fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan>;
+    fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan>;
     fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point>;
     fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point>;
 }
@@ -230,7 +236,7 @@ impl IPropertyAnimation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Delay<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delay<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyAnimation_Impl::Delay(this) {
@@ -242,7 +248,7 @@ impl IPropertyAnimation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Duration<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Duration<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyAnimation_Impl::Duration(this) {
@@ -296,14 +302,15 @@ impl IPropertyAnimation_Vtbl {
 pub struct IPropertyAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyAnimationType) -> windows_core::HRESULT,
-    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Control1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
     pub Control2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
 impl windows_core::RuntimeType for IScaleAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IScaleAnimation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,14 +347,14 @@ impl OpacityAnimation {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -392,13 +399,13 @@ impl PropertyAnimation {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -442,6 +449,7 @@ impl windows_core::TypeKind for PropertyAnimationType {
 }
 impl windows_core::RuntimeType for PropertyAnimationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.PropertyAnimationType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -456,14 +464,14 @@ impl ScaleAnimation {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -538,13 +546,13 @@ impl TranslationAnimation {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

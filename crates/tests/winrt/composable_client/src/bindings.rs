@@ -112,6 +112,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ICompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.ICompositor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,6 +138,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IContainerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IContainerVisual");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -152,6 +156,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IContainerVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IContainerVisualFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -166,6 +172,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ISpriteVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.ISpriteVisual");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -181,6 +189,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IVisual");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -199,6 +209,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IVisualFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -6,17 +6,6 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DateTime {
-    pub UniversalTime: i64,
-}
-impl windows_core::TypeKind for DateTime {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DateTime {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Deferral(windows_core::IUnknown);
@@ -178,6 +167,7 @@ impl windows_core::RuntimeName for GuidHelper {
 windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IClosable");
 }
 windows_core::imp::interface_hierarchy!(IClosable, windows_core::IUnknown, windows_core::IInspectable);
 impl IClosable {
@@ -214,6 +204,7 @@ pub struct IClosable_Vtbl {
 windows_core::imp::define_interface!(IDeferral, IDeferral_Vtbl, 0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -224,6 +215,7 @@ pub struct IDeferral_Vtbl {
 windows_core::imp::define_interface!(IDeferralFactory, IDeferralFactory_Vtbl, 0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferralFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,6 +226,7 @@ pub struct IDeferralFactory_Vtbl {
 windows_core::imp::define_interface!(IGetActivationFactory, IGetActivationFactory_Vtbl, 0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
 impl windows_core::RuntimeType for IGetActivationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGetActivationFactory");
 }
 windows_core::imp::interface_hierarchy!(IGetActivationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IGetActivationFactory {
@@ -283,6 +276,7 @@ pub struct IGetActivationFactory_Vtbl {
 windows_core::imp::define_interface!(IGuidHelperStatics, IGuidHelperStatics_Vtbl, 0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
 impl windows_core::RuntimeType for IGuidHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGuidHelperStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -295,6 +289,7 @@ pub struct IGuidHelperStatics_Vtbl {
 windows_core::imp::define_interface!(IMemoryBuffer, IMemoryBuffer_Vtbl, 0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBuffer");
 }
 windows_core::imp::interface_hierarchy!(IMemoryBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMemoryBuffer, IClosable);
@@ -346,6 +341,7 @@ pub struct IMemoryBuffer_Vtbl {
 windows_core::imp::define_interface!(IMemoryBufferFactory, IMemoryBufferFactory_Vtbl, 0xfbc4dd2b_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBufferFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBufferFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -356,6 +352,7 @@ pub struct IMemoryBufferFactory_Vtbl {
 windows_core::imp::define_interface!(IMemoryBufferReference, IMemoryBufferReference_Vtbl, 0xfbc4dd29_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBufferReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBufferReference");
 }
 windows_core::imp::interface_hierarchy!(IMemoryBufferReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMemoryBufferReference, IClosable);
@@ -445,6 +442,7 @@ pub struct IMemoryBufferReference_Vtbl {
 windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
 }
 windows_core::imp::interface_hierarchy!(IPropertyValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyValue {
@@ -538,13 +536,13 @@ impl IPropertyValue {
             (windows_core::Interface::vtable(self).GetGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDateTime(&self) -> windows_core::Result<DateTime> {
+    pub fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn GetTimeSpan(&self) -> windows_core::Result<TimeSpan> {
+    pub fn GetTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTimeSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -610,10 +608,10 @@ impl IPropertyValue {
     pub fn GetGuidArray(&self, value: &mut windows_core::Array<windows_core::GUID>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetGuidArray)(windows_core::Interface::as_raw(self), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    pub fn GetDateTimeArray(&self, value: &mut windows_core::Array<DateTime>) -> windows_core::Result<()> {
+    pub fn GetDateTimeArray(&self, value: &mut windows_core::Array<windows_time::DateTime>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDateTimeArray)(windows_core::Interface::as_raw(self), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    pub fn GetTimeSpanArray(&self, value: &mut windows_core::Array<TimeSpan>) -> windows_core::Result<()> {
+    pub fn GetTimeSpanArray(&self, value: &mut windows_core::Array<windows_time::TimeSpan>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetTimeSpanArray)(windows_core::Interface::as_raw(self), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     pub fn GetPointArray(&self, value: &mut windows_core::Array<Point>) -> windows_core::Result<()> {
@@ -645,8 +643,8 @@ pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
     fn GetBoolean(&self) -> windows_core::Result<bool>;
     fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetGuid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetDateTime(&self) -> windows_core::Result<DateTime>;
-    fn GetTimeSpan(&self) -> windows_core::Result<TimeSpan>;
+    fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime>;
+    fn GetTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan>;
     fn GetPoint(&self) -> windows_core::Result<Point>;
     fn GetSize(&self) -> windows_core::Result<Size>;
     fn GetRect(&self) -> windows_core::Result<Rect>;
@@ -664,8 +662,8 @@ pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
     fn GetStringArray(&self, value: &mut windows_core::Array<windows_core::HSTRING>) -> windows_core::Result<()>;
     fn GetInspectableArray(&self, value: &mut windows_core::Array<windows_core::IInspectable>) -> windows_core::Result<()>;
     fn GetGuidArray(&self, value: &mut windows_core::Array<windows_core::GUID>) -> windows_core::Result<()>;
-    fn GetDateTimeArray(&self, value: &mut windows_core::Array<DateTime>) -> windows_core::Result<()>;
-    fn GetTimeSpanArray(&self, value: &mut windows_core::Array<TimeSpan>) -> windows_core::Result<()>;
+    fn GetDateTimeArray(&self, value: &mut windows_core::Array<windows_time::DateTime>) -> windows_core::Result<()>;
+    fn GetTimeSpanArray(&self, value: &mut windows_core::Array<windows_time::TimeSpan>) -> windows_core::Result<()>;
     fn GetPointArray(&self, value: &mut windows_core::Array<Point>) -> windows_core::Result<()>;
     fn GetSizeArray(&self, value: &mut windows_core::Array<Size>) -> windows_core::Result<()>;
     fn GetRectArray(&self, value: &mut windows_core::Array<Rect>) -> windows_core::Result<()>;
@@ -853,7 +851,7 @@ impl IPropertyValue_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDateTime<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDateTime<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetDateTime(this) {
@@ -865,7 +863,7 @@ impl IPropertyValue_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTimeSpan<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTimeSpan<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyValue_Impl::GetTimeSpan(this) {
@@ -997,13 +995,13 @@ impl IPropertyValue_Vtbl {
                 IPropertyValue_Impl::GetGuidArray(this, &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&value), value_array_size)).into()
             }
         }
-        unsafe extern "system" fn GetDateTimeArray<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDateTimeArray<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetDateTimeArray(this, &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&value), value_array_size)).into()
             }
         }
-        unsafe extern "system" fn GetTimeSpanArray<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTimeSpanArray<Identity: IPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetTimeSpanArray(this, &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&value), value_array_size)).into()
@@ -1093,8 +1091,8 @@ pub struct IPropertyValue_Vtbl {
     pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DateTime) -> windows_core::HRESULT,
-    pub GetTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimeSpan) -> windows_core::HRESULT,
+    pub GetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub GetTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub GetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Point) -> windows_core::HRESULT,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Size) -> windows_core::HRESULT,
     pub GetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Rect) -> windows_core::HRESULT,
@@ -1112,8 +1110,8 @@ pub struct IPropertyValue_Vtbl {
     pub GetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::HSTRING) -> windows_core::HRESULT,
     pub GetInspectableArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::IInspectable) -> windows_core::HRESULT,
     pub GetGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut DateTime) -> windows_core::HRESULT,
-    pub GetTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut TimeSpan) -> windows_core::HRESULT,
+    pub GetDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub GetTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub GetPointArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Point) -> windows_core::HRESULT,
     pub GetSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Size) -> windows_core::HRESULT,
     pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
@@ -1121,6 +1119,7 @@ pub struct IPropertyValue_Vtbl {
 windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 impl windows_core::RuntimeType for IPropertyValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1141,8 +1140,8 @@ pub struct IPropertyValueStatics_Vtbl {
     pub CreateString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInspectable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGuid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePoint: unsafe extern "system" fn(*mut core::ffi::c_void, Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSize: unsafe extern "system" fn(*mut core::ffi::c_void, Size, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRect: unsafe extern "system" fn(*mut core::ffi::c_void, Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1160,8 +1159,8 @@ pub struct IPropertyValueStatics_Vtbl {
     pub CreateStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInspectableArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::IInspectable, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePointArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const Size, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1179,6 +1178,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReferenceArray<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"Windows.Foundation.IReferenceArray`1<").push_other(T::NAME).push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue> for IReferenceArray<T> {
     const QUERY: bool = true;
@@ -1295,14 +1295,14 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {
             (windows_core::Interface::vtable(this).GetGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDateTime(&self) -> windows_core::Result<DateTime> {
+    pub fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetTimeSpan(&self) -> windows_core::Result<TimeSpan> {
+    pub fn GetTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1386,11 +1386,11 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GetGuidArray)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    pub fn GetDateTimeArray(&self, value: &mut windows_core::Array<DateTime>) -> windows_core::Result<()> {
+    pub fn GetDateTimeArray(&self, value: &mut windows_core::Array<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GetDateTimeArray)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    pub fn GetTimeSpanArray(&self, value: &mut windows_core::Array<TimeSpan>) -> windows_core::Result<()> {
+    pub fn GetTimeSpanArray(&self, value: &mut windows_core::Array<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GetTimeSpanArray)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
@@ -1409,6 +1409,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReferenceArray<T> {
     const NAME: &'static str = "Windows.Foundation.IReferenceArray";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer = <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IReferenceArray_Impl<T>: IPropertyValue_Impl
 where
@@ -1455,6 +1456,7 @@ where
 windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IStringable");
 }
 windows_core::imp::interface_hierarchy!(IStringable, windows_core::IUnknown, windows_core::IInspectable);
 impl IStringable {
@@ -1501,6 +1503,7 @@ pub struct IStringable_Vtbl {
 windows_core::imp::define_interface!(IUriEscapeStatics, IUriEscapeStatics_Vtbl, 0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
 impl windows_core::RuntimeType for IUriEscapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriEscapeStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1512,6 +1515,7 @@ pub struct IUriEscapeStatics_Vtbl {
 windows_core::imp::define_interface!(IUriRuntimeClass, IUriRuntimeClass_Vtbl, 0x9e365e57_48b2_4160_956f_c7385120bbfc);
 impl windows_core::RuntimeType for IUriRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClass");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1538,6 +1542,7 @@ pub struct IUriRuntimeClass_Vtbl {
 windows_core::imp::define_interface!(IUriRuntimeClassFactory, IUriRuntimeClassFactory_Vtbl, 0x44a9796f_723e_4fdf_a218_033e75b0c084);
 impl windows_core::RuntimeType for IUriRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClassFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1549,6 +1554,7 @@ pub struct IUriRuntimeClassFactory_Vtbl {
 windows_core::imp::define_interface!(IUriRuntimeClassWithAbsoluteCanonicalUri, IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl, 0x758d9661_221c_480f_a339_50656673f46f);
 impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1560,6 +1566,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
 windows_core::imp::define_interface!(IWwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry_Vtbl, 0x125e7431_f678_4e8e_b670_20a9b06c512d);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderEntry");
 }
 windows_core::imp::interface_hierarchy!(IWwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IWwwFormUrlDecoderEntry {
@@ -1631,6 +1638,7 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClass");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1641,6 +1649,7 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClassFactory, IWwwFormUrlDecoderRuntimeClassFactory_Vtbl, 0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1698,6 +1707,7 @@ impl windows_core::TypeKind for Point {
 }
 impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Point");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1750,6 +1760,7 @@ impl windows_core::TypeKind for PropertyType {
 }
 impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.PropertyType");
 }
 pub struct PropertyValue;
 impl PropertyValue {
@@ -1846,13 +1857,13 @@ impl PropertyValue {
             (windows_core::Interface::vtable(this).CreateGuid)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateDateTime(value: DateTime) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn CreateDateTime(value: windows_time::DateTime) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDateTime)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTimeSpan(value: TimeSpan) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn CreateTimeSpan(value: windows_time::TimeSpan) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTimeSpan)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1960,13 +1971,13 @@ impl PropertyValue {
             (windows_core::Interface::vtable(this).CreateGuidArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateDateTimeArray(value: &[DateTime]) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn CreateDateTimeArray(value: &[windows_time::DateTime]) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDateTimeArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTimeSpanArray(value: &[TimeSpan]) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn CreateTimeSpanArray(value: &[windows_time::TimeSpan]) -> windows_core::Result<windows_core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTimeSpanArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2011,6 +2022,7 @@ impl windows_core::TypeKind for Rect {
 }
 impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Rect");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2023,17 +2035,7 @@ impl windows_core::TypeKind for Size {
 }
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct TimeSpan {
-    pub Duration: i64,
-}
-impl windows_core::TypeKind for TimeSpan {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TimeSpan {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Size");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

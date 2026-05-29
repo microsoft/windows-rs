@@ -3,6 +3,7 @@ pub mod System;
 windows_core::imp::define_interface!(IWalletBarcode, IWalletBarcode_Vtbl, 0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 impl windows_core::RuntimeType for IWalletBarcode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletBarcode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18,6 +19,7 @@ pub struct IWalletBarcode_Vtbl {
 windows_core::imp::define_interface!(IWalletBarcodeFactory, IWalletBarcodeFactory_Vtbl, 0x30117161_ed9c_469e_bbfd_306c95ea7108);
 impl windows_core::RuntimeType for IWalletBarcodeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletBarcodeFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -32,6 +34,7 @@ pub struct IWalletBarcodeFactory_Vtbl {
 windows_core::imp::define_interface!(IWalletItem, IWalletItem_Vtbl, 0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
 impl windows_core::RuntimeType for IWalletItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItem");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,6 +162,7 @@ pub struct IWalletItem_Vtbl {
 windows_core::imp::define_interface!(IWalletItemCustomProperty, IWalletItemCustomProperty_Vtbl, 0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 impl windows_core::RuntimeType for IWalletItemCustomProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemCustomProperty");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -178,6 +182,7 @@ pub struct IWalletItemCustomProperty_Vtbl {
 windows_core::imp::define_interface!(IWalletItemCustomPropertyFactory, IWalletItemCustomPropertyFactory_Vtbl, 0xd0046a44_61a1_41aa_b259_a5610ab5d575);
 impl windows_core::RuntimeType for IWalletItemCustomPropertyFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemCustomPropertyFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -188,6 +193,7 @@ pub struct IWalletItemCustomPropertyFactory_Vtbl {
 windows_core::imp::define_interface!(IWalletItemFactory, IWalletItemFactory_Vtbl, 0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
 impl windows_core::RuntimeType for IWalletItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -198,6 +204,7 @@ pub struct IWalletItemFactory_Vtbl {
 windows_core::imp::define_interface!(IWalletItemStore, IWalletItemStore_Vtbl, 0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
 impl windows_core::RuntimeType for IWalletItemStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -220,6 +227,7 @@ pub struct IWalletItemStore_Vtbl {
 windows_core::imp::define_interface!(IWalletItemStore2, IWalletItemStore2_Vtbl, 0x65e682f0_7009_4a15_bd54_4fff379bffe2);
 impl windows_core::RuntimeType for IWalletItemStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletItemStore2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -231,6 +239,7 @@ pub struct IWalletItemStore2_Vtbl {
 windows_core::imp::define_interface!(IWalletManagerStatics, IWalletManagerStatics_Vtbl, 0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
 impl windows_core::RuntimeType for IWalletManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -241,6 +250,7 @@ pub struct IWalletManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IWalletRelevantLocation, IWalletRelevantLocation_Vtbl, 0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
 impl windows_core::RuntimeType for IWalletRelevantLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletRelevantLocation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -260,6 +270,7 @@ pub struct IWalletRelevantLocation_Vtbl {
 windows_core::imp::define_interface!(IWalletTransaction, IWalletTransaction_Vtbl, 0x40e1e940_2606_4519_81cb_bff1c60d1f79);
 impl windows_core::RuntimeType for IWalletTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletTransaction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -281,6 +292,7 @@ pub struct IWalletTransaction_Vtbl {
 windows_core::imp::define_interface!(IWalletVerb, IWalletVerb_Vtbl, 0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 impl windows_core::RuntimeType for IWalletVerb {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletVerb");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -292,6 +304,7 @@ pub struct IWalletVerb_Vtbl {
 windows_core::imp::define_interface!(IWalletVerbFactory, IWalletVerbFactory_Vtbl, 0x76012771_be58_4d5e_83ed_58b1669c7ad9);
 impl windows_core::RuntimeType for IWalletVerbFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.IWalletVerbFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -314,6 +327,7 @@ impl windows_core::TypeKind for WalletActionKind {
 }
 impl windows_core::RuntimeType for WalletActionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.WalletActionKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -394,6 +408,7 @@ impl windows_core::TypeKind for WalletBarcodeSymbology {
 }
 impl windows_core::RuntimeType for WalletBarcodeSymbology {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.WalletBarcodeSymbology");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -420,6 +435,7 @@ impl windows_core::TypeKind for WalletDetailViewPosition {
 }
 impl windows_core::RuntimeType for WalletDetailViewPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.WalletDetailViewPosition");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -459,14 +475,14 @@ impl WalletItem {
     pub fn SetIssuerDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIssuerDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn LastUpdated(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastUpdated(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LastUpdated)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).LastUpdated)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetLastUpdated(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetLastUpdated(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLastUpdated)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<WalletItemKind> {
@@ -487,14 +503,14 @@ impl WalletItem {
     {
         unsafe { (windows_core::Interface::vtable(self).SetBarcode)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetExpirationDate(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -666,14 +682,14 @@ impl WalletItem {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPromotionalImage)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn RelevantDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn RelevantDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RelevantDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).RelevantDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetRelevantDate(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetRelevantDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetRelevantDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelevantDateDisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -831,6 +847,7 @@ impl windows_core::TypeKind for WalletItemKind {
 }
 impl windows_core::RuntimeType for WalletItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.WalletItemKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -994,6 +1011,7 @@ impl windows_core::TypeKind for WalletSummaryViewPosition {
 }
 impl windows_core::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.WalletSummaryViewPosition");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1043,14 +1061,14 @@ impl WalletTransaction {
     pub fn SetDisplayLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayLocation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TransactionDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn TransactionDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TransactionDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).TransactionDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetTransactionDate(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetTransactionDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetTransactionDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsLaunchable(&self) -> windows_core::Result<bool> {

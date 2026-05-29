@@ -361,6 +361,7 @@ unsafe impl Sync for HtmlPrintDocumentSource {}
 windows_core::imp::define_interface!(IActivatedDeferral, IActivatedDeferral_Vtbl, 0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
 impl windows_core::RuntimeType for IActivatedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IActivatedDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -371,6 +372,7 @@ pub struct IActivatedDeferral_Vtbl {
 windows_core::imp::define_interface!(IActivatedEventArgsDeferral, IActivatedEventArgsDeferral_Vtbl, 0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
 impl windows_core::RuntimeType for IActivatedEventArgsDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IActivatedEventArgsDeferral");
 }
 windows_core::imp::interface_hierarchy!(IActivatedEventArgsDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl IActivatedEventArgsDeferral {
@@ -420,6 +422,7 @@ pub struct IActivatedEventArgsDeferral_Vtbl {
 windows_core::imp::define_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 impl windows_core::RuntimeType for IActivatedOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IActivatedOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -432,6 +435,7 @@ windows_core::imp::define_interface!(IHtmlPrintDocumentSource, IHtmlPrintDocumen
 #[cfg(feature = "Graphics_Printing")]
 impl windows_core::RuntimeType for IHtmlPrintDocumentSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IHtmlPrintDocumentSource");
 }
 #[cfg(feature = "Graphics_Printing")]
 #[repr(C)]
@@ -460,6 +464,7 @@ pub struct IHtmlPrintDocumentSource_Vtbl {
 windows_core::imp::define_interface!(INewWebUIViewCreatedEventArgs, INewWebUIViewCreatedEventArgs_Vtbl, 0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
 impl windows_core::RuntimeType for INewWebUIViewCreatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.INewWebUIViewCreatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -479,6 +484,7 @@ pub struct INewWebUIViewCreatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWebUIActivationStatics, IWebUIActivationStatics_Vtbl, 0x351b86bd_43b3_482b_85db_35d87b517ad9);
 impl windows_core::RuntimeType for IWebUIActivationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIActivationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -502,6 +508,7 @@ pub struct IWebUIActivationStatics_Vtbl {
 windows_core::imp::define_interface!(IWebUIActivationStatics2, IWebUIActivationStatics2_Vtbl, 0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
 impl windows_core::RuntimeType for IWebUIActivationStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIActivationStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -522,6 +529,7 @@ pub struct IWebUIActivationStatics2_Vtbl {
 windows_core::imp::define_interface!(IWebUIActivationStatics3, IWebUIActivationStatics3_Vtbl, 0x91abb686_1af5_4445_b49f_9459f40fc8de);
 impl windows_core::RuntimeType for IWebUIActivationStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIActivationStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -539,6 +547,7 @@ pub struct IWebUIActivationStatics3_Vtbl {
 windows_core::imp::define_interface!(IWebUIActivationStatics4, IWebUIActivationStatics4_Vtbl, 0x5e391429_183f_478d_8a25_67f80d03935b);
 impl windows_core::RuntimeType for IWebUIActivationStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIActivationStatics4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -555,6 +564,7 @@ pub struct IWebUIActivationStatics4_Vtbl {
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstance_Vtbl, 0x23f12c25_e2f7_4741_bc9c_394595de24dc);
 impl windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIBackgroundTaskInstance");
 }
 windows_core::imp::interface_hierarchy!(IWebUIBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUIBackgroundTaskInstance {
@@ -615,6 +625,7 @@ pub struct IWebUIBackgroundTaskInstance_Vtbl {
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
 impl windows_core::RuntimeType for IWebUIBackgroundTaskInstanceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIBackgroundTaskInstanceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -625,6 +636,7 @@ pub struct IWebUIBackgroundTaskInstanceStatics_Vtbl {
 windows_core::imp::define_interface!(IWebUINavigatedDeferral, IWebUINavigatedDeferral_Vtbl, 0xd804204d_831f_46e2_b432_3afce211f962);
 impl windows_core::RuntimeType for IWebUINavigatedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUINavigatedDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -635,6 +647,7 @@ pub struct IWebUINavigatedDeferral_Vtbl {
 windows_core::imp::define_interface!(IWebUINavigatedEventArgs, IWebUINavigatedEventArgs_Vtbl, 0xa75841b8_2499_4030_a69d_15d2d9cfe524);
 impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUINavigatedEventArgs");
 }
 windows_core::imp::interface_hierarchy!(IWebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUINavigatedEventArgs {
@@ -684,6 +697,7 @@ pub struct IWebUINavigatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 impl windows_core::RuntimeType for IWebUINavigatedOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUINavigatedOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -694,6 +708,7 @@ pub struct IWebUINavigatedOperation_Vtbl {
 windows_core::imp::define_interface!(IWebUIView, IWebUIView_Vtbl, 0x6783f64f_52da_4fd7_be69_8ef6284b423c);
 impl windows_core::RuntimeType for IWebUIView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIView");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -716,6 +731,7 @@ pub struct IWebUIView_Vtbl {
 windows_core::imp::define_interface!(IWebUIViewStatics, IWebUIViewStatics_Vtbl, 0xb591e668_8e59_44f9_8803_1b24c9149d30);
 impl windows_core::RuntimeType for IWebUIViewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.IWebUIViewStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -904,6 +920,7 @@ impl windows_core::TypeKind for PrintContent {
 }
 impl windows_core::RuntimeType for PrintContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.WebUI.PrintContent");
 }
 windows_core::imp::define_interface!(ResumingEventHandler, ResumingEventHandler_Vtbl, 0x26599ba9_a22d_4806_a728_acadc1d075fa);
 impl windows_core::RuntimeType for ResumingEventHandler {
@@ -1057,7 +1074,7 @@ impl SuspendingOperation {
             (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1495,10 +1512,10 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn InstanceStartDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1580,13 +1597,13 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn TimeToShow(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeToShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

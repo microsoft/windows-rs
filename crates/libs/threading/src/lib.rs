@@ -91,9 +91,7 @@ pub fn sleep(milliseconds: u32) {
 // When used correctly, the Windows thread pool APIs only fail when memory is exhausted. This function will cause such failures to `panic`.
 #[cfg(windows)]
 fn check<D: Default + PartialEq>(result: D) -> D {
-    if result == D::default() {
-        panic!("allocation failed");
-    }
+    assert!(result != D::default(), "allocation failed");
 
     result
 }

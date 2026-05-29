@@ -11,6 +11,7 @@ impl windows_core::TypeKind for AddContactResult {
 }
 impl windows_core::RuntimeType for AddContactResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.AddContactResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -112,6 +113,7 @@ impl windows_core::RuntimeName for ContactRemovedEventArgs {
 windows_core::imp::define_interface!(IContactPickerUI, IContactPickerUI_Vtbl, 0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 impl windows_core::RuntimeType for IContactPickerUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,6 +130,7 @@ pub struct IContactPickerUI_Vtbl {
 windows_core::imp::define_interface!(IContactPickerUI2, IContactPickerUI2_Vtbl, 0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 impl windows_core::RuntimeType for IContactPickerUI2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -139,6 +142,7 @@ pub struct IContactPickerUI2_Vtbl {
 windows_core::imp::define_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 impl windows_core::RuntimeType for IContactRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -102,7 +102,7 @@ impl core::fmt::Debug for HStringBuilder {
         write!(
             f,
             "\"{}\"",
-            Decode(|| core::char::decode_utf16(self.iter().cloned()))
+            Decode(|| core::char::decode_utf16(self.iter().copied()))
         )
     }
 }

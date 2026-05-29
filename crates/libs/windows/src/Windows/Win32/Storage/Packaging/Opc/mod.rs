@@ -54,7 +54,7 @@ impl IOpcCertificateEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcCertificateEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IOpcCertificateEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcCertificateEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -78,7 +78,7 @@ impl IOpcCertificateEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcCertificateEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
-                        certificate.write(core::mem::transmute(ok__));
+                        certificate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IOpcDigitalSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignature_Impl::GetSignatureId(this) {
                     Ok(ok__) => {
-                        signatureid.write(core::mem::transmute(ok__));
+                        signatureid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -354,7 +354,7 @@ impl IOpcDigitalSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignature_Impl::GetSignatureMethod(this) {
                     Ok(ok__) => {
-                        signaturemethod.write(core::mem::transmute(ok__));
+                        signaturemethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -366,7 +366,7 @@ impl IOpcDigitalSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignature_Impl::GetCanonicalizationMethod(this) {
                     Ok(ok__) => {
-                        canonicalizationmethod.write(core::mem::transmute(ok__));
+                        canonicalizationmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -408,7 +408,7 @@ impl IOpcDigitalSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignature_Impl::GetSigningTime(this) {
                     Ok(ok__) => {
-                        signingtime.write(core::mem::transmute(ok__));
+                        signingtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -420,7 +420,7 @@ impl IOpcDigitalSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignature_Impl::GetTimeFormat(this) {
                     Ok(ok__) => {
-                        timeformat.write(core::mem::transmute(ok__));
+                        timeformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignatureEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -568,7 +568,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignatureEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -777,7 +777,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcDigitalSignatureManager_Impl::Validate(this, core::mem::transmute_copy(&signature), core::mem::transmute_copy(&certificate)) {
                     Ok(ok__) => {
-                        validationresult.write(core::mem::transmute(ok__));
+                        validationresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1193,7 +1193,7 @@ impl IOpcPart_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPart_Impl::GetContentType(this) {
                     Ok(ok__) => {
-                        contenttype.write(core::mem::transmute(ok__));
+                        contenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1205,7 +1205,7 @@ impl IOpcPart_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPart_Impl::GetCompressionOptions(this) {
                     Ok(ok__) => {
-                        compressionoptions.write(core::mem::transmute(ok__));
+                        compressionoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1277,7 +1277,7 @@ impl IOpcPartEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1289,7 +1289,7 @@ impl IOpcPartEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1449,7 +1449,7 @@ impl IOpcPartSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartSet_Impl::PartExists(this, core::mem::transmute_copy(&name)) {
                     Ok(ok__) => {
-                        partexists.write(core::mem::transmute(ok__));
+                        partexists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1541,7 +1541,7 @@ impl IOpcPartUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartUri_Impl::ComparePartUri(this, core::mem::transmute_copy(&parturi)) {
                     Ok(ok__) => {
-                        comparisonresult.write(core::mem::transmute(ok__));
+                        comparisonresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1565,7 +1565,7 @@ impl IOpcPartUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcPartUri_Impl::IsRelationshipsPartUri(this) {
                     Ok(ok__) => {
-                        isrelationshipuri.write(core::mem::transmute(ok__));
+                        isrelationshipuri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl IOpcRelationship_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationship_Impl::GetId(this) {
                     Ok(ok__) => {
-                        relationshipidentifier.write(core::mem::transmute(ok__));
+                        relationshipidentifier.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1665,7 +1665,7 @@ impl IOpcRelationship_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationship_Impl::GetRelationshipType(this) {
                     Ok(ok__) => {
-                        relationshiptype.write(core::mem::transmute(ok__));
+                        relationshiptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1701,7 +1701,7 @@ impl IOpcRelationship_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationship_Impl::GetTargetMode(this) {
                     Ok(ok__) => {
-                        targetmode.write(core::mem::transmute(ok__));
+                        targetmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1785,7 +1785,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1863,7 +1863,7 @@ impl IOpcRelationshipSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSelector_Impl::GetSelectorType(this) {
                     Ok(ok__) => {
-                        selector.write(core::mem::transmute(ok__));
+                        selector.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1875,7 +1875,7 @@ impl IOpcRelationshipSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSelector_Impl::GetSelectionCriterion(this) {
                     Ok(ok__) => {
-                        selectioncriterion.write(core::mem::transmute(ok__));
+                        selectioncriterion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1943,7 +1943,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSelectorEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1955,7 +1955,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSelectorEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2209,7 +2209,7 @@ impl IOpcRelationshipSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcRelationshipSet_Impl::RelationshipExists(this, core::mem::transmute(&relationshipidentifier)) {
                     Ok(ok__) => {
-                        relationshipexists.write(core::mem::transmute(ok__));
+                        relationshipexists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2350,7 +2350,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureCustomObjectEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2362,7 +2362,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureCustomObjectEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2558,7 +2558,7 @@ impl IOpcSignaturePartReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReference_Impl::GetContentType(this) {
                     Ok(ok__) => {
-                        contenttype.write(core::mem::transmute(ok__));
+                        contenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2570,7 +2570,7 @@ impl IOpcSignaturePartReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReference_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
-                        digestmethod.write(core::mem::transmute(ok__));
+                        digestmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2588,7 +2588,7 @@ impl IOpcSignaturePartReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReference_Impl::GetTransformMethod(this) {
                     Ok(ok__) => {
-                        transformmethod.write(core::mem::transmute(ok__));
+                        transformmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2660,7 +2660,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReferenceEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2672,7 +2672,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignaturePartReferenceEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2875,7 +2875,7 @@ impl IOpcSignatureReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReference_Impl::GetId(this) {
                     Ok(ok__) => {
-                        referenceid.write(core::mem::transmute(ok__));
+                        referenceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2899,7 +2899,7 @@ impl IOpcSignatureReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReference_Impl::GetType(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2911,7 +2911,7 @@ impl IOpcSignatureReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReference_Impl::GetTransformMethod(this) {
                     Ok(ok__) => {
-                        transformmethod.write(core::mem::transmute(ok__));
+                        transformmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2923,7 +2923,7 @@ impl IOpcSignatureReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReference_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
-                        digestmethod.write(core::mem::transmute(ok__));
+                        digestmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3002,7 +3002,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReferenceEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3014,7 +3014,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureReferenceEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3231,7 +3231,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReference_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
-                        digestmethod.write(core::mem::transmute(ok__));
+                        digestmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3249,7 +3249,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReference_Impl::GetTransformMethod(this) {
                     Ok(ok__) => {
-                        transformmethod.write(core::mem::transmute(ok__));
+                        transformmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3261,7 +3261,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReference_Impl::GetRelationshipSigningOption(this) {
                     Ok(ok__) => {
-                        relationshipsigningoption.write(core::mem::transmute(ok__));
+                        relationshipsigningoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3346,7 +3346,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3358,7 +3358,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSignatureRelationshipReferenceEnumerator_Impl::MovePrevious(this) {
                     Ok(ok__) => {
-                        hasprevious.write(core::mem::transmute(ok__));
+                        hasprevious.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3672,7 +3672,7 @@ impl IOpcSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSigningOptions_Impl::GetSignatureId(this) {
                     Ok(ok__) => {
-                        signatureid.write(core::mem::transmute(ok__));
+                        signatureid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3690,7 +3690,7 @@ impl IOpcSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSigningOptions_Impl::GetSignatureMethod(this) {
                     Ok(ok__) => {
-                        signaturemethod.write(core::mem::transmute(ok__));
+                        signaturemethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3708,7 +3708,7 @@ impl IOpcSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSigningOptions_Impl::GetDefaultDigestMethod(this) {
                     Ok(ok__) => {
-                        digestmethod.write(core::mem::transmute(ok__));
+                        digestmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3726,7 +3726,7 @@ impl IOpcSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSigningOptions_Impl::GetCertificateEmbeddingOption(this) {
                     Ok(ok__) => {
-                        embeddingoption.write(core::mem::transmute(ok__));
+                        embeddingoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3744,7 +3744,7 @@ impl IOpcSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOpcSigningOptions_Impl::GetTimeFormat(this) {
                     Ok(ok__) => {
-                        timeformat.write(core::mem::transmute(ok__));
+                        timeformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

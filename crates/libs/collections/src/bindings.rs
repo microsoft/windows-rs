@@ -14,6 +14,9 @@ impl windows_core::RuntimeType for CollectionChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Windows.Foundation.Collections.CollectionChange;i4)",
     );
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Windows.Foundation.Collections.CollectionChange",
+    );
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -39,6 +42,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IIterable`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {
@@ -54,6 +61,8 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IIterable_Impl<T>: windows_core::IUnknownImpl
 where
@@ -145,6 +154,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IIterator`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
@@ -195,6 +208,8 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IIterator_Impl<T>: windows_core::IUnknownImpl
 where
@@ -384,6 +399,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         .push_slice(b";")
         .push_other(V::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IKeyValuePair`2<")
+        .push_other(K::NAME)
+        .push_slice(b", ")
+        .push_other(V::NAME)
+        .push_slice(b">");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     IKeyValuePair<K, V>
@@ -413,6 +434,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     windows_core::RuntimeName for IKeyValuePair<K, V>
 {
     const NAME: &'static str = "Windows.Foundation.Collections.IKeyValuePair";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IKeyValuePair_Impl<K, V>: windows_core::IUnknownImpl
 where
@@ -536,6 +559,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         .push_slice(b";")
         .push_other(V::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IMap`2<")
+        .push_other(K::NAME)
+        .push_slice(b", ")
+        .push_other(V::NAME)
+        .push_slice(b">");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V>
@@ -659,6 +688,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     windows_core::RuntimeName for IMap<K, V>
 {
     const NAME: &'static str = "Windows.Foundation.Collections.IMap";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IMap_Impl<K, V>: IIterable_Impl<IKeyValuePair<K, V>>
 where
@@ -905,6 +936,10 @@ impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMapC
         .push_slice(b";")
         .push_other(K::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IMapChangedEventArgs`1<")
+        .push_other(K::NAME)
+        .push_slice(b">");
 }
 impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
     pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
@@ -930,6 +965,8 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
 }
 impl<K: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMapChangedEventArgs<K> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IMapChangedEventArgs_Impl<K>: windows_core::IUnknownImpl
 where
@@ -1045,6 +1082,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         .push_slice(b";")
         .push_other(V::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IMapView`2<")
+        .push_other(K::NAME)
+        .push_slice(b", ")
+        .push_other(V::NAME)
+        .push_slice(b">");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
@@ -1140,6 +1183,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     windows_core::RuntimeName for IMapView<K, V>
 {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapView";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IMapView_Impl<K, V>: IIterable_Impl<IKeyValuePair<K, V>>
 where
@@ -1322,6 +1367,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         .push_slice(b";")
         .push_other(V::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IObservableMap`2<")
+        .push_other(K::NAME)
+        .push_slice(b", ")
+        .push_other(V::NAME)
+        .push_slice(b">");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IObservableMap<K, V>
@@ -1482,6 +1533,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     windows_core::RuntimeName for IObservableMap<K, V>
 {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableMap";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IObservableMap_Impl<K, V>: IIterable_Impl<IKeyValuePair<K, V>> + IMap_Impl<K, V>
 where
@@ -1592,6 +1645,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IObse
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IObservableVector`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
     for IObservableVector<T>
@@ -1804,6 +1861,8 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IObservableVector
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IObservableVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableVector";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IObservableVector_Impl<T>: IIterable_Impl<T> + IVector_Impl<T>
 where
@@ -1905,6 +1964,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVect
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IVector`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
     for IVector<T>
@@ -2077,6 +2140,8 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVector<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IVector_Impl<T>: IIterable_Impl<T>
 where
@@ -2412,6 +2477,9 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IVectorChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"Windows.Foundation.Collections.IVectorChangedEventArgs",
+    );
 }
 windows_core::imp::interface_hierarchy!(
     IVectorChangedEventArgs,
@@ -2532,6 +2600,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVect
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IVectorView`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
     for IVectorView<T>
@@ -2620,6 +2692,8 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVectorView<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IVectorView_Impl<T>: IIterable_Impl<T>
 where

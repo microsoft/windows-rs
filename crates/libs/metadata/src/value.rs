@@ -33,8 +33,7 @@ impl Value {
             Self::I64(..) => Type::I64,
             Self::F32(..) => Type::F32,
             Self::F64(..) => Type::F64,
-            Self::Utf8(..) => Type::String,
-            Self::Utf16(..) => Type::String,
+            Self::Utf8(..) | Self::Utf16(..) => Type::String,
             Self::TypeName(..) => Type::ClassName(TypeName::named("System", "Type")),
             Self::EnumValue(tn, _) => Type::ValueName(tn.clone()),
         }

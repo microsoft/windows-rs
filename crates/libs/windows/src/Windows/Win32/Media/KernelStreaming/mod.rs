@@ -631,7 +631,7 @@ impl IKsClockPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsClockPropertySet_Impl::KsGetTime(this) {
                     Ok(ok__) => {
-                        time.write(core::mem::transmute(ok__));
+                        time.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl IKsClockPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsClockPropertySet_Impl::KsGetPhysicalTime(this) {
                     Ok(ok__) => {
-                        time.write(core::mem::transmute(ok__));
+                        time.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -667,7 +667,7 @@ impl IKsClockPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsClockPropertySet_Impl::KsGetCorrelatedTime(this) {
                     Ok(ok__) => {
-                        correlatedtime.write(core::mem::transmute(ok__));
+                        correlatedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -685,7 +685,7 @@ impl IKsClockPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsClockPropertySet_Impl::KsGetCorrelatedPhysicalTime(this) {
                     Ok(ok__) => {
-                        correlatedtime.write(core::mem::transmute(ok__));
+                        correlatedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -703,7 +703,7 @@ impl IKsClockPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsClockPropertySet_Impl::KsGetResolution(this) {
                     Ok(ok__) => {
-                        resolution.write(core::mem::transmute(ok__));
+                        resolution.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -715,7 +715,7 @@ impl IKsClockPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsClockPropertySet_Impl::KsGetState(this) {
                     Ok(ok__) => {
-                        state.write(core::mem::transmute(ok__));
+                        state.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IKsDataTypeHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsDataTypeHandler_Impl::KsQueryExtendedSize(this) {
                     Ok(ok__) => {
-                        extendedsize.write(core::mem::transmute(ok__));
+                        extendedsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl IKsFormatSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsFormatSupport_Impl::GetDevicePreferredFormat(this) {
                     Ok(ok__) => {
-                        ppksformat.write(core::mem::transmute(ok__));
+                        ppksformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl IKsJackContainerId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsJackContainerId_Impl::GetJackContainerId(this) {
                     Ok(ok__) => {
-                        pjackcontainerid.write(core::mem::transmute(ok__));
+                        pjackcontainerid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1146,7 +1146,7 @@ impl IKsJackDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsJackDescription_Impl::GetJackCount(this) {
                     Ok(ok__) => {
-                        pcjacks.write(core::mem::transmute(ok__));
+                        pcjacks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1204,7 +1204,7 @@ impl IKsJackDescription2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsJackDescription2_Impl::GetJackCount(this) {
                     Ok(ok__) => {
-                        pcjacks.write(core::mem::transmute(ok__));
+                        pcjacks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1216,7 +1216,7 @@ impl IKsJackDescription2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsJackDescription2_Impl::GetJackDescription2(this, core::mem::transmute_copy(&njack)) {
                     Ok(ok__) => {
-                        pdescription2.write(core::mem::transmute(ok__));
+                        pdescription2.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1268,7 +1268,7 @@ impl IKsJackDescription3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsJackDescription3_Impl::GetJackCount(this) {
                     Ok(ok__) => {
-                        pcjacks.write(core::mem::transmute(ok__));
+                        pcjacks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1280,7 +1280,7 @@ impl IKsJackDescription3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsJackDescription3_Impl::GetJackDescription3(this, core::mem::transmute_copy(&njack)) {
                     Ok(ok__) => {
-                        pdescription3.write(core::mem::transmute(ok__));
+                        pdescription3.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1546,7 +1546,7 @@ impl IKsPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsPin_Impl::KsQueryMediums(this) {
                     Ok(ok__) => {
-                        mediumlist.write(core::mem::transmute(ok__));
+                        mediumlist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1558,7 +1558,7 @@ impl IKsPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsPin_Impl::KsQueryInterfaces(this) {
                     Ok(ok__) => {
-                        interfacelist.write(core::mem::transmute(ok__));
+                        interfacelist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1729,7 +1729,7 @@ impl IKsPinFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsPinFactory_Impl::KsPinFactory(this) {
                     Ok(ok__) => {
-                        pinfactory.write(core::mem::transmute(ok__));
+                        pinfactory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1959,7 +1959,7 @@ impl IKsPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsPropertySet_Impl::QuerySupported(this, core::mem::transmute_copy(&guidpropset), core::mem::transmute_copy(&dwpropid)) {
                     Ok(ok__) => {
-                        ptypesupport.write(core::mem::transmute(ok__));
+                        ptypesupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2130,7 +2130,7 @@ impl IKsTopologyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsTopologyInfo_Impl::NumCategories(this) {
                     Ok(ok__) => {
-                        pdwnumcategories.write(core::mem::transmute(ok__));
+                        pdwnumcategories.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2142,7 +2142,7 @@ impl IKsTopologyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsTopologyInfo_Impl::get_Category(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pcategory.write(core::mem::transmute(ok__));
+                        pcategory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2154,7 +2154,7 @@ impl IKsTopologyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsTopologyInfo_Impl::NumConnections(this) {
                     Ok(ok__) => {
-                        pdwnumconnections.write(core::mem::transmute(ok__));
+                        pdwnumconnections.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2166,7 +2166,7 @@ impl IKsTopologyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsTopologyInfo_Impl::get_ConnectionInfo(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pconnectioninfo.write(core::mem::transmute(ok__));
+                        pconnectioninfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2184,7 +2184,7 @@ impl IKsTopologyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsTopologyInfo_Impl::NumNodes(this) {
                     Ok(ok__) => {
-                        pdwnumnodes.write(core::mem::transmute(ok__));
+                        pdwnumnodes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2196,7 +2196,7 @@ impl IKsTopologyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKsTopologyInfo_Impl::get_NodeType(this, core::mem::transmute_copy(&dwnodeid)) {
                     Ok(ok__) => {
-                        pnodetype.write(core::mem::transmute(ok__));
+                        pnodetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

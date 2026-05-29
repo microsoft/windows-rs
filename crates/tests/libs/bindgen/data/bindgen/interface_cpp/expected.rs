@@ -39,7 +39,7 @@ impl IPersist_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersist_Impl::GetClassID(this) {
                     Ok(ok__) => {
-                        pclassid.write(core::mem::transmute(ok__));
+                        pclassid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -72,6 +72,7 @@ impl windows_core::TypeKind for ConditionForceEffectKind {
 }
 impl windows_core::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -85,11 +86,11 @@ impl ConstantForceEffect {
         static SHARED: windows_core::imp::FactoryCache<ConstantForceEffect, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetParameters(&self, vector: windows_numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, vector: windows_numerics::Vector3, duration: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConstantForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), vector, duration).ok() }
     }
-    pub fn SetParametersWithEnvelope(&self, vector: windows_numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, vector: windows_numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: windows_time::TimeSpan, attackduration: windows_time::TimeSpan, sustainduration: windows_time::TimeSpan, releaseduration: windows_time::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConstantForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), vector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
@@ -141,6 +142,7 @@ impl windows_core::TypeKind for ForceFeedbackEffectAxes {
 }
 impl windows_core::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes");
 }
 impl ForceFeedbackEffectAxes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -189,6 +191,7 @@ impl windows_core::TypeKind for ForceFeedbackEffectState {
 }
 impl windows_core::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -203,6 +206,7 @@ impl windows_core::TypeKind for ForceFeedbackLoadEffectResult {
 }
 impl windows_core::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -297,6 +301,7 @@ unsafe impl Sync for ForceFeedbackMotor {}
 windows_core::imp::define_interface!(IConditionForceEffect, IConditionForceEffect_Vtbl, 0x32d1ea68_3695_4e69_85c0_cd1944189140);
 impl windows_core::RuntimeType for IConditionForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IConditionForceEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -308,6 +313,7 @@ pub struct IConditionForceEffect_Vtbl {
 windows_core::imp::define_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 impl windows_core::RuntimeType for IConditionForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IConditionForceEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -318,17 +324,19 @@ pub struct IConditionForceEffectFactory_Vtbl {
 windows_core::imp::define_interface!(IConstantForceEffect, IConstantForceEffect_Vtbl, 0x9bfa0140_f3c7_415c_b068_0f068734bce0);
 impl windows_core::RuntimeType for IConstantForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IConstantForceEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConstantForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IForceFeedbackEffect, IForceFeedbackEffect_Vtbl, 0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 impl windows_core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect");
 }
 windows_core::imp::interface_hierarchy!(IForceFeedbackEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl IForceFeedbackEffect {
@@ -434,6 +442,7 @@ pub struct IForceFeedbackEffect_Vtbl {
 windows_core::imp::define_interface!(IForceFeedbackMotor, IForceFeedbackMotor_Vtbl, 0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 impl windows_core::RuntimeType for IForceFeedbackMotor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -456,18 +465,20 @@ pub struct IForceFeedbackMotor_Vtbl {
 windows_core::imp::define_interface!(IPeriodicForceEffect, IPeriodicForceEffect_Vtbl, 0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
 impl windows_core::RuntimeType for IPeriodicForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PeriodicForceEffectKind) -> windows_core::HRESULT,
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 impl windows_core::RuntimeType for IPeriodicForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -478,13 +489,14 @@ pub struct IPeriodicForceEffectFactory_Vtbl {
 windows_core::imp::define_interface!(IRampForceEffect, IRampForceEffect_Vtbl, 0xf1f81259_1ca6_4080_b56d_b43f3354d052);
 impl windows_core::RuntimeType for IRampForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.IRampForceEffect");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRampForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
+    pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, f32, f32, f32, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, windows_time::TimeSpan, u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -519,11 +531,11 @@ impl PeriodicForceEffect {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetParameters(&self, vector: windows_numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, vector: windows_numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), vector, frequency, phase, bias, duration).ok() }
     }
-    pub fn SetParametersWithEnvelope(&self, vector: windows_numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, vector: windows_numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: windows_time::TimeSpan, attackduration: windows_time::TimeSpan, sustainduration: windows_time::TimeSpan, releaseduration: windows_time::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
@@ -565,6 +577,7 @@ impl windows_core::TypeKind for PeriodicForceEffectKind {
 }
 impl windows_core::RuntimeType for PeriodicForceEffectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -599,11 +612,11 @@ impl RampForceEffect {
     pub fn Stop(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn SetParameters(&self, startvector: windows_numerics::Vector3, endvector: windows_numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetParameters(&self, startvector: windows_numerics::Vector3, endvector: windows_numerics::Vector3, duration: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRampForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), startvector, endvector, duration).ok() }
     }
-    pub fn SetParametersWithEnvelope(&self, startvector: windows_numerics::Vector3, endvector: windows_numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, startvector: windows_numerics::Vector3, endvector: windows_numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: windows_time::TimeSpan, attackduration: windows_time::TimeSpan, sustainduration: windows_time::TimeSpan, releaseduration: windows_time::TimeSpan, repeatcount: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRampForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }

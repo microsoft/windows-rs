@@ -203,7 +203,7 @@ impl CppMethod {
     }
 
     pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.package {
+        if !config.bindgen.layout.is_package() {
             return quote! {};
         }
 
@@ -392,13 +392,23 @@ impl CppMethod {
                     .iter()
                     .map(|p| write_invoke_arg(p, reader));
 
-                let result = self.signature.params[self.signature.params.len() - 1].write_ident();
+                let last_param = &self.signature.params[self.signature.params.len() - 1];
+                let result = last_param.write_ident();
+
+                // For copyable types the Rust and ABI types are identical, so
+                // the transmute would be from a type to itself and tripping
+                // `clippy::useless_transmute`.
+                let write_result = if last_param.deref().is_copyable(reader) {
+                    quote! { #result.write(ok__); }
+                } else {
+                    quote! { #result.write(core::mem::transmute(ok__)); }
+                };
 
                 quote! {
                     match #parent_impl::#name(this, #(#invoke_args,)*) {
                         Ok(ok__) => {
                             // use `ptr::write` since the result could be uninitialized
-                            #result.write(core::mem::transmute(ok__));
+                            #write_result
                             windows_core::HRESULT(0)
                         }
                         Err(err) => err.into()

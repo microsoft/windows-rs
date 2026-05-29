@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(ILanguageFont, ILanguageFont_Vtbl, 0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 impl windows_core::RuntimeType for ILanguageFont {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Fonts.ILanguageFont");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,6 +25,7 @@ pub struct ILanguageFont_Vtbl {
 windows_core::imp::define_interface!(ILanguageFontGroup, ILanguageFontGroup_Vtbl, 0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
 impl windows_core::RuntimeType for ILanguageFontGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Fonts.ILanguageFontGroup");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -44,6 +46,7 @@ pub struct ILanguageFontGroup_Vtbl {
 windows_core::imp::define_interface!(ILanguageFontGroupFactory, ILanguageFontGroupFactory_Vtbl, 0xfcaeac67_4e77_49c7_b856_dde934fc735b);
 impl windows_core::RuntimeType for ILanguageFontGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Fonts.ILanguageFontGroupFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -96,6 +96,7 @@ impl windows_core::TypeKind for BatteryStatus {
 }
 impl windows_core::RuntimeType for BatteryStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.BatteryStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -110,6 +111,7 @@ impl windows_core::TypeKind for EnergySaverStatus {
 }
 impl windows_core::RuntimeType for EnergySaverStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.EnergySaverStatus");
 }
 pub struct ForegroundEnergyManager;
 impl ForegroundEnergyManager {
@@ -184,6 +186,7 @@ impl windows_core::RuntimeName for ForegroundEnergyManager {
 windows_core::imp::define_interface!(IBackgroundEnergyManagerStatics, IBackgroundEnergyManagerStatics_Vtbl, 0xb3161d95_1180_4376_96e1_4095568147ce);
 impl windows_core::RuntimeType for IBackgroundEnergyManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IBackgroundEnergyManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -205,6 +208,7 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IForegroundEnergyManagerStatics, IForegroundEnergyManagerStatics_Vtbl, 0x9ff86872_e677_4814_9a20_5337ca732b98);
 impl windows_core::RuntimeType for IForegroundEnergyManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IForegroundEnergyManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -224,6 +228,7 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IPowerManagerStatics, IPowerManagerStatics_Vtbl, 0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
 impl windows_core::RuntimeType for IPowerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.IPowerManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -241,7 +246,7 @@ pub struct IPowerManagerStatics_Vtbl {
     pub RemainingChargePercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub RemainingChargePercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRemainingChargePercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub RemainingDischargeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub RemainingDischargeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub RemainingDischargeTimeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRemainingDischargeTimeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
@@ -319,7 +324,7 @@ impl PowerManager {
     pub fn RemoveRemainingChargePercentChanged(token: i64) -> windows_core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRemainingChargePercentChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn RemainingDischargeTime() -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RemainingDischargeTime() -> windows_core::Result<windows_time::TimeSpan> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -358,4 +363,5 @@ impl windows_core::TypeKind for PowerSupplyStatus {
 }
 impl windows_core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Power.PowerSupplyStatus");
 }

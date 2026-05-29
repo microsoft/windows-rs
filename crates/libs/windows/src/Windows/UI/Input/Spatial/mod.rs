@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(ISpatialGestureRecognizer, ISpatialGestureRecognizer_Vtbl, 0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
 impl windows_core::RuntimeType for ISpatialGestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialGestureRecognizer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,6 +43,7 @@ pub struct ISpatialGestureRecognizer_Vtbl {
 windows_core::imp::define_interface!(ISpatialGestureRecognizerFactory, ISpatialGestureRecognizerFactory_Vtbl, 0x77214186_57b9_3150_8382_698b24e264d0);
 impl windows_core::RuntimeType for ISpatialGestureRecognizerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialGestureRecognizerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +54,7 @@ pub struct ISpatialGestureRecognizerFactory_Vtbl {
 windows_core::imp::define_interface!(ISpatialHoldCanceledEventArgs, ISpatialHoldCanceledEventArgs_Vtbl, 0x5dfcb667_4caa_4093_8c35_b601a839f31b);
 impl windows_core::RuntimeType for ISpatialHoldCanceledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,6 +65,7 @@ pub struct ISpatialHoldCanceledEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialHoldCompletedEventArgs, ISpatialHoldCompletedEventArgs_Vtbl, 0x3f64470b_4cfd_43da_8dc4_e64552173971);
 impl windows_core::RuntimeType for ISpatialHoldCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialHoldCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -72,6 +76,7 @@ pub struct ISpatialHoldCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialHoldStartedEventArgs, ISpatialHoldStartedEventArgs_Vtbl, 0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
 impl windows_core::RuntimeType for ISpatialHoldStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -86,6 +91,7 @@ pub struct ISpatialHoldStartedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteraction, ISpatialInteraction_Vtbl, 0xfc967639_88e6_4646_9112_4344aaec9dfa);
 impl windows_core::RuntimeType for ISpatialInteraction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteraction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -96,6 +102,7 @@ pub struct ISpatialInteraction_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionController, ISpatialInteractionController_Vtbl, 0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
 impl windows_core::RuntimeType for ISpatialInteractionController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -114,6 +121,7 @@ pub struct ISpatialInteractionController_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionController2, ISpatialInteractionController2_Vtbl, 0x35b6d924_c7a2_49b7_b72e_5436b2fb8f9c);
 impl windows_core::RuntimeType for ISpatialInteractionController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionController2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,6 +135,7 @@ pub struct ISpatialInteractionController2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionController3, ISpatialInteractionController3_Vtbl, 0x628466a0_9d91_4a0b_888d_165e670a8cd5);
 impl windows_core::RuntimeType for ISpatialInteractionController3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionController3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -140,6 +149,7 @@ pub struct ISpatialInteractionController3_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionControllerProperties, ISpatialInteractionControllerProperties_Vtbl, 0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
 impl windows_core::RuntimeType for ISpatialInteractionControllerProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionControllerProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,6 +166,7 @@ pub struct ISpatialInteractionControllerProperties_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionDetectedEventArgs, ISpatialInteractionDetectedEventArgs_Vtbl, 0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
 impl windows_core::RuntimeType for ISpatialInteractionDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -171,6 +182,7 @@ pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionDetectedEventArgs2, ISpatialInteractionDetectedEventArgs2_Vtbl, 0x7b263e93_5f13_419c_97d5_834678266aa6);
 impl windows_core::RuntimeType for ISpatialInteractionDetectedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -181,6 +193,7 @@ pub struct ISpatialInteractionDetectedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionManager, ISpatialInteractionManager_Vtbl, 0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
 impl windows_core::RuntimeType for ISpatialInteractionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,6 +219,7 @@ pub struct ISpatialInteractionManager_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionManagerStatics, ISpatialInteractionManagerStatics_Vtbl, 0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
 impl windows_core::RuntimeType for ISpatialInteractionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -216,6 +230,7 @@ pub struct ISpatialInteractionManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionManagerStatics2, ISpatialInteractionManagerStatics2_Vtbl, 0x93f16c52_b88a_5929_8d7c_48cb948b081c);
 impl windows_core::RuntimeType for ISpatialInteractionManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -226,6 +241,7 @@ pub struct ISpatialInteractionManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSource, ISpatialInteractionSource_Vtbl, 0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
 impl windows_core::RuntimeType for ISpatialInteractionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -237,6 +253,7 @@ pub struct ISpatialInteractionSource_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSource2, ISpatialInteractionSource2_Vtbl, 0xe4c5b70c_0470_4028_88c0_a0eb44d34efe);
 impl windows_core::RuntimeType for ISpatialInteractionSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,6 +271,7 @@ pub struct ISpatialInteractionSource2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSource3, ISpatialInteractionSource3_Vtbl, 0x0406d9f9_9afd_44f9_85dc_700023a962e3);
 impl windows_core::RuntimeType for ISpatialInteractionSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSource3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -264,6 +282,7 @@ pub struct ISpatialInteractionSource3_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSource4, ISpatialInteractionSource4_Vtbl, 0x0073bc4d_df66_5a91_a2ba_cea3e5c58a19);
 impl windows_core::RuntimeType for ISpatialInteractionSource4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSource4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -281,6 +300,7 @@ pub struct ISpatialInteractionSource4_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs_Vtbl, 0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 impl windows_core::RuntimeType for ISpatialInteractionSourceEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,6 +311,7 @@ pub struct ISpatialInteractionSourceEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceEventArgs2, ISpatialInteractionSourceEventArgs2_Vtbl, 0xd8b4b467_e648_4d52_ab49_e0d227199f63);
 impl windows_core::RuntimeType for ISpatialInteractionSourceEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,6 +322,7 @@ pub struct ISpatialInteractionSourceEventArgs2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation, ISpatialInteractionSourceLocation_Vtbl, 0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
 impl windows_core::RuntimeType for ISpatialInteractionSourceLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceLocation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -312,6 +334,7 @@ pub struct ISpatialInteractionSourceLocation_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation2, ISpatialInteractionSourceLocation2_Vtbl, 0x4c671045_3917_40fc_a9ac_31c9cf5ff91b);
 impl windows_core::RuntimeType for ISpatialInteractionSourceLocation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceLocation2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -325,6 +348,7 @@ pub struct ISpatialInteractionSourceLocation2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation3, ISpatialInteractionSourceLocation3_Vtbl, 0x6702e65e_e915_4cfb_9c1b_0538efc86687);
 impl windows_core::RuntimeType for ISpatialInteractionSourceLocation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceLocation3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -337,6 +361,7 @@ pub struct ISpatialInteractionSourceLocation3_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceProperties, ISpatialInteractionSourceProperties_Vtbl, 0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
 impl windows_core::RuntimeType for ISpatialInteractionSourceProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -355,6 +380,7 @@ pub struct ISpatialInteractionSourceProperties_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceState, ISpatialInteractionSourceState_Vtbl, 0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
 impl windows_core::RuntimeType for ISpatialInteractionSourceState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceState");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,6 +401,7 @@ pub struct ISpatialInteractionSourceState_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceState2, ISpatialInteractionSourceState2_Vtbl, 0x45f6d0bd_1773_492e_9ba3_8ac1cbe77c08);
 impl windows_core::RuntimeType for ISpatialInteractionSourceState2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceState2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,6 +416,7 @@ pub struct ISpatialInteractionSourceState2_Vtbl {
 windows_core::imp::define_interface!(ISpatialInteractionSourceState3, ISpatialInteractionSourceState3_Vtbl, 0xf2f00bc2_bd2b_4a01_a8fb_323e0158527c);
 impl windows_core::RuntimeType for ISpatialInteractionSourceState3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialInteractionSourceState3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -402,6 +430,7 @@ pub struct ISpatialInteractionSourceState3_Vtbl {
 windows_core::imp::define_interface!(ISpatialManipulationCanceledEventArgs, ISpatialManipulationCanceledEventArgs_Vtbl, 0x2d40d1cb_e7da_4220_b0bf_819301674780);
 impl windows_core::RuntimeType for ISpatialManipulationCanceledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -412,6 +441,7 @@ pub struct ISpatialManipulationCanceledEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialManipulationCompletedEventArgs, ISpatialManipulationCompletedEventArgs_Vtbl, 0x05086802_f301_4343_9250_2fbaa5f87a37);
 impl windows_core::RuntimeType for ISpatialManipulationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,6 +456,7 @@ pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialManipulationDelta, ISpatialManipulationDelta_Vtbl, 0xa7ec967a_d123_3a81_a15b_992923dcbe91);
 impl windows_core::RuntimeType for ISpatialManipulationDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialManipulationDelta");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -436,6 +467,7 @@ pub struct ISpatialManipulationDelta_Vtbl {
 windows_core::imp::define_interface!(ISpatialManipulationStartedEventArgs, ISpatialManipulationStartedEventArgs_Vtbl, 0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 impl windows_core::RuntimeType for ISpatialManipulationStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialManipulationStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -450,6 +482,7 @@ pub struct ISpatialManipulationStartedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialManipulationUpdatedEventArgs, ISpatialManipulationUpdatedEventArgs_Vtbl, 0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
 impl windows_core::RuntimeType for ISpatialManipulationUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialManipulationUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -464,6 +497,7 @@ pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialNavigationCanceledEventArgs, ISpatialNavigationCanceledEventArgs_Vtbl, 0xce503edc_e8a5_46f0_92d4_3c122b35112a);
 impl windows_core::RuntimeType for ISpatialNavigationCanceledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,6 +508,7 @@ pub struct ISpatialNavigationCanceledEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialNavigationCompletedEventArgs, ISpatialNavigationCompletedEventArgs_Vtbl, 0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
 impl windows_core::RuntimeType for ISpatialNavigationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -485,6 +520,7 @@ pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialNavigationStartedEventArgs, ISpatialNavigationStartedEventArgs_Vtbl, 0x754a348a_fb64_4656_8ebd_9deecaafe475);
 impl windows_core::RuntimeType for ISpatialNavigationStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialNavigationStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -502,6 +538,7 @@ pub struct ISpatialNavigationStartedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialNavigationUpdatedEventArgs, ISpatialNavigationUpdatedEventArgs_Vtbl, 0x9b713fd7_839d_4a74_8732_45466fc044b5);
 impl windows_core::RuntimeType for ISpatialNavigationUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialNavigationUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -513,6 +550,7 @@ pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialPointerInteractionSourcePose, ISpatialPointerInteractionSourcePose_Vtbl, 0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialPointerInteractionSourcePose");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -525,6 +563,7 @@ pub struct ISpatialPointerInteractionSourcePose_Vtbl {
 windows_core::imp::define_interface!(ISpatialPointerInteractionSourcePose2, ISpatialPointerInteractionSourcePose2_Vtbl, 0xeccd86b8_52db_469f_9e3f_80c47f74bce9);
 impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialPointerInteractionSourcePose2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -539,6 +578,7 @@ pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
 windows_core::imp::define_interface!(ISpatialPointerPose, ISpatialPointerPose_Vtbl, 0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
 impl windows_core::RuntimeType for ISpatialPointerPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialPointerPose");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -556,6 +596,7 @@ pub struct ISpatialPointerPose_Vtbl {
 windows_core::imp::define_interface!(ISpatialPointerPose2, ISpatialPointerPose2_Vtbl, 0x9d202b17_954e_4e0c_96d1_b6790b6fc2fd);
 impl windows_core::RuntimeType for ISpatialPointerPose2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialPointerPose2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -566,6 +607,7 @@ pub struct ISpatialPointerPose2_Vtbl {
 windows_core::imp::define_interface!(ISpatialPointerPose3, ISpatialPointerPose3_Vtbl, 0x6342f3f0_ec49_5b4b_b8d1_d16cbb16be84);
 impl windows_core::RuntimeType for ISpatialPointerPose3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialPointerPose3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -580,6 +622,7 @@ pub struct ISpatialPointerPose3_Vtbl {
 windows_core::imp::define_interface!(ISpatialPointerPoseStatics, ISpatialPointerPoseStatics_Vtbl, 0xa25591a9_aca1_3ee0_9816_785cfb2e3fb8);
 impl windows_core::RuntimeType for ISpatialPointerPoseStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialPointerPoseStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -593,6 +636,7 @@ pub struct ISpatialPointerPoseStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialRecognitionEndedEventArgs, ISpatialRecognitionEndedEventArgs_Vtbl, 0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
 impl windows_core::RuntimeType for ISpatialRecognitionEndedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -603,6 +647,7 @@ pub struct ISpatialRecognitionEndedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialRecognitionStartedEventArgs, ISpatialRecognitionStartedEventArgs_Vtbl, 0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
 impl windows_core::RuntimeType for ISpatialRecognitionStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -618,6 +663,7 @@ pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISpatialTappedEventArgs, ISpatialTappedEventArgs_Vtbl, 0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
 impl windows_core::RuntimeType for ISpatialTappedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.ISpatialTappedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -868,6 +914,7 @@ impl windows_core::TypeKind for SpatialGestureSettings {
 }
 impl windows_core::RuntimeType for SpatialGestureSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.SpatialGestureSettings");
 }
 impl SpatialGestureSettings {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1322,6 +1369,7 @@ impl windows_core::TypeKind for SpatialInteractionPressKind {
 }
 impl windows_core::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.SpatialInteractionPressKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1459,6 +1507,7 @@ impl windows_core::TypeKind for SpatialInteractionSourceHandedness {
 }
 impl windows_core::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1474,6 +1523,7 @@ impl windows_core::TypeKind for SpatialInteractionSourceKind {
 }
 impl windows_core::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.SpatialInteractionSourceKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1546,6 +1596,7 @@ impl windows_core::TypeKind for SpatialInteractionSourcePositionAccuracy {
 }
 impl windows_core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

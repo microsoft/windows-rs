@@ -13,6 +13,8 @@ impl windows_core::TypeKind for AsyncStatus {
 impl windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.AsyncStatus");
 }
 windows_core::imp::define_interface!(
     IAsyncAction,
@@ -22,6 +24,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncAction");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncAction,
@@ -107,6 +111,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,

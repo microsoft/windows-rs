@@ -58,9 +58,8 @@ impl CppDelegate {
         if let Some(attribute) = self.def.find_attribute("UnmanagedFunctionPointerAttribute") {
             if let Some((_, Value::EnumValue(_, value))) = attribute.value().first() {
                 match &**value {
-                    Value::I32(1) => abi = Some("system"),
+                    Value::I32(1) | Value::I32(5) => abi = Some("system"),
                     Value::I32(2) => abi = Some("C"),
-                    Value::I32(5) => abi = Some("system"), // TODO: fastcall unsupported on non-x86 targets
                     rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
                 }
             }
@@ -86,7 +85,7 @@ fn write_param(config: &Config, param: &Param) -> TokenStream {
     let name = param.write_ident();
     let type_name = param.write_name(config);
 
-    if config.sys {
+    if config.bindgen.style.is_sys() {
         return quote! { #name: #type_name, };
     }
 

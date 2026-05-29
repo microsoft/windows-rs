@@ -211,7 +211,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnectionsInfo_Impl::GetNumberInputs(this) {
                     Ok(ok__) => {
-                        puinuminputs.write(core::mem::transmute(ok__));
+                        puinuminputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnectionsInfo_Impl::GetNumberOutputs(this) {
                     Ok(ok__) => {
-                        puinumoutputs.write(core::mem::transmute(ok__));
+                        puinumoutputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl IMILBitmapEffectConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnector_Impl::IsConnected(this) {
                     Ok(ok__) => {
-                        pfconnected.write(core::mem::transmute(ok__));
+                        pfconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -387,7 +387,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnectorInfo_Impl::GetIndex(this) {
                     Ok(ok__) => {
-                        puiindex.write(core::mem::transmute(ok__));
+                        puiindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -399,7 +399,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnectorInfo_Impl::GetOptimalFormat(this) {
                     Ok(ok__) => {
-                        pformat.write(core::mem::transmute(ok__));
+                        pformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -411,7 +411,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnectorInfo_Impl::GetNumberFormats(this) {
                     Ok(ok__) => {
-                        pulnumberformats.write(core::mem::transmute(ok__));
+                        pulnumberformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -423,7 +423,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectConnectorInfo_Impl::GetFormat(this, core::mem::transmute_copy(&ulindex)) {
                     Ok(ok__) => {
-                        pformat.write(core::mem::transmute(ok__));
+                        pformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -707,7 +707,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectGroupImpl_Impl::GetNumberChildren(this) {
                     Ok(ok__) => {
-                        puinumberchildren.write(core::mem::transmute(ok__));
+                        puinumberchildren.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -832,7 +832,7 @@ impl IMILBitmapEffectImpl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectImpl_Impl::IsInPlaceModificationAllowed(this, core::mem::transmute_copy(&poutputconnector)) {
                     Ok(ok__) => {
-                        pfmodifyinplace.write(core::mem::transmute(ok__));
+                        pfmodifyinplace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1094,7 +1094,7 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectOutputConnector_Impl::GetNumberConnections(this) {
                     Ok(ok__) => {
-                        puinumberconnections.write(core::mem::transmute(ok__));
+                        puinumberconnections.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1276,7 +1276,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectPrimitive_Impl::HasAffineTransform(this, core::mem::transmute_copy(&uiindex)) {
                     Ok(ok__) => {
-                        pfaffine.write(core::mem::transmute(ok__));
+                        pfaffine.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1288,7 +1288,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectPrimitive_Impl::HasInverseTransform(this, core::mem::transmute_copy(&uiindex)) {
                     Ok(ok__) => {
-                        pfhasinverse.write(core::mem::transmute(ok__));
+                        pfhasinverse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1354,7 +1354,7 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectPrimitiveImpl_Impl::IsVolatile(this, core::mem::transmute_copy(&uioutputindex)) {
                     Ok(ok__) => {
-                        pfvolatile.write(core::mem::transmute(ok__));
+                        pfvolatile.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl IMILBitmapEffectRenderContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectRenderContext_Impl::GetOutputPixelFormat(this) {
                     Ok(ok__) => {
-                        pformat.write(core::mem::transmute(ok__));
+                        pformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1541,7 +1541,7 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffectRenderContextImpl_Impl::GetUseSoftwareRenderer(this) {
                     Ok(ok__) => {
-                        pfsoftware.write(core::mem::transmute(ok__));
+                        pfsoftware.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1672,7 +1672,7 @@ impl IMILBitmapEffects_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMILBitmapEffects_Impl::Count(this) {
                     Ok(ok__) => {
-                        puicount.write(core::mem::transmute(ok__));
+                        puicount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

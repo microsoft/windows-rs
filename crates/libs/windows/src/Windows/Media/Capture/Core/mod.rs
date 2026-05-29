@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 impl windows_core::RuntimeType for IVariablePhotoCapturedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10,13 +11,14 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub Frame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Frame: usize,
-    pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub UsedFrameControllerIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CapturedFrameControlValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVariablePhotoSequenceCapture, IVariablePhotoSequenceCapture_Vtbl, 0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 impl windows_core::RuntimeType for IVariablePhotoSequenceCapture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +35,7 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
 windows_core::imp::define_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 impl windows_core::RuntimeType for IVariablePhotoSequenceCapture2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,7 +55,7 @@ impl VariablePhotoCapturedEventArgs {
             (windows_core::Interface::vtable(self).Frame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CaptureTimeOffset(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn CaptureTimeOffset(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CaptureTimeOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

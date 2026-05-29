@@ -174,6 +174,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IActivatable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IActivatable");
 }
 impl windows_core::RuntimeName for IActivatable {
     const NAME: &'static str = "test_constructors.IActivatable";
@@ -223,6 +225,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IActivatableFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IActivatableFactory");
 }
 impl windows_core::RuntimeName for IActivatableFactory {
     const NAME: &'static str = "test_constructors.IActivatableFactory";
@@ -280,6 +284,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IComposable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IComposable");
 }
 impl windows_core::RuntimeName for IComposable {
     const NAME: &'static str = "test_constructors.IComposable";
@@ -329,6 +335,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IComposableFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IComposableFactory");
 }
 impl windows_core::RuntimeName for IComposableFactory {
     const NAME: &'static str = "test_constructors.IComposableFactory";

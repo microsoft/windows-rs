@@ -9,7 +9,7 @@ impl CoreUserActivityManager {
             (windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(windows_core::Interface::as_raw(this), activity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: windows_time::DateTime, endtime: windows_time::DateTime) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::UserActivityChannel>,
     {
@@ -29,11 +29,12 @@ impl windows_core::RuntimeName for CoreUserActivityManager {
 windows_core::imp::define_interface!(ICoreUserActivityManagerStatics, ICoreUserActivityManagerStatics_Vtbl, 0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 impl windows_core::RuntimeType for ICoreUserActivityManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserActivities.Core.ICoreUserActivityManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreUserActivityManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateUserActivitySessionInBackground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteUserActivitySessionsInTimeRangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::DateTime, super::super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteUserActivitySessionsInTimeRangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

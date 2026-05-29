@@ -14,7 +14,7 @@ windows-bindgen = { workspace = true }
 cppwinrt = { workspace = true }
 
 [dependencies]
-windows-core = { workspace = true }
+windows-core = { workspace = true , default-features = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
 test_constructors = { path = "../constructors" }
 

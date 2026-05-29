@@ -35,9 +35,19 @@ impl Delegate {
             config,
             None,
             InterfaceKind::Default,
-            &mut MethodNames::new(),
-            &mut MethodNames::new(),
+            &mut MethodNames::for_style(&config.bindgen.style),
+            &mut MethodNames::for_style(&config.bindgen.style),
         );
+
+        // In minimal mode, delegates are invoked by the API, not by user code.
+        // Suppress the public Invoke() method for all minimal delegates.
+        let is_event_only = config.bindgen.style.is_minimal()
+            && config.event_only_delegates.contains(&self.type_name());
+        let invoke_method = if config.bindgen.style.is_minimal() {
+            quote! {}
+        } else {
+            invoke
+        };
 
         let invoke_vtbl = method.write_abi(config, true);
 
@@ -87,33 +97,55 @@ impl Delegate {
         // directly, avoiding a `Result` round trip. This also lets the
         // generated event-add wrappers reuse the same closure signature.
         let fn_constraint = {
-            let signature = if config.minimal {
+            let signature = if config.bindgen.style.is_minimal() {
                 method.write_impl_signature_no_return(config)
             } else {
                 method.write_impl_signature(config, false, false)
             };
 
-            quote! { F: Fn #signature + Send + 'static }
+            if config.bindgen.style.is_minimal() {
+                quote! { F: Fn #signature + 'static }
+            } else {
+                quote! { F: Fn #signature + Send + 'static }
+            }
         };
 
-        let invoke_upcall = if config.minimal {
-            method.write_upcall_no_return(quote! { (this.invoke) }, false, config)
+        // Event-only delegates never need `new()` — the event-add wrapper
+        // inlines the DelegateBox construction directly.
+        let new_method = if is_event_only {
+            quote! {}
         } else {
-            method.write_upcall(quote! { (this.invoke) }, false, config)
-        };
-
-        quote! {
-            #definition
-            #cfg
-            impl<#constraints> #name {
+            quote! {
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = windows_core::imp::DelegateBox::<#name, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
                     unsafe {
                         core::mem::transmute(windows_core::imp::Box::new(com))
                     }
                 }
-                #invoke
             }
+        };
+
+        let invoke_upcall = if config.bindgen.style.is_minimal() {
+            method.write_upcall_no_return(quote! { (this.invoke) }, false, config)
+        } else {
+            method.write_upcall(quote! { (this.invoke) }, false, config)
+        };
+
+        let impl_block = if is_event_only {
+            quote! {}
+        } else {
+            quote! {
+                #cfg
+                impl<#constraints> #name {
+                    #new_method
+                    #invoke_method
+                }
+            }
+        };
+
+        quote! {
+            #definition
+            #impl_block
             #cfg
             #[repr(C)]
             #[doc(hidden)]

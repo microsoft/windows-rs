@@ -11,6 +11,7 @@ impl windows_core::TypeKind for GuidanceAudioMeasurementSystem {
 }
 impl windows_core::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -28,6 +29,7 @@ impl windows_core::TypeKind for GuidanceAudioNotificationKind {
 }
 impl windows_core::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -82,6 +84,7 @@ impl windows_core::TypeKind for GuidanceAudioNotifications {
 }
 impl windows_core::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.GuidanceAudioNotifications");
 }
 impl GuidanceAudioNotifications {
     pub const fn contains(&self, other: Self) -> bool {
@@ -167,6 +170,7 @@ impl windows_core::TypeKind for GuidanceLaneMarkers {
 }
 impl windows_core::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.GuidanceLaneMarkers");
 }
 impl GuidanceLaneMarkers {
     pub const fn contains(&self, other: Self) -> bool {
@@ -350,6 +354,7 @@ impl windows_core::TypeKind for GuidanceManeuverKind {
 }
 impl windows_core::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.GuidanceManeuverKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -414,6 +419,7 @@ impl windows_core::TypeKind for GuidanceMode {
 }
 impl windows_core::RuntimeType for GuidanceMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.GuidanceMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -671,7 +677,7 @@ impl GuidanceRoadSegment {
             (windows_core::Interface::vtable(self).SpeedLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TravelTime(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TravelTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TravelTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -783,7 +789,7 @@ unsafe impl Sync for GuidanceRoadSignpost {}
 pub struct GuidanceRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoute, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoute {
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -967,13 +973,13 @@ impl GuidanceUpdatedEventArgs {
             (windows_core::Interface::vtable(self).ElapsedDistance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ElapsedTime(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ElapsedTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElapsedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeToDestination(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TimeToDestination(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeToDestination)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1025,6 +1031,7 @@ unsafe impl Sync for GuidanceUpdatedEventArgs {}
 windows_core::imp::define_interface!(IGuidanceAudioNotificationRequestedEventArgs, IGuidanceAudioNotificationRequestedEventArgs_Vtbl, 0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 impl windows_core::RuntimeType for IGuidanceAudioNotificationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceAudioNotificationRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1037,6 +1044,7 @@ pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGuidanceLaneInfo, IGuidanceLaneInfo_Vtbl, 0x8404d114_6581_43b7_ac15_c9079bf90df1);
 impl windows_core::RuntimeType for IGuidanceLaneInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceLaneInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1048,6 +1056,7 @@ pub struct IGuidanceLaneInfo_Vtbl {
 windows_core::imp::define_interface!(IGuidanceManeuver, IGuidanceManeuver_Vtbl, 0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 impl windows_core::RuntimeType for IGuidanceManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceManeuver");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1072,6 +1081,7 @@ pub struct IGuidanceManeuver_Vtbl {
 windows_core::imp::define_interface!(IGuidanceMapMatchedCoordinate, IGuidanceMapMatchedCoordinate_Vtbl, 0xb7acb168_2912_4a99_aff1_798609b981fe);
 impl windows_core::RuntimeType for IGuidanceMapMatchedCoordinate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceMapMatchedCoordinate");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1089,6 +1099,7 @@ pub struct IGuidanceMapMatchedCoordinate_Vtbl {
 windows_core::imp::define_interface!(IGuidanceNavigator, IGuidanceNavigator_Vtbl, 0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
 impl windows_core::RuntimeType for IGuidanceNavigator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceNavigator");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1132,6 +1143,7 @@ pub struct IGuidanceNavigator_Vtbl {
 windows_core::imp::define_interface!(IGuidanceNavigator2, IGuidanceNavigator2_Vtbl, 0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
 impl windows_core::RuntimeType for IGuidanceNavigator2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceNavigator2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1145,6 +1157,7 @@ pub struct IGuidanceNavigator2_Vtbl {
 windows_core::imp::define_interface!(IGuidanceNavigatorStatics, IGuidanceNavigatorStatics_Vtbl, 0x00fd9513_4456_4e66_a143_3add6be08426);
 impl windows_core::RuntimeType for IGuidanceNavigatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceNavigatorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1155,6 +1168,7 @@ pub struct IGuidanceNavigatorStatics_Vtbl {
 windows_core::imp::define_interface!(IGuidanceNavigatorStatics2, IGuidanceNavigatorStatics2_Vtbl, 0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
 impl windows_core::RuntimeType for IGuidanceNavigatorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceNavigatorStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1165,6 +1179,7 @@ pub struct IGuidanceNavigatorStatics2_Vtbl {
 windows_core::imp::define_interface!(IGuidanceReroutedEventArgs, IGuidanceReroutedEventArgs_Vtbl, 0x115d4008_d528_454e_bb94_a50341d2c9f1);
 impl windows_core::RuntimeType for IGuidanceReroutedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceReroutedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1175,6 +1190,7 @@ pub struct IGuidanceReroutedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGuidanceRoadSegment, IGuidanceRoadSegment_Vtbl, 0xb32758a6_be78_4c63_afe7_6c2957479b3e);
 impl windows_core::RuntimeType for IGuidanceRoadSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceRoadSegment");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1183,7 +1199,7 @@ pub struct IGuidanceRoadSegment_Vtbl {
     pub RoadName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShortRoadName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SpeedLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub TravelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TravelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -1196,6 +1212,7 @@ pub struct IGuidanceRoadSegment_Vtbl {
 windows_core::imp::define_interface!(IGuidanceRoadSegment2, IGuidanceRoadSegment2_Vtbl, 0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
 impl windows_core::RuntimeType for IGuidanceRoadSegment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceRoadSegment2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1206,6 +1223,7 @@ pub struct IGuidanceRoadSegment2_Vtbl {
 windows_core::imp::define_interface!(IGuidanceRoadSignpost, IGuidanceRoadSignpost_Vtbl, 0xf1a728b6_f77a_4742_8312_53300f9845f0);
 impl windows_core::RuntimeType for IGuidanceRoadSignpost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceRoadSignpost");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1226,12 +1244,13 @@ pub struct IGuidanceRoadSignpost_Vtbl {
 windows_core::imp::define_interface!(IGuidanceRoute, IGuidanceRoute_Vtbl, 0x3a14545d_801a_40bd_a286_afb2010cce6c);
 impl windows_core::RuntimeType for IGuidanceRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceRoute");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Distance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Maneuvers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
@@ -1248,6 +1267,7 @@ pub struct IGuidanceRoute_Vtbl {
 windows_core::imp::define_interface!(IGuidanceRouteStatics, IGuidanceRouteStatics_Vtbl, 0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
 impl windows_core::RuntimeType for IGuidanceRouteStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceRouteStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1259,6 +1279,7 @@ pub struct IGuidanceRouteStatics_Vtbl {
 windows_core::imp::define_interface!(IGuidanceTelemetryCollector, IGuidanceTelemetryCollector_Vtbl, 0xdb1f8da5_b878_4d92_98dd_347d23d38262);
 impl windows_core::RuntimeType for IGuidanceTelemetryCollector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceTelemetryCollector");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1275,6 +1296,7 @@ pub struct IGuidanceTelemetryCollector_Vtbl {
 windows_core::imp::define_interface!(IGuidanceTelemetryCollectorStatics, IGuidanceTelemetryCollectorStatics_Vtbl, 0x36532047_f160_44fb_b578_94577ca05990);
 impl windows_core::RuntimeType for IGuidanceTelemetryCollectorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceTelemetryCollectorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1285,6 +1307,7 @@ pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
 windows_core::imp::define_interface!(IGuidanceUpdatedEventArgs, IGuidanceUpdatedEventArgs_Vtbl, 0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
 impl windows_core::RuntimeType for IGuidanceUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1297,8 +1320,8 @@ pub struct IGuidanceUpdatedEventArgs_Vtbl {
     pub AfterNextManeuverDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DistanceToDestination: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ElapsedDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub TimeToDestination: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub TimeToDestination: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub RoadName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Route: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CurrentLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

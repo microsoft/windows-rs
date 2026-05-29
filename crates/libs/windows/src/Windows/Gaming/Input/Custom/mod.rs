@@ -53,6 +53,7 @@ impl windows_core::TypeKind for GameControllerVersionInfo {
 }
 impl windows_core::RuntimeType for GameControllerVersionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.GameControllerVersionInfo");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -65,6 +66,7 @@ impl windows_core::TypeKind for GipFirmwareUpdateProgress {
 }
 impl windows_core::RuntimeType for GipFirmwareUpdateProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -115,6 +117,7 @@ impl windows_core::TypeKind for GipFirmwareUpdateStatus {
 }
 impl windows_core::RuntimeType for GipFirmwareUpdateStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -199,6 +202,7 @@ impl windows_core::TypeKind for GipMessageClass {
 }
 impl windows_core::RuntimeType for GipMessageClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.GipMessageClass");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -278,6 +282,7 @@ unsafe impl Sync for HidGameControllerProvider {}
 windows_core::imp::define_interface!(ICustomGameControllerFactory, ICustomGameControllerFactory_Vtbl, 0x69a0ae5e_758e_4cbe_ace6_62155fe9126f);
 impl windows_core::RuntimeType for ICustomGameControllerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.ICustomGameControllerFactory");
 }
 windows_core::imp::interface_hierarchy!(ICustomGameControllerFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl ICustomGameControllerFactory {
@@ -360,6 +365,7 @@ pub struct ICustomGameControllerFactory_Vtbl {
 windows_core::imp::define_interface!(IGameControllerFactoryManagerStatics, IGameControllerFactoryManagerStatics_Vtbl, 0x36cb66e3_d0a1_4986_a24c_40b137deba9e);
 impl windows_core::RuntimeType for IGameControllerFactoryManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGameControllerFactoryManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -372,6 +378,7 @@ pub struct IGameControllerFactoryManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IGameControllerFactoryManagerStatics2, IGameControllerFactoryManagerStatics2_Vtbl, 0xeace5644_19df_4115_b32a_2793e2aea3bb);
 impl windows_core::RuntimeType for IGameControllerFactoryManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGameControllerFactoryManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -382,6 +389,7 @@ pub struct IGameControllerFactoryManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IGameControllerInputSink, IGameControllerInputSink_Vtbl, 0x1ff6f922_c640_4c78_a820_9a715c558bcb);
 impl windows_core::RuntimeType for IGameControllerInputSink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGameControllerInputSink");
 }
 windows_core::imp::interface_hierarchy!(IGameControllerInputSink, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameControllerInputSink {
@@ -433,6 +441,7 @@ pub struct IGameControllerInputSink_Vtbl {
 windows_core::imp::define_interface!(IGameControllerProvider, IGameControllerProvider_Vtbl, 0xe6d73982_2996_4559_b16c_3e57d46e58d6);
 impl windows_core::RuntimeType for IGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGameControllerProvider");
 }
 windows_core::imp::interface_hierarchy!(IGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameControllerProvider {
@@ -565,6 +574,7 @@ pub struct IGameControllerProvider_Vtbl {
 windows_core::imp::define_interface!(IGipFirmwareUpdateResult, IGipFirmwareUpdateResult_Vtbl, 0x6b794d32_8553_4292_8e03_e16651a2f8bc);
 impl windows_core::RuntimeType for IGipFirmwareUpdateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGipFirmwareUpdateResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -577,6 +587,7 @@ pub struct IGipFirmwareUpdateResult_Vtbl {
 windows_core::imp::define_interface!(IGipGameControllerInputSink, IGipGameControllerInputSink_Vtbl, 0xa2108abf_09f1_43bc_a140_80f899ec36fb);
 impl windows_core::RuntimeType for IGipGameControllerInputSink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGipGameControllerInputSink");
 }
 windows_core::imp::interface_hierarchy!(IGipGameControllerInputSink, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IGipGameControllerInputSink, IGameControllerInputSink);
@@ -637,6 +648,7 @@ pub struct IGipGameControllerInputSink_Vtbl {
 windows_core::imp::define_interface!(IGipGameControllerProvider, IGipGameControllerProvider_Vtbl, 0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc);
 impl windows_core::RuntimeType for IGipGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IGipGameControllerProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -652,6 +664,7 @@ pub struct IGipGameControllerProvider_Vtbl {
 windows_core::imp::define_interface!(IHidGameControllerInputSink, IHidGameControllerInputSink_Vtbl, 0xf754c322_182d_40e4_a126_fcee4ffa1e31);
 impl windows_core::RuntimeType for IHidGameControllerInputSink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IHidGameControllerInputSink");
 }
 windows_core::imp::interface_hierarchy!(IHidGameControllerInputSink, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHidGameControllerInputSink, IGameControllerInputSink);
@@ -700,6 +713,7 @@ pub struct IHidGameControllerInputSink_Vtbl {
 windows_core::imp::define_interface!(IHidGameControllerProvider, IHidGameControllerProvider_Vtbl, 0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7);
 impl windows_core::RuntimeType for IHidGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IHidGameControllerProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -714,6 +728,7 @@ pub struct IHidGameControllerProvider_Vtbl {
 windows_core::imp::define_interface!(IXusbGameControllerInputSink, IXusbGameControllerInputSink_Vtbl, 0xb2ac1d95_6ecb_42b3_8aab_025401ca4712);
 impl windows_core::RuntimeType for IXusbGameControllerInputSink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IXusbGameControllerInputSink");
 }
 windows_core::imp::interface_hierarchy!(IXusbGameControllerInputSink, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IXusbGameControllerInputSink, IGameControllerInputSink);
@@ -762,6 +777,7 @@ pub struct IXusbGameControllerInputSink_Vtbl {
 windows_core::imp::define_interface!(IXusbGameControllerProvider, IXusbGameControllerProvider_Vtbl, 0x6e2971eb_0efb_48b4_808b_837643b2f216);
 impl windows_core::RuntimeType for IXusbGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.IXusbGameControllerProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -790,6 +806,7 @@ impl windows_core::TypeKind for XusbDeviceSubtype {
 }
 impl windows_core::RuntimeType for XusbDeviceSubtype {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.XusbDeviceSubtype");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -803,6 +820,7 @@ impl windows_core::TypeKind for XusbDeviceType {
 }
 impl windows_core::RuntimeType for XusbDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Custom.XusbDeviceType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

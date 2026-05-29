@@ -30,7 +30,7 @@ impl IWaaSAssessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWaaSAssessor_Impl::GetOSUpdateAssessment(this) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

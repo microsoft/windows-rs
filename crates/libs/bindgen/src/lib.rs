@@ -9,12 +9,15 @@ mod config;
 mod derive;
 mod derive_writer;
 mod filter;
+mod format;
 mod guid;
 mod implements;
 mod index;
 mod io;
 mod libraries;
+mod package_writer;
 mod param;
+mod paths;
 mod references;
 mod signature;
 mod tables;
@@ -35,6 +38,7 @@ use guid::*;
 use implements::*;
 use io::*;
 pub use libraries::*;
+use package_writer::*;
 use param::*;
 use references::*;
 use signature::*;
@@ -51,7 +55,11 @@ use value::*;
 pub use warnings::*;
 use winmd::*;
 mod method_names;
+mod minimal_filter;
+mod minimal_type_map;
 use method_names::*;
+use minimal_filter::*;
+use minimal_type_map::*;
 
 pub fn builder() -> Bindgen {
     Bindgen::new()
@@ -86,6 +94,7 @@ pub fn builder() -> Bindgen {
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
+/// | `--etc` | Reads additional whitespace-separated arguments from one or more response files (lines beginning with `//` are ignored). |
 ///
 ///
 /// # `--out`
@@ -146,16 +155,34 @@ pub fn builder() -> Bindgen {
 /// |-------------------------------|---------------------------------------------------------------------------------|
 /// | `Ns.Type`                     | Keep the type and all its methods (existing behavior; backwards-compatible).    |
 /// | `?Ns.Type`                    | Trait-only emit: vtable + `_Impl` trait + thunks, but no inherent `impl IFace { fn X(&self) … }` caller-side wrapper block. |
-/// | `Ns.Type::Method`             | Allowlist mode: only listed methods are kept; the rest demote to `Slot: usize`. |
-/// | `!Ns.Type::Method`            | Denylist mode: the listed methods demote to `Slot: usize`; the rest are kept.   |
+/// | `??Ns.Type`                   | Skeleton-only emit: struct + IID + hierarchy + `Interface` impl, but every vtable slot demoted to `Slot: usize` and no caller-side wrapper block (the `_Impl` trait is omitted via the existing has-skipped-methods path). |
+/// | `Ns.Type::Method`             | Allowlist entry: keep this method. Unlisted methods demote when at least one allow entry exists on the type. |
+/// | `!Ns.Type::Method`            | Denylist entry: demote this method to `Slot: usize`.                            |
 /// | `Ns.Type::Property`           | Sugar for `Ns.Type::get_Property` + `Ns.Type::put_Property` (whichever exist).  |
+/// | `Ns.Type::get:Property`       | Accessor-only sugar: only the `get_Property` getter.                            |
+/// | `Ns.Type::set:Property`       | Accessor-only sugar: only the `put_Property` setter.                            |
 /// | `Ns.Type::Event`              | Sugar for `Ns.Type::add_Event` + `Ns.Type::remove_Event` (whichever exist).     |
+/// | `Ns.Type::add:Event`          | Accessor-only sugar: only the `add_Event` subscriber.                           |
+/// | `Ns.Type::remove:Event`       | Accessor-only sugar: only the `remove_Event` unsubscriber.                      |
 ///
 /// The `?Ns.Type` prefix is for required-but-uncalled interfaces (e.g. `IPropertyValue` on
 /// an `IReference<T>` implementation): callers never invoke the methods through this projection,
 /// but implementers must still stub them (typically with `E_NOTIMPL`) to satisfy the WinRT
 /// required-interface contract. Trait-only emission preserves ABI, the `_Impl` super-trait chain,
 /// and `QueryInterface` support; it only drops the caller-side wrappers that nobody calls.
+///
+/// The `??Ns.Type` prefix is for interfaces needed only for class / `QueryInterface` hierarchy
+/// (e.g. an abstract base) that the caller never invokes through this projection and never
+/// implements. The type still participates in `interface_hierarchy!` / `required_hierarchy!` so
+/// `cast::<T>(&derived)?` works, but every vtable slot becomes opaque and the `_Impl` trait is
+/// omitted; this combines `?` (no caller wrappers) with whole-vtable demotion.
+///
+/// Allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) method-level entries may coexist on
+/// the same type. Deny wins on overlap. When at least one allow entry exists on the type,
+/// unlisted methods are demoted (allow-list mode treats them as opt-out); with deny entries
+/// only, unlisted methods are kept (deny-only mode). This lets you start from a denylist and
+/// add explicit `keep` entries later, or vice-versa, without rewriting all entries to a single
+/// style.
 ///
 /// When `Ns.Type` is a runtime class, the entry resolves against the class's required interfaces
 /// (instance default, static factory, activation/composable factory, base interfaces) and registers
@@ -166,9 +193,8 @@ pub fn builder() -> Bindgen {
 ///
 /// Vtable layout is preserved: demoted methods become `Slot: usize` at their original offset using
 /// the same opaque-slot mechanism `--minimal` already uses for signature-pruned methods, so ABI is
-/// safe by construction. Mixing allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) entries
-/// on the same type is a hard error, as is using a method-level filter on a type matched by
-/// `--implement` (methods on implemented interfaces are always emitted).
+/// safe by construction. Using a method-level filter on a type matched by `--implement` is a hard
+/// error (methods on implemented interfaces are always emitted).
 ///
 /// Because demoting a method to an opaque slot leaves the type unable to be implemented through
 /// its `_Impl` trait, the trait is omitted with the same warning the existing dependency-skip
@@ -391,7 +417,7 @@ where
                     builder.extern_fns();
                 }
                 "--implement" => {
-                    builder.implement = true;
+                    builder.implement.get_or_insert_with(Vec::new);
                     kind = ArgKind::Implement;
                 }
                 "--link" => kind = ArgKind::Link,
@@ -401,9 +427,7 @@ where
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
-                if has_output {
-                    panic!("exactly one `--out` is required");
-                }
+                assert!(!has_output, "exactly one `--out` is required");
                 builder.output(arg);
                 has_output = true;
             }
@@ -420,7 +444,10 @@ where
                 builder.derive(arg);
             }
             ArgKind::Implement => {
-                builder.implements.push(arg.to_string());
+                builder
+                    .implement
+                    .get_or_insert_with(Vec::new)
+                    .push(arg.clone());
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
@@ -439,26 +466,6 @@ where
                 });
             }
         }
-    }
-
-    if builder.package && builder.flat {
-        panic!("cannot combine `--package` and `--flat`");
-    }
-
-    if builder.sys && builder.minimal {
-        panic!("cannot combine `--sys` and `--minimal`");
-    }
-
-    if builder.no_toml && !builder.package {
-        panic!("`--no-toml` requires `--package`");
-    }
-
-    if builder.sys_fn_extern && !builder.sys {
-        panic!("`--extern` requires `--sys`");
-    }
-
-    if !has_output {
-        panic!("exactly one `--out` is required");
     }
 
     builder.write()
@@ -484,19 +491,72 @@ pub struct Bindgen {
     output: String,
     references: Vec<String>,
     derive: Vec<String>,
-    implements: Vec<String>,
-    rustfmt: String,
-    link: String,
-    flat: bool,
-    no_deps: bool,
-    no_toml: bool,
-    package: bool,
-    implement: bool,
-    specific_deps: bool,
-    sys: bool,
-    minimal: bool,
-    sys_fn_extern: bool,
+    implement: Option<Vec<String>>,
+    rustfmt: Option<String>,
+    link: Option<String>,
+    layout: Layout,
+    style: Style,
+    deps: DepMode,
     index: bool,
+}
+
+/// Output layout for the generated bindings. Mutually exclusive variants
+/// replace the legacy `flat: bool` + `package: bool` + `no_toml: bool`
+/// triple, making invalid combinations unrepresentable.
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+enum Layout {
+    /// One Rust module per metadata namespace (the default).
+    #[default]
+    Modules,
+    /// A single flat list of items (no namespace modules).
+    Flat,
+    /// One file per namespace + `Cargo.toml` features.
+    Package {
+        /// When `true`, skip rewriting `Cargo.toml`.
+        no_toml: bool,
+    },
+}
+
+impl Layout {
+    fn is_flat(self) -> bool {
+        matches!(self, Layout::Flat)
+    }
+    fn is_package(self) -> bool {
+        matches!(self, Layout::Package { .. })
+    }
+    fn no_toml(self) -> bool {
+        matches!(self, Layout::Package { no_toml: true })
+    }
+}
+
+/// Code-style mode for the generated bindings. Mutually exclusive variants
+/// replace the legacy `sys: bool` + `minimal: bool` + `sys_fn_extern: bool`
+/// triple, making invalid combinations unrepresentable.
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+enum Style {
+    /// Full-fidelity bindings (the default).
+    #[default]
+    Default,
+    /// Raw / sys-style bindings.
+    Sys {
+        /// When `true`, emit `extern { fn … }` instead of `link!` macros.
+        extern_fns: bool,
+    },
+    /// Minimal-mode bindings (drop class wrappers, inherited forwarders,
+    /// handle ergonomics; auto-revoke events).
+    Minimal,
+}
+
+impl Style {
+    fn is_sys(self) -> bool {
+        matches!(self, Style::Sys { .. })
+    }
+    fn is_minimal(self) -> bool {
+        matches!(self, Style::Minimal)
+    }
+    fn sys_fn_extern(self) -> bool {
+        matches!(self, Style::Sys { extern_fns: true })
+    }
 }
 
 impl Bindgen {
@@ -507,8 +567,7 @@ impl Bindgen {
     /// Add a `.winmd` file or directory containing `.winmd` files.
     /// Use `"default"` to include the metadata bundled with `windows-bindgen`.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
-        self
+        self.inputs(std::iter::once(input))
     }
 
     /// Add multiple `.winmd` files or directories containing `.winmd` files.
@@ -537,8 +596,7 @@ impl Bindgen {
     /// `Event` sugar). Prefix with `!` to exclude rather than include. See the crate-level
     /// docs for the full grammar.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
-        self.filter.push(filter.to_string());
-        self
+        self.filters(std::iter::once(filter))
     }
 
     /// Add multiple filter rules to include or exclude APIs.
@@ -560,8 +618,7 @@ impl Bindgen {
 
     /// Add an extra trait for types to derive.
     pub fn derive(&mut self, derive: &str) -> &mut Self {
-        self.derive.push(derive.to_string());
-        self
+        self.derives(std::iter::once(derive))
     }
 
     /// Add multiple extra traits for types to derive.
@@ -578,8 +635,7 @@ impl Bindgen {
 
     /// Add a reference dependency.
     pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.references.push(reference.to_string());
-        self
+        self.references(std::iter::once(reference))
     }
 
     /// Add multiple reference dependencies.
@@ -596,19 +652,23 @@ impl Bindgen {
 
     /// Override the default Rust formatter path.
     pub fn rustfmt(&mut self, rustfmt: &str) -> &mut Self {
-        self.rustfmt = rustfmt.to_string();
+        self.rustfmt = Some(rustfmt.to_string());
         self
     }
 
     /// Override the default `windows-link` implementation for system calls.
     pub fn link(&mut self, link: &str) -> &mut Self {
-        self.link = link.to_string();
+        self.link = Some(link.to_string());
         self
     }
 
     /// Avoid the default namespace-to-module conversion.
+    #[track_caller]
     pub fn flat(&mut self) -> &mut Self {
-        self.flat = true;
+        if matches!(self.layout, Layout::Package { .. }) {
+            panic!("cannot combine `--package` and `--flat`");
+        }
+        self.layout = Layout::Flat;
         self
     }
 
@@ -620,32 +680,30 @@ impl Bindgen {
     ///   and `windows-link` directly instead of going through `windows-core`.
     /// - [`DepMode::None`]: bindings avoid pulling in any of the `windows-*` crates.
     pub fn deps(&mut self, mode: DepMode) -> &mut Self {
-        match mode {
-            DepMode::Core => {
-                self.no_deps = false;
-                self.specific_deps = false;
-            }
-            DepMode::Specific => {
-                self.no_deps = false;
-                self.specific_deps = true;
-            }
-            DepMode::None => {
-                self.no_deps = true;
-                self.specific_deps = false;
-            }
-        }
+        self.deps = mode;
         self
     }
 
     /// Avoid generating the Cargo.toml features when using `package` mode.
+    ///
+    /// Only valid in combination with [`Bindgen::package`]; panics otherwise.
+    #[track_caller]
     pub fn no_toml(&mut self) -> &mut Self {
-        self.no_toml = true;
+        match &mut self.layout {
+            Layout::Package { no_toml } => *no_toml = true,
+            _ => panic!("`--no-toml` requires `--package`"),
+        }
         self
     }
 
     /// Generate bindings as a package with one file per namespace.
+    #[track_caller]
     pub fn package(&mut self) -> &mut Self {
-        self.package = true;
+        let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
+        if matches!(self.layout, Layout::Flat) {
+            panic!("cannot combine `--package` and `--flat`");
+        }
+        self.layout = Layout::Package { no_toml };
         self
     }
 
@@ -665,16 +723,24 @@ impl Bindgen {
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        self.implement = true;
+        let list = self.implement.get_or_insert_with(Vec::new);
         for name in names {
-            self.implements.push(name.as_ref().to_string());
+            list.push(name.as_ref().to_string());
         }
         self
     }
 
     /// Generate raw or sys-style Rust bindings.
+    ///
+    /// Mutually exclusive with [`Bindgen::minimal`]; panics if `minimal` was
+    /// already selected.
+    #[track_caller]
     pub fn sys(&mut self) -> &mut Self {
-        self.sys = true;
+        let extern_fns = matches!(self.style, Style::Sys { extern_fns: true });
+        if matches!(self.style, Style::Minimal) {
+            panic!("cannot combine `--sys` and `--minimal`");
+        }
+        self.style = Style::Sys { extern_fns };
         self
     }
 
@@ -695,9 +761,9 @@ impl Bindgen {
     /// matching `--sys`).
     ///
     /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
-    /// auto-revoking wrapper that returns a [`windows_core::EventRevoker`].
+    /// auto-revoking wrapper that returns a `windows_core::EventRevoker`.
     /// The `Remove*` wrapper is suppressed. Callers can call
-    /// [`windows_core::EventRevoker::into_token`] to recover the raw token when interoperating
+    /// `windows_core::EventRevoker::into_token` to recover the raw token when interoperating
     /// with code that manages registration tokens directly.
     ///
     /// This is a build-time / disk / memory optimization: the generated source
@@ -708,16 +774,24 @@ impl Bindgen {
     /// raw-vtable callers are unaffected.
     ///
     /// `--minimal` is mutually exclusive with `--sys`.
+    #[track_caller]
     pub fn minimal(&mut self) -> &mut Self {
-        self.minimal = true;
+        if matches!(self.style, Style::Sys { .. }) {
+            panic!("cannot combine `--sys` and `--minimal`");
+        }
+        self.style = Style::Minimal;
         self
     }
 
     /// Generate `extern` declarations rather than `link!` macros for sys-style Rust bindings.
     ///
-    /// Only valid in combination with [`Bindgen::sys`].
+    /// Only valid in combination with [`Bindgen::sys`]; panics otherwise.
+    #[track_caller]
     pub fn extern_fns(&mut self) -> &mut Self {
-        self.sys_fn_extern = true;
+        match &mut self.style {
+            Style::Sys { extern_fns } => *extern_fns = true,
+            _ => panic!("`--extern` requires `--sys`"),
+        }
         self
     }
 
@@ -727,10 +801,21 @@ impl Bindgen {
         self
     }
 
+    fn is_sys(&self) -> bool {
+        self.style.is_sys()
+    }
+
     /// Generate the bindings.
     #[track_caller]
     #[must_use]
     pub fn write(&self) -> Warnings {
+        // Validate up front so we fail fast before any expensive plumbing
+        // (link string, input vec, references, reader, …) runs.
+        assert!(
+            !self.output.is_empty(),
+            "output is required (call `.output()` or pass `--out`)"
+        );
+
         let mut include: Vec<&str> = vec![];
         let mut exclude: Vec<&str> = vec![];
 
@@ -742,14 +827,16 @@ impl Bindgen {
             }
         }
 
-        let link = if self.link.is_empty() {
-            if self.sys || self.specific_deps {
-                "windows_link"
-            } else {
-                "windows_core"
-            }
+        assert!(!include.is_empty(), "at least one `--filter` required");
+
+        let sys = self.is_sys();
+
+        let link = if let Some(link) = self.link.as_deref() {
+            link
+        } else if sys || self.deps == DepMode::Specific {
+            "windows_link"
         } else {
-            self.link.as_str()
+            "windows_core"
         };
 
         let default_input = ["default"];
@@ -759,30 +846,6 @@ impl Bindgen {
             self.input.iter().map(|s| s.as_str()).collect()
         };
 
-        if self.output.is_empty() {
-            panic!("output is required (call `.output()` or pass `--out`)");
-        }
-
-        if include.is_empty() {
-            panic!("at least one `--filter` required");
-        }
-
-        if self.package && self.flat {
-            panic!("cannot combine `--package` and `--flat`");
-        }
-
-        if self.sys && self.minimal {
-            panic!("cannot combine `--sys` and `--minimal`");
-        }
-
-        if self.no_toml && !self.package {
-            panic!("`--no-toml` requires `--package`");
-        }
-
-        if self.sys_fn_extern && !self.sys {
-            panic!("`--extern` requires `--sys`");
-        }
-
         let reader = Reader::new(expand_input(&input));
 
         let mut references: Vec<ReferenceStage> = self
@@ -791,7 +854,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !self.sys && !self.no_deps {
+        if !sys && self.deps != DepMode::None {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -799,7 +862,7 @@ impl Bindgen {
             // `prepend_default_refs` so they take precedence over any
             // user-supplied `--reference` entries (matching the historical
             // `references.insert(0, …)` ordering).
-            let win32_foundation_crate = if self.specific_deps {
+            let win32_foundation_crate = if self.deps == DepMode::Specific {
                 "windows_result"
             } else {
                 "windows_core"
@@ -836,6 +899,11 @@ impl Bindgen {
                     &["Windows.Foundation.IReference"][..],
                 ),
                 (
+                    "Windows.Foundation",
+                    "windows_time",
+                    &["Windows.Foundation.DateTime", "Windows.Foundation.TimeSpan"][..],
+                ),
+                (
                     "Windows.Foundation.Numerics",
                     "windows_numerics",
                     &[
@@ -857,46 +925,81 @@ impl Bindgen {
                 ),
             ] {
                 if reader.contains_key(probe_namespace) {
-                    prepend_default_refs(&mut references, crate_name, paths);
+                    let filtered: Vec<&str> = paths
+                        .iter()
+                        .copied()
+                        .filter(|path| {
+                            if let Some((namespace, name)) = path.rsplit_once('.') {
+                                if let Some(ns_map) = reader.get(namespace) {
+                                    if let Some(prefix) = name.strip_suffix('*') {
+                                        return ns_map.keys().any(|k| k.starts_with(prefix));
+                                    }
+                                    return ns_map.contains_key(name);
+                                }
+                            }
+                            false
+                        })
+                        .collect();
+                    if !filtered.is_empty() {
+                        prepend_default_refs(&mut references, crate_name, &filtered);
+                    }
                 }
             }
         }
 
         let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
-        let implements_str: Vec<&str> = self.implements.iter().map(|s| s.as_str()).collect();
+        let implements = self.implement.as_ref().map(|names| {
+            let names_str: Vec<&str> = names.iter().map(|s| s.as_str()).collect();
+            Implements::new(&names_str)
+        });
 
-        let filter = Filter::new(&reader, &include, &exclude);
         let references = References::new(&reader, references);
-        let types = TypeMap::filter(&reader, &filter, &references);
+
+        // In minimal mode, use the method-centric filter and automatic type
+        // closure instead of the traditional type-level include/exclude filter.
+        let minimal_filter = if self.style.is_minimal() {
+            Some(MinimalFilter::new(&reader, &include))
+        } else {
+            None
+        };
+
+        let (filter, types) = if let Some(minimal) = &minimal_filter {
+            let (types, filter) = MinimalTypeMap::build(&reader, minimal, &references);
+            (filter, types)
+        } else {
+            let filter = Filter::new(&reader, &include, &exclude);
+            let types = TypeMap::filter(&reader, &filter, &references);
+            (filter, types)
+        };
+
         let derive = Derive::new(&reader, &types, &derive_str);
-        let implements = Implements::new(&implements_str);
-        filter.validate_implements(&implements);
+        if let Some(implements) = &implements {
+            filter.validate_implements(implements);
+        }
         let warnings = WarningBuilder::default();
         for message in filter.warnings() {
             warnings.add(message.clone());
         }
 
+        let event_only_delegates = if self.style.is_minimal() {
+            compute_event_only_delegates(&types, &reader)
+        } else {
+            HashSet::new()
+        };
+
         let config = Config {
+            bindgen: self,
             reader: &reader,
             types: &types,
-            flat: self.flat,
             references: &references,
             filter: &filter,
             derive: &derive,
-            no_deps: self.no_deps,
-            no_toml: self.no_toml,
-            package: self.package,
-            rustfmt: &self.rustfmt,
-            output: &self.output,
-            sys: self.sys,
-            minimal: self.minimal,
-            sys_fn_extern: self.sys_fn_extern,
-            implement: self.implement,
-            implements: &implements,
-            specific_deps: self.specific_deps,
+            implement: implements.as_ref(),
             link,
             warnings: &warnings,
             namespace: "",
+            event_only_delegates: &event_only_delegates,
+            minimal_filter: minimal_filter.as_ref(),
         };
 
         let tree = TypeTree::new(&types);
@@ -947,7 +1050,32 @@ where
     // This function is needed to avoid a recursion limit in the Rust compiler.
     #[track_caller]
     fn from_string(result: &mut Vec<String>, value: &str) {
-        expand_args(result, value.split_whitespace().map(|arg| arg.to_string()));
+        // Split on whitespace but keep `{...}` groups together so that
+        // `Type::{a, b}` is not split across multiple args.
+        let mut args = Vec::new();
+        let mut current = String::new();
+        let mut brace_depth = 0u32;
+
+        for ch in value.chars() {
+            if ch == '{' {
+                brace_depth += 1;
+                current.push(ch);
+            } else if ch == '}' {
+                brace_depth = brace_depth.saturating_sub(1);
+                current.push(ch);
+            } else if ch.is_whitespace() && brace_depth == 0 {
+                if !current.is_empty() {
+                    args.push(std::mem::take(&mut current));
+                }
+            } else {
+                current.push(ch);
+            }
+        }
+        if !current.is_empty() {
+            args.push(current);
+        }
+
+        expand_args(result, args);
     }
 
     #[track_caller]
@@ -1005,9 +1133,10 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 }
             }
 
-            if result.len() == prev_len {
-                panic!("failed to find .winmd files in directory `{input}`");
-            }
+            assert!(
+                result.len() != prev_len,
+                "failed to find .winmd files in directory `{input}`"
+            );
         } else {
             result.push(input.to_string());
         }
@@ -1052,6 +1181,67 @@ fn expand_input(input: &[&str]) -> Vec<File> {
     input
 }
 
+/// Computes the set of delegate TypeNames that are exclusively used as
+/// parameters in `add_*` SpecialName methods (i.e., event handlers). These
+/// delegates never need a public `new()` or `Invoke()` because the event-add
+/// wrapper inlines the DelegateBox construction directly.
+fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<TypeName> {
+    // Collect all delegates in the type map.
+    let mut all_delegates: HashSet<TypeName> = HashSet::new();
+    for type_set in types.values() {
+        for ty in type_set {
+            if let Type::Delegate(d) = ty {
+                all_delegates.insert(d.type_name());
+            }
+        }
+    }
+
+    // Track delegates that appear in non-event contexts.
+    let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
+
+    for type_set in types.values() {
+        for ty in type_set {
+            let (methods, generics): (Box<dyn Iterator<Item = MethodDef>>, &[Type]) = match ty {
+                Type::Interface(i) => (Box::new(i.def.methods()), &i.generics),
+                Type::Class(c) => {
+                    // Classes reference interfaces; the interfaces' own methods
+                    // will be visited when we process the Interface variant.
+                    // However, some classes have factory/static methods on
+                    // exclusive interfaces that may take delegate params.
+                    // Those interfaces are in the type map separately, so skip.
+                    let _ = c;
+                    continue;
+                }
+                _ => continue,
+            };
+
+            for method in methods {
+                let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
+                    && method.name().starts_with("add_");
+
+                if is_event_add {
+                    continue;
+                }
+
+                // For non-event methods, any delegate param means that delegate
+                // is used outside of events.
+                let sig = method.method_signature("", generics, reader);
+                for param in &sig.params {
+                    if let Type::Delegate(d) = &param.ty {
+                        non_event_delegates.insert(d.type_name());
+                    }
+                }
+            }
+        }
+    }
+
+    // Event-only = all delegates minus those used in non-event contexts.
+    all_delegates
+        .difference(&non_event_delegates)
+        .copied()
+        .collect()
+}
+
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
     namespace.starts_with(starts_with)
         && (namespace.len() == starts_with.len()
@@ -1064,12 +1254,17 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
 /// as a `Flat`-style reference onto `crate_name`, taking precedence over
 /// any user-supplied `--reference` entries already in `refs`".
 fn prepend_default_refs(refs: &mut Vec<ReferenceStage>, crate_name: &str, paths: &[&str]) {
-    for path in paths {
-        refs.insert(
-            0,
-            ReferenceStage::new(crate_name, ReferenceStyle::Flat, path),
-        );
-    }
+    // `paths` is iterated in reverse so the resulting prefix matches the
+    // historical order produced by repeated `refs.insert(0, p)` calls (which
+    // reverses `paths` as a side effect). `splice(0..0, …)` does a single
+    // O(n) shift instead of one shift per element.
+    refs.splice(
+        0..0,
+        paths
+            .iter()
+            .rev()
+            .map(|path| ReferenceStage::new(crate_name, ReferenceStyle::Flat, path)),
+    );
 }
 
 #[cfg(test)]

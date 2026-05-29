@@ -41,7 +41,7 @@ impl IDisplayDeviceInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IDisplayDeviceInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
                     Ok(ok__) => {
-                        ppvobj.write(core::mem::transmute(ok__));
+                        ppvobj.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl IDisplayPathInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayPathInterop_Impl::CreateSourcePresentationHandle(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -118,7 +118,7 @@ impl IDisplayPathInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDisplayPathInterop_Impl::GetSourceId(this) {
                     Ok(ok__) => {
-                        psourceid.write(core::mem::transmute(ok__));
+                        psourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

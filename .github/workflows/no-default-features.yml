@@ -28,7 +28,7 @@ jobs:
     # Cross-platform crates that opt into `no_std` must keep building on a
     # non-Windows target with default features off. The list is intentionally
     # narrower than the Windows job's `--workspace`-style sweep below.
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       RUSTFLAGS: -D warnings
     steps:
@@ -57,7 +57,7 @@ jobs:
           git diff --exit-code || (echo 'Build changed code in the repo.'; exit 1)
 
   no-default-features:
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -96,6 +96,8 @@ jobs:
         run:  cargo check -p windows-numerics --no-default-features
       - name: Check windows-rdl
         run:  cargo check -p windows-rdl --no-default-features
+      - name: Check windows-reactor
+        run:  cargo check -p windows-reactor --no-default-features
       - name: Check windows-reference
         run:  cargo check -p windows-reference --no-default-features
       - name: Check windows-registry
@@ -112,5 +114,7 @@ jobs:
         run:  cargo check -p windows-targets --no-default-features
       - name: Check windows-threading
         run:  cargo check -p windows-threading --no-default-features
+      - name: Check windows-time
+        run:  cargo check -p windows-time --no-default-features
       - name: Check windows-version
         run:  cargo check -p windows-version --no-default-features

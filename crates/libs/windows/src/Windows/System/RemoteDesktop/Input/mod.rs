@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 impl windows_core::RuntimeType for IRemoteTextConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Input.IRemoteTextConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct IRemoteTextConnection_Vtbl {
 windows_core::imp::define_interface!(IRemoteTextConnection2, IRemoteTextConnection2_Vtbl, 0x05f99345_84c8_56c5_934f_73ea00f8c2d5);
 impl windows_core::RuntimeType for IRemoteTextConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Input.IRemoteTextConnection2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,6 +27,7 @@ pub struct IRemoteTextConnection2_Vtbl {
 windows_core::imp::define_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
 impl windows_core::RuntimeType for IRemoteTextConnectionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Input.IRemoteTextConnectionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,6 +38,7 @@ pub struct IRemoteTextConnectionFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteTextConnectionFactory2, IRemoteTextConnectionFactory2_Vtbl, 0x9425c7d9_ed9b_5d00_99cc_b0b8dc9e4c60);
 impl windows_core::RuntimeType for IRemoteTextConnectionFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Input.IRemoteTextConnectionFactory2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -57,6 +61,7 @@ impl windows_core::TypeKind for RemoteKeyEventAttributes {
 }
 impl windows_core::RuntimeType for RemoteKeyEventAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Input.RemoteKeyEventAttributes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Input.RemoteKeyEventAttributes");
 }
 impl RemoteKeyEventAttributes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -219,6 +224,7 @@ impl windows_core::TypeKind for RemoteTextConnectionOptions {
 }
 impl windows_core::RuntimeType for RemoteTextConnectionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Input.RemoteTextConnectionOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteDesktop.Input.RemoteTextConnectionOptions");
 }
 impl RemoteTextConnectionOptions {
     pub const fn contains(&self, other: Self) -> bool {

@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPrintTicketCapabilities, IPrintTicketCapabilities_Vtbl, 0x8c45508b_bbdc_4256_a142_2fd615ecb416);
 impl windows_core::RuntimeType for IPrintTicketCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IPrintTicketCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +34,7 @@ pub struct IPrintTicketCapabilities_Vtbl {
 windows_core::imp::define_interface!(IPrintTicketFeature, IPrintTicketFeature_Vtbl, 0xe7607d6a_59f5_4103_8858_b97710963d39);
 impl windows_core::RuntimeType for IPrintTicketFeature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IPrintTicketFeature");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,6 +56,7 @@ pub struct IPrintTicketFeature_Vtbl {
 windows_core::imp::define_interface!(IPrintTicketOption, IPrintTicketOption_Vtbl, 0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
 impl windows_core::RuntimeType for IPrintTicketOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IPrintTicketOption");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -80,6 +83,7 @@ pub struct IPrintTicketOption_Vtbl {
 windows_core::imp::define_interface!(IPrintTicketParameterDefinition, IPrintTicketParameterDefinition_Vtbl, 0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
 impl windows_core::RuntimeType for IPrintTicketParameterDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterDefinition");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,6 +103,7 @@ pub struct IPrintTicketParameterDefinition_Vtbl {
 windows_core::imp::define_interface!(IPrintTicketParameterInitializer, IPrintTicketParameterInitializer_Vtbl, 0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
 impl windows_core::RuntimeType for IPrintTicketParameterInitializer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterInitializer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,6 +121,7 @@ pub struct IPrintTicketParameterInitializer_Vtbl {
 windows_core::imp::define_interface!(IPrintTicketValue, IPrintTicketValue_Vtbl, 0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
 impl windows_core::RuntimeType for IPrintTicketValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IPrintTicketValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,6 +134,7 @@ pub struct IPrintTicketValue_Vtbl {
 windows_core::imp::define_interface!(IWorkflowPrintTicket, IWorkflowPrintTicket_Vtbl, 0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
 impl windows_core::RuntimeType for IWorkflowPrintTicket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -166,6 +173,7 @@ pub struct IWorkflowPrintTicket_Vtbl {
 windows_core::imp::define_interface!(IWorkflowPrintTicketFactory, IWorkflowPrintTicketFactory_Vtbl, 0x966d1166_d9c7_569e_b7d8_f2b341c8f976);
 impl windows_core::RuntimeType for IWorkflowPrintTicketFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +187,7 @@ pub struct IWorkflowPrintTicketFactory_Vtbl {
 windows_core::imp::define_interface!(IWorkflowPrintTicketValidationResult, IWorkflowPrintTicketValidationResult_Vtbl, 0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
 impl windows_core::RuntimeType for IWorkflowPrintTicketValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -411,6 +420,7 @@ impl windows_core::TypeKind for PrintTicketFeatureSelectionType {
 }
 impl windows_core::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -494,6 +504,7 @@ impl windows_core::TypeKind for PrintTicketParameterDataType {
 }
 impl windows_core::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -654,6 +665,7 @@ impl windows_core::TypeKind for PrintTicketValueType {
 }
 impl windows_core::RuntimeType for PrintTicketValueType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintTicket.PrintTicketValueType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

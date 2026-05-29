@@ -14,6 +14,7 @@ impl windows_core::TypeKind for CompressAlgorithm {
 }
 impl windows_core::RuntimeType for CompressAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Compression.CompressAlgorithm");
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
@@ -164,6 +165,7 @@ windows_core::imp::define_interface!(ICompressor, ICompressor_Vtbl, 0x0ac3645a_5
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for ICompressor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Compression.ICompressor");
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
@@ -176,6 +178,7 @@ pub struct ICompressor_Vtbl {
 windows_core::imp::define_interface!(ICompressorFactory, ICompressorFactory_Vtbl, 0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
 impl windows_core::RuntimeType for ICompressorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Compression.ICompressorFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -195,6 +198,7 @@ windows_core::imp::define_interface!(IDecompressor, IDecompressor_Vtbl, 0xb883fe
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for IDecompressor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Compression.IDecompressor");
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
@@ -206,6 +210,7 @@ pub struct IDecompressor_Vtbl {
 windows_core::imp::define_interface!(IDecompressorFactory, IDecompressorFactory_Vtbl, 0x5337e252_1da2_42e1_8834_0379d28d742f);
 impl windows_core::RuntimeType for IDecompressorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Compression.IDecompressorFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

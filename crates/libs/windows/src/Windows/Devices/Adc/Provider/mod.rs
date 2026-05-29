@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8);
 impl windows_core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.Provider.IAdcControllerProvider");
 }
 windows_core::imp::interface_hierarchy!(IAdcControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcControllerProvider {
@@ -211,6 +212,7 @@ pub struct IAdcControllerProvider_Vtbl {
 windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9);
 impl windows_core::RuntimeType for IAdcProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.Provider.IAdcProvider");
 }
 windows_core::imp::interface_hierarchy!(IAdcProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcProvider {
@@ -266,4 +268,5 @@ impl windows_core::TypeKind for ProviderAdcChannelMode {
 }
 impl windows_core::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.Provider.ProviderAdcChannelMode");
 }

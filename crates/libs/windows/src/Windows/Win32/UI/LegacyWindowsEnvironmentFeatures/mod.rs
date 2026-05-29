@@ -291,7 +291,7 @@ impl IEmptyVolumeCache_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEmptyVolumeCache_Impl::Deactivate(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IReconcilableObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IReconcilableObject_Impl::GetProgressFeedbackMaxEstimate(this) {
                     Ok(ok__) => {
-                        pulprogressmax.write(core::mem::transmute(ok__));
+                        pulprogressmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IImageScanner, IImageScanner_Vtbl, 0x53a88f78_5298_48a0_8da3_8087519665e0);
 impl windows_core::RuntimeType for IImageScanner {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScanner");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,6 +26,7 @@ pub struct IImageScanner_Vtbl {
 windows_core::imp::define_interface!(IImageScannerFeederConfiguration, IImageScannerFeederConfiguration_Vtbl, 0x74bdacee_fa97_4c17_8280_40e39c6dcc67);
 impl windows_core::RuntimeType for IImageScannerFeederConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScannerFeederConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -66,6 +68,7 @@ pub struct IImageScannerFeederConfiguration_Vtbl {
 windows_core::imp::define_interface!(IImageScannerFormatConfiguration, IImageScannerFormatConfiguration_Vtbl, 0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 impl windows_core::RuntimeType for IImageScannerFormatConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScannerFormatConfiguration");
 }
 windows_core::imp::interface_hierarchy!(IImageScannerFormatConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl IImageScannerFormatConfiguration {
@@ -168,6 +171,7 @@ pub struct IImageScannerFormatConfiguration_Vtbl {
 windows_core::imp::define_interface!(IImageScannerPreviewResult, IImageScannerPreviewResult_Vtbl, 0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 impl windows_core::RuntimeType for IImageScannerPreviewResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScannerPreviewResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +183,7 @@ pub struct IImageScannerPreviewResult_Vtbl {
 windows_core::imp::define_interface!(IImageScannerScanResult, IImageScannerScanResult_Vtbl, 0xc91624cd_9037_4e48_84c1_ac0975076bc5);
 impl windows_core::RuntimeType for IImageScannerScanResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScannerScanResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -192,6 +197,7 @@ pub struct IImageScannerScanResult_Vtbl {
 windows_core::imp::define_interface!(IImageScannerSourceConfiguration, IImageScannerSourceConfiguration_Vtbl, 0xbfb50055_0b44_4c82_9e89_205f9c234e59);
 impl windows_core::RuntimeType for IImageScannerSourceConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScannerSourceConfiguration");
 }
 windows_core::imp::interface_hierarchy!(IImageScannerSourceConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IImageScannerSourceConfiguration, IImageScannerFormatConfiguration);
@@ -800,6 +806,7 @@ pub struct IImageScannerSourceConfiguration_Vtbl {
 windows_core::imp::define_interface!(IImageScannerStatics, IImageScannerStatics_Vtbl, 0xbc57e70e_d804_4477_9fb5_b911b5473897);
 impl windows_core::RuntimeType for IImageScannerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.IImageScannerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -956,6 +963,7 @@ impl windows_core::TypeKind for ImageScannerAutoCroppingMode {
 }
 impl windows_core::RuntimeType for ImageScannerAutoCroppingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.ImageScannerAutoCroppingMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -971,6 +979,7 @@ impl windows_core::TypeKind for ImageScannerColorMode {
 }
 impl windows_core::RuntimeType for ImageScannerColorMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.ImageScannerColorMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1545,6 +1554,7 @@ impl windows_core::TypeKind for ImageScannerFormat {
 }
 impl windows_core::RuntimeType for ImageScannerFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.ImageScannerFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1587,6 +1597,7 @@ impl windows_core::TypeKind for ImageScannerResolution {
 }
 impl windows_core::RuntimeType for ImageScannerResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.ImageScannerResolution");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1627,4 +1638,5 @@ impl windows_core::TypeKind for ImageScannerScanSource {
 }
 impl windows_core::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Scanners.ImageScannerScanSource");
 }

@@ -317,7 +317,7 @@ impl INSNetSourceCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INSNetSourceCreator_Impl::GetNumProtocolsSupported(this) {
                     Ok(ok__) => {
-                        pcprotocols.write(core::mem::transmute(ok__));
+                        pcprotocols.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -406,7 +406,7 @@ impl INSSBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INSSBuffer_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl INSSBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INSSBuffer_Impl::GetMaxLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -436,7 +436,7 @@ impl INSSBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INSSBuffer_Impl::GetBuffer(this) {
                     Ok(ok__) => {
-                        ppdwbuffer.write(core::mem::transmute(ok__));
+                        ppdwbuffer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -500,7 +500,7 @@ impl INSSBuffer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INSSBuffer2_Impl::GetSampleProperties(this, core::mem::transmute_copy(&cbproperties)) {
                     Ok(ok__) => {
-                        pbproperties.write(core::mem::transmute(ok__));
+                        pbproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl INSSBuffer4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INSSBuffer4_Impl::GetPropertyCount(this) {
                     Ok(ok__) => {
-                        pcbufferproperties.write(core::mem::transmute(ok__));
+                        pcbufferproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl IWMAddressAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMAddressAccess_Impl::GetAccessEntryCount(this, core::mem::transmute_copy(&aetype)) {
                     Ok(ok__) => {
-                        pcentries.write(core::mem::transmute(ok__));
+                        pcentries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -689,7 +689,7 @@ impl IWMAddressAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMAddressAccess_Impl::GetAccessEntry(this, core::mem::transmute_copy(&aetype), core::mem::transmute_copy(&dwentrynum)) {
                     Ok(ok__) => {
-                        paddraccessentry.write(core::mem::transmute(ok__));
+                        paddraccessentry.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -815,7 +815,7 @@ impl IWMAuthorizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMAuthorizer_Impl::GetCertCount(this) {
                     Ok(ok__) => {
-                        pccerts.write(core::mem::transmute(ok__));
+                        pccerts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -827,7 +827,7 @@ impl IWMAuthorizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMAuthorizer_Impl::GetCert(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppbcertdata.write(core::mem::transmute(ok__));
+                        ppbcertdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -839,7 +839,7 @@ impl IWMAuthorizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMAuthorizer_Impl::GetSharedData(this, core::mem::transmute_copy(&dwcertindex), core::mem::transmute_copy(&pbshareddata), core::mem::transmute_copy(&pbcert)) {
                     Ok(ok__) => {
-                        ppbshareddata.write(core::mem::transmute(ok__));
+                        ppbshareddata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IWMBackupRestoreProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMBackupRestoreProps_Impl::GetPropCount(this) {
                     Ok(ok__) => {
-                        pcprops.write(core::mem::transmute(ok__));
+                        pcprops.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1017,7 +1017,7 @@ impl IWMBandwidthSharing_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMBandwidthSharing_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pguidtype.write(core::mem::transmute(ok__));
+                        pguidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1089,7 +1089,7 @@ impl IWMClientConnections_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMClientConnections_Impl::GetClientCount(this) {
                     Ok(ok__) => {
-                        pcclients.write(core::mem::transmute(ok__));
+                        pcclients.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl IWMClientConnections_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMClientConnections_Impl::GetClientProperties(this, core::mem::transmute_copy(&dwclientnum)) {
                     Ok(ok__) => {
-                        pclientproperties.write(core::mem::transmute(ok__));
+                        pclientproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IWMCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMCodecInfo_Impl::GetCodecInfoCount(this, core::mem::transmute_copy(&guidtype)) {
                     Ok(ok__) => {
-                        pccodecs.write(core::mem::transmute(ok__));
+                        pccodecs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1210,7 +1210,7 @@ impl IWMCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMCodecInfo_Impl::GetCodecFormatCount(this, core::mem::transmute_copy(&guidtype), core::mem::transmute_copy(&dwcodecindex)) {
                     Ok(ok__) => {
-                        pcformat.write(core::mem::transmute(ok__));
+                        pcformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl IWMDRMTranscryptor2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDRMTranscryptor2_Impl::GetSeekStartTime(this) {
                     Ok(ok__) => {
-                        pcnstime.write(core::mem::transmute(ok__));
+                        pcnstime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl IWMDRMTranscryptor2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDRMTranscryptor2_Impl::GetDuration(this) {
                     Ok(ok__) => {
-                        pcnsduration.write(core::mem::transmute(ok__));
+                        pcnsduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2168,7 +2168,7 @@ impl IWMDeviceRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDeviceRegistration_Impl::GetRegistrationStats(this, core::mem::transmute_copy(&dwregistertype)) {
                     Ok(ok__) => {
-                        pcregistereddevices.write(core::mem::transmute(ok__));
+                        pcregistereddevices.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2366,7 +2366,7 @@ impl IWMHeaderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMHeaderInfo_Impl::GetAttributeCount(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pcattributes.write(core::mem::transmute(ok__));
+                        pcattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2396,7 +2396,7 @@ impl IWMHeaderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMHeaderInfo_Impl::GetMarkerCount(this) {
                     Ok(ok__) => {
-                        pcmarkers.write(core::mem::transmute(ok__));
+                        pcmarkers.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2426,7 +2426,7 @@ impl IWMHeaderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMHeaderInfo_Impl::GetScriptCount(this) {
                     Ok(ok__) => {
-                        pcscripts.write(core::mem::transmute(ok__));
+                        pcscripts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2509,7 +2509,7 @@ impl IWMHeaderInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMHeaderInfo2_Impl::GetCodecInfoCount(this) {
                     Ok(ok__) => {
-                        pccodecinfos.write(core::mem::transmute(ok__));
+                        pccodecinfos.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2605,7 +2605,7 @@ impl IWMHeaderInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMHeaderInfo3_Impl::GetAttributeCountEx(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pcattributes.write(core::mem::transmute(ok__));
+                        pcattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2729,7 +2729,7 @@ impl IWMImageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMImageInfo_Impl::GetImageCount(this) {
                     Ok(ok__) => {
-                        pcimages.write(core::mem::transmute(ok__));
+                        pcimages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2934,7 +2934,7 @@ impl IWMLanguageList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMLanguageList_Impl::GetLanguageCount(this) {
                     Ok(ok__) => {
-                        pwcount.write(core::mem::transmute(ok__));
+                        pwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2952,7 +2952,7 @@ impl IWMLanguageList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMLanguageList_Impl::AddLanguageByRFC1766String(this, core::mem::transmute(&pwszlanguagestring)) {
                     Ok(ok__) => {
-                        pwindex.write(core::mem::transmute(ok__));
+                        pwindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3151,7 +3151,7 @@ impl IWMMediaProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMMediaProps_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pguidtype.write(core::mem::transmute(ok__));
+                        pguidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3320,7 +3320,7 @@ impl IWMMutualExclusion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMMutualExclusion_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pguidtype.write(core::mem::transmute(ok__));
+                        pguidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl IWMMutualExclusion2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMMutualExclusion2_Impl::GetRecordCount(this) {
                     Ok(ok__) => {
-                        pwrecordcount.write(core::mem::transmute(ok__));
+                        pwrecordcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3586,7 +3586,7 @@ impl IWMPacketSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPacketSize_Impl::GetMaxPacketSize(this) {
                     Ok(ok__) => {
-                        pdwmaxpacketsize.write(core::mem::transmute(ok__));
+                        pdwmaxpacketsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3647,7 +3647,7 @@ impl IWMPacketSize2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPacketSize2_Impl::GetMinPacketSize(this) {
                     Ok(ok__) => {
-                        pdwminpacketsize.write(core::mem::transmute(ok__));
+                        pdwminpacketsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3728,7 +3728,7 @@ impl IWMPlayerTimestampHook_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPlayerTimestampHook_Impl::MapTimestamp(this, core::mem::transmute_copy(&rtin)) {
                     Ok(ok__) => {
-                        prtout.write(core::mem::transmute(ok__));
+                        prtout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3895,7 +3895,7 @@ impl IWMProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile_Impl::GetVersion(this) {
                     Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
+                        pdwversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3931,7 +3931,7 @@ impl IWMProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pcstreams.write(core::mem::transmute(ok__));
+                        pcstreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4003,7 +4003,7 @@ impl IWMProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile_Impl::GetMutualExclusionCount(this) {
                     Ok(ok__) => {
-                        pcme.write(core::mem::transmute(ok__));
+                        pcme.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4105,7 +4105,7 @@ impl IWMProfile2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile2_Impl::GetProfileID(this) {
                     Ok(ok__) => {
-                        pguidid.write(core::mem::transmute(ok__));
+                        pguidid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4233,7 +4233,7 @@ impl IWMProfile3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile3_Impl::GetStorageFormat(this) {
                     Ok(ok__) => {
-                        pnstorageformat.write(core::mem::transmute(ok__));
+                        pnstorageformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4251,7 +4251,7 @@ impl IWMProfile3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile3_Impl::GetBandwidthSharingCount(this) {
                     Ok(ok__) => {
-                        pcbs.write(core::mem::transmute(ok__));
+                        pcbs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4335,7 +4335,7 @@ impl IWMProfile3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfile3_Impl::GetExpectedPacketCount(this, core::mem::transmute_copy(&msduration)) {
                     Ok(ok__) => {
-                        pcpackets.write(core::mem::transmute(ok__));
+                        pcpackets.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4475,7 +4475,7 @@ impl IWMProfileManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMProfileManager_Impl::GetSystemProfileCount(this) {
                     Ok(ok__) => {
-                        pcprofiles.write(core::mem::transmute(ok__));
+                        pcprofiles.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4848,7 +4848,7 @@ impl IWMReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReader_Impl::GetOutputCount(this) {
                     Ok(ok__) => {
-                        pcoutputs.write(core::mem::transmute(ok__));
+                        pcoutputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4878,7 +4878,7 @@ impl IWMReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReader_Impl::GetOutputFormatCount(this, core::mem::transmute_copy(&dwoutputnumber)) {
                     Ok(ok__) => {
-                        pcformats.write(core::mem::transmute(ok__));
+                        pcformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5138,7 +5138,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetUserProvidedClock(this) {
                     Ok(ok__) => {
-                        pfuserclock.write(core::mem::transmute(ok__));
+                        pfuserclock.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5162,7 +5162,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetManualStreamSelection(this) {
                     Ok(ok__) => {
-                        pfselection.write(core::mem::transmute(ok__));
+                        pfselection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5180,7 +5180,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetStreamSelected(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pselection.write(core::mem::transmute(ok__));
+                        pselection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5198,7 +5198,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetReceiveSelectionCallbacks(this) {
                     Ok(ok__) => {
-                        pfgetcallbacks.write(core::mem::transmute(ok__));
+                        pfgetcallbacks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5216,7 +5216,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetReceiveStreamSamples(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pfreceivestreamsamples.write(core::mem::transmute(ok__));
+                        pfreceivestreamsamples.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5234,7 +5234,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetAllocateForOutput(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pfallocate.write(core::mem::transmute(ok__));
+                        pfallocate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5252,7 +5252,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetAllocateForStream(this, core::mem::transmute_copy(&dwsreamnum)) {
                     Ok(ok__) => {
-                        pfallocate.write(core::mem::transmute(ok__));
+                        pfallocate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5276,7 +5276,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetMaxOutputSampleSize(this, core::mem::transmute_copy(&dwoutput)) {
                     Ok(ok__) => {
-                        pcbmax.write(core::mem::transmute(ok__));
+                        pcbmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5288,7 +5288,7 @@ impl IWMReaderAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced_Impl::GetMaxStreamSampleSize(this, core::mem::transmute_copy(&wstream)) {
                     Ok(ok__) => {
-                        pcbmax.write(core::mem::transmute(ok__));
+                        pcbmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5463,7 +5463,7 @@ impl IWMReaderAdvanced2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced2_Impl::GetPlayMode(this) {
                     Ok(ok__) => {
-                        pmode.write(core::mem::transmute(ok__));
+                        pmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5487,7 +5487,7 @@ impl IWMReaderAdvanced2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced2_Impl::GetSaveAsProgress(this) {
                     Ok(ok__) => {
-                        pdwpercent.write(core::mem::transmute(ok__));
+                        pdwpercent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5541,7 +5541,7 @@ impl IWMReaderAdvanced2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced2_Impl::GetLogClientID(this) {
                     Ok(ok__) => {
-                        pflogclientid.write(core::mem::transmute(ok__));
+                        pflogclientid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5728,7 +5728,7 @@ impl IWMReaderAdvanced4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced4_Impl::GetLanguageCount(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pwlanguagecount.write(core::mem::transmute(ok__));
+                        pwlanguagecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5746,7 +5746,7 @@ impl IWMReaderAdvanced4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced4_Impl::GetMaxSpeedFactor(this) {
                     Ok(ok__) => {
-                        pdblfactor.write(core::mem::transmute(ok__));
+                        pdblfactor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5758,7 +5758,7 @@ impl IWMReaderAdvanced4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced4_Impl::IsUsingFastCache(this) {
                     Ok(ok__) => {
-                        pfusingfastcache.write(core::mem::transmute(ok__));
+                        pfusingfastcache.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5782,7 +5782,7 @@ impl IWMReaderAdvanced4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderAdvanced4_Impl::CanSaveFileAs(this) {
                     Ok(ok__) => {
-                        pfcansave.write(core::mem::transmute(ok__));
+                        pfcansave.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6340,7 +6340,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetBufferingTime(this) {
                     Ok(ok__) => {
-                        pcnsbufferingtime.write(core::mem::transmute(ok__));
+                        pcnsbufferingtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6370,7 +6370,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetProxySettings(this, core::mem::transmute(&pwszprotocol)) {
                     Ok(ok__) => {
-                        pproxysetting.write(core::mem::transmute(ok__));
+                        pproxysetting.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6400,7 +6400,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetProxyPort(this, core::mem::transmute(&pwszprotocol)) {
                     Ok(ok__) => {
-                        pdwport.write(core::mem::transmute(ok__));
+                        pdwport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6430,7 +6430,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetProxyBypassForLocal(this, core::mem::transmute(&pwszprotocol)) {
                     Ok(ok__) => {
-                        pfbypassforlocal.write(core::mem::transmute(ok__));
+                        pfbypassforlocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6448,7 +6448,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetForceRerunAutoProxyDetection(this) {
                     Ok(ok__) => {
-                        pfforcererundetection.write(core::mem::transmute(ok__));
+                        pfforcererundetection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6466,7 +6466,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetEnableMulticast(this) {
                     Ok(ok__) => {
-                        pfenablemulticast.write(core::mem::transmute(ok__));
+                        pfenablemulticast.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6484,7 +6484,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetEnableHTTP(this) {
                     Ok(ok__) => {
-                        pfenablehttp.write(core::mem::transmute(ok__));
+                        pfenablehttp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6502,7 +6502,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetEnableUDP(this) {
                     Ok(ok__) => {
-                        pfenableudp.write(core::mem::transmute(ok__));
+                        pfenableudp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6520,7 +6520,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetEnableTCP(this) {
                     Ok(ok__) => {
-                        pfenabletcp.write(core::mem::transmute(ok__));
+                        pfenabletcp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6544,7 +6544,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetConnectionBandwidth(this) {
                     Ok(ok__) => {
-                        pdwconnectionbandwidth.write(core::mem::transmute(ok__));
+                        pdwconnectionbandwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6562,7 +6562,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetNumProtocolsSupported(this) {
                     Ok(ok__) => {
-                        pcprotocols.write(core::mem::transmute(ok__));
+                        pcprotocols.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6592,7 +6592,7 @@ impl IWMReaderNetworkConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig_Impl::GetLoggingUrlCount(this) {
                     Ok(ok__) => {
-                        pdwurlcount.write(core::mem::transmute(ok__));
+                        pdwurlcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6757,7 +6757,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetEnableContentCaching(this) {
                     Ok(ok__) => {
-                        pfenablecontentcaching.write(core::mem::transmute(ok__));
+                        pfenablecontentcaching.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6775,7 +6775,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetEnableFastCache(this) {
                     Ok(ok__) => {
-                        pfenablefastcache.write(core::mem::transmute(ok__));
+                        pfenablefastcache.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6793,7 +6793,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetAcceleratedStreamingDuration(this) {
                     Ok(ok__) => {
-                        pcnsaccelduration.write(core::mem::transmute(ok__));
+                        pcnsaccelduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6811,7 +6811,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetAutoReconnectLimit(this) {
                     Ok(ok__) => {
-                        pdwautoreconnectlimit.write(core::mem::transmute(ok__));
+                        pdwautoreconnectlimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6829,7 +6829,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetEnableResends(this) {
                     Ok(ok__) => {
-                        pfenableresends.write(core::mem::transmute(ok__));
+                        pfenableresends.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6847,7 +6847,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetEnableThinning(this) {
                     Ok(ok__) => {
-                        pfenablethinning.write(core::mem::transmute(ok__));
+                        pfenablethinning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6865,7 +6865,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderNetworkConfig2_Impl::GetMaxNetPacketSize(this) {
                     Ok(ok__) => {
-                        pdwmaxnetpacketsize.write(core::mem::transmute(ok__));
+                        pdwmaxnetpacketsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6944,7 +6944,7 @@ impl IWMReaderPlaylistBurn_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderPlaylistBurn_Impl::GetInitResults(this, core::mem::transmute_copy(&cfiles)) {
                     Ok(ok__) => {
-                        phrstati.write(core::mem::transmute(ok__));
+                        phrstati.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7018,7 +7018,7 @@ impl IWMReaderStreamClock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderStreamClock_Impl::SetTimer(this, core::mem::transmute_copy(&cnswhen), core::mem::transmute_copy(&pvparam)) {
                     Ok(ok__) => {
-                        pdwtimerid.write(core::mem::transmute(ok__));
+                        pdwtimerid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7074,7 +7074,7 @@ impl IWMReaderTimecode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMReaderTimecode_Impl::GetTimecodeRangeCount(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pwrangecount.write(core::mem::transmute(ok__));
+                        pwrangecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7295,7 +7295,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::GetDeviceSerialNumber(this) {
                     Ok(ok__) => {
-                        pserialnumber.write(core::mem::transmute(ok__));
+                        pserialnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7319,7 +7319,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::GetDeviceType(this) {
                     Ok(ok__) => {
-                        pdwtype.write(core::mem::transmute(ok__));
+                        pdwtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7331,7 +7331,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::GetAttributeCount(this) {
                     Ok(ok__) => {
-                        pcattributes.write(core::mem::transmute(ok__));
+                        pcattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7373,7 +7373,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::IsValid(this) {
                     Ok(ok__) => {
-                        pfvalid.write(core::mem::transmute(ok__));
+                        pfvalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7385,7 +7385,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::IsApproved(this) {
                     Ok(ok__) => {
-                        pfapproved.write(core::mem::transmute(ok__));
+                        pfapproved.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7397,7 +7397,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::IsWmdrmCompliant(this) {
                     Ok(ok__) => {
-                        pfcompliant.write(core::mem::transmute(ok__));
+                        pfcompliant.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7409,7 +7409,7 @@ impl IWMRegisteredDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMRegisteredDevice_Impl::IsOpened(this) {
                     Ok(ok__) => {
-                        pfopened.write(core::mem::transmute(ok__));
+                        pfopened.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7638,7 +7638,7 @@ impl IWMSInternalAdminNetSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSInternalAdminNetSource_Impl::GetCredentialFlags(this) {
                     Ok(ok__) => {
-                        lpdwflags.write(core::mem::transmute(ok__));
+                        lpdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7674,7 +7674,7 @@ impl IWMSInternalAdminNetSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSInternalAdminNetSource_Impl::IsUsingIE(this, core::mem::transmute_copy(&dwproxycontext)) {
                     Ok(ok__) => {
-                        pfisusingie.write(core::mem::transmute(ok__));
+                        pfisusingie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7866,7 +7866,7 @@ impl IWMSInternalAdminNetSource3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSInternalAdminNetSource3_Impl::IsUsingIE2(this, core::mem::transmute_copy(&qwproxycontext)) {
                     Ok(ok__) => {
-                        pfisusingie.write(core::mem::transmute(ok__));
+                        pfisusingie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8007,7 +8007,7 @@ impl IWMSecureChannel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSecureChannel_Impl::WMSC_IsConnected(this) {
                     Ok(ok__) => {
-                        pfisconnected.write(core::mem::transmute(ok__));
+                        pfisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8198,7 +8198,7 @@ impl IWMStreamConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMStreamConfig_Impl::GetStreamType(this) {
                     Ok(ok__) => {
-                        pguidstreamtype.write(core::mem::transmute(ok__));
+                        pguidstreamtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8210,7 +8210,7 @@ impl IWMStreamConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMStreamConfig_Impl::GetStreamNumber(this) {
                     Ok(ok__) => {
-                        pwstreamnum.write(core::mem::transmute(ok__));
+                        pwstreamnum.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8252,7 +8252,7 @@ impl IWMStreamConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMStreamConfig_Impl::GetBitrate(this) {
                     Ok(ok__) => {
-                        pdwbitrate.write(core::mem::transmute(ok__));
+                        pdwbitrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8270,7 +8270,7 @@ impl IWMStreamConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMStreamConfig_Impl::GetBufferWindow(this) {
                     Ok(ok__) => {
-                        pmsbufferwindow.write(core::mem::transmute(ok__));
+                        pmsbufferwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8363,7 +8363,7 @@ impl IWMStreamConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMStreamConfig2_Impl::GetTransportType(this) {
                     Ok(ok__) => {
-                        pntransporttype.write(core::mem::transmute(ok__));
+                        pntransporttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8387,7 +8387,7 @@ impl IWMStreamConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMStreamConfig2_Impl::GetDataUnitExtensionCount(this) {
                     Ok(ok__) => {
-                        pcdataunitextensions.write(core::mem::transmute(ok__));
+                        pcdataunitextensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8790,7 +8790,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetStreamSelected(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pselection.write(core::mem::transmute(ok__));
+                        pselection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8808,7 +8808,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetReadStreamSamples(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pfcompressed.write(core::mem::transmute(ok__));
+                        pfcompressed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8832,7 +8832,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetOutputCount(this) {
                     Ok(ok__) => {
-                        pcoutputs.write(core::mem::transmute(ok__));
+                        pcoutputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8862,7 +8862,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetOutputFormatCount(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pcformats.write(core::mem::transmute(ok__));
+                        pcformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8886,7 +8886,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetOutputNumberForStream(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pdwoutputnum.write(core::mem::transmute(ok__));
+                        pdwoutputnum.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8898,7 +8898,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetStreamNumberForOutput(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pwstreamnum.write(core::mem::transmute(ok__));
+                        pwstreamnum.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8910,7 +8910,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetMaxOutputSampleSize(this, core::mem::transmute_copy(&dwoutput)) {
                     Ok(ok__) => {
-                        pcbmax.write(core::mem::transmute(ok__));
+                        pcbmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8922,7 +8922,7 @@ impl IWMSyncReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader_Impl::GetMaxStreamSampleSize(this, core::mem::transmute_copy(&wstream)) {
                     Ok(ok__) => {
-                        pcbmax.write(core::mem::transmute(ok__));
+                        pcbmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9043,7 +9043,7 @@ impl IWMSyncReader2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMSyncReader2_Impl::SetRangeByFrameEx(this, core::mem::transmute_copy(&wstreamnum), core::mem::transmute_copy(&qwframenumber), core::mem::transmute_copy(&cframestoread)) {
                     Ok(ok__) => {
-                        pcnsstarttime.write(core::mem::transmute(ok__));
+                        pcnsstarttime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9152,7 +9152,7 @@ impl IWMVideoMediaProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMVideoMediaProps_Impl::GetMaxKeyFrameSpacing(this) {
                     Ok(ok__) => {
-                        plltime.write(core::mem::transmute(ok__));
+                        plltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9170,7 +9170,7 @@ impl IWMVideoMediaProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMVideoMediaProps_Impl::GetQuality(this) {
                     Ok(ok__) => {
-                        pdwquality.write(core::mem::transmute(ok__));
+                        pdwquality.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9227,7 +9227,7 @@ impl IWMWatermarkInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWatermarkInfo_Impl::GetWatermarkEntryCount(this, core::mem::transmute_copy(&wmettype)) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9379,7 +9379,7 @@ impl IWMWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriter_Impl::GetInputCount(this) {
                     Ok(ok__) => {
-                        pcinputs.write(core::mem::transmute(ok__));
+                        pcinputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9409,7 +9409,7 @@ impl IWMWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriter_Impl::GetInputFormatCount(this, core::mem::transmute_copy(&dwinputnumber)) {
                     Ok(ok__) => {
-                        pcformats.write(core::mem::transmute(ok__));
+                        pcformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9583,7 +9583,7 @@ impl IWMWriterAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterAdvanced_Impl::GetSinkCount(this) {
                     Ok(ok__) => {
-                        pcsinks.write(core::mem::transmute(ok__));
+                        pcsinks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9631,7 +9631,7 @@ impl IWMWriterAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterAdvanced_Impl::IsRealTime(this) {
                     Ok(ok__) => {
-                        pfrealtime.write(core::mem::transmute(ok__));
+                        pfrealtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9643,7 +9643,7 @@ impl IWMWriterAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterAdvanced_Impl::GetWriterTime(this) {
                     Ok(ok__) => {
-                        pcnscurrenttime.write(core::mem::transmute(ok__));
+                        pcnscurrenttime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9667,7 +9667,7 @@ impl IWMWriterAdvanced_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterAdvanced_Impl::GetSyncTolerance(this) {
                     Ok(ok__) => {
-                        pmswindow.write(core::mem::transmute(ok__));
+                        pmswindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9927,7 +9927,7 @@ impl IWMWriterFileSink2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink2_Impl::IsStopped(this) {
                     Ok(ok__) => {
-                        pfstopped.write(core::mem::transmute(ok__));
+                        pfstopped.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9939,7 +9939,7 @@ impl IWMWriterFileSink2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink2_Impl::GetFileDuration(this) {
                     Ok(ok__) => {
-                        pcnsduration.write(core::mem::transmute(ok__));
+                        pcnsduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9951,7 +9951,7 @@ impl IWMWriterFileSink2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink2_Impl::GetFileSize(this) {
                     Ok(ok__) => {
-                        pcbfile.write(core::mem::transmute(ok__));
+                        pcbfile.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9969,7 +9969,7 @@ impl IWMWriterFileSink2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink2_Impl::IsClosed(this) {
                     Ok(ok__) => {
-                        pfclosed.write(core::mem::transmute(ok__));
+                        pfclosed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10071,7 +10071,7 @@ impl IWMWriterFileSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink3_Impl::GetAutoIndexing(this) {
                     Ok(ok__) => {
-                        pfautoindexing.write(core::mem::transmute(ok__));
+                        pfautoindexing.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10089,7 +10089,7 @@ impl IWMWriterFileSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink3_Impl::GetMode(this) {
                     Ok(ok__) => {
-                        pdwfilesinkmode.write(core::mem::transmute(ok__));
+                        pdwfilesinkmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10113,7 +10113,7 @@ impl IWMWriterFileSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterFileSink3_Impl::GetUnbufferedIO(this) {
                     Ok(ok__) => {
-                        pfunbufferedio.write(core::mem::transmute(ok__));
+                        pfunbufferedio.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10219,7 +10219,7 @@ impl IWMWriterNetworkSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterNetworkSink_Impl::GetMaximumClients(this) {
                     Ok(ok__) => {
-                        pdwmaxclients.write(core::mem::transmute(ok__));
+                        pdwmaxclients.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10237,7 +10237,7 @@ impl IWMWriterNetworkSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterNetworkSink_Impl::GetNetworkProtocol(this) {
                     Ok(ok__) => {
-                        pprotocol.write(core::mem::transmute(ok__));
+                        pprotocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10381,7 +10381,7 @@ impl IWMWriterPostView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterPostView_Impl::GetReceivePostViewSamples(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pfreceivepostviewsamples.write(core::mem::transmute(ok__));
+                        pfreceivepostviewsamples.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10411,7 +10411,7 @@ impl IWMWriterPostView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterPostView_Impl::GetPostViewFormatCount(this, core::mem::transmute_copy(&wstreamnumber)) {
                     Ok(ok__) => {
-                        pcformats.write(core::mem::transmute(ok__));
+                        pcformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10441,7 +10441,7 @@ impl IWMWriterPostView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterPostView_Impl::GetAllocateForPostView(this, core::mem::transmute_copy(&wstreamnumber)) {
                     Ok(ok__) => {
-                        pfallocate.write(core::mem::transmute(ok__));
+                        pfallocate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10570,7 +10570,7 @@ impl IWMWriterPreprocess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterPreprocess_Impl::GetMaxPreprocessingPasses(this, core::mem::transmute_copy(&dwinputnum), core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        pdwmaxnumpasses.write(core::mem::transmute(ok__));
+                        pdwmaxnumpasses.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10744,7 +10744,7 @@ impl IWMWriterSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMWriterSink_Impl::IsRealTime(this) {
                     Ok(ok__) => {
-                        pfrealtime.write(core::mem::transmute(ok__));
+                        pfrealtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

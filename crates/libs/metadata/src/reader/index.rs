@@ -228,7 +228,7 @@ impl Index {
             .get(&(ty.0.file, ty.0.pos))
             .into_iter()
             .flatten()
-            .cloned()
+            .copied()
             .map(move |pos| {
                 TypeDef(Row {
                     index: self,

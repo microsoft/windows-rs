@@ -2,7 +2,7 @@ use super::*;
 use std::sync::RwLock;
 
 #[derive(Default)]
-pub(crate) struct WarningBuilder(RwLock<Vec<String>>);
+pub struct WarningBuilder(RwLock<Vec<String>>);
 
 impl WarningBuilder {
     pub fn build(self) -> Warnings {
@@ -48,9 +48,7 @@ impl Warnings {
     /// Panics if any warnings are present.
     #[track_caller]
     pub fn unwrap(&self) {
-        if !self.is_empty() {
-            panic!("{self}");
-        }
+        assert!(self.is_empty(), "{self}");
     }
 }
 

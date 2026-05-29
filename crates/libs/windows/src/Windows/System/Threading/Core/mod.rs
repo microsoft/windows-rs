@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPreallocatedWorkItem, IPreallocatedWorkItem_Vtbl, 0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 impl windows_core::RuntimeType for IPreallocatedWorkItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.IPreallocatedWorkItem");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11,6 +12,7 @@ pub struct IPreallocatedWorkItem_Vtbl {
 windows_core::imp::define_interface!(IPreallocatedWorkItemFactory, IPreallocatedWorkItemFactory_Vtbl, 0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
 impl windows_core::RuntimeType for IPreallocatedWorkItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.IPreallocatedWorkItemFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,6 +25,7 @@ pub struct IPreallocatedWorkItemFactory_Vtbl {
 windows_core::imp::define_interface!(ISignalNotifier, ISignalNotifier_Vtbl, 0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 impl windows_core::RuntimeType for ISignalNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.ISignalNotifier");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -34,15 +37,16 @@ pub struct ISignalNotifier_Vtbl {
 windows_core::imp::define_interface!(ISignalNotifierStatics, ISignalNotifierStatics_Vtbl, 0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
 impl windows_core::RuntimeType for ISignalNotifierStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.Core.ISignalNotifierStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignalNotifierStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AttachToEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AttachToEventWithTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AttachToEventWithTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AttachToSemaphore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AttachToSemaphoreWithTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AttachToSemaphoreWithTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -158,7 +162,7 @@ impl SignalNotifier {
             (windows_core::Interface::vtable(this).AttachToEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AttachToEventWithTimeout<P1>(name: &windows_core::HSTRING, handler: P1, timeout: super::super::super::Foundation::TimeSpan) -> windows_core::Result<SignalNotifier>
+    pub fn AttachToEventWithTimeout<P1>(name: &windows_core::HSTRING, handler: P1, timeout: windows_time::TimeSpan) -> windows_core::Result<SignalNotifier>
     where
         P1: windows_core::Param<SignalHandler>,
     {
@@ -176,7 +180,7 @@ impl SignalNotifier {
             (windows_core::Interface::vtable(this).AttachToSemaphore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AttachToSemaphoreWithTimeout<P1>(name: &windows_core::HSTRING, handler: P1, timeout: super::super::super::Foundation::TimeSpan) -> windows_core::Result<SignalNotifier>
+    pub fn AttachToSemaphoreWithTimeout<P1>(name: &windows_core::HSTRING, handler: P1, timeout: windows_time::TimeSpan) -> windows_core::Result<SignalNotifier>
     where
         P1: windows_core::Param<SignalHandler>,
     {

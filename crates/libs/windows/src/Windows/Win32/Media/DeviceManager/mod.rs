@@ -156,7 +156,7 @@ impl IMDSPDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDevice_Impl::GetVersion(this) {
                     Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
+                        pdwversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl IMDSPDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDevice_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pdwtype.write(core::mem::transmute(ok__));
+                        pdwtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -192,7 +192,7 @@ impl IMDSPDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDevice_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IMDSPDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDevice_Impl::GetDeviceIcon(this) {
                     Ok(ok__) => {
-                        hicon.write(core::mem::transmute(ok__));
+                        hicon.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -454,7 +454,7 @@ impl IMDSPDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDevice3_Impl::GetFormatCapability(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
-                        pformatsupport.write(core::mem::transmute(ok__));
+                        pformatsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -564,7 +564,7 @@ impl IMDSPDeviceControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDeviceControl_Impl::GetDCStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -576,7 +576,7 @@ impl IMDSPDeviceControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPDeviceControl_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pdwcapabilitiesmask.write(core::mem::transmute(ok__));
+                        pdwcapabilitiesmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -734,7 +734,7 @@ impl IMDSPEnumDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPEnumDevice_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
-                        pceltfetched.write(core::mem::transmute(ok__));
+                        pceltfetched.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -822,7 +822,7 @@ impl IMDSPEnumStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPEnumStorage_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
-                        pceltfetched.write(core::mem::transmute(ok__));
+                        pceltfetched.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1109,7 +1109,7 @@ impl IMDSPObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPObjectInfo_Impl::GetPlayLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1127,7 +1127,7 @@ impl IMDSPObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPObjectInfo_Impl::GetPlayOffset(this) {
                     Ok(ok__) => {
-                        pdwoffset.write(core::mem::transmute(ok__));
+                        pdwoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1145,7 +1145,7 @@ impl IMDSPObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPObjectInfo_Impl::GetTotalLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1157,7 +1157,7 @@ impl IMDSPObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPObjectInfo_Impl::GetLastPlayPosition(this) {
                     Ok(ok__) => {
-                        pdwlastpos.write(core::mem::transmute(ok__));
+                        pdwlastpos.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1169,7 +1169,7 @@ impl IMDSPObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPObjectInfo_Impl::GetLongestPlayPosition(this) {
                     Ok(ok__) => {
-                        pdwlongestpos.write(core::mem::transmute(ok__));
+                        pdwlongestpos.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1350,7 +1350,7 @@ impl IMDSPStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPStorage_Impl::GetDate(this) {
                     Ok(ok__) => {
-                        pdatetimeutc.write(core::mem::transmute(ok__));
+                        pdatetimeutc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1813,7 +1813,7 @@ impl IMDSPStorageGlobals_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPStorageGlobals_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pdwcapabilities.write(core::mem::transmute(ok__));
+                        pdwcapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1849,7 +1849,7 @@ impl IMDSPStorageGlobals_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDSPStorageGlobals_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1938,7 +1938,7 @@ impl IMDServiceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMDServiceProvider_Impl::GetDeviceCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2282,7 +2282,7 @@ impl ISCPSecureExchange3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCPSecureExchange3_Impl::TransferContainerDataOnClearChannel(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pprogresscallback)) {
                     Ok(ok__) => {
-                        pfureadyflags.write(core::mem::transmute(ok__));
+                        pfureadyflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2758,7 +2758,7 @@ impl IWMDMDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDevice_Impl::GetVersion(this) {
                     Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
+                        pdwversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2770,7 +2770,7 @@ impl IWMDMDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDevice_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pdwtype.write(core::mem::transmute(ok__));
+                        pdwtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2794,7 +2794,7 @@ impl IWMDMDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDevice_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2806,7 +2806,7 @@ impl IWMDMDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDevice_Impl::GetDeviceIcon(this) {
                     Ok(ok__) => {
-                        hicon.write(core::mem::transmute(ok__));
+                        hicon.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3056,7 +3056,7 @@ impl IWMDMDevice3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDevice3_Impl::GetFormatCapability(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
-                        pformatsupport.write(core::mem::transmute(ok__));
+                        pformatsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3166,7 +3166,7 @@ impl IWMDMDeviceControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDeviceControl_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3178,7 +3178,7 @@ impl IWMDMDeviceControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMDeviceControl_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pdwcapabilitiesmask.write(core::mem::transmute(ok__));
+                        pdwcapabilitiesmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3335,7 +3335,7 @@ impl IWMDMEnumDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMEnumDevice_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
-                        pceltfetched.write(core::mem::transmute(ok__));
+                        pceltfetched.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3423,7 +3423,7 @@ impl IWMDMEnumStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMEnumStorage_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
                     Ok(ok__) => {
-                        pceltfetched.write(core::mem::transmute(ok__));
+                        pceltfetched.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3538,7 +3538,7 @@ impl IWMDMLogger_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMLogger_Impl::IsEnabled(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3676,7 +3676,7 @@ impl IWMDMMetaData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMMetaData_Impl::GetItemCount(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3798,7 +3798,7 @@ impl IWMDMObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMObjectInfo_Impl::GetPlayLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3816,7 +3816,7 @@ impl IWMDMObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMObjectInfo_Impl::GetPlayOffset(this) {
                     Ok(ok__) => {
-                        pdwoffset.write(core::mem::transmute(ok__));
+                        pdwoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3834,7 +3834,7 @@ impl IWMDMObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMObjectInfo_Impl::GetTotalLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3846,7 +3846,7 @@ impl IWMDMObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMObjectInfo_Impl::GetLastPlayPosition(this) {
                     Ok(ok__) => {
-                        pdwlastpos.write(core::mem::transmute(ok__));
+                        pdwlastpos.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3858,7 +3858,7 @@ impl IWMDMObjectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMObjectInfo_Impl::GetLongestPlayPosition(this) {
                     Ok(ok__) => {
-                        pdwlongestpos.write(core::mem::transmute(ok__));
+                        pdwlongestpos.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4442,7 +4442,7 @@ impl IWMDMStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMStorage_Impl::GetDate(this) {
                     Ok(ok__) => {
-                        pdatetimeutc.write(core::mem::transmute(ok__));
+                        pdatetimeutc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5084,7 +5084,7 @@ impl IWMDMStorageGlobals_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMStorageGlobals_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pdwcapabilities.write(core::mem::transmute(ok__));
+                        pdwcapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5120,7 +5120,7 @@ impl IWMDMStorageGlobals_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDMStorageGlobals_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5191,7 +5191,7 @@ impl IWMDeviceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDeviceManager_Impl::GetRevision(this) {
                     Ok(ok__) => {
-                        pdwrevision.write(core::mem::transmute(ok__));
+                        pdwrevision.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5203,7 +5203,7 @@ impl IWMDeviceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMDeviceManager_Impl::GetDeviceCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

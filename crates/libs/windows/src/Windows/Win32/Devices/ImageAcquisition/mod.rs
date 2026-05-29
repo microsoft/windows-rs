@@ -229,7 +229,7 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumWIA_DEV_CAPS_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcelt.write(core::mem::transmute(ok__));
+                        pcelt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IEnumWIA_DEV_INFO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumWIA_DEV_INFO_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        celt.write(core::mem::transmute(ok__));
+                        celt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumWIA_FORMAT_INFO_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcelt.write(core::mem::transmute(ok__));
+                        pcelt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -529,7 +529,7 @@ impl IEnumWiaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumWiaItem_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        celt.write(core::mem::transmute(ok__));
+                        celt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -629,7 +629,7 @@ impl IEnumWiaItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumWiaItem2_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        celt.write(core::mem::transmute(ok__));
+                        celt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IWiaAppErrorHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaAppErrorHandler_Impl::GetWindow(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1283,7 +1283,7 @@ impl IWiaDrvItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaDrvItem_Impl::GetItemFlags(this) {
                     Ok(ok__) => {
-                        __midl__iwiadrvitem0000.write(core::mem::transmute(ok__));
+                        __midl__iwiadrvitem0000.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1295,7 +1295,7 @@ impl IWiaDrvItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaDrvItem_Impl::GetDeviceSpecContext(this) {
                     Ok(ok__) => {
-                        __midl__iwiadrvitem0001.write(core::mem::transmute(ok__));
+                        __midl__iwiadrvitem0001.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1744,7 +1744,7 @@ impl IWiaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaItem_Impl::GetItemType(this) {
                     Ok(ok__) => {
-                        pitemtype.write(core::mem::transmute(ok__));
+                        pitemtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2083,7 +2083,7 @@ impl IWiaItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaItem2_Impl::GetItemCategory(this) {
                     Ok(ok__) => {
-                        pitemcategoryguid.write(core::mem::transmute(ok__));
+                        pitemcategoryguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2095,7 +2095,7 @@ impl IWiaItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaItem2_Impl::GetItemType(this) {
                     Ok(ok__) => {
-                        pitemtype.write(core::mem::transmute(ok__));
+                        pitemtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2577,7 +2577,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvInitItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0013), core::mem::transmute_copy(&__midl__iwiaminidrv0014)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0015.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0015.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2589,7 +2589,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvValidateItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0016), core::mem::transmute_copy(&__midl__iwiaminidrv0017), core::mem::transmute_copy(&__midl__iwiaminidrv0018), core::mem::transmute_copy(&__midl__iwiaminidrv0019)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0020.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0020.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2601,7 +2601,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvWriteItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0021), core::mem::transmute_copy(&__midl__iwiaminidrv0022), core::mem::transmute_copy(&__midl__iwiaminidrv0023)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0024.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0024.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2613,7 +2613,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvReadItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0025), core::mem::transmute_copy(&__midl__iwiaminidrv0026), core::mem::transmute_copy(&__midl__iwiaminidrv0027), core::mem::transmute_copy(&__midl__iwiaminidrv0028)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0029.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0029.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2625,7 +2625,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvLockWiaDevice(this, core::mem::transmute_copy(&__midl__iwiaminidrv0030), core::mem::transmute_copy(&__midl__iwiaminidrv0031)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0032.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0032.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2637,7 +2637,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvUnLockWiaDevice(this, core::mem::transmute_copy(&__midl__iwiaminidrv0033), core::mem::transmute_copy(&__midl__iwiaminidrv0034)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0035.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0035.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2673,7 +2673,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvDeleteItem(this, core::mem::transmute_copy(&__midl__iwiaminidrv0053), core::mem::transmute_copy(&__midl__iwiaminidrv0054)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0055.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0055.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2685,7 +2685,7 @@ impl IWiaMiniDrv_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaMiniDrv_Impl::drvFreeDrvItemContext(this, core::mem::transmute_copy(&__midl__iwiaminidrv0056), core::mem::transmute_copy(&__midl__iwiaminidrv0057)) {
                     Ok(ok__) => {
-                        __midl__iwiaminidrv0058.write(core::mem::transmute(ok__));
+                        __midl__iwiaminidrv0058.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3164,7 +3164,7 @@ impl IWiaPropertyStorage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaPropertyStorage_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pulnumprops.write(core::mem::transmute(ok__));
+                        pulnumprops.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3623,7 +3623,7 @@ impl IWiaVideo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaVideo_Impl::PreviewVisible(this) {
                     Ok(ok__) => {
-                        pbpreviewvisible.write(core::mem::transmute(ok__));
+                        pbpreviewvisible.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3713,7 +3713,7 @@ impl IWiaVideo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaVideo_Impl::GetCurrentState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

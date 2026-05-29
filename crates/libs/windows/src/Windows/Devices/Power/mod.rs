@@ -114,6 +114,7 @@ unsafe impl Sync for BatteryReport {}
 windows_core::imp::define_interface!(IBattery, IBattery_Vtbl, 0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 impl windows_core::RuntimeType for IBattery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Power.IBattery");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,6 +128,7 @@ pub struct IBattery_Vtbl {
 windows_core::imp::define_interface!(IBatteryReport, IBatteryReport_Vtbl, 0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 impl windows_core::RuntimeType for IBatteryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Power.IBatteryReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,6 +146,7 @@ pub struct IBatteryReport_Vtbl {
 windows_core::imp::define_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 impl windows_core::RuntimeType for IBatteryStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Power.IBatteryStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,6 +159,7 @@ pub struct IBatteryStatics_Vtbl {
 windows_core::imp::define_interface!(IPowerGridData, IPowerGridData_Vtbl, 0xc360fb17_fc92_5f6e_999d_16a4cf9d6c40);
 impl windows_core::RuntimeType for IPowerGridData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Power.IPowerGridData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -167,18 +171,20 @@ pub struct IPowerGridData_Vtbl {
 windows_core::imp::define_interface!(IPowerGridForecast, IPowerGridForecast_Vtbl, 0x077e4de9_ed60_58bb_a850_003c6a138685);
 impl windows_core::RuntimeType for IPowerGridForecast {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Power.IPowerGridForecast");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerGridForecast_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub BlockDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub BlockDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Forecast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPowerGridForecastStatics, IPowerGridForecastStatics_Vtbl, 0x5b78c806_2e4e_5bcc_bb34_cb81c60f9e12);
 impl windows_core::RuntimeType for IPowerGridForecastStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Power.IPowerGridForecastStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -223,13 +229,13 @@ unsafe impl Sync for PowerGridData {}
 pub struct PowerGridForecast(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridForecast, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerGridForecast {
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn BlockDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BlockDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

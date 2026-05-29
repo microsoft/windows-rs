@@ -72,7 +72,11 @@ impl TypeMap {
         self.0.entry(ty.type_name()).or_default().insert(ty)
     }
 
-    fn combine_references(&mut self, other: &Self, references: &References) {
+    pub fn remove(&mut self, tn: &TypeName) {
+        self.0.remove(tn);
+    }
+
+    pub fn combine_references(&mut self, other: &Self, references: &References) {
         for (tn, types) in &other.0 {
             if references.contains(*tn).is_none() {
                 let set = self.0.entry(*tn).or_default();
@@ -106,6 +110,16 @@ impl TypeMap {
 
             if config.references.contains(*tn).is_some() {
                 return true;
+            }
+
+            // Generic types have a tick suffix (e.g. `IReference`1`) that may not
+            // match reference filter rules. Try without the suffix.
+            if let Some(pos) = tn.name().find('`') {
+                let base_name: &str = &tn.name()[..pos];
+                let base_tn = TypeName(tn.namespace(), base_name);
+                if config.references.contains(base_tn).is_some() {
+                    return true;
+                }
             }
 
             false

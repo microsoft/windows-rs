@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 impl windows_core::RuntimeType for IInstalledDesktopApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Inventory.IInstalledDesktopApp");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14,6 +15,7 @@ pub struct IInstalledDesktopApp_Vtbl {
 windows_core::imp::define_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a);
 impl windows_core::RuntimeType for IInstalledDesktopAppStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Inventory.IInstalledDesktopAppStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

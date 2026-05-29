@@ -12,6 +12,7 @@ impl windows_core::TypeKind for ContentAccessRestrictionLevel {
 }
 impl windows_core::RuntimeType for ContentAccessRestrictionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -52,6 +53,7 @@ unsafe impl Sync for ContentRestrictionsBrowsePolicy {}
 windows_core::imp::define_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 impl windows_core::RuntimeType for IContentRestrictionsBrowsePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,6 +66,7 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
 windows_core::imp::define_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
 impl windows_core::RuntimeType for IRatedContentDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentDescription");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,6 +92,7 @@ pub struct IRatedContentDescription_Vtbl {
 windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,6 +103,7 @@ pub struct IRatedContentDescriptionFactory_Vtbl {
 windows_core::imp::define_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
 impl windows_core::RuntimeType for IRatedContentRestrictions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentRestrictions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -113,6 +118,7 @@ pub struct IRatedContentRestrictions_Vtbl {
 windows_core::imp::define_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
 impl windows_core::RuntimeType for IRatedContentRestrictionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,6 +142,7 @@ impl windows_core::TypeKind for RatedContentCategory {
 }
 impl windows_core::RuntimeType for RatedContentCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.ContentRestrictions.RatedContentCategory");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

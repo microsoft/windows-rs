@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPhoneNumberFormatter, IPhoneNumberFormatter_Vtbl, 0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 impl windows_core::RuntimeType for IPhoneNumberFormatter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct IPhoneNumberFormatter_Vtbl {
 windows_core::imp::define_interface!(IPhoneNumberFormatterStatics, IPhoneNumberFormatterStatics_Vtbl, 0x5ca6f931_84d9_414b_ab4e_a0552c878602);
 impl windows_core::RuntimeType for IPhoneNumberFormatterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatterStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,6 +30,7 @@ pub struct IPhoneNumberFormatterStatics_Vtbl {
 windows_core::imp::define_interface!(IPhoneNumberInfo, IPhoneNumberInfo_Vtbl, 0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
 impl windows_core::RuntimeType for IPhoneNumberInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,6 +48,7 @@ pub struct IPhoneNumberInfo_Vtbl {
 windows_core::imp::define_interface!(IPhoneNumberInfoFactory, IPhoneNumberInfoFactory_Vtbl, 0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
 impl windows_core::RuntimeType for IPhoneNumberInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,6 +59,7 @@ pub struct IPhoneNumberInfoFactory_Vtbl {
 windows_core::imp::define_interface!(IPhoneNumberInfoStatics, IPhoneNumberInfoStatics_Vtbl, 0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
 impl windows_core::RuntimeType for IPhoneNumberInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,6 +82,7 @@ impl windows_core::TypeKind for PhoneNumberFormat {
 }
 impl windows_core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -281,6 +287,7 @@ impl windows_core::TypeKind for PhoneNumberMatchResult {
 }
 impl windows_core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -297,6 +304,7 @@ impl windows_core::TypeKind for PhoneNumberParseResult {
 }
 impl windows_core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -320,4 +328,5 @@ impl windows_core::TypeKind for PredictedPhoneNumberKind {
 }
 impl windows_core::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind");
 }

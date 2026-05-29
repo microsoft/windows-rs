@@ -134,7 +134,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointOffloadStreamMeter_Impl::GetMeterChannelCount(this) {
                     Ok(ok__) => {
-                        pu32channelcount.write(core::mem::transmute(ok__));
+                        pu32channelcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointOffloadStreamMeter_Impl::GetMeteringData(this, core::mem::transmute_copy(&u32channelcount)) {
                     Ok(ok__) => {
-                        pf32peakvalues.write(core::mem::transmute(ok__));
+                        pf32peakvalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointOffloadStreamMute_Impl::GetMute(this) {
                     Ok(ok__) => {
-                        pbmuted.write(core::mem::transmute(ok__));
+                        pbmuted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -260,7 +260,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointOffloadStreamVolume_Impl::GetVolumeChannelCount(this) {
                     Ok(ok__) => {
-                        pu32channelcount.write(core::mem::transmute(ok__));
+                        pu32channelcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -278,7 +278,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointOffloadStreamVolume_Impl::GetChannelVolumes(this, core::mem::transmute_copy(&u32channelcount)) {
                     Ok(ok__) => {
-                        pf32volumes.write(core::mem::transmute(ok__));
+                        pf32volumes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -445,7 +445,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::GetChannelCount(this) {
                     Ok(ok__) => {
-                        pnchannelcount.write(core::mem::transmute(ok__));
+                        pnchannelcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -469,7 +469,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::GetMasterVolumeLevel(this) {
                     Ok(ok__) => {
-                        pfleveldb.write(core::mem::transmute(ok__));
+                        pfleveldb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -481,7 +481,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::GetMasterVolumeLevelScalar(this) {
                     Ok(ok__) => {
-                        pflevel.write(core::mem::transmute(ok__));
+                        pflevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -505,7 +505,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::GetChannelVolumeLevel(this, core::mem::transmute_copy(&nchannel)) {
                     Ok(ok__) => {
-                        pfleveldb.write(core::mem::transmute(ok__));
+                        pfleveldb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -517,7 +517,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::GetChannelVolumeLevelScalar(this, core::mem::transmute_copy(&nchannel)) {
                     Ok(ok__) => {
-                        pflevel.write(core::mem::transmute(ok__));
+                        pflevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::GetMute(this) {
                     Ok(ok__) => {
-                        pbmute.write(core::mem::transmute(ok__));
+                        pbmute.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -565,7 +565,7 @@ impl IAudioEndpointVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpointVolume_Impl::QueryHardwareSupport(this) {
                     Ok(ok__) => {
-                        pdwhardwaresupportmask.write(core::mem::transmute(ok__));
+                        pdwhardwaresupportmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl IAudioLfxControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioLfxControl_Impl::GetLocalEffectsState(this) {
                     Ok(ok__) => {
-                        pbenabled.write(core::mem::transmute(ok__));
+                        pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -775,7 +775,7 @@ impl IAudioMeterInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMeterInformation_Impl::GetPeakValue(this) {
                     Ok(ok__) => {
-                        pfpeak.write(core::mem::transmute(ok__));
+                        pfpeak.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -787,7 +787,7 @@ impl IAudioMeterInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMeterInformation_Impl::GetMeteringChannelCount(this) {
                     Ok(ok__) => {
-                        pnchannelcount.write(core::mem::transmute(ok__));
+                        pnchannelcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -805,7 +805,7 @@ impl IAudioMeterInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMeterInformation_Impl::QueryHardwareSupport(this) {
                     Ok(ok__) => {
-                        pdwhardwaresupportmask.write(core::mem::transmute(ok__));
+                        pdwhardwaresupportmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -889,7 +889,7 @@ impl IHardwareAudioEngineBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IHardwareAudioEngineBase_Impl::GetAvailableOffloadConnectorCount(this, core::mem::transmute(&_pwstrdeviceid), core::mem::transmute_copy(&_uconnectorid)) {
                     Ok(ok__) => {
-                        _pavailableconnectorinstancecount.write(core::mem::transmute(ok__));
+                        _pavailableconnectorinstancecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -919,7 +919,7 @@ impl IHardwareAudioEngineBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IHardwareAudioEngineBase_Impl::GetGfxState(this, core::mem::transmute_copy(&pdevice)) {
                     Ok(ok__) => {
-                        _pbenable.write(core::mem::transmute(ok__));
+                        _pbenable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

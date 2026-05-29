@@ -146,6 +146,7 @@ unsafe impl Sync for DesktopWindowTarget {}
 windows_core::imp::define_interface!(IDesktopWindowTarget, IDesktopWindowTarget_Vtbl, 0x6329d6ca_3366_490e_9db3_25312929ac51);
 impl windows_core::RuntimeType for IDesktopWindowTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Composition.Desktop.IDesktopWindowTarget");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -79,7 +79,7 @@ impl Encoder<'_> {
         for method in &item.methods {
             let mut params = vec![];
 
-            for arg in method.inputs.iter() {
+            for arg in &method.inputs {
                 let p = self.bare_param(arg)?;
                 if item.winrt {
                     self.validate_type_is_winrt(&arg.ty, &p.ty)?;

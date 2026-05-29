@@ -973,7 +973,7 @@ impl IBindCallbackRedirect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBindCallbackRedirect_Impl::Redirect(this, core::mem::transmute(&lpcurl)) {
                     Ok(ok__) => {
-                        vbcancel.write(core::mem::transmute(ok__));
+                        vbcancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1013,7 +1013,7 @@ impl IBindHttpSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBindHttpSecurity_Impl::GetIgnoreCertMask(this) {
                     Ok(ok__) => {
-                        pdwignorecertmask.write(core::mem::transmute(ok__));
+                        pdwignorecertmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1102,7 +1102,7 @@ impl ICatalogFileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogFileInfo_Impl::GetCatalogFile(this) {
                     Ok(ok__) => {
-                        ppszcatalogfile.write(core::mem::transmute(ok__));
+                        ppszcatalogfile.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1334,7 +1334,7 @@ impl IGetBindHandle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGetBindHandle_Impl::GetBindHandle(this, core::mem::transmute_copy(&enumrequestedhandle)) {
                     Ok(ok__) => {
-                        prethandle.write(core::mem::transmute(ok__));
+                        prethandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1390,7 +1390,7 @@ impl IHttpNegotiate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IHttpNegotiate_Impl::BeginningTransaction(this, core::mem::transmute(&szurl), core::mem::transmute(&szheaders), core::mem::transmute_copy(&dwreserved)) {
                     Ok(ok__) => {
-                        pszadditionalheaders.write(core::mem::transmute(ok__));
+                        pszadditionalheaders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1402,7 +1402,7 @@ impl IHttpNegotiate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IHttpNegotiate_Impl::OnResponse(this, core::mem::transmute_copy(&dwresponsecode), core::mem::transmute(&szresponseheaders), core::mem::transmute(&szrequestheaders)) {
                     Ok(ok__) => {
-                        pszadditionalrequestheaders.write(core::mem::transmute(ok__));
+                        pszadditionalrequestheaders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1740,7 +1740,7 @@ impl IInternetPriority_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInternetPriority_Impl::GetPriority(this) {
                     Ok(ok__) => {
-                        pnpriority.write(core::mem::transmute(ok__));
+                        pnpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1811,7 +1811,7 @@ impl IInternetProtocol_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInternetProtocol_Impl::Seek(this, core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&dworigin)) {
                     Ok(ok__) => {
-                        plibnewposition.write(core::mem::transmute(ok__));
+                        plibnewposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2510,7 +2510,7 @@ impl IInternetSecurityMgrSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInternetSecurityMgrSite_Impl::GetWindow(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2846,7 +2846,7 @@ impl IInternetZoneManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInternetZoneManager_Impl::GetZoneAt(this, core::mem::transmute_copy(&dwenum), core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pdwzone.write(core::mem::transmute(ok__));
+                        pdwzone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3170,7 +3170,7 @@ impl IPersistMoniker_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistMoniker_Impl::GetClassID(this) {
                     Ok(ok__) => {
-                        pclassid.write(core::mem::transmute(ok__));
+                        pclassid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3661,7 +3661,7 @@ impl IWindowForBindingUI_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowForBindingUI_Impl::GetWindow(this, core::mem::transmute_copy(&rguidreason)) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3742,7 +3742,7 @@ impl IZoneIdentifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IZoneIdentifier_Impl::GetId(this) {
                     Ok(ok__) => {
-                        pdwzone.write(core::mem::transmute(ok__));
+                        pdwzone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3836,7 +3836,7 @@ impl IZoneIdentifier2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IZoneIdentifier2_Impl::GetLastWriterPackageFamilyName(this) {
                     Ok(ok__) => {
-                        packagefamilyname.write(core::mem::transmute(ok__));
+                        packagefamilyname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3860,7 +3860,7 @@ impl IZoneIdentifier2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IZoneIdentifier2_Impl::GetAppZoneId(this) {
                     Ok(ok__) => {
-                        zone.write(core::mem::transmute(ok__));
+                        zone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

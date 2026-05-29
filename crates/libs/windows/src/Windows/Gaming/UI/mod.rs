@@ -56,6 +56,7 @@ impl windows_core::TypeKind for GameChatMessageOrigin {
 }
 impl windows_core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.GameChatMessageOrigin");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -169,7 +170,7 @@ impl GameChatOverlayMessageSource {
     pub fn RemoveMessageReceived(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveMessageReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayBeforeClosingAfterMessageReceived(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDelayBeforeClosingAfterMessageReceived)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -203,6 +204,7 @@ impl windows_core::TypeKind for GameChatOverlayPosition {
 }
 impl windows_core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.GameChatOverlayPosition");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
@@ -270,6 +272,7 @@ unsafe impl Sync for GameUIProviderActivatedEventArgs {}
 windows_core::imp::define_interface!(IGameBarStatics, IGameBarStatics_Vtbl, 0x1db9a292_cc78_4173_be45_b61e67283ea7);
 impl windows_core::RuntimeType for IGameBarStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.IGameBarStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -285,6 +288,7 @@ pub struct IGameBarStatics_Vtbl {
 windows_core::imp::define_interface!(IGameChatMessageReceivedEventArgs, IGameChatMessageReceivedEventArgs_Vtbl, 0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 impl windows_core::RuntimeType for IGameChatMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.IGameChatMessageReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -299,6 +303,7 @@ pub struct IGameChatMessageReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGameChatOverlay, IGameChatOverlay_Vtbl, 0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 impl windows_core::RuntimeType for IGameChatOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.IGameChatOverlay");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,6 +316,7 @@ pub struct IGameChatOverlay_Vtbl {
 windows_core::imp::define_interface!(IGameChatOverlayMessageSource, IGameChatOverlayMessageSource_Vtbl, 0x1e177397_59fb_4f4f_8e9a_80acf817743c);
 impl windows_core::RuntimeType for IGameChatOverlayMessageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.IGameChatOverlayMessageSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -318,11 +324,12 @@ pub struct IGameChatOverlayMessageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub SetDelayBeforeClosingAfterMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetDelayBeforeClosingAfterMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameChatOverlayStatics, IGameChatOverlayStatics_Vtbl, 0x89acf614_7867_49f7_9687_25d9dbf444d1);
 impl windows_core::RuntimeType for IGameChatOverlayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.IGameChatOverlayStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -335,6 +342,7 @@ windows_core::imp::define_interface!(IGameUIProviderActivatedEventArgs, IGameUIP
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for IGameUIProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.UI.IGameUIProviderActivatedEventArgs");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]

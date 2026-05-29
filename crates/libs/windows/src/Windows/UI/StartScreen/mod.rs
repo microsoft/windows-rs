@@ -10,10 +10,12 @@ impl windows_core::TypeKind for ForegroundText {
 }
 impl windows_core::RuntimeType for ForegroundText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ForegroundText");
 }
 windows_core::imp::define_interface!(IJumpList, IJumpList_Vtbl, 0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 impl windows_core::RuntimeType for IJumpList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpList");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,6 +29,7 @@ pub struct IJumpList_Vtbl {
 windows_core::imp::define_interface!(IJumpListItem, IJumpListItem_Vtbl, 0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 impl windows_core::RuntimeType for IJumpListItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpListItem");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -47,6 +50,7 @@ pub struct IJumpListItem_Vtbl {
 windows_core::imp::define_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 impl windows_core::RuntimeType for IJumpListItemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpListItemStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,6 +62,7 @@ pub struct IJumpListItemStatics_Vtbl {
 windows_core::imp::define_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
 impl windows_core::RuntimeType for IJumpListStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IJumpListStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,6 +74,7 @@ pub struct IJumpListStatics_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 impl windows_core::RuntimeType for ISecondaryTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTile");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,6 +123,7 @@ pub struct ISecondaryTile_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 impl windows_core::RuntimeType for ISecondaryTile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTile2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -133,6 +140,7 @@ pub struct ISecondaryTile2_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileFactory, ISecondaryTileFactory_Vtbl, 0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
 impl windows_core::RuntimeType for ISecondaryTileFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -145,6 +153,7 @@ pub struct ISecondaryTileFactory_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileFactory2, ISecondaryTileFactory2_Vtbl, 0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
 impl windows_core::RuntimeType for ISecondaryTileFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileFactory2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -155,6 +164,7 @@ pub struct ISecondaryTileFactory2_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileStatics, ISecondaryTileStatics_Vtbl, 0x99908dae_d051_4676_87fe_9ec242d83c74);
 impl windows_core::RuntimeType for ISecondaryTileStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,6 +178,7 @@ pub struct ISecondaryTileStatics_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,6 +208,7 @@ pub struct ISecondaryTileVisualElements_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -208,6 +220,7 @@ pub struct ISecondaryTileVisualElements2_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -219,6 +232,7 @@ pub struct ISecondaryTileVisualElements3_Vtbl {
 windows_core::imp::define_interface!(ISecondaryTileVisualElements4, ISecondaryTileVisualElements4_Vtbl, 0x66566117_b544_40d2_8d12_74d4ec24d04c);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ISecondaryTileVisualElements4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,6 +243,7 @@ pub struct ISecondaryTileVisualElements4_Vtbl {
 windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 impl windows_core::RuntimeType for IStartScreenManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IStartScreenManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,6 +269,7 @@ pub struct IStartScreenManager_Vtbl {
 windows_core::imp::define_interface!(IStartScreenManager2, IStartScreenManager2_Vtbl, 0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 impl windows_core::RuntimeType for IStartScreenManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IStartScreenManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -265,6 +281,7 @@ pub struct IStartScreenManager2_Vtbl {
 windows_core::imp::define_interface!(IStartScreenManagerStatics, IStartScreenManagerStatics_Vtbl, 0x7865ef0f_b585_464e_8993_34e8f8738d48);
 impl windows_core::RuntimeType for IStartScreenManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IStartScreenManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -279,6 +296,7 @@ pub struct IStartScreenManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ITileMixedRealityModel, ITileMixedRealityModel_Vtbl, 0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 impl windows_core::RuntimeType for ITileMixedRealityModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ITileMixedRealityModel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -298,6 +316,7 @@ pub struct ITileMixedRealityModel_Vtbl {
 windows_core::imp::define_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67);
 impl windows_core::RuntimeType for ITileMixedRealityModel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.ITileMixedRealityModel2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -309,6 +328,7 @@ pub struct ITileMixedRealityModel2_Vtbl {
 windows_core::imp::define_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0xc138333a_9308_4072_88cc_d068db347c68);
 impl windows_core::RuntimeType for IVisualElementsRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IVisualElementsRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -316,12 +336,13 @@ pub struct IVisualElementsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VisualElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AlternateVisualElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisualElementsRequestDeferral, IVisualElementsRequestDeferral_Vtbl, 0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 impl windows_core::RuntimeType for IVisualElementsRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IVisualElementsRequestDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -332,6 +353,7 @@ pub struct IVisualElementsRequestDeferral_Vtbl {
 windows_core::imp::define_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 impl windows_core::RuntimeType for IVisualElementsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.IVisualElementsRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -497,6 +519,7 @@ impl windows_core::TypeKind for JumpListItemKind {
 }
 impl windows_core::RuntimeType for JumpListItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.JumpListItemKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -511,6 +534,7 @@ impl windows_core::TypeKind for JumpListSystemGroupKind {
 }
 impl windows_core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.JumpListSystemGroupKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1138,6 +1162,7 @@ impl windows_core::TypeKind for TileMixedRealityModelActivationBehavior {
 }
 impl windows_core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1153,6 +1178,7 @@ impl windows_core::TypeKind for TileOptions {
 }
 impl windows_core::RuntimeType for TileOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.TileOptions");
 }
 impl TileOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1205,6 +1231,7 @@ impl windows_core::TypeKind for TileSize {
 }
 impl windows_core::RuntimeType for TileSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.StartScreen.TileSize");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1223,7 +1250,7 @@ impl VisualElementsRequest {
             (windows_core::Interface::vtable(self).AlternateVisualElements)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

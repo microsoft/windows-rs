@@ -3,6 +3,7 @@ pub mod Core;
 windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 impl windows_core::RuntimeType for IThreadPoolStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,27 +16,29 @@ pub struct IThreadPoolStatics_Vtbl {
 windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 impl windows_core::RuntimeType for IThreadPoolTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolTimer");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolTimer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 impl windows_core::RuntimeType for IThreadPoolTimerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.IThreadPoolTimerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThreadPoolTimerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreatePeriodicTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreatePeriodicTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePeriodicTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePeriodicTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub struct ThreadPool;
 impl ThreadPool {
@@ -79,13 +82,13 @@ impl windows_core::RuntimeName for ThreadPool {
 pub struct ThreadPoolTimer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ThreadPoolTimer, windows_core::IUnknown, windows_core::IInspectable);
 impl ThreadPoolTimer {
-    pub fn Period(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Period(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Period)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -94,7 +97,7 @@ impl ThreadPoolTimer {
     pub fn Cancel(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CreatePeriodicTimer<P0>(handler: P0, period: super::super::Foundation::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreatePeriodicTimer<P0>(handler: P0, period: windows_time::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
     {
@@ -103,7 +106,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreatePeriodicTimer)(windows_core::Interface::as_raw(this), handler.param().abi(), period, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTimer<P0>(handler: P0, delay: super::super::Foundation::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreateTimer<P0>(handler: P0, delay: windows_time::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
     {
@@ -112,7 +115,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreateTimer)(windows_core::Interface::as_raw(this), handler.param().abi(), delay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePeriodicTimerWithCompletion<P0, P2>(handler: P0, period: super::super::Foundation::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreatePeriodicTimerWithCompletion<P0, P2>(handler: P0, period: windows_time::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
         P2: windows_core::Param<TimerDestroyedHandler>,
@@ -122,7 +125,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(windows_core::Interface::as_raw(this), handler.param().abi(), period, destroyed.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTimerWithCompletion<P0, P2>(handler: P0, delay: super::super::Foundation::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreateTimerWithCompletion<P0, P2>(handler: P0, delay: windows_time::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
         P2: windows_core::Param<TimerDestroyedHandler>,
@@ -278,6 +281,7 @@ impl windows_core::TypeKind for WorkItemOptions {
 }
 impl windows_core::RuntimeType for WorkItemOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.WorkItemOptions");
 }
 impl WorkItemOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -325,4 +329,5 @@ impl windows_core::TypeKind for WorkItemPriority {
 }
 impl windows_core::RuntimeType for WorkItemPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Threading.WorkItemPriority");
 }

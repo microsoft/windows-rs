@@ -39,6 +39,14 @@ typedef long long TestStatus;
 /* ULL suffix → Value::U64 */
 #define BIG_ULL 0x100000000ULL
 
+/* `u` suffix where value fits in u32. */
+#define U8_CONST  0x1Fu
+#define U16_CONST 0x1F40u
+#define U32_CONST 0x1F400344u
+
+/* `u` suffix where value exceeds u32 — promotes to u64 (C semantics). */
+#define U64_CONST 0x1F40034408690000u
+
 /* Typedef used as cast target for the typed-cast tests below */
 typedef long long TestStatusCode;
 

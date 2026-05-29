@@ -4238,7 +4238,7 @@ impl ID3D10Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10Device_Impl::CheckFormatSupport(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
-                        pformatsupport.write(core::mem::transmute(ok__));
+                        pformatsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4250,7 +4250,7 @@ impl ID3D10Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10Device_Impl::CheckMultisampleQualityLevels(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&samplecount)) {
                     Ok(ok__) => {
-                        pnumqualitylevels.write(core::mem::transmute(ok__));
+                        pnumqualitylevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5774,7 +5774,7 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 let this = &*((*this).this as *const Identity);
                 match ID3D10EffectScalarVariable_Impl::GetFloat(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5808,7 +5808,7 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 let this = &*((*this).this as *const Identity);
                 match ID3D10EffectScalarVariable_Impl::GetInt(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5842,7 +5842,7 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 let this = &*((*this).this as *const Identity);
                 match ID3D10EffectScalarVariable_Impl::GetBool(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6187,7 +6187,7 @@ impl ID3D10EffectStringVariable_Vtbl {
                 let this = &*((*this).this as *const Identity);
                 match ID3D10EffectStringVariable_Impl::GetString(this) {
                     Ok(ok__) => {
-                        ppstring.write(core::mem::transmute(ok__));
+                        ppstring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8229,7 +8229,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::GetMovInstructionCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8241,7 +8241,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::GetMovcInstructionCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8253,7 +8253,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::GetConversionInstructionCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8265,7 +8265,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::GetBitwiseInstructionCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8277,7 +8277,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::GetGSInputPrimitive(this) {
                     Ok(ok__) => {
-                        pprim.write(core::mem::transmute(ok__));
+                        pprim.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8289,7 +8289,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::IsLevel9Shader(this) {
                     Ok(ok__) => {
-                        pblevel9shader.write(core::mem::transmute(ok__));
+                        pblevel9shader.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8301,7 +8301,7 @@ impl ID3D10ShaderReflection1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10ShaderReflection1_Impl::IsSampleFrequencyShader(this) {
                     Ok(ok__) => {
-                        pbsamplefrequency.write(core::mem::transmute(ok__));
+                        pbsamplefrequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8907,7 +8907,7 @@ impl ID3D10Texture2D_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10Texture2D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags)) {
                     Ok(ok__) => {
-                        pmappedtex2d.write(core::mem::transmute(ok__));
+                        pmappedtex2d.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8993,7 +8993,7 @@ impl ID3D10Texture3D_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D10Texture3D_Impl::Map(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&maptype), core::mem::transmute_copy(&mapflags)) {
                     Ok(ok__) => {
-                        pmappedtex3d.write(core::mem::transmute(ok__));
+                        pmappedtex3d.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

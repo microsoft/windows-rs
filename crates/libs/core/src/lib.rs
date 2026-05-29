@@ -102,6 +102,7 @@ impl Param<PCSTR> for PSTR {
 
 impl RuntimeType for HSTRING {
     const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"string");
+    const NAME: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"String");
 }
 
 impl TypeKind for PWSTR {

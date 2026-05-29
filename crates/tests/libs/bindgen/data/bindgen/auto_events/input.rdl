@@ -6,7 +6,9 @@ mod Test {
         fn add_Click(&self, handler: Handler) -> i64;
         #[special]
         fn remove_Click(&self, token: i64);
+        fn SetCompleted(&self, callback: CompletedCallback);
     }
 
     delegate fn Handler(sender: IFoo, args: i32);
+    delegate fn CompletedCallback(result: i32);
 }

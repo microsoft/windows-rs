@@ -360,6 +360,7 @@ unsafe impl Sync for AppExtensionPackageUpdatingEventArgs {}
 windows_core::imp::define_interface!(IAppExtension, IAppExtension_Vtbl, 0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
 impl windows_core::RuntimeType for IAppExtension {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtension");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -382,6 +383,7 @@ pub struct IAppExtension_Vtbl {
 windows_core::imp::define_interface!(IAppExtension2, IAppExtension2_Vtbl, 0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
 impl windows_core::RuntimeType for IAppExtension2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtension2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -392,6 +394,7 @@ pub struct IAppExtension2_Vtbl {
 windows_core::imp::define_interface!(IAppExtension3, IAppExtension3_Vtbl, 0x5923c101_aa38_4009_84d9_5b54a0df30ae);
 impl windows_core::RuntimeType for IAppExtension3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtension3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,6 +413,7 @@ pub struct IAppExtension3_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionCatalog, IAppExtensionCatalog_Vtbl, 0x97872032_8426_4ad1_9084_92e88c2da200);
 impl windows_core::RuntimeType for IAppExtensionCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -431,6 +435,7 @@ pub struct IAppExtensionCatalog_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionCatalog2, IAppExtensionCatalog2_Vtbl, 0x50056eba_58b6_4147_b5a5_8feca6dfb49d);
 impl windows_core::RuntimeType for IAppExtensionCatalog2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,6 +446,7 @@ pub struct IAppExtensionCatalog2_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionCatalogStatics, IAppExtensionCatalogStatics_Vtbl, 0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
 impl windows_core::RuntimeType for IAppExtensionCatalogStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionCatalogStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -451,6 +457,7 @@ pub struct IAppExtensionCatalogStatics_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionPackageInstalledEventArgs, IAppExtensionPackageInstalledEventArgs_Vtbl, 0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
 impl windows_core::RuntimeType for IAppExtensionPackageInstalledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -463,6 +470,7 @@ pub struct IAppExtensionPackageInstalledEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionPackageStatusChangedEventArgs, IAppExtensionPackageStatusChangedEventArgs_Vtbl, 0x1ce17433_1153_44fd_87b1_8ae1050303df);
 impl windows_core::RuntimeType for IAppExtensionPackageStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,6 +482,7 @@ pub struct IAppExtensionPackageStatusChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionPackageUninstallingEventArgs, IAppExtensionPackageUninstallingEventArgs_Vtbl, 0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
 impl windows_core::RuntimeType for IAppExtensionPackageUninstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -485,6 +494,7 @@ pub struct IAppExtensionPackageUninstallingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionPackageUpdatedEventArgs, IAppExtensionPackageUpdatedEventArgs_Vtbl, 0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
 impl windows_core::RuntimeType for IAppExtensionPackageUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -497,6 +507,7 @@ pub struct IAppExtensionPackageUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAppExtensionPackageUpdatingEventArgs, IAppExtensionPackageUpdatingEventArgs_Vtbl, 0x7ed59329_1a65_4800_a700_b321009e306a);
 impl windows_core::RuntimeType for IAppExtensionPackageUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]

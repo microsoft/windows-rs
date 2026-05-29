@@ -26,7 +26,9 @@ concurrency:
 jobs:
   windows:
     name: windows
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
+    env:
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -35,7 +37,9 @@ jobs:
 
   windows-sys:
     name: windows-sys
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
+    env:
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -44,7 +48,9 @@ jobs:
 
   other-crates:
     name: other-crates
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
+    env:
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -68,9 +74,10 @@ jobs:
     # The publishable-docs surface for fully cross-platform crates must keep
     # building on a non-Windows target. The list is intentionally narrower
     # than `--workspace`.
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       RUSTFLAGS: -D warnings
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -79,11 +86,9 @@ jobs:
       - name: Install LLVM and Clang
         uses: KyleMayes/install-llvm-action@v2
         with:
-          version: "18"
+          version: "20"
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
-      - name: Install libtinfo5
-        run: sudo apt-get install -y libtinfo5
       - name: Doc
         run: |
           set -euxo pipefail

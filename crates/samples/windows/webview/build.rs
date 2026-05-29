@@ -42,7 +42,7 @@ fn main() {
         .filter(namespace)
         .reference("windows")
         .flat()
-        .minimal()
+        .implement(std::iter::empty::<&str>())
         .write()
         .unwrap();
 }

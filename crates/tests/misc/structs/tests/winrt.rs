@@ -2,6 +2,7 @@
 use windows::Storage::Search::*;
 
 #[test]
+#[expect(clippy::redundant_clone)]
 fn test() {
     // SortyEntry is a WinRT struct with non-blittable fields. This just validates that it can
     // be used directly and isn't wrapped inside ManuallyDrop.

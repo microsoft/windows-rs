@@ -25,6 +25,7 @@ unsafe impl Sync for ErrorReceivedEventArgs {}
 windows_core::imp::define_interface!(IErrorReceivedEventArgs, IErrorReceivedEventArgs_Vtbl, 0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 impl windows_core::RuntimeType for IErrorReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.IErrorReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,6 +36,7 @@ pub struct IErrorReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPinChangedEventArgs, IPinChangedEventArgs_Vtbl, 0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 impl windows_core::RuntimeType for IPinChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.IPinChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -45,6 +47,7 @@ pub struct IPinChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISerialDevice, ISerialDevice_Vtbl, 0xe187ccc6_2210_414f_b65a_f5553a03372a);
 impl windows_core::RuntimeType for ISerialDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.ISerialDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,14 +72,14 @@ pub struct ISerialDevice_Vtbl {
     pub Parity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialParity) -> windows_core::HRESULT,
     pub SetParity: unsafe extern "system" fn(*mut core::ffi::c_void, SerialParity) -> windows_core::HRESULT,
     pub PortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub StopBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialStopBitCount) -> windows_core::HRESULT,
     pub SetStopBits: unsafe extern "system" fn(*mut core::ffi::c_void, SerialStopBitCount) -> windows_core::HRESULT,
     pub UsbVendorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub UsbProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub WriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetWriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub WriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetWriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub InputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -93,6 +96,7 @@ pub struct ISerialDevice_Vtbl {
 windows_core::imp::define_interface!(ISerialDeviceStatics, ISerialDeviceStatics_Vtbl, 0x058c4a70_0836_4993_ae1a_b61ae3be056b);
 impl windows_core::RuntimeType for ISerialDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.ISerialDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -230,13 +234,13 @@ impl SerialDevice {
             (windows_core::Interface::vtable(self).PortName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ReadTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReadTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetReadTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReadTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn StopBits(&self) -> windows_core::Result<SerialStopBitCount> {
@@ -260,13 +264,13 @@ impl SerialDevice {
             (windows_core::Interface::vtable(self).UsbProductId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn WriteTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWriteTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetWriteTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -363,6 +367,7 @@ impl windows_core::TypeKind for SerialError {
 }
 impl windows_core::RuntimeType for SerialError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.SerialError");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -378,6 +383,7 @@ impl windows_core::TypeKind for SerialHandshake {
 }
 impl windows_core::RuntimeType for SerialHandshake {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.SerialHandshake");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -394,6 +400,7 @@ impl windows_core::TypeKind for SerialParity {
 }
 impl windows_core::RuntimeType for SerialParity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.SerialParity");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -410,6 +417,7 @@ impl windows_core::TypeKind for SerialPinChange {
 }
 impl windows_core::RuntimeType for SerialPinChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.SerialPinChange");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -424,4 +432,5 @@ impl windows_core::TypeKind for SerialStopBitCount {
 }
 impl windows_core::RuntimeType for SerialStopBitCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.SerialCommunication.SerialStopBitCount");
 }

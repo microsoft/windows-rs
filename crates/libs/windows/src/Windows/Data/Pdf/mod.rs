@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 impl windows_core::RuntimeType for IPdfDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfDocument");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13,6 +14,7 @@ pub struct IPdfDocument_Vtbl {
 windows_core::imp::define_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599);
 impl windows_core::RuntimeType for IPdfDocumentStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfDocumentStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -38,6 +40,7 @@ pub struct IPdfDocumentStatics_Vtbl {
 windows_core::imp::define_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 impl windows_core::RuntimeType for IPdfPage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfPage");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -61,6 +64,7 @@ pub struct IPdfPage_Vtbl {
 windows_core::imp::define_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10);
 impl windows_core::RuntimeType for IPdfPageDimensions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfPageDimensions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -75,6 +79,7 @@ pub struct IPdfPageDimensions_Vtbl {
 windows_core::imp::define_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 impl windows_core::RuntimeType for IPdfPageRenderOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.IPdfPageRenderOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -402,4 +407,5 @@ impl windows_core::TypeKind for PdfPageRotation {
 }
 impl windows_core::RuntimeType for PdfPageRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Pdf.PdfPageRotation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Pdf.PdfPageRotation");
 }

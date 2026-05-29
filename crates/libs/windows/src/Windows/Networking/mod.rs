@@ -28,6 +28,7 @@ impl windows_core::TypeKind for DomainNameType {
 }
 impl windows_core::RuntimeType for DomainNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.DomainNameType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -201,6 +202,7 @@ impl windows_core::TypeKind for HostNameSortOptions {
 }
 impl windows_core::RuntimeType for HostNameSortOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.HostNameSortOptions");
 }
 impl HostNameSortOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -249,10 +251,12 @@ impl windows_core::TypeKind for HostNameType {
 }
 impl windows_core::RuntimeType for HostNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.HostNameType");
 }
 windows_core::imp::define_interface!(IEndpointPair, IEndpointPair_Vtbl, 0x33a0aa36_f8fa_4b30_b856_76517c3bd06d);
 impl windows_core::RuntimeType for IEndpointPair {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IEndpointPair");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -270,6 +274,7 @@ pub struct IEndpointPair_Vtbl {
 windows_core::imp::define_interface!(IEndpointPairFactory, IEndpointPairFactory_Vtbl, 0xb609d971_64e0_442b_aa6f_cc8c8f181f78);
 impl windows_core::RuntimeType for IEndpointPairFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IEndpointPairFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -280,6 +285,7 @@ pub struct IEndpointPairFactory_Vtbl {
 windows_core::imp::define_interface!(IHostName, IHostName_Vtbl, 0xbf8ecaad_ed96_49a7_9084_d416cae88dcb);
 impl windows_core::RuntimeType for IHostName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IHostName");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -298,6 +304,7 @@ pub struct IHostName_Vtbl {
 windows_core::imp::define_interface!(IHostNameFactory, IHostNameFactory_Vtbl, 0x458c23ed_712f_4576_adf1_c20b2c643558);
 impl windows_core::RuntimeType for IHostNameFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IHostNameFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -308,6 +315,7 @@ pub struct IHostNameFactory_Vtbl {
 windows_core::imp::define_interface!(IHostNameStatics, IHostNameStatics_Vtbl, 0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0);
 impl windows_core::RuntimeType for IHostNameStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.IHostNameStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

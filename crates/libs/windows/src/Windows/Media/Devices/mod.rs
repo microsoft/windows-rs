@@ -90,6 +90,7 @@ impl windows_core::TypeKind for AdvancedPhotoMode {
 }
 impl windows_core::RuntimeType for AdvancedPhotoMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.AdvancedPhotoMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -312,6 +313,7 @@ impl windows_core::TypeKind for AudioDeviceRole {
 }
 impl windows_core::RuntimeType for AudioDeviceRole {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.AudioDeviceRole");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -326,6 +328,7 @@ impl windows_core::TypeKind for AutoFocusRange {
 }
 impl windows_core::RuntimeType for AutoFocusRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.AutoFocusRange");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -550,6 +553,7 @@ impl windows_core::TypeKind for CameraOcclusionKind {
 }
 impl windows_core::RuntimeType for CameraOcclusionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.CameraOcclusionKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -619,6 +623,7 @@ impl windows_core::TypeKind for CameraStreamState {
 }
 impl windows_core::RuntimeType for CameraStreamState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.CameraStreamState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -643,6 +648,7 @@ impl windows_core::TypeKind for CaptureSceneMode {
 }
 impl windows_core::RuntimeType for CaptureSceneMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.CaptureSceneMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -657,6 +663,7 @@ impl windows_core::TypeKind for CaptureUse {
 }
 impl windows_core::RuntimeType for CaptureUse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.CaptureUse");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -676,6 +683,7 @@ impl windows_core::TypeKind for ColorTemperaturePreset {
 }
 impl windows_core::RuntimeType for ColorTemperaturePreset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ColorTemperaturePreset");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -986,6 +994,7 @@ impl windows_core::TypeKind for DigitalWindowMode {
 }
 impl windows_core::RuntimeType for DigitalWindowMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.DigitalWindowMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1062,31 +1071,31 @@ impl ExposureControl {
             (windows_core::Interface::vtable(self).SetAutoAsync)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Min(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Min(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Min)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Max(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Max)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Step(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Step)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Value(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, shutterduration: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetValueAsync)(windows_core::Interface::as_raw(self), shutterduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1390,6 +1399,7 @@ impl windows_core::TypeKind for FocusMode {
 }
 impl windows_core::RuntimeType for FocusMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.FocusMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1407,6 +1417,7 @@ impl windows_core::TypeKind for FocusPreset {
 }
 impl windows_core::RuntimeType for FocusPreset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.FocusPreset");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1541,10 +1552,12 @@ impl windows_core::TypeKind for HdrVideoMode {
 }
 impl windows_core::RuntimeType for HdrVideoMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.HdrVideoMode");
 }
 windows_core::imp::define_interface!(IAdvancedPhotoCaptureSettings, IAdvancedPhotoCaptureSettings_Vtbl, 0x08f3863a_0018_445b_93d2_646d1c5ed05c);
 impl windows_core::RuntimeType for IAdvancedPhotoCaptureSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedPhotoCaptureSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1556,6 +1569,7 @@ pub struct IAdvancedPhotoCaptureSettings_Vtbl {
 windows_core::imp::define_interface!(IAdvancedPhotoControl, IAdvancedPhotoControl_Vtbl, 0xc5b15486_9001_4682_9309_68eae0080eec);
 impl windows_core::RuntimeType for IAdvancedPhotoControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedPhotoControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1569,6 +1583,7 @@ pub struct IAdvancedPhotoControl_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController, IAdvancedVideoCaptureDeviceController_Vtbl, 0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1580,6 +1595,7 @@ pub struct IAdvancedVideoCaptureDeviceController_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController10, IAdvancedVideoCaptureDeviceController10_Vtbl, 0xc621b82d_d6f0_5c1b_a388_a6e938407146);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController10 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController10");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1590,6 +1606,7 @@ pub struct IAdvancedVideoCaptureDeviceController10_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController11, IAdvancedVideoCaptureDeviceController11_Vtbl, 0xd5b65ae2_3772_580c_a630_e75de9106904);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController11 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController11");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1603,6 +1620,7 @@ pub struct IAdvancedVideoCaptureDeviceController11_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController2, IAdvancedVideoCaptureDeviceController2_Vtbl, 0x8bb94f8f_f11a_43db_b402_11930b80ae56);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1625,6 +1643,7 @@ pub struct IAdvancedVideoCaptureDeviceController2_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController3, IAdvancedVideoCaptureDeviceController3_Vtbl, 0xa98b8f34_ee0d_470c_b9f0_4229c4bbd089);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1640,6 +1659,7 @@ pub struct IAdvancedVideoCaptureDeviceController3_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController4, IAdvancedVideoCaptureDeviceController4_Vtbl, 0xea9fbfaf_d371_41c3_9a17_824a87ebdfd2);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1655,6 +1675,7 @@ pub struct IAdvancedVideoCaptureDeviceController4_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController5, IAdvancedVideoCaptureDeviceController5_Vtbl, 0x33512b17_b9cb_4a23_b875_f9eaab535492);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1669,6 +1690,7 @@ pub struct IAdvancedVideoCaptureDeviceController5_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController6, IAdvancedVideoCaptureDeviceController6_Vtbl, 0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController6");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1679,6 +1701,7 @@ pub struct IAdvancedVideoCaptureDeviceController6_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController7, IAdvancedVideoCaptureDeviceController7_Vtbl, 0x8d2927f0_a054_50e7_b7df_7c04234d10f0);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController7 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController7");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1689,6 +1712,7 @@ pub struct IAdvancedVideoCaptureDeviceController7_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController8, IAdvancedVideoCaptureDeviceController8_Vtbl, 0xd843f010_e7fb_595b_9a78_0e54c4532b43);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController8 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController8");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1699,6 +1723,7 @@ pub struct IAdvancedVideoCaptureDeviceController8_Vtbl {
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController9, IAdvancedVideoCaptureDeviceController9_Vtbl, 0x8bdca95d_0255_51bc_a10d_5a169ec1625a);
 impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController9 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController9");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1709,6 +1734,7 @@ pub struct IAdvancedVideoCaptureDeviceController9_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceController, IAudioDeviceController_Vtbl, 0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
 impl windows_core::RuntimeType for IAudioDeviceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAudioDeviceController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1722,6 +1748,7 @@ pub struct IAudioDeviceController_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceController2, IAudioDeviceController2_Vtbl, 0x85326599_4c24_48b0_81dd_0c5cc79ddf05);
 impl windows_core::RuntimeType for IAudioDeviceController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAudioDeviceController2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1735,6 +1762,7 @@ pub struct IAudioDeviceController2_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceModule, IAudioDeviceModule_Vtbl, 0x86cfac36_47c1_4b33_9852_8773ec4be123);
 impl windows_core::RuntimeType for IAudioDeviceModule {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAudioDeviceModule");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1753,6 +1781,7 @@ pub struct IAudioDeviceModule_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceModuleNotificationEventArgs, IAudioDeviceModuleNotificationEventArgs_Vtbl, 0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
 impl windows_core::RuntimeType for IAudioDeviceModuleNotificationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1767,6 +1796,7 @@ pub struct IAudioDeviceModuleNotificationEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceModulesManager, IAudioDeviceModulesManager_Vtbl, 0x6aa40c4d_960a_4d1c_b318_0022604547ed);
 impl windows_core::RuntimeType for IAudioDeviceModulesManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAudioDeviceModulesManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1780,6 +1810,7 @@ pub struct IAudioDeviceModulesManager_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceModulesManagerFactory, IAudioDeviceModulesManagerFactory_Vtbl, 0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
 impl windows_core::RuntimeType for IAudioDeviceModulesManagerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IAudioDeviceModulesManagerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1790,6 +1821,7 @@ pub struct IAudioDeviceModulesManagerFactory_Vtbl {
 windows_core::imp::define_interface!(ICallControl, ICallControl_Vtbl, 0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
 impl windows_core::RuntimeType for ICallControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ICallControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1816,6 +1848,7 @@ pub struct ICallControl_Vtbl {
 windows_core::imp::define_interface!(ICallControlStatics, ICallControlStatics_Vtbl, 0x03945ad5_85ab_40e1_af19_56c94303b019);
 impl windows_core::RuntimeType for ICallControlStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ICallControlStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1827,6 +1860,7 @@ pub struct ICallControlStatics_Vtbl {
 windows_core::imp::define_interface!(ICameraOcclusionInfo, ICameraOcclusionInfo_Vtbl, 0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
 impl windows_core::RuntimeType for ICameraOcclusionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ICameraOcclusionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1840,6 +1874,7 @@ pub struct ICameraOcclusionInfo_Vtbl {
 windows_core::imp::define_interface!(ICameraOcclusionState, ICameraOcclusionState_Vtbl, 0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
 impl windows_core::RuntimeType for ICameraOcclusionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ICameraOcclusionState");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1851,6 +1886,7 @@ pub struct ICameraOcclusionState_Vtbl {
 windows_core::imp::define_interface!(ICameraOcclusionStateChangedEventArgs, ICameraOcclusionStateChangedEventArgs_Vtbl, 0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
 impl windows_core::RuntimeType for ICameraOcclusionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ICameraOcclusionStateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1861,6 +1897,7 @@ pub struct ICameraOcclusionStateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDefaultAudioDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs_Vtbl, 0x110f882f_1c05_4657_a18e_47c9b69f07ab);
 impl windows_core::RuntimeType for IDefaultAudioDeviceChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs");
 }
 windows_core::imp::interface_hierarchy!(IDefaultAudioDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IDefaultAudioDeviceChangedEventArgs {
@@ -1931,6 +1968,7 @@ pub struct IDefaultAudioDeviceChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDialRequestedEventArgs, IDialRequestedEventArgs_Vtbl, 0x037b929e_953c_4286_8866_4f0f376c855a);
 impl windows_core::RuntimeType for IDialRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IDialRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1942,6 +1980,7 @@ pub struct IDialRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDigitalWindowBounds, IDigitalWindowBounds_Vtbl, 0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
 impl windows_core::RuntimeType for IDigitalWindowBounds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IDigitalWindowBounds");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1957,6 +1996,7 @@ pub struct IDigitalWindowBounds_Vtbl {
 windows_core::imp::define_interface!(IDigitalWindowCapability, IDigitalWindowCapability_Vtbl, 0xd78bad2c_f721_5244_a196_b56ccbec606c);
 impl windows_core::RuntimeType for IDigitalWindowCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IDigitalWindowCapability");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1972,6 +2012,7 @@ pub struct IDigitalWindowCapability_Vtbl {
 windows_core::imp::define_interface!(IDigitalWindowControl, IDigitalWindowControl_Vtbl, 0x23b69eff_65d2_53ea_8780_de582b48b544);
 impl windows_core::RuntimeType for IDigitalWindowControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IDigitalWindowControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1989,6 +2030,7 @@ pub struct IDigitalWindowControl_Vtbl {
 windows_core::imp::define_interface!(IExposureCompensationControl, IExposureCompensationControl_Vtbl, 0x81c8e834_dcec_4011_a610_1f3847e64aca);
 impl windows_core::RuntimeType for IExposureCompensationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IExposureCompensationControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2004,6 +2046,7 @@ pub struct IExposureCompensationControl_Vtbl {
 windows_core::imp::define_interface!(IExposureControl, IExposureControl_Vtbl, 0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
 impl windows_core::RuntimeType for IExposureControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IExposureControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2012,15 +2055,16 @@ pub struct IExposureControl_Vtbl {
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Auto: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAutoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Min: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Min: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExposurePriorityVideoControl, IExposurePriorityVideoControl_Vtbl, 0x2cb240a3_5168_4271_9ea5_47621a98a352);
 impl windows_core::RuntimeType for IExposurePriorityVideoControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IExposurePriorityVideoControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2033,6 +2077,7 @@ pub struct IExposurePriorityVideoControl_Vtbl {
 windows_core::imp::define_interface!(IFlashControl, IFlashControl_Vtbl, 0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
 impl windows_core::RuntimeType for IFlashControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IFlashControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2053,6 +2098,7 @@ pub struct IFlashControl_Vtbl {
 windows_core::imp::define_interface!(IFlashControl2, IFlashControl2_Vtbl, 0x7d29cc9e_75e1_4af7_bd7d_4e38e1c06cd6);
 impl windows_core::RuntimeType for IFlashControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IFlashControl2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2065,6 +2111,7 @@ pub struct IFlashControl2_Vtbl {
 windows_core::imp::define_interface!(IFocusControl, IFocusControl_Vtbl, 0xc0d889f6_5228_4453_b153_85606592b238);
 impl windows_core::RuntimeType for IFocusControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IFocusControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2085,6 +2132,7 @@ pub struct IFocusControl_Vtbl {
 windows_core::imp::define_interface!(IFocusControl2, IFocusControl2_Vtbl, 0x3f7cff48_c534_4e9e_94c3_52ef2afd5d07);
 impl windows_core::RuntimeType for IFocusControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IFocusControl2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2104,6 +2152,7 @@ pub struct IFocusControl2_Vtbl {
 windows_core::imp::define_interface!(IFocusSettings, IFocusSettings_Vtbl, 0x79958f6b_3263_4275_85d6_aeae891c96ee);
 impl windows_core::RuntimeType for IFocusSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IFocusSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2125,6 +2174,7 @@ pub struct IFocusSettings_Vtbl {
 windows_core::imp::define_interface!(IHdrVideoControl, IHdrVideoControl_Vtbl, 0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
 impl windows_core::RuntimeType for IHdrVideoControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IHdrVideoControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2138,6 +2188,7 @@ pub struct IHdrVideoControl_Vtbl {
 windows_core::imp::define_interface!(IInfraredTorchControl, IInfraredTorchControl_Vtbl, 0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
 impl windows_core::RuntimeType for IInfraredTorchControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IInfraredTorchControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2156,6 +2207,7 @@ pub struct IInfraredTorchControl_Vtbl {
 windows_core::imp::define_interface!(IIsoSpeedControl, IIsoSpeedControl_Vtbl, 0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
 impl windows_core::RuntimeType for IIsoSpeedControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IIsoSpeedControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2169,6 +2221,7 @@ pub struct IIsoSpeedControl_Vtbl {
 windows_core::imp::define_interface!(IIsoSpeedControl2, IIsoSpeedControl2_Vtbl, 0x6f1578f2_6d77_4f8a_8c2f_6130b6395053);
 impl windows_core::RuntimeType for IIsoSpeedControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IIsoSpeedControl2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2185,6 +2238,7 @@ pub struct IIsoSpeedControl2_Vtbl {
 windows_core::imp::define_interface!(IKeypadPressedEventArgs, IKeypadPressedEventArgs_Vtbl, 0xd3a43900_b4fa_49cd_9442_89af6568f601);
 impl windows_core::RuntimeType for IKeypadPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IKeypadPressedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2195,6 +2249,7 @@ pub struct IKeypadPressedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ILowLagPhotoControl, ILowLagPhotoControl_Vtbl, 0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
 impl windows_core::RuntimeType for ILowLagPhotoControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ILowLagPhotoControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2225,6 +2280,7 @@ pub struct ILowLagPhotoControl_Vtbl {
 windows_core::imp::define_interface!(ILowLagPhotoSequenceControl, ILowLagPhotoSequenceControl_Vtbl, 0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
 impl windows_core::RuntimeType for ILowLagPhotoSequenceControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ILowLagPhotoSequenceControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2262,6 +2318,7 @@ pub struct ILowLagPhotoSequenceControl_Vtbl {
 windows_core::imp::define_interface!(IMediaDeviceControl, IMediaDeviceControl_Vtbl, 0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
 impl windows_core::RuntimeType for IMediaDeviceControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IMediaDeviceControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2276,6 +2333,7 @@ pub struct IMediaDeviceControl_Vtbl {
 windows_core::imp::define_interface!(IMediaDeviceControlCapabilities, IMediaDeviceControlCapabilities_Vtbl, 0x23005816_eb85_43e2_b92b_8240d5ee70ec);
 impl windows_core::RuntimeType for IMediaDeviceControlCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IMediaDeviceControlCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2291,6 +2349,7 @@ pub struct IMediaDeviceControlCapabilities_Vtbl {
 windows_core::imp::define_interface!(IMediaDeviceController, IMediaDeviceController_Vtbl, 0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
 impl windows_core::RuntimeType for IMediaDeviceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IMediaDeviceController");
 }
 windows_core::imp::interface_hierarchy!(IMediaDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaDeviceController {
@@ -2402,6 +2461,7 @@ pub struct IMediaDeviceController_Vtbl {
 windows_core::imp::define_interface!(IMediaDeviceStatics, IMediaDeviceStatics_Vtbl, 0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
 impl windows_core::RuntimeType for IMediaDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IMediaDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2420,6 +2480,7 @@ pub struct IMediaDeviceStatics_Vtbl {
 windows_core::imp::define_interface!(IModuleCommandResult, IModuleCommandResult_Vtbl, 0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
 impl windows_core::RuntimeType for IModuleCommandResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IModuleCommandResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2434,6 +2495,7 @@ pub struct IModuleCommandResult_Vtbl {
 windows_core::imp::define_interface!(IOpticalImageStabilizationControl, IOpticalImageStabilizationControl_Vtbl, 0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
 impl windows_core::RuntimeType for IOpticalImageStabilizationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IOpticalImageStabilizationControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2447,6 +2509,7 @@ pub struct IOpticalImageStabilizationControl_Vtbl {
 windows_core::imp::define_interface!(IPanelBasedOptimizationControl, IPanelBasedOptimizationControl_Vtbl, 0x33323223_6247_5419_a5a4_3d808645d917);
 impl windows_core::RuntimeType for IPanelBasedOptimizationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IPanelBasedOptimizationControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2465,6 +2528,7 @@ pub struct IPanelBasedOptimizationControl_Vtbl {
 windows_core::imp::define_interface!(IPhotoConfirmationControl, IPhotoConfirmationControl_Vtbl, 0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
 impl windows_core::RuntimeType for IPhotoConfirmationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IPhotoConfirmationControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2485,6 +2549,7 @@ pub struct IPhotoConfirmationControl_Vtbl {
 windows_core::imp::define_interface!(IRedialRequestedEventArgs, IRedialRequestedEventArgs_Vtbl, 0x7eb55209_76ab_4c31_b40e_4b58379d580c);
 impl windows_core::RuntimeType for IRedialRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IRedialRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2495,6 +2560,7 @@ pub struct IRedialRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRegionOfInterest, IRegionOfInterest_Vtbl, 0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
 impl windows_core::RuntimeType for IRegionOfInterest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IRegionOfInterest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2512,6 +2578,7 @@ pub struct IRegionOfInterest_Vtbl {
 windows_core::imp::define_interface!(IRegionOfInterest2, IRegionOfInterest2_Vtbl, 0x19fe2a91_73aa_4d51_8a9d_56ccf7db7f54);
 impl windows_core::RuntimeType for IRegionOfInterest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IRegionOfInterest2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2527,6 +2594,7 @@ pub struct IRegionOfInterest2_Vtbl {
 windows_core::imp::define_interface!(IRegionsOfInterestControl, IRegionsOfInterestControl_Vtbl, 0xc323f527_ab0b_4558_8b5b_df5693db0378);
 impl windows_core::RuntimeType for IRegionsOfInterestControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IRegionsOfInterestControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2543,6 +2611,7 @@ pub struct IRegionsOfInterestControl_Vtbl {
 windows_core::imp::define_interface!(ISceneModeControl, ISceneModeControl_Vtbl, 0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
 impl windows_core::RuntimeType for ISceneModeControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ISceneModeControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2555,6 +2624,7 @@ pub struct ISceneModeControl_Vtbl {
 windows_core::imp::define_interface!(ITorchControl, ITorchControl_Vtbl, 0xa6053665_8250_416c_919a_724296afa306);
 impl windows_core::RuntimeType for ITorchControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ITorchControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2570,6 +2640,7 @@ pub struct ITorchControl_Vtbl {
 windows_core::imp::define_interface!(IVideoDeviceController, IVideoDeviceController_Vtbl, 0x99555575_2e2e_40b8_b6c7_f82d10013210);
 impl windows_core::RuntimeType for IVideoDeviceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IVideoDeviceController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2598,6 +2669,7 @@ pub struct IVideoDeviceController_Vtbl {
 windows_core::imp::define_interface!(IVideoDeviceControllerGetDevicePropertyResult, IVideoDeviceControllerGetDevicePropertyResult_Vtbl, 0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
 impl windows_core::RuntimeType for IVideoDeviceControllerGetDevicePropertyResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IVideoDeviceControllerGetDevicePropertyResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2609,6 +2681,7 @@ pub struct IVideoDeviceControllerGetDevicePropertyResult_Vtbl {
 windows_core::imp::define_interface!(IVideoTemporalDenoisingControl, IVideoTemporalDenoisingControl_Vtbl, 0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
 impl windows_core::RuntimeType for IVideoTemporalDenoisingControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IVideoTemporalDenoisingControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2622,6 +2695,7 @@ pub struct IVideoTemporalDenoisingControl_Vtbl {
 windows_core::imp::define_interface!(IWhiteBalanceControl, IWhiteBalanceControl_Vtbl, 0x781f047e_7162_49c8_a8f9_9481c565363e);
 impl windows_core::RuntimeType for IWhiteBalanceControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IWhiteBalanceControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2639,6 +2713,7 @@ pub struct IWhiteBalanceControl_Vtbl {
 windows_core::imp::define_interface!(IZoomControl, IZoomControl_Vtbl, 0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
 impl windows_core::RuntimeType for IZoomControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IZoomControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2654,6 +2729,7 @@ pub struct IZoomControl_Vtbl {
 windows_core::imp::define_interface!(IZoomControl2, IZoomControl2_Vtbl, 0x69843db0_2e99_4641_8529_184f319d1671);
 impl windows_core::RuntimeType for IZoomControl2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IZoomControl2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2666,6 +2742,7 @@ pub struct IZoomControl2_Vtbl {
 windows_core::imp::define_interface!(IZoomSettings, IZoomSettings_Vtbl, 0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
 impl windows_core::RuntimeType for IZoomSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IZoomSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2755,6 +2832,7 @@ impl windows_core::TypeKind for InfraredTorchMode {
 }
 impl windows_core::RuntimeType for InfraredTorchMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.InfraredTorchMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2867,6 +2945,7 @@ impl windows_core::TypeKind for IsoSpeedPreset {
 }
 impl windows_core::RuntimeType for IsoSpeedPreset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.IsoSpeedPreset");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3117,6 +3196,7 @@ impl windows_core::TypeKind for ManualFocusDistance {
 }
 impl windows_core::RuntimeType for ManualFocusDistance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ManualFocusDistance");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3133,6 +3213,7 @@ impl windows_core::TypeKind for MediaCaptureFocusState {
 }
 impl windows_core::RuntimeType for MediaCaptureFocusState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.MediaCaptureFocusState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3151,6 +3232,7 @@ impl windows_core::TypeKind for MediaCaptureOptimization {
 }
 impl windows_core::RuntimeType for MediaCaptureOptimization {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.MediaCaptureOptimization");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3164,6 +3246,7 @@ impl windows_core::TypeKind for MediaCapturePauseBehavior {
 }
 impl windows_core::RuntimeType for MediaCapturePauseBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.MediaCapturePauseBehavior");
 }
 pub struct MediaDevice;
 impl MediaDevice {
@@ -3408,6 +3491,7 @@ impl windows_core::TypeKind for OpticalImageStabilizationMode {
 }
 impl windows_core::RuntimeType for OpticalImageStabilizationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.OpticalImageStabilizationMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3653,6 +3737,7 @@ impl windows_core::TypeKind for RegionOfInterestType {
 }
 impl windows_core::RuntimeType for RegionOfInterestType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.RegionOfInterestType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3764,6 +3849,7 @@ impl windows_core::TypeKind for SendCommandStatus {
 }
 impl windows_core::RuntimeType for SendCommandStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.SendCommandStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3791,6 +3877,7 @@ impl windows_core::TypeKind for TelephonyKey {
 }
 impl windows_core::RuntimeType for TelephonyKey {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.TelephonyKey");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -4255,6 +4342,7 @@ impl windows_core::TypeKind for VideoDeviceControllerGetDevicePropertyStatus {
 }
 impl windows_core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4272,6 +4360,7 @@ impl windows_core::TypeKind for VideoDeviceControllerSetDevicePropertyStatus {
 }
 impl windows_core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -4325,6 +4414,7 @@ impl windows_core::TypeKind for VideoTemporalDenoisingMode {
 }
 impl windows_core::RuntimeType for VideoTemporalDenoisingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.VideoTemporalDenoisingMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -4516,4 +4606,5 @@ impl windows_core::TypeKind for ZoomTransitionMode {
 }
 impl windows_core::RuntimeType for ZoomTransitionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ZoomTransitionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Devices.ZoomTransitionMode");
 }

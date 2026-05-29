@@ -167,7 +167,7 @@ impl IPrintDocumentPackageTarget2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintDocumentPackageTarget2_Impl::GetIsTargetIppPrinter(this) {
                     Ok(ok__) => {
-                        isippprinter.write(core::mem::transmute(ok__));
+                        isippprinter.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

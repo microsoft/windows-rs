@@ -21,6 +21,18 @@ where
 impl<T: RuntimeType + 'static> imp::CanInto<IUnknown> for IReference<T> {}
 impl<T: RuntimeType + 'static> imp::CanInto<IInspectable> for IReference<T> {}
 
+impl<T: RuntimeType + 'static> From<IReference<T>> for IInspectable {
+    fn from(value: IReference<T>) -> Self {
+        unsafe { core::mem::transmute(value) }
+    }
+}
+
+impl<T: RuntimeType + 'static> From<&IReference<T>> for &IInspectable {
+    fn from(value: &IReference<T>) -> Self {
+        unsafe { core::mem::transmute(value) }
+    }
+}
+
 unsafe impl<T: RuntimeType + 'static> Interface for IReference<T> {
     type Vtable = bindings::IReference_Vtbl<T>;
     const IID: GUID = GUID::from_signature(<Self as RuntimeType>::SIGNATURE);
@@ -32,10 +44,15 @@ impl<T: RuntimeType + 'static> RuntimeType for IReference<T> {
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: imp::ConstBuffer = imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IReference`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 
 impl<T: RuntimeType + 'static> RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
+    const RUNTIME_CLASS_NAME: imp::ConstBuffer = <Self as RuntimeType>::NAME;
 }
 
 impl<T: RuntimeType + 'static> IReference<T> {
@@ -115,10 +132,49 @@ where
     T: RuntimeType + Clone,
 {
     fn Type(&self) -> Result<bindings::PropertyType> {
-        Ok(bindings::PropertyType::OtherType)
+        use bindings::PropertyType;
+        macro_rules! match_type {
+            ($($t:ty => $pt:expr),* $(,)?) => {{
+                let id = core::any::TypeId::of::<T>();
+                $(if id == core::any::TypeId::of::<$t>() { return Ok($pt); })*
+                Ok(PropertyType::OtherType)
+            }};
+        }
+        match_type! {
+            u8 => PropertyType::UInt8,
+            i16 => PropertyType::Int16,
+            u16 => PropertyType::UInt16,
+            i32 => PropertyType::Int32,
+            u32 => PropertyType::UInt32,
+            i64 => PropertyType::Int64,
+            u64 => PropertyType::UInt64,
+            f32 => PropertyType::Single,
+            f64 => PropertyType::Double,
+            bool => PropertyType::Boolean,
+            HSTRING => PropertyType::String,
+            GUID => PropertyType::Guid,
+            windows_time::DateTime => PropertyType::DateTime,
+            windows_time::TimeSpan => PropertyType::TimeSpan,
+            bindings::Point => PropertyType::Point,
+            bindings::Size => PropertyType::Size,
+            bindings::Rect => PropertyType::Rect,
+        }
     }
     fn IsNumericScalar(&self) -> Result<bool> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        use bindings::PropertyType;
+        let pt = bindings::IPropertyValue_Impl::Type(self)?;
+        Ok(matches!(
+            pt,
+            PropertyType::UInt8
+                | PropertyType::Int16
+                | PropertyType::UInt16
+                | PropertyType::Int32
+                | PropertyType::UInt32
+                | PropertyType::Int64
+                | PropertyType::UInt64
+                | PropertyType::Single
+                | PropertyType::Double
+        ))
     }
     fn GetUInt8(&self) -> Result<u8> {
         cast_value(&self.value)
@@ -159,10 +215,10 @@ where
     fn GetGuid(&self) -> Result<GUID> {
         cast_value(&self.value)
     }
-    fn GetDateTime(&self) -> Result<bindings::DateTime> {
+    fn GetDateTime(&self) -> Result<windows_time::DateTime> {
         cast_value(&self.value)
     }
-    fn GetTimeSpan(&self) -> Result<bindings::TimeSpan> {
+    fn GetTimeSpan(&self) -> Result<windows_time::TimeSpan> {
         cast_value(&self.value)
     }
     fn GetPoint(&self) -> Result<bindings::Point> {
@@ -216,10 +272,10 @@ where
     fn GetGuidArray(&self, _value: &mut Array<GUID>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
-    fn GetDateTimeArray(&self, _value: &mut Array<bindings::DateTime>) -> Result<()> {
+    fn GetDateTimeArray(&self, _value: &mut Array<windows_time::DateTime>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
-    fn GetTimeSpanArray(&self, _value: &mut Array<bindings::TimeSpan>) -> Result<()> {
+    fn GetTimeSpanArray(&self, _value: &mut Array<windows_time::TimeSpan>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
     fn GetPointArray(&self, _value: &mut Array<bindings::Point>) -> Result<()> {

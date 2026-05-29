@@ -3359,7 +3359,7 @@ impl IBidiRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBidiRequest_Impl::GetResult(this) {
                     Ok(ok__) => {
-                        phr.write(core::mem::transmute(ok__));
+                        phr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3377,7 +3377,7 @@ impl IBidiRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBidiRequest_Impl::GetEnumCount(this) {
                     Ok(ok__) => {
-                        pdwtotal.write(core::mem::transmute(ok__));
+                        pdwtotal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3464,7 +3464,7 @@ impl IBidiRequestContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBidiRequestContainer_Impl::GetRequestCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4432,7 +4432,7 @@ impl IImgErrorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImgErrorInfo_Impl::GetUserErrorId(this) {
                     Ok(ok__) => {
-                        perrorid.write(core::mem::transmute(ok__));
+                        perrorid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4444,7 +4444,7 @@ impl IImgErrorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImgErrorInfo_Impl::GetUserParameterCount(this) {
                     Ok(ok__) => {
-                        pcuserparams.write(core::mem::transmute(ok__));
+                        pcuserparams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4480,7 +4480,7 @@ impl IImgErrorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IImgErrorInfo_Impl::GetExceptionId(this) {
                     Ok(ok__) => {
-                        pexceptionid.write(core::mem::transmute(ok__));
+                        pexceptionid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4665,7 +4665,7 @@ impl IPartBase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPartBase_Impl::GetPartCompression(this) {
                     Ok(ok__) => {
-                        pcompression.write(core::mem::transmute(ok__));
+                        pcompression.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4844,7 +4844,7 @@ impl IPartFont2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPartFont2_Impl::GetFontRestriction(this) {
                     Ok(ok__) => {
-                        prestriction.write(core::mem::transmute(ok__));
+                        prestriction.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5425,7 +5425,7 @@ impl IPrintAsyncNotifyServerReferral_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintAsyncNotifyServerReferral_Impl::GetServerReferral(this) {
                     Ok(ok__) => {
-                        param0.write(core::mem::transmute(ok__));
+                        param0.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5637,7 +5637,7 @@ impl IPrintCoreHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintCoreHelper_Impl::GetOption(this, core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cbsize), core::mem::transmute(&pszfeaturerequested)) {
                     Ok(ok__) => {
-                        ppszoption.write(core::mem::transmute(ok__));
+                        ppszoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6026,7 +6026,7 @@ impl IPrintCoreUI2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintCoreUI2_Impl::SetOptions(this, core::mem::transmute_copy(&poemuiobj), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pmszfeatureoptionbuf), core::mem::transmute_copy(&cbin)) {
                     Ok(ok__) => {
-                        pdwresult.write(core::mem::transmute(ok__));
+                        pdwresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6183,7 +6183,7 @@ impl IPrintJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintJob_Impl::Id(this) {
                     Ok(ok__) => {
-                        pulid.write(core::mem::transmute(ok__));
+                        pulid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6195,7 +6195,7 @@ impl IPrintJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintJob_Impl::PrintedPages(this) {
                     Ok(ok__) => {
-                        pulpages.write(core::mem::transmute(ok__));
+                        pulpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6207,7 +6207,7 @@ impl IPrintJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintJob_Impl::TotalPages(this) {
                     Ok(ok__) => {
-                        pulpages.write(core::mem::transmute(ok__));
+                        pulpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6219,7 +6219,7 @@ impl IPrintJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintJob_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6231,7 +6231,7 @@ impl IPrintJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintJob_Impl::SubmissionTime(this) {
                     Ok(ok__) => {
-                        psubmissiontime.write(core::mem::transmute(ok__));
+                        psubmissiontime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6315,7 +6315,7 @@ impl IPrintJobCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintJobCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pulcount.write(core::mem::transmute(ok__));
+                        pulcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7448,7 +7448,7 @@ impl IPrintSchemaCapabilities_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaCapabilities_Impl::JobCopiesAllDocumentsMinValue(this) {
                     Ok(ok__) => {
-                        puljobcopiesalldocumentsminvalue.write(core::mem::transmute(ok__));
+                        puljobcopiesalldocumentsminvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7460,7 +7460,7 @@ impl IPrintSchemaCapabilities_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaCapabilities_Impl::JobCopiesAllDocumentsMaxValue(this) {
                     Ok(ok__) => {
-                        puljobcopiesalldocumentsmaxvalue.write(core::mem::transmute(ok__));
+                        puljobcopiesalldocumentsmaxvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7804,7 +7804,7 @@ impl IPrintSchemaFeature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaFeature_Impl::SelectionType(this) {
                     Ok(ok__) => {
-                        pselectiontype.write(core::mem::transmute(ok__));
+                        pselectiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7828,7 +7828,7 @@ impl IPrintSchemaFeature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaFeature_Impl::DisplayUI(this) {
                     Ok(ok__) => {
-                        pbshow.write(core::mem::transmute(ok__));
+                        pbshow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7889,7 +7889,7 @@ impl IPrintSchemaNUpOption_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaNUpOption_Impl::PagesPerSheet(this) {
                     Ok(ok__) => {
-                        pulpagespersheet.write(core::mem::transmute(ok__));
+                        pulpagespersheet.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7959,7 +7959,7 @@ impl IPrintSchemaOption_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaOption_Impl::Selected(this) {
                     Ok(ok__) => {
-                        pbisselected.write(core::mem::transmute(ok__));
+                        pbisselected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7971,7 +7971,7 @@ impl IPrintSchemaOption_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaOption_Impl::Constrained(this) {
                     Ok(ok__) => {
-                        psetting.write(core::mem::transmute(ok__));
+                        psetting.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8058,7 +8058,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaOptionCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pulcount.write(core::mem::transmute(ok__));
+                        pulcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8181,7 +8181,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageImageableSize_Impl::ImageableSizeWidthInMicrons(this) {
                     Ok(ok__) => {
-                        pulimageablesizewidth.write(core::mem::transmute(ok__));
+                        pulimageablesizewidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8193,7 +8193,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageImageableSize_Impl::ImageableSizeHeightInMicrons(this) {
                     Ok(ok__) => {
-                        pulimageablesizeheight.write(core::mem::transmute(ok__));
+                        pulimageablesizeheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8205,7 +8205,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageImageableSize_Impl::OriginWidthInMicrons(this) {
                     Ok(ok__) => {
-                        puloriginwidth.write(core::mem::transmute(ok__));
+                        puloriginwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8217,7 +8217,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageImageableSize_Impl::OriginHeightInMicrons(this) {
                     Ok(ok__) => {
-                        puloriginheight.write(core::mem::transmute(ok__));
+                        puloriginheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8229,7 +8229,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageImageableSize_Impl::ExtentWidthInMicrons(this) {
                     Ok(ok__) => {
-                        pulextentwidth.write(core::mem::transmute(ok__));
+                        pulextentwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8241,7 +8241,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageImageableSize_Impl::ExtentHeightInMicrons(this) {
                     Ok(ok__) => {
-                        pulextentheight.write(core::mem::transmute(ok__));
+                        pulextentheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8311,7 +8311,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageMediaSizeOption_Impl::WidthInMicrons(this) {
                     Ok(ok__) => {
-                        pulwidth.write(core::mem::transmute(ok__));
+                        pulwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8323,7 +8323,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaPageMediaSizeOption_Impl::HeightInMicrons(this) {
                     Ok(ok__) => {
-                        pulheight.write(core::mem::transmute(ok__));
+                        pulheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8413,7 +8413,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaParameterDefinition_Impl::UserInputRequired(this) {
                     Ok(ok__) => {
-                        pbisrequired.write(core::mem::transmute(ok__));
+                        pbisrequired.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8437,7 +8437,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaParameterDefinition_Impl::DataType(this) {
                     Ok(ok__) => {
-                        pdatatype.write(core::mem::transmute(ok__));
+                        pdatatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8449,7 +8449,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaParameterDefinition_Impl::RangeMin(this) {
                     Ok(ok__) => {
-                        prangemin.write(core::mem::transmute(ok__));
+                        prangemin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8461,7 +8461,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaParameterDefinition_Impl::RangeMax(this) {
                     Ok(ok__) => {
-                        prangemax.write(core::mem::transmute(ok__));
+                        prangemax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8714,7 +8714,7 @@ impl IPrintSchemaTicket_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintSchemaTicket_Impl::JobCopiesAllDocuments(this) {
                     Ok(ok__) => {
-                        puljobcopiesalldocuments.write(core::mem::transmute(ok__));
+                        puljobcopiesalldocuments.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9106,7 +9106,7 @@ impl IPrintWriteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrintWriteStream_Impl::WriteBytes(this, core::mem::transmute_copy(&pvbuffer), core::mem::transmute_copy(&cbbuffer)) {
                     Ok(ok__) => {
-                        pcbwritten.write(core::mem::transmute(ok__));
+                        pcbwritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9394,7 +9394,7 @@ impl IPrinterExtensionContextCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterExtensionContextCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pulcount.write(core::mem::transmute(ok__));
+                        pulcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9603,7 +9603,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterExtensionEventArgs_Impl::ReasonId(this) {
                     Ok(ok__) => {
-                        preasonid.write(core::mem::transmute(ok__));
+                        preasonid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9639,7 +9639,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterExtensionEventArgs_Impl::DetailedReasonId(this) {
                     Ok(ok__) => {
-                        pdetailedreasonid.write(core::mem::transmute(ok__));
+                        pdetailedreasonid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9651,7 +9651,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterExtensionEventArgs_Impl::WindowModal(this) {
                     Ok(ok__) => {
-                        pbmodal.write(core::mem::transmute(ok__));
+                        pbmodal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9663,7 +9663,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterExtensionEventArgs_Impl::WindowParent(this) {
                     Ok(ok__) => {
-                        phwndparent.write(core::mem::transmute(ok__));
+                        phwndparent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9889,7 +9889,7 @@ impl IPrinterPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterPropertyBag_Impl::GetBool(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
-                        pbvalue.write(core::mem::transmute(ok__));
+                        pbvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9907,7 +9907,7 @@ impl IPrinterPropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterPropertyBag_Impl::GetInt32(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
-                        pnvalue.write(core::mem::transmute(ok__));
+                        pnvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10054,7 +10054,7 @@ impl IPrinterQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterQueue_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phprinter.write(core::mem::transmute(ok__));
+                        phprinter.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10525,7 +10525,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterScriptablePropertyBag_Impl::GetBool(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
-                        pbvalue.write(core::mem::transmute(ok__));
+                        pbvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10543,7 +10543,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterScriptablePropertyBag_Impl::GetInt32(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
-                        pnvalue.write(core::mem::transmute(ok__));
+                        pnvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10752,7 +10752,7 @@ impl IPrinterScriptableSequentialStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterScriptableSequentialStream_Impl::Write(this, core::mem::transmute_copy(&parray)) {
                     Ok(ok__) => {
-                        pcbwritten.write(core::mem::transmute(ok__));
+                        pcbwritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10822,7 +10822,7 @@ impl IPrinterScriptableStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrinterScriptableStream_Impl::Seek(this, core::mem::transmute_copy(&loffset), core::mem::transmute_copy(&streamseek)) {
                     Ok(ok__) => {
-                        plposition.write(core::mem::transmute(ok__));
+                        plposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

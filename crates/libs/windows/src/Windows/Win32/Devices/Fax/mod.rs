@@ -1220,7 +1220,7 @@ impl IFaxAccount_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxAccount_Impl::RegisteredEvents(this) {
                     Ok(ok__) => {
-                        pregisteredevents.write(core::mem::transmute(ok__));
+                        pregisteredevents.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1429,7 +1429,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxAccountIncomingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
-                        plsizelow.write(core::mem::transmute(ok__));
+                        plsizelow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1441,7 +1441,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxAccountIncomingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
-                        plsizehigh.write(core::mem::transmute(ok__));
+                        plsizehigh.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1842,7 +1842,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxAccountOutgoingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
-                        plsizelow.write(core::mem::transmute(ok__));
+                        plsizelow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1854,7 +1854,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxAccountOutgoingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
-                        plsizehigh.write(core::mem::transmute(ok__));
+                        plsizehigh.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2178,7 +2178,7 @@ impl IFaxAccounts_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxAccounts_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2266,7 +2266,7 @@ impl IFaxActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxActivity_Impl::IncomingMessages(this) {
                     Ok(ok__) => {
-                        plincomingmessages.write(core::mem::transmute(ok__));
+                        plincomingmessages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2278,7 +2278,7 @@ impl IFaxActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxActivity_Impl::RoutingMessages(this) {
                     Ok(ok__) => {
-                        plroutingmessages.write(core::mem::transmute(ok__));
+                        plroutingmessages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2290,7 +2290,7 @@ impl IFaxActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxActivity_Impl::OutgoingMessages(this) {
                     Ok(ok__) => {
-                        ploutgoingmessages.write(core::mem::transmute(ok__));
+                        ploutgoingmessages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2302,7 +2302,7 @@ impl IFaxActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxActivity_Impl::QueuedMessages(this) {
                     Ok(ok__) => {
-                        plqueuedmessages.write(core::mem::transmute(ok__));
+                        plqueuedmessages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2410,7 +2410,7 @@ impl IFaxActivityLogging_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxActivityLogging_Impl::LogIncoming(this) {
                     Ok(ok__) => {
-                        pblogincoming.write(core::mem::transmute(ok__));
+                        pblogincoming.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2428,7 +2428,7 @@ impl IFaxActivityLogging_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxActivityLogging_Impl::LogOutgoing(this) {
                     Ok(ok__) => {
-                        pblogoutgoing.write(core::mem::transmute(ok__));
+                        pblogoutgoing.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2793,7 +2793,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::UseArchive(this) {
                     Ok(ok__) => {
-                        pbusearchive.write(core::mem::transmute(ok__));
+                        pbusearchive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2829,7 +2829,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::SizeQuotaWarning(this) {
                     Ok(ok__) => {
-                        pbsizequotawarning.write(core::mem::transmute(ok__));
+                        pbsizequotawarning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2847,7 +2847,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::HighQuotaWaterMark(this) {
                     Ok(ok__) => {
-                        plhighquotawatermark.write(core::mem::transmute(ok__));
+                        plhighquotawatermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2865,7 +2865,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::LowQuotaWaterMark(this) {
                     Ok(ok__) => {
-                        pllowquotawatermark.write(core::mem::transmute(ok__));
+                        pllowquotawatermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2883,7 +2883,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::ArchiveAgeLimit(this) {
                     Ok(ok__) => {
-                        plarchiveagelimit.write(core::mem::transmute(ok__));
+                        plarchiveagelimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2901,7 +2901,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::ArchiveSizeLow(this) {
                     Ok(ok__) => {
-                        plsizelow.write(core::mem::transmute(ok__));
+                        plsizelow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2913,7 +2913,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::ArchiveSizeHigh(this) {
                     Ok(ok__) => {
-                        plsizehigh.write(core::mem::transmute(ok__));
+                        plsizehigh.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2925,7 +2925,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::OutgoingQueueBlocked(this) {
                     Ok(ok__) => {
-                        pboutgoingblocked.write(core::mem::transmute(ok__));
+                        pboutgoingblocked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2943,7 +2943,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::OutgoingQueuePaused(this) {
                     Ok(ok__) => {
-                        pboutgoingpaused.write(core::mem::transmute(ok__));
+                        pboutgoingpaused.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2961,7 +2961,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::AllowPersonalCoverPages(this) {
                     Ok(ok__) => {
-                        pballowpersonalcoverpages.write(core::mem::transmute(ok__));
+                        pballowpersonalcoverpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2979,7 +2979,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::UseDeviceTSID(this) {
                     Ok(ok__) => {
-                        pbusedevicetsid.write(core::mem::transmute(ok__));
+                        pbusedevicetsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2997,7 +2997,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3015,7 +3015,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::RetryDelay(this) {
                     Ok(ok__) => {
-                        plretrydelay.write(core::mem::transmute(ok__));
+                        plretrydelay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3033,7 +3033,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::DiscountRateStart(this) {
                     Ok(ok__) => {
-                        pdatediscountratestart.write(core::mem::transmute(ok__));
+                        pdatediscountratestart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3051,7 +3051,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::DiscountRateEnd(this) {
                     Ok(ok__) => {
-                        pdatediscountrateend.write(core::mem::transmute(ok__));
+                        pdatediscountrateend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3069,7 +3069,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::OutgoingQueueAgeLimit(this) {
                     Ok(ok__) => {
-                        ploutgoingqueueagelimit.write(core::mem::transmute(ok__));
+                        ploutgoingqueueagelimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3087,7 +3087,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::Branding(this) {
                     Ok(ok__) => {
-                        pbbranding.write(core::mem::transmute(ok__));
+                        pbbranding.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3105,7 +3105,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::IncomingQueueBlocked(this) {
                     Ok(ok__) => {
-                        pbincomingblocked.write(core::mem::transmute(ok__));
+                        pbincomingblocked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3123,7 +3123,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::AutoCreateAccountOnConnect(this) {
                     Ok(ok__) => {
-                        pbautocreateaccountonconnect.write(core::mem::transmute(ok__));
+                        pbautocreateaccountonconnect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3141,7 +3141,7 @@ impl IFaxConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxConfiguration_Impl::IncomingFaxesArePublic(this) {
                     Ok(ok__) => {
-                        pbincomingfaxesarepublic.write(core::mem::transmute(ok__));
+                        pbincomingfaxesarepublic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3436,7 +3436,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::Id(this) {
                     Ok(ok__) => {
-                        plid.write(core::mem::transmute(ok__));
+                        plid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3472,7 +3472,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::PoweredOff(this) {
                     Ok(ok__) => {
-                        pbpoweredoff.write(core::mem::transmute(ok__));
+                        pbpoweredoff.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3484,7 +3484,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::ReceivingNow(this) {
                     Ok(ok__) => {
-                        pbreceivingnow.write(core::mem::transmute(ok__));
+                        pbreceivingnow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3496,7 +3496,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::SendingNow(this) {
                     Ok(ok__) => {
-                        pbsendingnow.write(core::mem::transmute(ok__));
+                        pbsendingnow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3538,7 +3538,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::SendEnabled(this) {
                     Ok(ok__) => {
-                        pbsendenabled.write(core::mem::transmute(ok__));
+                        pbsendenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3556,7 +3556,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::ReceiveMode(this) {
                     Ok(ok__) => {
-                        preceivemode.write(core::mem::transmute(ok__));
+                        preceivemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3574,7 +3574,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::RingsBeforeAnswer(this) {
                     Ok(ok__) => {
-                        plringsbeforeanswer.write(core::mem::transmute(ok__));
+                        plringsbeforeanswer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3664,7 +3664,7 @@ impl IFaxDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevice_Impl::RingingNow(this) {
                     Ok(ok__) => {
-                        pbringingnow.write(core::mem::transmute(ok__));
+                        pbringingnow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3795,7 +3795,7 @@ impl IFaxDeviceIds_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceIds_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        pldeviceid.write(core::mem::transmute(ok__));
+                        pldeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3807,7 +3807,7 @@ impl IFaxDeviceIds_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceIds_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4027,7 +4027,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::MajorVersion(this) {
                     Ok(ok__) => {
-                        plmajorversion.write(core::mem::transmute(ok__));
+                        plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4039,7 +4039,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::MinorVersion(this) {
                     Ok(ok__) => {
-                        plminorversion.write(core::mem::transmute(ok__));
+                        plminorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4051,7 +4051,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::MajorBuild(this) {
                     Ok(ok__) => {
-                        plmajorbuild.write(core::mem::transmute(ok__));
+                        plmajorbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4063,7 +4063,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::MinorBuild(this) {
                     Ok(ok__) => {
-                        plminorbuild.write(core::mem::transmute(ok__));
+                        plminorbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4075,7 +4075,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::Debug(this) {
                     Ok(ok__) => {
-                        pbdebug.write(core::mem::transmute(ok__));
+                        pbdebug.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4087,7 +4087,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4099,7 +4099,7 @@ impl IFaxDeviceProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProvider_Impl::InitErrorCode(this) {
                     Ok(ok__) => {
-                        pliniterrorcode.write(core::mem::transmute(ok__));
+                        pliniterrorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4223,7 +4223,7 @@ impl IFaxDeviceProviders_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDeviceProviders_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4334,7 +4334,7 @@ impl IFaxDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4735,7 +4735,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::ScheduleTime(this) {
                     Ok(ok__) => {
-                        pdatescheduletime.write(core::mem::transmute(ok__));
+                        pdatescheduletime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4789,7 +4789,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::CallHandle(this) {
                     Ok(ok__) => {
-                        plcallhandle.write(core::mem::transmute(ok__));
+                        plcallhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4807,7 +4807,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::CoverPageType(this) {
                     Ok(ok__) => {
-                        pcoverpagetype.write(core::mem::transmute(ok__));
+                        pcoverpagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4825,7 +4825,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::ScheduleType(this) {
                     Ok(ok__) => {
-                        pscheduletype.write(core::mem::transmute(ok__));
+                        pscheduletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4843,7 +4843,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::ReceiptType(this) {
                     Ok(ok__) => {
-                        preceipttype.write(core::mem::transmute(ok__));
+                        preceipttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4861,7 +4861,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::GroupBroadcastReceipts(this) {
                     Ok(ok__) => {
-                        pbusegrouping.write(core::mem::transmute(ok__));
+                        pbusegrouping.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4879,7 +4879,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::Priority(this) {
                     Ok(ok__) => {
-                        ppriority.write(core::mem::transmute(ok__));
+                        ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4939,7 +4939,7 @@ impl IFaxDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxDocument_Impl::AttachFaxToReceipt(this) {
                     Ok(ok__) => {
-                        pbattachfax.write(core::mem::transmute(ok__));
+                        pbattachfax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5222,7 +5222,7 @@ impl IFaxEventLogging_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxEventLogging_Impl::InitEventsLevel(this) {
                     Ok(ok__) => {
-                        piniteventlevel.write(core::mem::transmute(ok__));
+                        piniteventlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5240,7 +5240,7 @@ impl IFaxEventLogging_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxEventLogging_Impl::InboundEventsLevel(this) {
                     Ok(ok__) => {
-                        pinboundeventlevel.write(core::mem::transmute(ok__));
+                        pinboundeventlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5258,7 +5258,7 @@ impl IFaxEventLogging_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxEventLogging_Impl::OutboundEventsLevel(this) {
                     Ok(ok__) => {
-                        poutboundeventlevel.write(core::mem::transmute(ok__));
+                        poutboundeventlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5276,7 +5276,7 @@ impl IFaxEventLogging_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxEventLogging_Impl::GeneralEventsLevel(this) {
                     Ok(ok__) => {
-                        pgeneraleventlevel.write(core::mem::transmute(ok__));
+                        pgeneraleventlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5678,7 +5678,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::MajorVersion(this) {
                     Ok(ok__) => {
-                        plmajorversion.write(core::mem::transmute(ok__));
+                        plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5690,7 +5690,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::MinorVersion(this) {
                     Ok(ok__) => {
-                        plminorversion.write(core::mem::transmute(ok__));
+                        plminorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5702,7 +5702,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::MajorBuild(this) {
                     Ok(ok__) => {
-                        plmajorbuild.write(core::mem::transmute(ok__));
+                        plmajorbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5714,7 +5714,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::MinorBuild(this) {
                     Ok(ok__) => {
-                        plminorbuild.write(core::mem::transmute(ok__));
+                        plminorbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5726,7 +5726,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::Debug(this) {
                     Ok(ok__) => {
-                        pbdebug.write(core::mem::transmute(ok__));
+                        pbdebug.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5738,7 +5738,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5750,7 +5750,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtension_Impl::InitErrorCode(this) {
                     Ok(ok__) => {
-                        pliniterrorcode.write(core::mem::transmute(ok__));
+                        pliniterrorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5873,7 +5873,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingExtensions_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6047,7 +6047,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingMethod_Impl::Priority(this) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6174,7 +6174,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxInboundRoutingMethods_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6345,7 +6345,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::UseArchive(this) {
                     Ok(ok__) => {
-                        pbusearchive.write(core::mem::transmute(ok__));
+                        pbusearchive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6381,7 +6381,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::SizeQuotaWarning(this) {
                     Ok(ok__) => {
-                        pbsizequotawarning.write(core::mem::transmute(ok__));
+                        pbsizequotawarning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6399,7 +6399,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::HighQuotaWaterMark(this) {
                     Ok(ok__) => {
-                        plhighquotawatermark.write(core::mem::transmute(ok__));
+                        plhighquotawatermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6417,7 +6417,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::LowQuotaWaterMark(this) {
                     Ok(ok__) => {
-                        pllowquotawatermark.write(core::mem::transmute(ok__));
+                        pllowquotawatermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6435,7 +6435,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::AgeLimit(this) {
                     Ok(ok__) => {
-                        plagelimit.write(core::mem::transmute(ok__));
+                        plagelimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6453,7 +6453,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
-                        plsizelow.write(core::mem::transmute(ok__));
+                        plsizelow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6465,7 +6465,7 @@ impl IFaxIncomingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
-                        plsizehigh.write(core::mem::transmute(ok__));
+                        plsizehigh.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6710,7 +6710,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::Size(this) {
                     Ok(ok__) => {
-                        plsize.write(core::mem::transmute(ok__));
+                        plsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6734,7 +6734,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::CurrentPage(this) {
                     Ok(ok__) => {
-                        plcurrentpage.write(core::mem::transmute(ok__));
+                        plcurrentpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6746,7 +6746,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::DeviceId(this) {
                     Ok(ok__) => {
-                        pldeviceid.write(core::mem::transmute(ok__));
+                        pldeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6758,7 +6758,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6770,7 +6770,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::ExtendedStatusCode(this) {
                     Ok(ok__) => {
-                        pextendedstatuscode.write(core::mem::transmute(ok__));
+                        pextendedstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6794,7 +6794,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::AvailableOperations(this) {
                     Ok(ok__) => {
-                        pavailableoperations.write(core::mem::transmute(ok__));
+                        pavailableoperations.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6806,7 +6806,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6818,7 +6818,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
-                        pdatetransmissionstart.write(core::mem::transmute(ok__));
+                        pdatetransmissionstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6830,7 +6830,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
-                        pdatetransmissionend.write(core::mem::transmute(ok__));
+                        pdatetransmissionend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6890,7 +6890,7 @@ impl IFaxIncomingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJob_Impl::JobType(this) {
                     Ok(ok__) => {
-                        pjobtype.write(core::mem::transmute(ok__));
+                        pjobtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7027,7 +7027,7 @@ impl IFaxIncomingJobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingJobs_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7188,7 +7188,7 @@ impl IFaxIncomingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage_Impl::Pages(this) {
                     Ok(ok__) => {
-                        plpages.write(core::mem::transmute(ok__));
+                        plpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7200,7 +7200,7 @@ impl IFaxIncomingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage_Impl::Size(this) {
                     Ok(ok__) => {
-                        plsize.write(core::mem::transmute(ok__));
+                        plsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7224,7 +7224,7 @@ impl IFaxIncomingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7236,7 +7236,7 @@ impl IFaxIncomingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
-                        pdatetransmissionstart.write(core::mem::transmute(ok__));
+                        pdatetransmissionstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7248,7 +7248,7 @@ impl IFaxIncomingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
-                        pdatetransmissionend.write(core::mem::transmute(ok__));
+                        pdatetransmissionend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7524,7 +7524,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage2_Impl::HasCoverPage(this) {
                     Ok(ok__) => {
-                        pbhascoverpage.write(core::mem::transmute(ok__));
+                        pbhascoverpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7560,7 +7560,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage2_Impl::WasReAssigned(this) {
                     Ok(ok__) => {
-                        pbwasreassigned.write(core::mem::transmute(ok__));
+                        pbwasreassigned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7572,7 +7572,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessage2_Impl::Read(this) {
                     Ok(ok__) => {
-                        pbread.write(core::mem::transmute(ok__));
+                        pbread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7711,7 +7711,7 @@ impl IFaxIncomingMessageIterator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessageIterator_Impl::PrefetchSize(this) {
                     Ok(ok__) => {
-                        plprefetchsize.write(core::mem::transmute(ok__));
+                        plprefetchsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7729,7 +7729,7 @@ impl IFaxIncomingMessageIterator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingMessageIterator_Impl::AtEOF(this) {
                     Ok(ok__) => {
-                        pbeof.write(core::mem::transmute(ok__));
+                        pbeof.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7834,7 +7834,7 @@ impl IFaxIncomingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxIncomingQueue_Impl::Blocked(this) {
                     Ok(ok__) => {
-                        pbblocked.write(core::mem::transmute(ok__));
+                        pbblocked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8066,7 +8066,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8078,7 +8078,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::Pages(this) {
                     Ok(ok__) => {
-                        plpages.write(core::mem::transmute(ok__));
+                        plpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8090,7 +8090,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::Size(this) {
                     Ok(ok__) => {
-                        plsize.write(core::mem::transmute(ok__));
+                        plsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8102,7 +8102,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::CurrentPage(this) {
                     Ok(ok__) => {
-                        plcurrentpage.write(core::mem::transmute(ok__));
+                        plcurrentpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8114,7 +8114,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::DeviceId(this) {
                     Ok(ok__) => {
-                        pldeviceid.write(core::mem::transmute(ok__));
+                        pldeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8150,7 +8150,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::ExtendedStatusCode(this) {
                     Ok(ok__) => {
-                        pextendedstatuscode.write(core::mem::transmute(ok__));
+                        pextendedstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8174,7 +8174,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::AvailableOperations(this) {
                     Ok(ok__) => {
-                        pavailableoperations.write(core::mem::transmute(ok__));
+                        pavailableoperations.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8186,7 +8186,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8198,7 +8198,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::JobType(this) {
                     Ok(ok__) => {
-                        pjobtype.write(core::mem::transmute(ok__));
+                        pjobtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8210,7 +8210,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::ScheduledTime(this) {
                     Ok(ok__) => {
-                        pdatescheduledtime.write(core::mem::transmute(ok__));
+                        pdatescheduledtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8222,7 +8222,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
-                        pdatetransmissionstart.write(core::mem::transmute(ok__));
+                        pdatetransmissionstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8234,7 +8234,7 @@ impl IFaxJobStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxJobStatus_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
-                        pdatetransmissionend.write(core::mem::transmute(ok__));
+                        pdatetransmissionend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8515,7 +8515,7 @@ impl IFaxOutboundRoutingGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingGroup_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8647,7 +8647,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingGroups_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8791,7 +8791,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingRule_Impl::CountryCode(this) {
                     Ok(ok__) => {
-                        plcountrycode.write(core::mem::transmute(ok__));
+                        plcountrycode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8803,7 +8803,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingRule_Impl::AreaCode(this) {
                     Ok(ok__) => {
-                        plareacode.write(core::mem::transmute(ok__));
+                        plareacode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8815,7 +8815,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingRule_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8827,7 +8827,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingRule_Impl::UseDevice(this) {
                     Ok(ok__) => {
-                        pbusedevice.write(core::mem::transmute(ok__));
+                        pbusedevice.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8845,7 +8845,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingRule_Impl::DeviceId(this) {
                     Ok(ok__) => {
-                        pldeviceid.write(core::mem::transmute(ok__));
+                        pldeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9014,7 +9014,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutboundRoutingRules_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9225,7 +9225,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::UseArchive(this) {
                     Ok(ok__) => {
-                        pbusearchive.write(core::mem::transmute(ok__));
+                        pbusearchive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9261,7 +9261,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::SizeQuotaWarning(this) {
                     Ok(ok__) => {
-                        pbsizequotawarning.write(core::mem::transmute(ok__));
+                        pbsizequotawarning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9279,7 +9279,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::HighQuotaWaterMark(this) {
                     Ok(ok__) => {
-                        plhighquotawatermark.write(core::mem::transmute(ok__));
+                        plhighquotawatermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9297,7 +9297,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::LowQuotaWaterMark(this) {
                     Ok(ok__) => {
-                        pllowquotawatermark.write(core::mem::transmute(ok__));
+                        pllowquotawatermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9315,7 +9315,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::AgeLimit(this) {
                     Ok(ok__) => {
-                        plagelimit.write(core::mem::transmute(ok__));
+                        plagelimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9333,7 +9333,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::SizeLow(this) {
                     Ok(ok__) => {
-                        plsizelow.write(core::mem::transmute(ok__));
+                        plsizelow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9345,7 +9345,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingArchive_Impl::SizeHigh(this) {
                     Ok(ok__) => {
-                        plsizehigh.write(core::mem::transmute(ok__));
+                        plsizehigh.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9701,7 +9701,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::Pages(this) {
                     Ok(ok__) => {
-                        plpages.write(core::mem::transmute(ok__));
+                        plpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9713,7 +9713,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::Size(this) {
                     Ok(ok__) => {
-                        plsize.write(core::mem::transmute(ok__));
+                        plsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9749,7 +9749,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::OriginalScheduledTime(this) {
                     Ok(ok__) => {
-                        pdateoriginalscheduledtime.write(core::mem::transmute(ok__));
+                        pdateoriginalscheduledtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9761,7 +9761,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::SubmissionTime(this) {
                     Ok(ok__) => {
-                        pdatesubmissiontime.write(core::mem::transmute(ok__));
+                        pdatesubmissiontime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9773,7 +9773,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::ReceiptType(this) {
                     Ok(ok__) => {
-                        preceipttype.write(core::mem::transmute(ok__));
+                        preceipttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9785,7 +9785,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::Priority(this) {
                     Ok(ok__) => {
-                        ppriority.write(core::mem::transmute(ok__));
+                        ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9821,7 +9821,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::CurrentPage(this) {
                     Ok(ok__) => {
-                        plcurrentpage.write(core::mem::transmute(ok__));
+                        plcurrentpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9833,7 +9833,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::DeviceId(this) {
                     Ok(ok__) => {
-                        pldeviceid.write(core::mem::transmute(ok__));
+                        pldeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9845,7 +9845,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9857,7 +9857,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::ExtendedStatusCode(this) {
                     Ok(ok__) => {
-                        pextendedstatuscode.write(core::mem::transmute(ok__));
+                        pextendedstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9881,7 +9881,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::AvailableOperations(this) {
                     Ok(ok__) => {
-                        pavailableoperations.write(core::mem::transmute(ok__));
+                        pavailableoperations.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9893,7 +9893,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9905,7 +9905,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::ScheduledTime(this) {
                     Ok(ok__) => {
-                        pdatescheduledtime.write(core::mem::transmute(ok__));
+                        pdatescheduledtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9917,7 +9917,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
-                        pdatetransmissionstart.write(core::mem::transmute(ok__));
+                        pdatetransmissionstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9929,7 +9929,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
-                        pdatetransmissionend.write(core::mem::transmute(ok__));
+                        pdatetransmissionend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9965,7 +9965,7 @@ impl IFaxOutgoingJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob_Impl::GroupBroadcastReceipts(this) {
                     Ok(ok__) => {
-                        pbgroupbroadcastreceipts.write(core::mem::transmute(ok__));
+                        pbgroupbroadcastreceipts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10104,7 +10104,7 @@ impl IFaxOutgoingJob2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob2_Impl::HasCoverPage(this) {
                     Ok(ok__) => {
-                        pbhascoverpage.write(core::mem::transmute(ok__));
+                        pbhascoverpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10128,7 +10128,7 @@ impl IFaxOutgoingJob2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJob2_Impl::ScheduleType(this) {
                     Ok(ok__) => {
-                        pscheduletype.write(core::mem::transmute(ok__));
+                        pscheduletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10231,7 +10231,7 @@ impl IFaxOutgoingJobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingJobs_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10476,7 +10476,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10488,7 +10488,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::Pages(this) {
                     Ok(ok__) => {
-                        plpages.write(core::mem::transmute(ok__));
+                        plpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10500,7 +10500,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::Size(this) {
                     Ok(ok__) => {
-                        plsize.write(core::mem::transmute(ok__));
+                        plsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10512,7 +10512,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::OriginalScheduledTime(this) {
                     Ok(ok__) => {
-                        pdateoriginalscheduledtime.write(core::mem::transmute(ok__));
+                        pdateoriginalscheduledtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10524,7 +10524,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::SubmissionTime(this) {
                     Ok(ok__) => {
-                        pdatesubmissiontime.write(core::mem::transmute(ok__));
+                        pdatesubmissiontime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10536,7 +10536,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::Priority(this) {
                     Ok(ok__) => {
-                        ppriority.write(core::mem::transmute(ok__));
+                        ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10584,7 +10584,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::TransmissionStart(this) {
                     Ok(ok__) => {
-                        pdatetransmissionstart.write(core::mem::transmute(ok__));
+                        pdatetransmissionstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10596,7 +10596,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage_Impl::TransmissionEnd(this) {
                     Ok(ok__) => {
-                        pdatetransmissionend.write(core::mem::transmute(ok__));
+                        pdatetransmissionend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10746,7 +10746,7 @@ impl IFaxOutgoingMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage2_Impl::HasCoverPage(this) {
                     Ok(ok__) => {
-                        pbhascoverpage.write(core::mem::transmute(ok__));
+                        pbhascoverpage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10758,7 +10758,7 @@ impl IFaxOutgoingMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage2_Impl::ReceiptType(this) {
                     Ok(ok__) => {
-                        preceipttype.write(core::mem::transmute(ok__));
+                        preceipttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10782,7 +10782,7 @@ impl IFaxOutgoingMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessage2_Impl::Read(this) {
                     Ok(ok__) => {
-                        pbread.write(core::mem::transmute(ok__));
+                        pbread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10906,7 +10906,7 @@ impl IFaxOutgoingMessageIterator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessageIterator_Impl::AtEOF(this) {
                     Ok(ok__) => {
-                        pbeof.write(core::mem::transmute(ok__));
+                        pbeof.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10918,7 +10918,7 @@ impl IFaxOutgoingMessageIterator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingMessageIterator_Impl::PrefetchSize(this) {
                     Ok(ok__) => {
-                        plprefetchsize.write(core::mem::transmute(ok__));
+                        plprefetchsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11146,7 +11146,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::Blocked(this) {
                     Ok(ok__) => {
-                        pbblocked.write(core::mem::transmute(ok__));
+                        pbblocked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11164,7 +11164,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::Paused(this) {
                     Ok(ok__) => {
-                        pbpaused.write(core::mem::transmute(ok__));
+                        pbpaused.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11182,7 +11182,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::AllowPersonalCoverPages(this) {
                     Ok(ok__) => {
-                        pballowpersonalcoverpages.write(core::mem::transmute(ok__));
+                        pballowpersonalcoverpages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11200,7 +11200,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::UseDeviceTSID(this) {
                     Ok(ok__) => {
-                        pbusedevicetsid.write(core::mem::transmute(ok__));
+                        pbusedevicetsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11218,7 +11218,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::Retries(this) {
                     Ok(ok__) => {
-                        plretries.write(core::mem::transmute(ok__));
+                        plretries.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11236,7 +11236,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::RetryDelay(this) {
                     Ok(ok__) => {
-                        plretrydelay.write(core::mem::transmute(ok__));
+                        plretrydelay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11254,7 +11254,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::DiscountRateStart(this) {
                     Ok(ok__) => {
-                        pdatediscountratestart.write(core::mem::transmute(ok__));
+                        pdatediscountratestart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11272,7 +11272,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::DiscountRateEnd(this) {
                     Ok(ok__) => {
-                        pdatediscountrateend.write(core::mem::transmute(ok__));
+                        pdatediscountrateend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11290,7 +11290,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::AgeLimit(this) {
                     Ok(ok__) => {
-                        plagelimit.write(core::mem::transmute(ok__));
+                        plagelimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11308,7 +11308,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxOutgoingQueue_Impl::Branding(this) {
                     Ok(ok__) => {
-                        pbbranding.write(core::mem::transmute(ok__));
+                        pbbranding.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11536,7 +11536,7 @@ impl IFaxReceiptOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxReceiptOptions_Impl::AuthenticationType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11572,7 +11572,7 @@ impl IFaxReceiptOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxReceiptOptions_Impl::SMTPPort(this) {
                     Ok(ok__) => {
-                        plsmtpport.write(core::mem::transmute(ok__));
+                        plsmtpport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11626,7 +11626,7 @@ impl IFaxReceiptOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxReceiptOptions_Impl::AllowedReceipts(this) {
                     Ok(ok__) => {
-                        pallowedreceipts.write(core::mem::transmute(ok__));
+                        pallowedreceipts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11674,7 +11674,7 @@ impl IFaxReceiptOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxReceiptOptions_Impl::UseForInboundRouting(this) {
                     Ok(ok__) => {
-                        pbuseforinboundrouting.write(core::mem::transmute(ok__));
+                        pbuseforinboundrouting.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11909,7 +11909,7 @@ impl IFaxRecipients_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxRecipients_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12050,7 +12050,7 @@ impl IFaxSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxSecurity_Impl::GrantedRights(this) {
                     Ok(ok__) => {
-                        pgrantedrights.write(core::mem::transmute(ok__));
+                        pgrantedrights.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12074,7 +12074,7 @@ impl IFaxSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxSecurity_Impl::InformationType(this) {
                     Ok(ok__) => {
-                        plinformationtype.write(core::mem::transmute(ok__));
+                        plinformationtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12205,7 +12205,7 @@ impl IFaxSecurity2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxSecurity2_Impl::GrantedRights(this) {
                     Ok(ok__) => {
-                        pgrantedrights.write(core::mem::transmute(ok__));
+                        pgrantedrights.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12229,7 +12229,7 @@ impl IFaxSecurity2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxSecurity2_Impl::InformationType(this) {
                     Ok(ok__) => {
-                        plinformationtype.write(core::mem::transmute(ok__));
+                        plinformationtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13152,7 +13152,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::MajorVersion(this) {
                     Ok(ok__) => {
-                        plmajorversion.write(core::mem::transmute(ok__));
+                        plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13164,7 +13164,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::MinorVersion(this) {
                     Ok(ok__) => {
-                        plminorversion.write(core::mem::transmute(ok__));
+                        plminorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13176,7 +13176,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::MajorBuild(this) {
                     Ok(ok__) => {
-                        plmajorbuild.write(core::mem::transmute(ok__));
+                        plmajorbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13188,7 +13188,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::MinorBuild(this) {
                     Ok(ok__) => {
-                        plminorbuild.write(core::mem::transmute(ok__));
+                        plminorbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13200,7 +13200,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::Debug(this) {
                     Ok(ok__) => {
-                        pbdebug.write(core::mem::transmute(ok__));
+                        pbdebug.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13314,7 +13314,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::RegisteredEvents(this) {
                     Ok(ok__) => {
-                        peventtypes.write(core::mem::transmute(ok__));
+                        peventtypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13326,7 +13326,7 @@ impl IFaxServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFaxServer_Impl::APIVersion(this) {
                     Ok(ok__) => {
-                        papiversion.write(core::mem::transmute(ok__));
+                        papiversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14112,7 +14112,7 @@ impl IStiDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStiDevice_Impl::GetLastError(this) {
                     Ok(ok__) => {
-                        pdwlastdeviceerror.write(core::mem::transmute(ok__));
+                        pdwlastdeviceerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14520,7 +14520,7 @@ impl IStiUSD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStiUSD_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pdevcaps.write(core::mem::transmute(ok__));
+                        pdevcaps.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14556,7 +14556,7 @@ impl IStiUSD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStiUSD_Impl::GetLastError(this) {
                     Ok(ok__) => {
-                        pdwlastdeviceerror.write(core::mem::transmute(ok__));
+                        pdwlastdeviceerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14837,7 +14837,7 @@ impl IStillImageW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStillImageW_Impl::GetHwNotificationState(this, core::mem::transmute(&pwszdevicename)) {
                     Ok(ok__) => {
-                        pbcurrentstate.write(core::mem::transmute(ok__));
+                        pbcurrentstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

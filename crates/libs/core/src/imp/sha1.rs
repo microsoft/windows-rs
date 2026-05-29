@@ -479,7 +479,7 @@ impl Digest {
 
 impl core::fmt::Display for Digest {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        for i in self.data.iter() {
+        for i in &self.data {
             write!(f, "{i:08x}")?;
         }
         Ok(())

@@ -126,7 +126,7 @@ impl IMbnConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnection_Impl::Connect(this, core::mem::transmute_copy(&connectionmode), core::mem::transmute(&strprofile)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -138,7 +138,7 @@ impl IMbnConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnection_Impl::Disconnect(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -156,7 +156,7 @@ impl IMbnConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnection_Impl::GetVoiceCallState(this) {
                     Ok(ok__) => {
-                        voicecallstate.write(core::mem::transmute(ok__));
+                        voicecallstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl IMbnConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnection_Impl::GetActivationNetworkError(this) {
                     Ok(ok__) => {
-                        networkerror.write(core::mem::transmute(ok__));
+                        networkerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IMbnConnectionContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnectionContext_Impl::GetProvisionedContexts(this) {
                     Ok(ok__) => {
-                        provisionedcontexts.write(core::mem::transmute(ok__));
+                        provisionedcontexts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -246,7 +246,7 @@ impl IMbnConnectionContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnectionContext_Impl::SetProvisionedContext(this, core::mem::transmute(&provisionedcontexts), core::mem::transmute(&providerid)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -454,7 +454,7 @@ impl IMbnConnectionManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnectionManager_Impl::GetConnections(this) {
                     Ok(ok__) => {
-                        mbnconnections.write(core::mem::transmute(ok__));
+                        mbnconnections.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl IMbnConnectionProfileManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnConnectionProfileManager_Impl::GetConnectionProfiles(this, core::mem::transmute_copy(&mbninterface)) {
                     Ok(ok__) => {
-                        connectionprofiles.write(core::mem::transmute(ok__));
+                        connectionprofiles.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -902,7 +902,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::QuerySupportedCommands(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -914,7 +914,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::OpenCommandSession(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -926,7 +926,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::CloseCommandSession(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -938,7 +938,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::SetCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&deviceservicedata)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -950,7 +950,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::QueryCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&deviceservicedata)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -962,7 +962,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::OpenDataSession(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -974,7 +974,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::CloseDataSession(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::WriteData(this, core::mem::transmute_copy(&deviceservicedata)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1022,7 +1022,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::IsCommandSessionOpen(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1034,7 +1034,7 @@ impl IMbnDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceService_Impl::IsDataSessionOpen(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1150,7 +1150,7 @@ impl IMbnDeviceServicesContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceServicesContext_Impl::EnumerateDeviceServices(this) {
                     Ok(ok__) => {
-                        deviceservices.write(core::mem::transmute(ok__));
+                        deviceservices.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1174,7 +1174,7 @@ impl IMbnDeviceServicesContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceServicesContext_Impl::MaxCommandSize(this) {
                     Ok(ok__) => {
-                        maxcommandsize.write(core::mem::transmute(ok__));
+                        maxcommandsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1186,7 +1186,7 @@ impl IMbnDeviceServicesContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnDeviceServicesContext_Impl::MaxDataSize(this) {
                     Ok(ok__) => {
-                        maxdatasize.write(core::mem::transmute(ok__));
+                        maxdatasize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1601,7 +1601,7 @@ impl IMbnInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterface_Impl::GetReadyState(this) {
                     Ok(ok__) => {
-                        readystate.write(core::mem::transmute(ok__));
+                        readystate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1613,7 +1613,7 @@ impl IMbnInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterface_Impl::InEmergencyMode(this) {
                     Ok(ok__) => {
-                        emergencymode.write(core::mem::transmute(ok__));
+                        emergencymode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1637,7 +1637,7 @@ impl IMbnInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterface_Impl::GetPreferredProviders(this) {
                     Ok(ok__) => {
-                        preferredproviders.write(core::mem::transmute(ok__));
+                        preferredproviders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1649,7 +1649,7 @@ impl IMbnInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterface_Impl::SetPreferredProviders(this, core::mem::transmute_copy(&preferredproviders)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1661,7 +1661,7 @@ impl IMbnInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterface_Impl::GetVisibleProviders(this, core::mem::transmute_copy(&age)) {
                     Ok(ok__) => {
-                        visibleproviders.write(core::mem::transmute(ok__));
+                        visibleproviders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1673,7 +1673,7 @@ impl IMbnInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterface_Impl::ScanNetwork(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1910,7 +1910,7 @@ impl IMbnInterfaceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnInterfaceManager_Impl::GetInterfaces(this) {
                     Ok(ok__) => {
-                        mbninterfaces.write(core::mem::transmute(ok__));
+                        mbninterfaces.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2061,7 +2061,7 @@ impl IMbnMultiCarrier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnMultiCarrier_Impl::SetHomeProvider(this, core::mem::transmute_copy(&homeprovider)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2073,7 +2073,7 @@ impl IMbnMultiCarrier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnMultiCarrier_Impl::GetPreferredProviders(this) {
                     Ok(ok__) => {
-                        preferredmulticarrierproviders.write(core::mem::transmute(ok__));
+                        preferredmulticarrierproviders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2085,7 +2085,7 @@ impl IMbnMultiCarrier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnMultiCarrier_Impl::GetVisibleProviders(this, core::mem::transmute_copy(&age)) {
                     Ok(ok__) => {
-                        visibleproviders.write(core::mem::transmute(ok__));
+                        visibleproviders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2097,7 +2097,7 @@ impl IMbnMultiCarrier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnMultiCarrier_Impl::GetSupportedCellularClasses(this) {
                     Ok(ok__) => {
-                        cellularclasses.write(core::mem::transmute(ok__));
+                        cellularclasses.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2109,7 +2109,7 @@ impl IMbnMultiCarrier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnMultiCarrier_Impl::GetCurrentCellularClass(this) {
                     Ok(ok__) => {
-                        currentcellularclass.write(core::mem::transmute(ok__));
+                        currentcellularclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2121,7 +2121,7 @@ impl IMbnMultiCarrier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnMultiCarrier_Impl::ScanNetwork(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2364,7 +2364,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::PinType(this) {
                     Ok(ok__) => {
-                        pintype.write(core::mem::transmute(ok__));
+                        pintype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2376,7 +2376,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::PinFormat(this) {
                     Ok(ok__) => {
-                        pinformat.write(core::mem::transmute(ok__));
+                        pinformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2388,7 +2388,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::PinLengthMin(this) {
                     Ok(ok__) => {
-                        pinlengthmin.write(core::mem::transmute(ok__));
+                        pinlengthmin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2400,7 +2400,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::PinLengthMax(this) {
                     Ok(ok__) => {
-                        pinlengthmax.write(core::mem::transmute(ok__));
+                        pinlengthmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2412,7 +2412,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::PinMode(this) {
                     Ok(ok__) => {
-                        pinmode.write(core::mem::transmute(ok__));
+                        pinmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2424,7 +2424,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::Enable(this, core::mem::transmute(&pin)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2436,7 +2436,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::Disable(this, core::mem::transmute(&pin)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2448,7 +2448,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::Enter(this, core::mem::transmute(&pin)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2460,7 +2460,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::Change(this, core::mem::transmute(&pin), core::mem::transmute(&newpin)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2472,7 +2472,7 @@ impl IMbnPin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPin_Impl::Unblock(this, core::mem::transmute(&puk), core::mem::transmute(&newpin)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2656,7 +2656,7 @@ impl IMbnPinManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPinManager_Impl::GetPinList(this) {
                     Ok(ok__) => {
-                        pinlist.write(core::mem::transmute(ok__));
+                        pinlist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2680,7 +2680,7 @@ impl IMbnPinManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnPinManager_Impl::GetPinState(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2794,7 +2794,7 @@ impl IMbnRadio_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRadio_Impl::SoftwareRadioState(this) {
                     Ok(ok__) => {
-                        softwareradiostate.write(core::mem::transmute(ok__));
+                        softwareradiostate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2806,7 +2806,7 @@ impl IMbnRadio_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRadio_Impl::HardwareRadioState(this) {
                     Ok(ok__) => {
-                        hardwareradiostate.write(core::mem::transmute(ok__));
+                        hardwareradiostate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2818,7 +2818,7 @@ impl IMbnRadio_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRadio_Impl::SetSoftwareRadioState(this, core::mem::transmute_copy(&radiostate)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2990,7 +2990,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::GetRegisterState(this) {
                     Ok(ok__) => {
-                        registerstate.write(core::mem::transmute(ok__));
+                        registerstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3002,7 +3002,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::GetRegisterMode(this) {
                     Ok(ok__) => {
-                        registermode.write(core::mem::transmute(ok__));
+                        registermode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::GetAvailableDataClasses(this) {
                     Ok(ok__) => {
-                        availabledataclasses.write(core::mem::transmute(ok__));
+                        availabledataclasses.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3062,7 +3062,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::GetCurrentDataClass(this) {
                     Ok(ok__) => {
-                        currentdataclass.write(core::mem::transmute(ok__));
+                        currentdataclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3074,7 +3074,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::GetRegistrationNetworkError(this) {
                     Ok(ok__) => {
-                        registrationnetworkerror.write(core::mem::transmute(ok__));
+                        registrationnetworkerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3086,7 +3086,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::GetPacketAttachNetworkError(this) {
                     Ok(ok__) => {
-                        packetattachnetworkerror.write(core::mem::transmute(ok__));
+                        packetattachnetworkerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3098,7 +3098,7 @@ impl IMbnRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnRegistration_Impl::SetRegisterMode(this, core::mem::transmute_copy(&registermode), core::mem::transmute(&providerid), core::mem::transmute_copy(&dataclass)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3238,7 +3238,7 @@ impl IMbnServiceActivation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnServiceActivation_Impl::Activate(this, core::mem::transmute_copy(&vendorspecificdata)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3328,7 +3328,7 @@ impl IMbnSignal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSignal_Impl::GetSignalStrength(this) {
                     Ok(ok__) => {
-                        signalstrength.write(core::mem::transmute(ok__));
+                        signalstrength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3340,7 +3340,7 @@ impl IMbnSignal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSignal_Impl::GetSignalError(this) {
                     Ok(ok__) => {
-                        signalerror.write(core::mem::transmute(ok__));
+                        signalerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3505,7 +3505,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::SetSmsConfiguration(this, core::mem::transmute_copy(&smsconfiguration)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3517,7 +3517,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::SmsSendPdu(this, core::mem::transmute(&pdudata), core::mem::transmute_copy(&size)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3529,7 +3529,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::SmsSendCdma(this, core::mem::transmute(&address), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&language), core::mem::transmute_copy(&sizeincharacters), core::mem::transmute_copy(&message)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3541,7 +3541,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::SmsSendCdmaPdu(this, core::mem::transmute_copy(&message)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3553,7 +3553,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::SmsRead(this, core::mem::transmute_copy(&smsfilter), core::mem::transmute_copy(&smsformat)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3565,7 +3565,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::SmsDelete(this, core::mem::transmute_copy(&smsfilter)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3577,7 +3577,7 @@ impl IMbnSms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSms_Impl::GetSmsStatus(this) {
                     Ok(ok__) => {
-                        smsstatusinfo.write(core::mem::transmute(ok__));
+                        smsstatusinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3683,7 +3683,7 @@ impl IMbnSmsConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsConfiguration_Impl::MaxMessageIndex(this) {
                     Ok(ok__) => {
-                        index.write(core::mem::transmute(ok__));
+                        index.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3695,7 +3695,7 @@ impl IMbnSmsConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsConfiguration_Impl::CdmaShortMsgSize(this) {
                     Ok(ok__) => {
-                        shortmsgsize.write(core::mem::transmute(ok__));
+                        shortmsgsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3707,7 +3707,7 @@ impl IMbnSmsConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsConfiguration_Impl::SmsFormat(this) {
                     Ok(ok__) => {
-                        smsformat.write(core::mem::transmute(ok__));
+                        smsformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3929,7 +3929,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgPdu_Impl::Index(this) {
                     Ok(ok__) => {
-                        index.write(core::mem::transmute(ok__));
+                        index.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3941,7 +3941,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgPdu_Impl::Status(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3965,7 +3965,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgPdu_Impl::Message(this) {
                     Ok(ok__) => {
-                        message.write(core::mem::transmute(ok__));
+                        message.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4074,7 +4074,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgTextCdma_Impl::Index(this) {
                     Ok(ok__) => {
-                        index.write(core::mem::transmute(ok__));
+                        index.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4086,7 +4086,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgTextCdma_Impl::Status(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4122,7 +4122,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgTextCdma_Impl::EncodingID(this) {
                     Ok(ok__) => {
-                        encodingid.write(core::mem::transmute(ok__));
+                        encodingid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4134,7 +4134,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgTextCdma_Impl::LanguageID(this) {
                     Ok(ok__) => {
-                        languageid.write(core::mem::transmute(ok__));
+                        languageid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4146,7 +4146,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgTextCdma_Impl::SizeInCharacters(this) {
                     Ok(ok__) => {
-                        sizeincharacters.write(core::mem::transmute(ok__));
+                        sizeincharacters.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4158,7 +4158,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSmsReadMsgTextCdma_Impl::Message(this) {
                     Ok(ok__) => {
-                        message.write(core::mem::transmute(ok__));
+                        message.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4255,7 +4255,7 @@ impl IMbnSubscriberInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnSubscriberInformation_Impl::TelephoneNumbers(this) {
                     Ok(ok__) => {
-                        telephonenumbers.write(core::mem::transmute(ok__));
+                        telephonenumbers.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4370,7 +4370,7 @@ impl IMbnVendorSpecificOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMbnVendorSpecificOperation_Impl::SetVendorSpecific(this, core::mem::transmute_copy(&vendorspecificdata)) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

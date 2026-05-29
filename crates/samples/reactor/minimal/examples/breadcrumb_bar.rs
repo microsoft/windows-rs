@@ -1,0 +1,17 @@
+//! Minimal sample for the `BreadcrumbBar` element.
+
+use windows_reactor::*;
+
+fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+    vstack((
+        text_block("Multi-segment trail"),
+        BreadcrumbBar::new(["Home", "Documents", "Projects", "windows-reactor-rs"]),
+        text_block("Two-segment trail"),
+        BreadcrumbBar::new(["Home", "Settings"]),
+    ))
+    .spacing(8.0)
+}
+
+fn main() -> Result<()> {
+    App::new().title("Sample").render(app)
+}

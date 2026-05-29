@@ -25,7 +25,7 @@ concurrency:
 
 jobs:
   msrv:
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -79,6 +79,10 @@ jobs:
       - name: Check windows-rdl
         run:  cargo check -p windows-rdl --all-features
       - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-reactor
+        run:  cargo check -p windows-reactor --all-features
+      - name: Rust version
         run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows-reference
         run:  cargo check -p windows-reference --all-features
@@ -110,6 +114,10 @@ jobs:
         run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows-threading
         run:  cargo check -p windows-threading --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.82 && rustup default 1.82
+      - name: Check windows-time
+        run:  cargo check -p windows-time --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.74 && rustup default 1.74
       - name: Check windows-version

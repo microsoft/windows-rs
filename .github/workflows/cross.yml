@@ -51,7 +51,7 @@ jobs:
             target: x86_64-pc-windows-gnullvm
           - name: i686 gnullvm
             target: i686-pc-windows-gnullvm
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout

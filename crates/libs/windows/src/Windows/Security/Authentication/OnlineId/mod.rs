@@ -11,10 +11,12 @@ impl windows_core::TypeKind for CredentialPromptType {
 }
 impl windows_core::RuntimeType for CredentialPromptType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.CredentialPromptType");
 }
 windows_core::imp::define_interface!(IOnlineIdAuthenticator, IOnlineIdAuthenticator_Vtbl, 0xa003f58a_29ab_4817_b884_d7516dad18b9);
 impl windows_core::RuntimeType for IOnlineIdAuthenticator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,6 +33,7 @@ pub struct IOnlineIdAuthenticator_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdServiceTicket, IOnlineIdServiceTicket_Vtbl, 0xc95c547f_d781_4a94_acb8_c59874238c26);
 impl windows_core::RuntimeType for IOnlineIdServiceTicket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,6 +46,7 @@ pub struct IOnlineIdServiceTicket_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequest_Vtbl, 0x297445d3_fb63_4135_8909_4e354c061466);
 impl windows_core::RuntimeType for IOnlineIdServiceTicketRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,6 +58,7 @@ pub struct IOnlineIdServiceTicketRequest_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdServiceTicketRequestFactory, IOnlineIdServiceTicketRequestFactory_Vtbl, 0xbebb0a08_9e73_4077_9614_08614c0bc245);
 impl windows_core::RuntimeType for IOnlineIdServiceTicketRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequestFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -65,6 +70,7 @@ pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorForUser, IOnlineIdSystemAuthenticatorForUser_Vtbl, 0x5798befb_1de4_4186_a2e6_b563f86aaf44);
 impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -81,6 +87,7 @@ pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorStatics, IOnlineIdSystemAuthenticatorStatics_Vtbl, 0x85047792_f634_41e3_96a4_5164e902c740);
 impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,6 +102,7 @@ pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdSystemIdentity, IOnlineIdSystemIdentity_Vtbl, 0x743cd20d_b6ca_434d_8124_53ea12685307);
 impl windows_core::RuntimeType for IOnlineIdSystemIdentity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -106,6 +114,7 @@ pub struct IOnlineIdSystemIdentity_Vtbl {
 windows_core::imp::define_interface!(IOnlineIdSystemTicketResult, IOnlineIdSystemTicketResult_Vtbl, 0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
 impl windows_core::RuntimeType for IOnlineIdSystemTicketResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,6 +127,7 @@ pub struct IOnlineIdSystemTicketResult_Vtbl {
 windows_core::imp::define_interface!(IUserIdentity, IUserIdentity_Vtbl, 0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
 impl windows_core::RuntimeType for IUserIdentity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.IUserIdentity");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -432,6 +442,7 @@ impl windows_core::TypeKind for OnlineIdSystemTicketStatus {
 }
 impl windows_core::RuntimeType for OnlineIdSystemTicketStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus");
 }
 pub type SignOutUserOperation = windows_future::IAsyncAction;
 pub type UserAuthenticationOperation = windows_future::IAsyncOperation<UserIdentity>;

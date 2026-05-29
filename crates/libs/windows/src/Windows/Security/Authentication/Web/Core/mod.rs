@@ -49,10 +49,12 @@ impl windows_core::TypeKind for FindAllWebAccountsStatus {
 }
 impl windows_core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus");
 }
 windows_core::imp::define_interface!(IFindAllAccountsResult, IFindAllAccountsResult_Vtbl, 0xa5812b5d_b72e_420c_86ab_aac0d7b7261f);
 impl windows_core::RuntimeType for IFindAllAccountsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IFindAllAccountsResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -68,6 +70,7 @@ pub struct IFindAllAccountsResult_Vtbl {
 windows_core::imp::define_interface!(IWebAccountEventArgs, IWebAccountEventArgs_Vtbl, 0x6fb7037d_424e_44ec_977c_ef2415462a5a);
 impl windows_core::RuntimeType for IWebAccountEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAccountEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -81,6 +84,7 @@ pub struct IWebAccountEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWebAccountMonitor, IWebAccountMonitor_Vtbl, 0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5);
 impl windows_core::RuntimeType for IWebAccountMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAccountMonitor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -96,6 +100,7 @@ pub struct IWebAccountMonitor_Vtbl {
 windows_core::imp::define_interface!(IWebAccountMonitor2, IWebAccountMonitor2_Vtbl, 0xa7adc1f8_24b8_4f01_9ae5_24545e71233a);
 impl windows_core::RuntimeType for IWebAccountMonitor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAccountMonitor2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -107,6 +112,7 @@ pub struct IWebAccountMonitor2_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponse, IWebAuthenticationAddAccountResponse_Vtbl, 0x7fb013e8_0bd8_542b_b486_8323163a4b85);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResponse");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -121,6 +127,7 @@ pub struct IWebAuthenticationAddAccountResponse_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponseFactory, IWebAuthenticationAddAccountResponseFactory_Vtbl, 0x325f903e_77be_5365_81d9_0321cdd82195);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResponseFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResponseFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,6 +141,7 @@ pub struct IWebAuthenticationAddAccountResponseFactory_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationAddAccountResult, IWebAuthenticationAddAccountResult_Vtbl, 0x88fad03c_901d_5ffa_9259_701d3ca08ef2);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,6 +154,7 @@ pub struct IWebAuthenticationAddAccountResult_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x6aca7c92_a581_4479_9c10_752eff44fd34);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -177,6 +186,7 @@ pub struct IWebAuthenticationCoreManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics2, IWebAuthenticationCoreManagerStatics2_Vtbl, 0xf584184a_8b57_4820_b6a4_70a5b6fcf44a);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -190,6 +200,7 @@ pub struct IWebAuthenticationCoreManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics3, IWebAuthenticationCoreManagerStatics3_Vtbl, 0x2404eeb2_8924_4d93_ab3a_99688b419d56);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -203,6 +214,7 @@ pub struct IWebAuthenticationCoreManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics4, IWebAuthenticationCoreManagerStatics4_Vtbl, 0x54e633fe_96e0_41e8_9832_1298897c2aaf);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -232,6 +244,7 @@ pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics5, IWebAuthenticationCoreManagerStatics5_Vtbl, 0xd07c1ded_270f_4554_9966_27b7df05b965);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,6 +255,7 @@ pub struct IWebAuthenticationCoreManagerStatics5_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequest, IWebAuthenticationTransferTokenRequest_Vtbl, 0x7acfa5b6_529d_5e76_9846_f3fd999304d0);
 impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationTransferTokenRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -260,6 +274,7 @@ pub struct IWebAuthenticationTransferTokenRequest_Vtbl {
 windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequestFactory, IWebAuthenticationTransferTokenRequestFactory_Vtbl, 0x5f16b627_04c4_5f0b_8683_8bab58965656);
 impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebAuthenticationTransferTokenRequestFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,6 +292,7 @@ pub struct IWebAuthenticationTransferTokenRequestFactory_Vtbl {
 windows_core::imp::define_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xdb191bb1_50c5_4809_8dca_09c99410245c);
 impl windows_core::RuntimeType for IWebProviderError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebProviderError");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -289,6 +305,7 @@ pub struct IWebProviderError_Vtbl {
 windows_core::imp::define_interface!(IWebProviderErrorFactory, IWebProviderErrorFactory_Vtbl, 0xe3c40a2d_89ef_4e37_847f_a8b9d5a32910);
 impl windows_core::RuntimeType for IWebProviderErrorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebProviderErrorFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -299,6 +316,7 @@ pub struct IWebProviderErrorFactory_Vtbl {
 windows_core::imp::define_interface!(IWebTokenRequest, IWebTokenRequest_Vtbl, 0xb77b4d68_adcb_4673_b364_0cf7b35caf97);
 impl windows_core::RuntimeType for IWebTokenRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -316,6 +334,7 @@ pub struct IWebTokenRequest_Vtbl {
 windows_core::imp::define_interface!(IWebTokenRequest2, IWebTokenRequest2_Vtbl, 0xd700c079_30c8_4397_9654_961c3be8b855);
 impl windows_core::RuntimeType for IWebTokenRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequest2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -326,6 +345,7 @@ pub struct IWebTokenRequest2_Vtbl {
 windows_core::imp::define_interface!(IWebTokenRequest3, IWebTokenRequest3_Vtbl, 0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a);
 impl windows_core::RuntimeType for IWebTokenRequest3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequest3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -337,6 +357,7 @@ pub struct IWebTokenRequest3_Vtbl {
 windows_core::imp::define_interface!(IWebTokenRequestFactory, IWebTokenRequestFactory_Vtbl, 0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9);
 impl windows_core::RuntimeType for IWebTokenRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -362,6 +383,7 @@ pub struct IWebTokenRequestFactory_Vtbl {
 windows_core::imp::define_interface!(IWebTokenRequestResult, IWebTokenRequestResult_Vtbl, 0xc12a8305_d1f8_4483_8d54_38fe292784ff);
 impl windows_core::RuntimeType for IWebTokenRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenRequestResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,6 +397,7 @@ pub struct IWebTokenRequestResult_Vtbl {
 windows_core::imp::define_interface!(IWebTokenResponse, IWebTokenResponse_Vtbl, 0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a);
 impl windows_core::RuntimeType for IWebTokenResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenResponse");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -391,6 +414,7 @@ pub struct IWebTokenResponse_Vtbl {
 windows_core::imp::define_interface!(IWebTokenResponseFactory, IWebTokenResponseFactory_Vtbl, 0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0);
 impl windows_core::RuntimeType for IWebTokenResponseFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -595,6 +619,7 @@ impl windows_core::TypeKind for WebAuthenticationAddAccountStatus {
 }
 impl windows_core::RuntimeType for WebAuthenticationAddAccountStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountStatus");
 }
 pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
@@ -1001,6 +1026,7 @@ impl windows_core::TypeKind for WebTokenRequestPromptType {
 }
 impl windows_core::RuntimeType for WebTokenRequestPromptType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1060,6 +1086,7 @@ impl windows_core::TypeKind for WebTokenRequestStatus {
 }
 impl windows_core::RuntimeType for WebTokenRequestStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Authentication.Web.Core.WebTokenRequestStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

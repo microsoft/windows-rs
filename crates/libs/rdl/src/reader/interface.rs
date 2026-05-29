@@ -136,7 +136,7 @@ impl Encoder<'_> {
         }
 
         let mut generics = Vec::with_capacity(item.generics.params.len());
-        for generic in item.generics.params.iter() {
+        for generic in &item.generics.params {
             let syn::GenericParam::Type(generic) = generic else {
                 return self.err(generic, "only type generic parameters are supported");
             };

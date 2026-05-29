@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 impl windows_core::RuntimeType for IOemSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.IOemSupportInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13,6 +14,7 @@ pub struct IOemSupportInfo_Vtbl {
 windows_core::imp::define_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e);
 impl windows_core::RuntimeType for ISmbiosInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISmbiosInformationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,6 +25,7 @@ pub struct ISmbiosInformationStatics_Vtbl {
 windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
 impl windows_core::RuntimeType for ISystemSupportDeviceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -39,6 +42,7 @@ pub struct ISystemSupportDeviceInfo_Vtbl {
 windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
 impl windows_core::RuntimeType for ISystemSupportInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,6 +54,7 @@ pub struct ISystemSupportInfoStatics_Vtbl {
 windows_core::imp::define_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d);
 impl windows_core::RuntimeType for ISystemSupportInfoStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]

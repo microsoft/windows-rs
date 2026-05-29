@@ -21,7 +21,7 @@ impl Method {
     }
 
     pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.package {
+        if !config.bindgen.layout.is_package() {
             return quote! {};
         }
 
@@ -380,7 +380,7 @@ impl Method {
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
-                } else if config.minimal && param.is_input() && matches!(param.ty, Type::String) {
+                } else if config.bindgen.style.is_minimal() && param.is_input() && matches!(param.ty, Type::String) {
                     // In minimal mode, string params accept &str directly.
                     // Convert to HSTRING and pass its abi.
                     quote! { core::mem::transmute_copy(&windows_core::HSTRING::from(#name)) }
@@ -449,7 +449,9 @@ impl Method {
         // In minimal mode, HSTRING input params accept `&str` directly — the generated
         // method body handles the conversion to HSTRING internally.
         let is_string_param = |param: &Param| -> bool {
-            config.minimal && param.is_input() && matches!(param.ty, Type::String)
+            config.bindgen.style.is_minimal()
+                && param.is_input()
+                && matches!(param.ty, Type::String)
         };
 
         let generics: Vec<TokenStream> = params
@@ -593,22 +595,22 @@ impl Method {
             None
         };
 
-        let return_type = match &self.signature.return_type {
-            Type::Void => quote! { () },
-            _ => {
-                let tokens = if config.minimal && matches!(self.signature.return_type, Type::String)
-                {
-                    quote! { String }
-                } else if let Some(inner) = return_unwrap_inner {
-                    inner.write_name(config)
-                } else {
-                    self.signature.return_type.write_name(config)
-                };
-                if self.signature.return_type.is_winrt_array() {
-                    quote! { windows_core::Array<#tokens> }
-                } else {
-                    quote! { #tokens }
-                }
+        let return_type = if self.signature.return_type == Type::Void {
+            quote! { () }
+        } else {
+            let tokens = if config.bindgen.style.is_minimal()
+                && matches!(self.signature.return_type, Type::String)
+            {
+                quote! { String }
+            } else if let Some(inner) = return_unwrap_inner {
+                inner.write_name(config)
+            } else {
+                self.signature.return_type.write_name(config)
+            };
+            if self.signature.return_type.is_winrt_array() {
+                quote! { windows_core::Array<#tokens> }
+            } else {
+                quote! { #tokens }
             }
         };
 
@@ -674,7 +676,7 @@ impl Method {
                                 #assert_success
                                 result__
                             }
-                        } else if config.minimal
+                        } else if config.bindgen.style.is_minimal()
                             && matches!(self.signature.return_type, Type::String)
                         {
                             quote! {
@@ -704,7 +706,7 @@ impl Method {
                                 let mut result__ = core::mem::zeroed();
                                 #vcall.#map.and_then(|r__: #iref| r__.Value())
                             }
-                        } else if config.minimal
+                        } else if config.bindgen.style.is_minimal()
                             && matches!(self.signature.return_type, Type::String)
                         {
                             // In minimal mode, return String instead of HSTRING.
@@ -732,10 +734,10 @@ impl Method {
         // with a combined wrapper returning EventRevoker.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && config.minimal
+            && config.bindgen.style.is_minimal()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = config.minimal
+        let is_event_remove = config.bindgen.style.is_minimal()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove
@@ -755,9 +757,15 @@ impl Method {
 
         if is_event_add && kind != InterfaceKind::Composable {
             // The event part (e.g. "Click" from "add_Click") determines the
-            // vtable field name for the paired remove method ("RemoveClick").
+            // vtable field name for the paired remove method.
             let event_part = &raw_method_name[4..];
-            let remove_vname = to_ident(&format!("Remove{event_part}"));
+            let remove_vname = if config.bindgen.style.is_minimal() {
+                // Raw mode: vtbl field is "remove_Click"
+                to_ident(&format!("remove_{event_part}"))
+            } else {
+                // Default mode: vtbl field is "RemoveClick"
+                to_ident(&format!("Remove{event_part}"))
+            };
 
             // Promote the delegate parameter (typically the only input) to a
             // generic closure so callers can pass a closure directly without
@@ -852,8 +860,21 @@ impl Method {
                         })
                         .collect();
 
-                    let event_where_clause = quote! {
-                        where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
+                    let event_where_clause = {
+                        // Drop Send when the delegate is locally generated
+                        // under minimal mode — we inline the DelegateBox and
+                        // bypass the delegate's new() bounds. When the delegate
+                        // is referenced (external crate), its new() still
+                        // requires Send so we must keep the bound here too.
+                        if delegate_is_local_minimal {
+                            quote! {
+                                where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
+                            }
+                        } else {
+                            quote! {
+                                where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
+                            }
+                        }
                     };
 
                     // Reuse the rendered declarations for non-delegate params and
@@ -872,9 +893,21 @@ impl Method {
                         .collect();
 
                     let event_prelude = if delegate_is_local_minimal {
+                        // Inline DelegateBox construction directly instead of
+                        // calling Delegate::new(). This decouples the event
+                        // wrapper's Send bound from the delegate constructor's
+                        // bound — the wrapper's own where clause is the sole
+                        // authority on whether F must be Send.
+                        let boxed_name: TokenStream =
+                            format!("{}Box", trim_tick(d.def.name())).parse().unwrap();
+                        let generic_names = d.generics.iter().map(|ty| ty.write_name(config));
+                        let generic_names = quote! { #(#generic_names,)* };
                         quote! {
                             #prelude
-                            let #pname = <#delegate_name>::new(#pname);
+                            let #pname: #delegate_name = {
+                                let com = windows_core::imp::DelegateBox::<#delegate_name, F>::new(&#boxed_name::<#generic_names F>::VTABLE, #pname);
+                                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+                            };
                         }
                     } else {
                         // Synthetic argument names for the wrapping closure
@@ -903,13 +936,7 @@ impl Method {
                     )
                 } else {
                     // No delegate parameter detected: fall back to the existing signature.
-                    (
-                        generics.clone(),
-                        where_clause.clone(),
-                        params.clone(),
-                        args.clone(),
-                        prelude.clone(),
-                    )
+                    (generics, where_clause, params, args, prelude)
                 };
 
             // Raw vtable call that maps the HRESULT into Result<i64> via `?`.

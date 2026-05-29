@@ -435,7 +435,7 @@ impl IMSMQApplication2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQApplication2_Impl::MSMQVersionMajor(this) {
                     Ok(ok__) => {
-                        psmsmqversionmajor.write(core::mem::transmute(ok__));
+                        psmsmqversionmajor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -447,7 +447,7 @@ impl IMSMQApplication2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQApplication2_Impl::MSMQVersionMinor(this) {
                     Ok(ok__) => {
-                        psmsmqversionminor.write(core::mem::transmute(ok__));
+                        psmsmqversionminor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -459,7 +459,7 @@ impl IMSMQApplication2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQApplication2_Impl::MSMQVersionBuild(this) {
                     Ok(ok__) => {
-                        psmsmqversionbuild.write(core::mem::transmute(ok__));
+                        psmsmqversionbuild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl IMSMQApplication2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQApplication2_Impl::IsDsEnabled(this) {
                     Ok(ok__) => {
-                        pfisdsenabled.write(core::mem::transmute(ok__));
+                        pfisdsenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -654,7 +654,7 @@ impl IMSMQApplication3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQApplication3_Impl::IsConnected(this) {
                     Ok(ok__) => {
-                        pfisconnected.write(core::mem::transmute(ok__));
+                        pfisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -800,7 +800,7 @@ impl IMSMQCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1182,7 +1182,7 @@ impl IMSMQDestination_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQDestination_Impl::IsOpen(this) {
                     Ok(ok__) => {
-                        pfisopen.write(core::mem::transmute(ok__));
+                        pfisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1567,7 +1567,7 @@ impl IMSMQManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQManagement_Impl::MessageCount(this) {
                     Ok(ok__) => {
-                        plmessagecount.write(core::mem::transmute(ok__));
+                        plmessagecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1579,7 +1579,7 @@ impl IMSMQManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQManagement_Impl::ForeignStatus(this) {
                     Ok(ok__) => {
-                        plforeignstatus.write(core::mem::transmute(ok__));
+                        plforeignstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1591,7 +1591,7 @@ impl IMSMQManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQManagement_Impl::QueueType(this) {
                     Ok(ok__) => {
-                        plqueuetype.write(core::mem::transmute(ok__));
+                        plqueuetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1603,7 +1603,7 @@ impl IMSMQManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQManagement_Impl::IsLocal(this) {
                     Ok(ok__) => {
-                        pfislocal.write(core::mem::transmute(ok__));
+                        pfislocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1615,7 +1615,7 @@ impl IMSMQManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQManagement_Impl::TransactionalStatus(this) {
                     Ok(ok__) => {
-                        pltransactionalstatus.write(core::mem::transmute(ok__));
+                        pltransactionalstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2066,7 +2066,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::Class(this) {
                     Ok(ok__) => {
-                        plclass.write(core::mem::transmute(ok__));
+                        plclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2078,7 +2078,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2096,7 +2096,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::AuthLevel(this) {
                     Ok(ok__) => {
-                        plauthlevel.write(core::mem::transmute(ok__));
+                        plauthlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2114,7 +2114,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::IsAuthenticated(this) {
                     Ok(ok__) => {
-                        pisauthenticated.write(core::mem::transmute(ok__));
+                        pisauthenticated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2126,7 +2126,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::Delivery(this) {
                     Ok(ok__) => {
-                        pldelivery.write(core::mem::transmute(ok__));
+                        pldelivery.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2144,7 +2144,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::Trace(this) {
                     Ok(ok__) => {
-                        pltrace.write(core::mem::transmute(ok__));
+                        pltrace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2162,7 +2162,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::Priority(this) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2180,7 +2180,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2216,7 +2216,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::AppSpecific(this) {
                     Ok(ok__) => {
-                        plappspecific.write(core::mem::transmute(ok__));
+                        plappspecific.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2246,7 +2246,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::BodyLength(this) {
                     Ok(ok__) => {
-                        pcbbody.write(core::mem::transmute(ok__));
+                        pcbbody.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2324,7 +2324,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::Ack(this) {
                     Ok(ok__) => {
-                        plack.write(core::mem::transmute(ok__));
+                        plack.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2360,7 +2360,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::MaxTimeToReachQueue(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
+                        plmaxtimetoreachqueue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2378,7 +2378,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::MaxTimeToReceive(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreceive.write(core::mem::transmute(ok__));
+                        plmaxtimetoreceive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2396,7 +2396,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::HashAlgorithm(this) {
                     Ok(ok__) => {
-                        plhashalg.write(core::mem::transmute(ok__));
+                        plhashalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2414,7 +2414,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::EncryptAlgorithm(this) {
                     Ok(ok__) => {
-                        plencryptalg.write(core::mem::transmute(ok__));
+                        plencryptalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2498,7 +2498,7 @@ impl IMSMQMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage_Impl::SenderIdType(this) {
                     Ok(ok__) => {
-                        plsenderidtype.write(core::mem::transmute(ok__));
+                        plsenderidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3211,7 +3211,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::Class(this) {
                     Ok(ok__) => {
-                        plclass.write(core::mem::transmute(ok__));
+                        plclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3223,7 +3223,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3241,7 +3241,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::AuthLevel(this) {
                     Ok(ok__) => {
-                        plauthlevel.write(core::mem::transmute(ok__));
+                        plauthlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3259,7 +3259,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::IsAuthenticated(this) {
                     Ok(ok__) => {
-                        pisauthenticated.write(core::mem::transmute(ok__));
+                        pisauthenticated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3271,7 +3271,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::Delivery(this) {
                     Ok(ok__) => {
-                        pldelivery.write(core::mem::transmute(ok__));
+                        pldelivery.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3289,7 +3289,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::Trace(this) {
                     Ok(ok__) => {
-                        pltrace.write(core::mem::transmute(ok__));
+                        pltrace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3307,7 +3307,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::Priority(this) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3325,7 +3325,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3361,7 +3361,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::AppSpecific(this) {
                     Ok(ok__) => {
-                        plappspecific.write(core::mem::transmute(ok__));
+                        plappspecific.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3391,7 +3391,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::BodyLength(this) {
                     Ok(ok__) => {
-                        pcbbody.write(core::mem::transmute(ok__));
+                        pcbbody.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3469,7 +3469,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::Ack(this) {
                     Ok(ok__) => {
-                        plack.write(core::mem::transmute(ok__));
+                        plack.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3505,7 +3505,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::MaxTimeToReachQueue(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
+                        plmaxtimetoreachqueue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::MaxTimeToReceive(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreceive.write(core::mem::transmute(ok__));
+                        plmaxtimetoreceive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3541,7 +3541,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::HashAlgorithm(this) {
                     Ok(ok__) => {
-                        plhashalg.write(core::mem::transmute(ok__));
+                        plhashalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3559,7 +3559,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::EncryptAlgorithm(this) {
                     Ok(ok__) => {
-                        plencryptalg.write(core::mem::transmute(ok__));
+                        plencryptalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3643,7 +3643,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::SenderIdType(this) {
                     Ok(ok__) => {
-                        plsenderidtype.write(core::mem::transmute(ok__));
+                        plsenderidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3673,7 +3673,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::SenderVersion(this) {
                     Ok(ok__) => {
-                        plsenderversion.write(core::mem::transmute(ok__));
+                        plsenderversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3769,7 +3769,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::AuthenticationProviderType(this) {
                     Ok(ok__) => {
-                        plauthprovtype.write(core::mem::transmute(ok__));
+                        plauthprovtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3811,7 +3811,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::MsgClass(this) {
                     Ok(ok__) => {
-                        plmsgclass.write(core::mem::transmute(ok__));
+                        plmsgclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3853,7 +3853,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::IsFirstInTransaction(this) {
                     Ok(ok__) => {
-                        pisfirstinxact.write(core::mem::transmute(ok__));
+                        pisfirstinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3865,7 +3865,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::IsLastInTransaction(this) {
                     Ok(ok__) => {
-                        pislastinxact.write(core::mem::transmute(ok__));
+                        pislastinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3913,7 +3913,7 @@ impl IMSMQMessage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage2_Impl::ReceivedAuthenticationLevel(this) {
                     Ok(ok__) => {
-                        psreceivedauthenticationlevel.write(core::mem::transmute(ok__));
+                        psreceivedauthenticationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4761,7 +4761,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::Class(this) {
                     Ok(ok__) => {
-                        plclass.write(core::mem::transmute(ok__));
+                        plclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4773,7 +4773,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4791,7 +4791,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::AuthLevel(this) {
                     Ok(ok__) => {
-                        plauthlevel.write(core::mem::transmute(ok__));
+                        plauthlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4809,7 +4809,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::IsAuthenticated(this) {
                     Ok(ok__) => {
-                        pisauthenticated.write(core::mem::transmute(ok__));
+                        pisauthenticated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4821,7 +4821,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::Delivery(this) {
                     Ok(ok__) => {
-                        pldelivery.write(core::mem::transmute(ok__));
+                        pldelivery.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4839,7 +4839,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::Trace(this) {
                     Ok(ok__) => {
-                        pltrace.write(core::mem::transmute(ok__));
+                        pltrace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4857,7 +4857,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::Priority(this) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4875,7 +4875,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4911,7 +4911,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::AppSpecific(this) {
                     Ok(ok__) => {
-                        plappspecific.write(core::mem::transmute(ok__));
+                        plappspecific.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4941,7 +4941,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::BodyLength(this) {
                     Ok(ok__) => {
-                        pcbbody.write(core::mem::transmute(ok__));
+                        pcbbody.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5019,7 +5019,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::Ack(this) {
                     Ok(ok__) => {
-                        plack.write(core::mem::transmute(ok__));
+                        plack.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5055,7 +5055,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::MaxTimeToReachQueue(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
+                        plmaxtimetoreachqueue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5073,7 +5073,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::MaxTimeToReceive(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreceive.write(core::mem::transmute(ok__));
+                        plmaxtimetoreceive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5091,7 +5091,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::HashAlgorithm(this) {
                     Ok(ok__) => {
-                        plhashalg.write(core::mem::transmute(ok__));
+                        plhashalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5109,7 +5109,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::EncryptAlgorithm(this) {
                     Ok(ok__) => {
-                        plencryptalg.write(core::mem::transmute(ok__));
+                        plencryptalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5193,7 +5193,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::SenderIdType(this) {
                     Ok(ok__) => {
-                        plsenderidtype.write(core::mem::transmute(ok__));
+                        plsenderidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5223,7 +5223,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::SenderVersion(this) {
                     Ok(ok__) => {
-                        plsenderversion.write(core::mem::transmute(ok__));
+                        plsenderversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5319,7 +5319,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::AuthenticationProviderType(this) {
                     Ok(ok__) => {
-                        plauthprovtype.write(core::mem::transmute(ok__));
+                        plauthprovtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5361,7 +5361,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::MsgClass(this) {
                     Ok(ok__) => {
-                        plmsgclass.write(core::mem::transmute(ok__));
+                        plmsgclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5403,7 +5403,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::IsFirstInTransaction(this) {
                     Ok(ok__) => {
-                        pisfirstinxact.write(core::mem::transmute(ok__));
+                        pisfirstinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5415,7 +5415,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::IsLastInTransaction(this) {
                     Ok(ok__) => {
-                        pislastinxact.write(core::mem::transmute(ok__));
+                        pislastinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5463,7 +5463,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::ReceivedAuthenticationLevel(this) {
                     Ok(ok__) => {
-                        psreceivedauthenticationlevel.write(core::mem::transmute(ok__));
+                        psreceivedauthenticationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5553,7 +5553,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::IsAuthenticated2(this) {
                     Ok(ok__) => {
-                        pisauthenticated.write(core::mem::transmute(ok__));
+                        pisauthenticated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5565,7 +5565,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::IsFirstInTransaction2(this) {
                     Ok(ok__) => {
-                        pisfirstinxact.write(core::mem::transmute(ok__));
+                        pisfirstinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5577,7 +5577,7 @@ impl IMSMQMessage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage3_Impl::IsLastInTransaction2(this) {
                     Ok(ok__) => {
-                        pislastinxact.write(core::mem::transmute(ok__));
+                        pislastinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6483,7 +6483,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::Class(this) {
                     Ok(ok__) => {
-                        plclass.write(core::mem::transmute(ok__));
+                        plclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6495,7 +6495,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6513,7 +6513,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::AuthLevel(this) {
                     Ok(ok__) => {
-                        plauthlevel.write(core::mem::transmute(ok__));
+                        plauthlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6531,7 +6531,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::IsAuthenticated(this) {
                     Ok(ok__) => {
-                        pisauthenticated.write(core::mem::transmute(ok__));
+                        pisauthenticated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6543,7 +6543,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::Delivery(this) {
                     Ok(ok__) => {
-                        pldelivery.write(core::mem::transmute(ok__));
+                        pldelivery.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6561,7 +6561,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::Trace(this) {
                     Ok(ok__) => {
-                        pltrace.write(core::mem::transmute(ok__));
+                        pltrace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6579,7 +6579,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::Priority(this) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6597,7 +6597,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6633,7 +6633,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::AppSpecific(this) {
                     Ok(ok__) => {
-                        plappspecific.write(core::mem::transmute(ok__));
+                        plappspecific.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6663,7 +6663,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::BodyLength(this) {
                     Ok(ok__) => {
-                        pcbbody.write(core::mem::transmute(ok__));
+                        pcbbody.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6741,7 +6741,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::Ack(this) {
                     Ok(ok__) => {
-                        plack.write(core::mem::transmute(ok__));
+                        plack.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6777,7 +6777,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::MaxTimeToReachQueue(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
+                        plmaxtimetoreachqueue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6795,7 +6795,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::MaxTimeToReceive(this) {
                     Ok(ok__) => {
-                        plmaxtimetoreceive.write(core::mem::transmute(ok__));
+                        plmaxtimetoreceive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6813,7 +6813,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::HashAlgorithm(this) {
                     Ok(ok__) => {
-                        plhashalg.write(core::mem::transmute(ok__));
+                        plhashalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6831,7 +6831,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::EncryptAlgorithm(this) {
                     Ok(ok__) => {
-                        plencryptalg.write(core::mem::transmute(ok__));
+                        plencryptalg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6915,7 +6915,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::SenderIdType(this) {
                     Ok(ok__) => {
-                        plsenderidtype.write(core::mem::transmute(ok__));
+                        plsenderidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6945,7 +6945,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::SenderVersion(this) {
                     Ok(ok__) => {
-                        plsenderversion.write(core::mem::transmute(ok__));
+                        plsenderversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7041,7 +7041,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::AuthenticationProviderType(this) {
                     Ok(ok__) => {
-                        plauthprovtype.write(core::mem::transmute(ok__));
+                        plauthprovtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7083,7 +7083,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::MsgClass(this) {
                     Ok(ok__) => {
-                        plmsgclass.write(core::mem::transmute(ok__));
+                        plmsgclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7125,7 +7125,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::IsFirstInTransaction(this) {
                     Ok(ok__) => {
-                        pisfirstinxact.write(core::mem::transmute(ok__));
+                        pisfirstinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7137,7 +7137,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::IsLastInTransaction(this) {
                     Ok(ok__) => {
-                        pislastinxact.write(core::mem::transmute(ok__));
+                        pislastinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7185,7 +7185,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::ReceivedAuthenticationLevel(this) {
                     Ok(ok__) => {
-                        psreceivedauthenticationlevel.write(core::mem::transmute(ok__));
+                        psreceivedauthenticationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7275,7 +7275,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::IsAuthenticated2(this) {
                     Ok(ok__) => {
-                        pisauthenticated.write(core::mem::transmute(ok__));
+                        pisauthenticated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7287,7 +7287,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::IsFirstInTransaction2(this) {
                     Ok(ok__) => {
-                        pisfirstinxact.write(core::mem::transmute(ok__));
+                        pisfirstinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7299,7 +7299,7 @@ impl IMSMQMessage4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQMessage4_Impl::IsLastInTransaction2(this) {
                     Ok(ok__) => {
-                        pislastinxact.write(core::mem::transmute(ok__));
+                        pislastinxact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7523,7 +7523,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQOutgoingQueueManagement_Impl::State(this) {
                     Ok(ok__) => {
-                        plstate.write(core::mem::transmute(ok__));
+                        plstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7716,7 +7716,7 @@ impl IMSMQPrivateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQPrivateEvent_Impl::Hwnd(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8255,7 +8255,7 @@ impl IMSMQQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue_Impl::Access(this) {
                     Ok(ok__) => {
-                        placcess.write(core::mem::transmute(ok__));
+                        placcess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8267,7 +8267,7 @@ impl IMSMQQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue_Impl::ShareMode(this) {
                     Ok(ok__) => {
-                        plsharemode.write(core::mem::transmute(ok__));
+                        plsharemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8291,7 +8291,7 @@ impl IMSMQQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue_Impl::Handle(this) {
                     Ok(ok__) => {
-                        plhandle.write(core::mem::transmute(ok__));
+                        plhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8303,7 +8303,7 @@ impl IMSMQQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue_Impl::IsOpen(this) {
                     Ok(ok__) => {
-                        pisopen.write(core::mem::transmute(ok__));
+                        pisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8632,7 +8632,7 @@ impl IMSMQQueue2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue2_Impl::Access(this) {
                     Ok(ok__) => {
-                        placcess.write(core::mem::transmute(ok__));
+                        placcess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8644,7 +8644,7 @@ impl IMSMQQueue2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue2_Impl::ShareMode(this) {
                     Ok(ok__) => {
-                        plsharemode.write(core::mem::transmute(ok__));
+                        plsharemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8668,7 +8668,7 @@ impl IMSMQQueue2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue2_Impl::Handle(this) {
                     Ok(ok__) => {
-                        plhandle.write(core::mem::transmute(ok__));
+                        plhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8680,7 +8680,7 @@ impl IMSMQQueue2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue2_Impl::IsOpen(this) {
                     Ok(ok__) => {
-                        pisopen.write(core::mem::transmute(ok__));
+                        pisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9232,7 +9232,7 @@ impl IMSMQQueue3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue3_Impl::Access(this) {
                     Ok(ok__) => {
-                        placcess.write(core::mem::transmute(ok__));
+                        placcess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9244,7 +9244,7 @@ impl IMSMQQueue3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue3_Impl::ShareMode(this) {
                     Ok(ok__) => {
-                        plsharemode.write(core::mem::transmute(ok__));
+                        plsharemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9268,7 +9268,7 @@ impl IMSMQQueue3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue3_Impl::Handle(this) {
                     Ok(ok__) => {
-                        plhandle.write(core::mem::transmute(ok__));
+                        plhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9280,7 +9280,7 @@ impl IMSMQQueue3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue3_Impl::IsOpen(this) {
                     Ok(ok__) => {
-                        pisopen.write(core::mem::transmute(ok__));
+                        pisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9580,7 +9580,7 @@ impl IMSMQQueue3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue3_Impl::IsOpen2(this) {
                     Ok(ok__) => {
-                        pisopen.write(core::mem::transmute(ok__));
+                        pisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10007,7 +10007,7 @@ impl IMSMQQueue4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue4_Impl::Access(this) {
                     Ok(ok__) => {
-                        placcess.write(core::mem::transmute(ok__));
+                        placcess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10019,7 +10019,7 @@ impl IMSMQQueue4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue4_Impl::ShareMode(this) {
                     Ok(ok__) => {
-                        plsharemode.write(core::mem::transmute(ok__));
+                        plsharemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10043,7 +10043,7 @@ impl IMSMQQueue4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue4_Impl::Handle(this) {
                     Ok(ok__) => {
-                        plhandle.write(core::mem::transmute(ok__));
+                        plhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10055,7 +10055,7 @@ impl IMSMQQueue4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue4_Impl::IsOpen(this) {
                     Ok(ok__) => {
-                        pisopen.write(core::mem::transmute(ok__));
+                        pisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10355,7 +10355,7 @@ impl IMSMQQueue4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueue4_Impl::IsOpen2(this) {
                     Ok(ok__) => {
-                        pisopen.write(core::mem::transmute(ok__));
+                        pisopen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10742,7 +10742,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::IsTransactional(this) {
                     Ok(ok__) => {
-                        pistransactional.write(core::mem::transmute(ok__));
+                        pistransactional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10754,7 +10754,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10772,7 +10772,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10790,7 +10790,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::Quota(this) {
                     Ok(ok__) => {
-                        plquota.write(core::mem::transmute(ok__));
+                        plquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10808,7 +10808,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::BasePriority(this) {
                     Ok(ok__) => {
-                        plbasepriority.write(core::mem::transmute(ok__));
+                        plbasepriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10850,7 +10850,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::Authenticate(this) {
                     Ok(ok__) => {
-                        plauthenticate.write(core::mem::transmute(ok__));
+                        plauthenticate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10868,7 +10868,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::JournalQuota(this) {
                     Ok(ok__) => {
-                        pljournalquota.write(core::mem::transmute(ok__));
+                        pljournalquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10886,7 +10886,7 @@ impl IMSMQQueueInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo_Impl::IsWorldReadable(this) {
                     Ok(ok__) => {
-                        pisworldreadable.write(core::mem::transmute(ok__));
+                        pisworldreadable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11331,7 +11331,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::IsTransactional(this) {
                     Ok(ok__) => {
-                        pistransactional.write(core::mem::transmute(ok__));
+                        pistransactional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11343,7 +11343,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11361,7 +11361,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11379,7 +11379,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::Quota(this) {
                     Ok(ok__) => {
-                        plquota.write(core::mem::transmute(ok__));
+                        plquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11397,7 +11397,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::BasePriority(this) {
                     Ok(ok__) => {
-                        plbasepriority.write(core::mem::transmute(ok__));
+                        plbasepriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11439,7 +11439,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::Authenticate(this) {
                     Ok(ok__) => {
-                        plauthenticate.write(core::mem::transmute(ok__));
+                        plauthenticate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11457,7 +11457,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::JournalQuota(this) {
                     Ok(ok__) => {
-                        pljournalquota.write(core::mem::transmute(ok__));
+                        pljournalquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11475,7 +11475,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo2_Impl::IsWorldReadable(this) {
                     Ok(ok__) => {
-                        pisworldreadable.write(core::mem::transmute(ok__));
+                        pisworldreadable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12003,7 +12003,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::IsTransactional(this) {
                     Ok(ok__) => {
-                        pistransactional.write(core::mem::transmute(ok__));
+                        pistransactional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12015,7 +12015,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12033,7 +12033,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12051,7 +12051,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::Quota(this) {
                     Ok(ok__) => {
-                        plquota.write(core::mem::transmute(ok__));
+                        plquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12069,7 +12069,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::BasePriority(this) {
                     Ok(ok__) => {
-                        plbasepriority.write(core::mem::transmute(ok__));
+                        plbasepriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12111,7 +12111,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::Authenticate(this) {
                     Ok(ok__) => {
-                        plauthenticate.write(core::mem::transmute(ok__));
+                        plauthenticate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12129,7 +12129,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::JournalQuota(this) {
                     Ok(ok__) => {
-                        pljournalquota.write(core::mem::transmute(ok__));
+                        pljournalquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12147,7 +12147,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::IsWorldReadable(this) {
                     Ok(ok__) => {
-                        pisworldreadable.write(core::mem::transmute(ok__));
+                        pisworldreadable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12237,7 +12237,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::IsTransactional2(this) {
                     Ok(ok__) => {
-                        pistransactional.write(core::mem::transmute(ok__));
+                        pistransactional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12249,7 +12249,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo3_Impl::IsWorldReadable2(this) {
                     Ok(ok__) => {
-                        pisworldreadable.write(core::mem::transmute(ok__));
+                        pisworldreadable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12734,7 +12734,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::IsTransactional(this) {
                     Ok(ok__) => {
-                        pistransactional.write(core::mem::transmute(ok__));
+                        pistransactional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12746,7 +12746,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::PrivLevel(this) {
                     Ok(ok__) => {
-                        plprivlevel.write(core::mem::transmute(ok__));
+                        plprivlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12764,7 +12764,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::Journal(this) {
                     Ok(ok__) => {
-                        pljournal.write(core::mem::transmute(ok__));
+                        pljournal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12782,7 +12782,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::Quota(this) {
                     Ok(ok__) => {
-                        plquota.write(core::mem::transmute(ok__));
+                        plquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12800,7 +12800,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::BasePriority(this) {
                     Ok(ok__) => {
-                        plbasepriority.write(core::mem::transmute(ok__));
+                        plbasepriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12842,7 +12842,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::Authenticate(this) {
                     Ok(ok__) => {
-                        plauthenticate.write(core::mem::transmute(ok__));
+                        plauthenticate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12860,7 +12860,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::JournalQuota(this) {
                     Ok(ok__) => {
-                        pljournalquota.write(core::mem::transmute(ok__));
+                        pljournalquota.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12878,7 +12878,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::IsWorldReadable(this) {
                     Ok(ok__) => {
-                        pisworldreadable.write(core::mem::transmute(ok__));
+                        pisworldreadable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12968,7 +12968,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::IsTransactional2(this) {
                     Ok(ok__) => {
-                        pistransactional.write(core::mem::transmute(ok__));
+                        pistransactional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12980,7 +12980,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueInfo4_Impl::IsWorldReadable2(this) {
                     Ok(ok__) => {
-                        pisworldreadable.write(core::mem::transmute(ok__));
+                        pisworldreadable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13464,7 +13464,7 @@ impl IMSMQQueueManagement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQQueueManagement_Impl::JournalMessageCount(this) {
                     Ok(ok__) => {
-                        pljournalmessagecount.write(core::mem::transmute(ok__));
+                        pljournalmessagecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13565,7 +13565,7 @@ impl IMSMQTransaction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSMQTransaction_Impl::Transaction(this) {
                     Ok(ok__) => {
-                        pltransaction.write(core::mem::transmute(ok__));
+                        pltransaction.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

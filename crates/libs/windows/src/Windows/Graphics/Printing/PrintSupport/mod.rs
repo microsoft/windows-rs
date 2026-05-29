@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPrintSupportAppInfo, IPrintSupportAppInfo_Vtbl, 0x913cd9e0_cb44_5ae4_b984_f6e80e872320);
 impl windows_core::RuntimeType for IPrintSupportAppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportAppInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct IPrintSupportAppInfo_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportAppInfoStatics, IPrintSupportAppInfoStatics_Vtbl, 0x3246a41d_2757_544d_aafa_b38461896270);
 impl windows_core::RuntimeType for IPrintSupportAppInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportAppInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,6 +31,7 @@ pub struct IPrintSupportAppInfoStatics_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportCommunicationErrorDetectedEventArgs, IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl, 0x9c90151e_ad1b_5081_a491_4a2d94244f2d);
 impl windows_core::RuntimeType for IPrintSupportCommunicationErrorDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportCommunicationErrorDetectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,6 +45,7 @@ pub struct IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportEnterpriseManagementUIEventArgs, IPrintSupportEnterpriseManagementUIEventArgs_Vtbl, 0x6b1c2850_4bf7_5894_89fa_e89d9ea4eb2e);
 impl windows_core::RuntimeType for IPrintSupportEnterpriseManagementUIEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportEnterpriseManagementUIEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,6 +59,7 @@ pub struct IPrintSupportEnterpriseManagementUIEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportExtensionSession, IPrintSupportExtensionSession_Vtbl, 0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3);
 impl windows_core::RuntimeType for IPrintSupportExtensionSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportExtensionSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -73,6 +78,7 @@ pub struct IPrintSupportExtensionSession_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportExtensionSession2, IPrintSupportExtensionSession2_Vtbl, 0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1);
 impl windows_core::RuntimeType for IPrintSupportExtensionSession2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportExtensionSession2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,6 +90,7 @@ pub struct IPrintSupportExtensionSession2_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportExtensionSession3, IPrintSupportExtensionSession3_Vtbl, 0x0d1b755d_1273_5e14_81d3_b6bb582b9ed8);
 impl windows_core::RuntimeType for IPrintSupportExtensionSession3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportExtensionSession3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,6 +102,7 @@ pub struct IPrintSupportExtensionSession3_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportExtensionTriggerDetails, IPrintSupportExtensionTriggerDetails_Vtbl, 0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
 impl windows_core::RuntimeType for IPrintSupportExtensionTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportExtensionTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -105,6 +113,7 @@ pub struct IPrintSupportExtensionTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportIppCommunicationConfiguration, IPrintSupportIppCommunicationConfiguration_Vtbl, 0xdbc36e0b_2d90_53b9_90d2_93faf30dafdd);
 impl windows_core::RuntimeType for IPrintSupportIppCommunicationConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportIppCommunicationConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,21 +127,23 @@ pub struct IPrintSupportIppCommunicationConfiguration_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportIppCommunicationTimeouts, IPrintSupportIppCommunicationTimeouts_Vtbl, 0xa3b2de71_564c_5806_a1a9_c6043ca5d373);
 impl windows_core::RuntimeType for IPrintSupportIppCommunicationTimeouts {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportIppCommunicationTimeouts");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportIppCommunicationTimeouts_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetSendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub ReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetSendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub ReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintSupportMxdcImageQualityConfiguration, IPrintSupportMxdcImageQualityConfiguration_Vtbl, 0x0e0d0b86_d202_58a3_a1ed_2ef9dbc0f291);
 impl windows_core::RuntimeType for IPrintSupportMxdcImageQualityConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportMxdcImageQualityConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,6 +167,7 @@ pub struct IPrintSupportMxdcImageQualityConfiguration_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl, 0x15969bf0_9028_5722_8a37_7d7c34b41dd6);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -174,6 +186,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl, 0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,6 +207,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3_Vtbl, 0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -204,6 +218,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl, 0x31734ad5_9bfb_5bfb_bdef_8476258e3390);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -214,6 +229,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl, 0x5f5fc025_8c35_5529_8038_8cdc3634bbcd);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesUpdatePolicy");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -223,17 +239,19 @@ pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics, IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl, 0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreatePeriodicRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePeriodicRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePrintJobRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintSupportPrintTicketElement, IPrintSupportPrintTicketElement_Vtbl, 0x4b2a4489_730d_5be7_80e6_8332941abf13);
 impl windows_core::RuntimeType for IPrintSupportPrintTicketElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintTicketElement");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -247,6 +265,7 @@ pub struct IPrintSupportPrintTicketElement_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintTicketValidationRequestedEventArgs, IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl, 0x338e4e69_db55_55c7_8338_ef64680a8f90);
 impl windows_core::RuntimeType for IPrintSupportPrintTicketValidationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintTicketValidationRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,6 +281,7 @@ pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrintTicketValidationRequestedEventArgs2, IPrintSupportPrintTicketValidationRequestedEventArgs2_Vtbl, 0x39749075_d02d_5fd1_9c4b_46bb8db7316b);
 impl windows_core::RuntimeType for IPrintSupportPrintTicketValidationRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintTicketValidationRequestedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,6 +292,7 @@ pub struct IPrintSupportPrintTicketValidationRequestedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportPrinterSelectedEventArgs, IPrintSupportPrinterSelectedEventArgs_Vtbl, 0x7b1cb7d9_a8a4_5c09_adb2_66165f817977);
 impl windows_core::RuntimeType for IPrintSupportPrinterSelectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrinterSelectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,6 +322,7 @@ pub struct IPrintSupportPrinterSelectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportSessionInfo, IPrintSupportSessionInfo_Vtbl, 0x852149af_777d_53e9_9ee9_45d3f4b5be9c);
 impl windows_core::RuntimeType for IPrintSupportSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportSessionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -318,6 +340,7 @@ pub struct IPrintSupportSessionInfo_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportSettingsActivatedEventArgs, IPrintSupportSettingsActivatedEventArgs_Vtbl, 0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1);
 impl windows_core::RuntimeType for IPrintSupportSettingsActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportSettingsActivatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -329,6 +352,7 @@ pub struct IPrintSupportSettingsActivatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportSettingsActivatedEventArgs2, IPrintSupportSettingsActivatedEventArgs2_Vtbl, 0xabe45f6e_dc9d_5403_8107_c864d9276367);
 impl windows_core::RuntimeType for IPrintSupportSettingsActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportSettingsActivatedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -342,6 +366,7 @@ pub struct IPrintSupportSettingsActivatedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IPrintSupportSettingsUISession, IPrintSupportSettingsUISession_Vtbl, 0xc6da2251_83c3_55e4_a0f8_5de8b062adbf);
 impl windows_core::RuntimeType for IPrintSupportSettingsUISession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportSettingsUISession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -373,6 +398,7 @@ impl windows_core::TypeKind for IppCommunicationErrorKind {
 }
 impl windows_core::RuntimeType for IppCommunicationErrorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppCommunicationErrorKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IppCommunicationErrorKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -389,6 +415,7 @@ impl windows_core::TypeKind for IppPrinterCommunicationKind {
 }
 impl windows_core::RuntimeType for IppPrinterCommunicationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -407,6 +434,7 @@ impl windows_core::TypeKind for PrintSupportAppContracts {
 }
 impl windows_core::RuntimeType for PrintSupportAppContracts {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.PrintSupportAppContracts;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.PrintSupportAppContracts");
 }
 impl PrintSupportAppContracts {
     pub const fn contains(&self, other: Self) -> bool {
@@ -710,31 +738,31 @@ unsafe impl Sync for PrintSupportIppCommunicationConfiguration {}
 pub struct PrintSupportIppCommunicationTimeouts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationTimeouts, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportIppCommunicationTimeouts {
-    pub fn ConnectTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ConnectTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetConnectTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetConnectTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetConnectTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn SendTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn SendTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SendTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSendTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetSendTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSendTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ReceiveTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ReceiveTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReceiveTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReceiveTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetReceiveTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReceiveTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -925,7 +953,7 @@ unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    pub fn CreatePeriodicRefresh(updateperiod: super::super::super::Foundation::TimeSpan) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
+    pub fn CreatePeriodicRefresh(updateperiod: windows_time::TimeSpan) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePeriodicRefresh)(windows_core::Interface::as_raw(this), updateperiod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1276,6 +1304,7 @@ impl windows_core::TypeKind for SettingsLaunchKind {
 }
 impl windows_core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1290,6 +1319,7 @@ impl windows_core::TypeKind for WorkflowPrintTicketValidationStatus {
 }
 impl windows_core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1305,4 +1335,5 @@ impl windows_core::TypeKind for XpsImageQuality {
 }
 impl windows_core::RuntimeType for XpsImageQuality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.XpsImageQuality;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.XpsImageQuality");
 }

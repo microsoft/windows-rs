@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 impl windows_core::RuntimeType for IQuickLink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,6 +25,7 @@ pub struct IQuickLink_Vtbl {
 windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 impl windows_core::RuntimeType for IShareOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,6 +44,7 @@ pub struct IShareOperation_Vtbl {
 windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
 impl windows_core::RuntimeType for IShareOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +55,7 @@ pub struct IShareOperation2_Vtbl {
 windows_core::imp::define_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
 impl windows_core::RuntimeType for IShareOperation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3");
 }
 #[repr(C)]
 #[doc(hidden)]

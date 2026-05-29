@@ -4297,7 +4297,7 @@ impl IMcastLeaseInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastLeaseInfo_Impl::LeaseStartTime(this) {
                     Ok(ok__) => {
-                        ptime.write(core::mem::transmute(ok__));
+                        ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4315,7 +4315,7 @@ impl IMcastLeaseInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastLeaseInfo_Impl::LeaseStopTime(this) {
                     Ok(ok__) => {
-                        ptime.write(core::mem::transmute(ok__));
+                        ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4333,7 +4333,7 @@ impl IMcastLeaseInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastLeaseInfo_Impl::AddressCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4357,7 +4357,7 @@ impl IMcastLeaseInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastLeaseInfo_Impl::TTL(this) {
                     Ok(ok__) => {
-                        pttl.write(core::mem::transmute(ok__));
+                        pttl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4479,7 +4479,7 @@ impl IMcastScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastScope_Impl::ScopeID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4491,7 +4491,7 @@ impl IMcastScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastScope_Impl::ServerID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4503,7 +4503,7 @@ impl IMcastScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastScope_Impl::InterfaceID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4527,7 +4527,7 @@ impl IMcastScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMcastScope_Impl::TTL(this) {
                     Ok(ok__) => {
-                        pttl.write(core::mem::transmute(ok__));
+                        pttl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4713,7 +4713,7 @@ impl ITACDGroupEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITACDGroupEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4769,7 +4769,7 @@ impl ITAMMediaFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAMMediaFormat_Impl::MediaFormat(this) {
                     Ok(ok__) => {
-                        ppmt.write(core::mem::transmute(ok__));
+                        ppmt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4873,7 +4873,7 @@ impl ITASRTerminalEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITASRTerminalEvent_Impl::Error(this) {
                     Ok(ok__) => {
-                        phrerrorcode.write(core::mem::transmute(ok__));
+                        phrerrorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5043,7 +5043,7 @@ impl ITAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddress_Impl::State(this) {
                     Ok(ok__) => {
-                        paddressstate.write(core::mem::transmute(ok__));
+                        paddressstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5175,7 +5175,7 @@ impl ITAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddress_Impl::MessageWaiting(this) {
                     Ok(ok__) => {
-                        pfmessagewaiting.write(core::mem::transmute(ok__));
+                        pfmessagewaiting.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5193,7 +5193,7 @@ impl ITAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddress_Impl::DoNotDisturb(this) {
                     Ok(ok__) => {
-                        pfdonotdisturb.write(core::mem::transmute(ok__));
+                        pfdonotdisturb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5408,7 +5408,7 @@ impl ITAddress2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddress2_Impl::get_EventFilter(this, core::mem::transmute_copy(&tapievent), core::mem::transmute_copy(&lsubevent)) {
                     Ok(ok__) => {
-                        penable.write(core::mem::transmute(ok__));
+                        penable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5438,7 +5438,7 @@ impl ITAddress2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddress2_Impl::NegotiateExtVersion(this, core::mem::transmute_copy(&llowversion), core::mem::transmute_copy(&lhighversion)) {
                     Ok(ok__) => {
-                        plextversion.write(core::mem::transmute(ok__));
+                        plextversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5572,7 +5572,7 @@ impl ITAddressCapabilities_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressCapabilities_Impl::get_AddressCapability(this, core::mem::transmute_copy(&addresscap)) {
                     Ok(ok__) => {
-                        plcapability.write(core::mem::transmute(ok__));
+                        plcapability.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5776,7 +5776,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressDeviceSpecificEvent_Impl::lParam1(this) {
                     Ok(ok__) => {
-                        pparam1.write(core::mem::transmute(ok__));
+                        pparam1.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5788,7 +5788,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressDeviceSpecificEvent_Impl::lParam2(this) {
                     Ok(ok__) => {
-                        pparam2.write(core::mem::transmute(ok__));
+                        pparam2.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5800,7 +5800,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressDeviceSpecificEvent_Impl::lParam3(this) {
                     Ok(ok__) => {
-                        pparam3.write(core::mem::transmute(ok__));
+                        pparam3.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5889,7 +5889,7 @@ impl ITAddressEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6177,7 +6177,7 @@ impl ITAddressTranslationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressTranslationInfo_Impl::CurrentCountryCode(this) {
                     Ok(ok__) => {
-                        countrycode.write(core::mem::transmute(ok__));
+                        countrycode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6189,7 +6189,7 @@ impl ITAddressTranslationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressTranslationInfo_Impl::DestinationCountryCode(this) {
                     Ok(ok__) => {
-                        countrycode.write(core::mem::transmute(ok__));
+                        countrycode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6201,7 +6201,7 @@ impl ITAddressTranslationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAddressTranslationInfo_Impl::TranslationResults(this) {
                     Ok(ok__) => {
-                        plresults.write(core::mem::transmute(ok__));
+                        plresults.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6462,7 +6462,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::State(this) {
                     Ok(ok__) => {
-                        pagentstate.write(core::mem::transmute(ok__));
+                        pagentstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6480,7 +6480,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::MeasurementPeriod(this) {
                     Ok(ok__) => {
-                        plperiod.write(core::mem::transmute(ok__));
+                        plperiod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6492,7 +6492,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::OverallCallRate(this) {
                     Ok(ok__) => {
-                        pcycallrate.write(core::mem::transmute(ok__));
+                        pcycallrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6504,7 +6504,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::NumberOfACDCalls(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6516,7 +6516,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::NumberOfIncomingCalls(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6528,7 +6528,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::NumberOfOutgoingCalls(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6540,7 +6540,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::TotalACDTalkTime(this) {
                     Ok(ok__) => {
-                        pltalktime.write(core::mem::transmute(ok__));
+                        pltalktime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6552,7 +6552,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::TotalACDCallTime(this) {
                     Ok(ok__) => {
-                        plcalltime.write(core::mem::transmute(ok__));
+                        plcalltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6564,7 +6564,7 @@ impl ITAgent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgent_Impl::TotalWrapUpTime(this) {
                     Ok(ok__) => {
-                        plwrapuptime.write(core::mem::transmute(ok__));
+                        plwrapuptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6669,7 +6669,7 @@ impl ITAgentEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6934,7 +6934,7 @@ impl ITAgentHandlerEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentHandlerEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7159,7 +7159,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::State(this) {
                     Ok(ok__) => {
-                        psessionstate.write(core::mem::transmute(ok__));
+                        psessionstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7171,7 +7171,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::SessionStartTime(this) {
                     Ok(ok__) => {
-                        pdatesessionstart.write(core::mem::transmute(ok__));
+                        pdatesessionstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7183,7 +7183,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::SessionDuration(this) {
                     Ok(ok__) => {
-                        plduration.write(core::mem::transmute(ok__));
+                        plduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7195,7 +7195,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::NumberOfCalls(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7207,7 +7207,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::TotalTalkTime(this) {
                     Ok(ok__) => {
-                        pltalktime.write(core::mem::transmute(ok__));
+                        pltalktime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7219,7 +7219,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::AverageTalkTime(this) {
                     Ok(ok__) => {
-                        pltalktime.write(core::mem::transmute(ok__));
+                        pltalktime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7231,7 +7231,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::TotalCallTime(this) {
                     Ok(ok__) => {
-                        plcalltime.write(core::mem::transmute(ok__));
+                        plcalltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7243,7 +7243,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::AverageCallTime(this) {
                     Ok(ok__) => {
-                        plcalltime.write(core::mem::transmute(ok__));
+                        plcalltime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7255,7 +7255,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::TotalWrapUpTime(this) {
                     Ok(ok__) => {
-                        plwrapuptime.write(core::mem::transmute(ok__));
+                        plwrapuptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7267,7 +7267,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::AverageWrapUpTime(this) {
                     Ok(ok__) => {
-                        plwrapuptime.write(core::mem::transmute(ok__));
+                        plwrapuptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7279,7 +7279,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::ACDCallRate(this) {
                     Ok(ok__) => {
-                        pcycallrate.write(core::mem::transmute(ok__));
+                        pcycallrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7291,7 +7291,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::LongestTimeToAnswer(this) {
                     Ok(ok__) => {
-                        planswertime.write(core::mem::transmute(ok__));
+                        planswertime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7303,7 +7303,7 @@ impl ITAgentSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSession_Impl::AverageTimeToAnswer(this) {
                     Ok(ok__) => {
-                        planswertime.write(core::mem::transmute(ok__));
+                        planswertime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7396,7 +7396,7 @@ impl ITAgentSessionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAgentSessionEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7488,7 +7488,7 @@ impl ITAllocatorProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAllocatorProperties_Impl::GetAllocatorProperties(this) {
                     Ok(ok__) => {
-                        pallocproperties.write(core::mem::transmute(ok__));
+                        pallocproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7506,7 +7506,7 @@ impl ITAllocatorProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAllocatorProperties_Impl::GetAllocateBuffers(this) {
                     Ok(ok__) => {
-                        pballocbuffers.write(core::mem::transmute(ok__));
+                        pballocbuffers.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7524,7 +7524,7 @@ impl ITAllocatorProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAllocatorProperties_Impl::GetBufferSize(this) {
                     Ok(ok__) => {
-                        pbuffersize.write(core::mem::transmute(ok__));
+                        pbuffersize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7805,7 +7805,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::Tone(this) {
                     Ok(ok__) => {
-                        ptone.write(core::mem::transmute(ok__));
+                        ptone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7829,7 +7829,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::Ringer(this) {
                     Ok(ok__) => {
-                        pfringing.write(core::mem::transmute(ok__));
+                        pfringing.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7847,7 +7847,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::PhoneHandlingEnabled(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7865,7 +7865,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoEndOfNumberTimeout(this) {
                     Ok(ok__) => {
-                        pltimeout.write(core::mem::transmute(ok__));
+                        pltimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7883,7 +7883,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoDialtone(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7901,7 +7901,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoStopTonesOnOnHook(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7919,7 +7919,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoStopRingOnOffHook(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7937,7 +7937,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoKeypadTones(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7955,7 +7955,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoKeypadTonesMinimumDuration(this) {
                     Ok(ok__) => {
-                        plduration.write(core::mem::transmute(ok__));
+                        plduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7973,7 +7973,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoVolumeControl(this) {
                     Ok(ok__) => {
-                        fenabled.write(core::mem::transmute(ok__));
+                        fenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7991,7 +7991,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoVolumeControlStep(this) {
                     Ok(ok__) => {
-                        plstepsize.write(core::mem::transmute(ok__));
+                        plstepsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8009,7 +8009,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoVolumeControlRepeatDelay(this) {
                     Ok(ok__) => {
-                        pldelay.write(core::mem::transmute(ok__));
+                        pldelay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8027,7 +8027,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITAutomatedPhoneControl_Impl::AutoVolumeControlRepeatPeriod(this) {
                     Ok(ok__) => {
-                        plperiod.write(core::mem::transmute(ok__));
+                        plperiod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8175,7 +8175,7 @@ impl ITBasicAudioTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITBasicAudioTerminal_Impl::Volume(this) {
                     Ok(ok__) => {
-                        plvolume.write(core::mem::transmute(ok__));
+                        plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8193,7 +8193,7 @@ impl ITBasicAudioTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITBasicAudioTerminal_Impl::Balance(this) {
                     Ok(ok__) => {
-                        plbalance.write(core::mem::transmute(ok__));
+                        plbalance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8673,7 +8673,7 @@ impl ITCallHub_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallHub_Impl::NumCalls(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8685,7 +8685,7 @@ impl ITCallHub_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallHub_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8762,7 +8762,7 @@ impl ITCallHubEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallHubEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8943,7 +8943,7 @@ impl ITCallInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallInfo_Impl::CallState(this) {
                     Ok(ok__) => {
-                        pcallstate.write(core::mem::transmute(ok__));
+                        pcallstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8955,7 +8955,7 @@ impl ITCallInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallInfo_Impl::Privilege(this) {
                     Ok(ok__) => {
-                        pprivilege.write(core::mem::transmute(ok__));
+                        pprivilege.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8979,7 +8979,7 @@ impl ITCallInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallInfo_Impl::get_CallInfoLong(this, core::mem::transmute_copy(&callinfolong)) {
                     Ok(ok__) => {
-                        plcallinfolongval.write(core::mem::transmute(ok__));
+                        plcallinfolongval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9113,7 +9113,7 @@ impl ITCallInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallInfo2_Impl::get_EventFilter(this, core::mem::transmute_copy(&tapievent), core::mem::transmute_copy(&lsubevent)) {
                     Ok(ok__) => {
-                        penable.write(core::mem::transmute(ok__));
+                        penable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9205,7 +9205,7 @@ impl ITCallInfoChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallInfoChangeEvent_Impl::Cause(this) {
                     Ok(ok__) => {
-                        pcic.write(core::mem::transmute(ok__));
+                        pcic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9217,7 +9217,7 @@ impl ITCallInfoChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallInfoChangeEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9328,7 +9328,7 @@ impl ITCallMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallMediaEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pcallmediaevent.write(core::mem::transmute(ok__));
+                        pcallmediaevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9340,7 +9340,7 @@ impl ITCallMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallMediaEvent_Impl::Error(this) {
                     Ok(ok__) => {
-                        phrerror.write(core::mem::transmute(ok__));
+                        phrerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9376,7 +9376,7 @@ impl ITCallMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallMediaEvent_Impl::Cause(this) {
                     Ok(ok__) => {
-                        pcause.write(core::mem::transmute(ok__));
+                        pcause.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9466,7 +9466,7 @@ impl ITCallNotificationEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallNotificationEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pcallnotificationevent.write(core::mem::transmute(ok__));
+                        pcallnotificationevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9478,7 +9478,7 @@ impl ITCallNotificationEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallNotificationEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9573,7 +9573,7 @@ impl ITCallStateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallStateEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        pcallstate.write(core::mem::transmute(ok__));
+                        pcallstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9585,7 +9585,7 @@ impl ITCallStateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallStateEvent_Impl::Cause(this) {
                     Ok(ok__) => {
-                        pcec.write(core::mem::transmute(ok__));
+                        pcec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9597,7 +9597,7 @@ impl ITCallStateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallStateEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9705,7 +9705,7 @@ impl ITCallingCard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallingCard_Impl::PermanentCardID(this) {
                     Ok(ok__) => {
-                        plcardid.write(core::mem::transmute(ok__));
+                        plcardid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9717,7 +9717,7 @@ impl ITCallingCard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallingCard_Impl::NumberOfDigits(this) {
                     Ok(ok__) => {
-                        pldigits.write(core::mem::transmute(ok__));
+                        pldigits.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9729,7 +9729,7 @@ impl ITCallingCard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCallingCard_Impl::Options(this) {
                     Ok(ok__) => {
-                        ploptions.write(core::mem::transmute(ok__));
+                        ploptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9860,7 +9860,7 @@ impl ITCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10047,7 +10047,7 @@ impl ITCustomTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCustomTone_Impl::Frequency(this) {
                     Ok(ok__) => {
-                        plfrequency.write(core::mem::transmute(ok__));
+                        plfrequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10065,7 +10065,7 @@ impl ITCustomTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCustomTone_Impl::CadenceOn(this) {
                     Ok(ok__) => {
-                        plcadenceon.write(core::mem::transmute(ok__));
+                        plcadenceon.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10083,7 +10083,7 @@ impl ITCustomTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCustomTone_Impl::CadenceOff(this) {
                     Ok(ok__) => {
-                        plcadenceoff.write(core::mem::transmute(ok__));
+                        plcadenceoff.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10101,7 +10101,7 @@ impl ITCustomTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITCustomTone_Impl::Volume(this) {
                     Ok(ok__) => {
-                        plvolume.write(core::mem::transmute(ok__));
+                        plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10202,7 +10202,7 @@ impl ITDetectTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDetectTone_Impl::AppSpecific(this) {
                     Ok(ok__) => {
-                        plappspecific.write(core::mem::transmute(ok__));
+                        plappspecific.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10220,7 +10220,7 @@ impl ITDetectTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDetectTone_Impl::Duration(this) {
                     Ok(ok__) => {
-                        plduration.write(core::mem::transmute(ok__));
+                        plduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10238,7 +10238,7 @@ impl ITDetectTone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDetectTone_Impl::get_Frequency(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        plfrequency.write(core::mem::transmute(ok__));
+                        plfrequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10350,7 +10350,7 @@ impl ITDigitDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitDetectionEvent_Impl::Digit(this) {
                     Ok(ok__) => {
-                        pucdigit.write(core::mem::transmute(ok__));
+                        pucdigit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10362,7 +10362,7 @@ impl ITDigitDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitDetectionEvent_Impl::DigitMode(this) {
                     Ok(ok__) => {
-                        pdigitmode.write(core::mem::transmute(ok__));
+                        pdigitmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10374,7 +10374,7 @@ impl ITDigitDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitDetectionEvent_Impl::TickCount(this) {
                     Ok(ok__) => {
-                        pltickcount.write(core::mem::transmute(ok__));
+                        pltickcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10386,7 +10386,7 @@ impl ITDigitDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitDetectionEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10483,7 +10483,7 @@ impl ITDigitGenerationEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitGenerationEvent_Impl::GenerationTermination(this) {
                     Ok(ok__) => {
-                        plgenerationtermination.write(core::mem::transmute(ok__));
+                        plgenerationtermination.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10495,7 +10495,7 @@ impl ITDigitGenerationEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitGenerationEvent_Impl::TickCount(this) {
                     Ok(ok__) => {
-                        pltickcount.write(core::mem::transmute(ok__));
+                        pltickcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10507,7 +10507,7 @@ impl ITDigitGenerationEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitGenerationEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10623,7 +10623,7 @@ impl ITDigitsGatheredEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitsGatheredEvent_Impl::GatherTermination(this) {
                     Ok(ok__) => {
-                        pgathertermination.write(core::mem::transmute(ok__));
+                        pgathertermination.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10635,7 +10635,7 @@ impl ITDigitsGatheredEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitsGatheredEvent_Impl::TickCount(this) {
                     Ok(ok__) => {
-                        pltickcount.write(core::mem::transmute(ok__));
+                        pltickcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10647,7 +10647,7 @@ impl ITDigitsGatheredEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDigitsGatheredEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10804,7 +10804,7 @@ impl ITDirectory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectory_Impl::DirectoryType(this) {
                     Ok(ok__) => {
-                        pdirectorytype.write(core::mem::transmute(ok__));
+                        pdirectorytype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10828,7 +10828,7 @@ impl ITDirectory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectory_Impl::IsDynamic(this) {
                     Ok(ok__) => {
-                        pfdynamic.write(core::mem::transmute(ok__));
+                        pfdynamic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10840,7 +10840,7 @@ impl ITDirectory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectory_Impl::DefaultObjectTTL(this) {
                     Ok(ok__) => {
-                        pttl.write(core::mem::transmute(ok__));
+                        pttl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11031,7 +11031,7 @@ impl ITDirectoryObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectoryObject_Impl::ObjectType(this) {
                     Ok(ok__) => {
-                        pobjecttype.write(core::mem::transmute(ok__));
+                        pobjecttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11275,7 +11275,7 @@ impl ITDirectoryObjectConference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectoryObjectConference_Impl::AdvertisingScope(this) {
                     Ok(ok__) => {
-                        padvertisingscope.write(core::mem::transmute(ok__));
+                        padvertisingscope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11329,7 +11329,7 @@ impl ITDirectoryObjectConference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectoryObjectConference_Impl::IsEncrypted(this) {
                     Ok(ok__) => {
-                        pfencrypted.write(core::mem::transmute(ok__));
+                        pfencrypted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11347,7 +11347,7 @@ impl ITDirectoryObjectConference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectoryObjectConference_Impl::StartTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11365,7 +11365,7 @@ impl ITDirectoryObjectConference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITDirectoryObjectConference_Impl::StopTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11644,7 +11644,7 @@ impl ITFileTerminalEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITFileTerminalEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11656,7 +11656,7 @@ impl ITFileTerminalEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITFileTerminalEvent_Impl::Cause(this) {
                     Ok(ok__) => {
-                        pcause.write(core::mem::transmute(ok__));
+                        pcause.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11668,7 +11668,7 @@ impl ITFileTerminalEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITFileTerminalEvent_Impl::Error(this) {
                     Ok(ok__) => {
-                        phrerrorcode.write(core::mem::transmute(ok__));
+                        phrerrorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11775,7 +11775,7 @@ impl ITFileTrack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITFileTrack_Impl::Format(this) {
                     Ok(ok__) => {
-                        ppmt.write(core::mem::transmute(ok__));
+                        ppmt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11927,7 +11927,7 @@ impl ITForwardInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITForwardInformation_Impl::NumRingsNoAnswer(this) {
                     Ok(ok__) => {
-                        plnumrings.write(core::mem::transmute(ok__));
+                        plnumrings.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12062,7 +12062,7 @@ impl ITForwardInformation2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITForwardInformation2_Impl::get_ForwardTypeDestinationAddressType(this, core::mem::transmute_copy(&forwardtype)) {
                     Ok(ok__) => {
-                        pdestaddresstype.write(core::mem::transmute(ok__));
+                        pdestaddresstype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12074,7 +12074,7 @@ impl ITForwardInformation2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITForwardInformation2_Impl::get_ForwardTypeCallerAddressType(this, core::mem::transmute_copy(&forwardtype)) {
                     Ok(ok__) => {
-                        pcalleraddresstype.write(core::mem::transmute(ok__));
+                        pcalleraddresstype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12139,7 +12139,7 @@ impl ITILSConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITILSConfig_Impl::Port(this) {
                     Ok(ok__) => {
-                        pport.write(core::mem::transmute(ok__));
+                        pport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12602,7 +12602,7 @@ impl ITLegacyWaveSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITLegacyWaveSupport_Impl::IsFullDuplex(this) {
                     Ok(ok__) => {
-                        psupport.write(core::mem::transmute(ok__));
+                        psupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12736,7 +12736,7 @@ impl ITLocationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITLocationInfo_Impl::PermanentLocationID(this) {
                     Ok(ok__) => {
-                        pllocationid.write(core::mem::transmute(ok__));
+                        pllocationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12748,7 +12748,7 @@ impl ITLocationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITLocationInfo_Impl::CountryCode(this) {
                     Ok(ok__) => {
-                        plcountrycode.write(core::mem::transmute(ok__));
+                        plcountrycode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12760,7 +12760,7 @@ impl ITLocationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITLocationInfo_Impl::CountryID(this) {
                     Ok(ok__) => {
-                        plcountryid.write(core::mem::transmute(ok__));
+                        plcountryid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12772,7 +12772,7 @@ impl ITLocationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITLocationInfo_Impl::Options(this) {
                     Ok(ok__) => {
-                        ploptions.write(core::mem::transmute(ok__));
+                        ploptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12784,7 +12784,7 @@ impl ITLocationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITLocationInfo_Impl::PreferredCardID(this) {
                     Ok(ok__) => {
-                        plcardid.write(core::mem::transmute(ok__));
+                        plcardid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13068,7 +13068,7 @@ impl ITMediaControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITMediaControl_Impl::MediaState(this) {
                     Ok(ok__) => {
-                        pterminalmediastate.write(core::mem::transmute(ok__));
+                        pterminalmediastate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13282,7 +13282,7 @@ impl ITMediaSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITMediaSupport_Impl::MediaTypes(this) {
                     Ok(ok__) => {
-                        plmediatypes.write(core::mem::transmute(ok__));
+                        plmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13294,7 +13294,7 @@ impl ITMediaSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITMediaSupport_Impl::QueryMediaType(this, core::mem::transmute_copy(&lmediatype)) {
                     Ok(ok__) => {
-                        pfsupport.write(core::mem::transmute(ok__));
+                        pfsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13432,7 +13432,7 @@ impl ITMultiTrackTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITMultiTrackTerminal_Impl::MediaTypesInUse(this) {
                     Ok(ok__) => {
-                        plmediatypesinuse.write(core::mem::transmute(ok__));
+                        plmediatypesinuse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13444,7 +13444,7 @@ impl ITMultiTrackTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITMultiTrackTerminal_Impl::DirectionsInUse(this) {
                     Ok(ok__) => {
-                        pldirectionsinused.write(core::mem::transmute(ok__));
+                        pldirectionsinused.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13791,7 +13791,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::get_PhoneCapsLong(this, core::mem::transmute_copy(&pclcap)) {
                     Ok(ok__) => {
-                        plcapability.write(core::mem::transmute(ok__));
+                        plcapability.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13839,7 +13839,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::get_ButtonMode(this, core::mem::transmute_copy(&lbuttonid)) {
                     Ok(ok__) => {
-                        pbuttonmode.write(core::mem::transmute(ok__));
+                        pbuttonmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13857,7 +13857,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::get_ButtonFunction(this, core::mem::transmute_copy(&lbuttonid)) {
                     Ok(ok__) => {
-                        pbuttonfunction.write(core::mem::transmute(ok__));
+                        pbuttonfunction.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13893,7 +13893,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::get_ButtonState(this, core::mem::transmute_copy(&lbuttonid)) {
                     Ok(ok__) => {
-                        pbuttonstate.write(core::mem::transmute(ok__));
+                        pbuttonstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13905,7 +13905,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::get_HookSwitchState(this, core::mem::transmute_copy(&hookswitchdevice)) {
                     Ok(ok__) => {
-                        phookswitchstate.write(core::mem::transmute(ok__));
+                        phookswitchstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13929,7 +13929,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::RingMode(this) {
                     Ok(ok__) => {
-                        plringmode.write(core::mem::transmute(ok__));
+                        plringmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13947,7 +13947,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::RingVolume(this) {
                     Ok(ok__) => {
-                        plringvolume.write(core::mem::transmute(ok__));
+                        plringvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13959,7 +13959,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::Privilege(this) {
                     Ok(ok__) => {
-                        pprivilege.write(core::mem::transmute(ok__));
+                        pprivilege.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13989,7 +13989,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::get_LampMode(this, core::mem::transmute_copy(&llampid)) {
                     Ok(ok__) => {
-                        plampmode.write(core::mem::transmute(ok__));
+                        plampmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14061,7 +14061,7 @@ impl ITPhone_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhone_Impl::NegotiateExtVersion(this, core::mem::transmute_copy(&llowversion), core::mem::transmute_copy(&lhighversion)) {
                     Ok(ok__) => {
-                        plextversion.write(core::mem::transmute(ok__));
+                        plextversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14186,7 +14186,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneDeviceSpecificEvent_Impl::lParam1(this) {
                     Ok(ok__) => {
-                        pparam1.write(core::mem::transmute(ok__));
+                        pparam1.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14198,7 +14198,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneDeviceSpecificEvent_Impl::lParam2(this) {
                     Ok(ok__) => {
-                        pparam2.write(core::mem::transmute(ok__));
+                        pparam2.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14210,7 +14210,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneDeviceSpecificEvent_Impl::lParam3(this) {
                     Ok(ok__) => {
-                        pparam3.write(core::mem::transmute(ok__));
+                        pparam3.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14346,7 +14346,7 @@ impl ITPhoneEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14358,7 +14358,7 @@ impl ITPhoneEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneEvent_Impl::ButtonState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14370,7 +14370,7 @@ impl ITPhoneEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneEvent_Impl::HookSwitchState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14382,7 +14382,7 @@ impl ITPhoneEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneEvent_Impl::HookSwitchDevice(this) {
                     Ok(ok__) => {
-                        pdevice.write(core::mem::transmute(ok__));
+                        pdevice.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14394,7 +14394,7 @@ impl ITPhoneEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneEvent_Impl::RingMode(this) {
                     Ok(ok__) => {
-                        plringmode.write(core::mem::transmute(ok__));
+                        plringmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14406,7 +14406,7 @@ impl ITPhoneEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPhoneEvent_Impl::ButtonLampId(this) {
                     Ok(ok__) => {
-                        plbuttonlampid.write(core::mem::transmute(ok__));
+                        plbuttonlampid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14603,7 +14603,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPluggableTerminalClassInfo_Impl::Direction(this) {
                     Ok(ok__) => {
-                        pdirection.write(core::mem::transmute(ok__));
+                        pdirection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14615,7 +14615,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPluggableTerminalClassInfo_Impl::MediaTypes(this) {
                     Ok(ok__) => {
-                        pmediatypes.write(core::mem::transmute(ok__));
+                        pmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14907,7 +14907,7 @@ impl ITPrivateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITPrivateEvent_Impl::EventCode(this) {
                     Ok(ok__) => {
-                        pleventcode.write(core::mem::transmute(ok__));
+                        pleventcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15008,7 +15008,7 @@ impl ITQOSEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQOSEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pqosevent.write(core::mem::transmute(ok__));
+                        pqosevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15020,7 +15020,7 @@ impl ITQOSEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQOSEvent_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        plmediatype.write(core::mem::transmute(ok__));
+                        plmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15170,7 +15170,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::MeasurementPeriod(this) {
                     Ok(ok__) => {
-                        plperiod.write(core::mem::transmute(ok__));
+                        plperiod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15182,7 +15182,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::TotalCallsQueued(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15194,7 +15194,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::CurrentCallsQueued(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15206,7 +15206,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::TotalCallsAbandoned(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15218,7 +15218,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::TotalCallsFlowedIn(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15230,7 +15230,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::TotalCallsFlowedOut(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15242,7 +15242,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::LongestEverWaitTime(this) {
                     Ok(ok__) => {
-                        plwaittime.write(core::mem::transmute(ok__));
+                        plwaittime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15254,7 +15254,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::CurrentLongestWaitTime(this) {
                     Ok(ok__) => {
-                        plwaittime.write(core::mem::transmute(ok__));
+                        plwaittime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15266,7 +15266,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::AverageWaitTime(this) {
                     Ok(ok__) => {
-                        plwaittime.write(core::mem::transmute(ok__));
+                        plwaittime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15278,7 +15278,7 @@ impl ITQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueue_Impl::FinalDisposition(this) {
                     Ok(ok__) => {
-                        plcalls.write(core::mem::transmute(ok__));
+                        plcalls.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15378,7 +15378,7 @@ impl ITQueueEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITQueueEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15641,7 +15641,7 @@ impl ITRequestEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITRequestEvent_Impl::RegistrationInstance(this) {
                     Ok(ok__) => {
-                        plregistrationinstance.write(core::mem::transmute(ok__));
+                        plregistrationinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15653,7 +15653,7 @@ impl ITRequestEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITRequestEvent_Impl::RequestMode(this) {
                     Ok(ok__) => {
-                        plrequestmode.write(core::mem::transmute(ok__));
+                        plrequestmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15833,7 +15833,7 @@ impl ITScriptableAudioFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITScriptableAudioFormat_Impl::Channels(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15851,7 +15851,7 @@ impl ITScriptableAudioFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITScriptableAudioFormat_Impl::SamplesPerSec(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15869,7 +15869,7 @@ impl ITScriptableAudioFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITScriptableAudioFormat_Impl::AvgBytesPerSec(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15887,7 +15887,7 @@ impl ITScriptableAudioFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITScriptableAudioFormat_Impl::BlockAlign(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15905,7 +15905,7 @@ impl ITScriptableAudioFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITScriptableAudioFormat_Impl::BitsPerSample(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15923,7 +15923,7 @@ impl ITScriptableAudioFormat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITScriptableAudioFormat_Impl::FormatTag(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15997,7 +15997,7 @@ impl ITStaticAudioTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITStaticAudioTerminal_Impl::WaveId(this) {
                     Ok(ok__) => {
-                        plwaveid.write(core::mem::transmute(ok__));
+                        plwaveid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16118,7 +16118,7 @@ impl ITStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITStream_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        plmediatype.write(core::mem::transmute(ok__));
+                        plmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16130,7 +16130,7 @@ impl ITStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITStream_Impl::Direction(this) {
                     Ok(ok__) => {
-                        ptd.write(core::mem::transmute(ok__));
+                        ptd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16818,7 +16818,7 @@ impl ITTAPI_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTAPI_Impl::RegisterCallNotifications(this, core::mem::transmute_copy(&paddress), core::mem::transmute_copy(&fmonitor), core::mem::transmute_copy(&fowner), core::mem::transmute_copy(&lmediatypes), core::mem::transmute_copy(&lcallbackinstance)) {
                     Ok(ok__) => {
-                        plregister.write(core::mem::transmute(ok__));
+                        plregister.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16914,7 +16914,7 @@ impl ITTAPI_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTAPI_Impl::EventFilter(this) {
                     Ok(ok__) => {
-                        plfiltermask.write(core::mem::transmute(ok__));
+                        plfiltermask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17278,7 +17278,7 @@ impl ITTAPIObjectEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTAPIObjectEvent_Impl::Event(this) {
                     Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
+                        pevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17302,7 +17302,7 @@ impl ITTAPIObjectEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTAPIObjectEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17456,7 +17456,7 @@ impl ITTTSTerminalEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTTSTerminalEvent_Impl::Error(this) {
                     Ok(ok__) => {
-                        phrerrorcode.write(core::mem::transmute(ok__));
+                        phrerrorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17567,7 +17567,7 @@ impl ITTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTerminal_Impl::State(this) {
                     Ok(ok__) => {
-                        pterminalstate.write(core::mem::transmute(ok__));
+                        pterminalstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17579,7 +17579,7 @@ impl ITTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTerminal_Impl::TerminalType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17603,7 +17603,7 @@ impl ITTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTerminal_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        plmediatype.write(core::mem::transmute(ok__));
+                        plmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17615,7 +17615,7 @@ impl ITTerminal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITTerminal_Impl::Direction(this) {
                     Ok(ok__) => {
-                        pdirection.write(core::mem::transmute(ok__));
+                        pdirection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18011,7 +18011,7 @@ impl ITToneDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITToneDetectionEvent_Impl::AppSpecific(this) {
                     Ok(ok__) => {
-                        plappspecific.write(core::mem::transmute(ok__));
+                        plappspecific.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18023,7 +18023,7 @@ impl ITToneDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITToneDetectionEvent_Impl::TickCount(this) {
                     Ok(ok__) => {
-                        pltickcount.write(core::mem::transmute(ok__));
+                        pltickcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18035,7 +18035,7 @@ impl ITToneDetectionEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITToneDetectionEvent_Impl::CallbackInstance(this) {
                     Ok(ok__) => {
-                        plcallbackinstance.write(core::mem::transmute(ok__));
+                        plcallbackinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18135,7 +18135,7 @@ impl ITToneTerminalEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITToneTerminalEvent_Impl::Error(this) {
                     Ok(ok__) => {
-                        phrerrorcode.write(core::mem::transmute(ok__));
+                        phrerrorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

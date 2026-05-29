@@ -5,6 +5,7 @@ mod cpp_const;
 mod cpp_delegate;
 mod cpp_enum;
 mod cpp_fn;
+mod cpp_handle;
 mod cpp_interface;
 mod cpp_method;
 mod cpp_struct;
@@ -134,7 +135,7 @@ impl Type {
         (kind != 0, self.type_name(), arches, kind)
     }
 
-    fn is_intrinsic(&self) -> bool {
+    pub(crate) fn is_intrinsic(&self) -> bool {
         matches!(
             self,
             Self::Generic(..)
@@ -377,18 +378,17 @@ impl Type {
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
-        if config.sys && self.is_interface() {
+        if config.bindgen.style.is_sys() && self.is_interface() {
             return quote! { *mut core::ffi::c_void };
         }
 
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
             Self::U8 => quote! { u8 },
             Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
+            Self::U16 | Self::Char => quote! { u16 },
             Self::I32 => quote! { i32 },
             Self::U32 => quote! { u32 },
             Self::I64 => quote! { i64 },
@@ -468,11 +468,9 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::Array(ty) => ty.write_name(config),
-            Self::ArrayRef(ty) => ty.write_name(config),
-            Self::ConstRef(ty) => ty.write_name(config),
+            Self::Array(ty) | Self::ArrayRef(ty) | Self::ConstRef(ty) => ty.write_name(config),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if config.sys {
+                if config.bindgen.style.is_sys() {
                     primitive.write_name(config)
                 } else {
                     ty.write_name(config)
@@ -483,7 +481,7 @@ impl Type {
     }
 
     pub fn write_default(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             return self.write_name(config);
         }
 
@@ -515,7 +513,7 @@ impl Type {
     }
 
     pub fn write_abi(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             return self.write_name(config);
         }
 
@@ -608,13 +606,13 @@ impl Type {
 
     pub fn decay(&self) -> &Self {
         match self {
-            Self::PtrMut(ty, _) => ty,
-            Self::PtrConst(ty, _) => ty,
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::PrimitiveOrEnum(_, ty) => ty,
             Self::ArrayFixed(ty, _) => ty.decay(),
-            Self::Array(ty) => ty,
-            Self::ArrayRef(ty) => ty,
-            Self::ConstRef(ty) => ty,
-            Self::PrimitiveOrEnum(_, ty) => ty,
             _ => self,
         }
     }
@@ -645,17 +643,11 @@ impl Type {
         match self {
             Self::Struct(ty) => ty.is_copyable(reader),
             Self::CppStruct(ty) => ty.is_copyable(reader),
-            Self::Enum(_) => true,
-            Self::CppEnum(_) => true,
-            Self::CppDelegate(_) => true,
-
             Self::Interface(..) | Self::CppInterface(..) | Self::Class(..) | Self::Delegate(..) => {
                 false
             }
-
             Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Generic(_) => false,
-            Self::ArrayFixed(ty, _) => ty.is_copyable(reader),
-            Self::Array(ty) => ty.is_copyable(reader),
+            Self::ArrayFixed(ty, _) | Self::Array(ty) => ty.is_copyable(reader),
             _ => true,
         }
     }
@@ -820,7 +812,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if !config.no_deps || !config.sys {
+        if config.bindgen.deps != DepMode::None || !config.bindgen.style.is_sys() {
             return quote! {};
         }
 
@@ -1053,7 +1045,7 @@ fn write_ptr_const(pointers: usize) -> TokenStream {
 /// Helper for types whose `write_cfg` only needs their own dependencies.
 /// Returns an empty token stream when packaging is disabled.
 fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
-    if !config.package {
+    if !config.bindgen.layout.is_package() {
         return quote! {};
     }
     Cfg::new(&ty.dependencies(config.reader), config).write(config, false)
@@ -1062,10 +1054,55 @@ fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
 /// Helper for types whose `write_cfg` needs to return both the `Cfg` value and its token form.
 /// Returns default/empty values when packaging is disabled.
 fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream) {
-    if !config.package {
+    if !config.bindgen.layout.is_package() {
         return (Cfg::default(), quote! {});
     }
     let cfg = Cfg::new(&ty.dependencies(config.reader), config);
     let tokens = cfg.write(config, false);
     (cfg, tokens)
+}
+
+/// Emit a `#[cfg(target_arch = ...)]` attribute when a metadata row carries
+/// a `[SupportedArchitectureAttribute]`. Independent of `--package` /
+/// `--flat` layout — the generated arch gate is always meaningful.
+pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
+    let mut tokens = quote! {};
+
+    if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
+        let arch_value = match attribute.value().first() {
+            Some((_, Value::I32(v))) => Some(*v),
+            Some((_, Value::EnumValue(_, inner))) => {
+                if let Value::I32(v) = inner.as_ref() {
+                    Some(*v)
+                } else {
+                    None
+                }
+            }
+            _ => None,
+        };
+        if let Some(value) = arch_value {
+            let mut arches = BTreeSet::new();
+
+            if value & 1 == 1 {
+                arches.insert("x86");
+            }
+
+            if value & 2 == 2 {
+                arches.insert("x86_64");
+                arches.insert("arm64ec");
+            }
+
+            if value & 4 == 4 {
+                arches.insert("aarch64");
+            }
+
+            match arches.len() {
+                0 => {}
+                1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
+                _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
+            }
+        }
+    }
+
+    tokens
 }

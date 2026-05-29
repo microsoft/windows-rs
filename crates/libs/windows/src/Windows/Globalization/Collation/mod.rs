@@ -125,6 +125,7 @@ impl IntoIterator for &CharacterGroupings {
 windows_core::imp::define_interface!(ICharacterGrouping, ICharacterGrouping_Vtbl, 0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 impl windows_core::RuntimeType for ICharacterGrouping {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Collation.ICharacterGrouping");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -136,6 +137,7 @@ pub struct ICharacterGrouping_Vtbl {
 windows_core::imp::define_interface!(ICharacterGroupings, ICharacterGroupings_Vtbl, 0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 impl windows_core::RuntimeType for ICharacterGroupings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Collation.ICharacterGroupings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -146,6 +148,7 @@ pub struct ICharacterGroupings_Vtbl {
 windows_core::imp::define_interface!(ICharacterGroupingsFactory, ICharacterGroupingsFactory_Vtbl, 0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
 impl windows_core::RuntimeType for ICharacterGroupingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.Collation.ICharacterGroupingsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

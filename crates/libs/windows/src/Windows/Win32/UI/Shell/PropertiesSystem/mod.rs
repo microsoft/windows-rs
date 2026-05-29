@@ -1004,7 +1004,7 @@ impl INamedPropertyStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INamedPropertyStore_Impl::GetNameCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1178,7 +1178,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistSerializedPropStorage2_Impl::GetPropertyStorageSize(this) {
                     Ok(ok__) => {
-                        pcb.write(core::mem::transmute(ok__));
+                        pcb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1324,7 +1324,7 @@ impl IPropertyChangeArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyChangeArray_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcoperations.write(core::mem::transmute(ok__));
+                        pcoperations.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1583,7 +1583,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetCanonicalName(this) {
                     Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
+                        ppszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1595,7 +1595,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetPropertyType(this) {
                     Ok(ok__) => {
-                        pvartype.write(core::mem::transmute(ok__));
+                        pvartype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1607,7 +1607,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetDisplayName(this) {
                     Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
+                        ppszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1619,7 +1619,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetEditInvitation(this) {
                     Ok(ok__) => {
-                        ppszinvite.write(core::mem::transmute(ok__));
+                        ppszinvite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetTypeFlags(this, core::mem::transmute_copy(&mask)) {
                     Ok(ok__) => {
-                        ppdtflags.write(core::mem::transmute(ok__));
+                        ppdtflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1643,7 +1643,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetViewFlags(this) {
                     Ok(ok__) => {
-                        ppdvflags.write(core::mem::transmute(ok__));
+                        ppdvflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetDefaultColumnWidth(this) {
                     Ok(ok__) => {
-                        pcxchars.write(core::mem::transmute(ok__));
+                        pcxchars.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1667,7 +1667,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetDisplayType(this) {
                     Ok(ok__) => {
-                        pdisplaytype.write(core::mem::transmute(ok__));
+                        pdisplaytype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1679,7 +1679,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetColumnState(this) {
                     Ok(ok__) => {
-                        pcsflags.write(core::mem::transmute(ok__));
+                        pcsflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1691,7 +1691,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetGroupingRange(this) {
                     Ok(ok__) => {
-                        pgr.write(core::mem::transmute(ok__));
+                        pgr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1703,7 +1703,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetRelativeDescriptionType(this) {
                     Ok(ok__) => {
-                        prdt.write(core::mem::transmute(ok__));
+                        prdt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1721,7 +1721,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetSortDescription(this) {
                     Ok(ok__) => {
-                        psd.write(core::mem::transmute(ok__));
+                        psd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1733,7 +1733,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetSortDescriptionLabel(this, core::mem::transmute_copy(&fdescending)) {
                     Ok(ok__) => {
-                        ppszdescription.write(core::mem::transmute(ok__));
+                        ppszdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1745,7 +1745,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::GetAggregationType(this) {
                     Ok(ok__) => {
-                        paggtype.write(core::mem::transmute(ok__));
+                        paggtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1775,7 +1775,7 @@ impl IPropertyDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription_Impl::FormatForDisplay(this, core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdfflags)) {
                     Ok(ok__) => {
-                        ppszdisplay.write(core::mem::transmute(ok__));
+                        ppszdisplay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1857,7 +1857,7 @@ impl IPropertyDescription2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescription2_Impl::GetImageReferenceForValue(this, core::mem::transmute_copy(&propvar)) {
                     Ok(ok__) => {
-                        ppszimageres.write(core::mem::transmute(ok__));
+                        ppszimageres.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1970,7 +1970,7 @@ impl IPropertyDescriptionList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescriptionList_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcelem.write(core::mem::transmute(ok__));
+                        pcelem.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2093,7 +2093,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescriptionSearchInfo_Impl::GetSearchInfoFlags(this) {
                     Ok(ok__) => {
-                        ppdsiflags.write(core::mem::transmute(ok__));
+                        ppdsiflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2105,7 +2105,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescriptionSearchInfo_Impl::GetColumnIndexType(this) {
                     Ok(ok__) => {
-                        ppdcitype.write(core::mem::transmute(ok__));
+                        ppdcitype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2117,7 +2117,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescriptionSearchInfo_Impl::GetProjectionString(this) {
                     Ok(ok__) => {
-                        ppszprojection.write(core::mem::transmute(ok__));
+                        ppszprojection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2129,7 +2129,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyDescriptionSearchInfo_Impl::GetMaxSize(this) {
                     Ok(ok__) => {
-                        pcbmaxsize.write(core::mem::transmute(ok__));
+                        pcbmaxsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2222,7 +2222,7 @@ impl IPropertyEnumType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyEnumType_Impl::GetEnumType(this) {
                     Ok(ok__) => {
-                        penumtype.write(core::mem::transmute(ok__));
+                        penumtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2270,7 +2270,7 @@ impl IPropertyEnumType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyEnumType_Impl::GetDisplayText(this) {
                     Ok(ok__) => {
-                        ppszdisplay.write(core::mem::transmute(ok__));
+                        ppszdisplay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2326,7 +2326,7 @@ impl IPropertyEnumType2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyEnumType2_Impl::GetImageReference(this) {
                     Ok(ok__) => {
-                        ppszimageres.write(core::mem::transmute(ok__));
+                        ppszimageres.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2399,7 +2399,7 @@ impl IPropertyEnumTypeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyEnumTypeList_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pctypes.write(core::mem::transmute(ok__));
+                        pctypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2423,7 +2423,7 @@ impl IPropertyEnumTypeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyEnumTypeList_Impl::FindMatchingIndex(this, core::mem::transmute_copy(&propvarcmp)) {
                     Ok(ok__) => {
-                        pnindex.write(core::mem::transmute(ok__));
+                        pnindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2503,7 +2503,7 @@ impl IPropertyStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStore_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        cprops.write(core::mem::transmute(ok__));
+                        cprops.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2612,7 +2612,7 @@ impl IPropertyStoreCache_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCache_Impl::GetState(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2867,7 +2867,7 @@ impl IPropertySystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertySystem_Impl::FormatForDisplayAlloc(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff)) {
                     Ok(ok__) => {
-                        ppszdisplay.write(core::mem::transmute(ok__));
+                        ppszdisplay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3039,7 +3039,7 @@ impl IPropertyUI_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyUI_Impl::GetDefaultWidth(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid)) {
                     Ok(ok__) => {
-                        pcxchars.write(core::mem::transmute(ok__));
+                        pcxchars.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3051,7 +3051,7 @@ impl IPropertyUI_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyUI_Impl::GetFlags(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid)) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

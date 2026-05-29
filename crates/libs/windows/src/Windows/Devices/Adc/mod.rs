@@ -53,6 +53,7 @@ impl windows_core::TypeKind for AdcChannelMode {
 }
 impl windows_core::RuntimeType for AdcChannelMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.AdcChannelMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -144,6 +145,7 @@ unsafe impl Sync for AdcController {}
 windows_core::imp::define_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a);
 impl windows_core::RuntimeType for IAdcChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcChannel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -156,6 +158,7 @@ pub struct IAdcChannel_Vtbl {
 windows_core::imp::define_interface!(IAdcController, IAdcController_Vtbl, 0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 impl windows_core::RuntimeType for IAdcController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -173,6 +176,7 @@ pub struct IAdcController_Vtbl {
 windows_core::imp::define_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 impl windows_core::RuntimeType for IAdcControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -186,6 +190,7 @@ pub struct IAdcControllerStatics_Vtbl {
 windows_core::imp::define_interface!(IAdcControllerStatics2, IAdcControllerStatics2_Vtbl, 0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
 impl windows_core::RuntimeType for IAdcControllerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Adc.IAdcControllerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]

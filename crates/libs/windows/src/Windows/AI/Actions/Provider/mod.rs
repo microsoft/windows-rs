@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IActionFeedbackHandler, IActionFeedbackHandler_Vtbl, 0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c);
 impl windows_core::RuntimeType for IActionFeedbackHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Provider.IActionFeedbackHandler");
 }
 windows_core::imp::interface_hierarchy!(IActionFeedbackHandler, windows_core::IUnknown, windows_core::IInspectable);
 impl IActionFeedbackHandler {
@@ -54,6 +55,7 @@ pub struct IActionFeedbackHandler_Vtbl {
 windows_core::imp::define_interface!(IActionProvider, IActionProvider_Vtbl, 0x62906c47_3d07_55f1_aefa_1522505afbbe);
 impl windows_core::RuntimeType for IActionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Provider.IActionProvider");
 }
 windows_core::imp::interface_hierarchy!(IActionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IActionProvider {

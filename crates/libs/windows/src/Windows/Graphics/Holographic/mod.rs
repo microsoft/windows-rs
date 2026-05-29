@@ -9,6 +9,7 @@ impl windows_core::TypeKind for HolographicAdapterId {
 }
 impl windows_core::RuntimeType for HolographicAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicAdapterId");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -369,6 +370,7 @@ impl windows_core::TypeKind for HolographicDepthReprojectionMethod {
 }
 impl windows_core::RuntimeType for HolographicDepthReprojectionMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicDepthReprojectionMethod");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -475,7 +477,7 @@ impl HolographicFrame {
             (windows_core::Interface::vtable(self).GetRenderingParameters)(windows_core::Interface::as_raw(self), camerapose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -545,6 +547,7 @@ impl windows_core::TypeKind for HolographicFrameId {
 }
 impl windows_core::RuntimeType for HolographicFrameId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicFrameId");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -589,6 +592,7 @@ impl windows_core::TypeKind for HolographicFramePresentResult {
 }
 impl windows_core::RuntimeType for HolographicFramePresentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicFramePresentResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -602,6 +606,7 @@ impl windows_core::TypeKind for HolographicFramePresentWaitBehavior {
 }
 impl windows_core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -637,19 +642,19 @@ unsafe impl Sync for HolographicFramePresentationMonitor {}
 pub struct HolographicFramePresentationReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFramePresentationReport {
-    pub fn CompositorGpuDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn CompositorGpuDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CompositorGpuDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn AppGpuDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn AppGpuDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppGpuDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn AppGpuOverrun(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn AppGpuOverrun(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppGpuOverrun)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -697,19 +702,19 @@ impl HolographicFrameRenderingReport {
             (windows_core::Interface::vtable(self).MissedLatchCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SystemRelativeFrameReadyTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeFrameReadyTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativeFrameReadyTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SystemRelativeActualGpuFinishTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeActualGpuFinishTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativeActualGpuFinishTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SystemRelativeTargetLatchTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeTargetLatchTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativeTargetLatchTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -774,19 +779,19 @@ impl HolographicFrameScanoutReport {
             (windows_core::Interface::vtable(self).MissedScanoutCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SystemRelativeLatchTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeLatchTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativeLatchTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SystemRelativeScanoutStartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeScanoutStartTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativeScanoutStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SystemRelativePhotonTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativePhotonTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativePhotonTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -931,6 +936,7 @@ impl windows_core::TypeKind for HolographicReprojectionMode {
 }
 impl windows_core::RuntimeType for HolographicReprojectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicReprojectionMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1005,7 +1011,7 @@ impl HolographicSpace {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).WaitForNextFrameReady)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn WaitForNextFrameReadyWithHeadStart(&self, requestedheadstartduration: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn WaitForNextFrameReadyWithHeadStart(&self, requestedheadstartduration: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).WaitForNextFrameReadyWithHeadStart)(windows_core::Interface::as_raw(this), requestedheadstartduration).ok() }
     }
@@ -1155,6 +1161,7 @@ impl windows_core::TypeKind for HolographicSpaceUserPresence {
 }
 impl windows_core::RuntimeType for HolographicSpaceUserPresence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicSpaceUserPresence");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1167,6 +1174,7 @@ impl windows_core::TypeKind for HolographicStereoTransform {
 }
 impl windows_core::RuntimeType for HolographicStereoTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicStereoTransform");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1274,10 +1282,12 @@ impl windows_core::TypeKind for HolographicViewConfigurationKind {
 }
 impl windows_core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.HolographicViewConfigurationKind");
 }
 windows_core::imp::define_interface!(IHolographicCamera, IHolographicCamera_Vtbl, 0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
 impl windows_core::RuntimeType for IHolographicCamera {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCamera");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1294,6 +1304,7 @@ pub struct IHolographicCamera_Vtbl {
 windows_core::imp::define_interface!(IHolographicCamera2, IHolographicCamera2_Vtbl, 0xb55b9f1a_ba8c_4f84_ad79_2e7e1e2450f3);
 impl windows_core::RuntimeType for IHolographicCamera2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCamera2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1306,6 +1317,7 @@ pub struct IHolographicCamera2_Vtbl {
 windows_core::imp::define_interface!(IHolographicCamera3, IHolographicCamera3_Vtbl, 0x45aa4fb3_7b59_524e_4a3f_4a6ad6650477);
 impl windows_core::RuntimeType for IHolographicCamera3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCamera3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1319,6 +1331,7 @@ pub struct IHolographicCamera3_Vtbl {
 windows_core::imp::define_interface!(IHolographicCamera4, IHolographicCamera4_Vtbl, 0x9a2531d6_4723_4f39_a9a5_9d05181d9b44);
 impl windows_core::RuntimeType for IHolographicCamera4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCamera4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1329,6 +1342,7 @@ pub struct IHolographicCamera4_Vtbl {
 windows_core::imp::define_interface!(IHolographicCamera5, IHolographicCamera5_Vtbl, 0x229706f2_628d_4ef5_9c08_a63fdd7787c6);
 impl windows_core::RuntimeType for IHolographicCamera5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCamera5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1341,6 +1355,7 @@ pub struct IHolographicCamera5_Vtbl {
 windows_core::imp::define_interface!(IHolographicCamera6, IHolographicCamera6_Vtbl, 0x0209194f_632d_5154_ab52_0b5d15b12505);
 impl windows_core::RuntimeType for IHolographicCamera6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCamera6");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1351,6 +1366,7 @@ pub struct IHolographicCamera6_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraPose, IHolographicCameraPose_Vtbl, 0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
 impl windows_core::RuntimeType for IHolographicCameraPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraPose");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1377,6 +1393,7 @@ pub struct IHolographicCameraPose_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraPose2, IHolographicCameraPose2_Vtbl, 0x232be073_5d2d_4560_814e_2697c4fce16b);
 impl windows_core::RuntimeType for IHolographicCameraPose2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraPose2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1392,6 +1409,7 @@ pub struct IHolographicCameraPose2_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraRenderingParameters, IHolographicCameraRenderingParameters_Vtbl, 0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1421,6 +1439,7 @@ pub struct IHolographicCameraRenderingParameters_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraRenderingParameters2, IHolographicCameraRenderingParameters2_Vtbl, 0x261270e3_b696_4634_94d6_be0681643599);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1436,6 +1455,7 @@ pub struct IHolographicCameraRenderingParameters2_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraRenderingParameters3, IHolographicCameraRenderingParameters3_Vtbl, 0xb1aa513f_136d_4b06_b9d4_e4b914cd0683);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1447,6 +1467,7 @@ pub struct IHolographicCameraRenderingParameters3_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraRenderingParameters4, IHolographicCameraRenderingParameters4_Vtbl, 0x0878fa4c_e163_57dc_82b7_c406ab3e0537);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1458,6 +1479,7 @@ pub struct IHolographicCameraRenderingParameters4_Vtbl {
 windows_core::imp::define_interface!(IHolographicCameraViewportParameters, IHolographicCameraViewportParameters_Vtbl, 0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
 impl windows_core::RuntimeType for IHolographicCameraViewportParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicCameraViewportParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1469,6 +1491,7 @@ pub struct IHolographicCameraViewportParameters_Vtbl {
 windows_core::imp::define_interface!(IHolographicDisplay, IHolographicDisplay_Vtbl, 0x9acea414_1d9f_4090_a388_90c06f6eae9c);
 impl windows_core::RuntimeType for IHolographicDisplay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicDisplay");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1487,6 +1510,7 @@ pub struct IHolographicDisplay_Vtbl {
 windows_core::imp::define_interface!(IHolographicDisplay2, IHolographicDisplay2_Vtbl, 0x75ac3f82_e755_436c_8d96_4d32d131473e);
 impl windows_core::RuntimeType for IHolographicDisplay2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicDisplay2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1497,6 +1521,7 @@ pub struct IHolographicDisplay2_Vtbl {
 windows_core::imp::define_interface!(IHolographicDisplay3, IHolographicDisplay3_Vtbl, 0xfc4c6ac6_6480_5008_b29e_157d77c843f7);
 impl windows_core::RuntimeType for IHolographicDisplay3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicDisplay3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1507,6 +1532,7 @@ pub struct IHolographicDisplay3_Vtbl {
 windows_core::imp::define_interface!(IHolographicDisplayStatics, IHolographicDisplayStatics_Vtbl, 0xcb374983_e7b0_4841_8355_3ae5b536e9a4);
 impl windows_core::RuntimeType for IHolographicDisplayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicDisplayStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1517,6 +1543,7 @@ pub struct IHolographicDisplayStatics_Vtbl {
 windows_core::imp::define_interface!(IHolographicFrame, IHolographicFrame_Vtbl, 0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
 impl windows_core::RuntimeType for IHolographicFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFrame");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1525,7 +1552,7 @@ pub struct IHolographicFrame_Vtbl {
     pub AddedCameras: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemovedCameras: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRenderingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub CurrentPrediction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdateCurrentPrediction: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PresentUsingCurrentPrediction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HolographicFramePresentResult) -> windows_core::HRESULT,
@@ -1535,6 +1562,7 @@ pub struct IHolographicFrame_Vtbl {
 windows_core::imp::define_interface!(IHolographicFrame2, IHolographicFrame2_Vtbl, 0x283f37bf_3bf2_5e91_6633_870574e6f217);
 impl windows_core::RuntimeType for IHolographicFrame2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFrame2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1545,6 +1573,7 @@ pub struct IHolographicFrame2_Vtbl {
 windows_core::imp::define_interface!(IHolographicFrame3, IHolographicFrame3_Vtbl, 0xe5e964c9_8a27_55d3_9f98_94530d369052);
 impl windows_core::RuntimeType for IHolographicFrame3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFrame3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1555,6 +1584,7 @@ pub struct IHolographicFrame3_Vtbl {
 windows_core::imp::define_interface!(IHolographicFramePrediction, IHolographicFramePrediction_Vtbl, 0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
 impl windows_core::RuntimeType for IHolographicFramePrediction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFramePrediction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1569,6 +1599,7 @@ pub struct IHolographicFramePrediction_Vtbl {
 windows_core::imp::define_interface!(IHolographicFramePresentationMonitor, IHolographicFramePresentationMonitor_Vtbl, 0xca87256c_6fae_428e_bb83_25dfee51136b);
 impl windows_core::RuntimeType for IHolographicFramePresentationMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFramePresentationMonitor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1579,20 +1610,22 @@ pub struct IHolographicFramePresentationMonitor_Vtbl {
 windows_core::imp::define_interface!(IHolographicFramePresentationReport, IHolographicFramePresentationReport_Vtbl, 0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
 impl windows_core::RuntimeType for IHolographicFramePresentationReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFramePresentationReport");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CompositorGpuDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub AppGpuDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub AppGpuOverrun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CompositorGpuDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub AppGpuDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub AppGpuOverrun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub MissedPresentationOpportunityCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PresentationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicFrameRenderingReport, IHolographicFrameRenderingReport_Vtbl, 0x05f32de4_e384_51b3_b934_f0d3a0f78606);
 impl windows_core::RuntimeType for IHolographicFrameRenderingReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFrameRenderingReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1600,13 +1633,14 @@ pub struct IHolographicFrameRenderingReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HolographicFrameId) -> windows_core::HRESULT,
     pub MissedLatchCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SystemRelativeFrameReadyTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SystemRelativeActualGpuFinishTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SystemRelativeTargetLatchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativeFrameReadyTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativeActualGpuFinishTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativeTargetLatchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicFrameScanoutMonitor, IHolographicFrameScanoutMonitor_Vtbl, 0x7e83efa9_843c_5401_8095_9bc1b8b08638);
 impl windows_core::RuntimeType for IHolographicFrameScanoutMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1617,6 +1651,7 @@ pub struct IHolographicFrameScanoutMonitor_Vtbl {
 windows_core::imp::define_interface!(IHolographicFrameScanoutReport, IHolographicFrameScanoutReport_Vtbl, 0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
 impl windows_core::RuntimeType for IHolographicFrameScanoutReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicFrameScanoutReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1624,13 +1659,14 @@ pub struct IHolographicFrameScanoutReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RenderingReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MissedScanoutCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SystemRelativeLatchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SystemRelativeScanoutStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SystemRelativePhotonTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativeLatchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativeScanoutStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativePhotonTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicQuadLayer, IHolographicQuadLayer_Vtbl, 0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
 impl windows_core::RuntimeType for IHolographicQuadLayer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicQuadLayer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1645,6 +1681,7 @@ pub struct IHolographicQuadLayer_Vtbl {
 windows_core::imp::define_interface!(IHolographicQuadLayerFactory, IHolographicQuadLayerFactory_Vtbl, 0xa67538f3_5a14_5a10_489a_455065b37b76);
 impl windows_core::RuntimeType for IHolographicQuadLayerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicQuadLayerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1659,6 +1696,7 @@ pub struct IHolographicQuadLayerFactory_Vtbl {
 windows_core::imp::define_interface!(IHolographicQuadLayerUpdateParameters, IHolographicQuadLayerUpdateParameters_Vtbl, 0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
 impl windows_core::RuntimeType for IHolographicQuadLayerUpdateParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1683,6 +1721,7 @@ pub struct IHolographicQuadLayerUpdateParameters_Vtbl {
 windows_core::imp::define_interface!(IHolographicQuadLayerUpdateParameters2, IHolographicQuadLayerUpdateParameters2_Vtbl, 0x4f33d32d_82c1_46c1_8980_3cb70d98182b);
 impl windows_core::RuntimeType for IHolographicQuadLayerUpdateParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1697,6 +1736,7 @@ pub struct IHolographicQuadLayerUpdateParameters2_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpace, IHolographicSpace_Vtbl, 0x4380dba6_5e78_434f_807c_3433d1efe8b7);
 impl windows_core::RuntimeType for IHolographicSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpace");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1716,6 +1756,7 @@ pub struct IHolographicSpace_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpace2, IHolographicSpace2_Vtbl, 0x4f81a9a8_b7ff_4883_9827_7d677287ea70);
 impl windows_core::RuntimeType for IHolographicSpace2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpace2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1725,12 +1766,13 @@ pub struct IHolographicSpace2_Vtbl {
     pub UserPresenceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUserPresenceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub WaitForNextFrameReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WaitForNextFrameReadyWithHeadStart: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub WaitForNextFrameReadyWithHeadStart: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub CreateFramePresentationMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicSpace3, IHolographicSpace3_Vtbl, 0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
 impl windows_core::RuntimeType for IHolographicSpace3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpace3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1741,6 +1783,7 @@ pub struct IHolographicSpace3_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpaceCameraAddedEventArgs, IHolographicSpaceCameraAddedEventArgs_Vtbl, 0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
 impl windows_core::RuntimeType for IHolographicSpaceCameraAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1752,6 +1795,7 @@ pub struct IHolographicSpaceCameraAddedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpaceCameraRemovedEventArgs, IHolographicSpaceCameraRemovedEventArgs_Vtbl, 0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
 impl windows_core::RuntimeType for IHolographicSpaceCameraRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1762,6 +1806,7 @@ pub struct IHolographicSpaceCameraRemovedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpaceStatics, IHolographicSpaceStatics_Vtbl, 0x364e6064_c8f2_3ba1_8391_66b8489e67fd);
 impl windows_core::RuntimeType for IHolographicSpaceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpaceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1775,6 +1820,7 @@ pub struct IHolographicSpaceStatics_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpaceStatics2, IHolographicSpaceStatics2_Vtbl, 0x0e777088_75fc_48af_8758_0652f6f07c59);
 impl windows_core::RuntimeType for IHolographicSpaceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpaceStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1788,6 +1834,7 @@ pub struct IHolographicSpaceStatics2_Vtbl {
 windows_core::imp::define_interface!(IHolographicSpaceStatics3, IHolographicSpaceStatics3_Vtbl, 0x3b00de3d_b1a3_4dfe_8e79_fec5909e6df8);
 impl windows_core::RuntimeType for IHolographicSpaceStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicSpaceStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1798,6 +1845,7 @@ pub struct IHolographicSpaceStatics3_Vtbl {
 windows_core::imp::define_interface!(IHolographicViewConfiguration, IHolographicViewConfiguration_Vtbl, 0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
 impl windows_core::RuntimeType for IHolographicViewConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicViewConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1828,6 +1876,7 @@ pub struct IHolographicViewConfiguration_Vtbl {
 windows_core::imp::define_interface!(IHolographicViewConfiguration2, IHolographicViewConfiguration2_Vtbl, 0xe241756e_e0d0_5019_9af5_1b165bc2f54e);
 impl windows_core::RuntimeType for IHolographicViewConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Holographic.IHolographicViewConfiguration2");
 }
 #[repr(C)]
 #[doc(hidden)]

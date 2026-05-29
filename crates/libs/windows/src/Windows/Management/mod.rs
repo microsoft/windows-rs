@@ -13,6 +13,7 @@ pub mod Workplace;
 windows_core::imp::define_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 impl windows_core::RuntimeType for IMdmAlert {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.IMdmAlert");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,6 +36,7 @@ pub struct IMdmAlert_Vtbl {
 windows_core::imp::define_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 impl windows_core::RuntimeType for IMdmSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.IMdmSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +54,7 @@ pub struct IMdmSession_Vtbl {
 windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 impl windows_core::RuntimeType for IMdmSessionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.IMdmSessionManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,6 +162,7 @@ impl windows_core::TypeKind for MdmAlertDataType {
 }
 impl windows_core::RuntimeType for MdmAlertDataType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.MdmAlertDataType");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -175,6 +179,7 @@ impl windows_core::TypeKind for MdmAlertMark {
 }
 impl windows_core::RuntimeType for MdmAlertMark {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.MdmAlertMark");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -288,4 +293,5 @@ impl windows_core::TypeKind for MdmSessionState {
 }
 impl windows_core::RuntimeType for MdmSessionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.MdmSessionState");
 }

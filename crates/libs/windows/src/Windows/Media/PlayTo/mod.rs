@@ -3,7 +3,7 @@
 pub struct CurrentTimeChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrentTimeChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CurrentTimeChangeRequestedEventArgs {
-    pub fn Time(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Time(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Time)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -23,16 +23,18 @@ impl windows_core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
 windows_core::imp::define_interface!(ICurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs_Vtbl, 0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 impl windows_core::RuntimeType for ICurrentTimeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 impl windows_core::RuntimeType for IMuteChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IMuteChangeRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,6 +45,7 @@ pub struct IMuteChangeRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPlayToConnection, IPlayToConnection_Vtbl, 0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 impl windows_core::RuntimeType for IPlayToConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -59,6 +62,7 @@ pub struct IPlayToConnection_Vtbl {
 windows_core::imp::define_interface!(IPlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs_Vtbl, 0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 impl windows_core::RuntimeType for IPlayToConnectionErrorEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +74,7 @@ pub struct IPlayToConnectionErrorEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs_Vtbl, 0x68c4b50f_0c20_4980_8602_58c62238d423);
 impl windows_core::RuntimeType for IPlayToConnectionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -81,6 +86,7 @@ pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs_Vtbl, 0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 impl windows_core::RuntimeType for IPlayToConnectionTransferredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,6 +98,7 @@ pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPlayToManager, IPlayToManager_Vtbl, 0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 impl windows_core::RuntimeType for IPlayToManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -107,6 +114,7 @@ pub struct IPlayToManager_Vtbl {
 windows_core::imp::define_interface!(IPlayToManagerStatics, IPlayToManagerStatics_Vtbl, 0x64e6a887_3982_4f3b_ba20_6155e435325b);
 impl windows_core::RuntimeType for IPlayToManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -118,6 +126,7 @@ pub struct IPlayToManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IPlayToReceiver, IPlayToReceiver_Vtbl, 0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 impl windows_core::RuntimeType for IPlayToReceiver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToReceiver");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,8 +153,8 @@ pub struct IPlayToReceiver_Vtbl {
     pub NotifyVolumeChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, bool) -> windows_core::HRESULT,
     pub NotifyRateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub NotifyLoadedMetadata: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyTimeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub NotifyDurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub NotifyTimeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub NotifyDurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub NotifySeeking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifySeeked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyPaused: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -171,6 +180,7 @@ pub struct IPlayToReceiver_Vtbl {
 windows_core::imp::define_interface!(IPlayToSource, IPlayToSource_Vtbl, 0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 impl windows_core::RuntimeType for IPlayToSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -184,6 +194,7 @@ pub struct IPlayToSource_Vtbl {
 windows_core::imp::define_interface!(IPlayToSourceDeferral, IPlayToSourceDeferral_Vtbl, 0x4100891d_278e_4f29_859b_a9e501053e7d);
 impl windows_core::RuntimeType for IPlayToSourceDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToSourceDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,12 +205,13 @@ pub struct IPlayToSourceDeferral_Vtbl {
 windows_core::imp::define_interface!(IPlayToSourceRequest, IPlayToSourceRequest_Vtbl, 0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 impl windows_core::RuntimeType for IPlayToSourceRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToSourceRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayToSourceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub DisplayErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -207,6 +219,7 @@ pub struct IPlayToSourceRequest_Vtbl {
 windows_core::imp::define_interface!(IPlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs_Vtbl, 0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 impl windows_core::RuntimeType for IPlayToSourceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -217,6 +230,7 @@ pub struct IPlayToSourceRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs_Vtbl, 0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 impl windows_core::RuntimeType for IPlayToSourceSelectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -234,6 +248,7 @@ pub struct IPlayToSourceSelectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPlayToSourceWithPreferredSourceUri, IPlayToSourceWithPreferredSourceUri_Vtbl, 0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
 impl windows_core::RuntimeType for IPlayToSourceWithPreferredSourceUri {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlayToSourceWithPreferredSourceUri");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -245,6 +260,7 @@ pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
 windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 impl windows_core::RuntimeType for IPlaybackRateChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -255,6 +271,7 @@ pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs_Vtbl, 0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 impl windows_core::RuntimeType for ISourceChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.ISourceChangeRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -280,6 +297,7 @@ pub struct ISourceChangeRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 impl windows_core::RuntimeType for IVolumeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -384,6 +402,7 @@ impl windows_core::TypeKind for PlayToConnectionError {
 }
 impl windows_core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.PlayToConnectionError");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -428,6 +447,7 @@ impl windows_core::TypeKind for PlayToConnectionState {
 }
 impl windows_core::RuntimeType for PlayToConnectionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.PlayTo.PlayToConnectionState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -682,10 +702,10 @@ impl PlayToReceiver {
     pub fn NotifyLoadedMetadata(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyLoadedMetadata)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn NotifyTimeUpdate(&self, currenttime: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn NotifyTimeUpdate(&self, currenttime: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyTimeUpdate)(windows_core::Interface::as_raw(self), currenttime).ok() }
     }
-    pub fn NotifyDurationChange(&self, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn NotifyDurationChange(&self, duration: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyDurationChange)(windows_core::Interface::as_raw(self), duration).ok() }
     }
     pub fn NotifySeeking(&self) -> windows_core::Result<()> {
@@ -854,7 +874,7 @@ unsafe impl Sync for PlayToSourceDeferral {}
 pub struct PlayToSourceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayToSourceRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl PlayToSourceRequest {
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1025,10 +1045,10 @@ impl SourceChangeRequestedEventArgs {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Date(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     #[cfg(feature = "Storage_Streams")]

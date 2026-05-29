@@ -7,14 +7,6 @@
     dead_code,
     clippy::all
 )]
-mod auto_bindings;
-#[allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
 mod bindings;
 use bindings::*;
 use std::sync::{Mutex, MutexGuard};
@@ -97,84 +89,4 @@ fn test_static() -> Result<()> {
     Class::RemoveStaticEvent(token1)?;
     Class::RemoveStaticEvent(token2)?;
     Ok(())
-}
-
-mod auto_events {
-    use super::auto_bindings::*;
-    use windows::core::*;
-
-    #[test]
-    fn test_auto_revoker() -> Result<()> {
-        let class = Class::new()?;
-        // In minimal mode, instance methods are only on the interface.
-        let iclass = windows_core::Interface::cast::<IClass>(&class)?;
-
-        assert_eq!(0, iclass.Signal(1)?);
-
-        // Auto-revoke on drop: register a handler in an inner scope, verify
-        // it fires while live, then verify it's gone after the scope ends.
-        {
-            let _revoker = iclass.Event(move |_, _| {})?;
-            assert_eq!(1, iclass.Signal(2)?);
-        }
-        assert_eq!(0, iclass.Signal(3)?);
-
-        // Relying on Drop for revocation.
-        let revoker = iclass.Event(move |_, _| {})?;
-        assert_eq!(1, iclass.Signal(4)?);
-        drop(revoker);
-        assert_eq!(0, iclass.Signal(5)?);
-
-        // into_token: recover the raw token without revoking.
-        let token = iclass.Event(move |_, _| {})?.into_token();
-        // Handler is still alive.
-        assert_eq!(1, iclass.Signal(6)?);
-        // Manually revoke via the vtable.
-        unsafe {
-            (windows_core::Interface::vtable(&iclass).RemoveEvent)(
-                windows_core::Interface::as_raw(&iclass),
-                token,
-            )
-            .ok()?;
-        }
-        assert_eq!(0, iclass.Signal(7)?);
-
-        // Multiple revokers can be collected in a Vec.
-        let revoker1 = iclass.Event(move |_, _| {})?;
-        let revoker2 = iclass.Event(move |_, _| {})?;
-        let revokers: Vec<EventRevoker> = vec![revoker1, revoker2];
-        assert_eq!(2, iclass.Signal(8)?);
-        drop(revokers);
-        assert_eq!(0, iclass.Signal(9)?);
-
-        Ok(())
-    }
-
-    #[test]
-    fn test_auto_revoker_static() -> Result<()> {
-        let _lock = super::lock_static_event_tests();
-        // Static event: auto-revoke on drop.
-        {
-            let _revoker = Class::StaticEvent(move |_, _| {})?;
-            assert_eq!(1, Class::StaticSignal(10)?);
-        }
-        assert_eq!(0, Class::StaticSignal(11)?);
-
-        // into_token: recover the raw token without revoking.
-        let revoker = Class::StaticEvent(move |_, _| {})?;
-        let token = revoker.into_token();
-        assert_eq!(1, Class::StaticSignal(12)?);
-        // Revoke via the IClassStatics vtable directly.
-        unsafe {
-            let statics = windows_core::factory::<Class, IClassStatics>()?;
-            (windows_core::Interface::vtable(&statics).RemoveStaticEvent)(
-                windows_core::Interface::as_raw(&statics),
-                token,
-            )
-            .ok()?;
-        }
-        assert_eq!(0, Class::StaticSignal(13)?);
-
-        Ok(())
-    }
 }

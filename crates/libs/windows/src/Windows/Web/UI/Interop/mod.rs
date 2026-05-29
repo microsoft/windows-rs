@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IWebViewControlAcceleratorKeyPressedEventArgs, IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl, 0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 impl windows_core::RuntimeType for IWebViewControlAcceleratorKeyPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,6 +26,7 @@ pub struct IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWebViewControlMoveFocusRequestedEventArgs, IWebViewControlMoveFocusRequestedEventArgs_Vtbl, 0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 impl windows_core::RuntimeType for IWebViewControlMoveFocusRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -35,6 +37,7 @@ pub struct IWebViewControlMoveFocusRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWebViewControlProcess, IWebViewControlProcess_Vtbl, 0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
 impl windows_core::RuntimeType for IWebViewControlProcess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlProcess");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +55,7 @@ pub struct IWebViewControlProcess_Vtbl {
 windows_core::imp::define_interface!(IWebViewControlProcessFactory, IWebViewControlProcessFactory_Vtbl, 0x47b65cf9_a2d2_453c_b097_f6779d4b8e02);
 impl windows_core::RuntimeType for IWebViewControlProcessFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlProcessFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,6 +66,7 @@ pub struct IWebViewControlProcessFactory_Vtbl {
 windows_core::imp::define_interface!(IWebViewControlProcessOptions, IWebViewControlProcessOptions_Vtbl, 0x1cca72a7_3bd6_4826_8261_6c8189505d89);
 impl windows_core::RuntimeType for IWebViewControlProcessOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlProcessOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -75,6 +80,7 @@ pub struct IWebViewControlProcessOptions_Vtbl {
 windows_core::imp::define_interface!(IWebViewControlSite, IWebViewControlSite_Vtbl, 0x133f47c6_12dc_4898_bd47_04967de648ba);
 impl windows_core::RuntimeType for IWebViewControlSite {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlSite");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -97,6 +103,7 @@ pub struct IWebViewControlSite_Vtbl {
 windows_core::imp::define_interface!(IWebViewControlSite2, IWebViewControlSite2_Vtbl, 0xd13b2e3f_48ee_4730_8243_d2ed0c05606a);
 impl windows_core::RuntimeType for IWebViewControlSite2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.IWebViewControlSite2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -629,6 +636,7 @@ impl windows_core::TypeKind for WebViewControlAcceleratorKeyRoutingStage {
 }
 impl windows_core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -643,6 +651,7 @@ impl windows_core::TypeKind for WebViewControlMoveFocusReason {
 }
 impl windows_core::RuntimeType for WebViewControlMoveFocusReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.WebViewControlMoveFocusReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -760,6 +769,7 @@ impl windows_core::TypeKind for WebViewControlProcessCapabilityState {
 }
 impl windows_core::RuntimeType for WebViewControlProcessCapabilityState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.UI.Interop.WebViewControlProcessCapabilityState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

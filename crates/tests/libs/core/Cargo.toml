@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Win32_System_WinRT",
     "Win32_System_Ole",

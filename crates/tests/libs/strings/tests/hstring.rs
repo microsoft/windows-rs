@@ -3,7 +3,7 @@ use windows::core::Result;
 use windows_strings::*;
 
 #[test]
-#[expect(clippy::cmp_owned)] // intentionally testing how operations work
+#[expect(clippy::cmp_owned, clippy::redundant_clone)] // intentionally testing how operations work
 fn hstring_works() {
     assert_eq!(size_of::<HSTRING>(), size_of::<usize>());
     let empty = HSTRING::new();

@@ -219,6 +219,7 @@ impl windows_core::TypeKind for GattCharacteristicProperties {
 }
 impl windows_core::RuntimeType for GattCharacteristicProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties");
 }
 impl GattCharacteristicProperties {
     pub const fn contains(&self, other: Self) -> bool {
@@ -802,6 +803,7 @@ impl windows_core::TypeKind for GattClientCharacteristicConfigurationDescriptorV
 }
 impl windows_core::RuntimeType for GattClientCharacteristicConfigurationDescriptorValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -860,6 +862,7 @@ impl windows_core::TypeKind for GattCommunicationStatus {
 }
 impl windows_core::RuntimeType for GattCommunicationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1768,6 +1771,7 @@ impl windows_core::TypeKind for GattOpenStatus {
 }
 impl windows_core::RuntimeType for GattOpenStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2023,6 +2027,7 @@ impl windows_core::TypeKind for GattProtectionLevel {
 }
 impl windows_core::RuntimeType for GattProtectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel");
 }
 pub struct GattProtocolError;
 impl GattProtocolError {
@@ -2364,6 +2369,7 @@ impl windows_core::TypeKind for GattRequestState {
 }
 impl windows_core::RuntimeType for GattRequestState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2481,6 +2487,7 @@ impl windows_core::TypeKind for GattServiceProviderAdvertisementStatus {
 }
 impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2874,6 +2881,7 @@ impl windows_core::TypeKind for GattSessionStatus {
 }
 impl windows_core::RuntimeType for GattSessionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2919,6 +2927,7 @@ impl windows_core::TypeKind for GattSharingMode {
 }
 impl windows_core::RuntimeType for GattSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2974,7 +2983,7 @@ impl GattValueChangedEventArgs {
             (windows_core::Interface::vtable(self).CharacteristicValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3005,6 +3014,7 @@ impl windows_core::TypeKind for GattWriteOption {
 }
 impl windows_core::RuntimeType for GattWriteOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3136,6 +3146,7 @@ unsafe impl Sync for GattWriteResult {}
 windows_core::imp::define_interface!(IGattCharacteristic, IGattCharacteristic_Vtbl, 0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 impl windows_core::RuntimeType for IGattCharacteristic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3167,6 +3178,7 @@ pub struct IGattCharacteristic_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristic2, IGattCharacteristic2_Vtbl, 0xae1ab578_ec06_4764_b780_9835a1d35d6e);
 impl windows_core::RuntimeType for IGattCharacteristic2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3178,6 +3190,7 @@ pub struct IGattCharacteristic2_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristic3, IGattCharacteristic3_Vtbl, 0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
 impl windows_core::RuntimeType for IGattCharacteristic3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3200,6 +3213,7 @@ pub struct IGattCharacteristic3_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristicStatics, IGattCharacteristicStatics_Vtbl, 0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
 impl windows_core::RuntimeType for IGattCharacteristicStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3210,6 +3224,7 @@ pub struct IGattCharacteristicStatics_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristicUuidsStatics, IGattCharacteristicUuidsStatics_Vtbl, 0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
 impl windows_core::RuntimeType for IGattCharacteristicUuidsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3240,6 +3255,7 @@ pub struct IGattCharacteristicUuidsStatics_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristicUuidsStatics2, IGattCharacteristicUuidsStatics2_Vtbl, 0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
 impl windows_core::RuntimeType for IGattCharacteristicUuidsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3309,6 +3325,7 @@ pub struct IGattCharacteristicUuidsStatics2_Vtbl {
 windows_core::imp::define_interface!(IGattCharacteristicsResult, IGattCharacteristicsResult_Vtbl, 0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 impl windows_core::RuntimeType for IGattCharacteristicsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicsResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3321,6 +3338,7 @@ pub struct IGattCharacteristicsResult_Vtbl {
 windows_core::imp::define_interface!(IGattClientNotificationResult, IGattClientNotificationResult_Vtbl, 0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 impl windows_core::RuntimeType for IGattClientNotificationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattClientNotificationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3333,6 +3351,7 @@ pub struct IGattClientNotificationResult_Vtbl {
 windows_core::imp::define_interface!(IGattClientNotificationResult2, IGattClientNotificationResult2_Vtbl, 0x8faec497_45e0_497e_9582_29a1fe281ad5);
 impl windows_core::RuntimeType for IGattClientNotificationResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattClientNotificationResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3343,6 +3362,7 @@ pub struct IGattClientNotificationResult2_Vtbl {
 windows_core::imp::define_interface!(IGattDescriptor, IGattDescriptor_Vtbl, 0x92055f2b_8084_4344_b4c2_284de19a8506);
 impl windows_core::RuntimeType for IGattDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3362,6 +3382,7 @@ pub struct IGattDescriptor_Vtbl {
 windows_core::imp::define_interface!(IGattDescriptor2, IGattDescriptor2_Vtbl, 0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
 impl windows_core::RuntimeType for IGattDescriptor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptor2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3375,6 +3396,7 @@ pub struct IGattDescriptor2_Vtbl {
 windows_core::imp::define_interface!(IGattDescriptorStatics, IGattDescriptorStatics_Vtbl, 0x92055f2d_8084_4344_b4c2_284de19a8506);
 impl windows_core::RuntimeType for IGattDescriptorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3385,6 +3407,7 @@ pub struct IGattDescriptorStatics_Vtbl {
 windows_core::imp::define_interface!(IGattDescriptorUuidsStatics, IGattDescriptorUuidsStatics_Vtbl, 0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
 impl windows_core::RuntimeType for IGattDescriptorUuidsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorUuidsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3400,6 +3423,7 @@ pub struct IGattDescriptorUuidsStatics_Vtbl {
 windows_core::imp::define_interface!(IGattDescriptorsResult, IGattDescriptorsResult_Vtbl, 0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 impl windows_core::RuntimeType for IGattDescriptorsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorsResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3412,6 +3436,7 @@ pub struct IGattDescriptorsResult_Vtbl {
 windows_core::imp::define_interface!(IGattDeviceService, IGattDeviceService_Vtbl, 0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 impl windows_core::RuntimeType for IGattDeviceService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3426,6 +3451,7 @@ pub struct IGattDeviceService_Vtbl {
 windows_core::imp::define_interface!(IGattDeviceService2, IGattDeviceService2_Vtbl, 0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
 impl windows_core::RuntimeType for IGattDeviceService2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3439,6 +3465,7 @@ pub struct IGattDeviceService2_Vtbl {
 windows_core::imp::define_interface!(IGattDeviceService3, IGattDeviceService3_Vtbl, 0xb293a950_0c53_437c_a9b3_5c3210c6e569);
 impl windows_core::RuntimeType for IGattDeviceService3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3467,6 +3494,7 @@ pub struct IGattDeviceService3_Vtbl {
 windows_core::imp::define_interface!(IGattDeviceServiceStatics, IGattDeviceServiceStatics_Vtbl, 0x196d0022_faad_45dc_ae5b_2ac3184e84db);
 impl windows_core::RuntimeType for IGattDeviceServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServiceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3480,6 +3508,7 @@ pub struct IGattDeviceServiceStatics_Vtbl {
 windows_core::imp::define_interface!(IGattDeviceServiceStatics2, IGattDeviceServiceStatics2_Vtbl, 0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 impl windows_core::RuntimeType for IGattDeviceServiceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServiceStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3494,6 +3523,7 @@ pub struct IGattDeviceServiceStatics2_Vtbl {
 windows_core::imp::define_interface!(IGattDeviceServicesResult, IGattDeviceServicesResult_Vtbl, 0x171dd3ee_016d_419d_838a_576cf475a3d8);
 impl windows_core::RuntimeType for IGattDeviceServicesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServicesResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3506,6 +3536,7 @@ pub struct IGattDeviceServicesResult_Vtbl {
 windows_core::imp::define_interface!(IGattLocalCharacteristic, IGattLocalCharacteristic_Vtbl, 0xaede376d_5412_4d74_92a8_8deb8526829c);
 impl windows_core::RuntimeType for IGattLocalCharacteristic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3542,6 +3573,7 @@ pub struct IGattLocalCharacteristic_Vtbl {
 windows_core::imp::define_interface!(IGattLocalCharacteristicParameters, IGattLocalCharacteristicParameters_Vtbl, 0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 impl windows_core::RuntimeType for IGattLocalCharacteristicParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3568,6 +3600,7 @@ pub struct IGattLocalCharacteristicParameters_Vtbl {
 windows_core::imp::define_interface!(IGattLocalCharacteristicResult, IGattLocalCharacteristicResult_Vtbl, 0x7975de9b_0170_4397_9666_92f863f12ee6);
 impl windows_core::RuntimeType for IGattLocalCharacteristicResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3579,6 +3612,7 @@ pub struct IGattLocalCharacteristicResult_Vtbl {
 windows_core::imp::define_interface!(IGattLocalDescriptor, IGattLocalDescriptor_Vtbl, 0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 impl windows_core::RuntimeType for IGattLocalDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3599,6 +3633,7 @@ pub struct IGattLocalDescriptor_Vtbl {
 windows_core::imp::define_interface!(IGattLocalDescriptorParameters, IGattLocalDescriptorParameters_Vtbl, 0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 impl windows_core::RuntimeType for IGattLocalDescriptorParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3620,6 +3655,7 @@ pub struct IGattLocalDescriptorParameters_Vtbl {
 windows_core::imp::define_interface!(IGattLocalDescriptorResult, IGattLocalDescriptorResult_Vtbl, 0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 impl windows_core::RuntimeType for IGattLocalDescriptorResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3631,6 +3667,7 @@ pub struct IGattLocalDescriptorResult_Vtbl {
 windows_core::imp::define_interface!(IGattLocalService, IGattLocalService_Vtbl, 0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 impl windows_core::RuntimeType for IGattLocalService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalService");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3643,6 +3680,7 @@ pub struct IGattLocalService_Vtbl {
 windows_core::imp::define_interface!(IGattPresentationFormat, IGattPresentationFormat_Vtbl, 0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 impl windows_core::RuntimeType for IGattPresentationFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3657,6 +3695,7 @@ pub struct IGattPresentationFormat_Vtbl {
 windows_core::imp::define_interface!(IGattPresentationFormatStatics, IGattPresentationFormatStatics_Vtbl, 0x196d0020_faad_45dc_ae5b_2ac3184e84db);
 impl windows_core::RuntimeType for IGattPresentationFormatStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormatStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3667,6 +3706,7 @@ pub struct IGattPresentationFormatStatics_Vtbl {
 windows_core::imp::define_interface!(IGattPresentationFormatStatics2, IGattPresentationFormatStatics2_Vtbl, 0xa9c21713_b82f_435e_b634_21fd85a43c07);
 impl windows_core::RuntimeType for IGattPresentationFormatStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormatStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3677,6 +3717,7 @@ pub struct IGattPresentationFormatStatics2_Vtbl {
 windows_core::imp::define_interface!(IGattPresentationFormatTypesStatics, IGattPresentationFormatTypesStatics_Vtbl, 0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
 impl windows_core::RuntimeType for IGattPresentationFormatTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormatTypesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3713,6 +3754,7 @@ pub struct IGattPresentationFormatTypesStatics_Vtbl {
 windows_core::imp::define_interface!(IGattProtocolErrorStatics, IGattProtocolErrorStatics_Vtbl, 0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
 impl windows_core::RuntimeType for IGattProtocolErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattProtocolErrorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3739,6 +3781,7 @@ pub struct IGattProtocolErrorStatics_Vtbl {
 windows_core::imp::define_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult, IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl, 0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 impl windows_core::RuntimeType for IGattReadClientCharacteristicConfigurationDescriptorResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadClientCharacteristicConfigurationDescriptorResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3750,6 +3793,7 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
 windows_core::imp::define_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult2, IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl, 0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
 impl windows_core::RuntimeType for IGattReadClientCharacteristicConfigurationDescriptorResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadClientCharacteristicConfigurationDescriptorResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3760,6 +3804,7 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
 windows_core::imp::define_interface!(IGattReadRequest, IGattReadRequest_Vtbl, 0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 impl windows_core::RuntimeType for IGattReadRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3779,6 +3824,7 @@ pub struct IGattReadRequest_Vtbl {
 windows_core::imp::define_interface!(IGattReadRequestedEventArgs, IGattReadRequestedEventArgs_Vtbl, 0x93497243_f39c_484b_8ab6_996ba486cfa3);
 impl windows_core::RuntimeType for IGattReadRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3791,6 +3837,7 @@ pub struct IGattReadRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGattReadResult, IGattReadResult_Vtbl, 0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 impl windows_core::RuntimeType for IGattReadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3805,6 +3852,7 @@ pub struct IGattReadResult_Vtbl {
 windows_core::imp::define_interface!(IGattReadResult2, IGattReadResult2_Vtbl, 0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
 impl windows_core::RuntimeType for IGattReadResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3815,6 +3863,7 @@ pub struct IGattReadResult2_Vtbl {
 windows_core::imp::define_interface!(IGattReliableWriteTransaction, IGattReliableWriteTransaction_Vtbl, 0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 impl windows_core::RuntimeType for IGattReliableWriteTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3829,6 +3878,7 @@ pub struct IGattReliableWriteTransaction_Vtbl {
 windows_core::imp::define_interface!(IGattReliableWriteTransaction2, IGattReliableWriteTransaction2_Vtbl, 0x51113987_ef12_462f_9fb2_a1a43a679416);
 impl windows_core::RuntimeType for IGattReliableWriteTransaction2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3839,6 +3889,7 @@ pub struct IGattReliableWriteTransaction2_Vtbl {
 windows_core::imp::define_interface!(IGattRequestStateChangedEventArgs, IGattRequestStateChangedEventArgs_Vtbl, 0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 impl windows_core::RuntimeType for IGattRequestStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3850,6 +3901,7 @@ pub struct IGattRequestStateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProvider, IGattServiceProvider_Vtbl, 0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 impl windows_core::RuntimeType for IGattServiceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3866,6 +3918,7 @@ pub struct IGattServiceProvider_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProvider2, IGattServiceProvider2_Vtbl, 0x9ef531a9_cf12_59a3_a81c_362f4aabaacf);
 impl windows_core::RuntimeType for IGattServiceProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3876,6 +3929,7 @@ pub struct IGattServiceProvider2_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderAdvertisementStatusChangedEventArgs, IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl, 0x59a5aa65_fa21_4ffc_b155_04d928012686);
 impl windows_core::RuntimeType for IGattServiceProviderAdvertisementStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3887,6 +3941,7 @@ pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderAdvertisingParameters, IGattServiceProviderAdvertisingParameters_Vtbl, 0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 impl windows_core::RuntimeType for IGattServiceProviderAdvertisingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3900,6 +3955,7 @@ pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderAdvertisingParameters2, IGattServiceProviderAdvertisingParameters2_Vtbl, 0xff68468d_ca92_4434_9743_0e90988ad879);
 impl windows_core::RuntimeType for IGattServiceProviderAdvertisingParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3917,6 +3973,7 @@ pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderAdvertisingParameters3, IGattServiceProviderAdvertisingParameters3_Vtbl, 0xa23546b2_b216_5929_9055_f1313dd53e2a);
 impl windows_core::RuntimeType for IGattServiceProviderAdvertisingParameters3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3930,6 +3987,7 @@ pub struct IGattServiceProviderAdvertisingParameters3_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderResult, IGattServiceProviderResult_Vtbl, 0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 impl windows_core::RuntimeType for IGattServiceProviderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3941,6 +3999,7 @@ pub struct IGattServiceProviderResult_Vtbl {
 windows_core::imp::define_interface!(IGattServiceProviderStatics, IGattServiceProviderStatics_Vtbl, 0x31794063_5256_4054_a4f4_7bbe7755a57e);
 impl windows_core::RuntimeType for IGattServiceProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3951,6 +4010,7 @@ pub struct IGattServiceProviderStatics_Vtbl {
 windows_core::imp::define_interface!(IGattServiceUuidsStatics, IGattServiceUuidsStatics_Vtbl, 0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
 impl windows_core::RuntimeType for IGattServiceUuidsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceUuidsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3969,6 +4029,7 @@ pub struct IGattServiceUuidsStatics_Vtbl {
 windows_core::imp::define_interface!(IGattServiceUuidsStatics2, IGattServiceUuidsStatics2_Vtbl, 0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
 impl windows_core::RuntimeType for IGattServiceUuidsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceUuidsStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3991,6 +4052,7 @@ pub struct IGattServiceUuidsStatics2_Vtbl {
 windows_core::imp::define_interface!(IGattSession, IGattSession_Vtbl, 0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 impl windows_core::RuntimeType for IGattSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4010,6 +4072,7 @@ pub struct IGattSession_Vtbl {
 windows_core::imp::define_interface!(IGattSessionStatics, IGattSessionStatics_Vtbl, 0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
 impl windows_core::RuntimeType for IGattSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4020,6 +4083,7 @@ pub struct IGattSessionStatics_Vtbl {
 windows_core::imp::define_interface!(IGattSessionStatusChangedEventArgs, IGattSessionStatusChangedEventArgs_Vtbl, 0x7605b72e_837f_404c_ab34_3163f39ddf32);
 impl windows_core::RuntimeType for IGattSessionStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4031,6 +4095,7 @@ pub struct IGattSessionStatusChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGattSubscribedClient, IGattSubscribedClient_Vtbl, 0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 impl windows_core::RuntimeType for IGattSubscribedClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4044,6 +4109,7 @@ pub struct IGattSubscribedClient_Vtbl {
 windows_core::imp::define_interface!(IGattValueChangedEventArgs, IGattValueChangedEventArgs_Vtbl, 0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 impl windows_core::RuntimeType for IGattValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4053,11 +4119,12 @@ pub struct IGattValueChangedEventArgs_Vtbl {
     pub CharacteristicValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CharacteristicValue: usize,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGattWriteRequest, IGattWriteRequest_Vtbl, 0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 impl windows_core::RuntimeType for IGattWriteRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4078,6 +4145,7 @@ pub struct IGattWriteRequest_Vtbl {
 windows_core::imp::define_interface!(IGattWriteRequestedEventArgs, IGattWriteRequestedEventArgs_Vtbl, 0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 impl windows_core::RuntimeType for IGattWriteRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4090,6 +4158,7 @@ pub struct IGattWriteRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IGattWriteResult, IGattWriteResult_Vtbl, 0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 impl windows_core::RuntimeType for IGattWriteResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteResult");
 }
 #[repr(C)]
 #[doc(hidden)]

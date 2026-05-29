@@ -12,6 +12,7 @@ impl windows_core::TypeKind for ExtendedExecutionForegroundReason {
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -25,6 +26,7 @@ impl windows_core::TypeKind for ExtendedExecutionForegroundResult {
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -62,6 +64,7 @@ impl windows_core::TypeKind for ExtendedExecutionForegroundRevokedReason {
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -132,6 +135,7 @@ unsafe impl Sync for ExtendedExecutionForegroundSession {}
 windows_core::imp::define_interface!(IExtendedExecutionForegroundRevokedEventArgs, IExtendedExecutionForegroundRevokedEventArgs_Vtbl, 0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 impl windows_core::RuntimeType for IExtendedExecutionForegroundRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -142,6 +146,7 @@ pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IExtendedExecutionForegroundSession, IExtendedExecutionForegroundSession_Vtbl, 0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 impl windows_core::RuntimeType for IExtendedExecutionForegroundSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession");
 }
 #[repr(C)]
 #[doc(hidden)]

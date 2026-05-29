@@ -875,7 +875,7 @@ impl IWSDDeviceProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDDeviceProxy_Impl::GetHostMetadata(this) {
                     Ok(ok__) => {
-                        pphostmetadata.write(core::mem::transmute(ok__));
+                        pphostmetadata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -887,7 +887,7 @@ impl IWSDDeviceProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDDeviceProxy_Impl::GetThisModelMetadata(this) {
                     Ok(ok__) => {
-                        ppmanufacturermetadata.write(core::mem::transmute(ok__));
+                        ppmanufacturermetadata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -899,7 +899,7 @@ impl IWSDDeviceProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDDeviceProxy_Impl::GetThisDeviceMetadata(this) {
                     Ok(ok__) => {
-                        ppthisdevicemetadata.write(core::mem::transmute(ok__));
+                        ppthisdevicemetadata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -911,7 +911,7 @@ impl IWSDDeviceProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDDeviceProxy_Impl::GetAllMetadata(this) {
                     Ok(ok__) => {
-                        ppmetadata.write(core::mem::transmute(ok__));
+                        ppmetadata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1078,7 +1078,7 @@ impl IWSDEndpointProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDEndpointProxy_Impl::GetErrorInfo(this) {
                     Ok(ok__) => {
-                        ppszerrorinfo.write(core::mem::transmute(ok__));
+                        ppszerrorinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1090,7 +1090,7 @@ impl IWSDEndpointProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDEndpointProxy_Impl::GetFaultInfo(this) {
                     Ok(ok__) => {
-                        ppfault.write(core::mem::transmute(ok__));
+                        ppfault.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1248,7 +1248,7 @@ impl IWSDHttpAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpAddress_Impl::GetPath(this) {
                     Ok(ok__) => {
-                        ppszpath.write(core::mem::transmute(ok__));
+                        ppszpath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1308,7 +1308,7 @@ impl IWSDHttpAuthParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpAuthParameters_Impl::GetClientAccessToken(this) {
                     Ok(ok__) => {
-                        phtoken.write(core::mem::transmute(ok__));
+                        phtoken.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1320,7 +1320,7 @@ impl IWSDHttpAuthParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpAuthParameters_Impl::GetAuthType(this) {
                     Ok(ok__) => {
-                        pauthtype.write(core::mem::transmute(ok__));
+                        pauthtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1437,7 +1437,7 @@ impl IWSDHttpMessageParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpMessageParameters_Impl::GetInboundHttpHeaders(this) {
                     Ok(ok__) => {
-                        ppszheaders.write(core::mem::transmute(ok__));
+                        ppszheaders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1455,7 +1455,7 @@ impl IWSDHttpMessageParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpMessageParameters_Impl::GetOutboundHttpHeaders(this) {
                     Ok(ok__) => {
-                        ppszheaders.write(core::mem::transmute(ok__));
+                        ppszheaders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1473,7 +1473,7 @@ impl IWSDHttpMessageParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDHttpMessageParameters_Impl::GetID(this) {
                     Ok(ok__) => {
-                        ppszid.write(core::mem::transmute(ok__));
+                        ppszid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1711,7 +1711,7 @@ impl IWSDMetadataExchange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDMetadataExchange_Impl::GetMetadata(this) {
                     Ok(ok__) => {
-                        metadataout.write(core::mem::transmute(ok__));
+                        metadataout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1767,7 +1767,7 @@ impl IWSDOutboundAttachment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDOutboundAttachment_Impl::Write(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwbytestowrite)) {
                     Ok(ok__) => {
-                        pdwnumberofbyteswritten.write(core::mem::transmute(ok__));
+                        pdwnumberofbyteswritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1838,7 +1838,7 @@ impl IWSDSSLClientCertificate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDSSLClientCertificate_Impl::GetClientCertificate(this) {
                     Ok(ok__) => {
-                        ppcertcontext.write(core::mem::transmute(ok__));
+                        ppcertcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1850,7 +1850,7 @@ impl IWSDSSLClientCertificate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDSSLClientCertificate_Impl::GetMappedAccessToken(this) {
                     Ok(ok__) => {
-                        phtoken.write(core::mem::transmute(ok__));
+                        phtoken.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1907,7 +1907,7 @@ impl IWSDScopeMatchingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDScopeMatchingRule_Impl::GetScopeRule(this) {
                     Ok(ok__) => {
-                        ppszscopematchingrule.write(core::mem::transmute(ok__));
+                        ppszscopematchingrule.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1919,7 +1919,7 @@ impl IWSDScopeMatchingRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDScopeMatchingRule_Impl::MatchScopes(this, core::mem::transmute(&pszscope1), core::mem::transmute(&pszscope2)) {
                     Ok(ok__) => {
-                        pfmatch.write(core::mem::transmute(ok__));
+                        pfmatch.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2081,7 +2081,7 @@ impl IWSDServiceProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDServiceProxy_Impl::EndGetMetadata(this, core::mem::transmute_copy(&presult)) {
                     Ok(ok__) => {
-                        ppmetadata.write(core::mem::transmute(ok__));
+                        ppmetadata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2093,7 +2093,7 @@ impl IWSDServiceProxy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDServiceProxy_Impl::GetServiceMetadata(this) {
                     Ok(ok__) => {
-                        ppservicemetadata.write(core::mem::transmute(ok__));
+                        ppservicemetadata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2435,7 +2435,7 @@ impl IWSDSignatureProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDSignatureProperty_Impl::IsMessageSigned(this) {
                     Ok(ok__) => {
-                        pbsigned.write(core::mem::transmute(ok__));
+                        pbsigned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2447,7 +2447,7 @@ impl IWSDSignatureProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDSignatureProperty_Impl::IsMessageSignatureTrusted(this) {
                     Ok(ok__) => {
-                        pbsignaturetrusted.write(core::mem::transmute(ok__));
+                        pbsignaturetrusted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2547,7 +2547,7 @@ impl IWSDTransportAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDTransportAddress_Impl::GetPort(this) {
                     Ok(ok__) => {
-                        pwport.write(core::mem::transmute(ok__));
+                        pwport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2565,7 +2565,7 @@ impl IWSDTransportAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDTransportAddress_Impl::GetTransportAddress(this) {
                     Ok(ok__) => {
-                        ppszaddress.write(core::mem::transmute(ok__));
+                        ppszaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2577,7 +2577,7 @@ impl IWSDTransportAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDTransportAddress_Impl::GetTransportAddressEx(this, core::mem::transmute_copy(&fsafe)) {
                     Ok(ok__) => {
-                        ppszaddress.write(core::mem::transmute(ok__));
+                        ppszaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2727,7 +2727,7 @@ impl IWSDUdpAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDUdpAddress_Impl::GetMessageType(this) {
                     Ok(ok__) => {
-                        pmessagetype.write(core::mem::transmute(ok__));
+                        pmessagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2745,7 +2745,7 @@ impl IWSDUdpAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDUdpAddress_Impl::GetTTL(this) {
                     Ok(ok__) => {
-                        pdwttl.write(core::mem::transmute(ok__));
+                        pdwttl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2763,7 +2763,7 @@ impl IWSDUdpAddress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDUdpAddress_Impl::GetAlias(this) {
                     Ok(ok__) => {
-                        palias.write(core::mem::transmute(ok__));
+                        palias.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3023,7 +3023,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetEndpointReference(this) {
                     Ok(ok__) => {
-                        ppendpointreference.write(core::mem::transmute(ok__));
+                        ppendpointreference.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3035,7 +3035,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetTypes(this) {
                     Ok(ok__) => {
-                        pptypeslist.write(core::mem::transmute(ok__));
+                        pptypeslist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3047,7 +3047,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetScopes(this) {
                     Ok(ok__) => {
-                        ppscopeslist.write(core::mem::transmute(ok__));
+                        ppscopeslist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3059,7 +3059,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetXAddrs(this) {
                     Ok(ok__) => {
-                        ppxaddrslist.write(core::mem::transmute(ok__));
+                        ppxaddrslist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3071,7 +3071,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetMetadataVersion(this) {
                     Ok(ok__) => {
-                        pullmetadataversion.write(core::mem::transmute(ok__));
+                        pullmetadataversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3089,7 +3089,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetProbeResolveTag(this) {
                     Ok(ok__) => {
-                        ppsztag.write(core::mem::transmute(ok__));
+                        ppsztag.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3101,7 +3101,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetRemoteTransportAddress(this) {
                     Ok(ok__) => {
-                        ppszremotetransportaddress.write(core::mem::transmute(ok__));
+                        ppszremotetransportaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3113,7 +3113,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetLocalTransportAddress(this) {
                     Ok(ok__) => {
-                        ppszlocaltransportaddress.write(core::mem::transmute(ok__));
+                        ppszlocaltransportaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3125,7 +3125,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetLocalInterfaceGUID(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3137,7 +3137,7 @@ impl IWSDiscoveredService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSDiscoveredService_Impl::GetInstanceId(this) {
                     Ok(ok__) => {
-                        pullinstanceid.write(core::mem::transmute(ok__));
+                        pullinstanceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

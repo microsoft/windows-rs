@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 impl windows_core::RuntimeType for IMessageDialog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IMessageDialog");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,6 +23,7 @@ pub struct IMessageDialog_Vtbl {
 windows_core::imp::define_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
 impl windows_core::RuntimeType for IMessageDialogFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IMessageDialogFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +35,7 @@ pub struct IMessageDialogFactory_Vtbl {
 windows_core::imp::define_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 impl windows_core::RuntimeType for IPopupMenu {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IPopupMenu");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,6 +49,7 @@ pub struct IPopupMenu_Vtbl {
 windows_core::imp::define_interface!(IUICommand, IUICommand_Vtbl, 0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 impl windows_core::RuntimeType for IUICommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IUICommand");
 }
 windows_core::imp::interface_hierarchy!(IUICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl IUICommand {
@@ -181,6 +185,7 @@ pub struct IUICommand_Vtbl {
 windows_core::imp::define_interface!(IUICommandFactory, IUICommandFactory_Vtbl, 0xa21a8189_26b0_4676_ae94_54041bc125e8);
 impl windows_core::RuntimeType for IUICommandFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.IUICommandFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -291,6 +296,7 @@ impl windows_core::TypeKind for MessageDialogOptions {
 }
 impl windows_core::RuntimeType for MessageDialogOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.MessageDialogOptions");
 }
 impl MessageDialogOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -340,6 +346,7 @@ impl windows_core::TypeKind for Placement {
 }
 impl windows_core::RuntimeType for Placement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Popups.Placement");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

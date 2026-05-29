@@ -1,15 +1,16 @@
 windows_core::imp::define_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 impl windows_core::RuntimeType for IMediaTranscoder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Transcoding.IMediaTranscoder");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTranscoder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetTrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub TrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetTrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub TrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetTrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub TrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetTrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub TrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub SetAlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub AlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -37,6 +38,7 @@ pub struct IMediaTranscoder_Vtbl {
 windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 impl windows_core::RuntimeType for IMediaTranscoder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Transcoding.IMediaTranscoder2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +54,7 @@ pub struct IMediaTranscoder2_Vtbl {
 windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 impl windows_core::RuntimeType for IPrepareTranscodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Transcoding.IPrepareTranscodeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -73,19 +76,19 @@ impl MediaTranscoder {
         static SHARED: windows_core::imp::FactoryCache<MediaTranscoder, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetTrimStartTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimStartTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTrimStartTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn TrimStartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimStartTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TrimStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTrimStopTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimStopTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTrimStopTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn TrimStopTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimStopTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TrimStopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -205,6 +208,7 @@ impl windows_core::TypeKind for MediaVideoProcessingAlgorithm {
 }
 impl windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Transcoding.MediaVideoProcessingAlgorithm");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -256,4 +260,5 @@ impl windows_core::TypeKind for TranscodeFailureReason {
 }
 impl windows_core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Transcoding.TranscodeFailureReason");
 }

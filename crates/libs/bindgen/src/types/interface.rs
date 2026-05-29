@@ -59,13 +59,13 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !method.dependencies.included(config) {
+                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def) {
-                    // Method-level `--filter` demoted this slot to opaque.
+                } else if !config.includes_method(type_name, def) {
+                    // Method-level filter demoted this slot to opaque.
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -82,7 +82,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
+            !method.dependencies.included(config) || !config.includes_method(type_name, def)
         })
     }
 
@@ -105,7 +105,7 @@ impl Interface {
         let (class_cfg, cfg) = self.write_cfg(config);
 
         let vtbl = {
-            let virtual_names = &mut MethodNames::new();
+            let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
             let result = config.write_result();
 
             let vtbl_methods = methods.iter().map(|method| match method {
@@ -137,7 +137,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if config.sys {
+            let hide_vtbl = if config.bindgen.style.is_sys() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -157,10 +157,10 @@ impl Interface {
             }
         };
 
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             let mut result = quote! {};
 
-            if !config.package {
+            if !config.bindgen.layout.is_package() {
                 if let Some(guid) = self.def.guid_attribute() {
                     let name: TokenStream = format!("IID_{}", trim_tick(self.def.name()))
                         .parse()
@@ -176,12 +176,27 @@ impl Interface {
             let mut result = if self.generics.is_empty() {
                 let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
 
+                // In minimal mode, NAME is only needed for interfaces that are
+                // being implemented (for GetRuntimeClassName). The trait provides
+                // an empty default, so omitting it is safe.
+                let name_const = if config.bindgen.style.is_minimal()
+                    && !config.should_implement(type_name, false)
+                {
+                    quote! {}
+                } else {
+                    let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
+                    quote! {
+                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
+                    }
+                };
+
                 quote! {
                     #cfg
                     windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                     #cfg
                     impl windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+                        #name_const
                     }
                 }
             } else {
@@ -196,6 +211,35 @@ impl Interface {
                     }
                 });
 
+                // In minimal mode, NAME on parameterized interfaces is only needed
+                // when the interface is implemented (for GetRuntimeClassName via
+                // RUNTIME_CLASS_NAME). Skip it otherwise.
+                let name_const = if config.bindgen.style.is_minimal()
+                    && !config.should_implement(type_name, false)
+                {
+                    quote! {}
+                } else {
+                    let arity = self.generics.len();
+                    let name_prefix =
+                        Literal::byte_string(format!("{type_name}`{arity}<").as_bytes());
+                    let name_generics: Vec<_> = self
+                        .generics
+                        .iter()
+                        .enumerate()
+                        .map(|(i, generic)| {
+                            let gen_name = generic.write_name(config);
+                            if i == 0 {
+                                quote! { .push_other(#gen_name::NAME) }
+                            } else {
+                                quote! { .push_slice(b", ").push_other(#gen_name::NAME) }
+                            }
+                        })
+                        .collect();
+                    quote! {
+                        const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#name_prefix)#(#name_generics)*.push_slice(b">");
+                    }
+                };
+
                 quote! {
                     #[repr(transparent)]
                     #[derive(Clone, Debug, Eq, PartialEq)]
@@ -208,6 +252,7 @@ impl Interface {
                     }
                     impl<#constraints> windows_core::RuntimeType for #name {
                         const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
+                        #name_const
                     }
                 }
             };
@@ -221,12 +266,25 @@ impl Interface {
 
             if !is_exclusive && !required_interfaces.is_empty() {
                 if self.generics.is_empty() {
-                    let interfaces = required_interfaces.iter().map(|ty| ty.write_name(config));
+                    let interfaces: Vec<_> = required_interfaces
+                        .iter()
+                        .filter(|ty| {
+                            if config.bindgen.style.is_minimal() {
+                                let tn = Type::Interface((*ty).clone()).type_name();
+                                config.types.contains_key(&tn)
+                            } else {
+                                true
+                            }
+                        })
+                        .map(|ty| ty.write_name(config))
+                        .collect();
 
-                    result.combine(quote! {
-                        #cfg
-                        windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
-                    });
+                    if !interfaces.is_empty() {
+                        result.combine(quote! {
+                            #cfg
+                            windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                        });
+                    }
                 } else {
                     let interfaces = required_interfaces.iter().map(|ty| {
                     let ty = ty.write_name(config);
@@ -253,12 +311,13 @@ impl Interface {
             // suppressed. This is used for required-but-uncalled interfaces (e.g.
             // `IPropertyValue` on an `IReference<T>` impl) where no projection caller invokes
             // the methods through this type.
-            let is_factory = is_exclusive && config.minimal && self.is_factory(config.reader);
+            let is_factory =
+                is_exclusive && config.bindgen.style.is_minimal() && self.is_factory(config.reader);
             let is_trait_only = config.filter.is_trait_only(type_name);
-            if !is_exclusive || (config.minimal && !is_factory) {
+            if !is_exclusive || (config.bindgen.style.is_minimal() && !is_factory) {
                 if !is_trait_only {
-                    let method_names = &mut MethodNames::new();
-                    let virtual_names = &mut MethodNames::new();
+                    let method_names = &mut MethodNames::for_style(&config.bindgen.style);
+                    let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
                     let mut method_tokens = TokenStream::new();
 
                     for method in methods.iter().filter_map(|method| match &method {
@@ -283,10 +342,10 @@ impl Interface {
 
                     for interface in &required_interfaces {
                         // In `minimal` mode callers `cast` to the owning interface explicitly.
-                        if config.minimal {
+                        if config.bindgen.style.is_minimal() {
                             continue;
                         }
-                        let virtual_names = &mut MethodNames::new();
+                        let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
 
                         for method in
                             interface.get_methods(config).iter().filter_map(
@@ -332,7 +391,7 @@ impl Interface {
                     });
                 }
 
-                let into_iterator = if config.minimal {
+                let into_iterator = if config.bindgen.style.is_minimal() {
                     None
                 } else {
                     required_interfaces
@@ -384,9 +443,9 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                let cfg = if config.package {
+                let cfg = if config.bindgen.layout.is_package() {
                     fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
-                        for method in interface.get_methods(config).iter() {
+                        for method in &interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
@@ -405,10 +464,20 @@ impl Interface {
                     quote! {}
                 };
 
-                result.combine(quote! {
-                    #cfg
-                    impl<#constraints> windows_core::RuntimeName for #name {
-                        const NAME: &'static str = #runtime_name;
+                result.combine(if self.generics.is_empty() {
+                    quote! {
+                        #cfg
+                        impl<#constraints> windows_core::RuntimeName for #name {
+                            const NAME: &'static str = #runtime_name;
+                        }
+                    }
+                } else {
+                    quote! {
+                        #cfg
+                        impl<#constraints> windows_core::RuntimeName for #name {
+                            const NAME: &'static str = #runtime_name;
+                            const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer = <Self as windows_core::RuntimeType>::NAME;
+                        }
                     }
                 });
 
@@ -427,7 +496,7 @@ impl Interface {
                 if has_skipped_methods {
                     config.warnings.skip_implement(self.def);
                 } else {
-                    let mut names = MethodNames::new();
+                    let mut names = MethodNames::for_style(&config.bindgen.style);
 
                     let field_methods: Vec<_> = methods
                         .iter()
@@ -443,7 +512,7 @@ impl Interface {
                         })
                         .collect();
 
-                    let mut names = MethodNames::new();
+                    let mut names = MethodNames::for_style(&config.bindgen.style);
 
                     let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
@@ -464,7 +533,7 @@ impl Interface {
                 _ => quote! {},
             }).collect();
 
-                    let mut names = MethodNames::new();
+                    let mut names = MethodNames::for_style(&config.bindgen.style);
 
                     let trait_methods: Vec<_> = methods
                         .iter()

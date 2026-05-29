@@ -1,69 +1,7 @@
 pub mod Test {
     windows_link::link!("test.dll" "system" fn GetValue() -> u32);
     windows_link::link!("test.dll" "system" fn SetValue(value : u32));
-    pub const Blue: Color = 2i32;
     pub type Color = i32;
-    #[repr(transparent)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
-    pub struct Foo(windows_core::IUnknown);
-    windows_core::imp::interface_hierarchy!(
-        Foo,
-        windows_core::IUnknown,
-        windows_core::IInspectable
-    );
-    windows_core::imp::required_hierarchy!(Foo, IFoo2);
-    impl Foo {
-        pub fn new() -> windows_result::Result<Self> {
-            Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-        }
-        fn IActivationFactory<
-            R,
-            F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
-        >(
-            callback: F,
-        ) -> windows_result::Result<R> {
-            static SHARED: windows_core::imp::FactoryCache<
-                Foo,
-                windows_core::imp::IGenericFactory,
-            > = windows_core::imp::FactoryCache::new();
-            SHARED.call(callback)
-        }
-        pub fn Stat() -> windows_result::Result<i32> {
-            Self::IFooStatics(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(this).Stat)(
-                    windows_core::Interface::as_raw(this),
-                    &mut result__,
-                )
-                .map(|| result__)
-            })
-        }
-        fn IFooStatics<R, F: FnOnce(&IFooStatics) -> windows_result::Result<R>>(
-            callback: F,
-        ) -> windows_result::Result<R> {
-            static SHARED: windows_core::imp::FactoryCache<Foo, IFooStatics> =
-                windows_core::imp::FactoryCache::new();
-            SHARED.call(callback)
-        }
-    }
-    impl windows_core::RuntimeType for Foo {
-        const SIGNATURE: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::for_class::<Self, IFoo>();
-    }
-    unsafe impl windows_core::Interface for Foo {
-        type Vtable = <IFoo as windows_core::Interface>::Vtable;
-        const IID: windows_core::GUID = <IFoo as windows_core::Interface>::IID;
-    }
-    impl core::ops::Deref for Foo {
-        type Target = IFoo;
-        fn deref(&self) -> &Self::Target {
-            unsafe { core::mem::transmute(self) }
-        }
-    }
-    impl windows_core::RuntimeName for Foo {
-        const NAME: &'static str = "Test.Foo";
-    }
-    pub const Green: Color = 1i32;
     pub type HANDLE = *mut core::ffi::c_void;
     windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x29b2ee6f_e8bf_5d03_8e01_81e8ad109076);
     impl windows_core::RuntimeType for IFoo {
@@ -81,10 +19,10 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn Name(&self) -> windows_result::Result<String> {
+        pub fn get_Name(&self) -> windows_result::Result<String> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(self).Name)(
+                (windows_core::Interface::vtable(self).get_Name)(
                     windows_core::Interface::as_raw(self),
                     &mut result__,
                 )
@@ -94,9 +32,9 @@ pub mod Test {
                 })
             }
         }
-        pub fn SetName(&self, value: &str) -> windows_result::Result<()> {
+        pub fn put_Name(&self, value: &str) -> windows_result::Result<()> {
             unsafe {
-                (windows_core::Interface::vtable(self).SetName)(
+                (windows_core::Interface::vtable(self).put_Name)(
                     windows_core::Interface::as_raw(self),
                     core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
                 )
@@ -110,11 +48,11 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        pub Name: unsafe extern "system" fn(
+        pub get_Name: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
         ) -> windows_result::HRESULT,
-        pub SetName: unsafe extern "system" fn(
+        pub put_Name: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut core::ffi::c_void,
         ) -> windows_result::HRESULT,
@@ -198,5 +136,4 @@ pub mod Test {
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
     }
     pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
-    pub const Red: Color = 0i32;
 }

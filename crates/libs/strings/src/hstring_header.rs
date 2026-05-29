@@ -29,9 +29,7 @@ impl HStringHeader {
         let bytes = Self::alloc_bytes(len);
         let header = unsafe { heap_alloc(bytes) } as *mut Self;
 
-        if header.is_null() {
-            panic!("allocation failed");
-        }
+        assert!(!header.is_null(), "allocation failed");
 
         unsafe {
             // Use `ptr::write` (since `header` is uninitialized).

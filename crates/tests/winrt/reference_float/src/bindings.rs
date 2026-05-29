@@ -6,6 +6,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
 }
 windows_core::imp::interface_hierarchy!(
     IPropertyValue,
@@ -147,6 +149,26 @@ impl IPropertyValue {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGuid)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDateTime)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn GetTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTimeSpan)(
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
@@ -305,6 +327,32 @@ impl IPropertyValue {
             .ok()
         }
     }
+    pub fn GetDateTimeArray(
+        &self,
+        value: &mut windows_core::Array<windows_time::DateTime>,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetDateTimeArray)(
+                windows_core::Interface::as_raw(self),
+                value.set_abi_len(),
+                value as *mut _ as _,
+            )
+            .ok()
+        }
+    }
+    pub fn GetTimeSpanArray(
+        &self,
+        value: &mut windows_core::Array<windows_time::TimeSpan>,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetTimeSpanArray)(
+                windows_core::Interface::as_raw(self),
+                value.set_abi_len(),
+                value as *mut _ as _,
+            )
+            .ok()
+        }
+    }
 }
 impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
@@ -346,8 +394,14 @@ pub struct IPropertyValue_Vtbl {
         *mut core::ffi::c_void,
         *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
-    GetDateTime: usize,
-    GetTimeSpan: usize,
+    pub GetDateTime: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_time::DateTime,
+    ) -> windows_core::HRESULT,
+    pub GetTimeSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     GetPoint: usize,
     GetSize: usize,
     GetRect: usize,
@@ -421,8 +475,16 @@ pub struct IPropertyValue_Vtbl {
         *mut u32,
         *mut *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
-    GetDateTimeArray: usize,
-    GetTimeSpanArray: usize,
+    pub GetDateTimeArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_time::DateTime,
+    ) -> windows_core::HRESULT,
+    pub GetTimeSpanArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     GetPointArray: usize,
     GetSizeArray: usize,
     GetRectArray: usize,
@@ -437,4 +499,6 @@ impl windows_core::TypeKind for RefWithFloat {
 }
 impl windows_core::RuntimeType for RefWithFloat {
     const SIGNATURE : windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice (b"struct(test_reference_float.RefWithFloat;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};f4))") ;
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_reference_float.RefWithFloat");
 }

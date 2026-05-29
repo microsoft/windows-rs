@@ -20,7 +20,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
+    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: windows_time::DateTime, duration: windows_time::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
     where
         P2: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -86,7 +86,7 @@ impl AppRecordingResult {
             (windows_core::Interface::vtable(self).ExtendedError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -123,6 +123,7 @@ impl windows_core::TypeKind for AppRecordingSaveScreenshotOption {
 }
 impl windows_core::RuntimeType for AppRecordingSaveScreenshotOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.AppRecordingSaveScreenshotOption");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -208,7 +209,7 @@ impl AppRecordingStatus {
             (windows_core::Interface::vtable(self).CanRecordTimeSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn HistoricalBufferDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HistoricalBufferDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HistoricalBufferDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -308,6 +309,7 @@ unsafe impl Sync for AppRecordingStatusDetails {}
 windows_core::imp::define_interface!(IAppRecordingManager, IAppRecordingManager_Vtbl, 0xe7e26076_a044_48e2_a512_3094d574c7cc);
 impl windows_core::RuntimeType for IAppRecordingManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -319,7 +321,7 @@ pub struct IAppRecordingManager_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     StartRecordingToFileAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     RecordTimeSpanToFileAsync: usize,
     pub SupportedScreenshotMediaEncodingSubtypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -331,6 +333,7 @@ pub struct IAppRecordingManager_Vtbl {
 windows_core::imp::define_interface!(IAppRecordingManagerStatics, IAppRecordingManagerStatics_Vtbl, 0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
 impl windows_core::RuntimeType for IAppRecordingManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -341,6 +344,7 @@ pub struct IAppRecordingManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IAppRecordingResult, IAppRecordingResult_Vtbl, 0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
 impl windows_core::RuntimeType for IAppRecordingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -348,12 +352,13 @@ pub struct IAppRecordingResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IsFileTruncated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppRecordingSaveScreenshotResult, IAppRecordingSaveScreenshotResult_Vtbl, 0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
 impl windows_core::RuntimeType for IAppRecordingSaveScreenshotResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingSaveScreenshotResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -366,6 +371,7 @@ pub struct IAppRecordingSaveScreenshotResult_Vtbl {
 windows_core::imp::define_interface!(IAppRecordingSavedScreenshotInfo, IAppRecordingSavedScreenshotInfo_Vtbl, 0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 impl windows_core::RuntimeType for IAppRecordingSavedScreenshotInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingSavedScreenshotInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,6 +386,7 @@ pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
 windows_core::imp::define_interface!(IAppRecordingStatus, IAppRecordingStatus_Vtbl, 0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
 impl windows_core::RuntimeType for IAppRecordingStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingStatus");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -387,12 +394,13 @@ pub struct IAppRecordingStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanRecord: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CanRecordTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub HistoricalBufferDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub HistoricalBufferDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Details: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppRecordingStatusDetails, IAppRecordingStatusDetails_Vtbl, 0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
 impl windows_core::RuntimeType for IAppRecordingStatusDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.AppRecording.IAppRecordingStatusDetails");
 }
 #[repr(C)]
 #[doc(hidden)]

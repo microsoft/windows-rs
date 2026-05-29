@@ -1006,7 +1006,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::LastWriteTime(this) {
                     Ok(ok__) => {
-                        lastwrite.write(core::mem::transmute(ok__));
+                        lastwrite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1042,7 +1042,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::SyncSetting(this) {
                     Ok(ok__) => {
-                        syncsetting.write(core::mem::transmute(ok__));
+                        syncsetting.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1060,7 +1060,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::Interval(this) {
                     Ok(ok__) => {
-                        minutes.write(core::mem::transmute(ok__));
+                        minutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1078,7 +1078,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::LastDownloadTime(this) {
                     Ok(ok__) => {
-                        lastdownload.write(core::mem::transmute(ok__));
+                        lastdownload.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1174,7 +1174,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::LastBuildDate(this) {
                     Ok(ok__) => {
-                        lastbuilddate.write(core::mem::transmute(ok__));
+                        lastbuilddate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1186,7 +1186,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::PubDate(this) {
                     Ok(ok__) => {
-                        lastpopulatedate.write(core::mem::transmute(ok__));
+                        lastpopulatedate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::Ttl(this) {
                     Ok(ok__) => {
-                        ttl.write(core::mem::transmute(ok__));
+                        ttl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1234,7 +1234,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::MaxItemCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1252,7 +1252,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::DownloadEnclosuresAutomatically(this) {
                     Ok(ok__) => {
-                        downloadenclosuresautomatically.write(core::mem::transmute(ok__));
+                        downloadenclosuresautomatically.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1270,7 +1270,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::DownloadStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1282,7 +1282,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::LastDownloadError(this) {
                     Ok(ok__) => {
-                        error.write(core::mem::transmute(ok__));
+                        error.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1312,7 +1312,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::IsList(this) {
                     Ok(ok__) => {
-                        islist.write(core::mem::transmute(ok__));
+                        islist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1342,7 +1342,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::UnreadItemCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1354,7 +1354,7 @@ impl IFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed_Impl::ItemCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1500,7 +1500,7 @@ impl IFeed2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeed2_Impl::LastItemDownloadTime(this) {
                     Ok(ok__) => {
-                        lastitemdownloadtime.write(core::mem::transmute(ok__));
+                        lastitemdownloadtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1706,7 +1706,7 @@ impl IFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedEnclosure_Impl::Length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1730,7 +1730,7 @@ impl IFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedEnclosure_Impl::DownloadStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1742,7 +1742,7 @@ impl IFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedEnclosure_Impl::LastDownloadError(this) {
                     Ok(ok__) => {
-                        error.write(core::mem::transmute(ok__));
+                        error.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2178,7 +2178,7 @@ impl IFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedFolder_Impl::ExistsFeed(this, core::mem::transmute(&feedname)) {
                     Ok(ok__) => {
-                        exists.write(core::mem::transmute(ok__));
+                        exists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2202,7 +2202,7 @@ impl IFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedFolder_Impl::ExistsSubfolder(this, core::mem::transmute(&foldername)) {
                     Ok(ok__) => {
-                        exists.write(core::mem::transmute(ok__));
+                        exists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2280,7 +2280,7 @@ impl IFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedFolder_Impl::IsRoot(this) {
                     Ok(ok__) => {
-                        isroot.write(core::mem::transmute(ok__));
+                        isroot.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2292,7 +2292,7 @@ impl IFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedFolder_Impl::TotalUnreadItemCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2304,7 +2304,7 @@ impl IFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedFolder_Impl::TotalItemCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2800,7 +2800,7 @@ impl IFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedItem_Impl::PubDate(this) {
                     Ok(ok__) => {
-                        pubdate.write(core::mem::transmute(ok__));
+                        pubdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2848,7 +2848,7 @@ impl IFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedItem_Impl::IsRead(this) {
                     Ok(ok__) => {
-                        isread.write(core::mem::transmute(ok__));
+                        isread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2866,7 +2866,7 @@ impl IFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedItem_Impl::LocalId(this) {
                     Ok(ok__) => {
-                        itemid.write(core::mem::transmute(ok__));
+                        itemid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2908,7 +2908,7 @@ impl IFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedItem_Impl::LastDownloadTime(this) {
                     Ok(ok__) => {
-                        lastdownload.write(core::mem::transmute(ok__));
+                        lastdownload.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2920,7 +2920,7 @@ impl IFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedItem_Impl::Modified(this) {
                     Ok(ok__) => {
-                        modified.write(core::mem::transmute(ok__));
+                        modified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2993,7 +2993,7 @@ impl IFeedItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedItem2_Impl::EffectiveId(this) {
                     Ok(ok__) => {
-                        effectiveid.write(core::mem::transmute(ok__));
+                        effectiveid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3067,7 +3067,7 @@ impl IFeedsEnum_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsEnum_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3267,7 +3267,7 @@ impl IFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsManager_Impl::IsSubscribed(this, core::mem::transmute(&feedurl)) {
                     Ok(ok__) => {
-                        subscribed.write(core::mem::transmute(ok__));
+                        subscribed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3279,7 +3279,7 @@ impl IFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsManager_Impl::ExistsFeed(this, core::mem::transmute(&feedpath)) {
                     Ok(ok__) => {
-                        exists.write(core::mem::transmute(ok__));
+                        exists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3315,7 +3315,7 @@ impl IFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsManager_Impl::ExistsFolder(this, core::mem::transmute(&folderpath)) {
                     Ok(ok__) => {
-                        exists.write(core::mem::transmute(ok__));
+                        exists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3357,7 +3357,7 @@ impl IFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsManager_Impl::BackgroundSyncStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3369,7 +3369,7 @@ impl IFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsManager_Impl::DefaultInterval(this) {
                     Ok(ok__) => {
-                        minutes.write(core::mem::transmute(ok__));
+                        minutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3405,7 +3405,7 @@ impl IFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFeedsManager_Impl::ItemCountLimit(this) {
                     Ok(ok__) => {
-                        itemcountlimit.write(core::mem::transmute(ok__));
+                        itemcountlimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4234,7 +4234,7 @@ impl IWMPContentContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPContentContainer_Impl::GetID(this) {
                     Ok(ok__) => {
-                        pcontentid.write(core::mem::transmute(ok__));
+                        pcontentid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4270,7 +4270,7 @@ impl IWMPContentContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPContentContainer_Impl::GetContentCount(this) {
                     Ok(ok__) => {
-                        pccontent.write(core::mem::transmute(ok__));
+                        pccontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4294,7 +4294,7 @@ impl IWMPContentContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPContentContainer_Impl::GetContentID(this, core::mem::transmute_copy(&idxcontent)) {
                     Ok(ok__) => {
-                        pcontentid.write(core::mem::transmute(ok__));
+                        pcontentid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4358,7 +4358,7 @@ impl IWMPContentContainerList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPContentContainerList_Impl::GetTransactionType(this) {
                     Ok(ok__) => {
-                        pwmptt.write(core::mem::transmute(ok__));
+                        pwmptt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4370,7 +4370,7 @@ impl IWMPContentContainerList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPContentContainerList_Impl::GetContainerCount(this) {
                     Ok(ok__) => {
-                        pccontainer.write(core::mem::transmute(ok__));
+                        pccontainer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4760,7 +4760,7 @@ impl IWMPContentPartner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMPContentPartner_Impl::CompareContainerListPrices(this, core::mem::transmute_copy(&plistbase), core::mem::transmute_copy(&plistcompare)) {
                     Ok(ok__) => {
-                        presult.write(core::mem::transmute(ok__));
+                        presult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13707,7 +13707,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Name(this) {
                     Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
+                        ppszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13725,7 +13725,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Url(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13743,7 +13743,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::LocalId(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13755,7 +13755,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Path(this) {
                     Ok(ok__) => {
-                        ppszpath.write(core::mem::transmute(ok__));
+                        ppszpath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13779,7 +13779,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::LastWriteTime(this) {
                     Ok(ok__) => {
-                        pstlastwritetime.write(core::mem::transmute(ok__));
+                        pstlastwritetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13815,7 +13815,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::SyncSetting(this) {
                     Ok(ok__) => {
-                        pfss.write(core::mem::transmute(ok__));
+                        pfss.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13833,7 +13833,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Interval(this) {
                     Ok(ok__) => {
-                        puiinterval.write(core::mem::transmute(ok__));
+                        puiinterval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13851,7 +13851,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::LastDownloadTime(this) {
                     Ok(ok__) => {
-                        pstlastdownloadtime.write(core::mem::transmute(ok__));
+                        pstlastdownloadtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13863,7 +13863,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::LocalEnclosurePath(this) {
                     Ok(ok__) => {
-                        ppszpath.write(core::mem::transmute(ok__));
+                        ppszpath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13899,7 +13899,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::MaxItemCount(this) {
                     Ok(ok__) => {
-                        puimaxitemcount.write(core::mem::transmute(ok__));
+                        puimaxitemcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13917,7 +13917,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::DownloadEnclosuresAutomatically(this) {
                     Ok(ok__) => {
-                        pbdownloadenclosuresautomatically.write(core::mem::transmute(ok__));
+                        pbdownloadenclosuresautomatically.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13935,7 +13935,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::DownloadStatus(this) {
                     Ok(ok__) => {
-                        pfds.write(core::mem::transmute(ok__));
+                        pfds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13947,7 +13947,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::LastDownloadError(this) {
                     Ok(ok__) => {
-                        pfde.write(core::mem::transmute(ok__));
+                        pfde.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13965,7 +13965,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::DownloadUrl(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13977,7 +13977,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Title(this) {
                     Ok(ok__) => {
-                        ppsztitle.write(core::mem::transmute(ok__));
+                        ppsztitle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13989,7 +13989,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Description(this) {
                     Ok(ok__) => {
-                        ppszdescription.write(core::mem::transmute(ok__));
+                        ppszdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14001,7 +14001,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Link(this) {
                     Ok(ok__) => {
-                        ppszhomepage.write(core::mem::transmute(ok__));
+                        ppszhomepage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14013,7 +14013,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Image(this) {
                     Ok(ok__) => {
-                        ppszimageurl.write(core::mem::transmute(ok__));
+                        ppszimageurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14025,7 +14025,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::LastBuildDate(this) {
                     Ok(ok__) => {
-                        pstlastbuilddate.write(core::mem::transmute(ok__));
+                        pstlastbuilddate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14037,7 +14037,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::PubDate(this) {
                     Ok(ok__) => {
-                        pstpubdate.write(core::mem::transmute(ok__));
+                        pstpubdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14049,7 +14049,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Ttl(this) {
                     Ok(ok__) => {
-                        puittl.write(core::mem::transmute(ok__));
+                        puittl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14061,7 +14061,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Language(this) {
                     Ok(ok__) => {
-                        ppszlanguage.write(core::mem::transmute(ok__));
+                        ppszlanguage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14073,7 +14073,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::Copyright(this) {
                     Ok(ok__) => {
-                        ppszcopyright.write(core::mem::transmute(ok__));
+                        ppszcopyright.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14085,7 +14085,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::IsList(this) {
                     Ok(ok__) => {
-                        pbislist.write(core::mem::transmute(ok__));
+                        pbislist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14103,7 +14103,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::UnreadItemCount(this) {
                     Ok(ok__) => {
-                        puiunreaditemcount.write(core::mem::transmute(ok__));
+                        puiunreaditemcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14115,7 +14115,7 @@ impl IXFeed_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed_Impl::ItemCount(this) {
                     Ok(ok__) => {
-                        puiitemcount.write(core::mem::transmute(ok__));
+                        puiitemcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14255,7 +14255,7 @@ impl IXFeed2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed2_Impl::LastItemDownloadTime(this) {
                     Ok(ok__) => {
-                        pstlastitemdownloadtime.write(core::mem::transmute(ok__));
+                        pstlastitemdownloadtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14267,7 +14267,7 @@ impl IXFeed2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed2_Impl::Username(this) {
                     Ok(ok__) => {
-                        ppszusername.write(core::mem::transmute(ok__));
+                        ppszusername.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14279,7 +14279,7 @@ impl IXFeed2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeed2_Impl::Password(this) {
                     Ok(ok__) => {
-                        ppszpassword.write(core::mem::transmute(ok__));
+                        ppszpassword.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14431,7 +14431,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::Url(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14443,7 +14443,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::Type(this) {
                     Ok(ok__) => {
-                        ppszmimetype.write(core::mem::transmute(ok__));
+                        ppszmimetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14455,7 +14455,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::Length(this) {
                     Ok(ok__) => {
-                        puilength.write(core::mem::transmute(ok__));
+                        puilength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14479,7 +14479,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::DownloadStatus(this) {
                     Ok(ok__) => {
-                        pfds.write(core::mem::transmute(ok__));
+                        pfds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14491,7 +14491,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::LastDownloadError(this) {
                     Ok(ok__) => {
-                        pfde.write(core::mem::transmute(ok__));
+                        pfde.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14503,7 +14503,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::LocalPath(this) {
                     Ok(ok__) => {
-                        ppszpath.write(core::mem::transmute(ok__));
+                        ppszpath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14521,7 +14521,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::DownloadUrl(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14533,7 +14533,7 @@ impl IXFeedEnclosure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedEnclosure_Impl::DownloadMimeType(this) {
                     Ok(ok__) => {
-                        ppszmimetype.write(core::mem::transmute(ok__));
+                        ppszmimetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14951,7 +14951,7 @@ impl IXFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedFolder_Impl::Name(this) {
                     Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
+                        ppszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14969,7 +14969,7 @@ impl IXFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedFolder_Impl::Path(this) {
                     Ok(ok__) => {
-                        ppszpath.write(core::mem::transmute(ok__));
+                        ppszpath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14993,7 +14993,7 @@ impl IXFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedFolder_Impl::IsRoot(this) {
                     Ok(ok__) => {
-                        pbisrootfeedfolder.write(core::mem::transmute(ok__));
+                        pbisrootfeedfolder.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15011,7 +15011,7 @@ impl IXFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedFolder_Impl::TotalUnreadItemCount(this) {
                     Ok(ok__) => {
-                        puitotalunreaditemcount.write(core::mem::transmute(ok__));
+                        puitotalunreaditemcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15023,7 +15023,7 @@ impl IXFeedFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedFolder_Impl::TotalItemCount(this) {
                     Ok(ok__) => {
-                        puitotalitemcount.write(core::mem::transmute(ok__));
+                        puitotalitemcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15490,7 +15490,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Title(this) {
                     Ok(ok__) => {
-                        ppsztitle.write(core::mem::transmute(ok__));
+                        ppsztitle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15502,7 +15502,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Link(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15514,7 +15514,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Guid(this) {
                     Ok(ok__) => {
-                        ppszguid.write(core::mem::transmute(ok__));
+                        ppszguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15526,7 +15526,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Description(this) {
                     Ok(ok__) => {
-                        ppszdescription.write(core::mem::transmute(ok__));
+                        ppszdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15538,7 +15538,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::PubDate(this) {
                     Ok(ok__) => {
-                        pstpubdate.write(core::mem::transmute(ok__));
+                        pstpubdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15550,7 +15550,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Comments(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15562,7 +15562,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Author(this) {
                     Ok(ok__) => {
-                        ppszauthor.write(core::mem::transmute(ok__));
+                        ppszauthor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15580,7 +15580,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::IsRead(this) {
                     Ok(ok__) => {
-                        pbisread.write(core::mem::transmute(ok__));
+                        pbisread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15598,7 +15598,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::LocalId(this) {
                     Ok(ok__) => {
-                        puiid.write(core::mem::transmute(ok__));
+                        puiid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15622,7 +15622,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::DownloadUrl(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15634,7 +15634,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::LastDownloadTime(this) {
                     Ok(ok__) => {
-                        pstlastdownloadtime.write(core::mem::transmute(ok__));
+                        pstlastdownloadtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15646,7 +15646,7 @@ impl IXFeedItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem_Impl::Modified(this) {
                     Ok(ok__) => {
-                        pstmodifiedtime.write(core::mem::transmute(ok__));
+                        pstmodifiedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15714,7 +15714,7 @@ impl IXFeedItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedItem2_Impl::EffectiveId(this) {
                     Ok(ok__) => {
-                        puieffectiveid.write(core::mem::transmute(ok__));
+                        puieffectiveid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15764,7 +15764,7 @@ impl IXFeedsEnum_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsEnum_Impl::Count(this) {
                     Ok(ok__) => {
-                        puicount.write(core::mem::transmute(ok__));
+                        puicount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15952,7 +15952,7 @@ impl IXFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::IsSubscribed(this, core::mem::transmute(&pszurl)) {
                     Ok(ok__) => {
-                        pbsubscribed.write(core::mem::transmute(ok__));
+                        pbsubscribed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15964,7 +15964,7 @@ impl IXFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::ExistsFeed(this, core::mem::transmute(&pszpath)) {
                     Ok(ok__) => {
-                        pbfeedexists.write(core::mem::transmute(ok__));
+                        pbfeedexists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15988,7 +15988,7 @@ impl IXFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::ExistsFolder(this, core::mem::transmute(&pszpath)) {
                     Ok(ok__) => {
-                        pbfolderexists.write(core::mem::transmute(ok__));
+                        pbfolderexists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16024,7 +16024,7 @@ impl IXFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::BackgroundSyncStatus(this) {
                     Ok(ok__) => {
-                        pfbss.write(core::mem::transmute(ok__));
+                        pfbss.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16036,7 +16036,7 @@ impl IXFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::DefaultInterval(this) {
                     Ok(ok__) => {
-                        puiinterval.write(core::mem::transmute(ok__));
+                        puiinterval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16072,7 +16072,7 @@ impl IXFeedsManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXFeedsManager_Impl::ItemCountLimit(this) {
                     Ok(ok__) => {
-                        puiitemcountlimit.write(core::mem::transmute(ok__));
+                        puiitemcountlimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

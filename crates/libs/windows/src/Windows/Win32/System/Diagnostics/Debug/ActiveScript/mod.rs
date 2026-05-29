@@ -387,7 +387,7 @@ impl IActiveScript_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScript_Impl::GetScriptState(this) {
                     Ok(ok__) => {
-                        pssstate.write(core::mem::transmute(ok__));
+                        pssstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IActiveScript_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScript_Impl::GetCurrentScriptThreadID(this) {
                     Ok(ok__) => {
-                        pstidthread.write(core::mem::transmute(ok__));
+                        pstidthread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -441,7 +441,7 @@ impl IActiveScript_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScript_Impl::GetScriptThreadID(this, core::mem::transmute_copy(&dwwin32threadid)) {
                     Ok(ok__) => {
-                        pstidthread.write(core::mem::transmute(ok__));
+                        pstidthread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl IActiveScript_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScript_Impl::GetScriptThreadState(this, core::mem::transmute_copy(&stidthread)) {
                     Ok(ok__) => {
-                        pstsstate.write(core::mem::transmute(ok__));
+                        pstsstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -693,7 +693,7 @@ impl IActiveScriptAuthor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptAuthor_Impl::GetLanguageFlags(this) {
                     Ok(ok__) => {
-                        pgrfasa.write(core::mem::transmute(ok__));
+                        pgrfasa.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl IActiveScriptAuthor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptAuthor_Impl::IsCommitChar(this, core::mem::transmute_copy(&ch)) {
                     Ok(ok__) => {
-                        pfcommit.write(core::mem::transmute(ok__));
+                        pfcommit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1257,7 +1257,7 @@ impl IActiveScriptErrorDebug110_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptErrorDebug110_Impl::GetExceptionThrownKind(this) {
                     Ok(ok__) => {
-                        pexceptionkind.write(core::mem::transmute(ok__));
+                        pexceptionkind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2367,7 +2367,7 @@ impl IActiveScriptSIPInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptSIPInfo_Impl::GetSIPOID(this) {
                     Ok(ok__) => {
-                        poid_sip.write(core::mem::transmute(ok__));
+                        poid_sip.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2461,7 +2461,7 @@ impl IActiveScriptSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptSite_Impl::GetLCID(this) {
                     Ok(ok__) => {
-                        plcid.write(core::mem::transmute(ok__));
+                        plcid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2763,7 +2763,7 @@ impl IActiveScriptSiteDebugEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptSiteDebugEx_Impl::OnCanNotJITScriptErrorDebug(this, core::mem::transmute_copy(&perrordebug)) {
                     Ok(ok__) => {
-                        pfcallonscripterrorwhencontinuing.write(core::mem::transmute(ok__));
+                        pfcallonscripterrorwhencontinuing.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2865,7 +2865,7 @@ impl IActiveScriptSiteUIControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptSiteUIControl_Impl::GetUIBehavior(this, core::mem::transmute_copy(&uicitem)) {
                     Ok(ok__) => {
-                        puichandling.write(core::mem::transmute(ok__));
+                        puichandling.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2910,7 +2910,7 @@ impl IActiveScriptSiteWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptSiteWindow_Impl::GetWindow(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3018,7 +3018,7 @@ impl IActiveScriptStringCompare_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActiveScriptStringCompare_Impl::StrComp(this, core::mem::transmute(&bszstr1), core::mem::transmute(&bszstr2)) {
                     Ok(ok__) => {
-                        iret.write(core::mem::transmute(ok__));
+                        iret.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3445,7 +3445,7 @@ impl IDebugApplication11032_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication11032_Impl::CallableWaitForHandles(this, core::mem::transmute_copy(&handlecount), core::mem::transmute_copy(&phandles)) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3524,7 +3524,7 @@ impl IDebugApplication11064_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication11064_Impl::CallableWaitForHandles(this, core::mem::transmute_copy(&handlecount), core::mem::transmute_copy(&phandles)) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3734,7 +3734,7 @@ impl IDebugApplication32_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication32_Impl::HandleBreakPoint(this, core::mem::transmute_copy(&br)) {
                     Ok(ok__) => {
-                        pbra.write(core::mem::transmute(ok__));
+                        pbra.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3782,7 +3782,7 @@ impl IDebugApplication32_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication32_Impl::AddStackFrameSniffer(this, core::mem::transmute_copy(&pdsfs)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3848,7 +3848,7 @@ impl IDebugApplication32_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication32_Impl::AddGlobalExpressionContextProvider(this, core::mem::transmute_copy(&pdsfs)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4081,7 +4081,7 @@ impl IDebugApplication64_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication64_Impl::HandleBreakPoint(this, core::mem::transmute_copy(&br)) {
                     Ok(ok__) => {
-                        pbra.write(core::mem::transmute(ok__));
+                        pbra.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4129,7 +4129,7 @@ impl IDebugApplication64_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication64_Impl::AddStackFrameSniffer(this, core::mem::transmute_copy(&pdsfs)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4195,7 +4195,7 @@ impl IDebugApplication64_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplication64_Impl::AddGlobalExpressionContextProvider(this, core::mem::transmute_copy(&pdsfs)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4406,7 +4406,7 @@ impl IDebugApplicationNode100_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationNode100_Impl::GetExcludedDocuments(this, core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
-                        pdocuments.write(core::mem::transmute(ok__));
+                        pdocuments.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4657,7 +4657,7 @@ impl IDebugApplicationThread11032_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationThread11032_Impl::GetActiveThreadRequestCount(this) {
                     Ok(ok__) => {
-                        puithreadrequests.write(core::mem::transmute(ok__));
+                        puithreadrequests.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4669,7 +4669,7 @@ impl IDebugApplicationThread11032_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationThread11032_Impl::IsSuspendedForBreakPoint(this) {
                     Ok(ok__) => {
-                        pfissuspended.write(core::mem::transmute(ok__));
+                        pfissuspended.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4681,7 +4681,7 @@ impl IDebugApplicationThread11032_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationThread11032_Impl::IsThreadCallable(this) {
                     Ok(ok__) => {
-                        pfiscallable.write(core::mem::transmute(ok__));
+                        pfiscallable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4757,7 +4757,7 @@ impl IDebugApplicationThread11064_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationThread11064_Impl::GetActiveThreadRequestCount(this) {
                     Ok(ok__) => {
-                        puithreadrequests.write(core::mem::transmute(ok__));
+                        puithreadrequests.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4769,7 +4769,7 @@ impl IDebugApplicationThread11064_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationThread11064_Impl::IsSuspendedForBreakPoint(this) {
                     Ok(ok__) => {
-                        pfissuspended.write(core::mem::transmute(ok__));
+                        pfissuspended.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4781,7 +4781,7 @@ impl IDebugApplicationThread11064_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugApplicationThread11064_Impl::IsThreadCallable(this) {
                     Ok(ok__) => {
-                        pfiscallable.write(core::mem::transmute(ok__));
+                        pfiscallable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5403,7 +5403,7 @@ impl IDebugDocumentHelper32_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugDocumentHelper32_Impl::DefineScriptBlock(this, core::mem::transmute_copy(&ulcharoffset), core::mem::transmute_copy(&cchars), core::mem::transmute_copy(&pas), core::mem::transmute_copy(&fscriptlet)) {
                     Ok(ok__) => {
-                        pdwsourcecontext.write(core::mem::transmute(ok__));
+                        pdwsourcecontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5697,7 +5697,7 @@ impl IDebugDocumentHelper64_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugDocumentHelper64_Impl::DefineScriptBlock(this, core::mem::transmute_copy(&ulcharoffset), core::mem::transmute_copy(&cchars), core::mem::transmute_copy(&pas), core::mem::transmute_copy(&fscriptlet)) {
                     Ok(ok__) => {
-                        pdwsourcecontext.write(core::mem::transmute(ok__));
+                        pdwsourcecontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5965,7 +5965,7 @@ impl IDebugDocumentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugDocumentInfo_Impl::GetDocumentClassId(this) {
                     Ok(ok__) => {
-                        pclsiddocument.write(core::mem::transmute(ok__));
+                        pclsiddocument.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6100,7 +6100,7 @@ impl IDebugDocumentText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugDocumentText_Impl::GetDocumentAttributes(this) {
                     Ok(ok__) => {
-                        ptextdocattr.write(core::mem::transmute(ok__));
+                        ptextdocattr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6118,7 +6118,7 @@ impl IDebugDocumentText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugDocumentText_Impl::GetPositionOfLine(this, core::mem::transmute_copy(&clinenumber)) {
                     Ok(ok__) => {
-                        pccharacterposition.write(core::mem::transmute(ok__));
+                        pccharacterposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6987,7 +6987,7 @@ impl IDebugStackFrame110_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugStackFrame110_Impl::GetStackFrameType(this) {
                     Ok(ok__) => {
-                        pstackframekind.write(core::mem::transmute(ok__));
+                        pstackframekind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7929,7 +7929,7 @@ impl IJsDebugBreakPoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsDebugBreakPoint_Impl::IsEnabled(this) {
                     Ok(ok__) => {
-                        pisenabled.write(core::mem::transmute(ok__));
+                        pisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8064,7 +8064,7 @@ impl IJsDebugDataTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsDebugDataTarget_Impl::AllocateVirtualMemory(this, core::mem::transmute_copy(&address), core::mem::transmute_copy(&size), core::mem::transmute_copy(&allocationtype), core::mem::transmute_copy(&pageprotection)) {
                     Ok(ok__) => {
-                        pallocatedaddress.write(core::mem::transmute(ok__));
+                        pallocatedaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8082,7 +8082,7 @@ impl IJsDebugDataTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsDebugDataTarget_Impl::GetTlsValue(this, core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&tlsindex)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8256,7 +8256,7 @@ impl IJsDebugFrame_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsDebugFrame_Impl::GetReturnAddress(this) {
                     Ok(ok__) => {
-                        preturnaddress.write(core::mem::transmute(ok__));
+                        preturnaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8362,7 +8362,7 @@ impl IJsDebugProcess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsDebugProcess_Impl::GetExternalStepAddress(this) {
                     Ok(ok__) => {
-                        pcodeaddress.write(core::mem::transmute(ok__));
+                        pcodeaddress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8514,7 +8514,7 @@ impl IJsEnumDebugProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsEnumDebugProperty_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8570,7 +8570,7 @@ impl IMachineDebugManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMachineDebugManager_Impl::AddApplication(this, core::mem::transmute_copy(&pda)) {
                     Ok(ok__) => {
-                        pdwappcookie.write(core::mem::transmute(ok__));
+                        pdwappcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8649,7 +8649,7 @@ impl IMachineDebugManagerCookie_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMachineDebugManagerCookie_Impl::AddApplication(this, core::mem::transmute_copy(&pda), core::mem::transmute_copy(&dwdebugappcookie)) {
                     Ok(ok__) => {
-                        pdwappcookie.write(core::mem::transmute(ok__));
+                        pdwappcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8823,7 +8823,7 @@ impl IProcessDebugManager32_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProcessDebugManager32_Impl::AddApplication(this, core::mem::transmute_copy(&pda)) {
                     Ok(ok__) => {
-                        pdwappcookie.write(core::mem::transmute(ok__));
+                        pdwappcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8947,7 +8947,7 @@ impl IProcessDebugManager64_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProcessDebugManager64_Impl::AddApplication(this, core::mem::transmute_copy(&pda)) {
                     Ok(ok__) => {
-                        pdwappcookie.write(core::mem::transmute(ok__));
+                        pdwappcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9288,7 +9288,7 @@ impl IRemoteDebugApplication110_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDebugApplication110_Impl::GetCurrentDebuggerOptions(this) {
                     Ok(ok__) => {
-                        pcurrentoptions.write(core::mem::transmute(ok__));
+                        pcurrentoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9573,7 +9573,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDebugApplicationThread_Impl::GetSystemThreadId(this) {
                     Ok(ok__) => {
-                        dwthreadid.write(core::mem::transmute(ok__));
+                        dwthreadid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9621,7 +9621,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDebugApplicationThread_Impl::GetState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9633,7 +9633,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDebugApplicationThread_Impl::Suspend(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9645,7 +9645,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDebugApplicationThread_Impl::Resume(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9657,7 +9657,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDebugApplicationThread_Impl::GetSuspendCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10008,7 +10008,7 @@ impl IScriptInvocationContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScriptInvocationContext_Impl::GetContextType(this) {
                     Ok(ok__) => {
-                        pinvocationcontexttype.write(core::mem::transmute(ok__));
+                        pinvocationcontexttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10182,7 +10182,7 @@ impl IScriptNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScriptNode_Impl::GetIndexInParent(this) {
                     Ok(ok__) => {
-                        pisn.write(core::mem::transmute(ok__));
+                        pisn.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10194,7 +10194,7 @@ impl IScriptNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScriptNode_Impl::GetCookie(this) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10206,7 +10206,7 @@ impl IScriptNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScriptNode_Impl::GetNumberOfChildren(this) {
                     Ok(ok__) => {
-                        pcsn.write(core::mem::transmute(ok__));
+                        pcsn.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10473,7 +10473,7 @@ impl ISimpleConnectionPoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimpleConnectionPoint_Impl::GetEventCount(this) {
                     Ok(ok__) => {
-                        pulcount.write(core::mem::transmute(ok__));
+                        pulcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10491,7 +10491,7 @@ impl ISimpleConnectionPoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimpleConnectionPoint_Impl::Advise(this, core::mem::transmute_copy(&pdisp)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10624,7 +10624,7 @@ impl IWebAppDiagnosticsSetup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebAppDiagnosticsSetup_Impl::DiagnosticsSupported(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

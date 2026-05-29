@@ -1073,7 +1073,7 @@ impl ICivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICivicAddressReport_Impl::GetDetailLevel(this) {
                     Ok(ok__) => {
-                        pdetaillevel.write(core::mem::transmute(ok__));
+                        pdetaillevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1376,7 +1376,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::DetailLevel(this) {
                     Ok(ok__) => {
-                        pdetaillevel.write(core::mem::transmute(ok__));
+                        pdetaillevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1388,7 +1388,7 @@ impl IDispCivicAddressReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispCivicAddressReport_Impl::Timestamp(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1492,7 +1492,7 @@ impl IDispLatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispLatLongReport_Impl::Latitude(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1504,7 +1504,7 @@ impl IDispLatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispLatLongReport_Impl::Longitude(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1516,7 +1516,7 @@ impl IDispLatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispLatLongReport_Impl::ErrorRadius(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1528,7 +1528,7 @@ impl IDispLatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispLatLongReport_Impl::Altitude(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1540,7 +1540,7 @@ impl IDispLatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispLatLongReport_Impl::AltitudeError(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1552,7 +1552,7 @@ impl IDispLatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispLatLongReport_Impl::Timestamp(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1641,7 +1641,7 @@ impl ILatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILatLongReport_Impl::GetLatitude(this) {
                     Ok(ok__) => {
-                        platitude.write(core::mem::transmute(ok__));
+                        platitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl ILatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILatLongReport_Impl::GetLongitude(this) {
                     Ok(ok__) => {
-                        plongitude.write(core::mem::transmute(ok__));
+                        plongitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1665,7 +1665,7 @@ impl ILatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILatLongReport_Impl::GetErrorRadius(this) {
                     Ok(ok__) => {
-                        perrorradius.write(core::mem::transmute(ok__));
+                        perrorradius.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1677,7 +1677,7 @@ impl ILatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILatLongReport_Impl::GetAltitude(this) {
                     Ok(ok__) => {
-                        paltitude.write(core::mem::transmute(ok__));
+                        paltitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1689,7 +1689,7 @@ impl ILatLongReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILatLongReport_Impl::GetAltitudeError(this) {
                     Ok(ok__) => {
-                        paltitudeerror.write(core::mem::transmute(ok__));
+                        paltitudeerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1877,7 +1877,7 @@ impl ILocation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocation_Impl::GetReportStatus(this, core::mem::transmute_copy(&reporttype)) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1889,7 +1889,7 @@ impl ILocation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocation_Impl::GetReportInterval(this, core::mem::transmute_copy(&reporttype)) {
                     Ok(ok__) => {
-                        pmilliseconds.write(core::mem::transmute(ok__));
+                        pmilliseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1907,7 +1907,7 @@ impl ILocation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocation_Impl::GetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype)) {
                     Ok(ok__) => {
-                        pdesiredaccuracy.write(core::mem::transmute(ok__));
+                        pdesiredaccuracy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2084,7 +2084,7 @@ impl ILocationReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationReport_Impl::GetSensorID(this) {
                     Ok(ok__) => {
-                        psensorid.write(core::mem::transmute(ok__));
+                        psensorid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2096,7 +2096,7 @@ impl ILocationReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationReport_Impl::GetTimestamp(this) {
                     Ok(ok__) => {
-                        pcreationtime.write(core::mem::transmute(ok__));
+                        pcreationtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2220,7 +2220,7 @@ impl ILocationReportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationReportFactory_Impl::Status(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2232,7 +2232,7 @@ impl ILocationReportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationReportFactory_Impl::ReportInterval(this) {
                     Ok(ok__) => {
-                        pmilliseconds.write(core::mem::transmute(ok__));
+                        pmilliseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2250,7 +2250,7 @@ impl ILocationReportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationReportFactory_Impl::DesiredAccuracy(this) {
                     Ok(ok__) => {
-                        pdesiredaccuracy.write(core::mem::transmute(ok__));
+                        pdesiredaccuracy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

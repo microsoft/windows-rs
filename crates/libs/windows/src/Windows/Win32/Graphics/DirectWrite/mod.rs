@@ -1758,7 +1758,7 @@ impl IDWriteBitmapRenderTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteBitmapRenderTarget_Impl::GetSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1882,7 +1882,7 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteBitmapRenderTarget2_Impl::GetBitmapData(this) {
                     Ok(ok__) => {
-                        bitmapdata.write(core::mem::transmute(ok__));
+                        bitmapdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2005,7 +2005,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteColorGlyphRunEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasrun.write(core::mem::transmute(ok__));
+                        hasrun.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2017,7 +2017,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteColorGlyphRunEnumerator_Impl::GetCurrentRun(this) {
                     Ok(ok__) => {
-                        colorglyphrun.write(core::mem::transmute(ok__));
+                        colorglyphrun.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2069,7 +2069,7 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteColorGlyphRunEnumerator1_Impl::GetCurrentRun(this) {
                     Ok(ok__) => {
-                        colorglyphrun.write(core::mem::transmute(ok__));
+                        colorglyphrun.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3038,7 +3038,7 @@ impl IDWriteFactory4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFactory4_Impl::ComputeGlyphOrigins(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute(&baselineorigin)) {
                     Ok(ok__) => {
-                        glyphorigins.write(core::mem::transmute(ok__));
+                        glyphorigins.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl IDWriteFactory4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFactory4_Impl::ComputeGlyphOrigins2(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&worldanddpitransform)) {
                     Ok(ok__) => {
-                        glyphorigins.write(core::mem::transmute(ok__));
+                        glyphorigins.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3678,7 +3678,7 @@ impl IDWriteFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFont_Impl::HasCharacter(this, core::mem::transmute_copy(&unicodevalue)) {
                     Ok(ok__) => {
-                        exists.write(core::mem::transmute(ok__));
+                        exists.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4409,7 +4409,7 @@ impl IDWriteFontDownloadQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontDownloadQueue_Impl::AddListener(this, core::mem::transmute_copy(&listener)) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4647,7 +4647,7 @@ impl IDWriteFontFace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFace_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&renderingparams)) {
                     Ok(ok__) => {
-                        renderingmode.write(core::mem::transmute(ok__));
+                        renderingmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4842,7 +4842,7 @@ impl IDWriteFontFace1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFace1_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode)) {
                     Ok(ok__) => {
-                        renderingmode.write(core::mem::transmute(ok__));
+                        renderingmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5189,7 +5189,7 @@ impl IDWriteFontFace3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFace3_Impl::AreCharactersLocal(this, core::mem::transmute(&characters), core::mem::transmute_copy(&charactercount), core::mem::transmute_copy(&enqueueifnotlocal)) {
                     Ok(ok__) => {
-                        islocal.write(core::mem::transmute(ok__));
+                        islocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5201,7 +5201,7 @@ impl IDWriteFontFace3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFace3_Impl::AreGlyphsLocal(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&enqueueifnotlocal)) {
                     Ok(ok__) => {
-                        islocal.write(core::mem::transmute(ok__));
+                        islocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5289,7 +5289,7 @@ impl IDWriteFontFace4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFace4_Impl::GetGlyphImageFormats(this, core::mem::transmute_copy(&glyphid), core::mem::transmute_copy(&pixelsperemfirst), core::mem::transmute_copy(&pixelsperemlast)) {
                     Ok(ok__) => {
-                        glyphimageformats.write(core::mem::transmute(ok__));
+                        glyphimageformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5745,7 +5745,7 @@ impl IDWriteFontFaceReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFaceReference_Impl::GetFileTime(this) {
                     Ok(ok__) => {
-                        lastwritetime.write(core::mem::transmute(ok__));
+                        lastwritetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6393,7 +6393,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFileEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hascurrentfile.write(core::mem::transmute(ok__));
+                        hascurrentfile.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6525,7 +6525,7 @@ impl IDWriteFontFileStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFileStream_Impl::GetFileSize(this) {
                     Ok(ok__) => {
-                        filesize.write(core::mem::transmute(ok__));
+                        filesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6537,7 +6537,7 @@ impl IDWriteFontFileStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontFileStream_Impl::GetLastWriteTime(this) {
                     Ok(ok__) => {
-                        lastwritetime.write(core::mem::transmute(ok__));
+                        lastwritetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7131,7 +7131,7 @@ impl IDWriteFontSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteFontSet_Impl::GetPropertyOccurrenceCount(this, core::mem::transmute_copy(&property)) {
                     Ok(ok__) => {
-                        propertyoccurrencecount.write(core::mem::transmute(ok__));
+                        propertyoccurrencecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8110,7 +8110,7 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteGlyphRunAnalysis_Impl::GetAlphaTextureBounds(this, core::mem::transmute_copy(&texturetype)) {
                     Ok(ok__) => {
-                        texturebounds.write(core::mem::transmute(ok__));
+                        texturebounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8264,7 +8264,7 @@ impl IDWriteInlineObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteInlineObject_Impl::GetMetrics(this) {
                     Ok(ok__) => {
-                        metrics.write(core::mem::transmute(ok__));
+                        metrics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8276,7 +8276,7 @@ impl IDWriteInlineObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteInlineObject_Impl::GetOverhangMetrics(this) {
                     Ok(ok__) => {
-                        overhangs.write(core::mem::transmute(ok__));
+                        overhangs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8349,7 +8349,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteLocalFontFileLoader_Impl::GetFilePathLengthFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                     Ok(ok__) => {
-                        filepathlength.write(core::mem::transmute(ok__));
+                        filepathlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8367,7 +8367,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteLocalFontFileLoader_Impl::GetLastWriteTimeFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                     Ok(ok__) => {
-                        lastwritetime.write(core::mem::transmute(ok__));
+                        lastwritetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8457,7 +8457,7 @@ impl IDWriteLocalizedStrings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteLocalizedStrings_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8475,7 +8475,7 @@ impl IDWriteLocalizedStrings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteLocalizedStrings_Impl::GetStringLength(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8714,7 +8714,7 @@ impl IDWritePixelSnapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWritePixelSnapping_Impl::IsPixelSnappingDisabled(this, core::mem::transmute_copy(&clientdrawingcontext)) {
                     Ok(ok__) => {
-                        isdisabled.write(core::mem::transmute(ok__));
+                        isdisabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8732,7 +8732,7 @@ impl IDWritePixelSnapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWritePixelSnapping_Impl::GetPixelsPerDip(this, core::mem::transmute_copy(&clientdrawingcontext)) {
                     Ok(ok__) => {
-                        pixelsperdip.write(core::mem::transmute(ok__));
+                        pixelsperdip.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8818,7 +8818,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteRemoteFontFileLoader_Impl::GetLocalityFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                     Ok(ok__) => {
-                        locality.write(core::mem::transmute(ok__));
+                        locality.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8901,7 +8901,7 @@ impl IDWriteRemoteFontFileStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteRemoteFontFileStream_Impl::GetLocalFileSize(this) {
                     Ok(ok__) => {
-                        localfilesize.write(core::mem::transmute(ok__));
+                        localfilesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9203,7 +9203,7 @@ impl IDWriteStringList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteStringList_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&listindex)) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9221,7 +9221,7 @@ impl IDWriteStringList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteStringList_Impl::GetStringLength(this, core::mem::transmute_copy(&listindex)) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11068,7 +11068,7 @@ impl IDWriteTextLayout_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteTextLayout_Impl::GetOverhangMetrics(this) {
                     Ok(ok__) => {
-                        overhangs.write(core::mem::transmute(ok__));
+                        overhangs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11086,7 +11086,7 @@ impl IDWriteTextLayout_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteTextLayout_Impl::DetermineMinWidth(this) {
                     Ok(ok__) => {
-                        minwidth.write(core::mem::transmute(ok__));
+                        minwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11787,7 +11787,7 @@ impl IDWriteTypography_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDWriteTypography_Impl::GetFontFeature(this, core::mem::transmute_copy(&fontfeatureindex)) {
                     Ok(ok__) => {
-                        fontfeature.write(core::mem::transmute(ok__));
+                        fontfeature.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

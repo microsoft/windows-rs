@@ -118,7 +118,7 @@ impl IRendezvousSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRendezvousSession_Impl::State(this) {
                     Ok(ok__) => {
-                        psessionstate.write(core::mem::transmute(ok__));
+                        psessionstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -142,7 +142,7 @@ impl IRendezvousSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRendezvousSession_Impl::Flags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -13,6 +13,7 @@ impl windows_core::TypeKind for AccessCacheOptions {
 }
 impl windows_core::RuntimeType for AccessCacheOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.AccessCacheOptions");
 }
 impl AccessCacheOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -58,6 +59,7 @@ impl windows_core::TypeKind for AccessListEntry {
 }
 impl windows_core::RuntimeType for AccessListEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.AccessListEntry");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -124,6 +126,7 @@ impl IntoIterator for &AccessListEntryView {
 windows_core::imp::define_interface!(IItemRemovedEventArgs, IItemRemovedEventArgs_Vtbl, 0x59677e5c_55be_4c66_ba66_5eaea79d2631);
 impl windows_core::RuntimeType for IItemRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IItemRemovedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,6 +137,7 @@ pub struct IItemRemovedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics, IStorageApplicationPermissionsStatics_Vtbl, 0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
 impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -145,6 +149,7 @@ pub struct IStorageApplicationPermissionsStatics_Vtbl {
 windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics2, IStorageApplicationPermissionsStatics2_Vtbl, 0x072716ec_aa05_4294_9a11_1a3d04519ad0);
 impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -162,6 +167,7 @@ pub struct IStorageApplicationPermissionsStatics2_Vtbl {
 windows_core::imp::define_interface!(IStorageItemAccessList, IStorageItemAccessList_Vtbl, 0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
 impl windows_core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageItemAccessList");
 }
 windows_core::imp::interface_hierarchy!(IStorageItemAccessList, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItemAccessList {
@@ -532,6 +538,7 @@ pub struct IStorageItemAccessList_Vtbl {
 windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList, IStorageItemMostRecentlyUsedList_Vtbl, 0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -543,6 +550,7 @@ pub struct IStorageItemMostRecentlyUsedList_Vtbl {
 windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList2, IStorageItemMostRecentlyUsedList2_Vtbl, 0xda481ea0_ed8d_4731_a1db_e44ee2204093);
 impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -585,6 +593,7 @@ impl windows_core::TypeKind for RecentStorageItemVisibility {
 }
 impl windows_core::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.AccessCache.RecentStorageItemVisibility");
 }
 pub struct StorageApplicationPermissions;
 impl StorageApplicationPermissions {

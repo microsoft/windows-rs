@@ -48,7 +48,7 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(self).Template)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Format(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Format(&self, value: windows_time::DateTime) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), value, &mut result__).map(|| core::mem::transmute(result__))
@@ -108,7 +108,7 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(self).ResolvedGeographicRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FormatUsingTimeZone(&self, datetime: super::super::Foundation::DateTime, timezoneid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FormatUsingTimeZone(&self, datetime: windows_time::DateTime, timezoneid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDateTimeFormatter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -226,6 +226,7 @@ impl windows_core::TypeKind for DayFormat {
 }
 impl windows_core::RuntimeType for DayFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.DayFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -241,6 +242,7 @@ impl windows_core::TypeKind for DayOfWeekFormat {
 }
 impl windows_core::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.DayOfWeekFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -254,10 +256,12 @@ impl windows_core::TypeKind for HourFormat {
 }
 impl windows_core::RuntimeType for HourFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.HourFormat");
 }
 windows_core::imp::define_interface!(IDateTimeFormatter, IDateTimeFormatter_Vtbl, 0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 impl windows_core::RuntimeType for IDateTimeFormatter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -271,7 +275,7 @@ pub struct IDateTimeFormatter_Vtbl {
     pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Patterns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IncludeYear: unsafe extern "system" fn(*mut core::ffi::c_void, *mut YearFormat) -> windows_core::HRESULT,
     pub IncludeMonth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MonthFormat) -> windows_core::HRESULT,
     pub IncludeDayOfWeek: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DayOfWeekFormat) -> windows_core::HRESULT,
@@ -285,16 +289,18 @@ pub struct IDateTimeFormatter_Vtbl {
 windows_core::imp::define_interface!(IDateTimeFormatter2, IDateTimeFormatter2_Vtbl, 0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
 impl windows_core::RuntimeType for IDateTimeFormatter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2");
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDateTimeFormatterFactory, IDateTimeFormatterFactory_Vtbl, 0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
 impl windows_core::RuntimeType for IDateTimeFormatterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,6 +317,7 @@ pub struct IDateTimeFormatterFactory_Vtbl {
 windows_core::imp::define_interface!(IDateTimeFormatterStatics, IDateTimeFormatterStatics_Vtbl, 0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
 impl windows_core::RuntimeType for IDateTimeFormatterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -333,6 +340,7 @@ impl windows_core::TypeKind for MinuteFormat {
 }
 impl windows_core::RuntimeType for MinuteFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.MinuteFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -349,6 +357,7 @@ impl windows_core::TypeKind for MonthFormat {
 }
 impl windows_core::RuntimeType for MonthFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.MonthFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -362,6 +371,7 @@ impl windows_core::TypeKind for SecondFormat {
 }
 impl windows_core::RuntimeType for SecondFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.SecondFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -377,4 +387,5 @@ impl windows_core::TypeKind for YearFormat {
 }
 impl windows_core::RuntimeType for YearFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Globalization.DateTimeFormatting.YearFormat");
 }

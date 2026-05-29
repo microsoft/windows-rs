@@ -301,7 +301,7 @@ impl IGameExplorer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameExplorer_Impl::VerifyAccess(this, core::mem::transmute(&bstrgdfbinarypath)) {
                     Ok(ok__) => {
-                        pfhasaccess.write(core::mem::transmute(ok__));
+                        pfhasaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -379,7 +379,7 @@ impl IGameExplorer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameExplorer2_Impl::CheckAccess(this, core::mem::transmute(&binarygdfpath)) {
                     Ok(ok__) => {
-                        phasaccess.write(core::mem::transmute(ok__));
+                        phasaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -504,7 +504,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxCategoryLength(this) {
                     Ok(ok__) => {
-                        cch.write(core::mem::transmute(ok__));
+                        cch.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -516,7 +516,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxNameLength(this) {
                     Ok(ok__) => {
-                        cch.write(core::mem::transmute(ok__));
+                        cch.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxValueLength(this) {
                     Ok(ok__) => {
-                        cch.write(core::mem::transmute(ok__));
+                        cch.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxCategories(this) {
                     Ok(ok__) => {
-                        pmax.write(core::mem::transmute(ok__));
+                        pmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -552,7 +552,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxStatsPerCategory(this) {
                     Ok(ok__) => {
-                        pmax.write(core::mem::transmute(ok__));
+                        pmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -570,7 +570,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetCategoryTitle(this, core::mem::transmute_copy(&categoryindex)) {
                     Ok(ok__) => {
-                        ptitle.write(core::mem::transmute(ok__));
+                        ptitle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -606,7 +606,7 @@ impl IGameStatistics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetLastPlayedCategory(this) {
                     Ok(ok__) => {
-                        pcategoryindex.write(core::mem::transmute(ok__));
+                        pcategoryindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -778,7 +778,7 @@ impl IXblIdpAuthManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthManager_Impl::GetEnvironment(this) {
                     Ok(ok__) => {
-                        environment.write(core::mem::transmute(ok__));
+                        environment.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -790,7 +790,7 @@ impl IXblIdpAuthManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthManager_Impl::GetSandbox(this) {
                     Ok(ok__) => {
-                        sandbox.write(core::mem::transmute(ok__));
+                        sandbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1053,7 +1053,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetErrorCode(this) {
                     Ok(ok__) => {
-                        errorcode.write(core::mem::transmute(ok__));
+                        errorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1077,7 +1077,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetToken(this) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1089,7 +1089,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetSignature(this) {
                     Ok(ok__) => {
-                        signature.write(core::mem::transmute(ok__));
+                        signature.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetSandbox(this) {
                     Ok(ok__) => {
-                        sandbox.write(core::mem::transmute(ok__));
+                        sandbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1113,7 +1113,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetEnvironment(this) {
                     Ok(ok__) => {
-                        environment.write(core::mem::transmute(ok__));
+                        environment.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1125,7 +1125,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetMsaAccountId(this) {
                     Ok(ok__) => {
-                        msaaccountid.write(core::mem::transmute(ok__));
+                        msaaccountid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1137,7 +1137,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetXuid(this) {
                     Ok(ok__) => {
-                        xuid.write(core::mem::transmute(ok__));
+                        xuid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1149,7 +1149,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetGamertag(this) {
                     Ok(ok__) => {
-                        gamertag.write(core::mem::transmute(ok__));
+                        gamertag.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1161,7 +1161,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetAgeGroup(this) {
                     Ok(ok__) => {
-                        agegroup.write(core::mem::transmute(ok__));
+                        agegroup.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1173,7 +1173,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetPrivileges(this) {
                     Ok(ok__) => {
-                        privileges.write(core::mem::transmute(ok__));
+                        privileges.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1185,7 +1185,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetMsaTarget(this) {
                     Ok(ok__) => {
-                        msatarget.write(core::mem::transmute(ok__));
+                        msatarget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1197,7 +1197,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetMsaPolicy(this) {
                     Ok(ok__) => {
-                        msapolicy.write(core::mem::transmute(ok__));
+                        msapolicy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1209,7 +1209,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetMsaAppId(this) {
                     Ok(ok__) => {
-                        msaappid.write(core::mem::transmute(ok__));
+                        msaappid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1221,7 +1221,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetRedirect(this) {
                     Ok(ok__) => {
-                        redirect.write(core::mem::transmute(ok__));
+                        redirect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1233,7 +1233,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetMessage(this) {
                     Ok(ok__) => {
-                        message.write(core::mem::transmute(ok__));
+                        message.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1245,7 +1245,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetHelpId(this) {
                     Ok(ok__) => {
-                        helpid.write(core::mem::transmute(ok__));
+                        helpid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1257,7 +1257,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetEnforcementBans(this) {
                     Ok(ok__) => {
-                        enforcementbans.write(core::mem::transmute(ok__));
+                        enforcementbans.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1269,7 +1269,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetRestrictions(this) {
                     Ok(ok__) => {
-                        restrictions.write(core::mem::transmute(ok__));
+                        restrictions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1281,7 +1281,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult_Impl::GetTitleRestrictions(this) {
                     Ok(ok__) => {
-                        titlerestrictions.write(core::mem::transmute(ok__));
+                        titlerestrictions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1359,7 +1359,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult2_Impl::GetModernGamertag(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1371,7 +1371,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult2_Impl::GetModernGamertagSuffix(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1383,7 +1383,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXblIdpAuthTokenResult2_Impl::GetUniqueModernGamertag(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

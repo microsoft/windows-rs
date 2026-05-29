@@ -6,6 +6,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncAction");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncAction,
@@ -80,6 +82,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
 }
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,
@@ -160,6 +164,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IIterable`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {
@@ -175,6 +183,8 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IIterable_Impl<T>: windows_core::IUnknownImpl
 where
@@ -266,6 +276,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IIterator`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
@@ -316,6 +330,8 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IIterator_Impl<T>: windows_core::IUnknownImpl
 where
@@ -478,6 +494,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IStringable");
 }
 windows_core::imp::interface_hierarchy!(
     IStringable,
@@ -543,6 +561,8 @@ windows_core::imp::define_interface!(ITest, ITest_Vtbl, 0xf160c0aa_4a72_5933_8ec
 impl windows_core::RuntimeType for ITest {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Test.ITest");
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
@@ -703,6 +723,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVect
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.Collections.IVector`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
     for IVector<T>
@@ -865,6 +889,8 @@ impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVector<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -930,4 +956,6 @@ impl windows_core::RuntimeType for Vector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)",
     );
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Numerics.Vector2");
 }

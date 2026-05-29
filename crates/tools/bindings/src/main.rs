@@ -10,16 +10,58 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/future.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/metadata.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/numerics.txt"]).unwrap();
-    bindgen(["--etc", "crates/tools/bindings/src/reference.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/registry.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/result.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/strings.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/version.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/threading.txt"]).unwrap();
+    bindgen(["--etc", "crates/tools/bindings/src/time.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/services.txt"]).unwrap();
 
     _ = bindgen(["--etc", "crates/tools/bindings/src/sys.txt"]);
     _ = bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
+    reactor();
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
+}
+
+fn reactor() {
+    windows_rdl::Reader::new()
+        .input("crates/tools/bindings/src/reactor.rdl")
+        .input("winmd/Windows.Win32.winmd")
+        .output("winmd/extras.winmd")
+        .write()
+        .unwrap();
+
+    let reactor_args = [
+        "--in",
+        "winmd",
+        "--out",
+        "crates/libs/reactor/src/bindings.rs",
+        "--implement",
+        "Microsoft.UI.Xaml.IApplicationOverrides",
+        "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
+        "--minimal",
+        "--flat",
+        "--filter",
+        "--etc",
+        "crates/tools/bindings/src/reactor.txt",
+    ];
+
+    _ = windows_bindgen::bindgen(reactor_args);
+
+    let test_args = [
+        "--in",
+        "winmd",
+        "--out",
+        "crates/tests/libs/reactor_backend/src/bindings.rs",
+        "--minimal",
+        "--flat",
+        "--filter",
+        "--etc",
+        "crates/tools/bindings/src/reactor.txt",
+        "crates/tools/bindings/src/reactor_test.txt",
+    ];
+
+    _ = windows_bindgen::bindgen(test_args);
 }

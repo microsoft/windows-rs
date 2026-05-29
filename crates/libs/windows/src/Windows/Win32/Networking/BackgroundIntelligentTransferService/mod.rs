@@ -956,7 +956,7 @@ impl IBackgroundCopyError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyError_Impl::GetErrorDescription(this, core::mem::transmute_copy(&languageid)) {
                     Ok(ok__) => {
-                        perrordescription.write(core::mem::transmute(ok__));
+                        perrordescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -968,7 +968,7 @@ impl IBackgroundCopyError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyError_Impl::GetErrorContextDescription(this, core::mem::transmute_copy(&languageid)) {
                     Ok(ok__) => {
-                        pcontextdescription.write(core::mem::transmute(ok__));
+                        pcontextdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -980,7 +980,7 @@ impl IBackgroundCopyError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyError_Impl::GetProtocol(this) {
                     Ok(ok__) => {
-                        pprotocol.write(core::mem::transmute(ok__));
+                        pprotocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1040,7 +1040,7 @@ impl IBackgroundCopyFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile_Impl::GetRemoteName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1052,7 +1052,7 @@ impl IBackgroundCopyFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile_Impl::GetLocalName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1185,7 +1185,7 @@ impl IBackgroundCopyFile3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile3_Impl::GetTemporaryName(this) {
                     Ok(ok__) => {
-                        pfilename.write(core::mem::transmute(ok__));
+                        pfilename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IBackgroundCopyFile3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile3_Impl::GetValidationState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1215,7 +1215,7 @@ impl IBackgroundCopyFile3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile3_Impl::IsDownloadedFromPeer(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1315,7 +1315,7 @@ impl IBackgroundCopyFile5_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyFile5_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
-                        propertyvalue.write(core::mem::transmute(ok__));
+                        propertyvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1545,7 +1545,7 @@ impl IBackgroundCopyGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyGroup_Impl::GetProgress(this, core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        pdwprogress.write(core::mem::transmute(ok__));
+                        pdwprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1593,7 +1593,7 @@ impl IBackgroundCopyGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyGroup_Impl::Size(this) {
                     Ok(ok__) => {
-                        pdwsize.write(core::mem::transmute(ok__));
+                        pdwsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1605,7 +1605,7 @@ impl IBackgroundCopyGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyGroup_Impl::GroupID(this) {
                     Ok(ok__) => {
-                        pguidgroupid.write(core::mem::transmute(ok__));
+                        pguidgroupid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1970,7 +1970,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1982,7 +1982,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2006,7 +2006,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetState(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2030,7 +2030,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetOwner(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2048,7 +2048,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetDisplayName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2066,7 +2066,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetDescription(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2084,7 +2084,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetPriority(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2102,7 +2102,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetNotifyFlags(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2138,7 +2138,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetMinimumRetryDelay(this) {
                     Ok(ok__) => {
-                        seconds.write(core::mem::transmute(ok__));
+                        seconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2156,7 +2156,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetNoProgressTimeout(this) {
                     Ok(ok__) => {
-                        seconds.write(core::mem::transmute(ok__));
+                        seconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2168,7 +2168,7 @@ impl IBackgroundCopyJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob_Impl::GetErrorCount(this) {
                     Ok(ok__) => {
-                        errors.write(core::mem::transmute(ok__));
+                        errors.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2310,7 +2310,7 @@ impl IBackgroundCopyJob1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob1_Impl::GetProgress(this, core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        pdwprogress.write(core::mem::transmute(ok__));
+                        pdwprogress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2346,7 +2346,7 @@ impl IBackgroundCopyJob1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob1_Impl::GetFileCount(this) {
                     Ok(ok__) => {
-                        pdwfilecount.write(core::mem::transmute(ok__));
+                        pdwfilecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2364,7 +2364,7 @@ impl IBackgroundCopyJob1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob1_Impl::JobID(this) {
                     Ok(ok__) => {
-                        pguidjobid.write(core::mem::transmute(ok__));
+                        pguidjobid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2492,7 +2492,7 @@ impl IBackgroundCopyJob2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob2_Impl::GetReplyFileName(this) {
                     Ok(ok__) => {
-                        preplyfilename.write(core::mem::transmute(ok__));
+                        preplyfilename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2601,7 +2601,7 @@ impl IBackgroundCopyJob3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob3_Impl::GetFileACLFlags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2693,7 +2693,7 @@ impl IBackgroundCopyJob4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetPeerCachingFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2705,7 +2705,7 @@ impl IBackgroundCopyJob4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetOwnerIntegrityLevel(this) {
                     Ok(ok__) => {
-                        plevel.write(core::mem::transmute(ok__));
+                        plevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2717,7 +2717,7 @@ impl IBackgroundCopyJob4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetOwnerElevationState(this) {
                     Ok(ok__) => {
-                        pelevated.write(core::mem::transmute(ok__));
+                        pelevated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2735,7 +2735,7 @@ impl IBackgroundCopyJob4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob4_Impl::GetMaximumDownloadTime(this) {
                     Ok(ok__) => {
-                        ptimeout.write(core::mem::transmute(ok__));
+                        ptimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2800,7 +2800,7 @@ impl IBackgroundCopyJob5_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJob5_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
-                        propertyvalue.write(core::mem::transmute(ok__));
+                        propertyvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2922,7 +2922,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJobHttpOptions_Impl::GetCustomHeaders(this) {
                     Ok(ok__) => {
-                        prequestheaders.write(core::mem::transmute(ok__));
+                        prequestheaders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2940,7 +2940,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJobHttpOptions_Impl::GetSecurityFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3010,7 +3010,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyJobHttpOptions2_Impl::GetHttpMethod(this) {
                     Ok(ok__) => {
-                        method.write(core::mem::transmute(ok__));
+                        method.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3163,7 +3163,7 @@ impl IBackgroundCopyManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBackgroundCopyManager_Impl::GetErrorDescription(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&languageid)) {
                     Ok(ok__) => {
-                        perrordescription.write(core::mem::transmute(ok__));
+                        perrordescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3345,7 +3345,7 @@ impl IBitsPeer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeer_Impl::GetPeerName(this) {
                     Ok(ok__) => {
-                        pname.write(core::mem::transmute(ok__));
+                        pname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3357,7 +3357,7 @@ impl IBitsPeer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeer_Impl::IsAuthenticated(this) {
                     Ok(ok__) => {
-                        pauth.write(core::mem::transmute(ok__));
+                        pauth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3369,7 +3369,7 @@ impl IBitsPeer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeer_Impl::IsAvailable(this) {
                     Ok(ok__) => {
-                        ponline.write(core::mem::transmute(ok__));
+                        ponline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3497,7 +3497,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetMaximumCacheSize(this) {
                     Ok(ok__) => {
-                        pbytes.write(core::mem::transmute(ok__));
+                        pbytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3515,7 +3515,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetMaximumContentAge(this) {
                     Ok(ok__) => {
-                        pseconds.write(core::mem::transmute(ok__));
+                        pseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3533,7 +3533,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheAdministration_Impl::GetConfigurationFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3703,7 +3703,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheRecord_Impl::GetId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3715,7 +3715,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheRecord_Impl::GetOriginUrl(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3727,7 +3727,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheRecord_Impl::GetFileSize(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3739,7 +3739,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheRecord_Impl::GetFileModificationTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3751,7 +3751,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsPeerCacheRecord_Impl::GetLastAccessTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3841,7 +3841,7 @@ impl IBitsTokenOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsTokenOptions_Impl::GetHelperTokenFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3865,7 +3865,7 @@ impl IBitsTokenOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBitsTokenOptions_Impl::GetHelperTokenSid(this) {
                     Ok(ok__) => {
-                        psid.write(core::mem::transmute(ok__));
+                        psid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3965,7 +3965,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyFiles_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4065,7 +4065,7 @@ impl IEnumBackgroundCopyGroups_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyGroups_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4165,7 +4165,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyJobs_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4265,7 +4265,7 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBackgroundCopyJobs1_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4365,7 +4365,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBitsPeerCacheRecords_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4465,7 +4465,7 @@ impl IEnumBitsPeers_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumBitsPeers_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

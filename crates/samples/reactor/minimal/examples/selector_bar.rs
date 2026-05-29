@@ -1,0 +1,22 @@
+//! Minimal sample for the `SelectorBar` widget.
+
+use windows_reactor::*;
+
+fn app(cx: &mut RenderCx) -> impl Into<Element> {
+    let (selected, set_selected) = cx.use_state(String::from("Recent"));
+
+    vstack((
+        selector_bar(vec![
+            selector_bar_item("Recent"),
+            selector_bar_item("Shared").icon(SymbolGlyph::People),
+            selector_bar_item("Favorites").icon(SymbolGlyph::Favorite),
+        ])
+        .on_selection_changed(move |text| set_selected.call(text)),
+        text_block(format!("Selected: {selected}")),
+    ))
+    .spacing(12.0)
+}
+
+fn main() -> Result<()> {
+    App::new().title("SelectorBar Sample").render(app)
+}

@@ -344,6 +344,7 @@ unsafe impl Sync for ActionOverload {}
 windows_core::imp::define_interface!(IActionCatalog, IActionCatalog_Vtbl, 0xdbe7c537_66ea_5394_9085_4fc19d78375c);
 impl windows_core::RuntimeType for IActionCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionCatalog");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -356,6 +357,7 @@ pub struct IActionCatalog_Vtbl {
 windows_core::imp::define_interface!(IActionCatalog2, IActionCatalog2_Vtbl, 0x370360b1_a14b_5ea8_b611_b5f70342ba44);
 impl windows_core::RuntimeType for IActionCatalog2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionCatalog2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -370,6 +372,7 @@ pub struct IActionCatalog2_Vtbl {
 windows_core::imp::define_interface!(IActionCatalog3, IActionCatalog3_Vtbl, 0x2e05d518_8680_55d3_820d_2605adb7d62d);
 impl windows_core::RuntimeType for IActionCatalog3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionCatalog3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,6 +383,7 @@ pub struct IActionCatalog3_Vtbl {
 windows_core::imp::define_interface!(IActionDefinition, IActionDefinition_Vtbl, 0xfe766add_924d_5231_855e_dac9e82c7e6c);
 impl windows_core::RuntimeType for IActionDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionDefinition");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -396,6 +400,7 @@ pub struct IActionDefinition_Vtbl {
 windows_core::imp::define_interface!(IActionDefinition2, IActionDefinition2_Vtbl, 0xc1f44733_f563_54e2_bd2b_dc4c732054cf);
 impl windows_core::RuntimeType for IActionDefinition2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionDefinition2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -408,6 +413,7 @@ pub struct IActionDefinition2_Vtbl {
 windows_core::imp::define_interface!(IActionDefinition3, IActionDefinition3_Vtbl, 0x89c9a7e0_4bfd_55f4_9eed_dce2250114fa);
 impl windows_core::RuntimeType for IActionDefinition3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionDefinition3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -418,6 +424,7 @@ pub struct IActionDefinition3_Vtbl {
 windows_core::imp::define_interface!(IActionDefinition4, IActionDefinition4_Vtbl, 0x6dd91071_8847_55b6_9518_9ff8de421eb7);
 impl windows_core::RuntimeType for IActionDefinition4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionDefinition4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -428,6 +435,7 @@ pub struct IActionDefinition4_Vtbl {
 windows_core::imp::define_interface!(IActionDefinition5, IActionDefinition5_Vtbl, 0x5bea33ef_d325_53a8_8db3_0d771f4d1e54);
 impl windows_core::RuntimeType for IActionDefinition5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionDefinition5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,6 +449,7 @@ pub struct IActionDefinition5_Vtbl {
 windows_core::imp::define_interface!(IActionEntityRegistrationInfo, IActionEntityRegistrationInfo_Vtbl, 0xc3b92bdb_03c3_5a9e_b049_002fa0405699);
 impl windows_core::RuntimeType for IActionEntityRegistrationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionEntityRegistrationInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,6 +463,7 @@ pub struct IActionEntityRegistrationInfo_Vtbl {
 windows_core::imp::define_interface!(IActionInstance, IActionInstance_Vtbl, 0x809bcb6e_e6ef_5f16_b89a_06b8893df20e);
 impl windows_core::RuntimeType for IActionInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionInstance");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -467,6 +477,7 @@ pub struct IActionInstance_Vtbl {
 windows_core::imp::define_interface!(IActionInstanceDisplayInfo, IActionInstanceDisplayInfo_Vtbl, 0xfcfdce21_678b_5602_b9dc_2f4533a6f4b2);
 impl windows_core::RuntimeType for IActionInstanceDisplayInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionInstanceDisplayInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -477,6 +488,7 @@ pub struct IActionInstanceDisplayInfo_Vtbl {
 windows_core::imp::define_interface!(IActionOverload, IActionOverload_Vtbl, 0x5d184610_d09d_5375_9849_505c359dca01);
 impl windows_core::RuntimeType for IActionOverload {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionOverload");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -489,6 +501,7 @@ pub struct IActionOverload_Vtbl {
 windows_core::imp::define_interface!(IActionOverload2, IActionOverload2_Vtbl, 0x57ec9906_8231_5a9e_929f_bf39e952eb93);
 impl windows_core::RuntimeType for IActionOverload2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.AI.Actions.Hosting.IActionOverload2");
 }
 #[repr(C)]
 #[doc(hidden)]

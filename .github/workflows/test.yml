@@ -33,22 +33,17 @@ jobs:
             version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
-            runner: windows-2025
+            runner: windows-2025-vs2026
           - name: nightly i686
             version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
-            runner: windows-2025
+            runner: windows-2025-vs2026
           - name: stable arm64
             version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
-          - name: stable linux
-            version: stable
-            host: x86_64-unknown-linux-gnu
-            target: x86_64-unknown-linux-gnu
-            runner: ubuntu-22.04
 
     runs-on: ${{ matrix.runner }}
 
@@ -69,13 +64,16 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
-      - name: Install libtinfo5 (Linux)
-        if: runner.os == 'Linux'
-        run: sudo apt-get install -y libtinfo5
-      - name: Install LLVM and Clang
+      - name: Install LLVM and Clang (Windows)
+        if: runner.os == 'Windows'
         uses: KyleMayes/install-llvm-action@v2
         with:
           version: "18"
+      - name: Install LLVM and Clang (Linux)
+        if: runner.os == 'Linux'
+        uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "20"
       - name: Set LIBCLANG_PATH (Windows)
         if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
@@ -84,6 +82,16 @@ jobs:
         if: runner.os == 'Linux'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
         shell: bash
+      - name: Install .NET 9 x86 runtime
+        # The windows-2025-vs2026 image ships .NET 9 only for x64/arm64; the
+        # i686 csharp_client test launches a win-x86 process that needs the
+        # x86 .NET 9 runtime.
+        if: matrix.target == 'i686-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          $script = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
+          Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
+          & $script -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
       - name: Test
         # The 32-bit i686 test process has a 2 GB user-mode address space; the
         # ~110 bindgen fixtures in test_fixtures each load the large default

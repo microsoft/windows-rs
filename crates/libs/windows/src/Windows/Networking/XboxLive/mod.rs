@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IXboxLiveDeviceAddress, IXboxLiveDeviceAddress_Vtbl, 0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 impl windows_core::RuntimeType for IXboxLiveDeviceAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveDeviceAddress");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,6 +23,7 @@ pub struct IXboxLiveDeviceAddress_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveDeviceAddressStatics, IXboxLiveDeviceAddressStatics_Vtbl, 0x5954a819_4a79_4931_827c_7f503e963263);
 impl windows_core::RuntimeType for IXboxLiveDeviceAddressStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveDeviceAddressStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -39,6 +41,7 @@ pub struct IXboxLiveDeviceAddressStatics_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveEndpointPair, IXboxLiveEndpointPair_Vtbl, 0x1e9a839b_813e_44e0_b87f_c87a093475e4);
 impl windows_core::RuntimeType for IXboxLiveEndpointPair {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveEndpointPair");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -60,6 +63,7 @@ pub struct IXboxLiveEndpointPair_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveEndpointPairCreationResult, IXboxLiveEndpointPairCreationResult_Vtbl, 0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 impl windows_core::RuntimeType for IXboxLiveEndpointPairCreationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveEndpointPairCreationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -73,6 +77,7 @@ pub struct IXboxLiveEndpointPairCreationResult_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveEndpointPairStateChangedEventArgs, IXboxLiveEndpointPairStateChangedEventArgs_Vtbl, 0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 impl windows_core::RuntimeType for IXboxLiveEndpointPairStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,6 +89,7 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveEndpointPairStatics, IXboxLiveEndpointPairStatics_Vtbl, 0x64316b30_217a_4243_8ee1_6729281d27db);
 impl windows_core::RuntimeType for IXboxLiveEndpointPairStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveEndpointPairStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,6 +101,7 @@ pub struct IXboxLiveEndpointPairStatics_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveEndpointPairTemplate, IXboxLiveEndpointPairTemplate_Vtbl, 0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
 impl windows_core::RuntimeType for IXboxLiveEndpointPairTemplate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -117,6 +124,7 @@ pub struct IXboxLiveEndpointPairTemplate_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveEndpointPairTemplateStatics, IXboxLiveEndpointPairTemplateStatics_Vtbl, 0x1e13137b_737b_4a23_bc64_0870f75655ba);
 impl windows_core::RuntimeType for IXboxLiveEndpointPairTemplateStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplateStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,6 +136,7 @@ pub struct IXboxLiveEndpointPairTemplateStatics_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveInboundEndpointPairCreatedEventArgs, IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl, 0xdc183b62_22ba_48d2_80de_c23968bd198b);
 impl windows_core::RuntimeType for IXboxLiveInboundEndpointPairCreatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,6 +147,7 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveQualityOfServiceMeasurement, IXboxLiveQualityOfServiceMeasurement_Vtbl, 0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
 impl windows_core::RuntimeType for IXboxLiveQualityOfServiceMeasurement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -163,6 +173,7 @@ pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveQualityOfServiceMeasurementStatics, IXboxLiveQualityOfServiceMeasurementStatics_Vtbl, 0x6e352dca_23cf_440a_b077_5e30857a8234);
 impl windows_core::RuntimeType for IXboxLiveQualityOfServiceMeasurementStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurementStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -189,6 +200,7 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveQualityOfServiceMetricResult, IXboxLiveQualityOfServiceMetricResult_Vtbl, 0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 impl windows_core::RuntimeType for IXboxLiveQualityOfServiceMetricResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMetricResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,6 +214,7 @@ pub struct IXboxLiveQualityOfServiceMetricResult_Vtbl {
 windows_core::imp::define_interface!(IXboxLiveQualityOfServicePrivatePayloadResult, IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl, 0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
 impl windows_core::RuntimeType for IXboxLiveQualityOfServicePrivatePayloadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,6 +454,7 @@ impl windows_core::TypeKind for XboxLiveEndpointPairCreationBehaviors {
 }
 impl windows_core::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors");
 }
 impl XboxLiveEndpointPairCreationBehaviors {
     pub const fn contains(&self, other: Self) -> bool {
@@ -536,6 +550,7 @@ impl windows_core::TypeKind for XboxLiveEndpointPairCreationStatus {
 }
 impl windows_core::RuntimeType for XboxLiveEndpointPairCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -554,6 +569,7 @@ impl windows_core::TypeKind for XboxLiveEndpointPairState {
 }
 impl windows_core::RuntimeType for XboxLiveEndpointPairState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveEndpointPairState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -746,6 +762,7 @@ impl windows_core::TypeKind for XboxLiveNetworkAccessKind {
 }
 impl windows_core::RuntimeType for XboxLiveNetworkAccessKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveNetworkAccessKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -947,6 +964,7 @@ impl windows_core::TypeKind for XboxLiveQualityOfServiceMeasurementStatus {
 }
 impl windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -967,6 +985,7 @@ impl windows_core::TypeKind for XboxLiveQualityOfServiceMetric {
 }
 impl windows_core::RuntimeType for XboxLiveQualityOfServiceMetric {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1060,4 +1079,5 @@ impl windows_core::TypeKind for XboxLiveSocketKind {
 }
 impl windows_core::RuntimeType for XboxLiveSocketKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveSocketKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.XboxLive.XboxLiveSocketKind");
 }

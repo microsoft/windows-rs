@@ -75,7 +75,7 @@ impl IUIAnimationInterpolator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationInterpolator_Impl::GetDuration(this) {
                     Ok(ok__) => {
-                        duration.write(core::mem::transmute(ok__));
+                        duration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -87,7 +87,7 @@ impl IUIAnimationInterpolator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationInterpolator_Impl::GetFinalValue(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IUIAnimationInterpolator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationInterpolator_Impl::InterpolateValue(this, core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -111,7 +111,7 @@ impl IUIAnimationInterpolator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationInterpolator_Impl::InterpolateVelocity(this, core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
-                        velocity.write(core::mem::transmute(ok__));
+                        velocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IUIAnimationInterpolator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationInterpolator2_Impl::GetDimension(this) {
                     Ok(ok__) => {
-                        dimension.write(core::mem::transmute(ok__));
+                        dimension.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -236,7 +236,7 @@ impl IUIAnimationInterpolator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationInterpolator2_Impl::GetDuration(this) {
                     Ok(ok__) => {
-                        duration.write(core::mem::transmute(ok__));
+                        duration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -550,7 +550,7 @@ impl IUIAnimationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationManager_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -898,7 +898,7 @@ impl IUIAnimationManager2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationManager2_Impl::EstimateNextEventTime(this) {
                     Ok(ok__) => {
-                        seconds.write(core::mem::transmute(ok__));
+                        seconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -910,7 +910,7 @@ impl IUIAnimationManager2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationManager2_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1330,7 +1330,7 @@ impl IUIAnimationStoryboard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard_Impl::AddKeyframeAtOffset(this, core::mem::transmute_copy(&existingkeyframe), core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
-                        keyframe.write(core::mem::transmute(ok__));
+                        keyframe.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1342,7 +1342,7 @@ impl IUIAnimationStoryboard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard_Impl::AddKeyframeAfterTransition(this, core::mem::transmute_copy(&transition)) {
                     Ok(ok__) => {
-                        keyframe.write(core::mem::transmute(ok__));
+                        keyframe.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1420,7 +1420,7 @@ impl IUIAnimationStoryboard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1432,7 +1432,7 @@ impl IUIAnimationStoryboard_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard_Impl::GetElapsedTime(this) {
                     Ok(ok__) => {
-                        elapsedtime.write(core::mem::transmute(ok__));
+                        elapsedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1624,7 +1624,7 @@ impl IUIAnimationStoryboard2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard2_Impl::AddKeyframeAtOffset(this, core::mem::transmute_copy(&existingkeyframe), core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
-                        keyframe.write(core::mem::transmute(ok__));
+                        keyframe.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1636,7 +1636,7 @@ impl IUIAnimationStoryboard2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard2_Impl::AddKeyframeAfterTransition(this, core::mem::transmute_copy(&transition)) {
                     Ok(ok__) => {
-                        keyframe.write(core::mem::transmute(ok__));
+                        keyframe.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1720,7 +1720,7 @@ impl IUIAnimationStoryboard2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard2_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1732,7 +1732,7 @@ impl IUIAnimationStoryboard2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationStoryboard2_Impl::GetElapsedTime(this) {
                     Ok(ok__) => {
-                        elapsedtime.write(core::mem::transmute(ok__));
+                        elapsedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1968,7 +1968,7 @@ impl IUIAnimationTimer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationTimer_Impl::GetTime(this) {
                     Ok(ok__) => {
-                        seconds.write(core::mem::transmute(ok__));
+                        seconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2125,7 +2125,7 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationTimerUpdateHandler_Impl::OnUpdate(this, core::mem::transmute_copy(&timenow)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2215,7 +2215,7 @@ impl IUIAnimationTransition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationTransition_Impl::GetDuration(this) {
                     Ok(ok__) => {
-                        duration.write(core::mem::transmute(ok__));
+                        duration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2294,7 +2294,7 @@ impl IUIAnimationTransition2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationTransition2_Impl::GetDimension(this) {
                     Ok(ok__) => {
-                        dimension.write(core::mem::transmute(ok__));
+                        dimension.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2336,7 +2336,7 @@ impl IUIAnimationTransition2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationTransition2_Impl::GetDuration(this) {
                     Ok(ok__) => {
-                        duration.write(core::mem::transmute(ok__));
+                        duration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3258,7 +3258,7 @@ impl IUIAnimationVariable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable_Impl::GetValue(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3270,7 +3270,7 @@ impl IUIAnimationVariable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable_Impl::GetFinalValue(this) {
                     Ok(ok__) => {
-                        finalvalue.write(core::mem::transmute(ok__));
+                        finalvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3282,7 +3282,7 @@ impl IUIAnimationVariable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable_Impl::GetPreviousValue(this) {
                     Ok(ok__) => {
-                        previousvalue.write(core::mem::transmute(ok__));
+                        previousvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3294,7 +3294,7 @@ impl IUIAnimationVariable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable_Impl::GetIntegerValue(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3306,7 +3306,7 @@ impl IUIAnimationVariable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable_Impl::GetFinalIntegerValue(this) {
                     Ok(ok__) => {
-                        finalvalue.write(core::mem::transmute(ok__));
+                        finalvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3318,7 +3318,7 @@ impl IUIAnimationVariable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable_Impl::GetPreviousIntegerValue(this) {
                     Ok(ok__) => {
-                        previousvalue.write(core::mem::transmute(ok__));
+                        previousvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3599,7 +3599,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetDimension(this) {
                     Ok(ok__) => {
-                        dimension.write(core::mem::transmute(ok__));
+                        dimension.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3611,7 +3611,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetValue(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3641,7 +3641,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetFinalValue(this) {
                     Ok(ok__) => {
-                        finalvalue.write(core::mem::transmute(ok__));
+                        finalvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3659,7 +3659,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetPreviousValue(this) {
                     Ok(ok__) => {
-                        previousvalue.write(core::mem::transmute(ok__));
+                        previousvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3677,7 +3677,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetIntegerValue(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3695,7 +3695,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetFinalIntegerValue(this) {
                     Ok(ok__) => {
-                        finalvalue.write(core::mem::transmute(ok__));
+                        finalvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3713,7 +3713,7 @@ impl IUIAnimationVariable2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAnimationVariable2_Impl::GetPreviousIntegerValue(this) {
                     Ok(ok__) => {
-                        previousvalue.write(core::mem::transmute(ok__));
+                        previousvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

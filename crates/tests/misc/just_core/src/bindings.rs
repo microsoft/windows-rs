@@ -39,6 +39,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IStringable");
 }
 windows_core::imp::interface_hierarchy!(
     IStringable,

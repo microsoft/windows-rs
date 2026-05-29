@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IWiFiDirectService, IWiFiDirectService_Vtbl, 0x50aabbb8_5f71_45ec_84f1_a1e4fc7879a3);
 impl windows_core::RuntimeType for IWiFiDirectService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectService");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,6 +32,7 @@ pub struct IWiFiDirectService_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceAdvertiser, IWiFiDirectServiceAdvertiser_Vtbl, 0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46);
 impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -85,6 +87,7 @@ pub struct IWiFiDirectServiceAdvertiser_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceAdvertiserFactory, IWiFiDirectServiceAdvertiserFactory_Vtbl, 0x3106ac0d_b446_4f13_9f9a_8ae925feba2b);
 impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiserFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiserFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -95,6 +98,7 @@ pub struct IWiFiDirectServiceAdvertiserFactory_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs, IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl, 0xdcd9e01e_83df_43e5_8f43_cbe8479e84eb);
 impl windows_core::RuntimeType for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -109,6 +113,7 @@ pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceProvisioningInfo, IWiFiDirectServiceProvisioningInfo_Vtbl, 0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6);
 impl windows_core::RuntimeType for IWiFiDirectServiceProvisioningInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceProvisioningInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -120,6 +125,7 @@ pub struct IWiFiDirectServiceProvisioningInfo_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceRemotePortAddedEventArgs, IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl, 0xd4cebac1_3fd3_4f0e_b7bd_782906f44411);
 impl windows_core::RuntimeType for IWiFiDirectServiceRemotePortAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -134,6 +140,7 @@ pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceSession, IWiFiDirectServiceSession_Vtbl, 0x81142163_e426_47cb_8640_e1b3588bf26f);
 impl windows_core::RuntimeType for IWiFiDirectServiceSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -166,6 +173,7 @@ pub struct IWiFiDirectServiceSession_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceSessionDeferredEventArgs, IWiFiDirectServiceSessionDeferredEventArgs_Vtbl, 0x8dfc197f_1201_4f1f_b6f4_5df1b7b9fb2e);
 impl windows_core::RuntimeType for IWiFiDirectServiceSessionDeferredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionDeferredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +187,7 @@ pub struct IWiFiDirectServiceSessionDeferredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceSessionRequest, IWiFiDirectServiceSessionRequest_Vtbl, 0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04);
 impl windows_core::RuntimeType for IWiFiDirectServiceSessionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,6 +206,7 @@ pub struct IWiFiDirectServiceSessionRequest_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceSessionRequestedEventArgs, IWiFiDirectServiceSessionRequestedEventArgs_Vtbl, 0x74bdcc11_53d6_4999_b4f8_6c8ecc1771e7);
 impl windows_core::RuntimeType for IWiFiDirectServiceSessionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -207,6 +217,7 @@ pub struct IWiFiDirectServiceSessionRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWiFiDirectServiceStatics, IWiFiDirectServiceStatics_Vtbl, 0x7db40045_fd74_4688_b725_5dce86acf233);
 impl windows_core::RuntimeType for IWiFiDirectServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,6 +360,7 @@ impl windows_core::TypeKind for WiFiDirectServiceAdvertisementStatus {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceAdvertisementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertisementStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertisementStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -578,6 +590,7 @@ impl windows_core::TypeKind for WiFiDirectServiceConfigurationMethod {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceConfigurationMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -594,6 +607,7 @@ impl windows_core::TypeKind for WiFiDirectServiceError {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceError;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceError");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -607,6 +621,7 @@ impl windows_core::TypeKind for WiFiDirectServiceIPProtocol {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceIPProtocol {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -826,6 +841,7 @@ impl windows_core::TypeKind for WiFiDirectServiceSessionErrorStatus {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionErrorStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionErrorStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -908,6 +924,7 @@ impl windows_core::TypeKind for WiFiDirectServiceSessionStatus {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -922,4 +939,5 @@ impl windows_core::TypeKind for WiFiDirectServiceStatus {
 }
 impl windows_core::RuntimeType for WiFiDirectServiceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus");
 }

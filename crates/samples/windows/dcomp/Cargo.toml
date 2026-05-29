@@ -6,6 +6,7 @@ publish = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Win32_Graphics_Direct2D_Common",
     "Win32_Graphics_Direct3D",

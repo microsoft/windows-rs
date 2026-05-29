@@ -258,6 +258,7 @@ impl<F: Fn(windows_core::Ref<CredentialCommand>) -> windows_core::Result<()> + S
 windows_core::imp::define_interface!(IAccountsSettingsPane, IAccountsSettingsPane_Vtbl, 0x81ea942c_4f09_4406_a538_838d9b14b7e6);
 impl windows_core::RuntimeType for IAccountsSettingsPane {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPane");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -269,6 +270,7 @@ pub struct IAccountsSettingsPane_Vtbl {
 windows_core::imp::define_interface!(IAccountsSettingsPaneCommandsRequestedEventArgs, IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl, 0x3b68c099_db19_45d0_9abf_95d3773c9330);
 impl windows_core::RuntimeType for IAccountsSettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPaneCommandsRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,6 +290,7 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAccountsSettingsPaneCommandsRequestedEventArgs2, IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl, 0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
 impl windows_core::RuntimeType for IAccountsSettingsPaneCommandsRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPaneCommandsRequestedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -301,6 +304,7 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAccountsSettingsPaneEventDeferral, IAccountsSettingsPaneEventDeferral_Vtbl, 0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
 impl windows_core::RuntimeType for IAccountsSettingsPaneEventDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPaneEventDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -311,6 +315,7 @@ pub struct IAccountsSettingsPaneEventDeferral_Vtbl {
 windows_core::imp::define_interface!(IAccountsSettingsPaneStatics, IAccountsSettingsPaneStatics_Vtbl, 0x561f8b60_b0ec_4150_a8dc_208ee44b068a);
 impl windows_core::RuntimeType for IAccountsSettingsPaneStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPaneStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -322,6 +327,7 @@ pub struct IAccountsSettingsPaneStatics_Vtbl {
 windows_core::imp::define_interface!(IAccountsSettingsPaneStatics2, IAccountsSettingsPaneStatics2_Vtbl, 0xd21df7c2_ce0d_484f_b8e8_e823c215765e);
 impl windows_core::RuntimeType for IAccountsSettingsPaneStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPaneStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -333,6 +339,7 @@ pub struct IAccountsSettingsPaneStatics2_Vtbl {
 windows_core::imp::define_interface!(IAccountsSettingsPaneStatics3, IAccountsSettingsPaneStatics3_Vtbl, 0x08410458_a2ba_4c6f_b4ac_48f514331216);
 impl windows_core::RuntimeType for IAccountsSettingsPaneStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IAccountsSettingsPaneStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -350,6 +357,7 @@ pub struct IAccountsSettingsPaneStatics3_Vtbl {
 windows_core::imp::define_interface!(ICredentialCommand, ICredentialCommand_Vtbl, 0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
 impl windows_core::RuntimeType for ICredentialCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ICredentialCommand");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -364,6 +372,7 @@ pub struct ICredentialCommand_Vtbl {
 windows_core::imp::define_interface!(ICredentialCommandFactory, ICredentialCommandFactory_Vtbl, 0x27e88c17_bc3e_4b80_9495_4ed720e48a91);
 impl windows_core::RuntimeType for ICredentialCommandFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ICredentialCommandFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -381,6 +390,7 @@ pub struct ICredentialCommandFactory_Vtbl {
 windows_core::imp::define_interface!(ISettingsCommandFactory, ISettingsCommandFactory_Vtbl, 0x68e15b33_1c83_433a_aa5a_ceeea5bd4764);
 impl windows_core::RuntimeType for ISettingsCommandFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ISettingsCommandFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -394,6 +404,7 @@ pub struct ISettingsCommandFactory_Vtbl {
 windows_core::imp::define_interface!(ISettingsCommandStatics, ISettingsCommandStatics_Vtbl, 0x749ae954_2f69_4b17_8aba_d05ce5778e46);
 impl windows_core::RuntimeType for ISettingsCommandStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ISettingsCommandStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -407,6 +418,7 @@ pub struct ISettingsCommandStatics_Vtbl {
 windows_core::imp::define_interface!(ISettingsPane, ISettingsPane_Vtbl, 0xb1cd0932_4570_4c69_8d38_89446561ace0);
 impl windows_core::RuntimeType for ISettingsPane {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ISettingsPane");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -418,6 +430,7 @@ pub struct ISettingsPane_Vtbl {
 windows_core::imp::define_interface!(ISettingsPaneCommandsRequest, ISettingsPaneCommandsRequest_Vtbl, 0x44df23ae_5d6e_4068_a168_f47643182114);
 impl windows_core::RuntimeType for ISettingsPaneCommandsRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -431,6 +444,7 @@ pub struct ISettingsPaneCommandsRequest_Vtbl {
 windows_core::imp::define_interface!(ISettingsPaneCommandsRequestedEventArgs, ISettingsPaneCommandsRequestedEventArgs_Vtbl, 0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 impl windows_core::RuntimeType for ISettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -441,6 +455,7 @@ pub struct ISettingsPaneCommandsRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISettingsPaneStatics, ISettingsPaneStatics_Vtbl, 0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
 impl windows_core::RuntimeType for ISettingsPaneStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.ISettingsPaneStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -453,6 +468,7 @@ pub struct ISettingsPaneStatics_Vtbl {
 windows_core::imp::define_interface!(IWebAccountCommand, IWebAccountCommand_Vtbl, 0xcaa39398_9cfa_4246_b0c4_a913a3896541);
 impl windows_core::RuntimeType for IWebAccountCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IWebAccountCommand");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -468,6 +484,7 @@ pub struct IWebAccountCommand_Vtbl {
 windows_core::imp::define_interface!(IWebAccountCommandFactory, IWebAccountCommandFactory_Vtbl, 0xbfa6cdff_2f2d_42f5_81de_1d56bafc496d);
 impl windows_core::RuntimeType for IWebAccountCommandFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IWebAccountCommandFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -481,6 +498,7 @@ pub struct IWebAccountCommandFactory_Vtbl {
 windows_core::imp::define_interface!(IWebAccountInvokedArgs, IWebAccountInvokedArgs_Vtbl, 0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
 impl windows_core::RuntimeType for IWebAccountInvokedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IWebAccountInvokedArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -491,6 +509,7 @@ pub struct IWebAccountInvokedArgs_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProviderCommand, IWebAccountProviderCommand_Vtbl, 0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
 impl windows_core::RuntimeType for IWebAccountProviderCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IWebAccountProviderCommand");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -505,6 +524,7 @@ pub struct IWebAccountProviderCommand_Vtbl {
 windows_core::imp::define_interface!(IWebAccountProviderCommandFactory, IWebAccountProviderCommandFactory_Vtbl, 0xd5658a1b_b176_4776_8469_a9d3ff0b3f59);
 impl windows_core::RuntimeType for IWebAccountProviderCommandFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.IWebAccountProviderCommandFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -606,6 +626,7 @@ impl windows_core::TypeKind for SettingsEdgeLocation {
 }
 impl windows_core::RuntimeType for SettingsEdgeLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.SettingsEdgeLocation");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -715,6 +736,7 @@ impl windows_core::TypeKind for SupportedWebAccountActions {
 }
 impl windows_core::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.SupportedWebAccountActions");
 }
 impl SupportedWebAccountActions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -764,6 +786,7 @@ impl windows_core::TypeKind for WebAccountAction {
 }
 impl windows_core::RuntimeType for WebAccountAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.ApplicationSettings.WebAccountAction");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -20,4 +20,5 @@ impl windows_core::TypeKind for AudioRenderCategory {
 }
 impl windows_core::RuntimeType for AudioRenderCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Render.AudioRenderCategory");
 }

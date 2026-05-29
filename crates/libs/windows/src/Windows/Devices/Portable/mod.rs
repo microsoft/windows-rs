@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IServiceDeviceStatics, IServiceDeviceStatics_Vtbl, 0xa88214e1_59c7_4a20_aba6_9f6707937230);
 impl windows_core::RuntimeType for IServiceDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Portable.IServiceDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12,6 +13,7 @@ pub struct IServiceDeviceStatics_Vtbl {
 windows_core::imp::define_interface!(IStorageDeviceStatics, IStorageDeviceStatics_Vtbl, 0x5ece44ee_1b23_4dd2_8652_bc164f003128);
 impl windows_core::RuntimeType for IStorageDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Portable.IStorageDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,6 +64,7 @@ impl windows_core::TypeKind for ServiceDeviceType {
 }
 impl windows_core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Portable.ServiceDeviceType");
 }
 pub struct StorageDevice;
 impl StorageDevice {

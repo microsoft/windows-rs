@@ -8928,7 +8928,7 @@ impl ID3D12CommandQueue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12CommandQueue_Impl::GetTimestampFrequency(this) {
                     Ok(ok__) => {
-                        pfrequency.write(core::mem::transmute(ok__));
+                        pfrequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9380,7 +9380,7 @@ impl ID3D12CompilerFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12CompilerFactory_Impl::EnumerateAdapterFamilyCompilerVersion(this, core::mem::transmute_copy(&adapterfamilyindex)) {
                     Ok(ok__) => {
-                        pcompilerversion.write(core::mem::transmute(ok__));
+                        pcompilerversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9392,7 +9392,7 @@ impl ID3D12CompilerFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12CompilerFactory_Impl::GetApplicationProfileVersion(this, core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&papplicationdesc)) {
                     Ok(ok__) => {
-                        papplicationprofileversion.write(core::mem::transmute(ok__));
+                        papplicationprofileversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10984,7 +10984,7 @@ impl ID3D12Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12Device_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11002,7 +11002,7 @@ impl ID3D12Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12Device_Impl::OpenSharedHandleByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&access)) {
                     Ok(ok__) => {
-                        pnthandle.write(core::mem::transmute(ok__));
+                        pnthandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12582,7 +12582,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12DeviceRemovedExtendedData_Impl::GetAutoBreadcrumbsOutput(this) {
                     Ok(ok__) => {
-                        poutput.write(core::mem::transmute(ok__));
+                        poutput.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12594,7 +12594,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12DeviceRemovedExtendedData_Impl::GetPageFaultAllocationOutput(this) {
                     Ok(ok__) => {
-                        poutput.write(core::mem::transmute(ok__));
+                        poutput.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12654,7 +12654,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12DeviceRemovedExtendedData1_Impl::GetAutoBreadcrumbsOutput1(this) {
                     Ok(ok__) => {
-                        poutput.write(core::mem::transmute(ok__));
+                        poutput.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12666,7 +12666,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12DeviceRemovedExtendedData1_Impl::GetPageFaultAllocationOutput1(this) {
                     Ok(ok__) => {
-                        poutput.write(core::mem::transmute(ok__));
+                        poutput.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13379,7 +13379,7 @@ impl ID3D12GBVDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12GBVDiagnostics_Impl::GetGBVSubresourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource)) {
                     Ok(ok__) => {
-                        pdata.write(core::mem::transmute(ok__));
+                        pdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13391,7 +13391,7 @@ impl ID3D12GBVDiagnostics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12GBVDiagnostics_Impl::GetGBVResourceUniformState(this, core::mem::transmute_copy(&presource)) {
                     Ok(ok__) => {
-                        pdata.write(core::mem::transmute(ok__));
+                        pdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15641,7 +15641,7 @@ impl ID3D12LibraryReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12LibraryReflection_Impl::GetDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15947,7 +15947,7 @@ impl ID3D12PageableTools_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12PageableTools_Impl::GetAllocation(this) {
                     Ok(ok__) => {
-                        pallocation.write(core::mem::transmute(ok__));
+                        pallocation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17106,7 +17106,7 @@ impl ID3D12ShaderReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12ShaderReflection_Impl::GetMinFeatureLevel(this) {
                     Ok(ok__) => {
-                        plevel.write(core::mem::transmute(ok__));
+                        plevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17701,7 +17701,7 @@ impl ID3D12StateObjectDatabase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12StateObjectDatabase_Impl::FindObjectVersion(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&keysize)) {
                     Ok(ok__) => {
-                        pversion.write(core::mem::transmute(ok__));
+                        pversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18228,7 +18228,7 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12VersionedRootSignatureDeserializer_Impl::GetRootSignatureDescAtVersion(this, core::mem::transmute_copy(&converttoversion)) {
                     Ok(ok__) => {
-                        ppdesc.write(core::mem::transmute(ok__));
+                        ppdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18294,7 +18294,7 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12VirtualizationGuestDevice_Impl::ShareWithHost(this, core::mem::transmute_copy(&pobject)) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18306,7 +18306,7 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D12VirtualizationGuestDevice_Impl::CreateFenceFd(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&fencevalue)) {
                     Ok(ok__) => {
-                        pfencefd.write(core::mem::transmute(ok__));
+                        pfencefd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

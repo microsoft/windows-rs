@@ -14,13 +14,13 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(self).IsLive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn DesiredLiveOffset(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DesiredLiveOffset(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DesiredLiveOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredLiveOffset(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDesiredLiveOffset(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredLiveOffset)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn InitialBitrate(&self) -> windows_core::Result<u32> {
@@ -82,13 +82,13 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(self).InboundBitsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn InboundBitsPerSecondWindow(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn InboundBitsPerSecondWindow(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InboundBitsPerSecondWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInboundBitsPerSecondWindow(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetInboundBitsPerSecondWindow(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInboundBitsPerSecondWindow)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn DownloadBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -158,30 +158,30 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(this).AdvancedSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MinLiveOffset(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MinLiveOffset(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MinLiveOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).MinLiveOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn MaxSeekableWindowSize(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MaxSeekableWindowSize(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).MaxSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn DesiredSeekableWindowSize(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DesiredSeekableWindowSize(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).DesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn SetDesiredSeekableWindowSize(&self, value: Option<super::super::super::Foundation::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetDesiredSeekableWindowSize(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Diagnostics(&self) -> windows_core::Result<AdaptiveMediaSourceDiagnostics> {
@@ -325,22 +325,22 @@ unsafe impl Sync for AdaptiveMediaSourceAdvancedSettings {}
 pub struct AdaptiveMediaSourceCorrelatedTimes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceCorrelatedTimes, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceCorrelatedTimes {
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn PresentationTimeStamp(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn PresentationTimeStamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PresentationTimeStamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).PresentationTimeStamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn ProgramDateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn ProgramDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProgramDateTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ProgramDateTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
 }
@@ -418,6 +418,7 @@ impl windows_core::TypeKind for AdaptiveMediaSourceCreationStatus {
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -436,10 +437,10 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (windows_core::Interface::vtable(self).RequestId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn SegmentId(&self) -> windows_core::Result<u64> {
@@ -485,11 +486,11 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -531,6 +532,7 @@ impl windows_core::TypeKind for AdaptiveMediaSourceDiagnosticType {
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -616,6 +618,7 @@ impl windows_core::TypeKind for AdaptiveMediaSourceDownloadBitrateChangedReason 
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -667,18 +670,18 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (windows_core::Interface::vtable(this).Statistics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -758,18 +761,18 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (windows_core::Interface::vtable(this).Statistics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -861,18 +864,18 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (windows_core::Interface::vtable(this).RequestId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1006,22 +1009,22 @@ impl AdaptiveMediaSourceDownloadStatistics {
             (windows_core::Interface::vtable(self).ContentBytesReceivedCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeToHeadersReceived(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TimeToHeadersReceived(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimeToHeadersReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).TimeToHeadersReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn TimeToFirstByteReceived(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TimeToFirstByteReceived(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimeToFirstByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).TimeToFirstByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn TimeToLastByteReceived(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TimeToLastByteReceived(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimeToLastByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).TimeToLastByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
 }
@@ -1089,12 +1092,14 @@ impl windows_core::TypeKind for AdaptiveMediaSourceResourceType {
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceResourceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType");
 }
 #[cfg(feature = "Media_Core")]
 windows_core::imp::define_interface!(IAdaptiveMediaSource, IAdaptiveMediaSource_Vtbl, 0x4c7332ef_d39f_4396_b4d9_043957a7c964);
 #[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeType for IAdaptiveMediaSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource");
 }
 #[cfg(feature = "Media_Core")]
 #[repr(C)]
@@ -1102,8 +1107,8 @@ impl windows_core::RuntimeType for IAdaptiveMediaSource {
 pub struct IAdaptiveMediaSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsLive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub DesiredLiveOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDesiredLiveOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DesiredLiveOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDesiredLiveOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub InitialBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetInitialBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CurrentDownloadBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1115,8 +1120,8 @@ pub struct IAdaptiveMediaSource_Vtbl {
     pub SetDesiredMaxBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AudioOnlyPlayback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub InboundBitsPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub InboundBitsPerSecondWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetInboundBitsPerSecondWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub InboundBitsPerSecondWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetInboundBitsPerSecondWindow: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub DownloadBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDownloadBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub PlaybackBitrateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1131,6 +1136,7 @@ pub struct IAdaptiveMediaSource_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSource2, IAdaptiveMediaSource2_Vtbl, 0x17890342_6760_4bb9_a58a_f7aa98b08c0e);
 impl windows_core::RuntimeType for IAdaptiveMediaSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1141,6 +1147,7 @@ pub struct IAdaptiveMediaSource2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSource3, IAdaptiveMediaSource3_Vtbl, 0xba7023fd_c334_461b_a36e_c99f54f7174a);
 impl windows_core::RuntimeType for IAdaptiveMediaSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1156,6 +1163,7 @@ pub struct IAdaptiveMediaSource3_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceAdvancedSettings, IAdaptiveMediaSourceAdvancedSettings_Vtbl, 0x55db1680_1aeb_47dc_aa08_9a11610ba45a);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceAdvancedSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1171,6 +1179,7 @@ pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceCorrelatedTimes, IAdaptiveMediaSourceCorrelatedTimes_Vtbl, 0x05108787_e032_48e1_ab8d_002b0b3051df);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceCorrelatedTimes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1183,6 +1192,7 @@ pub struct IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceCreationResult, IAdaptiveMediaSourceCreationResult_Vtbl, 0x4686b6b2_800f_4e31_9093_76d4782013e7);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceCreationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1201,6 +1211,7 @@ pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceCreationResult2, IAdaptiveMediaSourceCreationResult2_Vtbl, 0x1c3243bf_1c44_404b_a201_df45ac7898e8);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceCreationResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1211,6 +1222,7 @@ pub struct IAdaptiveMediaSourceCreationResult2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs, IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl, 0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1229,6 +1241,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs2, IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl, 0x8c6dd857_16a5_4d9f_810e_00bd901b3ef9);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1239,6 +1252,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs3, IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl, 0xc3650cd5_daeb_4103_84da_68769ad513ff);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1250,6 +1264,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnostics, IAdaptiveMediaSourceDiagnostics_Vtbl, 0x9b24ee68_962e_448c_aebf_b29b56098e23);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnostics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1261,6 +1276,7 @@ pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl, 0x670c0a44_e04e_4eff_816a_17399f78f4ba);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1272,6 +1288,7 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl, 0xf3f1f444_96ae_4de0_b540_2b3246e6968c);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1282,6 +1299,7 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs, IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl, 0x19240dc3_5b37_4a1a_8970_d621cb6ca83b);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1299,6 +1317,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs2, IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl, 0x704744c4_964a_40e4_af95_9177dd6dfa00);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1311,6 +1330,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs3, IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl, 0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1322,6 +1342,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs, IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl, 0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1339,6 +1360,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs2, IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl, 0x70919568_967c_4986_90c5_c6fc4b31e2d8);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1352,6 +1374,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs3, IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl, 0xd0354549_1132_4a10_915a_c2211b5b9409);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1363,6 +1386,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedDeferral, IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl, 0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1373,6 +1397,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs, IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl, 0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1388,6 +1413,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs2, IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl, 0xb37d8bfe_aa44_4d82_825b_611de3bcfecb);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1399,6 +1425,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs3, IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl, 0x333c50fd_4f62_4481_ab44_1e47b0574225);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1410,6 +1437,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadResult, IAdaptiveMediaSourceDownloadResult_Vtbl, 0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1441,6 +1469,7 @@ pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadResult2, IAdaptiveMediaSourceDownloadResult2_Vtbl, 0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1454,6 +1483,7 @@ pub struct IAdaptiveMediaSourceDownloadResult2_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadStatistics, IAdaptiveMediaSourceDownloadStatistics_Vtbl, 0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadStatistics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1467,6 +1497,7 @@ pub struct IAdaptiveMediaSourceDownloadStatistics_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs, IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl, 0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be);
 impl windows_core::RuntimeType for IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1479,6 +1510,7 @@ pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveMediaSourceStatics, IAdaptiveMediaSourceStatics_Vtbl, 0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

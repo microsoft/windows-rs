@@ -153,9 +153,7 @@ impl<'a> Service<'a> {
         {
             let mut write = self.callback.write().unwrap();
 
-            if write.is_some() {
-                panic!("`run` was already called")
-            }
+            assert!(!write.is_some(), "`run` was already called");
 
             *write = Some(Box::new(callback));
         }

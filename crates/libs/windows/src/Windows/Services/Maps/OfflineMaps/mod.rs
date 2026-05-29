@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IOfflineMapPackage, IOfflineMapPackage_Vtbl, 0xa797673b_a5b5_4144_b525_e68c8862664b);
 impl windows_core::RuntimeType for IOfflineMapPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.IOfflineMapPackage");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17,6 +18,7 @@ pub struct IOfflineMapPackage_Vtbl {
 windows_core::imp::define_interface!(IOfflineMapPackageQueryResult, IOfflineMapPackageQueryResult_Vtbl, 0x55585411_39e1_4e41_a4e1_5f4872bee199);
 impl windows_core::RuntimeType for IOfflineMapPackageQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageQueryResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,6 +30,7 @@ pub struct IOfflineMapPackageQueryResult_Vtbl {
 windows_core::imp::define_interface!(IOfflineMapPackageStartDownloadResult, IOfflineMapPackageStartDownloadResult_Vtbl, 0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 impl windows_core::RuntimeType for IOfflineMapPackageStartDownloadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStartDownloadResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -38,6 +41,7 @@ pub struct IOfflineMapPackageStartDownloadResult_Vtbl {
 windows_core::imp::define_interface!(IOfflineMapPackageStatics, IOfflineMapPackageStatics_Vtbl, 0x185e7922_a831_4ab0_941f_6998fa929285);
 impl windows_core::RuntimeType for IOfflineMapPackageStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -194,6 +198,7 @@ impl windows_core::TypeKind for OfflineMapPackageQueryStatus {
 }
 impl windows_core::RuntimeType for OfflineMapPackageQueryStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -233,6 +238,7 @@ impl windows_core::TypeKind for OfflineMapPackageStartDownloadStatus {
 }
 impl windows_core::RuntimeType for OfflineMapPackageStartDownloadStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -248,4 +254,5 @@ impl windows_core::TypeKind for OfflineMapPackageStatus {
 }
 impl windows_core::RuntimeType for OfflineMapPackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus");
 }
