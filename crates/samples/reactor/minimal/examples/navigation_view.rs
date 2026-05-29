@@ -3,8 +3,6 @@
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> impl Into<Element> {
-    // Selection is tracked by `tag` so the callback and bound state
-    // talk about the same names that show up in the pane.
     let (page, set_page) = cx.use_state("home".to_string());
 
     let menu_items = [

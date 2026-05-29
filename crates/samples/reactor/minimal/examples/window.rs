@@ -1,4 +1,3 @@
-use windows_reactor::core::*;
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> impl Into<Element> {

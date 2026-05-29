@@ -1,8 +1,6 @@
 //! Minimal sample for `with_scale_transition`.
 //!
-//! Registers a Composition `Vector3Transition` on scale so subsequent
-//! scale changes tween smoothly. Scale has no direct setter on the DSL;
-//! it is driven by a one-shot property animation via `.animate(..)`.
+//! Registers a Composition transition so scale changes tween smoothly.
 
 use std::time::Duration;
 
@@ -32,7 +30,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     .max_width(280.0);
 
     vstack((
-        text_block("Toggle the button to drive scale changes through an implicit transition."),
+        text_block("Toggle to drive scale through an implicit transition."),
         button(if big { "Scale down" } else { "Scale up" }).on_click(toggle),
         swatch,
     ))

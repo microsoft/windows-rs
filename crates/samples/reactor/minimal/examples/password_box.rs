@@ -13,7 +13,6 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .header("Password")
             .placeholder("Type a password…")
             .on_changed(update_password),
-        // Echo the captured length without leaking the value.
         text_block(format!("captured length = {}", password.chars().count())),
         PasswordBox::new()
             .header("No reveal button")

@@ -1,7 +1,5 @@
-//! Demonstrates `cx.use_mutation` -- fire async write operations from
-//! event handlers with loading/success/error states.
-//!
-//! Simulates saving a form. The mutation runs on a background thread.
+//! Demonstrates `cx.use_mutation` — fire async write operations with
+//! loading/success/error states.
 
 use std::thread;
 use std::time::Duration;

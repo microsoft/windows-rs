@@ -1,9 +1,7 @@
-//! Composition sample — `Element::Group` (fragments) and `CustomElement`.
+//! Demonstrates `Element::Group` (fragments) and `CustomElement`.
 //!
-//! * `Group` lets a helper contribute multiple siblings into the parent
-//!   without an intermediate wrapper that would steal layout control.
-//! * `CustomElement` is the open/closed extension hatch for widgets
-//!   defined outside the core crate.
+//! * `Group` contributes multiple siblings without an extra wrapper.
+//! * `CustomElement` is the extension hatch for third-party widgets.
 
 #![windows_subsystem = "windows"]
 

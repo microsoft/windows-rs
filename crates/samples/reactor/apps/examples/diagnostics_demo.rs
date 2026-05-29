@@ -1,7 +1,6 @@
 #![windows_subsystem = "windows"]
 
-//! Demonstrates the diagnostic error categories:
-//! 1. Invariant violation — panic (process exits with backtrace + crash log).
+//! Demonstrates panic hook and crash-log behavior.
 //!
 //! Run with: `cargo run -p examples --example diagnostics_demo`
 

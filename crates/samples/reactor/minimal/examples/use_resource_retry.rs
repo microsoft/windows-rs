@@ -1,7 +1,7 @@
 //! Demonstrates `use_resource` with error handling and retry.
 //!
-//! Simulates a flaky API that fails on every 3rd attempt. Shows how to
-//! display loading/error/ready states and retry by bumping deps.
+//! Simulates a flaky API that fails every 3rd attempt. Shows
+//! loading/error/ready states and retry by bumping deps.
 
 use std::thread;
 use std::time::Duration;

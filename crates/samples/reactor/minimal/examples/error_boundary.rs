@@ -1,8 +1,6 @@
 //! Minimal sample for `error_boundary`.
 //!
-//! `error_boundary` wraps a subtree and renders a fallback element if
-//! any descendant component panics while rendering. Toggle the button
-//! to flip a flag that drives the child component.
+//! Wraps a subtree and renders a fallback if a descendant panics during render.
 
 #![windows_subsystem = "windows"]
 
@@ -38,8 +36,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     vstack((
         TitleBar::new("windows_reactor — error_boundary"),
         text_block(
-            "Toggle the button to make the child panic on render. The boundary swaps in \
-             the fallback subtree; toggle again to recover.",
+            "Toggle to make the child panic. The boundary shows a fallback; toggle again to recover.",
         ),
         button(if should_panic {
             "Recover (stop panicking)"

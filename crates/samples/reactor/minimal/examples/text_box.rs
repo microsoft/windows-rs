@@ -22,7 +22,6 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
                 name.as_str()
             }
         )),
-        // `multiline()` turns on `accepts_return` and `text_wrapping_wrap`.
         text_box(notes)
             .header("Notes")
             .placeholder("Write something longer…")

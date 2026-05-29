@@ -1,3 +1,5 @@
+//! Minimal sample for grid background color.
+
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> impl Into<Element> {

@@ -1,7 +1,7 @@
 //! Minimal sample for theme-brush bindings.
 //!
-//! `ThemeRef::Accent` / `CardBackground` / etc. resolve against the
-//! live XAML resource dictionary, so swatches track light/dark switches.
+//! `ThemeRef::Accent`, `CardBackground`, etc. resolve against the live
+//! XAML resource dictionary and track light/dark switches.
 
 use windows_reactor::*;
 

@@ -1,8 +1,4 @@
-//! Minimal sample for passing typed props to a child `Component`.
-//!
-//! The parent forwards a `GreetingProps` snapshot to a child via
-//! `component(greeting, …)`. The child only sees its props; it has no
-//! access to the parent's state setters.
+//! Minimal sample for passing typed props to a child component.
 
 #![windows_subsystem = "windows"]
 

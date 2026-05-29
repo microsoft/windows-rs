@@ -1,6 +1,6 @@
-//! Demonstrates `App::render` — the simplest way to write a windows-reactor app.
+//! Demonstrates `App::render` — the simplest way to write an app.
 //!
-//! No struct, no impl block, no boilerplate. Just a function.
+//! No struct, no impl block. Just a render function.
 
 use windows_reactor::*;
 

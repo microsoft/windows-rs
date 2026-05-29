@@ -1,13 +1,11 @@
 //! Minimal sample for the `Canvas` element.
 //!
-//! `Canvas` positions children at `(canvas_left, canvas_top)` and has
-//! no intrinsic size, so `width`/`height` are set on the `Canvas` itself.
+//! Positions children at absolute `(canvas_left, canvas_top)` coordinates.
 
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     Canvas::new([
-        // Outline rectangle so the canvas region is visible in both themes.
         Shape::rectangle()
             .stroke(Color::rgb(128, 128, 128))
             .stroke_thickness(1.0)
