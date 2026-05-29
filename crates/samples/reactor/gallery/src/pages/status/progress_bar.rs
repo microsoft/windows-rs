@@ -45,5 +45,4 @@ Slider::new(value).range(0.0, 100.0).on_changed(handler)"#,
             ),
         ],
     )
-    .into()
 }

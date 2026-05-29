@@ -31,5 +31,5 @@ pub fn color_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"color_picker(c).hex_input_visible(false).color_channel_text_input_visible(false)"#,
             ),
         ],
-    ).into()
+    )
 }

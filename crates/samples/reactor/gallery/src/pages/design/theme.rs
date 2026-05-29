@@ -68,7 +68,7 @@ ThemeRef::SystemSuccessBackground  // background"#,
     .border_thickness(Thickness::uniform(1.0))"#,
             ),
         ],
-    ).into()
+    )
 }
 
 fn token_row(name: &str, theme_ref: ThemeRef, description: &str) -> Element {

@@ -21,5 +21,4 @@ pub fn split_view_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"split_view(content).pane(pane).is_pane_open(open)"#,
         )],
     )
-    .into()
 }

@@ -11,5 +11,5 @@ pub fn title_bar_page(_: &(), _cx: &mut RenderCx) -> Element {
                     ,
                 r#"App::new().title("My App").run(|| Shell)"#,
             )],
-        ).into()
+        )
 }

@@ -99,5 +99,4 @@ pub fn route(tag: &str) -> Element {
             .opacity(0.6)
             .into(),
     }
-    .into()
 }

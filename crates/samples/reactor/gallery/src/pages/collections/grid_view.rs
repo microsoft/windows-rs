@@ -29,5 +29,4 @@ pub fn grid_view_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"grid_view(items, |item, _| ...).on_selection_changed(move |idx| set.call(idx))"#,
         )],
     )
-    .into()
 }

@@ -46,5 +46,4 @@ pub fn teaching_tip_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

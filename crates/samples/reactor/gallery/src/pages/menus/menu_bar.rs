@@ -50,5 +50,4 @@ pub fn menu_bar_page(_: &(), cx: &mut RenderCx) -> Element {
     .on_item_click(|label| set_status.call(format!(\"Last clicked: {label}\")))"#,
         )],
     )
-    .into()
 }

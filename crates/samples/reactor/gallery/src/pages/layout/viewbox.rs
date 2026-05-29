@@ -34,5 +34,4 @@ pub fn viewbox_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"viewbox(content).width(200.0).height(100.0) // content size comes from state"#,
         )],
     )
-    .into()
 }

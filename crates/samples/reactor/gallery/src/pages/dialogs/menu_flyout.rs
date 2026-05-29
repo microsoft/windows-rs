@@ -65,5 +65,4 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

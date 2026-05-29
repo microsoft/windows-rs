@@ -27,5 +27,4 @@ pub fn split_button_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

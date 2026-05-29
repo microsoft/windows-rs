@@ -30,5 +30,4 @@ pub fn flip_view_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"flip_view(items, |item, idx| ...).on_selection_changed(move |idx| set.call(idx))"#,
         )],
     )
-    .into()
 }

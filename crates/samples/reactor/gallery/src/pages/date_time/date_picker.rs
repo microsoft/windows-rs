@@ -29,5 +29,4 @@ pub fn date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

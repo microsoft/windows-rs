@@ -42,5 +42,4 @@ calendar_view()
             ),
         ],
     )
-    .into()
 }

@@ -65,5 +65,4 @@ pub fn relative_panel_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

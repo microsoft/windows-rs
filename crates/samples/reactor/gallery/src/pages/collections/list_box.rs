@@ -36,5 +36,5 @@ pub fn list_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"list_box().items(items).enabled(false)"#,
             ),
         ],
-    ).into()
+    )
 }

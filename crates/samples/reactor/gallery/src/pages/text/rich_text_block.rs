@@ -95,5 +95,5 @@ pub fn rich_text_block_page(_: &(), cx: &mut RenderCx) -> Element {
     .wrap()"#,
                 ),
             ],
-        ).into()
+        )
 }

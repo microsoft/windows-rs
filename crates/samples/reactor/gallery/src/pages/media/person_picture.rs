@@ -45,5 +45,4 @@ PersonPicture::new().display_name("Alice Smith")
 PersonPicture::new().initials("AS")"#,
         )],
     )
-    .into()
 }

@@ -79,5 +79,4 @@ check_box(push).label("Push").on_changed(handler)"#,
             ),
         ],
     )
-    .into()
 }

@@ -27,5 +27,4 @@ pub fn progress_ring_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

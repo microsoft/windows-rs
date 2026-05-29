@@ -55,5 +55,5 @@ pub fn content_dialog_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"ContentDialog::new("Save?").primary_button_text("Save").secondary_button_text("Don't Save")"#,
             ),
         ],
-    ).into()
+    )
 }

@@ -42,5 +42,4 @@ pub fn text_box_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

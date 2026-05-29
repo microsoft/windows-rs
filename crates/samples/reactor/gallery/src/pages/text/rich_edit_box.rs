@@ -32,5 +32,4 @@ pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> Element {
     .on_changed(|text| set_editor_text.call(text))"#,
         )],
     )
-    .into()
 }

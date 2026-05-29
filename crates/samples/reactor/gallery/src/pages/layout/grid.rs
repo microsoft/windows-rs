@@ -186,5 +186,4 @@ if wide { grid with 3 columns } else { grid with 2×2 }"#,
             ),
         ],
     )
-    .into()
 }

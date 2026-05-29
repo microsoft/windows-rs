@@ -19,7 +19,6 @@ pub fn typography_page(_: &(), _cx: &mut RenderCx) -> Element {
         "The WinUI 3 type ramp provides a set of named text styles for consistent hierarchy.",
         vec![ramp],
     )
-    .into()
 }
 
 fn type_sample(name: &str, size: f64, bold: bool) -> Element {

@@ -87,5 +87,4 @@ pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

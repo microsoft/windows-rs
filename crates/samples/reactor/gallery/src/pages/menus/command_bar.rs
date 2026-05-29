@@ -53,5 +53,5 @@ pub fn command_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"command_bar(vec![CommandBarCommandDef::Button { label, icon }])"#,
             ),
         ],
-    ).into()
+    )
 }

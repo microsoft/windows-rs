@@ -57,5 +57,4 @@ pub fn command_bar_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

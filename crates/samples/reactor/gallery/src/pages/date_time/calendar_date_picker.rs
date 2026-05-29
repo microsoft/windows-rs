@@ -41,5 +41,4 @@ pub fn calendar_date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

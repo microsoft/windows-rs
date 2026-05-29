@@ -38,5 +38,4 @@ pub fn combo_box_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

@@ -47,7 +47,6 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
                 set_nav.call((key, h));
             }
         })
-        .into()
     } else if selected_tag.eq_ignore_ascii_case("settings") {
         component(crate::pages::settings::settings_page, ())
     } else if category_tags.contains(&selected_tag) {

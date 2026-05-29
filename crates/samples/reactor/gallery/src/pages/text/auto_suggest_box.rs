@@ -26,5 +26,4 @@ pub fn auto_suggest_box_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"auto_suggest_box(query).items(suggestions).on_text_changed(handler)"#,
         )],
     )
-    .into()
 }

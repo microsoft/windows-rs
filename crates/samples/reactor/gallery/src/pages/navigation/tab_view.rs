@@ -75,5 +75,4 @@ TabView::new(tabs)"#,
             ),
         ],
     )
-    .into()
 }

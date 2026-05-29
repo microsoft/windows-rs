@@ -56,5 +56,4 @@ pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"Image::new(uri).stretch(ImageStretch::Uniform).width(300.0).height(150.0)"#,
         )],
     )
-    .into()
 }

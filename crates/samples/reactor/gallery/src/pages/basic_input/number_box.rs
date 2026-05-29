@@ -40,5 +40,4 @@ pub fn number_box_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

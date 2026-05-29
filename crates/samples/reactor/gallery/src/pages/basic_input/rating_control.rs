@@ -36,5 +36,4 @@ pub fn rating_control_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

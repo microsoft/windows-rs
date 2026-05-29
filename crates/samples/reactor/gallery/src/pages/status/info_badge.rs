@@ -52,5 +52,4 @@ pub fn info_badge_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

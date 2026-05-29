@@ -34,5 +34,4 @@ pub fn pivot_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

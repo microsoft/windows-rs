@@ -61,5 +61,4 @@ text_block("Huge").font_size(36.0)"#,
             ),
         ],
     )
-    .into()
 }

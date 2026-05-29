@@ -39,5 +39,4 @@ pub fn expander_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

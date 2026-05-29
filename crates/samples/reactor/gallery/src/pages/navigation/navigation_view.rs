@@ -72,5 +72,4 @@ pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

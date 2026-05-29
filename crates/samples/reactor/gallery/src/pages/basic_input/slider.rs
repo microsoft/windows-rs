@@ -77,5 +77,4 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
         ],
     )
-    .into()
 }

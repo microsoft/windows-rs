@@ -76,5 +76,5 @@ App::new(root).backdrop(Backdrop::Mica).run()
 set_backdrop(Some(Backdrop::Acrylic));"#,
             ),
         ],
-    ).into()
+    )
 }

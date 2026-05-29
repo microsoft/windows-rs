@@ -34,5 +34,5 @@ pub fn radio_button_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"RadioButtons::new(sizes).header("T-shirt size").selected_index(1)"#,
             ),
         ],
-    ).into()
+    )
 }

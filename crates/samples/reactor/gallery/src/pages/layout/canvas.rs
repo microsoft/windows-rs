@@ -39,5 +39,4 @@ pub fn canvas_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"Canvas::new([el.canvas_left(x).canvas_top(y)]) // x, y from sliders"#,
         )],
     )
-    .into()
 }

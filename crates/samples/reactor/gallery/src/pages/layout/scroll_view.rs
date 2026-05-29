@@ -32,5 +32,4 @@ pub fn scroll_view_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"scroll_view(vstack(items).spacing(4.0)).height(200.0)"#,
         )],
     )
-    .into()
 }

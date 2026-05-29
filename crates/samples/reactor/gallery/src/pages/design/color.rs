@@ -50,5 +50,4 @@ pub fn color_page(_: &(), _cx: &mut RenderCx) -> Element {
         "System accent and semantic colors used across WinUI 3 apps.",
         vec![color_grid.into()],
     )
-    .into()
 }

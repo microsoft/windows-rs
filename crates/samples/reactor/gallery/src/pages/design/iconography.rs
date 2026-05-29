@@ -58,5 +58,4 @@ pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> Element {
         "Segoe MDL2 Assets icons available through the SymbolGlyph enum.",
         vec![icons_grid.into()],
     )
-    .into()
 }
