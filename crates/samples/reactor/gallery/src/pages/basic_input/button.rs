@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn button_page(_: &(), cx: &mut RenderCx) -> Element {
     let (basic_output, set_basic_output) = cx.use_state(String::from("Ready"));
     let (accent_output, set_accent_output) = cx.use_state(String::from("Ready"));
     let (subtle_output, set_subtle_output) = cx.use_state(String::from("Ready"));
@@ -76,4 +76,5 @@ pub fn button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

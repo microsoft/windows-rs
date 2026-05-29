@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn tool_tip_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn tool_tip_page(_: &(), cx: &mut RenderCx) -> Element {
     let (hover_count, set_hover_count) = cx.use_state(0_i32);
 
     let rich_tooltip = Tooltip::rich(
@@ -54,4 +54,5 @@ pub fn tool_tip_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

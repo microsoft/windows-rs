@@ -13,7 +13,7 @@ enum Size {
     Large,
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (size, set_size) = cx.use_state(Size::default());
 
     let choose = |value: Size| {
@@ -47,6 +47,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .enabled(false),
     ))
     .spacing(4.0)
+    .into()
 }
 
 fn main() -> Result<()> {

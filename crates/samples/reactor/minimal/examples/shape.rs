@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Rectangle (fill + corner_radius)"),
         Shape::rectangle()
@@ -27,6 +27,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
             .height(48.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

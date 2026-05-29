@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         title("Title — 28px Semibold"),
         subtitle("Subtitle — 20px Semibold"),
@@ -13,6 +13,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         text_block("Custom weight").font_weight(300),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Dot (attention indicator)"),
         InfoBadge::dot(),
@@ -16,6 +16,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         .spacing(12.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

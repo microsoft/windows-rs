@@ -130,6 +130,7 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Ele
     })
     .with_key_selector(|item| item.key.clone())
     .build()
+    .into()
 }
 
 /// Wraps page content in a ScrollView with header + sample cards (matches C# PageContent).

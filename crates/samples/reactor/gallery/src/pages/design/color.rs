@@ -1,7 +1,7 @@
 use crate::controls::page_content;
 use windows_reactor::*;
 
-pub fn color_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn color_page(_: &(), _cx: &mut RenderCx) -> Element {
     let swatches = [
         ("Accent", Color::rgb(0, 120, 212)),
         ("Accent Light 1", Color::rgb(51, 143, 221)),
@@ -50,4 +50,5 @@ pub fn color_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
         "System accent and semantic colors used across WinUI 3 apps.",
         vec![color_grid.into()],
     )
+    .into()
 }

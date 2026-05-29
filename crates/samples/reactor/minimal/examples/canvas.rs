@@ -4,7 +4,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     Canvas::new([
         Shape::rectangle()
             .stroke(Color::rgb(128, 128, 128))
@@ -28,6 +28,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     ])
     .width(260.0)
     .height(120.0)
+    .into()
 }
 
 fn main() -> Result<()> {

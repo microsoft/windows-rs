@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn rating_control_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn rating_control_page(_: &(), cx: &mut RenderCx) -> Element {
     let (rating, set_rating) = cx.use_state(3.0_f64);
 
     page_content(
@@ -36,4 +36,5 @@ pub fn rating_control_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

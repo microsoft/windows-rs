@@ -6,7 +6,7 @@ use std::time::Duration;
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (big, set_big) = cx.use_state(false);
 
     let toggle = move || set_big.call(!big);
@@ -35,6 +35,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         swatch,
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (last_click, set_last_click) = cx.use_state(String::from("(none)"));
 
     vstack((
@@ -18,6 +18,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Last clicked: {last_click}")),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

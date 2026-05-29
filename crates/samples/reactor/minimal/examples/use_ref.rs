@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (clicks, set_clicks) = cx.use_state(0_u32);
 
     let render_count = cx.use_ref(0_u64);
@@ -26,6 +26,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .opacity(0.7),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -34,13 +34,14 @@ impl Page {
     }
 }
 
-fn home_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+fn home_page(_: &(), _cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Welcome Home").font_size(28.0).bold(),
         text_block("This is the landing page of the app."),
         text_block("Use the navigation pane to switch between pages.").opacity(0.6),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn fetch_stats(_: ()) -> std::result::Result<Vec<String>, String> {
@@ -53,7 +54,7 @@ fn fetch_stats(_: ()) -> std::result::Result<Vec<String>, String> {
     ])
 }
 
-fn dashboard_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+fn dashboard_page(_: &(), cx: &mut RenderCx) -> Element {
     let stats = cx.use_resource(fetch_stats, ());
 
     let content: Element = stats
@@ -73,9 +74,10 @@ fn dashboard_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
         content,
     ))
     .spacing(8.0)
+    .into()
 }
 
-fn settings_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+fn settings_page(_: &(), cx: &mut RenderCx) -> Element {
     let (dark_mode, set_dark) = cx.use_state(false);
     let (notifications, set_notif) = cx.use_state(true);
 
@@ -95,9 +97,10 @@ fn settings_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
         .opacity(0.6),
     ))
     .spacing(12.0)
+    .into()
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(Page::Home);
 
     let menu_items = [
@@ -121,6 +124,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .on_selection_changed(move |tag: String| set_page.call(Page::from_tag(&tag)))
         .pane_display_mode(NavViewPaneDisplayMode::Left)
         .pane_title("My App")
+        .into()
 }
 
 fn main() -> Result<()> {

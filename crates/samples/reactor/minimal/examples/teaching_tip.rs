@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (is_open, set_is_open) = cx.use_state(false);
     let (status, set_status) = cx.use_state(String::from("(tip closed)"));
 
@@ -35,6 +35,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             }),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

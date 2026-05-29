@@ -13,7 +13,7 @@ fn fetch_page(page: i32) -> std::result::Result<Vec<String>, String> {
         .collect())
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(0_i32);
 
     let items = cx.use_resource(fetch_page, page);
@@ -53,6 +53,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         )),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

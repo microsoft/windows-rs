@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn teaching_tip_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn teaching_tip_page(_: &(), cx: &mut RenderCx) -> Element {
     let (show_basic, set_basic) = cx.use_state(false);
     let (show_action, set_action) = cx.use_state(false);
     let (action_count, set_count) = cx.use_state(0_i32);
@@ -46,4 +46,5 @@ pub fn teaching_tip_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn drop_down_button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn drop_down_button_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(String::from("(none)"));
 
     page_content(
@@ -37,4 +37,5 @@ pub fn drop_down_button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

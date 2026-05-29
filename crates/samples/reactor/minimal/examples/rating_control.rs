@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (rating, set_rating) = cx.use_state(3.0_f64);
 
     let update = move |v: f64| set_rating.call(v);
@@ -14,6 +14,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         RatingControl::new(2.5).read_only(),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

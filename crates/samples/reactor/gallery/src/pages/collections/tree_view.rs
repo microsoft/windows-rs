@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn tree_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn tree_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (invoked, set_invoked) = cx.use_state(String::from("(none)"));
 
     let file_system = vec![
@@ -37,4 +37,5 @@ pub fn tree_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

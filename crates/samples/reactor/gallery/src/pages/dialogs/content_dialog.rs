@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn content_dialog_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn content_dialog_page(_: &(), cx: &mut RenderCx) -> Element {
     let (open, set_open) = cx.use_state(false);
     let (result_text, set_result) = cx.use_state(String::from("(none)"));
     let (open2, set_open2) = cx.use_state(false);
@@ -55,5 +55,5 @@ pub fn content_dialog_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
                 r#"ContentDialog::new("Save?").primary_button_text("Save").secondary_button_text("Don't Save")"#,
             ),
         ],
-    )
+    ).into()
 }

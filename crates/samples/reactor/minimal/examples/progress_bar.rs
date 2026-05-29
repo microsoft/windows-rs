@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Determinate (65%)"),
         ProgressBar::new(65.0).range(0.0, 100.0),
@@ -13,6 +13,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(320.0)
+    .into()
 }
 
 fn main() -> Result<()> {

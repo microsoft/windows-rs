@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn slider_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
     let (volume, set_volume) = cx.use_state(35.0_f64);
     let (brightness, set_brightness) = cx.use_state(60.0_f64);
     let (temperature, set_temperature) = cx.use_state(21.0_f64);
@@ -77,4 +77,5 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

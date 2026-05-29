@@ -4,7 +4,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
 
     vstack((
@@ -19,6 +19,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .spacing(8.0),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

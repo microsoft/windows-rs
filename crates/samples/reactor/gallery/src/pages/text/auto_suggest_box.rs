@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn auto_suggest_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn auto_suggest_box_page(_: &(), cx: &mut RenderCx) -> Element {
     let (query, set_query) = cx.use_state(String::new());
 
     let suggestions: Vec<String> = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
@@ -26,4 +26,5 @@ pub fn auto_suggest_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             r#"auto_suggest_box(query).items(suggestions).on_text_changed(handler)"#,
         )],
     )
+    .into()
 }

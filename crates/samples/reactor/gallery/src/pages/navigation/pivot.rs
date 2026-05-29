@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn pivot_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn pivot_page(_: &(), cx: &mut RenderCx) -> Element {
     let (tab_idx, set_tab) = cx.use_state(0_i32);
 
     page_content(
@@ -34,4 +34,5 @@ pub fn pivot_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

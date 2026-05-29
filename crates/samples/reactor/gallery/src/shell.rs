@@ -3,7 +3,7 @@ use crate::registry::{self, ControlInfo, CATEGORIES};
 use crate::router;
 use windows_reactor::*;
 
-pub fn gallery_shell(cx: &mut RenderCx) -> impl Into<Element> {
+pub fn gallery_shell(cx: &mut RenderCx) -> Element {
     let (nav, set_nav) = cx.use_state((String::from("home"), Vec::<String>::new()));
     let (is_pane_open, set_pane_open) = cx.use_state(true);
     let (search_text, set_search_text) = cx.use_state(String::new());
@@ -161,6 +161,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> impl Into<Element> {
     grid((title_bar.grid_row(0), nav_view.grid_row(1)))
         .rows([GridLength::Auto, GridLength::Star(1.0)])
         .columns([GridLength::Star(1.0)])
+        .into()
 }
 
 fn category_icon(category: &str) -> SymbolGlyph {

@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (color, set_color) = cx.use_state((255_u8, 0_u8, 120_u8, 215_u8));
 
     let update = move |argb: (u8, u8, u8, u8)| set_color.call(argb);
@@ -17,6 +17,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Hex: #{r:02X}{g:02X}{b:02X}")),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

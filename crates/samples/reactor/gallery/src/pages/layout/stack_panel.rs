@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn stack_panel_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn stack_panel_page(_: &(), cx: &mut RenderCx) -> Element {
     let (item_count, set_count) = cx.use_state(3_i32);
 
     let items: Vec<Element> = (1..=item_count)
@@ -52,4 +52,5 @@ pub fn stack_panel_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

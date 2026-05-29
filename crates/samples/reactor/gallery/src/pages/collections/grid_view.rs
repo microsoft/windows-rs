@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn grid_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn grid_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(-1_i32);
     let items: Vec<String> = (1..=12).map(|i| format!("Item {i}")).collect();
 
@@ -29,4 +29,5 @@ pub fn grid_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             r#"grid_view(items, |item, _| ...).on_selection_changed(move |idx| set.call(idx))"#,
         )],
     )
+    .into()
 }

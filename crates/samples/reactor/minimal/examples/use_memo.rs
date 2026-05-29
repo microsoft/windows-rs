@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (n, set_n) = cx.use_state(3_i32);
     let (show_hint, set_hint) = cx.use_state(false);
 
@@ -55,6 +55,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         },
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

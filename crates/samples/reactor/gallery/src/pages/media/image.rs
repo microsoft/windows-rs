@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn image_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
     let (stretch_idx, set_stretch) = cx.use_state(0_i32);
 
     let stretch = match stretch_idx {
@@ -56,4 +56,5 @@ pub fn image_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             r#"Image::new(uri).stretch(ImageStretch::Uniform).width(300.0).height(150.0)"#,
         )],
     )
+    .into()
 }

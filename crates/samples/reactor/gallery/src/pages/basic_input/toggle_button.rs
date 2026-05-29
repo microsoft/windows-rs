@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn toggle_button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn toggle_button_page(_: &(), cx: &mut RenderCx) -> Element {
     let (bold, set_bold) = cx.use_state(false);
     let (italic, set_italic) = cx.use_state(false);
 
@@ -38,4 +38,5 @@ pub fn toggle_button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         InfoBar::new("Did you know?")
             .message("This is an informational notice.")
@@ -27,6 +27,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(360.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (last_invoked, set_last_invoked) = cx.use_state(String::from("(none)"));
 
     let nodes = vec![
@@ -19,6 +19,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Last invoked: {last_invoked}")),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

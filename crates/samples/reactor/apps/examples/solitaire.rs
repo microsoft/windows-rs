@@ -447,7 +447,7 @@ fn foundation_x(f: usize) -> f64 {
     pile_x(PILES - FOUNDATIONS + f)
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (game, update) = cx.use_reducer(Game::new(current_seed()));
 
     let click_handler = {
@@ -487,7 +487,9 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
 
     let board = viewbox(build_board(&game, click_handler));
 
-    vstack((title_bar, header, board)).background(Color::rgb(20, 100, 60))
+    vstack((title_bar, header, board))
+        .background(Color::rgb(20, 100, 60))
+        .into()
 }
 
 fn status_line(game: &Game) -> String {

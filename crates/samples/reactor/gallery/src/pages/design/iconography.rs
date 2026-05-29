@@ -1,7 +1,7 @@
 use crate::controls::page_content;
 use windows_reactor::*;
 
-pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> Element {
     let icons: Vec<(&str, SymbolGlyph)> = vec![
         ("Home", SymbolGlyph::Home),
         ("Setting", SymbolGlyph::Setting),
@@ -58,4 +58,5 @@ pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
         "Segoe MDL2 Assets icons available through the SymbolGlyph enum.",
         vec![icons_grid.into()],
     )
+    .into()
 }

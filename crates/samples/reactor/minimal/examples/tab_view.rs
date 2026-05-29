@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (tabs, set_tabs) = cx.use_state(vec![
         ("overview", "Overview"),
         ("badges", "Badges"),
@@ -52,6 +52,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         )),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

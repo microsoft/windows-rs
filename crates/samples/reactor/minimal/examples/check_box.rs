@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (checked, set_checked) = cx.use_state(false);
 
     let toggle = move |v| set_checked.call(v);
@@ -19,6 +19,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         check_box(true).label("Disabled (always on)").enabled(false),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

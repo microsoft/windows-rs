@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn relative_panel_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn relative_panel_page(_: &(), cx: &mut RenderCx) -> Element {
     let (show_alt_layout, set_show_alt_layout) = cx.use_state(false);
 
     let dynamic_items: Vec<Element> = if show_alt_layout {
@@ -65,4 +65,5 @@ pub fn relative_panel_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

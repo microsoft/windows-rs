@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn theme_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn theme_page(_: &(), _cx: &mut RenderCx) -> Element {
     page_content(
         "Theme",
         "Guidance on applying light, dark, and high-contrast themes using WinUI theme resources.",
@@ -68,7 +68,7 @@ ThemeRef::SystemSuccessBackground  // background"#,
     .border_thickness(Thickness::uniform(1.0))"#,
             ),
         ],
-    )
+    ).into()
 }
 
 fn token_row(name: &str, theme_ref: ThemeRef, description: &str) -> Element {

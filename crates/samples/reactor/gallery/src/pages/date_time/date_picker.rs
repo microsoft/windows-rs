@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn date_picker_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected_date, set_selected_date) = cx.use_state(String::from("No date selected"));
 
     page_content(
@@ -29,4 +29,5 @@ pub fn date_picker_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

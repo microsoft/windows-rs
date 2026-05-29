@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state("home".to_string());
 
     let menu_items = [
@@ -24,6 +24,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .pane_title("Demo")
         .header(format!("page: {page}"))
         .settings_visible(false)
+        .into()
 }
 
 fn main() -> Result<()> {

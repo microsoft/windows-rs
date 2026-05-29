@@ -1,7 +1,7 @@
 use crate::controls::page_content;
 use windows_reactor::*;
 
-pub fn spacing_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn spacing_page(_: &(), _cx: &mut RenderCx) -> Element {
     let spacings = [
         ("XXSmall", 2.0),
         ("XSmall", 4.0),
@@ -23,6 +23,7 @@ pub fn spacing_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
         "Standard spacing values used to create consistent layouts in WinUI 3.",
         vec![vstack(samples).spacing(8.0).into()],
     )
+    .into()
 }
 
 fn spacing_row(name: &str, size: f64) -> Element {

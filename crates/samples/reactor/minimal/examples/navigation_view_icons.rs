@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(String::from("home"));
 
     let content = match page.as_str() {
@@ -28,6 +28,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     )
     .selected_tag(&*page)
     .on_selection_changed(move |tag: String| set_page.call(tag))
+    .into()
 }
 
 fn main() -> Result<()> {

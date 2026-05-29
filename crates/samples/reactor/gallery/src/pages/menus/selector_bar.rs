@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn selector_bar_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn selector_bar_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(String::from("Recent"));
 
     let cb = set_selected;
@@ -23,4 +23,5 @@ pub fn selector_bar_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             r#"selector_bar(vec![selector_bar_item("Recent"), ...]).on_selection_changed(h)"#,
         )],
     )
+    .into()
 }

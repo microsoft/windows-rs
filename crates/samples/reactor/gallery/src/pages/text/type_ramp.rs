@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn type_ramp_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn type_ramp_page(_: &(), _cx: &mut RenderCx) -> Element {
     page_content(
         "Type Ramp",
         "Named text factories for the WinUI 3 type ramp.",
@@ -61,4 +61,5 @@ text_block("Huge").font_size(36.0)"#,
             ),
         ],
     )
+    .into()
 }

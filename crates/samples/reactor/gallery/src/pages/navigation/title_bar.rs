@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn title_bar_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn title_bar_page(_: &(), _cx: &mut RenderCx) -> Element {
     page_content(
             "TitleBar",
             "A customizable application title bar.",
@@ -11,5 +11,5 @@ pub fn title_bar_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
                     ,
                 r#"App::new().title("My App").run(|| Shell)"#,
             )],
-        )
+        ).into()
 }

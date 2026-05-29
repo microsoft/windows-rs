@@ -25,7 +25,7 @@ fn reducer(state: CounterState, action: Action) -> CounterState {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (state, dispatch) = cx.use_reducer_fn(reducer, CounterState::default());
 
     let inc = {
@@ -50,6 +50,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .spacing(8.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

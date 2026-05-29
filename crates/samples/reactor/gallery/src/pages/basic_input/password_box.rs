@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn password_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn password_box_page(_: &(), cx: &mut RenderCx) -> Element {
     let (password, set_password) = cx.use_state(String::new());
 
     page_content(
@@ -42,4 +42,5 @@ pub fn password_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

@@ -1,6 +1,6 @@
 use windows_reactor::*;
 
-pub fn settings_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+pub fn settings_page(_: &(), _cx: &mut RenderCx) -> Element {
     let content: Element = vstack((
         text_block("Settings").font_size(28.0).bold(),
         vstack((
@@ -38,5 +38,5 @@ pub fn settings_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
     })
     .horizontal_alignment(HorizontalAlignment::Stretch)
     .into();
-    scroll_view(content)
+    scroll_view(content).into()
 }

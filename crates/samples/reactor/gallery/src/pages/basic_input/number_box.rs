@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn number_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn number_box_page(_: &(), cx: &mut RenderCx) -> Element {
     let (value, set_value) = cx.use_state(42.0_f64);
     let (clamped, set_clamped) = cx.use_state(5.0_f64);
 
@@ -40,4 +40,5 @@ pub fn number_box_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }

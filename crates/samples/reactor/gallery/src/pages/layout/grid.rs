@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn grid_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn grid_page(_: &(), cx: &mut RenderCx) -> Element {
     let (wide, set_wide) = cx.use_state(false);
 
     let basic_grid = {
@@ -186,4 +186,5 @@ if wide { grid with 3 columns } else { grid with 2×2 }"#,
             ),
         ],
     )
+    .into()
 }

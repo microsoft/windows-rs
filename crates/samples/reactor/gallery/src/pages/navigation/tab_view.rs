@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn tab_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn tab_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(0_i32);
     let (tab_count, set_tab_count) = cx.use_state(3_i32);
 
@@ -75,4 +75,5 @@ TabView::new(tabs)"#,
             ),
         ],
     )
+    .into()
 }

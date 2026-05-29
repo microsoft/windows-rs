@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn flyout_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn flyout_page(_: &(), cx: &mut RenderCx) -> Element {
     let (deleted, set_deleted) = cx.use_state(false);
 
     page_content(
@@ -46,4 +46,5 @@ pub fn flyout_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
             ),
         ],
     )
+    .into()
 }
