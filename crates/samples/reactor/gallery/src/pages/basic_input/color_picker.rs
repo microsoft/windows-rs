@@ -13,7 +13,7 @@ pub fn color_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     color_picker(ColorArgb::new(color.0, color.1, color.2))
                         .alpha_enabled(true)
-                        .on_changed(move |c| set_color.call(c)),
+                        .on_changed(move |(a, r, g, b)| set_color.call((r, g, b, a))),
                     text_block(format!(
                         "RGBA({}, {}, {}, {})",
                         color.0, color.1, color.2, color.3
