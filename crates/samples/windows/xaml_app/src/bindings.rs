@@ -158,8 +158,8 @@ impl Application {
     pub fn OnShareTargetActivated<P0>(&self, args: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<
-            windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs,
-        >,
+                windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs,
+            >,
     {
         let this = &windows_core::Interface::cast::<IApplicationOverrides>(self)?;
         unsafe {
@@ -173,8 +173,8 @@ impl Application {
     pub fn OnFileOpenPickerActivated<P0>(&self, args: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<
-            windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs,
-        >,
+                windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs,
+            >,
     {
         let this = &windows_core::Interface::cast::<IApplicationOverrides>(self)?;
         unsafe {
@@ -188,8 +188,8 @@ impl Application {
     pub fn OnFileSavePickerActivated<P0>(&self, args: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<
-            windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs,
-        >,
+                windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs,
+            >,
     {
         let this = &windows_core::Interface::cast::<IApplicationOverrides>(self)?;
         unsafe {
@@ -203,8 +203,8 @@ impl Application {
     pub fn OnCachedFileUpdaterActivated<P0>(&self, args: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<
-            windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs,
-        >,
+                windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs,
+            >,
     {
         let this = &windows_core::Interface::cast::<IApplicationOverrides>(self)?;
         unsafe {
@@ -230,9 +230,7 @@ impl Application {
     }
     pub fn OnBackgroundActivated<P0>(&self, args: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<
-            windows::ApplicationModel::Activation::BackgroundActivatedEventArgs,
-        >,
+        P0: windows_core::Param<windows::ApplicationModel::Activation::BackgroundActivatedEventArgs>,
     {
         let this = &windows_core::Interface::cast::<IApplicationOverrides2>(self)?;
         unsafe {
@@ -360,12 +358,10 @@ struct ApplicationInitializationCallbackBox<
         + 'static,
 >(core::marker::PhantomData<(fn() -> F,)>);
 impl<
-        F: Fn(
-                windows_core::Ref<ApplicationInitializationCallbackParams>,
-            ) -> windows_core::Result<()>
-            + Send
-            + 'static,
-    > ApplicationInitializationCallbackBox<F>
+    F: Fn(windows_core::Ref<ApplicationInitializationCallbackParams>) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> ApplicationInitializationCallbackBox<F>
 {
     const VTABLE: ApplicationInitializationCallback_Vtbl = ApplicationInitializationCallback_Vtbl {
         base__:
@@ -1337,8 +1333,11 @@ impl Control {
     pub fn Loading<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<
-            windows::Foundation::TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
-        >,
+                windows::Foundation::TypedEventHandler<
+                    FrameworkElement,
+                    windows_core::IInspectable,
+                >,
+            >,
     {
         let this = &windows_core::Interface::cast::<IFrameworkElement3>(self)?;
         unsafe {
@@ -1406,8 +1405,11 @@ impl Control {
     pub fn ActualThemeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<
-            windows::Foundation::TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
-        >,
+                windows::Foundation::TypedEventHandler<
+                    FrameworkElement,
+                    windows_core::IInspectable,
+                >,
+            >,
     {
         let this = &windows_core::Interface::cast::<IFrameworkElement6>(self)?;
         unsafe {
@@ -3178,8 +3180,11 @@ impl FrameworkElement {
     pub fn Loading<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<
-            windows::Foundation::TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
-        >,
+                windows::Foundation::TypedEventHandler<
+                    FrameworkElement,
+                    windows_core::IInspectable,
+                >,
+            >,
     {
         let this = &windows_core::Interface::cast::<IFrameworkElement3>(self)?;
         unsafe {
@@ -3247,8 +3252,11 @@ impl FrameworkElement {
     pub fn ActualThemeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<
-            windows::Foundation::TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
-        >,
+                windows::Foundation::TypedEventHandler<
+                    FrameworkElement,
+                    windows_core::IInspectable,
+                >,
+            >,
     {
         let this = &windows_core::Interface::cast::<IFrameworkElement6>(self)?;
         unsafe {
@@ -9635,8 +9643,11 @@ impl TextBox {
     pub fn Loading<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<
-            windows::Foundation::TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
-        >,
+                windows::Foundation::TypedEventHandler<
+                    FrameworkElement,
+                    windows_core::IInspectable,
+                >,
+            >,
     {
         let this = &windows_core::Interface::cast::<IFrameworkElement3>(self)?;
         unsafe {
@@ -9704,8 +9715,11 @@ impl TextBox {
     pub fn ActualThemeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<
-            windows::Foundation::TypedEventHandler<FrameworkElement, windows_core::IInspectable>,
-        >,
+                windows::Foundation::TypedEventHandler<
+                    FrameworkElement,
+                    windows_core::IInspectable,
+                >,
+            >,
     {
         let this = &windows_core::Interface::cast::<IFrameworkElement6>(self)?;
         unsafe {
