@@ -115,6 +115,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     ("Reconciler_Mount_ComboBox", controls::mount_combo_box),
     ("Reconciler_Mount_Canvas", controls::mount_canvas),
     (
+        "Reconciler_Mount_SwapChainPanel",
+        controls::mount_swap_chain_panel,
+    ),
+    (
         "Interaction_CheckBox_TogglesState",
         interactions::checkbox_toggles_state,
     ),

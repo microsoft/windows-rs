@@ -8,6 +8,11 @@ mod extras {
         fn get_WindowHandle(&self, hwnd: *mut *mut void) -> HRESULT;
     }
 
+    #[guid(0x63aad0b8_7c24_40ff_85a8_640d944cc325)]
+    interface ISwapChainPanelNative : Windows::Win32::System::Com::IUnknown {
+        fn SetSwapChain(&self, swapChain: *mut void) -> HRESULT;
+    }
+
     // Sourced from Microsoft.WindowsAppSDK.Runtime 2.0.1
 
     #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]

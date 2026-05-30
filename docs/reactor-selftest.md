@@ -13,9 +13,9 @@ cargo test -p test_reactor
 
 ---
 
-## Integration Tests (`test_reactor_backend`)
+## Integration Tests (`test_reactor_selftest`)
 
-The `test_reactor_backend` crate (`crates/tests/libs/reactor_backend`) is
+The `test_reactor_selftest` crate (`crates/tests/libs/reactor_selftest`) is
 the live integration test suite. It launches a real WinUI 3 window, mounts
 reactor components through the full render pipeline, and asserts against the
 live visual tree. Output is [TAP 14](https://testanything.org/) for
@@ -34,19 +34,19 @@ machine-parseable pass/fail reporting.
 
 ```sh
 # Full run (opens a window, interactive mode)
-cargo run -p test_reactor_backend
+cargo run -p test_reactor_selftest
 
 # CI / headless (auto-exits with exit code)
-cargo run -p test_reactor_backend -- --headless
+cargo run -p test_reactor_selftest -- --headless
 
 # Filter to a specific fixture
-cargo run -p test_reactor_backend -- --filter Tooltip
+cargo run -p test_reactor_selftest -- --filter Tooltip
 
 # Slow mode (400ms pause between fixtures for visual inspection)
-cargo run -p test_reactor_backend -- --slow
+cargo run -p test_reactor_selftest -- --slow
 
 # List all fixture names (no WinUI launch)
-cargo run -p test_reactor_backend -- --list-fixtures
+cargo run -p test_reactor_selftest -- --list-fixtures
 ```
 
 ### CI

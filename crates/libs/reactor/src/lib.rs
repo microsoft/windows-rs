@@ -8,6 +8,7 @@
     clippy::upper_case_acronyms,
     clippy::useless_transmute,
     clippy::missing_transmute_annotations,
+    clippy::missing_safety_doc,
     clippy::too_many_arguments
 )]
 mod bindings;
@@ -26,7 +27,7 @@ pub(crate) mod diagnostics;
 
 mod app_shim;
 
-pub use windows_core::{Error, Result};
+pub use windows_core::{Error, Result, Interface};
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;
@@ -51,3 +52,4 @@ pub use dsl::*;
 pub use winui::dispatcher::WinUIDispatcher;
 pub use winui::host::{Backdrop, RequestedTheme, set_backdrop, set_requested_theme};
 pub use winui::{DispatcherTimer, Rendering, on_rendering};
+pub use bindings::{ISwapChainPanelNative, SwapChainPanel};

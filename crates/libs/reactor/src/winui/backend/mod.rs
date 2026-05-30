@@ -122,6 +122,7 @@ define_handles! {
     RichEditBox,
     RelativePanel,
     ToggleButton,
+    SwapChainPanel,
 }
 
 /// [`Backend`] implementation that creates real `Microsoft.UI.Xaml`
@@ -4139,6 +4140,10 @@ impl Backend for WinUIBackend {
         }
 
         self.pointer_revokers.borrow_mut().insert(id, tokens);
+    }
+
+    fn get_native_element(&self, id: ControlId) -> Option<windows_core::IInspectable> {
+        self.get_ui_element(id)
     }
 }
 

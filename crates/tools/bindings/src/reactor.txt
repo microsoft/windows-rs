@@ -1,4 +1,5 @@
 extras.IWindowNative::{get_WindowHandle}
+extras.ISwapChainPanelNative::{SetSwapChain}
 extras.MddBootstrapInitialize2
 extras.MddBootstrapInitializeOptions
 extras.MddBootstrapInitializeOptions_OnNoMatch_ShowUI
@@ -256,6 +257,7 @@ Microsoft.UI.Xaml.Controls.SplitButtonClickEventArgs
 Microsoft.UI.Xaml.Controls.SplitView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SplitViewDisplayMode
 Microsoft.UI.Xaml.Controls.StackPanel::{CreateInstance}
+Microsoft.UI.Xaml.Controls.SwapChainPanel::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Symbol
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstanceWithSymbol}
