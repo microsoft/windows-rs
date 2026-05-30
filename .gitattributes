@@ -10,3 +10,4 @@
 *.ttf   binary
 *.woff  binary
 *.woff2 binary
+*.dll   binary
