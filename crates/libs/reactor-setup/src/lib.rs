@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -5,11 +6,16 @@ use std::process::Command;
 
 const INTERACTIVE_PKG: &str = "Microsoft.WindowsAppSDK.InteractiveExperiences";
 const INTERACTIVE_VER: &str = "2.0.13";
+const FOUNDATION_PKG: &str = "Microsoft.WindowsAppSDK.Foundation";
+const FOUNDATION_VER: &str = "2.0.21";
+const WINUI_PKG: &str = "Microsoft.WindowsAppSDK.WinUI";
+const WINUI_VER: &str = "2.1.0";
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
 const RUNTIME_VER: &str = "2.1.3";
 
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
 const WINMD_OUT: &str = "winmd";
+const MANIFEST_TEMPLATE: &str = include_str!("../assets/template.manifest");
 
 const WINMD_FILES: &[&str] = &[
     "Microsoft.Foundation.winmd",
@@ -64,6 +70,7 @@ pub fn as_self_contained() {
     let extract = ensure_msix_extracted(&runtime);
     copy_winmds_to(&extract, &winmd_dest);
     copy_dir_contents(&extract, &target_dir_from_out(&out_dir));
+    build_manifest(&out_dir, &temp_dir);
 }
 
 #[doc(hidden)]
@@ -73,6 +80,75 @@ pub fn stage_runtime() {
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
     let extract = ensure_msix_extracted(&runtime);
     copy_winmds_to(&extract, &winmd_dest);
+}
+
+fn build_manifest(out_dir: &Path, temp_dir: &Path) {
+    let fragment_pkgs = [
+        (INTERACTIVE_PKG, INTERACTIVE_VER),
+        (FOUNDATION_PKG, FOUNDATION_VER),
+        (WINUI_PKG, WINUI_VER),
+    ];
+
+    let mut groups: HashMap<String, Vec<(String, String)>> = HashMap::new();
+
+    for (pkg, ver) in &fragment_pkgs {
+        let extract = stage_pkg(pkg, ver, temp_dir);
+        let fragment = extract.join("package.appxfragment");
+        for (dll, class, threading) in parse_fragment(&fragment) {
+            groups.entry(dll).or_default().push((class, threading));
+        }
+    }
+
+    let mut classes = String::new();
+    for (dll, entries) in &groups {
+        classes.push_str(&format!("<asmv3:file name=\"{dll}\">"));
+        for (class, threading) in entries {
+            classes.push_str(&format!("<winrtv1:activatableClass name=\"{class}\" threadingModel=\"{threading}\"></winrtv1:activatableClass>"));
+        }
+        classes.push_str("</asmv3:file>");
+    }
+
+    let content = MANIFEST_TEMPLATE.replace("<!-- {auto generated} -->", &classes);
+    let path = out_dir.join("app.manifest");
+    fs::write(&path, &content)
+        .unwrap_or_else(|e| panic!("failed to write manifest to {}: {e}", path.display()));
+    println!("cargo:rustc-link-arg=/MANIFEST:EMBED");
+    println!("cargo:rustc-link-arg=/MANIFESTINPUT:{}", path.display());
+}
+
+fn parse_fragment(path: &Path) -> Vec<(String, String, String)> {
+    let Ok(content) = fs::read_to_string(path) else {
+        println!("Fragment not found: {}", path.display());
+        return Vec::new();
+    };
+    let Ok(doc) = roxmltree::Document::parse(&content) else {
+        println!("Failed to parse fragment: {}", path.display());
+        return Vec::new();
+    };
+    let mut result = Vec::new();
+    for server in doc
+        .descendants()
+        .filter(|n| n.tag_name().name() == "InProcessServer")
+    {
+        let Some(dll) = server
+            .children()
+            .find(|n| n.tag_name().name() == "Path")
+            .and_then(|n| n.text())
+        else {
+            continue;
+        };
+        for class_node in server
+            .children()
+            .filter(|n| n.tag_name().name() == "ActivatableClass")
+        {
+            let Some(class) = class_node.attribute("ActivatableClassId") else {
+                continue;
+            };
+            let threading = class_node.attribute("ThreadingModel").unwrap_or("both");
+            result.push((dll.to_string(), class.to_string(), threading.to_string()));
+        }
+    }
+    result
 }
 
 fn out_dir() -> PathBuf {

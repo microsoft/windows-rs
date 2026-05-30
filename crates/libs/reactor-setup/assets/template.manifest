@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly
+    manifestVersion="1.0"
+    xmlns="urn:schemas-microsoft-com:asm.v1"    
+    xmlns:winrtv1="urn:schemas-microsoft-com:winrt.v1"
+    xmlns:asmv3="urn:schemas-microsoft-com:asm.v3"
+>
+    <asmv3:file name="SessionHandleIPCProxyStub.dll">
+        <asmv3:comClass clsid="{4321F616-6804-40F2-B584-B0D7708A720D}"></asmv3:comClass>
+        <asmv3:comInterfaceProxyStub
+            name="ISessionHandleIPC"
+            iid="{2B54FB34-8041-4505-9F31-7FB3BA0D6255}">
+        </asmv3:comInterfaceProxyStub>
+        
+        <asmv3:comInterfaceProxyStub
+            name="ISessionEventHandleIPC"
+            iid="{EBF3748D-1EF9-4B89-BA13-65D2B9EC04F0}">
+        </asmv3:comInterfaceProxyStub>
+        
+        <asmv3:comInterfaceProxyStub
+            name="ILanguageModelAdapterHandleIPC"
+            iid="{F75B465E-A49B-486F-ABBE-33F68E7E80ED}">
+        </asmv3:comInterfaceProxyStub>
+    </asmv3:file>
+
+    <!-- {auto generated} -->
+</assembly>

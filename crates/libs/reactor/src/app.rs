@@ -101,8 +101,7 @@ impl App {
     where
         F: FnOnce(&Application) -> Result<()> + Send + 'static,
     {
-        let _bootstrap = init_app_platform()?;
-
+        init_app_platform()?;
         let setup = Mutex::new(Some(setup));
         let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
         let result_slot_cb = Arc::clone(&result_slot);
@@ -139,8 +138,7 @@ impl App {
         F: FnOnce() -> C + Send + 'static,
         C: Component + 'static,
     {
-        let _bootstrap = init_app_platform()?;
-
+        init_app_platform()?;
         let title = self.title.unwrap_or_default();
         let eager = self.eager_templated_realization;
         let size = self.inner_size;
@@ -282,7 +280,7 @@ fn report_app_start_result(result: Result<()>) -> Result<()> {
     result
 }
 
-fn init_app_platform() -> Result<BootstrapHandle> {
+fn init_app_platform() -> Result<()> {
     crate::diagnostics::install();
 
     // SAFETY: FFI call into user32; returns HRESULT and has no aliasing requirements.
@@ -299,38 +297,5 @@ fn init_app_platform() -> Result<BootstrapHandle> {
              own) and do not call CoInitializeEx(COINIT_MULTITHREADED) before this call.",
         ));
     }
-    coinit_hr.ok()?;
-
-    BootstrapHandle::initialize()
-}
-
-struct BootstrapHandle;
-
-impl BootstrapHandle {
-    fn initialize() -> Result<Self> {
-        unsafe {
-            MddBootstrapInitialize2(
-                WINDOWSAPPSDK_RELEASE_MAJORMINOR as u32,
-                WINDOWSAPPSDK_RELEASE_VERSION_TAG_W.as_ptr(),
-                PACKAGE_VERSION {
-                    Anonymous: {
-                        PACKAGE_VERSION_0 {
-                            Version: WINDOWSAPPSDK_RUNTIME_VERSION_UINT64,
-                        }
-                    },
-                },
-                MddBootstrapInitializeOptions_OnNoMatch_ShowUI
-                    | MddBootstrapInitializeOptions_OnPackageIdentity_NOOP,
-            )
-            .ok()?;
-
-            Ok(Self)
-        }
-    }
-}
-
-impl Drop for BootstrapHandle {
-    fn drop(&mut self) {
-        unsafe { MddBootstrapShutdown() };
-    }
+    coinit_hr.ok()
 }

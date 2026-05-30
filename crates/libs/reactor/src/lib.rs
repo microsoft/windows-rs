@@ -1,8 +1,3 @@
-#![deny(clippy::correctness)]
-
-#[doc(hidden)]
-pub use windows_reactor_setup as setup;
-
 #[allow(
     dead_code,
     non_snake_case,
@@ -28,6 +23,12 @@ pub mod app;
 pub(crate) mod diagnostics;
 
 mod app_shim;
+pub mod bootstrap;
+
+#[doc(hidden)]
+pub mod setup {
+    pub use windows_reactor_setup::*;
+}
 
 pub use windows_core::{Error, Result};
 pub use windows_time::{DateTime, TimeSpan};

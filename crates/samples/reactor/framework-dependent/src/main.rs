@@ -7,5 +7,6 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
 }
 
 fn main() -> Result<()> {
+    let _bootstrap_handle = bootstrap::initialize()?;
     App::new().title("Reactor app").render(app)
 }
