@@ -12,6 +12,7 @@ const WINUI_PKG: &str = "Microsoft.WindowsAppSDK.WinUI";
 const WINUI_VER: &str = "2.1.0";
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
 const RUNTIME_VER: &str = "2.1.3";
+const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
 const WINMD_OUT: &str = "winmd";
@@ -69,7 +70,7 @@ pub fn as_self_contained() {
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
     let extract = ensure_msix_extracted(&runtime);
     copy_winmds_to(&extract, &winmd_dest);
-    copy_dir_contents(&extract, &target_dir_from_out(&out_dir));
+    copy_runtime_to(&extract, &target_dir_from_out(&out_dir));
     build_manifest(&out_dir, &temp_dir);
 }
 
@@ -214,16 +215,49 @@ fn copy_winmds_to(extract: &Path, dest: &Path) {
     println!("Copied {count} winmd files to {}", dest.display());
 }
 
+fn copy_runtime_to(src: &Path, dest: &Path) {
+    let Ok(entries) = fs::read_dir(src) else {
+        return;
+    };
+
+    for entry in entries.flatten() {
+        let path = entry.path();
+        let Some(name) = entry.file_name().into_string().ok() else {
+            continue;
+        };
+
+        if !RUNTIME_FILES
+            .lines()
+            .any(|l| l.trim().eq_ignore_ascii_case(&name))
+        {
+            continue;
+        }
+
+        if path.is_file() {
+            copy_file(&path, dest, &name);
+        } else if path.is_dir() {
+            let sub = dest.join(&name);
+            let _ = fs::create_dir_all(&sub);
+            copy_dir_contents(&path, &sub);
+        }
+    }
+}
+
 fn copy_dir_contents(src: &Path, dest: &Path) {
     let Ok(entries) = fs::read_dir(src) else {
         return;
     };
     for entry in entries.flatten() {
         let path = entry.path();
+        let Some(name) = entry.file_name().into_string().ok() else {
+            continue;
+        };
         if path.is_file() {
-            if let Some(name) = entry.file_name().to_str() {
-                copy_file(&path, dest, name);
-            }
+            copy_file(&path, dest, &name);
+        } else if path.is_dir() {
+            let sub = dest.join(&name);
+            let _ = fs::create_dir_all(&sub);
+            copy_dir_contents(&path, &sub);
         }
     }
 }
@@ -233,14 +267,8 @@ fn copy_file(src: &Path, base: &Path, name: &str) {
         println!("{name} not found at {}", src.display());
         return;
     }
-    for sub in ["", "examples", "deps"] {
-        let mut d = base.to_path_buf();
-        if !sub.is_empty() {
-            d.push(sub);
-        }
-        let _ = fs::create_dir_all(&d);
-        let _ = fs::copy(src, d.join(name));
-    }
+    let _ = fs::create_dir_all(base);
+    let _ = fs::copy(src, base.join(name));
 }
 
 fn stage_pkg(name: &str, ver: &str, temp: &Path) -> PathBuf {
