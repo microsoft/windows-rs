@@ -4,7 +4,7 @@ fn main() {}
 #[cfg(windows)]
 fn main() {
     use windows_sys::{
-        core::*, Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::Services::*,
+        Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::Services::*, core::*,
     };
 
     // Sample logs to this file for illustration purposes.

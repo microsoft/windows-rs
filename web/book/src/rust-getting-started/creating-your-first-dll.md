@@ -16,7 +16,7 @@ Just two directories and two files. There's the `hello_world` directory that con
 ```toml
 [package]
 name = "hello_world"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -29,7 +29,7 @@ Rust-only libraries don't generally include a `[lib]`  section. This is necessar
 The `src` sub directory contains the `lib.rs` Rust source file where we can add any functions that we'd like to export from the DLL. Here's a simple example:
 
 ```
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "system" fn HelloWorld() -> i32 {
     123
 }

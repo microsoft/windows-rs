@@ -1,10 +1,10 @@
 //! Unit tests for `windows_core::ComObject`
 
 use std::borrow::Borrow;
-use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use windows_core::{
-    implement, interface, ComObject, IUnknown, IUnknownImpl, Interface, InterfaceRef,
+    ComObject, IUnknown, IUnknownImpl, Interface, InterfaceRef, implement, interface,
 };
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]

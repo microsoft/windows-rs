@@ -1,8 +1,8 @@
 #![cfg(windows)]
 use windows_sys::{
-    core::{s, PCSTR, PSTR},
     Win32::Foundation::ERROR_BUSY,
     Win32::Networking::Ldap::LDAP_BUSY,
+    core::{PCSTR, PSTR, s},
 };
 
 windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror: u32) -> u32);

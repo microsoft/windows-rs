@@ -1,7 +1,8 @@
 #![cfg(windows)]
 use windows::{
-    core::*, Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*,
+    Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*,
     Win32::Media::Audio::XAudio2::*, Win32::System::Com::*, Win32::System::SystemInformation::*,
+    core::*,
 };
 
 struct Reflection;

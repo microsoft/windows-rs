@@ -1,5 +1,5 @@
 use super::*;
-use crate::{IUnknown, IUnknown_Vtbl, Interface, GUID, HRESULT};
+use crate::{GUID, HRESULT, IUnknown, IUnknown_Vtbl, Interface};
 use core::ffi::c_void;
 use core::mem::{transmute, transmute_copy};
 use core::ptr::null_mut;

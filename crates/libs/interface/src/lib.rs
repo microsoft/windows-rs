@@ -44,7 +44,7 @@
 
 use syn::spanned::Spanned;
 
-mod gen;
+mod generation;
 mod guid;
 pub(crate) use guid::Guid;
 

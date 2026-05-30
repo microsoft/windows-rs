@@ -24,9 +24,9 @@ pub use cpp_interface::*;
 pub use cpp_method::*;
 pub use cpp_struct::*;
 pub use delegate::*;
+pub use r#enum::*;
 pub use interface::*;
 pub use method::*;
-pub use r#enum::*;
 pub use r#struct::*;
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]

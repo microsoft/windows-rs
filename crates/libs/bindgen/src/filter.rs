@@ -267,14 +267,20 @@ fn push_filter(
     // block. Only valid on include entries — exclusion is orthogonal.
     let (filter, mark_trait_only, mark_full_demote) = if let Some(rest) = filter.strip_prefix("??")
     {
-        assert!(include, "cannot combine `??` (skeleton-only) with `!` (exclude) on the same filter entry: `{filter}`");
+        assert!(
+            include,
+            "cannot combine `??` (skeleton-only) with `!` (exclude) on the same filter entry: `{filter}`"
+        );
         assert!(
             !rest.contains("::"),
             "`??` (skeleton-only) cannot be combined with a method-level filter: `{filter}`"
         );
         (rest, true, true)
     } else if let Some(rest) = filter.strip_prefix('?') {
-        assert!(include, "cannot combine `?` (trait-only) with `!` (exclude) on the same filter entry: `{filter}`");
+        assert!(
+            include,
+            "cannot combine `?` (trait-only) with `!` (exclude) on the same filter entry: `{filter}`"
+        );
         assert!(
             !rest.contains("::"),
             "`?` (trait-only) cannot be combined with a method-level filter: `{filter}`"
@@ -319,7 +325,9 @@ fn push_filter(
             } else {
                 "trait-only"
             };
-            panic!("`{prefix}` ({kind}) requires a fully-qualified `Namespace.Type` entry, not a namespace: `{filter}`");
+            panic!(
+                "`{prefix}` ({kind}) requires a fully-qualified `Namespace.Type` entry, not a namespace: `{filter}`"
+            );
         }
         rules.push((filter.to_string(), include));
         return;
@@ -388,7 +396,9 @@ fn push_filter(
             } else {
                 "trait-only"
             };
-            panic!("`{prefix}` ({kind}) requires a fully-qualified `Namespace.Type` entry, not a namespace: `{prefix}{filter}`");
+            panic!(
+                "`{prefix}` ({kind}) requires a fully-qualified `Namespace.Type` entry, not a namespace: `{prefix}{filter}`"
+            );
         }
         rules.push((filter.to_string(), include));
         return;

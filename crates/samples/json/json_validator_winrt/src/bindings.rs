@@ -73,7 +73,7 @@ impl windows_core::RuntimeName for IJsonValidatorFactory {
 }
 pub trait IJsonValidatorFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstance(&self, schema: &windows_core::HSTRING)
-        -> windows_core::Result<JsonValidator>;
+    -> windows_core::Result<JsonValidator>;
 }
 impl IJsonValidatorFactory_Vtbl {
     pub const fn new<Identity: IJsonValidatorFactory_Impl, const OFFSET: isize>() -> Self {

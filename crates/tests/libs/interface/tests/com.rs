@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
+use windows::{Win32::Foundation::*, Win32::System::Com::*, core::*};
 
 /// A custom declaration of implementation of `IUri`
 #[interface("a39ee748-6a27-4817-a6f2-13914bef5890")]
@@ -72,11 +72,7 @@ impl ICustomPersist_Impl for Persist_Impl {
 impl ICustomPersistMemory_Impl for Persist_Impl {
     unsafe fn IsDirty(&self) -> HRESULT {
         let reader = self.0.read().unwrap();
-        if reader.dirty {
-            S_OK
-        } else {
-            S_FALSE
-        }
+        if reader.dirty { S_OK } else { S_FALSE }
     }
 
     unsafe fn Load(&self, input: *const core::ffi::c_void, size: u32) -> HRESULT {

@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
-    use windows::{core::*, Win32::Foundation::*, Win32::Globalization::*, Win32::System::Com::*};
+    use windows::{Win32::Foundation::*, Win32::Globalization::*, Win32::System::Com::*, core::*};
 
     let input = std::env::args()
         .nth(1)

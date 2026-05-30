@@ -7,9 +7,9 @@ use std::rc::Rc;
 use std::sync::OnceLock;
 use std::time::{Duration, Instant};
 
-use windows::core::Result;
 use windows::Win32::System::ProcessStatus::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 use windows::Win32::System::Threading::GetCurrentProcess;
+use windows::core::Result;
 
 use windows_reactor::*;
 
@@ -517,13 +517,13 @@ fn data_tick(state: &Rc<RefCell<State>>) {
                 .into();
         }
         s.pending_phases.set(true);
-        let gen = s.generation.get() + 1;
-        s.generation.set(gen);
+        let generation = s.generation.get() + 1;
+        s.generation.set(generation);
     };
 
     if let Some(setter) = set_generation {
-        let gen = state.borrow().generation.get();
-        setter.call(gen);
+        let generation = state.borrow().generation.get();
+        setter.call(generation);
     }
 
     let (fps_label, upd_label, mem_label) = {

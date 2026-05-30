@@ -7,7 +7,7 @@ use windows_reactor::core::dispatcher::{DispatchPriority, Dispatcher};
 use windows_reactor::core::element::{Element, StackPanel};
 use windows_reactor::core::render_context::{Dispatch, RenderCx};
 use windows_reactor::core::render_host::RenderHost;
-use windows_reactor::dsl::{button, check_box, text_block, ElementExt};
+use windows_reactor::dsl::{ElementExt, button, check_box, text_block};
 use windows_reactor::{hstack, vstack};
 
 #[derive(Clone, PartialEq, Debug)]

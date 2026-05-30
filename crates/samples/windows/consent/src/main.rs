@@ -4,7 +4,7 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Security::Credentials::UI::*, Win32::Foundation::*, Win32::System::WinRT::*,
+        Security::Credentials::UI::*, Win32::Foundation::*, Win32::System::WinRT::*, core::*,
     };
 
     use windows_future::*;

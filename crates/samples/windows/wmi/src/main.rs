@@ -4,7 +4,7 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Win32::System::Com::*, Win32::System::Variant::*, Win32::System::Wmi::*,
+        Win32::System::Com::*, Win32::System::Variant::*, Win32::System::Wmi::*, core::*,
     };
 
     unsafe {

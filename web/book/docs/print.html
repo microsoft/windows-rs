@@ -680,7 +680,7 @@ fn main() {
 <p>Just two directories and two files. There's the <code>hello_world</code> directory that contains the project as a whole. In that directory we have a <code>Cargo.toml</code> file that contains metadata for the project or package, information needed to compile the package:</p>
 <pre><code class="language-toml">[package]
 name = "hello_world"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -688,7 +688,7 @@ crate-type = ["cdylib"]
 <p>At a minimum, the <code>[package]</code> section includes the name and Rust edition your package is compiled with.</p>
 <p>Rust-only libraries don't generally include a <code>[lib]</code>  section. This is necessary when you need to specifically control how the project will be used and linked. In this case, we're using 'cdylib' that represents a dynamic system library and maps to a DLL on Windows.</p>
 <p>The <code>src</code> sub directory contains the <code>lib.rs</code> Rust source file where we can add any functions that we'd like to export from the DLL. Here's a simple example:</p>
-<pre><code>#[no_mangle]
+<pre><code>#[unsafe(no_mangle)]
 extern "system" fn HelloWorld() -&gt; i32 {
     123
 }
@@ -773,7 +773,7 @@ void __stdcall CloseJsonValidator(uintptr_t handle);
 <p>Given these dependencies and what we learned about creating a DLL in Rust, here's what the project's <code>Cargo.toml</code> file should look like:</p>
 <pre><code class="language-toml">[package]
 name = "json_validator"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -798,7 +798,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 <p>And let's begin with the <code>CreateJsonValidator</code> API function. Here's how the C++ declaration might look in Rust:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>#[no_mangle]
+</span>#[unsafe(no_mangle)]
 unsafe extern "system" fn CreateJsonValidator(
     schema: *const u8,
     schema_len: usize,
@@ -857,7 +857,7 @@ unsafe extern "system" fn CreateJsonValidator(
 <p>Now let's move on to the <code>CloseJsonValidator</code> function since it's closely related to the boxing code above. Boxing just means to move the value on to the heap. The <code>CloseJsonValidator</code> function therefore needs to "drop" the object and free that heap allocation:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>#[no_mangle]
+</span>#[unsafe(no_mangle)]
 unsafe extern "system" fn CloseJsonValidator(handle: usize) {
     if handle != 0 {
         _ = Box::from_raw(handle as *mut JSONSchema);
@@ -868,7 +868,7 @@ unsafe extern "system" fn CloseJsonValidator(handle: usize) {
 <p>Finally, let's consider the <code>ValidateJson</code> function's implementation:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>#[no_mangle]
+</span>#[unsafe(no_mangle)]
 unsafe extern "system" fn ValidateJson(
     handle: usize,
     value: *const u8,

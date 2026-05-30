@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() {
-    use windows_sys::{core::*, Win32::Foundation::*, Win32::UI::Controls::*};
+    use windows_sys::{Win32::Foundation::*, Win32::UI::Controls::*, core::*};
 
     extern "system" fn callback(
         _: HWND,

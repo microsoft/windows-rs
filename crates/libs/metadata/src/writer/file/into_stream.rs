@@ -53,36 +53,40 @@ impl File {
 
         // Test sorted order...
 
-        debug_assert!(self
-            .records
-            .ClassLayout
-            .iter()
-            .map(|r| r.Parent)
-            .is_sorted());
+        debug_assert!(
+            self.records
+                .ClassLayout
+                .iter()
+                .map(|r| r.Parent)
+                .is_sorted()
+        );
 
         debug_assert!(self.records.Constant.iter().map(|r| r.Parent).is_sorted());
         debug_assert!(self.records.Attribute.iter().map(|r| r.Parent).is_sorted());
 
-        debug_assert!(self
-            .records
-            .GenericParam
-            .iter()
-            .map(|r| r.Owner)
-            .is_sorted());
+        debug_assert!(
+            self.records
+                .GenericParam
+                .iter()
+                .map(|r| r.Owner)
+                .is_sorted()
+        );
 
-        debug_assert!(self
-            .records
-            .ImplMap
-            .iter()
-            .map(|r| r.MemberForwarded)
-            .is_sorted());
+        debug_assert!(
+            self.records
+                .ImplMap
+                .iter()
+                .map(|r| r.MemberForwarded)
+                .is_sorted()
+        );
 
-        debug_assert!(self
-            .records
-            .NestedClass
-            .iter()
-            .map(|r| r.NestedClass)
-            .is_sorted());
+        debug_assert!(
+            self.records
+                .NestedClass
+                .iter()
+                .map(|r| r.NestedClass)
+                .is_sorted()
+        );
 
         // Serialize...
 

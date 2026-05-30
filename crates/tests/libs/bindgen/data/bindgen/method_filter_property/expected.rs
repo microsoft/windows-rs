@@ -48,10 +48,10 @@ pub mod Test {
             + 'static,
     >(core::marker::PhantomData<(fn() -> F,)>);
     impl<
-            F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_result::Result<()>
-                + Send
-                + 'static,
-        > HandlerBox<F>
+        F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_result::Result<()>
+            + Send
+            + 'static,
+    > HandlerBox<F>
     {
         const VTABLE: Handler_Vtbl = Handler_Vtbl {
             base__: windows_core::IUnknown_Vtbl {

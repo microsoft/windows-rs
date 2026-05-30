@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
-    use windows::{core::*, Foundation::*, Win32::System::WinRT::IMemoryBufferByteAccess};
+    use windows::{Foundation::*, Win32::System::WinRT::IMemoryBufferByteAccess, core::*};
 
     // This example illustrates how to use IMemoryBufferByteAccess to access the underlying buffer
     // owned by the MemoryBuffer/IMemoryBufferReference. Note that this is inherently unsafe as

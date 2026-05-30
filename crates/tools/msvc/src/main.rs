@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
-use std::io::prelude::*;
 use std::io::SeekFrom;
+use std::io::prelude::*;
 use std::str::FromStr;
 use windows_bindgen::*;
 

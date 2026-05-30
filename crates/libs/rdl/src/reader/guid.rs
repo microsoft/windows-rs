@@ -1,5 +1,5 @@
-use windows_metadata::writer;
 use windows_metadata::Type;
+use windows_metadata::writer;
 
 /// The midlrt namespace GUID {e72a134c-baf7-4dd3-b542-77848e87b138} in network (big-endian) byte
 /// order. This is used as the UUID v5 namespace for WinRT interface GUID derivation.

@@ -2,7 +2,7 @@ use super::*;
 use core::any::Any;
 use core::ffi::c_void;
 use core::marker::PhantomData;
-use core::mem::{forget, transmute_copy, MaybeUninit};
+use core::mem::{MaybeUninit, forget, transmute_copy};
 use core::ptr::NonNull;
 
 /// Provides low-level access to an interface vtable.

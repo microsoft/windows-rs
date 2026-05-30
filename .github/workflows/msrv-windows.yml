@@ -31,6 +31,6 @@ jobs:
         uses: actions/checkout@v6
 # generated - run `cargo run -p tool_yml` to update
       - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
+        run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows
         run:  cargo check -p windows --all-features

@@ -186,7 +186,7 @@ void __stdcall CloseJsonValidator(uintptr_t handle);
 <p>Given these dependencies and what we learned about creating a DLL in Rust, here's what the project's <code>Cargo.toml</code> file should look like:</p>
 <pre><code class="language-toml">[package]
 name = "json_validator"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -211,7 +211,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 <p>And let's begin with the <code>CreateJsonValidator</code> API function. Here's how the C++ declaration might look in Rust:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>#[no_mangle]
+</span>#[unsafe(no_mangle)]
 unsafe extern "system" fn CreateJsonValidator(
     schema: *const u8,
     schema_len: usize,
@@ -270,7 +270,7 @@ unsafe extern "system" fn CreateJsonValidator(
 <p>Now let's move on to the <code>CloseJsonValidator</code> function since it's closely related to the boxing code above. Boxing just means to move the value on to the heap. The <code>CloseJsonValidator</code> function therefore needs to "drop" the object and free that heap allocation:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>#[no_mangle]
+</span>#[unsafe(no_mangle)]
 unsafe extern "system" fn CloseJsonValidator(handle: usize) {
     if handle != 0 {
         _ = Box::from_raw(handle as *mut JSONSchema);
@@ -281,7 +281,7 @@ unsafe extern "system" fn CloseJsonValidator(handle: usize) {
 <p>Finally, let's consider the <code>ValidateJson</code> function's implementation:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>#[no_mangle]
+</span>#[unsafe(no_mangle)]
 unsafe extern "system" fn ValidateJson(
     handle: usize,
     value: *const u8,

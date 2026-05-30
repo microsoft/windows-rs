@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use std::sync::atomic::*;
-use windows::{core::*, Foundation::*};
+use windows::{Foundation::*, core::*};
 
 static COUNTER: AtomicIsize = AtomicIsize::new(0);
 

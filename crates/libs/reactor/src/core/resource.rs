@@ -186,8 +186,8 @@ impl Generation {
         self.0.fetch_add(1, Ordering::AcqRel) + 1
     }
 
-    fn is_current(&self, gen: u64) -> bool {
-        self.0.load(Ordering::Acquire) == gen
+    fn is_current(&self, value: u64) -> bool {
+        self.0.load(Ordering::Acquire) == value
     }
 }
 
@@ -214,10 +214,10 @@ impl RenderCx {
         // Hook 1: the resource state
         let (state, set_state) = self.use_async_state(Resource::<T>::Loading);
 
-        let gen = self.use_ref(Generation::new());
+        let generation = self.use_ref(Generation::new());
 
         let deps_clone = deps.clone();
-        let gen_handle = gen;
+        let gen_handle = generation;
         self.use_effect(deps, move || {
             let my_gen = gen_handle.borrow().advance();
             let set_state2 = set_state.clone();

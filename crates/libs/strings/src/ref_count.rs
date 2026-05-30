@@ -1,4 +1,4 @@
-use core::sync::atomic::{fence, AtomicI32, Ordering};
+use core::sync::atomic::{AtomicI32, Ordering, fence};
 
 #[repr(transparent)]
 #[derive(Default)]

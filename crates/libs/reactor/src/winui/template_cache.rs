@@ -4,8 +4,7 @@ use windows_core::Interface;
 
 use crate::bindings::*;
 
-const SHARED_TEMPLATE_XAML: &str =
-    "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
+const SHARED_TEMPLATE_XAML: &str = "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
     <ContentControl HorizontalContentAlignment='Stretch' VerticalContentAlignment='Stretch'/>\
     </DataTemplate>";
 

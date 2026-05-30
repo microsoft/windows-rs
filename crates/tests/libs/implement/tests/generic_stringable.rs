@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::core::*;
 use windows::Foundation::*;
+use windows::core::*;
 use windows_collections::*;
 
 #[implement(

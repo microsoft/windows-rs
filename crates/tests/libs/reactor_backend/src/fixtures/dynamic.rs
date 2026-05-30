@@ -1,7 +1,7 @@
 use windows_reactor::core::element::Element;
-use windows_reactor::dsl::{button, text_block, ElementExt};
+use windows_reactor::dsl::{ElementExt, button, text_block};
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 use windows_reactor::{hstack, vstack};
 

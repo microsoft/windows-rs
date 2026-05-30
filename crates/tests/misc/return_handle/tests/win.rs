@@ -4,7 +4,7 @@
 #[test]
 fn test() {
     unsafe {
-        use windows::{core::*, Win32::Foundation::*, Win32::System::Threading::*};
+        use windows::{Win32::Foundation::*, Win32::System::Threading::*, core::*};
 
         // This should succeed, creating a mutex with the given name.
         let result = CreateMutexA(None, false, s!("test"));

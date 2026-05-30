@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Win32::Foundation::*, Win32::System::Threading::*};
+use windows::{Win32::Foundation::*, Win32::System::Threading::*, core::*};
 
 #[test]
 #[expect(clippy::nonminimal_bool)] // explicit logic is intentionally being tested

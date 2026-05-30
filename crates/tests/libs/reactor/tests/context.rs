@@ -9,7 +9,7 @@ use windows_reactor::core::context::Context;
 use windows_reactor::core::element::Element;
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{border, text_block, ElementExt};
+use windows_reactor::dsl::{ElementExt, border, text_block};
 
 use windows_reactor::vstack;
 static THEME: LazyLock<Context<String>> =

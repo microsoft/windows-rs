@@ -308,11 +308,7 @@ fn tile_label(game: &Game, idx: usize) -> String {
                 "💣".to_string()
             } else {
                 let n = game.neighbors[idx];
-                if n == 0 {
-                    String::new()
-                } else {
-                    n.to_string()
-                }
+                if n == 0 { String::new() } else { n.to_string() }
             }
         }
     }

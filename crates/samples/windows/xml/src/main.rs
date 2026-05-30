@@ -3,8 +3,8 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
-    use windows::core::*;
     use windows::Data::Xml::Dom::XmlDocument;
+    use windows::core::*;
 
     let doc = XmlDocument::new()?;
     doc.LoadXml(h!("<html>hello world</html>"))?;

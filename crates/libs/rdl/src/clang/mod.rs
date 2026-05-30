@@ -234,8 +234,12 @@ impl<'a> Parser<'a> {
                 //   [2] EnumName                    (identifier, the argument)
                 //   [3] )                            (punctuation)
                 let tokens = self.tu.tokenize(child.extent());
-                if let [_, (CXToken_Punctuation, lp), (CXToken_Identifier, enum_name), ..] =
-                    tokens.as_slice()
+                if let [
+                    _,
+                    (CXToken_Punctuation, lp),
+                    (CXToken_Identifier, enum_name),
+                    ..,
+                ] = tokens.as_slice()
                 {
                     if lp == "(" {
                         let enum_name = enum_name.clone();

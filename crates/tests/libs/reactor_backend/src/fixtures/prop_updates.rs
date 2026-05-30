@@ -5,11 +5,11 @@
 use windows_core::Interface;
 
 use windows_reactor::core::element::{ProgressBar, Slider};
-use windows_reactor::dsl::{button, text_block, ElementExt};
+use windows_reactor::dsl::{ElementExt, button, text_block};
 
 use crate::bindings::{ProgressBar as XamlProgressBar, Slider as XamlSlider};
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 use windows_reactor::vstack;

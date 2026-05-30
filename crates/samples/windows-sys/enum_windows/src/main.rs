@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() {
-    use windows_sys::{core::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
+    use windows_sys::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*, core::*};
 
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {

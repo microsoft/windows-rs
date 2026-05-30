@@ -10,7 +10,7 @@ pub use windows_link::link;
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $($function:tt)*) => (
         #[link(name = "windows.0.53.0")]
-        extern $abi {
+        unsafe extern $abi {
             $(#[link_name=$link_name])?
             pub fn $($function)*;
         }
@@ -22,7 +22,7 @@ macro_rules! link {
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $($function:tt)*) => (
-        extern $abi {
+        unsafe extern $abi {
             pub fn $($function)*;
         }
     )

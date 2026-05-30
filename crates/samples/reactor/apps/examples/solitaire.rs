@@ -137,10 +137,10 @@ impl Game {
         #[allow(clippy::needless_range_loop)]
         for p in 0..PILES {
             for i in 0..face_up[p] {
-                if tableau[p][i].rank == 1 {
-                    if let Some(swap_idx) = deck.iter().position(|c| c.rank != 1) {
-                        std::mem::swap(&mut tableau[p][i], &mut deck[swap_idx]);
-                    }
+                if tableau[p][i].rank == 1
+                    && let Some(swap_idx) = deck.iter().position(|c| c.rank != 1)
+                {
+                    std::mem::swap(&mut tableau[p][i], &mut deck[swap_idx]);
                 }
             }
         }

@@ -9,10 +9,10 @@ use windows_reactor::core::component::Component;
 use windows_reactor::core::context::Context;
 use windows_reactor::core::element::Element;
 use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{button, text_block, ElementExt};
+use windows_reactor::dsl::{ElementExt, button, text_block};
 use windows_reactor::vstack;
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 // ── use_reducer ─────────────────────────────────────────────────────────

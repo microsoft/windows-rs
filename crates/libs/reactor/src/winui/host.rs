@@ -47,26 +47,26 @@ pub fn set_requested_theme(theme: RequestedTheme) {
 
 fn update_titlebar_theme() {
     ROOT_FRAMEWORK_ELEMENT.with(|cell| {
-        if let Some(ife) = cell.borrow().as_ref() {
-            if let Ok(theme) = ife.get_ActualTheme() {
-                let titlebar_theme = match theme {
-                    ElementTheme::Dark => TitleBarTheme::Dark,
-                    ElementTheme::Light => TitleBarTheme::Light,
-                    _ => TitleBarTheme::UseDefaultAppMode,
-                };
+        if let Some(ife) = cell.borrow().as_ref()
+            && let Ok(theme) = ife.get_ActualTheme()
+        {
+            let titlebar_theme = match theme {
+                ElementTheme::Dark => TitleBarTheme::Dark,
+                ElementTheme::Light => TitleBarTheme::Light,
+                _ => TitleBarTheme::UseDefaultAppMode,
+            };
 
-                let _ = ROOT_WINDOW.with(|wcell| -> Option<()> {
-                    let window = wcell.borrow();
-                    let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
-                    let app_window = window_2.get_AppWindow().ok()?.cast::<IAppWindow>().ok()?;
-                    let titlebar = app_window
-                        .get_TitleBar()
-                        .ok()?
-                        .cast::<IAppWindowTitleBar3>()
-                        .ok()?;
-                    titlebar.put_PreferredTheme(titlebar_theme).ok()
-                });
-            }
+            let _ = ROOT_WINDOW.with(|wcell| -> Option<()> {
+                let window = wcell.borrow();
+                let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
+                let app_window = window_2.get_AppWindow().ok()?.cast::<IAppWindow>().ok()?;
+                let titlebar = app_window
+                    .get_TitleBar()
+                    .ok()?
+                    .cast::<IAppWindowTitleBar3>()
+                    .ok()?;
+                titlebar.put_PreferredTheme(titlebar_theme).ok()
+            });
         }
     });
 }
@@ -303,17 +303,17 @@ impl ReactorHost {
                     let _ = unsafe { native.get_WindowHandle(&mut hwnd) };
                 }
 
-                if let Some(native_kind) = presenter.to_native() {
-                    if let Ok(app_window) = window.cast::<IWindow2>()?.get_AppWindow() {
-                        let _ = app_window
-                            .cast::<IAppWindow>()?
-                            .SetPresenterByKind(native_kind);
-                    }
+                if let Some(native_kind) = presenter.to_native()
+                    && let Ok(app_window) = window.cast::<IWindow2>()?.get_AppWindow()
+                {
+                    let _ = app_window
+                        .cast::<IAppWindow>()?
+                        .SetPresenterByKind(native_kind);
                 }
-                if let Some(bd) = backdrop {
-                    if let Err(err) = bd.apply_to(&window) {
-                        eprintln!("windows-reactor: backdrop failed: {err}");
-                    }
+                if let Some(bd) = backdrop
+                    && let Err(err) = bd.apply_to(&window)
+                {
+                    eprintln!("windows-reactor: backdrop failed: {err}");
                 }
                 let _ = window.Activate();
 

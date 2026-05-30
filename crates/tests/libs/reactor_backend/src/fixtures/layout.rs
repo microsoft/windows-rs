@@ -5,7 +5,7 @@ use windows_reactor::dsl::{grid, text_block};
 
 use crate::bindings::Grid as XamlGrid;
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 pub fn grid_row_column_layout(h: Harness) -> FixtureFuture {

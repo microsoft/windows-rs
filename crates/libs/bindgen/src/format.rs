@@ -25,6 +25,8 @@ impl Config<'_> {
         cmd.stdin(std::process::Stdio::piped());
         cmd.stdout(std::process::Stdio::piped());
         cmd.stderr(std::process::Stdio::null());
+        cmd.arg("--edition");
+        cmd.arg("2024");
 
         if let Some(config) = self.bindgen.rustfmt.as_deref() {
             cmd.arg("--config");

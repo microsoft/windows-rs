@@ -61,10 +61,10 @@ pub use out_param::*;
 pub use out_ref::*;
 pub use param::*;
 pub use param_value::*;
-pub use r#type::*;
 pub use runtime_name::*;
 pub use runtime_type::*;
 pub use scoped_interface::*;
+pub use r#type::*;
 pub use unknown::*;
 pub use weak::*;
 #[cfg(feature = "proc-macros")]

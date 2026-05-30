@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() {
-    use windows::{core::*, Win32::Foundation::*, Win32::System::LibraryLoader::*};
+    use windows::{Win32::Foundation::*, Win32::System::LibraryLoader::*, core::*};
 
     /// # Safety
     ///

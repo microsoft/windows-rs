@@ -3,7 +3,7 @@ fn main() {}
 
 #[cfg(windows)]
 fn main() {
-    use windows::{core::*, Win32::System::Performance::*};
+    use windows::{Win32::System::Performance::*, core::*};
 
     unsafe {
         let mut query = PDH_HQUERY::default();

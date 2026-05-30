@@ -4,8 +4,8 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::Threading::*,
-        Win32::System::IO::*,
+        Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::IO::*,
+        Win32::System::Threading::*, core::*,
     };
 
     unsafe {
