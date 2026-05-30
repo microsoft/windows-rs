@@ -7,8 +7,8 @@ Windows Reactor is a declarative UI library for Rust, backed by WinUI 3. It uses
 ```rust
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
-    text_block("Hello, world!").font_size(24.0).bold()
+fn app(_cx: &mut RenderCx) -> Element {
+    text_block("Hello, world!").font_size(24.0).bold().into()
 }
 
 fn main() -> Result<()> {
@@ -16,12 +16,12 @@ fn main() -> Result<()> {
 }
 ```
 
-Every app follows this pattern: define a render function that takes `&mut RenderCx` and returns an element tree, then pass it to `App::new().render(app)`.
+Every app follows this pattern: define a render function `fn(&mut RenderCx) -> Element` and pass it to `App::new().render(app)`. Widget builders convert to `Element` via `.into()`.
 
 ## State with `use_state`
 
 ```rust
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
     let bump = move || set_count.call(count + 1);
 
@@ -29,6 +29,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("count = {count}")).font_size(18.0).bold(),
         button("Click").on_click(bump),
     ))
+    .into()
 }
 ```
 
@@ -39,7 +40,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
 Use `vstack(children)` and `hstack(children)` for vertical/horizontal stacking, and `grid(children)` for two-dimensional layout:
 
 ```rust
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         hstack((text_block("A"), text_block("B"))).spacing(8.0),
         grid((
@@ -49,6 +50,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         .columns([GridLength::Star(1.0), GridLength::Star(1.0)]),
     ))
     .spacing(12.0)
+    .into()
 }
 ```
 
@@ -62,11 +64,11 @@ struct GreetingProps {
     name: String,
 }
 
-fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> impl Into<Element> {
-    text_block(format!("Hello, {}!", props.name)).bold()
+fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> Element {
+    text_block(format!("Hello, {}!", props.name)).bold().into()
 }
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     component(greeting, GreetingProps { name: "world".into() })
 }
 ```
@@ -77,18 +79,22 @@ Components receive typed props and their own `RenderCx` with independent hook st
 
 | Hook | Purpose |
 |------|---------|
-| `cx.use_state(initial)` | Reactive state that triggers rerender on change |
-| `cx.use_async_state(initial)` | Like `use_state` but the setter is `Send + Sync` for background threads |
-| `cx.use_ref(initial)` | Mutable state that never triggers a rerender |
+| `cx.use_state(initial)` | Reactive state; returns `(T, SetState<T>)` — triggers rerender on change |
+| `cx.use_async_state(initial)` | Like `use_state` but returns `AsyncSetState<T>` that is `Send + Sync` |
+| `cx.use_reducer(initial)` | Returns `(T, Updater<T>)` for functional updates via `updater.call(|prev| next)` |
+| `cx.use_reducer_fn(reducer, initial)` | Redux-style state with `Dispatch<A>` for dispatching typed actions |
+| `cx.use_ref(initial)` | Mutable `HookRef<T>` that never triggers a rerender |
 | `cx.use_effect(deps, closure)` | Side effect that runs when deps change |
+| `cx.use_effect_with_cleanup(deps, f)` | Effect returning an optional cleanup closure |
 | `cx.use_memo(deps, closure)` | Memoized computation, re-runs only when deps change |
 | `cx.use_callback(deps, closure)` | Stable `Callback` identity across renders |
-| `cx.use_reducer_fn(reducer, init)` | Redux-style state with an action dispatch |
-| `cx.use_resource(fetch_fn, deps)` | Background data fetch with Loading/Ready/Error states |
-| `cx.use_mutation::<T>()` | Fire async write operations with Idle/Loading/Success/Error |
+| `cx.use_resource(fetcher, deps)` | Background data fetch; returns `Resource<T>` |
+| `cx.use_mutation::<T>()` | Async write operations; returns `(MutationState<T>, MutationTrigger<T>)` |
 | `cx.use_context(&CTX)` | Read a value provided by an ancestor via `.provide()` |
 | `cx.use_color_scheme()` | Subscribe to system Light/Dark theme changes |
-| `cx.use_inner_size()` | Track window inner dimensions |
+| `cx.use_inner_size()` | Track window inner dimensions (re-renders on resize) |
+| `cx.use_dpi()` | Track per-monitor DPI (re-renders on DPI change) |
+| `cx.use_ui_marshaller()` | Get a `UiMarshaller` for custom cross-thread dispatch |
 
 ## Common Controls
 
@@ -126,7 +132,7 @@ Use `NavigationView` with enum-based routing:
 #[derive(Clone, PartialEq)]
 enum Page { Home, Settings }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(Page::Home);
 
     let body: Element = match &page {
@@ -148,20 +154,21 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             _ => Page::Home,
         })
     })
+    .into()
 }
 ```
 
 ## Async Data
 
-`use_resource` fetches data on a background thread and re-fetches when deps change:
+`use_resource` runs a fetcher on a background thread, passing `deps` as the argument. It refetches when deps change and discards stale results automatically:
 
 ```rust
 fn fetch_items(page: i32) -> std::result::Result<Vec<String>, String> {
-    // runs off the UI thread
+    // runs off the UI thread; deps value is passed as the argument
     Ok(vec![format!("Item on page {page}")])
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(0_i32);
     let items = cx.use_resource(fetch_items, page);
 
@@ -174,9 +181,11 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         _ => text_block("...").into(),
     };
 
-    vstack((content, button("Next").on_click(move || set_page.call(page + 1))))
+    vstack((content, button("Next").on_click(move || set_page.call(page + 1)))).into()
 }
 ```
+
+The fetcher signature is `Fn(D) -> Result<T, String>` where `D` is the deps type.
 
 ## Context (Dependency Injection)
 
@@ -187,12 +196,12 @@ use std::sync::LazyLock;
 
 static THEME: LazyLock<Context<String>> = LazyLock::new(|| Context::new("light".into()));
 
-fn child(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+fn child(_: &(), cx: &mut RenderCx) -> Element {
     let theme = cx.use_context(&THEME);
-    text_block(format!("Theme: {theme}"))
+    text_block(format!("Theme: {theme}")).into()
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (theme, set_theme) = cx.use_state("dark".to_string());
 
     vstack((
@@ -200,6 +209,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         component(child, ()),
     ))
     .provide(&THEME, theme)
+    .into()
 }
 ```
 
@@ -257,15 +267,15 @@ error_boundary(
 ## Running Samples
 
 ```sh
-# Minimal examples
-cargo run --example button
-cargo run --example counter
-cargo run --example navigation
+# Minimal examples (crates/samples/reactor/minimal/)
+cargo run -p minimal --example button
+cargo run -p minimal --example counter
+cargo run -p minimal --example navigation
 
-# App examples
-cargo run --example notepad
-cargo run --example tictactoe
-cargo run --example calculator
+# App examples (crates/samples/reactor/apps/)
+cargo run -p examples --example notepad
+cargo run -p examples --example tictactoe
+cargo run -p examples --example calculator
 
 # Gallery (comprehensive control showcase)
 cargo run -p gallery
