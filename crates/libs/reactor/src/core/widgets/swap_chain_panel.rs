@@ -1,15 +1,30 @@
 use super::*;
+use windows_core::Interface;
+
+/// Opaque handle to the native `SwapChainPanel` control, passed to the
+/// [`on_ready`](SwapChainPanelWidget::on_ready) callback. Provides a safe
+/// API to attach a DXGI swap chain without exposing the underlying WinUI type.
+pub struct SwapChainPanelHandle(windows_core::IInspectable);
+
+impl SwapChainPanelHandle {
+    /// Attach a DXGI swap chain created with `CreateSwapChainForComposition`.
+    /// Works with both D3D11 and D3D12 swap chains.
+    pub fn set_swap_chain(&self, swap_chain: &impl Interface) -> windows_core::Result<()> {
+        let native: crate::bindings::ISwapChainPanelNative = self.0.cast()?;
+        unsafe { native.SetSwapChain(swap_chain.as_raw()) }
+    }
+}
 
 /// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` — hosts
 /// custom Direct3D / Direct2D rendering inside a WinUI 3 XAML tree.
 ///
-/// Use [`on_mounted`](SwapChainPanelWidget::on_mounted) to receive the native
-/// element and wire a DXGI swap chain via `ISwapChainPanelNative`.
+/// Use [`on_ready`](SwapChainPanelWidget::on_ready) to receive a
+/// [`SwapChainPanelHandle`] for attaching your DXGI swap chain.
 #[derive(Clone, Debug, PartialEq)]
 pub struct SwapChainPanelWidget {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub mounted: Option<Callback<windows_core::IInspectable>>,
+    pub(crate) mounted: Option<Callback<windows_core::IInspectable>>,
 }
 
 impl Default for SwapChainPanelWidget {
@@ -27,10 +42,10 @@ impl SwapChainPanelWidget {
         }
     }
 
-    /// Callback invoked once after the control is created. The argument is
-    /// the `SwapChainPanel` as an `IInspectable`.
-    pub fn on_mounted(mut self, f: impl Fn(windows_core::IInspectable) + 'static) -> Self {
-        self.mounted = Some(Callback::new(f));
+    /// Callback invoked once after the native control is created. Use the
+    /// provided [`SwapChainPanelHandle`] to attach your swap chain.
+    pub fn on_ready(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
+        self.mounted = Some(Callback::new(move |native| f(SwapChainPanelHandle(native))));
         self
     }
 }

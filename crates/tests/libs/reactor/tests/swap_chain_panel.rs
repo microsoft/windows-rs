@@ -25,14 +25,15 @@ fn mount(
 fn swap_chain_panel_factory_defaults() {
     let w = swap_chain_panel();
     assert!(w.key.is_none());
-    assert!(w.mounted.is_none());
     assert!(w.modifiers.is_empty());
 }
 
 #[test]
-fn swap_chain_panel_on_mounted_stores_callback() {
-    let w = swap_chain_panel().on_mounted(|_| {});
-    assert!(w.mounted.is_some());
+fn swap_chain_panel_on_ready_stores_callback() {
+    let el: Element = swap_chain_panel().on_ready(|_| {}).into();
+    // If callback is stored, the element differs from one without it.
+    let el_no_cb: Element = swap_chain_panel().into();
+    assert_ne!(el, el_no_cb);
 }
 
 #[test]
@@ -72,7 +73,7 @@ fn on_mounted_not_called_on_recording_backend() {
     let called = Rc::new(Cell::new(false));
     let called2 = called.clone();
     let el: Element = swap_chain_panel()
-        .on_mounted(move |_| {
+        .on_ready(move |_| {
             called2.set(true);
         })
         .into();

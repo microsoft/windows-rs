@@ -27,7 +27,7 @@ pub(crate) mod diagnostics;
 
 mod app_shim;
 
-pub use windows_core::{Error, Result, Interface};
+pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;
@@ -52,4 +52,3 @@ pub use dsl::*;
 pub use winui::dispatcher::WinUIDispatcher;
 pub use winui::host::{Backdrop, RequestedTheme, set_backdrop, set_requested_theme};
 pub use winui::{DispatcherTimer, Rendering, on_rendering};
-pub use bindings::{ISwapChainPanelNative, SwapChainPanel};

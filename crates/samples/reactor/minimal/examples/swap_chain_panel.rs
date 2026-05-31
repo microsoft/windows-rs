@@ -19,7 +19,11 @@ thread_local! {
     static D3D: RefCell<Option<D3DState>> = const { RefCell::new(None) };
 }
 
-fn create_d3d_swap_chain(panel: &SwapChainPanel, width: u32, height: u32) -> Result<D3DState> {
+fn create_d3d_swap_chain(
+    panel: &SwapChainPanelHandle,
+    width: u32,
+    height: u32,
+) -> Result<D3DState> {
     let mut device: Option<ID3D11Device> = None;
     let mut context: Option<ID3D11DeviceContext> = None;
 
@@ -61,8 +65,7 @@ fn create_d3d_swap_chain(panel: &SwapChainPanel, width: u32, height: u32) -> Res
 
     let swap_chain = unsafe { dxgi_factory.CreateSwapChainForComposition(&device, &desc, None)? };
 
-    let native: ISwapChainPanelNative = panel.cast()?;
-    unsafe { native.SetSwapChain(swap_chain.as_raw())? };
+    panel.set_swap_chain(&swap_chain)?;
 
     Ok(D3DState {
         swap_chain,
@@ -139,13 +142,12 @@ fn app(cx: &mut RenderCx) -> Element {
     swap_chain_panel()
         .width(size.width)
         .height(size.height)
-        .on_mounted(move |native| {
-            let panel: SwapChainPanel = native.cast().unwrap();
-            match create_d3d_swap_chain(&panel, width, height) {
+        .on_ready(
+            move |panel| match create_d3d_swap_chain(&panel, width, height) {
                 Ok(state) => D3D.with(|cell| *cell.borrow_mut() = Some(state)),
                 Err(e) => eprintln!("D3D init failed: {e}"),
-            }
-        })
+            },
+        )
         .into()
 }
 

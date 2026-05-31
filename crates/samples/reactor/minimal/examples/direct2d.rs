@@ -12,7 +12,6 @@ use windows::Win32::Graphics::Direct3D11::*;
 use windows::Win32::Graphics::Dxgi::Common::*;
 use windows::Win32::Graphics::Dxgi::*;
 use windows_numerics::*;
-use windows_reactor::interop::{ISwapChainPanelNative, Interface, SwapChainPanel};
 use windows_reactor::*;
 
 struct D2DState {
@@ -66,7 +65,7 @@ fn resize_swap_chain(state: &mut D2DState, width: u32, height: u32) {
     }
 }
 
-fn create_d2d_state(panel: &SwapChainPanel, width: u32, height: u32) -> Result<D2DState> {
+fn create_d2d_state(panel: &SwapChainPanelHandle, width: u32, height: u32) -> Result<D2DState> {
     let mut device: Option<ID3D11Device> = None;
     unsafe {
         D3D11CreateDevice(
@@ -109,8 +108,7 @@ fn create_d2d_state(panel: &SwapChainPanel, width: u32, height: u32) -> Result<D
 
     let swap_chain = unsafe { dxgi_factory.CreateSwapChainForComposition(&device, &desc, None)? };
 
-    let native: ISwapChainPanelNative = panel.cast()?;
-    unsafe { native.SetSwapChain(swap_chain.as_raw())? };
+    panel.set_swap_chain(&swap_chain)?;
 
     let surface: IDXGISurface = unsafe { swap_chain.GetBuffer(0)? };
     let bitmap_props = D2D1_BITMAP_PROPERTIES1 {
@@ -247,12 +245,9 @@ fn app(cx: &mut RenderCx) -> Element {
         swap_chain_panel()
             .width(panel_width)
             .height(panel_height)
-            .on_mounted(move |native| {
-                let panel: SwapChainPanel = native.cast().unwrap();
-                match create_d2d_state(&panel, pw, ph) {
-                    Ok(state) => D2D.with(|cell| *cell.borrow_mut() = Some(state)),
-                    Err(e) => eprintln!("D2D init failed: {e}"),
-                }
+            .on_ready(move |panel| match create_d2d_state(&panel, pw, ph) {
+                Ok(state) => D2D.with(|cell| *cell.borrow_mut() = Some(state)),
+                Err(e) => eprintln!("D2D init failed: {e}"),
             }),
         hstack((
             button("+ Add circle").on_click(add),
