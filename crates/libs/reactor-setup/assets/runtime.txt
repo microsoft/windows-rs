@@ -18,6 +18,7 @@ microsoft.ui.windowing.core.dll
 microsoft.ui.windowing.dll
 microsoft.ui.xaml.controls.dll
 microsoft.ui.xaml.controls.pri
+microsoft.ui.xaml
 microsoft.ui.xaml.dll
 microsoft.ui.xaml.internal.dll
 microsoft.ui.xaml.phone.dll
