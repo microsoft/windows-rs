@@ -2,7 +2,7 @@
 
 #![windows_subsystem = "windows"]
 
-use std::cell::{Cell, RefCell};
+use std::cell::RefCell;
 
 use windows::Win32::Graphics::{Direct3D::*, Direct3D11::*, Dxgi::Common::*, Dxgi::*};
 use windows_reactor::*;
@@ -10,14 +10,14 @@ use windows_reactor::*;
 struct D3DState {
     swap_chain: IDXGISwapChain1,
     device_context: ID3D11DeviceContext,
+    width: u32,
+    height: u32,
     frame: u64,
 }
 
 thread_local! {
     static D3D: RefCell<Option<D3DState>> = const { RefCell::new(None) };
-    static PANEL_SIZE: Cell<(u32, u32)> = const { Cell::new((400, 300)) };
 }
-
 
 fn create_d3d_swap_chain(panel: &SwapChainPanel, width: u32, height: u32) -> Result<D3DState> {
     let mut device: Option<ID3D11Device> = None;
@@ -67,6 +67,8 @@ fn create_d3d_swap_chain(panel: &SwapChainPanel, width: u32, height: u32) -> Res
     Ok(D3DState {
         swap_chain,
         device_context: context,
+        width,
+        height,
         frame: 0,
     })
 }
@@ -92,31 +94,34 @@ fn render_frame(state: &mut D3DState) {
 
 fn app(cx: &mut RenderCx) -> Element {
     let size = cx.use_inner_size();
+    let width = size.width as u32;
+    let height = size.height as u32;
 
-    let prev_size = PANEL_SIZE.with(|c| c.get());
-    if prev_size != (pw, ph) {
-        PANEL_SIZE.with(|c| c.set((pw, ph)));
-        D3D.with(|cell| {
-            if let Some(state) = cell.borrow_mut().as_mut() {
-                    if !(size.width == 0 || size.height == 0) {
-    unsafe {
-        _ = state.swap_chain.ResizeBuffers(
-            0,
-            width,
-            height,
-            DXGI_FORMAT_UNKNOWN,
-            DXGI_SWAP_CHAIN_FLAG(0),
-        );
-    }
-}
- 
+    // Resize the swap chain when the window size changes.
+    D3D.with(|cell| {
+        if let Some(state) = cell.borrow_mut().as_mut() {
+            if state.width != width || state.height != height {
+                state.width = width;
+                state.height = height;
+                if width > 0 && height > 0 {
+                    unsafe {
+                        _ = state.swap_chain.ResizeBuffers(
+                            0,
+                            width,
+                            height,
+                            DXGI_FORMAT_UNKNOWN,
+                            DXGI_SWAP_CHAIN_FLAG(0),
+                        );
+                    }
+                }
             }
-        });
-    }
+        }
+    });
 
+    // Subscribe to CompositionTarget::Rendering for per-frame drawing.
     let rendering = cx.use_ref::<Option<Rendering>>(None);
     cx.use_effect((), {
-        #[allow(clippy::redundant_clone)]
+        #[allow(clippy::redundant_clone)] // HookRef::clone is not redundant here
         let rendering = rendering.clone();
         move || {
             if let Ok(r) = on_rendering(|| {
@@ -131,25 +136,19 @@ fn app(cx: &mut RenderCx) -> Element {
         }
     });
 
-    vstack((
-        swap_chain_panel()
-            .width(size.width)
-            .height(size.height)
-            .on_mounted(move |native| {
-                let panel: SwapChainPanel = native.cast().unwrap();
-                match create_d3d_swap_chain(&panel, pw, ph) {
-                    Ok(state) => D3D.with(|cell| *cell.borrow_mut() = Some(state)),
-                    Err(e) => eprintln!("D3D init failed: {e}"),
-                }
-            }),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
+    swap_chain_panel()
+        .width(size.width)
+        .height(size.height)
+        .on_mounted(move |native| {
+            let panel: SwapChainPanel = native.cast().unwrap();
+            match create_d3d_swap_chain(&panel, width, height) {
+                Ok(state) => D3D.with(|cell| *cell.borrow_mut() = Some(state)),
+                Err(e) => eprintln!("D3D init failed: {e}"),
+            }
+        })
+        .into()
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("SwapChainPanel")
-        .render(app)
+    App::new().title("SwapChainPanel").render(app)
 }
