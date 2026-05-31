@@ -19,5 +19,8 @@ windows-numerics = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
 windows-time = { workspace = true }
 
+[build-dependencies]
+windows-reactor = { workspace = true }
+
 [lints]
 workspace = true
