@@ -150,7 +150,7 @@ fn status_line(game: &Game) -> String {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (game, set_game) = cx.use_state(Game::new());
 
     let reset_handler = make_reset_handler(set_game.clone());
@@ -176,7 +176,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
 
     let title_bar = TitleBar::new("windows_reactor — tictactoe");
 
-    vstack((title_bar, vstack((header, board)).spacing(12.0)))
+    vstack((title_bar, vstack((header, board)).spacing(12.0))).into()
 }
 
 fn build_board(game: &Game, click_handler: impl Fn(usize) + Clone + 'static) -> Element {

@@ -2,7 +2,7 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::templated_list::{flip_view, grid_view, list_view, TemplatedKind};
+use windows_reactor::core::templated_list::{TemplatedKind, flip_view, grid_view, list_view};
 
 #[test]
 fn list_view_builder_produces_templated_list_variant() {

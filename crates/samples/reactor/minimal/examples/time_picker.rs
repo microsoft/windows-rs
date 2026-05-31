@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (label, set_label) = cx.use_state(String::from("No time picked"));
 
     let on_time = move |ts: TimeSpan| {
@@ -19,6 +19,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(&*label),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

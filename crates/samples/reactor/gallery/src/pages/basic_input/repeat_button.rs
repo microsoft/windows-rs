@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn repeat_button_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn repeat_button_page(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
     let (fast_count, set_fast) = cx.use_state(0_i32);
 

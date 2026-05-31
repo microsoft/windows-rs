@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::w, Win32::System::Registry::*};
+use windows::{Win32::System::Registry::*, core::w};
 use windows_registry::*;
 
 #[test]

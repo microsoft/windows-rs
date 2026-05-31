@@ -4,7 +4,7 @@ use windows_reactor::core::error_boundary::error_boundary;
 use windows_reactor::core::render_context::RenderCx;
 use windows_reactor::dsl::{button, text_block};
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 use windows_reactor::vstack;
 

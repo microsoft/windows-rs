@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_u32);
 
     let bump = move || set_count.call(count + 1);
@@ -12,6 +12,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Selection changed {count} time(s)")),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

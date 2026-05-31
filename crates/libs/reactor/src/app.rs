@@ -2,7 +2,7 @@ use std::cell::RefCell;
 use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
-use windows_core::{Error, Result, HRESULT};
+use windows_core::{Error, HRESULT, Result};
 
 use super::app_shim::*;
 use super::bindings::*;
@@ -208,44 +208,45 @@ impl App {
     /// Convenience entry point that accepts a render function directly,
     /// avoiding the empty-struct `Component` pattern.
     ///
-    /// The render function can return any type that implements `Into<Element>`
-    /// — widget builders, `Element`, layout containers, etc.
+    /// The render function should return `Element`. Use `.into()` to convert
+    /// widget builders into `Element`:
     ///
     /// ```ignore
-    /// fn app(cx: &mut RenderCx) -> impl Into<Element> {
+    /// fn app(cx: &mut RenderCx) -> Element {
     ///     let (count, set_count) = cx.use_state(0);
     ///     button(format!("Clicks: {count}"))
     ///         .on_click(move || set_count.call(count + 1))
+    ///         .into()
     /// }
     ///
     /// fn main() -> Result<()> {
     ///     App::new().render(app)
     /// }
     /// ```
-    pub fn render<F, R>(self, f: F) -> Result<()>
+    pub fn render<F>(self, f: F) -> Result<()>
     where
-        F: Fn(&mut crate::core::render_context::RenderCx) -> R + Send + 'static,
-        R: Into<crate::core::element::Element>,
+        F: Fn(&mut crate::core::render_context::RenderCx) -> crate::core::element::Element
+            + Send
+            + 'static,
     {
         self.run(move || RenderFn(f))
     }
 }
 
-/// Internal wrapper: adapts `Fn(&mut RenderCx) -> impl Into<Element>` into
-/// `Component<()>` so it can be used with the existing host machinery.
+/// Internal wrapper: adapts `Fn(&mut RenderCx) -> Element` into `Component<()>`
+/// so it can be used with the existing host machinery.
 struct RenderFn<F>(F);
 
-impl<F, R> crate::core::component::Component for RenderFn<F>
+impl<F> crate::core::component::Component for RenderFn<F>
 where
-    F: Fn(&mut crate::core::render_context::RenderCx) -> R + 'static,
-    R: Into<crate::core::element::Element>,
+    F: Fn(&mut crate::core::render_context::RenderCx) -> crate::core::element::Element + 'static,
 {
     fn render(
         &self,
         _props: &(),
         cx: &mut crate::core::render_context::RenderCx,
     ) -> crate::core::element::Element {
-        (self.0)(cx).into()
+        (self.0)(cx)
     }
 }
 

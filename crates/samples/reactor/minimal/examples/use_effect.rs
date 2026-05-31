@@ -1,12 +1,11 @@
 //! Minimal sample for the `cx.use_effect` hook.
 //!
-//! The effect copies `count` into a `use_ref` cell whenever `count`
-//! changes. Toggling an unrelated flag forces a rerender without
-//! changing the effect's deps, so the "last observed" value stays put.
+//! Copies `count` into a `use_ref` cell when deps change. Toggling an
+//! unrelated flag rerenders without running the effect again.
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
     let (flag, set_flag) = cx.use_state(false);
 
@@ -32,7 +31,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         hstack((
             button("-").on_click(dec),
             button("+").on_click(inc),
-            // Rerenders without changing the effect's deps.
+            // Rerenders without changing effect deps.
             button("toggle unrelated state").on_click(toggle),
         ))
         .spacing(8.0),
@@ -41,6 +40,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .opacity(0.7),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

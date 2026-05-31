@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (text, set_text) = cx.use_state(String::new());
 
     let on_changed = move |v: String| set_text.call(v);
@@ -20,6 +20,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .height(100.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn person_picture_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn person_picture_page(_: &(), cx: &mut RenderCx) -> Element {
     let (show_display_names, set_show_display_names) = cx.use_state(true);
 
     let pictures: Element = if show_display_names {

@@ -1,10 +1,10 @@
 #![cfg(windows)]
 use jsonschema::Validator;
-use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
+use windows::{Win32::Foundation::*, Win32::System::Com::*, core::*};
 
 // Creates a JSON validator object with the given schema. The returned handle must be freed
 // by calling `CloseJsonValidator`.
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn CreateJsonValidator(
     schema: *const u8,
     schema_len: usize,
@@ -14,7 +14,7 @@ unsafe extern "system" fn CreateJsonValidator(
 }
 
 // Validates a JSON value against a previously-compiled schema.
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn ValidateJson(
     handle: usize,
     value: *const u8,
@@ -35,7 +35,7 @@ unsafe extern "system" fn ValidateJson(
 }
 
 // Closes a JSON validator object.
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn CloseJsonValidator(handle: usize) {
     unsafe {
         if handle != 0 {

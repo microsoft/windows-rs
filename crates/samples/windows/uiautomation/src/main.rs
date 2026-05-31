@@ -4,8 +4,8 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Win32::System::Com::*, Win32::UI::Accessibility::*,
-        Win32::UI::WindowsAndMessaging::*, UI::UIAutomation::*,
+        UI::UIAutomation::*, Win32::System::Com::*, Win32::UI::Accessibility::*,
+        Win32::UI::WindowsAndMessaging::*, core::*,
     };
 
     unsafe {

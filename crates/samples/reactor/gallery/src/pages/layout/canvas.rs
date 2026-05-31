@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn canvas_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn canvas_page(_: &(), cx: &mut RenderCx) -> Element {
     let (x, set_x) = cx.use_state(100.0_f64);
     let (y, set_y) = cx.use_state(80.0_f64);
 

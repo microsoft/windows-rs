@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(0i32);
 
     vstack((
@@ -26,6 +26,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("selected_index = {selected}")),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

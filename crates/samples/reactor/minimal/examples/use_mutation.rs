@@ -1,7 +1,5 @@
-//! Demonstrates `cx.use_mutation` -- fire async write operations from
-//! event handlers with loading/success/error states.
-//!
-//! Simulates saving a form. The mutation runs on a background thread.
+//! Demonstrates `cx.use_mutation` — fire async write operations with
+//! loading/success/error states.
 
 use std::thread;
 use std::time::Duration;
@@ -17,7 +15,7 @@ fn save_data(name: &str) -> std::result::Result<String, String> {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (name, set_name) = cx.use_state("Hello".to_string());
     let (save_state, save_trigger) = cx.use_mutation::<String>();
 
@@ -60,6 +58,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         status,
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

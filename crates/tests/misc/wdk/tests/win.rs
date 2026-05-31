@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Wdk::System::OfflineRegistry::*};
+use windows::{Wdk::System::OfflineRegistry::*, core::*};
 
 #[test]
 fn test() -> Result<()> {

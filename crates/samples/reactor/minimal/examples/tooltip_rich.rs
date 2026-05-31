@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let rich_panel = vstack((
         text_block("Action: Save").bold(),
         text_block("Writes the current document to disk."),
@@ -14,6 +14,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         button("Open").tooltip("Opens a document"),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

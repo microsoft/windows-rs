@@ -4,7 +4,7 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*,
+        Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*, core::*,
     };
 
     #[implement(IBackgroundCopyCallback)]

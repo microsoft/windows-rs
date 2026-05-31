@@ -1,8 +1,7 @@
 //! Minimal sample for the `RadioButton` element.
 //!
-//! `RadioButton` is the single-control primitive; `group` ties
-//! mutually-exclusive buttons together. See also `radio_buttons.rs`
-//! for the grouped container.
+//! Uses `group` to tie mutually-exclusive buttons together.
+//! See also `radio_buttons.rs` for the grouped container.
 
 use windows_reactor::*;
 
@@ -14,7 +13,7 @@ enum Size {
     Large,
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (size, set_size) = cx.use_state(Size::default());
 
     let choose = |value: Size| {
@@ -42,13 +41,13 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .checked(size == Size::Large)
             .on_checked(choose(Size::Large)),
         text_block(format!("size = {label}")),
-        // Separate group so it can't steal the selection above.
         RadioButton::new("Disabled")
             .group("other")
             .checked(true)
             .enabled(false),
     ))
     .spacing(4.0)
+    .into()
 }
 
 fn main() -> Result<()> {

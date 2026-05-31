@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Determinate (40%)"),
         ProgressRing::new(40.0),
@@ -10,6 +10,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         ProgressRing::indeterminate(),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

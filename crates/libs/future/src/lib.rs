@@ -16,10 +16,10 @@ mod join;
 mod waiter;
 mod when;
 
+use r#async::*;
 pub use bindings::*;
 #[cfg(windows)]
 use bindings_impl::*;
-use r#async::*;
 use waiter::*;
 use windows_core::*;
 

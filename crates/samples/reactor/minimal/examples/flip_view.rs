@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(0_i32);
 
     let items: Vec<String> = ["Red", "Green", "Blue"]
@@ -34,7 +34,6 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .selected_index(page)
         .on_selection_changed(on_sel)
         .height(180.0),
-        // External controls drive the same bound selection.
         hstack((
             button("Prev").on_click(prev),
             button("Next").on_click(next),
@@ -44,6 +43,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(360.0)
+    .into()
 }
 
 fn main() -> Result<()> {

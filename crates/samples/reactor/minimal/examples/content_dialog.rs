@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (open, set_open) = cx.use_state(false);
     let (result, set_result) = cx.use_state::<Option<ContentDialogResult>>(None);
 
@@ -35,6 +35,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(320.0)
+    .into()
 }
 
 fn main() -> Result<()> {

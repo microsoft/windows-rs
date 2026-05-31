@@ -19,7 +19,7 @@ const FRUITS: &[&str] = &[
     "Watermelon",
 ];
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (query, set_query) = cx.use_state(String::new());
     let (chosen, set_chosen) = cx.use_state(String::new());
 
@@ -50,6 +50,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         }),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

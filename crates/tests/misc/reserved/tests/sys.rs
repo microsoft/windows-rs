@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows_sys::{
-    core::*, Win32::System::Registry::*, Win32::System::Threading::*,
-    Win32::UI::WindowsAndMessaging::*,
+    Win32::System::Registry::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*,
+    core::*,
 };
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.

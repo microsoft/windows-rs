@@ -756,10 +756,11 @@ fn contains_string(actual: &str, expected_path: &Path) {
         )
     });
 
-    assert!(actual.contains(expected.trim_end_matches('\n')),
-     "expected substring not found in panic for {path}\n--- expected substring ---\n{expected}\n--- actual ---\n{actual}\n--- end ---",
-     path = expected_path.display(),
- );
+    assert!(
+        actual.contains(expected.trim_end_matches('\n')),
+        "expected substring not found in panic for {path}\n--- expected substring ---\n{expected}\n--- actual ---\n{actual}\n--- end ---",
+        path = expected_path.display(),
+    );
 }
 
 /// Render a `windows_rdl::Error` portably for `expected.err` by replacing the

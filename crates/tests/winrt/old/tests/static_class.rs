@@ -2,8 +2,8 @@
 // This tests uses PropertyValue to test static WinRT classes - those classes that lack a default interface
 // and thus only provide static methods.
 
-use windows::core::RuntimeName;
 use windows::Foundation::PropertyValue;
+use windows::core::RuntimeName;
 
 #[test]
 fn static_class() -> windows::core::Result<()> {

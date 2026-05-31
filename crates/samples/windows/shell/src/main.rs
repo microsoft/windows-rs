@@ -4,8 +4,8 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Win32::System::Com::*, Win32::System::Variant::*, Win32::UI::Shell::*,
-        Win32::UI::WindowsAndMessaging::*,
+        Win32::System::Com::*, Win32::System::Variant::*, Win32::UI::Shell::*,
+        Win32::UI::WindowsAndMessaging::*, core::*,
     };
 
     // Ported from https://devblogs.microsoft.com/oldnewthing/20131118-00/?p=2643

@@ -5,7 +5,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     relative_panel([
         // Top-left (default position).
         text_block("Top Left"),
@@ -28,6 +28,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     ])
     .width(300.0)
     .height(200.0)
+    .into()
 }
 
 fn main() -> Result<()> {

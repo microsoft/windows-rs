@@ -4,10 +4,10 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*,
         Graphics::Imaging::BitmapDecoder,
         Media::Ocr::OcrEngine,
         Storage::{FileAccessMode, StorageFile},
+        core::*,
     };
 
     let mut message = std::env::current_dir().unwrap();

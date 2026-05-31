@@ -47,7 +47,7 @@
 //!
 //! Both macros must agree on the vtable layout and the `_Impl` naming convention.
 
-use quote::{quote, ToTokens};
+use quote::{ToTokens, quote};
 
 mod r#gen;
 use r#gen::gen_all;

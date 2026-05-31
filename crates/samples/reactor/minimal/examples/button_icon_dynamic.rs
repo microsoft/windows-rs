@@ -6,7 +6,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0u32);
     let label = format!("Clicked {count} times");
 
@@ -25,6 +25,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block("Click the buttons — the icons should remain visible.").opacity(0.6),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

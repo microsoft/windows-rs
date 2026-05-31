@@ -1,5 +1,5 @@
 use windows_reactor::core::element::{Element, GridLength, ScrollBarVisibility, Thickness};
-use windows_reactor::dsl::{check_box, scroll_viewer, text_block, text_box, ElementExt};
+use windows_reactor::dsl::{ElementExt, check_box, scroll_viewer, text_block, text_box};
 use windows_reactor::grid;
 
 #[test]
@@ -162,9 +162,10 @@ mod mount {
                 _ => None,
             })
             .collect();
-        assert!(sets
-            .iter()
-            .any(|(p, v)| *p == Prop::IsChecked && matches!(v, PropValue::Bool(true))));
+        assert!(
+            sets.iter()
+                .any(|(p, v)| *p == Prop::IsChecked && matches!(v, PropValue::Bool(true)))
+        );
     }
 
     #[test]

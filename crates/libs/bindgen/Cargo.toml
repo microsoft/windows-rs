@@ -1,8 +1,8 @@
 [package]
 name = "windows-bindgen"
 version = "0.66.0"
-edition = "2021"
-rust-version = "1.82"
+edition = "2024"
+rust-version = "1.85"
 license = "MIT OR Apache-2.0"
 description = "Code generator for Windows metadata"
 repository = "https://github.com/microsoft/windows-rs"

@@ -27,6 +27,8 @@ jobs:
   windows:
     name: windows
     runs-on: windows-2025-vs2026
+    env:
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -36,6 +38,8 @@ jobs:
   windows-sys:
     name: windows-sys
     runs-on: windows-2025-vs2026
+    env:
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -45,6 +49,8 @@ jobs:
   other-crates:
     name: other-crates
     runs-on: windows-2025-vs2026
+    env:
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -71,6 +77,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       RUSTFLAGS: -D warnings
+      RUSTDOCFLAGS: -Dwarnings
     steps:
       - name: Checkout
         uses: actions/checkout@v6

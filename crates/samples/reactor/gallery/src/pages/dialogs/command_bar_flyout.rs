@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn command_bar_flyout_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn command_bar_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
     let (last_action, set_last_action) = cx.use_state(String::from("(none)"));
 
     page_content(

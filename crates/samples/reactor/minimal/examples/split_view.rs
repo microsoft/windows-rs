@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (open, set_open) = cx.use_state(true);
 
     let toggle = {
@@ -33,6 +33,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     .is_pane_open(open)
     .open_pane_length(200.0)
     .on_pane_closed(on_closed)
+    .into()
 }
 
 fn main() -> Result<()> {

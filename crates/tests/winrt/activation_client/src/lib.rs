@@ -10,9 +10,9 @@
 mod bindings;
 use bindings::*;
 use windows::{
-    core::factory,
     Win32::Foundation::{E_NOINTERFACE, REGDB_E_CLASSNOTREG},
     Win32::System::WinRT::IActivationFactory,
+    core::factory,
 };
 
 // Test of an activation factory with a "default constructor" via `IActivationFactory`.

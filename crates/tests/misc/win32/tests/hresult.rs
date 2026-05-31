@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::core::HRESULT;
 use windows::Win32::Foundation::*;
+use windows::core::HRESULT;
 
 #[test]
 fn test_message() {

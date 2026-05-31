@@ -1,9 +1,7 @@
-//! Composition sample — `Element::Group` (fragments) and `CustomElement`.
+//! Demonstrates `Element::Group` (fragments) and `CustomElement`.
 //!
-//! * `Group` lets a helper contribute multiple siblings into the parent
-//!   without an intermediate wrapper that would steal layout control.
-//! * `CustomElement` is the open/closed extension hatch for widgets
-//!   defined outside the core crate.
+//! * `Group` contributes multiple siblings without an extra wrapper.
+//! * `CustomElement` is the extension hatch for third-party widgets.
 
 #![windows_subsystem = "windows"]
 
@@ -79,7 +77,7 @@ impl From<BadgeButton> for Element {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (inbox_count, set_inbox) = cx.use_state(3_u32);
     let (drafts_count, set_drafts) = cx.use_state(1_u32);
     let inbox_for_inc = inbox_count;
@@ -110,6 +108,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(12.0)
     .padding(Thickness::uniform(16.0))
+    .into()
 }
 
 fn main() -> Result<()> {

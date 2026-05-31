@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let cell = |label: &str, color: Color| -> Element {
         border(
             text_block(label)
@@ -33,6 +33,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     .row_spacing(6.0)
     .column_spacing(6.0)
     .max_width(360.0)
+    .into()
 }
 
 fn main() -> Result<()> {

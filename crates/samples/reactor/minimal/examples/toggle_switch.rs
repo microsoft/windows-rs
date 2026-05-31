@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (on, set_on) = cx.use_state(true);
 
     let toggle = move |v| set_on.call(v);
@@ -23,6 +23,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             .enabled(false),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -13,7 +13,7 @@
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
-        extern $abi {
+        unsafe extern $abi {
             $(#[link_name=$link_name])?
             pub fn $name($($params)*) $(-> $ret)?;
         }
@@ -34,7 +34,7 @@ macro_rules! link {
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
-        extern $abi {
+        unsafe extern $abi {
             $(#[link_name=$link_name])?
             pub fn $name($($params)*) $(-> $ret)?;
         }
@@ -54,7 +54,7 @@ macro_rules! link {
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $name:ident($($params:tt)*) $(-> $ret:ty)?) => (
-        extern $abi {
+        unsafe extern $abi {
             pub fn $name($($params)*) $(-> $ret)?;
         }
         #[allow(non_camel_case_types)]

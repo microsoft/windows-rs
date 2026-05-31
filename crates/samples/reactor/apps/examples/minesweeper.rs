@@ -308,11 +308,7 @@ fn tile_label(game: &Game, idx: usize) -> String {
                 "💣".to_string()
             } else {
                 let n = game.neighbors[idx];
-                if n == 0 {
-                    String::new()
-                } else {
-                    n.to_string()
-                }
+                if n == 0 { String::new() } else { n.to_string() }
             }
         }
     }
@@ -374,7 +370,7 @@ fn reduce(state: Game, action: Action) -> Game {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (game, dispatch) = cx.use_reducer_fn(reduce, Game::new());
 
     let reset_handler = {
@@ -404,7 +400,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     let board = build_board(&game, reveal_handler, flag_handler);
 
     let title_bar = TitleBar::new("windows_reactor — minesweeper");
-    vstack((title_bar, vstack((header, board)).spacing(12.0)))
+    vstack((title_bar, vstack((header, board)).spacing(12.0))).into()
 }
 
 fn build_board(

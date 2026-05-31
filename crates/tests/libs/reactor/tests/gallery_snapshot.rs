@@ -12,7 +12,7 @@ use windows_reactor::core::element::{
 };
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{text_block, ElementExt};
+use windows_reactor::dsl::{ElementExt, text_block};
 use windows_reactor::vstack;
 
 static THEME: LazyLock<Context<String>> = LazyLock::new(|| Context::new("light".to_string()));

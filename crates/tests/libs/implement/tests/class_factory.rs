@@ -1,7 +1,7 @@
 #![cfg(windows)]
-use windows::core::*;
 use windows::Foundation::*;
 use windows::Win32::System::Com::*;
+use windows::core::*;
 
 #[implement(IClosable, IStringable)]
 struct Object();

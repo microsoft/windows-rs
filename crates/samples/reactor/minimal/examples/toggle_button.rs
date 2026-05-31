@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (is_bold, set_bold) = cx.use_state(false);
     let (is_italic, set_italic) = cx.use_state(false);
 
@@ -22,6 +22,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Style: {style_label}")),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

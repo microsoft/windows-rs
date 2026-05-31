@@ -9,12 +9,12 @@ use windows_reactor::core::element::{Color, GridLength};
 use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextRun};
 use windows_reactor::core::templated_list::{flip_view, grid_view, list_view, virtual_list};
 use windows_reactor::dsl::{
-    border, button, check_box, scroll_viewer, text_block, text_box, ElementExt,
+    ElementExt, border, button, check_box, scroll_viewer, text_block, text_box,
 };
 
 use crate::bindings;
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 use windows_reactor::{grid, vstack};
 

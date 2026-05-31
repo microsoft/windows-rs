@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU32, Ordering};
 use windows::core::imp::WeakRefCount;
 
 const TARGET: u32 = 100_000;

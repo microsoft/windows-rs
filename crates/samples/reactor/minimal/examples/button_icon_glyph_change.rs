@@ -7,7 +7,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (toggled, set_toggled) = cx.use_state(false);
     let icon = if toggled {
         SymbolGlyph::Save
@@ -25,6 +25,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block("Click the button — the icon should change but the label stays.").opacity(0.4),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -38,7 +38,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         Some(n) => {
             return Err(writer_err!(
                 "unexpected CallingConvention value {n} in `UnmanagedFunctionPointerAttribute`"
-            ))
+            ));
         }
     };
 

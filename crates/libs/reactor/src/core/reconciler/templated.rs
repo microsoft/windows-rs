@@ -178,34 +178,31 @@ impl<B: Backend + 'static> Reconciler<B> {
 
             if can_skip_update(&old_el, &new_el) {
                 self.debug_elements_skipped += 1;
-                if let Some(state) = self.templated_lists.get_mut(&id) {
-                    if let Some(Some(row)) = state.rows.get_mut(row_idx) {
+                if let Some(state) = self.templated_lists.get_mut(&id)
+                    && let Some(Some(row)) = state.rows.get_mut(row_idx) {
                         row.rendered = new_el;
                     }
-                }
                 continue;
             }
 
             let new_id = self.update(&old_el, &new_el, content_id);
             if let Some(nid) = new_id {
-                if let Some(state) = self.templated_lists.get_mut(&id) {
-                    if let Some(slot) = state.rows.get_mut(row_idx) {
+                if let Some(state) = self.templated_lists.get_mut(&id)
+                    && let Some(slot) = state.rows.get_mut(row_idx) {
                         *slot = Some(RealizedRow {
                             rendered: new_el,
                             content_id: nid,
                         });
                     }
-                }
                 if nid != content_id {
                     self.backend
                         .set_templated_row_content(id, row_idx, Some(nid));
                 }
             } else {
-                if let Some(state) = self.templated_lists.get_mut(&id) {
-                    if let Some(slot) = state.rows.get_mut(row_idx) {
+                if let Some(state) = self.templated_lists.get_mut(&id)
+                    && let Some(slot) = state.rows.get_mut(row_idx) {
                         *slot = None;
                     }
-                }
                 self.backend.set_templated_row_content(id, row_idx, None);
             }
         }

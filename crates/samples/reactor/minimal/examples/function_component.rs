@@ -1,12 +1,12 @@
 //! Minimal sample demonstrating function components.
 //!
-//! Instead of `struct + impl Component`, simply define a function with
-//! signature `fn(&P, &mut RenderCx) -> impl Into<Element>` and use it directly.
+//! Define a function with signature `fn(&P, &mut RenderCx) -> Element`
+//! and compose with `component(f, props)`.
 
 use windows_reactor::*;
 
-/// A function component — no struct, no impl block needed.
-fn counter(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+/// A function component — no struct needed.
+fn counter(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
 
     let bump = move || set_count.call(count + 1);
@@ -18,6 +18,7 @@ fn counter(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
         button("Increment").on_click(bump),
     ))
     .spacing(8.0)
+    .into()
 }
 
 /// A function component with typed props.
@@ -26,14 +27,15 @@ struct GreetingProps {
     name: String,
 }
 
-fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> impl Into<Element> {
+fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> Element {
     text_block(format!("Hello, {}!", props.name))
         .font_size(20.0)
         .bold()
+        .into()
 }
 
 /// Root component that composes both function components.
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (name, set_name) = cx.use_state(String::from("world"));
 
     vstack((
@@ -45,6 +47,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         component(counter, ()),
     ))
     .spacing(12.0)
+    .into()
 }
 
 fn main() -> Result<()> {

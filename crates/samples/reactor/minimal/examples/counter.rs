@@ -2,16 +2,26 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
 
-    let dec = decrement_handler(set_count.clone(), count);
-    let inc = increment_handler(set_count.clone(), count);
-    let reset = reset_handler(set_count);
+    let dec = {
+        let s = set_count.clone();
+        move || s.call(count - 1)
+    };
+    let inc = {
+        let s = set_count.clone();
+        move || s.call(count + 1)
+    };
+    let reset = {
+        let s = set_count.clone();
+        move || s.call(0)
+    };
 
-    let reset_for_accel = reset.clone();
-    let reset_accelerator =
-        KeyboardAccelerator::new(KeyboardKey::R, KeyModifiers::CONTROL, reset_for_accel);
+    let reset_accel = {
+        let s = set_count;
+        KeyboardAccelerator::new(KeyboardKey::R, KeyModifiers::CONTROL, move || s.call(0))
+    };
 
     vstack((
         TitleBar::new("windows_reactor — counter").subtitle("Phase 1 demo"),
@@ -32,23 +42,12 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
             button("reset (Ctrl+R)")
                 .on_click(reset)
                 .automation_id("reset-button")
-                .keyboard_accelerator(reset_accelerator),
+                .keyboard_accelerator(reset_accel),
         ))
         .spacing(8.0),
     ))
     .spacing(12.0)
-}
-
-fn decrement_handler(set: SetState<i32>, current: i32) -> impl Fn() + 'static {
-    move || set.call(current - 1)
-}
-
-fn increment_handler(set: SetState<i32>, current: i32) -> impl Fn() + 'static {
-    move || set.call(current + 1)
-}
-
-fn reset_handler(set: SetState<i32>) -> impl Fn() + Clone + 'static {
-    move || set.call(0)
+    .into()
 }
 
 fn main() -> Result<()> {

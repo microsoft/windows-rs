@@ -1,7 +1,7 @@
 #![cfg(windows)]
-use windows::core::imp::WeakRefCount;
-use windows::core::Interface;
 use windows::Win32::System::WinRT::IWeakReferenceSource;
+use windows::core::Interface;
+use windows::core::imp::WeakRefCount;
 
 #[test]
 fn test() {

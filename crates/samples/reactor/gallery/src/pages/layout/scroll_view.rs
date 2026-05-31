@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn scroll_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn scroll_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(30_i32);
 
     let items: Vec<Element> = (1..=count)

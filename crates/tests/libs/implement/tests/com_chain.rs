@@ -1,7 +1,7 @@
 #![cfg(windows)]
-use windows::core::*;
 use windows::Win32::Foundation::S_OK;
 use windows::Win32::System::Com::*;
+use windows::core::*;
 
 #[implement(IPersistStream)]
 struct Test();

@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn materials_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn materials_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(0_i32);
 
     let options: Vec<String> = ["Mica", "Mica Alt", "Acrylic", "None (solid)"]
@@ -27,29 +27,27 @@ pub fn materials_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
                 vstack((
                     text_block("Select a backdrop material to apply it to this window:"),
                     list_view(options, |item, _idx| {
-                        text_block(item.clone())
-                            .padding(Thickness::uniform(10.0))
+                        text_block(item.clone()).padding(Thickness::uniform(10.0))
                     })
-                        .with_key_selector(|item| item.clone())
-                        .selected_index(selected)
-                        .on_selection_changed({
-                            let set_selected = set_selected;
-                            move |index: i32| {
-                                let backdrop = match index {
-                                    0 => Some(Backdrop::Mica),
-                                    1 => Some(Backdrop::MicaAlt),
-                                    2 => Some(Backdrop::Acrylic),
-                                    _ => None,
-                                };
-                                set_backdrop(backdrop);
-                                set_selected.call(index);
-                            }
-                        })
-                        .height(170.0),
+                    .with_key_selector(|item| item.clone())
+                    .selected_index(selected)
+                    .on_selection_changed({
+                        let set_selected = set_selected;
+                        move |index: i32| {
+                            let backdrop = match index {
+                                0 => Some(Backdrop::Mica),
+                                1 => Some(Backdrop::MicaAlt),
+                                2 => Some(Backdrop::Acrylic),
+                                _ => None,
+                            };
+                            set_backdrop(backdrop);
+                            set_selected.call(index);
+                        }
+                    })
+                    .height(170.0),
                     text_block(description).opacity(0.7),
                 ))
-                .spacing(8.0)
-                ,
+                .spacing(8.0),
                 r#"set_backdrop(Some(Backdrop::Mica));
 set_backdrop(Some(Backdrop::MicaAlt));
 set_backdrop(Some(Backdrop::Acrylic));
@@ -67,8 +65,7 @@ set_backdrop(None); // remove backdrop"#,
                     text_block("� All materials degrade gracefully on unsupported hardware")
                         .font_size(13.0),
                 ))
-                .spacing(6.0)
-                ,
+                .spacing(6.0),
                 r#"// At app level:
 App::new(root).backdrop(Backdrop::Mica).run()
 

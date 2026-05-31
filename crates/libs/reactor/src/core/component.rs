@@ -26,22 +26,21 @@ where
     fn on_disappeared(&self, _props: &P, _cx: &mut RenderCx) {}
 }
 
-/// Blanket impl: any `Fn(&P, &mut RenderCx) -> impl Into<Element>` is a [`Component<P>`].
+/// Blanket impl: any `Fn(&P, &mut RenderCx) -> Element` is a [`Component<P>`].
 ///
 /// ```ignore
-/// fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> impl Into<Element> {
-///     text_block(format!("Hello, {}!", props.name))
+/// fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> Element {
+///     text_block(format!("Hello, {}!", props.name)).into()
 /// }
 /// ```
 ///
-/// For unit-props, use `fn(_: &(), cx: &mut RenderCx) -> impl Into<Element>`.
-impl<F, P, R> Component<P> for F
+/// For unit-props, use `fn(_: &(), cx: &mut RenderCx) -> Element`.
+impl<F, P> Component<P> for F
 where
-    F: Fn(&P, &mut RenderCx) -> R + 'static,
-    R: Into<Element>,
+    F: Fn(&P, &mut RenderCx) -> Element + 'static,
     P: Clone + PartialEq + 'static,
 {
     fn render(&self, props: &P, cx: &mut RenderCx) -> Element {
-        (self)(props, cx).into()
+        (self)(props, cx)
     }
 }

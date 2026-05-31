@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (last_action, set_action) = cx.use_state("(none)".to_string());
 
     let on_cmd = move |label: String| set_action.call(label);
@@ -22,6 +22,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("Last action: {last_action}")),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

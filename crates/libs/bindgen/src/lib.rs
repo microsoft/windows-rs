@@ -761,9 +761,9 @@ impl Bindgen {
     /// matching `--sys`).
     ///
     /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
-    /// auto-revoking wrapper that returns a [`windows_core::EventRevoker`].
+    /// auto-revoking wrapper that returns a `windows_core::EventRevoker`.
     /// The `Remove*` wrapper is suppressed. Callers can call
-    /// [`windows_core::EventRevoker::into_token`] to recover the raw token when interoperating
+    /// `windows_core::EventRevoker::into_token` to recover the raw token when interoperating
     /// with code that manages registration tokens directly.
     ///
     /// This is a build-time / disk / memory optimization: the generated source

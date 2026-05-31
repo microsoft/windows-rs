@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let items: Vec<String> = ["Red", "Green", "Blue", "Yellow", "Magenta", "Cyan"]
         .iter()
         .map(|s| (*s).to_string())
@@ -17,6 +17,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     })
     .with_key_selector(|s| s.clone())
     .height(220.0)
+    .into()
 }
 
 fn main() -> Result<()> {

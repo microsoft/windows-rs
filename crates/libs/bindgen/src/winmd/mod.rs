@@ -19,8 +19,8 @@ pub type TypeDefOrRef = windows_metadata::reader::TypeDefOrRef<'static>;
 pub type MemberRefParent = windows_metadata::reader::MemberRefParent<'static>;
 pub type File = windows_metadata::reader::File;
 
-pub use windows_metadata::reader::AsRow;
 pub use windows_metadata::HasAttributes;
+pub use windows_metadata::reader::AsRow;
 pub use windows_metadata::{
     FieldAttributes, MethodAttributes, PInvokeAttributes, ParamAttributes, TypeAttributes,
 };

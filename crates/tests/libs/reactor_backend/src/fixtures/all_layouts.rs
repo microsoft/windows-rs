@@ -1,7 +1,7 @@
 use windows_reactor::core::element::{Element, GridLength};
 use windows_reactor::dsl::{button, grid, text_block};
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 use windows_reactor::{hstack, vstack};
 

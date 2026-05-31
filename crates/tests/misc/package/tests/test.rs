@@ -10,7 +10,7 @@ fn test() {
             package.name
         );
 
-        assert_eq!(package.edition, "2021");
+        assert_eq!(package.edition, "2024");
         assert_eq!(package.authors, None);
 
         if package.publish == Some(false) {

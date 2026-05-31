@@ -1,7 +1,6 @@
-use windows_reactor::core::*;
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let window_size = cx.use_inner_size();
 
     let mut children = create_arrows();
@@ -19,6 +18,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     grid(children)
         .vertical_alignment(VerticalAlignment::Stretch)
         .horizontal_alignment(HorizontalAlignment::Stretch)
+        .into()
 }
 
 fn create_arrows() -> Vec<Element> {

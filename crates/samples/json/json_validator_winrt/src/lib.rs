@@ -8,7 +8,7 @@
 )]
 mod bindings;
 use jsonschema::Validator;
-use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{Win32::Foundation::*, Win32::System::WinRT::*, core::*};
 
 // The `JsonValidator` struct represents the implementation of the `JsonValidator` class.
 // The `implement` attribute provides the boilerplate COM and WinRT implementation support.
@@ -74,7 +74,7 @@ fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value> {
 static JSON_VALIDATOR_FACTORY: StaticComObject<JsonValidatorFactory> =
     JsonValidatorFactory.into_static();
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
     factory: OutRef<IActivationFactory>,

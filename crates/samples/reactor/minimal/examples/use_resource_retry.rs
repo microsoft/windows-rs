@@ -1,7 +1,7 @@
 //! Demonstrates `use_resource` with error handling and retry.
 //!
-//! Simulates a flaky API that fails on every 3rd attempt. Shows how to
-//! display loading/error/ready states and retry by bumping deps.
+//! Simulates a flaky API that fails every 3rd attempt. Shows
+//! loading/error/ready states and retry by bumping deps.
 
 use std::thread;
 use std::time::Duration;
@@ -17,7 +17,7 @@ fn fetch_weather(attempt: i32) -> std::result::Result<String, String> {
     }
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (attempt, set_attempt) = cx.use_state(0_i32);
 
     let weather = cx.use_resource(fetch_weather, attempt);
@@ -45,6 +45,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         button("Refresh").on_click(retry),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

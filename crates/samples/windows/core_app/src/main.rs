@@ -6,13 +6,13 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*,
         ApplicationModel::{Core::*, Package},
+        UI::Core::*,
         Win32::{
             System::Com::*,
-            UI::WindowsAndMessaging::{MessageBoxW, MB_ICONSTOP, MB_OK},
+            UI::WindowsAndMessaging::{MB_ICONSTOP, MB_OK, MessageBoxW},
         },
-        UI::Core::*,
+        core::*,
     };
 
     #[implement(IFrameworkViewSource)]

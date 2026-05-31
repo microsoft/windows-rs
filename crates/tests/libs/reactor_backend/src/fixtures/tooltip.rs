@@ -8,10 +8,10 @@
 
 use crate::bindings;
 use windows_reactor::core::element::{Element, Tooltip, TooltipPlacement};
-use windows_reactor::dsl::{button, ElementExt};
+use windows_reactor::dsl::{ElementExt, button};
 use windows_reactor::vstack;
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 fn tooltip_string_for_button(h: &Harness, label: &str) -> Option<String> {

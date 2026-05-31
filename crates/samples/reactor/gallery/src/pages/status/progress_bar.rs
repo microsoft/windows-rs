@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn progress_bar_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn progress_bar_page(_: &(), cx: &mut RenderCx) -> Element {
     let (value, set_value) = cx.use_state(60.0_f64);
     let (loading, set_loading) = cx.use_state(true);
 

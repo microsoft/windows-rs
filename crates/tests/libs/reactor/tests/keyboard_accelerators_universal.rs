@@ -18,6 +18,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use windows_reactor::ElementExt;
 use windows_reactor::core::backend::{Op, RecordingBackend};
 use windows_reactor::core::callback::Callback;
 use windows_reactor::core::element::{
@@ -32,7 +33,6 @@ use windows_reactor::core::element::{
 };
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::core::rich_text::RichText;
-use windows_reactor::ElementExt;
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![

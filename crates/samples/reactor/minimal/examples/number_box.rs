@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (quantity, set_quantity) = cx.use_state(3.0_f64);
 
     let update_quantity = move |v: f64| set_quantity.call(v);
@@ -17,6 +17,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .max_width(320.0)
+    .into()
 }
 
 fn main() -> Result<()> {

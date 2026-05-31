@@ -265,33 +265,49 @@ fn parse_body(
             parse_literal(lit, true)
         }
         // (LITERAL) — parenthesized literal (e.g. `#define FOO ( "value" )`).
-        [(CXToken_Punctuation, lp), (CXToken_Literal, lit), (CXToken_Punctuation, rp)]
-            if lp == "(" && rp == ")" =>
-        {
-            parse_literal(lit, false)
-        }
+        [
+            (CXToken_Punctuation, lp),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp),
+        ] if lp == "(" && rp == ")" => parse_literal(lit, false),
         // ((TYPE)VALUE) — double-paren typed cast.
-        [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
-            if lp1 == "(" && lp2 == "(" && rp1 == ")" && rp2 == ")" =>
-        {
+        [
+            (CXToken_Punctuation, lp1),
+            (CXToken_Punctuation, lp2),
+            (CXToken_Identifier, ty),
+            (CXToken_Punctuation, rp1),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp2),
+        ] if lp1 == "(" && lp2 == "(" && rp1 == ")" && rp2 == ")" => {
             parse_named_cast(namespace, ref_map, ty, lit, false)
         }
         // ((TYPE)-VALUE) — double-paren typed negated cast.
-        [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Punctuation, minus), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
-            if lp1 == "(" && lp2 == "(" && rp1 == ")" && minus == "-" && rp2 == ")" =>
-        {
+        [
+            (CXToken_Punctuation, lp1),
+            (CXToken_Punctuation, lp2),
+            (CXToken_Identifier, ty),
+            (CXToken_Punctuation, rp1),
+            (CXToken_Punctuation, minus),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp2),
+        ] if lp1 == "(" && lp2 == "(" && rp1 == ")" && minus == "-" && rp2 == ")" => {
             parse_named_cast(namespace, ref_map, ty, lit, true)
         }
         // (TYPE)VALUE — single-paren typed cast.
-        [(CXToken_Punctuation, lp), (CXToken_Identifier, ty), (CXToken_Punctuation, rp), (CXToken_Literal, lit)]
-            if lp == "(" && rp == ")" =>
-        {
-            parse_named_cast(namespace, ref_map, ty, lit, false)
-        }
+        [
+            (CXToken_Punctuation, lp),
+            (CXToken_Identifier, ty),
+            (CXToken_Punctuation, rp),
+            (CXToken_Literal, lit),
+        ] if lp == "(" && rp == ")" => parse_named_cast(namespace, ref_map, ty, lit, false),
         // (TYPE)-VALUE — single-paren typed negated cast.
-        [(CXToken_Punctuation, lp), (CXToken_Identifier, ty), (CXToken_Punctuation, rp), (CXToken_Punctuation, minus), (CXToken_Literal, lit)]
-            if lp == "(" && rp == ")" && minus == "-" =>
-        {
+        [
+            (CXToken_Punctuation, lp),
+            (CXToken_Identifier, ty),
+            (CXToken_Punctuation, rp),
+            (CXToken_Punctuation, minus),
+            (CXToken_Literal, lit),
+        ] if lp == "(" && rp == ")" && minus == "-" => {
             parse_named_cast(namespace, ref_map, ty, lit, true)
         }
         _ => None,

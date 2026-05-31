@@ -5,7 +5,7 @@ use windows_reactor::core::rich_text::{
 };
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let mixed = RichTextBlock::single_paragraph(vec![
         RichTextInline::Run(RichTextRun::plain("Plain, ")),
         RichTextInline::Run(RichTextRun {
@@ -54,6 +54,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         multi,
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

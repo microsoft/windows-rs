@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::{
-    core::*, Win32::Foundation::*, Win32::System::Com::*, Win32::UI::Controls::*,
-    Win32::UI::WindowsAndMessaging::*,
+    Win32::Foundation::*, Win32::System::Com::*, Win32::UI::Controls::*,
+    Win32::UI::WindowsAndMessaging::*, core::*,
 };
 
 /// These tests ensure `MAKEINTRESOURCEW` style constants an in particular negative constants like TD_ERROR_ICON

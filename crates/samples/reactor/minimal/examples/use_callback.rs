@@ -1,11 +1,11 @@
 //! Minimal sample for the `cx.use_callback` hook.
 //!
-//! Returns a `Callback` whose identity is stable across renders for
-//! the same dependency tuple. Clones share the underlying handler.
+//! Returns a `Callback` with stable identity across renders for
+//! the same deps. Clones share the underlying handler.
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (rerenders, set_rerenders) = cx.use_state(0_u32);
 
     let fires = cx.use_ref(0_u32);
@@ -26,19 +26,20 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     let rerender = move || set_rerenders.call(rerenders + 1);
 
     vstack((
-        text_block(format!("callback has fired {} time(s)", *fires.borrow())).font_size(18.0),
+        text_block(format!("callback fired {} time(s)", *fires.borrow())).font_size(18.0),
         text_block(format!("forced rerenders = {rerenders}"))
             .font_size(12.0)
             .opacity(0.7),
         hstack((
             button("Fire (A)").on_click(fire_a),
             button("Fire (B)").on_click(fire_b),
-            // Rerenders without changing the callback's deps.
+            // Rerenders without changing callback deps.
             button("Force rerender").on_click(rerender),
         ))
         .spacing(8.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

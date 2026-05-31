@@ -1,12 +1,11 @@
 //! Minimal sample for the `cx.use_memo` hook.
 //!
-//! `factorial(n)` is wrapped in `use_memo((n,), …)` so toggling the
-//! unrelated `label` state re-renders without re-running the
-//! computation. A `use_ref` recompute counter makes the caching visible.
+//! Memoizes `factorial(n)` so toggling unrelated state re-renders
+//! without recomputing. A recompute counter makes the caching visible.
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (n, set_n) = cx.use_state(3_i32);
     let (show_hint, set_hint) = cx.use_state(false);
 
@@ -40,14 +39,14 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         hstack((
             button("-").on_click(dec),
             button("+").on_click(inc),
-            // Rerenders without changing the memo's deps.
+            // Rerenders without changing memo deps.
             button("toggle unrelated state").on_click(toggle_hint),
         ))
         .spacing(8.0),
         if show_hint {
             text_block(
-                "Toggling this state forces a rerender, \
-                     but the memo factory was skipped — same deps.",
+                "Toggling this state rerenders, \
+                     but the memo was skipped — same deps.",
             )
             .opacity(0.7)
             .into()
@@ -56,6 +55,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         },
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

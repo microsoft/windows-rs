@@ -1,8 +1,6 @@
 //! Minimal sample for `error_boundary`.
 //!
-//! `error_boundary` wraps a subtree and renders a fallback element if
-//! any descendant component panics while rendering. Toggle the button
-//! to flip a flag that drives the child component.
+//! Wraps a subtree and renders a fallback if a descendant panics during render.
 
 #![windows_subsystem = "windows"]
 
@@ -13,15 +11,17 @@ struct PanicMaybeProps {
     should_panic: bool,
 }
 
-fn panic_maybe(props: &PanicMaybeProps, _cx: &mut RenderCx) -> impl Into<Element> {
+fn panic_maybe(props: &PanicMaybeProps, _cx: &mut RenderCx) -> Element {
     assert!(
         !props.should_panic,
         "intentional render failure for the error-boundary demo"
     );
-    text_block("Healthy child renders normally.").font_size(14.0)
+    text_block("Healthy child renders normally.")
+        .font_size(14.0)
+        .into()
 }
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (should_panic, set_should_panic) = cx.use_state(false);
 
     let toggle = move || set_should_panic.call(!should_panic);
@@ -38,8 +38,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     vstack((
         TitleBar::new("windows_reactor — error_boundary"),
         text_block(
-            "Toggle the button to make the child panic on render. The boundary swaps in \
-             the fallback subtree; toggle again to recover.",
+            "Toggle to make the child panic. The boundary shows a fallback; toggle again to recover.",
         ),
         button(if should_panic {
             "Recover (stop panicking)"
@@ -50,7 +49,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         boundary,
     ))
     .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
+    .padding(Thickness::uniform(16.0)).into()
 }
 
 fn main() -> Result<()> {

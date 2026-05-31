@@ -9,7 +9,7 @@
 )]
 mod bindings;
 use bindings::*;
-use windows::{core::*, Foundation::*};
+use windows::{Foundation::*, core::*};
 
 #[test]
 #[expect(clippy::field_reassign_with_default)] // testing unusual field assignment

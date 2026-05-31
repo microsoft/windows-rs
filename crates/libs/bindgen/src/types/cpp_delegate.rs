@@ -60,7 +60,9 @@ impl CppDelegate {
                 match &**value {
                     Value::I32(1) | Value::I32(5) => abi = Some("system"),
                     Value::I32(2) => abi = Some("C"),
-                    rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
+                    rest => unreachable!(
+                        "unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"
+                    ),
                 }
             }
         }

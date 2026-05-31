@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::{
-    core::*, Win32::Foundation::*, Win32::Media::Audio::*, Win32::System::Com::*,
-    Win32::System::Ole::*, Win32::System::WinRT::*,
+    Win32::Foundation::*, Win32::Media::Audio::*, Win32::System::Com::*, Win32::System::Ole::*,
+    Win32::System::WinRT::*, core::*,
 };
 
 #[test]
@@ -11,7 +11,10 @@ fn display_debug() {
     let e = Error::from(ERROR_NO_UNICODE_TRANSLATION);
     let display = format!("{e}");
     let debug = format!("{e:?}");
-    assert_eq!(display, "No mapping for the Unicode character exists in the target multi-byte code page. (0x80070459)");
+    assert_eq!(
+        display,
+        "No mapping for the Unicode character exists in the target multi-byte code page. (0x80070459)"
+    );
     assert_eq!(
         debug,
         r#"Error { code: HRESULT(0x80070459), message: "No mapping for the Unicode character exists in the target multi-byte code page." }"#

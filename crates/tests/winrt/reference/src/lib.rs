@@ -8,9 +8,9 @@
 )]
 mod bindings;
 
-use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*, core::*};
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
     factory: OutRef<IActivationFactory>,

@@ -1,13 +1,12 @@
 #![windows_subsystem = "windows"]
 
-//! Demonstrates the diagnostic error categories:
-//! 1. Invariant violation — panic (process exits with backtrace + crash log).
+//! Demonstrates panic hook and crash-log behavior.
 //!
 //! Run with: `cargo run -p examples --example diagnostics_demo`
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (status, set_status) = cx.use_state(String::from("Ready"));
 
     vstack((
@@ -29,6 +28,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
     ))
     .spacing(8.0)
     .padding(Thickness::uniform(24.0))
+    .into()
 }
 
 fn main() -> Result<()> {

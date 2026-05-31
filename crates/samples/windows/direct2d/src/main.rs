@@ -4,12 +4,12 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*,
-        Win32::Graphics::Direct2D::*, Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
+        Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*, Win32::Graphics::Direct2D::*,
+        Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
         Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*, Win32::Graphics::Gdi::*,
         Win32::System::Com::*, Win32::System::LibraryLoader::*, Win32::System::Performance::*,
         Win32::System::SystemInformation::GetLocalTime, Win32::UI::Animation::*,
-        Win32::UI::WindowsAndMessaging::*,
+        Win32::UI::WindowsAndMessaging::*, core::*,
     };
 
     use windows_numerics::*;
@@ -542,10 +542,10 @@ fn main() -> windows::core::Result<()> {
     fn create_device() -> Result<ID3D11Device> {
         let mut result = create_device_with_type(D3D_DRIVER_TYPE_HARDWARE);
 
-        if let Err(err) = &result {
-            if err.code() == DXGI_ERROR_UNSUPPORTED {
-                result = create_device_with_type(D3D_DRIVER_TYPE_WARP);
-            }
+        if let Err(err) = &result
+            && err.code() == DXGI_ERROR_UNSUPPORTED
+        {
+            result = create_device_with_type(D3D_DRIVER_TYPE_WARP);
         }
 
         result

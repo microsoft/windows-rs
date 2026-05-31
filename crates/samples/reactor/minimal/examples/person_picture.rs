@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Default (placeholder glyph)"),
         PersonPicture::new(),
@@ -17,6 +17,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         PersonPicture::new().initials("WR"),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

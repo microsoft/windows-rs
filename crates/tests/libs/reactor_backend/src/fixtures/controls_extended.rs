@@ -15,7 +15,7 @@ use windows_reactor::core::element::{app_bar_button, menu_item};
 
 use crate::bindings;
 
-use crate::fixtures::reconciler::{cc, FixtureFuture};
+use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 macro_rules! assert_present {
@@ -253,9 +253,11 @@ pub fn mount_toggle_button(h: Harness) -> FixtureFuture {
 pub fn mount_tree_view(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
-            TreeViewWidget::new(vec![TreeNodeDef::new("Root")
-                .child(TreeNodeDef::new("Child A"))
-                .child(TreeNodeDef::new("Child B"))])
+            TreeViewWidget::new(vec![
+                TreeNodeDef::new("Root")
+                    .child(TreeNodeDef::new("Child A"))
+                    .child(TreeNodeDef::new("Child B")),
+            ])
             .into()
         }));
         h.render().await;

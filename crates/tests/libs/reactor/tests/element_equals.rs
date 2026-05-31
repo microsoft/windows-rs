@@ -1,5 +1,5 @@
 use windows_reactor::core::element::{
-    can_skip_update, Button, Color, Element, Modifiers, StackPanel, TextBlock, Thickness,
+    Button, Color, Element, Modifiers, StackPanel, TextBlock, Thickness, can_skip_update,
 };
 
 #[test]

@@ -9,7 +9,7 @@
 )]
 mod bindings;
 use bindings::*;
-use windows::{core::*, Foundation::*};
+use windows::{Foundation::*, core::*};
 
 #[implement(IStringable)]
 struct Stringable;

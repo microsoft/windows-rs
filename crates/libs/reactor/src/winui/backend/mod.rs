@@ -226,10 +226,10 @@ impl WinUIBackend {
             return revokers;
         };
         for i in 0..bar_items.Size().unwrap_or(0) {
-            if let Ok(mbi) = bar_items.GetAt(i) {
-                if let Ok(flyout_items) = mbi.get_Items() {
-                    Self::wire_flyout_items_click(&flyout_items, handler, &mut revokers);
-                }
+            if let Ok(mbi) = bar_items.GetAt(i)
+                && let Ok(flyout_items) = mbi.get_Items()
+            {
+                Self::wire_flyout_items_click(&flyout_items, handler, &mut revokers);
             }
         }
         revokers
@@ -263,10 +263,10 @@ impl WinUIBackend {
                 }) {
                     revokers.push(rev);
                 }
-            } else if let Ok(sub) = base.cast::<Xaml::MenuFlyoutSubItem>() {
-                if let Ok(sub_items) = sub.get_Items() {
-                    Self::wire_flyout_items_click(&sub_items, handler, revokers);
-                }
+            } else if let Ok(sub) = base.cast::<Xaml::MenuFlyoutSubItem>()
+                && let Ok(sub_items) = sub.get_Items()
+            {
+                Self::wire_flyout_items_click(&sub_items, handler, revokers);
             }
         }
     }
@@ -807,14 +807,14 @@ impl Backend for WinUIBackend {
                     // If the button has an icon+text layout (StackPanel from
                     // ButtonIcon), update just the TextBlock child so the icon
                     // is preserved when only the label changes.
-                    if let Ok(existing) = cc.get_Content() {
-                        if let Ok(panel) = existing.cast::<Xaml::IPanel>() {
-                            let children = panel.get_Children()?;
-                            if children.Size()? >= 2 {
-                                if let Ok(tb) = children.GetAt(1)?.cast::<Xaml::ITextBlock>() {
-                                    return tb.put_Text(s);
-                                }
-                            }
+                    if let Ok(existing) = cc.get_Content()
+                        && let Ok(panel) = existing.cast::<Xaml::IPanel>()
+                    {
+                        let children = panel.get_Children()?;
+                        if children.Size()? >= 2
+                            && let Ok(tb) = children.GetAt(1)?.cast::<Xaml::ITextBlock>()
+                        {
+                            return tb.put_Text(s);
                         }
                     }
                     let tb = string_as_textblock(s)?;
@@ -826,13 +826,13 @@ impl Backend for WinUIBackend {
                     let cc = b.cast::<Xaml::IContentControl>()?;
                     // If the button already has an icon+text StackPanel layout,
                     // replace just the icon child (index 0) to preserve the text.
-                    if let Ok(existing) = cc.get_Content() {
-                        if let Ok(panel) = existing.cast::<Xaml::IPanel>() {
-                            let children = panel.get_Children()?;
-                            if children.Size()? >= 2 {
-                                children.SetAt(0, &icon_elem.cast::<Xaml::UIElement>()?)?;
-                                return Ok(());
-                            }
+                    if let Ok(existing) = cc.get_Content()
+                        && let Ok(panel) = existing.cast::<Xaml::IPanel>()
+                    {
+                        let children = panel.get_Children()?;
+                        if children.Size()? >= 2 {
+                            children.SetAt(0, &icon_elem.cast::<Xaml::UIElement>()?)?;
+                            return Ok(());
                         }
                     }
                     let use_icon_only = if let Ok(existing) = cc.get_Content() {
@@ -854,10 +854,10 @@ impl Backend for WinUIBackend {
                         panel.put_Spacing(8.0)?;
                         let children = panel.cast::<Xaml::IPanel>()?.get_Children()?;
                         children.Append(&icon_elem.cast::<Xaml::UIElement>()?)?;
-                        if let Ok(existing) = cc.get_Content() {
-                            if let Ok(ui) = existing.cast::<Xaml::UIElement>() {
-                                children.Append(&ui)?;
-                            }
+                        if let Ok(existing) = cc.get_Content()
+                            && let Ok(ui) = existing.cast::<Xaml::UIElement>()
+                        {
+                            children.Append(&ui)?;
                         }
                         cc.put_Content(&panel)
                     }
@@ -881,10 +881,10 @@ impl Backend for WinUIBackend {
                             windows_core::IInspectable,
                             windows_core::IInspectable,
                         >>()?;
-                        if let Ok(style_obj) = map.Lookup(&key) {
-                            if let Ok(s) = style_obj.cast::<Xaml::Style>() {
-                                fe.put_Style(&s)?;
-                            }
+                        if let Ok(style_obj) = map.Lookup(&key)
+                            && let Ok(s) = style_obj.cast::<Xaml::Style>()
+                        {
+                            fe.put_Style(&s)?;
                         }
                     } else {
                         fe.put_Style(None)?;
@@ -1411,17 +1411,19 @@ impl Backend for WinUIBackend {
                             .next();
                         match xroot {
                             Some(root) => {
-                                if let Err(e) = d.cast::<Xaml::IUIElement>()?.put_XamlRoot(&root) {
-                                    if cfg!(debug_assertions) {
-                                        eprintln!("windows-reactor: ContentDialog.SetXamlRoot failed: {e}");
-                                    }
+                                if let Err(e) = d.cast::<Xaml::IUIElement>()?.put_XamlRoot(&root)
+                                    && cfg!(debug_assertions)
+                                {
+                                    eprintln!(
+                                        "windows-reactor: ContentDialog.SetXamlRoot failed: {e}"
+                                    );
                                 }
-                                if let Err(e) = d.ShowAsync() {
-                                    if cfg!(debug_assertions) {
-                                        eprintln!(
-                                            "windows-reactor: ContentDialog.ShowAsync failed: {e}"
-                                        );
-                                    }
+                                if let Err(e) = d.ShowAsync()
+                                    && cfg!(debug_assertions)
+                                {
+                                    eprintln!(
+                                        "windows-reactor: ContentDialog.ShowAsync failed: {e}"
+                                    );
                                 }
                             }
                             None => {
@@ -2508,10 +2510,10 @@ impl Backend for WinUIBackend {
             .and_then(|v| v.get(index).copied())
             .is_some_and(|cid| self.is_phantom_child(cid));
         let v_index = self.visual_index(parent, index);
-        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent) {
-            if index < list.len() {
-                list.remove(index);
-            }
+        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent)
+            && index < list.len()
+        {
+            list.remove(index);
         }
         if phantom {
             return;
@@ -2570,10 +2572,10 @@ impl Backend for WinUIBackend {
         let old_phantom = old.is_some_and(|c| self.is_phantom_child(c));
         let new_phantom = self.is_phantom_child(new);
         let v_index = self.visual_index(parent, index);
-        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent) {
-            if index < list.len() {
-                list[index] = new;
-            }
+        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent)
+            && index < list.len()
+        {
+            list[index] = new;
         }
         match (old_phantom, new_phantom) {
             // Both invisible — nothing to do on the visual tree.
@@ -2601,11 +2603,12 @@ impl Backend for WinUIBackend {
             .get(&parent)
             .and_then(|v| v.get(from).copied())
             .is_some_and(|cid| self.is_phantom_child(cid));
-        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent) {
-            if from < list.len() && to < list.len() {
-                let item = list.remove(from);
-                list.insert(to, item);
-            }
+        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent)
+            && from < list.len()
+            && to < list.len()
+        {
+            let item = list.remove(from);
+            list.insert(to, item);
         }
         if moved_phantom || v_from == v_to {
             return;
@@ -2879,16 +2882,15 @@ impl Backend for WinUIBackend {
                 Handle::GridView(gv) => gv.cast().unwrap(),
                 _ => return,
             };
-            if let Ok(items) = items_control.get_Items() {
-                if let Ok(coll) =
+            if let Ok(items) = items_control.get_Items()
+                && let Ok(coll) =
                     items.cast::<windows_collections::IVector<windows_core::IInspectable>>()
+            {
+                let len = coll.Size().unwrap_or(0);
+                if (index as u32) < len
+                    && let Ok(item) = coll.GetAt(index as u32)
                 {
-                    let len = coll.Size().unwrap_or(0);
-                    if (index as u32) < len {
-                        if let Ok(item) = coll.GetAt(index as u32) {
-                            let _ = lvb.ScrollIntoView(&item);
-                        }
-                    }
+                    let _ = lvb.ScrollIntoView(&item);
                 }
             }
         }
@@ -3077,14 +3079,13 @@ impl Backend for WinUIBackend {
                     s.cast::<Xaml::IRangeBase>()
                         .unwrap()
                         .add_ValueChanged(move |_sender, args| {
-                            if let Some(a) = args.as_ref() {
-                                if let Some(v) = a
+                            if let Some(a) = args.as_ref()
+                                && let Some(v) = a
                                     .cast::<Xaml::IRangeBaseValueChangedEventArgs>()
                                     .ok()
                                     .and_then(|args| args.get_NewValue().ok())
-                                {
-                                    handler.invoke_f64(v);
-                                }
+                            {
+                                handler.invoke_f64(v);
                             }
                         })
                         .unwrap(),
@@ -3093,10 +3094,10 @@ impl Backend for WinUIBackend {
             (Event::ValueChanged, Handle::NumberBox(n)) => {
                 revokers.push(
                     n.add_ValueChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref() {
-                            if let Ok(v) = a.get_NewValue() {
-                                handler.invoke_f64(v);
-                            }
+                        if let Some(a) = args.as_ref()
+                            && let Ok(v) = a.get_NewValue()
+                        {
+                            handler.invoke_f64(v);
                         }
                     })
                     .unwrap(),
@@ -3471,10 +3472,10 @@ impl Backend for WinUIBackend {
             (Event::DateSelected, Handle::DatePicker(dp)) => {
                 revokers.push(
                     dp.add_SelectedDateChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref() {
-                            if let Ok(dt) = a.get_NewDate() {
-                                handler.invoke_datetime(dt);
-                            }
+                        if let Some(a) = args.as_ref()
+                            && let Ok(dt) = a.get_NewDate()
+                        {
+                            handler.invoke_datetime(dt);
                         }
                     })
                     .unwrap(),
@@ -3487,12 +3488,11 @@ impl Backend for WinUIBackend {
             (Event::TimeSelected, Handle::TimePicker(tp)) => {
                 revokers.push(
                     tp.add_SelectedTimeChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref() {
-                            if let Ok(ts) = a.get_NewTime() {
-                                handler.invoke_timespan(windows_time::TimeSpan::from_ticks(
-                                    ts.Duration,
-                                ));
-                            }
+                        if let Some(a) = args.as_ref()
+                            && let Ok(ts) = a.get_NewTime()
+                        {
+                            handler
+                                .invoke_timespan(windows_time::TimeSpan::from_ticks(ts.Duration));
                         }
                     })
                     .unwrap(),
@@ -3505,10 +3505,10 @@ impl Backend for WinUIBackend {
             (Event::CalendarDateSelected, Handle::CalendarDatePicker(cdp)) => {
                 revokers.push(
                     cdp.add_DateChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref() {
-                            if let Ok(dt) = a.get_NewDate() {
-                                handler.invoke_datetime(dt);
-                            }
+                        if let Some(a) = args.as_ref()
+                            && let Ok(dt) = a.get_NewDate()
+                        {
+                            handler.invoke_datetime(dt);
                         }
                     })
                     .unwrap(),
@@ -3539,13 +3539,12 @@ impl Backend for WinUIBackend {
                     lb.cast::<Xaml::ISelector>()
                         .unwrap()
                         .add_SelectionChanged(move |_sender, _args| {
-                            if let Some(sel) = _sender.as_ref() {
-                                if let Ok(idx) = sel
+                            if let Some(sel) = _sender.as_ref()
+                                && let Ok(idx) = sel
                                     .cast::<Xaml::ISelector>()
                                     .and_then(|s| s.get_SelectedIndex())
-                                {
-                                    handler.invoke_i32(idx);
-                                }
+                            {
+                                handler.invoke_i32(idx);
                             }
                         })
                         .unwrap(),
@@ -3606,7 +3605,9 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::AutoSuggestQuerySubmitted, _) => {
-                panic!("WinUIBackend::attach_event: AutoSuggestQuerySubmitted on non-AutoSuggestBox {id}")
+                panic!(
+                    "WinUIBackend::attach_event: AutoSuggestQuerySubmitted on non-AutoSuggestBox {id}"
+                )
             }
             (Event::AutoSuggestSuggestionChosen, Handle::AutoSuggestBox(asb)) => {
                 revokers.push(
@@ -3627,7 +3628,9 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::AutoSuggestSuggestionChosen, _) => {
-                panic!("WinUIBackend::attach_event: AutoSuggestSuggestionChosen on non-AutoSuggestBox {id}")
+                panic!(
+                    "WinUIBackend::attach_event: AutoSuggestSuggestionChosen on non-AutoSuggestBox {id}"
+                )
             }
             // ── W17: SplitView ───────────────────────────────────────
             (Event::SplitViewPaneClosed, Handle::SplitView(sv)) => {
@@ -3747,10 +3750,10 @@ impl Backend for WinUIBackend {
                 let sb2 = sb.clone();
                 revokers.push(
                     sb.add_SelectionChanged(move |_sender, _args| {
-                        if let Ok(selected) = sb2.get_SelectedItem() {
-                            if let Ok(text) = selected.get_Text() {
-                                handler.invoke_string(text);
-                            }
+                        if let Ok(selected) = sb2.get_SelectedItem()
+                            && let Ok(text) = selected.get_Text()
+                        {
+                            handler.invoke_string(text);
                         }
                     })
                     .unwrap(),
@@ -3808,10 +3811,10 @@ impl Backend for WinUIBackend {
             self.theme_brush_registry.borrow_mut().remove(&id);
             // Clear any applied style
             let map = self.controls.borrow();
-            if let Some(handle) = map.get(&id) {
-                if let Some((_, fe)) = style_target_for_handle(handle) {
-                    let _ = fe.put_Style(None);
-                }
+            if let Some(handle) = map.get(&id)
+                && let Some((_, fe)) = style_target_for_handle(handle)
+            {
+                let _ = fe.put_Style(None);
             }
             return;
         }
@@ -3911,10 +3914,10 @@ impl Backend for WinUIBackend {
             let cb = accel.on_invoked.clone();
             let _ = ika
                 .add_Invoked(move |_sender, args| {
-                    if let Some(a) = args.as_ref() {
-                        if let Ok(ia) = a.cast::<Xaml::IKeyboardAcceleratorInvokedEventArgs>() {
-                            let _ = ia.put_Handled(true);
-                        }
+                    if let Some(a) = args.as_ref()
+                        && let Ok(ia) = a.cast::<Xaml::IKeyboardAcceleratorInvokedEventArgs>()
+                    {
+                        let _ = ia.put_Handled(true);
                     }
                     cb.invoke(());
                 })
@@ -3933,10 +3936,10 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui: Xaml::UIElement = handle.as_ui_element();
-        if let Err(e) = apply_implicit_transitions(&ui, transitions) {
-            if cfg!(debug_assertions) {
-                eprintln!("windows-reactor: set_implicit_transitions failed: {e:?}");
-            }
+        if let Err(e) = apply_implicit_transitions(&ui, transitions)
+            && cfg!(debug_assertions)
+        {
+            eprintln!("windows-reactor: set_implicit_transitions failed: {e:?}");
         }
     }
     fn set_layout_animation(
@@ -3960,10 +3963,10 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui: Xaml::UIElement = handle.as_ui_element();
-        if let Err(e) = run_property_animation_inner(&ui, cfg) {
-            if cfg!(debug_assertions) {
-                eprintln!("windows-reactor: run_property_animation failed: {e:?}");
-            }
+        if let Err(e) = run_property_animation_inner(&ui, cfg)
+            && cfg!(debug_assertions)
+        {
+            eprintln!("windows-reactor: run_property_animation failed: {e:?}");
         }
     }
     fn set_rich_text_paragraphs(
@@ -4047,10 +4050,10 @@ impl Backend for WinUIBackend {
                             return;
                         }
                     };
-                    if let Some(ui) = mount_static_tooltip_element(elem) {
-                        if let Ok(cc) = tt.cast::<Xaml::IContentControl>() {
-                            let _ = cc.put_Content(&ui);
-                        }
+                    if let Some(ui) = mount_static_tooltip_element(elem)
+                        && let Ok(cc) = tt.cast::<Xaml::IContentControl>()
+                    {
+                        let _ = cc.put_Content(&ui);
                     }
                     Some(tt.into())
                 }
@@ -4221,16 +4224,15 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         }
         Element::Image(img) => {
             let i = Xaml::Image::new().ok()?;
-            if !img.source.is_empty() {
-                if let Ok(uri) = Xaml::Uri::CreateUri(img.source.as_str()) {
-                    if let Ok(bmp) = Xaml::BitmapImage::new() {
-                        if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {
-                            let _ = ibmp.put_UriSource(&uri);
-                        }
-                        if let Ok(src) = bmp.cast::<Xaml::ImageSource>() {
-                            let _ = i.put_Source(&src);
-                        }
-                    }
+            if !img.source.is_empty()
+                && let Ok(uri) = Xaml::Uri::CreateUri(img.source.as_str())
+                && let Ok(bmp) = Xaml::BitmapImage::new()
+            {
+                if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {
+                    let _ = ibmp.put_UriSource(&uri);
+                }
+                if let Ok(src) = bmp.cast::<Xaml::ImageSource>() {
+                    let _ = i.put_Source(&src);
                 }
             }
             i.cast::<Xaml::UIElement>().ok()

@@ -1,19 +1,13 @@
-//! Multi-page navigation pattern using enum-based routing.
+//! Multi-page navigation using enum-based routing.
 //!
-//! Demonstrates the idiomatic Rust approach to page routing:
-//! - An enum defines all possible pages
-//! - `use_state` holds the current route
-//! - `NavigationView` drives navigation via `on_selection_changed`
-//! - A `match` on the route enum renders the correct page component
-//!
-//! This pattern requires NO framework router — just state + match.
+//! An enum defines pages, `use_state` holds the current route,
+//! `NavigationView` drives selection, and a `match` renders the page.
+//! No framework router needed — just state + match.
 
 use std::thread;
 use std::time::Duration;
 
 use windows_reactor::*;
-
-// ─── Route enum ─────────────────────────────────────────────────────────
 
 #[derive(Clone, PartialEq)]
 enum Page {
@@ -40,15 +34,14 @@ impl Page {
     }
 }
 
-// ─── Page components ────────────────────────────────────────────────────
-
-fn home_page(_: &(), _cx: &mut RenderCx) -> impl Into<Element> {
+fn home_page(_: &(), _cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Welcome Home").font_size(28.0).bold(),
         text_block("This is the landing page of the app."),
         text_block("Use the navigation pane to switch between pages.").opacity(0.6),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn fetch_stats(_: ()) -> std::result::Result<Vec<String>, String> {
@@ -61,7 +54,7 @@ fn fetch_stats(_: ()) -> std::result::Result<Vec<String>, String> {
     ])
 }
 
-fn dashboard_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+fn dashboard_page(_: &(), cx: &mut RenderCx) -> Element {
     let stats = cx.use_resource(fetch_stats, ());
 
     let content: Element = stats
@@ -81,9 +74,10 @@ fn dashboard_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
         content,
     ))
     .spacing(8.0)
+    .into()
 }
 
-fn settings_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+fn settings_page(_: &(), cx: &mut RenderCx) -> Element {
     let (dark_mode, set_dark) = cx.use_state(false);
     let (notifications, set_notif) = cx.use_state(true);
 
@@ -103,11 +97,10 @@ fn settings_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
         .opacity(0.6),
     ))
     .spacing(12.0)
+    .into()
 }
 
-// ─── App shell ──────────────────────────────────────────────────────────
-
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(Page::Home);
 
     let menu_items = [
@@ -131,6 +124,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         .on_selection_changed(move |tag: String| set_page.call(Page::from_tag(&tag)))
         .pane_display_mode(NavViewPaneDisplayMode::Left)
         .pane_title("My App")
+        .into()
 }
 
 fn main() -> Result<()> {

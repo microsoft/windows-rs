@@ -4,7 +4,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let card = |title: &str, body: &str, radius: f64, stroke: f64| -> Element {
         border(
             vstack((
@@ -41,6 +41,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     ])
     .column_spacing(12.0)
     .padding(Thickness::uniform(24.0))
+    .into()
 }
 
 fn main() -> Result<()> {

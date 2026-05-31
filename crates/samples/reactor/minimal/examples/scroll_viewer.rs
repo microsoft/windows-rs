@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     let tall_body = vstack(
         (1..=30)
             .map(|i| text_block(format!("Line {i}")).font_size(13.0).into())
@@ -11,8 +11,8 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
     .spacing(4.0);
 
     let wide_body = text_block(
-        "This line is intentionally long so the ScrollViewer has to scroll \
-             horizontally to reveal the full sentence end-to-end.",
+        "This line is intentionally long so the ScrollViewer scrolls \
+             horizontally to reveal the full content.",
     )
     .font_size(13.0);
 
@@ -27,6 +27,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
             .max_height(80.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

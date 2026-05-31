@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn calendar_view_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn calendar_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (today_highlighted, set_today_highlighted) = cx.use_state(true);
     let (selection_changes, set_selection_changes) = cx.use_state(0_u32);
 

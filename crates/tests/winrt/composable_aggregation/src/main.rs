@@ -14,7 +14,7 @@
     clippy::all
 )]
 mod bindings;
-use bindings::{Foo, IFoo, IFooFactory, IFooFactory_Impl, IFoo_Impl};
+use bindings::{Foo, IFoo, IFoo_Impl, IFooFactory, IFooFactory_Impl};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use windows_core::{Compose, IInspectable, Interface, OutRef, Ref, Result};
 use windows_implement::implement;

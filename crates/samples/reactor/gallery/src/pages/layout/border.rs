@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn border_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn border_page(_: &(), cx: &mut RenderCx) -> Element {
     let (radius, set_radius) = cx.use_state(8.0_f64);
     let (thick, set_thick) = cx.use_state(false);
 

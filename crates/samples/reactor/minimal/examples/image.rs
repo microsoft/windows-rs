@@ -2,9 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
-    // `file:///` URI to the bundled PNG. Forward slashes are
-    // required by the URI parser even on Windows.
+fn app(_cx: &mut RenderCx) -> Element {
     let source = format!(
         "file:///{}/examples/image.png",
         env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
@@ -30,6 +28,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
             .height(60.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

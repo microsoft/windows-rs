@@ -4,8 +4,8 @@ fn main() {}
 #[cfg(windows)]
 fn main() -> std::io::Result<()> {
     use windows::{
-        core::*, Security::Cryptography::DataProtection::*, Security::Cryptography::*,
-        Storage::Streams::*, Win32::System::WinRT::*,
+        Security::Cryptography::DataProtection::*, Security::Cryptography::*, Storage::Streams::*,
+        Win32::System::WinRT::*, core::*,
     };
 
     #[expect(clippy::mut_from_ref)]

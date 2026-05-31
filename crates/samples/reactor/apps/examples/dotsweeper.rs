@@ -737,7 +737,7 @@ fn status_subtitle(state: &AppState) -> String {
 
 // ─── The component ────────────────────────────────────────────────────
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (state, update) = cx.use_reducer(AppState::initial(Difficulty::BEGINNER, fresh_seed()));
 
     // Left-tap on a covered cell → reveal.
@@ -797,12 +797,12 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         let u = update.clone();
         Rc::new(move |commit: bool| {
             u.call(move |mut s| {
-                if let Some((r, c)) = s.chord_preview.take() {
-                    if commit {
-                        let mut rng = Lcg::new(s.rng_seed);
-                        s.board = chord(s.board, r, c, &mut rng);
-                        s.rng_seed = rng.state;
-                    }
+                if let Some((r, c)) = s.chord_preview.take()
+                    && commit
+                {
+                    let mut rng = Lcg::new(s.rng_seed);
+                    s.board = chord(s.board, r, c, &mut rng);
+                    s.rng_seed = rng.state;
                 }
                 s
             });
@@ -925,6 +925,7 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         ))
         .spacing(8.0),
     ))
+    .into()
 }
 
 fn main() -> Result<()> {

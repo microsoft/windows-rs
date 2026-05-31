@@ -2,12 +2,12 @@ use std::cell::{Cell, RefCell};
 use std::io::Write;
 use std::rc::Rc;
 
-use windows::core::*;
 use windows::Win32::Foundation::HWND;
-use windows::Win32::System::Com::{CoCreateInstance, CLSCTX_INPROC_SERVER};
+use windows::Win32::System::Com::{CLSCTX_INPROC_SERVER, CoCreateInstance};
 use windows::Win32::UI::Shell::{
-    ITaskbarList3, TaskbarList, TBPF_ERROR, TBPF_NOPROGRESS, TBPF_NORMAL,
+    ITaskbarList3, TBPF_ERROR, TBPF_NOPROGRESS, TBPF_NORMAL, TaskbarList,
 };
+use windows::core::*;
 
 use crate::bindings::Color;
 use crate::bindings::DispatcherQueue;
@@ -25,8 +25,8 @@ use crate::bindings::{SolidColorBrush, VisualTreeHelper};
 
 use windows_reactor::core::component::Component;
 use windows_reactor::core::render_host::RenderHost;
-use windows_reactor::winui::dispatcher::WinUIDispatcher;
 use windows_reactor::winui::WinUIBackend;
+use windows_reactor::winui::dispatcher::WinUIDispatcher;
 
 use crate::exec::YieldLow;
 
@@ -233,12 +233,11 @@ impl Harness {
             unsafe {
                 if let Ok(tb) =
                     CoCreateInstance::<_, ITaskbarList3>(&TaskbarList, None, CLSCTX_INPROC_SERVER)
+                    && tb.HrInit().is_ok()
                 {
-                    if tb.HrInit().is_ok() {
-                        let _ = tb.SetProgressState(hwnd, TBPF_NORMAL);
-                        let _ = tb.SetProgressValue(hwnd, 0, total as u64);
-                        *inner.taskbar.borrow_mut() = Some(tb);
-                    }
+                    let _ = tb.SetProgressState(hwnd, TBPF_NORMAL);
+                    let _ = tb.SetProgressValue(hwnd, 0, total as u64);
+                    *inner.taskbar.borrow_mut() = Some(tb);
                 }
             }
         }
@@ -540,12 +539,11 @@ impl Harness {
             else {
                 return false;
             };
-            if let Ok(tb) = content.cast::<TextBlock>() {
-                if let Ok(t) = tb.cast::<crate::bindings::ITextBlock>().unwrap().get_Text() {
-                    if t == label {
-                        return true;
-                    }
-                }
+            if let Ok(tb) = content.cast::<TextBlock>()
+                && let Ok(t) = tb.cast::<crate::bindings::ITextBlock>().unwrap().get_Text()
+                && t == label
+            {
+                return true;
             }
             content_string(&content).is_some_and(|s| s == label)
         })
@@ -748,17 +746,17 @@ impl Harness {
 }
 
 fn find_in_tree<T: Interface>(root: &DependencyObject, pred: &dyn Fn(&T) -> bool) -> Option<T> {
-    if let Ok(t) = root.cast::<T>() {
-        if pred(&t) {
-            return Some(t);
-        }
+    if let Ok(t) = root.cast::<T>()
+        && pred(&t)
+    {
+        return Some(t);
     }
     let count = VisualTreeHelper::GetChildrenCount(root).unwrap_or(0);
     for i in 0..count {
-        if let Ok(child) = VisualTreeHelper::GetChild(root, i) {
-            if let Some(found) = find_in_tree::<T>(&child, pred) {
-                return Some(found);
-            }
+        if let Ok(child) = VisualTreeHelper::GetChild(root, i)
+            && let Some(found) = find_in_tree::<T>(&child, pred)
+        {
+            return Some(found);
         }
     }
     None
@@ -781,24 +779,24 @@ fn dump_node(node: &DependencyObject, depth: usize, out: &mut String) {
         .map_or_else(|| "<unknown>".into(), |h| h.to_string_lossy());
     out.push_str(&class_name);
 
-    if let Ok(tb) = node.cast::<crate::bindings::ITextBlock>() {
-        if let Ok(t) = tb.get_Text() {
-            out.push_str(&format!(" Text={t:?}"));
-        }
+    if let Ok(tb) = node.cast::<crate::bindings::ITextBlock>()
+        && let Ok(t) = tb.get_Text()
+    {
+        out.push_str(&format!(" Text={t:?}"));
     }
     if let Ok(rb) = node.cast::<crate::bindings::IRadioButtons>() {
         if let Ok(idx) = rb.get_SelectedIndex() {
             out.push_str(&format!(" SelectedIndex={idx}"));
         }
-    } else if let Ok(sel) = node.cast::<crate::bindings::ISelector>() {
-        if let Ok(idx) = sel.get_SelectedIndex() {
-            out.push_str(&format!(" SelectedIndex={idx}"));
-        }
+    } else if let Ok(sel) = node.cast::<crate::bindings::ISelector>()
+        && let Ok(idx) = sel.get_SelectedIndex()
+    {
+        out.push_str(&format!(" SelectedIndex={idx}"));
     }
-    if let Ok(tog) = node.cast::<crate::bindings::IToggleButton>() {
-        if let Ok(v) = tog.get_IsChecked() {
-            out.push_str(&format!(" IsChecked={v:?}"));
-        }
+    if let Ok(tog) = node.cast::<crate::bindings::IToggleButton>()
+        && let Ok(v) = tog.get_IsChecked()
+    {
+        out.push_str(&format!(" IsChecked={v:?}"));
     }
     out.push('\n');
 
@@ -815,10 +813,10 @@ fn collect_in_tree<T: Interface>(
     pred: &dyn Fn(&T) -> bool,
     out: &mut Vec<T>,
 ) {
-    if let Ok(t) = root.cast::<T>() {
-        if pred(&t) {
-            out.push(t);
-        }
+    if let Ok(t) = root.cast::<T>()
+        && pred(&t)
+    {
+        out.push(t);
     }
     let count = VisualTreeHelper::GetChildrenCount(root).unwrap_or(0);
     for i in 0..count {

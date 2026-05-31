@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Win32::System::Com::StructuredStorage::*, Win32::UI::Shell::*};
+use windows::{Win32::System::Com::StructuredStorage::*, Win32::UI::Shell::*, core::*};
 
 #[test]
 fn path() {

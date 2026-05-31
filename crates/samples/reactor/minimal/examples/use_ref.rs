@@ -1,12 +1,11 @@
 //! Minimal sample for the `cx.use_ref` hook.
 //!
-//! The render-count below increments inside `render` itself on every
-//! pass — something you couldn't do with `use_state` without an
-//! infinite re-render loop.
+//! `use_ref` holds mutable state that never triggers a rerender on its own.
+//! Here we count renders without causing an infinite loop.
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> impl Into<Element> {
+fn app(cx: &mut RenderCx) -> Element {
     let (clicks, set_clicks) = cx.use_state(0_u32);
 
     let render_count = cx.use_ref(0_u64);
@@ -20,14 +19,14 @@ fn app(cx: &mut RenderCx) -> impl Into<Element> {
         text_block(format!("renders (use_ref)  = {renders}")).font_size(18.0),
         button("Click me").on_click(bump),
         text_block(
-            "The ref counter increments every render; the state \
-                 counter only when the button fires. The ref mutation \
-                 itself never schedules a rerender.",
+            "The ref counter increments every render; the state counter \
+                 only on button click. Ref mutation never schedules a rerender.",
         )
         .font_size(12.0)
         .opacity(0.7),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

@@ -7,18 +7,16 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.apply_modifiers(id, w.modifiers());
         self.apply_attached(id, w.attached());
         self.mount_widget_children(id, w.children());
-        if let Some(hdr) = w.header_element() {
-            if let Some(hdr_id) = self.mount(hdr) {
+        if let Some(hdr) = w.header_element()
+            && let Some(hdr_id) = self.mount(hdr) {
                 self.backend.set_header_element(id, Some(hdr_id));
                 self.header_elements.insert(id, hdr_id);
             }
-        }
-        if let Some(pane) = w.pane_element() {
-            if let Some(pane_id) = self.mount(pane) {
+        if let Some(pane) = w.pane_element()
+            && let Some(pane_id) = self.mount(pane) {
                 self.backend.set_pane_element(id, Some(pane_id));
                 self.pane_elements.insert(id, pane_id);
             }
-        }
         id
     }
 
@@ -225,12 +223,11 @@ impl<B: Backend + 'static> Reconciler<B> {
                 self.backend
                     .set_prop(tab_id, Prop::TabHeader, PropValue::Str(n.header.clone()));
             }
-            if o.key != n.key {
-                if let Some(key) = &n.key {
+            if o.key != n.key
+                && let Some(key) = &n.key {
                     self.backend
                         .set_prop(tab_id, Prop::TabItemKey, PropValue::Str(key.clone()));
                 }
-            }
             if o.is_closable != n.is_closable {
                 // Either explicit value (set new), or transition to default
                 // (re-enable platform default = true).

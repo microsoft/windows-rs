@@ -2,7 +2,7 @@
 
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> impl Into<Element> {
+fn app(_cx: &mut RenderCx) -> Element {
     vstack((
         border(text_block("Boxed text").foreground(Color::rgb(255, 255, 255)))
             .background(Color::rgb(60, 100, 180))
@@ -18,6 +18,7 @@ fn app(_cx: &mut RenderCx) -> impl Into<Element> {
         .max_width(280.0),
     ))
     .spacing(8.0)
+    .into()
 }
 
 fn main() -> Result<()> {

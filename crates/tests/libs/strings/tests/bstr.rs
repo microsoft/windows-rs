@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::Result, Win32::Foundation::*};
+use windows::{Win32::Foundation::*, core::Result};
 use windows_strings::*;
 
 #[test]

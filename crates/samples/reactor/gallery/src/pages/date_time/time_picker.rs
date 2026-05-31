@@ -1,7 +1,7 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> impl Into<Element> {
+pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> Element {
     let (selected_time, set_selected_time) = cx.use_state(String::from("No time selected"));
 
     page_content(

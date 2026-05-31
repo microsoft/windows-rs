@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Win32::Graphics::Gdi::*, Win32::UI::ColorSystem::*};
+use windows::{Win32::Graphics::Gdi::*, Win32::UI::ColorSystem::*, core::*};
 
 #[test]
 fn test() -> Result<()> {
