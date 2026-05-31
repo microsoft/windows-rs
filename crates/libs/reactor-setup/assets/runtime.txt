@@ -3,8 +3,6 @@ dcompi.dll
 dwmcorei.dll
 dwmscenei.dll
 dwritecore.dll
-dwritecore.dll
-marshal.dll
 marshal.dll
 microsoft.directmanipulation.dll
 microsoft.graphics.imaging.dll
