@@ -710,6 +710,7 @@ fn build_all_cells(data: &[StockItem]) -> Vec<Element> {
 }
 
 fn main() -> Result<()> {
+    let _bootstrap = windows_reactor::bootstrap::initialize()?;
     let cli = parse_cli();
     let _ = CLI.set(cli);
     App::new()

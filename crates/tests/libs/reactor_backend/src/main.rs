@@ -26,6 +26,7 @@ mod harness;
 mod registry;
 
 fn main() -> Result<()> {
+    let _bootstrap = windows_reactor::bootstrap::initialize()?;
     let args: Vec<String> = std::env::args().collect();
 
     if args.iter().any(|a| a == "--list-fixtures") {
