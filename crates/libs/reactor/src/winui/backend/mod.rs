@@ -2319,9 +2319,13 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // ── RichEditBox ───────────────────────────────────────────────
                 (Prop::RichEditBoxText, PropValue::Str(s), Handle::RichEditBox(reb)) => {
                     let doc = reb.get_Document()?;
+                    let mut current = windows_core::HSTRING::default();
+                    doc.GetText(Xaml::TextGetOptions::None, &mut current).ok();
+                    if current == s.as_str() {
+                        return Ok(());
+                    }
                     doc.SetText(Xaml::TextSetOptions::None, s.as_str())
                 }
                 (Prop::Placeholder, PropValue::Str(s), Handle::RichEditBox(reb)) => {
