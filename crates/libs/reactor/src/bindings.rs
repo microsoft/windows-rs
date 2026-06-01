@@ -65,7 +65,7 @@ impl AppBarButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -139,7 +139,7 @@ impl AppBarSeparator {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -219,7 +219,7 @@ impl AppBarToggleButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -391,7 +391,7 @@ impl Application {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1138,7 +1138,7 @@ impl BreadcrumbBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1234,7 +1234,7 @@ impl Button {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1345,7 +1345,7 @@ impl CalendarDatePicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1453,7 +1453,7 @@ impl CalendarView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1554,7 +1554,7 @@ impl Canvas {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1704,7 +1704,7 @@ impl CheckBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1820,7 +1820,7 @@ impl ColorPicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1973,7 +1973,7 @@ impl ComboBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2048,7 +2048,7 @@ impl CommandBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2131,7 +2131,7 @@ impl CommandBarFlyout {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2448,7 +2448,7 @@ impl ContentDialog {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2654,7 +2654,7 @@ impl DataTemplate {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2727,7 +2727,7 @@ impl DatePicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2853,7 +2853,7 @@ impl DesktopAcrylicBackdrop {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3071,7 +3071,7 @@ impl DropDownButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3333,7 +3333,7 @@ impl Expander {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3464,7 +3464,7 @@ impl FlipView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3527,7 +3527,7 @@ impl Flyout {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3650,7 +3650,7 @@ impl FontFamily {
                 windows_core::Interface::as_raw(this),
                 core::mem::transmute_copy(&windows_core::HSTRING::from(familyname)),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3772,7 +3772,7 @@ impl FrameworkElementAutomationPeer {
                 windows_core::Interface::as_raw(this),
                 owner.param().abi(),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3915,7 +3915,7 @@ impl Grid {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -4093,7 +4093,7 @@ impl GridView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -4188,7 +4188,7 @@ impl HyperlinkButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -18992,7 +18992,7 @@ impl InfoBadge {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19065,7 +19065,7 @@ impl InfoBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19369,7 +19369,7 @@ impl KeyboardAccelerator {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19594,7 +19594,7 @@ impl ListBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19670,7 +19670,7 @@ impl ListView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19859,7 +19859,7 @@ impl MenuBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19932,7 +19932,7 @@ impl MenuBarItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -19999,7 +19999,7 @@ impl MenuFlyout {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20073,7 +20073,7 @@ impl MenuFlyoutItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20182,7 +20182,7 @@ impl MenuFlyoutSeparator {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20306,7 +20306,7 @@ impl MicaBackdrop {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20395,7 +20395,7 @@ impl NavigationView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20515,7 +20515,7 @@ impl NavigationViewItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20631,7 +20631,7 @@ impl NavigationViewItemHeader {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -20758,7 +20758,7 @@ impl NumberBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21041,7 +21041,7 @@ impl PersonPicture {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21111,7 +21111,7 @@ impl Pivot {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21185,7 +21185,7 @@ impl PivotItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21415,7 +21415,7 @@ impl ProgressBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21488,7 +21488,7 @@ impl ProgressRing {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21573,7 +21573,7 @@ impl RadioButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21646,7 +21646,7 @@ impl RadioButtons {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21847,7 +21847,7 @@ impl RatingControl {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -21971,7 +21971,7 @@ impl RelativePanel {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -22179,7 +22179,7 @@ impl ResourceDictionary {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -22257,7 +22257,7 @@ impl RichEditBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -22775,7 +22775,7 @@ impl ScrollView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23054,7 +23054,7 @@ impl SelectorBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23128,7 +23128,7 @@ impl SelectorBarItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23428,7 +23428,7 @@ impl Slider {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23547,7 +23547,7 @@ impl SplitButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23648,7 +23648,7 @@ impl SplitView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23738,7 +23738,7 @@ impl StackPanel {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -23867,7 +23867,7 @@ impl SwapChainPanel {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -24247,7 +24247,7 @@ impl TabView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -24323,7 +24323,7 @@ impl TabViewItem {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -24523,7 +24523,7 @@ impl TeachingTip {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -24696,7 +24696,7 @@ impl TextBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -25017,7 +25017,7 @@ impl TimePicker {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -25121,7 +25121,7 @@ impl TitleBar {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -25229,7 +25229,7 @@ impl ToggleButton {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -25354,7 +25354,7 @@ impl ToolTip {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -25518,7 +25518,7 @@ impl TreeView {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -25613,7 +25613,7 @@ impl TreeViewNode {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -26359,7 +26359,7 @@ impl Window {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))

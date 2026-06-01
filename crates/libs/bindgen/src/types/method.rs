@@ -424,7 +424,7 @@ impl Method {
             // Composable factories take `outer` and an out-pointer for `inner` as the last
             // two parameters before the result. The non-aggregating entry passes nulls.
             quote! {
-                #(#typed_args,)* core::ptr::null_mut(), &mut core::ptr::null_mut(), #return_arg
+                #(#typed_args,)* core::ptr::null_mut(), core::ptr::null_mut(), #return_arg
             }
         } else {
             quote! {
