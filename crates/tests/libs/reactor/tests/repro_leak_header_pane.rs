@@ -21,7 +21,8 @@
 //!
 //!   cargo test -p test_reactor --test repro_leak_header_pane
 //!
-//! Both tests will FAIL, proving the leak exists:
+//! Both tests verify the fix works (they pass now that the reconciler
+//! correctly unmounts header/pane subtrees):
 //!   - `header_element_subtree_leaked_on_unmount`
 //!   - `repeated_navigation_accumulates_leaked_controls`
 
@@ -100,19 +101,18 @@ fn header_element_subtree_leaked_on_unmount() {
     println!("Created {creates} controls, destroyed {destroys}");
     println!(
         "LEAKED: {} controls never destroyed (header_element subtree)",
-        creates - destroys
+        creates.saturating_sub(destroys)
     );
 
-    // This assertion FAILS — proving the header_element subtree is leaked.
-    // Expected: creates == destroys (all controls cleaned up)
-    // Actual: creates > destroys (header StackPanel + 3 TextBlocks leaked)
+    // Verifies the fix: all header_element subtree controls are destroyed.
+    // Before the fix, creates > destroys (header StackPanel + 3 TextBlocks leaked).
     assert_eq!(
         creates,
         destroys,
         "BUG: {creates} controls created but only {destroys} destroyed. \
          The missing {} are the header_element subtree that was never \
          collected by unmount's collect_subtree().",
-        creates - destroys
+        creates.saturating_sub(destroys)
     );
 }
 
@@ -141,9 +141,9 @@ fn repeated_navigation_accumulates_leaked_controls() {
     println!("  Destroyed: {destroys}");
     println!("  LEAKED:    {leaked}");
 
-    // This assertion FAILS — each cycle leaks 4 controls
+    // Verifies the fix: no controls leak across navigation cycles.
+    // Before the fix, each cycle leaked 4 controls
     // (1 StackPanel + 3 TextBlocks from the Expander header).
-    // After 10 cycles: 40 controls leaked.
     assert_eq!(
         leaked, 0,
         "BUG: {leaked} controls leaked across 10 navigation cycles. \
