@@ -79,7 +79,7 @@ impl Application {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -862,7 +862,7 @@ impl Control {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -2773,7 +2773,7 @@ impl DependencyObject {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -3306,7 +3306,7 @@ impl FrameworkElement {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -10395,7 +10395,7 @@ impl TextBox {
             (windows_core::Interface::vtable(this).CreateInstance)(
                 windows_core::Interface::as_raw(this),
                 core::ptr::null_mut(),
-                &mut core::ptr::null_mut(),
+                core::ptr::null_mut(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
