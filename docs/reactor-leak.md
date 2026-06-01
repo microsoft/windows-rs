@@ -35,6 +35,43 @@ level memory fragmentation/retention, not a reference leak.
 Explicitly calling `Children.Clear()` and `put_Content(None)` on elements before
 destroying them was tested and did not reduce memory growth.
 
+## Known upstream issue
+
+This is a **known WinUI 3 bug** tracked at:
+https://github.com/microsoft/microsoft-ui-xaml/issues/5978
+
+Key details from that issue (open since September 2021, still active in 2025):
+- Affects all WinUI 3 apps using NavigationView page navigation
+- Memory grows on every `Navigate` call regardless of cache mode settings
+- Confirmed to affect Microsoft's own apps (WinUI Gallery, PowerToys, Clock,
+  Windows 11 Settings)
+- `GC.Collect()` does not recover the memory (native heap, not managed)
+- `Bindings.StopTracking()`, `IDisposable`, `NavigationCacheMode.Disabled`
+  all fail to mitigate
+- Community reports growth of 2-3 MB per navigation, matching our observations
+- The WinUI team acknowledged the issue and shipped partial fixes in SDK 1.4
+  but users confirm it persists through the latest SDK versions
+
+## Minimal reproduction
+
+A standalone reproduction is provided at:
+`crates/samples/reactor/winui_leak_repro/`
+
+This sample uses **no reactor reconciler** — it directly creates and destroys
+XAML controls via raw WinUI APIs on a timer, proving the leak is in the WinUI
+framework itself. Run with:
+
+```
+cargo run -p winui-leak-repro
+```
+
+Results on a typical machine:
+- 100 simulated page navigations (21 controls each)
+- Memory grows from ~34 MB to ~63 MB (steady ~0.3 MB per navigation)
+- Growth is unbounded — never plateaus or shrinks
+- The Gallery grows faster (~3-4 MB per navigation) due to NavigationView
+  transitions and more complex control types
+
 ## Fixes applied (PR #4501)
 
 ### 1. Header/pane subtree leak (reconciler)
@@ -54,20 +91,37 @@ NavigationView with a header element would leak the entire header subtree.
 Since ControlIds are monotonically increasing (never reused), stale entries in
 these maps accumulated forever. The fix adds `.remove(&id)` for each.
 
-## Remaining: WinUI framework retention
+## Workarounds and mitigation strategies
 
-The visible memory growth reported in #4491 is primarily caused by the WinUI
-XAML framework retaining internal allocations for destroyed controls. Possible
-mitigations (all require further investigation):
+Since the WinUI framework retains memory for destroyed controls, the most
+effective mitigation on our side is to **reduce the number of XAML controls
+created and destroyed during navigation**:
 
-1. **Element pooling/recycling** — reuse XAML control objects across page
-   navigations instead of creating fresh ones. This is the most promising
-   approach but requires significant reconciler changes.
+### 1. Element pooling / recycling (recommended)
 
-2. **Reduce control churn** — restructure page components to share more
-   persistent structure (e.g., keep a shared StackPanel and only swap inner
-   content).
+Instead of creating fresh XAML elements on every page switch, maintain a pool of
+reusable controls. When a page is unmounted, return its controls to the pool
+instead of destroying them. When mounting a new page, draw from the pool first.
 
-3. **WinUI framework-level fixes** — investigate whether `XamlShutdownCompletedOnThread`
-   or `DebugSettings.EnableFrameRateCounter` APIs can trigger internal cleanup,
-   or whether this is a known WinUI issue with an upstream fix.
+This requires reconciler changes:
+- `Backend::create()` checks the pool before allocating
+- `Backend::destroy()` returns to pool instead of dropping
+- Pool entries are keyed by `ControlKind`
+- Properties must be reset to defaults when recycling
+
+### 2. Structural sharing across pages
+
+Restructure page components to share persistent containers. For example, keep a
+single StackPanel as the page root and only swap inner content rather than
+destroying and recreating the entire page tree.
+
+### 3. Lazy content loading
+
+Defer creation of off-screen content. Only create controls when they become
+visible, reducing the total number of controls created during a session.
+
+### 4. Report to WinUI team
+
+The minimal reproduction (`winui-leak-repro`) demonstrates the issue without any
+framework dependency beyond raw WinUI APIs. This can be shared with the WinUI
+team as evidence that the issue persists and is not application-specific.
