@@ -208,6 +208,25 @@ pub fn mount_tab_view(h: Harness) -> FixtureFuture {
     })
 }
 
+pub fn mount_tab_view_add_button(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_| {
+            TabView::new([
+                TabItem::new("Home", text_block("home-content")),
+                TabItem::new("Settings", text_block("settings-content")),
+            ])
+            .selected_index(0)
+            .is_add_tab_button_visible(true)
+            .on_add_tab_button_click(|()| {})
+            .into()
+        }));
+        h.render().await;
+        // Confirms that the TabView mounts successfully with the add-tab
+        // button visible and the AddTabButtonClick event handler attached.
+        assert_present!(h, "Reconciler_Mount_TabView_AddButton", bindings::TabView);
+    })
+}
+
 pub fn mount_navigation_view(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
