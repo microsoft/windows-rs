@@ -192,23 +192,8 @@ fn render_frame(state: &mut D2DState) {
 
 fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
-    let size = cx.use_inner_size();
-
-    let panel_width = (size.width - 32.0).max(100.0);
-    let panel_height = (panel_width * 0.6).min(size.height - 140.0).max(100.0);
-    let pw = panel_width as u32;
-    let ph = panel_height as u32;
 
     CIRCLE_COUNT.with(|c| c.set(count));
-    let prev_size = PANEL_SIZE.with(|c| c.get());
-    if prev_size != (pw, ph) {
-        PANEL_SIZE.with(|c| c.set((pw, ph)));
-        D2D.with(|cell| {
-            if let Some(state) = cell.borrow_mut().as_mut() {
-                resize_swap_chain(state, pw, ph);
-            }
-        });
-    }
 
     let rendering = cx.use_ref::<Option<Rendering>>(None);
     cx.use_effect((), {
@@ -240,25 +225,45 @@ fn app(cx: &mut RenderCx) -> Element {
         }
     };
 
-    vstack((
-        swap_chain_panel()
-            .width(panel_width)
-            .height(panel_height)
-            .on_ready(move |panel| match create_d2d_state(&panel, pw, ph) {
-                Ok(state) => D2D.with(|cell| *cell.borrow_mut() = Some(state)),
-                Err(e) => eprintln!("D2D init failed: {e}"),
-            }),
-        hstack((
-            button("Add circle").on_click(add),
-            button("Remove circle").on_click(remove),
-        ))
-        .spacing(8.0),
+    grid((
+        Element::from(
+            swap_chain_panel()
+                .on_ready(|panel| {
+                    let (w, h) = PANEL_SIZE.with(|c| c.get());
+                    match create_d2d_state(&panel, w, h) {
+                        Ok(state) => D2D.with(|cell| *cell.borrow_mut() = Some(state)),
+                        Err(e) => eprintln!("D2D init failed: {e}"),
+                    }
+                })
+                .on_resize(|w, h| {
+                    let pw = w as u32;
+                    let ph = h as u32;
+                    PANEL_SIZE.with(|c| c.set((pw, ph)));
+                    D2D.with(|cell| {
+                        if let Some(state) = cell.borrow_mut().as_mut() {
+                            resize_swap_chain(state, pw, ph);
+                        }
+                    });
+                }),
+        )
+        .grid_row(0),
+        Element::from(
+            hstack((
+                button("Add circle").on_click(add),
+                button("Remove circle").on_click(remove),
+            ))
+            .spacing(8.0)
+            .margin(Thickness::xy(16.0, 8.0)),
+        )
+        .grid_row(1),
     ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
+    .rows([GridLength::STAR, GridLength::Auto])
     .into()
 }
 
 fn main() -> Result<()> {
-    App::new().title("Direct2D SwapChainPanel").render(app)
+    App::new()
+        .title("Direct2D SwapChainPanel")
+        .backdrop(Backdrop::Mica)
+        .render(app)
 }

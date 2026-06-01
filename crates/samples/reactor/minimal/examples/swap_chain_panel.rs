@@ -96,30 +96,6 @@ fn render_frame(state: &mut D3DState) {
 }
 
 fn app(cx: &mut RenderCx) -> Element {
-    let size = cx.use_inner_size();
-    let width = size.width as u32;
-    let height = size.height as u32;
-
-    D3D.with(|cell| {
-        if let Some(state) = cell.borrow_mut().as_mut()
-            && (state.width != width || state.height != height)
-        {
-            state.width = width;
-            state.height = height;
-            if width > 0 && height > 0 {
-                unsafe {
-                    _ = state.swap_chain.ResizeBuffers(
-                        0,
-                        width,
-                        height,
-                        DXGI_FORMAT_UNKNOWN,
-                        DXGI_SWAP_CHAIN_FLAG(0),
-                    );
-                }
-            }
-        }
-    });
-
     let rendering = cx.use_ref::<Option<Rendering>>(None);
     cx.use_effect((), {
         #[allow(clippy::redundant_clone)]
@@ -139,14 +115,31 @@ fn app(cx: &mut RenderCx) -> Element {
     });
 
     swap_chain_panel()
-        .width(size.width)
-        .height(size.height)
-        .on_ready(
-            move |panel| match create_d3d_swap_chain(&panel, width, height) {
-                Ok(state) => D3D.with(|cell| *cell.borrow_mut() = Some(state)),
-                Err(e) => eprintln!("D3D init failed: {e}"),
-            },
-        )
+        .on_ready(|panel| match create_d3d_swap_chain(&panel, 400, 300) {
+            Ok(state) => D3D.with(|cell| *cell.borrow_mut() = Some(state)),
+            Err(e) => eprintln!("D3D init failed: {e}"),
+        })
+        .on_resize(|w, h| {
+            let width = w as u32;
+            let height = h as u32;
+            D3D.with(|cell| {
+                if let Some(state) = cell.borrow_mut().as_mut() {
+                    state.width = width;
+                    state.height = height;
+                    if width > 0 && height > 0 {
+                        unsafe {
+                            _ = state.swap_chain.ResizeBuffers(
+                                0,
+                                width,
+                                height,
+                                DXGI_FORMAT_UNKNOWN,
+                                DXGI_SWAP_CHAIN_FLAG(0),
+                            );
+                        }
+                    }
+                }
+            });
+        })
         .into()
 }
 
