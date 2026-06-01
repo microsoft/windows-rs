@@ -100,32 +100,30 @@ fn app(cx: &mut RenderCx) -> Element {
     let width = size.width as u32;
     let height = size.height as u32;
 
-    // Resize the swap chain when the window size changes.
     D3D.with(|cell| {
-        if let Some(state) = cell.borrow_mut().as_mut() {
-            if state.width != width || state.height != height {
-                state.width = width;
-                state.height = height;
-                if width > 0 && height > 0 {
-                    unsafe {
-                        _ = state.swap_chain.ResizeBuffers(
-                            0,
-                            width,
-                            height,
-                            DXGI_FORMAT_UNKNOWN,
-                            DXGI_SWAP_CHAIN_FLAG(0),
-                        );
-                    }
+        if let Some(state) = cell.borrow_mut().as_mut()
+            && (state.width != width || state.height != height)
+        {
+            state.width = width;
+            state.height = height;
+            if width > 0 && height > 0 {
+                unsafe {
+                    _ = state.swap_chain.ResizeBuffers(
+                        0,
+                        width,
+                        height,
+                        DXGI_FORMAT_UNKNOWN,
+                        DXGI_SWAP_CHAIN_FLAG(0),
+                    );
                 }
             }
         }
     });
 
-    // Subscribe to CompositionTarget::Rendering for per-frame drawing.
     let rendering = cx.use_ref::<Option<Rendering>>(None);
     cx.use_effect((), {
-        #[allow(clippy::redundant_clone)] // HookRef::clone is not redundant here
         let rendering = rendering.clone();
+
         move || {
             if let Ok(r) = on_rendering(|| {
                 D3D.with(|cell| {

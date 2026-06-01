@@ -241,7 +241,6 @@ fn app(cx: &mut RenderCx) -> Element {
     };
 
     vstack((
-        TitleBar::new("Direct2D Sample").subtitle("D2D + WinUI controls in reactor"),
         swap_chain_panel()
             .width(panel_width)
             .height(panel_height)
@@ -250,9 +249,8 @@ fn app(cx: &mut RenderCx) -> Element {
                 Err(e) => eprintln!("D2D init failed: {e}"),
             }),
         hstack((
-            button("+ Add circle").on_click(add),
-            button("− Remove circle").on_click(remove),
-            text_block(format!("{count} circles")).font_size(14.0),
+            button("Add circle").on_click(add),
+            button("Remove circle").on_click(remove),
         ))
         .spacing(8.0),
     ))
@@ -263,6 +261,6 @@ fn app(cx: &mut RenderCx) -> Element {
 
 fn main() -> Result<()> {
     App::new()
-        .title("Direct2D — reactor SwapChainPanel")
+        .title("Direct2D SwapChainPanel")
         .render(app)
 }

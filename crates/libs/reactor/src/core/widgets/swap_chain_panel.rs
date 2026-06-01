@@ -2,13 +2,11 @@ use super::*;
 use windows_core::Interface;
 
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
-/// [`on_ready`](SwapChainPanelWidget::on_ready) callback. Provides a safe
-/// API to attach a DXGI swap chain without exposing the underlying WinUI type.
+/// [`on_ready`](SwapChainPanelWidget::on_ready) callback.
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
-    /// Attach a DXGI swap chain created with `CreateSwapChainForComposition`.
-    /// Works with both D3D11 and D3D12 swap chains.
+    /// Attach a DXGI swap chain (created with `CreateSwapChainForComposition`).
     pub fn set_swap_chain(&self, swap_chain: &impl Interface) -> windows_core::Result<()> {
         let native: crate::bindings::ISwapChainPanelNative = self.0.cast()?;
         unsafe { native.SetSwapChain(swap_chain.as_raw()) }
@@ -42,8 +40,7 @@ impl SwapChainPanelWidget {
         }
     }
 
-    /// Callback invoked once after the native control is created. Use the
-    /// provided [`SwapChainPanelHandle`] to attach your swap chain.
+    /// Callback invoked once after the native control is created.
     pub fn on_ready(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
         self.mounted = Some(Callback::new(move |native| f(SwapChainPanelHandle(native))));
         self
