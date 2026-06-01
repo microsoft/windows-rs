@@ -17,6 +17,11 @@ impl<B: Backend + 'static> Reconciler<B> {
                 self.backend.set_pane_element(id, Some(pane_id));
                 self.pane_elements.insert(id, pane_id);
             }
+        if let Some(cb) = w.on_mounted_callback()
+            && let Some(native) = self.backend.get_native_element(id)
+        {
+            cb.invoke(native);
+        }
         id
     }
 

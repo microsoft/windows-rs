@@ -521,6 +521,7 @@ impl_element_ext!(
     RichEditBoxWidget,
     RelativePanelWidget,
     ToggleButtonWidget,
+    SwapChainPanelWidget,
 );
 
 impl ElementExt for crate::core::rich_text::RichTextBlock {

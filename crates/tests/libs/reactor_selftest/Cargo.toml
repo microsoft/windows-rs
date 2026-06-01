@@ -1,5 +1,5 @@
 [package]
-name = "test_reactor_backend"
+name = "test_reactor_selftest"
 version = "0.0.0"
 edition = "2024"
 publish = false

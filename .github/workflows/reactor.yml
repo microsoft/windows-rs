@@ -1,4 +1,4 @@
-name: test_reactor_backend
+name: test_reactor
 
 on:
   push:
@@ -19,7 +19,7 @@ env:
 
 jobs:
   selftest:
-    name: cargo run -p test_reactor_backend
+    name: cargo run -p test_reactor_selftest
     runs-on: windows-2025-vs2026
     timeout-minutes: 30
     steps:
@@ -36,6 +36,6 @@ jobs:
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
           Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru | Out-Null
 
-      - name: cargo run -p test_reactor_backend -- --headless
-        run: cargo run -p test_reactor_backend -- --headless
+      - name: cargo run -p test_reactor_selftest -- --headless
+        run: cargo run -p test_reactor_selftest -- --headless
         shell: pwsh

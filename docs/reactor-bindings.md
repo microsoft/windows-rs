@@ -89,7 +89,7 @@ Microsoft.UI.Xaml.Controls.IInfoBadge::{put_Value}
 
 ## Current stats
 
-- **Generated LOC**: ~29,000 (72% reduction from 102,554 with `::*` globs)
+- **Generated LOC**: ~27,000 (74% reduction from 102,554 with `::*` globs)
 - **`::*` entries**: 4 (all `--implement` interfaces that need all methods)
 - **Classes**: All use `{CreateInstance}` pattern
 

@@ -6,6 +6,7 @@
     clippy::upper_case_acronyms,
     clippy::useless_transmute,
     clippy::missing_transmute_annotations,
+    clippy::missing_safety_doc,
     clippy::too_many_arguments
 )]
 mod bindings;
@@ -30,7 +31,7 @@ pub mod setup {
     pub use windows_reactor_setup::*;
 }
 
-pub use windows_core::{Error, Result};
+pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;

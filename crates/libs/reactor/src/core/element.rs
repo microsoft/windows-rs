@@ -180,6 +180,7 @@ define_element! {
     RichEditBoxWidget,
     RelativePanelWidget,
     ToggleButtonWidget,
+    SwapChainPanelWidget,
 }
 
 macro_rules! non_widget_from_table {
