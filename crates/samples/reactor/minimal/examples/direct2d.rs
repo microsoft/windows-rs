@@ -225,6 +225,7 @@ fn app(cx: &mut RenderCx) -> Element {
         }
     };
 
+    let margin = 16.0;
     grid((
         Element::from(
             swap_chain_panel()
@@ -244,6 +245,12 @@ fn app(cx: &mut RenderCx) -> Element {
                             resize_swap_chain(state, pw, ph);
                         }
                     });
+                })
+                .margin(Thickness {
+                    left: margin,
+                    top: margin,
+                    right: margin,
+                    bottom: 0.0,
                 }),
         )
         .grid_row(0),
@@ -253,7 +260,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 button("Remove circle").on_click(remove),
             ))
             .spacing(8.0)
-            .margin(Thickness::xy(16.0, 8.0)),
+            .margin(Thickness::uniform(margin)),
         )
         .grid_row(1),
     ))
