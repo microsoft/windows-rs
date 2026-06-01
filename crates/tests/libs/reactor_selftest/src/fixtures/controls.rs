@@ -9,7 +9,7 @@ use windows_reactor::core::element::{Color, GridLength};
 use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextRun};
 use windows_reactor::core::templated_list::{flip_view, grid_view, list_view, virtual_list};
 use windows_reactor::dsl::{
-    ElementExt, border, button, check_box, scroll_viewer, text_block, text_box,
+    ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
 
 use crate::bindings;
@@ -490,5 +490,17 @@ pub fn mount_title_bar(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
         assert_present!(h, "Reconciler_Mount_TitleBar", bindings::TitleBar);
+    })
+}
+
+pub fn mount_swap_chain_panel(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_| swap_chain_panel().width(200.0).height(100.0).into()));
+        h.render().await;
+        assert_present!(
+            h,
+            "Reconciler_Mount_SwapChainPanel",
+            bindings::SwapChainPanel
+        );
     })
 }

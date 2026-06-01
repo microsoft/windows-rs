@@ -30,4 +30,11 @@ pub(crate) trait Widget {
     fn pane_element(&self) -> Option<&Element> {
         None
     }
+    /// Optional post-mount callback. When present, the reconciler invokes it
+    /// with the native element (`IInspectable`) immediately after creation.
+    fn on_mounted_callback(
+        &self,
+    ) -> Option<&crate::core::callback::Callback<windows_core::IInspectable>> {
+        None
+    }
 }

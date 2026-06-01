@@ -264,6 +264,31 @@ error_boundary(
 )
 ```
 
+## Custom Rendering (Direct3D / SwapChainPanel)
+
+Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI. The `on_ready` callback provides a `SwapChainPanelHandle` for attaching your DXGI swap chain, and `on_resize` fires when the panel's layout size changes:
+
+```rust
+fn app(cx: &mut RenderCx) -> Element {
+    swap_chain_panel()
+        .on_ready(|panel| {
+            // Create D3D device + swap chain, then:
+            // panel.set_swap_chain(&swap_chain).unwrap();
+        })
+        .on_resize(|width, height| {
+            // Resize swap chain buffers to match the panel's actual size.
+        })
+        .into()
+}
+```
+
+Use `on_rendering(|| { ... })` to drive per-frame presentation. See the full examples:
+
+```sh
+cargo run -p minimal --example swap_chain_panel   # D3D11 animated clear
+cargo run -p minimal --example direct2d           # D2D circles + WinUI buttons
+```
+
 ## Running Samples
 
 ```sh

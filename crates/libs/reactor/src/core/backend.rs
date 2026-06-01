@@ -91,6 +91,7 @@ pub enum ControlKind {
     RichEditBox,
     RelativePanel,
     ToggleButton,
+    SwapChainPanel,
 }
 
 /// Closed enum of every property that can be set on a control. Each
@@ -668,6 +669,12 @@ pub trait Backend {
         _id: ControlId,
         _handlers: Option<&crate::core::pointer::PointerHandlers>,
     ) {
+    }
+
+    /// Retrieve the underlying platform element as an `IInspectable` for interop.
+    /// Returns `None` on non-WinUI backends or if `id` is invalid.
+    fn get_native_element(&self, _id: ControlId) -> Option<windows_core::IInspectable> {
+        None
     }
 }
 

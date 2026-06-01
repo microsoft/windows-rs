@@ -17281,6 +17281,106 @@ pub struct IStyle_Vtbl {
     Seal: usize,
 }
 windows_core::imp::define_interface!(
+    ISwapChainPanel,
+    ISwapChainPanel_Vtbl,
+    0x08844f85_aa1b_540d_bef2_b2bb7b257f8c
+);
+impl windows_core::RuntimeType for ISwapChainPanel {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISwapChainPanel_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    get_CompositionScaleX: usize,
+    get_CompositionScaleY: usize,
+    add_CompositionScaleChanged: usize,
+    remove_CompositionScaleChanged: usize,
+    CreateCoreIndependentInputSource: usize,
+}
+windows_core::imp::define_interface!(
+    ISwapChainPanelFactory,
+    ISwapChainPanelFactory_Vtbl,
+    0x38d00b69_5759_5f37_9e1c_3ae0d4288b26
+);
+impl windows_core::RuntimeType for ISwapChainPanelFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISwapChainPanelFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ISwapChainPanelNative,
+    ISwapChainPanelNative_Vtbl,
+    0x63aad0b8_7c24_40ff_85a8_640d944cc325
+);
+windows_core::imp::interface_hierarchy!(ISwapChainPanelNative, windows_core::IUnknown);
+impl ISwapChainPanelNative {
+    pub unsafe fn SetSwapChain(
+        &self,
+        swapchain: *mut core::ffi::c_void,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSwapChain)(
+                windows_core::Interface::as_raw(self),
+                swapchain as _,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISwapChainPanelNative_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetSwapChain: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ISwapChainPanelNative_Impl: windows_core::IUnknownImpl {
+    fn SetSwapChain(&self, swapchain: *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl ISwapChainPanelNative_Vtbl {
+    pub const fn new<Identity: ISwapChainPanelNative_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetSwapChain<
+            Identity: ISwapChainPanelNative_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            swapchain: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ISwapChainPanelNative_Impl::SetSwapChain(
+                    this,
+                    core::mem::transmute_copy(&swapchain),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetSwapChain: SetSwapChain::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISwapChainPanelNative as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISwapChainPanelNative {}
+windows_core::imp::define_interface!(
     ISymbolIcon,
     ISymbolIcon_Vtbl,
     0xa4322906_0dbe_5eb7_8b64_3e832246eb7f
@@ -26647,6 +26747,80 @@ impl windows_core::RuntimeName for Style {
 }
 unsafe impl Send for Style {}
 unsafe impl Sync for Style {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SwapChainPanel(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SwapChainPanel,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    SwapChainPanel,
+    Grid,
+    Panel,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl SwapChainPanel {
+    pub fn new() -> windows_core::Result<SwapChainPanel> {
+        Self::ISwapChainPanelFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                &mut core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn compose<T>(compose: T) -> windows_core::Result<SwapChainPanel>
+    where
+        T: windows_core::Compose,
+    {
+        Self::ISwapChainPanelFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
+        })
+    }
+    fn ISwapChainPanelFactory<R, F: FnOnce(&ISwapChainPanelFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SwapChainPanel, ISwapChainPanelFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SwapChainPanel {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISwapChainPanel>();
+}
+unsafe impl windows_core::Interface for SwapChainPanel {
+    type Vtable = <ISwapChainPanel as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISwapChainPanel as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for SwapChainPanel {
+    type Target = ISwapChainPanel;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SwapChainPanel {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.SwapChainPanel";
+}
+unsafe impl Send for SwapChainPanel {}
+unsafe impl Sync for SwapChainPanel {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Symbol(pub i32);

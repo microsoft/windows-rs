@@ -54,7 +54,7 @@ fn reactor() {
         "--in",
         "winmd",
         "--out",
-        "crates/tests/libs/reactor_backend/src/bindings.rs",
+        "crates/tests/libs/reactor_selftest/src/bindings.rs",
         "--minimal",
         "--flat",
         "--filter",
