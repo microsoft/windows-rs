@@ -1,30 +1,15 @@
-use std::collections::HashMap;
 use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-use windows::core::HSTRING;
-use windows::Data::Xml::Dom::XmlDocument;
-use windows::Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED};
-
-struct ActivatableClass {
-    dll: String,
-    name: String,
-    threading_model: String,
-}
 
 const INTERACTIVE_PKG: &str = "Microsoft.WindowsAppSDK.InteractiveExperiences";
 const INTERACTIVE_VER: &str = "2.0.13";
-const FOUNDATION_PKG: &str = "Microsoft.WindowsAppSDK.Foundation";
-const FOUNDATION_VER: &str = "2.0.21";
-const WINUI_PKG: &str = "Microsoft.WindowsAppSDK.WinUI";
-const WINUI_VER: &str = "2.1.0";
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
 const RUNTIME_VER: &str = "2.1.3";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
-
+const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
-const MANIFEST_TEMPLATE: &str = include_str!("../assets/template.manifest");
 
 /// Configures the app to run with a Windows App Runtime dependency.
 pub fn as_framework_dependent() {
@@ -50,87 +35,19 @@ pub fn as_self_contained() {
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
     let extract = ensure_msix_extracted(&runtime);
     copy_runtime_to(&extract, &target_dir_from_out(&out_dir));
-    build_manifest(&out_dir, &temp_dir);
-}
 
-fn build_manifest(out_dir: &Path, temp_dir: &Path) {
-    let fragment_pkgs = [
-        (INTERACTIVE_PKG, INTERACTIVE_VER),
-        (FOUNDATION_PKG, FOUNDATION_VER),
-        (WINUI_PKG, WINUI_VER),
-    ];
-
-    let mut groups: HashMap<String, Vec<ActivatableClass>> = HashMap::new();
-
-    for (pkg, ver) in &fragment_pkgs {
-        let extract = stage_pkg(pkg, ver, temp_dir);
-        let fragment = extract.join("package.appxfragment");
-        for ac in parse_fragment(&fragment).unwrap_or_default() {
-            groups.entry(ac.dll.clone()).or_default().push(ac);
-        }
-    }
-
-    let mut classes = String::new();
-    for (dll, entries) in &groups {
-        classes.push_str(&format!("<asmv3:file name=\"{dll}\">"));
-        for ac in entries {
-            classes.push_str(&format!("<winrtv1:activatableClass name=\"{}\" threadingModel=\"{}\"></winrtv1:activatableClass>", ac.name, ac.threading_model));
-        }
-        classes.push_str("</asmv3:file>");
-    }
-
-    let content = MANIFEST_TEMPLATE.replace("<!-- {auto generated} -->", &classes);
-    let path = out_dir.join("app.manifest");
-    fs::write(&path, &content)
-        .unwrap_or_else(|e| panic!("failed to write manifest to {}: {e}", path.display()));
+    let manifest_path = out_dir.join("app.manifest");
+    fs::write(&manifest_path, APP_MANIFEST).unwrap_or_else(|e| {
+        panic!(
+            "failed to write manifest to {}: {e}",
+            manifest_path.display()
+        )
+    });
     println!("cargo:rustc-link-arg=/MANIFEST:EMBED");
-    println!("cargo:rustc-link-arg=/MANIFESTINPUT:{}", path.display());
-}
-
-fn parse_fragment(path: &Path) -> windows::core::Result<Vec<ActivatableClass>> {
-    unsafe {
-        let _ = CoInitializeEx(None, COINIT_MULTITHREADED);
-    }
-
-    let content = fs::read_to_string(path)
-        .unwrap_or_else(|e| panic!("Fragment not found at {}: {e}", path.display()))
-        .trim_start_matches('\u{feff}') // Remove UTF-8 BOM if present (seen on M.WAS.IE fragments)
-        .to_string();
-
-    let doc = XmlDocument::new()?;
-    doc.LoadXml(&HSTRING::from(content.as_str()))?;
-
-    let servers = doc.SelectNodes(&HSTRING::from("//*[local-name()='InProcessServer']"))?;
-
-    let mut result = Vec::new();
-    for server_idx in 0..servers.Length()? {
-        let server = servers.Item(server_idx)?;
-
-        let path_nodes = server.SelectNodes(&HSTRING::from("*[local-name()='Path']"))?;
-        let dll = path_nodes.Item(0)?.InnerText()?.to_string_lossy();
-
-        let class_nodes =
-            server.SelectNodes(&HSTRING::from("*[local-name()='ActivatableClass']"))?;
-        for class_idx in 0..class_nodes.Length()? {
-            let class_node = class_nodes.Item(class_idx)?;
-            let attrs = class_node.Attributes()?;
-            let class = attrs
-                .GetNamedItem(&HSTRING::from("ActivatableClassId"))?
-                .InnerText()?
-                .to_string_lossy();
-            let threading_model = attrs
-                .GetNamedItem(&HSTRING::from("ThreadingModel"))
-                .ok()
-                .and_then(|attr| attr.InnerText().ok())
-                .map_or_else(|| "both".to_string(), |text| text.to_string_lossy());
-            result.push(ActivatableClass {
-                dll: dll.clone(),
-                name: class,
-                threading_model,
-            });
-        }
-    }
-    Ok(result)
+    println!(
+        "cargo:rustc-link-arg=/MANIFESTINPUT:{}",
+        manifest_path.display()
+    );
 }
 
 fn out_dir() -> PathBuf {
