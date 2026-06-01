@@ -122,6 +122,7 @@ fn app(cx: &mut RenderCx) -> Element {
 
     let rendering = cx.use_ref::<Option<Rendering>>(None);
     cx.use_effect((), {
+        #[allow(clippy::redundant_clone)]
         let rendering = rendering.clone();
 
         move || {

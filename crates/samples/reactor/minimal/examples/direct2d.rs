@@ -260,7 +260,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Direct2D SwapChainPanel")
-        .render(app)
+    App::new().title("Direct2D SwapChainPanel").render(app)
 }
