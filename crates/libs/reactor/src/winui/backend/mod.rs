@@ -2957,6 +2957,12 @@ impl Backend for WinUIBackend {
         for list in kids.values_mut() {
             list.retain(|c| *c != id);
         }
+        // Clean up auxiliary per-control maps that were previously missed,
+        // preventing stale entries (and their captured closures) from
+        // accumulating across mount/unmount cycles.
+        self.menu_click_handlers.borrow_mut().remove(&id);
+        self.command_bar_flyout_handlers.borrow_mut().remove(&id);
+        self.theme_brush_registry.borrow_mut().remove(&id);
     }
     fn attach_event(&mut self, id: ControlId, event: Event, handler: EventHandler) {
         let map = self.controls.borrow();

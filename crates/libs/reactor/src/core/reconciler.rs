@@ -316,6 +316,15 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
 
+            // Unmount header/pane element subtrees that are tracked outside
+            // children_mirror (mounted via Widget::header_element / pane_element).
+            if let Some(hdr_id) = self.header_elements.remove(&node) {
+                self.unmount(hdr_id);
+            }
+            if let Some(pane_id) = self.pane_elements.remove(&node) {
+                self.unmount(pane_id);
+            }
+
             self.selection_callbacks.remove(&node);
 
             self.error_boundary_fallbacks.remove(&node);
