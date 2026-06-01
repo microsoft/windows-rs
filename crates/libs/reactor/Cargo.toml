@@ -24,8 +24,5 @@ windows-threading = { workspace = true, features = ["std"] }
 windows-time = { workspace = true }
 windows-reactor-setup = { workspace = true }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [lints]
 workspace = true

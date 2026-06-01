@@ -15,42 +15,13 @@ const RUNTIME_VER: &str = "2.1.3";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
-const WINMD_OUT: &str = "winmd";
 const MANIFEST_TEMPLATE: &str = include_str!("../assets/template.manifest");
-
-const WINMD_FILES: &[&str] = &[
-    "Microsoft.Foundation.winmd",
-    "Microsoft.Graphics.winmd",
-    "Microsoft.Security.Authentication.OAuth.winmd",
-    "Microsoft.UI.Text.winmd",
-    "Microsoft.UI.Xaml.winmd",
-    "Microsoft.UI.winmd",
-    "Microsoft.Windows.AppLifecycle.winmd",
-    "Microsoft.Windows.AppNotifications.Builder.winmd",
-    "Microsoft.Windows.AppNotifications.winmd",
-    "Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd",
-    "Microsoft.Windows.ApplicationModel.Background.winmd",
-    "Microsoft.Windows.ApplicationModel.DynamicDependency.winmd",
-    "Microsoft.Windows.ApplicationModel.Resources.winmd",
-    "Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd",
-    "Microsoft.Windows.BadgeNotifications.winmd",
-    "Microsoft.Windows.Foundation.winmd",
-    "Microsoft.Windows.Globalization.winmd",
-    "Microsoft.Windows.Management.Deployment.winmd",
-    "Microsoft.Windows.Media.Capture.winmd",
-    "Microsoft.Windows.PushNotifications.winmd",
-    "Microsoft.Windows.Security.AccessControl.winmd",
-    "Microsoft.Windows.Storage.Pickers.winmd",
-    "Microsoft.Windows.Storage.winmd",
-    "Microsoft.Windows.System.Power.winmd",
-    "Microsoft.Windows.System.winmd",
-];
 
 /// Configures the app to run with a Windows App Runtime dependency.
 pub fn as_framework_dependent() {
     let out_dir = out_dir();
     copy_bootstrap_to(&out_dir);
-    let (temp_dir, _) = staging_dirs(&out_dir);
+    let temp_dir = temp_dir(&out_dir);
     let arch = format!("win-{}", target_arch());
     let interactive = stage_pkg(INTERACTIVE_PKG, INTERACTIVE_VER, &temp_dir);
     copy_file(
@@ -66,21 +37,11 @@ pub fn as_framework_dependent() {
 /// Configures the app to run completely self-contained.
 pub fn as_self_contained() {
     let out_dir = out_dir();
-    let (temp_dir, winmd_dest) = staging_dirs(&out_dir);
+    let temp_dir = temp_dir(&out_dir);
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
     let extract = ensure_msix_extracted(&runtime);
-    copy_winmds_to(&extract, &winmd_dest);
     copy_runtime_to(&extract, &target_dir_from_out(&out_dir));
     build_manifest(&out_dir, &temp_dir);
-}
-
-#[doc(hidden)]
-pub fn stage_runtime() {
-    let out_dir = out_dir();
-    let (temp_dir, winmd_dest) = staging_dirs(&out_dir);
-    let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
-    let extract = ensure_msix_extracted(&runtime);
-    copy_winmds_to(&extract, &winmd_dest);
 }
 
 fn build_manifest(out_dir: &Path, temp_dir: &Path) {
@@ -156,13 +117,10 @@ fn out_dir() -> PathBuf {
     PathBuf::from(env::var("OUT_DIR").expect("OUT_DIR not set"))
 }
 
-fn staging_dirs(out_dir: &Path) -> (PathBuf, PathBuf) {
-    let root = find_workspace_root(out_dir);
-    let temp = root.join("temp");
-    let winmd = root.join(WINMD_OUT);
+fn temp_dir(out_dir: &Path) -> PathBuf {
+    let temp = find_workspace_root(out_dir).join("temp");
     let _ = fs::create_dir_all(&temp);
-    let _ = fs::create_dir_all(&winmd);
-    (temp, winmd)
+    temp
 }
 
 fn copy_bootstrap_to(out_dir: &Path) {
@@ -201,18 +159,6 @@ fn ensure_msix_extracted(runtime: &Path) -> PathBuf {
         }
     }
     extract
-}
-
-fn copy_winmds_to(extract: &Path, dest: &Path) {
-    let mut count = 0usize;
-    for name in WINMD_FILES {
-        let src = extract.join(name);
-        if src.is_file() {
-            let _ = fs::copy(&src, dest.join(name));
-            count += 1;
-        }
-    }
-    println!("Copied {count} winmd files to {}", dest.display());
 }
 
 fn copy_runtime_to(src: &Path, dest: &Path) {
