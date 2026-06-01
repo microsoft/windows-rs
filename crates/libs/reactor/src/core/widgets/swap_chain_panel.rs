@@ -9,6 +9,10 @@ pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
     /// Attach a DXGI swap chain (created with `CreateSwapChainForComposition`).
+    ///
+    /// # Safety contract
+    /// The caller must pass a valid `IDXGISwapChain` (or `IDXGISwapChain1`).
+    /// Passing an unrelated COM interface will fail at the WinUI layer.
     pub fn set_swap_chain(&self, swap_chain: &impl Interface) -> windows_core::Result<()> {
         let native: crate::bindings::ISwapChainPanelNative = self.0.cast()?;
         unsafe { native.SetSwapChain(swap_chain.as_raw()) }

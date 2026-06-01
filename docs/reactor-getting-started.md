@@ -266,33 +266,23 @@ error_boundary(
 
 ## Custom Rendering (Direct3D / SwapChainPanel)
 
-Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI. The `on_mounted` callback provides the native element for wiring your DXGI swap chain:
+Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI. The `on_ready` callback provides a `SwapChainPanelHandle` for attaching your DXGI swap chain, and `on_resize` fires when the panel's layout size changes:
 
 ```rust
-use windows_reactor::interop::{ISwapChainPanelNative, Interface, SwapChainPanel};
-
 fn app(cx: &mut RenderCx) -> Element {
-    let size = cx.use_inner_size();
-    let panel_width = (size.width - 32.0).max(100.0);
-    let panel_height = (panel_width * 0.6).max(100.0);
-
-    vstack((
-        text_block("Above: live D3D content"),
-        swap_chain_panel()
-            .width(panel_width)
-            .height(panel_height)
-            .on_mounted(|native| {
-                let panel: SwapChainPanel = native.cast().unwrap();
-                let native_interop: ISwapChainPanelNative = panel.cast().unwrap();
-                // Create D3D device + swap chain, then:
-                // unsafe { native_interop.SetSwapChain(swap_chain.as_raw()).unwrap() };
-            }),
-    ))
-    .into()
+    swap_chain_panel()
+        .on_ready(|panel| {
+            // Create D3D device + swap chain, then:
+            // panel.set_swap_chain(&swap_chain).unwrap();
+        })
+        .on_resize(|width, height| {
+            // Resize swap chain buffers to match the panel's actual size.
+        })
+        .into()
 }
 ```
 
-Use `on_rendering(|| { ... })` to drive per-frame presentation. When the window resizes, call `IDXGISwapChain::ResizeBuffers` to match the new panel dimensions. See the full examples:
+Use `on_rendering(|| { ... })` to drive per-frame presentation. See the full examples:
 
 ```sh
 cargo run -p minimal --example swap_chain_panel   # D3D11 animated clear
