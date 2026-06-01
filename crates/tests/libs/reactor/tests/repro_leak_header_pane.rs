@@ -2,18 +2,18 @@
 //!   - https://github.com/microsoft/windows-rs/issues/4491
 //!   - https://github.com/microsoft/windows-rs/issues/4500
 //!
-//! ROOT CAUSE
-//! ==========
-//! `Reconciler::unmount()` walks only `children_mirror` via `collect_subtree()`.
-//! But widgets that use `header_element()` or `pane_element()` (Expander,
-//! TitleBar, SplitView) store those sub-trees in separate maps
-//! (`self.header_elements`, `self.pane_elements`) which are **never** walked,
+//! ROOT CAUSE (now fixed)
+//! ======================
+//! `Reconciler::unmount()` previously walked only `children_mirror` via
+//! `collect_subtree()`. Widgets that use `header_element()` or `pane_element()`
+//! (Expander, TitleBar, SplitView) stored those sub-trees in separate maps
+//! (`self.header_elements`, `self.pane_elements`) which were **never** walked,
 //! unmounted, or destroyed. Their entire subtrees — XAML handles, component
-//! instances, event closures — are leaked on every unmount.
+//! instances, event closures — were leaked on every unmount.
 //!
-//! This affects any page-switching scenario where the unmounted subtree
-//! contains an Expander with a complex header, a SplitView with a pane, or
-//! a TitleBar. Each navigation cycle leaks more controls.
+//! This affected any page-switching scenario where the unmounted subtree
+//! contained an Expander with a complex header, a SplitView with a pane, or
+//! a TitleBar. Each navigation cycle leaked more controls.
 //!
 //! HOW TO RUN
 //! ==========
