@@ -3,6 +3,15 @@ use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
+use windows::core::HSTRING;
+use windows::Data::Xml::Dom::XmlDocument;
+use windows::Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED};
+
+struct ActivatableClass {
+    dll: String,
+    name: String,
+    threading_model: String,
+}
 
 const INTERACTIVE_PKG: &str = "Microsoft.WindowsAppSDK.InteractiveExperiences";
 const INTERACTIVE_VER: &str = "2.0.13";
@@ -51,21 +60,21 @@ fn build_manifest(out_dir: &Path, temp_dir: &Path) {
         (WINUI_PKG, WINUI_VER),
     ];
 
-    let mut groups: HashMap<String, Vec<(String, String)>> = HashMap::new();
+    let mut groups: HashMap<String, Vec<ActivatableClass>> = HashMap::new();
 
     for (pkg, ver) in &fragment_pkgs {
         let extract = stage_pkg(pkg, ver, temp_dir);
         let fragment = extract.join("package.appxfragment");
-        for (dll, class, threading) in parse_fragment(&fragment) {
-            groups.entry(dll).or_default().push((class, threading));
+        for ac in parse_fragment(&fragment).unwrap_or_default() {
+            groups.entry(ac.dll.clone()).or_default().push(ac);
         }
     }
 
     let mut classes = String::new();
     for (dll, entries) in &groups {
         classes.push_str(&format!("<asmv3:file name=\"{dll}\">"));
-        for (class, threading) in entries {
-            classes.push_str(&format!("<winrtv1:activatableClass name=\"{class}\" threadingModel=\"{threading}\"></winrtv1:activatableClass>"));
+        for ac in entries {
+            classes.push_str(&format!("<winrtv1:activatableClass name=\"{}\" threadingModel=\"{}\"></winrtv1:activatableClass>", ac.name, ac.threading_model));
         }
         classes.push_str("</asmv3:file>");
     }
@@ -78,39 +87,50 @@ fn build_manifest(out_dir: &Path, temp_dir: &Path) {
     println!("cargo:rustc-link-arg=/MANIFESTINPUT:{}", path.display());
 }
 
-fn parse_fragment(path: &Path) -> Vec<(String, String, String)> {
-    let Ok(content) = fs::read_to_string(path) else {
-        println!("Fragment not found: {}", path.display());
-        return Vec::new();
-    };
-    let Ok(doc) = roxmltree::Document::parse(&content) else {
-        println!("Failed to parse fragment: {}", path.display());
-        return Vec::new();
-    };
+fn parse_fragment(path: &Path) -> windows::core::Result<Vec<ActivatableClass>> {
+    unsafe {
+        let _ = CoInitializeEx(None, COINIT_MULTITHREADED);
+    }
+
+    let content = fs::read_to_string(path)
+        .unwrap_or_else(|e| panic!("Fragment not found at {}: {e}", path.display()))
+        .trim_start_matches('\u{feff}') // Remove UTF-8 BOM if present (seen on M.WAS.IE fragments)
+        .to_string();
+
+    let doc = XmlDocument::new()?;
+    doc.LoadXml(&HSTRING::from(content.as_str()))?;
+
+    let servers = doc.SelectNodes(&HSTRING::from("//*[local-name()='InProcessServer']"))?;
+
     let mut result = Vec::new();
-    for server in doc
-        .descendants()
-        .filter(|n| n.tag_name().name() == "InProcessServer")
-    {
-        let Some(dll) = server
-            .children()
-            .find(|n| n.tag_name().name() == "Path")
-            .and_then(|n| n.text())
-        else {
-            continue;
-        };
-        for class_node in server
-            .children()
-            .filter(|n| n.tag_name().name() == "ActivatableClass")
-        {
-            let Some(class) = class_node.attribute("ActivatableClassId") else {
-                continue;
-            };
-            let threading = class_node.attribute("ThreadingModel").unwrap_or("both");
-            result.push((dll.to_string(), class.to_string(), threading.to_string()));
+    for server_idx in 0..servers.Length()? {
+        let server = servers.Item(server_idx)?;
+
+        let path_nodes = server.SelectNodes(&HSTRING::from("*[local-name()='Path']"))?;
+        let dll = path_nodes.Item(0)?.InnerText()?.to_string_lossy();
+
+        let class_nodes =
+            server.SelectNodes(&HSTRING::from("*[local-name()='ActivatableClass']"))?;
+        for class_idx in 0..class_nodes.Length()? {
+            let class_node = class_nodes.Item(class_idx)?;
+            let attrs = class_node.Attributes()?;
+            let class = attrs
+                .GetNamedItem(&HSTRING::from("ActivatableClassId"))?
+                .InnerText()?
+                .to_string_lossy();
+            let threading_model = attrs
+                .GetNamedItem(&HSTRING::from("ThreadingModel"))
+                .ok()
+                .and_then(|attr| attr.InnerText().ok())
+                .map_or_else(|| "both".to_string(), |text| text.to_string_lossy());
+            result.push(ActivatableClass {
+                dll: dll.clone(),
+                name: class,
+                threading_model,
+            });
         }
     }
-    result
+    Ok(result)
 }
 
 fn out_dir() -> PathBuf {
@@ -165,20 +185,17 @@ fn copy_runtime_to(src: &Path, dest: &Path) {
     let Ok(entries) = fs::read_dir(src) else {
         return;
     };
-
     for entry in entries.flatten() {
         let path = entry.path();
         let Some(name) = entry.file_name().into_string().ok() else {
             continue;
         };
-
         if !RUNTIME_FILES
             .lines()
             .any(|l| l.trim().eq_ignore_ascii_case(&name))
         {
             continue;
         }
-
         if path.is_file() {
             copy_file(&path, dest, &name);
         } else if path.is_dir() {
@@ -269,17 +286,11 @@ fn target_dir_from_out(out: &Path) -> PathBuf {
 }
 
 fn find_workspace_root(out: &Path) -> PathBuf {
-    for a in out.ancestors() {
-        if a.join("Cargo.lock").is_file() {
-            return a.to_path_buf();
-        }
-    }
-    for a in out.ancestors() {
-        if a.join("Cargo.toml").is_file() {
-            return a.to_path_buf();
-        }
-    }
-    out.ancestors().nth(2).unwrap_or(out).to_path_buf()
+    out.ancestors()
+        .find(|a| a.join("Cargo.lock").is_file())
+        .or_else(|| out.ancestors().find(|a| a.join("Cargo.toml").is_file()))
+        .unwrap_or_else(|| out.ancestors().nth(2).unwrap_or(out))
+        .to_path_buf()
 }
 
 fn target_arch() -> &'static str {

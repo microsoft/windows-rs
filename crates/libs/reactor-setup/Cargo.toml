@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 publish = false
 
 [dependencies]
-roxmltree = { workspace = true }
+windows = { workspace = true, features = ["Data_Xml_Dom", "Win32_System_Com"] }
 
 [lints]
 workspace = true
