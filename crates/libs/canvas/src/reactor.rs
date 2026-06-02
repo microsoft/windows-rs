@@ -94,7 +94,7 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
     let ready_scale = scale.clone();
     swap_chain_panel()
         .on_ready(move |panel| {
-            let s = panel.composition_scale().map(|(x, _)| x).unwrap_or(1.0);
+            let s = panel.composition_scale().map_or(1.0, |(x, _)| x);
             ready_scale.set(s);
 
             let (w, h) = ready_size.get();
