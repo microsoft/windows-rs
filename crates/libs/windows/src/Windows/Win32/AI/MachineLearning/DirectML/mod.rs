@@ -2819,12 +2819,12 @@ windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown
 impl IDMLBindingTable {
     pub unsafe fn BindInputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.map_or(core::ptr::null(), |slice| slice.as_ptr())));
         }
     }
     pub unsafe fn BindOutputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.map_or(core::ptr::null(), |slice| slice.as_ptr())));
         }
     }
     pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {
@@ -3048,7 +3048,7 @@ impl IDMLDevice {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateCommandRecorder<T>(&self) -> windows_core::Result<T>
     where
@@ -3430,7 +3430,7 @@ impl core::ops::Deref for IDMLOperatorInitializer {
 windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl IDMLOperatorInitializer {
     pub unsafe fn Reset(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]

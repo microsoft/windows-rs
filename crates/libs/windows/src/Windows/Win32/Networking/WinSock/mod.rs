@@ -872,7 +872,7 @@ pub unsafe fn WSCEnumProtocols32(lpiprotocols: Option<*const i32>, lpprotocolbuf
 #[inline]
 pub unsafe fn WSCGetApplicationCategory(path: &[u16], extra: Option<&[u16]>, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSCGetApplicationCategory(path : windows_core::PCWSTR, pathlength : u32, extra : windows_core::PCWSTR, extralength : u32, ppermittedlspcategories : *mut u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCGetApplicationCategory(core::mem::transmute(path.as_ptr()), path.len().try_into().unwrap(), core::mem::transmute(extra.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extra.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppermittedlspcategories as _, lperrno as _) }
+    unsafe { WSCGetApplicationCategory(core::mem::transmute(path.as_ptr()), path.len().try_into().unwrap(), core::mem::transmute(extra.map_or(core::ptr::null(), |slice| slice.as_ptr())), extra.map_or(0, |slice| slice.len().try_into().unwrap()), ppermittedlspcategories as _, lperrno as _) }
 }
 #[inline]
 pub unsafe fn WSCGetProviderInfo(lpproviderid: *const windows_core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
@@ -967,7 +967,7 @@ where
 #[inline]
 pub unsafe fn WSCSetApplicationCategory(path: &[u16], extra: Option<&[u16]>, permittedlspcategories: u32, pprevpermlspcat: Option<*mut u32>, lperrno: *mut i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSCSetApplicationCategory(path : windows_core::PCWSTR, pathlength : u32, extra : windows_core::PCWSTR, extralength : u32, permittedlspcategories : u32, pprevpermlspcat : *mut u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCSetApplicationCategory(core::mem::transmute(path.as_ptr()), path.len().try_into().unwrap(), core::mem::transmute(extra.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extra.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), permittedlspcategories, pprevpermlspcat.unwrap_or(core::mem::zeroed()) as _, lperrno as _) }
+    unsafe { WSCSetApplicationCategory(core::mem::transmute(path.as_ptr()), path.len().try_into().unwrap(), core::mem::transmute(extra.map_or(core::ptr::null(), |slice| slice.as_ptr())), extra.map_or(0, |slice| slice.len().try_into().unwrap()), permittedlspcategories, pprevpermlspcat.unwrap_or(core::mem::zeroed()) as _, lperrno as _) }
 }
 #[inline]
 pub unsafe fn WSCSetProviderInfo(lpproviderid: *const windows_core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: &[u8], flags: u32, lperrno: *mut i32) -> i32 {
@@ -1222,7 +1222,7 @@ pub unsafe fn sendto(s: SOCKET, buf: &[u8], flags: i32, to: *const SOCKADDR, tol
 #[inline]
 pub unsafe fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: Option<&[u8]>) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn setsockopt(s : SOCKET, level : i32, optname : i32, optval : windows_core::PCSTR, optlen : i32) -> i32);
-    unsafe { setsockopt(s, level, optname, core::mem::transmute(optval.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), optval.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { setsockopt(s, level, optname, core::mem::transmute(optval.map_or(core::ptr::null(), |slice| slice.as_ptr())), optval.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn shutdown(s: SOCKET, how: WINSOCK_SHUTDOWN_HOW) -> i32 {

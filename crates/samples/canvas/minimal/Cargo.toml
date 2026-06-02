@@ -8,5 +8,8 @@ publish = false
 windows-canvas = { workspace = true, features = ["reactor"] }
 windows-reactor = { workspace = true }
 
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
 [lints]
 workspace = true

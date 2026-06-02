@@ -98,7 +98,7 @@ pub unsafe fn CancelShutdown() -> windows_core::BOOL {
 #[inline]
 pub unsafe fn CascadeWindows(hwndparent: Option<super::super::Foundation::HWND>, whow: CASCADE_WINDOWS_HOW, lprect: Option<*const super::super::Foundation::RECT>, lpkids: Option<&[super::super::Foundation::HWND]>) -> u16 {
     windows_core::link!("user32.dll" "system" fn CascadeWindows(hwndparent : super::super::Foundation::HWND, whow : CASCADE_WINDOWS_HOW, lprect : *const super::super::Foundation::RECT, ckids : u32, lpkids : *const super::super::Foundation::HWND) -> u16);
-    unsafe { CascadeWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, lpkids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { CascadeWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, lpkids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkids.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn ChangeMenuA<P2>(hmenu: HMENU, cmd: u32, lpsznewitem: P2, cmdinsert: u32, flags: u32) -> windows_core::BOOL
@@ -533,7 +533,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mrmsupport.dll" "system" fn DestroyIndexedResults(resourceuri : windows_core::PCWSTR, qualifiercount : u32, qualifiers : *const IndexedResourceQualifier));
-    unsafe { DestroyIndexedResults(resourceuri.param().abi(), qualifiers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(qualifiers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { DestroyIndexedResults(resourceuri.param().abi(), qualifiers.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(qualifiers.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn DestroyMenu(hmenu: HMENU) -> windows_core::Result<()> {
@@ -1734,7 +1734,7 @@ pub unsafe fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) ->
 #[inline]
 pub unsafe fn MrmDumpPriDataInMemory(inputpridata: &[u8], schemapridata: Option<&[u8]>, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("mrmsupport.dll" "system" fn MrmDumpPriDataInMemory(inputpridata : *const u8, inputprisize : u32, schemapridata : *const u8, schemaprisize : u32, dumptype : MrmDumpType, outputxmldata : *mut *mut u8, outputxmlsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { MrmDumpPriDataInMemory(core::mem::transmute(inputpridata.as_ptr()), inputpridata.len().try_into().unwrap(), core::mem::transmute(schemapridata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), schemapridata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dumptype, outputxmldata as _, outputxmlsize as _).ok() }
+    unsafe { MrmDumpPriDataInMemory(core::mem::transmute(inputpridata.as_ptr()), inputpridata.len().try_into().unwrap(), core::mem::transmute(schemapridata.map_or(core::ptr::null(), |slice| slice.as_ptr())), schemapridata.map_or(0, |slice| slice.len().try_into().unwrap()), dumptype, outputxmldata as _, outputxmlsize as _).ok() }
 }
 #[inline]
 pub unsafe fn MrmDumpPriFile<P0, P1, P3>(indexfilename: P0, schemaprifile: P1, dumptype: MrmDumpType, outputxmlfile: P3) -> windows_core::Result<()>
@@ -1824,12 +1824,12 @@ pub unsafe fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, m
 #[inline]
 pub unsafe fn MsgWaitForMultipleObjects(phandles: Option<&[super::super::Foundation::HANDLE]>, fwaitall: bool, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> super::super::Foundation::WAIT_EVENT {
     windows_core::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation::HANDLE, fwaitall : windows_core::BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> super::super::Foundation::WAIT_EVENT);
-    unsafe { MsgWaitForMultipleObjects(phandles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phandles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fwaitall.into(), dwmilliseconds, dwwakemask) }
+    unsafe { MsgWaitForMultipleObjects(phandles.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phandles.map_or(core::ptr::null(), |slice| slice.as_ptr())), fwaitall.into(), dwmilliseconds, dwwakemask) }
 }
 #[inline]
 pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: Option<&[super::super::Foundation::HANDLE]>, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation::WAIT_EVENT {
     windows_core::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::super::Foundation::HANDLE, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS, dwflags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation::WAIT_EVENT);
-    unsafe { MsgWaitForMultipleObjectsEx(phandles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phandles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwmilliseconds, dwwakemask, dwflags) }
+    unsafe { MsgWaitForMultipleObjectsEx(phandles.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(phandles.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwmilliseconds, dwwakemask, dwflags) }
 }
 #[inline]
 pub unsafe fn OemToCharA<P0>(psrc: P0, pdst: windows_core::PSTR) -> windows_core::Result<()>
@@ -2411,7 +2411,7 @@ pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
 #[inline]
 pub unsafe fn TileWindows(hwndparent: Option<super::super::Foundation::HWND>, whow: TILE_WINDOWS_HOW, lprect: Option<*const super::super::Foundation::RECT>, lpkids: Option<&[super::super::Foundation::HWND]>) -> u16 {
     windows_core::link!("user32.dll" "system" fn TileWindows(hwndparent : super::super::Foundation::HWND, whow : TILE_WINDOWS_HOW, lprect : *const super::super::Foundation::RECT, ckids : u32, lpkids : *const super::super::Foundation::HWND) -> u16);
-    unsafe { TileWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, lpkids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { TileWindows(hwndparent.unwrap_or(core::mem::zeroed()) as _, whow, lprect.unwrap_or(core::mem::zeroed()) as _, lpkids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpkids.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: i32, y: i32, nreserved: Option<i32>, hwnd: super::super::Foundation::HWND, prcrect: Option<*const super::super::Foundation::RECT>) -> windows_core::BOOL {

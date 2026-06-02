@@ -29,7 +29,7 @@ where
 #[inline]
 pub unsafe fn NPAddConnection4(hwndowner: Option<super::super::Foundation::HWND>, lpnetresource: *const NETRESOURCEW, lpauthbuffer: Option<*const core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: Option<&[u8]>) -> u32 {
     windows_core::link!("ntlanman.dll" "system" fn NPAddConnection4(hwndowner : super::super::Foundation::HWND, lpnetresource : *const NETRESOURCEW, lpauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
-    unsafe { NPAddConnection4(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, lpauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { NPAddConnection4(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, lpauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn NPCancelConnection<P0>(lpname: P0, fforce: bool) -> u32
@@ -100,7 +100,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntlanman.dll" "system" fn NPGetPersistentUseOptionsForConnection(lpremotepath : windows_core::PCWSTR, lpreaduseoptions : *const u8, cbreaduseoptions : u32, lpwriteuseoptions : *mut u8, lpsizewriteuseoptions : *mut u32) -> u32);
-    unsafe { NPGetPersistentUseOptionsForConnection(lpremotepath.param().abi(), core::mem::transmute(lpreaduseoptions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpreaduseoptions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwriteuseoptions as _, lpsizewriteuseoptions as _) }
+    unsafe { NPGetPersistentUseOptionsForConnection(lpremotepath.param().abi(), core::mem::transmute(lpreaduseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpreaduseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpwriteuseoptions as _, lpsizewriteuseoptions as _) }
 }
 #[inline]
 pub unsafe fn NPGetResourceInformation(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut windows_core::PWSTR) -> u32 {
@@ -411,12 +411,12 @@ where
 #[inline]
 pub unsafe fn WNetUseConnection4A(hwndowner: Option<super::super::Foundation::HWND>, lpnetresource: *const NETRESOURCEA, pauthbuffer: Option<*const core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> windows_core::WIN32_ERROR {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::super::Foundation::HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> windows_core::WIN32_ERROR);
-    unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WNetUseConnection4W(hwndowner: Option<super::super::Foundation::HWND>, lpnetresource: *const NETRESOURCEW, pauthbuffer: Option<*const core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PWSTR>, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> windows_core::WIN32_ERROR {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::super::Foundation::HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> windows_core::WIN32_ERROR);
-    unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WNetUseConnectionA<P2, P3>(hwndowner: Option<super::super::Foundation::HWND>, lpnetresource: *const NETRESOURCEA, lppassword: P2, lpuserid: P3, dwflags: NET_CONNECT_FLAGS, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> windows_core::WIN32_ERROR

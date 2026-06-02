@@ -1947,7 +1947,7 @@ impl IMAPIStatus {
         unsafe { (windows_core::Interface::vtable(self).ChangePassword)(windows_core::Interface::as_raw(self), lpoldpass, lpnewpass, ulflags).ok() }
     }
     pub unsafe fn FlushQueues(&self, uluiparam: Option<usize>, lptargettransport: Option<&[ENTRYID]>, ulflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FlushQueues)(windows_core::Interface::as_raw(self), uluiparam.unwrap_or(core::mem::zeroed()) as _, lptargettransport.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lptargettransport.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FlushQueues)(windows_core::Interface::as_raw(self), uluiparam.unwrap_or(core::mem::zeroed()) as _, lptargettransport.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lptargettransport.map_or(core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok() }
     }
 }
 #[repr(C)]

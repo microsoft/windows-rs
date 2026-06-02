@@ -344,7 +344,7 @@ windows_core::imp::define_interface!(AsyncIIdentityAuthentication, AsyncIIdentit
 windows_core::imp::interface_hierarchy!(AsyncIIdentityAuthentication, windows_core::IUnknown);
 impl AsyncIIdentityAuthentication {
     pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Begin_SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Begin_SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn Finish_SetIdentityCredential(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Finish_SetIdentityCredential)(windows_core::Interface::as_raw(self)).ok() }
@@ -1267,7 +1267,7 @@ windows_core::imp::define_interface!(IIdentityAuthentication, IIdentityAuthentic
 windows_core::imp::interface_hierarchy!(IIdentityAuthentication, windows_core::IUnknown);
 impl IIdentityAuthentication {
     pub unsafe fn SetIdentityCredential(&self, credbuffer: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: Option<*mut Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> windows_core::Result<()> {

@@ -200,3 +200,176 @@ impl GradientStop {
         }
     }
 }
+
+// --- Stroke style ---
+
+/// Cap style applied to the start and end of stroked lines.
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum CapStyle {
+    /// Flat cap — line ends at the endpoint.
+    #[default]
+    Flat,
+    /// Square cap — extends half the stroke width beyond the endpoint.
+    Square,
+    /// Round cap — semicircle with diameter equal to stroke width.
+    Round,
+    /// Triangle cap — right triangle whose hypotenuse equals the stroke width.
+    Triangle,
+}
+
+impl CapStyle {
+    pub(crate) fn to_abi(self) -> bindings::D2D1_CAP_STYLE {
+        match self {
+            Self::Flat => bindings::D2D1_CAP_STYLE_FLAT,
+            Self::Square => bindings::D2D1_CAP_STYLE_SQUARE,
+            Self::Round => bindings::D2D1_CAP_STYLE_ROUND,
+            Self::Triangle => bindings::D2D1_CAP_STYLE_TRIANGLE,
+        }
+    }
+}
+
+/// Line join style for connected segments.
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum LineJoin {
+    /// Miter join (sharp point, clipped at miter limit).
+    #[default]
+    Miter,
+    /// Bevel join (flat diagonal cut).
+    Bevel,
+    /// Round join (arc between segments).
+    Round,
+}
+
+impl LineJoin {
+    pub(crate) fn to_abi(self) -> bindings::D2D1_LINE_JOIN {
+        match self {
+            Self::Miter => bindings::D2D1_LINE_JOIN_MITER,
+            Self::Bevel => bindings::D2D1_LINE_JOIN_BEVEL,
+            Self::Round => bindings::D2D1_LINE_JOIN_ROUND,
+        }
+    }
+}
+
+/// Dash pattern for stroked lines.
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum DashStyle {
+    /// Solid line (no dashes).
+    #[default]
+    Solid,
+    /// Dashes.
+    Dash,
+    /// Dots.
+    Dot,
+    /// Alternating dashes and dots.
+    DashDot,
+}
+
+impl DashStyle {
+    pub(crate) fn to_abi(self) -> bindings::D2D1_DASH_STYLE {
+        match self {
+            Self::Solid => bindings::D2D1_DASH_STYLE_SOLID,
+            Self::Dash => bindings::D2D1_DASH_STYLE_DASH,
+            Self::Dot => bindings::D2D1_DASH_STYLE_DOT,
+            Self::DashDot => bindings::D2D1_DASH_STYLE_DASH_DOT,
+        }
+    }
+}
+
+/// Describes how to draw the stroke for lines, outlines, and paths.
+///
+/// Create via [`StrokeStyleBuilder`] and [`crate::GpuDevice::create_stroke_style`].
+#[derive(Clone)]
+pub struct StrokeStyle(pub(crate) bindings::ID2D1StrokeStyle1);
+
+/// Builder for [`StrokeStyle`].
+///
+/// # Example
+/// ```ignore
+/// let style = device.create_stroke_style(
+///     StrokeStyleBuilder::new()
+///         .start_cap(CapStyle::Round)
+///         .end_cap(CapStyle::Round)
+///         .line_join(LineJoin::Round)
+/// )?;
+/// ```
+#[derive(Clone, Debug, Default)]
+pub struct StrokeStyleBuilder {
+    pub(crate) start_cap: CapStyle,
+    pub(crate) end_cap: CapStyle,
+    pub(crate) dash_cap: CapStyle,
+    pub(crate) line_join: LineJoin,
+    pub(crate) miter_limit: f32,
+    pub(crate) dash_style: DashStyle,
+    pub(crate) dash_offset: f32,
+}
+
+impl StrokeStyleBuilder {
+    pub fn new() -> Self {
+        Self {
+            miter_limit: 10.0,
+            ..Default::default()
+        }
+    }
+
+    /// Set the cap style for the start of lines.
+    pub fn start_cap(mut self, cap: CapStyle) -> Self {
+        self.start_cap = cap;
+        self
+    }
+
+    /// Set the cap style for the end of lines.
+    pub fn end_cap(mut self, cap: CapStyle) -> Self {
+        self.end_cap = cap;
+        self
+    }
+
+    /// Set the cap style for both start and end.
+    pub fn caps(mut self, cap: CapStyle) -> Self {
+        self.start_cap = cap;
+        self.end_cap = cap;
+        self
+    }
+
+    /// Set the cap style for dashes.
+    pub fn dash_cap(mut self, cap: CapStyle) -> Self {
+        self.dash_cap = cap;
+        self
+    }
+
+    /// Set the line join style.
+    pub fn line_join(mut self, join: LineJoin) -> Self {
+        self.line_join = join;
+        self
+    }
+
+    /// Set the miter limit (only applies to miter joins).
+    pub fn miter_limit(mut self, limit: f32) -> Self {
+        self.miter_limit = limit;
+        self
+    }
+
+    /// Set the dash style.
+    pub fn dash_style(mut self, style: DashStyle) -> Self {
+        self.dash_style = style;
+        self
+    }
+
+    /// Set the dash offset.
+    pub fn dash_offset(mut self, offset: f32) -> Self {
+        self.dash_offset = offset;
+        self
+    }
+
+    pub(crate) fn to_abi(&self) -> bindings::D2D1_STROKE_STYLE_PROPERTIES1 {
+        bindings::D2D1_STROKE_STYLE_PROPERTIES1 {
+            startCap: self.start_cap.to_abi(),
+            endCap: self.end_cap.to_abi(),
+            dashCap: self.dash_cap.to_abi(),
+            lineJoin: self.line_join.to_abi(),
+            miterLimit: self.miter_limit,
+            dashStyle: self.dash_style.to_abi(),
+            dashOffset: self.dash_offset,
+            transformType: 0,
+        }
+    }
+}

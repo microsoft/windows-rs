@@ -38,17 +38,7 @@ where
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> windows_core::WIN32_ERROR {
     windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> windows_core::WIN32_ERROR);
-    unsafe {
-        RmRegisterResources(
-            dwsessionhandle,
-            rgsfilenames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(rgsfilenames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            rgapplications.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(rgapplications.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            rgsservicenames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(rgsservicenames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        )
-    }
+    unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3) -> windows_core::WIN32_ERROR

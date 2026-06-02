@@ -612,7 +612,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegSetValueA(hkey : HKEY, lpsubkey : windows_core::PCSTR, dwtype : REG_VALUE_TYPE, lpdata : windows_core::PCSTR, cbdata : u32) -> windows_core::WIN32_ERROR);
-    unsafe { RegSetValueA(hkey, lpsubkey.param().abi(), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { RegSetValueA(hkey, lpsubkey.param().abi(), dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn RegSetValueExA<P1>(hkey: HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: REG_VALUE_TYPE, lpdata: Option<&[u8]>) -> windows_core::WIN32_ERROR
@@ -620,7 +620,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegSetValueExA(hkey : HKEY, lpvaluename : windows_core::PCSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> windows_core::WIN32_ERROR);
-    unsafe { RegSetValueExA(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { RegSetValueExA(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn RegSetValueExW<P1>(hkey: HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: REG_VALUE_TYPE, lpdata: Option<&[u8]>) -> windows_core::WIN32_ERROR
@@ -628,7 +628,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> windows_core::WIN32_ERROR);
-    unsafe { RegSetValueExW(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { RegSetValueExW(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn RegSetValueW<P1, P3>(hkey: HKEY, lpsubkey: P1, dwtype: REG_VALUE_TYPE, lpdata: P3, cbdata: u32) -> windows_core::WIN32_ERROR

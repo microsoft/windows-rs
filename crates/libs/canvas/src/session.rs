@@ -8,6 +8,7 @@ use crate::geometry::Path;
 use crate::text::TextFormat;
 use crate::types::{
     Brush, Ellipse, GradientStop, LinearGradient, Paint, RadialGradient, Rect, RoundedRect,
+    StrokeStyle,
 };
 use windows_numerics::Vector2;
 
@@ -46,11 +47,40 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draw a line with a stroke style.
+    pub fn draw_line_styled(
+        &self,
+        p0: Vector2,
+        p1: Vector2,
+        brush: &impl Paint,
+        width: f32,
+        style: &StrokeStyle,
+    ) {
+        unsafe {
+            self.context
+                .DrawLine(p0, p1, brush.as_raw_brush(), width, &style.0);
+        }
+    }
+
     /// Draw a rectangle outline.
     pub fn draw_rect(&self, rect: &Rect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
                 .DrawRectangle(&rect.to_abi(), brush.as_raw_brush(), width, None);
+        }
+    }
+
+    /// Draw a rectangle outline with a stroke style.
+    pub fn draw_rect_styled(
+        &self,
+        rect: &Rect,
+        brush: &impl Paint,
+        width: f32,
+        style: &StrokeStyle,
+    ) {
+        unsafe {
+            self.context
+                .DrawRectangle(&rect.to_abi(), brush.as_raw_brush(), width, &style.0);
         }
     }
 
@@ -70,6 +100,24 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draw a rounded rectangle outline with a stroke style.
+    pub fn draw_rounded_rect_styled(
+        &self,
+        rect: &RoundedRect,
+        brush: &impl Paint,
+        width: f32,
+        style: &StrokeStyle,
+    ) {
+        unsafe {
+            self.context.DrawRoundedRectangle(
+                &rect.to_abi(),
+                brush.as_raw_brush(),
+                width,
+                &style.0,
+            );
+        }
+    }
+
     /// Fill a rounded rectangle.
     pub fn fill_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint) {
         unsafe {
@@ -83,6 +131,20 @@ impl<'a> DrawingSession<'a> {
         unsafe {
             self.context
                 .DrawEllipse(&ellipse.to_abi(), brush.as_raw_brush(), width, None);
+        }
+    }
+
+    /// Draw an ellipse outline with a stroke style.
+    pub fn draw_ellipse_styled(
+        &self,
+        ellipse: &Ellipse,
+        brush: &impl Paint,
+        width: f32,
+        style: &StrokeStyle,
+    ) {
+        unsafe {
+            self.context
+                .DrawEllipse(&ellipse.to_abi(), brush.as_raw_brush(), width, &style.0);
         }
     }
 
@@ -180,6 +242,20 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draw a path geometry outline with a stroke style.
+    pub fn draw_path_styled(
+        &self,
+        path: &Path,
+        brush: &impl Paint,
+        width: f32,
+        style: &StrokeStyle,
+    ) {
+        unsafe {
+            self.context
+                .DrawGeometry(path.raw(), brush.as_raw_brush(), width, &style.0);
+        }
+    }
+
     /// Fill a path geometry.
     pub fn fill_path(&self, path: &Path, brush: &impl Paint) {
         unsafe {
@@ -207,7 +283,7 @@ impl<'a> DrawingSession<'a> {
     /// Load a bitmap from an image file (PNG, JPEG, BMP, etc.).
     ///
     /// Requires COM to be initialized. For best performance, load bitmaps once
-    /// (e.g. via [`SwapChain::load_bitmap`]) and reuse across frames.
+    /// (e.g. via [`crate::SwapChain::load_bitmap`]) and reuse across frames.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> windows_core::Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }

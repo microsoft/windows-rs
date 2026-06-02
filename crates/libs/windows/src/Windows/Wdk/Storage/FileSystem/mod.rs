@@ -1975,7 +1975,7 @@ pub unsafe fn NtAccessCheckByTypeAndAuditAlarm(
     generateonclose: *mut bool,
 ) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security::PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut bool) -> windows_core::NTSTATUS);
-    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2841,7 +2841,7 @@ where
 #[inline]
 pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: *mut CPTABLEINFO) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : *const u16, codepagetable : *mut CPTABLEINFO));
-    unsafe { RtlInitCodePageTable(core::mem::transmute(tablebase.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable as _) }
+    unsafe { RtlInitCodePageTable(core::mem::transmute(tablebase.map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable as _) }
 }
 #[inline]
 pub unsafe fn RtlInitUnicodeStringEx<P1>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P1) -> windows_core::NTSTATUS
@@ -3686,7 +3686,7 @@ pub unsafe fn ZwAccessCheckByTypeAndAuditAlarm(
     generateonclose: *mut bool,
 ) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security::PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut bool) -> windows_core::NTSTATUS);
-    unsafe { ZwAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+    unsafe { ZwAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]

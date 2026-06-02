@@ -880,7 +880,7 @@ pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: Option<&[Optio
     windows_core::link!("mfplat.dll" "system" fn MFCreatePresentationDescriptor(cstreamdescriptors : u32, apstreamdescriptors : *const *mut core::ffi::c_void, pppresentationdescriptor : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreatePresentationDescriptor(apstreamdescriptors.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apstreamdescriptors.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        MFCreatePresentationDescriptor(apstreamdescriptors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apstreamdescriptors.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -1357,7 +1357,7 @@ where
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateVirtualCamera(r#type : MFVirtualCameraType, lifetime : MFVirtualCameraLifetime, access : MFVirtualCameraAccess, friendlyname : windows_core::PCWSTR, sourceid : windows_core::PCWSTR, categories : *const windows_core::GUID, categorycount : u32, virtualcamera : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), core::mem::transmute(categories.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), categories.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), core::mem::transmute(categories.map_or(core::ptr::null(), |slice| slice.as_ptr())), categories.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -2007,7 +2007,7 @@ where
     P8: windows_core::Param<IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : windows_core::GUID, guidcategory : windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO, pattributes : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFTRegister(core::mem::transmute(clsidmft), core::mem::transmute(guidcategory), pszname.param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pattributes.param().abi()).ok() }
+    unsafe { MFTRegister(core::mem::transmute(clsidmft), core::mem::transmute(guidcategory), pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), pattributes.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -2017,7 +2017,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocal(pclassfactory : *mut core::ffi::c_void, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
-    unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
 pub unsafe fn MFTRegisterLocalByCLSID<P2>(clisdmft: *const windows_core::GUID, guidcategory: *const windows_core::GUID, pszname: P2, flags: u32, pinputtypes: Option<&[MFT_REGISTER_TYPE_INFO]>, poutputtypes: Option<&[MFT_REGISTER_TYPE_INFO]>) -> windows_core::Result<()>
@@ -2025,7 +2025,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocalByCLSID(clisdmft : *const windows_core::GUID, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
-    unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
 pub unsafe fn MFTUnregister(clsidmft: windows_core::GUID) -> windows_core::Result<()> {
@@ -2091,7 +2091,7 @@ where
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize(formattype: windows_core::GUID, pblock: Option<&[u8]>) -> windows_core::Result<()> {
     windows_core::link!("mfplat.dll" "system" fn MFValidateMediaTypeSize(formattype : windows_core::GUID, pblock : *const u8, cbsize : u32) -> windows_core::HRESULT);
-    unsafe { MFValidateMediaTypeSize(core::mem::transmute(formattype), core::mem::transmute(pblock.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pblock.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    unsafe { MFValidateMediaTypeSize(core::mem::transmute(formattype), core::mem::transmute(pblock.map_or(core::ptr::null(), |slice| slice.as_ptr())), pblock.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn MFWrapMediaType<P0>(porig: P0, majortype: *const windows_core::GUID, subtype: *const windows_core::GUID) -> windows_core::Result<IMFMediaType>
@@ -21227,7 +21227,7 @@ impl IMFContentDecryptorContext {
     pub unsafe fn InitializeHardwareKey(&self, inputprivatedata: Option<&[u8]>) -> windows_core::Result<u64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeHardwareKey)(windows_core::Interface::as_raw(self), inputprivatedata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(inputprivatedata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).InitializeHardwareKey)(windows_core::Interface::as_raw(self), inputprivatedata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(inputprivatedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
         }
     }
 }
@@ -23256,7 +23256,7 @@ impl IMFHttpDownloadRequest {
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginSendRequest)(windows_core::Interface::as_raw(self), core::mem::transmute(pbpayload.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbpayload.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcallback.param().abi(), punkstate.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BeginSendRequest)(windows_core::Interface::as_raw(self), core::mem::transmute(pbpayload.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbpayload.map_or(0, |slice| slice.len().try_into().unwrap()), pcallback.param().abi(), punkstate.param().abi()).ok() }
     }
     pub unsafe fn EndSendRequest<P0>(&self, presult: P0) -> windows_core::Result<()>
     where
@@ -25026,7 +25026,7 @@ windows_core::imp::interface_hierarchy!(IMFMediaEngineEMENotify, windows_core::I
 impl IMFMediaEngineEMENotify {
     pub unsafe fn Encrypted(&self, pbinitdata: Option<&[u8]>, bstrinitdatatype: &windows_core::BSTR) {
         unsafe {
-            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(pbinitdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype));
+            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(pbinitdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype));
         }
     }
     pub unsafe fn WaitingForKey(&self) {
@@ -25797,7 +25797,7 @@ windows_core::imp::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, windows_cor
 impl IMFMediaEngineNeedKeyNotify {
     pub unsafe fn NeedKey(&self, initdata: Option<&[u8]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), core::mem::transmute(initdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), core::mem::transmute(initdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.map_or(0, |slice| slice.len().try_into().unwrap()));
         }
     }
 }
@@ -27244,7 +27244,7 @@ impl IMFMediaKeys {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mimetype), core::mem::transmute(initdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(customdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), customdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), notify.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mimetype), core::mem::transmute(initdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(customdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), customdata.map_or(0, |slice| slice.len().try_into().unwrap()), notify.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn KeySystem(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -27354,7 +27354,7 @@ impl IMFMediaKeys2 {
         }
     }
     pub unsafe fn SetServerCertificate(&self, pbservercertificate: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(pbservercertificate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbservercertificate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(pbservercertificate.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbservercertificate.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn GetDOMException(&self, systemcode: windows_core::HRESULT) -> windows_core::Result<windows_core::HRESULT> {
         unsafe {
@@ -30396,7 +30396,7 @@ impl IMFOutputTrustAuthority {
         }
     }
     pub unsafe fn SetPolicy(&self, pppolicy: Option<&[Option<IMFOutputPolicy>]>, ppbticket: Option<*mut *mut u8>, pcbticket: Option<*mut u32>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pppolicy.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pppolicy.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppbticket.unwrap_or(core::mem::zeroed()) as _, pcbticket.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPolicy)(windows_core::Interface::as_raw(self), core::mem::transmute(pppolicy.map_or(core::ptr::null(), |slice| slice.as_ptr())), pppolicy.map_or(0, |slice| slice.len().try_into().unwrap()), ppbticket.unwrap_or(core::mem::zeroed()) as _, pcbticket.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -43097,7 +43097,7 @@ impl IOPMVideoOutput {
         unsafe { (windows_core::Interface::vtable(self).COPPCompatibleGetInformation)(windows_core::Interface::as_raw(self), pparameters, prequestedinformation as _).ok() }
     }
     pub unsafe fn Configure(&self, pparameters: *const OPM_CONFIGURE_PARAMETERS, pbadditionalparameters: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), pparameters, pbadditionalparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbadditionalparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), pparameters, pbadditionalparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbadditionalparameters.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]

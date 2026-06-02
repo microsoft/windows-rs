@@ -5,7 +5,6 @@
     non_upper_case_globals,
     non_camel_case_types,
     clippy::upper_case_acronyms,
-    clippy::useless_transmute,
     clippy::missing_transmute_annotations,
     clippy::missing_safety_doc,
     clippy::too_many_arguments
@@ -34,7 +33,8 @@ pub use session::DrawingSession;
 pub use swap_chain::SwapChain;
 pub use text::{FontWeight, ParagraphAlignment, TextAlignment, TextFormat};
 pub use types::{
-    Brush, Ellipse, GradientStop, LinearGradient, Paint, RadialGradient, Rect, RoundedRect,
+    Brush, CapStyle, DashStyle, Ellipse, GradientStop, LineJoin, LinearGradient, Paint,
+    RadialGradient, Rect, RoundedRect, StrokeStyle, StrokeStyleBuilder,
 };
 
 pub use windows_core::{Error, Result};

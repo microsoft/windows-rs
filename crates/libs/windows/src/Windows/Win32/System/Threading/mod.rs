@@ -1620,12 +1620,12 @@ pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> windows_core::R
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: Option<&[super::SystemInformation::GROUP_AFFINITY]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSetMasks(process : super::super::Foundation::HANDLE, cpusetmasks : *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount : u16) -> windows_core::BOOL);
-    unsafe { SetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: Option<&[u32]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSets(process : super::super::Foundation::HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> windows_core::BOOL);
-    unsafe { SetProcessDefaultCpuSets(process, core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetProcessDefaultCpuSets(process, core::mem::transmute(cpusetids.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SetProcessDynamicEHContinuationTargets(process: super::super::Foundation::HANDLE, targets: &mut [PROCESS_DYNAMIC_EH_CONTINUATION_TARGET]) -> windows_core::Result<()> {
@@ -1721,7 +1721,7 @@ pub unsafe fn SetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, 
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: Option<&[super::SystemInformation::GROUP_AFFINITY]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSetMasks(thread : super::super::Foundation::HANDLE, cpusetmasks : *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount : u16) -> windows_core::BOOL);
-    unsafe { SetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: &[u32]) -> windows_core::BOOL {

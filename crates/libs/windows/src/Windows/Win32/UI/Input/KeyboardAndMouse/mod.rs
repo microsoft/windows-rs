@@ -202,17 +202,17 @@ pub unsafe fn SwapMouseButton(fswap: bool) -> windows_core::BOOL {
 #[inline]
 pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToAscii(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32) -> i32);
-    unsafe { ToAscii(uvirtkey, uscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar as _, uflags) }
+    unsafe { ToAscii(uvirtkey, uscancode, core::mem::transmute(lpkeystate.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar as _, uflags) }
 }
 #[inline]
 pub unsafe fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32, dwhkl: Option<HKL>) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32, dwhkl : HKL) -> i32);
-    unsafe { ToAsciiEx(uvirtkey, uscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar as _, uflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ToAsciiEx(uvirtkey, uscancode, core::mem::transmute(lpkeystate.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar as _, uflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
-    unsafe { ToUnicode(wvirtkey, wscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags) }
+    unsafe { ToUnicode(wvirtkey, wscancode, core::mem::transmute(lpkeystate.map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags) }
 }
 #[inline]
 pub unsafe fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: Option<HKL>) -> i32 {

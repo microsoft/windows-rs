@@ -339,7 +339,7 @@ pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GU
     windows_core::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const windows_core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
+        WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
     }
 }
 #[inline]

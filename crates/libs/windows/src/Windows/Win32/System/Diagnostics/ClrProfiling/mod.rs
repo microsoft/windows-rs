@@ -1368,7 +1368,7 @@ impl core::ops::Deref for ICorProfilerCallback2 {
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, windows_core::IUnknown, ICorProfilerCallback);
 impl ICorProfilerCallback2 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: Option<&[u16]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(name.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[windows_core::BOOL], reason: COR_PRF_GC_REASON) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GarbageCollectionStarted)(windows_core::Interface::as_raw(self), generationcollected.len().try_into().unwrap(), core::mem::transmute(generationcollected.as_ptr()), reason).ok() }

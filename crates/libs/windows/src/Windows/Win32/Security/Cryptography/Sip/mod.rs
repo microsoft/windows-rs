@@ -19,7 +19,7 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP
 #[inline]
 pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: Option<&[u8]>, pbdigest: Option<*mut u8>, pcbdigest: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> windows_core::BOOL);
-    unsafe { CryptSIPGetSealedDigest(psubjectinfo, core::mem::transmute(psig.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psig.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbdigest.unwrap_or(core::mem::zeroed()) as _, pcbdigest as _) }
+    unsafe { CryptSIPGetSealedDigest(psubjectinfo, core::mem::transmute(psig.map_or(core::ptr::null(), |slice| slice.as_ptr())), psig.map_or(0, |slice| slice.len().try_into().unwrap()), pbdigest.unwrap_or(core::mem::zeroed()) as _, pcbdigest as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]

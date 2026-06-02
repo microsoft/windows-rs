@@ -343,7 +343,7 @@ pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservices
 #[inline]
 pub unsafe fn StartServiceA(hservice: SC_HANDLE, lpserviceargvectors: Option<&[windows_core::PCSTR]>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn StartServiceA(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { StartServiceA(hservice, lpserviceargvectors.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpserviceargvectors.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { StartServiceA(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
 pub unsafe fn StartServiceCtrlDispatcherA(lpservicestarttable: *const SERVICE_TABLE_ENTRYA) -> windows_core::Result<()> {
@@ -358,7 +358,7 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 #[inline]
 pub unsafe fn StartServiceW(hservice: SC_HANDLE, lpserviceargvectors: Option<&[windows_core::PCWSTR]>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn StartServiceW(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { StartServiceW(hservice, lpserviceargvectors.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpserviceargvectors.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { StartServiceW(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
 pub unsafe fn SubscribeServiceChangeNotifications(hservice: SC_HANDLE, eeventtype: SC_EVENT_TYPE, pcallback: PSC_NOTIFICATION_CALLBACK, pcallbackcontext: Option<*const core::ffi::c_void>, psubscription: *mut PSC_NOTIFICATION_REGISTRATION) -> u32 {

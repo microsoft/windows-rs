@@ -1605,7 +1605,7 @@ impl core::ops::Deref for IMDSPStorage4 {
 windows_core::imp::interface_hierarchy!(IMDSPStorage4, windows_core::IUnknown, IMDSPStorage, IMDSPStorage2, IMDSPStorage3);
 impl IMDSPStorage4 {
     pub unsafe fn SetReferences(&self, ppispstorage: Option<&[Option<IMDSPStorage>]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetReferences)(windows_core::Interface::as_raw(self), ppispstorage.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppispstorage.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetReferences)(windows_core::Interface::as_raw(self), ppispstorage.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppispstorage.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetReferences)(windows_core::Interface::as_raw(self), pdwrefs as _, pppispstorage as _).ok() }
@@ -3243,10 +3243,10 @@ windows_core::imp::define_interface!(IWMDMDeviceSession, IWMDMDeviceSession_Vtbl
 windows_core::imp::interface_hierarchy!(IWMDMDeviceSession, windows_core::IUnknown);
 impl IWMDMDeviceSession {
     pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pctx.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pctx.map_or(core::ptr::null(), |slice| slice.as_ptr())), pctx.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EndSession)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pctx.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EndSession)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pctx.map_or(core::ptr::null(), |slice| slice.as_ptr())), pctx.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
 }
 #[repr(C)]
@@ -3618,7 +3618,7 @@ impl IWMDMMetaData {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), r#type, pwsztagname.param().abi(), core::mem::transmute(pvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), r#type, pwsztagname.param().abi(), core::mem::transmute(pvalue.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalue.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn QueryByName<P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>
     where
@@ -4613,7 +4613,7 @@ impl IWMDMStorage3 {
         }
     }
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: Option<&[WMDMMetadataView]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnumPreference)(windows_core::Interface::as_raw(self), pmode as _, pviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEnumPreference)(windows_core::Interface::as_raw(self), pmode as _, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviews.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]
@@ -4695,7 +4695,7 @@ impl core::ops::Deref for IWMDMStorage4 {
 windows_core::imp::interface_hierarchy!(IWMDMStorage4, windows_core::IUnknown, IWMDMStorage, IWMDMStorage2, IWMDMStorage3);
 impl IWMDMStorage4 {
     pub unsafe fn SetReferences(&self, ppiwmdmstorage: Option<&[Option<IWMDMStorage>]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetReferences)(windows_core::Interface::as_raw(self), ppiwmdmstorage.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppiwmdmstorage.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetReferences)(windows_core::Interface::as_raw(self), ppiwmdmstorage.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppiwmdmstorage.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetReferences)(windows_core::Interface::as_raw(self), pdwrefs as _, pppiwmdmstorage as _).ok() }

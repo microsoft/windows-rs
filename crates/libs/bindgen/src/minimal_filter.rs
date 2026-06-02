@@ -33,6 +33,10 @@ pub struct MinimalFilter {
 
     /// Types directly included (no `::` — free functions, structs, enums, etc.).
     pub types: Vec<(&'static str, &'static str)>,
+
+    /// Enums with specific variants requested.
+    /// Key: (namespace, type_name), Value: requested variant names (or `All`).
+    pub enum_variants: HashMap<(&'static str, &'static str), MethodSet>,
 }
 
 /// Which methods are requested on an interface.
@@ -134,6 +138,14 @@ impl MinimalFilter {
                                         .or_insert(MethodSet::All);
                                 }
                             }
+                            Type::Enum(_) | Type::CppEnum(_) => {
+                                filter
+                                    .enum_variants
+                                    .insert((resolved_ns, resolved_name), MethodSet::All);
+                                if !filter.types.contains(&(resolved_ns, resolved_name)) {
+                                    filter.types.push((resolved_ns, resolved_name));
+                                }
+                            }
                             _ => {
                                 filter
                                     .interfaces
@@ -215,6 +227,16 @@ impl MinimalFilter {
         self.interfaces.contains_key(&(namespace, name))
     }
 
+    /// Returns the variant filter for a given enum, if one was specified.
+    /// Returns `None` if the enum was included as a plain type (all variants).
+    pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&MethodSet> {
+        // The keys are &'static str but we need to look up by &str.
+        self.enum_variants
+            .iter()
+            .find(|((ns, n), _)| *ns == namespace && *n == name)
+            .map(|(_, v)| v)
+    }
+
     fn insert_method(&mut self, key: (&'static str, &'static str), name: String) {
         let set = self
             .interfaces
@@ -229,6 +251,20 @@ impl MinimalFilter {
                 names.insert(name);
                 *set = MethodSet::Names(names);
             }
+            MethodSet::Names(names) => {
+                names.insert(name);
+            }
+        }
+    }
+
+    fn insert_enum_variant(&mut self, key: (&'static str, &'static str), name: String) {
+        let set = self
+            .enum_variants
+            .entry(key)
+            .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+
+        match set {
+            MethodSet::All => {}
             MethodSet::Names(names) => {
                 names.insert(name);
             }
@@ -332,9 +368,37 @@ impl MinimalFilter {
                     }
                 }
             }
+            Type::Enum(e) => {
+                assert!(
+                    e.def
+                        .fields()
+                        .any(|f| f.flags().contains(FieldAttributes::Literal)
+                            && f.name() == method_name),
+                    "variant `{method_name}` not found on enum `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
+                self.insert_enum_variant((resolved_ns, resolved_name), method_name.to_string());
+                if !self.types.contains(&(resolved_ns, resolved_name)) {
+                    self.types.push((resolved_ns, resolved_name));
+                }
+            }
+            Type::CppEnum(e) => {
+                assert!(
+                    e.def
+                        .fields()
+                        .any(|f| f.flags().contains(FieldAttributes::Literal)
+                            && f.name() == method_name),
+                    "variant `{method_name}` not found on enum `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
+                self.insert_enum_variant((resolved_ns, resolved_name), method_name.to_string());
+                if !self.types.contains(&(resolved_ns, resolved_name)) {
+                    self.types.push((resolved_ns, resolved_name));
+                }
+            }
             _ => panic!(
                 "type `{type_part}` is not an interface, delegate, \
-                 or class (in filter entry `{entry}`)"
+                 enum, or class (in filter entry `{entry}`)"
             ),
         }
     }

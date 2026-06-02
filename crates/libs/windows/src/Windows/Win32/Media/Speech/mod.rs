@@ -3993,7 +3993,7 @@ impl ISpRecoGrammar {
         unsafe { (windows_core::Interface::vtable(self).SetDictationState)(windows_core::Interface::as_raw(self), newstate).ok() }
     }
     pub unsafe fn SetWordSequenceData(&self, ptext: Option<&[u16]>, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(ptext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(ptext.map_or(core::ptr::null(), |slice| slice.as_ptr())), ptext.map_or(0, |slice| slice.len().try_into().unwrap()), pinfo).ok() }
     }
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTextSelection)(windows_core::Interface::as_raw(self), pinfo).ok() }

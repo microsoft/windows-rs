@@ -422,11 +422,14 @@ fn view(cx: &mut RenderCx) -> Element {
 |---------|--------|-------|
 | Frame loop via `animated_canvas()` | ✅ Implemented | Vsync-locked via `CompositionTarget::Rendering` |
 | Device-lost recovery | ✅ Implemented | Automatic `RenderState::rebuild()` |
+| DPI-aware rendering | ✅ Implemented | `SetMatrixTransform` + `SetDpi` for crisp output at all scales |
+| Stroke styles (caps, joins, dashes) | ✅ Implemented | `StrokeStyleBuilder` + `draw_*_styled()` methods |
 | `canvas()` (invalidate-on-demand) | ❌ Deferred | Roadmap item #9; needs `ISurfaceImageSource` |
 | Timing/elapsed args in DrawContext | ❌ Not yet | Apps must use `Instant::now()` externally |
 | Fixed timestep option | ❌ Not yet | Win2D has `IsFixedTimeStep` |
 | Update/draw separation | ❌ Not yet | Single closure model |
 | Background render thread | ❌ Not yet | Runs on UI thread via Rendering event |
+| Drop shadow effect | ❌ Not yet | D2D has shadow effects; not exposed in canvas |
 | Built-in easing/tween helpers | ❌ Not yet | Possible lightweight addition (see below) |
 
 ---

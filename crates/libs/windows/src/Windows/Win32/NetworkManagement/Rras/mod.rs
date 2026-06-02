@@ -586,7 +586,7 @@ pub unsafe fn MprConfigInterfaceTransportRemove(hmprconfig: super::super::Founda
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: Option<&[u8]>) -> u32 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportSetInfo(hmprconfig : super::super::Foundation::HANDLE, hrouterinterface : super::super::Foundation::HANDLE, hrouteriftransport : super::super::Foundation::HANDLE, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
-    unsafe { MprConfigInterfaceTransportSetInfo(hmprconfig, hrouterinterface, hrouteriftransport, core::mem::transmute(pinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MprConfigInterfaceTransportSetInfo(hmprconfig, hrouterinterface, hrouteriftransport, core::mem::transmute(pinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn MprConfigServerBackup<P1>(hmprconfig: super::super::Foundation::HANDLE, lpwspath: P1) -> u32
@@ -656,7 +656,7 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::super::Foundation::HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR, phroutertransport : *mut super::super::Foundation::HANDLE) -> u32);
-    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi(), phroutertransport as _) }
+    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), core::mem::transmute(pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi(), phroutertransport as _) }
 }
 #[inline]
 pub unsafe fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32 {
@@ -684,7 +684,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation::HANDLE, hroutertransport : super::super::Foundation::HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
-    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, core::mem::transmute(pglobalinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi()) }
+    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, core::mem::transmute(pglobalinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi()) }
 }
 #[inline]
 pub unsafe fn MprInfoBlockAdd(lpheader: *const core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut core::ffi::c_void) -> u32 {

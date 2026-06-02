@@ -92,12 +92,12 @@ impl IWCNDevice {
                 windows_core::Interface::as_raw(self),
                 r#type,
                 dwoobpasswordid,
-                pbpassword.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                core::mem::transmute(pbpassword.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-                pbremotepublickeyhash.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                core::mem::transmute(pbremotepublickeyhash.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-                pbdhkeyblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                core::mem::transmute(pbdhkeyblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbpassword.map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbpassword.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbremotepublickeyhash.map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbremotepublickeyhash.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbdhkeyblob.map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbdhkeyblob.map_or(core::ptr::null(), |slice| slice.as_ptr())),
             )
             .ok()
         }

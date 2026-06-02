@@ -408,13 +408,13 @@ pub unsafe fn JetDupSession(sesid: JET_SESID, psesid: *mut JET_SESID) -> i32 {
 #[inline]
 pub unsafe fn JetEnableMultiInstanceA(psetsysparam: Option<&[JET_SETSYSPARAM_A]>, pcsetsucceed: Option<*mut u32>) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
-    unsafe { JetEnableMultiInstanceA(core::mem::transmute(psetsysparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstanceA(core::mem::transmute(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEnableMultiInstanceW(psetsysparam: Option<&[JET_SETSYSPARAM_W]>, pcsetsucceed: Option<*mut u32>) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceW(psetsysparam : *const JET_SETSYSPARAM_W, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
-    unsafe { JetEnableMultiInstanceW(core::mem::transmute(psetsysparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstanceW(core::mem::transmute(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn JetEndExternalBackup() -> i32 {
@@ -440,7 +440,7 @@ pub unsafe fn JetEndSession(sesid: JET_SESID, grbit: u32) -> i32 {
 #[inline]
 pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgenumcolumnid: Option<&[JET_ENUMCOLUMNID]>, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Option<*const core::ffi::c_void>, cbdatamost: u32, grbit: u32) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : super::StructuredStorage::JET_TABLEID, cenumcolumnid : u32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut u32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : *const core::ffi::c_void, cbdatamost : u32, grbit : u32) -> i32);
-    unsafe { JetEnumerateColumns(sesid, tableid, rgenumcolumnid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgenumcolumnid.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext.unwrap_or(core::mem::zeroed()) as _, cbdatamost, grbit) }
+    unsafe { JetEnumerateColumns(sesid, tableid, rgenumcolumnid.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgenumcolumnid.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext.unwrap_or(core::mem::zeroed()) as _, cbdatamost, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -451,22 +451,22 @@ pub unsafe fn JetEscrowUpdate(sesid: JET_SESID, tableid: super::StructuredStorag
 #[inline]
 pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: Option<&[JET_RSTMAP_A]>, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: Option<*const i8>, sztargetinstancelogpath: Option<*const i8>, sztargetinstancecheckpointpath: Option<*const i8>, pfn: JET_PFNSTATUS) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const i8, sztargetinstancelogpath : *const i8, sztargetinstancecheckpointpath : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestore2A(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo as _, sztargetinstancename.unwrap_or(core::mem::zeroed()) as _, sztargetinstancelogpath.unwrap_or(core::mem::zeroed()) as _, sztargetinstancecheckpointpath.unwrap_or(core::mem::zeroed()) as _, pfn) }
+    unsafe { JetExternalRestore2A(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo as _, sztargetinstancename.unwrap_or(core::mem::zeroed()) as _, sztargetinstancelogpath.unwrap_or(core::mem::zeroed()) as _, sztargetinstancecheckpointpath.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
 pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: Option<&[JET_RSTMAP_W]>, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: Option<*const u16>, sztargetinstancelogpath: Option<*const u16>, sztargetinstancecheckpointpath: Option<*const u16>, pfn: JET_PFNSTATUS) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetExternalRestore2W(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : *const u16, sztargetinstancelogpath : *const u16, sztargetinstancecheckpointpath : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestore2W(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo as _, sztargetinstancename.unwrap_or(core::mem::zeroed()) as _, sztargetinstancelogpath.unwrap_or(core::mem::zeroed()) as _, sztargetinstancecheckpointpath.unwrap_or(core::mem::zeroed()) as _, pfn) }
+    unsafe { JetExternalRestore2W(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo as _, sztargetinstancename.unwrap_or(core::mem::zeroed()) as _, sztargetinstancelogpath.unwrap_or(core::mem::zeroed()) as _, sztargetinstancecheckpointpath.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
 pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: Option<&[JET_RSTMAP_A]>, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestoreA(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, genlow, genhigh, pfn) }
+    unsafe { JetExternalRestoreA(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, genlow, genhigh, pfn) }
 }
 #[inline]
 pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: Option<&[JET_RSTMAP_W]>, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestoreW(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, genlow, genhigh, pfn) }
+    unsafe { JetExternalRestoreW(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, genlow, genhigh, pfn) }
 }
 #[inline]
 pub unsafe fn JetFreeBuffer(pbbuf: *mut i8) -> i32 {
@@ -1088,7 +1088,7 @@ pub unsafe fn JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: u32, sztablename
 #[inline]
 pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, psetcolumn: Option<&[JET_SETCOLUMN]>) -> i32 {
     windows_core::link!("esent.dll" "system" fn JetSetColumns(sesid : JET_SESID, tableid : super::StructuredStorage::JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : u32) -> i32);
-    unsafe { JetSetColumns(sesid, tableid, core::mem::transmute(psetcolumn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetcolumn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { JetSetColumns(sesid, tableid, core::mem::transmute(psetcolumn.map_or(core::ptr::null(), |slice| slice.as_ptr())), psetcolumn.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]

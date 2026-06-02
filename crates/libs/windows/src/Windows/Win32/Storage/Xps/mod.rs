@@ -42,13 +42,13 @@ pub unsafe fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
 #[inline]
 pub unsafe fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, pvin: Option<&[u8]>, pvout: Option<*mut core::ffi::c_void>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi::HDC, iescape : i32, cjin : i32, pvin : windows_core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
-    unsafe { Escape(hdc, iescape, pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { Escape(hdc, iescape, pvin.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, lpindata: Option<&[u8]>, lpoutdata: Option<&mut [u8]>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi::HDC, iescape : i32, cjinput : i32, lpindata : windows_core::PCSTR, cjoutput : i32, lpoutdata : windows_core::PSTR) -> i32);
-    unsafe { ExtEscape(hdc, iescape, lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { ExtEscape(hdc, iescape, lpindata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]

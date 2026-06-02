@@ -5929,7 +5929,7 @@ impl core::ops::Deref for IDXGISwapChain4 {
 windows_core::imp::interface_hierarchy!(IDXGISwapChain4, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
 impl IDXGISwapChain4 {
     pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, pmetadata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pmetadata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, pmetadata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pmetadata.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]

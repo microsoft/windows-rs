@@ -1567,7 +1567,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::super::Foundation::HANDLE, pszdataname : windows_core::PCWSTR, pinputdata : *const u8, cbinputdata : u32, poutputdata : *mut u8, cboutputdata : u32, pcboutputneeded : *mut u32, pdwstatus : *mut u32) -> windows_core::BOOL);
-    unsafe { XcvDataW(hxcv, pszdataname.param().abi(), core::mem::transmute(pinputdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pinputdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcboutputneeded as _, pdwstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { XcvDataW(hxcv, pszdataname.param().abi(), core::mem::transmute(pinputdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinputdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcboutputneeded as _, pdwstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -5919,19 +5919,7 @@ impl core::ops::Deref for IPrintCoreUI2 {
 windows_core::imp::interface_hierarchy!(IPrintCoreUI2, windows_core::IUnknown, IPrintOemDriverUI);
 impl IPrintCoreUI2 {
     pub unsafe fn GetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: Option<u32>, pmszfeaturesrequested: Option<&[u8]>, pmszfeatureoptionbuf: Option<&mut [u8]>, pcbneeded: *mut u32) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).GetOptions)(
-                windows_core::Interface::as_raw(self),
-                poemuiobj,
-                dwflags.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(pmszfeaturesrequested.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-                pmszfeaturesrequested.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                core::mem::transmute(pmszfeatureoptionbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-                pmszfeatureoptionbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                pcbneeded as _,
-            )
-            .ok()
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), poemuiobj, dwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pmszfeaturesrequested.map_or(core::ptr::null(), |slice| slice.as_ptr())), pmszfeaturesrequested.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pmszfeatureoptionbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pmszfeatureoptionbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded as _).ok() }
     }
     pub unsafe fn SetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeatureoptionbuf: &[u8]) -> windows_core::Result<u32> {
         unsafe {

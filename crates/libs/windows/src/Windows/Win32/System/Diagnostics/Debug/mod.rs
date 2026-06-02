@@ -579,7 +579,7 @@ where
 #[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: Option<&[usize]>) {
     windows_core::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
-    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -906,7 +906,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::super::super::Foundation::HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> windows_core::BOOL);
-    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn SymAddSourceStreamA<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: P2, buffer: Option<&[u8]>) -> windows_core::BOOL
@@ -914,7 +914,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::super::super::Foundation::HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> windows_core::BOOL);
-    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SymAddSourceStreamW<P2>(hprocess: super::super::super::Foundation::HANDLE, base: u64, filespec: P2, buffer: Option<&[u8]>) -> windows_core::Result<()>
@@ -922,7 +922,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::super::super::Foundation::HANDLE, base : u64, filespec : windows_core::PCWSTR, buffer : *const u8, size : usize) -> windows_core::BOOL);
-    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn SymAddSymbol<P2>(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: P2, address: u64, size: u32, flags: u32) -> windows_core::Result<()>

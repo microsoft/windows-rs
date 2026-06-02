@@ -5,8 +5,8 @@ use crate::bindings::*;
 
 /// A GPU-resident bitmap that can be drawn to the canvas.
 ///
-/// Load from a file with [`SwapChain::load_bitmap`] and draw with
-/// [`DrawingSession::draw_bitmap`].
+/// Load from a file with [`crate::SwapChain::load_bitmap`] and draw with
+/// [`crate::DrawingSession::draw_bitmap`].
 #[derive(Clone)]
 pub struct Bitmap(pub(crate) ID2D1Bitmap);
 
