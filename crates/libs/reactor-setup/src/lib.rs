@@ -43,11 +43,25 @@ pub fn as_self_contained() {
             manifest_path.display()
         )
     });
-    println!("cargo:rustc-link-arg-bins=/MANIFEST:EMBED");
-    println!(
-        "cargo:rustc-link-arg-bins=/MANIFESTINPUT:{}",
-        manifest_path.display()
-    );
+    let target_env = env::var("CARGO_CFG_TARGET_ENV").expect("CARGO_CFG_TARGET_ENV not set");
+    let target_abi = env::var("CARGO_CFG_TARGET_ABI").unwrap_or_default();
+    match (target_env.as_str(), target_abi.as_str()) {
+        ("msvc", _) => {
+            println!("cargo:rustc-link-arg-bins=/MANIFEST:EMBED");
+            println!(
+                "cargo:rustc-link-arg-bins=/MANIFESTINPUT:{}",
+                manifest_path.display()
+            );
+        }
+        ("gnu", "llvm") => {
+            println!("cargo:rustc-link-arg-bins=-Wl,/MANIFEST:EMBED");
+            println!(
+                "cargo:rustc-link-arg-bins=-Wl,/MANIFESTINPUT:{}",
+                manifest_path.display()
+            );
+        }
+        _ => panic!("unsupported target environment: {target_env}{target_abi}"),
+    }
 }
 
 fn out_dir() -> PathBuf {
