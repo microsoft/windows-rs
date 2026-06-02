@@ -20513,7 +20513,6 @@ unsafe impl Sync for NavigationView {}
 pub struct NavigationViewBackButtonVisible(pub i32);
 impl NavigationViewBackButtonVisible {
     pub const Collapsed: Self = Self(0i32);
-    pub const Visible: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
 }
 impl windows_core::TypeKind for NavigationViewBackButtonVisible {
@@ -25240,7 +25239,6 @@ pub struct TitleBarHeightOption(pub i32);
 impl TitleBarHeightOption {
     pub const Standard: Self = Self(0i32);
     pub const Tall: Self = Self(1i32);
-    pub const Collapsed: Self = Self(2i32);
 }
 impl windows_core::TypeKind for TitleBarHeightOption {
     type TypeKind = windows_core::CopyType;
@@ -25254,7 +25252,6 @@ impl windows_core::RuntimeType for TitleBarHeightOption {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TitleBarTheme(pub i32);
 impl TitleBarTheme {
-    pub const Legacy: Self = Self(0i32);
     pub const UseDefaultAppMode: Self = Self(1i32);
     pub const Light: Self = Self(2i32);
     pub const Dark: Self = Self(3i32);

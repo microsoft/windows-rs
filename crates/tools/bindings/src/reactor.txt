@@ -53,8 +53,8 @@ Microsoft.UI.Windowing.IAppWindow2::{ResizeClient, get_ClientSize}
 Microsoft.UI.Windowing.IAppWindowTitleBar2::{put_PreferredHeightOption}
 Microsoft.UI.Windowing.IAppWindowTitleBar3::{put_PreferredTheme}
 Microsoft.UI.Windowing.IOverlappedPresenter3::{put_PreferredMinimumWidth, put_PreferredMinimumHeight, put_PreferredMaximumWidth, put_PreferredMaximumHeight}
-Microsoft.UI.Windowing.TitleBarHeightOption
-Microsoft.UI.Windowing.TitleBarTheme
+Microsoft.UI.Windowing.TitleBarHeightOption::{Standard, Tall}
+Microsoft.UI.Windowing.TitleBarTheme::{UseDefaultAppMode, Light, Dark}
 Microsoft.UI.Xaml.Application::{get_Current, Start}
 Microsoft.UI.Xaml.ApplicationInitializationCallback
 Microsoft.UI.Xaml.Automation.AutomationProperties::{SetAutomationId, SetHeadingLevel, SetHelpText, SetLiveSetting, SetName}
@@ -204,7 +204,7 @@ Microsoft.UI.Xaml.Controls.MenuFlyoutItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuFlyoutSeparator::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.NavigationView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible
+Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible::{Collapsed, Auto}
 Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs
 Microsoft.UI.Xaml.Controls.NavigationViewItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.NavigationViewItemHeader::{CreateInstance}
