@@ -1,0 +1,74 @@
+--out crates/libs/canvas/src/bindings.rs
+--flat --minimal
+
+--filter
+    Windows.Win32.Graphics.Direct3D11.D3D11CreateDevice
+    Windows.Win32.Graphics.Direct3D11.D3D11_CREATE_DEVICE_BGRA_SUPPORT
+    Windows.Win32.Graphics.Direct3D11.D3D11_SDK_VERSION
+    Windows.Win32.Graphics.Direct3D.D3D_DRIVER_TYPE_HARDWARE
+    Windows.Win32.Graphics.Direct3D.D3D_DRIVER_TYPE_WARP
+    Windows.Win32.Graphics.Direct3D.D3D_FEATURE_LEVEL_11_0
+    Windows.Win32.Graphics.Dxgi.DXGI_SWAP_CHAIN_DESC1
+    Windows.Win32.Graphics.Dxgi.DXGI_USAGE_RENDER_TARGET_OUTPUT
+    Windows.Win32.Graphics.Dxgi.DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL
+    Windows.Win32.Graphics.Dxgi.Common.DXGI_FORMAT_B8G8R8A8_UNORM
+    Windows.Win32.Graphics.Dxgi.Common.DXGI_FORMAT_UNKNOWN
+    Windows.Win32.Graphics.Dxgi.Common.DXGI_ALPHA_MODE_PREMULTIPLIED
+    Windows.Win32.Graphics.Direct2D.D2D1CreateFactory
+    Windows.Win32.Graphics.Direct2D.D2D1_FACTORY_TYPE_SINGLE_THREADED
+    Windows.Win32.Graphics.Direct2D.D2D1_DEVICE_CONTEXT_OPTIONS_NONE
+    Windows.Win32.Graphics.Direct2D.D2D1_BITMAP_OPTIONS_TARGET
+    Windows.Win32.Graphics.Direct2D.D2D1_BITMAP_OPTIONS_CANNOT_DRAW
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_ALPHA_MODE_PREMULTIPLIED
+    Windows.Win32.Graphics.Direct2D.D2D1_BITMAP_PROPERTIES1
+    Windows.Win32.Graphics.Direct2D.D2D1_ELLIPSE
+    Windows.Win32.Graphics.Direct2D.D2D1_ROUNDED_RECT
+    Windows.Win32.Graphics.Direct2D.D2D1_DRAW_TEXT_OPTIONS_NONE
+    Windows.Win32.Graphics.DirectWrite.DWriteCreateFactory
+    Windows.Win32.Graphics.DirectWrite.DWRITE_FACTORY_TYPE_SHARED
+    Windows.Win32.Graphics.DirectWrite.DWRITE_FONT_STYLE_NORMAL
+    Windows.Win32.Graphics.DirectWrite.DWRITE_FONT_STRETCH_NORMAL
+    Windows.Win32.Graphics.DirectWrite.DWRITE_TEXT_ALIGNMENT_LEADING
+    Windows.Win32.Graphics.DirectWrite.DWRITE_TEXT_ALIGNMENT_CENTER
+    Windows.Win32.Graphics.DirectWrite.DWRITE_TEXT_ALIGNMENT_TRAILING
+    Windows.Win32.Graphics.DirectWrite.DWRITE_PARAGRAPH_ALIGNMENT_NEAR
+    Windows.Win32.Graphics.DirectWrite.DWRITE_PARAGRAPH_ALIGNMENT_CENTER
+    Windows.Win32.Graphics.DirectWrite.DWRITE_PARAGRAPH_ALIGNMENT_FAR
+    Windows.Win32.Graphics.Dxgi.IDXGIDevice::{GetAdapter}
+    Windows.Win32.Graphics.Dxgi.IDXGIObject::{GetParent}
+    Windows.Win32.Graphics.Dxgi.IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
+    Windows.Win32.Graphics.Dxgi.IDXGISwapChain::{Present, GetBuffer, ResizeBuffers}
+    Windows.Win32.Graphics.Direct2D.ID2D1Factory1::{CreateDevice}
+    Windows.Win32.Graphics.Direct2D.ID2D1Device::{CreateDeviceContext}
+    Windows.Win32.Graphics.Direct2D.ID2D1DeviceContext::{CreateBitmapFromDxgiSurface, SetTarget, DrawBitmap}
+    Windows.Win32.Graphics.Direct2D.D2D1_INTERPOLATION_MODE_LINEAR
+    Windows.Win32.Graphics.Direct2D.ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, CreateBitmapFromWicBitmap, GetTransform, SetTransform}
+    Windows.Win32.Graphics.Direct2D.ID2D1SolidColorBrush::{SetColor}
+    Windows.Win32.Graphics.Direct2D.ID2D1Bitmap::{GetSize}
+    Windows.Win32.Graphics.Direct2D.D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES
+    Windows.Win32.Graphics.Direct2D.D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_GRADIENT_STOP
+    Windows.Win32.Graphics.Direct2D.D2D1_GAMMA_2_2
+    Windows.Win32.Graphics.Direct2D.D2D1_EXTEND_MODE_CLAMP
+    Windows.Win32.Graphics.Direct2D.ID2D1Factory1::{CreatePathGeometry}
+    Windows.Win32.Graphics.Direct2D.ID2D1PathGeometry::{Open}
+    Windows.Win32.Graphics.Direct2D.Common.ID2D1SimplifiedGeometrySink::{BeginFigure, EndFigure, Close}
+    Windows.Win32.Graphics.Direct2D.ID2D1GeometrySink::{AddLine, AddBezier}
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_FIGURE_BEGIN_FILLED
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_FIGURE_BEGIN_HOLLOW
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_FIGURE_END_CLOSED
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_FIGURE_END_OPEN
+    Windows.Win32.Graphics.Direct2D.Common.D2D1_BEZIER_SEGMENT
+    Windows.Win32.Graphics.DirectWrite.IDWriteFactory::{CreateTextFormat}
+    Windows.Win32.Graphics.DirectWrite.IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment}
+    Windows.Win32.Graphics.Imaging.CLSID_WICImagingFactory
+    Windows.Win32.Graphics.Imaging.IWICImagingFactory::{CreateDecoderFromFilename, CreateFormatConverter}
+    Windows.Win32.Graphics.Imaging.IWICBitmapDecoder::{GetFrame}
+    Windows.Win32.Graphics.Imaging.IWICFormatConverter::{Initialize}
+    Windows.Win32.Graphics.Imaging.GUID_WICPixelFormat32bppPBGRA
+    Windows.Win32.Graphics.Imaging.WICDecodeMetadataCacheOnDemand
+    Windows.Win32.Graphics.Imaging.WICBitmapDitherTypeNone
+    Windows.Win32.Graphics.Imaging.WICBitmapPaletteTypeMedianCut
+    Windows.Win32.System.Com.CoCreateInstance
+    Windows.Win32.System.Com.CLSCTX_INPROC_SERVER
+    Windows.Win32.Foundation.GENERIC_READ

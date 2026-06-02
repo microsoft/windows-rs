@@ -1,0 +1,25 @@
+[package]
+name = "windows-canvas"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Windows 2D graphics library"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[features]
+default = []
+reactor = ["windows-reactor"]
+
+[dependencies]
+windows-core = { workspace = true }
+windows-numerics = { workspace = true }
+
+[dependencies.windows-reactor]
+workspace = true
+optional = true
+
+[lints]
+workspace = true

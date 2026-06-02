@@ -41,6 +41,12 @@ re-proposed.
   etc., documented at lib.rs ~115–165): rich on purpose. A real DSL with
   documented escape hatches is better than an expanding set of top-level
   flags.
+- **`--minimal` + COM interfaces**: In minimal mode, the dependency check
+  for method emission is skipped. The type closure computed by
+  `MinimalTypeMap::build` is authoritative — if a method is explicitly in
+  the filter, its types are already in the map. The `dependencies.included()`
+  guard only applies in non-minimal mode where the full transitive closure
+  may not cover every method on every included interface.
 - **`--package` vs `--flat` vs default modules** are three distinct output
   topologies driving different writer code paths. Already modelled as a
   `Layout` enum; collapsing further would force the writer to fork on

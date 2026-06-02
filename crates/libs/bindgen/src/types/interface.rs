@@ -82,7 +82,8 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            !method.dependencies.included(config) || !config.includes_method(type_name, def)
+            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+                || !config.includes_method(type_name, def)
         })
     }
 

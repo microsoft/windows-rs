@@ -78,6 +78,8 @@ jobs:
         run:  cargo check -p windows --no-default-features
       - name: Check windows-bindgen
         run:  cargo check -p windows-bindgen --no-default-features
+      - name: Check windows-canvas
+        run:  cargo check -p windows-canvas --no-default-features
       - name: Check windows-collections
         run:  cargo check -p windows-collections --no-default-features
       - name: Check windows-core

@@ -20,6 +20,7 @@ fn main() {
 
     _ = bindgen(["--etc", "crates/tools/bindings/src/sys.txt"]);
     _ = bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
+    _ = bindgen(["--etc", "crates/tools/bindings/src/canvas.txt"]);
     reactor();
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());

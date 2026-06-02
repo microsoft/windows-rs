@@ -5,6 +5,7 @@ use windows_core::Interface;
 
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
 /// [`on_ready`](SwapChainPanelWidget::on_ready) callback.
+#[derive(Clone)]
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
