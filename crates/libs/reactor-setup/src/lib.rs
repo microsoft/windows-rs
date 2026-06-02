@@ -11,8 +11,18 @@ const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
 
+fn assert_windows() {
+    match env::var("CARGO_CFG_TARGET_OS").as_deref() {
+        Ok("windows") => {}
+        Ok(os) => panic!("unsupported target OS: {os}"),
+        Err(_) => panic!("CARGO_CFG_TARGET_OS not set"),
+    }
+}
+
 /// Configures the app to run with a Windows App Runtime dependency.
 pub fn as_framework_dependent() {
+    assert_windows();
+
     let out_dir = out_dir();
     copy_bootstrap_to(&out_dir);
     let temp_dir = temp_dir(&out_dir);
@@ -30,6 +40,8 @@ pub fn as_framework_dependent() {
 
 /// Configures the app to run completely self-contained.
 pub fn as_self_contained() {
+    assert_windows();
+
     let out_dir = out_dir();
     let temp_dir = temp_dir(&out_dir);
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
