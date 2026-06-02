@@ -277,7 +277,7 @@ impl DashStyle {
 
 /// Describes how to draw the stroke for lines, outlines, and paths.
 ///
-/// Create via [`StrokeStyleBuilder`] and [`GpuDevice::create_stroke_style`].
+/// Create via [`StrokeStyleBuilder`] and [`crate::GpuDevice::create_stroke_style`].
 #[derive(Clone)]
 pub struct StrokeStyle(pub(crate) bindings::ID2D1StrokeStyle1);
 

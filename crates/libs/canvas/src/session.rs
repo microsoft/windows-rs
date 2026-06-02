@@ -283,7 +283,7 @@ impl<'a> DrawingSession<'a> {
     /// Load a bitmap from an image file (PNG, JPEG, BMP, etc.).
     ///
     /// Requires COM to be initialized. For best performance, load bitmaps once
-    /// (e.g. via [`SwapChain::load_bitmap`]) and reuse across frames.
+    /// (e.g. via [`crate::SwapChain::load_bitmap`]) and reuse across frames.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> windows_core::Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }

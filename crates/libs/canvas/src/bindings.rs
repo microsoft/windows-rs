@@ -602,7 +602,7 @@ impl ID2D1Factory1 {
             (windows_core::Interface::vtable(self).CreateStrokeStyle)(
                 windows_core::Interface::as_raw(self),
                 strokestyleproperties,
-                core::mem::transmute(dashes.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()),
                 dashes.map_or(0, |slice| slice.len().try_into().unwrap()),
                 &mut result__,
             )
@@ -705,7 +705,7 @@ impl ID2D1GeometrySink {
         unsafe {
             (windows_core::Interface::vtable(self).AddLine)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(point),
+                point,
             );
         }
     }
@@ -972,7 +972,7 @@ impl ID2D1RenderTarget {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateGradientStopCollection)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(gradientstops.as_ptr()),
+                gradientstops.as_ptr(),
                 gradientstops.len().try_into().unwrap(),
                 colorinterpolationgamma,
                 extendmode,
@@ -1037,8 +1037,8 @@ impl ID2D1RenderTarget {
         unsafe {
             (windows_core::Interface::vtable(self).DrawLine)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(point0),
-                core::mem::transmute(point1),
+                point0,
+                point1,
                 brush.param().abi(),
                 strokewidth,
                 strokestyle.param().abi(),
@@ -1440,7 +1440,7 @@ impl ID2D1SimplifiedGeometrySink {
         unsafe {
             (windows_core::Interface::vtable(self).BeginFigure)(
                 windows_core::Interface::as_raw(self),
-                core::mem::transmute(startpoint),
+                startpoint,
                 figurebegin,
             );
         }
