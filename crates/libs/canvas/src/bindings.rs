@@ -40,6 +40,11 @@ pub struct D2D1_BRUSH_PROPERTIES {
     pub opacity: f32,
     pub transform: windows_numerics::Matrix3x2,
 }
+pub type D2D1_CAP_STYLE = i32;
+pub const D2D1_CAP_STYLE_FLAT: D2D1_CAP_STYLE = 0i32;
+pub const D2D1_CAP_STYLE_ROUND: D2D1_CAP_STYLE = 2i32;
+pub const D2D1_CAP_STYLE_SQUARE: D2D1_CAP_STYLE = 1i32;
+pub const D2D1_CAP_STYLE_TRIANGLE: D2D1_CAP_STYLE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_COLOR_F {
@@ -48,6 +53,11 @@ pub struct D2D1_COLOR_F {
     pub b: f32,
     pub a: f32,
 }
+pub type D2D1_DASH_STYLE = i32;
+pub const D2D1_DASH_STYLE_DASH: D2D1_DASH_STYLE = 1i32;
+pub const D2D1_DASH_STYLE_DASH_DOT: D2D1_DASH_STYLE = 3i32;
+pub const D2D1_DASH_STYLE_DOT: D2D1_DASH_STYLE = 2i32;
+pub const D2D1_DASH_STYLE_SOLID: D2D1_DASH_STYLE = 0i32;
 pub type D2D1_DEBUG_LEVEL = i32;
 pub type D2D1_DEVICE_CONTEXT_OPTIONS = i32;
 pub const D2D1_DEVICE_CONTEXT_OPTIONS_NONE: D2D1_DEVICE_CONTEXT_OPTIONS = 0i32;
@@ -91,6 +101,10 @@ pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     pub startPoint: windows_numerics::Vector2,
     pub endPoint: windows_numerics::Vector2,
 }
+pub type D2D1_LINE_JOIN = i32;
+pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1i32;
+pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = 0i32;
+pub const D2D1_LINE_JOIN_ROUND: D2D1_LINE_JOIN = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
@@ -112,6 +126,19 @@ pub struct D2D1_ROUNDED_RECT {
     pub radiusX: f32,
     pub radiusY: f32,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
+    pub startCap: D2D1_CAP_STYLE,
+    pub endCap: D2D1_CAP_STYLE,
+    pub dashCap: D2D1_CAP_STYLE,
+    pub lineJoin: D2D1_LINE_JOIN,
+    pub miterLimit: f32,
+    pub dashStyle: D2D1_DASH_STYLE,
+    pub dashOffset: f32,
+    pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
+}
+pub type D2D1_STROKE_TRANSFORM_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_RECT_F {
@@ -565,6 +592,23 @@ impl ID2D1Factory1 {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub unsafe fn CreateStrokeStyle(
+        &self,
+        strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1,
+        dashes: Option<&[f32]>,
+    ) -> windows_core::Result<ID2D1StrokeStyle1> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateStrokeStyle)(
+                windows_core::Interface::as_raw(self),
+                strokestyleproperties,
+                core::mem::transmute(dashes.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                dashes.map_or(0, |slice| slice.len().try_into().unwrap()),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub unsafe fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -585,7 +629,13 @@ pub struct ID2D1Factory1_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateStrokeStyle: usize,
+    pub CreateStrokeStyle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const D2D1_STROKE_STYLE_PROPERTIES1,
+        *const f32,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub CreatePathGeometry: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -1495,6 +1545,32 @@ pub struct ID2D1StrokeStyle_Vtbl {
 unsafe impl Send for ID2D1StrokeStyle {}
 unsafe impl Sync for ID2D1StrokeStyle {}
 impl windows_core::RuntimeName for ID2D1StrokeStyle {}
+windows_core::imp::define_interface!(
+    ID2D1StrokeStyle1,
+    ID2D1StrokeStyle1_Vtbl,
+    0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a
+);
+impl core::ops::Deref for ID2D1StrokeStyle1 {
+    type Target = ID2D1StrokeStyle;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ID2D1StrokeStyle1,
+    windows_core::IUnknown,
+    ID2D1Resource,
+    ID2D1StrokeStyle
+);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID2D1StrokeStyle1_Vtbl {
+    pub base__: ID2D1StrokeStyle_Vtbl,
+    GetStrokeTransformType: usize,
+}
+unsafe impl Send for ID2D1StrokeStyle1 {}
+unsafe impl Sync for ID2D1StrokeStyle1 {}
+impl windows_core::RuntimeName for ID2D1StrokeStyle1 {}
 windows_core::imp::define_interface!(
     ID3D11Device,
     ID3D11Device_Vtbl,

@@ -9,12 +9,12 @@ pub unsafe fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsu
     unsafe {
         WebSocketBeginClientHandshake(
             hwebsocket,
-            core::mem::transmute(pszsubprotocols.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pszsubprotocols.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pszextensions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pszextensions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pinitialheaders.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pinitialheaders.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(pszsubprotocols.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pszsubprotocols.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(pszextensions.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pszextensions.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(pinitialheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pinitialheaders.map_or(0, |slice| slice.len().try_into().unwrap()),
             padditionalheaders as _,
             puladditionalheadercount as _,
         )
@@ -27,7 +27,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_core::PCSTR, pszextensionselected : *const windows_core::PCSTR, ulextensionselectedcount : u32, prequestheaders : *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WebSocketBeginServerHandshake(hwebsocket, pszsubprotocolselected.param().abi(), core::mem::transmute(pszextensionselected.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len().try_into().unwrap(), presponseheaders as _, pulresponseheadercount as _).ok() }
+    unsafe { WebSocketBeginServerHandshake(hwebsocket, pszsubprotocolselected.param().abi(), core::mem::transmute(pszextensionselected.map_or(core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len().try_into().unwrap(), presponseheaders as _, pulresponseheadercount as _).ok() }
 }
 #[inline]
 pub unsafe fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const core::ffi::c_void, ulbytestransferred: u32) {

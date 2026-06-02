@@ -83,7 +83,7 @@ pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COM
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::super::Foundation::HANDLE]>, timeoutinms: u32) -> u32 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::super::Foundation::HANDLE, timeoutinms : u32) -> u32);
-    unsafe { DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(handles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutinms) }
+    unsafe { DCompositionWaitForCompositorClock(handles.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(handles.map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutinms) }
 }
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
@@ -5666,7 +5666,7 @@ impl IDCompositionVirtualSurface {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), width, height).ok() }
     }
     pub unsafe fn Trim(&self, rectangles: Option<&[super::super::Foundation::RECT]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), core::mem::transmute(rectangles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), core::mem::transmute(rectangles.map_or(core::ptr::null(), |slice| slice.as_ptr())), rectangles.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
 }
 #[repr(C)]

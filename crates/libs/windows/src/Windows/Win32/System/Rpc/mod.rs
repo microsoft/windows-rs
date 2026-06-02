@@ -430,7 +430,7 @@ pub unsafe fn I_UuidCreate(uuid: *mut windows_core::GUID) -> windows_core::RPC_S
 #[inline]
 pub unsafe fn MesBufferHandleReset(handle: *const core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: Option<&[u8]>, pencodedsize: Option<*mut u32>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn MesBufferHandleReset(handle : *const core::ffi::c_void, handlestyle : u32, operation : MIDL_ES_CODE, pbuffer : *const *const i8, buffersize : u32, pencodedsize : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { MesBufferHandleReset(handle, handlestyle, operation, core::mem::transmute(pbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencodedsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { MesBufferHandleReset(handle, handlestyle, operation, core::mem::transmute(pbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), pencodedsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn MesDecodeBufferHandleCreate(buffer: &[u8], phandle: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {

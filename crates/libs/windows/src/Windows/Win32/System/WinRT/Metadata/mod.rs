@@ -77,19 +77,7 @@ pub unsafe fn RoParseTypeName(typename: &windows_core::HSTRING, partscount: *mut
 #[inline]
 pub unsafe fn RoResolveNamespace(name: &windows_core::HSTRING, windowsmetadatadir: &windows_core::HSTRING, packagegraphdirs: Option<&[windows_core::HSTRING]>, metadatafilepathscount: Option<*mut u32>, metadatafilepaths: Option<*mut *mut windows_core::HSTRING>, subnamespacescount: Option<*mut u32>, subnamespaces: Option<*mut *mut windows_core::HSTRING>) -> windows_core::Result<()> {
     windows_core::link!("api-ms-win-ro-typeresolution-l1-1-0.dll" "system" fn RoResolveNamespace(name : *mut core::ffi::c_void, windowsmetadatadir : *mut core::ffi::c_void, packagegraphdirscount : u32, packagegraphdirs : *const *mut core::ffi::c_void, metadatafilepathscount : *mut u32, metadatafilepaths : *mut *mut *mut core::ffi::c_void, subnamespacescount : *mut u32, subnamespaces : *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        RoResolveNamespace(
-            core::mem::transmute_copy(name),
-            core::mem::transmute_copy(windowsmetadatadir),
-            packagegraphdirs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(packagegraphdirs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            metadatafilepathscount.unwrap_or(core::mem::zeroed()) as _,
-            metadatafilepaths.unwrap_or(core::mem::zeroed()) as _,
-            subnamespacescount.unwrap_or(core::mem::zeroed()) as _,
-            subnamespaces.unwrap_or(core::mem::zeroed()) as _,
-        )
-        .ok()
-    }
+    unsafe { RoResolveNamespace(core::mem::transmute_copy(name), core::mem::transmute_copy(windowsmetadatadir), packagegraphdirs.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(packagegraphdirs.map_or(core::ptr::null(), |slice| slice.as_ptr())), metadatafilepathscount.unwrap_or(core::mem::zeroed()) as _, metadatafilepaths.unwrap_or(core::mem::zeroed()) as _, subnamespacescount.unwrap_or(core::mem::zeroed()) as _, subnamespaces.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

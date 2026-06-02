@@ -230,7 +230,7 @@ pub unsafe fn EngMultiByteToUnicodeN(unicodestring: windows_core::PWSTR, maxbyte
 #[inline]
 pub unsafe fn EngMultiByteToWideChar(codepage: u32, widecharstring: Option<windows_core::PWSTR>, bytesinwidecharstring: i32, multibytestring: Option<&[u8]>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn EngMultiByteToWideChar(codepage : u32, widecharstring : windows_core::PWSTR, bytesinwidecharstring : i32, multibytestring : windows_core::PCSTR, bytesinmultibytestring : i32) -> i32);
-    unsafe { EngMultiByteToWideChar(codepage, widecharstring.unwrap_or(core::mem::zeroed()) as _, bytesinwidecharstring, core::mem::transmute(multibytestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { EngMultiByteToWideChar(codepage, widecharstring.unwrap_or(core::mem::zeroed()) as _, bytesinwidecharstring, core::mem::transmute(multibytestring.map_or(core::ptr::null(), |slice| slice.as_ptr())), multibytestring.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> windows_core::BOOL {
@@ -560,7 +560,7 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
 #[inline]
 pub unsafe fn SetDisplayConfig(patharray: Option<&[DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: Option<&[DISPLAYCONFIG_MODE_INFO]>, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32 {
     windows_core::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *const DISPLAYCONFIG_MODE_INFO, flags : SET_DISPLAY_CONFIG_FLAGS) -> i32);
-    unsafe { SetDisplayConfig(patharray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(patharray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), modeinfoarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(modeinfoarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), flags) }
+    unsafe { SetDisplayConfig(patharray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(patharray.map_or(core::ptr::null(), |slice| slice.as_ptr())), modeinfoarray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(modeinfoarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), flags) }
 }
 #[inline]
 pub unsafe fn SetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32 {

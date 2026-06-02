@@ -663,7 +663,11 @@ impl CppMethod {
                         | ParamHint::ArrayRelativeLen(_)
                         | ParamHint::ArrayRelativeByteLen(_) => {
                             let map = if param.is_optional() {
-                                quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                if param.is_input() {
+                                    quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                } else {
+                                    quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                }
                             } else {
                                 quote! { #name.as_ptr() }
                             };
@@ -673,7 +677,11 @@ impl CppMethod {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
                             if relative_param.is_optional() {
-                                quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                if relative_param.is_input() {
+                                    quote! { #name.map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                } else {
+                                    quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                }
                             } else {
                                 quote! { #name.len().try_into().unwrap(), }
                             }

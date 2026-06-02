@@ -1214,17 +1214,17 @@ pub unsafe fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE)
 #[inline]
 pub unsafe fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCSTR]>, dwerrorcode: u32) {
     windows_core::link!("rtutils.dll" "system" fn RouterLogEventA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwerrorcode : u32));
-    unsafe { RouterLogEventA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode) }
+    unsafe { RouterLogEventA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode) }
 }
 #[inline]
 pub unsafe fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCSTR]>, dwdatabytes: u32, lpdatabytes: *mut u8) {
     windows_core::link!("rtutils.dll" "system" fn RouterLogEventDataA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
-    unsafe { RouterLogEventDataA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes as _) }
+    unsafe { RouterLogEventDataA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes as _) }
 }
 #[inline]
 pub unsafe fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCWSTR]>, dwdatabytes: u32, lpdatabytes: *mut u8) {
     windows_core::link!("rtutils.dll" "system" fn RouterLogEventDataW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
-    unsafe { RouterLogEventDataW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes as _) }
+    unsafe { RouterLogEventDataW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes as _) }
 }
 #[inline]
 pub unsafe fn RouterLogEventExA<P4>(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P4)
@@ -1271,7 +1271,7 @@ where
 #[inline]
 pub unsafe fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCWSTR]>, dwerrorcode: u32) {
     windows_core::link!("rtutils.dll" "system" fn RouterLogEventW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwerrorcode : u32));
-    unsafe { RouterLogEventW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode) }
+    unsafe { RouterLogEventW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode) }
 }
 #[inline]
 pub unsafe fn RouterLogRegisterA<P0>(lpszsource: P0) -> super::super::Foundation::HANDLE

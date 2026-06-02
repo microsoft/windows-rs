@@ -196,18 +196,19 @@ session.fill_path(&path, &brush);
 - **Consistency**: follows reactor patterns (factory functions, RAII, Deref delegation)
 - **Transform stack**: set/get + scoped `with_transform` (matches Win2D TemporaryTransform)
 - **Paint polymorphism**: sealed trait with zero-cost COM Deref (no QueryInterface)
+- **Stroke styles**: `StrokeStyleBuilder` with caps, joins, dashes + `draw_*_styled()` methods
+- **DPI-aware**: crisp rendering at all display scales via composition scale tracking
 - **Bitmap loading**: WIC-based, supports PNG/JPEG/BMP/etc.
 - **Test coverage**: 19 headless WARP-based tests covering full API surface
 - **Examples**: 10 per-concept windowed demos
 
 ## What Needs Improvement
 
-1. **Stroke style** — `draw_ellipse` takes width, but there's no
-   stroke style (dashes, caps, joins).
+1. **Opacity layers** — needed for complex compositing.
 
-2. **Opacity layers** — needed for complex compositing.
+2. **CanvasTextLayout** — metrics, hit-testing for text-heavy apps.
 
-3. **CanvasTextLayout** — metrics, hit-testing for text-heavy apps.
+3. **Drop shadow effect** — D2D has shadow effects; not exposed in canvas.
 
 ---
 

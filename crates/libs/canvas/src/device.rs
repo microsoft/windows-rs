@@ -123,6 +123,21 @@ impl GpuDevice {
         &self.d2d_factory
     }
 
+    /// Create a stroke style from a builder.
+    ///
+    /// Stroke styles are device-independent and can be reused across frames.
+    pub fn create_stroke_style(
+        &self,
+        builder: &crate::types::StrokeStyleBuilder,
+    ) -> windows_core::Result<crate::types::StrokeStyle> {
+        let props = builder.to_abi();
+        unsafe {
+            self.d2d_factory
+                .CreateStrokeStyle(&props, None)
+                .map(crate::types::StrokeStyle)
+        }
+    }
+
     /// Access the raw DXGI factory.
     pub fn dxgi_factory(&self) -> &IDXGIFactory2 {
         &self.dxgi_factory

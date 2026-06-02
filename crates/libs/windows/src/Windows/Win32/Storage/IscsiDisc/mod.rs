@@ -17,12 +17,12 @@ where
 #[inline]
 pub unsafe fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     windows_core::link!("iscsidsc.dll" "system" fn AddIScsiConnectionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, reserved : *mut core::ffi::c_void, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-    unsafe { AddIScsiConnectionA(uniquesessionid as _, reserved as _, initiatorportnumber, targetportal as _, securityflags, loginoptions as _, key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), connectionid as _) }
+    unsafe { AddIScsiConnectionA(uniquesessionid as _, reserved as _, initiatorportnumber, targetportal as _, securityflags, loginoptions as _, key.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.map_or(core::ptr::null(), |slice| slice.as_ptr())), connectionid as _) }
 }
 #[inline]
 pub unsafe fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     windows_core::link!("iscsidsc.dll" "system" fn AddIScsiConnectionW(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, reserved : *mut core::ffi::c_void, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-    unsafe { AddIScsiConnectionW(uniquesessionid as _, reserved as _, initiatorportnumber, targetportal as _, securityflags, loginoptions as _, key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), connectionid as _) }
+    unsafe { AddIScsiConnectionW(uniquesessionid as _, reserved as _, initiatorportnumber, targetportal as _, securityflags, loginoptions as _, key.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.map_or(core::ptr::null(), |slice| slice.as_ptr())), connectionid as _) }
 }
 #[inline]
 pub unsafe fn AddIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32
@@ -178,7 +178,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("iscsidsc.dll" "system" fn LoginIScsiTargetA(targetname : windows_core::PCSTR, isinformationalsession : bool, initiatorinstance : windows_core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : bool, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-    unsafe { LoginIScsiTargetA(targetname.param().abi(), isinformationalsession, initiatorinstance.param().abi(), initiatorportnumber, targetportal as _, securityflags, mappings as _, loginoptions as _, key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ispersistent, uniquesessionid as _, uniqueconnectionid as _) }
+    unsafe { LoginIScsiTargetA(targetname.param().abi(), isinformationalsession, initiatorinstance.param().abi(), initiatorportnumber, targetportal as _, securityflags, mappings as _, loginoptions as _, key.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.map_or(core::ptr::null(), |slice| slice.as_ptr())), ispersistent, uniquesessionid as _, uniqueconnectionid as _) }
 }
 #[inline]
 pub unsafe fn LoginIScsiTargetW<P0, P2>(targetname: P0, isinformationalsession: bool, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, ispersistent: bool, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
@@ -187,7 +187,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("iscsidsc.dll" "system" fn LoginIScsiTargetW(targetname : windows_core::PCWSTR, isinformationalsession : bool, initiatorinstance : windows_core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : bool, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-    unsafe { LoginIScsiTargetW(targetname.param().abi(), isinformationalsession, initiatorinstance.param().abi(), initiatorportnumber, targetportal as _, securityflags, mappings as _, loginoptions as _, key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ispersistent, uniquesessionid as _, uniqueconnectionid as _) }
+    unsafe { LoginIScsiTargetW(targetname.param().abi(), isinformationalsession, initiatorinstance.param().abi(), initiatorportnumber, targetportal as _, securityflags, mappings as _, loginoptions as _, key.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.map_or(core::ptr::null(), |slice| slice.as_ptr())), ispersistent, uniquesessionid as _, uniqueconnectionid as _) }
 }
 #[inline]
 pub unsafe fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {

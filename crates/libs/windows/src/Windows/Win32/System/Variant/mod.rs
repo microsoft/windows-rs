@@ -51,7 +51,7 @@ pub unsafe fn InitVariantFromFileTimeArray(prgft: Option<&[super::super::Foundat
     windows_core::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation::FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitVariantFromFileTimeArray(core::mem::transmute(prgft.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitVariantFromFileTimeArray(core::mem::transmute(prgft.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

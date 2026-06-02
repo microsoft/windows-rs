@@ -75,12 +75,12 @@ where
 #[inline]
 pub unsafe fn SysAllocStringByteLen(psz: Option<&[u8]>) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : windows_core::PCSTR, len : u32) -> windows_core::BSTR);
-    unsafe { SysAllocStringByteLen(core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SysAllocStringByteLen(core::mem::transmute(psz.map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: Option<&[u16]>) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : windows_core::PCWSTR, ui : u32) -> windows_core::BSTR);
-    unsafe { SysAllocStringLen(core::mem::transmute(strin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SysAllocStringLen(core::mem::transmute(strin.map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {

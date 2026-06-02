@@ -39,7 +39,18 @@
     Windows.Win32.Graphics.Dxgi.IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
     Windows.Win32.Graphics.Dxgi.IDXGISwapChain::{Present, GetBuffer, ResizeBuffers}
     Windows.Win32.Graphics.Dxgi.IDXGISwapChain2::{SetMatrixTransform}
-    Windows.Win32.Graphics.Direct2D.ID2D1Factory1::{CreateDevice}
+    Windows.Win32.Graphics.Direct2D.ID2D1Factory1::{CreateDevice, CreateStrokeStyle}
+    Windows.Win32.Graphics.Direct2D.D2D1_CAP_STYLE_FLAT
+    Windows.Win32.Graphics.Direct2D.D2D1_CAP_STYLE_SQUARE
+    Windows.Win32.Graphics.Direct2D.D2D1_CAP_STYLE_ROUND
+    Windows.Win32.Graphics.Direct2D.D2D1_CAP_STYLE_TRIANGLE
+    Windows.Win32.Graphics.Direct2D.D2D1_LINE_JOIN_MITER
+    Windows.Win32.Graphics.Direct2D.D2D1_LINE_JOIN_BEVEL
+    Windows.Win32.Graphics.Direct2D.D2D1_LINE_JOIN_ROUND
+    Windows.Win32.Graphics.Direct2D.D2D1_DASH_STYLE_SOLID
+    Windows.Win32.Graphics.Direct2D.D2D1_DASH_STYLE_DASH
+    Windows.Win32.Graphics.Direct2D.D2D1_DASH_STYLE_DOT
+    Windows.Win32.Graphics.Direct2D.D2D1_DASH_STYLE_DASH_DOT
     Windows.Win32.Graphics.Direct2D.ID2D1Device::{CreateDeviceContext}
     Windows.Win32.Graphics.Direct2D.ID2D1DeviceContext::{CreateBitmapFromDxgiSurface, SetTarget, DrawBitmap}
     Windows.Win32.Graphics.Direct2D.D2D1_INTERPOLATION_MODE_LINEAR
