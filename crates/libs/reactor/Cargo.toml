@@ -22,7 +22,6 @@ windows-future = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
 windows-threading = { workspace = true, features = ["std"] }
 windows-time = { workspace = true }
-windows-reactor-setup = { workspace = true }
 
 [lints]
 workspace = true

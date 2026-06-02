@@ -43,9 +43,9 @@ pub fn as_self_contained() {
             manifest_path.display()
         )
     });
-    println!("cargo:rustc-link-arg=/MANIFEST:EMBED");
+    println!("cargo:rustc-link-arg-bins=/MANIFEST:EMBED");
     println!(
-        "cargo:rustc-link-arg=/MANIFESTINPUT:{}",
+        "cargo:rustc-link-arg-bins=/MANIFESTINPUT:{}",
         manifest_path.display()
     );
 }

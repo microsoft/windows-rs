@@ -8,7 +8,7 @@ publish = false
 windows-reactor = { workspace = true }
 
 [build-dependencies]
-windows-reactor = { workspace = true }
+windows-reactor-setup = { workspace = true }
 
 [lints]
 workspace = true

@@ -26,8 +26,7 @@ where
     HOST_SLOT.with(|slot| slot.borrow().as_ref().map(f))
 }
 
-/// Top-level reactor application; bootstraps WinAppSDK, installs XAML
-/// resources, and hosts a single root [`Component`].
+/// Top-level reactor application; hosts a single root [`Component`].
 pub struct App {
     title: Option<String>,
     inner_size: Option<crate::core::Size>,

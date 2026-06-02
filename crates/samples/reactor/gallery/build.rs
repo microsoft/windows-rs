@@ -1,3 +1,3 @@
 fn main() {
-    windows_reactor::setup::as_self_contained();
+    windows_reactor_setup::as_self_contained();
 }

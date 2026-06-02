@@ -20,7 +20,7 @@ windows-reference = { workspace = true, features = ["std"] }
 windows-time = { workspace = true }
 
 [build-dependencies]
-windows-reactor = { workspace = true }
+windows-reactor-setup = { workspace = true }
 
 [lints]
 workspace = true

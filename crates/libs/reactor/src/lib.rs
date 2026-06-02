@@ -26,11 +26,6 @@ pub(crate) mod diagnostics;
 mod app_shim;
 pub mod bootstrap;
 
-#[doc(hidden)]
-pub mod setup {
-    pub use windows_reactor_setup::*;
-}
-
 pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
 
