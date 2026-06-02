@@ -256,7 +256,7 @@ impl CppMethod {
         let name = method_names.add(self.def);
         let vname = virtual_names.add(self.def);
 
-        let args = self.write_args();
+        let args = self.write_args(config);
         let params = self.write_params(config);
         let generics = self.write_generics();
         let abi_return_type = self.write_return(config);
@@ -635,7 +635,7 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_args(&self) -> TokenStream {
+    pub fn write_args(&self, config: &Config) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -700,7 +700,11 @@ impl CppMethod {
                         }
                         ParamHint::Blittable => {
                             if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
-                                quote! { #name.0 as _, }
+                                if config.minimal_filter.is_some() {
+                                    quote! { #name as _, }
+                                } else {
+                                    quote! { #name.0 as _, }
+                                }
                             } else {
                                 quote! { core::mem::transmute(#name), }
                             }

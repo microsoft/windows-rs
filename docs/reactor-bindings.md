@@ -105,3 +105,33 @@ Microsoft.UI.Xaml.Controls.IInfoBadge::{put_Value}
 - **`--implement` types** keep all methods unconditionally.
 - **Enum constants** (e.g. `NavigationViewBackButtonVisible::Visible`) cannot be
   pruned individually — including the type includes all variants.
+
+## COM (Win32) interfaces in minimal mode
+
+The `--minimal` filter also works for Win32 COM interfaces (e.g. DXGI, D2D,
+DWrite). The same `Ns.IFace::{Method}` syntax applies:
+
+```
+Windows.Win32.Graphics.Dxgi.IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
+Windows.Win32.Graphics.Direct2D.ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawLine}
+```
+
+When a COM method is explicitly listed in the filter, bindgen emits the full
+method body and vtable function pointer. Methods NOT in the filter become
+`usize` slots (preserving vtable layout without generating code for them).
+
+The type closure is computed automatically: parameter and return types of
+requested methods are recursively pulled in (structs, enums, other interfaces
+needed for casts). You do NOT need to explicitly list dependency types — just
+list the methods you call.
+
+**Example** (`crates/tools/bindings/src/canvas.txt`):
+```
+--out crates/libs/canvas/src/bindings.rs
+--flat --minimal
+
+--filter
+    Windows.Win32.Graphics.Dxgi.IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
+    Windows.Win32.Graphics.Dxgi.IDXGISwapChain::{Present, GetBuffer, ResizeBuffers}
+    ...
+```

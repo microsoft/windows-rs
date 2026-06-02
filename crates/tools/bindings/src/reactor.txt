@@ -258,6 +258,7 @@ Microsoft.UI.Xaml.Controls.SplitView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SplitViewDisplayMode
 Microsoft.UI.Xaml.Controls.StackPanel::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SwapChainPanel::{CreateInstance}
+Microsoft.UI.Xaml.Controls.ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
 Microsoft.UI.Xaml.Controls.Symbol
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstanceWithSymbol}
