@@ -39,7 +39,7 @@ fn as_framework_dependent_impl(subdir: &str) {
         target_dir_from_out(&out_dir).join(subdir)
     };
     copy_bootstrap_to(&dest);
-    let temp_dir = temp_dir(&out_dir);
+    let temp_dir = temp_dir();
     let arch = format!("win-{}", target_arch());
     let interactive = stage_pkg(INTERACTIVE_PKG, INTERACTIVE_VER, &temp_dir);
     copy_file(
@@ -57,7 +57,7 @@ pub fn as_self_contained() {
     assert_windows();
 
     let out_dir = out_dir();
-    let temp_dir = temp_dir(&out_dir);
+    let temp_dir = temp_dir();
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
     let extract = ensure_msix_extracted(&runtime);
     copy_runtime_to(&extract, &target_dir_from_out(&out_dir));
@@ -94,8 +94,19 @@ fn out_dir() -> PathBuf {
     PathBuf::from(env::var("OUT_DIR").expect("OUT_DIR not set"))
 }
 
-fn temp_dir(out_dir: &Path) -> PathBuf {
-    let temp = find_workspace_root(out_dir).join("temp");
+fn temp_dir() -> PathBuf {
+    let base = if let Some(p) = env::var_os("LOCALAPPDATA") {
+        PathBuf::from(p)
+    } else if let Some(p) = env::var_os("XDG_CACHE_HOME") {
+        PathBuf::from(p)
+    } else if let Some(p) = env::var_os("HOME") {
+        PathBuf::from(p).join(".cache")
+    } else {
+        panic!(
+            "could not determine cache directory: LOCALAPPDATA, XDG_CACHE_HOME, and HOME are all unset"
+        );
+    };
+    let temp = base.join("windows-reactor-setup").join("temp");
     let _ = fs::create_dir_all(&temp);
     temp
 }
@@ -239,14 +250,6 @@ fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) {
 
 fn target_dir_from_out(out: &Path) -> PathBuf {
     out.ancestors().nth(3).unwrap_or(out).to_path_buf()
-}
-
-fn find_workspace_root(out: &Path) -> PathBuf {
-    out.ancestors()
-        .find(|a| a.join("Cargo.lock").is_file())
-        .or_else(|| out.ancestors().find(|a| a.join("Cargo.toml").is_file()))
-        .unwrap_or_else(|| out.ancestors().nth(2).unwrap_or(out))
-        .to_path_buf()
 }
 
 fn target_arch() -> &'static str {
