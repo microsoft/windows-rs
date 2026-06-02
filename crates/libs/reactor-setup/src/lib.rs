@@ -22,9 +22,23 @@ fn assert_windows() {
 /// Configures the app to run with a Windows App Runtime dependency.
 pub fn as_framework_dependent() {
     assert_windows();
+    as_framework_dependent_impl("");
+}
 
+/// Configures an example to run with a Windows App Runtime dependency.
+pub fn as_example() {
+    assert_windows();
+    as_framework_dependent_impl("examples");
+}
+
+fn as_framework_dependent_impl(subdir: &str) {
     let out_dir = out_dir();
-    copy_bootstrap_to(&out_dir);
+    let dest = if subdir.is_empty() {
+        target_dir_from_out(&out_dir)
+    } else {
+        target_dir_from_out(&out_dir).join(subdir)
+    };
+    copy_bootstrap_to(&dest);
     let temp_dir = temp_dir(&out_dir);
     let arch = format!("win-{}", target_arch());
     let interactive = stage_pkg(INTERACTIVE_PKG, INTERACTIVE_VER, &temp_dir);
@@ -33,7 +47,7 @@ pub fn as_framework_dependent() {
             .join(&arch)
             .join("native")
             .join("Microsoft.UI.pri"),
-        &target_dir_from_out(&out_dir),
+        &dest,
         "resources.pri",
     );
 }
@@ -86,7 +100,7 @@ fn temp_dir(out_dir: &Path) -> PathBuf {
     temp
 }
 
-fn copy_bootstrap_to(out_dir: &Path) {
+fn copy_bootstrap_to(dest: &Path) {
     let bytes: &[u8] = match env::var("CARGO_CFG_TARGET_ARCH").as_deref() {
         Ok("x86") => include_bytes!("../bootstrap/x86/Microsoft.WindowsAppRuntime.Bootstrap.dll"),
         Ok("x86_64") => {
@@ -98,10 +112,9 @@ fn copy_bootstrap_to(out_dir: &Path) {
         Ok(arch) => panic!("Unsupported bootstrap target architecture: {arch}"),
         Err(_) => panic!("CARGO_CFG_TARGET_ARCH not set"),
     };
-    let target = target_dir_from_out(out_dir);
-    let _ = fs::create_dir_all(&target);
+    let _ = fs::create_dir_all(dest);
     let _ = fs::write(
-        target.join("Microsoft.WindowsAppRuntime.Bootstrap.dll"),
+        dest.join("Microsoft.WindowsAppRuntime.Bootstrap.dll"),
         bytes,
     );
 }
