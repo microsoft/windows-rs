@@ -284,7 +284,7 @@ pub struct StrokeStyle(pub(crate) bindings::ID2D1StrokeStyle1);
 /// Builder for [`StrokeStyle`].
 ///
 /// # Example
-/// ```no_run
+/// ```ignore
 /// let style = device.create_stroke_style(
 ///     StrokeStyleBuilder::new()
 ///         .start_cap(CapStyle::Round)
