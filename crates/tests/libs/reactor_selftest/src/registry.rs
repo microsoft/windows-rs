@@ -78,6 +78,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     ),
     ("Reconciler_Mount_TabView", controls::mount_tab_view),
     (
+        "Reconciler_Mount_TabView_AddButton",
+        controls::mount_tab_view_add_button,
+    ),
+    (
         "Reconciler_Mount_NavigationView",
         controls::mount_navigation_view,
     ),

@@ -1558,6 +1558,9 @@ impl Backend for WinUIBackend {
                 (Prop::CanReorderTabs, PropValue::Bool(v), Handle::TabView(tv)) => {
                     tv.put_CanReorderTabs(*v)
                 }
+                (Prop::IsAddTabButtonVisible, PropValue::Bool(v), Handle::TabView(tv)) => {
+                    tv.put_IsAddTabButtonVisible(*v)
+                }
                 (Prop::TabHeader, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tb = string_as_textblock(s)?;
                     ti.put_Header(&tb)
@@ -3219,6 +3222,17 @@ impl Backend for WinUIBackend {
             }
             (Event::TabCloseRequested, _) => {
                 panic!("WinUIBackend::attach_event: TabCloseRequested on non-TabView {id}")
+            }
+            (Event::AddTabButtonClick, Handle::TabView(tv)) => {
+                revokers.push(
+                    tv.add_AddTabButtonClick(move |_sender, _args| {
+                        handler.invoke();
+                    })
+                    .unwrap(),
+                );
+            }
+            (Event::AddTabButtonClick, _) => {
+                panic!("WinUIBackend::attach_event: AddTabButtonClick on non-TabView {id}")
             }
             (Event::NavSelectionChanged, Handle::NavigationView(nv)) => {
                 revokers.push(

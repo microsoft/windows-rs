@@ -31,8 +31,10 @@ pub struct TabView {
     pub tabs: Vec<TabItem>,
     pub selected_index: i32,
     pub can_reorder_tabs: bool,
+    pub is_add_tab_button_visible: bool,
     pub on_selection_changed: Option<Callback<i32>>,
     pub on_tab_close_requested: Option<Callback<String>>,
+    pub on_add_tab_button_click: Option<Callback<()>>,
 }
 impl TabView {
     pub fn new<I: IntoIterator<Item = TabItem>>(tabs: I) -> Self {
@@ -50,12 +52,22 @@ impl TabView {
         self.can_reorder_tabs = v;
         self
     }
+    /// Show or hide the built-in "+" add-tab button (`ITabView::IsAddTabButtonVisible`).
+    pub fn is_add_tab_button_visible(mut self, v: bool) -> Self {
+        self.is_add_tab_button_visible = v;
+        self
+    }
     pub fn on_selection_changed(mut self, f: impl IntoCallback<i32>) -> Self {
         self.on_selection_changed = Some(f.into_callback());
         self
     }
     pub fn on_tab_close_requested<F: Fn(String) + 'static>(mut self, f: F) -> Self {
         self.on_tab_close_requested = Some(Callback::new(f));
+        self
+    }
+    /// Handle the built-in "+" add-tab button click (`ITabView::AddTabButtonClick`).
+    pub fn on_add_tab_button_click<F: Fn(()) + 'static>(mut self, f: F) -> Self {
+        self.on_add_tab_button_click = Some(Callback::new(f));
         self
     }
 }
@@ -73,6 +85,10 @@ impl Widget for TabView {
         vec![
             Binding::Prop(Prop::SelectedIndex, PropValue::I32(self.selected_index)),
             Binding::Prop(Prop::CanReorderTabs, PropValue::Bool(self.can_reorder_tabs)),
+            Binding::Prop(
+                Prop::IsAddTabButtonVisible,
+                PropValue::Bool(self.is_add_tab_button_visible),
+            ),
             Binding::Event(
                 Event::TabSelectionChanged,
                 self.on_selection_changed
@@ -84,6 +100,12 @@ impl Widget for TabView {
                 self.on_tab_close_requested
                     .as_ref()
                     .map(|cb| EventHandler::TabKey(cb.clone())),
+            ),
+            Binding::Event(
+                Event::AddTabButtonClick,
+                self.on_add_tab_button_click
+                    .as_ref()
+                    .map(|cb| EventHandler::Click(cb.clone())),
             ),
         ]
     }

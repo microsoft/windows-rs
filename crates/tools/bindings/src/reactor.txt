@@ -178,7 +178,7 @@ Microsoft.UI.Xaml.Controls.ISplitButton::{add_Click}
 Microsoft.UI.Xaml.Controls.ISplitView::{put_DisplayMode, put_IsPaneOpen, put_OpenPaneLength, put_CompactPaneLength, put_Content, put_Pane, add_PaneClosed}
 Microsoft.UI.Xaml.Controls.IStackPanel::{put_Orientation, put_Spacing}
 Microsoft.UI.Xaml.Controls.ISymbolIcon::{get_Symbol}
-Microsoft.UI.Xaml.Controls.ITabView::{get_TabItems, put_SelectedIndex, get_SelectedIndex, put_CanReorderTabs, add_SelectionChanged, add_TabCloseRequested}
+Microsoft.UI.Xaml.Controls.ITabView::{get_TabItems, put_SelectedIndex, get_SelectedIndex, put_CanReorderTabs, put_IsAddTabButtonVisible, add_SelectionChanged, add_TabCloseRequested, add_AddTabButtonClick}
 Microsoft.UI.Xaml.Controls.ITabViewItem::{put_Header, put_IsClosable}
 Microsoft.UI.Xaml.Controls.ITabViewTabCloseRequestedEventArgs::{get_Tab}
 Microsoft.UI.Xaml.Controls.ITeachingTip::{put_Title, put_Subtitle, put_IsOpen, put_IsLightDismissEnabled, put_PreferredPlacement, put_ActionButtonContent, put_CloseButtonContent, add_Closed, add_ActionButtonClick}

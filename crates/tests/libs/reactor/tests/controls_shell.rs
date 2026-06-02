@@ -91,6 +91,74 @@ fn tab_view_selected_index_update_emits_single_set() {
 }
 
 #[test]
+fn tab_view_add_tab_button_visible_prop_emits_set() {
+    let el: Element = TabView::new([TabItem::new("A", text_block("a"))])
+        .is_add_tab_button_visible(true)
+        .into();
+    let r = mount(&el);
+
+    let saw_prop = r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::SetProp {
+                prop: Prop::IsAddTabButtonVisible,
+                value: PropValue::Bool(true),
+                ..
+            }
+        )
+    });
+    assert!(saw_prop, "IsAddTabButtonVisible prop should be set");
+}
+
+#[test]
+fn tab_view_add_tab_button_click_attaches_event() {
+    let el: Element = TabView::new([TabItem::new("A", text_block("a"))])
+        .on_add_tab_button_click(|()| {})
+        .into();
+    let r = mount(&el);
+
+    let attached = r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::AttachEvent {
+                event: Event::AddTabButtonClick,
+                ..
+            }
+        )
+    });
+    assert!(
+        attached,
+        "AttachEvent for AddTabButtonClick should be emitted"
+    );
+}
+
+#[test]
+fn tab_view_add_tab_button_click_callback_fires() {
+    let count = Rc::new(Cell::new(0));
+    let count_c = Rc::clone(&count);
+    let el: Element = TabView::new([TabItem::new("A", text_block("a"))])
+        .on_add_tab_button_click(move |()| count_c.set(count_c.get() + 1))
+        .into();
+    let r = mount(&el);
+
+    let tv_id = match r.backend.ops.iter().find(|op| {
+        matches!(
+            op,
+            Op::Create {
+                kind: ControlKind::TabView,
+                ..
+            }
+        )
+    }) {
+        Some(Op::Create { id, .. }) => *id,
+        _ => panic!("no TabView Create op"),
+    };
+
+    r.backend.fire(tv_id, Event::AddTabButtonClick);
+    assert_eq!(count.get(), 1);
+}
+
+#[test]
 fn info_bar_mounts_with_title_message_severity() {
     let el: Element = InfoBar::new("Heads up")
         .message("Something happened")

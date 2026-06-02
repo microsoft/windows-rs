@@ -171,6 +171,8 @@ pub enum Prop {
     TabContent,
     /// Enables drag-to-reorder on `TabView` tabs.
     CanReorderTabs,
+    /// Controls the visibility of the TabView's built-in add-tab button.
+    IsAddTabButtonVisible,
     NavigateUri,
     NavMenuItems,
     NavSelectedTag,
@@ -391,6 +393,8 @@ pub enum Event {
     InfoBarClosed,
     TabSelectionChanged,
     TabCloseRequested,
+    /// TabView: the built-in "+" add-tab button was clicked.
+    AddTabButtonClick,
     NavSelectionChanged,
     NavBackRequested,
     /// NavigationView: search box query submitted.

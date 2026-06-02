@@ -17515,6 +17515,15 @@ impl windows_core::RuntimeType for ITabView {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ITabView {
+    pub fn put_IsAddTabButtonVisible(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_IsAddTabButtonVisible)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub fn add_TabCloseRequested<F>(
         &self,
         handler: F,
@@ -17545,6 +17554,38 @@ impl ITabView {
                 self.clone(),
                 token__,
                 windows_core::Interface::vtable(self).remove_TabCloseRequested,
+            ))
+        }
+    }
+    pub fn add_AddTabButtonClick<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<TabView>, windows_core::Ref<windows_core::IInspectable>) + 'static,
+    {
+        let handler: TypedEventHandler<TabView, windows_core::IInspectable> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<TabView, windows_core::IInspectable>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<TabView, windows_core::IInspectable, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_AddTabButtonClick)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_AddTabButtonClick,
             ))
         }
     }
@@ -17638,7 +17679,8 @@ pub struct ITabView_Vtbl {
     get_TabStripFooterTemplate: usize,
     put_TabStripFooterTemplate: usize,
     get_IsAddTabButtonVisible: usize,
-    put_IsAddTabButtonVisible: usize,
+    pub put_IsAddTabButtonVisible:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_AddTabButtonCommand: usize,
     put_AddTabButtonCommand: usize,
     get_AddTabButtonCommandParameter: usize,
@@ -17652,8 +17694,13 @@ pub struct ITabView_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_TabDroppedOutside: usize,
     remove_TabDroppedOutside: usize,
-    add_AddTabButtonClick: usize,
-    remove_AddTabButtonClick: usize,
+    pub add_AddTabButtonClick: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_AddTabButtonClick:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_TabItemsChanged: usize,
     remove_TabItemsChanged: usize,
     get_TabItemsSource: usize,
