@@ -36,7 +36,7 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
-                if !method.dependencies.included(config) {
+                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
@@ -60,7 +60,8 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            !method.dependencies.included(config) || !config.includes_method(type_name, def)
+            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+                || !config.includes_method(type_name, def)
         })
     }
 

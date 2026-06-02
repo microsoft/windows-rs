@@ -58,7 +58,12 @@ impl MinimalTypeMap {
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
-                    // Win32 COM interface — walk requested method signatures.
+                    // Win32 COM interface — walk the base interface hierarchy
+                    // so that vtable definitions and Deref chains are available.
+                    for base in iface.base_interfaces(reader) {
+                        base.combine_minimal(&mut types, reader, references);
+                    }
+                    // Walk requested method signatures.
                     for method in iface.def.methods() {
                         if method_set.includes(method.name()) {
                             let sig = method.method_signature(iface.def.namespace(), &[], reader);
@@ -206,7 +211,11 @@ impl CombineMinimal for Type {
                 // The hierarchy is handled by the caller.
                 Type::Object.combine_minimal(types, reader, references);
             }
-            Type::CppInterface(_) => {
+            Type::CppInterface(iface) => {
+                // Pull in base interfaces so vtable/Deref/hierarchy work.
+                for base in iface.base_interfaces(reader) {
+                    base.combine_minimal(types, reader, references);
+                }
                 Type::IUnknown.combine_minimal(types, reader, references);
             }
             Type::CppFn(f) => {

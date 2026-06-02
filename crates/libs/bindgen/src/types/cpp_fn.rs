@@ -136,7 +136,7 @@ impl CppFn {
         }
 
         let method = CppMethod::new(self.method, self.namespace, config.reader);
-        let args = method.write_args();
+        let args = method.write_args(config);
         let params = method.write_params(config);
         let generics = method.write_generics();
         let abi_return_type = method.write_return(config);
