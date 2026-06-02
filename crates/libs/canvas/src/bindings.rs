@@ -155,6 +155,16 @@ pub const DXGI_ALPHA_MODE_PREMULTIPLIED: DXGI_ALPHA_MODE = 1i32;
 pub type DXGI_FORMAT = i32;
 pub const DXGI_FORMAT_B8G8R8A8_UNORM: DXGI_FORMAT = 87i32;
 pub const DXGI_FORMAT_UNKNOWN: DXGI_FORMAT = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DXGI_MATRIX_3X2_F {
+    pub _11: f32,
+    pub _12: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _31: f32,
+    pub _32: f32,
+}
 pub type DXGI_MODE_SCALING = i32;
 pub type DXGI_MODE_SCANLINE_ORDER = i32;
 pub type DXGI_PRESENT = u32;
@@ -1187,6 +1197,15 @@ impl ID2D1RenderTarget {
             .ok()
         }
     }
+    pub unsafe fn SetDpi(&self, dpix: f32, dpiy: f32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDpi)(
+                windows_core::Interface::as_raw(self),
+                dpix,
+                dpiy,
+            );
+        }
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1331,7 +1350,7 @@ pub struct ID2D1RenderTarget_Vtbl {
         *mut u64,
     ) -> windows_core::HRESULT,
     GetPixelFormat: usize,
-    SetDpi: usize,
+    pub SetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32),
     GetDpi: usize,
     GetSize: usize,
     GetPixelSize: usize,
@@ -2316,6 +2335,57 @@ pub struct IDXGISwapChain1_Vtbl {
 unsafe impl Send for IDXGISwapChain1 {}
 unsafe impl Sync for IDXGISwapChain1 {}
 impl windows_core::RuntimeName for IDXGISwapChain1 {}
+windows_core::imp::define_interface!(
+    IDXGISwapChain2,
+    IDXGISwapChain2_Vtbl,
+    0xa8be2ac4_199f_4946_b331_79599fb98de7
+);
+impl core::ops::Deref for IDXGISwapChain2 {
+    type Target = IDXGISwapChain1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IDXGISwapChain2,
+    windows_core::IUnknown,
+    IDXGIObject,
+    IDXGIDeviceSubObject,
+    IDXGISwapChain,
+    IDXGISwapChain1
+);
+impl IDXGISwapChain2 {
+    pub unsafe fn SetMatrixTransform(
+        &self,
+        pmatrix: *const DXGI_MATRIX_3X2_F,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMatrixTransform)(
+                windows_core::Interface::as_raw(self),
+                pmatrix,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDXGISwapChain2_Vtbl {
+    pub base__: IDXGISwapChain1_Vtbl,
+    SetSourceSize: usize,
+    GetSourceSize: usize,
+    SetMaximumFrameLatency: usize,
+    GetMaximumFrameLatency: usize,
+    GetFrameLatencyWaitableObject: usize,
+    pub SetMatrixTransform: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const DXGI_MATRIX_3X2_F,
+    ) -> windows_core::HRESULT,
+    GetMatrixTransform: usize,
+}
+unsafe impl Send for IDXGISwapChain2 {}
+unsafe impl Sync for IDXGISwapChain2 {}
+impl windows_core::RuntimeName for IDXGISwapChain2 {}
 windows_core::imp::define_interface!(
     IWICBitmapDecoder,
     IWICBitmapDecoder_Vtbl,

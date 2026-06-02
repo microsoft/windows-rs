@@ -38,11 +38,12 @@
     Windows.Win32.Graphics.Dxgi.IDXGIObject::{GetParent}
     Windows.Win32.Graphics.Dxgi.IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
     Windows.Win32.Graphics.Dxgi.IDXGISwapChain::{Present, GetBuffer, ResizeBuffers}
+    Windows.Win32.Graphics.Dxgi.IDXGISwapChain2::{SetMatrixTransform}
     Windows.Win32.Graphics.Direct2D.ID2D1Factory1::{CreateDevice}
     Windows.Win32.Graphics.Direct2D.ID2D1Device::{CreateDeviceContext}
     Windows.Win32.Graphics.Direct2D.ID2D1DeviceContext::{CreateBitmapFromDxgiSurface, SetTarget, DrawBitmap}
     Windows.Win32.Graphics.Direct2D.D2D1_INTERPOLATION_MODE_LINEAR
-    Windows.Win32.Graphics.Direct2D.ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, CreateBitmapFromWicBitmap, GetTransform, SetTransform}
+    Windows.Win32.Graphics.Direct2D.ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, CreateBitmapFromWicBitmap, GetTransform, SetTransform, SetDpi}
     Windows.Win32.Graphics.Direct2D.ID2D1SolidColorBrush::{SetColor}
     Windows.Win32.Graphics.Direct2D.ID2D1Bitmap::{GetSize}
     Windows.Win32.Graphics.Direct2D.D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES

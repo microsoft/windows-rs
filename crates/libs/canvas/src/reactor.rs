@@ -43,18 +43,22 @@ struct RenderState {
     device: GpuDevice,
     chain: SwapChain,
     panel: SwapChainPanelHandle,
+    scale: f32,
     _rendering: Rendering,
+    _scale_revoker: Option<windows_core::EventRevoker>,
 }
 
 impl RenderState {
-    /// Attempt to rebuild the device and swap chain after device-lost.
-    fn rebuild(&mut self, width: u32, height: u32) -> bool {
+    fn rebuild(&mut self, pixel_width: u32, pixel_height: u32) -> bool {
         let Ok(device) = GpuDevice::new() else {
             return false;
         };
-        let Ok(chain) = device.create_swap_chain(width, height) else {
+        let Ok(mut chain) = device.create_swap_chain(pixel_width, pixel_height) else {
             return false;
         };
+        let dpi = 96.0 * self.scale;
+        chain.set_dpi(dpi, dpi);
+        chain.set_composition_scale(self.scale, self.scale);
         let _ = self.panel.set_swap_chain(chain.raw_swap_chain());
         self.device = device;
         self.chain = chain;
@@ -68,8 +72,9 @@ impl RenderState {
 /// rendering loop automatically. If the GPU device is lost (driver update,
 /// sleep/wake, etc.), the widget silently recreates the device and resumes.
 ///
-/// The closure receives a [`DrawContext`] with the active drawing session
-/// and current dimensions.
+/// The swap chain is created at the display's native pixel resolution for
+/// crisp rendering. The `DrawContext` reports dimensions in DIPs so draw
+/// code is resolution-independent.
 ///
 /// ```ignore
 /// animated_canvas(|ctx| {
@@ -81,54 +86,81 @@ impl RenderState {
 pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanelWidget {
     let state: Rc<RefCell<Option<RenderState>>> = Rc::new(RefCell::new(None));
     let size: Rc<Cell<(f32, f32)>> = Rc::new(Cell::new((0.0, 0.0)));
+    let scale: Rc<Cell<f32>> = Rc::new(Cell::new(1.0));
     let draw = Rc::new(draw);
 
     let ready_state = state.clone();
     let ready_size = size.clone();
+    let ready_scale = scale.clone();
     swap_chain_panel()
         .on_ready(move |panel| {
+            let s = panel.composition_scale().map(|(x, _)| x).unwrap_or(1.0);
+            ready_scale.set(s);
+
             let (w, h) = ready_size.get();
-            let pw = (w as u32).max(1);
-            let ph = (h as u32).max(1);
+            let pw = ((w * s) as u32).max(1);
+            let ph = ((h * s) as u32).max(1);
 
             let Ok(device) = GpuDevice::new() else {
                 return;
             };
-            let Ok(chain) = device.create_swap_chain(pw, ph) else {
+            let Ok(mut chain) = device.create_swap_chain(pw, ph) else {
                 return;
             };
+            let dpi = 96.0 * s;
+            chain.set_dpi(dpi, dpi);
+            chain.set_composition_scale(s, s);
             let _ = panel.set_swap_chain(chain.raw_swap_chain());
+
+            // Listen for scale changes (e.g., window moved to different monitor).
+            let sc_size = ready_size.clone();
+            let sc_scale = ready_scale.clone();
+            let sc_state = ready_state.clone();
+            let scale_revoker = panel
+                .on_composition_scale_changed(move |new_s, _| {
+                    sc_scale.set(new_s);
+                    let (w, h) = sc_size.get();
+                    let pw = ((w * new_s) as u32).max(1);
+                    let ph = ((h * new_s) as u32).max(1);
+                    let mut borrow = sc_state.borrow_mut();
+                    if let Some(rs) = borrow.as_mut() {
+                        rs.scale = new_s;
+                        let _ = rs.chain.resize(pw, ph);
+                        let dpi = 96.0 * new_s;
+                        rs.chain.set_dpi(dpi, dpi);
+                        rs.chain.set_composition_scale(new_s, new_s);
+                    }
+                })
+                .ok();
 
             let render_state = ready_state.clone();
             let render_size = ready_size.clone();
             let render_draw = draw.clone();
             let Ok(rendering) = on_rendering(move || {
                 let mut borrow = render_state.borrow_mut();
-                if let Some(s) = borrow.as_mut() {
+                if let Some(rs) = borrow.as_mut() {
                     let (w, h) = render_size.get();
                     if w <= 0.0 || h <= 0.0 {
                         return;
                     }
-                    let Ok(session) = s.chain.begin_draw() else {
+                    let Ok(session) = rs.chain.begin_draw() else {
                         return;
                     };
                     let ctx = DrawContext {
                         session,
-                        device: &s.device,
+                        device: &rs.device,
                         width: w,
                         height: h,
                     };
                     render_draw(&ctx);
                     drop(ctx);
 
-                    // present() returns Ok(false) on device-lost.
-                    match s.chain.present() {
+                    match rs.chain.present() {
                         Ok(true) => {}
                         Ok(false) => {
-                            // Device lost — rebuild and continue next frame.
-                            let pw = (w as u32).max(1);
-                            let ph = (h as u32).max(1);
-                            s.rebuild(pw, ph);
+                            let pw = ((w * rs.scale) as u32).max(1);
+                            let ph = ((h * rs.scale) as u32).max(1);
+                            rs.rebuild(pw, ph);
                         }
                         Err(_) => {}
                     }
@@ -141,14 +173,19 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
                 device,
                 chain,
                 panel,
+                scale: s,
                 _rendering: rendering,
+                _scale_revoker: scale_revoker,
             });
         })
         .on_resize(move |w, h| {
             size.set((w as f32, h as f32));
+            let s = scale.get();
+            let pw = ((w as f32 * s) as u32).max(1);
+            let ph = ((h as f32 * s) as u32).max(1);
             let mut borrow = state.borrow_mut();
-            if let Some(s) = borrow.as_mut() {
-                let _ = s.chain.resize(w as u32, h as u32);
+            if let Some(rs) = borrow.as_mut() {
+                let _ = rs.chain.resize(pw, ph);
             }
         })
 }

@@ -46,7 +46,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 let cy = ctx.height / 2.0;
                 let orbit = cx.min(cy) * 0.5;
 
-                ctx.clear(Color::DARK_SLATE_BLUE);
+                ctx.clear(Color::TRANSPARENT);
 
                 // Create a brush once per frame (cheap — reuse via set_color).
                 let Ok(brush) = ctx.create_solid_brush(Color::CORNFLOWER_BLUE) else {

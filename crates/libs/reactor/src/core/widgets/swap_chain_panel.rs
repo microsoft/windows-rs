@@ -18,6 +18,35 @@ impl SwapChainPanelHandle {
         let native: crate::bindings::ISwapChainPanelNative = self.0.cast()?;
         unsafe { native.SetSwapChain(swap_chain.as_raw()) }
     }
+
+    /// Returns the current composition scale (DPI scale factor) as `(scale_x, scale_y)`.
+    ///
+    /// Multiply DIP dimensions by these values to get pixel dimensions for the swap chain.
+    /// Typically both values are equal (e.g., 1.5 at 150% display scaling).
+    pub fn composition_scale(&self) -> windows_core::Result<(f32, f32)> {
+        let panel: crate::bindings::ISwapChainPanel = self.0.cast()?;
+        let x = panel.get_CompositionScaleX()?;
+        let y = panel.get_CompositionScaleY()?;
+        Ok((x, y))
+    }
+
+    /// Subscribe to composition scale changes (e.g., window moved to a different monitor).
+    ///
+    /// The callback receives `(scale_x, scale_y)`.
+    pub fn on_composition_scale_changed(
+        &self,
+        f: impl Fn(f32, f32) + 'static,
+    ) -> windows_core::Result<windows_core::EventRevoker> {
+        let panel: crate::bindings::ISwapChainPanel = self.0.cast()?;
+        panel.add_CompositionScaleChanged(move |sender, _| {
+            if let Some(sender) = sender.as_ref() {
+                let scp: &crate::bindings::ISwapChainPanel = sender;
+                let x = scp.get_CompositionScaleX().unwrap_or(1.0);
+                let y = scp.get_CompositionScaleY().unwrap_or(1.0);
+                f(x, y);
+            }
+        })
+    }
 }
 
 /// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` — hosts

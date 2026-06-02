@@ -8,6 +8,7 @@ use crate::device::GpuDevice;
 use crate::device_lost;
 use crate::session::DrawingSession;
 use crate::types::Brush;
+use windows_core::Interface;
 
 /// Manages a DXGI swap chain with safe resize and present.
 pub struct SwapChain {
@@ -16,6 +17,8 @@ pub struct SwapChain {
     device_lost_flag: Cell<bool>,
     width: u32,
     height: u32,
+    dpi_x: f32,
+    dpi_y: f32,
 }
 
 impl SwapChain {
@@ -95,6 +98,8 @@ impl SwapChain {
             device_lost_flag: Cell::new(false),
             width,
             height,
+            dpi_x: 96.0,
+            dpi_y: 96.0,
         };
         result.set_target()?;
         Ok(result)
@@ -168,6 +173,40 @@ impl SwapChain {
         self.height
     }
 
+    /// Set the DPI of the D2D render target.
+    ///
+    /// Call this with `96.0 * scale` (where `scale` is the composition scale factor)
+    /// so that Direct2D and DirectWrite render at the correct resolution.
+    /// Also refreshes the render target bitmap to match the new DPI.
+    pub fn set_dpi(&mut self, dpi_x: f32, dpi_y: f32) {
+        self.dpi_x = dpi_x;
+        self.dpi_y = dpi_y;
+        unsafe { self.d2d_context.SetDpi(dpi_x, dpi_y) }
+        // Recreate the target bitmap with the updated DPI.
+        let _ = self.set_target();
+    }
+
+    /// Apply an inverse composition scale to the swap chain so that a
+    /// pixel-sized buffer is presented at the correct DIP size.
+    ///
+    /// Call with the `CompositionScaleX/Y` values from the `SwapChainPanel`.
+    /// This sets `IDXGISwapChain2::SetMatrixTransform` to `1/scale`.
+    pub fn set_composition_scale(&self, scale_x: f32, scale_y: f32) {
+        if let Ok(sc2) = self.swap_chain.cast::<IDXGISwapChain2>() {
+            let matrix = DXGI_MATRIX_3X2_F {
+                _11: 1.0 / scale_x,
+                _12: 0.0,
+                _21: 0.0,
+                _22: 1.0 / scale_y,
+                _31: 0.0,
+                _32: 0.0,
+            };
+            unsafe {
+                let _ = sc2.SetMatrixTransform(&matrix);
+            }
+        }
+    }
+
     /// Returns `true` if the device was lost during the last draw/present cycle.
     pub fn is_device_lost(&self) -> bool {
         self.device_lost_flag.get()
@@ -181,8 +220,8 @@ impl SwapChain {
                     format: DXGI_FORMAT_B8G8R8A8_UNORM,
                     alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
                 },
-                dpiX: 96.0,
-                dpiY: 96.0,
+                dpiX: self.dpi_x,
+                dpiY: self.dpi_y,
                 bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
                 ..Default::default()
             };
@@ -190,6 +229,8 @@ impl SwapChain {
                 .d2d_context
                 .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
             self.d2d_context.SetTarget(&bitmap);
+            // Ensure context DPI matches after SetTarget (some target types reset it).
+            self.d2d_context.SetDpi(self.dpi_x, self.dpi_y);
             Ok(())
         }
     }
