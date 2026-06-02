@@ -87,6 +87,10 @@ jobs:
       - name: Check windows-reactor
         run:  cargo check -p windows-reactor --all-features
       - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-reactor-setup
+        run:  cargo check -p windows-reactor-setup --all-features
+      - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-reference
         run:  cargo check -p windows-reference --all-features

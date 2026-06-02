@@ -30,5 +30,6 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
+    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
     App::new().title("use_ref").render(app)
 }

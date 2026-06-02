@@ -10,5 +10,8 @@ rustc-hash = { workspace = true }
 [dependencies]
 windows-reactor = { workspace = true }
 
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
 [lints]
 workspace = true

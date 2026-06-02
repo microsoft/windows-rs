@@ -1,5 +1,3 @@
-#![deny(clippy::correctness)]
-
 #[allow(
     dead_code,
     non_snake_case,
@@ -26,6 +24,7 @@ pub mod app;
 pub(crate) mod diagnostics;
 
 mod app_shim;
+pub mod bootstrap;
 
 pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
