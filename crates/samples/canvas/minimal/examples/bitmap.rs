@@ -9,7 +9,7 @@
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::new(0.1, 0.1, 0.1, 1.0));
+    ctx.clear(ColorF::new(0.1, 0.1, 0.1, 1.0));
 
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("examples")

@@ -5,7 +5,7 @@ use windows_reactor::{
     Rendering, SwapChainPanelHandle, SwapChainPanelWidget, on_rendering, swap_chain_panel,
 };
 
-use crate::color::Color;
+use crate::color::ColorF;
 use crate::device::GpuDevice;
 use crate::session::DrawingSession;
 use crate::swap_chain::SwapChain;
@@ -27,7 +27,7 @@ impl<'a> DrawContext<'a> {
     }
 
     /// Clear the render target.
-    pub fn clear(&self, color: Color) {
+    pub fn clear(&self, color: ColorF) {
         self.session.clear(color);
     }
 }
@@ -78,7 +78,7 @@ impl RenderState {
 ///
 /// ```ignore
 /// animated_canvas(|ctx| {
-///     ctx.clear(Color::CORNFLOWER_BLUE);
+///     ctx.clear(ColorF::CORNFLOWER_BLUE);
 ///     ctx.fill_ellipse(&ellipse, &brush);
 /// })
 /// .margin(16.0)

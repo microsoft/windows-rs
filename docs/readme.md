@@ -11,6 +11,8 @@ This repo is the home of the following crates (and other supporting crates):
 
 * [windows-sys](https://crates.io/crates/windows-sys) - Raw bindings for C-style Windows APIs.
 * [windows](https://crates.io/crates/windows) - Safer bindings including C-style APIs as well as COM and WinRT APIs.
+* [windows-reactor](https://crates.io/crates/windows-reactor) - Declarative UI library for Rust, backed by WinUI 3.
+* [windows-canvas](https://crates.io/crates/windows-canvas) - Idiomatic 2D graphics library built on Direct2D.
 
 * [windows-bindgen](https://crates.io/crates/windows-bindgen) - Code generator for Windows metadata.
 * [windows-collections](https://crates.io/crates/windows-collections) - Windows collection types.

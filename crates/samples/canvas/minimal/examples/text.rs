@@ -5,7 +5,7 @@
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::BLACK);
+    ctx.clear(ColorF::BLACK);
 
     let Ok(format) = TextFormat::new("Segoe UI", 32.0)
         .map(|f| f.with_alignment(TextAlignment::Center))
@@ -14,7 +14,7 @@ fn draw(ctx: &DrawContext) {
         return;
     };
 
-    let Ok(brush) = ctx.create_solid_brush(Color::WHITE) else {
+    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else {
         return;
     };
 

@@ -3,7 +3,7 @@ use std::path::Path;
 
 use crate::bindings::*;
 use crate::bitmap::Bitmap;
-use crate::color::Color;
+use crate::color::ColorF;
 use crate::device::GpuDevice;
 use crate::device_lost;
 use crate::session::DrawingSession;
@@ -145,7 +145,7 @@ impl SwapChain {
     }
 
     /// Create a solid color brush that can be reused across draw sessions.
-    pub fn create_solid_brush(&self, color: Color) -> windows_core::Result<Brush> {
+    pub fn create_solid_brush(&self, color: ColorF) -> windows_core::Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }

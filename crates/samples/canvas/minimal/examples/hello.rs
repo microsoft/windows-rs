@@ -5,8 +5,8 @@
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::DARK_SLATE_BLUE);
-    let Ok(brush) = ctx.create_solid_brush(Color::CORNFLOWER_BLUE) else {
+    ctx.clear(ColorF::DARK_SLATE_BLUE);
+    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
         return;
     };
     let r = ctx.width.min(ctx.height) * 0.3;

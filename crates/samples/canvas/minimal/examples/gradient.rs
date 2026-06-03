@@ -5,7 +5,7 @@
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::BLACK);
+    ctx.clear(ColorF::BLACK);
 
     let margin = 40.0;
     let half = ctx.height / 2.0;
@@ -15,8 +15,8 @@ fn draw(ctx: &DrawContext) {
         Vector2::new(margin, 0.0),
         Vector2::new(ctx.width - margin, 0.0),
         &[
-            GradientStop::new(0.0, Color::CORNFLOWER_BLUE),
-            GradientStop::new(1.0, Color::new(1.0, 0.5, 0.0, 1.0)),
+            GradientStop::new(0.0, ColorF::CORNFLOWER_BLUE),
+            GradientStop::new(1.0, ColorF::new(1.0, 0.5, 0.0, 1.0)),
         ],
     ) else {
         return;
@@ -40,9 +40,9 @@ fn draw(ctx: &DrawContext) {
         r,
         r,
         &[
-            GradientStop::new(0.0, Color::WHITE),
-            GradientStop::new(0.6, Color::CORNFLOWER_BLUE),
-            GradientStop::new(1.0, Color::BLACK),
+            GradientStop::new(0.0, ColorF::WHITE),
+            GradientStop::new(0.6, ColorF::CORNFLOWER_BLUE),
+            GradientStop::new(1.0, ColorF::BLACK),
         ],
     ) else {
         return;

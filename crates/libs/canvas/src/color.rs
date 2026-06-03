@@ -1,13 +1,18 @@
 /// An RGBA color with f32 components in 0.0–1.0 range.
+///
+/// This is the floating-point color representation used by Direct2D
+/// (`D2D1_COLOR_F`). For the u8 ARGB platform color used by WinUI/XAML,
+/// see `windows_reactor::Color`.
+#[doc(alias = "Color")]
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
-pub struct Color {
+pub struct ColorF {
     pub r: f32,
     pub g: f32,
     pub b: f32,
     pub a: f32,
 }
 
-impl Color {
+impl ColorF {
     /// Create a color from floating-point RGBA (0.0–1.0).
     pub const fn new(r: f32, g: f32, b: f32, a: f32) -> Self {
         Self { r, g, b, a }
@@ -43,8 +48,8 @@ impl Color {
     pub const DARK_SLATE_BLUE: Self = Self::rgb(0.05, 0.05, 0.1);
 }
 
-impl From<Color> for crate::bindings::D2D1_COLOR_F {
-    fn from(c: Color) -> Self {
+impl From<ColorF> for crate::bindings::D2D1_COLOR_F {
+    fn from(c: ColorF) -> Self {
         Self {
             r: c.r,
             g: c.g,

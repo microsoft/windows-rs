@@ -5,7 +5,7 @@
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::DARK_SLATE_BLUE);
+    ctx.clear(ColorF::DARK_SLATE_BLUE);
 
     let cx = ctx.width / 2.0;
     let cy = ctx.height / 2.0;
@@ -22,7 +22,7 @@ fn draw(ctx: &DrawContext) {
         return;
     };
 
-    let Ok(brush) = ctx.create_solid_brush(Color::new(1.0, 0.8, 0.0, 1.0)) else {
+    let Ok(brush) = ctx.create_solid_brush(ColorF::new(1.0, 0.8, 0.0, 1.0)) else {
         return;
     };
     ctx.fill_path(&path, &brush);

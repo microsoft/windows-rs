@@ -1,5 +1,12 @@
 # Reactor / Canvas Naming Collisions
 
+> **Status**: Resolved — canvas's `Color` (f32 RGBA) renamed to `ColorF` to
+> avoid collision with reactor's `Color` (u8 ARGB, matching `Windows.UI.Color`).
+> Reactor keeps the unqualified `Color` name since it is the platform-canonical
+> type. `Ellipse`, `FontWeight`, and `Brush` remain unchanged pending further
+> design work on both sides (reactor's `Brush` enum and canvas's `Brush` handle
+> both need refinement).
+
 ## Problem Statement
 
 `windows-reactor` and `windows-canvas` are companion crates designed to be used

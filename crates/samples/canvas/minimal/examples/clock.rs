@@ -25,14 +25,14 @@ thread_local! {
 }
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::WHITE);
+    ctx.clear(ColorF::WHITE);
 
     let size_x = ctx.width;
     let size_y = ctx.height;
     let radius = size_x.min(size_y).max(200.0) / 2.0 - 50.0;
 
     // Single brush — orange/terracotta at 80% opacity (matching D2D sample).
-    let Ok(brush) = ctx.create_solid_brush(Color::new(0.92, 0.38, 0.208, 0.8)) else {
+    let Ok(brush) = ctx.create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8)) else {
         return;
     };
 

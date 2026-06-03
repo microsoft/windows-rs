@@ -5,9 +5,9 @@
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::BLACK);
+    ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(Color::WHITE) else {
+    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else {
         return;
     };
 
@@ -20,7 +20,7 @@ fn draw(ctx: &DrawContext) {
         let width = (i + 1) as f32;
 
         let t = i as f32 / (count - 1) as f32;
-        brush.set_color(Color::new(1.0 - t * 0.7, 1.0 - t * 0.5, 1.0, 1.0));
+        brush.set_color(ColorF::new(1.0 - t * 0.7, 1.0 - t * 0.5, 1.0, 1.0));
 
         ctx.draw_line(
             Vector2::new(margin, y),

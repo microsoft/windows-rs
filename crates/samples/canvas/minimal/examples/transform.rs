@@ -13,9 +13,9 @@ fn draw(ctx: &DrawContext) {
     FRAME.with(|f| f.set(f.get() + 1));
     let t = FRAME.with(|f| f.get()) as f32 * 0.01;
 
-    ctx.clear(Color::BLACK);
+    ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(Color::CORNFLOWER_BLUE) else {
+    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
         return;
     };
 
@@ -36,7 +36,7 @@ fn draw(ctx: &DrawContext) {
         };
 
         let frac = i as f32 / 6.0;
-        brush.set_color(Color::new(0.3 + frac * 0.7, 0.5, 1.0 - frac * 0.5, 0.8));
+        brush.set_color(ColorF::new(0.3 + frac * 0.7, 0.5, 1.0 - frac * 0.5, 0.8));
 
         ctx.with_transform(&transform, || {
             ctx.fill_rect(

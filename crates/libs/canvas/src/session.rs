@@ -2,7 +2,7 @@ use std::cell::Cell;
 
 use crate::bindings::*;
 use crate::bitmap::Bitmap;
-use crate::color::Color;
+use crate::color::ColorF;
 use crate::device_lost;
 use crate::geometry::Path;
 use crate::text::TextFormat;
@@ -34,7 +34,7 @@ impl<'a> DrawingSession<'a> {
     }
 
     /// Clear the render target to the specified color.
-    pub fn clear(&self, color: Color) {
+    pub fn clear(&self, color: ColorF) {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
@@ -157,7 +157,7 @@ impl<'a> DrawingSession<'a> {
     }
 
     /// Create a solid color brush bound to this session's device context.
-    pub fn create_solid_brush(&self, color: Color) -> windows_core::Result<Brush> {
+    pub fn create_solid_brush(&self, color: ColorF) -> windows_core::Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
     }

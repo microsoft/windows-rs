@@ -24,7 +24,7 @@ mod text;
 mod types;
 
 pub use bitmap::Bitmap;
-pub use color::Color;
+pub use color::ColorF;
 pub use device::GpuDevice;
 pub use geometry::{Path, PathBuilder};
 #[cfg(feature = "reactor")]
