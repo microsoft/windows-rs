@@ -22,7 +22,7 @@ impl TextBlock {
 impl Widget for TextBlock {
     widget_header!(ControlKind::TextBlock);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
+        let mut out = Vec::with_capacity(5);
         out.push(Binding::Prop(
             Prop::Text,
             PropValue::Str(self.content.clone()),
