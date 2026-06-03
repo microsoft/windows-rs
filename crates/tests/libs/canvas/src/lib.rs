@@ -38,7 +38,7 @@ mod tests {
 
         {
             let session = chain.begin_draw().unwrap();
-            session.clear(Color::CORNFLOWER_BLUE);
+            session.clear(ColorF::CORNFLOWER_BLUE);
         }
 
         chain.present().unwrap();
@@ -58,11 +58,11 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
-        let brush = chain.create_solid_brush(Color::RED).unwrap();
+        let brush = chain.create_solid_brush(ColorF::RED).unwrap();
 
         for _ in 0..3 {
             let session = chain.begin_draw().unwrap();
-            session.clear(Color::BLACK);
+            session.clear(ColorF::BLACK);
             session.fill_ellipse(&Ellipse::circle(Vector2::new(32.0, 32.0), 16.0), &brush);
             drop(session);
             chain.present().unwrap();
@@ -77,10 +77,10 @@ mod tests {
         let format = TextFormat::new("Segoe UI", 16.0)
             .unwrap()
             .with_alignment(TextAlignment::Center);
-        let brush = chain.create_solid_brush(Color::WHITE).unwrap();
+        let brush = chain.create_solid_brush(ColorF::WHITE).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.draw_text("Hello", &format, &Rect::new(0.0, 0.0, 128.0, 64.0), &brush);
         drop(session);
         chain.present().unwrap();
@@ -101,10 +101,10 @@ mod tests {
             .build()
             .unwrap();
 
-        let brush = chain.create_solid_brush(Color::GREEN).unwrap();
+        let brush = chain.create_solid_brush(ColorF::GREEN).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.fill_path(&path, &brush);
         session.draw_path(&path, &brush, 2.0);
         drop(session);
@@ -117,7 +117,7 @@ mod tests {
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         drop(session);
 
         // Normal present should return Ok(true) — device is fine.
@@ -130,12 +130,12 @@ mod tests {
     fn rounded_rect_draw_fill() {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
-        let brush = chain.create_solid_brush(Color::RED).unwrap();
+        let brush = chain.create_solid_brush(ColorF::RED).unwrap();
 
         let rrect = RoundedRect::uniform(Rect::new(5.0, 5.0, 55.0, 55.0), 8.0);
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.fill_rounded_rect(&rrect, &brush);
         session.draw_rounded_rect(&rrect, &brush, 2.0);
         drop(session);
@@ -148,7 +148,7 @@ mod tests {
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
 
         // Default is identity.
         let identity = session.get_transform();
@@ -196,15 +196,15 @@ mod tests {
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
 
         let gradient = session
             .create_linear_gradient(
                 Vector2::new(0.0, 0.0),
                 Vector2::new(64.0, 0.0),
                 &[
-                    GradientStop::new(0.0, Color::RED),
-                    GradientStop::new(1.0, Color::BLUE),
+                    GradientStop::new(0.0, ColorF::RED),
+                    GradientStop::new(1.0, ColorF::BLUE),
                 ],
             )
             .unwrap();
@@ -223,7 +223,7 @@ mod tests {
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
 
         let gradient = session
             .create_radial_gradient(
@@ -231,8 +231,8 @@ mod tests {
                 32.0,
                 32.0,
                 &[
-                    GradientStop::new(0.0, Color::WHITE),
-                    GradientStop::new(1.0, Color::BLACK),
+                    GradientStop::new(0.0, ColorF::WHITE),
+                    GradientStop::new(1.0, ColorF::BLACK),
                 ],
             )
             .unwrap();
@@ -257,7 +257,7 @@ mod tests {
         assert!(bitmap.height() > 0.0);
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.draw_bitmap(&bitmap, &Rect::new(0.0, 0.0, 64.0, 64.0), 1.0);
         drop(session);
         chain.present().unwrap();
@@ -297,9 +297,9 @@ mod tests {
             .build()
             .unwrap();
 
-        let brush = chain.create_solid_brush(Color::WHITE).unwrap();
+        let brush = chain.create_solid_brush(ColorF::WHITE).unwrap();
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.draw_path(&path, &brush, 2.0);
         drop(session);
         chain.present().unwrap();
@@ -324,9 +324,9 @@ mod tests {
             .build()
             .unwrap();
 
-        let brush = chain.create_solid_brush(Color::GREEN).unwrap();
+        let brush = chain.create_solid_brush(ColorF::GREEN).unwrap();
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.fill_path(&path, &brush);
         drop(session);
         chain.present().unwrap();
@@ -338,10 +338,10 @@ mod tests {
 
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(128, 64).unwrap();
-        let brush = chain.create_solid_brush(Color::WHITE).unwrap();
+        let brush = chain.create_solid_brush(ColorF::WHITE).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
         session.draw_text("Bold", &format, &Rect::new(0.0, 0.0, 128.0, 64.0), &brush);
         drop(session);
         chain.present().unwrap();
@@ -353,7 +353,7 @@ mod tests {
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
         let session = chain.begin_draw().unwrap();
-        session.clear(Color::BLACK);
+        session.clear(ColorF::BLACK);
 
         let gradient = session
             .create_radial_gradient(
@@ -361,8 +361,8 @@ mod tests {
                 32.0,
                 32.0,
                 &[
-                    GradientStop::new(0.0, Color::WHITE),
-                    GradientStop::new(1.0, Color::BLACK),
+                    GradientStop::new(0.0, ColorF::WHITE),
+                    GradientStop::new(1.0, ColorF::BLACK),
                 ],
             )
             .unwrap();

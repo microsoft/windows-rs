@@ -1138,11 +1138,12 @@ impl Backend for WinUIBackend {
                 (Prop::Padding, PropValue::Unset, Handle::Border(br)) => {
                     br.put_Padding(to_xaml_thickness(Thickness::default()))
                 }
-                (Prop::Padding, PropValue::Thickness(t), _) => {
-                    if let Ok(ctl) = handle.as_framework_element().cast::<Xaml::Control>() {
+                (Prop::Padding, PropValue::Thickness(t), h) => {
+                    if let Ok(ctl) = h.as_framework_element().cast::<Xaml::Control>() {
                         ctl.cast::<Xaml::IControl>()?
                             .put_Padding(to_xaml_thickness(*t))
                     } else {
+                        diag::unhandled_modifier("set_prop", Prop::Padding, h);
                         Ok(())
                     }
                 }

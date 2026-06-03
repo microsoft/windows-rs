@@ -12,10 +12,7 @@ visual effect.
 **Workaround:** Use `.margin(...)` on the stack (or on individual children)
 instead, since `Margin` is defined on `FrameworkElement` and works everywhere.
 
-**TODO:** Consider whether `windows-reactor` should:
-- Emit a compile-time or runtime warning when `.padding()` is applied to a
-  widget that doesn't support it.
-- Silently translate `.padding()` on stacks into child margins or wrap in a
-  `Border` internally.
-- Remove `.padding()` from the `ElementExt` blanket impl and only expose it on
-  widgets where it actually works (buttons, borders, content controls, etc.).
+**Resolution:** The `diagnostics` feature now emits a debug-mode warning via
+`diag::unhandled_modifier` when `.padding()` is applied to an element that
+doesn't inherit from `Control`. This helps developers notice the mistake early
+without breaking existing code.

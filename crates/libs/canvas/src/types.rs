@@ -1,5 +1,5 @@
 use crate::bindings;
-use crate::color::Color;
+use crate::color::ColorF;
 use windows_numerics::Vector2;
 
 /// A rectangle defined by its edges.
@@ -147,7 +147,7 @@ pub struct Brush(pub(crate) bindings::ID2D1SolidColorBrush);
 
 impl Brush {
     /// Change the brush color (zero-cost — no reallocation).
-    pub fn set_color(&self, color: Color) {
+    pub fn set_color(&self, color: ColorF) {
         let c: bindings::D2D1_COLOR_F = color.into();
         unsafe { self.0.SetColor(&c) };
     }
@@ -185,11 +185,11 @@ impl Paint for RadialGradient {
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GradientStop {
     pub position: f32,
-    pub color: Color,
+    pub color: ColorF,
 }
 
 impl GradientStop {
-    pub const fn new(position: f32, color: Color) -> Self {
+    pub const fn new(position: f32, color: ColorF) -> Self {
         Self { position, color }
     }
 

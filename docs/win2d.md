@@ -1,5 +1,12 @@
 # Win2D CanvasControl and windows-canvas
 
+> **Status**: `windows-canvas` is shipped and provides `animated_canvas()`
+> (continuous frame-loop rendering via `SwapChainPanel`). The Win2D-style
+> `CanvasControl` (invalidation-driven, UI-thread rendering via
+> `CanvasImageSource`) is not yet implemented. This document compares the
+> two Win2D controls with the current Rust implementation and outlines the
+> path toward full feature parity.
+
 This document compares Win2D's `CanvasControl` / `CanvasAnimatedControl` with
 the current `windows-canvas` + `windows-reactor` integration and outlines a
 path toward feature parity in idiomatic Rust.

@@ -1,17 +1,17 @@
-//! Demonstrates brush reuse and color changes.
+//! Demonstrates brush reuse and ColorF changes.
 
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
-    ctx.clear(Color::BLACK);
+    ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(Color::RED) else {
+    let Ok(brush) = ctx.create_solid_brush(ColorF::RED) else {
         return;
     };
 
-    let colors = [Color::RED, Color::GREEN, Color::BLUE, Color::WHITE];
+    let colors = [ColorF::RED, ColorF::GREEN, ColorF::BLUE, ColorF::WHITE];
     let stripe_width = ctx.width / colors.len() as f32;
 
     for (i, color) in colors.iter().enumerate() {

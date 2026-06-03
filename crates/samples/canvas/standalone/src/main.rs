@@ -57,8 +57,8 @@ fn main() -> Result<()> {
             let width = chain.width() as f32;
             let height = chain.height() as f32;
             let session = chain.begin_draw()?;
-            session.clear(Color::DARK_SLATE_BLUE);
-            let brush = session.create_solid_brush(Color::CORNFLOWER_BLUE)?;
+            session.clear(ColorF::DARK_SLATE_BLUE);
+            let brush = session.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
             let r = width.min(height) * 0.3;
 
             session.fill_ellipse(
@@ -66,7 +66,7 @@ fn main() -> Result<()> {
                 &brush,
             );
 
-            brush.set_color(Color::WHITE);
+            brush.set_color(ColorF::WHITE);
 
             let format = TextFormat::new("Segoe UI", 24.0)?
                 .with_alignment(TextAlignment::Center)

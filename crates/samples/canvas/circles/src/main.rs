@@ -9,10 +9,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows_canvas::{
-    Color, Ellipse, FontWeight, Rect, TextAlignment, TextFormat, Vector2, animated_canvas,
-};
-
+use windows_canvas::*;
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -48,10 +45,10 @@ fn app(cx: &mut RenderCx) -> Element {
                     let cy = ctx.height / 2.0;
                     let orbit = cx.min(cy) * 0.5;
 
-                    ctx.clear(Color::TRANSPARENT);
+                    ctx.clear(ColorF::TRANSPARENT);
 
                     // Create a brush once per frame (cheap — reuse via set_color).
-                    let Ok(brush) = ctx.create_solid_brush(Color::CORNFLOWER_BLUE) else {
+                    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
                         return;
                     };
 
@@ -61,7 +58,7 @@ fn app(cx: &mut RenderCx) -> Element {
                         let y = cy + phase.sin() * (orbit * 0.7);
                         let radius = 20.0 + (phase * 0.7).sin().abs() * 30.0;
 
-                        brush.set_color(Color::new(
+                        brush.set_color(ColorF::new(
                             0.3 + (phase * 0.3).sin().abs() * 0.7,
                             0.4 + (phase * 0.5).cos().abs() * 0.5,
                             0.8,
@@ -79,7 +76,7 @@ fn app(cx: &mut RenderCx) -> Element {
                     };
 
                     let label = format!("{count} circles");
-                    brush.set_color(Color::WHITE);
+                    brush.set_color(ColorF::WHITE);
                     let rect = Rect::new(0.0, ctx.height - 40.0, ctx.width, ctx.height);
                     ctx.draw_text(&label, &format, &rect, &brush);
                 }
