@@ -9,7 +9,7 @@
 //! - Transform composition (rotation × translation) for clock hands
 //! - Stroke styles (round start cap, triangle end cap)
 //! - Time-based animation (no UIAnimation Manager needed)
-//! - `LocalTime` from `windows-time` for local clock readings
+//! - `LocalTime` for local clock readings
 //!
 //! ## What's missing vs the full D2D sample
 //! - Drop shadow effect — not yet in canvas
