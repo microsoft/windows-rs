@@ -1,4 +1,4 @@
-//! Minimal sample for the `cx.use_reducer_fn` hook.
+//! Sample for the `cx.use_reducer_fn` hook.
 
 use windows_reactor::*;
 
@@ -54,6 +54,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("use_reducer").render(app)
+    reactor_minimal::run("UseReducer", app)
 }

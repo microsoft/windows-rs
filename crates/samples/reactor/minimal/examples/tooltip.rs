@@ -1,4 +1,4 @@
-//! Minimal sample for the `tooltip` modifier.
+//! Sample for the `tooltip` modifier.
 
 use windows_reactor::*;
 
@@ -12,6 +12,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("tooltip sample").render(app)
+    reactor_minimal::run("Tooltip", app)
 }

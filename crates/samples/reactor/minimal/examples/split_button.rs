@@ -1,4 +1,4 @@
-//! Minimal sample for the `SplitButton` element.
+//! Sample for the `SplitButton` element.
 
 use windows_reactor::*;
 
@@ -16,6 +16,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("SplitButton Sample").render(app)
+    reactor_minimal::run("SplitButton", app)
 }

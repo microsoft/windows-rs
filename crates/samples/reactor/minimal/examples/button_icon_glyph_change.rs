@@ -1,9 +1,4 @@
-//! Demonstrates that a button's text is preserved when its icon changes dynamically.
-//!
-//! Without the ButtonIcon glyph-change fix, updating the icon would nest
-//! StackPanels or lose the text label entirely. Click the button to toggle
-//! the icon between Favorite (♥) and Save (💾) — the "Toggle Icon" label
-//! should remain visible throughout.
+//! Button text preserved when its icon glyph changes dynamically.
 
 use windows_reactor::*;
 
@@ -29,6 +24,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Button Icon — Dynamic Glyph").render(app)
+    reactor_minimal::run("ButtonIconGlyphChange", app)
 }

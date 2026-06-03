@@ -6,7 +6,7 @@
 
 #![windows_subsystem = "windows"]
 
-use canvas_minimal::*;
+use windows_canvas::*;
 
 fn draw(ctx: &DrawContext) {
     ctx.clear(Color::new(0.1, 0.1, 0.1, 1.0));
