@@ -4,11 +4,8 @@
 //! `animated_canvas` filling the full client area. The example only provides
 //! the draw callback.
 
-pub use windows_canvas;
-pub use windows_canvas::*;
-pub use windows_reactor;
-
-use windows_reactor::{App, Backdrop, Element, RenderCx};
+use windows_canvas::*;
+use windows_reactor::*;
 
 /// Run a canvas example in a full-client-area window.
 ///

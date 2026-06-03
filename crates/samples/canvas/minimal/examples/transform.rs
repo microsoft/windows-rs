@@ -2,8 +2,8 @@
 
 #![windows_subsystem = "windows"]
 
-use canvas_minimal::*;
 use std::cell::Cell;
+use windows_canvas::*;
 
 thread_local! {
     static FRAME: Cell<u64> = const { Cell::new(0) };

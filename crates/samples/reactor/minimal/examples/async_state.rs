@@ -1,7 +1,4 @@
-//! Minimal sample for the `cx.use_async_state` hook.
-//!
-//! `AsyncSetState` is `Send + Sync` — call it from any thread and the
-//! value write + rerender are auto-marshalled back to the UI thread.
+//! Sample for `cx.use_async_state` — set state from any thread.
 
 use std::thread;
 use std::time::Duration;
@@ -46,6 +43,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("async_state").render(app)
+    reactor_minimal::run("AsyncState", app)
 }

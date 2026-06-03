@@ -1,4 +1,4 @@
-//! Minimal sample for the `AutoSuggestBox` element.
+//! Sample for the `AutoSuggestBox` element.
 
 use windows_reactor::*;
 
@@ -54,6 +54,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("AutoSuggestBox Sample").render(app)
+    reactor_minimal::run("AutoSuggestBox", app)
 }

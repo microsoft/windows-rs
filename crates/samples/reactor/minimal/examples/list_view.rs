@@ -1,4 +1,4 @@
-//! Minimal sample for the `list_view` templated list.
+//! Sample for the `list_view` templated list.
 
 use windows_reactor::*;
 
