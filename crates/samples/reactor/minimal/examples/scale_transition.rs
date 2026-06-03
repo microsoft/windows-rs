@@ -1,6 +1,4 @@
-//! Minimal sample for `with_scale_transition`.
-//!
-//! Registers a Composition transition so scale changes tween smoothly.
+//! Sample for `with_scale_transition`.
 
 use std::time::Duration;
 
@@ -39,6 +37,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Scale transition").render(app)
+    reactor_minimal::run("ScaleTransition", app)
 }

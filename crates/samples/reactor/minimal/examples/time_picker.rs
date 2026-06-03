@@ -1,4 +1,4 @@
-//! Minimal sample for the `TimePicker` element.
+//! Sample for the `TimePicker` element.
 
 use windows_reactor::*;
 
@@ -23,6 +23,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("TimePicker", app)
 }

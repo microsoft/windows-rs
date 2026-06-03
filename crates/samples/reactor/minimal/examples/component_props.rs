@@ -1,4 +1,4 @@
-//! Minimal sample for passing typed props to a child component.
+//! Sample for passing typed props to a child component.
 
 #![windows_subsystem = "windows"]
 
@@ -37,8 +37,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new()
-        .title("windows_reactor — component_props")
-        .render(app)
+    reactor_minimal::run("ComponentProps", app)
 }

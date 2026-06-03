@@ -1,7 +1,4 @@
-//! Demonstrates `use_resource` with error handling and retry.
-//!
-//! Simulates a flaky API that fails every 3rd attempt. Shows
-//! loading/error/ready states and retry by bumping deps.
+//! Sample for `use_resource` with error handling and retry.
 
 use std::thread;
 use std::time::Duration;
@@ -49,6 +46,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("use_resource_retry").render(app)
+    reactor_minimal::run("UseResourceRetry", app)
 }

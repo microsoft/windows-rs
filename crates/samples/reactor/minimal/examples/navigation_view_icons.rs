@@ -1,4 +1,4 @@
-//! Minimal sample for `NavigationView` items with symbol icons.
+//! Sample for `NavigationView` items with symbol icons.
 
 use windows_reactor::*;
 
@@ -32,6 +32,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("NavigationView Icons Sample").render(app)
+    reactor_minimal::run("NavigationViewIcons", app)
 }

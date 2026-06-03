@@ -1,4 +1,4 @@
-//! Minimal sample for the `SelectorBar` widget.
+//! Sample for the `SelectorBar` widget.
 
 use windows_reactor::*;
 
@@ -19,6 +19,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("SelectorBar Sample").render(app)
+    reactor_minimal::run("SelectorBar", app)
 }
