@@ -59,7 +59,7 @@ fn update_titlebar_theme() {
             let _ = ROOT_WINDOW.with(|wcell| -> Option<()> {
                 let window = wcell.borrow();
                 let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
-                let app_window = window_2.get_AppWindow().ok()?.cast::<IAppWindow>().ok()?;
+                let app_window = window_2.get_AppWindow().ok()?;
                 let titlebar = app_window
                     .get_TitleBar()
                     .ok()?
@@ -75,7 +75,7 @@ pub(crate) fn set_titlebar_height(tall: bool) {
     let applied = ROOT_WINDOW.with(|wcell| -> Option<()> {
         let window = wcell.borrow();
         let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
-        let app_window = window_2.get_AppWindow().ok()?.cast::<IAppWindow>().ok()?;
+        let app_window = window_2.get_AppWindow().ok()?;
         let titlebar = app_window
             .get_TitleBar()
             .ok()?
@@ -148,7 +148,7 @@ impl Backdrop {
             Backdrop::Mica => MicaBackdrop::new()?.cast()?,
             Backdrop::MicaAlt => {
                 let mica = MicaBackdrop::new()?;
-                mica.cast::<IMicaBackdrop>()?.put_Kind(MicaKind::BaseAlt)?;
+                mica.put_Kind(MicaKind::BaseAlt)?;
                 mica.cast()?
             }
             Backdrop::Acrylic => DesktopAcrylicBackdrop::new()?.cast()?,
@@ -306,9 +306,7 @@ impl ReactorHost {
                 if let Some(native_kind) = presenter.to_native()
                     && let Ok(app_window) = window.cast::<IWindow2>()?.get_AppWindow()
                 {
-                    let _ = app_window
-                        .cast::<IAppWindow>()?
-                        .SetPresenterByKind(native_kind);
+                    let _ = app_window.SetPresenterByKind(native_kind);
                 }
                 if let Some(bd) = backdrop
                     && let Err(err) = bd.apply_to(&window)
@@ -469,13 +467,13 @@ fn create_window(
     let dip_to_px = |dips: f64| (dips * dpi as f64 / 96.0).round() as i32;
 
     let window_2 = window.cast::<IWindow2>()?;
-    let app_window_2 = window_2.get_AppWindow()?.cast::<IAppWindow2>()?;
+    let app_window = window_2.get_AppWindow()?;
+    let app_window_2 = app_window.cast::<IAppWindow2>()?;
     app_window_2.ResizeClient(SizeInt32 {
         Width: dip_to_px(dip_size.width),
         Height: dip_to_px(dip_size.height),
     })?;
 
-    let app_window = window_2.get_AppWindow()?.cast::<IAppWindow>()?;
     app_window.SetPresenterByKind(AppWindowPresenterKind::Overlapped)?;
     set_requested_theme(RequestedTheme::Default);
 
@@ -529,9 +527,8 @@ fn apply_constraints_for_window(
     let dip_scale = dpi as f64 / 96.0;
     let dip_to_px = |dips: f64| (dips * dip_scale).round() as i32;
 
-    let app_window_obj = window.cast::<IWindow2>()?.get_AppWindow()?;
-    let app_window = app_window_obj.cast::<IAppWindow>()?;
-    let app_window_2 = app_window_obj.cast::<IAppWindow2>()?;
+    let app_window = window.cast::<IWindow2>()?.get_AppWindow()?;
+    let app_window_2 = app_window.cast::<IAppWindow2>()?;
 
     let outer_size = app_window.get_Size()?;
     let inner_size = app_window_2.get_ClientSize()?;

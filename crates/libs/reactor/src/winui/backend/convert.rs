@@ -176,9 +176,9 @@ pub(super) fn solid_brush(c: Color) -> windows_core::Result<Xaml::SolidColorBrus
     Ok(brush)
 }
 
-pub(super) fn brush_of(v: &Brush) -> windows_core::Result<Xaml::Brush> {
+pub(super) fn brush_of(v: &Brush) -> windows_core::Result<Xaml::SolidColorBrush> {
     match v {
-        Brush::Solid(c) => Ok(solid_brush(*c)?.cast::<Xaml::Brush>()?),
+        Brush::Solid(c) => solid_brush(*c),
     }
 }
 
