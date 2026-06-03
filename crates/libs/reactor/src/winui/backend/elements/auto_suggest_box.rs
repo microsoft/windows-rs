@@ -28,10 +28,10 @@ pub(in crate::winui::backend) fn set_prop(
             asb.cast::<Xaml::IItemsControl>()?.put_ItemsSource(&ivec)
         })()),
         (Prop::Placeholder, PropValue::Str(s)) => Some(asb.put_PlaceholderText(s)),
-        (Prop::Header, PropValue::Str(s)) => Some((|| {
+        (Prop::Header, PropValue::Str(s)) => Some({
             let insp = windows_reference::IReference::from(s.as_str());
             asb.put_Header(&insp)
-        })()),
+        }),
         (Prop::IsEnabled, PropValue::Bool(v)) => {
             Some((|| asb.cast::<Xaml::IControl>()?.put_IsEnabled(*v))())
         }

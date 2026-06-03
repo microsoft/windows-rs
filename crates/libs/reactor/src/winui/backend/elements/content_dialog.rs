@@ -10,10 +10,10 @@ pub(in crate::winui::backend) fn set_prop(
     value: &PropValue,
 ) -> Option<windows_core::Result<()>> {
     match (prop, value) {
-        (Prop::ContentDialogTitle, PropValue::Str(s)) => Some((|| {
+        (Prop::ContentDialogTitle, PropValue::Str(s)) => Some({
             let title = windows_reference::IReference::from(s.as_str());
             d.put_Title(&title)
-        })()),
+        }),
         (Prop::ContentDialogTitle, PropValue::Unset) => Some(d.put_Title(None)),
         (Prop::ContentDialogBody, PropValue::Str(s)) => Some((|| {
             let tb = super::super::string_as_textblock(s)?;
