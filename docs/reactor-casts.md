@@ -77,6 +77,21 @@ DropDownButton → cast → IButton  (QI needed)
 
 Casts to generic interfaces like `IVector<IInspectable>` are also legitimate.
 
+## Param Trait Eliminates Parent-Class Casts
+
+When a method accepts `impl Param<ParentClass>`, you can pass a subclass
+directly without an explicit cast. The `Param` trait handles the conversion
+automatically via `required_hierarchy!`:
+
+```rust
+// ❌ unnecessary QI — put_Background accepts Param<Brush>
+let brush: Brush = solid_brush.cast::<Brush>()?;
+control.put_Background(&brush)?;
+
+// ✅ zero-cost — SolidColorBrush implements Param<Brush>
+control.put_Background(&solid_brush)?;
+```
+
 ## How to Verify
 
 To confirm what a class derefs to, search `bindings.rs`:
@@ -87,3 +102,12 @@ impl core::ops::Deref for <ClassName> {
 ```
 
 If the cast target matches `Target`, the cast is removable.
+
+To check whether `Param<Target>` is available, look for:
+
+```
+required_hierarchy!(<ClassName>, <ParentClass>, ...);
+```
+
+If the parent is listed, passing `&child` to a `Param<Parent>` method works
+without a cast.
