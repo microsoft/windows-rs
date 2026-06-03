@@ -1,6 +1,4 @@
-//! Minimal sample for the `Canvas` element.
-//!
-//! Positions children at absolute `(canvas_left, canvas_top)` coordinates.
+//! Sample for the `Canvas` element.
 
 use windows_reactor::*;
 
@@ -32,6 +30,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Canvas", app)
 }

@@ -1,4 +1,4 @@
-//! Minimal sample for the `TextBox` element.
+//! Sample for the `TextBox` element.
 
 use windows_reactor::*;
 
@@ -35,6 +35,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("TextBox", app)
 }

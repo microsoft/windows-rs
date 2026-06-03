@@ -1,7 +1,4 @@
-//! Minimal sample for the `cx.use_effect` hook.
-//!
-//! Copies `count` into a `use_ref` cell when deps change. Toggling an
-//! unrelated flag rerenders without running the effect again.
+//! Sample for the `cx.use_effect` hook.
 
 use windows_reactor::*;
 
@@ -44,6 +41,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("use_effect").render(app)
+    reactor_minimal::run("UseEffect", app)
 }

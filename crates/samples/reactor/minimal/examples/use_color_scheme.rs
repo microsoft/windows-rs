@@ -1,7 +1,4 @@
-//! Minimal sample for the `cx.use_color_scheme` hook.
-//!
-//! The hook subscribes the component to theme changes, so flipping the
-//! system Light/Dark setting re-renders the swatch labels below.
+//! Sample for the `cx.use_color_scheme` hook.
 
 use windows_reactor::*;
 
@@ -32,6 +29,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("use_color_scheme").render(app)
+    reactor_minimal::run("UseColorScheme", app)
 }

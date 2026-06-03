@@ -1,5 +1,4 @@
-//! Demonstrates `cx.use_resource` — fetch data on a background thread
-//! with automatic loading/error/ready states and dep-driven refetch.
+//! Sample for the `cx.use_resource` hook.
 
 use std::thread;
 use std::time::Duration;
@@ -57,6 +56,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("use_resource").render(app)
+    reactor_minimal::run("UseResource", app)
 }

@@ -1,4 +1,4 @@
-//! Hosts a Direct3D11 swap chain inside a reactor UI via `SwapChainPanel`.
+//! Direct3D11 swap chain hosted in a `SwapChainPanel`.
 
 #![windows_subsystem = "windows"]
 
@@ -144,6 +144,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("SwapChainPanel").render(app)
+    reactor_minimal::run("SwapChainPanel", app)
 }
