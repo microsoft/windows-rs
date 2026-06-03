@@ -304,12 +304,8 @@ mod render {
 
 fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
-    // The native panel, captured once the control is ready. UI-thread-only state.
     let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
-    // The render thread's swap chain, delivered from the worker thread. The async
-    // setter marshals the value back onto the UI thread for us.
     let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
-    // The render thread and its command channel. `None` until the panel is ready.
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
 
     // Attach the swap chain to the panel once the worker thread reports it.
