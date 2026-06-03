@@ -1,4 +1,4 @@
-//! Minimal sample for the `SplitView` element.
+//! Sample for the `SplitView` element.
 
 use windows_reactor::*;
 
@@ -37,6 +37,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("SplitView Sample").render(app)
+    reactor_minimal::run("SplitView", app)
 }

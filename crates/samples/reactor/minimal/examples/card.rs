@@ -1,6 +1,4 @@
-//! Card layout — composing `Border` and `Grid` into the standard WinUI
-//! card pattern. Each card varies one `Border` knob (`corner_radius`,
-//! `border_thickness`) so the visual difference makes the knob obvious.
+//! Card layout composing `Border` and `Grid`.
 
 use windows_reactor::*;
 
@@ -45,6 +43,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Card", app)
 }

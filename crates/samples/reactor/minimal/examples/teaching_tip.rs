@@ -1,4 +1,4 @@
-//! Minimal sample for the `TeachingTip` widget.
+//! Sample for the `TeachingTip` widget.
 
 use windows_reactor::*;
 
@@ -39,6 +39,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("TeachingTip Sample").render(app)
+    reactor_minimal::run("TeachingTip", app)
 }

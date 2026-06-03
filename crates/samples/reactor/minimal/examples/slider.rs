@@ -1,4 +1,4 @@
-//! Minimal sample for the `Slider` element.
+//! Sample for the `Slider` element.
 
 use windows_reactor::*;
 
@@ -30,6 +30,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Slider", app)
 }

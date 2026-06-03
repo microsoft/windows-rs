@@ -1,7 +1,4 @@
-//! Minimal sample for the `cx.use_memo` hook.
-//!
-//! Memoizes `factorial(n)` so toggling unrelated state re-renders
-//! without recomputing. A recompute counter makes the caching visible.
+//! Sample for the `cx.use_memo` hook.
 
 use windows_reactor::*;
 
@@ -59,6 +56,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("use_memo").render(app)
+    reactor_minimal::run("UseMemo", app)
 }

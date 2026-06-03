@@ -1,8 +1,4 @@
 //! Multi-page navigation using enum-based routing.
-//!
-//! An enum defines pages, `use_state` holds the current route,
-//! `NavigationView` drives selection, and a `match` renders the page.
-//! No framework router needed — just state + match.
 
 use std::thread;
 use std::time::Duration;
@@ -128,6 +124,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Navigation Pattern").render(app)
+    reactor_minimal::run("Navigation", app)
 }
