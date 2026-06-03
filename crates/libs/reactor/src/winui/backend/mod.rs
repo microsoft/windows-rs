@@ -9,6 +9,7 @@ use Xaml::FontWeight as WinFontWeight;
 
 mod convert;
 mod diag;
+mod elements;
 use convert::*;
 
 /// Single source of truth for the `Handle` enum, its casts, the
@@ -716,8 +717,76 @@ impl Backend for WinUIBackend {
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::set_prop: unknown control {id}"));
         let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
+            // Dispatch element-specific props to per-element modules.
+            // Returns early if the element module handled the prop.
+            let element_result = match handle {
+                Handle::TextBlock(tb) => elements::text_block::set_prop(tb, prop, &value),
+                Handle::RichTextBlock(tb) => elements::rich_text_block::set_prop(tb, prop, &value),
+                Handle::Button(b) => elements::button::set_prop(b, prop, &value),
+                Handle::CheckBox(c) => elements::check_box::set_prop(c, prop, &value),
+                Handle::ToggleButton(tb) => elements::toggle_button::set_prop(tb, prop, &value),
+                Handle::TextBox(t) => elements::text_box::set_prop(t, prop, &value),
+                Handle::Grid(g) => elements::grid::set_prop(g, prop, &value),
+                Handle::ScrollViewer(s) => elements::scroll_viewer::set_prop(s, prop, &value),
+                Handle::StackPanel(s) => elements::stack_panel::set_prop(s, prop, &value),
+                Handle::Border(b) => elements::border::set_prop(b, prop, &value),
+                Handle::Canvas(c) => elements::canvas::set_prop(c, prop, &value),
+                Handle::Rectangle(r) => elements::rectangle::set_prop(r, prop, &value),
+                Handle::Ellipse(e) => elements::ellipse::set_prop(e, prop, &value),
+                Handle::Line(l) => elements::line::set_prop(l, prop, &value),
+                Handle::Image(img) => elements::image::set_prop(img, prop, &value),
+                Handle::Viewbox(vb) => elements::viewbox::set_prop(vb, prop, &value),
+                Handle::TabView(tv) => elements::tab_view::set_prop(tv, prop, &value),
+                Handle::ToggleSwitch(ts) => elements::toggle_switch::set_prop(ts, prop, &value),
+                Handle::Slider(s) => elements::slider::set_prop(s, prop, &value),
+                Handle::NumberBox(n) => elements::number_box::set_prop(n, prop, &value),
+                Handle::ProgressBar(p) => elements::progress_bar::set_prop(p, prop, &value),
+                Handle::ProgressRing(p) => elements::progress_ring::set_prop(p, prop, &value),
+                Handle::RadioButton(r) => elements::radio_button::set_prop(r, prop, &value),
+                Handle::Expander(e) => elements::expander::set_prop(e, prop, &value),
+                Handle::HyperlinkButton(h) => elements::hyperlink_button::set_prop(h, prop, &value),
+                Handle::InfoBar(ib) => elements::info_bar::set_prop(ib, prop, &value),
+                Handle::TabViewItem(ti) => elements::tab_view_item::set_prop(ti, prop, &value),
+                Handle::ContentDialog(d) => elements::content_dialog::set_prop(d, prop, &value),
+                Handle::InfoBadge(ib) => elements::info_badge::set_prop(ib, prop, &value),
+                Handle::PersonPicture(p) => elements::person_picture::set_prop(p, prop, &value),
+                Handle::NavigationView(nv) => elements::navigation_view::set_prop(nv, prop, &value),
+                Handle::TitleBar(tb) => elements::title_bar::set_prop(tb, prop, &value),
+                Handle::Pivot(p) => elements::pivot::set_prop(p, prop, &value),
+                Handle::PivotItem(pi) => elements::pivot_item::set_prop(pi, prop, &value),
+                Handle::BreadcrumbBar(bc) => elements::breadcrumb_bar::set_prop(bc, prop, &value),
+                Handle::PasswordBox(p) => elements::password_box::set_prop(p, prop, &value),
+                Handle::RadioButtons(r) => elements::radio_buttons::set_prop(r, prop, &value),
+                Handle::ComboBox(c) => elements::combo_box::set_prop(c, prop, &value),
+                Handle::RepeatButton(b) => elements::repeat_button::set_prop(b, prop, &value),
+                Handle::RatingControl(r) => elements::rating_control::set_prop(r, prop, &value),
+                Handle::ColorPicker(cp) => elements::color_picker::set_prop(cp, prop, &value),
+                Handle::DatePicker(dp) => elements::date_picker::set_prop(dp, prop, &value),
+                Handle::TimePicker(tp) => elements::time_picker::set_prop(tp, prop, &value),
+                Handle::CalendarDatePicker(cdp) => {
+                    elements::calendar_date_picker::set_prop(cdp, prop, &value)
+                }
+                Handle::CalendarView(cv) => elements::calendar_view::set_prop(cv, prop, &value),
+                Handle::ListBox(lb) => elements::list_box::set_prop(lb, prop, &value),
+                Handle::DropDownButton(ddb) => {
+                    elements::drop_down_button::set_prop(ddb, prop, &value)
+                }
+                Handle::SplitButton(sb) => elements::split_button::set_prop(sb, prop, &value),
+                Handle::AutoSuggestBox(asb) => {
+                    elements::auto_suggest_box::set_prop(asb, prop, &value)
+                }
+                Handle::SplitView(sv) => elements::split_view::set_prop(sv, prop, &value),
+                Handle::ScrollView(sv) => elements::scroll_view::set_prop(sv, prop, &value),
+                Handle::TreeView(tv) => elements::tree_view::set_prop(tv, prop, &value),
+                Handle::CommandBar(cb) => elements::command_bar::set_prop(cb, prop, &value),
+                Handle::TeachingTip(tt) => elements::teaching_tip::set_prop(tt, prop, &value),
+                Handle::RichEditBox(reb) => elements::rich_edit_box::set_prop(reb, prop, &value),
+                _ => None,
+            };
+            if let Some(r) = element_result {
+                return r;
+            }
             match (prop, &value, handle) {
-                (Prop::Text, PropValue::Str(s), Handle::TextBlock(tb)) => tb.put_Text(s.as_str()),
                 (Prop::FontSize, PropValue::F64(v), h) => {
                     if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
                         ctrl.put_FontSize(*v)
@@ -784,231 +853,10 @@ impl Backend for WinUIBackend {
                         Ok(())
                     }
                 }
-                (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(*v)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(false)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(*v)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::TextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(false)
-                }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::TextBlock(tb)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
-                    };
-                    tb.put_TextWrapping(mode)
-                }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
-                    };
-                    tb.put_TextWrapping(mode)
-                }
-                (Prop::ButtonContent, PropValue::Str(s), Handle::Button(b)) => {
-                    let cc = b.cast::<Xaml::IContentControl>()?;
-                    // If the button has an icon+text layout (StackPanel from
-                    // ButtonIcon), update just the TextBlock child so the icon
-                    // is preserved when only the label changes.
-                    if let Ok(existing) = cc.get_Content()
-                        && let Ok(panel) = existing.cast::<Xaml::IPanel>()
-                    {
-                        let children = panel.get_Children()?;
-                        if children.Size()? >= 2
-                            && let Ok(tb) = children.GetAt(1)?.cast::<Xaml::ITextBlock>()
-                        {
-                            return tb.put_Text(s);
-                        }
-                    }
-                    let tb = string_as_textblock(s)?;
-                    cc.put_Content(&tb)
-                }
-                (Prop::ButtonIcon, PropValue::SymbolIcon(sym), Handle::Button(b)) => {
-                    let icon_elem =
-                        Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
-                    let cc = b.cast::<Xaml::IContentControl>()?;
-                    // If the button already has an icon+text StackPanel layout,
-                    // replace just the icon child (index 0) to preserve the text.
-                    if let Ok(existing) = cc.get_Content()
-                        && let Ok(panel) = existing.cast::<Xaml::IPanel>()
-                    {
-                        let children = panel.get_Children()?;
-                        if children.Size()? >= 2 {
-                            children.SetAt(0, &icon_elem.cast::<Xaml::UIElement>()?)?;
-                            return Ok(());
-                        }
-                    }
-                    let use_icon_only = if let Ok(existing) = cc.get_Content() {
-                        // Already in icon-only mode (existing is a SymbolIcon).
-                        existing.cast::<Xaml::ISymbolIcon>().is_ok()
-                            || existing
-                                .cast::<Xaml::ITextBlock>()
-                                .ok()
-                                .and_then(|tb| tb.get_Text().ok())
-                                .is_some_and(|t| t.is_empty())
-                    } else {
-                        true
-                    };
-                    if use_icon_only {
-                        cc.put_Content(&icon_elem)
-                    } else {
-                        let panel = Xaml::StackPanel::new()?;
-                        panel.put_Orientation(Xaml::Orientation::Horizontal)?;
-                        panel.put_Spacing(8.0)?;
-                        let children = panel.cast::<Xaml::IPanel>()?.get_Children()?;
-                        children.Append(&icon_elem.cast::<Xaml::UIElement>()?)?;
-                        if let Ok(existing) = cc.get_Content()
-                            && let Ok(ui) = existing.cast::<Xaml::UIElement>()
-                        {
-                            children.Append(&ui)?;
-                        }
-                        cc.put_Content(&panel)
-                    }
-                }
-                (Prop::ButtonStyleVariant, PropValue::ButtonStyle(style), Handle::Button(b)) => {
-                    use crate::core::widgets::ButtonStyle;
-                    let fe = b.cast::<Xaml::IFrameworkElement>()?;
-                    let style_key = match style {
-                        ButtonStyle::Accent => Some("AccentButtonStyle"),
-                        ButtonStyle::Subtle => Some("SubtleButtonStyle"),
-                        ButtonStyle::TextLink => Some("TextBlockButtonStyle"),
-                        ButtonStyle::Default => None,
-                    };
-                    if let Some(key_str) = style_key {
-                        let resources =
-                            Xaml::Application::get_Current().and_then(|app| app.get_Resources())?;
-                        let key = windows_reference::IReference::from(windows_core::HSTRING::from(
-                            key_str,
-                        ));
-                        let map = resources.cast::<windows_collections::IMap<
-                            windows_core::IInspectable,
-                            windows_core::IInspectable,
-                        >>()?;
-                        if let Ok(style_obj) = map.Lookup(&key)
-                            && let Ok(s) = style_obj.cast::<Xaml::Style>()
-                        {
-                            fe.put_Style(&s)?;
-                        }
-                    } else {
-                        fe.put_Style(None)?;
-                    }
-                    Ok(())
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::TextBox(t)) => {
-                    t.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
                 (Prop::IsEnabled, PropValue::Unset, _) => handle
                     .as_ui_element()
                     .cast::<Xaml::IControl>()?
                     .put_IsEnabled(true),
-                (Prop::IsChecked, PropValue::Bool(v), Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(*v))
-                }
-                (Prop::IsChecked, PropValue::Unset, Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IToggleButton>()?.put_IsChecked(None)
-                }
-                (Prop::CheckBoxLabel, PropValue::Str(s), Handle::CheckBox(c)) => {
-                    let tb = string_as_textblock(s)?;
-                    c.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::CheckBoxLabel, PropValue::Unset, Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                // ── ToggleButton ─────────────────────────────────────────────
-                (Prop::IsChecked, PropValue::Bool(v), Handle::ToggleButton(tb)) => {
-                    tb.put_IsChecked(Some(*v))
-                }
-                (Prop::IsChecked, PropValue::Unset, Handle::ToggleButton(tb)) => {
-                    tb.put_IsChecked(None)
-                }
-                (Prop::CheckBoxLabel, PropValue::Str(s), Handle::ToggleButton(tb)) => {
-                    let txt = string_as_textblock(s)?;
-                    tb.cast::<Xaml::IContentControl>()?.put_Content(&txt)
-                }
-                (Prop::CheckBoxLabel, PropValue::Unset, Handle::ToggleButton(tb)) => {
-                    tb.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                (Prop::TextBoxValue, PropValue::Str(s), Handle::TextBox(t)) => {
-                    if t.get_Text().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    t.put_Text(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::TextBox(t)) => {
-                    t.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::TextBox(t)) => {
-                    t.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::TextBox(t)) => {
-                    let tb = string_as_textblock(s)?;
-                    t.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::TextBox(t)) => t.put_Header(None),
-                (Prop::AcceptsReturn, PropValue::Bool(v), Handle::TextBox(t)) => {
-                    t.put_AcceptsReturn(*v)
-                }
-                (Prop::AcceptsReturn, PropValue::Unset, Handle::TextBox(t)) => {
-                    t.put_AcceptsReturn(false)
-                }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::TextBox(t)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
-                    };
-                    t.put_TextWrapping(mode)
-                }
-                (Prop::TextWrappingWrap, PropValue::Unset, Handle::TextBox(t)) => {
-                    t.put_TextWrapping(Xaml::TextWrapping::NoWrap)
-                }
-                (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
-                    let defs = g.get_RowDefinitions()?;
-                    defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
-                        .Clear()?;
-                    for r in rows {
-                        let rd = Xaml::RowDefinition::new()?;
-                        rd.cast::<Xaml::IRowDefinition>()?
-                            .put_Height(to_xaml_gridlength(*r)?)?;
-                        defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
-                            .Append(&rd)?;
-                    }
-                    Ok(())
-                }
-                (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
-                    let defs = g.get_ColumnDefinitions()?;
-                    defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
-                        .Clear()?;
-                    for c in cols {
-                        let cd = Xaml::ColumnDefinition::new()?;
-                        cd.cast::<Xaml::IColumnDefinition>()?
-                            .put_Width(to_xaml_gridlength(*c)?)?;
-                        defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
-                            .Append(&cd)?;
-                    }
-                    Ok(())
-                }
-                (Prop::GridRowSpacing, PropValue::F64(v), Handle::Grid(g)) => g.put_RowSpacing(*v),
-                (Prop::GridRowSpacing, PropValue::Unset, Handle::Grid(g)) => g.put_RowSpacing(0.0),
-                (Prop::GridColumnSpacing, PropValue::F64(v), Handle::Grid(g)) => {
-                    g.put_ColumnSpacing(*v)
-                }
-                (Prop::GridColumnSpacing, PropValue::Unset, Handle::Grid(g)) => {
-                    g.put_ColumnSpacing(0.0)
-                }
                 (Prop::AttachedGridRow, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
                 }
@@ -1021,24 +869,6 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedGridColumnSpan, PropValue::I32(v), _) => {
                     Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)
                 }
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollVis(v),
-                    Handle::ScrollViewer(s),
-                ) => s.put_HorizontalScrollBarVisibility(to_xaml_scroll_visibility(*v)),
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollVis(v),
-                    Handle::ScrollViewer(s),
-                ) => s.put_VerticalScrollBarVisibility(to_xaml_scroll_visibility(*v)),
-                (Prop::Orientation, PropValue::Vertical(vert), Handle::StackPanel(s)) => s
-                    .put_Orientation(if *vert {
-                        Xaml::Orientation::Vertical
-                    } else {
-                        Xaml::Orientation::Horizontal
-                    }),
-                (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(s)) => s.put_Spacing(*v),
-                (Prop::Spacing, PropValue::Unset, Handle::StackPanel(s)) => s.put_Spacing(0.0),
                 (Prop::Margin, PropValue::Thickness(t), _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
@@ -1135,18 +965,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                (Prop::Padding, PropValue::Thickness(t), Handle::Button(b)) => b
-                    .cast::<Xaml::IControl>()?
-                    .put_Padding(to_xaml_thickness(*t)),
-                (Prop::Padding, PropValue::Unset, Handle::Button(b)) => b
-                    .cast::<Xaml::IControl>()?
-                    .put_Padding(to_xaml_thickness(Thickness::default())),
-                (Prop::Padding, PropValue::Thickness(t), Handle::Border(br)) => {
-                    br.put_Padding(to_xaml_thickness(*t))
-                }
-                (Prop::Padding, PropValue::Unset, Handle::Border(br)) => {
-                    br.put_Padding(to_xaml_thickness(Thickness::default()))
-                }
                 (Prop::Padding, PropValue::Thickness(t), h) => {
                     if let Ok(ctl) = h.as_framework_element().cast::<Xaml::Control>() {
                         ctl.cast::<Xaml::IControl>()?
@@ -1164,245 +982,12 @@ impl Backend for WinUIBackend {
                         Ok(())
                     }
                 }
-                (Prop::Background, PropValue::Brush(br), Handle::StackPanel(s)) => {
-                    s.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Grid(g)) => {
-                    g.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Canvas(c)) => {
-                    c.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Background(&brush_of(br)?)
-                }
-                (
-                    Prop::Background,
-                    PropValue::Brush(_),
-                    Handle::TextBlock(_) | Handle::RichTextBlock(_),
-                ) => Ok(()),
-                (Prop::Background, PropValue::Unset, Handle::StackPanel(s)) => {
-                    s.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Grid(g)) => {
-                    g.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Canvas(c)) => {
-                    c.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Border(b)) => b.put_Background(None),
-                (Prop::Background, PropValue::Unset, Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Background(None)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::TextBlock(tb)) => {
-                    tb.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::RichTextBlock(tb)) => {
-                    tb.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Foreground(&brush_of(br)?)
-                }
                 (Prop::Foreground, PropValue::Brush(_), h) => {
                     diag::unhandled_modifier("set_prop", Prop::Foreground, h);
                     Ok(())
                 }
-                (Prop::Foreground, PropValue::Unset, Handle::TextBlock(tb)) => {
-                    tb.put_Foreground(None)
-                }
-                (Prop::Foreground, PropValue::Unset, Handle::RichTextBlock(tb)) => {
-                    tb.put_Foreground(None)
-                }
-                (Prop::Foreground, PropValue::Unset, Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Foreground(None)
-                }
-                (Prop::IsOn, PropValue::Bool(v), Handle::ToggleSwitch(ts)) => ts.put_IsOn(*v),
-                (Prop::OnContent, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
-                    let tb = string_as_textblock(s)?;
-                    ts.put_OnContent(&tb)
-                }
-                (Prop::OnContent, PropValue::Unset, Handle::ToggleSwitch(ts)) => {
-                    ts.put_OnContent(None)
-                }
-                (Prop::OffContent, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
-                    let tb = string_as_textblock(s)?;
-                    ts.put_OffContent(&tb)
-                }
-                (Prop::OffContent, PropValue::Unset, Handle::ToggleSwitch(ts)) => {
-                    ts.put_OffContent(None)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
-                    let tb = string_as_textblock(s)?;
-                    ts.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::ToggleSwitch(ts)) => ts.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::ToggleSwitch(ts)) => {
-                    ts.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
-                }
-                (Prop::Maximum, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
-                }
-                (Prop::Step, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.put_StepFrequency(*v)?;
-                    s.cast::<Xaml::IRangeBase>()?.put_SmallChange(*v)
-                }
-                (Prop::Step, PropValue::Unset, Handle::Slider(s)) => {
-                    s.put_StepFrequency(1.0)?;
-                    s.cast::<Xaml::IRangeBase>()?.put_SmallChange(1.0)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::Slider(sl)) => {
-                    let tb = string_as_textblock(s)?;
-                    sl.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::Slider(sl)) => sl.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::Orientation, PropValue::Vertical(vert), Handle::Slider(s)) => s
-                    .put_Orientation(if *vert {
-                        Xaml::Orientation::Vertical
-                    } else {
-                        Xaml::Orientation::Horizontal
-                    }),
-                (Prop::NumericValue, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Value(*v),
-                (Prop::Minimum, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Minimum(*v),
-                (Prop::Maximum, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Maximum(*v),
-                (Prop::Header, PropValue::Str(s), Handle::NumberBox(n)) => {
-                    let tb = string_as_textblock(s)?;
-                    n.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::NumberBox(n)) => n.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::NumberBox(n)) => {
-                    n.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
-                }
-                (Prop::Maximum, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
-                }
-                (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(p)) => {
-                    p.put_IsIndeterminate(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::ProgressRing(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Minimum(*v),
-                (Prop::Maximum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Maximum(*v),
-                (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressRing(p)) => {
-                    p.put_IsIndeterminate(*v)
-                }
-                (Prop::IsActive, PropValue::Bool(v), Handle::ProgressRing(p)) => p.put_IsActive(*v),
-                (Prop::RadioLabel, PropValue::Str(s), Handle::RadioButton(r)) => {
-                    let tb = string_as_textblock(s)?;
-                    r.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::RadioLabel, PropValue::Unset, Handle::RadioButton(r)) => {
-                    r.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                (Prop::IsChecked, PropValue::Bool(v), Handle::RadioButton(r)) => {
-                    r.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(*v))
-                }
-                (Prop::GroupName, PropValue::Str(s), Handle::RadioButton(r)) => {
-                    r.put_GroupName(s.as_str())
-                }
-                (Prop::GroupName, PropValue::Unset, Handle::RadioButton(r)) => r.put_GroupName(""),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::RadioButton(r)) => {
-                    r.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::Expander(e)) => {
-                    let tb = string_as_textblock(s)?;
-                    e.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.put_Header(None),
-                (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(e)) => e.put_IsExpanded(*v),
-                (Prop::ButtonContent, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
-                    let tb = string_as_textblock(s)?;
-                    h.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::NavigateUri, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    h.put_NavigateUri(&uri)
-                }
-                (Prop::NavigateUri, PropValue::Unset, Handle::HyperlinkButton(h)) => {
-                    h.put_NavigateUri(None)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::HyperlinkButton(h)) => {
-                    h.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::InfoBarTitle, PropValue::Str(s), Handle::InfoBar(ib)) => {
-                    ib.put_Title(s.as_str())
-                }
-                (Prop::InfoBarTitle, PropValue::Unset, Handle::InfoBar(ib)) => ib.put_Title(""),
-                (Prop::InfoBarMessage, PropValue::Str(s), Handle::InfoBar(ib)) => {
-                    ib.put_Message(s.as_str())
-                }
-                (Prop::InfoBarMessage, PropValue::Unset, Handle::InfoBar(ib)) => ib.put_Message(""),
-                (Prop::InfoBarSeverity, PropValue::InfoBarSev(v), Handle::InfoBar(ib)) => {
-                    ib.put_Severity(to_winui_info_bar_severity(*v))
-                }
-                (Prop::InfoBarIsOpen, PropValue::Bool(v), Handle::InfoBar(ib)) => ib.put_IsOpen(*v),
-                (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(ib)) => {
-                    ib.put_IsClosable(*v)
-                }
-                (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
-                    ti.put_IsClosable(*v)
-                }
-                // ContentDialog (W6 — modal popup hosted via ShowAsync).
-                (Prop::ContentDialogTitle, PropValue::Str(s), Handle::ContentDialog(d)) => {
-                    let title = windows_reference::IReference::from(s.as_str());
-                    d.put_Title(&title)
-                }
-                (Prop::ContentDialogTitle, PropValue::Unset, Handle::ContentDialog(d)) => {
-                    d.put_Title(None)
-                }
-                (Prop::ContentDialogBody, PropValue::Str(s), Handle::ContentDialog(d)) => {
-                    let tb = string_as_textblock(s)?;
-                    d.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::ContentDialogBody, PropValue::Unset, Handle::ContentDialog(d)) => {
-                    d.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                (Prop::ContentDialogPrimaryText, PropValue::Str(s), Handle::ContentDialog(d)) => {
-                    d.put_PrimaryButtonText(s.as_str())
-                }
-                (Prop::ContentDialogPrimaryText, PropValue::Unset, Handle::ContentDialog(d)) => {
-                    d.put_PrimaryButtonText("")
-                }
-                (Prop::ContentDialogSecondaryText, PropValue::Str(s), Handle::ContentDialog(d)) => {
-                    d.put_SecondaryButtonText(s.as_str())
-                }
-                (Prop::ContentDialogSecondaryText, PropValue::Unset, Handle::ContentDialog(d)) => {
-                    d.put_SecondaryButtonText("")
-                }
-                (Prop::ContentDialogCloseText, PropValue::Str(s), Handle::ContentDialog(d)) => {
-                    d.put_CloseButtonText(s.as_str())
-                }
-                (Prop::ContentDialogCloseText, PropValue::Unset, Handle::ContentDialog(d)) => {
-                    d.put_CloseButtonText("")
-                }
-                (
-                    Prop::ContentDialogPrimaryEnabled,
-                    PropValue::Bool(v),
-                    Handle::ContentDialog(d),
-                ) => d.put_IsPrimaryButtonEnabled(*v),
-                (
-                    Prop::ContentDialogSecondaryEnabled,
-                    PropValue::Bool(v),
-                    Handle::ContentDialog(d),
-                ) => d.put_IsSecondaryButtonEnabled(*v),
+                // ContentDialog.is_open still lives here because it needs backend state
+                // to resolve a live XamlRoot before ShowAsync.
                 (Prop::ContentDialogIsOpen, PropValue::Bool(v), Handle::ContentDialog(d)) => {
                     if *v {
                         // ContentDialog needs a XamlRoot before ShowAsync; reuse
@@ -1450,386 +1035,14 @@ impl Backend for WinUIBackend {
                         d.Hide()
                     }
                 }
-                (Prop::InfoBadgeValue, PropValue::I32(v), Handle::InfoBadge(ib)) => {
-                    if *v < 0 {
-                        ib.put_Value(-1)
-                    } else {
-                        ib.put_Value(*v)
-                    }
-                }
-                (Prop::PersonDisplayName, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_DisplayName(s.as_str())
-                }
-                (Prop::PersonDisplayName, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_DisplayName("")
-                }
-                (Prop::PersonInitials, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_Initials(s.as_str())
-                }
-                (Prop::PersonInitials, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_Initials("")
-                }
-                (Prop::Fill, PropValue::Brush(b), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
-                }
-                (Prop::Fill, PropValue::Brush(b), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Line(l)) => {
-                    l.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Line(l)) => {
-                    l.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::CornerRadius, PropValue::F64(v), Handle::Rectangle(r)) => {
-                    r.put_RadiusX(*v).and_then(|_| r.put_RadiusY(*v))
-                }
-                (Prop::CornerRadius, PropValue::Unset, Handle::Rectangle(r)) => {
-                    r.put_RadiusX(0.0).and_then(|_| r.put_RadiusY(0.0))
-                }
-                (Prop::CornerRadius, PropValue::F64(v), Handle::Border(b)) => {
-                    b.put_CornerRadius(Xaml::CornerRadius {
-                        TopLeft: *v,
-                        TopRight: *v,
-                        BottomRight: *v,
-                        BottomLeft: *v,
-                    })
-                }
-                (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_CornerRadius(Xaml::CornerRadius::default())
-                }
-                (Prop::BorderBrush, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_BorderBrush(&brush_of(br)?)
-                }
-                (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.put_BorderBrush(None),
                 (Prop::BorderBrush, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
                     Ok(())
-                }
-                (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(*t))
-                }
-                (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(Thickness::default()))
                 }
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
                     Ok(())
                 }
-                (Prop::LineEndpoints, PropValue::LineEndpoints(p), Handle::Line(l)) => l
-                    .put_X1(p.x1)
-                    .and_then(|_| l.put_Y1(p.y1))
-                    .and_then(|_| l.put_X2(p.x2))
-                    .and_then(|_| l.put_Y2(p.y2)),
-                (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    let bmp = Xaml::BitmapImage::new()?;
-                    bmp.cast::<Xaml::IBitmapImage>()?.put_UriSource(&uri)?;
-                    img.put_Source(&bmp.cast::<Xaml::ImageSource>()?)
-                }
-                (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Image(img)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    img.put_Stretch(mapped)
-                }
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Viewbox(vb)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    vb.put_Stretch(mapped)
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(tv)) => {
-                    tv.put_SelectedIndex(*v)
-                }
-                (Prop::CanReorderTabs, PropValue::Bool(v), Handle::TabView(tv)) => {
-                    tv.put_CanReorderTabs(*v)
-                }
-                (Prop::IsAddTabButtonVisible, PropValue::Bool(v), Handle::TabView(tv)) => {
-                    tv.put_IsAddTabButtonVisible(*v)
-                }
-                (Prop::TabHeader, PropValue::Str(s), Handle::TabViewItem(ti)) => {
-                    let tb = string_as_textblock(s)?;
-                    ti.put_Header(&tb)
-                }
-                (Prop::TabItemKey, PropValue::Str(s), Handle::TabViewItem(ti)) => {
-                    let tag = windows_reference::IReference::from(s.as_str());
-                    ti.cast::<Xaml::IFrameworkElement>()?.put_Tag(&tag)
-                }
-                (
-                    Prop::NavMenuItems,
-                    PropValue::NavMenuItems(items),
-                    Handle::NavigationView(nv),
-                ) => {
-                    let menu = nv.get_MenuItems()?;
-                    menu.Clear()?;
-                    for item in items {
-                        let nv_item = build_nav_view_item(item)?;
-                        menu.Append(&nv_item)?;
-                    }
-                    Ok(())
-                }
-                (Prop::IsPaneOpen, PropValue::Bool(v), Handle::NavigationView(nv)) => {
-                    nv.put_IsPaneOpen(*v)
-                }
-                (
-                    Prop::PaneDisplayMode,
-                    PropValue::NavPaneDisplayMode(mode),
-                    Handle::NavigationView(nv),
-                ) => {
-                    use NavViewPaneDisplayMode as M;
-                    use Xaml::NavigationViewPaneDisplayMode as W;
-                    let mapped = match mode {
-                        M::Auto => W::Auto,
-                        M::Left => W::Left,
-                        M::Top => W::Top,
-                        M::LeftCompact => W::LeftCompact,
-                        M::LeftMinimal => W::LeftMinimal,
-                    };
-                    nv.cast::<Xaml::INavigationView2>()?
-                        .put_PaneDisplayMode(mapped)
-                }
-                (Prop::IsBackEnabled, PropValue::Bool(v), Handle::NavigationView(nv)) => {
-                    nv.cast::<Xaml::INavigationView2>()?.put_IsBackEnabled(*v)
-                }
-                (Prop::IsSettingsVisible, PropValue::Bool(v), Handle::NavigationView(nv)) => {
-                    nv.put_IsSettingsVisible(*v)
-                }
-                (Prop::PaneTitle, PropValue::Str(s), Handle::NavigationView(nv)) => nv
-                    .cast::<Xaml::INavigationView2>()?
-                    .put_PaneTitle(s.as_str()),
-                (Prop::PaneTitle, PropValue::Unset, Handle::NavigationView(nv)) => {
-                    nv.cast::<Xaml::INavigationView2>()?.put_PaneTitle("")
-                }
-                (Prop::NavHeaderString, PropValue::Str(s), Handle::NavigationView(nv)) => {
-                    let tb = string_as_textblock(s)?;
-                    nv.put_Header(&tb)
-                }
-                (Prop::NavHeaderString, PropValue::Unset, Handle::NavigationView(nv)) => {
-                    nv.put_Header(None)
-                }
-                (Prop::NavSelectedTag, PropValue::Str(tag), Handle::NavigationView(nv)) => {
-                    select_nav_item_by_tag(nv, tag)
-                }
-                (Prop::NavSelectedTag, PropValue::Unset, Handle::NavigationView(nv)) => {
-                    nv.put_SelectedItem(None)
-                }
-                (Prop::NavAutoSuggestBox, PropValue::Bool(true), Handle::NavigationView(nv)) => {
-                    // Create an AutoSuggestBox if one isn't already set.
-                    let asb = Xaml::AutoSuggestBox::new()?;
-                    nv.put_AutoSuggestBox(&asb)
-                }
-                (Prop::NavAutoSuggestBox, PropValue::Bool(false), Handle::NavigationView(nv)) => {
-                    nv.put_AutoSuggestBox(None)
-                }
-                (
-                    Prop::NavAutoSuggestPlaceholder,
-                    PropValue::Str(s),
-                    Handle::NavigationView(nv),
-                ) => {
-                    if let Ok(asb) = nv.get_AutoSuggestBox() {
-                        asb.put_PlaceholderText(s.as_str())?;
-                    }
-                    Ok(())
-                }
-                (
-                    Prop::NavAutoSuggestItems,
-                    PropValue::StrList(items),
-                    Handle::NavigationView(nv),
-                ) => {
-                    if let Ok(asb) = nv.get_AutoSuggestBox() {
-                        let vec: Vec<Option<windows_core::IInspectable>> = items
-                            .iter()
-                            .map(|s| {
-                                let r = windows_reference::IReference::from(s.as_str());
-                                Some(r.into())
-                            })
-                            .collect();
-                        let ivec: windows_collections::IVector<windows_core::IInspectable> =
-                            vec.into();
-                        asb.cast::<Xaml::IItemsControl>()?.put_ItemsSource(&ivec)?;
-                    }
-                    Ok(())
-                }
-                (Prop::TitleBarTitle, PropValue::Str(s), Handle::TitleBar(tb)) => {
-                    tb.put_Title(s.as_str())
-                }
-                (Prop::TitleBarSubtitle, PropValue::Str(s), Handle::TitleBar(tb)) => {
-                    tb.put_Subtitle(s.as_str())
-                }
-                (Prop::TitleBarSubtitle, PropValue::Unset, Handle::TitleBar(tb)) => {
-                    tb.put_Subtitle("")
-                }
-                (Prop::TitleBarTall, PropValue::Bool(v), Handle::TitleBar(_)) => {
-                    super::host::set_titlebar_height(*v);
-                    Ok(())
-                }
-                (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::TitleBar(tb)) => {
-                    tb.put_IsBackButtonVisible(*v)
-                }
-                (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::NavigationView(nv)) => {
-                    let val = if *v {
-                        Xaml::NavigationViewBackButtonVisible::Auto
-                    } else {
-                        Xaml::NavigationViewBackButtonVisible::Collapsed
-                    };
-                    nv.cast::<Xaml::INavigationView2>()?
-                        .put_IsBackButtonVisible(val)
-                }
-                (Prop::IsBackEnabled, PropValue::Bool(v), Handle::TitleBar(tb)) => {
-                    tb.put_IsBackButtonEnabled(*v)
-                }
-                (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::TitleBar(tb)) => {
-                    tb.put_IsPaneToggleButtonVisible(*v)
-                }
-                (
-                    Prop::IsPaneToggleButtonVisible,
-                    PropValue::Bool(v),
-                    Handle::NavigationView(nv),
-                ) => nv.put_IsPaneToggleButtonVisible(*v),
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::Pivot(p)) => {
-                    p.put_SelectedIndex(*v)
-                }
-                (Prop::PivotTitle, PropValue::Str(s), Handle::Pivot(p)) => {
-                    let tb = string_as_textblock(s)?;
-                    p.put_Title(&tb)
-                }
-                (Prop::PivotTitle, PropValue::Unset, Handle::Pivot(p)) => p.put_Title(None),
-                (Prop::PivotItemHeader, PropValue::Str(s), Handle::PivotItem(pi)) => {
-                    let tb = string_as_textblock(s)?;
-                    pi.put_Header(&tb)
-                }
-                (Prop::BreadcrumbItems, PropValue::StrList(items), Handle::BreadcrumbBar(bc)) => {
-                    let vec: Vec<Option<windows_core::IInspectable>> = items
-                        .iter()
-                        .map(|s| {
-                            let r = windows_reference::IReference::from(s.as_str());
-                            Some(r.into())
-                        })
-                        .collect();
-                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
-                    bc.put_ItemsSource(&ivec)
-                }
-                // ── W2: PasswordBox ───────────────────────────────────────────
-                (Prop::PasswordValue, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    if p.get_Password().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    p.put_Password(s.as_str())
-                }
-                (Prop::PasswordValue, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_Password("")
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    p.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    let tb = string_as_textblock(s)?;
-                    p.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::PasswordBox(p)) => p.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::PasswordBox(p)) => {
-                    p.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (
-                    Prop::PasswordRevealMode,
-                    PropValue::PasswordRevealMode(m),
-                    Handle::PasswordBox(p),
-                ) => {
-                    use crate::core::widgets::PasswordRevealMode as M;
-                    let mapped = match m {
-                        M::Peek => Xaml::PasswordRevealMode::Peek,
-                        M::Hidden => Xaml::PasswordRevealMode::Hidden,
-                        M::Visible => Xaml::PasswordRevealMode::Visible,
-                    };
-                    p.put_PasswordRevealMode(mapped)
-                }
-                (
-                    Prop::IsPasswordRevealButtonEnabled,
-                    PropValue::Bool(v),
-                    Handle::PasswordBox(p),
-                ) => p.put_IsPasswordRevealButtonEnabled(*v),
-                (Prop::IsPasswordRevealButtonEnabled, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_IsPasswordRevealButtonEnabled(true)
-                }
-                // ── W3: RadioButtons ──────────────────────────────────────────
-                (Prop::RadioButtonsItems, PropValue::StrList(items), Handle::RadioButtons(r)) => {
-                    let vec = r.get_Items()?;
-                    vec.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        vec.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::RadioButtons(r)) => {
-                    r.put_SelectedIndex(*v)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::RadioButtons(r)) => {
-                    let tb = string_as_textblock(s)?;
-                    r.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::RadioButtons(r)) => r.put_Header(None),
-                (Prop::RadioButtonsMaxColumns, PropValue::I32(v), Handle::RadioButtons(r)) => {
-                    r.put_MaxColumns(*v)
-                }
-                // ── W4: ComboBox ──────────────────────────────────────────────
-                (Prop::ComboBoxItems, PropValue::StrList(items), Handle::ComboBox(c)) => {
-                    let coll =
-                        c.cast::<Xaml::IItemsControl>()?
-                            .get_Items()?
-                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
-                    coll.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        coll.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::ComboBox(c)) => {
-                    c.cast::<Xaml::ISelector>()?.put_SelectedIndex(*v)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::ComboBox(c)) => {
-                    let tb = string_as_textblock(s)?;
-                    c.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::ComboBox(c)) => c.put_Header(None),
-                (Prop::Placeholder, PropValue::Str(s), Handle::ComboBox(c)) => {
-                    c.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::ComboBox(c)) => {
-                    c.put_PlaceholderText("")
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::ComboBox(c)) => {
-                    c.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(c)) => c.put_IsEditable(*v),
                 // ── W5: Canvas attached props ─────────────────────────────────
                 (Prop::AttachedCanvasLeft, PropValue::F64(v), _) => {
                     Xaml::Canvas::SetLeft(&handle.as_ui_element(), *v)
@@ -1840,216 +1053,8 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedCanvasZIndex, PropValue::I32(v), _) => {
                     Xaml::Canvas::SetZIndex(&handle.as_ui_element(), *v)
                 }
-                // ── W6: RepeatButton ──────────────────────────────────────────
-                (Prop::ButtonContent, PropValue::Str(s), Handle::RepeatButton(b)) => {
-                    let tb = string_as_textblock(s)?;
-                    b.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::RepeatButton(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::RepeatDelay, PropValue::I32(v), Handle::RepeatButton(b)) => b.put_Delay(*v),
-                (Prop::RepeatInterval, PropValue::I32(v), Handle::RepeatButton(b)) => {
-                    b.put_Interval(*v)
-                }
-                // ── W7: RatingControl ─────────────────────────────────────────
-                (Prop::NumericValue, PropValue::F64(v), Handle::RatingControl(r)) => {
-                    r.put_Value(*v)
-                }
-                (Prop::MaxRating, PropValue::I32(v), Handle::RatingControl(r)) => {
-                    r.put_MaxRating(*v)
-                }
-                (Prop::RatingCaption, PropValue::Str(s), Handle::RatingControl(r)) => {
-                    r.put_Caption(s.as_str())
-                }
-                (Prop::RatingCaption, PropValue::Unset, Handle::RatingControl(r)) => {
-                    r.put_Caption("")
-                }
-                (Prop::PlaceholderValue, PropValue::F64(v), Handle::RatingControl(r)) => {
-                    r.put_PlaceholderValue(*v)
-                }
-                (Prop::IsReadOnly, PropValue::Bool(v), Handle::RatingControl(r)) => {
-                    r.put_IsReadOnly(*v)
-                }
-                // ── W8: ColorPicker ───────────────────────────────────────────
-                (Prop::ColorValue, PropValue::Color { a, r, g, b }, Handle::ColorPicker(cp)) => cp
-                    .put_Color(Xaml::Color {
-                        A: *a,
-                        R: *r,
-                        G: *g,
-                        B: *b,
-                    }),
-                (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
-                    cp.put_IsAlphaEnabled(*v)
-                }
-                (Prop::IsHexInputVisible, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
-                    cp.put_IsHexInputVisible(*v)
-                }
-                (Prop::IsColorSliderVisible, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
-                    cp.put_IsColorSliderVisible(*v)
-                }
-                (
-                    Prop::IsColorChannelTextInputVisible,
-                    PropValue::Bool(v),
-                    Handle::ColorPicker(cp),
-                ) => cp.put_IsColorChannelTextInputVisible(*v),
-                // ── W9: DatePicker ────────────────────────────────────────────
-                (Prop::Header, PropValue::Str(s), Handle::DatePicker(dp)) => {
-                    let tb = string_as_textblock(s)?;
-                    dp.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::DatePicker(dp)) => dp.put_Header(None),
-                (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.put_DayVisible(*v)
-                }
-                (Prop::MonthVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.put_MonthVisible(*v)
-                }
-                (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.put_YearVisible(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W10: TimePicker ───────────────────────────────────────────
-                (Prop::Header, PropValue::Str(s), Handle::TimePicker(tp)) => {
-                    let tb = string_as_textblock(s)?;
-                    tp.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::TimePicker(tp)) => tp.put_Header(None),
-                (Prop::ClockIdentifier, PropValue::Str(s), Handle::TimePicker(tp)) => {
-                    tp.put_ClockIdentifier(s.as_str())
-                }
-                (Prop::MinuteIncrement, PropValue::I32(v), Handle::TimePicker(tp)) => {
-                    tp.put_MinuteIncrement(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::TimePicker(tp)) => {
-                    tp.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W11: CalendarDatePicker ───────────────────────────────────
-                (Prop::Header, PropValue::Str(s), Handle::CalendarDatePicker(cdp)) => {
-                    let tb = string_as_textblock(s)?;
-                    cdp.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_Header(None)
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_PlaceholderText("")
-                }
-                (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_IsTodayHighlighted(*v)
-                }
-                (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_IsCalendarOpen(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W12: CalendarView ─────────────────────────────────────────
-                (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarView(cv)) => {
-                    cv.put_IsTodayHighlighted(*v)
-                }
-                (Prop::IsGroupLabelVisible, PropValue::Bool(v), Handle::CalendarView(cv)) => {
-                    cv.put_IsGroupLabelVisible(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::CalendarView(cv)) => {
-                    cv.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W13: ListBox ──────────────────────────────────────────────
-                (Prop::ListBoxItems, PropValue::StrList(items), Handle::ListBox(lb)) => {
-                    let coll =
-                        lb.cast::<Xaml::IItemsControl>()?
-                            .get_Items()?
-                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
-                    coll.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        coll.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::ListBox(lb)) => {
-                    lb.cast::<Xaml::ISelector>()?.put_SelectedIndex(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::ListBox(lb)) => {
-                    lb.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W14: DropDownButton ───────────────────────────────────────
-                (Prop::ButtonContent, PropValue::Str(s), Handle::DropDownButton(ddb)) => {
-                    let insp = windows_reference::IReference::from(s.as_str());
-                    ddb.cast::<Xaml::IContentControl>()?.put_Content(&insp)
-                }
-                (Prop::ButtonContent, PropValue::Unset, Handle::DropDownButton(ddb)) => {
-                    ddb.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::DropDownButton(ddb)) => {
-                    ddb.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W15: SplitButton ──────────────────────────────────────────
-                (Prop::ButtonContent, PropValue::Str(s), Handle::SplitButton(sb)) => {
-                    let insp = windows_reference::IReference::from(s.as_str());
-                    sb.cast::<Xaml::IContentControl>()?.put_Content(&insp)
-                }
-                (Prop::ButtonContent, PropValue::Unset, Handle::SplitButton(sb)) => {
-                    sb.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::SplitButton(sb)) => {
-                    sb.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W16: AutoSuggestBox ───────────────────────────────────────
-                (Prop::AutoSuggestText, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    // Skip SetText when the control already has this value —
-                    // calling SetText during a user-initiated TextChanged
-                    // cycle steals focus from the input field.
-                    if asb.get_Text().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    asb.put_Text(s)
-                }
-                (
-                    Prop::AutoSuggestItems,
-                    PropValue::StrList(items),
-                    Handle::AutoSuggestBox(asb),
-                ) => {
-                    // Build a Rust Vec, wrap into IVector via the stock
-                    // implementation, then assign as ItemsSource.
-                    let vec: Vec<Option<windows_core::IInspectable>> = items
-                        .iter()
-                        .map(|s| {
-                            let r = windows_reference::IReference::from(s.as_str());
-                            Some(r.into())
-                        })
-                        .collect();
-                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
-                    asb.cast::<Xaml::IItemsControl>()?.put_ItemsSource(&ivec)
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    asb.put_PlaceholderText(s)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    let insp = windows_reference::IReference::from(s.as_str());
-                    asb.put_Header(&insp)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::AutoSuggestBox(asb)) => {
-                    asb.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                // ── W17: SplitView ───────────────────────────────────────
-                (Prop::SplitViewDisplayMode, PropValue::I32(m), Handle::SplitView(sv)) => {
-                    sv.put_DisplayMode(Xaml::SplitViewDisplayMode(*m))
-                }
-                (Prop::SplitViewIsPaneOpen, PropValue::Bool(v), Handle::SplitView(sv)) => {
-                    sv.put_IsPaneOpen(*v)
-                }
-                (Prop::SplitViewOpenPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
-                    sv.put_OpenPaneLength(*v)
-                }
-                (Prop::SplitViewCompactPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
-                    sv.put_CompactPaneLength(*v)
-                }
+                // MenuBar items still live here because rebuilding them needs
+                // backend-stored click handlers.
                 // ── W18: MenuBar ─────────────────────────────────────────
                 (Prop::MenuBarItems, PropValue::MenuBarItems(items), Handle::MenuBar(mb)) => {
                     let winui_items = mb.get_Items()?;
@@ -2076,6 +1081,8 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                // MenuFlyout items still live here because rebuilding them
+                // needs backend-stored click handlers.
                 // MenuFlyout on Button/DropDownButton
                 (
                     Prop::MenuFlyoutItems,
@@ -2121,6 +1128,8 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                // CommandBarFlyout commands still live here because rebuilding
+                // them needs backend-stored click handlers.
                 // CommandBarFlyout on Button
                 (
                     Prop::CommandBarFlyoutCommands,
@@ -2151,59 +1160,6 @@ impl Backend for WinUIBackend {
                         }
                     }
                     Ok(())
-                }
-                // ── W19: ScrollView ──────────────────────────────────────
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(v),
-                    Handle::ScrollView(sv),
-                ) => {
-                    use ScrollViewScrollBarVisibility as E;
-                    use Xaml::ScrollingScrollBarVisibility as W;
-                    let mapped = match v {
-                        E::Auto => W::Auto,
-                        E::Visible => W::Visible,
-                        E::Hidden => W::Hidden,
-                    };
-                    sv.put_HorizontalScrollBarVisibility(mapped)
-                }
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(v),
-                    Handle::ScrollView(sv),
-                ) => {
-                    use ScrollViewScrollBarVisibility as E;
-                    use Xaml::ScrollingScrollBarVisibility as W;
-                    let mapped = match v {
-                        E::Auto => W::Auto,
-                        E::Visible => W::Visible,
-                        E::Hidden => W::Hidden,
-                    };
-                    sv.put_VerticalScrollBarVisibility(mapped)
-                }
-                // ── W20: TreeView ────────────────────────────────────────
-                (Prop::TreeViewNodes, PropValue::TreeViewNodes(nodes), Handle::TreeView(tv)) => {
-                    let root = tv.get_RootNodes()?;
-                    root.Clear()?;
-                    for node_def in nodes {
-                        let node = build_tree_view_node(node_def)?;
-                        root.Append(&node)?;
-                    }
-                    Ok(())
-                }
-                (
-                    Prop::TreeViewSelectionMode,
-                    PropValue::TreeViewSelectionMode(mode),
-                    Handle::TreeView(tv),
-                ) => {
-                    use TreeSelectionMode as E;
-                    use Xaml::TreeViewSelectionMode as W;
-                    let mapped = match mode {
-                        E::None => W::None,
-                        E::Single => W::Single,
-                        E::Multiple => W::Multiple,
-                    };
-                    tv.put_SelectionMode(mapped)
                 }
                 // ── W21: CommandBar ──────────────────────────────────────
                 (
@@ -2254,74 +1210,9 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                (
-                    Prop::CommandBarDefaultLabelPosition,
-                    PropValue::CommandBarLabelPosition(pos),
-                    Handle::CommandBar(cb),
-                ) => {
-                    use CommandBarLabelPos as E;
-                    use Xaml::CommandBarDefaultLabelPosition as W;
-                    let mapped = match pos {
-                        E::Bottom => W::Bottom,
-                        E::Right => W::Right,
-                        E::Collapsed => W::Collapsed,
-                    };
-                    cb.put_DefaultLabelPosition(mapped)
-                }
+                // CommandBar item collections still live here because they need
+                // backend-stored click handlers when rebuilt.
                 // ── W22: TeachingTip ────────────────────────────────────
-                (Prop::TeachingTipTitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    tt.put_Title(s.as_str())
-                }
-                (Prop::TeachingTipSubtitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    tt.put_Subtitle(s.as_str())
-                }
-                (Prop::TeachingTipIsOpen, PropValue::Bool(v), Handle::TeachingTip(tt)) => {
-                    tt.put_IsOpen(*v)
-                }
-                (Prop::TeachingTipIsLightDismiss, PropValue::Bool(v), Handle::TeachingTip(tt)) => {
-                    tt.put_IsLightDismissEnabled(*v)
-                }
-                (
-                    Prop::TeachingTipPlacement,
-                    PropValue::TeachingTipPlacement(p),
-                    Handle::TeachingTip(tt),
-                ) => {
-                    use TeachingTipPlacement as E;
-                    use Xaml::TeachingTipPlacementMode as W;
-                    let mapped = match p {
-                        E::Auto => W::Auto,
-                        E::Top => W::Top,
-                        E::Bottom => W::Bottom,
-                        E::Left => W::Left,
-                        E::Right => W::Right,
-                        E::TopRight => W::TopRight,
-                        E::TopLeft => W::TopLeft,
-                        E::BottomRight => W::BottomRight,
-                        E::BottomLeft => W::BottomLeft,
-                        E::LeftTop => W::LeftTop,
-                        E::LeftBottom => W::LeftBottom,
-                        E::RightTop => W::RightTop,
-                        E::RightBottom => W::RightBottom,
-                        E::Center => W::Center,
-                    };
-                    tt.put_PreferredPlacement(mapped)
-                }
-                (Prop::TeachingTipActionButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    let boxed: windows_core::IInspectable =
-                        windows_reference::IReference::<windows_core::HSTRING>::from(
-                            windows_core::HSTRING::from(s.as_str()),
-                        )
-                        .cast()?;
-                    tt.put_ActionButtonContent(&boxed)
-                }
-                (Prop::TeachingTipCloseButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    let boxed: windows_core::IInspectable =
-                        windows_reference::IReference::<windows_core::HSTRING>::from(
-                            windows_core::HSTRING::from(s.as_str()),
-                        )
-                        .cast()?;
-                    tt.put_CloseButtonContent(&boxed)
-                }
                 // ── W23: SelectorBar ────────────────────────────────────
                 (
                     Prop::SelectorBarItems,
@@ -2340,88 +1231,6 @@ impl Backend for WinUIBackend {
                             item.put_Icon(&icon_elem)?;
                         }
                         vec.Append(&item)?;
-                    }
-                    Ok(())
-                }
-                (Prop::RichEditBoxText, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    let doc = reb.get_Document()?;
-                    let mut current = windows_core::HSTRING::default();
-                    doc.GetText(Xaml::TextGetOptions::None, &mut current).ok();
-                    if current == s.as_str() {
-                        return Ok(());
-                    }
-                    doc.SetText(Xaml::TextSetOptions::None, s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    reb.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::RichEditBox(reb)) => {
-                    reb.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    let tb = string_as_textblock(s)?;
-                    reb.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::RichEditBox(reb)) => reb.put_Header(None),
-                (Prop::RichEditBoxIsReadOnly, PropValue::Bool(v), Handle::RichEditBox(reb)) => {
-                    reb.put_IsReadOnly(*v)
-                }
-                // ── Flyout on Button ──────────────────────────────────────────
-                (Prop::FlyoutContent, PropValue::Str(s), Handle::Button(b)) => {
-                    let flyout = Xaml::Flyout::new()?;
-                    let tb = string_as_textblock(s)?;
-                    flyout.put_Content(&tb)?;
-                    b.put_Flyout(&flyout)?;
-                    Ok(())
-                }
-                (Prop::FlyoutPlacement, PropValue::FlyoutPlacement(p), Handle::Button(b)) => {
-                    // The flyout must already exist (FlyoutContent set first).
-                    if let Ok(fb) = b.get_Flyout() {
-                        let mode = match p {
-                            crate::core::widgets::FlyoutPlacement::Top => {
-                                Xaml::FlyoutPlacementMode::Top
-                            }
-                            crate::core::widgets::FlyoutPlacement::Bottom => {
-                                Xaml::FlyoutPlacementMode::Bottom
-                            }
-                            crate::core::widgets::FlyoutPlacement::Left => {
-                                Xaml::FlyoutPlacementMode::Left
-                            }
-                            crate::core::widgets::FlyoutPlacement::Right => {
-                                Xaml::FlyoutPlacementMode::Right
-                            }
-                            crate::core::widgets::FlyoutPlacement::Full => {
-                                Xaml::FlyoutPlacementMode::Full
-                            }
-                            crate::core::widgets::FlyoutPlacement::TopEdgeAlignedLeft => {
-                                Xaml::FlyoutPlacementMode::TopEdgeAlignedLeft
-                            }
-                            crate::core::widgets::FlyoutPlacement::TopEdgeAlignedRight => {
-                                Xaml::FlyoutPlacementMode::TopEdgeAlignedRight
-                            }
-                            crate::core::widgets::FlyoutPlacement::BottomEdgeAlignedLeft => {
-                                Xaml::FlyoutPlacementMode::BottomEdgeAlignedLeft
-                            }
-                            crate::core::widgets::FlyoutPlacement::BottomEdgeAlignedRight => {
-                                Xaml::FlyoutPlacementMode::BottomEdgeAlignedRight
-                            }
-                            crate::core::widgets::FlyoutPlacement::LeftEdgeAlignedTop => {
-                                Xaml::FlyoutPlacementMode::LeftEdgeAlignedTop
-                            }
-                            crate::core::widgets::FlyoutPlacement::LeftEdgeAlignedBottom => {
-                                Xaml::FlyoutPlacementMode::LeftEdgeAlignedBottom
-                            }
-                            crate::core::widgets::FlyoutPlacement::RightEdgeAlignedTop => {
-                                Xaml::FlyoutPlacementMode::RightEdgeAlignedTop
-                            }
-                            crate::core::widgets::FlyoutPlacement::RightEdgeAlignedBottom => {
-                                Xaml::FlyoutPlacementMode::RightEdgeAlignedBottom
-                            }
-                            crate::core::widgets::FlyoutPlacement::Auto => {
-                                Xaml::FlyoutPlacementMode::Auto
-                            }
-                        };
-                        let _ = fb.cast::<Xaml::IFlyoutBase>()?.put_Placement(mode);
                     }
                     Ok(())
                 }
