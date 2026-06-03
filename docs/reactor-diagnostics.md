@@ -30,7 +30,6 @@ The `ExpectPanicGuard` skips this for panics caught by `ErrorBoundary`.
 
 ```rust
 diag::unhandled_prop(id, prop, value, handle)   // prop silently ignored
-diag::unhandled_event(id, event, handle)        // event not wired for control
 diag::unhandled_modifier(site, prop, handle)    // modifier not applicable
 diag::com_error(site, id, err)                  // COM call failed
 ```
