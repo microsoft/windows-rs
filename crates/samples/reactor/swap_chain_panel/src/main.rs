@@ -2,21 +2,13 @@
 
 #![windows_subsystem = "windows"]
 
-use std::cell::RefCell;
-
 use windows::Win32::Graphics::{Direct3D::*, Direct3D11::*, Dxgi::Common::*, Dxgi::*};
 use windows_reactor::*;
 
 struct D3DState {
     swap_chain: IDXGISwapChain1,
     device_context: ID3D11DeviceContext,
-    width: u32,
-    height: u32,
     frame: u64,
-}
-
-thread_local! {
-    static D3D: RefCell<Option<D3DState>> = const { RefCell::new(None) };
 }
 
 fn create_d3d_swap_chain(
@@ -70,8 +62,6 @@ fn create_d3d_swap_chain(
     Ok(D3DState {
         swap_chain,
         device_context: context,
-        width,
-        height,
         frame: 0,
     })
 }
@@ -84,11 +74,12 @@ fn render_frame(state: &mut D3DState) {
         let backbuffer: ID3D11Texture2D = state.swap_chain.GetBuffer(0).unwrap();
         let device: ID3D11Device = state.device_context.GetDevice().unwrap();
         let mut rtv = None;
+
         device
             .CreateRenderTargetView(&backbuffer, None, Some(&mut rtv))
             .unwrap();
-        let rtv = rtv.unwrap();
 
+        let rtv = rtv.unwrap();
         let color = [0.1_f32, 0.2 + t * 0.3, 0.5 + t * 0.4, 1.0];
         state.device_context.ClearRenderTargetView(&rtv, &color);
         state.swap_chain.Present(1, DXGI_PRESENT(0)).unwrap();
@@ -96,18 +87,19 @@ fn render_frame(state: &mut D3DState) {
 }
 
 fn app(cx: &mut RenderCx) -> Element {
+    let d3d = cx.use_ref::<Option<D3DState>>(None);
     let rendering = cx.use_ref::<Option<Rendering>>(None);
+
     cx.use_effect((), {
         #[allow(clippy::redundant_clone)]
         let rendering = rendering.clone();
+        let d3d = d3d.clone();
 
         move || {
-            if let Ok(r) = on_rendering(|| {
-                D3D.with(|cell| {
-                    if let Some(state) = cell.borrow_mut().as_mut() {
-                        render_frame(state);
-                    }
-                });
+            if let Ok(r) = on_rendering(move || {
+                if let Some(state) = d3d.borrow_mut().as_mut() {
+                    render_frame(state);
+                }
             }) {
                 rendering.set(Some(r));
             }
@@ -115,34 +107,36 @@ fn app(cx: &mut RenderCx) -> Element {
     });
 
     swap_chain_panel()
-        .on_ready(|panel| match create_d3d_swap_chain(&panel, 400, 300) {
-            Ok(state) => D3D.with(|cell| *cell.borrow_mut() = Some(state)),
-            Err(e) => eprintln!("D3D init failed: {e}"),
+        .on_ready({
+            let d3d = d3d.clone();
+
+            move |panel| match create_d3d_swap_chain(&panel, 400, 300) {
+                Ok(state) => d3d.set(Some(state)),
+                Err(e) => eprintln!("D3D init failed: {e}"),
+            }
         })
-        .on_resize(|w, h| {
+        .on_resize(move |w, h| {
             let width = w as u32;
             let height = h as u32;
-            D3D.with(|cell| {
-                if let Some(state) = cell.borrow_mut().as_mut() {
-                    state.width = width;
-                    state.height = height;
-                    if width > 0 && height > 0 {
-                        unsafe {
-                            _ = state.swap_chain.ResizeBuffers(
-                                0,
-                                width,
-                                height,
-                                DXGI_FORMAT_UNKNOWN,
-                                DXGI_SWAP_CHAIN_FLAG(0),
-                            );
-                        }
-                    }
+
+            if let Some(state) = d3d.borrow_mut().as_mut()
+                && width > 0
+                && height > 0
+            {
+                unsafe {
+                    _ = state.swap_chain.ResizeBuffers(
+                        0,
+                        width,
+                        height,
+                        DXGI_FORMAT_UNKNOWN,
+                        DXGI_SWAP_CHAIN_FLAG(0),
+                    );
                 }
-            });
+            }
         })
         .into()
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("SwapChainPanel", app)
+    App::new().title("SwapChainPanel").render(app)
 }
