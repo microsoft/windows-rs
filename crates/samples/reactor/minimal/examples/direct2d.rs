@@ -300,27 +300,26 @@ fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
     let marshaller = cx.use_ui_marshaller();
     // The render thread and its command channel. `None` until the panel is ready.
-    let render = cx.use_ref::<Option<RenderThread>>(None);
+    let render_thread = cx.use_ref::<Option<RenderThread>>(None);
 
     // Push the current circle count to the render thread whenever it changes.
     cx.use_effect(count, {
-        let render = render.clone();
+        let render_thread = render_thread.clone();
         move || {
-            if let Some(r) = render.borrow().as_ref() {
+            if let Some(r) = render_thread.borrow().as_ref() {
                 r.set_circle_count(count);
             }
         }
     });
 
     let add = {
-        let s = set_count.clone();
-        move || s.call(count + 1)
+        let set_count = set_count.clone();
+        move || set_count.call(count + 1)
     };
     let remove = {
-        let s = set_count;
         move || {
             if count > 0 {
-                s.call(count - 1);
+                set_count.call(count - 1);
             }
         }
     };
@@ -330,7 +329,7 @@ fn app(cx: &mut RenderCx) -> Element {
         Element::from(
             swap_chain_panel()
                 .on_ready({
-                    let render = render.clone();
+                    let render_thread = render_thread.clone();
                     move |panel| {
                         PANEL.with(|cell| *cell.borrow_mut() = Some(panel));
                         let marshaller = marshaller.clone();
@@ -345,12 +344,12 @@ fn app(cx: &mut RenderCx) -> Element {
                                 });
                             });
                         };
-                        render.set(Some(RenderThread::new(attach_swap_chain)));
+                        render_thread.set(Some(RenderThread::new(attach_swap_chain)));
                     }
                 })
                 .on_resize({
                     move |w, h| {
-                        if let Some(r) = render.borrow().as_ref() {
+                        if let Some(r) = render_thread.borrow().as_ref() {
                             r.resize(w as u32, h as u32);
                         }
                     }
