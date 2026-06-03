@@ -11,7 +11,9 @@ use windows_reactor::*;
 mod render {
     use std::sync::mpsc::{Receiver, Sender, TryRecvError, channel};
     use std::thread::{self, JoinHandle};
+    use std::time::Duration;
 
+    use windows::Win32::Foundation::DXGI_STATUS_OCCLUDED;
     use windows::Win32::Graphics::Direct2D::Common::*;
     use windows::Win32::Graphics::Direct2D::*;
     use windows::Win32::Graphics::Direct3D::*;
@@ -33,6 +35,13 @@ mod render {
         SetCircleCount(u32),
         Resize(u32, u32),
         Shutdown,
+    }
+
+    /// Result of presenting a frame. `Idle` means no frame was presented (the
+    /// surface was occluded or had zero size), so the caller should throttle.
+    enum FrameStatus {
+        Presented,
+        Idle,
     }
 
     /// Wraps an `IDXGISwapChain1` so it can be handed back to the UI thread for
@@ -223,10 +232,17 @@ mod render {
         })
     }
 
-    fn render_frame(state: &mut D2DState, count: u32, size: (u32, u32)) {
+    fn render_frame(state: &mut D2DState, count: u32, size: (u32, u32)) -> Result<FrameStatus> {
+        let (w, h) = size;
+
+        // While minimized or before the first layout the size can be (0, 0);
+        // there is nothing to draw, so report it so the caller can idle.
+        if w == 0 || h == 0 {
+            return Ok(FrameStatus::Idle);
+        }
+
         state.frame += 1;
         let t = state.frame as f32 * 0.02;
-        let (w, h) = size;
         let cx = w as f32 / 2.0;
         let cy = h as f32 / 2.0;
         let orbit = cx.min(cy) * 0.5;
@@ -263,9 +279,18 @@ mod render {
                 state.target.FillEllipse(&ellipse, &state.brush);
             }
 
-            _ = state.target.EndDraw(None, None);
-            _ = state.swap_chain.Present(1, DXGI_PRESENT(0));
+            state.target.EndDraw(None, None)?;
+
+            // `DXGI_STATUS_OCCLUDED` is a success status, so it has to be
+            // inspected before `ok()` discards it. The caller throttles on it.
+            let present = state.swap_chain.Present(1, DXGI_PRESENT(0));
+            if present == DXGI_STATUS_OCCLUDED {
+                return Ok(FrameStatus::Idle);
+            }
+            present.ok()?;
         }
+
+        Ok(FrameStatus::Presented)
     }
 
     /// Entry point for the dedicated render thread. Owns all D3D/D2D state, drains
@@ -302,7 +327,12 @@ mod render {
                 }
             }
 
-            render_frame(&mut state, count, size);
+            // `Present(1)` normally blocks to pace the loop at the refresh rate.
+            // When no frame is presented (zero size or occluded) it returns
+            // immediately, so idle briefly to avoid a busy loop.
+            if let FrameStatus::Idle = render_frame(&mut state, count, size)? {
+                thread::sleep(Duration::from_millis(100));
+            }
         }
     }
 }
