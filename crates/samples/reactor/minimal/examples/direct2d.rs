@@ -61,13 +61,17 @@ mod render {
     }
 
     impl RenderThread {
-        /// Spawn the render thread. `on_swap_chain` is invoked once, on the render
-        /// thread, after the swap chain is created so the caller can attach it to
-        /// its presentation surface.
-        pub fn new(on_swap_chain: impl FnOnce(SendSwap) + Send + 'static) -> Self {
+        /// Spawn the render thread. `initial_count` is the number of circles to
+        /// draw before the first `set_circle_count`. `on_swap_chain` is invoked
+        /// once, on the render thread, after the swap chain is created so the
+        /// caller can attach it to its presentation surface.
+        pub fn new(
+            initial_count: u32,
+            on_swap_chain: impl FnOnce(SendSwap) + Send + 'static,
+        ) -> Self {
             let (commands, rx) = channel();
             let worker = thread::spawn(move || {
-                if let Err(e) = render_thread(rx, on_swap_chain) {
+                if let Err(e) = render_loop(rx, initial_count, on_swap_chain) {
                     eprintln!("render thread failed: {e}");
                 }
             });
@@ -97,13 +101,15 @@ mod render {
         /// Ask the render thread to stop and wait for it to finish.
         fn drop(&mut self) {
             self.send(RenderCommand::Shutdown);
-            let _ = self.worker.take().map(JoinHandle::join);
+            if let Some(worker) = self.worker.take() {
+                let _ = worker.join();
+            }
         }
     }
 
-    fn resize_swap_chain(state: &mut D2DState, width: u32, height: u32) {
+    fn resize_swap_chain(state: &mut D2DState, width: u32, height: u32) -> Result<()> {
         if width == 0 || height == 0 {
-            return;
+            return Ok(());
         }
         unsafe {
             state.target.SetTarget(None);
@@ -119,7 +125,7 @@ mod render {
                 )
                 .is_ok()
             {
-                let surface: IDXGISurface = state.swap_chain.GetBuffer(0).unwrap();
+                let surface: IDXGISurface = state.swap_chain.GetBuffer(0)?;
                 let props = D2D1_BITMAP_PROPERTIES1 {
                     pixelFormat: D2D1_PIXEL_FORMAT {
                         format: DXGI_FORMAT_B8G8R8A8_UNORM,
@@ -132,11 +138,11 @@ mod render {
                 };
                 let bitmap = state
                     .target
-                    .CreateBitmapFromDxgiSurface(&surface, Some(&props))
-                    .unwrap();
+                    .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
                 state.target.SetTarget(&bitmap);
             }
         }
+        Ok(())
     }
 
     fn create_d2d_state(width: u32, height: u32) -> Result<D2DState> {
@@ -264,18 +270,17 @@ mod render {
 
     /// Entry point for the dedicated render thread. Owns all D3D/D2D state, drains
     /// commands from the caller, and drives the animation loop. `Present(1)` paces
-    /// the loop at the display refresh rate.
+    /// the loop at the display refresh rate while the surface is visible.
     ///
     /// `on_swap_chain` is invoked once, after the swap chain is created, so the
-    /// caller can attach it to its presentation surface. Keeping this a plain
-    /// callback lets the render loop stay independent of any particular UI
-    /// framework.
-    fn render_thread(
+    /// caller can attach it to its presentation surface.
+    fn render_loop(
         rx: Receiver<RenderCommand>,
+        initial_count: u32,
         on_swap_chain: impl FnOnce(SendSwap),
     ) -> Result<()> {
         let mut size = (400_u32, 300_u32);
-        let mut count = 5_u32;
+        let mut count = initial_count;
         let mut state = create_d2d_state(size.0, size.1)?;
 
         // Hand the swap chain back to the caller to attach it to its surface.
@@ -288,7 +293,7 @@ mod render {
                     Ok(RenderCommand::SetCircleCount(c)) => count = c,
                     Ok(RenderCommand::Resize(w, h)) => {
                         size = (w, h);
-                        resize_swap_chain(&mut state, w, h);
+                        resize_swap_chain(&mut state, w, h)?;
                     }
                     Ok(RenderCommand::Shutdown) | Err(TryRecvError::Disconnected) => {
                         return Ok(());
@@ -352,7 +357,7 @@ fn app(cx: &mut RenderCx) -> Element {
                     move |handle| {
                         panel.set(Some(handle));
                         let set_swap_chain = set_swap_chain.clone();
-                        render_thread.set(Some(RenderThread::new(move |swap| {
+                        render_thread.set(Some(RenderThread::new(count, move |swap| {
                             set_swap_chain.call(Some(swap));
                         })));
                     }
