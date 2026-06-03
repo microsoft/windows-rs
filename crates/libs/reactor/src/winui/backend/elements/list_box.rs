@@ -1,7 +1,7 @@
 //! ListBox — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -30,4 +30,32 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    lb: &Xaml::ListBox,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::ListBoxSelectionChanged => {
+            revokers.push(
+                lb.cast::<Xaml::ISelector>()
+                    .unwrap()
+                    .add_SelectionChanged(move |sender, _args| {
+                        if let Some(sel) = sender.as_ref()
+                            && let Ok(idx) = sel
+                                .cast::<Xaml::ISelector>()
+                                .and_then(|s| s.get_SelectedIndex())
+                        {
+                            handler.invoke_i32(idx);
+                        }
+                    })
+                    .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

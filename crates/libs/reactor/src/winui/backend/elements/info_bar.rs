@@ -1,7 +1,7 @@
 //! InfoBar — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 
 pub(in crate::winui::backend) fn set_prop(
     ib: &Xaml::InfoBar,
@@ -20,4 +20,24 @@ pub(in crate::winui::backend) fn set_prop(
         (Prop::IsClosable, PropValue::Bool(v)) => Some(ib.put_IsClosable(*v)),
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    ib: &Xaml::InfoBar,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::InfoBarClosed => {
+            revokers.push(
+                ib.add_Closed(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

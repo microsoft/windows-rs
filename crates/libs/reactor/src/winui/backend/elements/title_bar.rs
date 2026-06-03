@@ -1,7 +1,7 @@
 //! TitleBar — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 
 pub(in crate::winui::backend) fn set_prop(
     tb: &Xaml::TitleBar,
@@ -23,4 +23,32 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    tb: &Xaml::TitleBar,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::TitleBarBackRequested => {
+            revokers.push(
+                tb.add_BackRequested(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
+            );
+        }
+        Event::TitleBarPaneToggle => {
+            revokers.push(
+                tb.add_PaneToggleRequested(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

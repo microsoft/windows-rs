@@ -1,7 +1,7 @@
 //! TextBox — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -41,4 +41,25 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    tb: &Xaml::TextBox,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::TextChanged => {
+            revokers.push(
+                tb.add_TextChanged(move |sender, _args| {
+                    let text = super::super::sender_text(sender);
+                    handler.invoke_string(text);
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

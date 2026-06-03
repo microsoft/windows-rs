@@ -1,7 +1,7 @@
 //! Button — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -169,4 +169,26 @@ pub(in crate::winui::backend) fn set_prop(
         })()),
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    b: &Xaml::Button,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::Click => {
+            revokers.push(
+                b.cast::<Xaml::IButtonBase>()
+                    .unwrap()
+                    .add_Click(move |_sender, _args| {
+                        handler.invoke();
+                    })
+                    .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

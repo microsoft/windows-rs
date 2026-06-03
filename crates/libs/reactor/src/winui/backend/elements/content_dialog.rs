@@ -1,7 +1,7 @@
 //! ContentDialog — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -42,4 +42,28 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    d: &Xaml::ContentDialog,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::ContentDialogClosed => {
+            revokers.push(
+                d.add_Closed(move |_sender, args| {
+                    let result = args
+                        .as_ref()
+                        .and_then(|a| a.get_Result().ok())
+                        .unwrap_or(Xaml::ContentDialogResult(0));
+                    handler.invoke_i32(result.0);
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

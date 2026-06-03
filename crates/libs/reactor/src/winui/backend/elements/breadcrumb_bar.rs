@@ -1,7 +1,7 @@
 //! BreadcrumbBar — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 
 pub(in crate::winui::backend) fn set_prop(
     bc: &Xaml::BreadcrumbBar,
@@ -22,4 +22,26 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    bc: &Xaml::BreadcrumbBar,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::BreadcrumbItemClicked => {
+            revokers.push(
+                bc.add_ItemClicked(move |_sender, args| {
+                    if let Some(idx) = args.as_ref().and_then(|a| a.get_Index().ok()) {
+                        handler.invoke_i32(idx);
+                    }
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

@@ -95,9 +95,49 @@ explicit `match (prop, value)` arms. Examples:
 2. **Backend-state-dependent props** — need `&self` access to WinUIBackend
    fields like `menu_click_handlers`, `command_bar_flyout_handlers`
 
+---
+
+## Event Dispatch (`attach_event`)
+
+The same module-per-element pattern applies to event attachment. Each element
+module that handles events also exports an `attach_event` function:
+
+```rust
+pub(in crate::winui::backend) fn attach_event(
+    handle: &Xaml::TabView,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::TabSelectionChanged => { /* ... */ }
+        Event::TabCloseRequested => { /* ... */ }
+        Event::AddTabButtonClick => { /* ... */ }
+        _ => return None,
+    }
+    Some(revokers)
+}
+```
+
+Return type: `Option<Vec<windows_core::EventRevoker>>`
+- `Some(revokers)` — event was handled; revokers are stored for cleanup
+- `None` — not this element's event; fall through to mod.rs
+
+### What Stays in `mod.rs` for Events
+
+Backend-state-dependent event handlers that need `&mut self`:
+- `MenuBarItemClicked` — stores handler in `self.menu_click_handlers`
+- `MenuFlyoutItemClicked` — stores handler for flyout rewiring
+- `CommandBarFlyoutClick` — stores handler in `self.command_bar_flyout_handlers`
+- `CommandBarClick` — stores handler + wires via `Self::wire_command_bar_clicks`
+
+Detachment (`detach_event`) remains trivial — just removes from the revoker
+map regardless of element type.
+
 ### Performance
 
-The two-step dispatch has **zero measurable overhead**:
+Both `set_prop` and `attach_event` two-step dispatch have **zero measurable
+overhead**:
 
 | Metric | Before | After |
 |--------|--------|-------|
@@ -146,11 +186,23 @@ PropValue::Unset)` arm.
 
 ---
 
+## Final Metrics
+
+| Metric | Before | After |
+|--------|--------|-------|
+| `mod.rs` lines | 4,247 | 2,390 |
+| `elements/` lines | 0 | 3,060 |
+| Element modules | 0 | 58 files |
+| Avg module size | — | 52 lines |
+| `mod.rs` reduction | — | **-44%** |
+
+---
+
 ## Future Work
 
-- **`attach_event` migration** — same pattern for the 853-line event handler
-  dispatch. Same potential for missing detachment handlers.
 - **Universal prop grouping** — the 49 remaining arms could be organized by
   category (layout, typography, brush) if further decomposition is needed.
 - **Backend-state extraction** — MenuBar/CommandBar/ContentDialog state could
   be moved to per-element state structs, enabling full migration.
+- **`set_rich_text_paragraphs`** — small (51 lines) but could move to the
+  `rich_text_block` element module for full locality.

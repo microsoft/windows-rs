@@ -1,7 +1,7 @@
 //! CalendarDatePicker — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -24,4 +24,28 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    cdp: &Xaml::CalendarDatePicker,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::CalendarDateSelected => {
+            revokers.push(
+                cdp.add_DateChanged(move |_sender, args| {
+                    if let Some(a) = args.as_ref()
+                        && let Ok(dt) = a.get_NewDate()
+                    {
+                        handler.invoke_datetime(dt);
+                    }
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

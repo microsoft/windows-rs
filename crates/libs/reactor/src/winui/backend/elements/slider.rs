@@ -1,7 +1,7 @@
 //! Slider — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -42,4 +42,33 @@ pub(in crate::winui::backend) fn set_prop(
         })),
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    s: &Xaml::Slider,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::ValueChanged => {
+            revokers.push(
+                s.cast::<Xaml::IRangeBase>()
+                    .unwrap()
+                    .add_ValueChanged(move |_sender, args| {
+                        if let Some(a) = args.as_ref()
+                            && let Some(v) = a
+                                .cast::<Xaml::IRangeBaseValueChangedEventArgs>()
+                                .ok()
+                                .and_then(|args| args.get_NewValue().ok())
+                        {
+                            handler.invoke_f64(v);
+                        }
+                    })
+                    .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

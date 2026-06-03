@@ -1,7 +1,8 @@
 //! RadioButtons — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
+use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
     r: &Xaml::RadioButtons,
@@ -27,4 +28,29 @@ pub(in crate::winui::backend) fn set_prop(
         (Prop::RadioButtonsMaxColumns, PropValue::I32(v)) => Some(r.put_MaxColumns(*v)),
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    r: &Xaml::RadioButtons,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::RadioButtonsSelectionChanged => {
+            revokers.push(
+                r.add_SelectionChanged(move |sender, _args| {
+                    let idx = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::RadioButtons>().ok())
+                        .and_then(|rb| rb.get_SelectedIndex().ok())
+                        .unwrap_or(-1);
+                    handler.invoke_i32(idx);
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

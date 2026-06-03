@@ -1,7 +1,7 @@
 //! SplitView — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 
 pub(in crate::winui::backend) fn set_prop(
     sv: &Xaml::SplitView,
@@ -17,4 +17,24 @@ pub(in crate::winui::backend) fn set_prop(
         (Prop::SplitViewCompactPaneLength, PropValue::F64(v)) => Some(sv.put_CompactPaneLength(*v)),
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    sv: &Xaml::SplitView,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::SplitViewPaneClosed => {
+            revokers.push(
+                sv.add_PaneClosed(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

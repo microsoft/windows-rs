@@ -47,6 +47,7 @@ pub(super) mod rich_edit_box;
 pub(super) mod rich_text_block;
 pub(super) mod scroll_view;
 pub(super) mod scroll_viewer;
+pub(super) mod selector_bar;
 pub(super) mod slider;
 pub(super) mod split_button;
 pub(super) mod split_view;

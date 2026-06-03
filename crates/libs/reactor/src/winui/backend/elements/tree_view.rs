@@ -1,7 +1,8 @@
 //! TreeView — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
+use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
     tv: &Xaml::TreeView,
@@ -30,4 +31,40 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    tv: &Xaml::TreeView,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::TreeViewItemInvoked => {
+            revokers.push(
+                tv.add_ItemInvoked(move |_sender, args| {
+                    let text = args
+                        .as_ref()
+                        .and_then(|a| a.get_InvokedItem().ok())
+                        .and_then(|insp| {
+                            insp.cast::<crate::bindings::ITreeViewNode>()
+                                .ok()
+                                .and_then(|node| node.get_Content().ok())
+                        })
+                        .and_then(|content| {
+                            content
+                                .cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                                .ok()
+                                .and_then(|r| r.Value().ok())
+                        })
+                        .map(|h| h.to_string_lossy())
+                        .unwrap_or_default();
+                    handler.invoke_string(text);
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

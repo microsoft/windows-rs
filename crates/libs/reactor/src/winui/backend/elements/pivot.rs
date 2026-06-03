@@ -1,7 +1,8 @@
 //! Pivot — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
+use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
     p: &Xaml::Pivot,
@@ -17,4 +18,36 @@ pub(in crate::winui::backend) fn set_prop(
         (Prop::PivotTitle, PropValue::Unset) => Some(p.put_Title(None)),
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    p: &Xaml::Pivot,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::PivotSelectionChanged => {
+            revokers.push(
+                p.add_SelectionChanged(move |sender, _args| {
+                    let idx = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::Selector>().ok())
+                        .and_then(|sel| {
+                            sel.cast::<Xaml::ISelector>()
+                                .unwrap()
+                                .get_SelectedIndex()
+                                .ok()
+                        })
+                        .unwrap_or(-1);
+                    if idx >= 0 {
+                        handler.invoke_i32(idx);
+                    }
+                })
+                .unwrap(),
+            );
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }

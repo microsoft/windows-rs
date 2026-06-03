@@ -1,7 +1,7 @@
 //! NavigationView — property dispatch.
 
 use crate::bindings as Xaml;
-use crate::core::backend::{Prop, PropValue};
+use crate::core::backend::{Event, EventHandler, Prop, PropValue};
 use windows_core::Interface;
 
 pub(in crate::winui::backend) fn set_prop(
@@ -92,4 +92,105 @@ pub(in crate::winui::backend) fn set_prop(
         }
         _ => None,
     }
+}
+
+pub(in crate::winui::backend) fn attach_event(
+    nv: &Xaml::NavigationView,
+    event: Event,
+    handler: EventHandler,
+) -> Option<Vec<windows_core::EventRevoker>> {
+    let mut revokers = Vec::new();
+    match event {
+        Event::NavSelectionChanged => {
+            revokers.push(
+                nv.add_SelectionChanged(move |_sender, args| {
+                    let tag = args
+                        .as_ref()
+                        .and_then(|a| {
+                            a.cast::<Xaml::INavigationViewSelectionChangedEventArgs>()
+                                .unwrap()
+                                .get_SelectedItem()
+                                .ok()
+                        })
+                        .and_then(|item| item.cast::<Xaml::NavigationViewItem>().ok())
+                        .and_then(|nvi| {
+                            nvi.cast::<Xaml::IFrameworkElement>()
+                                .unwrap()
+                                .get_Tag()
+                                .ok()
+                        })
+                        .and_then(|tag_obj| {
+                            tag_obj
+                                .cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                                .ok()
+                                .and_then(|pv| pv.Value().ok())
+                        })
+                        .map(|h| h.to_string_lossy())
+                        .unwrap_or_default();
+                    handler.invoke_string(tag);
+                })
+                .unwrap(),
+            );
+        }
+        Event::NavBackRequested => {
+            revokers.push(
+                nv.cast::<Xaml::INavigationView2>()
+                    .unwrap()
+                    .add_BackRequested(move |_sender, _args| {
+                        handler.invoke();
+                    })
+                    .unwrap(),
+            );
+        }
+        Event::NavSearchQuerySubmitted => {
+            if let Ok(asb) = nv.get_AutoSuggestBox() {
+                revokers.push(
+                    asb.add_QuerySubmitted(move |_sender, args| {
+                        let query = args
+                            .as_ref()
+                            .and_then(|a| a.get_QueryText().ok())
+                            .unwrap_or_default();
+                        handler.invoke_string(query);
+                    })
+                    .unwrap(),
+                );
+            }
+        }
+        Event::NavSearchTextChanged => {
+            if let Ok(asb) = nv.get_AutoSuggestBox() {
+                revokers.push(
+                    asb.add_TextChanged(move |sender, _args| {
+                        let text = sender
+                            .as_ref()
+                            .and_then(|s| s.get_Text().ok())
+                            .unwrap_or_default();
+                        handler.invoke_string(text);
+                    })
+                    .unwrap(),
+                );
+            }
+        }
+        Event::NavSearchSuggestionChosen => {
+            if let Ok(asb) = nv.get_AutoSuggestBox() {
+                revokers.push(
+                    asb.add_SuggestionChosen(move |_sender, args| {
+                        let item = args
+                            .as_ref()
+                            .and_then(|a| a.get_SelectedItem().ok())
+                            .and_then(|insp| {
+                                insp.cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                                    .ok()
+                                    .and_then(|pv| pv.Value().ok())
+                            })
+                            .map(|h| h.to_string_lossy())
+                            .unwrap_or_default();
+                        handler.invoke_string(item);
+                    })
+                    .unwrap(),
+                );
+            }
+        }
+        _ => return None,
+    }
+    Some(revokers)
 }
