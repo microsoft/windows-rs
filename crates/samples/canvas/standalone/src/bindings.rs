@@ -37,6 +37,7 @@ pub struct POINT {
 pub type WINDOW_EX_STYLE = u32;
 pub type WINDOW_STYLE = u32;
 pub const WM_DESTROY: u32 = 2u32;
+pub const WM_QUIT: u32 = 18u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WNDCLASSA {
