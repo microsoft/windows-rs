@@ -40,22 +40,61 @@ unsafe impl Send for SendSwap {}
 
 thread_local! {
     /// The native `SwapChainPanel`, captured once the control is ready so the
-    /// render thread can attach its swap chain via a marshalled callback.
+    /// render thread can attach its swap chain via a marshalled callback. This
+    /// stays a thread-local (rather than a `HookRef`) because it is read from
+    /// inside the `Send` marshaller closure that bridges the worker thread back
+    /// to the UI thread; a `HookRef` (`Rc`) cannot cross that boundary, but a
+    /// thread-local resolves by name on whichever thread runs the closure.
     static PANEL: RefCell<Option<SwapChainPanelHandle>> = const { RefCell::new(None) };
-    /// Sends commands to the render thread. `None` until the panel is ready.
-    static COMMANDS: RefCell<Option<Sender<RenderCommand>>> = const { RefCell::new(None) };
-    /// Handle to the render thread, joined on teardown.
-    static WORKER: RefCell<Option<JoinHandle<()>>> = const { RefCell::new(None) };
 }
 
-/// Send a command to the render thread, if it is running. No-op before the
-/// panel is ready or after the thread has shut down.
-fn send_command(command: RenderCommand) {
-    COMMANDS.with(|cell| {
-        if let Some(tx) = cell.borrow().as_ref() {
-            let _ = tx.send(command);
+/// Owns the render thread and the channel used to talk to it. Created once the
+/// panel is ready. Dropping it asks the thread to stop and waits for it to
+/// finish, so a clean shutdown happens on any drop path.
+struct RenderThread {
+    commands: Sender<RenderCommand>,
+    worker: Option<JoinHandle<()>>,
+}
+
+impl RenderThread {
+    /// Spawn the render thread. `on_swap_chain` is invoked once, on the render
+    /// thread, after the swap chain is created so the caller can attach it to
+    /// its presentation surface.
+    fn new(on_swap_chain: impl FnOnce(SendSwap) + Send + 'static) -> Self {
+        let (commands, rx) = channel();
+        let worker = thread::spawn(move || {
+            if let Err(e) = render_thread(rx, on_swap_chain) {
+                eprintln!("render thread failed: {e}");
+            }
+        });
+        Self {
+            commands,
+            worker: Some(worker),
         }
-    });
+    }
+
+    /// Send a command to the render thread. No-op if it has already shut down.
+    fn send(&self, command: RenderCommand) {
+        let _ = self.commands.send(command);
+    }
+
+    /// Set the number of circles to animate.
+    fn set_circle_count(&self, count: u32) {
+        self.send(RenderCommand::SetCircleCount(count));
+    }
+
+    /// Resize the render surface.
+    fn resize(&self, width: u32, height: u32) {
+        self.send(RenderCommand::Resize(width, height));
+    }
+}
+
+impl Drop for RenderThread {
+    /// Ask the render thread to stop and wait for it to finish.
+    fn drop(&mut self) {
+        self.send(RenderCommand::Shutdown);
+        let _ = self.worker.take().map(JoinHandle::join);
+    }
 }
 
 fn resize_swap_chain(state: &mut D2DState, width: u32, height: u32) {
@@ -260,34 +299,28 @@ fn render_thread(
 fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
     let marshaller = cx.use_ui_marshaller();
-
-    // Tear down the render thread when the component unmounts.
-    cx.use_effect_with_cleanup((), || {
-        Some(|| {
-            COMMANDS.with(|cell| {
-                if let Some(tx) = cell.borrow().as_ref() {
-                    let _ = tx.send(RenderCommand::Shutdown);
-                }
-            });
-            if let Some(handle) = WORKER.with(|cell| cell.borrow_mut().take()) {
-                let _ = handle.join();
-            }
-        })
-    });
+    // The render thread and its command channel. `None` until the panel is ready.
+    let render = cx.use_ref::<Option<RenderThread>>(None);
 
     let add = {
         let s = set_count.clone();
+        let render = render.clone();
         move || {
             s.call(count + 1);
-            send_command(RenderCommand::SetCircleCount(count + 1));
+            if let Some(r) = render.borrow().as_ref() {
+                r.set_circle_count(count + 1);
+            }
         }
     };
     let remove = {
         let s = set_count;
+        let render = render.clone();
         move || {
             if count > 0 {
                 s.call(count - 1);
-                send_command(RenderCommand::SetCircleCount(count - 1));
+                if let Some(r) = render.borrow().as_ref() {
+                    r.set_circle_count(count - 1);
+                }
             }
         }
     };
@@ -296,13 +329,12 @@ fn app(cx: &mut RenderCx) -> Element {
     grid((
         Element::from(
             swap_chain_panel()
-                .on_ready(move |panel| {
-                    PANEL.with(|cell| *cell.borrow_mut() = Some(panel));
-                    let (tx, rx) = channel();
-                    COMMANDS.with(|cell| *cell.borrow_mut() = Some(tx));
-                    let marshaller = marshaller.clone();
-                    let handle = thread::spawn(move || {
-                        let attach = move |swap: SendSwap| {
+                .on_ready({
+                    let render = render.clone();
+                    move |panel| {
+                        PANEL.with(|cell| *cell.borrow_mut() = Some(panel));
+                        let marshaller = marshaller.clone();
+                        let attach_swap_chain = move |swap: SendSwap| {
                             marshaller.dispatch(move || {
                                 PANEL.with(|cell| {
                                     if let Some(panel) = cell.borrow().as_ref()
@@ -313,14 +345,15 @@ fn app(cx: &mut RenderCx) -> Element {
                                 });
                             });
                         };
-                        if let Err(e) = render_thread(rx, attach) {
-                            eprintln!("render thread failed: {e}");
-                        }
-                    });
-                    WORKER.with(|cell| *cell.borrow_mut() = Some(handle));
+                        render.set(Some(RenderThread::new(attach_swap_chain)));
+                    }
                 })
-                .on_resize(|w, h| {
-                    send_command(RenderCommand::Resize(w as u32, h as u32));
+                .on_resize({
+                    move |w, h| {
+                        if let Some(r) = render.borrow().as_ref() {
+                            r.resize(w as u32, h as u32);
+                        }
+                    }
                 })
                 .margin(Thickness {
                     left: margin,
