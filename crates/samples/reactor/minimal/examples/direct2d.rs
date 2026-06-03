@@ -21,6 +21,21 @@ struct D2DState {
     frame: u64,
 }
 
+/// Messages sent from the UI thread to the render thread.
+enum RenderCommand {
+    SetCircleCount(u32),
+    Resize(u32, u32),
+    Shutdown,
+}
+
+/// Wraps an `IDXGISwapChain1` so it can be handed back to the UI thread for
+/// attachment via `SetSwapChain`. DXGI swap chains are agile (free-threaded),
+/// and only the render thread ever presents/resizes this one, so moving the
+/// reference across the thread boundary is sound.
+struct SendSwap(IDXGISwapChain1);
+
+unsafe impl Send for SendSwap {}
+
 thread_local! {
     static D2D: RefCell<Option<D2DState>> = const { RefCell::new(None) };
     static CIRCLE_COUNT: Cell<u32> = const { Cell::new(5) };
