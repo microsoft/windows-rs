@@ -18336,6 +18336,15 @@ impl ITextBlock {
             .ok()
         }
     }
+    pub fn put_IsTextSelectionEnabled(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_IsTextSelectionEnabled)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18386,7 +18395,8 @@ pub struct ITextBlock_Vtbl {
     get_LineStackingStrategy: usize,
     put_LineStackingStrategy: usize,
     get_IsTextSelectionEnabled: usize,
-    put_IsTextSelectionEnabled: usize,
+    pub put_IsTextSelectionEnabled:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_SelectedText: usize,
     get_ContentStart: usize,
     get_ContentEnd: usize,
