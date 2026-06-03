@@ -1,5 +1,5 @@
 use crate::core::Prop;
-use crate::core::backend::{ControlId, Event};
+use crate::core::backend::ControlId;
 
 use super::{Handle, PropValue};
 
@@ -7,15 +7,6 @@ pub(crate) fn unhandled_prop(id: ControlId, prop: Prop, value: &PropValue, handl
     if cfg!(debug_assertions) {
         eprintln!(
             "windows-reactor: unhandled prop ({prop:?}, {value:?}) for {} {id}",
-            handle.kind_name()
-        );
-    }
-}
-
-pub(crate) fn unhandled_event(id: ControlId, event: Event, handle: &Handle) {
-    if cfg!(debug_assertions) {
-        eprintln!(
-            "windows-reactor: unhandled event {event:?} for {} {id}",
             handle.kind_name()
         );
     }

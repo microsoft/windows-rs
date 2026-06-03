@@ -3392,7 +3392,12 @@ impl Backend for WinUIBackend {
                 panic!("WinUIBackend::attach_event: PivotSelectionChanged on non-Pivot {id}")
             }
             (Event::BreadcrumbItemClicked, h @ Handle::BreadcrumbBar(_)) => {
-                diag::unhandled_event(id, event, h);
+                if cfg!(debug_assertions) {
+                    eprintln!(
+                        "windows-reactor: unhandled event {event:?} for {} {id}",
+                        h.kind_name()
+                    );
+                }
             }
             (Event::BreadcrumbItemClicked, _) => {
                 panic!(
