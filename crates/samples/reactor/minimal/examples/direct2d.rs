@@ -302,25 +302,25 @@ fn app(cx: &mut RenderCx) -> Element {
     // The render thread and its command channel. `None` until the panel is ready.
     let render = cx.use_ref::<Option<RenderThread>>(None);
 
-    let add = {
-        let s = set_count.clone();
+    // Push the current circle count to the render thread whenever it changes.
+    cx.use_effect(count, {
         let render = render.clone();
         move || {
-            s.call(count + 1);
             if let Some(r) = render.borrow().as_ref() {
-                r.set_circle_count(count + 1);
+                r.set_circle_count(count);
             }
         }
+    });
+
+    let add = {
+        let s = set_count.clone();
+        move || s.call(count + 1)
     };
     let remove = {
         let s = set_count;
-        let render = render.clone();
         move || {
             if count > 0 {
                 s.call(count - 1);
-                if let Some(r) = render.borrow().as_ref() {
-                    r.set_circle_count(count - 1);
-                }
             }
         }
     };
