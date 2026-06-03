@@ -1,8 +1,4 @@
-//! Demonstrates that a button's icon is preserved when its label changes dynamically.
-//!
-//! Without the ButtonContent icon-preservation fix, updating the label would
-//! replace the entire StackPanel content (icon + text) with a bare TextBlock,
-//! causing the icon to disappear after the first click.
+//! Button icon preserved when its label changes dynamically.
 
 use windows_reactor::*;
 
@@ -29,6 +25,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Button Icon — Dynamic Label").render(app)
+    reactor_minimal::run("ButtonIconDynamic", app)
 }

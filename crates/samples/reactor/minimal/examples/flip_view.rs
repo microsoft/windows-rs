@@ -1,4 +1,4 @@
-//! Minimal sample for the `flip_view` templated list.
+//! Sample for the `flip_view` templated list.
 
 use windows_reactor::*;
 

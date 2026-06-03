@@ -1,4 +1,4 @@
-//! Minimal sample for the `Button` element.
+//! Sample for the `Button` element.
 
 use windows_reactor::*;
 
@@ -17,6 +17,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Button", app)
 }

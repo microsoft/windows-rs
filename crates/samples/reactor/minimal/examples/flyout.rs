@@ -1,4 +1,4 @@
-//! Minimal sample for the `Flyout` modifier on `Button`.
+//! Sample for the `Flyout` modifier on `Button`.
 
 use windows_reactor::*;
 
@@ -18,6 +18,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Flyout", app)
 }

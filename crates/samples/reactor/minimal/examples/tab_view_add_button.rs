@@ -1,5 +1,4 @@
-//! Minimal sample demonstrating the TabView add-tab button (`IsAddTabButtonVisible`
-//! + `AddTabButtonClick`).
+//! Sample for the `TabView` add-tab button.
 
 use windows_reactor::*;
 
