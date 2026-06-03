@@ -3,7 +3,9 @@
 
 #![windows_subsystem = "windows"]
 
-use std::cell::{Cell, RefCell};
+use std::cell::RefCell;
+use std::sync::mpsc::{channel, Receiver, Sender, TryRecvError};
+use std::thread::{self, JoinHandle};
 
 use windows::Win32::Graphics::Direct2D::Common::*;
 use windows::Win32::Graphics::Direct2D::*;
@@ -37,9 +39,23 @@ struct SendSwap(IDXGISwapChain1);
 unsafe impl Send for SendSwap {}
 
 thread_local! {
-    static D2D: RefCell<Option<D2DState>> = const { RefCell::new(None) };
-    static CIRCLE_COUNT: Cell<u32> = const { Cell::new(5) };
-    static PANEL_SIZE: Cell<(u32, u32)> = const { Cell::new((400, 300)) };
+    /// The native `SwapChainPanel`, captured once the control is ready so the
+    /// render thread can attach its swap chain via a marshalled callback.
+    static PANEL: RefCell<Option<SwapChainPanelHandle>> = const { RefCell::new(None) };
+    /// Sends commands to the render thread. `None` until the panel is ready.
+    static COMMANDS: RefCell<Option<Sender<RenderCommand>>> = const { RefCell::new(None) };
+    /// Handle to the render thread, joined on teardown.
+    static WORKER: RefCell<Option<JoinHandle<()>>> = const { RefCell::new(None) };
+}
+
+/// Send a command to the render thread, if it is running. No-op before the
+/// panel is ready or after the thread has shut down.
+fn send_command(command: RenderCommand) {
+    COMMANDS.with(|cell| {
+        if let Some(tx) = cell.borrow().as_ref() {
+            let _ = tx.send(command);
+        }
+    });
 }
 
 fn resize_swap_chain(state: &mut D2DState, width: u32, height: u32) {
@@ -80,7 +96,7 @@ fn resize_swap_chain(state: &mut D2DState, width: u32, height: u32) {
     }
 }
 
-fn create_d2d_state(panel: &SwapChainPanelHandle, width: u32, height: u32) -> Result<D2DState> {
+fn create_d2d_state(width: u32, height: u32) -> Result<D2DState> {
     let mut device: Option<ID3D11Device> = None;
     unsafe {
         D3D11CreateDevice(
@@ -123,8 +139,6 @@ fn create_d2d_state(panel: &SwapChainPanelHandle, width: u32, height: u32) -> Re
 
     let swap_chain = unsafe { dxgi_factory.CreateSwapChainForComposition(&device, &desc, None)? };
 
-    panel.set_swap_chain(&swap_chain)?;
-
     let surface: IDXGISurface = unsafe { swap_chain.GetBuffer(0)? };
     let bitmap_props = D2D1_BITMAP_PROPERTIES1 {
         pixelFormat: D2D1_PIXEL_FORMAT {
@@ -159,11 +173,10 @@ fn create_d2d_state(panel: &SwapChainPanelHandle, width: u32, height: u32) -> Re
     })
 }
 
-fn render_frame(state: &mut D2DState) {
+fn render_frame(state: &mut D2DState, count: u32, size: (u32, u32)) {
     state.frame += 1;
     let t = state.frame as f32 * 0.02;
-    let count = CIRCLE_COUNT.with(|c| c.get());
-    let (w, h) = PANEL_SIZE.with(|c| c.get());
+    let (w, h) = size;
     let cx = w as f32 / 2.0;
     let cy = h as f32 / 2.0;
     let orbit = cx.min(cy) * 0.5;
@@ -205,37 +218,77 @@ fn render_frame(state: &mut D2DState) {
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(5_u32);
+/// Entry point for the dedicated render thread. Owns all D3D/D2D state, drains
+/// commands from the UI thread, and drives the animation loop. `Present(1)`
+/// paces the loop at the display refresh rate.
+fn render_thread(rx: Receiver<RenderCommand>, marshaller: UiMarshaller) -> Result<()> {
+    let mut size = (400_u32, 300_u32);
+    let mut count = 5_u32;
+    let mut state = create_d2d_state(size.0, size.1)?;
 
-    CIRCLE_COUNT.with(|c| c.set(count));
+    // Hand the swap chain back to the UI thread to attach it to the panel.
+    let swap = SendSwap(state.swap_chain.clone());
+    marshaller.dispatch(move || {
+        PANEL.with(|cell| {
+            if let Some(panel) = cell.borrow().as_ref()
+                && let Err(e) = panel.set_swap_chain(&swap.0)
+            {
+                eprintln!("set_swap_chain failed: {e}");
+            }
+        });
+    });
 
-    let rendering = cx.use_ref::<Option<Rendering>>(None);
-    cx.use_effect((), {
-        #[allow(clippy::redundant_clone)]
-        let rendering = rendering.clone();
-        move || {
-            if let Ok(r) = on_rendering(|| {
-                D2D.with(|cell| {
-                    if let Some(state) = cell.borrow_mut().as_mut() {
-                        render_frame(state);
-                    }
-                });
-            }) {
-                rendering.set(Some(r));
+    loop {
+        // Drain all pending commands without blocking.
+        loop {
+            match rx.try_recv() {
+                Ok(RenderCommand::SetCircleCount(c)) => count = c,
+                Ok(RenderCommand::Resize(w, h)) => {
+                    size = (w, h);
+                    resize_swap_chain(&mut state, w, h);
+                }
+                Ok(RenderCommand::Shutdown) | Err(TryRecvError::Disconnected) => {
+                    return Ok(());
+                }
+                Err(TryRecvError::Empty) => break,
             }
         }
+
+        render_frame(&mut state, count, size);
+    }
+}
+
+fn app(cx: &mut RenderCx) -> Element {
+    let (count, set_count) = cx.use_state(5_u32);
+    let marshaller = cx.use_ui_marshaller();
+
+    // Tear down the render thread when the component unmounts.
+    cx.use_effect_with_cleanup((), || {
+        Some(|| {
+            COMMANDS.with(|cell| {
+                if let Some(tx) = cell.borrow().as_ref() {
+                    let _ = tx.send(RenderCommand::Shutdown);
+                }
+            });
+            if let Some(handle) = WORKER.with(|cell| cell.borrow_mut().take()) {
+                let _ = handle.join();
+            }
+        })
     });
 
     let add = {
         let s = set_count.clone();
-        move || s.call(count + 1)
+        move || {
+            s.call(count + 1);
+            send_command(RenderCommand::SetCircleCount(count + 1));
+        }
     };
     let remove = {
         let s = set_count;
         move || {
             if count > 0 {
                 s.call(count - 1);
+                send_command(RenderCommand::SetCircleCount(count - 1));
             }
         }
     };
@@ -244,22 +297,20 @@ fn app(cx: &mut RenderCx) -> Element {
     grid((
         Element::from(
             swap_chain_panel()
-                .on_ready(|panel| {
-                    let (w, h) = PANEL_SIZE.with(|c| c.get());
-                    match create_d2d_state(&panel, w, h) {
-                        Ok(state) => D2D.with(|cell| *cell.borrow_mut() = Some(state)),
-                        Err(e) => eprintln!("D2D init failed: {e}"),
-                    }
-                })
-                .on_resize(|w, h| {
-                    let pw = w as u32;
-                    let ph = h as u32;
-                    PANEL_SIZE.with(|c| c.set((pw, ph)));
-                    D2D.with(|cell| {
-                        if let Some(state) = cell.borrow_mut().as_mut() {
-                            resize_swap_chain(state, pw, ph);
+                .on_ready(move |panel| {
+                    PANEL.with(|cell| *cell.borrow_mut() = Some(panel));
+                    let (tx, rx) = channel();
+                    COMMANDS.with(|cell| *cell.borrow_mut() = Some(tx));
+                    let marshaller = marshaller.clone();
+                    let handle = thread::spawn(move || {
+                        if let Err(e) = render_thread(rx, marshaller) {
+                            eprintln!("render thread failed: {e}");
                         }
                     });
+                    WORKER.with(|cell| *cell.borrow_mut() = Some(handle));
+                })
+                .on_resize(|w, h| {
+                    send_command(RenderCommand::Resize(w as u32, h as u32));
                 })
                 .margin(Thickness {
                     left: margin,
