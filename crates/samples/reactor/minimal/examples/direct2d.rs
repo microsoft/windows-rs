@@ -3,7 +3,6 @@
 
 #![windows_subsystem = "windows"]
 
-use std::cell::RefCell;
 use std::sync::mpsc::{channel, Receiver, Sender, TryRecvError};
 use std::thread::{self, JoinHandle};
 
@@ -34,19 +33,10 @@ enum RenderCommand {
 /// attachment via `SetSwapChain`. DXGI swap chains are agile (free-threaded),
 /// and only the render thread ever presents/resizes this one, so moving the
 /// reference across the thread boundary is sound.
+#[derive(Clone, PartialEq)]
 struct SendSwap(IDXGISwapChain1);
 
 unsafe impl Send for SendSwap {}
-
-thread_local! {
-    /// The native `SwapChainPanel`, captured once the control is ready so the
-    /// render thread can attach its swap chain via a marshalled callback. This
-    /// stays a thread-local (rather than a `HookRef`) because it is read from
-    /// inside the `Send` marshaller closure that bridges the worker thread back
-    /// to the UI thread; a `HookRef` (`Rc`) cannot cross that boundary, but a
-    /// thread-local resolves by name on whichever thread runs the closure.
-    static PANEL: RefCell<Option<SwapChainPanelHandle>> = const { RefCell::new(None) };
-}
 
 /// Owns the render thread and the channel used to talk to it. Created once the
 /// panel is ready. Dropping it asks the thread to stop and waits for it to
@@ -298,9 +288,26 @@ fn render_thread(
 
 fn app(cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
-    let marshaller = cx.use_ui_marshaller();
+    // The native panel, captured once the control is ready. UI-thread-only state.
+    let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
+    // The render thread's swap chain, delivered from the worker thread. The async
+    // setter marshals the value back onto the UI thread for us.
+    let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
     // The render thread and its command channel. `None` until the panel is ready.
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
+
+    // Attach the swap chain to the panel once the worker thread reports it.
+    cx.use_effect(swap_chain.clone(), {
+        let panel = panel.clone();
+        move || {
+            if let Some(swap) = swap_chain.as_ref()
+                && let Some(panel) = panel.borrow().as_ref()
+                && let Err(e) = panel.set_swap_chain(&swap.0)
+            {
+                eprintln!("set_swap_chain failed: {e}");
+            }
+        }
+    });
 
     // Push the current circle count to the render thread whenever it changes.
     cx.use_effect(count, {
@@ -330,21 +337,12 @@ fn app(cx: &mut RenderCx) -> Element {
             swap_chain_panel()
                 .on_ready({
                     let render_thread = render_thread.clone();
-                    move |panel| {
-                        PANEL.with(|cell| *cell.borrow_mut() = Some(panel));
-                        let marshaller = marshaller.clone();
-                        let attach_swap_chain = move |swap: SendSwap| {
-                            marshaller.dispatch(move || {
-                                PANEL.with(|cell| {
-                                    if let Some(panel) = cell.borrow().as_ref()
-                                        && let Err(e) = panel.set_swap_chain(&swap.0)
-                                    {
-                                        eprintln!("set_swap_chain failed: {e}");
-                                    }
-                                });
-                            });
-                        };
-                        render_thread.set(Some(RenderThread::new(attach_swap_chain)));
+                    move |handle| {
+                        panel.set(Some(handle));
+                        let set_swap_chain = set_swap_chain.clone();
+                        render_thread.set(Some(RenderThread::new(move |swap| {
+                            set_swap_chain.call(Some(swap));
+                        })));
                     }
                 })
                 .on_resize({
