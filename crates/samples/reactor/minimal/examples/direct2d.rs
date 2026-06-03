@@ -219,24 +219,23 @@ fn render_frame(state: &mut D2DState, count: u32, size: (u32, u32)) {
 }
 
 /// Entry point for the dedicated render thread. Owns all D3D/D2D state, drains
-/// commands from the UI thread, and drives the animation loop. `Present(1)`
-/// paces the loop at the display refresh rate.
-fn render_thread(rx: Receiver<RenderCommand>, marshaller: UiMarshaller) -> Result<()> {
+/// commands from the caller, and drives the animation loop. `Present(1)` paces
+/// the loop at the display refresh rate.
+///
+/// `on_swap_chain` is invoked once, after the swap chain is created, so the
+/// caller can attach it to its presentation surface. Keeping this a plain
+/// callback lets the render loop stay independent of any particular UI
+/// framework.
+fn render_thread(
+    rx: Receiver<RenderCommand>,
+    on_swap_chain: impl FnOnce(SendSwap),
+) -> Result<()> {
     let mut size = (400_u32, 300_u32);
     let mut count = 5_u32;
     let mut state = create_d2d_state(size.0, size.1)?;
 
-    // Hand the swap chain back to the UI thread to attach it to the panel.
-    let swap = SendSwap(state.swap_chain.clone());
-    marshaller.dispatch(move || {
-        PANEL.with(|cell| {
-            if let Some(panel) = cell.borrow().as_ref()
-                && let Err(e) = panel.set_swap_chain(&swap.0)
-            {
-                eprintln!("set_swap_chain failed: {e}");
-            }
-        });
-    });
+    // Hand the swap chain back to the caller to attach it to its surface.
+    on_swap_chain(SendSwap(state.swap_chain.clone()));
 
     loop {
         // Drain all pending commands without blocking.
@@ -303,7 +302,18 @@ fn app(cx: &mut RenderCx) -> Element {
                     COMMANDS.with(|cell| *cell.borrow_mut() = Some(tx));
                     let marshaller = marshaller.clone();
                     let handle = thread::spawn(move || {
-                        if let Err(e) = render_thread(rx, marshaller) {
+                        let attach = move |swap: SendSwap| {
+                            marshaller.dispatch(move || {
+                                PANEL.with(|cell| {
+                                    if let Some(panel) = cell.borrow().as_ref()
+                                        && let Err(e) = panel.set_swap_chain(&swap.0)
+                                    {
+                                        eprintln!("set_swap_chain failed: {e}");
+                                    }
+                                });
+                            });
+                        };
+                        if let Err(e) = render_thread(rx, attach) {
                             eprintln!("render thread failed: {e}");
                         }
                     });
