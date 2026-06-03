@@ -8,6 +8,7 @@ pub struct TextBlock {
     pub font_size: Option<f64>,
     pub font_weight: Option<u16>,
     pub wrap_text: bool,
+    pub is_text_selection_enabled: bool,
 }
 impl TextBlock {
     pub fn new(content: impl Into<String>) -> Self {
@@ -21,7 +22,7 @@ impl TextBlock {
 impl Widget for TextBlock {
     widget_header!(ControlKind::TextBlock);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(3);
+        let mut out = Vec::with_capacity(5);
         out.push(Binding::Prop(
             Prop::Text,
             PropValue::Str(self.content.clone()),
@@ -34,6 +35,12 @@ impl Widget for TextBlock {
         }
         if self.wrap_text {
             out.push(Binding::Prop(Prop::TextWrappingWrap, PropValue::Bool(true)));
+        }
+        if self.is_text_selection_enabled {
+            out.push(Binding::Prop(
+                Prop::IsTextSelectionEnabled,
+                PropValue::Bool(true),
+            ));
         }
         out
     }
@@ -62,6 +69,11 @@ impl TextBlock {
 
     pub fn wrap(mut self) -> Self {
         self.wrap_text = true;
+        self
+    }
+
+    pub fn selectable(mut self) -> Self {
+        self.is_text_selection_enabled = true;
         self
     }
 }

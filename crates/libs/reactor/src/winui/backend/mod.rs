@@ -787,6 +787,15 @@ impl Backend for WinUIBackend {
                 (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(*v)
                 }
+                (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
+                    tb.put_IsTextSelectionEnabled(false)
+                }
+                (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(tb)) => {
+                    tb.put_IsTextSelectionEnabled(*v)
+                }
+                (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::TextBlock(tb)) => {
+                    tb.put_IsTextSelectionEnabled(false)
+                }
                 (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::TextBlock(tb)) => {
                     let mode = if *v {
                         Xaml::TextWrapping::Wrap
