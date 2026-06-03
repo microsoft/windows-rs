@@ -12,6 +12,7 @@ pub(crate) fn unhandled_prop(id: ControlId, prop: Prop, value: &PropValue, handl
     }
 }
 
+#[allow(dead_code)]
 pub(crate) fn unhandled_event(id: ControlId, event: Event, handle: &Handle) {
     if cfg!(debug_assertions) {
         eprintln!(

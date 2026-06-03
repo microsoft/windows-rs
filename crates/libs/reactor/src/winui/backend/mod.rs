@@ -1712,7 +1712,17 @@ impl Backend for WinUIBackend {
                     let tb = string_as_textblock(s)?;
                     pi.put_Header(&tb)
                 }
-                (Prop::BreadcrumbItems, PropValue::StrList(_), Handle::BreadcrumbBar(_)) => Ok(()),
+                (Prop::BreadcrumbItems, PropValue::StrList(items), Handle::BreadcrumbBar(bc)) => {
+                    let vec: Vec<Option<windows_core::IInspectable>> = items
+                        .iter()
+                        .map(|s| {
+                            let r = windows_reference::IReference::from(s.as_str());
+                            Some(r.into())
+                        })
+                        .collect();
+                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
+                    bc.put_ItemsSource(&ivec)
+                }
                 // ── W2: PasswordBox ───────────────────────────────────────────
                 (Prop::PasswordValue, PropValue::Str(s), Handle::PasswordBox(p)) => {
                     if p.get_Password().ok().as_deref() == Some(s.as_str()) {
@@ -3391,8 +3401,15 @@ impl Backend for WinUIBackend {
             (Event::PivotSelectionChanged, _) => {
                 panic!("WinUIBackend::attach_event: PivotSelectionChanged on non-Pivot {id}")
             }
-            (Event::BreadcrumbItemClicked, h @ Handle::BreadcrumbBar(_)) => {
-                diag::unhandled_event(id, event, h);
+            (Event::BreadcrumbItemClicked, Handle::BreadcrumbBar(bc)) => {
+                revokers.push(
+                    bc.add_ItemClicked(move |_sender, args| {
+                        if let Some(idx) = args.as_ref().and_then(|a| a.get_Index().ok()) {
+                            handler.invoke_i32(idx);
+                        }
+                    })
+                    .unwrap(),
+                );
             }
             (Event::BreadcrumbItemClicked, _) => {
                 panic!(

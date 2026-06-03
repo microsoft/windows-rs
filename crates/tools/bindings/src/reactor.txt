@@ -111,6 +111,9 @@ Microsoft.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs::{get_QueryTex
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs::{get_SelectedItem}
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs::{get_Reason}
 Microsoft.UI.Xaml.Controls.IBorder::{put_Child, get_Child, put_Padding, put_Background, put_CornerRadius, put_BorderBrush, put_BorderThickness}
+Microsoft.UI.Xaml.Controls.IBreadcrumbBar::{put_ItemsSource, add_ItemClicked}
+Microsoft.UI.Xaml.Controls.IBreadcrumbBarItemClickedEventArgs::{get_Index}
+Microsoft.UI.Xaml.Controls.BreadcrumbBarItemClickedEventArgs
 Microsoft.UI.Xaml.Controls.IButton::{put_Flyout, get_Flyout}
 Microsoft.UI.Xaml.Controls.ICalendarDatePicker::{put_Header, put_PlaceholderText, put_IsTodayHighlighted, put_IsCalendarOpen, add_DateChanged}
 Microsoft.UI.Xaml.Controls.ICalendarDatePickerDateChangedEventArgs::{get_NewDate}
