@@ -1539,6 +1539,9 @@ impl Backend for WinUIBackend {
                     bmp.cast::<Xaml::IBitmapImage>()?.put_UriSource(&uri)?;
                     img.put_Source(&bmp.cast::<Xaml::ImageSource>()?)
                 }
+                (Prop::ImageSource, PropValue::SurfaceImageSource(sis), Handle::Image(img)) => {
+                    img.put_Source(&sis.image_source()?)
+                }
                 (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
                 (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Image(img)) => {
                     use ImageStretch as E;
@@ -4280,8 +4283,8 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         }
         Element::Image(img) => {
             let i = Xaml::Image::new().ok()?;
-            if !img.source.is_empty()
-                && let Ok(uri) = Xaml::Uri::CreateUri(img.source.as_str())
+            if let ImageSource::Uri(uri_str) = &img.source
+                && let Ok(uri) = Xaml::Uri::CreateUri(uri_str.as_str())
                 && let Ok(bmp) = Xaml::BitmapImage::new()
             {
                 if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {

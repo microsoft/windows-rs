@@ -17426,7 +17426,7 @@ pub struct ISurfaceImageSourceFactory_Vtbl {
 windows_core::imp::define_interface!(
     ISurfaceImageSourceNativeWithD2D,
     ISurfaceImageSourceNativeWithD2D_Vtbl,
-    0x54298223_41e1_4a41_9c08_02e8256864a1
+    0xcb833102_d5d1_448b_a31a_52a9509f24e6
 );
 windows_core::imp::interface_hierarchy!(ISurfaceImageSourceNativeWithD2D, windows_core::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {

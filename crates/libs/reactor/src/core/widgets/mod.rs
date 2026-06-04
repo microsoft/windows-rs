@@ -78,6 +78,7 @@ widget_modules! {
     split_button,
     split_view,
     stack_panel,
+    surface_image_source,
     swap_chain_panel,
     tab_view,
     teaching_tip,

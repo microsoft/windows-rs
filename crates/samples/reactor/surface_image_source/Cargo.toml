@@ -1,0 +1,25 @@
+[package]
+name = "reactor_surface_image_source"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-reactor = { workspace = true }
+windows-numerics = { workspace = true }
+
+[dependencies.windows]
+workspace = true
+default-features = true
+features = [
+    "Win32_Graphics_Direct2D_Common",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D11",
+    "Win32_Graphics_Dxgi_Common",
+]
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true
