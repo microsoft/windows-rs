@@ -1,11 +1,12 @@
 //! Typed handler for the `ProgressRing` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::ProgressRing;
 use crate::winui::backend::Handle;
 use windows_core::Interface as _;
 
-pub fn mount(w: &ProgressRing, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &ProgressRing, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IProgressRing>()?;
     let rb = p.cast::<Xaml::IRangeBase>()?;
     rb.put_Minimum(w.minimum)?;
@@ -20,7 +21,12 @@ pub fn mount(w: &ProgressRing, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &ProgressRing, new: &ProgressRing, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &ProgressRing,
+    new: &ProgressRing,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IProgressRing>()?;
     let rb = p.cast::<Xaml::IRangeBase>()?;
     if new.minimum != old.minimum {

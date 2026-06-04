@@ -1,11 +1,17 @@
 //! Typed handler for the `RatingControl` widget.
 
+use super::EventCtx;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::RatingControl;
 use crate::winui::backend::Handle;
 
-pub fn mount(widget: &RatingControl, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &RatingControl,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::RatingControl(r) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     r.put_Value(widget.value)?;
@@ -23,16 +29,22 @@ pub fn mount(widget: &RatingControl, handle: &Handle) -> windows_core::Result<bo
         r.put_IsReadOnly(true)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_changed,
+        Event::RatingValueChanged,
+        EventHandler::ValueChanged,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &RatingControl,
     new: &RatingControl,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::RatingControl(r) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.value != new.value {
@@ -58,5 +70,11 @@ pub fn diff(
         r.put_IsReadOnly(new.is_read_only)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::RatingValueChanged,
+        EventHandler::ValueChanged,
+    );
+    Ok(())
 }

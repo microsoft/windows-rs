@@ -1,11 +1,13 @@
 //! Typed handler for the `RadioButton` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::RadioButton;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &RadioButton, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &RadioButton, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let r = handle.cast_inner::<Xaml::IRadioButton>()?;
     if let Some(label) = &w.label {
         let txt = string_as_textblock(label)?;
@@ -24,10 +26,16 @@ pub fn mount(w: &RadioButton, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(&w.on_checked, Event::RadioChecked, EventHandler::Click);
     Ok(())
 }
 
-pub fn diff(old: &RadioButton, new: &RadioButton, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &RadioButton,
+    new: &RadioButton,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     if new.label != old.label {
         let cc = handle.cast_inner::<Xaml::IContentControl>()?;
         match &new.label {
@@ -58,5 +66,11 @@ pub fn diff(old: &RadioButton, new: &RadioButton, handle: &Handle) -> windows_co
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_checked,
+        &new.on_checked,
+        Event::RadioChecked,
+        EventHandler::Click,
+    );
     Ok(())
 }

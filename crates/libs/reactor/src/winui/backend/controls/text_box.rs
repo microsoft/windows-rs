@@ -1,11 +1,13 @@
 //! Typed handler for the `TextBox` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::TextBox;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &TextBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &TextBox, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let tb = handle.cast_inner::<Xaml::ITextBox>()?;
     tb.put_Text(w.value.as_str())?;
     if let Some(ph) = &w.placeholder {
@@ -25,10 +27,16 @@ pub fn mount(w: &TextBox, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(&w.on_changed, Event::TextChanged, EventHandler::TextChanged);
     Ok(())
 }
 
-pub fn diff(old: &TextBox, new: &TextBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &TextBox,
+    new: &TextBox,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let tb = handle.cast_inner::<Xaml::ITextBox>()?;
 
     if new.value != old.value {
@@ -71,5 +79,11 @@ pub fn diff(old: &TextBox, new: &TextBox, handle: &Handle) -> windows_core::Resu
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::TextChanged,
+        EventHandler::TextChanged,
+    );
     Ok(())
 }

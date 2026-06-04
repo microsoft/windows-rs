@@ -1,12 +1,14 @@
 //! Typed handler for the `PasswordBox` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::PasswordBox;
 use crate::core::widgets::PasswordRevealMode;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &PasswordBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &PasswordBox, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IPasswordBox>()?;
     if !w.value.is_empty() {
         p.put_Password(w.value.as_str())?;
@@ -28,10 +30,20 @@ pub fn mount(w: &PasswordBox, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(
+        &w.on_changed,
+        Event::PasswordChanged,
+        EventHandler::TextChanged,
+    );
     Ok(())
 }
 
-pub fn diff(old: &PasswordBox, new: &PasswordBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &PasswordBox,
+    new: &PasswordBox,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IPasswordBox>()?;
     if new.value != old.value && p.get_Password().ok().as_deref() != Some(new.value.as_str()) {
         p.put_Password(new.value.as_str())?;
@@ -65,6 +77,12 @@ pub fn diff(old: &PasswordBox, new: &PasswordBox, handle: &Handle) -> windows_co
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::PasswordChanged,
+        EventHandler::TextChanged,
+    );
     Ok(())
 }
 

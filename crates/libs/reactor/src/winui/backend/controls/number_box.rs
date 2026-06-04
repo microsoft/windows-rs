@@ -1,11 +1,13 @@
 //! Typed handler for the `NumberBox` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::NumberBox;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &NumberBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &NumberBox, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let n = handle.cast_inner::<Xaml::INumberBox>()?;
     n.put_Value(w.value)?;
     if let Some(min) = w.minimum {
@@ -22,10 +24,20 @@ pub fn mount(w: &NumberBox, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(
+        &w.on_value_changed,
+        Event::ValueChanged,
+        EventHandler::ValueChanged,
+    );
     Ok(())
 }
 
-pub fn diff(old: &NumberBox, new: &NumberBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &NumberBox,
+    new: &NumberBox,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let n = handle.cast_inner::<Xaml::INumberBox>()?;
     if new.value != old.value {
         n.put_Value(new.value)?;
@@ -59,5 +71,11 @@ pub fn diff(old: &NumberBox, new: &NumberBox, handle: &Handle) -> windows_core::
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_value_changed,
+        &new.on_value_changed,
+        Event::ValueChanged,
+        EventHandler::ValueChanged,
+    );
     Ok(())
 }

@@ -1,12 +1,13 @@
 //! Typed handler for shape widgets (Rectangle, Ellipse, Line).
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::Shape;
 use crate::core::widgets::ShapeKind;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::brush_of;
 
-pub fn mount(w: &Shape, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &Shape, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let shape = handle.cast_inner::<Xaml::IShape>()?;
     if let Some(fill) = &w.fill {
         shape.put_Fill(&brush_of(fill)?)?;
@@ -37,7 +38,12 @@ pub fn mount(w: &Shape, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &Shape, new: &Shape, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &Shape,
+    new: &Shape,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let shape = handle.cast_inner::<Xaml::IShape>()?;
     if new.fill != old.fill {
         match &new.fill {

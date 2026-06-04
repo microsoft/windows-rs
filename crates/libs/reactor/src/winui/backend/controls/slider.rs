@@ -1,11 +1,13 @@
 //! Typed handler for the `Slider` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::Slider;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &Slider, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &Slider, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let rb = handle.cast_inner::<Xaml::IRangeBase>()?;
     let sl = handle.cast_inner::<Xaml::ISlider>()?;
     rb.put_Minimum(w.minimum)?;
@@ -26,10 +28,20 @@ pub fn mount(w: &Slider, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(
+        &w.on_changed,
+        Event::ValueChanged,
+        EventHandler::ValueChanged,
+    );
     Ok(())
 }
 
-pub fn diff(old: &Slider, new: &Slider, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &Slider,
+    new: &Slider,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let rb = handle.cast_inner::<Xaml::IRangeBase>()?;
     let sl = handle.cast_inner::<Xaml::ISlider>()?;
 
@@ -76,5 +88,11 @@ pub fn diff(old: &Slider, new: &Slider, handle: &Handle) -> windows_core::Result
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::ValueChanged,
+        EventHandler::ValueChanged,
+    );
     Ok(())
 }

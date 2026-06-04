@@ -1,4 +1,4 @@
-# WinUI Backend Architecture — Assessment & Next Steps
+# WinUI Backend Architecture
 
 ## Original Problems
 
@@ -9,184 +9,174 @@
 4. **Scattered logic** — A single control's behavior spread across 300+ non-adjacent arms.
 5. **Invalid states representable** — Nothing prevents type-mismatched triples.
 
-## What Was Attempted: Typed Control Handlers
+## Current Architecture (EventCtx + Typed Handlers)
 
-### Approach
+### Design
 
-Replace `set_prop(id, Prop, PropValue)` with per-control handler files
-(`controls/text_block.rs`, etc.) that receive typed widget structs and
-diff fields directly via `backend.diff_widget(id, old, new)`.
-
-### What Was Built (45 ControlKinds → 43 handler files)
+Typed per-control handlers own **both props AND events**. `bindings()` is
+never called for fully-handled controls — zero Vec allocation per frame.
 
 ```
-crates/libs/reactor/src/winui/backend/
-├── mod.rs              (3608 lines, down from 4247)
-├── controls/mod.rs     (dispatch registry)
-└── controls/*.rs       (43 handlers, 2164 lines total)
+Widget struct (CheckBox)
+    │
+    ▼  downcast via AsAny
+controls::check_box::diff(old, new, handle, &mut EventCtx)
+    │                                              │
+    ├─ direct field comparison (props)             ├─ ctx.diff_event() queues ops
+    │  if new.is_checked != old.is_checked         │
+    │    → put_IsChecked(...)                      │
+    │                                              │
+    ▼                                              ▼
+  Ok(())                               apply_event_ops(ctx)
+                                           → attach_event / detach_event
 ```
 
-### Honest Assessment
-
-| Metric | Master | Branch | Verdict |
-|--------|--------|--------|---------|
-| Avg FPS (headless) | ~31 | ~31 | **No change** |
-| Avg Reconcile | 5.3ms | 5.4ms | **No change** |
-| mod.rs LOC | 4247 | 3608 | −639 |
-| controls/ LOC | 0 | 2164 | +2164 |
-| **Total backend LOC** | **4247** | **5772** | **+36% worse** |
-| Memory | 183 MB | 183 MB | No change |
-
-### Why It Didn't Work
-
-**The typed handlers don't eliminate allocations.** `bindings()` is STILL called
-every frame for every widget because events are embedded in the bindings Vec.
-The typed handler skips prop dispatch but the Vec is allocated regardless:
+### TypedResult Tiers
 
 ```rust
-fn diff_widget(&mut self, id, old, new) {
-    let handled = typed_diff!(...);  // runs typed prop handler
-    let old_b = old.bindings();  // ← STILL ALLOCATES (needed for events)
-    let new_b = new.bindings();  // ← STILL ALLOCATES
-    // ... event diffing uses these Vecs
+enum TypedResult {
+    NotHandled,    // full legacy bindings() path
+    PropsOnly,     // typed props, bindings() for events only
+    FullyHandled,  // skip bindings() entirely — zero alloc
 }
 ```
 
-So the architecture has **two dispatch paths for props** (typed handlers + bindings)
-and **one dispatch path for events** (bindings only). The typed handlers are pure
-overhead — they duplicate logic without removing the old path.
+All 45 migrated controls are in `FullyHandled` tier.
 
-**Correctness gain is real but modest.** Typed handlers make Unset bugs structurally
-impossible for migrated controls. But this was achievable with simpler approaches
-(ClearValue consolidation removed the worst cases at −64 lines, not +1500).
+### EventCtx (solves borrow conflict)
 
-**Readability is arguable.** 43 separate files vs one monolithic match. Individual
-files are readable, but finding a control now requires checking two places (handler
-file + set_prop residual for modifiers/events).
-
----
-
-## C# Reference Architecture
-
-The C# backend achieves all goals because it was designed from scratch with:
-
-```csharp
-public static readonly ControlDescriptor<ButtonElement, Button> Descriptor =
-    new ControlDescriptor<ButtonElement, Button>()
-        .OneWayConditional(get: e => e.Label, set: (c, v) => c.Content = v, ...)
-        .HandCodedEvent<ButtonEventPayload, RoutedEventHandler>(
-            subscribe: (c, h) => c.Click += h, ...);
-```
-
-Key differences from our Rust attempt:
-- **Events are part of the descriptor** — no separate `bindings()` allocation.
-- **No intermediate enum types** — no `Prop`, `PropValue`, `Event`, `EventHandler`.
-- **Update() is zero-alloc** — descriptors compare old.Field vs new.Field directly.
-- **shouldWrite predicate** handles unset — no explicit ClearValue logic per-prop.
-- **~30 lines per control** — complete self-contained behavior.
-
----
-
-## Root Cause Analysis
-
-The Rust backend's complexity comes from **enum-based type erasure**:
-
-```
-Widget struct → bindings() → Vec<Binding::Prop(Prop, PropValue)>
-                           → Vec<Binding::Event(Event, EventHandler)>
-                                         ↓
-            match (prop, value, handle) → ~300 arms
-```
-
-The typed handler approach tried to bypass the first half (props) while
-keeping the second half (events). This half-measure:
-- Added code without removing code
-- Didn't eliminate allocations
-- Created a dual-path system that's harder to reason about
-
----
-
-## What Would Actually Work
-
-### Option A: Complete the migration + add `fn events()` to Widget
-
-Split `bindings()` into `fn prop_bindings()` (only for unhandled controls) and
-`fn event_bindings()` (only events). For typed-handled controls, skip `bindings()`
-entirely and use a new `fn events(&self) -> &[(Event, Option<EventHandler>)]`
-that returns a **borrowed slice** (zero-alloc).
-
-**Effort:** Medium. Requires changing Widget trait + all 50 widget impls.
-**Gain:** Eliminates Vec allocation for typed-handled controls. ~10-15% reconcile speedup.
-**LOC:** Still +1500 lines total (handlers remain).
-
-### Option B: Descriptor-based architecture (C# port)
-
-Replace the entire Widget trait with a descriptor system:
+Handlers can't call `self.attach_event()` while holding `&Handle` (RefCell
+conflict). Instead they push ops to an `EventCtx` queue:
 
 ```rust
-struct PropDescriptor<W, T> {
-    get: fn(&W) -> &T,
-    set: fn(&T, &Handle) -> Result<()>,
-    clear: fn(&Handle) -> Result<()>,
-}
+pub struct EventCtx { id: ControlId, ops: Vec<EventOp> }
 
-struct EventDescriptor<W> {
-    get: fn(&W) -> Option<&EventHandler>,
-    attach: fn(&mut WinUIBackend, ControlId, EventHandler),
-    detach: fn(&mut WinUIBackend, ControlId),
+impl EventCtx {
+    pub fn diff_event<T>(&mut self, old: &Option<Callback<T>>, new: &Option<Callback<T>>,
+                         event: Event, wrap: fn(Callback<T>) -> EventHandler);
+    pub fn mount_event<T>(&mut self, handler: &Option<Callback<T>>,
+                          event: Event, wrap: fn(Callback<T>) -> EventHandler);
 }
 ```
 
-Each control becomes a static array of descriptors. The reconciler calls
-`descriptor.update(old_widget, new_widget, handle)` generically.
+After the handler returns and the handle borrow is dropped, the backend
+applies queued ops via `self.apply_event_ops(ctx)`.
 
-**Effort:** Large. Requires rethinking Widget/Reconciler/Backend entirely.
-**Gain:** True zero-alloc, eliminates Prop/PropValue enums, ~30 lines per control.
-**LOC:** Would reduce total backend from 5772 to ~2000.
+### Results
 
-### Option C: Keep typed handlers, just stop calling bindings() for handled controls
+| Metric | Master | Branch | Change |
+|--------|--------|--------|--------|
+| Avg FPS (headless) | ~42 | ~42 | ≈ same |
+| Avg Reconcile | 5.3ms | 5.1ms | **−4%** |
+| Avg Diff | 4.1ms | 3.9ms | **−5%** |
+| mod.rs LOC | 4247 | 3748 | −499 |
+| controls/ LOC | 0 | 2795 | +2795 |
+| Total backend LOC | 4247 | 6543 | +54% |
 
-The simplest incremental fix: when `handled == true`, skip event bindings scan
-entirely (events would need to be wired during mount and left alone, or use
-a separate lightweight event-comparison path).
+### Assessment
 
-Most events are **stable** (set once, never changed). We could track "event
-attached" per-control and skip re-diffing.
+**What works:**
+- ✅ Zero `bindings()` allocation for 45 controls (problems 1 & 3 solved)
+- ✅ Unset bugs structurally impossible in typed handlers (problem 2 solved)
+- ✅ Each control self-contained in one file (problem 4 solved)
+- ✅ Invalid states unrepresentable — typed fields, not enum triples (problem 5 solved)
+- ✅ Events correctly wired via EventCtx (functional tests pass)
+- ✅ Modest 5% diff improvement in perf test (test uses simple TextBlocks)
 
-**Effort:** Small-medium. Add event-stable optimization.
-**Gain:** Eliminates most bindings() calls for interactive controls.
-**LOC:** −50 (remove event scanning for handled controls).
-
-### Recommendation
-
-**Option C first** (quick win), then **Option B** if we're doing a major version.
-
-The current branch is a halfway point that's worse than either extreme:
-- Worse than master (more code, same perf, dual dispatch)
-- Worse than a full descriptor rewrite (still has enum overhead)
+**What doesn't work yet:**
+- ❌ Total LOC increased 54% (dual paths still exist)
+- ❌ FPS improvement invisible in perf test (TextBlock-heavy, system load variance)
+- ❌ Legacy `set_prop` match still 1422 lines (unmigrated controls + modifiers)
+- ❌ `attach_event`/`detach_event` match still 1314 lines (needed by EventOps)
 
 ---
 
-## Remaining in set_prop (unmigrated)
+## What Remains
 
-These controls need `&self` access (event_revokers, handler maps):
-- Button / DropDownButton (flyout construction + handler wiring)
+### Still in set_prop (need `&self` access for handler maps):
+- Button / DropDownButton (flyout + menu items + handler wiring)
 - CommandBar (primary/secondary commands with click handlers)
 - NavigationView (30+ arms, menu items, handler maps)
 - TabView / TabViewItem (complex child/tab management)
 - ContentDialog (show/hide lifecycle, XamlRoot)
 - MenuBar (recursive menu building)
 
-Plus cross-cutting modifier props (Foreground, FontSize, etc.) that
-come through the reconciler's `diff_modifiers` path.
+### Cross-cutting modifier props (Foreground, FontSize, Margin, etc.)
+These come through the reconciler's `diff_modifiers` path and apply via
+`set_prop` regardless of whether the control has a typed handler.
 
 ---
 
-## Decision Point
+## Path to LOC Reduction
 
-Given the assessment above, the options are:
+The 54% LOC increase exists because we haven't removed anything yet.
+The reduction path:
 
-1. **Revert** — typed handlers add complexity without delivering perf gains
-2. **Complete Option C** — stop calling `bindings()` for typed controls (small fix, real gain)
-3. **Redesign with descriptors** — larger effort, delivers the C# architecture's benefits
+1. **Remove `bindings()` from migrated widgets** — once all controls in
+   `FullyHandled`, the `fn bindings()` impls are dead code for the WinUI
+   backend. They're still needed for MockBackend in tests, but could be
+   feature-gated or auto-derived.
+   - Potential savings: ~1500 lines across widget files (not counted in
+     backend total, but reduces overall codebase)
+
+2. **Remove dead `set_prop` arms** — arms for controls now handled by typed
+   handlers are already removed. Once the remaining complex controls migrate
+   (or get their own handler variant that receives `&mut self`), the entire
+   `set_prop` match collapses.
+   - Potential savings: ~1400 lines from mod.rs
+
+3. **Consolidate attach_event** — the `attach_event` match dispatches
+   `(Event, Handle)` → subscribe WinUI event. This could be split into
+   per-control files alongside the handlers. Each handler would own its
+   event subscription logic entirely.
+   - Potential savings: ~1300 lines from mod.rs → distributed into handlers
+     (net neutral LOC, but better organization)
+
+4. **diff_prop! macro** for handler compression — most handlers follow the
+   same pattern. A `diff_prop!(old, new, field, set_fn, clear_fn)` macro
+   would compress handlers from ~50 lines to ~20 lines.
+   - Potential savings: ~1000 lines from controls/
+
+**Projected end state:**
+| Component | Current | After cleanup |
+|-----------|---------|---------------|
+| mod.rs | 3748 | ~1500 (dispatch + infra) |
+| controls/ | 2795 | ~1800 (after diff_prop!) |
+| **Total** | **6543** | **~3300** |
+
+---
+
+## C# Reference (Goal State)
+
+```csharp
+public static readonly ControlDescriptor<ButtonElement, Button> Descriptor =
+    new ControlDescriptor<ButtonElement, Button>()
+        .OneWayConditional(get: e => e.Label, set: (c, v) => c.Content = v, ...)
+        .HandCodedEvent<Payload, Handler>(subscribe: (c, h) => c.Click += h, ...);
+```
+
+Key differences remaining between our Rust approach and C#:
+- C# uses a generic `ControlDescriptor<E, C>` — we use per-control fn files
+- C# event subscription is declarative — ours is imperative (EventCtx queuing)
+- C# has no intermediate Prop/PropValue/Event enums — we still have them for
+  the unmigrated controls and the `attach_event` match
+
+A full descriptor port would eliminate the enums entirely, but requires
+rethinking the reconciler's Widget trait and MockBackend assertions.
+
+---
+
+## Architecture Decisions
+
+1. **EventCtx queuing** — avoids RefCell borrow conflict between Handle
+   borrow and mutable backend access. Ops are applied after handler returns.
+
+2. **FullyHandled tier** — typed handlers that own both props and events
+   skip `bindings()` entirely. No allocation, no linear scan.
+
+3. **Two macro dispatch** — `full { ... }` for zero-alloc controls,
+   `props { ... }` for transitional controls (currently empty).
+
+4. **Modifiers stay separate** — width/height/margin/etc. are cross-cutting
+   and handled by the reconciler's `diff_modifiers` path, not per-control.
 

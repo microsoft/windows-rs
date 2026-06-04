@@ -1,10 +1,11 @@
 //! Typed handler for the `StackPanel` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::StackPanel;
 use crate::winui::backend::Handle;
 
-pub fn mount(w: &StackPanel, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &StackPanel, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let sp = handle.cast_inner::<Xaml::IStackPanel>()?;
     sp.put_Orientation(if w.vertical {
         Xaml::Orientation::Vertical
@@ -17,7 +18,12 @@ pub fn mount(w: &StackPanel, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &StackPanel, new: &StackPanel, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &StackPanel,
+    new: &StackPanel,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let sp = handle.cast_inner::<Xaml::IStackPanel>()?;
     if new.vertical != old.vertical {
         sp.put_Orientation(if new.vertical {

@@ -1,11 +1,12 @@
 //! Typed handler for the `ProgressBar` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::ProgressBar;
 use crate::winui::backend::Handle;
 use windows_core::Interface as _;
 
-pub fn mount(w: &ProgressBar, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &ProgressBar, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IProgressBar>()?;
     let rb = p.cast::<Xaml::IRangeBase>()?;
     rb.put_Minimum(w.minimum)?;
@@ -17,7 +18,12 @@ pub fn mount(w: &ProgressBar, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &ProgressBar, new: &ProgressBar, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &ProgressBar,
+    new: &ProgressBar,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IProgressBar>()?;
     let rb = p.cast::<Xaml::IRangeBase>()?;
     if new.minimum != old.minimum {

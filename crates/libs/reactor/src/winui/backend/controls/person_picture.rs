@@ -1,11 +1,16 @@
 //! Typed handler for the `PersonPicture` widget.
 
+use super::EventCtx;
 use crate::core::widgets::PersonPicture;
 use crate::winui::backend::Handle;
 
-pub fn mount(widget: &PersonPicture, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &PersonPicture,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::PersonPicture(pp) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if let Some(s) = &widget.display_name {
@@ -15,16 +20,17 @@ pub fn mount(widget: &PersonPicture, handle: &Handle) -> windows_core::Result<bo
         pp.put_Initials(s.as_str())?;
     }
 
-    Ok(true)
+    Ok(())
 }
 
 pub fn diff(
     old: &PersonPicture,
     new: &PersonPicture,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::PersonPicture(pp) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.display_name != new.display_name {
@@ -36,5 +42,5 @@ pub fn diff(
         pp.put_Initials(s)?;
     }
 
-    Ok(true)
+    Ok(())
 }

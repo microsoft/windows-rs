@@ -1,13 +1,19 @@
 //! Typed handler for the `RadioButtons` widget (grouped radio options).
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::RadioButtons;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(widget: &RadioButtons, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &RadioButtons,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::RadioButtons(r) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if let Some(h) = &widget.header {
@@ -21,12 +27,22 @@ pub fn mount(widget: &RadioButtons, handle: &Handle) -> windows_core::Result<boo
         r.put_MaxColumns(n)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_selection_changed,
+        Event::RadioButtonsSelectionChanged,
+        EventHandler::IndexChanged,
+    );
+    Ok(())
 }
 
-pub fn diff(old: &RadioButtons, new: &RadioButtons, handle: &Handle) -> windows_core::Result<bool> {
+pub fn diff(
+    old: &RadioButtons,
+    new: &RadioButtons,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::RadioButtons(r) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.header != new.header {
@@ -47,7 +63,13 @@ pub fn diff(old: &RadioButtons, new: &RadioButtons, handle: &Handle) -> windows_
         r.put_MaxColumns(n)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_selection_changed,
+        &new.on_selection_changed,
+        Event::RadioButtonsSelectionChanged,
+        EventHandler::IndexChanged,
+    );
+    Ok(())
 }
 
 fn set_items(r: &Xaml::RadioButtons, items: &[String]) -> windows_core::Result<()> {

@@ -1,22 +1,28 @@
 //! Typed handler for the `InfoBadge` widget.
 
+use super::EventCtx;
 use crate::core::widgets::InfoBadge;
 use crate::winui::backend::Handle;
 
-pub fn mount(widget: &InfoBadge, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(widget: &InfoBadge, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let Handle::InfoBadge(ib) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     let v = widget.value.unwrap_or(-1);
     ib.put_Value(v)?;
 
-    Ok(true)
+    Ok(())
 }
 
-pub fn diff(old: &InfoBadge, new: &InfoBadge, handle: &Handle) -> windows_core::Result<bool> {
+pub fn diff(
+    old: &InfoBadge,
+    new: &InfoBadge,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::InfoBadge(ib) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.value != new.value {
@@ -24,5 +30,5 @@ pub fn diff(old: &InfoBadge, new: &InfoBadge, handle: &Handle) -> windows_core::
         ib.put_Value(v)?;
     }
 
-    Ok(true)
+    Ok(())
 }

@@ -195,6 +195,15 @@ impl WinUIBackend {
         *counter += 1;
         ControlId::new(*counter)
     }
+    /// Apply queued event operations from a typed handler.
+    fn apply_event_ops(&mut self, ctx: EventCtx) {
+        for op in ctx.ops {
+            match op {
+                EventOp::Attach(event, handler) => self.attach_event(ctx.id, event, handler),
+                EventOp::Detach(event) => self.detach_event(ctx.id, event),
+            }
+        }
+    }
     /// Whether this control is a "phantom" child — tracked in the
     /// reconciler's tree but not attached under its parent's visual
     /// `Children`. Only `ContentDialog` qualifies today.
@@ -703,61 +712,181 @@ fn run_property_animation_inner(
     Ok(())
 }
 
+/// Result of typed handler dispatch — controls the fallback behavior.
+#[derive(PartialEq)]
+enum TypedResult {
+    /// No typed handler exists; use full legacy bindings path.
+    NotHandled,
+    /// Typed handler handled props only; still need bindings() for events.
+    #[allow(dead_code)]
+    PropsOnly,
+    /// Typed handler handled both props AND events; skip bindings() entirely.
+    FullyHandled,
+}
+
+/// Queued event operations — handlers push to this, backend applies after
+/// dropping the handle borrow (avoids RefCell conflicts).
+pub(crate) struct EventCtx {
+    id: ControlId,
+    ops: Vec<EventOp>,
+}
+
+enum EventOp {
+    Attach(Event, EventHandler),
+    Detach(Event),
+}
+
+impl EventCtx {
+    fn new(id: ControlId) -> Self {
+        Self {
+            id,
+            ops: Vec::new(),
+        }
+    }
+
+    /// Compare old vs new event callback; queue attach/detach if changed.
+    pub fn diff_event<T>(
+        &mut self,
+        old: &Option<Callback<T>>,
+        new: &Option<Callback<T>>,
+        event: Event,
+        wrap: fn(Callback<T>) -> EventHandler,
+    ) {
+        if old != new {
+            match new {
+                Some(cb) => self.ops.push(EventOp::Attach(event, wrap(cb.clone()))),
+                None => self.ops.push(EventOp::Detach(event)),
+            }
+        }
+    }
+
+    /// Mount-time: attach event if callback is present.
+    pub fn mount_event<T>(
+        &mut self,
+        handler: &Option<Callback<T>>,
+        event: Event,
+        wrap: fn(Callback<T>) -> EventHandler,
+    ) {
+        if let Some(cb) = handler {
+            self.ops.push(EventOp::Attach(event, wrap(cb.clone())));
+        }
+    }
+}
+
 /// Dispatch macro for typed control handlers. Reduces boilerplate in
 /// `mount_widget` and `diff_widget` dispatch tables.
-/// Returns `true` if a typed handler handled the props, `false` if fallback needed.
+/// Returns `TypedResult` indicating how much was handled.
+///
+/// Syntax: typed_mount!(self, id, widget,
+///     full { Kind => mod::Type, ... }   // handlers that own props + events
+///     props { Kind => mod::Type, ... }  // handlers that own props only
+/// )
 macro_rules! typed_mount {
-    ($self:expr, $id:expr, $widget:expr, $( $Kind:ident => $mod:ident :: $Type:ident ),* $(,)?) => {
+    ($self:expr, $id:expr, $widget:expr,
+        full { $( $FK:ident => $fmod:ident :: $FT:ident ),* $(,)? }
+        props { $( $PK:ident => $pmod:ident :: $PT:ident ),* $(,)? }
+    ) => {
         match $widget.kind() {
             $(
-                ControlKind::$Kind => {
+                ControlKind::$FK => {
+                    let mut ctx = EventCtx::new($id);
                     let map = $self.controls.borrow();
                     let handle = map.get(&$id).unwrap_or_else(|| {
                         panic!("WinUIBackend::mount_widget: unknown control {}", $id)
                     });
                     let w = $widget
                         .as_any()
-                        .downcast_ref::<crate::core::widgets::$Type>()
+                        .downcast_ref::<crate::core::widgets::$FT>()
                         .unwrap();
-                    let r = controls::$mod::mount(w, handle);
+                    let r = controls::$fmod::mount(w, handle, &mut ctx);
                     drop(map);
                     if let Err(e) = r {
                         diag::backend_error($id, &e);
                     }
-                    true
+                    $self.apply_event_ops(ctx);
+                    TypedResult::FullyHandled
                 }
             )*
-            _ => false,
+            $(
+                ControlKind::$PK => {
+                    let map = $self.controls.borrow();
+                    let handle = map.get(&$id).unwrap_or_else(|| {
+                        panic!("WinUIBackend::mount_widget: unknown control {}", $id)
+                    });
+                    let w = $widget
+                        .as_any()
+                        .downcast_ref::<crate::core::widgets::$PT>()
+                        .unwrap();
+                    let mut ctx = EventCtx::new($id);
+                    let r = controls::$pmod::mount(w, handle, &mut ctx);
+                    drop(map);
+                    if let Err(e) = r {
+                        diag::backend_error($id, &e);
+                    }
+                    $self.apply_event_ops(ctx);
+                    TypedResult::PropsOnly
+                }
+            )*
+            _ => TypedResult::NotHandled,
         }
     };
 }
 
 macro_rules! typed_diff {
-    ($self:expr, $id:expr, $old:expr, $new:expr, $( $Kind:ident => $mod:ident :: $Type:ident ),* $(,)?) => {
+    ($self:expr, $id:expr, $old:expr, $new:expr,
+        full { $( $FK:ident => $fmod:ident :: $FT:ident ),* $(,)? }
+        props { $( $PK:ident => $pmod:ident :: $PT:ident ),* $(,)? }
+    ) => {
         match $new.kind() {
             $(
-                ControlKind::$Kind => {
+                ControlKind::$FK => {
+                    let mut ctx = EventCtx::new($id);
                     let map = $self.controls.borrow();
                     let handle = map.get(&$id).unwrap_or_else(|| {
                         panic!("WinUIBackend::diff_widget: unknown control {}", $id)
                     });
                     let old_w = $old
                         .as_any()
-                        .downcast_ref::<crate::core::widgets::$Type>()
+                        .downcast_ref::<crate::core::widgets::$FT>()
                         .unwrap();
                     let new_w = $new
                         .as_any()
-                        .downcast_ref::<crate::core::widgets::$Type>()
+                        .downcast_ref::<crate::core::widgets::$FT>()
                         .unwrap();
-                    let r = controls::$mod::diff(old_w, new_w, handle);
+                    let r = controls::$fmod::diff(old_w, new_w, handle, &mut ctx);
                     drop(map);
                     if let Err(e) = r {
                         diag::backend_error($id, &e);
                     }
-                    true
+                    $self.apply_event_ops(ctx);
+                    TypedResult::FullyHandled
                 }
             )*
-            _ => false,
+            $(
+                ControlKind::$PK => {
+                    let map = $self.controls.borrow();
+                    let handle = map.get(&$id).unwrap_or_else(|| {
+                        panic!("WinUIBackend::diff_widget: unknown control {}", $id)
+                    });
+                    let old_w = $old
+                        .as_any()
+                        .downcast_ref::<crate::core::widgets::$PT>()
+                        .unwrap();
+                    let new_w = $new
+                        .as_any()
+                        .downcast_ref::<crate::core::widgets::$PT>()
+                        .unwrap();
+                    let mut ctx = EventCtx::new($id);
+                    let r = controls::$pmod::diff(old_w, new_w, handle, &mut ctx);
+                    drop(map);
+                    if let Err(e) = r {
+                        diag::backend_error($id, &e);
+                    }
+                    $self.apply_event_ops(ctx);
+                    TypedResult::PropsOnly
+                }
+            )*
+            _ => TypedResult::NotHandled,
         }
     };
 }
@@ -772,66 +901,73 @@ impl Backend for WinUIBackend {
     }
 
     fn mount_widget(&mut self, id: ControlId, widget: &dyn crate::core::widget::Widget) {
-        let handled = typed_mount!(self, id, widget,
-            TextBlock      => text_block::TextBlock,
-            StackPanel     => stack_panel::StackPanel,
-            Border         => border::Border,
-            CheckBox       => check_box::CheckBox,
-            ToggleSwitch   => toggle_switch::ToggleSwitch,
-            Slider         => slider::Slider,
-            TextBox        => text_box::TextBox,
-            Grid           => grid::Grid,
-            ScrollViewer   => scroll_viewer::ScrollViewer,
-            NumberBox      => number_box::NumberBox,
-            ProgressBar    => progress_bar::ProgressBar,
-            ProgressRing   => progress_ring::ProgressRing,
-            RadioButton    => radio_button::RadioButton,
-            Expander       => expander::Expander,
-            HyperlinkButton => hyperlink_button::HyperlinkButton,
-            InfoBar        => info_bar::InfoBar,
-            PasswordBox    => password_box::PasswordBox,
-            Image          => image::Image,
-            ComboBox       => combo_box::ComboBox,
-            RatingControl  => rating_control::RatingControl,
-            ColorPicker    => color_picker::ColorPickerWidget,
-            DatePicker     => date_picker::DatePickerWidget,
-            TimePicker     => time_picker::TimePickerWidget,
-            AutoSuggestBox => auto_suggest_box::AutoSuggestBoxWidget,
-            CalendarDatePicker => calendar_date_picker::CalendarDatePickerWidget,
-            CalendarView   => calendar_view::CalendarViewWidget,
-            ListBox        => list_box::ListBoxWidget,
-            RepeatButton   => repeat_button::RepeatButton,
-            SplitButton    => split_button::SplitButtonWidget,
-            SplitView      => split_view::SplitViewWidget,
-            RadioButtons   => radio_buttons::RadioButtons,
-            InfoBadge      => info_badge::InfoBadge,
-            Viewbox        => viewbox::Viewbox,
-            ToggleButton   => toggle_button::ToggleButtonWidget,
-            PersonPicture  => person_picture::PersonPicture,
-            BreadcrumbBar  => breadcrumb_bar::BreadcrumbBar,
-            TeachingTip    => teaching_tip::TeachingTipWidget,
-            SelectorBar    => selector_bar::SelectorBarWidget,
-            ScrollView     => scroll_view::ScrollViewWidget,
-            Pivot          => pivot::Pivot,
-            RichEditBox    => rich_edit_box::RichEditBoxWidget,
-            TreeView       => tree_view::TreeViewWidget,
-            Rectangle      => shape::Shape,
-            Ellipse        => shape::Shape,
-            Line           => shape::Shape,
+        let result = typed_mount!(self, id, widget,
+            full {
+                // Controls that handle BOTH props and events (no bindings() needed)
+                TextBlock      => text_block::TextBlock,
+                StackPanel     => stack_panel::StackPanel,
+                Border         => border::Border,
+                Grid           => grid::Grid,
+                ScrollViewer   => scroll_viewer::ScrollViewer,
+                ProgressBar    => progress_bar::ProgressBar,
+                ProgressRing   => progress_ring::ProgressRing,
+                Image          => image::Image,
+                InfoBadge      => info_badge::InfoBadge,
+                Viewbox        => viewbox::Viewbox,
+                PersonPicture  => person_picture::PersonPicture,
+                Rectangle      => shape::Shape,
+                Ellipse        => shape::Shape,
+                Line           => shape::Shape,
+                CheckBox       => check_box::CheckBox,
+                ToggleSwitch   => toggle_switch::ToggleSwitch,
+                Slider         => slider::Slider,
+                TextBox        => text_box::TextBox,
+                NumberBox      => number_box::NumberBox,
+                RadioButton    => radio_button::RadioButton,
+                Expander       => expander::Expander,
+                HyperlinkButton => hyperlink_button::HyperlinkButton,
+                InfoBar        => info_bar::InfoBar,
+                PasswordBox    => password_box::PasswordBox,
+                ComboBox       => combo_box::ComboBox,
+                RatingControl  => rating_control::RatingControl,
+                ColorPicker    => color_picker::ColorPickerWidget,
+                DatePicker     => date_picker::DatePickerWidget,
+                TimePicker     => time_picker::TimePickerWidget,
+                AutoSuggestBox => auto_suggest_box::AutoSuggestBoxWidget,
+                CalendarDatePicker => calendar_date_picker::CalendarDatePickerWidget,
+                CalendarView   => calendar_view::CalendarViewWidget,
+                ListBox        => list_box::ListBoxWidget,
+                RepeatButton   => repeat_button::RepeatButton,
+                SplitButton    => split_button::SplitButtonWidget,
+                SplitView      => split_view::SplitViewWidget,
+                RadioButtons   => radio_buttons::RadioButtons,
+                ToggleButton   => toggle_button::ToggleButtonWidget,
+                BreadcrumbBar  => breadcrumb_bar::BreadcrumbBar,
+                TeachingTip    => teaching_tip::TeachingTipWidget,
+                SelectorBar    => selector_bar::SelectorBarWidget,
+                ScrollView     => scroll_view::ScrollViewWidget,
+                Pivot          => pivot::Pivot,
+                RichEditBox    => rich_edit_box::RichEditBoxWidget,
+                TreeView       => tree_view::TreeViewWidget,
+            }
+            props {
+                // Controls that handle props only (events still via bindings)
+            }
         );
-        // Process bindings: if typed handler ran, only wire events;
-        // otherwise fall back to full bindings-based dispatch.
-        for b in widget.bindings() {
-            match b {
-                crate::core::prop_binding::Binding::Prop(p, v) => {
-                    if !handled {
-                        self.set_prop(id, p, v);
+        // Only call bindings() if the typed handler didn't fully handle the widget.
+        if result != TypedResult::FullyHandled {
+            for b in widget.bindings() {
+                match b {
+                    crate::core::prop_binding::Binding::Prop(p, v) => {
+                        if result == TypedResult::NotHandled {
+                            self.set_prop(id, p, v);
+                        }
                     }
+                    crate::core::prop_binding::Binding::Event(e, Some(h)) => {
+                        self.attach_event(id, e, h);
+                    }
+                    crate::core::prop_binding::Binding::Event(_, None) => {}
                 }
-                crate::core::prop_binding::Binding::Event(e, Some(h)) => {
-                    self.attach_event(id, e, h);
-                }
-                crate::core::prop_binding::Binding::Event(_, None) => {}
             }
         }
     }
@@ -842,88 +978,98 @@ impl Backend for WinUIBackend {
         old: &dyn crate::core::widget::Widget,
         new: &dyn crate::core::widget::Widget,
     ) {
-        let handled = typed_diff!(self, id, old, new,
-            TextBlock      => text_block::TextBlock,
-            StackPanel     => stack_panel::StackPanel,
-            Border         => border::Border,
-            CheckBox       => check_box::CheckBox,
-            ToggleSwitch   => toggle_switch::ToggleSwitch,
-            Slider         => slider::Slider,
-            TextBox        => text_box::TextBox,
-            Grid           => grid::Grid,
-            ScrollViewer   => scroll_viewer::ScrollViewer,
-            NumberBox      => number_box::NumberBox,
-            ProgressBar    => progress_bar::ProgressBar,
-            ProgressRing   => progress_ring::ProgressRing,
-            RadioButton    => radio_button::RadioButton,
-            Expander       => expander::Expander,
-            HyperlinkButton => hyperlink_button::HyperlinkButton,
-            InfoBar        => info_bar::InfoBar,
-            PasswordBox    => password_box::PasswordBox,
-            Image          => image::Image,
-            ComboBox       => combo_box::ComboBox,
-            RatingControl  => rating_control::RatingControl,
-            ColorPicker    => color_picker::ColorPickerWidget,
-            DatePicker     => date_picker::DatePickerWidget,
-            TimePicker     => time_picker::TimePickerWidget,
-            AutoSuggestBox => auto_suggest_box::AutoSuggestBoxWidget,
-            CalendarDatePicker => calendar_date_picker::CalendarDatePickerWidget,
-            CalendarView   => calendar_view::CalendarViewWidget,
-            ListBox        => list_box::ListBoxWidget,
-            RepeatButton   => repeat_button::RepeatButton,
-            SplitButton    => split_button::SplitButtonWidget,
-            SplitView      => split_view::SplitViewWidget,
-            RadioButtons   => radio_buttons::RadioButtons,
-            InfoBadge      => info_badge::InfoBadge,
-            Viewbox        => viewbox::Viewbox,
-            ToggleButton   => toggle_button::ToggleButtonWidget,
-            PersonPicture  => person_picture::PersonPicture,
-            BreadcrumbBar  => breadcrumb_bar::BreadcrumbBar,
-            TeachingTip    => teaching_tip::TeachingTipWidget,
-            SelectorBar    => selector_bar::SelectorBarWidget,
-            ScrollView     => scroll_view::ScrollViewWidget,
-            Pivot          => pivot::Pivot,
-            RichEditBox    => rich_edit_box::RichEditBoxWidget,
-            TreeView       => tree_view::TreeViewWidget,
-            Rectangle      => shape::Shape,
-            Ellipse        => shape::Shape,
-            Line           => shape::Shape,
+        let result = typed_diff!(self, id, old, new,
+            full {
+                TextBlock      => text_block::TextBlock,
+                StackPanel     => stack_panel::StackPanel,
+                Border         => border::Border,
+                Grid           => grid::Grid,
+                ScrollViewer   => scroll_viewer::ScrollViewer,
+                ProgressBar    => progress_bar::ProgressBar,
+                ProgressRing   => progress_ring::ProgressRing,
+                Image          => image::Image,
+                InfoBadge      => info_badge::InfoBadge,
+                Viewbox        => viewbox::Viewbox,
+                PersonPicture  => person_picture::PersonPicture,
+                Rectangle      => shape::Shape,
+                Ellipse        => shape::Shape,
+                Line           => shape::Shape,
+                CheckBox       => check_box::CheckBox,
+                ToggleSwitch   => toggle_switch::ToggleSwitch,
+                Slider         => slider::Slider,
+                TextBox        => text_box::TextBox,
+                NumberBox      => number_box::NumberBox,
+                RadioButton    => radio_button::RadioButton,
+                Expander       => expander::Expander,
+                HyperlinkButton => hyperlink_button::HyperlinkButton,
+                InfoBar        => info_bar::InfoBar,
+                PasswordBox    => password_box::PasswordBox,
+                ComboBox       => combo_box::ComboBox,
+                RatingControl  => rating_control::RatingControl,
+                ColorPicker    => color_picker::ColorPickerWidget,
+                DatePicker     => date_picker::DatePickerWidget,
+                TimePicker     => time_picker::TimePickerWidget,
+                AutoSuggestBox => auto_suggest_box::AutoSuggestBoxWidget,
+                CalendarDatePicker => calendar_date_picker::CalendarDatePickerWidget,
+                CalendarView   => calendar_view::CalendarViewWidget,
+                ListBox        => list_box::ListBoxWidget,
+                RepeatButton   => repeat_button::RepeatButton,
+                SplitButton    => split_button::SplitButtonWidget,
+                SplitView      => split_view::SplitViewWidget,
+                RadioButtons   => radio_buttons::RadioButtons,
+                ToggleButton   => toggle_button::ToggleButtonWidget,
+                BreadcrumbBar  => breadcrumb_bar::BreadcrumbBar,
+                TeachingTip    => teaching_tip::TeachingTipWidget,
+                SelectorBar    => selector_bar::SelectorBarWidget,
+                ScrollView     => scroll_view::ScrollViewWidget,
+                Pivot          => pivot::Pivot,
+                RichEditBox    => rich_edit_box::RichEditBoxWidget,
+                TreeView       => tree_view::TreeViewWidget,
+            }
+            props {
+            }
         );
-        // Process bindings: if typed handler ran, only diff events;
-        // otherwise fall back to full bindings-based dispatch.
-        let old_b = old.bindings();
-        let new_b = new.bindings();
-        for b in &new_b {
-            match b {
-                crate::core::prop_binding::Binding::Prop(p, v) => {
-                    if !handled && crate::core::prop_binding::find_prop(&old_b, *p) != Some(v) {
-                        self.set_prop(id, *p, v.clone());
+        // Only call bindings() if the typed handler didn't fully handle the widget.
+        if result != TypedResult::FullyHandled {
+            let old_b = old.bindings();
+            let new_b = new.bindings();
+            for b in &new_b {
+                match b {
+                    crate::core::prop_binding::Binding::Prop(p, v) => {
+                        if result == TypedResult::NotHandled
+                            && crate::core::prop_binding::find_prop(&old_b, *p) != Some(v)
+                        {
+                            self.set_prop(id, *p, v.clone());
+                        }
                     }
-                }
-                crate::core::prop_binding::Binding::Event(e, new_h) => {
-                    let old_inner: Option<&_> =
-                        crate::core::prop_binding::find_event(&old_b, *e).and_then(|o| o.as_ref());
-                    if old_inner != new_h.as_ref() {
-                        match new_h {
-                            Some(h) => self.attach_event(id, *e, h.clone()),
-                            None => self.detach_event(id, *e),
+                    crate::core::prop_binding::Binding::Event(e, new_h) => {
+                        let old_inner: Option<&_> =
+                            crate::core::prop_binding::find_event(&old_b, *e)
+                                .and_then(|o| o.as_ref());
+                        if old_inner != new_h.as_ref() {
+                            match new_h {
+                                Some(h) => self.attach_event(id, *e, h.clone()),
+                                None => self.detach_event(id, *e),
+                            }
                         }
                     }
                 }
             }
-        }
-        for b in &old_b {
-            match b {
-                crate::core::prop_binding::Binding::Prop(p, _) => {
-                    if !handled && crate::core::prop_binding::find_prop(&new_b, *p).is_none() {
-                        self.set_prop(id, *p, PropValue::Unset);
+            for b in &old_b {
+                match b {
+                    crate::core::prop_binding::Binding::Prop(p, _) => {
+                        if result == TypedResult::NotHandled
+                            && crate::core::prop_binding::find_prop(&new_b, *p).is_none()
+                        {
+                            self.set_prop(id, *p, PropValue::Unset);
+                        }
                     }
-                }
-                crate::core::prop_binding::Binding::Event(e, old_h) => {
-                    if crate::core::prop_binding::find_event(&new_b, *e).is_none()
-                        && old_h.is_some()
-                    {
-                        self.detach_event(id, *e);
+                    crate::core::prop_binding::Binding::Event(e, old_h) => {
+                        if crate::core::prop_binding::find_event(&new_b, *e).is_none()
+                            && old_h.is_some()
+                        {
+                            self.detach_event(id, *e);
+                        }
                     }
                 }
             }

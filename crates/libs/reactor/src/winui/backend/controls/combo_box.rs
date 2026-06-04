@@ -1,14 +1,16 @@
 //! Typed handler for the `ComboBox` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::ComboBox;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 use windows_core::Interface as _;
 
-pub fn mount(widget: &ComboBox, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(widget: &ComboBox, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let Handle::ComboBox(c) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     set_items(c, &widget.items)?;
@@ -26,12 +28,22 @@ pub fn mount(widget: &ComboBox, handle: &Handle) -> windows_core::Result<bool> {
         c.put_IsEditable(true)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_selection_changed,
+        Event::ComboSelectionChanged,
+        EventHandler::IndexChanged,
+    );
+    Ok(())
 }
 
-pub fn diff(old: &ComboBox, new: &ComboBox, handle: &Handle) -> windows_core::Result<bool> {
+pub fn diff(
+    old: &ComboBox,
+    new: &ComboBox,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::ComboBox(c) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.items != new.items {
@@ -61,7 +73,13 @@ pub fn diff(old: &ComboBox, new: &ComboBox, handle: &Handle) -> windows_core::Re
         c.put_IsEditable(new.is_editable)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_selection_changed,
+        &new.on_selection_changed,
+        Event::ComboSelectionChanged,
+        EventHandler::IndexChanged,
+    );
+    Ok(())
 }
 
 fn set_items(c: &Xaml::ComboBox, items: &[String]) -> windows_core::Result<()> {

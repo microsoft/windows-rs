@@ -1,28 +1,34 @@
 //! Typed handler for the `Viewbox` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::{ImageStretch, Viewbox};
 use crate::winui::backend::Handle;
 
-pub fn mount(widget: &Viewbox, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(widget: &Viewbox, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let Handle::Viewbox(vb) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     set_stretch(vb, widget.stretch)?;
-    Ok(true)
+    Ok(())
 }
 
-pub fn diff(old: &Viewbox, new: &Viewbox, handle: &Handle) -> windows_core::Result<bool> {
+pub fn diff(
+    old: &Viewbox,
+    new: &Viewbox,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::Viewbox(vb) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.stretch != new.stretch {
         set_stretch(vb, new.stretch)?;
     }
 
-    Ok(true)
+    Ok(())
 }
 
 fn set_stretch(vb: &Xaml::Viewbox, stretch: ImageStretch) -> windows_core::Result<()> {

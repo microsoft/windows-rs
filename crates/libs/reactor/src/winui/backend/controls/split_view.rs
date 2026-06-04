@@ -1,12 +1,18 @@
 //! Typed handler for the `SplitView` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::SplitViewWidget;
 use crate::winui::backend::Handle;
 
-pub fn mount(widget: &SplitViewWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &SplitViewWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::SplitView(sv) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     sv.put_DisplayMode(Xaml::SplitViewDisplayMode(widget.display_mode as i32))?;
@@ -19,16 +25,22 @@ pub fn mount(widget: &SplitViewWidget, handle: &Handle) -> windows_core::Result<
         sv.put_CompactPaneLength(len)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_pane_closed,
+        Event::SplitViewPaneClosed,
+        EventHandler::Click,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &SplitViewWidget,
     new: &SplitViewWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::SplitView(sv) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.display_mode != new.display_mode {
@@ -48,5 +60,11 @@ pub fn diff(
         sv.put_CompactPaneLength(len)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_pane_closed,
+        &new.on_pane_closed,
+        Event::SplitViewPaneClosed,
+        EventHandler::Click,
+    );
+    Ok(())
 }

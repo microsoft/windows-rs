@@ -1,5 +1,6 @@
 //! Typed handler for the `Border` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::element::BrushBinding;
 use crate::core::element::Thickness;
@@ -8,7 +9,7 @@ use crate::winui::backend::Handle;
 use crate::winui::backend::convert::brush_of;
 use crate::winui::backend::convert::to_xaml_thickness;
 
-pub fn mount(w: &Border, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &Border, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let b = handle.cast_inner::<Xaml::IBorder>()?;
     if let Some(cr) = w.corner_radius {
         b.put_CornerRadius(Xaml::CornerRadius {
@@ -27,7 +28,12 @@ pub fn mount(w: &Border, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &Border, new: &Border, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &Border,
+    new: &Border,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let b = handle.cast_inner::<Xaml::IBorder>()?;
     if new.corner_radius != old.corner_radius {
         if let Some(cr) = new.corner_radius {

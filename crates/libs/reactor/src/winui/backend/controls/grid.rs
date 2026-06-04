@@ -1,12 +1,13 @@
 //! Typed handler for the `Grid` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::Grid;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::to_xaml_gridlength;
 use windows_core::Interface as _;
 
-pub fn mount(w: &Grid, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &Grid, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let g = handle.cast_inner::<Xaml::IGrid>()?;
     if !w.rows.is_empty() {
         let defs = g.get_RowDefinitions()?;
@@ -37,7 +38,12 @@ pub fn mount(w: &Grid, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &Grid, new: &Grid, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &Grid,
+    new: &Grid,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let g = handle.cast_inner::<Xaml::IGrid>()?;
 
     if new.rows != old.rows {

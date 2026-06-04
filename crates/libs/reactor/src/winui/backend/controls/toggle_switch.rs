@@ -1,11 +1,13 @@
 //! Typed handler for the `ToggleSwitch` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::ToggleSwitch;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &ToggleSwitch, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &ToggleSwitch, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let ts = handle.cast_inner::<Xaml::IToggleSwitch>()?;
     ts.put_IsOn(w.is_on)?;
     if let Some(s) = &w.on_content {
@@ -22,10 +24,16 @@ pub fn mount(w: &ToggleSwitch, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(&w.on_changed, Event::Toggled, EventHandler::CheckedChanged);
     Ok(())
 }
 
-pub fn diff(old: &ToggleSwitch, new: &ToggleSwitch, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &ToggleSwitch,
+    new: &ToggleSwitch,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let ts = handle.cast_inner::<Xaml::IToggleSwitch>()?;
 
     if new.is_on != old.is_on {
@@ -60,5 +68,11 @@ pub fn diff(old: &ToggleSwitch, new: &ToggleSwitch, handle: &Handle) -> windows_
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::Toggled,
+        EventHandler::CheckedChanged,
+    );
     Ok(())
 }

@@ -1,12 +1,18 @@
 //! Typed handler for the `DatePicker` widget.
 
+use super::EventCtx;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::DatePickerWidget;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(widget: &DatePickerWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &DatePickerWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::DatePicker(dp) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if let Some(s) = &widget.header {
@@ -22,16 +28,22 @@ pub fn mount(widget: &DatePickerWidget, handle: &Handle) -> windows_core::Result
         dp.put_YearVisible(v)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_changed,
+        Event::DateSelected,
+        EventHandler::DateTimeChanged,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &DatePickerWidget,
     new: &DatePickerWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::DatePicker(dp) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.header != new.header {
@@ -56,5 +68,11 @@ pub fn diff(
         dp.put_YearVisible(v)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::DateSelected,
+        EventHandler::DateTimeChanged,
+    );
+    Ok(())
 }

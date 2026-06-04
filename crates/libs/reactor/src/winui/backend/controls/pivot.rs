@@ -1,12 +1,14 @@
 //! Typed handler for the `Pivot` widget (props only; child management stays in legacy path).
 
+use super::EventCtx;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::Pivot;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(widget: &Pivot, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(widget: &Pivot, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let Handle::Pivot(p) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     p.put_SelectedIndex(widget.selected_index)?;
@@ -15,12 +17,22 @@ pub fn mount(widget: &Pivot, handle: &Handle) -> windows_core::Result<bool> {
         p.put_Title(&string_as_textblock(t)?)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_selection_changed,
+        Event::PivotSelectionChanged,
+        EventHandler::IndexChanged,
+    );
+    Ok(())
 }
 
-pub fn diff(old: &Pivot, new: &Pivot, handle: &Handle) -> windows_core::Result<bool> {
+pub fn diff(
+    old: &Pivot,
+    new: &Pivot,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::Pivot(p) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.selected_index != new.selected_index {
@@ -33,5 +45,11 @@ pub fn diff(old: &Pivot, new: &Pivot, handle: &Handle) -> windows_core::Result<b
         }
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_selection_changed,
+        &new.on_selection_changed,
+        Event::PivotSelectionChanged,
+        EventHandler::IndexChanged,
+    );
+    Ok(())
 }

@@ -1,12 +1,13 @@
 //! Typed handler for the `TextBlock` widget — replaces scattered match arms
 //! in the main `set_prop` dispatch with direct field-comparison diffing.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
 use crate::core::widgets::TextBlock;
 use crate::winui::backend::Handle;
 use Xaml::FontWeight as WinFontWeight;
 
-pub fn mount(w: &TextBlock, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &TextBlock, handle: &Handle, _ctx: &mut EventCtx) -> windows_core::Result<()> {
     let tb = handle.cast_inner::<Xaml::ITextBlock>()?;
     tb.put_Text(w.content.as_str())?;
     if let Some(fs) = w.font_size {
@@ -24,7 +25,12 @@ pub fn mount(w: &TextBlock, handle: &Handle) -> windows_core::Result<()> {
     Ok(())
 }
 
-pub fn diff(old: &TextBlock, new: &TextBlock, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &TextBlock,
+    new: &TextBlock,
+    handle: &Handle,
+    _ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let tb = handle.cast_inner::<Xaml::ITextBlock>()?;
     let dep = handle.cast_inner::<Xaml::IDependencyObject>()?;
 

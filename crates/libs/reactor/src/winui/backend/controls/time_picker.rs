@@ -1,12 +1,18 @@
 //! Typed handler for the `TimePicker` widget.
 
+use super::EventCtx;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::TimePickerWidget;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(widget: &TimePickerWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &TimePickerWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::TimePicker(tp) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if let Some(s) = &widget.header {
@@ -19,16 +25,22 @@ pub fn mount(widget: &TimePickerWidget, handle: &Handle) -> windows_core::Result
         tp.put_MinuteIncrement(v)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_changed,
+        Event::TimeSelected,
+        EventHandler::TimeChanged,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &TimePickerWidget,
     new: &TimePickerWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::TimePicker(tp) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.header != new.header {
@@ -48,5 +60,11 @@ pub fn diff(
         tp.put_MinuteIncrement(v)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::TimeSelected,
+        EventHandler::TimeChanged,
+    );
+    Ok(())
 }

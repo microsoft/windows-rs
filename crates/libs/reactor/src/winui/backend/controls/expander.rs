@@ -1,12 +1,14 @@
 //! Typed handler for the `Expander` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::Expander;
 use crate::core::widgets::ExpanderHeader;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &Expander, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &Expander, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let e = handle.cast_inner::<Xaml::IExpander>()?;
     if let Some(ExpanderHeader::Text(h)) = &w.header {
         e.put_Header(&string_as_textblock(h)?)?;
@@ -14,10 +16,20 @@ pub fn mount(w: &Expander, handle: &Handle) -> windows_core::Result<()> {
     if w.is_expanded {
         e.put_IsExpanded(true)?;
     }
+    ctx.mount_event(
+        &w.on_expanded,
+        Event::ExpandedChanged,
+        EventHandler::CheckedChanged,
+    );
     Ok(())
 }
 
-pub fn diff(old: &Expander, new: &Expander, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &Expander,
+    new: &Expander,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let e = handle.cast_inner::<Xaml::IExpander>()?;
     let old_text = match &old.header {
         Some(ExpanderHeader::Text(s)) => Some(s.as_str()),
@@ -36,5 +48,11 @@ pub fn diff(old: &Expander, new: &Expander, handle: &Handle) -> windows_core::Re
     if new.is_expanded != old.is_expanded {
         e.put_IsExpanded(new.is_expanded)?;
     }
+    ctx.diff_event(
+        &old.on_expanded,
+        &new.on_expanded,
+        Event::ExpandedChanged,
+        EventHandler::CheckedChanged,
+    );
     Ok(())
 }

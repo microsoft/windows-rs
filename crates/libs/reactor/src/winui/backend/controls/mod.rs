@@ -2,6 +2,8 @@
 //! main `set_prop` dispatch. Each module exports `mount` and `diff` functions
 //! that operate directly on the typed widget struct.
 
+pub(crate) use super::EventCtx;
+
 pub mod auto_suggest_box;
 pub mod border;
 pub mod breadcrumb_bar;

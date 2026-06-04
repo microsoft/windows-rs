@@ -1,11 +1,13 @@
 //! Typed handler for the `CheckBox` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::CheckBox;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &CheckBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &CheckBox, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let tb = handle.cast_inner::<Xaml::IToggleButton>()?;
     tb.put_IsChecked(Some(w.is_checked))?;
     if let Some(label) = &w.label {
@@ -19,10 +21,20 @@ pub fn mount(w: &CheckBox, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(
+        &w.on_changed,
+        Event::CheckedChanged,
+        EventHandler::CheckedChanged,
+    );
     Ok(())
 }
 
-pub fn diff(old: &CheckBox, new: &CheckBox, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &CheckBox,
+    new: &CheckBox,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     if new.is_checked != old.is_checked {
         handle
             .cast_inner::<Xaml::IToggleButton>()?
@@ -46,5 +58,11 @@ pub fn diff(old: &CheckBox, new: &CheckBox, handle: &Handle) -> windows_core::Re
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::CheckedChanged,
+        EventHandler::CheckedChanged,
+    );
     Ok(())
 }

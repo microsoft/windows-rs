@@ -1,13 +1,19 @@
 //! Typed handler for the `SplitButton` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::SplitButtonWidget;
 use crate::winui::backend::Handle;
 use windows_core::Interface as _;
 
-pub fn mount(widget: &SplitButtonWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &SplitButtonWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::SplitButton(sb) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if let Some(s) = &widget.content {
@@ -15,16 +21,22 @@ pub fn mount(widget: &SplitButtonWidget, handle: &Handle) -> windows_core::Resul
         sb.cast::<Xaml::IContentControl>()?.put_Content(&insp)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_click,
+        Event::SplitButtonClick,
+        EventHandler::Click,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &SplitButtonWidget,
     new: &SplitButtonWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::SplitButton(sb) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.content != new.content {
@@ -37,5 +49,11 @@ pub fn diff(
         }
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_click,
+        &new.on_click,
+        Event::SplitButtonClick,
+        EventHandler::Click,
+    );
+    Ok(())
 }

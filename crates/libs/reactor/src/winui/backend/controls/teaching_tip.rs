@@ -1,13 +1,19 @@
 //! Typed handler for the `TeachingTip` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::{TeachingTipPlacement, TeachingTipWidget};
 use crate::winui::backend::Handle;
 use windows_core::Interface as _;
 
-pub fn mount(widget: &TeachingTipWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &TeachingTipWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::TeachingTip(tt) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     tt.put_Title(&widget.title)?;
@@ -41,16 +47,27 @@ pub fn mount(widget: &TeachingTipWidget, handle: &Handle) -> windows_core::Resul
         tt.put_CloseButtonContent(&boxed)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_closed,
+        Event::TeachingTipClosed,
+        EventHandler::Click,
+    );
+    ctx.mount_event(
+        &widget.on_action_click,
+        Event::TeachingTipActionClick,
+        EventHandler::Click,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &TeachingTipWidget,
     new: &TeachingTipWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::TeachingTip(tt) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.title != new.title {
@@ -98,7 +115,19 @@ pub fn diff(
         }
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_closed,
+        &new.on_closed,
+        Event::TeachingTipClosed,
+        EventHandler::Click,
+    );
+    ctx.diff_event(
+        &old.on_action_click,
+        &new.on_action_click,
+        Event::TeachingTipActionClick,
+        EventHandler::Click,
+    );
+    Ok(())
 }
 
 fn set_placement(

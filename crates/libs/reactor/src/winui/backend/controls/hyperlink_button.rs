@@ -1,11 +1,13 @@
 //! Typed handler for the `HyperlinkButton` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::HyperlinkButton;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 
-pub fn mount(w: &HyperlinkButton, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &HyperlinkButton, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let txt = string_as_textblock(&w.label)?;
     handle
         .cast_inner::<Xaml::IContentControl>()?
@@ -21,6 +23,7 @@ pub fn mount(w: &HyperlinkButton, handle: &Handle) -> windows_core::Result<()> {
             .cast_inner::<Xaml::IControl>()?
             .put_IsEnabled(false)?;
     }
+    ctx.mount_event(&w.on_click, Event::Click, EventHandler::Click);
     Ok(())
 }
 
@@ -28,6 +31,7 @@ pub fn diff(
     old: &HyperlinkButton,
     new: &HyperlinkButton,
     handle: &Handle,
+    ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     if new.label != old.label {
         let txt = string_as_textblock(&new.label)?;
@@ -53,5 +57,11 @@ pub fn diff(
                 .put_IsEnabled(false)?;
         }
     }
+    ctx.diff_event(
+        &old.on_click,
+        &new.on_click,
+        Event::Click,
+        EventHandler::Click,
+    );
     Ok(())
 }

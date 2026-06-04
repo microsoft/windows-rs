@@ -1,11 +1,13 @@
 //! Typed handler for the `InfoBar` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::InfoBar;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::to_winui_info_bar_severity;
 
-pub fn mount(w: &InfoBar, handle: &Handle) -> windows_core::Result<()> {
+pub fn mount(w: &InfoBar, handle: &Handle, ctx: &mut EventCtx) -> windows_core::Result<()> {
     let ib = handle.cast_inner::<Xaml::IInfoBar>()?;
     if let Some(t) = &w.title {
         ib.put_Title(t.as_str())?;
@@ -18,10 +20,16 @@ pub fn mount(w: &InfoBar, handle: &Handle) -> windows_core::Result<()> {
     if !w.is_closable {
         ib.put_IsClosable(false)?;
     }
+    ctx.mount_event(&w.on_close, Event::InfoBarClosed, EventHandler::Click);
     Ok(())
 }
 
-pub fn diff(old: &InfoBar, new: &InfoBar, handle: &Handle) -> windows_core::Result<()> {
+pub fn diff(
+    old: &InfoBar,
+    new: &InfoBar,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let ib = handle.cast_inner::<Xaml::IInfoBar>()?;
     if new.title != old.title {
         match &new.title {
@@ -44,5 +52,11 @@ pub fn diff(old: &InfoBar, new: &InfoBar, handle: &Handle) -> windows_core::Resu
     if new.is_closable != old.is_closable {
         ib.put_IsClosable(new.is_closable)?;
     }
+    ctx.diff_event(
+        &old.on_close,
+        &new.on_close,
+        Event::InfoBarClosed,
+        EventHandler::Click,
+    );
     Ok(())
 }

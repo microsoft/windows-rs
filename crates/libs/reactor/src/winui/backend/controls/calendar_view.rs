@@ -1,11 +1,17 @@
 //! Typed handler for the `CalendarView` widget.
 
+use super::EventCtx;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::CalendarViewWidget;
 use crate::winui::backend::Handle;
 
-pub fn mount(widget: &CalendarViewWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &CalendarViewWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::CalendarView(cv) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if let Some(v) = widget.is_today_highlighted {
@@ -15,16 +21,22 @@ pub fn mount(widget: &CalendarViewWidget, handle: &Handle) -> windows_core::Resu
         cv.put_IsGroupLabelVisible(v)?;
     }
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_changed,
+        Event::CalendarViewSelectionChanged,
+        EventHandler::Click,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &CalendarViewWidget,
     new: &CalendarViewWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::CalendarView(cv) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.is_today_highlighted != new.is_today_highlighted
@@ -38,5 +50,11 @@ pub fn diff(
         cv.put_IsGroupLabelVisible(v)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_changed,
+        &new.on_changed,
+        Event::CalendarViewSelectionChanged,
+        EventHandler::Click,
+    );
+    Ok(())
 }

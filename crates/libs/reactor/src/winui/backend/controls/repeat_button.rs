@@ -1,14 +1,20 @@
 //! Typed handler for the `RepeatButton` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::RepeatButton;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
 use windows_core::Interface as _;
 
-pub fn mount(widget: &RepeatButton, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &RepeatButton,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::RepeatButton(b) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     let tb = string_as_textblock(&widget.content)?;
@@ -21,12 +27,18 @@ pub fn mount(widget: &RepeatButton, handle: &Handle) -> windows_core::Result<boo
         b.put_Interval(ms)?;
     }
 
-    Ok(true)
+    ctx.mount_event(&widget.on_click, Event::Click, EventHandler::Click);
+    Ok(())
 }
 
-pub fn diff(old: &RepeatButton, new: &RepeatButton, handle: &Handle) -> windows_core::Result<bool> {
+pub fn diff(
+    old: &RepeatButton,
+    new: &RepeatButton,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::RepeatButton(b) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.content != new.content {
@@ -44,5 +56,11 @@ pub fn diff(old: &RepeatButton, new: &RepeatButton, handle: &Handle) -> windows_
         b.put_Interval(ms)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_click,
+        &new.on_click,
+        Event::Click,
+        EventHandler::Click,
+    );
+    Ok(())
 }

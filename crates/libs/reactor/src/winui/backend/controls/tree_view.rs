@@ -1,28 +1,40 @@
 //! Typed handler for the `TreeView` widget.
 
+use super::EventCtx;
 use crate::bindings as Xaml;
+use crate::core::backend::{Event, EventHandler};
 use crate::core::widgets::{TreeSelectionMode, TreeViewWidget};
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::build_tree_view_node;
 
-pub fn mount(widget: &TreeViewWidget, handle: &Handle) -> windows_core::Result<bool> {
+pub fn mount(
+    widget: &TreeViewWidget,
+    handle: &Handle,
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::TreeView(tv) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     set_nodes(tv, widget)?;
     set_selection_mode(tv, widget.selection_mode)?;
 
-    Ok(true)
+    ctx.mount_event(
+        &widget.on_item_invoked,
+        Event::TreeViewItemInvoked,
+        EventHandler::TextChanged,
+    );
+    Ok(())
 }
 
 pub fn diff(
     old: &TreeViewWidget,
     new: &TreeViewWidget,
     handle: &Handle,
-) -> windows_core::Result<bool> {
+    ctx: &mut EventCtx,
+) -> windows_core::Result<()> {
     let Handle::TreeView(tv) = handle else {
-        return Ok(false);
+        return Ok(());
     };
 
     if old.nodes != new.nodes {
@@ -32,7 +44,13 @@ pub fn diff(
         set_selection_mode(tv, new.selection_mode)?;
     }
 
-    Ok(true)
+    ctx.diff_event(
+        &old.on_item_invoked,
+        &new.on_item_invoked,
+        Event::TreeViewItemInvoked,
+        EventHandler::TextChanged,
+    );
+    Ok(())
 }
 
 fn set_nodes(tv: &Xaml::TreeView, widget: &TreeViewWidget) -> windows_core::Result<()> {
