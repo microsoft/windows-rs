@@ -773,19 +773,51 @@ impl Backend for WinUIBackend {
 
     fn mount_widget(&mut self, id: ControlId, widget: &dyn crate::core::widget::Widget) {
         let handled = typed_mount!(self, id, widget,
-            TextBlock    => text_block::TextBlock,
-            StackPanel   => stack_panel::StackPanel,
-            Border       => border::Border,
-            CheckBox     => check_box::CheckBox,
-            ToggleSwitch => toggle_switch::ToggleSwitch,
-            Slider       => slider::Slider,
-            TextBox      => text_box::TextBox,
-            Grid         => grid::Grid,
-            ScrollViewer => scroll_viewer::ScrollViewer,
-            NumberBox    => number_box::NumberBox,
-            ProgressBar  => progress_bar::ProgressBar,
-            ProgressRing => progress_ring::ProgressRing,
-            RadioButton  => radio_button::RadioButton,
+            TextBlock      => text_block::TextBlock,
+            StackPanel     => stack_panel::StackPanel,
+            Border         => border::Border,
+            CheckBox       => check_box::CheckBox,
+            ToggleSwitch   => toggle_switch::ToggleSwitch,
+            Slider         => slider::Slider,
+            TextBox        => text_box::TextBox,
+            Grid           => grid::Grid,
+            ScrollViewer   => scroll_viewer::ScrollViewer,
+            NumberBox      => number_box::NumberBox,
+            ProgressBar    => progress_bar::ProgressBar,
+            ProgressRing   => progress_ring::ProgressRing,
+            RadioButton    => radio_button::RadioButton,
+            Expander       => expander::Expander,
+            HyperlinkButton => hyperlink_button::HyperlinkButton,
+            InfoBar        => info_bar::InfoBar,
+            PasswordBox    => password_box::PasswordBox,
+            Image          => image::Image,
+            ComboBox       => combo_box::ComboBox,
+            RatingControl  => rating_control::RatingControl,
+            ColorPicker    => color_picker::ColorPickerWidget,
+            DatePicker     => date_picker::DatePickerWidget,
+            TimePicker     => time_picker::TimePickerWidget,
+            AutoSuggestBox => auto_suggest_box::AutoSuggestBoxWidget,
+            CalendarDatePicker => calendar_date_picker::CalendarDatePickerWidget,
+            CalendarView   => calendar_view::CalendarViewWidget,
+            ListBox        => list_box::ListBoxWidget,
+            RepeatButton   => repeat_button::RepeatButton,
+            SplitButton    => split_button::SplitButtonWidget,
+            SplitView      => split_view::SplitViewWidget,
+            RadioButtons   => radio_buttons::RadioButtons,
+            InfoBadge      => info_badge::InfoBadge,
+            Viewbox        => viewbox::Viewbox,
+            ToggleButton   => toggle_button::ToggleButtonWidget,
+            PersonPicture  => person_picture::PersonPicture,
+            BreadcrumbBar  => breadcrumb_bar::BreadcrumbBar,
+            TeachingTip    => teaching_tip::TeachingTipWidget,
+            SelectorBar    => selector_bar::SelectorBarWidget,
+            ScrollView     => scroll_view::ScrollViewWidget,
+            Pivot          => pivot::Pivot,
+            RichEditBox    => rich_edit_box::RichEditBoxWidget,
+            TreeView       => tree_view::TreeViewWidget,
+            Rectangle      => shape::Shape,
+            Ellipse        => shape::Shape,
+            Line           => shape::Shape,
         );
         // Process bindings: if typed handler ran, only wire events;
         // otherwise fall back to full bindings-based dispatch.
@@ -811,19 +843,51 @@ impl Backend for WinUIBackend {
         new: &dyn crate::core::widget::Widget,
     ) {
         let handled = typed_diff!(self, id, old, new,
-            TextBlock    => text_block::TextBlock,
-            StackPanel   => stack_panel::StackPanel,
-            Border       => border::Border,
-            CheckBox     => check_box::CheckBox,
-            ToggleSwitch => toggle_switch::ToggleSwitch,
-            Slider       => slider::Slider,
-            TextBox      => text_box::TextBox,
-            Grid         => grid::Grid,
-            ScrollViewer => scroll_viewer::ScrollViewer,
-            NumberBox    => number_box::NumberBox,
-            ProgressBar  => progress_bar::ProgressBar,
-            ProgressRing => progress_ring::ProgressRing,
-            RadioButton  => radio_button::RadioButton,
+            TextBlock      => text_block::TextBlock,
+            StackPanel     => stack_panel::StackPanel,
+            Border         => border::Border,
+            CheckBox       => check_box::CheckBox,
+            ToggleSwitch   => toggle_switch::ToggleSwitch,
+            Slider         => slider::Slider,
+            TextBox        => text_box::TextBox,
+            Grid           => grid::Grid,
+            ScrollViewer   => scroll_viewer::ScrollViewer,
+            NumberBox      => number_box::NumberBox,
+            ProgressBar    => progress_bar::ProgressBar,
+            ProgressRing   => progress_ring::ProgressRing,
+            RadioButton    => radio_button::RadioButton,
+            Expander       => expander::Expander,
+            HyperlinkButton => hyperlink_button::HyperlinkButton,
+            InfoBar        => info_bar::InfoBar,
+            PasswordBox    => password_box::PasswordBox,
+            Image          => image::Image,
+            ComboBox       => combo_box::ComboBox,
+            RatingControl  => rating_control::RatingControl,
+            ColorPicker    => color_picker::ColorPickerWidget,
+            DatePicker     => date_picker::DatePickerWidget,
+            TimePicker     => time_picker::TimePickerWidget,
+            AutoSuggestBox => auto_suggest_box::AutoSuggestBoxWidget,
+            CalendarDatePicker => calendar_date_picker::CalendarDatePickerWidget,
+            CalendarView   => calendar_view::CalendarViewWidget,
+            ListBox        => list_box::ListBoxWidget,
+            RepeatButton   => repeat_button::RepeatButton,
+            SplitButton    => split_button::SplitButtonWidget,
+            SplitView      => split_view::SplitViewWidget,
+            RadioButtons   => radio_buttons::RadioButtons,
+            InfoBadge      => info_badge::InfoBadge,
+            Viewbox        => viewbox::Viewbox,
+            ToggleButton   => toggle_button::ToggleButtonWidget,
+            PersonPicture  => person_picture::PersonPicture,
+            BreadcrumbBar  => breadcrumb_bar::BreadcrumbBar,
+            TeachingTip    => teaching_tip::TeachingTipWidget,
+            SelectorBar    => selector_bar::SelectorBarWidget,
+            ScrollView     => scroll_view::ScrollViewWidget,
+            Pivot          => pivot::Pivot,
+            RichEditBox    => rich_edit_box::RichEditBoxWidget,
+            TreeView       => tree_view::TreeViewWidget,
+            Rectangle      => shape::Shape,
+            Ellipse        => shape::Shape,
+            Line           => shape::Shape,
         );
         // Process bindings: if typed handler ran, only diff events;
         // otherwise fall back to full bindings-based dispatch.
@@ -1048,20 +1112,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // ── ToggleButton ─────────────────────────────────────────────
-                (Prop::IsChecked, PropValue::Bool(v), Handle::ToggleButton(tb)) => {
-                    tb.put_IsChecked(Some(*v))
-                }
-                (Prop::IsChecked, PropValue::Unset, Handle::ToggleButton(tb)) => {
-                    tb.put_IsChecked(None)
-                }
-                (Prop::CheckBoxLabel, PropValue::Str(s), Handle::ToggleButton(tb)) => {
-                    let txt = string_as_textblock(s)?;
-                    tb.cast::<Xaml::IContentControl>()?.put_Content(&txt)
-                }
-                (Prop::CheckBoxLabel, PropValue::Unset, Handle::ToggleButton(tb)) => {
-                    tb.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
                 (Prop::AttachedGridRow, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
                 }
@@ -1246,38 +1296,6 @@ impl Backend for WinUIBackend {
                 (Prop::Foreground, PropValue::Unset, Handle::Button(b)) => {
                     b.cast::<Xaml::IControl>()?.put_Foreground(None)
                 }
-                (Prop::Header, PropValue::Str(s), Handle::Expander(e)) => {
-                    let tb = string_as_textblock(s)?;
-                    e.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.put_Header(None),
-                (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(e)) => e.put_IsExpanded(*v),
-                (Prop::ButtonContent, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
-                    let tb = string_as_textblock(s)?;
-                    h.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::NavigateUri, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    h.put_NavigateUri(&uri)
-                }
-                (Prop::NavigateUri, PropValue::Unset, Handle::HyperlinkButton(h)) => {
-                    h.put_NavigateUri(None)
-                }
-                (Prop::InfoBarTitle, PropValue::Str(s), Handle::InfoBar(ib)) => {
-                    ib.put_Title(s.as_str())
-                }
-                (Prop::InfoBarTitle, PropValue::Unset, Handle::InfoBar(ib)) => ib.put_Title(""),
-                (Prop::InfoBarMessage, PropValue::Str(s), Handle::InfoBar(ib)) => {
-                    ib.put_Message(s.as_str())
-                }
-                (Prop::InfoBarMessage, PropValue::Unset, Handle::InfoBar(ib)) => ib.put_Message(""),
-                (Prop::InfoBarSeverity, PropValue::InfoBarSev(v), Handle::InfoBar(ib)) => {
-                    ib.put_Severity(to_winui_info_bar_severity(*v))
-                }
-                (Prop::InfoBarIsOpen, PropValue::Bool(v), Handle::InfoBar(ib)) => ib.put_IsOpen(*v),
-                (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(ib)) => {
-                    ib.put_IsClosable(*v)
-                }
                 (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
                     ti.put_IsClosable(*v)
                 }
@@ -1371,55 +1389,6 @@ impl Backend for WinUIBackend {
                         d.Hide()
                     }
                 }
-                (Prop::InfoBadgeValue, PropValue::I32(v), Handle::InfoBadge(ib)) => {
-                    if *v < 0 {
-                        ib.put_Value(-1)
-                    } else {
-                        ib.put_Value(*v)
-                    }
-                }
-                (Prop::PersonDisplayName, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_DisplayName(s.as_str())
-                }
-                (Prop::PersonDisplayName, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_DisplayName("")
-                }
-                (Prop::PersonInitials, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_Initials(s.as_str())
-                }
-                (Prop::PersonInitials, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_Initials("")
-                }
-                (Prop::Fill, PropValue::Brush(b), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
-                }
-                (Prop::Fill, PropValue::Brush(b), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Line(l)) => {
-                    l.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Line(l)) => {
-                    l.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::CornerRadius, PropValue::F64(v), Handle::Rectangle(r)) => {
-                    r.put_RadiusX(*v).and_then(|_| r.put_RadiusY(*v))
-                }
-                (Prop::CornerRadius, PropValue::Unset, Handle::Rectangle(r)) => {
-                    r.put_RadiusX(0.0).and_then(|_| r.put_RadiusY(0.0))
-                }
                 (Prop::BorderBrush, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
                     Ok(())
@@ -1427,40 +1396,6 @@ impl Backend for WinUIBackend {
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
                     Ok(())
-                }
-                (Prop::LineEndpoints, PropValue::LineEndpoints(p), Handle::Line(l)) => l
-                    .put_X1(p.x1)
-                    .and_then(|_| l.put_Y1(p.y1))
-                    .and_then(|_| l.put_X2(p.x2))
-                    .and_then(|_| l.put_Y2(p.y2)),
-                (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    let bmp = Xaml::BitmapImage::new()?;
-                    bmp.cast::<Xaml::IBitmapImage>()?.put_UriSource(&uri)?;
-                    img.put_Source(&bmp.cast::<Xaml::ImageSource>()?)
-                }
-                (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Image(img)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    img.put_Stretch(mapped)
-                }
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Viewbox(vb)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    vb.put_Stretch(mapped)
                 }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(tv)) => {
                     tv.put_SelectedIndex(*v)
@@ -1610,120 +1545,10 @@ impl Backend for WinUIBackend {
                     PropValue::Bool(v),
                     Handle::NavigationView(nv),
                 ) => nv.put_IsPaneToggleButtonVisible(*v),
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::Pivot(p)) => {
-                    p.put_SelectedIndex(*v)
-                }
-                (Prop::PivotTitle, PropValue::Str(s), Handle::Pivot(p)) => {
-                    let tb = string_as_textblock(s)?;
-                    p.put_Title(&tb)
-                }
-                (Prop::PivotTitle, PropValue::Unset, Handle::Pivot(p)) => p.put_Title(None),
                 (Prop::PivotItemHeader, PropValue::Str(s), Handle::PivotItem(pi)) => {
                     let tb = string_as_textblock(s)?;
                     pi.put_Header(&tb)
                 }
-                (Prop::BreadcrumbItems, PropValue::StrList(items), Handle::BreadcrumbBar(bc)) => {
-                    let vec: Vec<Option<windows_core::IInspectable>> = items
-                        .iter()
-                        .map(|s| {
-                            let r = windows_reference::IReference::from(s.as_str());
-                            Some(r.into())
-                        })
-                        .collect();
-                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
-                    bc.put_ItemsSource(&ivec)
-                }
-                // ── W2: PasswordBox ───────────────────────────────────────────
-                (Prop::PasswordValue, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    if p.get_Password().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    p.put_Password(s.as_str())
-                }
-                (Prop::PasswordValue, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_Password("")
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    p.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    let tb = string_as_textblock(s)?;
-                    p.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::PasswordBox(p)) => p.put_Header(None),
-                (
-                    Prop::PasswordRevealMode,
-                    PropValue::PasswordRevealMode(m),
-                    Handle::PasswordBox(p),
-                ) => {
-                    use crate::core::widgets::PasswordRevealMode as M;
-                    let mapped = match m {
-                        M::Peek => Xaml::PasswordRevealMode::Peek,
-                        M::Hidden => Xaml::PasswordRevealMode::Hidden,
-                        M::Visible => Xaml::PasswordRevealMode::Visible,
-                    };
-                    p.put_PasswordRevealMode(mapped)
-                }
-                (
-                    Prop::IsPasswordRevealButtonEnabled,
-                    PropValue::Bool(v),
-                    Handle::PasswordBox(p),
-                ) => p.put_IsPasswordRevealButtonEnabled(*v),
-                (Prop::IsPasswordRevealButtonEnabled, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_IsPasswordRevealButtonEnabled(true)
-                }
-                // ── W3: RadioButtons ──────────────────────────────────────────
-                (Prop::RadioButtonsItems, PropValue::StrList(items), Handle::RadioButtons(r)) => {
-                    let vec = r.get_Items()?;
-                    vec.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        vec.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::RadioButtons(r)) => {
-                    r.put_SelectedIndex(*v)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::RadioButtons(r)) => {
-                    let tb = string_as_textblock(s)?;
-                    r.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::RadioButtons(r)) => r.put_Header(None),
-                (Prop::RadioButtonsMaxColumns, PropValue::I32(v), Handle::RadioButtons(r)) => {
-                    r.put_MaxColumns(*v)
-                }
-                // ── W4: ComboBox ──────────────────────────────────────────────
-                (Prop::ComboBoxItems, PropValue::StrList(items), Handle::ComboBox(c)) => {
-                    let coll =
-                        c.cast::<Xaml::IItemsControl>()?
-                            .get_Items()?
-                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
-                    coll.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        coll.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::ComboBox(c)) => {
-                    c.cast::<Xaml::ISelector>()?.put_SelectedIndex(*v)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::ComboBox(c)) => {
-                    let tb = string_as_textblock(s)?;
-                    c.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::ComboBox(c)) => c.put_Header(None),
-                (Prop::Placeholder, PropValue::Str(s), Handle::ComboBox(c)) => {
-                    c.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::ComboBox(c)) => {
-                    c.put_PlaceholderText("")
-                }
-                (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(c)) => c.put_IsEditable(*v),
                 // ── W5: Canvas attached props ─────────────────────────────────
                 (Prop::AttachedCanvasLeft, PropValue::F64(v), _) => {
                     Xaml::Canvas::SetLeft(&handle.as_ui_element(), *v)
@@ -1734,126 +1559,6 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedCanvasZIndex, PropValue::I32(v), _) => {
                     Xaml::Canvas::SetZIndex(&handle.as_ui_element(), *v)
                 }
-                // ── W6: RepeatButton ──────────────────────────────────────────
-                (Prop::ButtonContent, PropValue::Str(s), Handle::RepeatButton(b)) => {
-                    let tb = string_as_textblock(s)?;
-                    b.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::RepeatDelay, PropValue::I32(v), Handle::RepeatButton(b)) => b.put_Delay(*v),
-                (Prop::RepeatInterval, PropValue::I32(v), Handle::RepeatButton(b)) => {
-                    b.put_Interval(*v)
-                }
-                // ── W7: RatingControl ─────────────────────────────────────────
-                (Prop::NumericValue, PropValue::F64(v), Handle::RatingControl(r)) => {
-                    r.put_Value(*v)
-                }
-                (Prop::MaxRating, PropValue::I32(v), Handle::RatingControl(r)) => {
-                    r.put_MaxRating(*v)
-                }
-                (Prop::RatingCaption, PropValue::Str(s), Handle::RatingControl(r)) => {
-                    r.put_Caption(s.as_str())
-                }
-                (Prop::RatingCaption, PropValue::Unset, Handle::RatingControl(r)) => {
-                    r.put_Caption("")
-                }
-                (Prop::PlaceholderValue, PropValue::F64(v), Handle::RatingControl(r)) => {
-                    r.put_PlaceholderValue(*v)
-                }
-                (Prop::IsReadOnly, PropValue::Bool(v), Handle::RatingControl(r)) => {
-                    r.put_IsReadOnly(*v)
-                }
-                // ── W8: ColorPicker ───────────────────────────────────────────
-                (Prop::ColorValue, PropValue::Color { a, r, g, b }, Handle::ColorPicker(cp)) => cp
-                    .put_Color(Xaml::Color {
-                        A: *a,
-                        R: *r,
-                        G: *g,
-                        B: *b,
-                    }),
-                (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
-                    cp.put_IsAlphaEnabled(*v)
-                }
-                (Prop::IsHexInputVisible, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
-                    cp.put_IsHexInputVisible(*v)
-                }
-                (Prop::IsColorSliderVisible, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
-                    cp.put_IsColorSliderVisible(*v)
-                }
-                (
-                    Prop::IsColorChannelTextInputVisible,
-                    PropValue::Bool(v),
-                    Handle::ColorPicker(cp),
-                ) => cp.put_IsColorChannelTextInputVisible(*v),
-                // ── W9: DatePicker ────────────────────────────────────────────
-                (Prop::Header, PropValue::Str(s), Handle::DatePicker(dp)) => {
-                    let tb = string_as_textblock(s)?;
-                    dp.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::DatePicker(dp)) => dp.put_Header(None),
-                (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.put_DayVisible(*v)
-                }
-                (Prop::MonthVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.put_MonthVisible(*v)
-                }
-                (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
-                    dp.put_YearVisible(*v)
-                }
-                // ── W10: TimePicker ───────────────────────────────────────────
-                (Prop::Header, PropValue::Str(s), Handle::TimePicker(tp)) => {
-                    let tb = string_as_textblock(s)?;
-                    tp.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::TimePicker(tp)) => tp.put_Header(None),
-                (Prop::ClockIdentifier, PropValue::Str(s), Handle::TimePicker(tp)) => {
-                    tp.put_ClockIdentifier(s.as_str())
-                }
-                (Prop::MinuteIncrement, PropValue::I32(v), Handle::TimePicker(tp)) => {
-                    tp.put_MinuteIncrement(*v)
-                }
-                // ── W11: CalendarDatePicker ───────────────────────────────────
-                (Prop::Header, PropValue::Str(s), Handle::CalendarDatePicker(cdp)) => {
-                    let tb = string_as_textblock(s)?;
-                    cdp.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_Header(None)
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_PlaceholderText("")
-                }
-                (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_IsTodayHighlighted(*v)
-                }
-                (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
-                    cdp.put_IsCalendarOpen(*v)
-                }
-                // ── W12: CalendarView ─────────────────────────────────────────
-                (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarView(cv)) => {
-                    cv.put_IsTodayHighlighted(*v)
-                }
-                (Prop::IsGroupLabelVisible, PropValue::Bool(v), Handle::CalendarView(cv)) => {
-                    cv.put_IsGroupLabelVisible(*v)
-                }
-                // ── W13: ListBox ──────────────────────────────────────────────
-                (Prop::ListBoxItems, PropValue::StrList(items), Handle::ListBox(lb)) => {
-                    let coll =
-                        lb.cast::<Xaml::IItemsControl>()?
-                            .get_Items()?
-                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
-                    coll.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        coll.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                (Prop::SelectedIndex, PropValue::I32(v), Handle::ListBox(lb)) => {
-                    lb.cast::<Xaml::ISelector>()?.put_SelectedIndex(*v)
-                }
                 // ── W14: DropDownButton ───────────────────────────────────────
                 (Prop::ButtonContent, PropValue::Str(s), Handle::DropDownButton(ddb)) => {
                     let insp = windows_reference::IReference::from(s.as_str());
@@ -1861,61 +1566,6 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::ButtonContent, PropValue::Unset, Handle::DropDownButton(ddb)) => {
                     ddb.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                // ── W15: SplitButton ──────────────────────────────────────────
-                (Prop::ButtonContent, PropValue::Str(s), Handle::SplitButton(sb)) => {
-                    let insp = windows_reference::IReference::from(s.as_str());
-                    sb.cast::<Xaml::IContentControl>()?.put_Content(&insp)
-                }
-                (Prop::ButtonContent, PropValue::Unset, Handle::SplitButton(sb)) => {
-                    sb.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                // ── W16: AutoSuggestBox ───────────────────────────────────────
-                (Prop::AutoSuggestText, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    // Skip SetText when the control already has this value —
-                    // calling SetText during a user-initiated TextChanged
-                    // cycle steals focus from the input field.
-                    if asb.get_Text().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    asb.put_Text(s)
-                }
-                (
-                    Prop::AutoSuggestItems,
-                    PropValue::StrList(items),
-                    Handle::AutoSuggestBox(asb),
-                ) => {
-                    // Build a Rust Vec, wrap into IVector via the stock
-                    // implementation, then assign as ItemsSource.
-                    let vec: Vec<Option<windows_core::IInspectable>> = items
-                        .iter()
-                        .map(|s| {
-                            let r = windows_reference::IReference::from(s.as_str());
-                            Some(r.into())
-                        })
-                        .collect();
-                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
-                    asb.cast::<Xaml::IItemsControl>()?.put_ItemsSource(&ivec)
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    asb.put_PlaceholderText(s)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    let insp = windows_reference::IReference::from(s.as_str());
-                    asb.put_Header(&insp)
-                }
-                // ── W17: SplitView ───────────────────────────────────────
-                (Prop::SplitViewDisplayMode, PropValue::I32(m), Handle::SplitView(sv)) => {
-                    sv.put_DisplayMode(Xaml::SplitViewDisplayMode(*m))
-                }
-                (Prop::SplitViewIsPaneOpen, PropValue::Bool(v), Handle::SplitView(sv)) => {
-                    sv.put_IsPaneOpen(*v)
-                }
-                (Prop::SplitViewOpenPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
-                    sv.put_OpenPaneLength(*v)
-                }
-                (Prop::SplitViewCompactPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
-                    sv.put_CompactPaneLength(*v)
                 }
                 // ── W18: MenuBar ─────────────────────────────────────────
                 (Prop::MenuBarItems, PropValue::MenuBarItems(items), Handle::MenuBar(mb)) => {
@@ -2019,59 +1669,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // ── W19: ScrollView ──────────────────────────────────────
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(v),
-                    Handle::ScrollView(sv),
-                ) => {
-                    use ScrollViewScrollBarVisibility as E;
-                    use Xaml::ScrollingScrollBarVisibility as W;
-                    let mapped = match v {
-                        E::Auto => W::Auto,
-                        E::Visible => W::Visible,
-                        E::Hidden => W::Hidden,
-                    };
-                    sv.put_HorizontalScrollBarVisibility(mapped)
-                }
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(v),
-                    Handle::ScrollView(sv),
-                ) => {
-                    use ScrollViewScrollBarVisibility as E;
-                    use Xaml::ScrollingScrollBarVisibility as W;
-                    let mapped = match v {
-                        E::Auto => W::Auto,
-                        E::Visible => W::Visible,
-                        E::Hidden => W::Hidden,
-                    };
-                    sv.put_VerticalScrollBarVisibility(mapped)
-                }
-                // ── W20: TreeView ────────────────────────────────────────
-                (Prop::TreeViewNodes, PropValue::TreeViewNodes(nodes), Handle::TreeView(tv)) => {
-                    let root = tv.get_RootNodes()?;
-                    root.Clear()?;
-                    for node_def in nodes {
-                        let node = build_tree_view_node(node_def)?;
-                        root.Append(&node)?;
-                    }
-                    Ok(())
-                }
-                (
-                    Prop::TreeViewSelectionMode,
-                    PropValue::TreeViewSelectionMode(mode),
-                    Handle::TreeView(tv),
-                ) => {
-                    use TreeSelectionMode as E;
-                    use Xaml::TreeViewSelectionMode as W;
-                    let mapped = match mode {
-                        E::None => W::None,
-                        E::Single => W::Single,
-                        E::Multiple => W::Multiple,
-                    };
-                    tv.put_SelectionMode(mapped)
-                }
                 // ── W21: CommandBar ──────────────────────────────────────
                 (
                     Prop::CommandBarPrimaryCommands,
@@ -2134,104 +1731,6 @@ impl Backend for WinUIBackend {
                         E::Collapsed => W::Collapsed,
                     };
                     cb.put_DefaultLabelPosition(mapped)
-                }
-                // ── W22: TeachingTip ────────────────────────────────────
-                (Prop::TeachingTipTitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    tt.put_Title(s.as_str())
-                }
-                (Prop::TeachingTipSubtitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    tt.put_Subtitle(s.as_str())
-                }
-                (Prop::TeachingTipIsOpen, PropValue::Bool(v), Handle::TeachingTip(tt)) => {
-                    tt.put_IsOpen(*v)
-                }
-                (Prop::TeachingTipIsLightDismiss, PropValue::Bool(v), Handle::TeachingTip(tt)) => {
-                    tt.put_IsLightDismissEnabled(*v)
-                }
-                (
-                    Prop::TeachingTipPlacement,
-                    PropValue::TeachingTipPlacement(p),
-                    Handle::TeachingTip(tt),
-                ) => {
-                    use TeachingTipPlacement as E;
-                    use Xaml::TeachingTipPlacementMode as W;
-                    let mapped = match p {
-                        E::Auto => W::Auto,
-                        E::Top => W::Top,
-                        E::Bottom => W::Bottom,
-                        E::Left => W::Left,
-                        E::Right => W::Right,
-                        E::TopRight => W::TopRight,
-                        E::TopLeft => W::TopLeft,
-                        E::BottomRight => W::BottomRight,
-                        E::BottomLeft => W::BottomLeft,
-                        E::LeftTop => W::LeftTop,
-                        E::LeftBottom => W::LeftBottom,
-                        E::RightTop => W::RightTop,
-                        E::RightBottom => W::RightBottom,
-                        E::Center => W::Center,
-                    };
-                    tt.put_PreferredPlacement(mapped)
-                }
-                (Prop::TeachingTipActionButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    let boxed: windows_core::IInspectable =
-                        windows_reference::IReference::<windows_core::HSTRING>::from(
-                            windows_core::HSTRING::from(s.as_str()),
-                        )
-                        .cast()?;
-                    tt.put_ActionButtonContent(&boxed)
-                }
-                (Prop::TeachingTipCloseButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
-                    let boxed: windows_core::IInspectable =
-                        windows_reference::IReference::<windows_core::HSTRING>::from(
-                            windows_core::HSTRING::from(s.as_str()),
-                        )
-                        .cast()?;
-                    tt.put_CloseButtonContent(&boxed)
-                }
-                // ── W23: SelectorBar ────────────────────────────────────
-                (
-                    Prop::SelectorBarItems,
-                    PropValue::SelectorBarItems(items),
-                    Handle::SelectorBar(sb),
-                ) => {
-                    let vec = sb.get_Items()?;
-                    vec.Clear()?;
-                    for def in items {
-                        let item = Xaml::SelectorBarItem::new()?;
-                        item.put_Text(&def.text)?;
-                        if let Some(sym) = &def.icon {
-                            let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(
-                                Xaml::Symbol(sym.to_raw()),
-                            )?;
-                            item.put_Icon(&icon_elem)?;
-                        }
-                        vec.Append(&item)?;
-                    }
-                    Ok(())
-                }
-                (Prop::RichEditBoxText, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    let doc = reb.get_Document()?;
-                    let mut current = windows_core::HSTRING::default();
-                    doc.GetText(Xaml::TextGetOptions::None, &mut current).ok();
-                    if current == s.as_str() {
-                        return Ok(());
-                    }
-                    doc.SetText(Xaml::TextSetOptions::None, s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    reb.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::RichEditBox(reb)) => {
-                    reb.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    let tb = string_as_textblock(s)?;
-                    reb.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::RichEditBox(reb)) => reb.put_Header(None),
-                (Prop::RichEditBoxIsReadOnly, PropValue::Bool(v), Handle::RichEditBox(reb)) => {
-                    reb.put_IsReadOnly(*v)
                 }
                 // ── Flyout on Button ──────────────────────────────────────────
                 (Prop::FlyoutContent, PropValue::Str(s), Handle::Button(b)) => {

@@ -341,36 +341,49 @@ The ClearValue bindings and property statics remain valuable in the new design:
 
 - `controls/scroll_viewer.rs`, `controls/number_box.rs`
 - `controls/progress_bar.rs`, `controls/progress_ring.rs`, `controls/radio_button.rs`
+- `controls/expander.rs`, `controls/hyperlink_button.rs`
+- `controls/info_bar.rs`, `controls/password_box.rs`
 - Removed all dead `set_prop` match arms for migrated controls
+
+### Phase 4: Shapes, Pickers, and remaining controls ✅
+
+- `controls/shape.rs` — shared handler for Rectangle, Ellipse, Line
+- `controls/image.rs` — Image with BitmapImage/Uri creation
+- `controls/combo_box.rs` — ComboBox with item list management
+- `controls/rating_control.rs` — RatingControl
+- `controls/color_picker.rs` — ColorPicker with ARGB color
+- `controls/date_picker.rs`, `controls/time_picker.rs` — date/time pickers
+- `controls/auto_suggest_box.rs` — AutoSuggestBox with suggestion list
 
 **Event handling design:** Typed handlers manage props only. Events are always
 handled via the legacy `attach_event`/`detach_event` path using `bindings()`.
 The dispatch macros return a bool (`handled`); when true, prop bindings are
 skipped but event bindings are still processed.
 
-### Results (13 controls migrated)
+### Results (27 ControlKinds handled by 25 handlers)
 
 | Metric | Master | After | Change |
 |--------|--------|-------|--------|
-| Avg FPS | 41.2 | ~44 | **+7–14%** |
-| Avg Memory | 185 MB | 182 MB | **−3 MB** |
-| mod.rs LOC | 4247 | 4109 | −138 |
-| controls/ LOC | 0 | 715 | +715 |
-| Total backend LOC | 4247 | 4824 | +577 |
+| Avg FPS | 41.2 | ~42–44 | **+3–7%** |
+| Avg Memory | 185 MB | 183 MB | **−2 MB** |
+| mod.rs LOC | 4247 | 3907 | **−340** |
+| controls/ LOC | 0 | 1410 | +1410 |
+| Total backend LOC | 4247 | 5317 | +1070 |
 
 **Note on LOC:** Total lines increase because typed handlers are more explicit
-(each field has clear set/clear logic) vs the compressed match arms. The gain is
-in correctness and maintainability, not brevity. As the remaining ~37 controls
-migrate, mod.rs will continue shrinking while controls/ grows at a lower rate
-since most of the shared infrastructure (modifiers, events, Foreground) stays.
+(each field has clear set/clear logic vs compressed match arms). The gain is
+correctness and maintainability — impossible to forget Unset handling, each
+control self-contained and testable. The **real** LOC reduction comes when all
+controls migrate and we can remove the `bindings()`/Prop/PropValue infrastructure.
 
 ### Next: Continue migration
 
-Remaining ~37 controls. Priority:
-1. Button (complex: flyouts, icons, styling)
-2. Expander, HyperlinkButton, InfoBar
-3. TabView, NavigationView, ComboBox, ListView
-4. Eventually: shapes, pickers, specialized controls
+Remaining ~20 controls (of which ~10 are complex). Priority:
+1. Button (17 arms — most complex remaining, blocked on flyout architecture)
+2. TabView/TabViewItem, NavigationView (complex child management)
+3. ContentDialog (show/hide lifecycle)
+4. ListView/GridView/FlipView (virtualized collections)
+5. CalendarDatePicker, CalendarView, ListBox, SplitButton, etc.
 
 ## Architecture Decisions
 
