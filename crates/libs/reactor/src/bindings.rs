@@ -11600,6 +11600,7 @@ impl INavigationView2 {
             .ok()
         }
     }
+    #[allow(dead_code)]
     pub fn add_BackRequested<F>(
         &self,
         handler: F,
