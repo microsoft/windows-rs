@@ -1,6 +1,7 @@
 --out crates/libs/time/src/bindings.rs
---flat
+--flat --minimal
 
 --filter
     Windows.Foundation.DateTime
     Windows.Foundation.TimeSpan
+    Windows.Win32.Storage.FileSystem.FileTimeToLocalFileTime
