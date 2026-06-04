@@ -1,4 +1,3 @@
-use super::timespan::*;
 use super::*;
 
 /// Number of seconds between 1601-01-01 UTC (the `DateTime` epoch) and
@@ -142,16 +141,17 @@ impl DateTime {
     /// println!("{:02}:{:02}:{:02}", local.hour(), local.minute(), local.second());
     /// ```
     #[cfg(windows)]
-    #[allow(unsafe_code)]
     pub fn to_local(self) -> Self {
         let ticks = self.UniversalTime as u64;
-        let utc = super::bindings::FILETIME {
+        let utc = FILETIME {
             dwLowDateTime: ticks as u32,
             dwHighDateTime: (ticks >> 32) as u32,
         };
-        let mut local = super::bindings::FILETIME::default();
+        let mut local = FILETIME::default();
         // SAFETY: Both pointers are to valid, aligned FILETIME values on the stack.
-        unsafe { let _ = super::bindings::FileTimeToLocalFileTime(&utc, &mut local); }
+        unsafe {
+            let _ = FileTimeToLocalFileTime(&utc, &mut local);
+        }
         Self {
             UniversalTime: local.dwLowDateTime as u64 as i64
                 | (local.dwHighDateTime as u64 as i64) << 32,
