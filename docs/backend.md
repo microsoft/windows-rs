@@ -1,402 +1,192 @@
-# WinUI Backend Architecture
+# WinUI Backend Architecture — Assessment & Next Steps
 
-## Current State
+## Original Problems
 
-The WinUI backend (`crates/libs/reactor/src/winui/backend/mod.rs`) handles prop
-dispatch through a single 4000-line match statement:
+1. **Type erasure** — Widget structs erased into `Vec<Binding>` by `bindings()`,
+   then re-dispatched on `(Prop, PropValue, Handle)`.
+2. **Unset fragility** — Forgetting a `PropValue::Unset` arm causes controls to get stuck.
+3. **Allocation per render** — `bindings()` allocates a Vec every frame per widget.
+4. **Scattered logic** — A single control's behavior spread across 300+ non-adjacent arms.
+5. **Invalid states representable** — Nothing prevents type-mismatched triples.
+
+## What Was Attempted: Typed Control Handlers
+
+### Approach
+
+Replace `set_prop(id, Prop, PropValue)` with per-control handler files
+(`controls/text_block.rs`, etc.) that receive typed widget structs and
+diff fields directly via `backend.diff_widget(id, old, new)`.
+
+### What Was Built (45 ControlKinds → 43 handler files)
+
+```
+crates/libs/reactor/src/winui/backend/
+├── mod.rs              (3608 lines, down from 4247)
+├── controls/mod.rs     (dispatch registry)
+└── controls/*.rs       (43 handlers, 2164 lines total)
+```
+
+### Honest Assessment
+
+| Metric | Master | Branch | Verdict |
+|--------|--------|--------|---------|
+| Avg FPS (headless) | ~31 | ~31 | **No change** |
+| Avg Reconcile | 5.3ms | 5.4ms | **No change** |
+| mod.rs LOC | 4247 | 3608 | −639 |
+| controls/ LOC | 0 | 2164 | +2164 |
+| **Total backend LOC** | **4247** | **5772** | **+36% worse** |
+| Memory | 183 MB | 183 MB | No change |
+
+### Why It Didn't Work
+
+**The typed handlers don't eliminate allocations.** `bindings()` is STILL called
+every frame for every widget because events are embedded in the bindings Vec.
+The typed handler skips prop dispatch but the Vec is allocated regardless:
 
 ```rust
-match (prop, &value, handle) {
-    (Prop::Text, PropValue::Str(s), Handle::TextBlock(tb)) => tb.put_Text(s),
-    (Prop::IsEnabled, PropValue::Bool(v), Handle::Button(b)) => b.cast::<IControl>()?.put_IsEnabled(*v),
-    // ... ~300 arms
+fn diff_widget(&mut self, id, old, new) {
+    let handled = typed_diff!(...);  // runs typed prop handler
+    let old_b = old.bindings();  // ← STILL ALLOCATES (needed for events)
+    let new_b = new.bindings();  // ← STILL ALLOCATES
+    // ... event diffing uses these Vecs
 }
 ```
 
-### Problems
+So the architecture has **two dispatch paths for props** (typed handlers + bindings)
+and **one dispatch path for events** (bindings only). The typed handlers are pure
+overhead — they duplicate logic without removing the old path.
 
-1. **Type erasure** — Each widget struct (e.g. `Button { label, is_enabled }`) is
-   erased into `Vec<Binding::Prop(Prop, PropValue)>` by `bindings()`, then the
-   backend re-dispatches on the triple `(Prop, PropValue, Handle)`.
+**Correctness gain is real but modest.** Typed handlers make Unset bugs structurally
+impossible for migrated controls. But this was achievable with simpler approaches
+(ClearValue consolidation removed the worst cases at −64 lines, not +1500).
 
-2. **Unset fragility** — Every prop that can be "set" must also handle
-   `PropValue::Unset`. Forgetting an Unset arm causes controls to get stuck.
-   The previous catch-all `(_, PropValue::Unset, _) => Ok(())` hid this.
-
-3. **Allocation per render** — `bindings()` allocates a Vec on every render frame
-   for every widget, even unchanged ones.
-
-4. **Scattered logic** — A single control's behavior is spread across many
-   non-adjacent match arms (Button has ~12 arms scattered over 2000 lines).
-
-5. **Invalid states representable** — Nothing prevents `(Prop::Text, PropValue::Bool, Handle::Slider)`
-   from compiling. The match just falls through to a diagnostic.
-
-### Recent Improvements (ClearValue)
-
-We bound `IDependencyObject::ClearValue(DependencyProperty)` and base-class
-property statics. This gives us:
-
-- **Correct unset behavior** — ClearValue restores the XAML-declared default,
-  eliminating hardcoded magic values (e.g. `put_FontSize(14.0)`).
-- **Consolidated cross-control props** — IsEnabled went from 20 per-control
-  arms to 2 generic arms via interface cast.
-- **-64 lines**, **-18 match arms**, all tests pass, no perf regression.
-
-But this is incremental polish on a fundamentally complex architecture.
+**Readability is arguable.** 43 separate files vs one monolithic match. Individual
+files are readable, but finding a control now requires checking two places (handler
+file + set_prop residual for modifiers/events).
 
 ---
 
-## C# Descriptor Architecture (Reference)
+## C# Reference Architecture
 
-The C# reactor backend uses typed descriptors that eliminate the match entirely:
+The C# backend achieves all goals because it was designed from scratch with:
 
 ```csharp
-// ButtonDescriptor.cs — the ENTIRE backend for Button
 public static readonly ControlDescriptor<ButtonElement, Button> Descriptor =
     new ControlDescriptor<ButtonElement, Button>()
-        .OneWayConditional(
-            get:         e => e.Label,
-            set:         (c, v) => c.Content = v,
-            shouldWrite: e => e.ContentElement is null)
-        .OneWayConditional(
-            get:         e => e.IsEnabled,
-            set:         (c, v) => c.IsEnabled = v,
-            shouldWrite: e => !e.IsDisabledFocusable)
+        .OneWayConditional(get: e => e.Label, set: (c, v) => c.Content = v, ...)
         .HandCodedEvent<ButtonEventPayload, RoutedEventHandler>(
-            subscribe: (c, h) => c.Click += h,
-            ...);
+            subscribe: (c, h) => c.Click += h, ...);
 ```
 
-Key design principles:
-- **Typed element → typed control** — `ButtonElement` maps to `WinUI.Button`.
-  No enums, no type erasure.
-- **OneWayConditional** — `shouldWrite` predicate handles "unset" naturally.
-  When the predicate flips true→false, the framework calls ClearValue.
-- **Direct field comparison** — `Update()` compares `get(oldEl)` vs `get(newEl)`.
-  No Vec allocation, no linear scan.
-- **Self-contained per control** — each descriptor file is 20-60 lines with
-  complete coverage of that control's props.
+Key differences from our Rust attempt:
+- **Events are part of the descriptor** — no separate `bindings()` allocation.
+- **No intermediate enum types** — no `Prop`, `PropValue`, `Event`, `EventHandler`.
+- **Update() is zero-alloc** — descriptors compare old.Field vs new.Field directly.
+- **shouldWrite predicate** handles unset — no explicit ClearValue logic per-prop.
+- **~30 lines per control** — complete self-contained behavior.
 
 ---
 
-## Proposed Redesign: Typed Control Handlers
+## Root Cause Analysis
 
-### Core Idea
-
-Replace the type-erased `set_prop(id, Prop, PropValue)` with typed per-control
-handlers that receive the full widget struct and diff fields directly.
-
-### Architecture
+The Rust backend's complexity comes from **enum-based type erasure**:
 
 ```
-┌─────────────┐     ┌───────────────┐     ┌──────────────────┐
-│  Widget      │     │  Reconciler    │     │  Backend         │
-│  (Button)    │────▶│  update()      │────▶│  diff_widget()   │
-│  typed struct│     │  has old & new │     │  dispatch by kind│
-└─────────────┘     └───────────────┘     └──────────────────┘
-                                                    │
-                                           ┌────────┴────────┐
-                                           ▼                 ▼
-                                    button::diff()    text_block::diff()
-                                    typed handler     typed handler
+Widget struct → bindings() → Vec<Binding::Prop(Prop, PropValue)>
+                           → Vec<Binding::Event(Event, EventHandler)>
+                                         ↓
+            match (prop, value, handle) → ~300 arms
 ```
 
-### Backend Trait Change
-
-```rust
-pub trait Backend {
-    fn create(&mut self, kind: ControlKind) -> ControlId;
-
-    // NEW: typed widget diff — replaces set_prop for widget props
-    fn mount_widget(&mut self, id: ControlId, widget: &dyn Widget);
-    fn diff_widget(&mut self, id: ControlId, old: &dyn Widget, new: &dyn Widget);
-
-    // KEEP: for modifiers and attached props (cross-cutting concerns)
-    fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue);
-
-    // ... rest unchanged
-}
-```
-
-### Reconciler Change (one line)
-
-```rust
-// Before:
-fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
-    self.diff_props(id, &old.bindings(), &new.bindings());  // allocates 2 Vecs, linear scan
-    self.diff_modifiers(id, old.modifiers(), new.modifiers());
-    ...
-}
-
-// After:
-fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
-    self.backend.diff_widget(id, old, new);  // typed dispatch, zero allocation
-    self.diff_modifiers(id, old.modifiers(), new.modifiers());
-    ...
-}
-```
-
-### Widget Trait Addition
-
-```rust
-pub(crate) trait Widget: AsAny {
-    fn kind(&self) -> ControlKind;
-    fn key(&self) -> Option<&str>;
-    fn modifiers(&self) -> &Modifiers;
-    fn bindings(&self) -> PropBindings;  // keep for MockBackend/tests
-    // ...
-}
-
-// Enable downcasting
-trait AsAny {
-    fn as_any(&self) -> &dyn std::any::Any;
-}
-impl<T: 'static> AsAny for T {
-    fn as_any(&self) -> &dyn std::any::Any { self }
-}
-```
-
-### Per-Control Handler (example: Button)
-
-```rust
-// winui/backend/controls/button.rs
-use crate::core::widgets::Button;
-
-pub fn mount(btn: &Button, handle: &Handle) -> Result<()> {
-    let ctrl = handle.cast_inner::<Xaml::IContentControl>()?;
-    ctrl.put_Content(&IReference::from(btn.label.as_str()))?;
-
-    if !btn.is_enabled {
-        handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(false)?;
-    }
-    if btn.style != ButtonStyle::Default {
-        apply_button_style(handle, &btn.style)?;
-    }
-    // ... ~15 lines for all Button props
-    Ok(())
-}
-
-pub fn diff(old: &Button, new: &Button, handle: &Handle) -> Result<()> {
-    if new.label != old.label {
-        let ctrl = handle.cast_inner::<Xaml::IContentControl>()?;
-        ctrl.put_Content(&IReference::from(new.label.as_str()))?;
-    }
-    if new.is_enabled != old.is_enabled {
-        if new.is_enabled {
-            handle.clear_value(Xaml::Control::get_IsEnabledProperty()?)?;
-        } else {
-            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(false)?;
-        }
-    }
-    if new.style != old.style {
-        if new.style == ButtonStyle::Default {
-            clear_button_style(handle)?;
-        } else {
-            apply_button_style(handle, &new.style)?;
-        }
-    }
-    // ... ~30 lines total
-    Ok(())
-}
-```
-
-### WinUI Backend Dispatch
-
-```rust
-fn diff_widget(&mut self, id: ControlId, old: &dyn Widget, new: &dyn Widget) {
-    let handle = &self.handles[&id];
-    let result = match new.kind() {
-        ControlKind::Button => {
-            let old = old.as_any().downcast_ref::<Button>().unwrap();
-            let new = new.as_any().downcast_ref::<Button>().unwrap();
-            controls::button::diff(old, new, handle)
-        }
-        ControlKind::TextBlock => {
-            let old = old.as_any().downcast_ref::<TextBlock>().unwrap();
-            let new = new.as_any().downcast_ref::<TextBlock>().unwrap();
-            controls::text_block::diff(old, new, handle)
-        }
-        // ... one arm per control (~50 total, each 4 lines)
-    };
-    if let Err(e) = result {
-        diag::backend_error(id, e);
-    }
-}
-```
-
-### Benefits
-
-| Metric | Before (match) | After (typed handlers) |
-|--------|---------------|----------------------|
-| Backend LOC | ~4200 (one file) | ~2000 (50 files × ~40 lines) |
-| Match arms | ~300 | 50 (kind dispatch only) |
-| Allocs per render | 2 Vecs per widget | 0 |
-| Unset correctness | Manual per-arm | Structural (field comparison) |
-| Invalid states | Representable | Compile error |
-| Adding new prop | Find correct position in 4K match | Add field + 2 lines in handler |
-
-### Unset Handling
-
-With typed handlers, "unset" becomes natural:
-
-```rust
-// Old field had a value, new doesn't → clear
-if old.font_size.is_some() && new.font_size.is_none() {
-    handle.clear_value(Control::get_FontSizeProperty()?)?;
-}
-// New field has a value → set it
-if let Some(size) = new.font_size {
-    if new.font_size != old.font_size {
-        ctrl.put_FontSize(size)?;
-    }
-}
-```
-
-This pattern can be captured in a helper:
-
-```rust
-fn diff_opt<T: PartialEq>(
-    old: &Option<T>,
-    new: &Option<T>,
-    set: impl FnOnce(&T) -> Result<()>,
-    clear: impl FnOnce() -> Result<()>,
-) -> Result<()> {
-    match (old, new) {
-        (_, Some(v)) if old.as_ref() != Some(v) => set(v),
-        (Some(_), None) => clear(),
-        _ => Ok(()),
-    }
-}
-
-// Usage:
-diff_opt(&old.font_size, &new.font_size,
-    |v| ctrl.put_FontSize(*v),
-    || handle.clear_value(Control::get_FontSizeProperty()?),
-)?;
-```
-
-### Migration Path
-
-1. Add `AsAny` to Widget trait (backward compatible)
-2. Add `mount_widget` / `diff_widget` to Backend trait with default impls
-   that delegate to `bindings()` + `set_prop` (backward compatible)
-3. Implement typed handlers for 5 controls (TextBlock, Button, StackPanel,
-   Border, CheckBox) as proof of concept
-4. Verify perf improvement (expect measurable gain from zero-alloc diff)
-5. Migrate remaining controls one by one
-6. Once all migrated, remove `bindings()` from reconciler hot path
-   (keep for MockBackend assertions in tests)
-
-### Common Props via Trait
-
-Cross-cutting props (IsEnabled, Font*, Layout, Margin, etc.) get a shared
-trait impl to avoid repeating in every handler:
-
-```rust
-trait CommonProps {
-    fn diff_common(&self, old: &Modifiers, new: &Modifiers, handle: &Handle) -> Result<()>;
-}
-
-// Or simply a free function:
-fn diff_common_props(old: &Modifiers, new: &Modifiers, handle: &Handle) -> Result<()> {
-    diff_opt(&old.width, &new.width,
-        |v| handle.as_framework_element().cast::<IFrameworkElement>()?.put_Width(*v),
-        || handle.clear_value(FrameworkElement::get_WidthProperty()?),
-    )?;
-    // ... all Modifier-level props
-    Ok(())
-}
-```
-
-This mirrors how modifiers already work — they're cross-cutting and handled
-separately from per-control props.
+The typed handler approach tried to bypass the first half (props) while
+keeping the second half (events). This half-measure:
+- Added code without removing code
+- Didn't eliminate allocations
+- Created a dual-path system that's harder to reason about
 
 ---
 
-## What We Keep from ClearValue Work
+## What Would Actually Work
 
-The ClearValue bindings and property statics remain valuable in the new design:
-- Typed handlers still need ClearValue for "field went from Some to None"
-- Property statics are the correct way to identify what to clear
-- The consolidated interface-cast pattern (IControl, IDependencyObject) carries over
+### Option A: Complete the migration + add `fn events()` to Widget
+
+Split `bindings()` into `fn prop_bindings()` (only for unhandled controls) and
+`fn event_bindings()` (only events). For typed-handled controls, skip `bindings()`
+entirely and use a new `fn events(&self) -> &[(Event, Option<EventHandler>)]`
+that returns a **borrowed slice** (zero-alloc).
+
+**Effort:** Medium. Requires changing Widget trait + all 50 widget impls.
+**Gain:** Eliminates Vec allocation for typed-handled controls. ~10-15% reconcile speedup.
+**LOC:** Still +1500 lines total (handlers remain).
+
+### Option B: Descriptor-based architecture (C# port)
+
+Replace the entire Widget trait with a descriptor system:
+
+```rust
+struct PropDescriptor<W, T> {
+    get: fn(&W) -> &T,
+    set: fn(&T, &Handle) -> Result<()>,
+    clear: fn(&Handle) -> Result<()>,
+}
+
+struct EventDescriptor<W> {
+    get: fn(&W) -> Option<&EventHandler>,
+    attach: fn(&mut WinUIBackend, ControlId, EventHandler),
+    detach: fn(&mut WinUIBackend, ControlId),
+}
+```
+
+Each control becomes a static array of descriptors. The reconciler calls
+`descriptor.update(old_widget, new_widget, handle)` generically.
+
+**Effort:** Large. Requires rethinking Widget/Reconciler/Backend entirely.
+**Gain:** True zero-alloc, eliminates Prop/PropValue enums, ~30 lines per control.
+**LOC:** Would reduce total backend from 5772 to ~2000.
+
+### Option C: Keep typed handlers, just stop calling bindings() for handled controls
+
+The simplest incremental fix: when `handled == true`, skip event bindings scan
+entirely (events would need to be wired during mount and left alone, or use
+a separate lightweight event-comparison path).
+
+Most events are **stable** (set once, never changed). We could track "event
+attached" per-control and skip re-diffing.
+
+**Effort:** Small-medium. Add event-stable optimization.
+**Gain:** Eliminates most bindings() calls for interactive controls.
+**LOC:** −50 (remove event scanning for handled controls).
+
+### Recommendation
+
+**Option C first** (quick win), then **Option B** if we're doing a major version.
+
+The current branch is a halfway point that's worse than either extreme:
+- Worse than master (more code, same perf, dual dispatch)
+- Worse than a full descriptor rewrite (still has enum overhead)
 
 ---
 
-## Implementation Progress
+## Remaining in set_prop (unmigrated)
 
-### Phase 1: Typed handler proof of concept ✅
+These controls need `&self` access (event_revokers, handler maps):
+- Button / DropDownButton (flyout construction + handler wiring)
+- CommandBar (primary/secondary commands with click handlers)
+- NavigationView (30+ arms, menu items, handler maps)
+- TabView / TabViewItem (complex child/tab management)
+- ContentDialog (show/hide lifecycle, XamlRoot)
+- MenuBar (recursive menu building)
 
-- `controls/text_block.rs`, `controls/stack_panel.rs`, `controls/border.rs`
-- Dispatch macros `typed_mount!` / `typed_diff!`
-- Reconciler calls `backend.mount_widget()` / `backend.diff_widget()`
-- Widget trait requires `AsAny`; Backend trait has default fallback impls
+Plus cross-cutting modifier props (Foreground, FontSize, etc.) that
+come through the reconciler's `diff_modifiers` path.
 
-### Phase 2: Event-capable controls + high-use controls ✅
+---
 
-- `controls/check_box.rs`, `controls/toggle_switch.rs`, `controls/slider.rs`
-- `controls/text_box.rs`, `controls/grid.rs`
+## Decision Point
 
-### Phase 3: Remaining common controls + dead arm cleanup ✅
+Given the assessment above, the options are:
 
-- `controls/scroll_viewer.rs`, `controls/number_box.rs`
-- `controls/progress_bar.rs`, `controls/progress_ring.rs`, `controls/radio_button.rs`
-- `controls/expander.rs`, `controls/hyperlink_button.rs`
-- `controls/info_bar.rs`, `controls/password_box.rs`
-- Removed all dead `set_prop` match arms for migrated controls
-
-### Phase 4: Shapes, Pickers, and remaining controls ✅
-
-- `controls/shape.rs` — shared handler for Rectangle, Ellipse, Line
-- `controls/image.rs` — Image with BitmapImage/Uri creation
-- `controls/combo_box.rs` — ComboBox with item list management
-- `controls/rating_control.rs` — RatingControl
-- `controls/color_picker.rs` — ColorPicker with ARGB color
-- `controls/date_picker.rs`, `controls/time_picker.rs` — date/time pickers
-- `controls/auto_suggest_box.rs` — AutoSuggestBox with suggestion list
-
-**Event handling design:** Typed handlers manage props only. Events are always
-handled via the legacy `attach_event`/`detach_event` path using `bindings()`.
-The dispatch macros return a bool (`handled`); when true, prop bindings are
-skipped but event bindings are still processed.
-
-### Results (27 ControlKinds handled by 25 handlers)
-
-| Metric | Master | After | Change |
-|--------|--------|-------|--------|
-| Avg FPS | 41.2 | ~42–44 | **+3–7%** |
-| Avg Memory | 185 MB | 183 MB | **−2 MB** |
-| mod.rs LOC | 4247 | 3907 | **−340** |
-| controls/ LOC | 0 | 1410 | +1410 |
-| Total backend LOC | 4247 | 5317 | +1070 |
-
-**Note on LOC:** Total lines increase because typed handlers are more explicit
-(each field has clear set/clear logic vs compressed match arms). The gain is
-correctness and maintainability — impossible to forget Unset handling, each
-control self-contained and testable. The **real** LOC reduction comes when all
-controls migrate and we can remove the `bindings()`/Prop/PropValue infrastructure.
-
-### Next: Continue migration
-
-Remaining ~20 controls (of which ~10 are complex). Priority:
-1. Button (17 arms — most complex remaining, blocked on flyout architecture)
-2. TabView/TabViewItem, NavigationView (complex child management)
-3. ContentDialog (show/hide lifecycle)
-4. ListView/GridView/FlipView (virtualized collections)
-5. CalendarDatePicker, CalendarView, ListBox, SplitButton, etc.
-
-## Architecture Decisions
-
-1. **Fallback-first approach** — controls that haven't been migrated use the
-   old bindings-based path transparently. No big-bang rewrite needed.
-
-2. **AsAny for downcasting** — simpler than enum dispatch or double dispatch.
-   The kind() match ensures we downcast to the correct type.
-
-3. **Events stay in attach_event path** — typed handlers handle props only.
-   Events are always processed via `bindings()` regardless of whether the control
-   has a typed handler (the `handled` bool skips prop bindings but not event bindings).
-
-4. **Modifiers stay separate** — width/height/margin/etc. are cross-cutting
-   and handled by the reconciler's `diff_modifiers` path, not per-control.
+1. **Revert** — typed handlers add complexity without delivering perf gains
+2. **Complete Option C** — stop calling `bindings()` for typed controls (small fix, real gain)
+3. **Redesign with descriptors** — larger effort, delivers the C# architecture's benefits
 

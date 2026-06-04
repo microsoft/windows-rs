@@ -33,10 +33,8 @@ pub fn mount(w: &PasswordBox, handle: &Handle) -> windows_core::Result<()> {
 
 pub fn diff(old: &PasswordBox, new: &PasswordBox, handle: &Handle) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IPasswordBox>()?;
-    if new.value != old.value {
-        if p.get_Password().ok().as_deref() != Some(new.value.as_str()) {
-            p.put_Password(new.value.as_str())?;
-        }
+    if new.value != old.value && p.get_Password().ok().as_deref() != Some(new.value.as_str()) {
+        p.put_Password(new.value.as_str())?;
     }
     if new.placeholder != old.placeholder {
         match &new.placeholder {

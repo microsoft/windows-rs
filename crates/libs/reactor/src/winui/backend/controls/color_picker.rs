@@ -49,25 +49,25 @@ pub fn diff(
             B: new.color.b,
         })?;
     }
-    if old.is_alpha_enabled != new.is_alpha_enabled {
-        if let Some(v) = new.is_alpha_enabled {
-            cp.put_IsAlphaEnabled(v)?;
-        }
+    if old.is_alpha_enabled != new.is_alpha_enabled
+        && let Some(v) = new.is_alpha_enabled
+    {
+        cp.put_IsAlphaEnabled(v)?;
     }
-    if old.is_hex_input_visible != new.is_hex_input_visible {
-        if let Some(v) = new.is_hex_input_visible {
-            cp.put_IsHexInputVisible(v)?;
-        }
+    if old.is_hex_input_visible != new.is_hex_input_visible
+        && let Some(v) = new.is_hex_input_visible
+    {
+        cp.put_IsHexInputVisible(v)?;
     }
-    if old.is_color_slider_visible != new.is_color_slider_visible {
-        if let Some(v) = new.is_color_slider_visible {
-            cp.put_IsColorSliderVisible(v)?;
-        }
+    if old.is_color_slider_visible != new.is_color_slider_visible
+        && let Some(v) = new.is_color_slider_visible
+    {
+        cp.put_IsColorSliderVisible(v)?;
     }
-    if old.is_color_channel_text_input_visible != new.is_color_channel_text_input_visible {
-        if let Some(v) = new.is_color_channel_text_input_visible {
-            cp.put_IsColorChannelTextInputVisible(v)?;
-        }
+    if old.is_color_channel_text_input_visible != new.is_color_channel_text_input_visible
+        && let Some(v) = new.is_color_channel_text_input_visible
+    {
+        cp.put_IsColorChannelTextInputVisible(v)?;
     }
 
     Ok(true)

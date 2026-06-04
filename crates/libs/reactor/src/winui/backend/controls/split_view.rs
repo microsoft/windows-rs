@@ -37,15 +37,15 @@ pub fn diff(
     if old.is_pane_open != new.is_pane_open {
         sv.put_IsPaneOpen(new.is_pane_open)?;
     }
-    if old.open_pane_length != new.open_pane_length {
-        if let Some(len) = new.open_pane_length {
-            sv.put_OpenPaneLength(len)?;
-        }
+    if old.open_pane_length != new.open_pane_length
+        && let Some(len) = new.open_pane_length
+    {
+        sv.put_OpenPaneLength(len)?;
     }
-    if old.compact_pane_length != new.compact_pane_length {
-        if let Some(len) = new.compact_pane_length {
-            sv.put_CompactPaneLength(len)?;
-        }
+    if old.compact_pane_length != new.compact_pane_length
+        && let Some(len) = new.compact_pane_length
+    {
+        sv.put_CompactPaneLength(len)?;
     }
 
     Ok(true)

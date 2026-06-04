@@ -43,15 +43,12 @@ pub fn diff(old: &Slider, new: &Slider, handle: &Handle) -> windows_core::Result
         rb.put_Value(new.value)?;
     }
     if new.step != old.step {
-        match new.step {
-            Some(step) => {
-                sl.put_StepFrequency(step)?;
-                rb.put_SmallChange(step)?;
-            }
-            None => {
-                sl.put_StepFrequency(1.0)?;
-                rb.put_SmallChange(1.0)?;
-            }
+        if let Some(step) = new.step {
+            sl.put_StepFrequency(step)?;
+            rb.put_SmallChange(step)?;
+        } else {
+            sl.put_StepFrequency(1.0)?;
+            rb.put_SmallChange(1.0)?;
         }
     }
     if new.header != old.header {

@@ -32,10 +32,10 @@ pub fn diff(
     if old.items != new.items {
         set_items(lb, &new.items)?;
     }
-    if old.selected_index != new.selected_index {
-        if let Some(idx) = new.selected_index {
-            lb.cast::<Xaml::ISelector>()?.put_SelectedIndex(idx)?;
-        }
+    if old.selected_index != new.selected_index
+        && let Some(idx) = new.selected_index
+    {
+        lb.cast::<Xaml::ISelector>()?.put_SelectedIndex(idx)?;
     }
 
     Ok(true)

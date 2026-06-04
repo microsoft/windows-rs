@@ -41,10 +41,10 @@ pub fn diff(old: &RadioButtons, new: &RadioButtons, handle: &Handle) -> windows_
     if old.selected_index != new.selected_index {
         r.put_SelectedIndex(new.selected_index)?;
     }
-    if old.max_columns != new.max_columns {
-        if let Some(n) = new.max_columns {
-            r.put_MaxColumns(n)?;
-        }
+    if old.max_columns != new.max_columns
+        && let Some(n) = new.max_columns
+    {
+        r.put_MaxColumns(n)?;
     }
 
     Ok(true)

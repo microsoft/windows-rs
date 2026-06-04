@@ -27,15 +27,15 @@ pub fn diff(
         return Ok(false);
     };
 
-    if old.is_today_highlighted != new.is_today_highlighted {
-        if let Some(v) = new.is_today_highlighted {
-            cv.put_IsTodayHighlighted(v)?;
-        }
+    if old.is_today_highlighted != new.is_today_highlighted
+        && let Some(v) = new.is_today_highlighted
+    {
+        cv.put_IsTodayHighlighted(v)?;
     }
-    if old.is_group_label_visible != new.is_group_label_visible {
-        if let Some(v) = new.is_group_label_visible {
-            cv.put_IsGroupLabelVisible(v)?;
-        }
+    if old.is_group_label_visible != new.is_group_label_visible
+        && let Some(v) = new.is_group_label_visible
+    {
+        cv.put_IsGroupLabelVisible(v)?;
     }
 
     Ok(true)

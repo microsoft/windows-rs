@@ -1,6 +1,5 @@
 //! Typed handler for the `TimePicker` widget.
 
-use crate::bindings as Xaml;
 use crate::core::widgets::TimePickerWidget;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
@@ -38,15 +37,15 @@ pub fn diff(
             None => tp.put_Header(None)?,
         }
     }
-    if old.clock_identifier != new.clock_identifier {
-        if let Some(s) = &new.clock_identifier {
-            tp.put_ClockIdentifier(s.as_str())?;
-        }
+    if old.clock_identifier != new.clock_identifier
+        && let Some(s) = &new.clock_identifier
+    {
+        tp.put_ClockIdentifier(s.as_str())?;
     }
-    if old.minute_increment != new.minute_increment {
-        if let Some(v) = new.minute_increment {
-            tp.put_MinuteIncrement(v)?;
-        }
+    if old.minute_increment != new.minute_increment
+        && let Some(v) = new.minute_increment
+    {
+        tp.put_MinuteIncrement(v)?;
     }
 
     Ok(true)

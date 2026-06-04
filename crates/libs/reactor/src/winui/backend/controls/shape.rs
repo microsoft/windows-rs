@@ -54,22 +54,22 @@ pub fn diff(old: &Shape, new: &Shape, handle: &Handle) -> windows_core::Result<(
     if new.stroke_thickness != old.stroke_thickness {
         shape.put_StrokeThickness(new.stroke_thickness.unwrap_or(0.0))?;
     }
-    if new.corner_radius != old.corner_radius {
-        if let ShapeKind::Rectangle = new.kind {
-            let r = handle.cast_inner::<Xaml::IRectangle>()?;
-            let cr = new.corner_radius.unwrap_or(0.0);
-            r.put_RadiusX(cr)?;
-            r.put_RadiusY(cr)?;
-        }
+    if new.corner_radius != old.corner_radius
+        && let ShapeKind::Rectangle = new.kind
+    {
+        let r = handle.cast_inner::<Xaml::IRectangle>()?;
+        let cr = new.corner_radius.unwrap_or(0.0);
+        r.put_RadiusX(cr)?;
+        r.put_RadiusY(cr)?;
     }
-    if new.line != old.line {
-        if let ShapeKind::Line = new.kind {
-            let l = handle.cast_inner::<Xaml::ILine>()?;
-            l.put_X1(new.line.x1)?;
-            l.put_Y1(new.line.y1)?;
-            l.put_X2(new.line.x2)?;
-            l.put_Y2(new.line.y2)?;
-        }
+    if new.line != old.line
+        && let ShapeKind::Line = new.kind
+    {
+        let l = handle.cast_inner::<Xaml::ILine>()?;
+        l.put_X1(new.line.x1)?;
+        l.put_Y1(new.line.y1)?;
+        l.put_X2(new.line.x2)?;
+        l.put_Y2(new.line.y2)?;
     }
     Ok(())
 }

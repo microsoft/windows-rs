@@ -1,6 +1,5 @@
 //! Typed handler for the `CalendarDatePicker` widget.
 
-use crate::bindings as Xaml;
 use crate::core::widgets::CalendarDatePickerWidget;
 use crate::winui::backend::Handle;
 use crate::winui::backend::convert::string_as_textblock;
@@ -47,15 +46,15 @@ pub fn diff(
             None => cdp.put_PlaceholderText("")?,
         }
     }
-    if old.is_today_highlighted != new.is_today_highlighted {
-        if let Some(v) = new.is_today_highlighted {
-            cdp.put_IsTodayHighlighted(v)?;
-        }
+    if old.is_today_highlighted != new.is_today_highlighted
+        && let Some(v) = new.is_today_highlighted
+    {
+        cdp.put_IsTodayHighlighted(v)?;
     }
-    if old.is_calendar_open != new.is_calendar_open {
-        if let Some(v) = new.is_calendar_open {
-            cdp.put_IsCalendarOpen(v)?;
-        }
+    if old.is_calendar_open != new.is_calendar_open
+        && let Some(v) = new.is_calendar_open
+    {
+        cdp.put_IsCalendarOpen(v)?;
     }
 
     Ok(true)

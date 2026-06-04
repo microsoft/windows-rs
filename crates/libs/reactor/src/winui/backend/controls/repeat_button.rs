@@ -33,15 +33,15 @@ pub fn diff(old: &RepeatButton, new: &RepeatButton, handle: &Handle) -> windows_
         let tb = string_as_textblock(&new.content)?;
         b.cast::<Xaml::IContentControl>()?.put_Content(&tb)?;
     }
-    if old.delay != new.delay {
-        if let Some(ms) = new.delay {
-            b.put_Delay(ms)?;
-        }
+    if old.delay != new.delay
+        && let Some(ms) = new.delay
+    {
+        b.put_Delay(ms)?;
     }
-    if old.interval != new.interval {
-        if let Some(ms) = new.interval {
-            b.put_Interval(ms)?;
-        }
+    if old.interval != new.interval
+        && let Some(ms) = new.interval
+    {
+        b.put_Interval(ms)?;
     }
 
     Ok(true)
