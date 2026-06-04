@@ -4,7 +4,7 @@
 #![deny(unsafe_code)]
 
 mod bindings;
-pub use bindings::*;
+pub use bindings::{DateTime, TimeSpan};
 
 mod datetime;
 mod timespan;
