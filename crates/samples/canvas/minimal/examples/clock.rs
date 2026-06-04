@@ -19,6 +19,7 @@
 
 use std::cell::OnceCell;
 use windows_canvas::*;
+use windows_time::LocalTime;
 
 thread_local! {
     static HAND_STYLE: OnceCell<StrokeStyle> = const { OnceCell::new() };
@@ -62,25 +63,10 @@ fn draw(ctx: &DrawContext) {
     });
 
     // Current local time → angles in degrees (same math as D2D sample).
-    #[repr(C)]
-    struct SystemTime {
-        _year: u16,
-        _month: u16,
-        _dow: u16,
-        _day: u16,
-        hour: u16,
-        minute: u16,
-        second: u16,
-        millis: u16,
-    }
-    unsafe extern "system" {
-        fn GetLocalTime(st: *mut SystemTime);
-    }
-    let mut st = unsafe { std::mem::zeroed::<SystemTime>() };
-    unsafe { GetLocalTime(&mut st) };
-    let second_deg = (st.second as f32 + st.millis as f32 / 1000.0) * 6.0;
-    let minute_deg = st.minute as f32 * 6.0 + second_deg / 60.0;
-    let hour_deg = (st.hour % 12) as f32 * 30.0 + minute_deg / 12.0;
+    let t = LocalTime::now();
+    let second_deg = (t.second() as f32 + t.milliseconds() as f32 / 1000.0) * 6.0;
+    let minute_deg = t.minute() as f32 * 6.0 + second_deg / 60.0;
+    let hour_deg = (t.hour() % 12) as f32 * 30.0 + minute_deg / 12.0;
 
     // Second hand.
     ctx.with_transform(&(Matrix3x2::rotation(second_deg) * translation), || {
