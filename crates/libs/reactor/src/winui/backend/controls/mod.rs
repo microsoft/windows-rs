@@ -75,6 +75,7 @@ pub mod teaching_tip;
 pub mod text_block;
 pub mod text_box;
 pub mod time_picker;
+pub mod title_bar;
 pub mod toggle_button;
 pub mod toggle_switch;
 pub mod tree_view;

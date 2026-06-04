@@ -1072,6 +1072,7 @@ impl Backend for WinUIBackend {
                 MenuBar        => menu_bar::MenuBarWidget,
                 NavigationView => navigation_view::NavigationView,
                 TabView        => tab_view::TabView,
+                TitleBar       => title_bar::TitleBar,
             }
             props {
                 // Controls that handle props only (events still via bindings)
@@ -1155,6 +1156,7 @@ impl Backend for WinUIBackend {
                 MenuBar        => menu_bar::MenuBarWidget,
                 NavigationView => navigation_view::NavigationView,
                 TabView        => tab_view::TabView,
+                TitleBar       => title_bar::TitleBar,
             }
             props {
             }
@@ -1501,28 +1503,6 @@ impl Backend for WinUIBackend {
                 (Prop::TabItemKey, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tag = windows_reference::IReference::from(s.as_str());
                     ti.cast::<Xaml::IFrameworkElement>()?.put_Tag(&tag)
-                }
-                (Prop::TitleBarTitle, PropValue::Str(s), Handle::TitleBar(tb)) => {
-                    tb.put_Title(s.as_str())
-                }
-                (Prop::TitleBarSubtitle, PropValue::Str(s), Handle::TitleBar(tb)) => {
-                    tb.put_Subtitle(s.as_str())
-                }
-                (Prop::TitleBarSubtitle, PropValue::Unset, Handle::TitleBar(tb)) => {
-                    tb.put_Subtitle("")
-                }
-                (Prop::TitleBarTall, PropValue::Bool(v), Handle::TitleBar(_)) => {
-                    super::host::set_titlebar_height(*v);
-                    Ok(())
-                }
-                (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::TitleBar(tb)) => {
-                    tb.put_IsBackButtonVisible(*v)
-                }
-                (Prop::IsBackEnabled, PropValue::Bool(v), Handle::TitleBar(tb)) => {
-                    tb.put_IsBackButtonEnabled(*v)
-                }
-                (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::TitleBar(tb)) => {
-                    tb.put_IsPaneToggleButtonVisible(*v)
                 }
                 (Prop::PivotItemHeader, PropValue::Str(s), Handle::PivotItem(pi)) => {
                     let tb = string_as_textblock(s)?;

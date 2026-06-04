@@ -69,9 +69,9 @@ applies queued ops via `self.apply_event_ops(ctx)`.
 | Avg FPS (headless) | ~42 | ~42 | ≈ same |
 | Avg Reconcile | 5.3ms | 5.3ms | ≈ same |
 | Avg Diff | 4.1ms | 4.0ms | **−2%** |
-| mod.rs LOC | 4247 | 3945 | −302 |
-| controls/ LOC | 0 | 4241 | +4241 |
-| Total backend LOC | 4247 | 8186 | +93% (dual-path) |
+| mod.rs LOC | 4247 | 3421 | **−826 (−19%)** |
+| controls/ LOC | 0 | 4323 | +4323 |
+| Total backend LOC | 4247 | 7744 | +82% (dual-path) |
 
 ### Assessment
 
@@ -81,21 +81,20 @@ applies queued ops via `self.apply_event_ops(ctx)`.
 - ✅ Each control self-contained in one file (problem 4 solved)
 - ✅ Invalid states unrepresentable — typed fields, not enum triples (problem 5 solved)
 - ✅ Events correctly wired via EventCtx (functional tests pass)
-- ✅ Complex controls migrated: Button, DropDownButton, ContentDialog, CommandBar, MenuBar, NavigationView, TabView
+- ✅ Complex controls migrated: Button, DropDownButton, ContentDialog, CommandBar, MenuBar, NavigationView, TabView, TitleBar
 - ✅ EventCtx extended with StoreMenuHandler, StoreCbfHandler, StoreRevokers, ShowDialog, HideDialog
+- ✅ Dead set_prop arms removed for all migrated controls (−826 lines from mod.rs)
 
 **What doesn't work yet:**
-- ❌ Total LOC nearly doubled (dual paths still exist — set_prop arms not removed)
+- ❌ Total LOC increased 82% (dual paths: attach_event/detach_event still in mod.rs)
 - ❌ FPS improvement invisible in perf test (TextBlock-heavy, system load variance)
-- ❌ Legacy `set_prop` match still large (TitleBar, Canvas, modifiers remain)
-- ❌ `attach_event`/`detach_event` match still needed by EventOps dispatch
+- ❌ `attach_event`/`detach_event` match still needed by EventOps dispatch (~800 lines)
 
 ---
 
 ## What Remains
 
 ### Controls still in legacy path:
-- TitleBar (props + pane toggle/back events)
 - TabViewItem (child management — tab header/content/closable)
 - PivotItem (header only)
 - Canvas (purely structural — no bindings props)
@@ -107,6 +106,12 @@ applies queued ops via `self.apply_event_ops(ctx)`.
 ### Cross-cutting modifier props (Foreground, FontSize, Margin, etc.)
 These come through the reconciler's `diff_modifiers` path and apply via
 `set_prop` regardless of whether the control has a typed handler.
+
+### attach_event / detach_event (~800 lines)
+These match arms implement the actual WinUI event subscription logic.
+`apply_event_ops()` calls `self.attach_event()` which dispatches here.
+To remove them, subscription logic would need to move into the handlers
+directly (returning revokers via `EventCtx::store_revokers`).
 
 ---
 
@@ -141,11 +146,15 @@ The reduction path:
    - Potential savings: ~1000 lines from controls/
 
 **Projected end state:**
-| Component | Current | After cleanup |
-|-----------|---------|---------------|
-| mod.rs | 3945 | ~1500 (dispatch + infra + modifiers) |
-| controls/ | 4241 | ~3000 (after dead code removal) |
-| **Total** | **8186** | **~4500** |
+| Component | Current | After event inlining |
+|-----------|---------|---------------------|
+| mod.rs | 3421 | ~2600 (dispatch + infra + modifiers) |
+| controls/ | 4323 | ~5100 (handlers own subscriptions) |
+| **Total** | **7744** | **~7700** (net neutral, but better organized) |
+
+The next LOC win comes from eliminating the `Prop`/`PropValue`/`Event` enum
+indirection entirely — a descriptor-based approach like C#. That's a larger
+redesign beyond the current typed-handler iteration.
 
 ---
 
