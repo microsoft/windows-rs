@@ -94,7 +94,7 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Ele
         };
         border(
             hstack((
-                Image::new(image_uri.as_str())
+                Image::new_with_uri(image_uri.as_str())
                     .width(32.0)
                     .height(32.0)
                     .horizontal_alignment(HorizontalAlignment::Left)

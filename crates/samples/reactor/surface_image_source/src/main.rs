@@ -114,7 +114,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("SurfaceImageSource")
-        .render(app)
+    App::new().title("SurfaceImageSource").render(app)
 }

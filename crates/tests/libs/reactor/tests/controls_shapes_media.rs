@@ -127,7 +127,7 @@ fn shape_kind_change_remounts_control() {
 
 #[test]
 fn image_mounts_with_source_and_stretch() {
-    let el: Element = Image::new("ms-appx:///Assets/logo.png")
+    let el: Element = Image::new_with_uri("ms-appx:///Assets/logo.png")
         .stretch(ImageStretch::UniformToFill)
         .into();
     let r = mount(&el);
