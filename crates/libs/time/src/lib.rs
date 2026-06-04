@@ -7,10 +7,6 @@ mod bindings;
 pub use bindings::*;
 
 mod datetime;
-#[cfg(windows)]
-mod local_time;
 mod timespan;
 
-#[cfg(windows)]
-pub use local_time::LocalTime;
 pub use timespan::TimeRangeError;

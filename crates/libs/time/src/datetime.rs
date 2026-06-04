@@ -126,6 +126,102 @@ impl DateTime {
             Err(_) => Self::MAX,
         }
     }
+
+    /// Converts this `DateTime` from UTC to local time by applying the
+    /// system's current timezone offset (including DST adjustments).
+    ///
+    /// The returned `DateTime` has its ticks shifted so that the decomposition
+    /// methods (`year`, `month`, `day`, etc.) return local calendar values.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// use windows_time::DateTime;
+    ///
+    /// let local = DateTime::now().to_local();
+    /// println!("{:02}:{:02}:{:02}", local.hour(), local.minute(), local.second());
+    /// ```
+    #[cfg(windows)]
+    pub fn to_local(self) -> Self {
+        Self {
+            UniversalTime: local_time_sys::file_time_to_local(self.UniversalTime),
+        }
+    }
+
+    /// Decomposes this `DateTime` into (year, month, day, hour, minute, second,
+    /// milliseconds, day_of_week) based on its tick value.
+    const fn decompose(self) -> (i64, u32, u32, u32, u32, u32, u32, u32) {
+        let ticks = self.UniversalTime;
+        let unix_ticks = (ticks as i128) - (UNIX_EPOCH_TICKS as i128);
+        let ticks_per_day = TICKS_PER_DAY as i128;
+        let days = unix_ticks.div_euclid(ticks_per_day) as i64;
+        let intraday = unix_ticks.rem_euclid(ticks_per_day) as i64;
+        let (year, month, day) = civil_from_days(days);
+        let dow = day_of_week_from_days(days);
+
+        let secs = intraday / TICKS_PER_SECOND;
+        let subsec_ticks = intraday % TICKS_PER_SECOND;
+        let hour = (secs / 3_600) as u32;
+        let minute = ((secs % 3_600) / 60) as u32;
+        let second = (secs % 60) as u32;
+        let milliseconds = (subsec_ticks / 10_000) as u32;
+
+        (year, month, day, hour, minute, second, milliseconds, dow)
+    }
+
+    /// The year component of this `DateTime`.
+    pub const fn year(self) -> i64 {
+        self.decompose().0
+    }
+
+    /// The month component (1 = January, 12 = December).
+    pub const fn month(self) -> u32 {
+        self.decompose().1
+    }
+
+    /// The day of the month (1–31).
+    pub const fn day(self) -> u32 {
+        self.decompose().2
+    }
+
+    /// The hour (0–23).
+    pub const fn hour(self) -> u32 {
+        self.decompose().3
+    }
+
+    /// The minute (0–59).
+    pub const fn minute(self) -> u32 {
+        self.decompose().4
+    }
+
+    /// The second (0–59).
+    pub const fn second(self) -> u32 {
+        self.decompose().5
+    }
+
+    /// The milliseconds (0–999).
+    pub const fn milliseconds(self) -> u32 {
+        self.decompose().6
+    }
+
+    /// The day of the week (0 = Sunday, 6 = Saturday).
+    pub const fn day_of_week(self) -> u32 {
+        self.decompose().7
+    }
+}
+
+#[cfg(windows)]
+#[allow(unsafe_code)]
+mod local_time_sys {
+    windows_link::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime: *const i64, lplocalfiletime: *mut i64) -> i32);
+
+    pub fn file_time_to_local(utc_ticks: i64) -> i64 {
+        let mut local: i64 = 0;
+        // SAFETY: FileTimeToLocalFileTime always succeeds for valid FILETIME values.
+        // Both pointers are valid and properly aligned.
+        unsafe { FileTimeToLocalFileTime(&utc_ticks, &mut local) };
+        local
+    }
 }
 
 impl Eq for DateTime {}
@@ -188,6 +284,14 @@ impl core::ops::SubAssign<TimeSpan> for DateTime {
             .checked_sub(rhs.Duration)
             .expect("overflow when subtracting TimeSpan from DateTime");
     }
+}
+
+/// Weekday from a Unix-epoch day count. The Unix epoch (1970-01-01) was a
+/// Thursday (day 4). Result: 0 = Sunday, 6 = Saturday.
+const fn day_of_week_from_days(days: i64) -> u32 {
+    // (days + 4) gives Thu=0..Wed=6; remap so Sun=0.
+    // rem_euclid to handle negative days.
+    ((days + 4).rem_euclid(7)) as u32
 }
 
 /// Howard Hinnant's `civil_from_days`: converts a day-count from
