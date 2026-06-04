@@ -16,8 +16,8 @@ use windows_reactor::*;
 /// 1:1 mapping at 96 DPI.
 const SIZE: i32 = 256;
 
-/// Create a Direct2D device backed by a hardware (or WARP fallback) D3D11
-/// device, suitable for handing to a `SurfaceImageSource`.
+/// Create a Direct2D device backed by a hardware D3D11 device, suitable for
+/// handing to a `SurfaceImageSource`.
 fn create_d2d_device() -> windows::core::Result<ID2D1Device> {
     let mut d3d_device: Option<ID3D11Device> = None;
     unsafe {

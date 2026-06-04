@@ -4283,16 +4283,25 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         }
         Element::Image(img) => {
             let i = Xaml::Image::new().ok()?;
-            if let ImageSource::Uri(uri_str) = &img.source
-                && let Ok(uri) = Xaml::Uri::CreateUri(uri_str.as_str())
-                && let Ok(bmp) = Xaml::BitmapImage::new()
-            {
-                if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {
-                    let _ = ibmp.put_UriSource(&uri);
+            match &img.source {
+                ImageSource::Uri(uri_str) => {
+                    if let Ok(uri) = Xaml::Uri::CreateUri(uri_str.as_str())
+                        && let Ok(bmp) = Xaml::BitmapImage::new()
+                    {
+                        if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {
+                            let _ = ibmp.put_UriSource(&uri);
+                        }
+                        if let Ok(src) = bmp.cast::<Xaml::ImageSource>() {
+                            let _ = i.put_Source(&src);
+                        }
+                    }
                 }
-                if let Ok(src) = bmp.cast::<Xaml::ImageSource>() {
-                    let _ = i.put_Source(&src);
+                ImageSource::Surface(sis) => {
+                    if let Ok(src) = sis.image_source() {
+                        let _ = i.put_Source(&src);
+                    }
                 }
+                ImageSource::None => {}
             }
             i.cast::<Xaml::UIElement>().ok()
         }
