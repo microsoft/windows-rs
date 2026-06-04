@@ -35,28 +35,28 @@ pub fn diff(
     ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let ts = handle.cast_inner::<Xaml::IToggleSwitch>()?;
-
-    if new.is_on != old.is_on {
-        ts.put_IsOn(new.is_on)?;
-    }
-    if new.on_content != old.on_content {
-        match &new.on_content {
-            Some(s) => ts.put_OnContent(&string_as_textblock(s)?)?,
-            None => ts.put_OnContent(None)?,
-        }
-    }
-    if new.off_content != old.off_content {
-        match &new.off_content {
-            Some(s) => ts.put_OffContent(&string_as_textblock(s)?)?,
-            None => ts.put_OffContent(None)?,
-        }
-    }
-    if new.header != old.header {
-        match &new.header {
-            Some(s) => ts.put_Header(&string_as_textblock(s)?)?,
-            None => ts.put_Header(None)?,
-        }
-    }
+    super::diff_val!(old, new, is_on, ts.put_IsOn(new.is_on));
+    super::diff_opt!(
+        old,
+        new,
+        on_content,
+        |s| ts.put_OnContent(&string_as_textblock(s)?),
+        ts.put_OnContent(None)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        off_content,
+        |s| ts.put_OffContent(&string_as_textblock(s)?),
+        ts.put_OffContent(None)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| ts.put_Header(&string_as_textblock(s)?),
+        ts.put_Header(None)
+    );
     if new.is_enabled != old.is_enabled {
         if new.is_enabled {
             handle

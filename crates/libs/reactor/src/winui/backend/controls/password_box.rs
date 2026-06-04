@@ -48,24 +48,32 @@ pub fn diff(
     if new.value != old.value && p.get_Password().ok().as_deref() != Some(new.value.as_str()) {
         p.put_Password(new.value.as_str())?;
     }
-    if new.placeholder != old.placeholder {
-        match &new.placeholder {
-            Some(s) => p.put_PlaceholderText(s.as_str())?,
-            None => p.put_PlaceholderText("")?,
-        }
-    }
-    if new.header != old.header {
-        match &new.header {
-            Some(s) => p.put_Header(&string_as_textblock(s)?)?,
-            None => p.put_Header(None)?,
-        }
-    }
-    if new.reveal_mode != old.reveal_mode {
-        p.put_PasswordRevealMode(map_reveal_mode(new.reveal_mode))?;
-    }
-    if new.is_password_reveal_button_enabled != old.is_password_reveal_button_enabled {
-        p.put_IsPasswordRevealButtonEnabled(new.is_password_reveal_button_enabled)?;
-    }
+    super::diff_opt!(
+        old,
+        new,
+        placeholder,
+        |s| p.put_PlaceholderText(s.as_str()),
+        p.put_PlaceholderText("")
+    );
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| p.put_Header(&string_as_textblock(s)?),
+        p.put_Header(None)
+    );
+    super::diff_val!(
+        old,
+        new,
+        reveal_mode,
+        p.put_PasswordRevealMode(map_reveal_mode(new.reveal_mode))
+    );
+    super::diff_val!(
+        old,
+        new,
+        is_password_reveal_button_enabled,
+        p.put_IsPasswordRevealButtonEnabled(new.is_password_reveal_button_enabled)
+    );
     if new.is_enabled != old.is_enabled {
         if new.is_enabled {
             handle

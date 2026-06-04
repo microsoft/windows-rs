@@ -43,12 +43,13 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.header != new.header {
-        match &new.header {
-            Some(s) => tp.put_Header(&string_as_textblock(s)?)?,
-            None => tp.put_Header(None)?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| tp.put_Header(&string_as_textblock(s)?),
+        tp.put_Header(None)
+    );
     if old.clock_identifier != new.clock_identifier
         && let Some(s) = &new.clock_identifier
     {

@@ -68,11 +68,19 @@ pub fn diff(
             vec.Append(&cd)?;
         }
     }
-    if new.row_spacing != old.row_spacing {
-        g.put_RowSpacing(new.row_spacing.unwrap_or(0.0))?;
-    }
-    if new.column_spacing != old.column_spacing {
-        g.put_ColumnSpacing(new.column_spacing.unwrap_or(0.0))?;
-    }
+    super::diff_opt!(
+        old,
+        new,
+        row_spacing,
+        |v| g.put_RowSpacing(*v),
+        g.put_RowSpacing(0.0)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        column_spacing,
+        |v| g.put_ColumnSpacing(*v),
+        g.put_ColumnSpacing(0.0)
+    );
     Ok(())
 }

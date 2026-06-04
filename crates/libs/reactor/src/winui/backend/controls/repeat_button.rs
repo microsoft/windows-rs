@@ -41,10 +41,10 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.content != new.content {
+    super::diff_val!(old, new, content, {
         let tb = string_as_textblock(&new.content)?;
-        b.cast::<Xaml::IContentControl>()?.put_Content(&tb)?;
-    }
+        b.cast::<Xaml::IContentControl>()?.put_Content(&tb)
+    });
     if old.delay != new.delay
         && let Some(ms) = new.delay
     {

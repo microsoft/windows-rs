@@ -45,9 +45,7 @@ pub fn diff(
             None => e.put_Header(None)?,
         }
     }
-    if new.is_expanded != old.is_expanded {
-        e.put_IsExpanded(new.is_expanded)?;
-    }
+    super::diff_val!(old, new, is_expanded, e.put_IsExpanded(new.is_expanded));
     ctx.diff_event(
         &old.on_expanded,
         &new.on_expanded,

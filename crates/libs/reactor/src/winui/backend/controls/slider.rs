@@ -45,15 +45,9 @@ pub fn diff(
     let rb = handle.cast_inner::<Xaml::IRangeBase>()?;
     let sl = handle.cast_inner::<Xaml::ISlider>()?;
 
-    if new.minimum != old.minimum {
-        rb.put_Minimum(new.minimum)?;
-    }
-    if new.maximum != old.maximum {
-        rb.put_Maximum(new.maximum)?;
-    }
-    if new.value != old.value {
-        rb.put_Value(new.value)?;
-    }
+    super::diff_val!(old, new, minimum, rb.put_Minimum(new.minimum));
+    super::diff_val!(old, new, maximum, rb.put_Maximum(new.maximum));
+    super::diff_val!(old, new, value, rb.put_Value(new.value));
     if new.step != old.step {
         if let Some(step) = new.step {
             sl.put_StepFrequency(step)?;
@@ -63,12 +57,13 @@ pub fn diff(
             rb.put_SmallChange(1.0)?;
         }
     }
-    if new.header != old.header {
-        match &new.header {
-            Some(s) => sl.put_Header(&string_as_textblock(s)?)?,
-            None => sl.put_Header(None)?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| sl.put_Header(&string_as_textblock(s)?),
+        sl.put_Header(None)
+    );
     if new.vertical != old.vertical {
         let orient = if new.vertical {
             Xaml::Orientation::Vertical

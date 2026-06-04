@@ -39,27 +39,28 @@ pub fn diff(
     ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let n = handle.cast_inner::<Xaml::INumberBox>()?;
-    if new.value != old.value {
-        n.put_Value(new.value)?;
-    }
-    if new.minimum != old.minimum {
-        match new.minimum {
-            Some(v) => n.put_Minimum(v)?,
-            None => n.put_Minimum(f64::MIN)?,
-        }
-    }
-    if new.maximum != old.maximum {
-        match new.maximum {
-            Some(v) => n.put_Maximum(v)?,
-            None => n.put_Maximum(f64::MAX)?,
-        }
-    }
-    if new.header != old.header {
-        match &new.header {
-            Some(s) => n.put_Header(&string_as_textblock(s)?)?,
-            None => n.put_Header(None)?,
-        }
-    }
+    super::diff_val!(old, new, value, n.put_Value(new.value));
+    super::diff_opt!(
+        old,
+        new,
+        minimum,
+        |v| n.put_Minimum(*v),
+        n.put_Minimum(f64::MIN)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        maximum,
+        |v| n.put_Maximum(*v),
+        n.put_Maximum(f64::MAX)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| n.put_Header(&string_as_textblock(s)?),
+        n.put_Header(None)
+    );
     if new.is_enabled != old.is_enabled {
         if new.is_enabled {
             handle

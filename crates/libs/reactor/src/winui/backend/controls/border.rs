@@ -35,18 +35,18 @@ pub fn diff(
     _ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let b = handle.cast_inner::<Xaml::IBorder>()?;
-    if new.corner_radius != old.corner_radius {
-        if let Some(cr) = new.corner_radius {
-            b.put_CornerRadius(Xaml::CornerRadius {
-                TopLeft: cr,
-                TopRight: cr,
-                BottomRight: cr,
-                BottomLeft: cr,
-            })?;
-        } else {
-            b.put_CornerRadius(Xaml::CornerRadius::default())?;
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        corner_radius,
+        |cr| b.put_CornerRadius(Xaml::CornerRadius {
+            TopLeft: *cr,
+            TopRight: *cr,
+            BottomRight: *cr,
+            BottomLeft: *cr,
+        }),
+        b.put_CornerRadius(Xaml::CornerRadius::default())
+    );
     let old_brush = match &old.border_brush {
         Some(BrushBinding::Direct(br)) => Some(br),
         _ => None,
@@ -62,12 +62,12 @@ pub fn diff(
             b.put_BorderBrush(None)?;
         }
     }
-    if new.border_thickness != old.border_thickness {
-        if let Some(t) = new.border_thickness {
-            b.put_BorderThickness(to_xaml_thickness(t))?;
-        } else {
-            b.put_BorderThickness(to_xaml_thickness(Thickness::default()))?;
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        border_thickness,
+        |t| b.put_BorderThickness(to_xaml_thickness(*t)),
+        b.put_BorderThickness(to_xaml_thickness(Thickness::default()))
+    );
     Ok(())
 }

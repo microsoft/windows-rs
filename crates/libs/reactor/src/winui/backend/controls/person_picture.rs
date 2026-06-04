@@ -33,14 +33,20 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.display_name != new.display_name {
-        let s = new.display_name.as_deref().unwrap_or("");
-        pp.put_DisplayName(s)?;
-    }
-    if old.initials != new.initials {
-        let s = new.initials.as_deref().unwrap_or("");
-        pp.put_Initials(s)?;
-    }
+    super::diff_opt!(
+        old,
+        new,
+        display_name,
+        |s| pp.put_DisplayName(s.as_str()),
+        pp.put_DisplayName("")
+    );
+    super::diff_opt!(
+        old,
+        new,
+        initials,
+        |s| pp.put_Initials(s.as_str()),
+        pp.put_Initials("")
+    );
 
     Ok(())
 }

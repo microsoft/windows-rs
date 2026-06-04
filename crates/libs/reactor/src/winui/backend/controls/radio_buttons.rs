@@ -45,18 +45,22 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.header != new.header {
-        match &new.header {
-            Some(h) => r.put_Header(&string_as_textblock(h)?)?,
-            None => r.put_Header(None)?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |h| r.put_Header(&string_as_textblock(h)?),
+        r.put_Header(None)
+    );
     if old.items != new.items {
         set_items(r, &new.items)?;
     }
-    if old.selected_index != new.selected_index {
-        r.put_SelectedIndex(new.selected_index)?;
-    }
+    super::diff_val!(
+        old,
+        new,
+        selected_index,
+        r.put_SelectedIndex(new.selected_index)
+    );
     if old.max_columns != new.max_columns
         && let Some(n) = new.max_columns
     {

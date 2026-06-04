@@ -25,19 +25,22 @@ pub fn diff(
     _ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let sp = handle.cast_inner::<Xaml::IStackPanel>()?;
-    if new.vertical != old.vertical {
+    super::diff_val!(
+        old,
+        new,
+        vertical,
         sp.put_Orientation(if new.vertical {
             Xaml::Orientation::Vertical
         } else {
             Xaml::Orientation::Horizontal
-        })?;
-    }
-    if new.spacing != old.spacing {
-        if let Some(v) = new.spacing {
-            sp.put_Spacing(v)?;
-        } else {
-            sp.put_Spacing(0.0)?;
-        }
-    }
+        })
+    );
+    super::diff_opt!(
+        old,
+        new,
+        spacing,
+        |v| sp.put_Spacing(*v),
+        sp.put_Spacing(0.0)
+    );
     Ok(())
 }

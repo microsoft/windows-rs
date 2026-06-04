@@ -53,14 +53,17 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.color != new.color {
+    super::diff_val!(
+        old,
+        new,
+        color,
         cp.put_Color(Xaml::Color {
             A: new.color.a,
             R: new.color.r,
             G: new.color.g,
             B: new.color.b,
-        })?;
-    }
+        })
+    );
     if old.is_alpha_enabled != new.is_alpha_enabled
         && let Some(v) = new.is_alpha_enabled
     {

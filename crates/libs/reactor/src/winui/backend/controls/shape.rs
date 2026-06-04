@@ -45,21 +45,27 @@ pub fn diff(
     _ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let shape = handle.cast_inner::<Xaml::IShape>()?;
-    if new.fill != old.fill {
-        match &new.fill {
-            Some(b) => shape.put_Fill(&brush_of(b)?)?,
-            None => shape.put_Fill(None)?,
-        }
-    }
-    if new.stroke != old.stroke {
-        match &new.stroke {
-            Some(b) => shape.put_Stroke(&brush_of(b)?)?,
-            None => shape.put_Stroke(None)?,
-        }
-    }
-    if new.stroke_thickness != old.stroke_thickness {
-        shape.put_StrokeThickness(new.stroke_thickness.unwrap_or(0.0))?;
-    }
+    super::diff_opt!(
+        old,
+        new,
+        fill,
+        |b| shape.put_Fill(&brush_of(b)?),
+        shape.put_Fill(None)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        stroke,
+        |b| shape.put_Stroke(&brush_of(b)?),
+        shape.put_Stroke(None)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        stroke_thickness,
+        |st| shape.put_StrokeThickness(*st),
+        shape.put_StrokeThickness(0.0)
+    );
     if new.corner_radius != old.corner_radius
         && let ShapeKind::Rectangle = new.kind
     {

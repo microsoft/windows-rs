@@ -31,27 +31,28 @@ pub fn diff(
     ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let ib = handle.cast_inner::<Xaml::IInfoBar>()?;
-    if new.title != old.title {
-        match &new.title {
-            Some(t) => ib.put_Title(t.as_str())?,
-            None => ib.put_Title("")?,
-        }
-    }
-    if new.message != old.message {
-        match &new.message {
-            Some(m) => ib.put_Message(m.as_str())?,
-            None => ib.put_Message("")?,
-        }
-    }
-    if new.severity != old.severity {
-        ib.put_Severity(to_winui_info_bar_severity(new.severity))?;
-    }
-    if new.is_open != old.is_open {
-        ib.put_IsOpen(new.is_open)?;
-    }
-    if new.is_closable != old.is_closable {
-        ib.put_IsClosable(new.is_closable)?;
-    }
+    super::diff_opt!(
+        old,
+        new,
+        title,
+        |t| ib.put_Title(t.as_str()),
+        ib.put_Title("")
+    );
+    super::diff_opt!(
+        old,
+        new,
+        message,
+        |m| ib.put_Message(m.as_str()),
+        ib.put_Message("")
+    );
+    super::diff_val!(
+        old,
+        new,
+        severity,
+        ib.put_Severity(to_winui_info_bar_severity(new.severity))
+    );
+    super::diff_val!(old, new, is_open, ib.put_IsOpen(new.is_open));
+    super::diff_val!(old, new, is_closable, ib.put_IsClosable(new.is_closable));
     ctx.diff_event(
         &old.on_close,
         &new.on_close,

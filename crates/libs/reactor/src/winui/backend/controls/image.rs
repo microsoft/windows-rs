@@ -37,9 +37,7 @@ pub fn diff(
         }
     }
 
-    if old.stretch != new.stretch {
-        set_stretch(img, new.stretch)?;
-    }
+    super::diff_val!(old, new, stretch, set_stretch(img, new.stretch));
 
     Ok(())
 }

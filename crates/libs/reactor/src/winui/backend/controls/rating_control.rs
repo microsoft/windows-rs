@@ -47,28 +47,25 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.value != new.value {
-        r.put_Value(new.value)?;
-    }
+    super::diff_val!(old, new, value, r.put_Value(new.value));
     if old.max_rating != new.max_rating
         && let Some(max) = new.max_rating
     {
         r.put_MaxRating(max)?;
     }
-    if old.caption != new.caption {
-        match &new.caption {
-            Some(s) => r.put_Caption(s.as_str())?,
-            None => r.put_Caption("")?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        caption,
+        |s| r.put_Caption(s.as_str()),
+        r.put_Caption("")
+    );
     if old.placeholder_value != new.placeholder_value
         && let Some(v) = new.placeholder_value
     {
         r.put_PlaceholderValue(v)?;
     }
-    if old.is_read_only != new.is_read_only {
-        r.put_IsReadOnly(new.is_read_only)?;
-    }
+    super::diff_val!(old, new, is_read_only, r.put_IsReadOnly(new.is_read_only));
 
     ctx.diff_event(
         &old.on_changed,

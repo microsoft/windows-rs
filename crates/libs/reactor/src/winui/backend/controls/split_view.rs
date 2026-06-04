@@ -43,12 +43,13 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.display_mode != new.display_mode {
-        sv.put_DisplayMode(Xaml::SplitViewDisplayMode(new.display_mode as i32))?;
-    }
-    if old.is_pane_open != new.is_pane_open {
-        sv.put_IsPaneOpen(new.is_pane_open)?;
-    }
+    super::diff_val!(
+        old,
+        new,
+        display_mode,
+        sv.put_DisplayMode(Xaml::SplitViewDisplayMode(new.display_mode as i32))
+    );
+    super::diff_val!(old, new, is_pane_open, sv.put_IsPaneOpen(new.is_pane_open));
     if old.open_pane_length != new.open_pane_length
         && let Some(len) = new.open_pane_length
     {

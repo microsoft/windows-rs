@@ -29,12 +29,18 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.horizontal_scroll_bar_visibility != new.horizontal_scroll_bar_visibility {
-        set_h_vis(sv, new.horizontal_scroll_bar_visibility)?;
-    }
-    if old.vertical_scroll_bar_visibility != new.vertical_scroll_bar_visibility {
-        set_v_vis(sv, new.vertical_scroll_bar_visibility)?;
-    }
+    super::diff_val!(
+        old,
+        new,
+        horizontal_scroll_bar_visibility,
+        set_h_vis(sv, new.horizontal_scroll_bar_visibility)
+    );
+    super::diff_val!(
+        old,
+        new,
+        vertical_scroll_bar_visibility,
+        set_v_vis(sv, new.vertical_scroll_bar_visibility)
+    );
 
     Ok(())
 }

@@ -34,33 +34,36 @@ pub fn diff(
     let tb = handle.cast_inner::<Xaml::ITextBlock>()?;
     let dep = handle.cast_inner::<Xaml::IDependencyObject>()?;
 
-    if new.content != old.content {
-        tb.put_Text(new.content.as_str())?;
-    }
-    if new.font_size != old.font_size {
-        if let Some(v) = new.font_size {
-            tb.put_FontSize(v)?;
-        } else {
-            dep.ClearValue(&Xaml::TextBlock::get_FontSizeProperty()?)?;
-        }
-    }
-    if new.font_weight != old.font_weight {
-        if let Some(v) = new.font_weight {
-            tb.put_FontWeight(WinFontWeight { Weight: v })?;
-        } else {
-            dep.ClearValue(&Xaml::TextBlock::get_FontWeightProperty()?)?;
-        }
-    }
-    if new.wrap_text != old.wrap_text {
-        let mode = if new.wrap_text {
+    super::diff_val!(old, new, content, tb.put_Text(new.content.as_str()));
+    super::diff_opt!(
+        old,
+        new,
+        font_size,
+        |v| tb.put_FontSize(*v),
+        dep.ClearValue(&Xaml::TextBlock::get_FontSizeProperty()?)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        font_weight,
+        |v| tb.put_FontWeight(WinFontWeight { Weight: *v }),
+        dep.ClearValue(&Xaml::TextBlock::get_FontWeightProperty()?)
+    );
+    super::diff_val!(
+        old,
+        new,
+        wrap_text,
+        tb.put_TextWrapping(if new.wrap_text {
             Xaml::TextWrapping::Wrap
         } else {
             Xaml::TextWrapping::NoWrap
-        };
-        tb.put_TextWrapping(mode)?;
-    }
-    if new.is_text_selection_enabled != old.is_text_selection_enabled {
-        tb.put_IsTextSelectionEnabled(new.is_text_selection_enabled)?;
-    }
+        })
+    );
+    super::diff_val!(
+        old,
+        new,
+        is_text_selection_enabled,
+        tb.put_IsTextSelectionEnabled(new.is_text_selection_enabled)
+    );
     Ok(())
 }

@@ -24,15 +24,21 @@ pub fn diff(
     _ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
     let sv = handle.cast_inner::<Xaml::IScrollViewer>()?;
-    if new.horizontal_scroll_bar_visibility != old.horizontal_scroll_bar_visibility {
+    super::diff_val!(
+        old,
+        new,
+        horizontal_scroll_bar_visibility,
         sv.put_HorizontalScrollBarVisibility(to_xaml_scroll_visibility(
             new.horizontal_scroll_bar_visibility,
-        ))?;
-    }
-    if new.vertical_scroll_bar_visibility != old.vertical_scroll_bar_visibility {
+        ))
+    );
+    super::diff_val!(
+        old,
+        new,
+        vertical_scroll_bar_visibility,
         sv.put_VerticalScrollBarVisibility(to_xaml_scroll_visibility(
             new.vertical_scroll_bar_visibility,
-        ))?;
-    }
+        ))
+    );
     Ok(())
 }

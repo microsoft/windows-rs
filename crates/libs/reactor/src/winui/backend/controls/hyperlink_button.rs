@@ -33,19 +33,20 @@ pub fn diff(
     handle: &Handle,
     ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
-    if new.label != old.label {
+    super::diff_val!(old, new, label, {
         let txt = string_as_textblock(&new.label)?;
         handle
             .cast_inner::<Xaml::IContentControl>()?
-            .put_Content(&txt)?;
-    }
-    if new.navigate_uri != old.navigate_uri {
-        let h = handle.cast_inner::<Xaml::IHyperlinkButton>()?;
-        match &new.navigate_uri {
-            Some(uri) => h.put_NavigateUri(&Xaml::Uri::CreateUri(uri.as_str())?)?,
-            None => h.put_NavigateUri(None)?,
-        }
-    }
+            .put_Content(&txt)
+    });
+    let h = handle.cast_inner::<Xaml::IHyperlinkButton>()?;
+    super::diff_opt!(
+        old,
+        new,
+        navigate_uri,
+        |uri| h.put_NavigateUri(&Xaml::Uri::CreateUri(uri.as_str())?),
+        h.put_NavigateUri(None)
+    );
     if new.is_enabled != old.is_enabled {
         if new.is_enabled {
             handle

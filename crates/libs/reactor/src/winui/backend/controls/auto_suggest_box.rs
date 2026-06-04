@@ -71,22 +71,24 @@ pub fn diff(
         set_items(asb, &new.items)?;
     }
 
-    if old.placeholder != new.placeholder {
-        match &new.placeholder {
-            Some(ph) => asb.put_PlaceholderText(ph)?,
-            None => asb.put_PlaceholderText("")?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        placeholder,
+        |ph| asb.put_PlaceholderText(ph),
+        asb.put_PlaceholderText("")
+    );
 
-    if old.header != new.header {
-        match &new.header {
-            Some(hd) => {
-                let insp = windows_reference::IReference::from(hd.as_str());
-                asb.put_Header(&insp)?;
-            }
-            None => asb.put_Header(None)?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |hd| {
+            let insp = windows_reference::IReference::from(hd.as_str());
+            asb.put_Header(&insp)
+        },
+        asb.put_Header(None)
+    );
 
     ctx.diff_event(
         &old.on_text_changed,

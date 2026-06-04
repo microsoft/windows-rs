@@ -39,15 +39,17 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.content != new.content {
-        match &new.content {
-            Some(s) => {
-                let insp = windows_reference::IReference::from(s.as_str());
-                sb.cast::<Xaml::IContentControl>()?.put_Content(&insp)?;
-            }
-            None => sb.cast::<Xaml::IContentControl>()?.put_Content(None)?,
-        }
-    }
+    let cc = sb.cast::<Xaml::IContentControl>()?;
+    super::diff_opt!(
+        old,
+        new,
+        content,
+        |s| {
+            let insp = windows_reference::IReference::from(s.as_str());
+            cc.put_Content(&insp)
+        },
+        cc.put_Content(None)
+    );
 
     ctx.diff_event(
         &old.on_click,

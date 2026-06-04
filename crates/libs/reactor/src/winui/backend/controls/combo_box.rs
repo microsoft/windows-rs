@@ -50,28 +50,31 @@ pub fn diff(
         set_items(c, &new.items)?;
     }
 
-    if old.selected_index != new.selected_index {
+    super::diff_val!(
+        old,
+        new,
+        selected_index,
         c.cast::<Xaml::ISelector>()?
-            .put_SelectedIndex(new.selected_index)?;
-    }
+            .put_SelectedIndex(new.selected_index)
+    );
 
-    if old.header != new.header {
-        match &new.header {
-            Some(h) => c.put_Header(&string_as_textblock(h)?)?,
-            None => c.put_Header(None)?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |h| c.put_Header(&string_as_textblock(h)?),
+        c.put_Header(None)
+    );
 
-    if old.placeholder != new.placeholder {
-        match &new.placeholder {
-            Some(p) => c.put_PlaceholderText(p.as_str())?,
-            None => c.put_PlaceholderText("")?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        placeholder,
+        |p| c.put_PlaceholderText(p.as_str()),
+        c.put_PlaceholderText("")
+    );
 
-    if old.is_editable != new.is_editable {
-        c.put_IsEditable(new.is_editable)?;
-    }
+    super::diff_val!(old, new, is_editable, c.put_IsEditable(new.is_editable));
 
     ctx.diff_event(
         &old.on_selection_changed,

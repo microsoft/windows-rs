@@ -36,25 +36,30 @@ pub fn diff(
     handle: &Handle,
     ctx: &mut EventCtx,
 ) -> windows_core::Result<()> {
-    if new.label != old.label {
-        let cc = handle.cast_inner::<Xaml::IContentControl>()?;
-        match &new.label {
-            Some(s) => cc.put_Content(&string_as_textblock(s)?)?,
-            None => cc.put_Content(None)?,
-        }
-    }
-    if new.is_checked != old.is_checked {
+    let cc = handle.cast_inner::<Xaml::IContentControl>()?;
+    super::diff_opt!(
+        old,
+        new,
+        label,
+        |s| cc.put_Content(&string_as_textblock(s)?),
+        cc.put_Content(None)
+    );
+    super::diff_val!(
+        old,
+        new,
+        is_checked,
         handle
             .cast_inner::<Xaml::IToggleButton>()?
-            .put_IsChecked(Some(new.is_checked))?;
-    }
-    if new.group_name != old.group_name {
-        let r = handle.cast_inner::<Xaml::IRadioButton>()?;
-        match &new.group_name {
-            Some(g) => r.put_GroupName(g.as_str())?,
-            None => r.put_GroupName("")?,
-        }
-    }
+            .put_IsChecked(Some(new.is_checked))
+    );
+    let r = handle.cast_inner::<Xaml::IRadioButton>()?;
+    super::diff_opt!(
+        old,
+        new,
+        group_name,
+        |g| r.put_GroupName(g.as_str()),
+        r.put_GroupName("")
+    );
     if new.is_enabled != old.is_enabled {
         if new.is_enabled {
             handle

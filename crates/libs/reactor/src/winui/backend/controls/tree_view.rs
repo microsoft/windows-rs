@@ -40,9 +40,12 @@ pub fn diff(
     if old.nodes != new.nodes {
         set_nodes(tv, new)?;
     }
-    if old.selection_mode != new.selection_mode {
-        set_selection_mode(tv, new.selection_mode)?;
-    }
+    super::diff_val!(
+        old,
+        new,
+        selection_mode,
+        set_selection_mode(tv, new.selection_mode)
+    );
 
     ctx.diff_event(
         &old.on_item_invoked,

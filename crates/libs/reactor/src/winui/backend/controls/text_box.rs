@@ -45,29 +45,36 @@ pub fn diff(
             tb.put_Text(new.value.as_str())?;
         }
     }
-    if new.placeholder != old.placeholder {
-        match &new.placeholder {
-            Some(s) => tb.put_PlaceholderText(s.as_str())?,
-            None => tb.put_PlaceholderText("")?,
-        }
-    }
-    if new.header != old.header {
-        match &new.header {
-            Some(s) => tb.put_Header(&string_as_textblock(s)?)?,
-            None => tb.put_Header(None)?,
-        }
-    }
-    if new.accepts_return != old.accepts_return {
-        tb.put_AcceptsReturn(new.accepts_return)?;
-    }
-    if new.text_wrapping_wrap != old.text_wrapping_wrap {
-        let mode = if new.text_wrapping_wrap {
+    super::diff_opt!(
+        old,
+        new,
+        placeholder,
+        |s| tb.put_PlaceholderText(s.as_str()),
+        tb.put_PlaceholderText("")
+    );
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| tb.put_Header(&string_as_textblock(s)?),
+        tb.put_Header(None)
+    );
+    super::diff_val!(
+        old,
+        new,
+        accepts_return,
+        tb.put_AcceptsReturn(new.accepts_return)
+    );
+    super::diff_val!(
+        old,
+        new,
+        text_wrapping_wrap,
+        tb.put_TextWrapping(if new.text_wrapping_wrap {
             Xaml::TextWrapping::Wrap
         } else {
             Xaml::TextWrapping::NoWrap
-        };
-        tb.put_TextWrapping(mode)?;
-    }
+        })
+    );
     if new.is_enabled != old.is_enabled {
         if new.is_enabled {
             handle

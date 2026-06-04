@@ -56,21 +56,21 @@ pub fn diff(
             doc.SetText(Xaml::TextSetOptions::None, new.text.as_str())?;
         }
     }
-    if old.placeholder != new.placeholder {
-        match &new.placeholder {
-            Some(ph) => reb.put_PlaceholderText(ph.as_str())?,
-            None => reb.put_PlaceholderText("")?,
-        }
-    }
-    if old.header != new.header {
-        match &new.header {
-            Some(hd) => reb.put_Header(&string_as_textblock(hd)?)?,
-            None => reb.put_Header(None)?,
-        }
-    }
-    if old.is_read_only != new.is_read_only {
-        reb.put_IsReadOnly(new.is_read_only)?;
-    }
+    super::diff_opt!(
+        old,
+        new,
+        placeholder,
+        |ph| reb.put_PlaceholderText(ph.as_str()),
+        reb.put_PlaceholderText("")
+    );
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |hd| reb.put_Header(&string_as_textblock(hd)?),
+        reb.put_Header(None)
+    );
+    super::diff_val!(old, new, is_read_only, reb.put_IsReadOnly(new.is_read_only));
 
     ctx.diff_event(
         &old.on_changed,

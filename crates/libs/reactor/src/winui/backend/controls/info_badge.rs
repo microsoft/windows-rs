@@ -25,10 +25,7 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.value != new.value {
-        let v = new.value.unwrap_or(-1);
-        ib.put_Value(v)?;
-    }
+    super::diff_val!(old, new, value, ib.put_Value(new.value.unwrap_or(-1)));
 
     Ok(())
 }

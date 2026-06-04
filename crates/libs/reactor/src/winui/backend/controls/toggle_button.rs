@@ -41,14 +41,17 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.is_checked != new.is_checked {
+    super::diff_val!(
+        old,
+        new,
+        is_checked,
         tb.cast::<Xaml::IToggleButton>()?
-            .put_IsChecked(Some(new.is_checked))?;
-    }
-    if old.label != new.label {
+            .put_IsChecked(Some(new.is_checked))
+    );
+    super::diff_val!(old, new, label, {
         let label_tb = string_as_textblock(&new.label)?;
-        tb.cast::<Xaml::IContentControl>()?.put_Content(&label_tb)?;
-    }
+        tb.cast::<Xaml::IContentControl>()?.put_Content(&label_tb)
+    });
 
     ctx.diff_event(
         &old.on_changed,

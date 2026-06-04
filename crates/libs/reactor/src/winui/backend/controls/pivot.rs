@@ -35,15 +35,19 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.selected_index != new.selected_index {
-        p.put_SelectedIndex(new.selected_index)?;
-    }
-    if old.title != new.title {
-        match &new.title {
-            Some(t) => p.put_Title(&string_as_textblock(t)?)?,
-            None => p.put_Title(None)?,
-        }
-    }
+    super::diff_val!(
+        old,
+        new,
+        selected_index,
+        p.put_SelectedIndex(new.selected_index)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        title,
+        |t| p.put_Title(&string_as_textblock(t)?),
+        p.put_Title(None)
+    );
 
     ctx.diff_event(
         &old.on_selection_changed,

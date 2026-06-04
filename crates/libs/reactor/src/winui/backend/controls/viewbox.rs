@@ -24,9 +24,7 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.stretch != new.stretch {
-        set_stretch(vb, new.stretch)?;
-    }
+    super::diff_val!(old, new, stretch, set_stretch(vb, new.stretch));
 
     Ok(())
 }

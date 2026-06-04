@@ -26,17 +26,14 @@ pub fn diff(
 ) -> windows_core::Result<()> {
     let p = handle.cast_inner::<Xaml::IProgressBar>()?;
     let rb = p.cast::<Xaml::IRangeBase>()?;
-    if new.minimum != old.minimum {
-        rb.put_Minimum(new.minimum)?;
-    }
-    if new.maximum != old.maximum {
-        rb.put_Maximum(new.maximum)?;
-    }
-    if new.value != old.value {
-        rb.put_Value(new.value)?;
-    }
-    if new.is_indeterminate != old.is_indeterminate {
-        p.put_IsIndeterminate(new.is_indeterminate)?;
-    }
+    super::diff_val!(old, new, minimum, rb.put_Minimum(new.minimum));
+    super::diff_val!(old, new, maximum, rb.put_Maximum(new.maximum));
+    super::diff_val!(old, new, value, rb.put_Value(new.value));
+    super::diff_val!(
+        old,
+        new,
+        is_indeterminate,
+        p.put_IsIndeterminate(new.is_indeterminate)
+    );
     Ok(())
 }

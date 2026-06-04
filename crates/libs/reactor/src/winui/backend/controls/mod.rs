@@ -4,6 +4,31 @@
 
 pub(crate) use super::EventCtx;
 
+/// Diff a required (non-Option) field. Calls `$set` when the value changed.
+macro_rules! diff_val {
+    ($old:expr, $new:expr, $field:ident, $set:expr) => {
+        if $new.$field != $old.$field {
+            $set?;
+        }
+    };
+}
+
+/// Diff an `Option<T>` field. Calls `$set` when Some (binding `v`), `$clear` when None.
+macro_rules! diff_opt {
+    ($old:expr, $new:expr, $field:ident, |$v:ident| $set:expr, $clear:expr) => {
+        if $old.$field != $new.$field {
+            if let Some($v) = &$new.$field {
+                $set?;
+            } else {
+                $clear?;
+            }
+        }
+    };
+}
+
+pub(crate) use diff_opt;
+pub(crate) use diff_val;
+
 pub mod auto_suggest_box;
 pub mod border;
 pub mod breadcrumb_bar;

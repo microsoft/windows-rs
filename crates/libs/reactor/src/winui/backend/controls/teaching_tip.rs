@@ -70,50 +70,55 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.title != new.title {
-        tt.put_Title(&new.title)?;
-    }
-    if old.subtitle != new.subtitle {
-        match &new.subtitle {
-            Some(sub) => tt.put_Subtitle(sub.as_str())?,
-            None => tt.put_Subtitle("")?,
-        }
-    }
-    if old.is_open != new.is_open {
-        tt.put_IsOpen(new.is_open)?;
-    }
-    if old.is_light_dismiss_enabled != new.is_light_dismiss_enabled {
-        tt.put_IsLightDismissEnabled(new.is_light_dismiss_enabled)?;
-    }
-    if old.preferred_placement != new.preferred_placement {
-        set_placement(tt, new.preferred_placement)?;
-    }
-    if old.action_button_text != new.action_button_text {
-        match &new.action_button_text {
-            Some(text) => {
-                let boxed: windows_core::IInspectable =
-                    windows_reference::IReference::<windows_core::HSTRING>::from(
-                        windows_core::HSTRING::from(text.as_str()),
-                    )
-                    .cast()?;
-                tt.put_ActionButtonContent(&boxed)?;
-            }
-            None => tt.put_ActionButtonContent(None)?,
-        }
-    }
-    if old.close_button_text != new.close_button_text {
-        match &new.close_button_text {
-            Some(text) => {
-                let boxed: windows_core::IInspectable =
-                    windows_reference::IReference::<windows_core::HSTRING>::from(
-                        windows_core::HSTRING::from(text.as_str()),
-                    )
-                    .cast()?;
-                tt.put_CloseButtonContent(&boxed)?;
-            }
-            None => tt.put_CloseButtonContent(None)?,
-        }
-    }
+    super::diff_val!(old, new, title, tt.put_Title(&new.title));
+    super::diff_opt!(
+        old,
+        new,
+        subtitle,
+        |sub| tt.put_Subtitle(sub.as_str()),
+        tt.put_Subtitle("")
+    );
+    super::diff_val!(old, new, is_open, tt.put_IsOpen(new.is_open));
+    super::diff_val!(
+        old,
+        new,
+        is_light_dismiss_enabled,
+        tt.put_IsLightDismissEnabled(new.is_light_dismiss_enabled)
+    );
+    super::diff_val!(
+        old,
+        new,
+        preferred_placement,
+        set_placement(tt, new.preferred_placement)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        action_button_text,
+        |text| {
+            let boxed: windows_core::IInspectable =
+                windows_reference::IReference::<windows_core::HSTRING>::from(
+                    windows_core::HSTRING::from(text.as_str()),
+                )
+                .cast()?;
+            tt.put_ActionButtonContent(&boxed)
+        },
+        tt.put_ActionButtonContent(None)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        close_button_text,
+        |text| {
+            let boxed: windows_core::IInspectable =
+                windows_reference::IReference::<windows_core::HSTRING>::from(
+                    windows_core::HSTRING::from(text.as_str()),
+                )
+                .cast()?;
+            tt.put_CloseButtonContent(&boxed)
+        },
+        tt.put_CloseButtonContent(None)
+    );
 
     ctx.diff_event(
         &old.on_closed,

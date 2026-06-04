@@ -46,12 +46,13 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.header != new.header {
-        match &new.header {
-            Some(s) => dp.put_Header(&string_as_textblock(s)?)?,
-            None => dp.put_Header(None)?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| dp.put_Header(&string_as_textblock(s)?),
+        dp.put_Header(None)
+    );
     if old.day_visible != new.day_visible
         && let Some(v) = new.day_visible
     {

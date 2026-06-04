@@ -44,18 +44,20 @@ pub fn diff(
         return Ok(());
     };
 
-    if old.header != new.header {
-        match &new.header {
-            Some(s) => cdp.put_Header(&string_as_textblock(s)?)?,
-            None => cdp.put_Header(None)?,
-        }
-    }
-    if old.placeholder_text != new.placeholder_text {
-        match &new.placeholder_text {
-            Some(s) => cdp.put_PlaceholderText(s.as_str())?,
-            None => cdp.put_PlaceholderText("")?,
-        }
-    }
+    super::diff_opt!(
+        old,
+        new,
+        header,
+        |s| cdp.put_Header(&string_as_textblock(s)?),
+        cdp.put_Header(None)
+    );
+    super::diff_opt!(
+        old,
+        new,
+        placeholder_text,
+        |s| cdp.put_PlaceholderText(s.as_str()),
+        cdp.put_PlaceholderText("")
+    );
     if old.is_today_highlighted != new.is_today_highlighted
         && let Some(v) = new.is_today_highlighted
     {
