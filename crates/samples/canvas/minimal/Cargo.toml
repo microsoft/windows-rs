@@ -10,6 +10,7 @@ windows-reactor = { workspace = true }
 
 [dev-dependencies]
 windows-numerics = { workspace = true, features = ["std"] }
+windows-time = { workspace = true }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

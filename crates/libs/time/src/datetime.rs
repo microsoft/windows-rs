@@ -1,4 +1,3 @@
-use super::timespan::*;
 use super::*;
 
 /// Number of seconds between 1601-01-01 UTC (the `DateTime` epoch) and
@@ -126,6 +125,100 @@ impl DateTime {
             Err(_) => Self::MAX,
         }
     }
+
+    /// Converts this `DateTime` from UTC to local time by applying the
+    /// system's current timezone offset (including DST adjustments).
+    ///
+    /// The returned `DateTime` has its ticks shifted so that the decomposition
+    /// methods (`year`, `month`, `day`, etc.) return local calendar values.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// use windows_time::DateTime;
+    ///
+    /// let local = DateTime::now().to_local();
+    /// println!("{:02}:{:02}:{:02}", local.hour(), local.minute(), local.second());
+    /// ```
+    #[cfg(windows)]
+    pub fn to_local(self) -> Self {
+        let ticks = self.UniversalTime as u64;
+        let utc = FILETIME {
+            dwLowDateTime: ticks as u32,
+            dwHighDateTime: (ticks >> 32) as u32,
+        };
+        let mut local = FILETIME::default();
+        // SAFETY: Both pointers are valid, aligned FILETIME values on the stack.
+        // FileTimeToLocalFileTime cannot fail with valid pointers.
+        unsafe {
+            _ = FileTimeToLocalFileTime(&utc, &mut local);
+        }
+        Self {
+            UniversalTime: local.dwLowDateTime as u64 as i64
+                | (local.dwHighDateTime as u64 as i64) << 32,
+        }
+    }
+
+    /// Decomposes this `DateTime` into (year, month, day, hour, minute, second,
+    /// milliseconds, day_of_week) based on its tick value.
+    const fn decompose(self) -> (i64, u32, u32, u32, u32, u32, u32, u32) {
+        let ticks = self.UniversalTime;
+        let unix_ticks = (ticks as i128) - (UNIX_EPOCH_TICKS as i128);
+        let ticks_per_day = TICKS_PER_DAY as i128;
+        let days = unix_ticks.div_euclid(ticks_per_day) as i64;
+        let intraday = unix_ticks.rem_euclid(ticks_per_day) as i64;
+        let (year, month, day) = civil_from_days(days);
+        let dow = day_of_week_from_days(days);
+
+        let secs = intraday / TICKS_PER_SECOND;
+        let subsec_ticks = intraday % TICKS_PER_SECOND;
+        let hour = (secs / 3_600) as u32;
+        let minute = ((secs % 3_600) / 60) as u32;
+        let second = (secs % 60) as u32;
+        let milliseconds = (subsec_ticks / 10_000) as u32;
+
+        (year, month, day, hour, minute, second, milliseconds, dow)
+    }
+
+    /// The year component of this `DateTime`.
+    pub const fn year(self) -> i64 {
+        self.decompose().0
+    }
+
+    /// The month component (1 = January, 12 = December).
+    pub const fn month(self) -> u32 {
+        self.decompose().1
+    }
+
+    /// The day of the month (1–31).
+    pub const fn day(self) -> u32 {
+        self.decompose().2
+    }
+
+    /// The hour (0–23).
+    pub const fn hour(self) -> u32 {
+        self.decompose().3
+    }
+
+    /// The minute (0–59).
+    pub const fn minute(self) -> u32 {
+        self.decompose().4
+    }
+
+    /// The second (0–59).
+    pub const fn second(self) -> u32 {
+        self.decompose().5
+    }
+
+    /// The milliseconds (0–999).
+    pub const fn milliseconds(self) -> u32 {
+        self.decompose().6
+    }
+
+    /// The day of the week (0 = Sunday, 6 = Saturday).
+    pub const fn day_of_week(self) -> u32 {
+        self.decompose().7
+    }
 }
 
 impl Eq for DateTime {}
@@ -188,6 +281,14 @@ impl core::ops::SubAssign<TimeSpan> for DateTime {
             .checked_sub(rhs.Duration)
             .expect("overflow when subtracting TimeSpan from DateTime");
     }
+}
+
+/// Weekday from a Unix-epoch day count. The Unix epoch (1970-01-01) was a
+/// Thursday (day 4). Result: 0 = Sunday, 6 = Saturday.
+const fn day_of_week_from_days(days: i64) -> u32 {
+    // The Unix epoch is Thursday. Adding 4 shifts so that day 0 maps to 4 (Thursday)
+    // with 0 = Sunday. rem_euclid handles negative days correctly.
+    ((days + 4).rem_euclid(7)) as u32
 }
 
 /// Howard Hinnant's `civil_from_days`: converts a day-count from
