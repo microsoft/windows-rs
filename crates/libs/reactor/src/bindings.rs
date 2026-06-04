@@ -14972,6 +14972,119 @@ pub struct IStyle_Vtbl {
     Seal: usize,
 }
 windows_core::imp::define_interface!(
+    ISurfaceImageSource,
+    ISurfaceImageSource_Vtbl,
+    0xac078d9c_d0e0_5ff9_b73e_98e82e4c8d36
+);
+impl windows_core::RuntimeType for ISurfaceImageSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISurfaceImageSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ISurfaceImageSourceFactory,
+    ISurfaceImageSourceFactory_Vtbl,
+    0x09a26ed2_11b3_5ef1_ac56_20d064ccca34
+);
+impl windows_core::RuntimeType for ISurfaceImageSourceFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISurfaceImageSourceFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstanceWithDimensions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        i32,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    CreateInstanceWithDimensionsAndOpacity: usize,
+}
+windows_core::imp::define_interface!(
+    ISurfaceImageSourceNativeWithD2D,
+    ISurfaceImageSourceNativeWithD2D_Vtbl,
+    0x54298223_41e1_4a41_9c08_02e8256864a1
+);
+windows_core::imp::interface_hierarchy!(ISurfaceImageSourceNativeWithD2D, windows_core::IUnknown);
+impl ISurfaceImageSourceNativeWithD2D {
+    pub unsafe fn SetDevice(&self, device: *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDevice)(
+                windows_core::Interface::as_raw(self),
+                device as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn BeginDraw(
+        &self,
+        updaterect: *const RECT,
+        iid: *const windows_core::GUID,
+        updateobject: *mut *mut core::ffi::c_void,
+        offset: *mut POINT,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginDraw)(
+                windows_core::Interface::as_raw(self),
+                updaterect,
+                iid,
+                updateobject as _,
+                offset as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+    pub unsafe fn SuspendDraw(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SuspendDraw)(windows_core::Interface::as_raw(
+                self,
+            ))
+            .ok()
+        }
+    }
+    pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(
+                self,
+            ))
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetDevice: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub BeginDraw: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const RECT,
+        *const windows_core::GUID,
+        *mut *mut core::ffi::c_void,
+        *mut POINT,
+    ) -> windows_core::HRESULT,
+    pub EndDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SuspendDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResumeDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ISwapChainPanel,
     ISwapChainPanel_Vtbl,
     0x08844f85_aa1b_540d_bef2_b2bb7b257f8c
@@ -21059,6 +21172,12 @@ pub struct PACKAGE_VERSION_0_0 {
     pub Minor: u16,
     pub Major: u16,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Panel(windows_core::IUnknown);
@@ -24021,6 +24140,89 @@ impl windows_core::RuntimeName for Style {
 }
 unsafe impl Send for Style {}
 unsafe impl Sync for Style {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SurfaceImageSource(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SurfaceImageSource,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(SurfaceImageSource, ImageSource, DependencyObject);
+impl SurfaceImageSource {
+    pub fn CreateInstanceWithDimensions(
+        pixelwidth: i32,
+        pixelheight: i32,
+    ) -> windows_core::Result<SurfaceImageSource> {
+        Self::ISurfaceImageSourceFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstanceWithDimensions)(
+                windows_core::Interface::as_raw(this),
+                pixelwidth,
+                pixelheight,
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstanceWithDimensions_compose<T>(
+        pixelwidth: i32,
+        pixelheight: i32,
+        compose: T,
+    ) -> windows_core::Result<SurfaceImageSource>
+    where
+        T: windows_core::Compose,
+    {
+        Self::ISurfaceImageSourceFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstanceWithDimensions)(
+                windows_core::Interface::as_raw(this),
+                pixelwidth,
+                pixelheight,
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
+        })
+    }
+    fn ISurfaceImageSourceFactory<
+        R,
+        F: FnOnce(&ISurfaceImageSourceFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            SurfaceImageSource,
+            ISurfaceImageSourceFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SurfaceImageSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISurfaceImageSource>();
+}
+unsafe impl windows_core::Interface for SurfaceImageSource {
+    type Vtable = <ISurfaceImageSource as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISurfaceImageSource as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for SurfaceImageSource {
+    type Target = ISurfaceImageSource;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SurfaceImageSource {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource";
+}
+unsafe impl Send for SurfaceImageSource {}
+unsafe impl Sync for SurfaceImageSource {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SwapChainPanel(windows_core::IUnknown);

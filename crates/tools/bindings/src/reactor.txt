@@ -1,5 +1,6 @@
 extras.IWindowNative::{get_WindowHandle}
 extras.ISwapChainPanelNative::{SetSwapChain}
+extras.ISurfaceImageSourceNativeWithD2D::{SetDevice, BeginDraw, EndDraw, SuspendDraw, ResumeDraw}
 extras.MddBootstrapInitialize2
 extras.MddBootstrapInitializeOptions
 extras.MddBootstrapInitializeOptions_OnNoMatch_ShowUI
@@ -336,6 +337,7 @@ Microsoft.UI.Xaml.Media.FontFamily::{CreateInstanceWithName}
 Microsoft.UI.Xaml.Media.ImageSource
 Microsoft.UI.Xaml.Media.Imaging.BitmapImage
 Microsoft.UI.Xaml.Media.Imaging.IBitmapImage::{put_UriSource}
+Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource::{CreateInstanceWithDimensions}
 Microsoft.UI.Xaml.Media.IMicaBackdrop::{put_Kind}
 Microsoft.UI.Xaml.Media.ISolidColorBrush::{put_Color}
 Microsoft.UI.Xaml.Media.MicaBackdrop::{CreateInstance}
