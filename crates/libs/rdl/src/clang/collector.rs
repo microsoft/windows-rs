@@ -29,4 +29,20 @@ impl Collector {
             e.flags = true;
         }
     }
+
+    /// Fill in missing interface GUIDs from `IID_<Name>` variable declarations.
+    ///
+    /// For each interface with `guid: None`, looks up the interface name in
+    /// `iid_vars` and applies the UUID if found.
+    pub fn apply_iid_vars(&mut self, iid_vars: &HashMap<String, String>) {
+        for (name, item) in &mut self.0 {
+            if let Item::Interface(iface) = item {
+                if iface.guid.is_none() {
+                    if let Some(uuid) = iid_vars.get(name) {
+                        iface.guid = Some(uuid.clone());
+                    }
+                }
+            }
+        }
+    }
 }
