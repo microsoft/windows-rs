@@ -1,3 +1,5 @@
+use std::any::Any;
+
 use super::*;
 
 /// How a widget exposes its children to the child reconciler.
@@ -19,6 +21,8 @@ pub(crate) trait Widget {
         self.modifiers().attached.as_ref()
     }
     fn bindings(&self) -> PropBindings;
+    /// Downcast to concrete type for typed backend dispatch.
+    fn as_any(&self) -> &dyn Any;
     fn children(&self) -> Children<'_> {
         Children::None
     }

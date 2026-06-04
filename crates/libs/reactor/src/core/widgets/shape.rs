@@ -94,6 +94,9 @@ impl Widget for Shape {
     fn modifiers(&self) -> &Modifiers {
         &self.modifiers
     }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
     fn bindings(&self) -> PropBindings {
         let mut out = Vec::with_capacity(5);
         if let Some(fill) = &self.fill {

@@ -9,6 +9,7 @@ use Xaml::FontWeight as WinFontWeight;
 
 mod convert;
 mod diag;
+mod widget_maps;
 use convert::*;
 
 /// Single source of truth for the `Handle` enum, its casts, the
@@ -709,6 +710,41 @@ impl Backend for WinUIBackend {
         self.controls.borrow_mut().insert(id, handle);
         id
     }
+
+    fn mount_props(&mut self, id: ControlId, widget: &dyn std::any::Any) -> bool {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else {
+            return false;
+        };
+        match widget_maps::try_mount(widget, handle) {
+            Some(Ok(())) => true,
+            Some(Err(e)) => {
+                diag::com_error("mount_props", id, &e);
+                true
+            }
+            None => false,
+        }
+    }
+
+    fn diff_props(
+        &mut self,
+        id: ControlId,
+        old: &dyn std::any::Any,
+        new: &dyn std::any::Any,
+    ) -> bool {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else {
+            return false;
+        };
+        match widget_maps::try_diff(old, new, handle) {
+            Some(Ok(())) => true,
+            Some(Err(e)) => {
+                diag::com_error("diff_props", id, &e);
+                true
+            }
+            None => false,
+        }
+    }
     #[allow(clippy::match_same_arms)] // large dispatch table with semantically distinct no-op arms
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue) {
         let map = self.controls.borrow();
@@ -717,7 +753,6 @@ impl Backend for WinUIBackend {
             .unwrap_or_else(|| panic!("WinUIBackend::set_prop: unknown control {id}"));
         let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
             match (prop, &value, handle) {
-                (Prop::Text, PropValue::Str(s), Handle::TextBlock(tb)) => tb.put_Text(s.as_str()),
                 (Prop::FontSize, PropValue::F64(v), h) => {
                     if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
                         ctrl.put_FontSize(*v)
@@ -789,20 +824,6 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(false)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(*v)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::TextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(false)
-                }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::TextBlock(tb)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
-                    };
-                    tb.put_TextWrapping(mode)
                 }
                 (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     let mode = if *v {
@@ -975,40 +996,6 @@ impl Backend for WinUIBackend {
                 (Prop::TextWrappingWrap, PropValue::Unset, Handle::TextBox(t)) => {
                     t.put_TextWrapping(Xaml::TextWrapping::NoWrap)
                 }
-                (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
-                    let defs = g.get_RowDefinitions()?;
-                    defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
-                        .Clear()?;
-                    for r in rows {
-                        let rd = Xaml::RowDefinition::new()?;
-                        rd.cast::<Xaml::IRowDefinition>()?
-                            .put_Height(to_xaml_gridlength(*r)?)?;
-                        defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
-                            .Append(&rd)?;
-                    }
-                    Ok(())
-                }
-                (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
-                    let defs = g.get_ColumnDefinitions()?;
-                    defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
-                        .Clear()?;
-                    for c in cols {
-                        let cd = Xaml::ColumnDefinition::new()?;
-                        cd.cast::<Xaml::IColumnDefinition>()?
-                            .put_Width(to_xaml_gridlength(*c)?)?;
-                        defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
-                            .Append(&cd)?;
-                    }
-                    Ok(())
-                }
-                (Prop::GridRowSpacing, PropValue::F64(v), Handle::Grid(g)) => g.put_RowSpacing(*v),
-                (Prop::GridRowSpacing, PropValue::Unset, Handle::Grid(g)) => g.put_RowSpacing(0.0),
-                (Prop::GridColumnSpacing, PropValue::F64(v), Handle::Grid(g)) => {
-                    g.put_ColumnSpacing(*v)
-                }
-                (Prop::GridColumnSpacing, PropValue::Unset, Handle::Grid(g)) => {
-                    g.put_ColumnSpacing(0.0)
-                }
                 (Prop::AttachedGridRow, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
                 }
@@ -1021,24 +1008,6 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedGridColumnSpan, PropValue::I32(v), _) => {
                     Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)
                 }
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollVis(v),
-                    Handle::ScrollViewer(s),
-                ) => s.put_HorizontalScrollBarVisibility(to_xaml_scroll_visibility(*v)),
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollVis(v),
-                    Handle::ScrollViewer(s),
-                ) => s.put_VerticalScrollBarVisibility(to_xaml_scroll_visibility(*v)),
-                (Prop::Orientation, PropValue::Vertical(vert), Handle::StackPanel(s)) => s
-                    .put_Orientation(if *vert {
-                        Xaml::Orientation::Vertical
-                    } else {
-                        Xaml::Orientation::Horizontal
-                    }),
-                (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(s)) => s.put_Spacing(*v),
-                (Prop::Spacing, PropValue::Unset, Handle::StackPanel(s)) => s.put_Spacing(0.0),
                 (Prop::Margin, PropValue::Thickness(t), _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
@@ -1152,7 +1121,7 @@ impl Backend for WinUIBackend {
                         ctl.cast::<Xaml::IControl>()?
                             .put_Padding(to_xaml_thickness(*t))
                     } else {
-                        diag::unhandled_modifier("set_prop", Prop::Padding, h);
+                        // TextBlock and other non-Control elements silently ignore Padding.
                         Ok(())
                     }
                 }
@@ -1284,27 +1253,6 @@ impl Backend for WinUIBackend {
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::NumberBox(n)) => {
                     n.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
                 }
-                (Prop::NumericValue, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
-                }
-                (Prop::Maximum, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
-                }
-                (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(p)) => {
-                    p.put_IsIndeterminate(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::ProgressRing(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Minimum(*v),
-                (Prop::Maximum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Maximum(*v),
-                (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressRing(p)) => {
-                    p.put_IsIndeterminate(*v)
-                }
-                (Prop::IsActive, PropValue::Bool(v), Handle::ProgressRing(p)) => p.put_IsActive(*v),
                 (Prop::RadioLabel, PropValue::Str(s), Handle::RadioButton(r)) => {
                     let tb = string_as_textblock(s)?;
                     r.cast::<Xaml::IContentControl>()?.put_Content(&tb)
@@ -1450,25 +1398,6 @@ impl Backend for WinUIBackend {
                         d.Hide()
                     }
                 }
-                (Prop::InfoBadgeValue, PropValue::I32(v), Handle::InfoBadge(ib)) => {
-                    if *v < 0 {
-                        ib.put_Value(-1)
-                    } else {
-                        ib.put_Value(*v)
-                    }
-                }
-                (Prop::PersonDisplayName, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_DisplayName(s.as_str())
-                }
-                (Prop::PersonDisplayName, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_DisplayName("")
-                }
-                (Prop::PersonInitials, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_Initials(s.as_str())
-                }
-                (Prop::PersonInitials, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_Initials("")
-                }
                 (Prop::Fill, PropValue::Brush(b), Handle::Rectangle(r)) => {
                     r.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
                 }
@@ -1499,30 +1428,9 @@ impl Backend for WinUIBackend {
                 (Prop::CornerRadius, PropValue::Unset, Handle::Rectangle(r)) => {
                     r.put_RadiusX(0.0).and_then(|_| r.put_RadiusY(0.0))
                 }
-                (Prop::CornerRadius, PropValue::F64(v), Handle::Border(b)) => {
-                    b.put_CornerRadius(Xaml::CornerRadius {
-                        TopLeft: *v,
-                        TopRight: *v,
-                        BottomRight: *v,
-                        BottomLeft: *v,
-                    })
-                }
-                (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_CornerRadius(Xaml::CornerRadius::default())
-                }
-                (Prop::BorderBrush, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_BorderBrush(&brush_of(br)?)
-                }
-                (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.put_BorderBrush(None),
                 (Prop::BorderBrush, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
                     Ok(())
-                }
-                (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(*t))
-                }
-                (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(Thickness::default()))
                 }
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
@@ -1533,35 +1441,6 @@ impl Backend for WinUIBackend {
                     .and_then(|_| l.put_Y1(p.y1))
                     .and_then(|_| l.put_X2(p.x2))
                     .and_then(|_| l.put_Y2(p.y2)),
-                (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    let bmp = Xaml::BitmapImage::new()?;
-                    bmp.cast::<Xaml::IBitmapImage>()?.put_UriSource(&uri)?;
-                    img.put_Source(&bmp.cast::<Xaml::ImageSource>()?)
-                }
-                (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Image(img)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    img.put_Stretch(mapped)
-                }
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Viewbox(vb)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    vb.put_Stretch(mapped)
-                }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(tv)) => {
                     tv.put_SelectedIndex(*v)
                 }

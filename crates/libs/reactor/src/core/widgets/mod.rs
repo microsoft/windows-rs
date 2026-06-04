@@ -6,7 +6,7 @@
 // `use super::*;` inside the per-widget files.
 pub(crate) use super::*;
 
-/// Emit the boilerplate `kind`/`key`/`modifiers` accessors shared by
+/// Emit the boilerplate `kind`/`key`/`modifiers`/`as_any` accessors shared by
 /// every `impl Widget for X`; `attached` falls through to the default
 /// impl on the trait.
 macro_rules! widget_header {
@@ -19,6 +19,9 @@ macro_rules! widget_header {
         }
         fn modifiers(&self) -> &Modifiers {
             &self.modifiers
+        }
+        fn as_any(&self) -> &dyn std::any::Any {
+            self
         }
     };
 }

@@ -561,6 +561,27 @@ pub trait Backend {
 
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue);
 
+    /// Apply all properties of a freshly-mounted widget. The reconciler
+    /// passes the concrete widget as `&dyn Any` for typed backends to
+    /// downcast. Default impl is a no-op (reconciler falls through to
+    /// `bindings()` + `set_prop`).
+    fn mount_props(&mut self, _id: ControlId, _widget: &dyn std::any::Any) -> bool {
+        false
+    }
+
+    /// Diff properties between old and new widget states. The reconciler
+    /// passes concrete widgets as `&dyn Any` for typed backends to downcast.
+    /// Returns `true` if the backend handled the diff (typed path), `false`
+    /// to fall back to `bindings()` comparison.
+    fn diff_props(
+        &mut self,
+        _id: ControlId,
+        _old: &dyn std::any::Any,
+        _new: &dyn std::any::Any,
+    ) -> bool {
+        false
+    }
+
     fn append_child(&mut self, parent: ControlId, child: ControlId);
 
     fn remove_child(&mut self, parent: ControlId, index: usize);
