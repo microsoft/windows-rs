@@ -1,3 +1,4 @@
+windows_core::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const FILETIME, lplocalfiletime : *mut FILETIME) -> windows_core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DateTime {
@@ -9,8 +10,12 @@ impl windows_core::TypeKind for DateTime {
 impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.DateTime");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FILETIME {
+    pub dwLowDateTime: u32,
+    pub dwHighDateTime: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -23,6 +28,4 @@ impl windows_core::TypeKind for TimeSpan {
 impl windows_core::RuntimeType for TimeSpan {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.TimeSpan");
 }

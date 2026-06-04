@@ -77,9 +77,16 @@ impl MinimalTypeMap {
         }
 
         // 2. Process directly-included types (functions, structs, enums, etc.)
+        //    Walk dependencies first via combine_minimal, then force-insert the
+        //    type even if it belongs to a reference crate — the filter explicitly
+        //    requests it (e.g. `windows-time` generating its own `DateTime`/
+        //    `TimeSpan` bindings).  The insert must come AFTER combine_minimal so
+        //    that combine_minimal's early-return-if-present guard doesn't skip
+        //    dependency walking for non-reference types.
         for (namespace, name) in &minimal_filter.types {
             for ty in reader.with_full_name(namespace, name) {
                 ty.combine_minimal(&mut types, reader, references);
+                types.insert(ty.clone());
             }
         }
 
