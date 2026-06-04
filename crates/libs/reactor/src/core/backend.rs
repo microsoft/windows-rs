@@ -561,6 +561,23 @@ pub trait Backend {
 
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue);
 
+    /// Typed property mount: the backend receives the concrete widget struct
+    /// (as `&dyn Any`) and calls COM setters directly. Returns `true` if handled.
+    fn mount_props(&mut self, _id: ControlId, _widget: &dyn std::any::Any) -> bool {
+        false
+    }
+
+    /// Typed property diff: receives old and new widget structs, calls setters
+    /// only for changed fields. Returns `true` if handled.
+    fn diff_props(
+        &mut self,
+        _id: ControlId,
+        _old: &dyn std::any::Any,
+        _new: &dyn std::any::Any,
+    ) -> bool {
+        false
+    }
+
     fn append_child(&mut self, parent: ControlId, child: ControlId);
 
     fn remove_child(&mut self, parent: ControlId, index: usize);

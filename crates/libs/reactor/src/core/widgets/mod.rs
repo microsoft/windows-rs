@@ -20,6 +20,15 @@ macro_rules! widget_header {
         fn modifiers(&self) -> &Modifiers {
             &self.modifiers
         }
+        fn as_any(&self) -> &dyn std::any::Any {
+            self
+        }
+    };
+    ($kind:expr, has_events) => {
+        widget_header!($kind);
+        fn has_events(&self) -> bool {
+            true
+        }
     };
 }
 pub(crate) use widget_header;

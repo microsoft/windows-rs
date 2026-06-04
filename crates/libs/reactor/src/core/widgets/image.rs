@@ -31,17 +31,6 @@ impl Image {
 impl Widget for Image {
     widget_header!(ControlKind::Image);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(2);
-        if !self.source.is_empty() {
-            out.push(Binding::Prop(
-                Prop::ImageSource,
-                PropValue::Str(self.source.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::ImageStretch,
-            PropValue::ImageStretch(self.stretch),
-        ));
-        out
+        Vec::new()
     }
 }

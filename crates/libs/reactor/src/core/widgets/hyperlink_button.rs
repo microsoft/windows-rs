@@ -32,25 +32,13 @@ impl HyperlinkButton {
 }
 
 impl Widget for HyperlinkButton {
-    widget_header!(ControlKind::HyperlinkButton);
+    widget_header!(ControlKind::HyperlinkButton, has_events);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        out.push(Binding::Prop(
-            Prop::ButtonContent,
-            PropValue::Str(self.label.clone()),
-        ));
-        if let Some(u) = &self.navigate_uri {
-            out.push(Binding::Prop(Prop::NavigateUri, PropValue::Str(u.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
+        vec![Binding::Event(
             Event::Click,
             self.on_click
                 .as_ref()
                 .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        )]
     }
 }

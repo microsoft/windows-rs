@@ -23,35 +23,14 @@ impl TextBox {
 }
 
 impl Widget for TextBox {
-    widget_header!(ControlKind::TextBox);
+    widget_header!(ControlKind::TextBox, has_events);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(
-            Prop::TextBoxValue,
-            PropValue::Str(self.value.clone()),
-        ));
-        if let Some(ph) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(ph.clone())));
-        }
-        if let Some(hd) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(hd.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        if self.accepts_return {
-            out.push(Binding::Prop(Prop::AcceptsReturn, PropValue::Bool(true)));
-        }
-        if self.text_wrapping_wrap {
-            out.push(Binding::Prop(Prop::TextWrappingWrap, PropValue::Bool(true)));
-        }
-        out.push(Binding::Event(
+        vec![Binding::Event(
             Event::TextChanged,
             self.on_changed
                 .as_ref()
                 .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out
+        )]
     }
 }
 

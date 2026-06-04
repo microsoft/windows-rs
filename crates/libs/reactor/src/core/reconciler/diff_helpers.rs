@@ -61,6 +61,15 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
+    /// Process only Event bindings (props handled by typed path).
+    pub(crate) fn apply_events(&mut self, id: ControlId, bindings: &[Binding]) {
+        for b in bindings {
+            if let Binding::Event(e, Some(h)) = b {
+                self.backend.attach_event(id, *e, h.clone());
+            }
+        }
+    }
+
     pub(crate) fn diff_props(&mut self, id: ControlId, old: &[Binding], new: &[Binding]) {
         for b in new {
             match b {
@@ -92,6 +101,29 @@ impl<B: Backend> Reconciler<B> {
                         self.backend.detach_event(id, *e);
                     }
                 }
+            }
+        }
+    }
+
+    /// Diff only Event bindings (props handled by typed path).
+    pub(crate) fn diff_events(&mut self, id: ControlId, old: &[Binding], new: &[Binding]) {
+        for b in new {
+            if let Binding::Event(e, new_h) = b {
+                let old_inner: Option<&_> = find_event(old, *e).and_then(|o| o.as_ref());
+                if old_inner == new_h.as_ref() {
+                    continue;
+                }
+                match new_h {
+                    Some(h) => self.backend.attach_event(id, *e, h.clone()),
+                    None => self.backend.detach_event(id, *e),
+                }
+            }
+        }
+        for b in old {
+            if let Binding::Event(e, old_h) = b
+                && find_event(new, *e).is_none() && old_h.is_some()
+            {
+                self.backend.detach_event(id, *e);
             }
         }
     }

@@ -80,16 +80,7 @@ impl ScrollViewWidget {
 impl Widget for ScrollViewWidget {
     widget_header!(ControlKind::ScrollView);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::HorizontalScrollBarVisibility,
-                PropValue::ScrollViewScrollBarVis(self.horizontal_scroll_bar_visibility),
-            ),
-            Binding::Prop(
-                Prop::VerticalScrollBarVisibility,
-                PropValue::ScrollViewScrollBarVis(self.vertical_scroll_bar_visibility),
-            ),
-        ]
+        Vec::new()
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)

@@ -37,31 +37,13 @@ impl RadioButton {
 }
 
 impl Widget for RadioButton {
-    widget_header!(ControlKind::RadioButton);
+    widget_header!(ControlKind::RadioButton, has_events);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        if let Some(label) = &self.label {
-            out.push(Binding::Prop(
-                Prop::RadioLabel,
-                PropValue::Str(label.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::IsChecked,
-            PropValue::Bool(self.is_checked),
-        ));
-        if let Some(g) = &self.group_name {
-            out.push(Binding::Prop(Prop::GroupName, PropValue::Str(g.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
+        vec![Binding::Event(
             Event::RadioChecked,
             self.on_checked
                 .as_ref()
                 .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        )]
     }
 }

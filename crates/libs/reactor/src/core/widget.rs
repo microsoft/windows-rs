@@ -19,6 +19,10 @@ pub(crate) trait Widget {
         self.modifiers().attached.as_ref()
     }
     fn bindings(&self) -> PropBindings;
+    fn as_any(&self) -> &dyn std::any::Any;
+    fn has_events(&self) -> bool {
+        false
+    }
     fn children(&self) -> Children<'_> {
         Children::None
     }

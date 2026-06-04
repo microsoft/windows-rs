@@ -20,29 +20,14 @@ impl CheckBox {
 }
 
 impl Widget for CheckBox {
-    widget_header!(ControlKind::CheckBox);
+    widget_header!(ControlKind::CheckBox, has_events);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        out.push(Binding::Prop(
-            Prop::IsChecked,
-            PropValue::Bool(self.is_checked),
-        ));
-        if let Some(label) = &self.label {
-            out.push(Binding::Prop(
-                Prop::CheckBoxLabel,
-                PropValue::Str(label.clone()),
-            ));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
+        vec![Binding::Event(
             Event::CheckedChanged,
             self.on_changed
                 .as_ref()
                 .map(|cb| EventHandler::CheckedChanged(cb.clone())),
-        ));
-        out
+        )]
     }
 }
 

@@ -42,28 +42,13 @@ impl ToggleSwitch {
 }
 
 impl Widget for ToggleSwitch {
-    widget_header!(ControlKind::ToggleSwitch);
+    widget_header!(ControlKind::ToggleSwitch, has_events);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
-        out.push(Binding::Prop(Prop::IsOn, PropValue::Bool(self.is_on)));
-        if let Some(s) = &self.on_content {
-            out.push(Binding::Prop(Prop::OnContent, PropValue::Str(s.clone())));
-        }
-        if let Some(s) = &self.off_content {
-            out.push(Binding::Prop(Prop::OffContent, PropValue::Str(s.clone())));
-        }
-        if let Some(s) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(s.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
+        vec![Binding::Event(
             Event::Toggled,
             self.on_changed
                 .as_ref()
                 .map(|cb| EventHandler::CheckedChanged(cb.clone())),
-        ));
-        out
+        )]
     }
 }

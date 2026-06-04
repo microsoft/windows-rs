@@ -9,6 +9,7 @@ use Xaml::FontWeight as WinFontWeight;
 
 mod convert;
 mod diag;
+mod widget_maps;
 use convert::*;
 
 /// Single source of truth for the `Handle` enum, its casts, the
@@ -709,6 +710,42 @@ impl Backend for WinUIBackend {
         self.controls.borrow_mut().insert(id, handle);
         id
     }
+
+    fn mount_props(&mut self, id: ControlId, widget: &dyn std::any::Any) -> bool {
+        let map = self.controls.borrow();
+        let handle = map
+            .get(&id)
+            .unwrap_or_else(|| panic!("WinUIBackend::mount_props: unknown control {id}"));
+        match widget_maps::try_mount(widget, handle) {
+            Some(Ok(())) => true,
+            Some(Err(e)) => {
+                diag::com_error("mount_props", id, &e);
+                true
+            }
+            None => false,
+        }
+    }
+
+    fn diff_props(
+        &mut self,
+        id: ControlId,
+        old: &dyn std::any::Any,
+        new: &dyn std::any::Any,
+    ) -> bool {
+        let map = self.controls.borrow();
+        let handle = map
+            .get(&id)
+            .unwrap_or_else(|| panic!("WinUIBackend::diff_props: unknown control {id}"));
+        match widget_maps::try_diff(old, new, handle) {
+            Some(Ok(())) => true,
+            Some(Err(e)) => {
+                diag::com_error("diff_props", id, &e);
+                true
+            }
+            None => false,
+        }
+    }
+
     #[allow(clippy::match_same_arms)] // large dispatch table with semantically distinct no-op arms
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue) {
         let map = self.controls.borrow();
@@ -717,7 +754,6 @@ impl Backend for WinUIBackend {
             .unwrap_or_else(|| panic!("WinUIBackend::set_prop: unknown control {id}"));
         let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
             match (prop, &value, handle) {
-                (Prop::Text, PropValue::Str(s), Handle::TextBlock(tb)) => tb.put_Text(s.as_str()),
                 (Prop::FontSize, PropValue::F64(v), h) => {
                     if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
                         ctrl.put_FontSize(*v)
@@ -789,20 +825,6 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(false)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(*v)
-                }
-                (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::TextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(false)
-                }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::TextBlock(tb)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
-                    };
-                    tb.put_TextWrapping(mode)
                 }
                 (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     let mode = if *v {
@@ -904,29 +926,10 @@ impl Backend for WinUIBackend {
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::Button(b)) => {
                     b.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
                 }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::TextBox(t)) => {
-                    t.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
                 (Prop::IsEnabled, PropValue::Unset, _) => handle
                     .as_ui_element()
                     .cast::<Xaml::IControl>()?
                     .put_IsEnabled(true),
-                (Prop::IsChecked, PropValue::Bool(v), Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(*v))
-                }
-                (Prop::IsChecked, PropValue::Unset, Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IToggleButton>()?.put_IsChecked(None)
-                }
-                (Prop::CheckBoxLabel, PropValue::Str(s), Handle::CheckBox(c)) => {
-                    let tb = string_as_textblock(s)?;
-                    c.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::CheckBoxLabel, PropValue::Unset, Handle::CheckBox(c)) => {
-                    c.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
                 // ── ToggleButton ─────────────────────────────────────────────
                 (Prop::IsChecked, PropValue::Bool(v), Handle::ToggleButton(tb)) => {
                     tb.put_IsChecked(Some(*v))
@@ -941,74 +944,6 @@ impl Backend for WinUIBackend {
                 (Prop::CheckBoxLabel, PropValue::Unset, Handle::ToggleButton(tb)) => {
                     tb.cast::<Xaml::IContentControl>()?.put_Content(None)
                 }
-                (Prop::TextBoxValue, PropValue::Str(s), Handle::TextBox(t)) => {
-                    if t.get_Text().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    t.put_Text(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::TextBox(t)) => {
-                    t.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::TextBox(t)) => {
-                    t.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::TextBox(t)) => {
-                    let tb = string_as_textblock(s)?;
-                    t.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::TextBox(t)) => t.put_Header(None),
-                (Prop::AcceptsReturn, PropValue::Bool(v), Handle::TextBox(t)) => {
-                    t.put_AcceptsReturn(*v)
-                }
-                (Prop::AcceptsReturn, PropValue::Unset, Handle::TextBox(t)) => {
-                    t.put_AcceptsReturn(false)
-                }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::TextBox(t)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
-                    };
-                    t.put_TextWrapping(mode)
-                }
-                (Prop::TextWrappingWrap, PropValue::Unset, Handle::TextBox(t)) => {
-                    t.put_TextWrapping(Xaml::TextWrapping::NoWrap)
-                }
-                (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
-                    let defs = g.get_RowDefinitions()?;
-                    defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
-                        .Clear()?;
-                    for r in rows {
-                        let rd = Xaml::RowDefinition::new()?;
-                        rd.cast::<Xaml::IRowDefinition>()?
-                            .put_Height(to_xaml_gridlength(*r)?)?;
-                        defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
-                            .Append(&rd)?;
-                    }
-                    Ok(())
-                }
-                (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
-                    let defs = g.get_ColumnDefinitions()?;
-                    defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
-                        .Clear()?;
-                    for c in cols {
-                        let cd = Xaml::ColumnDefinition::new()?;
-                        cd.cast::<Xaml::IColumnDefinition>()?
-                            .put_Width(to_xaml_gridlength(*c)?)?;
-                        defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
-                            .Append(&cd)?;
-                    }
-                    Ok(())
-                }
-                (Prop::GridRowSpacing, PropValue::F64(v), Handle::Grid(g)) => g.put_RowSpacing(*v),
-                (Prop::GridRowSpacing, PropValue::Unset, Handle::Grid(g)) => g.put_RowSpacing(0.0),
-                (Prop::GridColumnSpacing, PropValue::F64(v), Handle::Grid(g)) => {
-                    g.put_ColumnSpacing(*v)
-                }
-                (Prop::GridColumnSpacing, PropValue::Unset, Handle::Grid(g)) => {
-                    g.put_ColumnSpacing(0.0)
-                }
                 (Prop::AttachedGridRow, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
                 }
@@ -1021,24 +956,6 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedGridColumnSpan, PropValue::I32(v), _) => {
                     Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)
                 }
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollVis(v),
-                    Handle::ScrollViewer(s),
-                ) => s.put_HorizontalScrollBarVisibility(to_xaml_scroll_visibility(*v)),
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollVis(v),
-                    Handle::ScrollViewer(s),
-                ) => s.put_VerticalScrollBarVisibility(to_xaml_scroll_visibility(*v)),
-                (Prop::Orientation, PropValue::Vertical(vert), Handle::StackPanel(s)) => s
-                    .put_Orientation(if *vert {
-                        Xaml::Orientation::Vertical
-                    } else {
-                        Xaml::Orientation::Horizontal
-                    }),
-                (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(s)) => s.put_Spacing(*v),
-                (Prop::Spacing, PropValue::Unset, Handle::StackPanel(s)) => s.put_Spacing(0.0),
                 (Prop::Margin, PropValue::Thickness(t), _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
@@ -1219,129 +1136,12 @@ impl Backend for WinUIBackend {
                 (Prop::Foreground, PropValue::Unset, Handle::Button(b)) => {
                     b.cast::<Xaml::IControl>()?.put_Foreground(None)
                 }
-                (Prop::IsOn, PropValue::Bool(v), Handle::ToggleSwitch(ts)) => ts.put_IsOn(*v),
-                (Prop::OnContent, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
-                    let tb = string_as_textblock(s)?;
-                    ts.put_OnContent(&tb)
-                }
-                (Prop::OnContent, PropValue::Unset, Handle::ToggleSwitch(ts)) => {
-                    ts.put_OnContent(None)
-                }
-                (Prop::OffContent, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
-                    let tb = string_as_textblock(s)?;
-                    ts.put_OffContent(&tb)
-                }
-                (Prop::OffContent, PropValue::Unset, Handle::ToggleSwitch(ts)) => {
-                    ts.put_OffContent(None)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
-                    let tb = string_as_textblock(s)?;
-                    ts.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::ToggleSwitch(ts)) => ts.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::ToggleSwitch(ts)) => {
-                    ts.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
-                }
-                (Prop::Maximum, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
-                }
-                (Prop::Step, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.put_StepFrequency(*v)?;
-                    s.cast::<Xaml::IRangeBase>()?.put_SmallChange(*v)
-                }
-                (Prop::Step, PropValue::Unset, Handle::Slider(s)) => {
-                    s.put_StepFrequency(1.0)?;
-                    s.cast::<Xaml::IRangeBase>()?.put_SmallChange(1.0)
-                }
-                (Prop::Header, PropValue::Str(s), Handle::Slider(sl)) => {
-                    let tb = string_as_textblock(s)?;
-                    sl.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::Slider(sl)) => sl.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::Slider(s)) => {
-                    s.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::Orientation, PropValue::Vertical(vert), Handle::Slider(s)) => s
-                    .put_Orientation(if *vert {
-                        Xaml::Orientation::Vertical
-                    } else {
-                        Xaml::Orientation::Horizontal
-                    }),
-                (Prop::NumericValue, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Value(*v),
-                (Prop::Minimum, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Minimum(*v),
-                (Prop::Maximum, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Maximum(*v),
-                (Prop::Header, PropValue::Str(s), Handle::NumberBox(n)) => {
-                    let tb = string_as_textblock(s)?;
-                    n.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::NumberBox(n)) => n.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::NumberBox(n)) => {
-                    n.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
-                }
-                (Prop::Maximum, PropValue::F64(v), Handle::ProgressBar(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
-                }
-                (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(p)) => {
-                    p.put_IsIndeterminate(*v)
-                }
-                (Prop::NumericValue, PropValue::F64(v), Handle::ProgressRing(p)) => {
-                    p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
-                }
-                (Prop::Minimum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Minimum(*v),
-                (Prop::Maximum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Maximum(*v),
-                (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressRing(p)) => {
-                    p.put_IsIndeterminate(*v)
-                }
-                (Prop::IsActive, PropValue::Bool(v), Handle::ProgressRing(p)) => p.put_IsActive(*v),
-                (Prop::RadioLabel, PropValue::Str(s), Handle::RadioButton(r)) => {
-                    let tb = string_as_textblock(s)?;
-                    r.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::RadioLabel, PropValue::Unset, Handle::RadioButton(r)) => {
-                    r.cast::<Xaml::IContentControl>()?.put_Content(None)
-                }
-                (Prop::IsChecked, PropValue::Bool(v), Handle::RadioButton(r)) => {
-                    r.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(*v))
-                }
-                (Prop::GroupName, PropValue::Str(s), Handle::RadioButton(r)) => {
-                    r.put_GroupName(s.as_str())
-                }
-                (Prop::GroupName, PropValue::Unset, Handle::RadioButton(r)) => r.put_GroupName(""),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::RadioButton(r)) => {
-                    r.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
                 (Prop::Header, PropValue::Str(s), Handle::Expander(e)) => {
                     let tb = string_as_textblock(s)?;
                     e.put_Header(&tb)
                 }
                 (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.put_Header(None),
                 (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(e)) => e.put_IsExpanded(*v),
-                (Prop::ButtonContent, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
-                    let tb = string_as_textblock(s)?;
-                    h.cast::<Xaml::IContentControl>()?.put_Content(&tb)
-                }
-                (Prop::NavigateUri, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    h.put_NavigateUri(&uri)
-                }
-                (Prop::NavigateUri, PropValue::Unset, Handle::HyperlinkButton(h)) => {
-                    h.put_NavigateUri(None)
-                }
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::HyperlinkButton(h)) => {
-                    h.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
                 (Prop::InfoBarTitle, PropValue::Str(s), Handle::InfoBar(ib)) => {
                     ib.put_Title(s.as_str())
                 }
@@ -1450,25 +1250,6 @@ impl Backend for WinUIBackend {
                         d.Hide()
                     }
                 }
-                (Prop::InfoBadgeValue, PropValue::I32(v), Handle::InfoBadge(ib)) => {
-                    if *v < 0 {
-                        ib.put_Value(-1)
-                    } else {
-                        ib.put_Value(*v)
-                    }
-                }
-                (Prop::PersonDisplayName, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_DisplayName(s.as_str())
-                }
-                (Prop::PersonDisplayName, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_DisplayName("")
-                }
-                (Prop::PersonInitials, PropValue::Str(s), Handle::PersonPicture(p)) => {
-                    p.put_Initials(s.as_str())
-                }
-                (Prop::PersonInitials, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_Initials("")
-                }
                 (Prop::Fill, PropValue::Brush(b), Handle::Rectangle(r)) => {
                     r.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
                 }
@@ -1499,30 +1280,9 @@ impl Backend for WinUIBackend {
                 (Prop::CornerRadius, PropValue::Unset, Handle::Rectangle(r)) => {
                     r.put_RadiusX(0.0).and_then(|_| r.put_RadiusY(0.0))
                 }
-                (Prop::CornerRadius, PropValue::F64(v), Handle::Border(b)) => {
-                    b.put_CornerRadius(Xaml::CornerRadius {
-                        TopLeft: *v,
-                        TopRight: *v,
-                        BottomRight: *v,
-                        BottomLeft: *v,
-                    })
-                }
-                (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_CornerRadius(Xaml::CornerRadius::default())
-                }
-                (Prop::BorderBrush, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_BorderBrush(&brush_of(br)?)
-                }
-                (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.put_BorderBrush(None),
                 (Prop::BorderBrush, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
                     Ok(())
-                }
-                (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(*t))
-                }
-                (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(Thickness::default()))
                 }
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
@@ -1533,35 +1293,6 @@ impl Backend for WinUIBackend {
                     .and_then(|_| l.put_Y1(p.y1))
                     .and_then(|_| l.put_X2(p.x2))
                     .and_then(|_| l.put_Y2(p.y2)),
-                (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
-                    let uri = Xaml::Uri::CreateUri(s.as_str())?;
-                    let bmp = Xaml::BitmapImage::new()?;
-                    bmp.cast::<Xaml::IBitmapImage>()?.put_UriSource(&uri)?;
-                    img.put_Source(&bmp.cast::<Xaml::ImageSource>()?)
-                }
-                (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Image(img)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    img.put_Stretch(mapped)
-                }
-                (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Viewbox(vb)) => {
-                    use ImageStretch as E;
-                    use Xaml::Stretch as X;
-                    let mapped = match s {
-                        E::Uniform => X::Uniform,
-                        E::UniformToFill => X::UniformToFill,
-                        E::Fill => X::Fill,
-                        E::None => X::None,
-                    };
-                    vb.put_Stretch(mapped)
-                }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(tv)) => {
                     tv.put_SelectedIndex(*v)
                 }
@@ -1732,51 +1463,6 @@ impl Backend for WinUIBackend {
                         .collect();
                     let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
                     bc.put_ItemsSource(&ivec)
-                }
-                // ── W2: PasswordBox ───────────────────────────────────────────
-                (Prop::PasswordValue, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    if p.get_Password().ok().as_deref() == Some(s.as_str()) {
-                        return Ok(());
-                    }
-                    p.put_Password(s.as_str())
-                }
-                (Prop::PasswordValue, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_Password("")
-                }
-                (Prop::Placeholder, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    p.put_PlaceholderText(s.as_str())
-                }
-                (Prop::Placeholder, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_PlaceholderText("")
-                }
-                (Prop::Header, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    let tb = string_as_textblock(s)?;
-                    p.put_Header(&tb)
-                }
-                (Prop::Header, PropValue::Unset, Handle::PasswordBox(p)) => p.put_Header(None),
-                (Prop::IsEnabled, PropValue::Bool(v), Handle::PasswordBox(p)) => {
-                    p.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
-                }
-                (
-                    Prop::PasswordRevealMode,
-                    PropValue::PasswordRevealMode(m),
-                    Handle::PasswordBox(p),
-                ) => {
-                    use crate::core::widgets::PasswordRevealMode as M;
-                    let mapped = match m {
-                        M::Peek => Xaml::PasswordRevealMode::Peek,
-                        M::Hidden => Xaml::PasswordRevealMode::Hidden,
-                        M::Visible => Xaml::PasswordRevealMode::Visible,
-                    };
-                    p.put_PasswordRevealMode(mapped)
-                }
-                (
-                    Prop::IsPasswordRevealButtonEnabled,
-                    PropValue::Bool(v),
-                    Handle::PasswordBox(p),
-                ) => p.put_IsPasswordRevealButtonEnabled(*v),
-                (Prop::IsPasswordRevealButtonEnabled, PropValue::Unset, Handle::PasswordBox(p)) => {
-                    p.put_IsPasswordRevealButtonEnabled(true)
                 }
                 // ── W3: RadioButtons ──────────────────────────────────────────
                 (Prop::RadioButtonsItems, PropValue::StrList(items), Handle::RadioButtons(r)) => {
@@ -2153,34 +1839,6 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 // ── W19: ScrollView ──────────────────────────────────────
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(v),
-                    Handle::ScrollView(sv),
-                ) => {
-                    use ScrollViewScrollBarVisibility as E;
-                    use Xaml::ScrollingScrollBarVisibility as W;
-                    let mapped = match v {
-                        E::Auto => W::Auto,
-                        E::Visible => W::Visible,
-                        E::Hidden => W::Hidden,
-                    };
-                    sv.put_HorizontalScrollBarVisibility(mapped)
-                }
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(v),
-                    Handle::ScrollView(sv),
-                ) => {
-                    use ScrollViewScrollBarVisibility as E;
-                    use Xaml::ScrollingScrollBarVisibility as W;
-                    let mapped = match v {
-                        E::Auto => W::Auto,
-                        E::Visible => W::Visible,
-                        E::Hidden => W::Hidden,
-                    };
-                    sv.put_VerticalScrollBarVisibility(mapped)
-                }
                 // ── W20: TreeView ────────────────────────────────────────
                 (Prop::TreeViewNodes, PropValue::TreeViewNodes(nodes), Handle::TreeView(tv)) => {
                     let root = tv.get_RootNodes()?;
