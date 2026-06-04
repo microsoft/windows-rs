@@ -142,9 +142,19 @@ impl DateTime {
     /// println!("{:02}:{:02}:{:02}", local.hour(), local.minute(), local.second());
     /// ```
     #[cfg(windows)]
+    #[allow(unsafe_code)]
     pub fn to_local(self) -> Self {
+        let ticks = self.UniversalTime as u64;
+        let utc = super::bindings::FILETIME {
+            dwLowDateTime: ticks as u32,
+            dwHighDateTime: (ticks >> 32) as u32,
+        };
+        let mut local = super::bindings::FILETIME::default();
+        // SAFETY: Both pointers are to valid, aligned FILETIME values on the stack.
+        unsafe { let _ = super::bindings::FileTimeToLocalFileTime(&utc, &mut local); }
         Self {
-            UniversalTime: local_time_sys::file_time_to_local(self.UniversalTime),
+            UniversalTime: local.dwLowDateTime as u64 as i64
+                | (local.dwHighDateTime as u64 as i64) << 32,
         }
     }
 
@@ -207,20 +217,6 @@ impl DateTime {
     /// The day of the week (0 = Sunday, 6 = Saturday).
     pub const fn day_of_week(self) -> u32 {
         self.decompose().7
-    }
-}
-
-#[cfg(windows)]
-#[allow(unsafe_code)]
-mod local_time_sys {
-    windows_link::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime: *const i64, lplocalfiletime: *mut i64) -> i32);
-
-    pub fn file_time_to_local(utc_ticks: i64) -> i64 {
-        let mut local: i64 = 0;
-        // SAFETY: FileTimeToLocalFileTime always succeeds for valid FILETIME values.
-        // Both pointers are valid and properly aligned.
-        unsafe { FileTimeToLocalFileTime(&utc_ticks, &mut local) };
-        local
     }
 }
 
