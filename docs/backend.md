@@ -327,41 +327,50 @@ The ClearValue bindings and property statics remain valuable in the new design:
 
 ### Phase 1: Typed handler proof of concept ✅
 
-**Status:** Implemented and validated.
+- `controls/text_block.rs`, `controls/stack_panel.rs`, `controls/border.rs`
+- Dispatch macros `typed_mount!` / `typed_diff!`
+- Reconciler calls `backend.mount_widget()` / `backend.diff_widget()`
+- Widget trait requires `AsAny`; Backend trait has default fallback impls
 
-- `controls/text_block.rs` — 56 lines (mount + diff)
-- `controls/stack_panel.rs` — 34 lines (mount + diff)
-- `controls/border.rs` — 64 lines (mount + diff)
-- Dispatch macros `typed_mount!` / `typed_diff!` — adding a control is one line each
-- Reconciler now calls `backend.mount_widget()` / `backend.diff_widget()`
-- Widget trait now requires `AsAny` for downcasting
-- Backend trait has `mount_widget`/`diff_widget` with default fallback impls
+### Phase 2: Event-capable controls + high-use controls ✅
 
-**Results:**
-- All 55 test suites pass (0 failures)
-- Perf: **44.1 FPS / 5.0ms avg reconcile** (vs master 41.2 FPS / 5.5ms)
-  - **+7% FPS, -9% reconcile time** from eliminating Vec allocations
-- Clippy clean, fmt clean
-- Zero regressions
+- `controls/check_box.rs`, `controls/toggle_switch.rs`, `controls/slider.rs`
+- `controls/text_box.rs`, `controls/grid.rs`
 
-**Key files changed:**
-- `core/widget.rs` — added `AsAny` trait, Widget now requires it
-- `core/backend.rs` — added `mount_widget`/`diff_widget` with default impls
-- `core/reconciler/widget_dispatch.rs` — calls new backend methods
-- `winui/backend/mod.rs` — overrides with typed dispatch for TextBlock
-- `winui/backend/controls/mod.rs` — new module
-- `winui/backend/controls/text_block.rs` — typed mount/diff handler
+### Phase 3: Remaining common controls + dead arm cleanup ✅
 
-### Next: Migrate more controls
+- `controls/scroll_viewer.rs`, `controls/number_box.rs`
+- `controls/progress_bar.rs`, `controls/progress_ring.rs`, `controls/radio_button.rs`
+- Removed all dead `set_prop` match arms for migrated controls
 
-Priority order (by usage frequency in apps):
-1. ~~TextBlock~~ ✅
-2. Button (complex: events, flyouts, icons, styling)
-3. StackPanel (simple: orientation only)
-4. Border (background, corner radius, padding)
-5. CheckBox, TextBox, Grid, ...
+**Event handling design:** Typed handlers manage props only. Events are always
+handled via the legacy `attach_event`/`detach_event` path using `bindings()`.
+The dispatch macros return a bool (`handled`); when true, prop bindings are
+skipped but event bindings are still processed.
 
-Each migration removes match arms from mod.rs and adds a self-contained handler file.
+### Results (13 controls migrated)
+
+| Metric | Master | After | Change |
+|--------|--------|-------|--------|
+| Avg FPS | 41.2 | ~44 | **+7–14%** |
+| Avg Memory | 185 MB | 182 MB | **−3 MB** |
+| mod.rs LOC | 4247 | 4109 | −138 |
+| controls/ LOC | 0 | 715 | +715 |
+| Total backend LOC | 4247 | 4824 | +577 |
+
+**Note on LOC:** Total lines increase because typed handlers are more explicit
+(each field has clear set/clear logic) vs the compressed match arms. The gain is
+in correctness and maintainability, not brevity. As the remaining ~37 controls
+migrate, mod.rs will continue shrinking while controls/ grows at a lower rate
+since most of the shared infrastructure (modifiers, events, Foreground) stays.
+
+### Next: Continue migration
+
+Remaining ~37 controls. Priority:
+1. Button (complex: flyouts, icons, styling)
+2. Expander, HyperlinkButton, InfoBar
+3. TabView, NavigationView, ComboBox, ListView
+4. Eventually: shapes, pickers, specialized controls
 
 ## Architecture Decisions
 
@@ -371,8 +380,9 @@ Each migration removes match arms from mod.rs and adds a self-contained handler 
 2. **AsAny for downcasting** — simpler than enum dispatch or double dispatch.
    The kind() match ensures we downcast to the correct type.
 
-3. **Events stay in set_prop for now** — typed handlers handle props only.
-   Events are wired separately and can be migrated later.
+3. **Events stay in attach_event path** — typed handlers handle props only.
+   Events are always processed via `bindings()` regardless of whether the control
+   has a typed handler (the `handled` bool skips prop bindings but not event bindings).
 
 4. **Modifiers stay separate** — width/height/margin/etc. are cross-cutting
    and handled by the reconciler's `diff_modifiers` path, not per-control.
