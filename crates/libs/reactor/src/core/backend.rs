@@ -556,10 +556,72 @@ impl EventHandler {
 /// UI backend the reconciler drives. Implemented by [`RecordingBackend`]
 /// for tests and by `WinUIBackend` for production. New methods must have
 /// default implementations so existing backends keep compiling.
+#[allow(private_interfaces)]
 pub trait Backend {
     fn create(&mut self, kind: ControlKind) -> ControlId;
 
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue);
+
+    /// Mount all props from a typed widget to a freshly-created control.
+    /// Default implementation falls back to `bindings()` + `set_prop`.
+    fn mount_widget(&mut self, id: ControlId, widget: &dyn super::widget::Widget) {
+        for b in widget.bindings() {
+            match b {
+                super::prop_binding::Binding::Prop(p, v) => self.set_prop(id, p, v),
+                super::prop_binding::Binding::Event(e, Some(h)) => self.attach_event(id, e, h),
+                super::prop_binding::Binding::Event(_, None) => {}
+            }
+        }
+    }
+
+    /// Diff two typed widgets and apply minimal changes. Default falls back
+    /// to the bindings-based diff.
+    fn diff_widget(
+        &mut self,
+        id: ControlId,
+        old: &dyn super::widget::Widget,
+        new: &dyn super::widget::Widget,
+    ) {
+        let old_b = old.bindings();
+        let new_b = new.bindings();
+        for b in &new_b {
+            match b {
+                super::prop_binding::Binding::Prop(p, v) => {
+                    match super::prop_binding::find_prop(&old_b, *p) {
+                        Some(ov) if ov == v => {}
+                        _ => self.set_prop(id, *p, v.clone()),
+                    }
+                }
+                super::prop_binding::Binding::Event(e, new_h) => {
+                    let old_inner: Option<&_> =
+                        super::prop_binding::find_event(&old_b, *e).and_then(|o| o.as_ref());
+                    if old_inner == new_h.as_ref() {
+                        continue;
+                    }
+                    match new_h {
+                        Some(h) => self.attach_event(id, *e, h.clone()),
+                        None => self.detach_event(id, *e),
+                    }
+                }
+            }
+        }
+        for b in &old_b {
+            match b {
+                super::prop_binding::Binding::Prop(p, _) => {
+                    if super::prop_binding::find_prop(&new_b, *p).is_none() {
+                        self.set_prop(id, *p, PropValue::Unset);
+                    }
+                }
+                super::prop_binding::Binding::Event(e, old_h) => {
+                    if super::prop_binding::find_event(&new_b, *e).is_none()
+                        && old_h.is_some()
+                    {
+                        self.detach_event(id, *e);
+                    }
+                }
+            }
+        }
+    }
 
     fn append_child(&mut self, parent: ControlId, child: ControlId);
 

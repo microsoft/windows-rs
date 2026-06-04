@@ -3,7 +3,7 @@ use super::*;
 impl<B: Backend + 'static> Reconciler<B> {
     pub(crate) fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
         let id = self.acquire_control(w.kind());
-        self.apply_props(id, &w.bindings());
+        self.backend.mount_widget(id, w);
         self.apply_modifiers(id, w.modifiers());
         self.apply_attached(id, w.attached());
         self.mount_widget_children(id, w.children());
@@ -26,7 +26,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub(crate) fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
-        self.diff_props(id, &old.bindings(), &new.bindings());
+        self.backend.diff_widget(id, old, new);
         self.diff_modifiers(id, old.modifiers(), new.modifiers());
         self.diff_attached(id, old.attached(), new.attached());
         self.update_widget_children(id, old.children(), new.children());

@@ -92,6 +92,7 @@ Microsoft.UI.Xaml.Controls.ContentDialog::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ContentDialogClosedEventArgs
 Microsoft.UI.Xaml.Controls.ContentDialogResult
 Microsoft.UI.Xaml.Controls.Control
+Microsoft.UI.Xaml.Controls.Control::{get_IsEnabledProperty, get_FontSizeProperty, get_FontWeightProperty, get_FontFamilyProperty, get_PaddingProperty, get_BackgroundProperty, get_ForegroundProperty}
 Microsoft.UI.Xaml.Controls.DatePicker::{CreateInstance}
 Microsoft.UI.Xaml.Controls.DatePickerSelectedValueChangedEventArgs
 Microsoft.UI.Xaml.Controls.DropDownButton::{CreateInstance}
@@ -271,7 +272,7 @@ Microsoft.UI.Xaml.Controls.TabViewTabCloseRequestedEventArgs
 Microsoft.UI.Xaml.Controls.TeachingTip::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs
 Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode
-Microsoft.UI.Xaml.Controls.TextBlock::{CreateInstance}
+Microsoft.UI.Xaml.Controls.TextBlock::{CreateInstance, get_TextProperty, get_FontSizeProperty, get_FontWeightProperty, get_FontFamilyProperty, get_TextWrappingProperty, get_IsTextSelectionEnabledProperty, get_ForegroundProperty}
 Microsoft.UI.Xaml.Controls.TextBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TextChangedEventHandler
 Microsoft.UI.Xaml.Controls.TimePicker::{CreateInstance}
@@ -290,6 +291,8 @@ Microsoft.UI.Xaml.Controls.XamlControlsResources
 Microsoft.UI.Xaml.CornerRadius
 Microsoft.UI.Xaml.DataTemplate::{CreateInstance}
 Microsoft.UI.Xaml.DependencyObject
+Microsoft.UI.Xaml.DependencyProperty
+Microsoft.UI.Xaml.IDependencyObject::{ClearValue}
 Microsoft.UI.Xaml.Documents.BlockCollection
 Microsoft.UI.Xaml.Documents.InlineCollection
 Microsoft.UI.Xaml.Documents.IParagraph::{get_Inlines}
@@ -299,6 +302,7 @@ Microsoft.UI.Xaml.Documents.Paragraph::{CreateInstance}
 Microsoft.UI.Xaml.Documents.Run::{CreateInstance}
 Microsoft.UI.Xaml.ElementTheme
 Microsoft.UI.Xaml.FrameworkElement
+Microsoft.UI.Xaml.FrameworkElement::{get_WidthProperty, get_HeightProperty, get_MinWidthProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MaxHeightProperty, get_MarginProperty, get_HorizontalAlignmentProperty, get_VerticalAlignmentProperty}
 Microsoft.UI.Xaml.GridLength
 Microsoft.UI.Xaml.GridUnitType
 Microsoft.UI.Xaml.HorizontalAlignment

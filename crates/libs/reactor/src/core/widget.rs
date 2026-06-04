@@ -11,7 +11,7 @@ pub(crate) enum Children<'a> {
 
 /// Adapter implemented by every built-in [`Element`] widget variant; lets
 /// the reconciler drive backend prop / child operations uniformly.
-pub(crate) trait Widget {
+pub(crate) trait Widget: AsAny {
     fn kind(&self) -> ControlKind;
     fn key(&self) -> Option<&str>;
     fn modifiers(&self) -> &Modifiers;
@@ -36,5 +36,16 @@ pub(crate) trait Widget {
         &self,
     ) -> Option<&crate::core::callback::Callback<windows_core::IInspectable>> {
         None
+    }
+}
+
+/// Enables downcasting `&dyn Widget` to its concrete type for typed dispatch.
+pub(crate) trait AsAny {
+    fn as_any(&self) -> &dyn std::any::Any;
+}
+
+impl<T: 'static> AsAny for T {
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
     }
 }

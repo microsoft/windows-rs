@@ -51,6 +51,7 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
+    #[allow(dead_code)]
     pub(crate) fn apply_props(&mut self, id: ControlId, bindings: &[Binding]) {
         for b in bindings {
             match b {
@@ -61,6 +62,7 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
+    #[allow(dead_code)]
     pub(crate) fn diff_props(&mut self, id: ControlId, old: &[Binding], new: &[Binding]) {
         for b in new {
             match b {

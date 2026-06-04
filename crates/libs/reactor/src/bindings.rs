@@ -2596,7 +2596,122 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(Control, FrameworkElement, UIElement, DependencyObject);
-impl Control {}
+impl Control {
+    pub fn new() -> windows_core::Result<Control> {
+        Self::IControlFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn compose<T>(compose: T) -> windows_core::Result<Control>
+    where
+        T: windows_core::Compose,
+    {
+        Self::IControlFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
+        })
+    }
+    pub fn get_FontSizeProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_FontSizeProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_FontFamilyProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_FontFamilyProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_FontWeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_FontWeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_ForegroundProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_ForegroundProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_IsEnabledProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_IsEnabledProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_PaddingProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_PaddingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_BackgroundProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IControlStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_BackgroundProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IControlFactory<R, F: FnOnce(&IControlFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Control, IControlFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IControlStatics<R, F: FnOnce(&IControlStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Control, IControlStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for Control {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IControl>();
@@ -2866,6 +2981,34 @@ impl windows_core::RuntimeName for DependencyObject {
 }
 unsafe impl Send for DependencyObject {}
 unsafe impl Sync for DependencyObject {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DependencyProperty(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DependencyProperty,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl DependencyProperty {}
+impl windows_core::RuntimeType for DependencyProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDependencyProperty>();
+}
+unsafe impl windows_core::Interface for DependencyProperty {
+    type Vtable = <IDependencyProperty as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDependencyProperty as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DependencyProperty {
+    type Target = IDependencyProperty;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DependencyProperty {
+    const NAME: &'static str = "Microsoft.UI.Xaml.DependencyProperty";
+}
+unsafe impl Send for DependencyProperty {}
+unsafe impl Sync for DependencyProperty {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DesktopAcrylicBackdrop(windows_core::IUnknown);
@@ -3755,7 +3898,148 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(FrameworkElement, UIElement, DependencyObject);
-impl FrameworkElement {}
+impl FrameworkElement {
+    pub fn new() -> windows_core::Result<FrameworkElement> {
+        Self::IFrameworkElementFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn compose<T>(compose: T) -> windows_core::Result<FrameworkElement>
+    where
+        T: windows_core::Compose,
+    {
+        Self::IFrameworkElementFactory(|this| unsafe {
+            let (derived__, base__) = windows_core::Compose::compose(compose);
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(&derived__),
+                base__ as *mut _ as _,
+                &mut result__,
+            )
+            .ok()?;
+            let _ = &derived__;
+            windows_core::Type::from_abi(result__)
+        })
+    }
+    pub fn get_WidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_WidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_HeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_HeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_MinWidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_MinWidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_MaxWidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_MaxWidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_MinHeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_MinHeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_MaxHeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_MaxHeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_HorizontalAlignmentProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_HorizontalAlignmentProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_VerticalAlignmentProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_VerticalAlignmentProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_MarginProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IFrameworkElementStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_MarginProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IFrameworkElementFactory<
+        R,
+        F: FnOnce(&IFrameworkElementFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<FrameworkElement, IFrameworkElementFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IFrameworkElementStatics<
+        R,
+        F: FnOnce(&IFrameworkElementStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<FrameworkElement, IFrameworkElementStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for FrameworkElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IFrameworkElement>();
@@ -7877,6 +8161,92 @@ pub struct IControl_Vtbl {
     ApplyTemplate: usize,
 }
 windows_core::imp::define_interface!(
+    IControlFactory,
+    IControlFactory_Vtbl,
+    0x25159233_9438_5534_aeb9_00eb059cf73f
+);
+impl windows_core::RuntimeType for IControlFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IControlFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IControlStatics,
+    IControlStatics_Vtbl,
+    0xc3ae388d_aa36_5e10_acac_98415f47bcc7
+);
+impl windows_core::RuntimeType for IControlStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IControlStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    get_IsFocusEngagementEnabledProperty: usize,
+    get_IsFocusEngagedProperty: usize,
+    get_RequiresPointerProperty: usize,
+    pub get_FontSizeProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_FontFamilyProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_FontWeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_FontStyleProperty: usize,
+    get_FontStretchProperty: usize,
+    get_CharacterSpacingProperty: usize,
+    pub get_ForegroundProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_IsTextScaleFactorEnabledProperty: usize,
+    pub get_IsEnabledProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_TabNavigationProperty: usize,
+    get_TemplateProperty: usize,
+    pub get_PaddingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_HorizontalContentAlignmentProperty: usize,
+    get_VerticalContentAlignmentProperty: usize,
+    pub get_BackgroundProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_BackgroundSizingProperty: usize,
+    get_BorderThicknessProperty: usize,
+    get_BorderBrushProperty: usize,
+    get_DefaultStyleKeyProperty: usize,
+    get_DefaultStyleResourceUriProperty: usize,
+    get_ElementSoundModeProperty: usize,
+    get_CornerRadiusProperty: usize,
+    get_IsTemplateFocusTargetProperty: usize,
+    GetIsTemplateFocusTarget: usize,
+    SetIsTemplateFocusTarget: usize,
+    get_IsTemplateKeyTipTargetProperty: usize,
+    GetIsTemplateKeyTipTarget: usize,
+    SetIsTemplateKeyTipTarget: usize,
+}
+windows_core::imp::define_interface!(
     ICubicBezierEasingFunction,
     ICubicBezierEasingFunction_Vtbl,
     0x35e7fcde_f9ce_590a_8b88_64a82a6b4b48
@@ -8117,19 +8487,51 @@ impl windows_core::RuntimeType for IDependencyObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IDependencyObject {
+    pub fn ClearValue<P0>(&self, dp: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DependencyProperty>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearValue)(
+                windows_core::Interface::as_raw(self),
+                dp.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDependencyObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     GetValue: usize,
     SetValue: usize,
-    ClearValue: usize,
+    pub ClearValue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     ReadLocalValue: usize,
     GetAnimationBaseValue: usize,
     RegisterPropertyChangedCallback: usize,
     UnregisterPropertyChangedCallback: usize,
     get_Dispatcher: usize,
     get_DispatcherQueue: usize,
+}
+windows_core::imp::define_interface!(
+    IDependencyProperty,
+    IDependencyProperty_Vtbl,
+    0x960eab49_9672_58a0_995b_3a42e5ea6278
+);
+impl windows_core::RuntimeType for IDependencyProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDependencyProperty_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    GetMetadata: usize,
 }
 windows_core::imp::define_interface!(
     IDesktopAcrylicBackdrop,
@@ -9215,6 +9617,94 @@ pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IFrameworkElementFactory,
+    IFrameworkElementFactory_Vtbl,
+    0xbd3f2272_3efa_5f92_b759_90b1cc3e784c
+);
+impl windows_core::RuntimeType for IFrameworkElementFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFrameworkElementFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IFrameworkElementStatics,
+    IFrameworkElementStatics_Vtbl,
+    0x894e2704_14e7_569a_b21e_afc7df7145a1
+);
+impl windows_core::RuntimeType for IFrameworkElementStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFrameworkElementStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    get_TagProperty: usize,
+    get_LanguageProperty: usize,
+    get_ActualWidthProperty: usize,
+    get_ActualHeightProperty: usize,
+    pub get_WidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_HeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_MinWidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_MaxWidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_MinHeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_MaxHeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_HorizontalAlignmentProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_VerticalAlignmentProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_MarginProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_NameProperty: usize,
+    get_DataContextProperty: usize,
+    get_AllowFocusOnInteractionProperty: usize,
+    get_FocusVisualMarginProperty: usize,
+    get_FocusVisualSecondaryThicknessProperty: usize,
+    get_FocusVisualPrimaryThicknessProperty: usize,
+    get_FocusVisualSecondaryBrushProperty: usize,
+    get_FocusVisualPrimaryBrushProperty: usize,
+    get_AllowFocusWhenDisabledProperty: usize,
+    get_StyleProperty: usize,
+    get_FlowDirectionProperty: usize,
+    get_RequestedThemeProperty: usize,
+    get_ActualThemeProperty: usize,
+    DeferTree: usize,
 }
 windows_core::imp::define_interface!(
     IFrameworkTemplate,
@@ -15988,6 +16478,68 @@ pub struct ITextBlock_Vtbl {
     Select: usize,
     GetAlphaMask: usize,
     CopySelectionToClipboard: usize,
+}
+windows_core::imp::define_interface!(
+    ITextBlockStatics,
+    ITextBlockStatics_Vtbl,
+    0x3187104b_65c2_5e53_b889_c8272b1314cd
+);
+impl windows_core::RuntimeType for ITextBlockStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITextBlockStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub get_FontSizeProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_FontFamilyProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_FontWeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_FontStyleProperty: usize,
+    get_FontStretchProperty: usize,
+    get_CharacterSpacingProperty: usize,
+    pub get_ForegroundProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_TextWrappingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_TextTrimmingProperty: usize,
+    get_TextAlignmentProperty: usize,
+    pub get_TextProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_PaddingProperty: usize,
+    get_LineHeightProperty: usize,
+    get_LineStackingStrategyProperty: usize,
+    pub get_IsTextSelectionEnabledProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_SelectedTextProperty: usize,
+    get_SelectionHighlightColorProperty: usize,
+    get_MaxLinesProperty: usize,
+    get_TextLineBoundsProperty: usize,
+    get_OpticalMarginAlignmentProperty: usize,
+    get_IsColorFontEnabledProperty: usize,
+    get_TextReadingOrderProperty: usize,
+    get_IsTextScaleFactorEnabledProperty: usize,
+    get_TextDecorationsProperty: usize,
+    get_IsTextTrimmedProperty: usize,
+    get_HorizontalTextAlignmentProperty: usize,
+    get_SelectionFlyoutProperty: usize,
 }
 windows_core::imp::define_interface!(
     ITextBox,
@@ -24829,6 +25381,83 @@ impl TextBlock {
             TextBlock,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn get_FontSizeProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_FontSizeProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_FontFamilyProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_FontFamilyProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_FontWeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_FontWeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_ForegroundProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_ForegroundProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_TextWrappingProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_TextWrappingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_TextProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_TextProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn get_IsTextSelectionEnabledProperty() -> windows_core::Result<DependencyProperty> {
+        Self::ITextBlockStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).get_IsTextSelectionEnabledProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ITextBlockStatics<R, F: FnOnce(&ITextBlockStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<TextBlock, ITextBlockStatics> =
+            windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

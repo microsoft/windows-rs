@@ -26,3 +26,9 @@ pub(crate) fn com_error(site: &str, id: ControlId, err: &windows_core::Error) {
         eprintln!("windows-reactor: {site} on {id}: {err:?}");
     }
 }
+
+pub(crate) fn backend_error(id: ControlId, err: &windows_core::Error) {
+    if cfg!(debug_assertions) {
+        eprintln!("windows-reactor: typed handler error on {id}: {err:?}");
+    }
+}

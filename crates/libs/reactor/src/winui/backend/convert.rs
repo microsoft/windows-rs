@@ -17,7 +17,7 @@ use Xaml::Color as WinColor;
 type HAlign = HorizontalAlignment;
 type VAlign = VerticalAlignment;
 
-pub(super) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {
+pub(crate) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {
     Xaml::Thickness {
         Left: t.left,
         Top: t.top,
@@ -26,7 +26,7 @@ pub(super) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {
     }
 }
 
-pub(super) fn reactor_key_to_virtual_key(k: KeyboardKey) -> Xaml::VirtualKey {
+pub(crate) fn reactor_key_to_virtual_key(k: KeyboardKey) -> Xaml::VirtualKey {
     use KeyboardKey as K;
     match k {
         K::A => Xaml::VirtualKey::A,
@@ -110,7 +110,7 @@ pub(super) fn reactor_key_to_virtual_key(k: KeyboardKey) -> Xaml::VirtualKey {
     }
 }
 
-pub(super) fn to_xaml_halign(v: HAlign) -> Xaml::HorizontalAlignment {
+pub(crate) fn to_xaml_halign(v: HAlign) -> Xaml::HorizontalAlignment {
     match v {
         HAlign::Left => Xaml::HorizontalAlignment::Left,
         HAlign::Center => Xaml::HorizontalAlignment::Center,
@@ -119,7 +119,7 @@ pub(super) fn to_xaml_halign(v: HAlign) -> Xaml::HorizontalAlignment {
     }
 }
 
-pub(super) fn to_xaml_valign(v: VAlign) -> Xaml::VerticalAlignment {
+pub(crate) fn to_xaml_valign(v: VAlign) -> Xaml::VerticalAlignment {
     match v {
         VAlign::Top => Xaml::VerticalAlignment::Top,
         VAlign::Center => Xaml::VerticalAlignment::Center,
@@ -128,7 +128,7 @@ pub(super) fn to_xaml_valign(v: VAlign) -> Xaml::VerticalAlignment {
     }
 }
 
-pub(super) fn to_winui_info_bar_severity(v: InfoBarSeverity) -> Xaml::InfoBarSeverity {
+pub(crate) fn to_winui_info_bar_severity(v: InfoBarSeverity) -> Xaml::InfoBarSeverity {
     use InfoBarSeverity as E;
     match v {
         E::Informational => Xaml::InfoBarSeverity::Informational,
@@ -138,7 +138,7 @@ pub(super) fn to_winui_info_bar_severity(v: InfoBarSeverity) -> Xaml::InfoBarSev
     }
 }
 
-pub(super) fn to_xaml_scroll_visibility(v: ScrollBarVisibility) -> Xaml::ScrollBarVisibility {
+pub(crate) fn to_xaml_scroll_visibility(v: ScrollBarVisibility) -> Xaml::ScrollBarVisibility {
     match v {
         ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
         ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
@@ -147,7 +147,7 @@ pub(super) fn to_xaml_scroll_visibility(v: ScrollBarVisibility) -> Xaml::ScrollB
     }
 }
 
-pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::GridLength> {
+pub(crate) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::GridLength> {
     use Xaml::GridUnitType;
     match v {
         GridLength::Auto => Ok(Xaml::GridLength {
@@ -165,7 +165,7 @@ pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::Gr
     }
 }
 
-pub(super) fn solid_brush(c: Color) -> windows_core::Result<Xaml::SolidColorBrush> {
+pub(crate) fn solid_brush(c: Color) -> windows_core::Result<Xaml::SolidColorBrush> {
     let brush = Xaml::SolidColorBrush::new()?;
     brush.put_Color(WinColor {
         A: c.a,
@@ -176,19 +176,19 @@ pub(super) fn solid_brush(c: Color) -> windows_core::Result<Xaml::SolidColorBrus
     Ok(brush)
 }
 
-pub(super) fn brush_of(v: &Brush) -> windows_core::Result<Xaml::SolidColorBrush> {
+pub(crate) fn brush_of(v: &Brush) -> windows_core::Result<Xaml::SolidColorBrush> {
     match v {
         Brush::Solid(c) => solid_brush(*c),
     }
 }
 
-pub(super) fn string_as_textblock(s: &str) -> windows_core::Result<Xaml::TextBlock> {
+pub(crate) fn string_as_textblock(s: &str) -> windows_core::Result<Xaml::TextBlock> {
     let tb = Xaml::TextBlock::new()?;
     tb.put_Text(s)?;
     Ok(tb)
 }
 
-pub(super) fn sender_is_checked(sender: windows_core::Ref<windows_core::IInspectable>) -> bool {
+pub(crate) fn sender_is_checked(sender: windows_core::Ref<windows_core::IInspectable>) -> bool {
     let Some(sender) = sender.as_ref() else {
         return false;
     };
@@ -198,7 +198,7 @@ pub(super) fn sender_is_checked(sender: windows_core::Ref<windows_core::IInspect
     tb.get_IsChecked().unwrap_or(false)
 }
 
-pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from: usize, to: usize) {
+pub(crate) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from: usize, to: usize) {
     let v = coll
         .cast::<windows_collections::IVector<Xaml::UIElement>>()
         .unwrap();
@@ -207,7 +207,7 @@ pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from:
     v.InsertAt(to as u32, &item).unwrap();
 }
 
-pub(super) fn sender_text(sender: windows_core::Ref<windows_core::IInspectable>) -> String {
+pub(crate) fn sender_text(sender: windows_core::Ref<windows_core::IInspectable>) -> String {
     let Some(sender) = sender.as_ref() else {
         return String::new();
     };
@@ -217,7 +217,7 @@ pub(super) fn sender_text(sender: windows_core::Ref<windows_core::IInspectable>)
     tb.get_Text().unwrap_or_default()
 }
 
-pub(super) fn build_nav_view_item(
+pub(crate) fn build_nav_view_item(
     item: &NavViewItem,
 ) -> windows_core::Result<windows_core::IInspectable> {
     if item.is_header {
@@ -262,7 +262,7 @@ fn nav_item_tag(item: &Xaml::NavigationViewItem) -> Option<String> {
         .map(|s| s.to_string_lossy())
 }
 
-pub(super) fn select_nav_item_by_tag(
+pub(crate) fn select_nav_item_by_tag(
     nv: &Xaml::NavigationView,
     tag: &str,
 ) -> windows_core::Result<()> {
@@ -298,7 +298,7 @@ pub(super) fn select_nav_item_by_tag(
 }
 
 /// Build a `MenuFlyoutItemBase` from a [`MenuItemDef`].
-pub(super) fn build_menu_flyout_item_base(
+pub(crate) fn build_menu_flyout_item_base(
     def: &MenuItemDef,
 ) -> windows_core::Result<Xaml::MenuFlyoutItemBase> {
     match def {
@@ -325,7 +325,7 @@ pub(super) fn build_menu_flyout_item_base(
 }
 
 /// Recursively build a `TreeViewNode` from a [`TreeNodeDef`].
-pub(super) fn build_tree_view_node(def: &TreeNodeDef) -> windows_core::Result<Xaml::TreeViewNode> {
+pub(crate) fn build_tree_view_node(def: &TreeNodeDef) -> windows_core::Result<Xaml::TreeViewNode> {
     let node = Xaml::TreeViewNode::new()?;
     let content: windows_core::IInspectable =
         windows_reference::IReference::<windows_core::HSTRING>::from(windows_core::HSTRING::from(
@@ -345,7 +345,7 @@ pub(super) fn build_tree_view_node(def: &TreeNodeDef) -> windows_core::Result<Xa
 }
 
 /// Builds a WinUI `ICommandBarElement` from a [`CommandBarCommandDef`].
-pub(super) fn build_command_bar_element(
+pub(crate) fn build_command_bar_element(
     def: &CommandBarCommandDef,
 ) -> windows_core::Result<Xaml::ICommandBarElement> {
     match def {
