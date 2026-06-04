@@ -718,6 +718,7 @@ impl Backend for WinUIBackend {
         let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
             match (prop, &value, handle) {
                 (Prop::Text, PropValue::Str(s), Handle::TextBlock(tb)) => tb.put_Text(s.as_str()),
+                (Prop::Text, PropValue::Unset, Handle::TextBlock(tb)) => tb.put_Text(""),
                 (Prop::FontSize, PropValue::F64(v), h) => {
                     if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
                         ctrl.put_FontSize(*v)
@@ -804,6 +805,9 @@ impl Backend for WinUIBackend {
                     };
                     tb.put_TextWrapping(mode)
                 }
+                (Prop::TextWrappingWrap, PropValue::Unset, Handle::TextBlock(tb)) => {
+                    tb.put_TextWrapping(Xaml::TextWrapping::NoWrap)
+                }
                 (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     let mode = if *v {
                         Xaml::TextWrapping::Wrap
@@ -811,6 +815,9 @@ impl Backend for WinUIBackend {
                         Xaml::TextWrapping::NoWrap
                     };
                     tb.put_TextWrapping(mode)
+                }
+                (Prop::TextWrappingWrap, PropValue::Unset, Handle::RichTextBlock(tb)) => {
+                    tb.put_TextWrapping(Xaml::TextWrapping::NoWrap)
                 }
                 (Prop::ButtonContent, PropValue::Str(s), Handle::Button(b)) => {
                     let cc = b.cast::<Xaml::IContentControl>()?;
@@ -829,6 +836,20 @@ impl Backend for WinUIBackend {
                     }
                     let tb = string_as_textblock(s)?;
                     cc.put_Content(&tb)
+                }
+                (Prop::ButtonContent, PropValue::Unset, Handle::Button(b)) => {
+                    let cc = b.cast::<Xaml::IContentControl>()?;
+                    if let Ok(existing) = cc.get_Content()
+                        && let Ok(panel) = existing.cast::<Xaml::IPanel>()
+                    {
+                        let children = panel.get_Children()?;
+                        if children.Size()? >= 2
+                            && let Ok(tb) = children.GetAt(1)?.cast::<Xaml::ITextBlock>()
+                        {
+                            return tb.put_Text("");
+                        }
+                    }
+                    cc.put_Content(None)
                 }
                 (Prop::ButtonIcon, PropValue::SymbolIcon(sym), Handle::Button(b)) => {
                     let icon_elem =
@@ -872,6 +893,25 @@ impl Backend for WinUIBackend {
                         cc.put_Content(&panel)
                     }
                 }
+                (Prop::ButtonIcon, PropValue::Unset, Handle::Button(b)) => {
+                    let cc = b.cast::<Xaml::IContentControl>()?;
+                    if let Ok(existing) = cc.get_Content()
+                        && let Ok(panel) = existing.cast::<Xaml::IPanel>()
+                    {
+                        let children = panel.get_Children()?;
+                        if children.Size()? >= 2 {
+                            let content = children.GetAt(1)?;
+                            return cc.put_Content(&content);
+                        }
+                    }
+                    if let Ok(existing) = cc.get_Content()
+                        && existing.cast::<Xaml::ISymbolIcon>().is_ok()
+                    {
+                        cc.put_Content(None)
+                    } else {
+                        Ok(())
+                    }
+                }
                 (Prop::ButtonStyleVariant, PropValue::ButtonStyle(style), Handle::Button(b)) => {
                     use crate::core::widgets::ButtonStyle;
                     let fe = b.cast::<Xaml::IFrameworkElement>()?;
@@ -901,14 +941,28 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::ButtonStyleVariant, PropValue::Unset, Handle::Button(b)) => {
+                    let fe = b.cast::<Xaml::IFrameworkElement>()?;
+                    fe.put_Style(None)?;
+                    Ok(())
+                }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::Button(b)) => {
                     b.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
+                }
+                (Prop::IsEnabled, PropValue::Unset, Handle::Button(b)) => {
+                    b.cast::<Xaml::IControl>()?.put_IsEnabled(true)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::CheckBox(c)) => {
                     c.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
                 }
+                (Prop::IsEnabled, PropValue::Unset, Handle::CheckBox(c)) => {
+                    c.cast::<Xaml::IControl>()?.put_IsEnabled(true)
+                }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::TextBox(t)) => {
                     t.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
+                }
+                (Prop::IsEnabled, PropValue::Unset, Handle::TextBox(t)) => {
+                    t.cast::<Xaml::IControl>()?.put_IsEnabled(true)
                 }
                 (Prop::IsEnabled, PropValue::Unset, _) => handle
                     .as_ui_element()
@@ -946,6 +1000,12 @@ impl Backend for WinUIBackend {
                         return Ok(());
                     }
                     t.put_Text(s.as_str())
+                }
+                (Prop::TextBoxValue, PropValue::Unset, Handle::TextBox(t)) => {
+                    if t.get_Text().ok().as_deref() == Some("") {
+                        return Ok(());
+                    }
+                    t.put_Text("")
                 }
                 (Prop::Placeholder, PropValue::Str(s), Handle::TextBox(t)) => {
                     t.put_PlaceholderText(s.as_str())
@@ -988,6 +1048,11 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::GridRows, PropValue::Unset, Handle::Grid(g)) => {
+                    let defs = g.get_RowDefinitions()?;
+                    defs.cast::<windows_collections::IVector<Xaml::RowDefinition>>()?
+                        .Clear()
+                }
                 (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
                     let defs = g.get_ColumnDefinitions()?;
                     defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
@@ -1001,6 +1066,11 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::GridColumns, PropValue::Unset, Handle::Grid(g)) => {
+                    let defs = g.get_ColumnDefinitions()?;
+                    defs.cast::<windows_collections::IVector<Xaml::ColumnDefinition>>()?
+                        .Clear()
+                }
                 (Prop::GridRowSpacing, PropValue::F64(v), Handle::Grid(g)) => g.put_RowSpacing(*v),
                 (Prop::GridRowSpacing, PropValue::Unset, Handle::Grid(g)) => g.put_RowSpacing(0.0),
                 (Prop::GridColumnSpacing, PropValue::F64(v), Handle::Grid(g)) => {
@@ -1012,14 +1082,26 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedGridRow, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
                 }
+                (Prop::AttachedGridRow, PropValue::Unset, _) => {
+                    Xaml::Grid::SetRow(&handle.as_framework_element(), 0)
+                }
                 (Prop::AttachedGridColumn, PropValue::I32(v), _) => {
                     Xaml::Grid::SetColumn(&handle.as_framework_element(), *v)
+                }
+                (Prop::AttachedGridColumn, PropValue::Unset, _) => {
+                    Xaml::Grid::SetColumn(&handle.as_framework_element(), 0)
                 }
                 (Prop::AttachedGridRowSpan, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRowSpan(&handle.as_framework_element(), *v)
                 }
+                (Prop::AttachedGridRowSpan, PropValue::Unset, _) => {
+                    Xaml::Grid::SetRowSpan(&handle.as_framework_element(), 1)
+                }
                 (Prop::AttachedGridColumnSpan, PropValue::I32(v), _) => {
                     Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)
+                }
+                (Prop::AttachedGridColumnSpan, PropValue::Unset, _) => {
+                    Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), 1)
                 }
                 (
                     Prop::HorizontalScrollBarVisibility,
@@ -1037,6 +1119,9 @@ impl Backend for WinUIBackend {
                     } else {
                         Xaml::Orientation::Horizontal
                     }),
+                (Prop::Orientation, PropValue::Unset, Handle::StackPanel(s)) => {
+                    s.put_Orientation(Xaml::Orientation::Horizontal)
+                }
                 (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(s)) => s.put_Spacing(*v),
                 (Prop::Spacing, PropValue::Unset, Handle::StackPanel(s)) => s.put_Spacing(0.0),
                 (Prop::Margin, PropValue::Thickness(t), _) => handle
@@ -1135,6 +1220,18 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::Resources, PropValue::Unset, _) => {
+                    let rd = handle
+                        .as_framework_element()
+                        .cast::<Xaml::IFrameworkElement>()?
+                        .get_Resources()?;
+                    let imap = rd.cast::<windows_collections::IMap<
+                        windows_core::IInspectable,
+                        windows_core::IInspectable,
+                    >>()?;
+                    imap.Clear()?;
+                    Ok(())
+                }
                 (Prop::Padding, PropValue::Thickness(t), Handle::Button(b)) => b
                     .cast::<Xaml::IControl>()?
                     .put_Padding(to_xaml_thickness(*t)),
@@ -1219,7 +1316,17 @@ impl Backend for WinUIBackend {
                 (Prop::Foreground, PropValue::Unset, Handle::Button(b)) => {
                     b.cast::<Xaml::IControl>()?.put_Foreground(None)
                 }
+                (Prop::Foreground, PropValue::Unset, h) => match h {
+                    Handle::TextBlock(tb) => tb.put_Foreground(None),
+                    Handle::RichTextBlock(tb) => tb.put_Foreground(None),
+                    Handle::Button(b) => b.cast::<Xaml::IControl>()?.put_Foreground(None),
+                    other => {
+                        diag::unhandled_modifier("set_prop", Prop::Foreground, other);
+                        Ok(())
+                    }
+                },
                 (Prop::IsOn, PropValue::Bool(v), Handle::ToggleSwitch(ts)) => ts.put_IsOn(*v),
+                (Prop::IsOn, PropValue::Unset, Handle::ToggleSwitch(ts)) => ts.put_IsOn(false),
                 (Prop::OnContent, PropValue::Str(s), Handle::ToggleSwitch(ts)) => {
                     let tb = string_as_textblock(s)?;
                     ts.put_OnContent(&tb)
@@ -1245,11 +1352,20 @@ impl Backend for WinUIBackend {
                 (Prop::NumericValue, PropValue::F64(v), Handle::Slider(s)) => {
                     s.cast::<Xaml::IRangeBase>()?.put_Value(*v)
                 }
+                (Prop::NumericValue, PropValue::Unset, Handle::Slider(s)) => {
+                    s.cast::<Xaml::IRangeBase>()?.put_Value(0.0)
+                }
                 (Prop::Minimum, PropValue::F64(v), Handle::Slider(s)) => {
                     s.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
                 }
+                (Prop::Minimum, PropValue::Unset, Handle::Slider(s)) => {
+                    s.cast::<Xaml::IRangeBase>()?.put_Minimum(0.0)
+                }
                 (Prop::Maximum, PropValue::F64(v), Handle::Slider(s)) => {
                     s.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
+                }
+                (Prop::Maximum, PropValue::Unset, Handle::Slider(s)) => {
+                    s.cast::<Xaml::IRangeBase>()?.put_Maximum(100.0)
                 }
                 (Prop::Step, PropValue::F64(v), Handle::Slider(s)) => {
                     s.put_StepFrequency(*v)?;
@@ -1273,9 +1389,15 @@ impl Backend for WinUIBackend {
                     } else {
                         Xaml::Orientation::Horizontal
                     }),
+                (Prop::Orientation, PropValue::Unset, Handle::Slider(s)) => {
+                    s.put_Orientation(Xaml::Orientation::Horizontal)
+                }
                 (Prop::NumericValue, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Value(*v),
+                (Prop::NumericValue, PropValue::Unset, Handle::NumberBox(n)) => n.put_Value(0.0),
                 (Prop::Minimum, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Minimum(*v),
+                (Prop::Minimum, PropValue::Unset, Handle::NumberBox(n)) => n.put_Minimum(0.0),
                 (Prop::Maximum, PropValue::F64(v), Handle::NumberBox(n)) => n.put_Maximum(*v),
+                (Prop::Maximum, PropValue::Unset, Handle::NumberBox(n)) => n.put_Maximum(0.0),
                 (Prop::Header, PropValue::Str(s), Handle::NumberBox(n)) => {
                     let tb = string_as_textblock(s)?;
                     n.put_Header(&tb)
@@ -1287,24 +1409,45 @@ impl Backend for WinUIBackend {
                 (Prop::NumericValue, PropValue::F64(v), Handle::ProgressBar(p)) => {
                     p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
                 }
+                (Prop::NumericValue, PropValue::Unset, Handle::ProgressBar(p)) => {
+                    p.cast::<Xaml::IRangeBase>()?.put_Value(0.0)
+                }
                 (Prop::Minimum, PropValue::F64(v), Handle::ProgressBar(p)) => {
                     p.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)
+                }
+                (Prop::Minimum, PropValue::Unset, Handle::ProgressBar(p)) => {
+                    p.cast::<Xaml::IRangeBase>()?.put_Minimum(0.0)
                 }
                 (Prop::Maximum, PropValue::F64(v), Handle::ProgressBar(p)) => {
                     p.cast::<Xaml::IRangeBase>()?.put_Maximum(*v)
                 }
+                (Prop::Maximum, PropValue::Unset, Handle::ProgressBar(p)) => {
+                    p.cast::<Xaml::IRangeBase>()?.put_Maximum(100.0)
+                }
                 (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(p)) => {
                     p.put_IsIndeterminate(*v)
+                }
+                (Prop::IsIndeterminate, PropValue::Unset, Handle::ProgressBar(p)) => {
+                    p.put_IsIndeterminate(false)
                 }
                 (Prop::NumericValue, PropValue::F64(v), Handle::ProgressRing(p)) => {
                     p.cast::<Xaml::IRangeBase>()?.put_Value(*v)
                 }
+                (Prop::NumericValue, PropValue::Unset, Handle::ProgressRing(p)) => {
+                    p.cast::<Xaml::IRangeBase>()?.put_Value(0.0)
+                }
                 (Prop::Minimum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Minimum(*v),
+                (Prop::Minimum, PropValue::Unset, Handle::ProgressRing(p)) => p.put_Minimum(0.0),
                 (Prop::Maximum, PropValue::F64(v), Handle::ProgressRing(p)) => p.put_Maximum(*v),
+                (Prop::Maximum, PropValue::Unset, Handle::ProgressRing(p)) => p.put_Maximum(100.0),
                 (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressRing(p)) => {
                     p.put_IsIndeterminate(*v)
                 }
+                (Prop::IsIndeterminate, PropValue::Unset, Handle::ProgressRing(p)) => {
+                    p.put_IsIndeterminate(false)
+                }
                 (Prop::IsActive, PropValue::Bool(v), Handle::ProgressRing(p)) => p.put_IsActive(*v),
+                (Prop::IsActive, PropValue::Unset, Handle::ProgressRing(p)) => p.put_IsActive(true),
                 (Prop::RadioLabel, PropValue::Str(s), Handle::RadioButton(r)) => {
                     let tb = string_as_textblock(s)?;
                     r.cast::<Xaml::IContentControl>()?.put_Content(&tb)
@@ -1314,6 +1457,9 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::IsChecked, PropValue::Bool(v), Handle::RadioButton(r)) => {
                     r.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(*v))
+                }
+                (Prop::IsChecked, PropValue::Unset, Handle::RadioButton(r)) => {
+                    r.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(false))
                 }
                 (Prop::GroupName, PropValue::Str(s), Handle::RadioButton(r)) => {
                     r.put_GroupName(s.as_str())
@@ -1328,9 +1474,15 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.put_Header(None),
                 (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(e)) => e.put_IsExpanded(*v),
+                (Prop::IsExpanded, PropValue::Unset, Handle::Expander(e)) => {
+                    e.put_IsExpanded(false)
+                }
                 (Prop::ButtonContent, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
                     let tb = string_as_textblock(s)?;
                     h.cast::<Xaml::IContentControl>()?.put_Content(&tb)
+                }
+                (Prop::ButtonContent, PropValue::Unset, Handle::HyperlinkButton(h)) => {
+                    h.cast::<Xaml::IContentControl>()?.put_Content(None)
                 }
                 (Prop::NavigateUri, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
                     let uri = Xaml::Uri::CreateUri(s.as_str())?;
@@ -1353,14 +1505,26 @@ impl Backend for WinUIBackend {
                 (Prop::InfoBarSeverity, PropValue::InfoBarSev(v), Handle::InfoBar(ib)) => {
                     ib.put_Severity(to_winui_info_bar_severity(*v))
                 }
+                (Prop::InfoBarSeverity, PropValue::Unset, Handle::InfoBar(ib)) => {
+                    ib.put_Severity(Xaml::InfoBarSeverity::Informational)
+                }
                 (Prop::InfoBarIsOpen, PropValue::Bool(v), Handle::InfoBar(ib)) => ib.put_IsOpen(*v),
+                (Prop::InfoBarIsOpen, PropValue::Unset, Handle::InfoBar(ib)) => {
+                    ib.put_IsOpen(false)
+                }
                 (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(ib)) => {
                     ib.put_IsClosable(*v)
+                }
+                (Prop::IsClosable, PropValue::Unset, Handle::InfoBar(ib)) => {
+                    ib.put_IsClosable(false)
                 }
                 (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
                     ti.put_IsClosable(*v)
                 }
                 // ContentDialog (W6 — modal popup hosted via ShowAsync).
+                (Prop::IsClosable, PropValue::Unset, Handle::TabViewItem(ti)) => {
+                    ti.put_IsClosable(true)
+                }
                 (Prop::ContentDialogTitle, PropValue::Str(s), Handle::ContentDialog(d)) => {
                     let title = windows_reference::IReference::from(s.as_str());
                     d.put_Title(&title)
@@ -1450,6 +1614,7 @@ impl Backend for WinUIBackend {
                         d.Hide()
                     }
                 }
+                (Prop::ContentDialogIsOpen, PropValue::Unset, Handle::ContentDialog(d)) => d.Hide(),
                 (Prop::InfoBadgeValue, PropValue::I32(v), Handle::InfoBadge(ib)) => {
                     if *v < 0 {
                         ib.put_Value(-1)
@@ -1457,6 +1622,7 @@ impl Backend for WinUIBackend {
                         ib.put_Value(*v)
                     }
                 }
+                (Prop::InfoBadgeValue, PropValue::Unset, Handle::InfoBadge(ib)) => ib.put_Value(0),
                 (Prop::PersonDisplayName, PropValue::Str(s), Handle::PersonPicture(p)) => {
                     p.put_DisplayName(s.as_str())
                 }
@@ -1472,26 +1638,50 @@ impl Backend for WinUIBackend {
                 (Prop::Fill, PropValue::Brush(b), Handle::Rectangle(r)) => {
                     r.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
                 }
+                (Prop::Fill, PropValue::Unset, Handle::Rectangle(r)) => {
+                    r.cast::<Xaml::IShape>()?.put_Fill(None)
+                }
                 (Prop::Fill, PropValue::Brush(b), Handle::Ellipse(e)) => {
                     e.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
+                }
+                (Prop::Fill, PropValue::Unset, Handle::Ellipse(e)) => {
+                    e.cast::<Xaml::IShape>()?.put_Fill(None)
                 }
                 (Prop::Stroke, PropValue::Brush(b), Handle::Rectangle(r)) => {
                     r.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
                 }
+                (Prop::Stroke, PropValue::Unset, Handle::Rectangle(r)) => {
+                    r.cast::<Xaml::IShape>()?.put_Stroke(None)
+                }
                 (Prop::Stroke, PropValue::Brush(b), Handle::Ellipse(e)) => {
                     e.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
+                }
+                (Prop::Stroke, PropValue::Unset, Handle::Ellipse(e)) => {
+                    e.cast::<Xaml::IShape>()?.put_Stroke(None)
                 }
                 (Prop::Stroke, PropValue::Brush(b), Handle::Line(l)) => {
                     l.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
                 }
+                (Prop::Stroke, PropValue::Unset, Handle::Line(l)) => {
+                    l.cast::<Xaml::IShape>()?.put_Stroke(None)
+                }
                 (Prop::StrokeThickness, PropValue::F64(v), Handle::Rectangle(r)) => {
                     r.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
+                }
+                (Prop::StrokeThickness, PropValue::Unset, Handle::Rectangle(r)) => {
+                    r.cast::<Xaml::IShape>()?.put_StrokeThickness(0.0)
                 }
                 (Prop::StrokeThickness, PropValue::F64(v), Handle::Ellipse(e)) => {
                     e.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
                 }
+                (Prop::StrokeThickness, PropValue::Unset, Handle::Ellipse(e)) => {
+                    e.cast::<Xaml::IShape>()?.put_StrokeThickness(0.0)
+                }
                 (Prop::StrokeThickness, PropValue::F64(v), Handle::Line(l)) => {
                     l.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
+                }
+                (Prop::StrokeThickness, PropValue::Unset, Handle::Line(l)) => {
+                    l.cast::<Xaml::IShape>()?.put_StrokeThickness(0.0)
                 }
                 (Prop::CornerRadius, PropValue::F64(v), Handle::Rectangle(r)) => {
                     r.put_RadiusX(*v).and_then(|_| r.put_RadiusY(*v))
@@ -1533,6 +1723,11 @@ impl Backend for WinUIBackend {
                     .and_then(|_| l.put_Y1(p.y1))
                     .and_then(|_| l.put_X2(p.x2))
                     .and_then(|_| l.put_Y2(p.y2)),
+                (Prop::LineEndpoints, PropValue::Unset, Handle::Line(l)) => l
+                    .put_X1(0.0)
+                    .and_then(|_| l.put_Y1(0.0))
+                    .and_then(|_| l.put_X2(0.0))
+                    .and_then(|_| l.put_Y2(0.0)),
                 (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
                     let uri = Xaml::Uri::CreateUri(s.as_str())?;
                     let bmp = Xaml::BitmapImage::new()?;
@@ -1551,6 +1746,9 @@ impl Backend for WinUIBackend {
                     };
                     img.put_Stretch(mapped)
                 }
+                (Prop::ImageStretch, PropValue::Unset, Handle::Image(img)) => {
+                    img.put_Stretch(Xaml::Stretch::Uniform)
+                }
                 (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Viewbox(vb)) => {
                     use ImageStretch as E;
                     use Xaml::Stretch as X;
@@ -1562,22 +1760,38 @@ impl Backend for WinUIBackend {
                     };
                     vb.put_Stretch(mapped)
                 }
+                (Prop::ImageStretch, PropValue::Unset, Handle::Viewbox(vb)) => {
+                    vb.put_Stretch(Xaml::Stretch::Uniform)
+                }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(tv)) => {
                     tv.put_SelectedIndex(*v)
+                }
+                (Prop::SelectedIndex, PropValue::Unset, Handle::TabView(tv)) => {
+                    tv.put_SelectedIndex(-1)
                 }
                 (Prop::CanReorderTabs, PropValue::Bool(v), Handle::TabView(tv)) => {
                     tv.put_CanReorderTabs(*v)
                 }
+                (Prop::CanReorderTabs, PropValue::Unset, Handle::TabView(tv)) => {
+                    tv.put_CanReorderTabs(false)
+                }
                 (Prop::IsAddTabButtonVisible, PropValue::Bool(v), Handle::TabView(tv)) => {
                     tv.put_IsAddTabButtonVisible(*v)
+                }
+                (Prop::IsAddTabButtonVisible, PropValue::Unset, Handle::TabView(tv)) => {
+                    tv.put_IsAddTabButtonVisible(true)
                 }
                 (Prop::TabHeader, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tb = string_as_textblock(s)?;
                     ti.put_Header(&tb)
                 }
+                (Prop::TabHeader, PropValue::Unset, Handle::TabViewItem(ti)) => ti.put_Header(None),
                 (Prop::TabItemKey, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tag = windows_reference::IReference::from(s.as_str());
                     ti.cast::<Xaml::IFrameworkElement>()?.put_Tag(&tag)
+                }
+                (Prop::TabItemKey, PropValue::Unset, Handle::TabViewItem(ti)) => {
+                    ti.cast::<Xaml::IFrameworkElement>()?.put_Tag(None)
                 }
                 (
                     Prop::NavMenuItems,
@@ -1594,6 +1808,9 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::IsPaneOpen, PropValue::Bool(v), Handle::NavigationView(nv)) => {
                     nv.put_IsPaneOpen(*v)
+                }
+                (Prop::IsPaneOpen, PropValue::Unset, Handle::NavigationView(nv)) => {
+                    nv.put_IsPaneOpen(true)
                 }
                 (
                     Prop::PaneDisplayMode,
@@ -1615,8 +1832,14 @@ impl Backend for WinUIBackend {
                 (Prop::IsBackEnabled, PropValue::Bool(v), Handle::NavigationView(nv)) => {
                     nv.cast::<Xaml::INavigationView2>()?.put_IsBackEnabled(*v)
                 }
+                (Prop::IsBackEnabled, PropValue::Unset, Handle::NavigationView(nv)) => nv
+                    .cast::<Xaml::INavigationView2>()?
+                    .put_IsBackEnabled(false),
                 (Prop::IsSettingsVisible, PropValue::Bool(v), Handle::NavigationView(nv)) => {
                     nv.put_IsSettingsVisible(*v)
+                }
+                (Prop::IsSettingsVisible, PropValue::Unset, Handle::NavigationView(nv)) => {
+                    nv.put_IsSettingsVisible(true)
                 }
                 (Prop::PaneTitle, PropValue::Str(s), Handle::NavigationView(nv)) => nv
                     .cast::<Xaml::INavigationView2>()?
@@ -1643,6 +1866,9 @@ impl Backend for WinUIBackend {
                     nv.put_AutoSuggestBox(&asb)
                 }
                 (Prop::NavAutoSuggestBox, PropValue::Bool(false), Handle::NavigationView(nv)) => {
+                    nv.put_AutoSuggestBox(None)
+                }
+                (Prop::NavAutoSuggestBox, PropValue::Unset, Handle::NavigationView(nv)) => {
                     nv.put_AutoSuggestBox(None)
                 }
                 (
@@ -1677,6 +1903,7 @@ impl Backend for WinUIBackend {
                 (Prop::TitleBarTitle, PropValue::Str(s), Handle::TitleBar(tb)) => {
                     tb.put_Title(s.as_str())
                 }
+                (Prop::TitleBarTitle, PropValue::Unset, Handle::TitleBar(tb)) => tb.put_Title(""),
                 (Prop::TitleBarSubtitle, PropValue::Str(s), Handle::TitleBar(tb)) => {
                     tb.put_Subtitle(s.as_str())
                 }
@@ -1687,8 +1914,15 @@ impl Backend for WinUIBackend {
                     super::host::set_titlebar_height(*v);
                     Ok(())
                 }
+                (Prop::TitleBarTall, PropValue::Unset, Handle::TitleBar(_)) => {
+                    super::host::set_titlebar_height(false);
+                    Ok(())
+                }
                 (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::TitleBar(tb)) => {
                     tb.put_IsBackButtonVisible(*v)
+                }
+                (Prop::IsBackButtonVisible, PropValue::Unset, Handle::TitleBar(tb)) => {
+                    tb.put_IsBackButtonVisible(false)
                 }
                 (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::NavigationView(nv)) => {
                     let val = if *v {
@@ -1699,11 +1933,20 @@ impl Backend for WinUIBackend {
                     nv.cast::<Xaml::INavigationView2>()?
                         .put_IsBackButtonVisible(val)
                 }
+                (Prop::IsBackButtonVisible, PropValue::Unset, Handle::NavigationView(nv)) => nv
+                    .cast::<Xaml::INavigationView2>()?
+                    .put_IsBackButtonVisible(Xaml::NavigationViewBackButtonVisible::Collapsed),
                 (Prop::IsBackEnabled, PropValue::Bool(v), Handle::TitleBar(tb)) => {
                     tb.put_IsBackButtonEnabled(*v)
                 }
+                (Prop::IsBackEnabled, PropValue::Unset, Handle::TitleBar(tb)) => {
+                    tb.put_IsBackButtonEnabled(false)
+                }
                 (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::TitleBar(tb)) => {
                     tb.put_IsPaneToggleButtonVisible(*v)
+                }
+                (Prop::IsPaneToggleButtonVisible, PropValue::Unset, Handle::TitleBar(tb)) => {
+                    tb.put_IsPaneToggleButtonVisible(false)
                 }
                 (
                     Prop::IsPaneToggleButtonVisible,
@@ -1713,6 +1956,9 @@ impl Backend for WinUIBackend {
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::Pivot(p)) => {
                     p.put_SelectedIndex(*v)
                 }
+                (Prop::SelectedIndex, PropValue::Unset, Handle::Pivot(p)) => {
+                    p.put_SelectedIndex(-1)
+                }
                 (Prop::PivotTitle, PropValue::Str(s), Handle::Pivot(p)) => {
                     let tb = string_as_textblock(s)?;
                     p.put_Title(&tb)
@@ -1721,6 +1967,9 @@ impl Backend for WinUIBackend {
                 (Prop::PivotItemHeader, PropValue::Str(s), Handle::PivotItem(pi)) => {
                     let tb = string_as_textblock(s)?;
                     pi.put_Header(&tb)
+                }
+                (Prop::PivotItemHeader, PropValue::Unset, Handle::PivotItem(pi)) => {
+                    pi.put_Header(None)
                 }
                 (Prop::BreadcrumbItems, PropValue::StrList(items), Handle::BreadcrumbBar(bc)) => {
                     let vec: Vec<Option<windows_core::IInspectable>> = items
@@ -1734,6 +1983,11 @@ impl Backend for WinUIBackend {
                     bc.put_ItemsSource(&ivec)
                 }
                 // ── W2: PasswordBox ───────────────────────────────────────────
+                (Prop::BreadcrumbItems, PropValue::Unset, Handle::BreadcrumbBar(bc)) => {
+                    let vec: Vec<Option<windows_core::IInspectable>> = Vec::new();
+                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
+                    bc.put_ItemsSource(&ivec)
+                }
                 (Prop::PasswordValue, PropValue::Str(s), Handle::PasswordBox(p)) => {
                     if p.get_Password().ok().as_deref() == Some(s.as_str()) {
                         return Ok(());
@@ -1788,8 +2042,16 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::RadioButtonsItems, PropValue::Unset, Handle::RadioButtons(r)) => {
+                    let vec = r.get_Items()?;
+                    vec.Clear()?;
+                    Ok(())
+                }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::RadioButtons(r)) => {
                     r.put_SelectedIndex(*v)
+                }
+                (Prop::SelectedIndex, PropValue::Unset, Handle::RadioButtons(r)) => {
+                    r.put_SelectedIndex(-1)
                 }
                 (Prop::Header, PropValue::Str(s), Handle::RadioButtons(r)) => {
                     let tb = string_as_textblock(s)?;
@@ -1800,6 +2062,9 @@ impl Backend for WinUIBackend {
                     r.put_MaxColumns(*v)
                 }
                 // ── W4: ComboBox ──────────────────────────────────────────────
+                (Prop::RadioButtonsMaxColumns, PropValue::Unset, Handle::RadioButtons(r)) => {
+                    r.put_MaxColumns(1)
+                }
                 (Prop::ComboBoxItems, PropValue::StrList(items), Handle::ComboBox(c)) => {
                     let coll =
                         c.cast::<Xaml::IItemsControl>()?
@@ -1812,8 +2077,19 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::ComboBoxItems, PropValue::Unset, Handle::ComboBox(c)) => {
+                    let coll =
+                        c.cast::<Xaml::IItemsControl>()?
+                            .get_Items()?
+                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
+                    coll.Clear()?;
+                    Ok(())
+                }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::ComboBox(c)) => {
                     c.cast::<Xaml::ISelector>()?.put_SelectedIndex(*v)
+                }
+                (Prop::SelectedIndex, PropValue::Unset, Handle::ComboBox(c)) => {
+                    c.cast::<Xaml::ISelector>()?.put_SelectedIndex(-1)
                 }
                 (Prop::Header, PropValue::Str(s), Handle::ComboBox(c)) => {
                     let tb = string_as_textblock(s)?;
@@ -1831,34 +2107,57 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(c)) => c.put_IsEditable(*v),
                 // ── W5: Canvas attached props ─────────────────────────────────
+                (Prop::IsEditable, PropValue::Unset, Handle::ComboBox(c)) => {
+                    c.put_IsEditable(false)
+                }
                 (Prop::AttachedCanvasLeft, PropValue::F64(v), _) => {
                     Xaml::Canvas::SetLeft(&handle.as_ui_element(), *v)
                 }
+                (Prop::AttachedCanvasLeft, PropValue::Unset, _) => {
+                    Xaml::Canvas::SetLeft(&handle.as_ui_element(), 0.0)
+                }
                 (Prop::AttachedCanvasTop, PropValue::F64(v), _) => {
                     Xaml::Canvas::SetTop(&handle.as_ui_element(), *v)
+                }
+                (Prop::AttachedCanvasTop, PropValue::Unset, _) => {
+                    Xaml::Canvas::SetTop(&handle.as_ui_element(), 0.0)
                 }
                 (Prop::AttachedCanvasZIndex, PropValue::I32(v), _) => {
                     Xaml::Canvas::SetZIndex(&handle.as_ui_element(), *v)
                 }
                 // ── W6: RepeatButton ──────────────────────────────────────────
+                (Prop::AttachedCanvasZIndex, PropValue::Unset, _) => {
+                    Xaml::Canvas::SetZIndex(&handle.as_ui_element(), 0)
+                }
                 (Prop::ButtonContent, PropValue::Str(s), Handle::RepeatButton(b)) => {
                     let tb = string_as_textblock(s)?;
                     b.cast::<Xaml::IContentControl>()?.put_Content(&tb)
+                }
+                (Prop::ButtonContent, PropValue::Unset, Handle::RepeatButton(b)) => {
+                    b.cast::<Xaml::IContentControl>()?.put_Content(None)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::RepeatButton(b)) => {
                     b.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
                 }
                 (Prop::RepeatDelay, PropValue::I32(v), Handle::RepeatButton(b)) => b.put_Delay(*v),
+                (Prop::RepeatDelay, PropValue::Unset, Handle::RepeatButton(b)) => b.put_Delay(0),
                 (Prop::RepeatInterval, PropValue::I32(v), Handle::RepeatButton(b)) => {
                     b.put_Interval(*v)
                 }
                 // ── W7: RatingControl ─────────────────────────────────────────
+                (Prop::RepeatInterval, PropValue::Unset, Handle::RepeatButton(b)) => {
+                    b.put_Interval(0)
+                }
                 (Prop::NumericValue, PropValue::F64(v), Handle::RatingControl(r)) => {
                     r.put_Value(*v)
+                }
+                (Prop::NumericValue, PropValue::Unset, Handle::RatingControl(r)) => {
+                    r.put_Value(0.0)
                 }
                 (Prop::MaxRating, PropValue::I32(v), Handle::RatingControl(r)) => {
                     r.put_MaxRating(*v)
                 }
+                (Prop::MaxRating, PropValue::Unset, Handle::RatingControl(r)) => r.put_MaxRating(5),
                 (Prop::RatingCaption, PropValue::Str(s), Handle::RatingControl(r)) => {
                     r.put_Caption(s.as_str())
                 }
@@ -1868,10 +2167,16 @@ impl Backend for WinUIBackend {
                 (Prop::PlaceholderValue, PropValue::F64(v), Handle::RatingControl(r)) => {
                     r.put_PlaceholderValue(*v)
                 }
+                (Prop::PlaceholderValue, PropValue::Unset, Handle::RatingControl(r)) => {
+                    r.put_PlaceholderValue(0.0)
+                }
                 (Prop::IsReadOnly, PropValue::Bool(v), Handle::RatingControl(r)) => {
                     r.put_IsReadOnly(*v)
                 }
                 // ── W8: ColorPicker ───────────────────────────────────────────
+                (Prop::IsReadOnly, PropValue::Unset, Handle::RatingControl(r)) => {
+                    r.put_IsReadOnly(false)
+                }
                 (Prop::ColorValue, PropValue::Color { a, r, g, b }, Handle::ColorPicker(cp)) => cp
                     .put_Color(Xaml::Color {
                         A: *a,
@@ -1882,11 +2187,20 @@ impl Backend for WinUIBackend {
                 (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
                     cp.put_IsAlphaEnabled(*v)
                 }
+                (Prop::IsAlphaEnabled, PropValue::Unset, Handle::ColorPicker(cp)) => {
+                    cp.put_IsAlphaEnabled(false)
+                }
                 (Prop::IsHexInputVisible, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
                     cp.put_IsHexInputVisible(*v)
                 }
+                (Prop::IsHexInputVisible, PropValue::Unset, Handle::ColorPicker(cp)) => {
+                    cp.put_IsHexInputVisible(false)
+                }
                 (Prop::IsColorSliderVisible, PropValue::Bool(v), Handle::ColorPicker(cp)) => {
                     cp.put_IsColorSliderVisible(*v)
+                }
+                (Prop::IsColorSliderVisible, PropValue::Unset, Handle::ColorPicker(cp)) => {
+                    cp.put_IsColorSliderVisible(false)
                 }
                 (
                     Prop::IsColorChannelTextInputVisible,
@@ -1902,11 +2216,20 @@ impl Backend for WinUIBackend {
                 (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
                     dp.put_DayVisible(*v)
                 }
+                (Prop::DayVisible, PropValue::Unset, Handle::DatePicker(dp)) => {
+                    dp.put_DayVisible(false)
+                }
                 (Prop::MonthVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
                     dp.put_MonthVisible(*v)
                 }
+                (Prop::MonthVisible, PropValue::Unset, Handle::DatePicker(dp)) => {
+                    dp.put_MonthVisible(false)
+                }
                 (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(dp)) => {
                     dp.put_YearVisible(*v)
+                }
+                (Prop::YearVisible, PropValue::Unset, Handle::DatePicker(dp)) => {
+                    dp.put_YearVisible(false)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::DatePicker(dp)) => {
                     dp.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
@@ -1920,8 +2243,14 @@ impl Backend for WinUIBackend {
                 (Prop::ClockIdentifier, PropValue::Str(s), Handle::TimePicker(tp)) => {
                     tp.put_ClockIdentifier(s.as_str())
                 }
+                (Prop::ClockIdentifier, PropValue::Unset, Handle::TimePicker(tp)) => {
+                    tp.put_ClockIdentifier("")
+                }
                 (Prop::MinuteIncrement, PropValue::I32(v), Handle::TimePicker(tp)) => {
                     tp.put_MinuteIncrement(*v)
+                }
+                (Prop::MinuteIncrement, PropValue::Unset, Handle::TimePicker(tp)) => {
+                    tp.put_MinuteIncrement(1)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::TimePicker(tp)) => {
                     tp.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
@@ -1943,8 +2272,14 @@ impl Backend for WinUIBackend {
                 (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
                     cdp.put_IsTodayHighlighted(*v)
                 }
+                (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarDatePicker(cdp)) => {
+                    cdp.put_IsTodayHighlighted(true)
+                }
                 (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
                     cdp.put_IsCalendarOpen(*v)
+                }
+                (Prop::IsCalendarOpen, PropValue::Unset, Handle::CalendarDatePicker(cdp)) => {
+                    cdp.put_IsCalendarOpen(false)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::CalendarDatePicker(cdp)) => {
                     cdp.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
@@ -1953,8 +2288,14 @@ impl Backend for WinUIBackend {
                 (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarView(cv)) => {
                     cv.put_IsTodayHighlighted(*v)
                 }
+                (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarView(cv)) => {
+                    cv.put_IsTodayHighlighted(true)
+                }
                 (Prop::IsGroupLabelVisible, PropValue::Bool(v), Handle::CalendarView(cv)) => {
                     cv.put_IsGroupLabelVisible(*v)
+                }
+                (Prop::IsGroupLabelVisible, PropValue::Unset, Handle::CalendarView(cv)) => {
+                    cv.put_IsGroupLabelVisible(false)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::CalendarView(cv)) => {
                     cv.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
@@ -1972,8 +2313,19 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                (Prop::ListBoxItems, PropValue::Unset, Handle::ListBox(lb)) => {
+                    let coll =
+                        lb.cast::<Xaml::IItemsControl>()?
+                            .get_Items()?
+                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
+                    coll.Clear()?;
+                    Ok(())
+                }
                 (Prop::SelectedIndex, PropValue::I32(v), Handle::ListBox(lb)) => {
                     lb.cast::<Xaml::ISelector>()?.put_SelectedIndex(*v)
+                }
+                (Prop::SelectedIndex, PropValue::Unset, Handle::ListBox(lb)) => {
+                    lb.cast::<Xaml::ISelector>()?.put_SelectedIndex(-1)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::ListBox(lb)) => {
                     lb.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
@@ -2010,6 +2362,12 @@ impl Backend for WinUIBackend {
                     }
                     asb.put_Text(s)
                 }
+                (Prop::AutoSuggestText, PropValue::Unset, Handle::AutoSuggestBox(asb)) => {
+                    if asb.get_Text().ok().as_deref() == Some("") {
+                        return Ok(());
+                    }
+                    asb.put_Text("")
+                }
                 (
                     Prop::AutoSuggestItems,
                     PropValue::StrList(items),
@@ -2030,9 +2388,15 @@ impl Backend for WinUIBackend {
                 (Prop::Placeholder, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
                     asb.put_PlaceholderText(s)
                 }
+                (Prop::Placeholder, PropValue::Unset, Handle::AutoSuggestBox(asb)) => {
+                    asb.put_PlaceholderText("")
+                }
                 (Prop::Header, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
                     let insp = windows_reference::IReference::from(s.as_str());
                     asb.put_Header(&insp)
+                }
+                (Prop::Header, PropValue::Unset, Handle::AutoSuggestBox(asb)) => {
+                    asb.put_Header(None)
                 }
                 (Prop::IsEnabled, PropValue::Bool(v), Handle::AutoSuggestBox(asb)) => {
                     asb.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
@@ -2041,16 +2405,28 @@ impl Backend for WinUIBackend {
                 (Prop::SplitViewDisplayMode, PropValue::I32(m), Handle::SplitView(sv)) => {
                     sv.put_DisplayMode(Xaml::SplitViewDisplayMode(*m))
                 }
+                (Prop::SplitViewDisplayMode, PropValue::Unset, Handle::SplitView(sv)) => {
+                    sv.put_DisplayMode(Xaml::SplitViewDisplayMode(0))
+                }
                 (Prop::SplitViewIsPaneOpen, PropValue::Bool(v), Handle::SplitView(sv)) => {
                     sv.put_IsPaneOpen(*v)
                 }
+                (Prop::SplitViewIsPaneOpen, PropValue::Unset, Handle::SplitView(sv)) => {
+                    sv.put_IsPaneOpen(false)
+                }
                 (Prop::SplitViewOpenPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
                     sv.put_OpenPaneLength(*v)
+                }
+                (Prop::SplitViewOpenPaneLength, PropValue::Unset, Handle::SplitView(sv)) => {
+                    sv.put_OpenPaneLength(320.0)
                 }
                 (Prop::SplitViewCompactPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
                     sv.put_CompactPaneLength(*v)
                 }
                 // ── W18: MenuBar ─────────────────────────────────────────
+                (Prop::SplitViewCompactPaneLength, PropValue::Unset, Handle::SplitView(sv)) => {
+                    sv.put_CompactPaneLength(48.0)
+                }
                 (Prop::MenuBarItems, PropValue::MenuBarItems(items), Handle::MenuBar(mb)) => {
                     let winui_items = mb.get_Items()?;
                     winui_items.Clear()?;
@@ -2077,6 +2453,10 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 // MenuFlyout on Button/DropDownButton
+                (Prop::MenuBarItems, PropValue::Unset, Handle::MenuBar(mb)) => {
+                    mb.get_Items()?.Clear()?;
+                    Ok(())
+                }
                 (
                     Prop::MenuFlyoutItems,
                     PropValue::MenuFlyoutItems(items),
@@ -2122,6 +2502,14 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 // CommandBarFlyout on Button
+                (Prop::MenuFlyoutItems, PropValue::Unset, Handle::Button(btn)) => {
+                    if let Ok(fb) = btn.get_Flyout()
+                        && let Ok(flyout) = fb.cast::<Xaml::MenuFlyout>()
+                    {
+                        flyout.get_Items()?.Clear()?;
+                    }
+                    Ok(())
+                }
                 (
                     Prop::CommandBarFlyoutCommands,
                     PropValue::CommandBarFlyoutDef { primary, secondary },
@@ -2189,6 +2577,10 @@ impl Backend for WinUIBackend {
                         let node = build_tree_view_node(node_def)?;
                         root.Append(&node)?;
                     }
+                    Ok(())
+                }
+                (Prop::TreeViewNodes, PropValue::Unset, Handle::TreeView(tv)) => {
+                    tv.get_RootNodes()?.Clear()?;
                     Ok(())
                 }
                 (
@@ -2272,14 +2664,26 @@ impl Backend for WinUIBackend {
                 (Prop::TeachingTipTitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
                     tt.put_Title(s.as_str())
                 }
+                (Prop::TeachingTipTitle, PropValue::Unset, Handle::TeachingTip(tt)) => {
+                    tt.put_Title("")
+                }
                 (Prop::TeachingTipSubtitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
                     tt.put_Subtitle(s.as_str())
+                }
+                (Prop::TeachingTipSubtitle, PropValue::Unset, Handle::TeachingTip(tt)) => {
+                    tt.put_Subtitle("")
                 }
                 (Prop::TeachingTipIsOpen, PropValue::Bool(v), Handle::TeachingTip(tt)) => {
                     tt.put_IsOpen(*v)
                 }
+                (Prop::TeachingTipIsOpen, PropValue::Unset, Handle::TeachingTip(tt)) => {
+                    tt.put_IsOpen(false)
+                }
                 (Prop::TeachingTipIsLightDismiss, PropValue::Bool(v), Handle::TeachingTip(tt)) => {
                     tt.put_IsLightDismissEnabled(*v)
+                }
+                (Prop::TeachingTipIsLightDismiss, PropValue::Unset, Handle::TeachingTip(tt)) => {
+                    tt.put_IsLightDismissEnabled(false)
                 }
                 (
                     Prop::TeachingTipPlacement,
@@ -2314,6 +2718,9 @@ impl Backend for WinUIBackend {
                         .cast()?;
                     tt.put_ActionButtonContent(&boxed)
                 }
+                (Prop::TeachingTipActionButton, PropValue::Unset, Handle::TeachingTip(tt)) => {
+                    tt.put_ActionButtonContent(None)
+                }
                 (Prop::TeachingTipCloseButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
                     let boxed: windows_core::IInspectable =
                         windows_reference::IReference::<windows_core::HSTRING>::from(
@@ -2323,6 +2730,9 @@ impl Backend for WinUIBackend {
                     tt.put_CloseButtonContent(&boxed)
                 }
                 // ── W23: SelectorBar ────────────────────────────────────
+                (Prop::TeachingTipCloseButton, PropValue::Unset, Handle::TeachingTip(tt)) => {
+                    tt.put_CloseButtonContent(None)
+                }
                 (
                     Prop::SelectorBarItems,
                     PropValue::SelectorBarItems(items),
@@ -2352,6 +2762,10 @@ impl Backend for WinUIBackend {
                     }
                     doc.SetText(Xaml::TextSetOptions::None, s.as_str())
                 }
+                (Prop::RichEditBoxText, PropValue::Unset, Handle::RichEditBox(reb)) => {
+                    let doc = reb.get_Document()?;
+                    doc.SetText(Xaml::TextSetOptions::None, "")
+                }
                 (Prop::Placeholder, PropValue::Str(s), Handle::RichEditBox(reb)) => {
                     reb.put_PlaceholderText(s.as_str())
                 }
@@ -2367,6 +2781,9 @@ impl Backend for WinUIBackend {
                     reb.put_IsReadOnly(*v)
                 }
                 // ── Flyout on Button ──────────────────────────────────────────
+                (Prop::RichEditBoxIsReadOnly, PropValue::Unset, Handle::RichEditBox(reb)) => {
+                    reb.put_IsReadOnly(false)
+                }
                 (Prop::FlyoutContent, PropValue::Str(s), Handle::Button(b)) => {
                     let flyout = Xaml::Flyout::new()?;
                     let tb = string_as_textblock(s)?;
@@ -2374,6 +2791,7 @@ impl Backend for WinUIBackend {
                     b.put_Flyout(&flyout)?;
                     Ok(())
                 }
+                (Prop::FlyoutContent, PropValue::Unset, Handle::Button(b)) => b.put_Flyout(None),
                 (Prop::FlyoutPlacement, PropValue::FlyoutPlacement(p), Handle::Button(b)) => {
                     // The flyout must already exist (FlyoutContent set first).
                     if let Ok(fb) = b.get_Flyout() {
@@ -2426,22 +2844,41 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 // ── RelativePanel attached props ──────────────────────────────
+                (Prop::FlyoutPlacement, PropValue::Unset, Handle::Button(_)) => Ok(()),
                 (Prop::RelativePanelAlignLeftWithPanel, PropValue::Bool(v), _) => {
                     Xaml::RelativePanel::SetAlignLeftWithPanel(&handle.as_ui_element(), *v)
+                }
+                (Prop::RelativePanelAlignLeftWithPanel, PropValue::Unset, _) => {
+                    Xaml::RelativePanel::SetAlignLeftWithPanel(&handle.as_ui_element(), false)
                 }
                 (Prop::RelativePanelAlignRightWithPanel, PropValue::Bool(v), _) => {
                     Xaml::RelativePanel::SetAlignRightWithPanel(&handle.as_ui_element(), *v)
                 }
+                (Prop::RelativePanelAlignRightWithPanel, PropValue::Unset, _) => {
+                    Xaml::RelativePanel::SetAlignRightWithPanel(&handle.as_ui_element(), false)
+                }
                 (Prop::RelativePanelAlignTopWithPanel, PropValue::Bool(v), _) => {
                     Xaml::RelativePanel::SetAlignTopWithPanel(&handle.as_ui_element(), *v)
                 }
+                (Prop::RelativePanelAlignTopWithPanel, PropValue::Unset, _) => {
+                    Xaml::RelativePanel::SetAlignTopWithPanel(&handle.as_ui_element(), false)
+                }
                 (Prop::RelativePanelAlignBottomWithPanel, PropValue::Bool(v), _) => {
                     Xaml::RelativePanel::SetAlignBottomWithPanel(&handle.as_ui_element(), *v)
+                }
+                (Prop::RelativePanelAlignBottomWithPanel, PropValue::Unset, _) => {
+                    Xaml::RelativePanel::SetAlignBottomWithPanel(&handle.as_ui_element(), false)
                 }
                 (Prop::RelativePanelAlignHCenterWithPanel, PropValue::Bool(v), _) => {
                     Xaml::RelativePanel::SetAlignHorizontalCenterWithPanel(
                         &handle.as_ui_element(),
                         *v,
+                    )
+                }
+                (Prop::RelativePanelAlignHCenterWithPanel, PropValue::Unset, _) => {
+                    Xaml::RelativePanel::SetAlignHorizontalCenterWithPanel(
+                        &handle.as_ui_element(),
+                        false,
                     )
                 }
                 (Prop::RelativePanelAlignVCenterWithPanel, PropValue::Bool(v), _) => {
@@ -2450,7 +2887,12 @@ impl Backend for WinUIBackend {
                         *v,
                     )
                 }
-                (_, PropValue::Unset, _) => Ok(()),
+                (Prop::RelativePanelAlignVCenterWithPanel, PropValue::Unset, _) => {
+                    Xaml::RelativePanel::SetAlignVerticalCenterWithPanel(
+                        &handle.as_ui_element(),
+                        false,
+                    )
+                }
                 (p, v, h) => {
                     diag::unhandled_prop(id, p, v, h);
                     Ok(())
