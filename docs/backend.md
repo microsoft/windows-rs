@@ -67,39 +67,42 @@ applies queued ops via `self.apply_event_ops(ctx)`.
 | Metric | Master | Branch | Change |
 |--------|--------|--------|--------|
 | Avg FPS (headless) | ~42 | ~42 | ≈ same |
-| Avg Reconcile | 5.3ms | 5.1ms | **−4%** |
-| Avg Diff | 4.1ms | 3.9ms | **−5%** |
-| mod.rs LOC | 4247 | 3748 | −499 |
-| controls/ LOC | 0 | 2795 | +2795 |
-| Total backend LOC | 4247 | 6543 | +54% |
+| Avg Reconcile | 5.3ms | 5.3ms | ≈ same |
+| Avg Diff | 4.1ms | 4.0ms | **−2%** |
+| mod.rs LOC | 4247 | 3945 | −302 |
+| controls/ LOC | 0 | 4241 | +4241 |
+| Total backend LOC | 4247 | 8186 | +93% (dual-path) |
 
 ### Assessment
 
 **What works:**
-- ✅ Zero `bindings()` allocation for 45 controls (problems 1 & 3 solved)
+- ✅ Zero `bindings()` allocation for **all** controls in FullyHandled tier (problems 1 & 3 solved)
 - ✅ Unset bugs structurally impossible in typed handlers (problem 2 solved)
 - ✅ Each control self-contained in one file (problem 4 solved)
 - ✅ Invalid states unrepresentable — typed fields, not enum triples (problem 5 solved)
 - ✅ Events correctly wired via EventCtx (functional tests pass)
-- ✅ Modest 5% diff improvement in perf test (test uses simple TextBlocks)
+- ✅ Complex controls migrated: Button, DropDownButton, ContentDialog, CommandBar, MenuBar, NavigationView, TabView
+- ✅ EventCtx extended with StoreMenuHandler, StoreCbfHandler, StoreRevokers, ShowDialog, HideDialog
 
 **What doesn't work yet:**
-- ❌ Total LOC increased 54% (dual paths still exist)
+- ❌ Total LOC nearly doubled (dual paths still exist — set_prop arms not removed)
 - ❌ FPS improvement invisible in perf test (TextBlock-heavy, system load variance)
-- ❌ Legacy `set_prop` match still 1422 lines (unmigrated controls + modifiers)
-- ❌ `attach_event`/`detach_event` match still 1314 lines (needed by EventOps)
+- ❌ Legacy `set_prop` match still large (TitleBar, Canvas, modifiers remain)
+- ❌ `attach_event`/`detach_event` match still needed by EventOps dispatch
 
 ---
 
 ## What Remains
 
-### Still in set_prop (need `&self` access for handler maps):
-- Button / DropDownButton (flyout + menu items + handler wiring)
-- CommandBar (primary/secondary commands with click handlers)
-- NavigationView (30+ arms, menu items, handler maps)
-- TabView / TabViewItem (complex child/tab management)
-- ContentDialog (show/hide lifecycle, XamlRoot)
-- MenuBar (recursive menu building)
+### Controls still in legacy path:
+- TitleBar (props + pane toggle/back events)
+- TabViewItem (child management — tab header/content/closable)
+- PivotItem (header only)
+- Canvas (purely structural — no bindings props)
+- RichTextBlock (no widget struct — uses TextBlock path)
+- ListView / GridView / FlipView (virtualized collection views)
+- RelativePanel (structural container)
+- SwapChainPanel (DX interop)
 
 ### Cross-cutting modifier props (Foreground, FontSize, Margin, etc.)
 These come through the reconciler's `diff_modifiers` path and apply via
@@ -140,9 +143,9 @@ The reduction path:
 **Projected end state:**
 | Component | Current | After cleanup |
 |-----------|---------|---------------|
-| mod.rs | 3748 | ~1500 (dispatch + infra) |
-| controls/ | 2795 | ~1800 (after diff_prop!) |
-| **Total** | **6543** | **~3300** |
+| mod.rs | 3945 | ~1500 (dispatch + infra + modifiers) |
+| controls/ | 4241 | ~3000 (after dead code removal) |
+| **Total** | **8186** | **~4500** |
 
 ---
 

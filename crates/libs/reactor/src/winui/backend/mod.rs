@@ -197,10 +197,57 @@ impl WinUIBackend {
     }
     /// Apply queued event operations from a typed handler.
     fn apply_event_ops(&mut self, ctx: EventCtx) {
+        let id = ctx.id;
         for op in ctx.ops {
             match op {
-                EventOp::Attach(event, handler) => self.attach_event(ctx.id, event, handler),
-                EventOp::Detach(event) => self.detach_event(ctx.id, event),
+                EventOp::Attach(event, handler) => self.attach_event(id, event, handler),
+                EventOp::Detach(event) => self.detach_event(id, event),
+                EventOp::StoreMenuHandler(handler) => {
+                    self.menu_click_handlers.borrow_mut().insert(id, handler);
+                }
+                EventOp::StoreCbfHandler(handler) => {
+                    self.command_bar_flyout_handlers
+                        .borrow_mut()
+                        .insert(id, handler);
+                }
+                EventOp::StoreRevokers(event, revokers) => {
+                    self.event_revokers
+                        .borrow_mut()
+                        .insert((id, event), revokers);
+                }
+                EventOp::ShowDialog => {
+                    let map = self.controls.borrow();
+                    if let Some(Handle::ContentDialog(d)) = map.get(&id) {
+                        // Find a XamlRoot from any non-dialog control.
+                        let xroot = map
+                            .values()
+                            .filter_map(|h| match h {
+                                Handle::ContentDialog(_) => None,
+                                other => other
+                                    .as_ui_element()
+                                    .cast::<Xaml::IUIElement>()
+                                    .ok()
+                                    .and_then(|u| u.get_XamlRoot().ok()),
+                            })
+                            .next();
+                        if let Some(root) = xroot {
+                            let _ = d
+                                .cast::<Xaml::IUIElement>()
+                                .and_then(|u| u.put_XamlRoot(&root));
+                            let _ = d.ShowAsync();
+                        } else if cfg!(debug_assertions) {
+                            eprintln!(
+                                "windows-reactor: ContentDialog.is_open ignored — no XamlRoot available"
+                            );
+                        }
+                    }
+                }
+                EventOp::HideDialog => {
+                    let map = self.controls.borrow();
+                    if let Some(Handle::ContentDialog(d)) = map.get(&id) {
+                        let _ = d.Hide();
+                    }
+                }
             }
         }
     }
@@ -232,18 +279,7 @@ impl WinUIBackend {
         mb: &Xaml::MenuBar,
         handler: &EventHandler,
     ) -> Vec<windows_core::EventRevoker> {
-        let mut revokers = Vec::new();
-        let Ok(bar_items) = mb.get_Items() else {
-            return revokers;
-        };
-        for i in 0..bar_items.Size().unwrap_or(0) {
-            if let Ok(mbi) = bar_items.GetAt(i)
-                && let Ok(flyout_items) = mbi.get_Items()
-            {
-                Self::wire_flyout_items_click(&flyout_items, handler, &mut revokers);
-            }
-        }
-        revokers
+        wire_menu_bar_clicks(mb, handler)
     }
 
     /// Wire Click handlers on all `MenuFlyoutItem`s within a flyout item
@@ -252,56 +288,14 @@ impl WinUIBackend {
         flyout: &Xaml::MenuFlyout,
         handler: &EventHandler,
     ) -> Vec<windows_core::EventRevoker> {
-        let mut revokers = Vec::new();
-        if let Ok(items) = flyout.get_Items() {
-            Self::wire_flyout_items_click(&items, handler, &mut revokers);
-        }
-        revokers
-    }
-
-    fn wire_flyout_items_click(
-        items: &windows_collections::IVector<Xaml::MenuFlyoutItemBase>,
-        handler: &EventHandler,
-        revokers: &mut Vec<windows_core::EventRevoker>,
-    ) {
-        for i in 0..items.Size().unwrap_or(0) {
-            let Ok(base) = items.GetAt(i) else { continue };
-            if let Ok(item) = base.cast::<Xaml::MenuFlyoutItem>() {
-                let text = item.get_Text().unwrap_or_default().clone();
-                let handler = handler.clone();
-                if let Ok(rev) = item.add_Click(move |_s, _a| {
-                    handler.invoke_string(text.clone());
-                }) {
-                    revokers.push(rev);
-                }
-            } else if let Ok(sub) = base.cast::<Xaml::MenuFlyoutSubItem>()
-                && let Ok(sub_items) = sub.get_Items()
-            {
-                Self::wire_flyout_items_click(&sub_items, handler, revokers);
-            }
-        }
+        wire_flyout_clicks(flyout, handler)
     }
 
     fn wire_command_bar_clicks(
         commands: &windows_collections::IObservableVector<Xaml::ICommandBarElement>,
         handler: &EventHandler,
     ) -> Vec<windows_core::EventRevoker> {
-        let mut revokers = Vec::new();
-        for i in 0..commands.Size().unwrap_or(0) {
-            let Ok(el) = commands.GetAt(i) else { continue };
-            if let Ok(btn) = el.cast::<Xaml::AppBarButton>() {
-                let label = btn.get_Label().unwrap_or_default().clone();
-                let handler = handler.clone();
-                if let Ok(rev) = btn.cast::<Xaml::ButtonBase>().and_then(|bb| {
-                    bb.add_Click(move |_s, _a| {
-                        handler.invoke_string(label.clone());
-                    })
-                }) {
-                    revokers.push(rev);
-                }
-            }
-        }
-        revokers
+        wire_command_bar_clicks(commands, handler)
     }
     /// Insert `child` at visual index `v_index`. Caller must ensure
     /// `child` is non-phantom; the logical mirror is NOT touched.
@@ -458,6 +452,83 @@ impl WinUIBackend {
             _ => panic!("WinUIBackend::visual_set_at: {parent} is not a container"),
         }
     }
+}
+
+/// Wire click handlers on all items of a `MenuFlyout`, recursing into sub-items.
+pub(crate) fn wire_flyout_clicks(
+    flyout: &Xaml::MenuFlyout,
+    handler: &EventHandler,
+) -> Vec<windows_core::EventRevoker> {
+    let mut revokers = Vec::new();
+    if let Ok(items) = flyout.get_Items() {
+        wire_flyout_items_click(&items, handler, &mut revokers);
+    }
+    revokers
+}
+
+fn wire_flyout_items_click(
+    items: &windows_collections::IVector<Xaml::MenuFlyoutItemBase>,
+    handler: &EventHandler,
+    revokers: &mut Vec<windows_core::EventRevoker>,
+) {
+    for i in 0..items.Size().unwrap_or(0) {
+        let Ok(base) = items.GetAt(i) else { continue };
+        if let Ok(item) = base.cast::<Xaml::MenuFlyoutItem>() {
+            let text = item.get_Text().unwrap_or_default().clone();
+            let handler = handler.clone();
+            if let Ok(rev) = item.add_Click(move |_s, _a| {
+                handler.invoke_string(text.clone());
+            }) {
+                revokers.push(rev);
+            }
+        } else if let Ok(sub) = base.cast::<Xaml::MenuFlyoutSubItem>()
+            && let Ok(sub_items) = sub.get_Items()
+        {
+            wire_flyout_items_click(&sub_items, handler, revokers);
+        }
+    }
+}
+
+/// Wire click handlers on all `AppBarButton` elements in a command list.
+pub(crate) fn wire_command_bar_clicks(
+    commands: &windows_collections::IObservableVector<Xaml::ICommandBarElement>,
+    handler: &EventHandler,
+) -> Vec<windows_core::EventRevoker> {
+    let mut revokers = Vec::new();
+    for i in 0..commands.Size().unwrap_or(0) {
+        let Ok(el) = commands.GetAt(i) else { continue };
+        if let Ok(btn) = el.cast::<Xaml::AppBarButton>() {
+            let label = btn.get_Label().unwrap_or_default().clone();
+            let handler = handler.clone();
+            if let Ok(rev) = btn.cast::<Xaml::ButtonBase>().and_then(|bb| {
+                bb.add_Click(move |_s, _a| {
+                    handler.invoke_string(label.clone());
+                })
+            }) {
+                revokers.push(rev);
+            }
+        }
+    }
+    revokers
+}
+
+/// Wire click handlers on all items in a `MenuBar`.
+pub(crate) fn wire_menu_bar_clicks(
+    mb: &Xaml::MenuBar,
+    handler: &EventHandler,
+) -> Vec<windows_core::EventRevoker> {
+    let mut revokers = Vec::new();
+    let Ok(bar_items) = mb.get_Items() else {
+        return revokers;
+    };
+    for i in 0..bar_items.Size().unwrap_or(0) {
+        if let Ok(mbi) = bar_items.GetAt(i)
+            && let Ok(flyout_items) = mbi.get_Items()
+        {
+            wire_flyout_items_click(&flyout_items, handler, &mut revokers);
+        }
+    }
+    revokers
 }
 
 fn panel_children_vec(parent: &Handle) -> Option<windows_collections::IVector<Xaml::UIElement>> {
@@ -734,6 +805,16 @@ pub(crate) struct EventCtx {
 enum EventOp {
     Attach(Event, EventHandler),
     Detach(Event),
+    /// Store a menu-click handler for flyout wiring.
+    StoreMenuHandler(EventHandler),
+    /// Store a command-bar-flyout handler for wiring.
+    StoreCbfHandler(EventHandler),
+    /// Store event revokers for a given event.
+    StoreRevokers(Event, Vec<windows_core::EventRevoker>),
+    /// Show a ContentDialog (needs XamlRoot from another control).
+    ShowDialog,
+    /// Hide a ContentDialog.
+    HideDialog,
 }
 
 impl EventCtx {
@@ -770,6 +851,41 @@ impl EventCtx {
         if let Some(cb) = handler {
             self.ops.push(EventOp::Attach(event, wrap(cb.clone())));
         }
+    }
+
+    /// Directly attach an event handler (for pre-wrapped handlers).
+    pub fn attach(&mut self, event: Event, handler: EventHandler) {
+        self.ops.push(EventOp::Attach(event, handler));
+    }
+
+    /// Directly detach an event.
+    pub fn detach(&mut self, event: Event) {
+        self.ops.push(EventOp::Detach(event));
+    }
+
+    /// Store a handler for flyout menu-item click wiring.
+    pub fn store_menu_handler(&mut self, handler: EventHandler) {
+        self.ops.push(EventOp::StoreMenuHandler(handler));
+    }
+
+    /// Store a handler for CommandBarFlyout click wiring.
+    pub fn store_cbf_handler(&mut self, handler: EventHandler) {
+        self.ops.push(EventOp::StoreCbfHandler(handler));
+    }
+
+    /// Store event revokers (for flyout click subscriptions wired inside handler).
+    pub fn store_revokers(&mut self, event: Event, revokers: Vec<windows_core::EventRevoker>) {
+        self.ops.push(EventOp::StoreRevokers(event, revokers));
+    }
+
+    /// Request the backend to show a ContentDialog (needs XamlRoot).
+    pub fn show_dialog(&mut self) {
+        self.ops.push(EventOp::ShowDialog);
+    }
+
+    /// Request the backend to hide a ContentDialog.
+    pub fn hide_dialog(&mut self) {
+        self.ops.push(EventOp::HideDialog);
     }
 }
 
@@ -949,6 +1065,13 @@ impl Backend for WinUIBackend {
                 Pivot          => pivot::Pivot,
                 RichEditBox    => rich_edit_box::RichEditBoxWidget,
                 TreeView       => tree_view::TreeViewWidget,
+                Button         => button::Button,
+                DropDownButton => drop_down_button::DropDownButtonWidget,
+                ContentDialog  => content_dialog::ContentDialog,
+                CommandBar     => command_bar::CommandBarWidget,
+                MenuBar        => menu_bar::MenuBarWidget,
+                NavigationView => navigation_view::NavigationView,
+                TabView        => tab_view::TabView,
             }
             props {
                 // Controls that handle props only (events still via bindings)
@@ -1025,6 +1148,13 @@ impl Backend for WinUIBackend {
                 Pivot          => pivot::Pivot,
                 RichEditBox    => rich_edit_box::RichEditBoxWidget,
                 TreeView       => tree_view::TreeViewWidget,
+                Button         => button::Button,
+                DropDownButton => drop_down_button::DropDownButtonWidget,
+                ContentDialog  => content_dialog::ContentDialog,
+                CommandBar     => command_bar::CommandBarWidget,
+                MenuBar        => menu_bar::MenuBarWidget,
+                NavigationView => navigation_view::NavigationView,
+                TabView        => tab_view::TabView,
             }
             props {
             }
