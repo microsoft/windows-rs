@@ -102,6 +102,7 @@ fn decompose_year_boundary() {
     assert_eq!(t.day_of_week(), 6); // Saturday
 }
 
+#[cfg(windows)]
 #[test]
 fn to_local_plausible() {
     // to_local should produce a DateTime whose decomposition is within ±14 hours of UTC.
@@ -118,6 +119,7 @@ fn to_local_plausible() {
     );
 }
 
+#[cfg(windows)]
 #[test]
 fn to_local_decomposition_plausible() {
     let local = DateTime::now().to_local();
@@ -131,6 +133,7 @@ fn to_local_decomposition_plausible() {
     assert!(local.milliseconds() <= 999);
 }
 
+#[cfg(windows)]
 #[test]
 fn to_local_preserves_sub_second() {
     use windows_time::TimeSpan;

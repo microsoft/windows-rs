@@ -148,9 +148,10 @@ impl DateTime {
             dwHighDateTime: (ticks >> 32) as u32,
         };
         let mut local = FILETIME::default();
-        // SAFETY: Both pointers are to valid, aligned FILETIME values on the stack.
+        // SAFETY: Both pointers are valid, aligned FILETIME values on the stack.
+        // FileTimeToLocalFileTime cannot fail with valid pointers.
         unsafe {
-            let _ = FileTimeToLocalFileTime(&utc, &mut local);
+            _ = FileTimeToLocalFileTime(&utc, &mut local);
         }
         Self {
             UniversalTime: local.dwLowDateTime as u64 as i64
@@ -285,8 +286,8 @@ impl core::ops::SubAssign<TimeSpan> for DateTime {
 /// Weekday from a Unix-epoch day count. The Unix epoch (1970-01-01) was a
 /// Thursday (day 4). Result: 0 = Sunday, 6 = Saturday.
 const fn day_of_week_from_days(days: i64) -> u32 {
-    // (days + 4) gives Thu=0..Wed=6; remap so Sun=0.
-    // rem_euclid to handle negative days.
+    // The Unix epoch is Thursday. Adding 4 shifts so that day 0 maps to 4 (Thursday)
+    // with 0 = Sunday. rem_euclid handles negative days correctly.
     ((days + 4).rem_euclid(7)) as u32
 }
 
