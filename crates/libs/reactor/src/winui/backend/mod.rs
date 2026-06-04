@@ -9,6 +9,7 @@ use Xaml::FontWeight as WinFontWeight;
 
 mod convert;
 mod diag;
+mod elements;
 use convert::*;
 
 /// Single source of truth for the `Handle` enum, its casts, the
@@ -716,9 +717,81 @@ impl Backend for WinUIBackend {
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::set_prop: unknown control {id}"));
         let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
+            // Dispatch element-specific props to per-element modules.
+            // Returns early if the element module handled the prop.
+            let element_result = match handle {
+                Handle::TextBlock(tb) => elements::text_block::set_prop(tb, prop, &value),
+                Handle::RichTextBlock(tb) => elements::rich_text_block::set_prop(tb, prop, &value),
+                Handle::Button(b) => elements::button::set_prop(b, prop, &value),
+                Handle::CheckBox(c) => elements::check_box::set_prop(c, prop, &value),
+                Handle::ToggleButton(tb) => elements::toggle_button::set_prop(tb, prop, &value),
+                Handle::TextBox(t) => elements::text_box::set_prop(t, prop, &value),
+                Handle::Grid(g) => elements::grid::set_prop(g, prop, &value),
+                Handle::ScrollViewer(s) => elements::scroll_viewer::set_prop(s, prop, &value),
+                Handle::StackPanel(s) => elements::stack_panel::set_prop(s, prop, &value),
+                Handle::Border(b) => elements::border::set_prop(b, prop, &value),
+                Handle::Canvas(c) => elements::canvas::set_prop(c, prop, &value),
+                Handle::Rectangle(r) => elements::rectangle::set_prop(r, prop, &value),
+                Handle::Ellipse(e) => elements::ellipse::set_prop(e, prop, &value),
+                Handle::Line(l) => elements::line::set_prop(l, prop, &value),
+                Handle::Image(img) => elements::image::set_prop(img, prop, &value),
+                Handle::Viewbox(vb) => elements::viewbox::set_prop(vb, prop, &value),
+                Handle::TabView(tv) => elements::tab_view::set_prop(tv, prop, &value),
+                Handle::ToggleSwitch(ts) => elements::toggle_switch::set_prop(ts, prop, &value),
+                Handle::Slider(s) => elements::slider::set_prop(s, prop, &value),
+                Handle::NumberBox(n) => elements::number_box::set_prop(n, prop, &value),
+                Handle::ProgressBar(p) => elements::progress_bar::set_prop(p, prop, &value),
+                Handle::ProgressRing(p) => elements::progress_ring::set_prop(p, prop, &value),
+                Handle::RadioButton(r) => elements::radio_button::set_prop(r, prop, &value),
+                Handle::Expander(e) => elements::expander::set_prop(e, prop, &value),
+                Handle::HyperlinkButton(h) => elements::hyperlink_button::set_prop(h, prop, &value),
+                Handle::InfoBar(ib) => elements::info_bar::set_prop(ib, prop, &value),
+                Handle::TabViewItem(ti) => elements::tab_view_item::set_prop(ti, prop, &value),
+                Handle::ContentDialog(d) => elements::content_dialog::set_prop(d, prop, &value),
+                Handle::InfoBadge(ib) => elements::info_badge::set_prop(ib, prop, &value),
+                Handle::PersonPicture(p) => elements::person_picture::set_prop(p, prop, &value),
+                Handle::NavigationView(nv) => elements::navigation_view::set_prop(nv, prop, &value),
+                Handle::TitleBar(tb) => elements::title_bar::set_prop(tb, prop, &value),
+                Handle::Pivot(p) => elements::pivot::set_prop(p, prop, &value),
+                Handle::PivotItem(pi) => elements::pivot_item::set_prop(pi, prop, &value),
+                Handle::BreadcrumbBar(bc) => elements::breadcrumb_bar::set_prop(bc, prop, &value),
+                Handle::PasswordBox(p) => elements::password_box::set_prop(p, prop, &value),
+                Handle::RadioButtons(r) => elements::radio_buttons::set_prop(r, prop, &value),
+                Handle::ComboBox(c) => elements::combo_box::set_prop(c, prop, &value),
+                Handle::RepeatButton(b) => elements::repeat_button::set_prop(b, prop, &value),
+                Handle::RatingControl(r) => elements::rating_control::set_prop(r, prop, &value),
+                Handle::ColorPicker(cp) => elements::color_picker::set_prop(cp, prop, &value),
+                Handle::DatePicker(dp) => elements::date_picker::set_prop(dp, prop, &value),
+                Handle::TimePicker(tp) => elements::time_picker::set_prop(tp, prop, &value),
+                Handle::CalendarDatePicker(cdp) => {
+                    elements::calendar_date_picker::set_prop(cdp, prop, &value)
+                }
+                Handle::CalendarView(cv) => elements::calendar_view::set_prop(cv, prop, &value),
+                Handle::ListBox(lb) => elements::list_box::set_prop(lb, prop, &value),
+                Handle::DropDownButton(ddb) => {
+                    elements::drop_down_button::set_prop(ddb, prop, &value)
+                }
+                Handle::SplitButton(sb) => elements::split_button::set_prop(sb, prop, &value),
+                Handle::AutoSuggestBox(asb) => {
+                    elements::auto_suggest_box::set_prop(asb, prop, &value)
+                }
+                Handle::SplitView(sv) => elements::split_view::set_prop(sv, prop, &value),
+                Handle::ScrollView(sv) => elements::scroll_view::set_prop(sv, prop, &value),
+                Handle::TreeView(tv) => elements::tree_view::set_prop(tv, prop, &value),
+                Handle::CommandBar(cb) => elements::command_bar::set_prop(cb, prop, &value),
+                Handle::TeachingTip(tt) => elements::teaching_tip::set_prop(tt, prop, &value),
+                Handle::RichEditBox(reb) => elements::rich_edit_box::set_prop(reb, prop, &value),
+                _ => None,
+            };
+            if let Some(r) = element_result {
+                return r;
+            }
             match (prop, &value, handle) {
+<<<<<<< HEAD
                 (Prop::Text, PropValue::Str(s), Handle::TextBlock(tb)) => tb.put_Text(s.as_str()),
                 (Prop::Text, PropValue::Unset, Handle::TextBlock(tb)) => tb.put_Text(""),
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::FontSize, PropValue::F64(v), h) => {
                     if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
                         ctrl.put_FontSize(*v)
@@ -785,6 +858,7 @@ impl Backend for WinUIBackend {
                         Ok(())
                     }
                 }
+<<<<<<< HEAD
                 (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(*v)
                 }
@@ -964,10 +1038,13 @@ impl Backend for WinUIBackend {
                 (Prop::IsEnabled, PropValue::Unset, Handle::TextBox(t)) => {
                     t.cast::<Xaml::IControl>()?.put_IsEnabled(true)
                 }
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::IsEnabled, PropValue::Unset, _) => handle
                     .as_ui_element()
                     .cast::<Xaml::IControl>()?
                     .put_IsEnabled(true),
+<<<<<<< HEAD
                 (Prop::IsChecked, PropValue::Bool(v), Handle::CheckBox(c)) => {
                     c.cast::<Xaml::IToggleButton>()?.put_IsChecked(Some(*v))
                 }
@@ -1079,6 +1156,8 @@ impl Backend for WinUIBackend {
                 (Prop::GridColumnSpacing, PropValue::Unset, Handle::Grid(g)) => {
                     g.put_ColumnSpacing(0.0)
                 }
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::AttachedGridRow, PropValue::I32(v), _) => {
                     Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
                 }
@@ -1100,6 +1179,7 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedGridColumnSpan, PropValue::I32(v), _) => {
                     Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)
                 }
+<<<<<<< HEAD
                 (Prop::AttachedGridColumnSpan, PropValue::Unset, _) => {
                     Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), 1)
                 }
@@ -1124,6 +1204,8 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(s)) => s.put_Spacing(*v),
                 (Prop::Spacing, PropValue::Unset, Handle::StackPanel(s)) => s.put_Spacing(0.0),
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::Margin, PropValue::Thickness(t), _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
@@ -1220,6 +1302,7 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+<<<<<<< HEAD
                 (Prop::Resources, PropValue::Unset, _) => {
                     let rd = handle
                         .as_framework_element()
@@ -1244,6 +1327,8 @@ impl Backend for WinUIBackend {
                 (Prop::Padding, PropValue::Unset, Handle::Border(br)) => {
                     br.put_Padding(to_xaml_thickness(Thickness::default()))
                 }
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::Padding, PropValue::Thickness(t), h) => {
                     if let Ok(ctl) = h.as_framework_element().cast::<Xaml::Control>() {
                         ctl.cast::<Xaml::IControl>()?
@@ -1261,52 +1346,11 @@ impl Backend for WinUIBackend {
                         Ok(())
                     }
                 }
-                (Prop::Background, PropValue::Brush(br), Handle::StackPanel(s)) => {
-                    s.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Grid(g)) => {
-                    g.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Canvas(c)) => {
-                    c.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Background(&brush_of(br)?)
-                }
-                (
-                    Prop::Background,
-                    PropValue::Brush(_),
-                    Handle::TextBlock(_) | Handle::RichTextBlock(_),
-                ) => Ok(()),
-                (Prop::Background, PropValue::Unset, Handle::StackPanel(s)) => {
-                    s.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Grid(g)) => {
-                    g.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Canvas(c)) => {
-                    c.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Border(b)) => b.put_Background(None),
-                (Prop::Background, PropValue::Unset, Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Background(None)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::TextBlock(tb)) => {
-                    tb.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::RichTextBlock(tb)) => {
-                    tb.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Foreground(&brush_of(br)?)
-                }
                 (Prop::Foreground, PropValue::Brush(_), h) => {
                     diag::unhandled_modifier("set_prop", Prop::Foreground, h);
                     Ok(())
                 }
+<<<<<<< HEAD
                 (Prop::Foreground, PropValue::Unset, Handle::TextBlock(tb)) => {
                     tb.put_Foreground(None)
                 }
@@ -1567,6 +1611,10 @@ impl Backend for WinUIBackend {
                     PropValue::Bool(v),
                     Handle::ContentDialog(d),
                 ) => d.put_IsSecondaryButtonEnabled(*v),
+=======
+                // ContentDialog.is_open still lives here because it needs backend state
+                // to resolve a live XamlRoot before ShowAsync.
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::ContentDialogIsOpen, PropValue::Bool(v), Handle::ContentDialog(d)) => {
                     if *v {
                         // ContentDialog needs a XamlRoot before ShowAsync; reuse
@@ -1614,6 +1662,7 @@ impl Backend for WinUIBackend {
                         d.Hide()
                     }
                 }
+<<<<<<< HEAD
                 (Prop::ContentDialogIsOpen, PropValue::Unset, Handle::ContentDialog(d)) => d.Hide(),
                 (Prop::InfoBadgeValue, PropValue::I32(v), Handle::InfoBadge(ib)) => {
                     if *v < 0 {
@@ -1704,20 +1753,17 @@ impl Backend for WinUIBackend {
                     b.put_BorderBrush(&brush_of(br)?)
                 }
                 (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.put_BorderBrush(None),
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 (Prop::BorderBrush, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
                     Ok(())
-                }
-                (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(*t))
-                }
-                (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(Thickness::default()))
                 }
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
                     Ok(())
                 }
+<<<<<<< HEAD
                 (Prop::LineEndpoints, PropValue::LineEndpoints(p), Handle::Line(l)) => l
                     .put_X1(p.x1)
                     .and_then(|_| l.put_Y1(p.y1))
@@ -2106,6 +2152,8 @@ impl Backend for WinUIBackend {
                     c.cast::<Xaml::IControl>()?.put_IsEnabled(*v)
                 }
                 (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(c)) => c.put_IsEditable(*v),
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 // ── W5: Canvas attached props ─────────────────────────────────
                 (Prop::IsEditable, PropValue::Unset, Handle::ComboBox(c)) => {
                     c.put_IsEditable(false)
@@ -2125,6 +2173,7 @@ impl Backend for WinUIBackend {
                 (Prop::AttachedCanvasZIndex, PropValue::I32(v), _) => {
                     Xaml::Canvas::SetZIndex(&handle.as_ui_element(), *v)
                 }
+<<<<<<< HEAD
                 // ── W6: RepeatButton ──────────────────────────────────────────
                 (Prop::AttachedCanvasZIndex, PropValue::Unset, _) => {
                     Xaml::Canvas::SetZIndex(&handle.as_ui_element(), 0)
@@ -2423,6 +2472,10 @@ impl Backend for WinUIBackend {
                 (Prop::SplitViewCompactPaneLength, PropValue::F64(v), Handle::SplitView(sv)) => {
                     sv.put_CompactPaneLength(*v)
                 }
+=======
+                // MenuBar items still live here because rebuilding them needs
+                // backend-stored click handlers.
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 // ── W18: MenuBar ─────────────────────────────────────────
                 (Prop::SplitViewCompactPaneLength, PropValue::Unset, Handle::SplitView(sv)) => {
                     sv.put_CompactPaneLength(48.0)
@@ -2452,6 +2505,8 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                // MenuFlyout items still live here because rebuilding them
+                // needs backend-stored click handlers.
                 // MenuFlyout on Button/DropDownButton
                 (Prop::MenuBarItems, PropValue::Unset, Handle::MenuBar(mb)) => {
                     mb.get_Items()?.Clear()?;
@@ -2501,6 +2556,8 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+                // CommandBarFlyout commands still live here because rebuilding
+                // them needs backend-stored click handlers.
                 // CommandBarFlyout on Button
                 (Prop::MenuFlyoutItems, PropValue::Unset, Handle::Button(btn)) => {
                     if let Ok(fb) = btn.get_Flyout()
@@ -2540,6 +2597,7 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+<<<<<<< HEAD
                 // ── W19: ScrollView ──────────────────────────────────────
                 (
                     Prop::HorizontalScrollBarVisibility,
@@ -2597,6 +2655,8 @@ impl Backend for WinUIBackend {
                     };
                     tv.put_SelectionMode(mapped)
                 }
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 // ── W21: CommandBar ──────────────────────────────────────
                 (
                     Prop::CommandBarPrimaryCommands,
@@ -2646,21 +2706,10 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                (
-                    Prop::CommandBarDefaultLabelPosition,
-                    PropValue::CommandBarLabelPosition(pos),
-                    Handle::CommandBar(cb),
-                ) => {
-                    use CommandBarLabelPos as E;
-                    use Xaml::CommandBarDefaultLabelPosition as W;
-                    let mapped = match pos {
-                        E::Bottom => W::Bottom,
-                        E::Right => W::Right,
-                        E::Collapsed => W::Collapsed,
-                    };
-                    cb.put_DefaultLabelPosition(mapped)
-                }
+                // CommandBar item collections still live here because they need
+                // backend-stored click handlers when rebuilt.
                 // ── W22: TeachingTip ────────────────────────────────────
+<<<<<<< HEAD
                 (Prop::TeachingTipTitle, PropValue::Str(s), Handle::TeachingTip(tt)) => {
                     tt.put_Title(s.as_str())
                 }
@@ -2729,6 +2778,8 @@ impl Backend for WinUIBackend {
                         .cast()?;
                     tt.put_CloseButtonContent(&boxed)
                 }
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 // ── W23: SelectorBar ────────────────────────────────────
                 (Prop::TeachingTipCloseButton, PropValue::Unset, Handle::TeachingTip(tt)) => {
                     tt.put_CloseButtonContent(None)
@@ -2753,6 +2804,7 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+<<<<<<< HEAD
                 (Prop::RichEditBoxText, PropValue::Str(s), Handle::RichEditBox(reb)) => {
                     let doc = reb.get_Document()?;
                     let mut current = windows_core::HSTRING::default();
@@ -2843,6 +2895,8 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
+=======
+>>>>>>> 8433bc0a2ef9610aa1d218df8e3ef3676a4601b7
                 // ── RelativePanel attached props ──────────────────────────────
                 (Prop::FlyoutPlacement, PropValue::Unset, Handle::Button(_)) => Ok(()),
                 (Prop::RelativePanelAlignLeftWithPanel, PropValue::Bool(v), _) => {
@@ -3435,854 +3489,131 @@ impl Backend for WinUIBackend {
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::attach_event: unknown control {id}"));
         let mut revokers: Vec<windows_core::EventRevoker> = Vec::new();
-        match (event, handle) {
-            (Event::Click, Handle::Button(b)) => {
-                revokers.push(
-                    b.cast::<Xaml::IButtonBase>()
-                        .unwrap()
-                        .add_Click(move |_sender, _args| {
-                            handler.invoke();
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::Click, Handle::HyperlinkButton(h)) => {
-                revokers.push(
-                    h.cast::<Xaml::IButtonBase>()
-                        .unwrap()
-                        .add_Click(move |_sender, _args| {
-                            handler.invoke();
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::Click, Handle::RepeatButton(b)) => {
-                revokers.push(
-                    b.cast::<Xaml::IButtonBase>()
-                        .unwrap()
-                        .add_Click(move |_sender, _args| {
-                            handler.invoke();
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::Click, Handle::DropDownButton(ddb)) => {
-                revokers.push(
-                    ddb.cast::<Xaml::IButtonBase>()
-                        .unwrap()
-                        .add_Click(move |_sender, _args| {
-                            handler.invoke();
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::Click, _) => {
-                panic!("WinUIBackend::attach_event: Click on non-Button control {id}")
-            }
-            (Event::CheckedChanged, Handle::CheckBox(c)) => {
-                let checked_handler = handler.clone();
-                revokers.push(
-                    c.cast::<Xaml::IToggleButton>()
-                        .unwrap()
-                        .add_Checked(move |sender, _args| {
-                            let is_checked = sender_is_checked(sender);
-                            checked_handler.invoke_bool(is_checked);
-                        })
-                        .unwrap(),
-                );
-                revokers.push(
-                    c.cast::<Xaml::IToggleButton>()
-                        .unwrap()
-                        .add_Unchecked(move |sender, _args| {
-                            let is_checked = sender_is_checked(sender);
-                            handler.invoke_bool(is_checked);
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::CheckedChanged, Handle::ToggleButton(tb)) => {
-                let checked_handler = handler.clone();
-                revokers.push(
-                    tb.add_Checked(move |sender, _args| {
-                        let is_checked = sender_is_checked(sender);
-                        checked_handler.invoke_bool(is_checked);
-                    })
-                    .unwrap(),
-                );
-                revokers.push(
-                    tb.add_Unchecked(move |sender, _args| {
-                        let is_checked = sender_is_checked(sender);
-                        handler.invoke_bool(is_checked);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::CheckedChanged, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: CheckedChanged on non-CheckBox/ToggleButton {id}"
-                )
-            }
-            (Event::TextChanged, Handle::TextBox(tb)) => {
-                revokers.push(
-                    tb.add_TextChanged(move |sender, _args| {
-                        let text = sender_text(sender);
-                        handler.invoke_string(text);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TextChanged, _) => {
-                panic!("WinUIBackend::attach_event: TextChanged on non-TextBox {id}")
-            }
-            (Event::Toggled, Handle::ToggleSwitch(ts)) => {
-                revokers.push(
-                    ts.add_Toggled(move |sender, _args| {
-                        let is_on = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::ToggleSwitch>().ok())
-                            .and_then(|ts| ts.get_IsOn().ok())
-                            .unwrap_or(false);
-                        handler.invoke_bool(is_on);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::Toggled, _) => {
-                panic!("WinUIBackend::attach_event: Toggled on non-ToggleSwitch {id}")
-            }
-            (Event::ValueChanged, Handle::Slider(s)) => {
-                revokers.push(
-                    s.cast::<Xaml::IRangeBase>()
-                        .unwrap()
-                        .add_ValueChanged(move |_sender, args| {
-                            if let Some(a) = args.as_ref()
-                                && let Some(v) = a
-                                    .cast::<Xaml::IRangeBaseValueChangedEventArgs>()
-                                    .ok()
-                                    .and_then(|args| args.get_NewValue().ok())
-                            {
-                                handler.invoke_f64(v);
-                            }
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::ValueChanged, Handle::NumberBox(n)) => {
-                revokers.push(
-                    n.add_ValueChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref()
-                            && let Ok(v) = a.get_NewValue()
-                        {
-                            handler.invoke_f64(v);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::ValueChanged, _) => {
-                panic!("WinUIBackend::attach_event: ValueChanged on unsupported control {id}")
-            }
-            (Event::RadioChecked, Handle::RadioButton(r)) => {
-                revokers.push(
-                    r.cast::<Xaml::IToggleButton>()
-                        .unwrap()
-                        .add_Checked(move |_sender, _args| {
-                            handler.invoke();
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::RadioChecked, _) => {
-                panic!("WinUIBackend::attach_event: RadioChecked on non-RadioButton {id}")
-            }
-            (Event::ExpandedChanged, Handle::Expander(e)) => {
-                let expanding_handler = handler.clone();
-                revokers.push(
-                    e.add_Expanding(move |_sender, _args| {
-                        expanding_handler.invoke_bool(true);
-                    })
-                    .unwrap(),
-                );
-                revokers.push(
-                    e.add_Collapsed(move |_sender, _args| {
-                        handler.invoke_bool(false);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::ExpandedChanged, _) => {
-                panic!("WinUIBackend::attach_event: ExpandedChanged on non-Expander {id}")
-            }
-            (Event::InfoBarClosed, Handle::InfoBar(ib)) => {
-                revokers.push(
-                    ib.add_Closed(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::InfoBarClosed, _) => {
-                panic!("WinUIBackend::attach_event: InfoBarClosed on non-InfoBar {id}")
-            }
-            (Event::ContentDialogClosed, Handle::ContentDialog(d)) => {
-                revokers.push(
-                    d.add_Closed(move |_sender, args| {
-                        let result = args
-                            .as_ref()
-                            .and_then(|a| a.get_Result().ok())
-                            .unwrap_or(Xaml::ContentDialogResult(0));
-                        handler.invoke_i32(result.0);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::ContentDialogClosed, _) => {
-                panic!("WinUIBackend::attach_event: ContentDialogClosed on non-ContentDialog {id}")
-            }
-            (Event::TabSelectionChanged, Handle::TabView(tv)) => {
-                revokers.push(
-                    tv.add_SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::TabView>().ok())
-                            .and_then(|t| t.get_SelectedIndex().ok())
-                            .unwrap_or(-1);
-                        if idx >= 0 {
-                            handler.invoke_i32(idx);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TabSelectionChanged, _) => {
-                panic!("WinUIBackend::attach_event: TabSelectionChanged on non-TabView {id}")
-            }
-            (Event::TabCloseRequested, Handle::TabView(tv)) => {
-                revokers.push(
-                    tv.add_TabCloseRequested(move |_sender, args| {
-                        let key = args
-                            .as_ref()
-                            .and_then(|a| a.get_Tab().ok())
-                            .and_then(|tab| {
-                                tab.cast::<Xaml::IFrameworkElement>()
-                                    .unwrap()
-                                    .get_Tag()
-                                    .ok()
-                            })
-                            .and_then(|tag_obj| {
-                                tag_obj
-                                    .cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                                    .ok()
-                                    .and_then(|pv| pv.Value().ok())
-                            })
-                            .map(|h| h.to_string_lossy())
-                            .unwrap_or_default();
-                        handler.invoke_string(key);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TabCloseRequested, _) => {
-                panic!("WinUIBackend::attach_event: TabCloseRequested on non-TabView {id}")
-            }
-            (Event::AddTabButtonClick, Handle::TabView(tv)) => {
-                revokers.push(
-                    tv.add_AddTabButtonClick(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::AddTabButtonClick, _) => {
-                panic!("WinUIBackend::attach_event: AddTabButtonClick on non-TabView {id}")
-            }
-            (Event::NavSelectionChanged, Handle::NavigationView(nv)) => {
-                revokers.push(
-                    nv.add_SelectionChanged(move |_sender, args| {
-                        let tag = args
-                            .as_ref()
-                            .and_then(|a| {
-                                a.cast::<Xaml::INavigationViewSelectionChangedEventArgs>()
-                                    .unwrap()
-                                    .get_SelectedItem()
-                                    .ok()
-                            })
-                            .and_then(|item| item.cast::<Xaml::NavigationViewItem>().ok())
-                            .and_then(|nvi| {
-                                nvi.cast::<Xaml::IFrameworkElement>()
-                                    .unwrap()
-                                    .get_Tag()
-                                    .ok()
-                            })
-                            .and_then(|tag_obj| {
-                                tag_obj
-                                    .cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                                    .ok()
-                                    .and_then(|pv| pv.Value().ok())
-                            })
-                            .map(|h| h.to_string_lossy())
-                            .unwrap_or_default();
-                        handler.invoke_string(tag);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::NavSelectionChanged, _) => {
-                panic!("WinUIBackend::attach_event: NavSelectionChanged on non-NavigationView {id}")
-            }
-            (Event::NavBackRequested, Handle::NavigationView(nv)) => {
-                revokers.push(
-                    nv.cast::<Xaml::INavigationView2>()
-                        .unwrap()
-                        .add_BackRequested(move |_sender, _args| {
-                            handler.invoke();
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::NavBackRequested, _) => {
-                panic!("WinUIBackend::attach_event: NavBackRequested on non-NavigationView {id}")
-            }
-            (Event::NavSearchQuerySubmitted, Handle::NavigationView(nv)) => {
-                if let Ok(asb) = nv.get_AutoSuggestBox() {
-                    revokers.push(
-                        asb.add_QuerySubmitted(move |_sender, args| {
-                            let query = args
-                                .as_ref()
-                                .and_then(|a| a.get_QueryText().ok())
-                                .unwrap_or_default();
-                            handler.invoke_string(query);
-                        })
-                        .unwrap(),
-                    );
-                }
-            }
-            (Event::NavSearchQuerySubmitted, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: NavSearchQuerySubmitted on non-NavigationView {id}"
-                )
-            }
-            (Event::NavSearchTextChanged, Handle::NavigationView(nv)) => {
-                if let Ok(asb) = nv.get_AutoSuggestBox() {
-                    revokers.push(
-                        asb.add_TextChanged(move |sender, _args| {
-                            let text = sender
-                                .as_ref()
-                                .and_then(|s| s.get_Text().ok())
-                                .unwrap_or_default();
-                            handler.invoke_string(text);
-                        })
-                        .unwrap(),
-                    );
-                }
-            }
-            (Event::NavSearchTextChanged, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: NavSearchTextChanged on non-NavigationView {id}"
-                )
-            }
-            (Event::NavSearchSuggestionChosen, Handle::NavigationView(nv)) => {
-                if let Ok(asb) = nv.get_AutoSuggestBox() {
-                    revokers.push(
-                        asb.add_SuggestionChosen(move |_sender, args| {
-                            let item = args
-                                .as_ref()
-                                .and_then(|a| a.get_SelectedItem().ok())
-                                .and_then(|insp| {
-                                    insp.cast::<windows_reference::IReference<
-                                        windows_core::HSTRING,
-                                    >>()
-                                    .ok()
-                                    .and_then(|pv| pv.Value().ok())
-                                })
-                                .map(|h| h.to_string_lossy())
-                                .unwrap_or_default();
-                            handler.invoke_string(item);
-                        })
-                        .unwrap(),
-                    );
-                }
-            }
-            (Event::NavSearchSuggestionChosen, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: NavSearchSuggestionChosen on non-NavigationView {id}"
-                )
-            }
-            (Event::TitleBarBackRequested, Handle::TitleBar(tb)) => {
-                revokers.push(
-                    tb.add_BackRequested(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TitleBarBackRequested, _) => {
-                panic!("WinUIBackend::attach_event: TitleBarBackRequested on non-TitleBar {id}")
-            }
-            (Event::TitleBarPaneToggle, Handle::TitleBar(tb)) => {
-                revokers.push(
-                    tb.add_PaneToggleRequested(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TitleBarPaneToggle, _) => {
-                panic!("WinUIBackend::attach_event: TitleBarPaneToggle on non-TitleBar {id}")
-            }
-            (Event::PivotSelectionChanged, Handle::Pivot(p)) => {
-                revokers.push(
-                    p.add_SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::Selector>().ok())
-                            .and_then(|sel| {
-                                sel.cast::<Xaml::ISelector>()
-                                    .unwrap()
-                                    .get_SelectedIndex()
-                                    .ok()
-                            })
-                            .unwrap_or(-1);
-                        if idx >= 0 {
-                            handler.invoke_i32(idx);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::PivotSelectionChanged, _) => {
-                panic!("WinUIBackend::attach_event: PivotSelectionChanged on non-Pivot {id}")
-            }
-            (Event::BreadcrumbItemClicked, Handle::BreadcrumbBar(bc)) => {
-                revokers.push(
-                    bc.add_ItemClicked(move |_sender, args| {
-                        if let Some(idx) = args.as_ref().and_then(|a| a.get_Index().ok()) {
-                            handler.invoke_i32(idx);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::BreadcrumbItemClicked, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: BreadcrumbItemClicked on non-BreadcrumbBar {id}"
-                )
-            }
-            (Event::PasswordChanged, Handle::PasswordBox(p)) => {
-                revokers.push(
-                    p.add_PasswordChanged(move |sender, _args| {
-                        let text = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::PasswordBox>().ok())
-                            .and_then(|pb| pb.get_Password().ok())
-                            .unwrap_or_default();
-                        handler.invoke_string(text);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::PasswordChanged, _) => {
-                panic!("WinUIBackend::attach_event: PasswordChanged on non-PasswordBox {id}")
-            }
-            (Event::RadioButtonsSelectionChanged, Handle::RadioButtons(r)) => {
-                revokers.push(
-                    r.add_SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::RadioButtons>().ok())
-                            .and_then(|rb| rb.get_SelectedIndex().ok())
-                            .unwrap_or(-1);
-                        handler.invoke_i32(idx);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::RadioButtonsSelectionChanged, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: RadioButtonsSelectionChanged on non-RadioButtons {id}"
-                )
-            }
-            (Event::ComboSelectionChanged, Handle::ComboBox(c)) => {
-                revokers.push(
-                    c.cast::<Xaml::ISelector>()
-                        .unwrap()
-                        .add_SelectionChanged(move |sender, _args| {
-                            let idx = sender
-                                .as_ref()
-                                .and_then(|s| s.cast::<Xaml::Selector>().ok())
-                                .and_then(|sel| {
-                                    sel.cast::<Xaml::ISelector>()
-                                        .unwrap()
-                                        .get_SelectedIndex()
-                                        .ok()
-                                })
-                                .unwrap_or(-1);
-                            handler.invoke_i32(idx);
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::ComboSelectionChanged, _) => {
-                panic!("WinUIBackend::attach_event: ComboSelectionChanged on non-ComboBox {id}")
-            }
-            // ── RatingControl ValueChanged ────────────────────────────────
-            (Event::RatingValueChanged, Handle::RatingControl(r)) => {
-                revokers.push(
-                    r.add_ValueChanged(move |sender, _args| {
-                        let v = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::RatingControl>().ok())
-                            .and_then(|rc| rc.get_Value().ok())
-                            .unwrap_or(-1.0);
-                        handler.invoke_f64(v);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::RatingValueChanged, _) => {
-                panic!("WinUIBackend::attach_event: RatingValueChanged on non-RatingControl {id}")
-            }
-            // ── ColorPicker ColorChanged ──────────────────────────────────
-            (Event::ColorChanged, Handle::ColorPicker(cp)) => {
-                revokers.push(
-                    cp.add_ColorChanged(move |_sender, args| {
-                        let color = args.as_ref().and_then(|a| a.get_NewColor().ok()).unwrap_or(
-                            Xaml::Color {
-                                A: 255,
-                                R: 0,
-                                G: 0,
-                                B: 0,
-                            },
-                        );
-                        handler.invoke_color((color.A, color.R, color.G, color.B));
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::ColorChanged, _) => {
-                panic!("WinUIBackend::attach_event: ColorChanged on non-ColorPicker {id}")
-            }
-            // ── W9: DatePicker ────────────────────────────────────────────
-            (Event::DateSelected, Handle::DatePicker(dp)) => {
-                revokers.push(
-                    dp.add_SelectedDateChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref()
-                            && let Ok(dt) = a.get_NewDate()
-                        {
-                            handler.invoke_datetime(dt);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::DateSelected, _) => {
-                panic!("WinUIBackend::attach_event: DateSelected on non-DatePicker {id}")
-            }
-            // ── W10: TimePicker ───────────────────────────────────────────
-            (Event::TimeSelected, Handle::TimePicker(tp)) => {
-                revokers.push(
-                    tp.add_SelectedTimeChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref()
-                            && let Ok(ts) = a.get_NewTime()
-                        {
-                            handler
-                                .invoke_timespan(windows_time::TimeSpan::from_ticks(ts.Duration));
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TimeSelected, _) => {
-                panic!("WinUIBackend::attach_event: TimeSelected on non-TimePicker {id}")
-            }
-            // ── W11: CalendarDatePicker ───────────────────────────────────
-            (Event::CalendarDateSelected, Handle::CalendarDatePicker(cdp)) => {
-                revokers.push(
-                    cdp.add_DateChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref()
-                            && let Ok(dt) = a.get_NewDate()
-                        {
-                            handler.invoke_datetime(dt);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::CalendarDateSelected, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: CalendarDateSelected on non-CalendarDatePicker {id}"
-                )
-            }
-            // ── W12: CalendarView ─────────────────────────────────────────
-            (Event::CalendarViewSelectionChanged, Handle::CalendarView(cv)) => {
-                revokers.push(
-                    cv.add_SelectedDatesChanged(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::CalendarViewSelectionChanged, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: CalendarViewSelectionChanged on non-CalendarView {id}"
-                )
-            }
-            // ── W13: ListBox ──────────────────────────────────────────────
-            (Event::ListBoxSelectionChanged, Handle::ListBox(lb)) => {
-                revokers.push(
-                    lb.cast::<Xaml::ISelector>()
-                        .unwrap()
-                        .add_SelectionChanged(move |_sender, _args| {
-                            if let Some(sel) = _sender.as_ref()
-                                && let Ok(idx) = sel
-                                    .cast::<Xaml::ISelector>()
-                                    .and_then(|s| s.get_SelectedIndex())
-                            {
-                                handler.invoke_i32(idx);
-                            }
-                        })
-                        .unwrap(),
-                );
-            }
-            (Event::ListBoxSelectionChanged, _) => {
-                panic!("WinUIBackend::attach_event: ListBoxSelectionChanged on non-ListBox {id}")
-            }
-            // ── W15: SplitButton ──────────────────────────────────────────
-            (Event::SplitButtonClick, Handle::SplitButton(sb)) => {
-                revokers.push(
-                    sb.add_Click(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::SplitButtonClick, _) => {
-                panic!("WinUIBackend::attach_event: SplitButtonClick on non-SplitButton {id}")
-            }
-            // ── W16: AutoSuggestBox ───────────────────────────────────────
-            (Event::AutoSuggestTextChanged, Handle::AutoSuggestBox(asb)) => {
-                revokers.push(
-                    asb.add_TextChanged(move |sender, args| {
-                        // Only fire for user input, not programmatic changes.
-                        let is_user_input = args
-                            .as_ref()
-                            .and_then(|a| a.get_Reason().ok())
-                            .is_some_and(|r| {
-                                r == Xaml::AutoSuggestionBoxTextChangeReason::UserInput
-                            });
-                        if is_user_input {
-                            let text = sender
-                                .as_ref()
-                                .and_then(|s| s.get_Text().ok())
-                                .unwrap_or_default();
-                            handler.invoke_string(text);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::AutoSuggestTextChanged, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: AutoSuggestTextChanged on non-AutoSuggestBox {id}"
-                )
-            }
-            (Event::AutoSuggestQuerySubmitted, Handle::AutoSuggestBox(asb)) => {
-                revokers.push(
-                    asb.add_QuerySubmitted(move |_sender, args| {
-                        let text = args
-                            .as_ref()
-                            .and_then(|a| a.get_QueryText().ok())
-                            .unwrap_or_default();
-                        handler.invoke_string(text);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::AutoSuggestQuerySubmitted, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: AutoSuggestQuerySubmitted on non-AutoSuggestBox {id}"
-                )
-            }
-            (Event::AutoSuggestSuggestionChosen, Handle::AutoSuggestBox(asb)) => {
-                revokers.push(
-                    asb.add_SuggestionChosen(move |_sender, args| {
-                        let item = args
-                            .as_ref()
-                            .and_then(|a| a.get_SelectedItem().ok())
-                            .and_then(|insp| {
-                                insp.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                                    .ok()
-                                    .and_then(|pv| pv.Value().ok())
-                            })
-                            .map(|h| h.to_string_lossy())
-                            .unwrap_or_default();
-                        handler.invoke_string(item);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::AutoSuggestSuggestionChosen, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: AutoSuggestSuggestionChosen on non-AutoSuggestBox {id}"
-                )
-            }
-            // ── W17: SplitView ───────────────────────────────────────
-            (Event::SplitViewPaneClosed, Handle::SplitView(sv)) => {
-                revokers.push(
-                    sv.add_PaneClosed(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::SplitViewPaneClosed, _) => {
-                panic!("WinUIBackend::attach_event: SplitViewPaneClosed on non-SplitView {id}")
-            }
-            // ── W18: MenuBar ─────────────────────────────────────────
-            (Event::MenuBarItemClicked, Handle::MenuBar(mb)) => {
-                // Store the handler so set_prop can re-wire on item rebuild.
-                self.menu_click_handlers
-                    .borrow_mut()
-                    .insert(id, handler.clone());
-                // Wire click on all existing items.
-                let revs = Self::wire_menu_bar_clicks(mb, &handler);
-                revokers.extend(revs);
-            }
-            (Event::MenuBarItemClicked, _) => {
-                panic!("WinUIBackend::attach_event: MenuBarItemClicked on non-MenuBar {id}")
-            }
-            (Event::MenuFlyoutItemClicked, Handle::DropDownButton(_) | Handle::Button(_)) => {
-                // Store the handler so set_prop can wire when flyout is built.
-                self.menu_click_handlers.borrow_mut().insert(id, handler);
-            }
-            (Event::MenuFlyoutItemClicked, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: MenuFlyoutItemClicked on non-Button/DropDownButton {id}"
-                )
-            }
-            (Event::CommandBarFlyoutClick, Handle::Button(_)) => {
-                // Store the handler so set_prop can wire when flyout is built.
-                self.command_bar_flyout_handlers
-                    .borrow_mut()
-                    .insert(id, handler);
-            }
-            (Event::CommandBarFlyoutClick, _) => {
-                panic!("WinUIBackend::attach_event: CommandBarFlyoutClick on non-Button {id}")
-            }
-            // ── W20: TreeView ─────────────────────────────────────────
-            (Event::TreeViewItemInvoked, Handle::TreeView(tv)) => {
-                revokers.push(
-                    tv.add_ItemInvoked(move |_sender, args| {
-                        let text = args
-                            .as_ref()
-                            .and_then(|a| a.get_InvokedItem().ok())
-                            .and_then(|insp| {
-                                insp.cast::<super::super::bindings::ITreeViewNode>()
-                                    .ok()
-                                    .and_then(|node| node.get_Content().ok())
-                            })
-                            .and_then(|content| {
-                                content
-                                    .cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                                    .ok()
-                                    .and_then(|r| r.Value().ok())
-                            })
-                            .map(|h| h.to_string_lossy())
-                            .unwrap_or_default();
-                        handler.invoke_string(text);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TreeViewItemInvoked, _) => {
-                panic!("WinUIBackend::attach_event: TreeViewItemInvoked on non-TreeView {id}")
-            }
-            // ── W21: CommandBar ─────────────────────────────────────────
-            (Event::CommandBarClick, Handle::CommandBar(cb)) => {
-                // Store the handler so set_prop can re-wire on rebuild.
-                self.menu_click_handlers
-                    .borrow_mut()
-                    .insert(id, handler.clone());
-                // Wire click on all existing primary + secondary commands.
-                if let Ok(primary) = cb.get_PrimaryCommands() {
-                    let revs = Self::wire_command_bar_clicks(&primary, &handler);
+
+        let element_revokers = match handle {
+            Handle::Button(b) => elements::button::attach_event(b, event, handler.clone()),
+            Handle::CheckBox(c) => elements::check_box::attach_event(c, event, handler.clone()),
+            Handle::TextBox(tb) => elements::text_box::attach_event(tb, event, handler.clone()),
+            Handle::ToggleSwitch(ts) => {
+                elements::toggle_switch::attach_event(ts, event, handler.clone())
+            }
+            Handle::Slider(s) => elements::slider::attach_event(s, event, handler.clone()),
+            Handle::RadioButton(r) => {
+                elements::radio_button::attach_event(r, event, handler.clone())
+            }
+            Handle::NumberBox(n) => elements::number_box::attach_event(n, event, handler.clone()),
+            Handle::Expander(e) => elements::expander::attach_event(e, event, handler.clone()),
+            Handle::HyperlinkButton(h) => {
+                elements::hyperlink_button::attach_event(h, event, handler.clone())
+            }
+            Handle::InfoBar(ib) => elements::info_bar::attach_event(ib, event, handler.clone()),
+            Handle::TabView(tv) => elements::tab_view::attach_event(tv, event, handler.clone()),
+            Handle::NavigationView(nv) => {
+                elements::navigation_view::attach_event(nv, event, handler.clone())
+            }
+            Handle::TitleBar(tb) => elements::title_bar::attach_event(tb, event, handler.clone()),
+            Handle::Pivot(p) => elements::pivot::attach_event(p, event, handler.clone()),
+            Handle::BreadcrumbBar(bc) => {
+                elements::breadcrumb_bar::attach_event(bc, event, handler.clone())
+            }
+            Handle::PasswordBox(p) => {
+                elements::password_box::attach_event(p, event, handler.clone())
+            }
+            Handle::RadioButtons(r) => {
+                elements::radio_buttons::attach_event(r, event, handler.clone())
+            }
+            Handle::ComboBox(c) => elements::combo_box::attach_event(c, event, handler.clone()),
+            Handle::ContentDialog(d) => {
+                elements::content_dialog::attach_event(d, event, handler.clone())
+            }
+            Handle::RepeatButton(b) => {
+                elements::repeat_button::attach_event(b, event, handler.clone())
+            }
+            Handle::RatingControl(r) => {
+                elements::rating_control::attach_event(r, event, handler.clone())
+            }
+            Handle::ColorPicker(cp) => {
+                elements::color_picker::attach_event(cp, event, handler.clone())
+            }
+            Handle::DatePicker(dp) => {
+                elements::date_picker::attach_event(dp, event, handler.clone())
+            }
+            Handle::TimePicker(tp) => {
+                elements::time_picker::attach_event(tp, event, handler.clone())
+            }
+            Handle::CalendarDatePicker(cdp) => {
+                elements::calendar_date_picker::attach_event(cdp, event, handler.clone())
+            }
+            Handle::CalendarView(cv) => {
+                elements::calendar_view::attach_event(cv, event, handler.clone())
+            }
+            Handle::ListBox(lb) => elements::list_box::attach_event(lb, event, handler.clone()),
+            Handle::DropDownButton(ddb) => {
+                elements::drop_down_button::attach_event(ddb, event, handler.clone())
+            }
+            Handle::SplitButton(sb) => {
+                elements::split_button::attach_event(sb, event, handler.clone())
+            }
+            Handle::AutoSuggestBox(asb) => {
+                elements::auto_suggest_box::attach_event(asb, event, handler.clone())
+            }
+            Handle::SplitView(sv) => elements::split_view::attach_event(sv, event, handler.clone()),
+            Handle::TreeView(tv) => elements::tree_view::attach_event(tv, event, handler.clone()),
+            Handle::TeachingTip(tt) => {
+                elements::teaching_tip::attach_event(tt, event, handler.clone())
+            }
+            Handle::SelectorBar(sb) => {
+                elements::selector_bar::attach_event(sb, event, handler.clone())
+            }
+            Handle::RichEditBox(reb) => {
+                elements::rich_edit_box::attach_event(reb, event, handler.clone())
+            }
+            Handle::ToggleButton(tb) => {
+                elements::toggle_button::attach_event(tb, event, handler.clone())
+            }
+            _ => None,
+        };
+
+        if let Some(r) = element_revokers {
+            revokers = r;
+        } else {
+            match (event, handle) {
+                (Event::MenuBarItemClicked, Handle::MenuBar(mb)) => {
+                    self.menu_click_handlers
+                        .borrow_mut()
+                        .insert(id, handler.clone());
+                    let revs = Self::wire_menu_bar_clicks(mb, &handler);
                     revokers.extend(revs);
                 }
-                if let Ok(secondary) = cb.get_SecondaryCommands() {
-                    let revs = Self::wire_command_bar_clicks(&secondary, &handler);
-                    revokers.extend(revs);
+                (Event::MenuFlyoutItemClicked, Handle::DropDownButton(_) | Handle::Button(_)) => {
+                    self.menu_click_handlers.borrow_mut().insert(id, handler);
                 }
-            }
-            (Event::CommandBarClick, _) => {
-                panic!("WinUIBackend::attach_event: CommandBarClick on non-CommandBar {id}")
-            }
-            // ── W22: TeachingTip ─────────────────────────────────────────
-            (Event::TeachingTipClosed, Handle::TeachingTip(tt)) => {
-                revokers.push(
-                    tt.add_Closed(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TeachingTipClosed, _) => {
-                panic!("WinUIBackend::attach_event: TeachingTipClosed on non-TeachingTip {id}")
-            }
-            (Event::TeachingTipActionClick, Handle::TeachingTip(tt)) => {
-                revokers.push(
-                    tt.add_ActionButtonClick(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::TeachingTipActionClick, _) => {
-                panic!("WinUIBackend::attach_event: TeachingTipActionClick on non-TeachingTip {id}")
-            }
-            // ── W23: SelectorBar ─────────────────────────────────────────
-            (Event::SelectorBarSelectionChanged, Handle::SelectorBar(sb)) => {
-                let sb2 = sb.clone();
-                revokers.push(
-                    sb.add_SelectionChanged(move |_sender, _args| {
-                        if let Ok(selected) = sb2.get_SelectedItem()
-                            && let Ok(text) = selected.get_Text()
-                        {
-                            handler.invoke_string(text);
-                        }
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::SelectorBarSelectionChanged, _) => {
-                panic!(
-                    "WinUIBackend::attach_event: SelectorBarSelectionChanged on non-SelectorBar {id}"
-                )
-            }
-            (Event::RichEditBoxTextChanged, Handle::RichEditBox(reb)) => {
-                revokers.push(
-                    reb.add_TextChanged(move |sender, _args| {
-                        let text = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::RichEditBox>().ok())
-                            .and_then(|reb| {
-                                let doc = reb.get_Document().ok()?;
-                                let mut buf = windows_core::HSTRING::default();
-                                doc.GetText(Xaml::TextGetOptions::None, &mut buf).ok()?;
-                                Some(buf.to_string_lossy())
-                            })
-                            .unwrap_or_default();
-                        handler.invoke_string(text);
-                    })
-                    .unwrap(),
-                );
-            }
-            (Event::RichEditBoxTextChanged, _) => {
-                panic!("WinUIBackend::attach_event: RichEditBoxTextChanged on non-RichEditBox {id}")
-            }
-            (Event::FlyoutOpened, _) | (Event::FlyoutClosed, _) => {
-                // Flyout open/close events are not yet wired.
+                (Event::CommandBarFlyoutClick, Handle::Button(_)) => {
+                    self.command_bar_flyout_handlers
+                        .borrow_mut()
+                        .insert(id, handler);
+                }
+                (Event::CommandBarClick, Handle::CommandBar(cb)) => {
+                    self.menu_click_handlers
+                        .borrow_mut()
+                        .insert(id, handler.clone());
+                    if let Ok(primary) = cb.get_PrimaryCommands() {
+                        let revs = Self::wire_command_bar_clicks(&primary, &handler);
+                        revokers.extend(revs);
+                    }
+                    if let Ok(secondary) = cb.get_SecondaryCommands() {
+                        let revs = Self::wire_command_bar_clicks(&secondary, &handler);
+                        revokers.extend(revs);
+                    }
+                }
+                (Event::FlyoutOpened, _) | (Event::FlyoutClosed, _) => {}
+                (ev, h) => panic!(
+                    "WinUIBackend::attach_event: {ev:?} on {} {id}",
+                    describe_kind(h)
+                ),
             }
         }
+
         drop(map);
         if !revokers.is_empty() {
             self.event_revokers
