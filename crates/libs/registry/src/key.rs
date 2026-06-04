@@ -5,6 +5,9 @@ use super::*;
 #[derive(Debug)]
 pub struct Key(pub(crate) HKEY);
 
+// HKEY is a kernel handle and is safe to move between threads.
+unsafe impl Send for Key {}
+
 impl Key {
     /// Creates a registry key. If the key already exists, the function opens it.
     pub fn create<T: AsRef<str>>(&self, path: T) -> Result<Self> {
@@ -205,7 +208,7 @@ impl Key {
             // `RegSetValueExW` expects string data to be null terminated.
             if matches!(ty, Type::String | Type::ExpandString | Type::MultiString) {
                 debug_assert!(
-                    value.get(value.len() - 2) == Some(&0),
+                    value.len() >= 2 && value.get(value.len() - 2) == Some(&0),
                     "`value` isn't null-terminated"
                 );
                 debug_assert!(value.last() == Some(&0), "`value` isn't null-terminated");

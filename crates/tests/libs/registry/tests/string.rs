@@ -57,3 +57,37 @@ fn string() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn multi_string() -> Result<()> {
+    let test_key = "software\\windows-rs\\tests\\multi_string";
+    _ = CURRENT_USER.remove_tree(test_key);
+    let key = CURRENT_USER.create(test_key)?;
+
+    // Single value roundtrip (bug fix for #4477)
+    key.set_multi_string("single", &["foo"])?;
+    assert_eq!(key.get_multi_string("single")?, ["foo"]);
+
+    // Multiple values roundtrip
+    key.set_multi_string("multi", &["one", "two", "three"])?;
+    assert_eq!(key.get_multi_string("multi")?, ["one", "two", "three"]);
+
+    // Empty array
+    key.set_multi_string("empty", &[])?;
+    assert_eq!(key.get_multi_string("empty")?, Vec::<String>::new());
+
+    // Unicode values
+    key.set_multi_string("unicode", &["héllo", "wörld", "日本語"])?;
+    assert_eq!(
+        key.get_multi_string("unicode")?,
+        ["héllo", "wörld", "日本語"]
+    );
+
+    Ok(())
+}
+
+#[test]
+fn send() {
+    fn assert_send<T: Send>() {}
+    assert_send::<Key>();
+}
