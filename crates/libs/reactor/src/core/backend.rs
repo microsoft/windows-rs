@@ -350,6 +350,7 @@ pub enum PropValue {
     ScrollVis(ScrollBarVisibility),
     InfoBarSev(InfoBarSeverity),
     ImageStretch(ImageStretch),
+    SurfaceImageSource(SurfaceImageSource),
     LineEndpoints(LineEndpoints),
     NavMenuItems(Vec<NavViewItem>),
     NavPaneDisplayMode(NavViewPaneDisplayMode),

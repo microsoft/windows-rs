@@ -140,7 +140,7 @@ pub fn grid_attached_props_all_widget_kinds(h: Harness) -> FixtureFuture {
                     .grid_row(20)
                     .grid_column(0)
                     .into(),
-                Image::new("ms-appx:///none.png")
+                Image::new_with_uri("ms-appx:///none.png")
                     .grid_row(21)
                     .grid_column(0)
                     .into(),
