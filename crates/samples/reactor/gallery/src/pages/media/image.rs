@@ -24,7 +24,7 @@ pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
             "Stretch Modes",
             vstack((
                 border(
-                    Image::new("https://picsum.photos/id/237/400/200")
+                    Image::new_with_uri("https://picsum.photos/id/237/400/200")
                         .stretch(stretch)
                         .width(300.0)
                         .height(150.0),
@@ -53,7 +53,7 @@ pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
                 text_block(format!("Current: {stretch_name}")).opacity(0.6),
             ))
             .spacing(8.0),
-            r#"Image::new(uri).stretch(ImageStretch::Uniform).width(300.0).height(150.0)"#,
+            r#"Image::new_with_uri(uri).stretch(ImageStretch::Uniform).width(300.0).height(150.0)"#,
         )],
     )
 }

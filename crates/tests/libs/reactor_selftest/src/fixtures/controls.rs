@@ -182,7 +182,9 @@ pub fn mount_info_badge(h: Harness) -> FixtureFuture {
 
 pub fn mount_image(h: Harness) -> FixtureFuture {
     Box::pin(async move {
-        h.mount(cc(|_| Image::new("ms-appx:///Assets/none.png").into()));
+        h.mount(cc(|_| {
+            Image::new_with_uri("ms-appx:///Assets/none.png").into()
+        }));
         h.render().await;
         assert_present!(h, "Reconciler_Mount_Image", bindings::Image);
     })

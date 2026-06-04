@@ -1539,6 +1539,9 @@ impl Backend for WinUIBackend {
                     bmp.cast::<Xaml::IBitmapImage>()?.put_UriSource(&uri)?;
                     img.put_Source(&bmp.cast::<Xaml::ImageSource>()?)
                 }
+                (Prop::ImageSource, PropValue::SurfaceImageSource(sis), Handle::Image(img)) => {
+                    img.put_Source(&sis.image_source()?)
+                }
                 (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
                 (Prop::ImageStretch, PropValue::ImageStretch(s), Handle::Image(img)) => {
                     use ImageStretch as E;
@@ -4280,16 +4283,25 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         }
         Element::Image(img) => {
             let i = Xaml::Image::new().ok()?;
-            if !img.source.is_empty()
-                && let Ok(uri) = Xaml::Uri::CreateUri(img.source.as_str())
-                && let Ok(bmp) = Xaml::BitmapImage::new()
-            {
-                if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {
-                    let _ = ibmp.put_UriSource(&uri);
+            match &img.source {
+                ImageSource::Uri(uri_str) => {
+                    if let Ok(uri) = Xaml::Uri::CreateUri(uri_str.as_str())
+                        && let Ok(bmp) = Xaml::BitmapImage::new()
+                    {
+                        if let Ok(ibmp) = bmp.cast::<Xaml::IBitmapImage>() {
+                            let _ = ibmp.put_UriSource(&uri);
+                        }
+                        if let Ok(src) = bmp.cast::<Xaml::ImageSource>() {
+                            let _ = i.put_Source(&src);
+                        }
+                    }
                 }
-                if let Ok(src) = bmp.cast::<Xaml::ImageSource>() {
-                    let _ = i.put_Source(&src);
+                ImageSource::Surface(sis) => {
+                    if let Ok(src) = sis.image_source() {
+                        let _ = i.put_Source(&src);
+                    }
                 }
+                ImageSource::None => {}
             }
             i.cast::<Xaml::UIElement>().ok()
         }

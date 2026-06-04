@@ -67,7 +67,7 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
             "Shape",
             Shape::rectangle().fill(Color::rgb(255, 0, 0)).into(),
         ),
-        ("Image", Image::new("ms-appx:///x.png").into()),
+        ("Image", Image::new_with_uri("ms-appx:///x.png").into()),
         (
             "TabView",
             TabView::new([TabItem::new("a", TextBlock::new("x"))]).into(),
