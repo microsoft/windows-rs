@@ -1,7 +1,5 @@
-//! Minimal demo of displaying a `SurfaceImageSource` with the reactor `Image`
-//! widget, drawing into it with Direct2D.
-
-#![windows_subsystem = "windows"]
+//! Demo of displaying a `SurfaceImageSource` with the reactor `Image` widget,
+//! drawing into it once with Direct2D.
 
 use windows::Win32::Graphics::Direct2D::Common::*;
 use windows::Win32::Graphics::Direct2D::*;
@@ -93,7 +91,9 @@ fn build_surface() -> windows::core::Result<SurfaceImageSource> {
     Ok(surface)
 }
 
-fn app(cx: &mut RenderCx) -> Element {
+/// Sample page: a static Direct2D drawing rendered into a `SurfaceImageSource`
+/// and displayed with the reactor `Image` widget.
+pub fn surface_image_source_sample(_: &(), cx: &mut RenderCx) -> Element {
     // Create and draw the surface once; it persists across re-renders.
     let surface = cx.use_ref::<Option<SurfaceImageSource>>(None);
     if surface.borrow().is_none() {
@@ -110,9 +110,6 @@ fn app(cx: &mut RenderCx) -> Element {
             .height(SIZE as f64),
     ))
     .spacing(8.0)
+    .margin(Thickness::uniform(16.0))
     .into()
-}
-
-fn main() -> Result<()> {
-    App::new().title("SurfaceImageSource").render(app)
 }
