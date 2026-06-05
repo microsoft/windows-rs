@@ -59,6 +59,59 @@ fn async_setter_from_off_thread_marshals_back_and_persists() {
 }
 
 #[test]
+fn async_setter_marks_owning_component_dirty_for_rerender() {
+    // Regression: an off-thread `use_async_state` write must mark the owning
+    // component dirty, not just request a root rerender. Without this, a
+    // nested component (whose parent's element tree is unchanged) is skipped
+    // by the reconciler's `can_skip_update` path and never observes the new
+    // value until an unrelated `use_state` change forces it to re-render.
+    let dispatcher = ChannelDispatcher::new();
+    let _ui_guard = UiRerenderGuard::install(Rc::new(|| {}));
+
+    let mut cx = RenderCx::for_test();
+    cx.set_marshaller(Some(dispatcher.marshaller()));
+    cx.begin_render();
+    let (_, set) = cx.use_async_state(0_i32);
+
+    // A fresh render starts clean.
+    assert!(!cx.peek_state_dirty());
+
+    thread::spawn(move || set.call(42)).join().unwrap();
+    dispatcher.drain();
+
+    // Applying the off-thread write marks the component dirty so the
+    // reconciler will not skip re-rendering it.
+    assert!(
+        cx.peek_state_dirty(),
+        "async write must mark the owning component dirty"
+    );
+
+    // The flag clears at the start of the next render.
+    cx.begin_render();
+    assert!(!cx.peek_state_dirty());
+}
+
+#[test]
+fn async_setter_equal_value_does_not_mark_dirty() {
+    let dispatcher = ChannelDispatcher::new();
+    let _ui_guard = UiRerenderGuard::install(Rc::new(|| {}));
+
+    let mut cx = RenderCx::for_test();
+    cx.set_marshaller(Some(dispatcher.marshaller()));
+    cx.begin_render();
+    let (_, set) = cx.use_async_state(7_i32);
+
+    thread::spawn(move || set.call(7)).join().unwrap();
+    dispatcher.drain();
+
+    assert!(
+        !cx.peek_state_dirty(),
+        "an unchanged async write must not mark the component dirty"
+    );
+}
+
+
+#[test]
 fn async_setter_equal_value_does_not_trigger_rerender() {
     let dispatcher = ChannelDispatcher::new();
     let marshaller = dispatcher.marshaller();
