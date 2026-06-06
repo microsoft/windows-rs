@@ -59,14 +59,14 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
 
     match &p.emit {
         Emit::Always => {
-            let value_expr = always_value_expr(p.value(), &field);
+            let value_expr = always_value_expr(p.value(), &field, p.copy_value);
             quote! {
                 out.push(Binding::Prop(Prop::#prop, #value_expr));
             }
         }
         Emit::Optional => {
             let value_variant = ident(p.value());
-            if is_copy_value(p.value()) {
+            if p.copy_value {
                 quote! {
                     if let Some(v) = w.#field {
                         out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v)));
@@ -99,7 +99,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
         Emit::NonDefault(default_expr) => {
             if default_expr == "false" {
                 // `w.field != false` → `w.field`
-                let value_expr = always_value_expr(p.value(), &field);
+                let value_expr = always_value_expr(p.value(), &field, p.copy_value);
                 quote! {
                     if w.#field {
                         out.push(Binding::Prop(Prop::#prop, #value_expr));
@@ -107,7 +107,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
                 }
             } else if default_expr == "true" {
                 // `w.field != true` → `!w.field`
-                let value_expr = always_value_expr(p.value(), &field);
+                let value_expr = always_value_expr(p.value(), &field, p.copy_value);
                 quote! {
                     if !w.#field {
                         out.push(Binding::Prop(Prop::#prop, #value_expr));
@@ -115,7 +115,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
                 }
             } else {
                 let default_tokens: TokenStream = default_expr.parse().unwrap();
-                let value_expr = always_value_expr(p.value(), &field);
+                let value_expr = always_value_expr(p.value(), &field, p.copy_value);
                 quote! {
                     if w.#field != #default_tokens {
                         out.push(Binding::Prop(Prop::#prop, #value_expr));
@@ -130,7 +130,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
 fn gen_prop_item(p: &PropDecl) -> TokenStream {
     let prop = ident(&p.prop());
     let field = ident(&p.field);
-    let value_expr = always_value_expr(p.value(), &field);
+    let value_expr = always_value_expr(p.value(), &field, p.copy_value);
     quote! { Binding::Prop(Prop::#prop, #value_expr) }
 }
 
@@ -161,41 +161,13 @@ fn gen_event_binding(e: &EventDecl) -> TokenStream {
 }
 
 /// Build the `PropValue::Variant(w.field)` expression for an always-emit prop.
-fn always_value_expr(value_variant: &str, field: &proc_macro2::Ident) -> TokenStream {
+fn always_value_expr(value_variant: &str, field: &proc_macro2::Ident, copy: bool) -> TokenStream {
     let variant = ident(value_variant);
-    if is_copy_value(value_variant) {
+    if copy {
         quote! { PropValue::#variant(w.#field) }
     } else {
         quote! { PropValue::#variant(w.#field.clone()) }
     }
-}
-
-/// Returns true if the PropValue variant wraps a Copy type (no .clone() needed).
-fn is_copy_value(variant: &str) -> bool {
-    matches!(
-        variant,
-        "Bool"
-            | "F64"
-            | "I32"
-            | "U16"
-            | "U32"
-            | "U8"
-            | "Vertical"
-            | "Stretch"
-            | "CommandBarDefaultLabelPosition"
-            | "InfoBarSeverity"
-            | "NavigationViewPaneDisplayMode"
-            | "PasswordRevealMode"
-            | "ScrollingScrollBarVisibility"
-            | "ScrollBarVisibility"
-            | "TeachingTipPlacementMode"
-            | "TreeViewSelectionMode"
-            | "SymbolIcon"
-            | "Thickness"
-            | "HAlign"
-            | "VAlign"
-            | "FlyoutPlacement"
-    )
 }
 
 fn when_bool_value(value_variant: &str, val: bool) -> TokenStream {

@@ -103,6 +103,11 @@ pub struct PropDecl {
     /// - `unset = { default = "value" }` → reset to literal
     /// - `unset = { fn = "name" }` → call explicit function
     pub unset: Option<UnsetPolicy>,
+
+    /// Whether the PropValue variant wraps a Copy type (no `.clone()` needed).
+    /// Inferred automatically: primitives, bool_enums, enum_maps, and
+    /// metadata value-type structs are Copy; String/Vec wrappers are not.
+    pub copy_value: bool,
 }
 
 /// Bool-to-enum setter configuration.
@@ -280,7 +285,7 @@ impl PropDecl {
                     .as_ref()
                     .and_then(|s| s.method.as_deref()));
             if let (Some(resolver), Some(method)) = (resolver, method_name)
-                && let Some(value) = resolver.infer_value_type(handle, method)
+                && let Some((value, _copy)) = resolver.infer_value_type(handle, method)
             {
                 self.value = Some(value);
             }

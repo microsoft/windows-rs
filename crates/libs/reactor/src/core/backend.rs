@@ -295,7 +295,7 @@ pub enum PropValue {
     },
     TeachingTipPlacementMode(TeachingTipPlacementMode),
     SelectorBarItems(Vec<SelectorBarItemDef>),
-    SymbolIcon(SymbolGlyph),
+    Symbol(SymbolGlyph),
     FlyoutPlacement(FlyoutPlacement),
     Resources(HashMap<String, String>),
 }

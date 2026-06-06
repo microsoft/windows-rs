@@ -25,7 +25,7 @@ ItemClicked = { handler = "IndexChanged", invoke = "invoke_i32_args", getter = "
 Content = { emit = "always", setter_fn = true }
 IsEnabled = { emit = "when_false" }
 Style = { emit = { non_default = "ButtonStyle::Default" }, setter_fn = true, value = "ButtonStyle" }
-Icon = { emit = "optional", setter_fn = true, value = "SymbolIcon" }
+Icon = { emit = "optional", setter_fn = true, value = "Symbol" }
 MenuFlyoutItems = { emit = "optional", setter_fn = true, value = "MenuFlyoutItems" }
 Click = {}
 MenuItemClicked = { attach_fn = true, handler = "TextChanged" }

@@ -71,7 +71,7 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
         PropValue::Str(w.content.clone()),
     ));
     if let Some(v) = w.icon {
-        out.push(Binding::Prop(Prop::Icon, PropValue::SymbolIcon(v)));
+        out.push(Binding::Prop(Prop::Icon, PropValue::Symbol(v)));
     }
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));

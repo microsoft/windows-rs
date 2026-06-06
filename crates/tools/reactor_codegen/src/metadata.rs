@@ -238,17 +238,110 @@ impl MetadataResolver {
         }
     }
 
-    /// Infer the `PropValue` variant name from a method's parameter type in metadata.
+    /// Infer the `PropValue` variant name and Copy-ness from a method's parameter
+    /// type in metadata.
     ///
     /// Returns `None` for complex types (enums, generics) that need
-    /// explicit TOML declaration.
-    pub fn infer_value_type(&self, class_name: &str, method_name: &str) -> Option<String> {
+    /// explicit TOML declaration. The bool indicates whether the type is Copy.
+    pub fn infer_value_type(&self, class_name: &str, method_name: &str) -> Option<(String, bool)> {
         let mref = self
             .lookup
             .get(&(class_name.to_string(), method_name.to_string()))?;
-        // put_ methods have exactly one parameter
         let param = mref.param_types.first()?;
-        self.value_for_type(param)
+        let name = self.value_for_type(param)?;
+        // Copy-ness follows the same unwrapping as value_for_type:
+        // IReference<T> unwraps to T, single-field wrappers unwrap to inner.
+        let copy = self.is_unwrapped_copy(param);
+        Some((name, copy))
+    }
+
+    /// Returns true if a metadata `Type` is Copy (primitive or value type).
+    ///
+    /// Follows the same pattern as `is_copyable` in windows-bindgen:
+    /// primitives and ValueName types (enums, blittable structs) are Copy;
+    /// String, ClassName, Object, and generics are not.
+    fn is_copy(ty: &Type) -> bool {
+        match ty {
+            Type::String | Type::Object | Type::ClassName(_) => false,
+            Type::Generic(..) | Type::Array(_) => false,
+            // Primitives, ValueName (enums + structs), etc. → Copy
+            _ => true,
+        }
+    }
+
+    /// Check copy-ness after applying the same unwrapping as `value_for_type`:
+    /// IReference<T> → check T, single-field wrappers → check inner type.
+    fn is_unwrapped_copy(&self, ty: &Type) -> bool {
+        match ty {
+            // IReference<T> → the PropValue wraps T, not IReference
+            Type::ClassName(tn)
+                if tn.namespace == "Windows.Foundation" && tn.name == "IReference`1" =>
+            {
+                tn.generics.first().is_some_and(Self::is_copy)
+            }
+            Type::ValueName(tn) => {
+                let key = (tn.namespace.clone(), tn.name.clone());
+                if let Some(inner) = self.single_field_types.get(&key) {
+                    // Single-field wrapper → unwraps to inner primitive
+                    Self::is_copy(inner)
+                } else {
+                    // Multi-field value type or enum → Copy
+                    true
+                }
+            }
+            _ => Self::is_copy(ty),
+        }
+    }
+
+    /// Check copy-ness for a method's parameter type, applying IReference
+    /// unwrapping.
+    pub fn is_method_copy(&self, class_name: &str, method_name: &str) -> bool {
+        let Some(mref) = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))
+        else {
+            return false;
+        };
+        let Some(param) = mref.param_types.first() else {
+            return false;
+        };
+        self.is_unwrapped_copy(param)
+    }
+
+    /// Check if a PropValue variant name wraps a Copy type.
+    ///
+    /// Used as a fallback when no metadata method exists (setter_fn properties).
+    /// Reverse-maps the name through `primitive_value_for_type` to find the
+    /// underlying `Type` and checks `is_copy` on it. Unknown names default
+    /// to non-Copy (safe — `.clone()` always works on Clone types).
+    pub fn is_copy_value_name(&self, value_name: &str) -> bool {
+        // Check every primitive Type — if primitive_value_for_type produces
+        // this name, use is_copy on that Type.
+        if [
+            Type::String,
+            Type::Bool,
+            Type::F64,
+            Type::I32,
+            Type::U16,
+            Type::U32,
+            Type::U8,
+            Type::Object,
+        ]
+        .iter()
+        .any(|ty| {
+            Self::primitive_value_for_type(ty).as_deref() == Some(value_name) && Self::is_copy(ty)
+        }) {
+            return true;
+        }
+        // Check metadata enums and value types by short name — enums and
+        // value-type structs are always Copy in WinUI.
+        self.enum_variants
+            .keys()
+            .any(|(_, name)| name == value_name)
+            || self
+                .single_field_types
+                .keys()
+                .any(|(_, name)| name == value_name)
     }
 
     /// Map a metadata Type to a PropValue variant name.
@@ -442,20 +535,35 @@ mod tests {
     #[test]
     fn infer_single_field_wrapper_types() {
         let resolver = MetadataResolver::load(Path::new("../../../winmd"));
-        // FontWeight is a struct with one field (Weight: u16) → unwraps to U16
+        // FontWeight is a struct with one field (Weight: u16) → unwraps to U16, Copy
         assert_eq!(
             resolver.infer_value_type("TextBlock", "put_FontWeight"),
-            Some("U16".to_string())
+            Some(("U16".to_string(), true))
         );
-        // Thickness is a multi-field struct → uses struct short name
+        // Thickness is a multi-field struct → uses struct short name, Copy
         assert_eq!(
             resolver.infer_value_type("Border", "put_BorderThickness"),
-            Some("Thickness".to_string())
+            Some(("Thickness".to_string(), true))
         );
         // NavigateUri takes a Uri class → not a ValueName, returns None
         assert_eq!(
             resolver.infer_value_type("HyperlinkButton", "put_NavigateUri"),
             None
         );
+        // Text takes a String → non-Copy
+        assert_eq!(
+            resolver.infer_value_type("TextBlock", "put_Text"),
+            Some(("Str".to_string(), false))
+        );
+        // IsChecked takes IReference<bool> → unwraps to Copy bool
+        assert!(resolver.is_method_copy("CheckBox", "put_IsChecked"));
+        // ContentDialog.IsOpen — might not exist as put_IsOpen in metadata
+        // (uses custom ShowAsync pattern)
+        assert!(
+            !resolver.has_method("ContentDialog", "put_IsOpen"),
+            "ContentDialog.put_IsOpen should not be in metadata"
+        );
+        // Text takes String → non-Copy
+        assert!(!resolver.is_method_copy("TextBlock", "put_Text"));
     }
 }

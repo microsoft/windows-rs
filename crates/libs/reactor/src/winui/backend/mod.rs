@@ -822,7 +822,7 @@ impl Backend for WinUIBackend {
                     let tb = string_as_textblock(s)?;
                     cc.put_Content(&tb)
                 }
-                (Prop::Icon, PropValue::SymbolIcon(sym), Handle::Button(b)) => {
+                (Prop::Icon, PropValue::Symbol(sym), Handle::Button(b)) => {
                     let icon_elem =
                         Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
                     let cc = b.cast::<Xaml::IContentControl>()?;

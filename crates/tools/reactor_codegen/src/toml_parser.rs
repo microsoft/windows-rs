@@ -230,15 +230,24 @@ fn build_prop(
     let method_name = format!("put_{member_name}");
     let has_method = resolver.has_method(handle, &method_name);
 
-    let value = if let Some(v) = &overrides.value {
-        Some(v.clone())
+    let (value, inferred_copy) = if let Some(v) = &overrides.value {
+        // Explicit value — check metadata method for copy-ness, falling
+        // back to value-name analysis when no method exists.
+        let copy = if has_method {
+            resolver.is_method_copy(handle, &method_name)
+        } else {
+            resolver.is_copy_value_name(v)
+        };
+        (Some(v.clone()), Some(copy))
     } else if overrides.bool_enum.is_some() {
-        // bool_enum always maps to PropValue::Bool
-        Some("Bool".to_string())
+        (Some("Bool".to_string()), Some(true))
     } else if has_method {
-        resolver.infer_value_type(handle, &method_name)
+        match resolver.infer_value_type(handle, &method_name) {
+            Some((name, copy)) => (Some(name), Some(copy)),
+            None => (None, None),
+        }
     } else {
-        None
+        (None, None)
     };
 
     // Check if metadata says this is an enum type (for auto-inference).
@@ -290,6 +299,14 @@ fn build_prop(
         None
     };
 
+    // Infer whether the PropValue variant is Copy.
+    // bool_enum and enum_map always wrap Copy types; metadata inference
+    // derives copy-ness from the Type variant (ValueName → Copy,
+    // String/ClassName → non-Copy); explicit overrides without metadata
+    // default to non-Copy (safe — .clone() always works).
+    let copy_value =
+        method_bool_enum.is_some() || method_enum_map.is_some() || inferred_copy.unwrap_or(false);
+
     PropDecl {
         field,
         meta_name: member_name.to_string(),
@@ -305,6 +322,7 @@ fn build_prop(
         method_enum_map,
         setter_fn,
         unset: overrides.unset.clone(),
+        copy_value,
     }
 }
 
