@@ -187,7 +187,7 @@ fn is_copy_value(variant: &str) -> bool {
             | "NavPaneDisplayMode"
             | "PasswordRevealMode"
             | "ScrollViewScrollBarVis"
-            | "ScrollVis"
+            | "ScrollBarVisibility"
             | "TeachingTipPlacement"
             | "TreeViewSelectionMode"
             | "SymbolIcon"

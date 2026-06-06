@@ -241,14 +241,24 @@ fn build_prop(
         None
     };
 
-    let (method, method_optional, method_ireference, method_textblock) =
-        if setter_fn.is_some() || overrides.enum_map.is_some() || overrides.bool_enum.is_some() {
-            (None, None, None, None)
-        } else if has_method {
-            classify_setter(handle, &method_name, wrap.as_deref(), resolver)
-        } else {
-            (None, None, None, None)
-        };
+    // Check if metadata says this is an enum type (for auto-inference).
+    let is_metadata_enum = overrides.enum_map.is_none()
+        && overrides.bool_enum.is_none()
+        && setter_fn.is_none()
+        && has_method
+        && resolver.enum_info(handle, &method_name).is_some();
+
+    let (method, method_optional, method_ireference, method_textblock) = if setter_fn.is_some()
+        || overrides.enum_map.is_some()
+        || overrides.bool_enum.is_some()
+        || is_metadata_enum
+    {
+        (None, None, None, None)
+    } else if has_method {
+        classify_setter(handle, &method_name, wrap.as_deref(), resolver)
+    } else {
+        (None, None, None, None)
+    };
 
     // Pre-set method on bool_enum/enum_map from the metadata name (TOML key),
     // since resolve_defaults infers from field/prop which may differ.
@@ -258,12 +268,27 @@ fn build_prop(
         }
         s
     });
-    let method_enum_map = overrides.enum_map.clone().map(|mut s| {
+    let method_enum_map = if let Some(mut s) = overrides.enum_map.clone() {
+        // Explicit enum_map in TOML — just fill in method if missing.
         if s.method.is_none() && has_method {
-            s.method = Some(method_name.clone());
+            s.method = Some(method_name);
         }
-        s
-    });
+        Some(s)
+    } else if overrides.bool_enum.is_none() && setter_fn.is_none() && has_method {
+        // No explicit enum_map — try to infer from metadata.
+        if let Some((enum_name, variants)) = resolver.enum_info(handle, &method_name) {
+            Some(EnumMapSetter {
+                method: Some(method_name.clone()),
+                rust_type: None,
+                winui_type: enum_name.to_string(),
+                variants: variants.iter().map(|v| [v.clone(), v.clone()]).collect(),
+            })
+        } else {
+            None
+        }
+    } else {
+        None
+    };
 
     PropDecl {
         field,

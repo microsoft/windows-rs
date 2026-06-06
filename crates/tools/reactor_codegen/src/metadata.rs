@@ -54,6 +54,8 @@ pub struct MetadataResolver {
     /// Value-type structs that wrap a single primitive field.
     /// Maps `(namespace, name)` → the unwrapped inner `Type`.
     single_field_types: HashMap<(String, String), Type>,
+    /// Enum types: maps `(namespace, name)` → list of variant names.
+    enum_variants: HashMap<(String, String), Vec<String>>,
 }
 
 impl MetadataResolver {
@@ -98,14 +100,24 @@ impl MetadataResolver {
         // Build single-field struct map: value types with exactly one field
         // get mapped to their inner primitive type (e.g. FontWeight → U16).
         let mut single_field_types = HashMap::new();
+        let mut enum_variants = HashMap::new();
         for (namespace, name, typedef) in index.iter() {
             let fields: Vec<_> = typedef.fields().collect();
-            if fields.len() == 1 {
+            // Enums have a `value__` field plus named variant fields.
+            let variant_names: Vec<_> = fields
+                .iter()
+                .filter(|f| f.name() != "value__")
+                .map(|f| f.name().to_string())
+                .collect();
+            let has_value_field = fields.iter().any(|f| f.name() == "value__");
+
+            if has_value_field && !variant_names.is_empty() {
+                // This is an enum.
+                enum_variants.insert((namespace.to_string(), name.to_string()), variant_names);
+            } else if fields.len() == 1 {
                 let inner_ty = fields[0].ty();
-                // Only map if the inner type is a primitive we recognize.
                 if Self::primitive_value_for_type(&inner_ty).is_some() {
-                    single_field_types
-                        .insert((namespace.to_string(), name.to_string()), inner_ty);
+                    single_field_types.insert((namespace.to_string(), name.to_string()), inner_ty);
                 }
             }
         }
@@ -113,6 +125,7 @@ impl MetadataResolver {
         MetadataResolver {
             lookup,
             single_field_types,
+            enum_variants,
         }
     }
 
@@ -209,6 +222,22 @@ impl MetadataResolver {
             .contains_key(&(class_name.to_string(), method_name.to_string()))
     }
 
+    /// If a method's parameter is an enum, return `(short_name, [variant_names])`.
+    /// Used to auto-generate `enum_map` from metadata without explicit TOML overrides.
+    pub fn enum_info(&self, class_name: &str, method_name: &str) -> Option<(&str, &[String])> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let param = mref.param_types.first()?;
+        if let Type::ValueName(tn) = param {
+            let key = (tn.namespace.clone(), tn.name.clone());
+            let variants = self.enum_variants.get(&key)?;
+            Some((&tn.name, variants))
+        } else {
+            None
+        }
+    }
+
     /// Infer the `PropValue` variant name from a method's parameter type in metadata.
     ///
     /// Returns `None` for complex types (enums, generics) that need
@@ -233,7 +262,7 @@ impl MetadataResolver {
         }
         match ty {
             Type::ValueName(tn) => {
-                let key = (tn.namespace.to_string(), tn.name.to_string());
+                let key = (tn.namespace.clone(), tn.name.clone());
                 // Single-field wrapper structs → unwrap to inner primitive
                 if let Some(inner) = self.single_field_types.get(&key) {
                     return Self::primitive_value_for_type(inner);
@@ -242,7 +271,7 @@ impl MetadataResolver {
                 // the PropValue variant (e.g. Thickness → "Thickness").
                 // If there's no matching PropValue variant the generated code
                 // won't compile, signalling that an explicit override is needed.
-                Some(tn.name.to_string())
+                Some(tn.name.clone())
             }
             _ => None,
         }

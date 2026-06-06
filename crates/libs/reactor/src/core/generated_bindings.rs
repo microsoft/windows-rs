@@ -852,11 +852,11 @@ pub(crate) fn scroll_viewer_bindings(w: &ScrollViewer) -> PropBindings {
     vec![
         Binding::Prop(
             Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollVis(w.horizontal_scroll_bar_visibility),
+            PropValue::ScrollBarVisibility(w.horizontal_scroll_bar_visibility),
         ),
         Binding::Prop(
             Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollVis(w.vertical_scroll_bar_visibility),
+            PropValue::ScrollBarVisibility(w.vertical_scroll_bar_visibility),
         ),
     ]
 }

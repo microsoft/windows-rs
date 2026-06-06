@@ -266,7 +266,7 @@ pub enum PropValue {
     Unset,
     I32(i32),
     GridLengths(Vec<GridLength>),
-    ScrollVis(ScrollBarVisibility),
+    ScrollBarVisibility(ScrollBarVisibility),
     InfoBarSev(InfoBarSeverity),
     ImageStretch(ImageStretch),
     SurfaceImageSource(SurfaceImageSource),

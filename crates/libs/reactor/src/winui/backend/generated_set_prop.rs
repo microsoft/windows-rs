@@ -599,22 +599,30 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::IScrollView>()?
                 .put_VerticalScrollBarVisibility(mapped)?;
         }
-        (Prop::HorizontalScrollBarVisibility, PropValue::ScrollVis(v), Handle::ScrollViewer(h)) => {
+        (
+            Prop::HorizontalScrollBarVisibility,
+            PropValue::ScrollBarVisibility(v),
+            Handle::ScrollViewer(h),
+        ) => {
             let mapped = match v {
-                ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
-                ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
-                ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
                 ScrollBarVisibility::Disabled => Xaml::ScrollBarVisibility::Disabled,
+                ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
+                ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
+                ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
             };
             h.cast::<Xaml::IScrollViewer>()?
                 .put_HorizontalScrollBarVisibility(mapped)?;
         }
-        (Prop::VerticalScrollBarVisibility, PropValue::ScrollVis(v), Handle::ScrollViewer(h)) => {
+        (
+            Prop::VerticalScrollBarVisibility,
+            PropValue::ScrollBarVisibility(v),
+            Handle::ScrollViewer(h),
+        ) => {
             let mapped = match v {
-                ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
-                ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
-                ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
                 ScrollBarVisibility::Disabled => Xaml::ScrollBarVisibility::Disabled,
+                ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
+                ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
+                ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
             };
             h.cast::<Xaml::IScrollViewer>()?
                 .put_VerticalScrollBarVisibility(mapped)?;

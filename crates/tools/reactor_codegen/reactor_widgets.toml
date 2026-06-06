@@ -240,8 +240,8 @@ HorizontalScrollBarVisibility = { emit = "always", value = "ScrollViewScrollBarV
 VerticalScrollBarVisibility = { emit = "always", value = "ScrollViewScrollBarVis", enum_map = { rust_type = "ScrollViewScrollBarVisibility", winui_type = "ScrollingScrollBarVisibility", variants = [["Auto", "Auto"], ["Visible", "Visible"], ["Hidden", "Hidden"]] } }
 
 ["Microsoft.UI.Xaml.Controls.ScrollViewer"]
-HorizontalScrollBarVisibility = { emit = "always", value = "ScrollVis", enum_map = { rust_type = "ScrollBarVisibility", winui_type = "ScrollBarVisibility", variants = [["Auto", "Auto"], ["Visible", "Visible"], ["Hidden", "Hidden"], ["Disabled", "Disabled"]] } }
-VerticalScrollBarVisibility = { emit = "always", value = "ScrollVis", enum_map = { rust_type = "ScrollBarVisibility", winui_type = "ScrollBarVisibility", variants = [["Auto", "Auto"], ["Visible", "Visible"], ["Hidden", "Hidden"], ["Disabled", "Disabled"]] } }
+HorizontalScrollBarVisibility = { emit = "always" }
+VerticalScrollBarVisibility = { emit = "always" }
 
 ["Microsoft.UI.Xaml.Controls.SelectorBar"]
 Items = { emit = "always", setter_fn = true, value = "SelectorBarItems" }

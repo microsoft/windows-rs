@@ -289,11 +289,11 @@ fn scroll_viewer_mounts_with_horizontal_and_vertical_visibility() {
             match (prop, value) {
                 (
                     Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollVis(ScrollBarVisibility::Hidden),
+                    PropValue::ScrollBarVisibility(ScrollBarVisibility::Hidden),
                 ) => saw_horizontal = true,
                 (
                     Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollVis(ScrollBarVisibility::Auto),
+                    PropValue::ScrollBarVisibility(ScrollBarVisibility::Auto),
                 ) => saw_vertical = true,
                 _ => {}
             }
