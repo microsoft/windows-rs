@@ -110,7 +110,6 @@ fn async_setter_equal_value_does_not_mark_dirty() {
     );
 }
 
-
 #[test]
 fn async_setter_equal_value_does_not_trigger_rerender() {
     let dispatcher = ChannelDispatcher::new();
