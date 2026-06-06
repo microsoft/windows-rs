@@ -14,7 +14,7 @@ fn vstack_macro_collects_heterogeneous_children_in_order() {
         other => panic!("expected text, got {other:?}"),
     }
     match &s.children[2] {
-        Element::Button(b) => assert_eq!(b.label, "c"),
+        Element::Button(b) => assert_eq!(b.content, "c"),
         other => panic!("expected button, got {other:?}"),
     }
 }

@@ -183,7 +183,7 @@ impl Component<EmptyProps> for UsesStringState {
 
         use windows_reactor::core::element::Button;
         Element::Button(Button {
-            label: format!("str:{s}"),
+            content: format!("str:{s}"),
             ..Button::default()
         })
     }

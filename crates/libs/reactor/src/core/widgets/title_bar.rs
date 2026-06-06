@@ -65,46 +65,7 @@ impl TitleBar {
 impl Widget for TitleBar {
     widget_header!(ControlKind::TitleBar);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(
-            Prop::TitleBarTitle,
-            PropValue::Str(self.title.clone()),
-        ));
-        if let Some(s) = &self.subtitle {
-            out.push(Binding::Prop(
-                Prop::TitleBarSubtitle,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::IsBackButtonVisible,
-            PropValue::Bool(self.is_back_button_visible),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsBackEnabled,
-            PropValue::Bool(self.is_back_button_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsPaneToggleButtonVisible,
-            PropValue::Bool(self.is_pane_toggle_button_visible),
-        ));
-        out.push(Binding::Prop(
-            Prop::TitleBarTall,
-            PropValue::Bool(self.is_tall),
-        ));
-        out.push(Binding::Event(
-            Event::TitleBarBackRequested,
-            self.on_back_requested
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::TitleBarPaneToggle,
-            self.on_pane_toggle_requested
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::title_bar_bindings(self)
     }
     /// Maps to WinUI `TitleBar.Content`.
     fn header_element(&self) -> Option<&Element> {

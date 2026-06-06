@@ -78,7 +78,7 @@ pub fn grid_attached_props_all_widget_kinds(h: Harness) -> FixtureFuture {
                 text_block("text").grid_row(1).grid_column(0).into(),
                 button("button").grid_row(2).grid_column(0).into(),
                 check_box(false)
-                    .label("cb")
+                    .content("cb")
                     .grid_row(3)
                     .grid_column(0)
                     .into(),

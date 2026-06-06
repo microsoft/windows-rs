@@ -26,15 +26,7 @@ impl StackPanel {
 impl Widget for StackPanel {
     widget_header!(ControlKind::StackPanel);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(2);
-        out.push(Binding::Prop(
-            Prop::Orientation,
-            PropValue::Vertical(self.vertical),
-        ));
-        if let Some(sp) = self.spacing {
-            out.push(Binding::Prop(Prop::Spacing, PropValue::F64(sp)));
-        }
-        out
+        crate::core::generated_bindings::stack_panel_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)

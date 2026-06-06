@@ -46,30 +46,6 @@ impl RadioButtons {
 impl Widget for RadioButtons {
     widget_header!(ControlKind::RadioButtons);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        if let Some(h) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(h.clone())));
-        }
-        out.push(Binding::Prop(
-            Prop::RadioButtonsItems,
-            PropValue::StrList(self.items.clone()),
-        ));
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(self.selected_index),
-        ));
-        if let Some(n) = self.max_columns {
-            out.push(Binding::Prop(
-                Prop::RadioButtonsMaxColumns,
-                PropValue::I32(n),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::RadioButtonsSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::IndexChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::radio_buttons_bindings(self)
     }
 }

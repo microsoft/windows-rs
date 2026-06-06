@@ -53,22 +53,20 @@ impl Image {
 impl Widget for Image {
     widget_header!(ControlKind::Image);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(2);
+        let mut out = crate::core::generated_bindings::image_bindings(self);
+        // ImageSource is a compound type not expressible in TOML.
         match &self.source {
+            ImageSource::Uri(uri) => {
+                out.push(Binding::Prop(Prop::ImageSource, PropValue::Str(uri.clone())));
+            }
+            ImageSource::Surface(s) => {
+                out.push(Binding::Prop(
+                    Prop::ImageSource,
+                    PropValue::SurfaceImageSource(s.clone()),
+                ));
+            }
             ImageSource::None => {}
-            ImageSource::Uri(s) => out.push(Binding::Prop(
-                Prop::ImageSource,
-                PropValue::Str(s.clone()),
-            )),
-            ImageSource::Surface(sis) => out.push(Binding::Prop(
-                Prop::ImageSource,
-                PropValue::SurfaceImageSource(sis.clone()),
-            )),
         }
-        out.push(Binding::Prop(
-            Prop::ImageStretch,
-            PropValue::ImageStretch(self.stretch),
-        ));
         out
     }
 }
@@ -95,15 +93,11 @@ mod tests {
 
     #[test]
     fn default_emits_no_image_source() {
-        // An `Image` with no source emits no `ImageSource` binding, but still
-        // binds its stretch.
+        // An `Image` with no source emits no `ImageSource` binding and
+        // no `Stretch` binding (Stretch is `non_default`, so the default
+        // value `Uniform` is omitted).
         let image = Image::default();
         assert_eq!(image_source(&image), None);
-        assert!(
-            image
-                .bindings()
-                .iter()
-                .any(|b| matches!(b, Binding::Prop(Prop::ImageStretch, _)))
-        );
+        assert!(image.bindings().is_empty());
     }
 }

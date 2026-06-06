@@ -65,7 +65,7 @@ fn mounting_button_sets_content_and_enables_by_default() {
     assert!(matches!(
         ops[1],
         Op::SetProp {
-            prop: Prop::ButtonContent,
+            prop: Prop::Content,
             ..
         }
     ));
@@ -86,7 +86,7 @@ fn mounting_stack_appends_children_in_order() {
 
     let ops = &r.backend.ops;
 
-    assert_eq!(ops.len(), 8, "ops: {ops:#?}");
+    assert_eq!(ops.len(), 7, "ops: {ops:#?}");
 
     let appends: Vec<_> = ops
         .iter()
@@ -193,7 +193,7 @@ fn font_size_and_weight_are_set_when_present() {
 #[test]
 fn disabled_button_emits_is_enabled_false() {
     let b = Button {
-        label: "no".to_string(),
+        content: "no".to_string(),
         is_enabled: false,
         ..Button::default()
     };

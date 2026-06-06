@@ -22,27 +22,7 @@ impl TextBlock {
 impl Widget for TextBlock {
     widget_header!(ControlKind::TextBlock);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::Text,
-            PropValue::Str(self.content.clone()),
-        ));
-        if let Some(fs) = self.font_size {
-            out.push(Binding::Prop(Prop::FontSize, PropValue::F64(fs)));
-        }
-        if let Some(fw) = self.font_weight {
-            out.push(Binding::Prop(Prop::FontWeight, PropValue::U16(fw)));
-        }
-        if self.wrap_text {
-            out.push(Binding::Prop(Prop::TextWrappingWrap, PropValue::Bool(true)));
-        }
-        if self.is_text_selection_enabled {
-            out.push(Binding::Prop(
-                Prop::IsTextSelectionEnabled,
-                PropValue::Bool(true),
-            ));
-        }
-        out
+        crate::core::generated_bindings::text_block_bindings(self)
     }
 }
 

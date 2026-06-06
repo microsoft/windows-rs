@@ -128,25 +128,6 @@ pub(super) fn to_xaml_valign(v: VAlign) -> Xaml::VerticalAlignment {
     }
 }
 
-pub(super) fn to_winui_info_bar_severity(v: InfoBarSeverity) -> Xaml::InfoBarSeverity {
-    use InfoBarSeverity as E;
-    match v {
-        E::Informational => Xaml::InfoBarSeverity::Informational,
-        E::Success => Xaml::InfoBarSeverity::Success,
-        E::Warning => Xaml::InfoBarSeverity::Warning,
-        E::Error => Xaml::InfoBarSeverity::Error,
-    }
-}
-
-pub(super) fn to_xaml_scroll_visibility(v: ScrollBarVisibility) -> Xaml::ScrollBarVisibility {
-    match v {
-        ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
-        ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
-        ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
-        ScrollBarVisibility::Disabled => Xaml::ScrollBarVisibility::Disabled,
-    }
-}
-
 pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::GridLength> {
     use Xaml::GridUnitType;
     match v {
@@ -188,16 +169,6 @@ pub(super) fn string_as_textblock(s: &str) -> windows_core::Result<Xaml::TextBlo
     Ok(tb)
 }
 
-pub(super) fn sender_is_checked(sender: windows_core::Ref<windows_core::IInspectable>) -> bool {
-    let Some(sender) = sender.as_ref() else {
-        return false;
-    };
-    let Ok(tb) = sender.cast::<Xaml::IToggleButton>() else {
-        return false;
-    };
-    tb.get_IsChecked().unwrap_or(false)
-}
-
 pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from: usize, to: usize) {
     let v = coll
         .cast::<windows_collections::IVector<Xaml::UIElement>>()
@@ -205,16 +176,6 @@ pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from:
     let item = v.GetAt(from as u32).unwrap();
     v.RemoveAt(from as u32).unwrap();
     v.InsertAt(to as u32, &item).unwrap();
-}
-
-pub(super) fn sender_text(sender: windows_core::Ref<windows_core::IInspectable>) -> String {
-    let Some(sender) = sender.as_ref() else {
-        return String::new();
-    };
-    let Ok(tb) = sender.cast::<Xaml::TextBox>() else {
-        return String::new();
-    };
-    tb.get_Text().unwrap_or_default()
 }
 
 pub(super) fn build_nav_view_item(

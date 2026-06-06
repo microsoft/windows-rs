@@ -1,6 +1,6 @@
 use super::*;
 
-/// Attached properties for a child of [`RelativePanelWidget`]. Controls
+/// Attached properties for a child of [`RelativePanel`]. Controls
 /// alignment relative to the panel edges/center.
 #[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]
 pub struct RelativePanelAlignment {
@@ -15,13 +15,13 @@ pub struct RelativePanelAlignment {
 /// `Microsoft.UI.Xaml.Controls.RelativePanel`. A constraint-based layout
 /// where children are positioned relative to the panel edges or center.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct RelativePanelWidget {
+pub struct RelativePanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub children: Vec<Element>,
 }
 
-impl RelativePanelWidget {
+impl RelativePanel {
     pub fn new<I>(children: I) -> Self
     where
         I: IntoIterator,
@@ -34,20 +34,20 @@ impl RelativePanelWidget {
     }
 }
 
-impl Widget for RelativePanelWidget {
+impl Widget for RelativePanel {
     widget_header!(ControlKind::RelativePanel);
     fn bindings(&self) -> PropBindings {
-        Vec::new()
+        crate::core::generated_bindings::relative_panel_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)
     }
 }
 
-pub fn relative_panel<I>(children: I) -> RelativePanelWidget
+pub fn relative_panel<I>(children: I) -> RelativePanel
 where
     I: IntoIterator,
     I::Item: Into<Element>,
 {
-    RelativePanelWidget::new(children)
+    RelativePanel::new(children)
 }

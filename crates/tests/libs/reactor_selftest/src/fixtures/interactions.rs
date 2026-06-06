@@ -21,7 +21,7 @@ pub fn checkbox_toggles_state(h: Harness) -> FixtureFuture {
             vstack((
                 text_block(format!("checked={checked}")),
                 check_box(checked)
-                    .label("agree")
+                    .content("agree")
                     .on_changed(move |v| set.call(v)),
             ))
             .into()

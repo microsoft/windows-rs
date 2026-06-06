@@ -72,31 +72,6 @@ impl Slider {
 impl Widget for Slider {
     widget_header!(ControlKind::Slider);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(Prop::Minimum, PropValue::F64(self.minimum)));
-        out.push(Binding::Prop(Prop::Maximum, PropValue::F64(self.maximum)));
-        out.push(Binding::Prop(
-            Prop::NumericValue,
-            PropValue::F64(self.value),
-        ));
-        if let Some(step) = self.step {
-            out.push(Binding::Prop(Prop::Step, PropValue::F64(step)));
-        }
-        if let Some(h) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(h.clone())));
-        }
-        if self.vertical {
-            out.push(Binding::Prop(Prop::Orientation, PropValue::Vertical(true)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::ValueChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::ValueChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::slider_bindings(self)
     }
 }

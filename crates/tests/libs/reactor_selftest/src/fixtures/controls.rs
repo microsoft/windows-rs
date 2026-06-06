@@ -224,7 +224,7 @@ pub fn mount_tab_view_add_button(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
         // Confirms that the TabView mounts successfully with the add-tab
-        // button visible and the AddTabButtonClick event handler attached.
+        // button visible and the Click event handler attached.
         assert_present!(h, "Reconciler_Mount_TabView_AddButton", bindings::TabView);
     })
 }

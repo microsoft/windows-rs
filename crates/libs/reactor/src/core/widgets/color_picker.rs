@@ -20,7 +20,7 @@ impl ColorArgb {
 }
 
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct ColorPickerWidget {
+pub struct ColorPicker {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub color: ColorArgb,
@@ -31,7 +31,7 @@ pub struct ColorPickerWidget {
     pub on_changed: Option<Callback<(u8, u8, u8, u8)>>,
 }
 
-impl ColorPickerWidget {
+impl ColorPicker {
     pub fn new(color: ColorArgb) -> Self {
         Self {
             color,
@@ -65,47 +65,13 @@ impl ColorPickerWidget {
     }
 }
 
-impl Widget for ColorPickerWidget {
+impl Widget for ColorPicker {
     widget_header!(ControlKind::ColorPicker);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
-        out.push(Binding::Prop(
-            Prop::ColorValue,
-            PropValue::Color {
-                a: self.color.a,
-                r: self.color.r,
-                g: self.color.g,
-                b: self.color.b,
-            },
-        ));
-        if let Some(v) = self.is_alpha_enabled {
-            out.push(Binding::Prop(Prop::IsAlphaEnabled, PropValue::Bool(v)));
-        }
-        if let Some(v) = self.is_hex_input_visible {
-            out.push(Binding::Prop(Prop::IsHexInputVisible, PropValue::Bool(v)));
-        }
-        if let Some(v) = self.is_color_slider_visible {
-            out.push(Binding::Prop(
-                Prop::IsColorSliderVisible,
-                PropValue::Bool(v),
-            ));
-        }
-        if let Some(v) = self.is_color_channel_text_input_visible {
-            out.push(Binding::Prop(
-                Prop::IsColorChannelTextInputVisible,
-                PropValue::Bool(v),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::ColorChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::ColorChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::color_picker_bindings(self)
     }
 }
 
-pub fn color_picker(color: ColorArgb) -> ColorPickerWidget {
-    ColorPickerWidget::new(color)
+pub fn color_picker(color: ColorArgb) -> ColorPicker {
+    ColorPicker::new(color)
 }

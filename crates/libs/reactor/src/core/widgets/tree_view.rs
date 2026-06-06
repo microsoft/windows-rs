@@ -1,6 +1,6 @@
 use super::*;
 
-/// Definition of a single node in a [`TreeViewWidget`].
+/// Definition of a single node in a [`TreeView`].
 #[derive(Clone, Debug, PartialEq)]
 pub struct TreeNodeDef {
     /// Display text of this node.
@@ -41,7 +41,7 @@ pub fn tree_node(text: impl Into<String>) -> TreeNodeDef {
     TreeNodeDef::new(text)
 }
 
-/// Selection mode for [`TreeViewWidget`].
+/// Selection mode for [`TreeView`].
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum TreeSelectionMode {
     /// No selection.
@@ -55,7 +55,7 @@ pub enum TreeSelectionMode {
 
 /// `Microsoft.UI.Xaml.Controls.TreeView`. A hierarchical list view.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct TreeViewWidget {
+pub struct TreeView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub nodes: Vec<TreeNodeDef>,
@@ -63,7 +63,7 @@ pub struct TreeViewWidget {
     pub on_item_invoked: Option<Callback<String>>,
 }
 
-impl TreeViewWidget {
+impl TreeView {
     pub fn new(nodes: Vec<TreeNodeDef>) -> Self {
         Self {
             nodes,
@@ -82,28 +82,13 @@ impl TreeViewWidget {
     }
 }
 
-impl Widget for TreeViewWidget {
+impl Widget for TreeView {
     widget_header!(ControlKind::TreeView);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::TreeViewNodes,
-                PropValue::TreeViewNodes(self.nodes.clone()),
-            ),
-            Binding::Prop(
-                Prop::TreeViewSelectionMode,
-                PropValue::TreeViewSelectionMode(self.selection_mode),
-            ),
-            Binding::Event(
-                Event::TreeViewItemInvoked,
-                self.on_item_invoked
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ),
-        ]
+        crate::core::generated_bindings::tree_view_bindings(self)
     }
 }
 
-pub fn tree_view(nodes: Vec<TreeNodeDef>) -> TreeViewWidget {
-    TreeViewWidget::new(nodes)
+pub fn tree_view(nodes: Vec<TreeNodeDef>) -> TreeView {
+    TreeView::new(nodes)
 }

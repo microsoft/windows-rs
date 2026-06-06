@@ -4,15 +4,15 @@ use super::*;
 pub struct HyperlinkButton {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub label: String,
+    pub content: String,
     pub navigate_uri: Option<String>,
     pub on_click: Option<Callback<()>>,
     pub is_enabled: bool,
 }
 impl HyperlinkButton {
-    pub fn new(label: impl Into<String>) -> Self {
+    pub fn new(content: impl Into<String>) -> Self {
         Self {
-            label: label.into(),
+            content: content.into(),
             is_enabled: true,
             ..Default::default()
         }
@@ -34,23 +34,6 @@ impl HyperlinkButton {
 impl Widget for HyperlinkButton {
     widget_header!(ControlKind::HyperlinkButton);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        out.push(Binding::Prop(
-            Prop::ButtonContent,
-            PropValue::Str(self.label.clone()),
-        ));
-        if let Some(u) = &self.navigate_uri {
-            out.push(Binding::Prop(Prop::NavigateUri, PropValue::Str(u.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::Click,
-            self.on_click
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::hyperlink_button_bindings(self)
     }
 }

@@ -92,7 +92,7 @@ impl CustomElement for BadgeText {
     }
     fn mount(&self, backend: &mut dyn Backend) -> ControlId {
         let id = backend.create(ControlKind::TextBlock);
-        backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+        backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         id
     }
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
@@ -101,7 +101,7 @@ impl CustomElement for BadgeText {
             .downcast_ref::<BadgeText>()
             .expect("reconciler guarantees prev has same type as self");
         if prev.rendered() != self.rendered() {
-            backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+            backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         }
     }
     fn before_destroy(&self, _id: ControlId, _backend: &mut dyn Backend) {
@@ -166,13 +166,13 @@ impl CustomElement for KeyedBadge {
     }
     fn mount(&self, backend: &mut dyn Backend) -> ControlId {
         let id = backend.create(ControlKind::TextBlock);
-        backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+        backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         id
     }
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
         let prev = prev.as_any().downcast_ref::<KeyedBadge>().unwrap();
         if prev.rendered() != self.rendered() {
-            backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+            backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         }
     }
 }

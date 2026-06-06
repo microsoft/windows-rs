@@ -46,27 +46,7 @@ impl RepeatButton {
 impl Widget for RepeatButton {
     widget_header!(ControlKind::RepeatButton);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::ButtonContent,
-            PropValue::Str(self.content.clone()),
-        ));
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        if let Some(ms) = self.delay {
-            out.push(Binding::Prop(Prop::RepeatDelay, PropValue::I32(ms)));
-        }
-        if let Some(ms) = self.interval {
-            out.push(Binding::Prop(Prop::RepeatInterval, PropValue::I32(ms)));
-        }
-        out.push(Binding::Event(
-            Event::Click,
-            self.on_click
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::repeat_button_bindings(self)
     }
 }
 

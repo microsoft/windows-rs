@@ -7,14 +7,14 @@ fn check_box_default_state() {
     let c = check_box(true);
     assert!(c.is_checked);
     assert!(c.is_enabled);
-    assert!(c.label.is_none());
+    assert!(c.content.is_none());
     assert!(c.on_changed.is_none());
 }
 
 #[test]
-fn check_box_label_installs_label() {
-    let c = check_box(false).label("Accept terms");
-    assert_eq!(c.label.as_deref(), Some("Accept terms"));
+fn check_box_content_installs_content() {
+    let c = check_box(false).content("Accept terms");
+    assert_eq!(c.content.as_deref(), Some("Accept terms"));
 }
 
 #[test]
@@ -183,11 +183,11 @@ mod mount {
             .collect();
         assert!(sets.iter().any(|(p, v)| matches!(
             (p, v),
-            (Prop::TextBoxValue, PropValue::Str(s)) if s == "draft"
+            (Prop::Value, PropValue::Str(s)) if s == "draft"
         )));
         assert!(sets.iter().any(|(p, v)| matches!(
             (p, v),
-            (Prop::Placeholder, PropValue::Str(s)) if s == "…"
+            (Prop::PlaceholderText, PropValue::Str(s)) if s == "…"
         )));
     }
 
@@ -299,7 +299,7 @@ mod update {
                 matches!(
                     o,
                     Op::SetProp {
-                        prop: Prop::TextBoxValue,
+                        prop: Prop::Value,
                         ..
                     }
                 )

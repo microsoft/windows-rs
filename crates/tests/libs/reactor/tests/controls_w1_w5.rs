@@ -71,13 +71,15 @@ fn password_box_mounts_with_value_header_and_reveal_mode() {
                 continue;
             }
             match (prop, value) {
-                (Prop::PasswordValue, PropValue::Str(s)) if s == "hunter2" => value_set = true,
+                (Prop::Value, PropValue::Str(s)) if s == "hunter2" => value_set = true,
                 (
                     Prop::PasswordRevealMode,
                     PropValue::PasswordRevealMode(PasswordRevealMode::Visible),
-                ) => reveal_set = true,
+                ) => {
+                    reveal_set = true;
+                }
                 (Prop::Header, PropValue::Str(s)) if s == "Secret" => header_set = true,
-                (Prop::Placeholder, PropValue::Str(s)) if s == "type something" => {
+                (Prop::PlaceholderText, PropValue::Str(s)) if s == "type something" => {
                     placeholder_set = true;
                 }
                 _ => {}
@@ -132,12 +134,12 @@ fn radio_buttons_mounts_with_items_and_selection() {
                 continue;
             }
             match (prop, value) {
-                (Prop::RadioButtonsItems, PropValue::StrList(v)) if v == &["A", "B", "C"] => {
+                (Prop::Items, PropValue::StrList(v)) if v == &["A", "B", "C"] => {
                     items_ok = true;
                 }
                 (Prop::SelectedIndex, PropValue::I32(1)) => sel_ok = true,
                 (Prop::Header, PropValue::Str(s)) if s == "Pick" => header_ok = true,
-                (Prop::RadioButtonsMaxColumns, PropValue::I32(2)) => maxcols_ok = true,
+                (Prop::MaxColumns, PropValue::I32(2)) => maxcols_ok = true,
                 _ => {}
             }
         }
@@ -154,8 +156,7 @@ fn radio_buttons_fires_selection_changed() {
         .into();
     let r = mount(&el);
     let (_, id) = first_create(&r);
-    r.backend
-        .fire_i32(id, Event::RadioButtonsSelectionChanged, 1);
+    r.backend.fire_i32(id, Event::SelectionChanged, 1);
     assert_eq!(chosen.get(), 1);
 }
 
@@ -187,11 +188,11 @@ fn combo_box_mounts_with_items_placeholder_and_selection() {
                 continue;
             }
             match (prop, value) {
-                (Prop::ComboBoxItems, PropValue::StrList(v)) if v == &["Red", "Green", "Blue"] => {
+                (Prop::Items, PropValue::StrList(v)) if v == &["Red", "Green", "Blue"] => {
                     items_ok = true;
                 }
                 (Prop::SelectedIndex, PropValue::I32(2)) => sel_ok = true,
-                (Prop::Placeholder, PropValue::Str(s)) if s == "color" => placeholder_ok = true,
+                (Prop::PlaceholderText, PropValue::Str(s)) if s == "color" => placeholder_ok = true,
                 (Prop::Header, PropValue::Str(s)) if s == "Pick a color" => header_ok = true,
                 _ => {}
             }
@@ -226,7 +227,7 @@ fn combo_box_fires_selection_changed() {
         .into();
     let r = mount(&el);
     let (_, id) = first_create(&r);
-    r.backend.fire_i32(id, Event::ComboSelectionChanged, 1);
+    r.backend.fire_i32(id, Event::SelectionChanged, 1);
     assert_eq!(chosen.get(), 1);
 }
 

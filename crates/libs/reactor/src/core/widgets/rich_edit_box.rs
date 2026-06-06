@@ -3,7 +3,7 @@ use super::*;
 /// `Microsoft.UI.Xaml.Controls.RichEditBox`. A multi-line rich text
 /// editor with optional header and placeholder text.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct RichEditBoxWidget {
+pub struct RichEditBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub text: String,
@@ -13,7 +13,7 @@ pub struct RichEditBoxWidget {
     pub on_changed: Option<Callback<String>>,
 }
 
-impl RichEditBoxWidget {
+impl RichEditBox {
     pub fn new(text: impl Into<String>) -> Self {
         Self {
             text: text.into(),
@@ -42,36 +42,13 @@ impl RichEditBoxWidget {
     }
 }
 
-impl Widget for RichEditBoxWidget {
+impl Widget for RichEditBox {
     widget_header!(ControlKind::RichEditBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::RichEditBoxText,
-            PropValue::Str(self.text.clone()),
-        ));
-        if let Some(ph) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(ph.clone())));
-        }
-        if let Some(hd) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(hd.clone())));
-        }
-        if self.is_read_only {
-            out.push(Binding::Prop(
-                Prop::RichEditBoxIsReadOnly,
-                PropValue::Bool(true),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::RichEditBoxTextChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::rich_edit_box_bindings(self)
     }
 }
 
-pub fn rich_edit_box(text: impl Into<String>) -> RichEditBoxWidget {
-    RichEditBoxWidget::new(text)
+pub fn rich_edit_box(text: impl Into<String>) -> RichEditBox {
+    RichEditBox::new(text)
 }

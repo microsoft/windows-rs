@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct CalendarDatePickerWidget {
+pub struct CalendarDatePicker {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub header: Option<String>,
@@ -12,7 +12,7 @@ pub struct CalendarDatePickerWidget {
     pub on_changed: Option<Callback<Option<windows_time::DateTime>>>,
 }
 
-impl CalendarDatePickerWidget {
+impl CalendarDatePicker {
     pub fn new() -> Self {
         Self {
             is_enabled: true,
@@ -51,38 +51,13 @@ impl CalendarDatePickerWidget {
     }
 }
 
-impl Widget for CalendarDatePickerWidget {
+impl Widget for CalendarDatePicker {
     widget_header!(ControlKind::CalendarDatePicker);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
-        if let Some(s) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(s.clone())));
-        }
-        if let Some(s) = &self.placeholder_text {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(s.clone())));
-        }
-        if let Some(v) = self.is_today_highlighted {
-            out.push(Binding::Prop(Prop::IsTodayHighlighted, PropValue::Bool(v)));
-        }
-        if let Some(v) = self.is_calendar_open {
-            out.push(Binding::Prop(Prop::IsCalendarOpen, PropValue::Bool(v)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::CalendarDateSelected,
-            self.on_changed.as_ref().map(|cb| {
-                EventHandler::DateTimeChanged(Callback::new({
-                    let cb = cb.clone();
-                    move |dt| cb.invoke(Some(dt))
-                }))
-            }),
-        ));
-        out
+        crate::core::generated_bindings::calendar_date_picker_bindings(self)
     }
 }
 
-pub fn calendar_date_picker() -> CalendarDatePickerWidget {
-    CalendarDatePickerWidget::new()
+pub fn calendar_date_picker() -> CalendarDatePicker {
+    CalendarDatePicker::new()
 }

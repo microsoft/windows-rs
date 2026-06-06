@@ -1,6 +1,6 @@
 use super::*;
 
-/// Definition of a single item in a [`SelectorBarWidget`].
+/// Definition of a single item in a [`SelectorBar`].
 #[derive(Clone, Debug, PartialEq)]
 pub struct SelectorBarItemDef {
     /// Display text.
@@ -30,14 +30,14 @@ pub fn selector_bar_item(text: impl Into<String>) -> SelectorBarItemDef {
 
 /// `Microsoft.UI.Xaml.Controls.SelectorBar`. A horizontal tab-like selector.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct SelectorBarWidget {
+pub struct SelectorBar {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub items: Vec<SelectorBarItemDef>,
     pub on_selection_changed: Option<Callback<String>>,
 }
 
-impl SelectorBarWidget {
+impl SelectorBar {
     pub fn new(items: Vec<SelectorBarItemDef>) -> Self {
         Self {
             items,
@@ -51,24 +51,13 @@ impl SelectorBarWidget {
     }
 }
 
-impl Widget for SelectorBarWidget {
+impl Widget for SelectorBar {
     widget_header!(ControlKind::SelectorBar);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::SelectorBarItems,
-                PropValue::SelectorBarItems(self.items.clone()),
-            ),
-            Binding::Event(
-                Event::SelectorBarSelectionChanged,
-                self.on_selection_changed
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ),
-        ]
+        crate::core::generated_bindings::selector_bar_bindings(self)
     }
 }
 
-pub fn selector_bar(items: Vec<SelectorBarItemDef>) -> SelectorBarWidget {
-    SelectorBarWidget::new(items)
+pub fn selector_bar(items: Vec<SelectorBarItemDef>) -> SelectorBar {
+    SelectorBar::new(items)
 }

@@ -14,26 +14,7 @@ pub struct Grid {
 impl Widget for Grid {
     widget_header!(ControlKind::Grid);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        if !self.rows.is_empty() {
-            out.push(Binding::Prop(
-                Prop::GridRows,
-                PropValue::GridLengths(self.rows.clone()),
-            ));
-        }
-        if !self.columns.is_empty() {
-            out.push(Binding::Prop(
-                Prop::GridColumns,
-                PropValue::GridLengths(self.columns.clone()),
-            ));
-        }
-        if let Some(v) = self.row_spacing {
-            out.push(Binding::Prop(Prop::GridRowSpacing, PropValue::F64(v)));
-        }
-        if let Some(v) = self.column_spacing {
-            out.push(Binding::Prop(Prop::GridColumnSpacing, PropValue::F64(v)));
-        }
-        out
+        crate::core::generated_bindings::grid_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)

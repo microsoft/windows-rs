@@ -70,7 +70,7 @@ fn kind_change_destroys_old_and_mounts_new() {
     assert!(matches!(
         ops[2],
         Op::SetProp {
-            prop: Prop::ButtonContent,
+            prop: Prop::Content,
             ..
         }
     ));
@@ -105,13 +105,13 @@ fn font_weight_unset_emits_unset_prop_value() {
 fn button_label_change_does_not_reattach_unchanged_click_handler() {
     let cb = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "a".into(),
+        content: "a".into(),
         is_enabled: true,
         on_click: Some(cb.clone()),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "b".into(),
+        content: "b".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
@@ -122,7 +122,7 @@ fn button_label_change_does_not_reattach_unchanged_click_handler() {
     assert!(ops.iter().any(|o| matches!(
         o,
         Op::SetProp {
-            prop: Prop::ButtonContent,
+            prop: Prop::Content,
             ..
         }
     )));
@@ -133,13 +133,13 @@ fn button_click_handler_swap_re_attaches_event() {
     let cb_a = Callback::<()>::new(|()| {});
     let cb_b = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_a),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_b),
         ..Button::default()
@@ -319,13 +319,13 @@ fn scrollview_child_swap_matches_border_child_swap() {
 fn button_click_handler_some_to_none_emits_detach() {
     let cb = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: None,
         ..Button::default()
@@ -344,13 +344,13 @@ fn button_click_handler_some_to_none_emits_detach() {
 fn button_click_handler_none_to_some_emits_attach_only() {
     let cb = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: None,
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
@@ -387,7 +387,7 @@ fn checkbox_changed_handler_some_to_none_emits_detach() {
     assert!(ops.iter().any(|o| matches!(
         o,
         Op::DetachEvent {
-            event: Event::CheckedChanged,
+            event: Event::Checked,
             ..
         }
     )));
@@ -453,13 +453,13 @@ fn handler_swap_emits_attach_without_detach() {
     let cb_a = Callback::<()>::new(|()| {});
     let cb_b = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_a),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_b),
         ..Button::default()

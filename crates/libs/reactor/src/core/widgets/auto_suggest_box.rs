@@ -3,7 +3,7 @@ use super::*;
 /// `Microsoft.UI.Xaml.Controls.AutoSuggestBox`. A text input that displays
 /// a filtered suggestion list as the user types.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct AutoSuggestBoxWidget {
+pub struct AutoSuggestBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub text: String,
@@ -16,7 +16,7 @@ pub struct AutoSuggestBoxWidget {
     pub on_suggestion_chosen: Option<Callback<String>>,
 }
 
-impl AutoSuggestBoxWidget {
+impl AutoSuggestBox {
     pub fn new(text: impl Into<String>) -> Self {
         Self {
             text: text.into(),
@@ -65,49 +65,13 @@ impl AutoSuggestBoxWidget {
     }
 }
 
-impl Widget for AutoSuggestBoxWidget {
+impl Widget for AutoSuggestBox {
     widget_header!(ControlKind::AutoSuggestBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(
-            Prop::AutoSuggestText,
-            PropValue::Str(self.text.clone()),
-        ));
-        out.push(Binding::Prop(
-            Prop::AutoSuggestItems,
-            PropValue::StrList(self.items.clone()),
-        ));
-        if let Some(ph) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(ph.clone())));
-        }
-        if let Some(hd) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(hd.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::AutoSuggestTextChanged,
-            self.on_text_changed
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::AutoSuggestQuerySubmitted,
-            self.on_query_submitted
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::AutoSuggestSuggestionChosen,
-            self.on_suggestion_chosen
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::auto_suggest_box_bindings(self)
     }
 }
 
-pub fn auto_suggest_box(text: impl Into<String>) -> AutoSuggestBoxWidget {
-    AutoSuggestBoxWidget::new(text)
+pub fn auto_suggest_box(text: impl Into<String>) -> AutoSuggestBox {
+    AutoSuggestBox::new(text)
 }

@@ -9,14 +9,16 @@ fn app(cx: &mut RenderCx) -> Element {
 
     vstack((
         check_box(checked)
-            .label("I accept the terms")
+            .content("I accept the terms")
             .on_changed(toggle),
         text_block(if checked {
             "Accepted ✓"
         } else {
             "Not yet accepted"
         }),
-        check_box(true).label("Disabled (always on)").enabled(false),
+        check_box(true)
+            .content("Disabled (always on)")
+            .enabled(false),
     ))
     .spacing(8.0)
     .into()

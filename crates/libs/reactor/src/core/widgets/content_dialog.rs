@@ -86,55 +86,6 @@ impl ContentDialog {
 impl Widget for ContentDialog {
     widget_header!(ControlKind::ContentDialog);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(8);
-        if let Some(t) = &self.title {
-            out.push(Binding::Prop(
-                Prop::ContentDialogTitle,
-                PropValue::Str(t.clone()),
-            ));
-        }
-        if let Some(c) = &self.content {
-            out.push(Binding::Prop(
-                Prop::ContentDialogBody,
-                PropValue::Str(c.clone()),
-            ));
-        }
-        if let Some(s) = &self.primary_button_text {
-            out.push(Binding::Prop(
-                Prop::ContentDialogPrimaryText,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        if let Some(s) = &self.secondary_button_text {
-            out.push(Binding::Prop(
-                Prop::ContentDialogSecondaryText,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        if let Some(s) = &self.close_button_text {
-            out.push(Binding::Prop(
-                Prop::ContentDialogCloseText,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::ContentDialogPrimaryEnabled,
-            PropValue::Bool(self.is_primary_button_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::ContentDialogSecondaryEnabled,
-            PropValue::Bool(self.is_secondary_button_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::ContentDialogIsOpen,
-            PropValue::Bool(self.is_open),
-        ));
-        let closed_cb = self.on_closed.clone().map(|cb| {
-            EventHandler::IndexChanged(Callback::new(move |i: i32| {
-                cb.invoke(ContentDialogResult::from_i32(i));
-            }))
-        });
-        out.push(Binding::Event(Event::ContentDialogClosed, closed_cb));
-        out
+        crate::core::generated_bindings::content_dialog_bindings(self)
     }
 }

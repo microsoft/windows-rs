@@ -55,21 +55,7 @@ impl PivotItem {
 impl Widget for Pivot {
     widget_header!(ControlKind::Pivot);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(3);
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(self.selected_index),
-        ));
-        if let Some(t) = &self.title {
-            out.push(Binding::Prop(Prop::PivotTitle, PropValue::Str(t.clone())));
-        }
-        out.push(Binding::Event(
-            Event::PivotSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::IndexChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::pivot_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PivotItems(&self.items)

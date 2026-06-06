@@ -33,7 +33,7 @@ pub struct TabView {
     pub can_reorder_tabs: bool,
     pub is_add_tab_button_visible: bool,
     pub on_selection_changed: Option<Callback<i32>>,
-    pub on_tab_close_requested: Option<Callback<String>>,
+    pub on_close_requested: Option<Callback<String>>,
     pub on_add_tab_button_click: Option<Callback<()>>,
 }
 impl TabView {
@@ -61,8 +61,8 @@ impl TabView {
         self.on_selection_changed = Some(f.into_callback());
         self
     }
-    pub fn on_tab_close_requested<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_tab_close_requested = Some(Callback::new(f));
+    pub fn on_close_requested<F: Fn(String) + 'static>(mut self, f: F) -> Self {
+        self.on_close_requested = Some(Callback::new(f));
         self
     }
     /// Handle the built-in "+" add-tab button click (`ITabView::AddTabButtonClick`).
@@ -82,32 +82,7 @@ impl TabItem {
 impl Widget for TabView {
     widget_header!(ControlKind::TabView);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(Prop::SelectedIndex, PropValue::I32(self.selected_index)),
-            Binding::Prop(Prop::CanReorderTabs, PropValue::Bool(self.can_reorder_tabs)),
-            Binding::Prop(
-                Prop::IsAddTabButtonVisible,
-                PropValue::Bool(self.is_add_tab_button_visible),
-            ),
-            Binding::Event(
-                Event::TabSelectionChanged,
-                self.on_selection_changed
-                    .as_ref()
-                    .map(|cb| EventHandler::IndexChanged(cb.clone())),
-            ),
-            Binding::Event(
-                Event::TabCloseRequested,
-                self.on_tab_close_requested
-                    .as_ref()
-                    .map(|cb| EventHandler::TabKey(cb.clone())),
-            ),
-            Binding::Event(
-                Event::AddTabButtonClick,
-                self.on_add_tab_button_click
-                    .as_ref()
-                    .map(|cb| EventHandler::Click(cb.clone())),
-            ),
-        ]
+        crate::core::generated_bindings::tab_view_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Tabs(&self.tabs)

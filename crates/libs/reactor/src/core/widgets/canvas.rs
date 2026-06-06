@@ -33,7 +33,7 @@ pub struct CanvasPosition {
 impl Widget for Canvas {
     widget_header!(ControlKind::Canvas);
     fn bindings(&self) -> PropBindings {
-        Vec::new()
+        crate::core::generated_bindings::canvas_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)

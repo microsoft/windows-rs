@@ -20,7 +20,7 @@ pub enum ButtonStyle {
 pub struct Button {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub label: String,
+    pub content: String,
     pub is_enabled: bool,
     pub style: ButtonStyle,
     pub icon: Option<SymbolGlyph>,
@@ -33,9 +33,9 @@ pub struct Button {
     pub on_command_bar_flyout_click: Option<Callback<String>>,
 }
 impl Button {
-    pub fn new(label: impl Into<String>) -> Self {
+    pub fn new(content: impl Into<String>) -> Self {
         Self {
-            label: label.into(),
+            content: content.into(),
             is_enabled: true,
             ..Default::default()
         }
@@ -45,74 +45,7 @@ impl Button {
 impl Widget for Button {
     widget_header!(ControlKind::Button);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::ButtonContent,
-            PropValue::Str(self.label.clone()),
-        ));
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        if self.style != ButtonStyle::Default {
-            out.push(Binding::Prop(
-                Prop::ButtonStyleVariant,
-                PropValue::ButtonStyle(self.style.clone()),
-            ));
-        }
-        if let Some(sym) = self.icon {
-            out.push(Binding::Prop(Prop::ButtonIcon, PropValue::SymbolIcon(sym)));
-        }
-        if let Some(ref fly) = self.flyout {
-            out.push(Binding::Prop(
-                Prop::FlyoutContent,
-                PropValue::Str(fly.text.clone()),
-            ));
-            if fly.placement != FlyoutPlacement::default() {
-                out.push(Binding::Prop(
-                    Prop::FlyoutPlacement,
-                    PropValue::FlyoutPlacement(fly.placement),
-                ));
-            }
-        }
-        if let Some(ref items) = self.menu_flyout_items {
-            // Event before Prop so handler is stored when flyout is built.
-            out.push(Binding::Event(
-                Event::MenuFlyoutItemClicked,
-                self.on_menu_item_clicked
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ));
-            out.push(Binding::Prop(
-                Prop::MenuFlyoutItems,
-                PropValue::MenuFlyoutItems(items.clone()),
-            ));
-        }
-        if let Some(ref primary) = self.command_bar_flyout_primary {
-            // Event before Prop so handler is stored when flyout is built.
-            out.push(Binding::Event(
-                Event::CommandBarFlyoutClick,
-                self.on_command_bar_flyout_click
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ));
-            out.push(Binding::Prop(
-                Prop::CommandBarFlyoutCommands,
-                PropValue::CommandBarFlyoutDef {
-                    primary: primary.clone(),
-                    secondary: self
-                        .command_bar_flyout_secondary
-                        .clone()
-                        .unwrap_or_default(),
-                },
-            ));
-        }
-        out.push(Binding::Event(
-            Event::Click,
-            self.on_click
-                .as_ref()
-                .map(|cb| EventHandler::new(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::button_bindings(self)
     }
 }
 
@@ -193,6 +126,6 @@ impl Button {
     }
 }
 
-pub fn button(label: impl Into<String>) -> Button {
-    Button::new(label)
+pub fn button(content: impl Into<String>) -> Button {
+    Button::new(content)
 }

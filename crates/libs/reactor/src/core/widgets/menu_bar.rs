@@ -1,6 +1,6 @@
 use super::*;
 
-/// Definition of a single item within a menu (used by both [`MenuBarWidget`]
+/// Definition of a single item within a menu (used by both [`MenuBar`]
 /// and the menu flyout modifier on buttons).
 #[derive(Clone, Debug, PartialEq)]
 pub enum MenuItemDef {
@@ -33,7 +33,7 @@ pub fn menu_sub_item(text: impl Into<String>, children: Vec<MenuItemDef>) -> Men
     }
 }
 
-/// Definition of a top-level menu in a [`MenuBarWidget`].
+/// Definition of a top-level menu in a [`MenuBar`].
 #[derive(Clone, Debug, PartialEq)]
 pub struct MenuBarItemDef {
     pub title: String,
@@ -56,14 +56,14 @@ pub fn menu_bar_item(title: impl Into<String>, items: Vec<MenuItemDef>) -> MenuB
 
 /// `Microsoft.UI.Xaml.Controls.MenuBar`. A horizontal bar of dropdown menus.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct MenuBarWidget {
+pub struct MenuBar {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub items: Vec<MenuBarItemDef>,
-    pub on_item_click: Option<Callback<String>>,
+    pub on_item_clicked: Option<Callback<String>>,
 }
 
-impl MenuBarWidget {
+impl MenuBar {
     pub fn new(items: Vec<MenuBarItemDef>) -> Self {
         Self {
             items,
@@ -71,30 +71,19 @@ impl MenuBarWidget {
         }
     }
 
-    pub fn on_item_click<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_item_click = Some(Callback::new(f));
+    pub fn on_item_clicked<F: Fn(String) + 'static>(mut self, f: F) -> Self {
+        self.on_item_clicked = Some(Callback::new(f));
         self
     }
 }
 
-impl Widget for MenuBarWidget {
+impl Widget for MenuBar {
     widget_header!(ControlKind::MenuBar);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::MenuBarItems,
-                PropValue::MenuBarItems(self.items.clone()),
-            ),
-            Binding::Event(
-                Event::MenuBarItemClicked,
-                self.on_item_click
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ),
-        ]
+        crate::core::generated_bindings::menu_bar_bindings(self)
     }
 }
 
-pub fn menu_bar(items: Vec<MenuBarItemDef>) -> MenuBarWidget {
-    MenuBarWidget::new(items)
+pub fn menu_bar(items: Vec<MenuBarItemDef>) -> MenuBar {
+    MenuBar::new(items)
 }

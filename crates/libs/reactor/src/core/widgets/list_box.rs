@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct ListBoxWidget {
+pub struct ListBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub items: Vec<String>,
@@ -10,7 +10,7 @@ pub struct ListBoxWidget {
     pub on_selection_changed: Option<Callback<i32>>,
 }
 
-impl ListBoxWidget {
+impl ListBox {
     pub fn new() -> Self {
         Self {
             is_enabled: true,
@@ -39,32 +39,13 @@ impl ListBoxWidget {
     }
 }
 
-impl Widget for ListBoxWidget {
+impl Widget for ListBox {
     widget_header!(ControlKind::ListBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        if !self.items.is_empty() {
-            out.push(Binding::Prop(
-                Prop::ListBoxItems,
-                PropValue::StrList(self.items.clone()),
-            ));
-        }
-        if let Some(idx) = self.selected_index {
-            out.push(Binding::Prop(Prop::SelectedIndex, PropValue::I32(idx)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::ListBoxSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::IndexChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::list_box_bindings(self)
     }
 }
 
-pub fn list_box() -> ListBoxWidget {
-    ListBoxWidget::new()
+pub fn list_box() -> ListBox {
+    ListBox::new()
 }

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct CalendarViewWidget {
+pub struct CalendarView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub is_today_highlighted: Option<bool>,
@@ -10,7 +10,7 @@ pub struct CalendarViewWidget {
     pub on_changed: Option<Callback<()>>,
 }
 
-impl CalendarViewWidget {
+impl CalendarView {
     pub fn new() -> Self {
         Self {
             is_enabled: true,
@@ -39,29 +39,13 @@ impl CalendarViewWidget {
     }
 }
 
-impl Widget for CalendarViewWidget {
+impl Widget for CalendarView {
     widget_header!(ControlKind::CalendarView);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        if let Some(v) = self.is_today_highlighted {
-            out.push(Binding::Prop(Prop::IsTodayHighlighted, PropValue::Bool(v)));
-        }
-        if let Some(v) = self.is_group_label_visible {
-            out.push(Binding::Prop(Prop::IsGroupLabelVisible, PropValue::Bool(v)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::CalendarViewSelectionChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::calendar_view_bindings(self)
     }
 }
 
-pub fn calendar_view() -> CalendarViewWidget {
-    CalendarViewWidget::new()
+pub fn calendar_view() -> CalendarView {
+    CalendarView::new()
 }

@@ -89,7 +89,7 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
 
             let cb: Element = if attach_handler {
                 check_box(checked)
-                    .label("target")
+                    .content("target")
                     .on_changed(move |v| {
                         fc.set(fc.get() + 1);
                         set_checked.call(v);
@@ -97,7 +97,7 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
                     .into()
             } else {
                 // Same control, no handler attached
-                check_box(checked).label("target").into()
+                check_box(checked).content("target").into()
             };
 
             vstack((

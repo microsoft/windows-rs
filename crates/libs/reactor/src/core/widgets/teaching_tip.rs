@@ -1,6 +1,6 @@
 use super::*;
 
-/// Preferred placement for a [`TeachingTipWidget`].
+/// Preferred placement for a [`TeachingTip`].
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum TeachingTipPlacement {
     #[default]
@@ -22,7 +22,7 @@ pub enum TeachingTipPlacement {
 
 /// `Microsoft.UI.Xaml.Controls.TeachingTip`. A contextual teaching popup.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct TeachingTipWidget {
+pub struct TeachingTip {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub title: String,
@@ -36,7 +36,7 @@ pub struct TeachingTipWidget {
     pub on_action_click: Option<Callback<()>>,
 }
 
-impl TeachingTipWidget {
+impl TeachingTip {
     pub fn new(title: impl Into<String>) -> Self {
         Self {
             title: title.into(),
@@ -85,62 +85,13 @@ impl TeachingTipWidget {
     }
 }
 
-impl Widget for TeachingTipWidget {
+impl Widget for TeachingTip {
     widget_header!(ControlKind::TeachingTip);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(8);
-        out.push(Binding::Prop(
-            Prop::TeachingTipTitle,
-            PropValue::Str(self.title.clone()),
-        ));
-        if let Some(sub) = &self.subtitle {
-            out.push(Binding::Prop(
-                Prop::TeachingTipSubtitle,
-                PropValue::Str(sub.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::TeachingTipIsOpen,
-            PropValue::Bool(self.is_open),
-        ));
-        if self.is_light_dismiss_enabled {
-            out.push(Binding::Prop(
-                Prop::TeachingTipIsLightDismiss,
-                PropValue::Bool(true),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::TeachingTipPlacement,
-            PropValue::TeachingTipPlacement(self.preferred_placement),
-        ));
-        if let Some(text) = &self.action_button_text {
-            out.push(Binding::Prop(
-                Prop::TeachingTipActionButton,
-                PropValue::Str(text.clone()),
-            ));
-        }
-        if let Some(text) = &self.close_button_text {
-            out.push(Binding::Prop(
-                Prop::TeachingTipCloseButton,
-                PropValue::Str(text.clone()),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::TeachingTipClosed,
-            self.on_closed
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::TeachingTipActionClick,
-            self.on_action_click
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::teaching_tip_bindings(self)
     }
 }
 
-pub fn teaching_tip(title: impl Into<String>) -> TeachingTipWidget {
-    TeachingTipWidget::new(title)
+pub fn teaching_tip(title: impl Into<String>) -> TeachingTip {
+    TeachingTip::new(title)
 }

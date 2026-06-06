@@ -36,10 +36,7 @@ impl Viewbox {
 impl Widget for Viewbox {
     widget_header!(ControlKind::Viewbox);
     fn bindings(&self) -> PropBindings {
-        vec![Binding::Prop(
-            Prop::ImageStretch,
-            PropValue::ImageStretch(self.stretch),
-        )]
+        crate::core::generated_bindings::viewbox_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)

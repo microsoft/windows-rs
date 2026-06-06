@@ -44,14 +44,6 @@ impl ProgressBar {
 impl Widget for ProgressBar {
     widget_header!(ControlKind::ProgressBar);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(Prop::Minimum, PropValue::F64(self.minimum)),
-            Binding::Prop(Prop::Maximum, PropValue::F64(self.maximum)),
-            Binding::Prop(Prop::NumericValue, PropValue::F64(self.value)),
-            Binding::Prop(
-                Prop::IsIndeterminate,
-                PropValue::Bool(self.is_indeterminate),
-            ),
-        ]
+        crate::core::generated_bindings::progress_bar_bindings(self)
     }
 }

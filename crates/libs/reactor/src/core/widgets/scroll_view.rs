@@ -1,6 +1,6 @@
 use super::*;
 
-/// Scroll bar visibility for [`ScrollViewWidget`].
+/// Scroll bar visibility for [`ScrollView`].
 /// Maps to `ScrollingScrollBarVisibility` in WinUI.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum ScrollViewScrollBarVisibility {
@@ -13,7 +13,7 @@ pub enum ScrollViewScrollBarVisibility {
     Hidden,
 }
 
-/// Content orientation for [`ScrollViewWidget`].
+/// Content orientation for [`ScrollView`].
 /// Maps to `ScrollingContentOrientation` in WinUI.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum ScrollViewContentOrientation {
@@ -31,7 +31,7 @@ pub enum ScrollViewContentOrientation {
 /// `Microsoft.UI.Xaml.Controls.ScrollView`. A modern scroll container
 /// (replaces the legacy `ScrollViewer`).
 #[derive(Clone, Debug, PartialEq)]
-pub struct ScrollViewWidget {
+pub struct ScrollView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub child: Box<Element>,
@@ -40,7 +40,7 @@ pub struct ScrollViewWidget {
     pub content_orientation: ScrollViewContentOrientation,
 }
 
-impl Default for ScrollViewWidget {
+impl Default for ScrollView {
     fn default() -> Self {
         Self {
             key: None,
@@ -53,7 +53,7 @@ impl Default for ScrollViewWidget {
     }
 }
 
-impl ScrollViewWidget {
+impl ScrollView {
     pub fn new(child: impl Into<Element>) -> Self {
         Self {
             child: Box::new(child.into()),
@@ -77,25 +77,16 @@ impl ScrollViewWidget {
     }
 }
 
-impl Widget for ScrollViewWidget {
+impl Widget for ScrollView {
     widget_header!(ControlKind::ScrollView);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::HorizontalScrollBarVisibility,
-                PropValue::ScrollViewScrollBarVis(self.horizontal_scroll_bar_visibility),
-            ),
-            Binding::Prop(
-                Prop::VerticalScrollBarVisibility,
-                PropValue::ScrollViewScrollBarVis(self.vertical_scroll_bar_visibility),
-            ),
-        ]
+        crate::core::generated_bindings::scroll_view_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)
     }
 }
 
-pub fn scroll_view(child: impl Into<Element>) -> ScrollViewWidget {
-    ScrollViewWidget::new(child)
+pub fn scroll_view(child: impl Into<Element>) -> ScrollView {
+    ScrollView::new(child)
 }

@@ -92,13 +92,13 @@ fn stack_with_different_child_does_not_skip() {
 fn button_with_same_click_handler_skips() {
     let cb = windows_reactor::core::callback::Callback::<()>::new(|()| {});
     let a = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
         on_click: Some(cb.clone()),
         ..Button::default()
     });
     let b = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
@@ -109,7 +109,7 @@ fn button_with_same_click_handler_skips() {
 #[test]
 fn button_with_independently_constructed_handlers_does_not_skip() {
     let a = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
         on_click: Some(windows_reactor::core::callback::Callback::<()>::new(
             |()| {},
@@ -117,7 +117,7 @@ fn button_with_independently_constructed_handlers_does_not_skip() {
         ..Button::default()
     });
     let b = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
         on_click: Some(windows_reactor::core::callback::Callback::<()>::new(
             |()| {},

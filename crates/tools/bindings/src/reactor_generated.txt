@@ -1,0 +1,2 @@
+Microsoft.UI.Xaml.Controls.IProgressRing::{put_Value}
+Microsoft.UI.Xaml.Controls.InfoBadge::{CreateInstance}

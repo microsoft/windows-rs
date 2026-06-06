@@ -9,7 +9,7 @@ pub struct InfoBar {
     pub severity: InfoBarSeverity,
     pub is_open: bool,
     pub is_closable: bool,
-    pub on_close: Option<Callback<()>>,
+    pub on_closed: Option<Callback<()>>,
 }
 impl Default for InfoBar {
     fn default() -> Self {
@@ -21,7 +21,7 @@ impl Default for InfoBar {
             severity: InfoBarSeverity::default(),
             is_open: false,
             is_closable: true,
-            on_close: None,
+            on_closed: None,
         }
     }
 }
@@ -74,8 +74,8 @@ impl InfoBar {
         self.is_closable = v;
         self
     }
-    pub fn on_close<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_close = Some(Callback::new(move |()| f()));
+    pub fn on_closed<F: Fn() + 'static>(mut self, f: F) -> Self {
+        self.on_closed = Some(Callback::new(move |()| f()));
         self
     }
 }
@@ -83,34 +83,6 @@ impl InfoBar {
 impl Widget for InfoBar {
     widget_header!(ControlKind::InfoBar);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        if let Some(t) = &self.title {
-            out.push(Binding::Prop(Prop::InfoBarTitle, PropValue::Str(t.clone())));
-        }
-        if let Some(m) = &self.message {
-            out.push(Binding::Prop(
-                Prop::InfoBarMessage,
-                PropValue::Str(m.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::InfoBarSeverity,
-            PropValue::InfoBarSev(self.severity),
-        ));
-        out.push(Binding::Prop(
-            Prop::InfoBarIsOpen,
-            PropValue::Bool(self.is_open),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsClosable,
-            PropValue::Bool(self.is_closable),
-        ));
-        out.push(Binding::Event(
-            Event::InfoBarClosed,
-            self.on_close
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::info_bar_bindings(self)
     }
 }

@@ -98,236 +98,155 @@ pub enum ControlKind {
 /// variant pairs with one or more [`PropValue`] kinds at runtime.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum Prop {
-    Text,
-    FontSize,
-    FontWeight,
-    FontFamily,
-    ButtonContent,
-    IsEnabled,
-    Orientation,
-    Spacing,
-    Margin,
-    Padding,
-    Width,
-    Height,
-    MinWidth,
-    MaxWidth,
-    MinHeight,
-    MaxHeight,
-    HorizontalAlignment,
-    VerticalAlignment,
-    Opacity,
-    Background,
-    Foreground,
-    IsChecked,
-    CheckBoxLabel,
-    TextBoxValue,
-    Placeholder,
-    Header,
-    GridRows,
-    GridColumns,
-    GridRowSpacing,
-    GridColumnSpacing,
-    AttachedGridRow,
-    AttachedGridColumn,
-    AttachedGridRowSpan,
-    AttachedGridColumnSpan,
-    HorizontalScrollBarVisibility,
-    VerticalScrollBarVisibility,
-    IsOn,
-    OnContent,
-    OffContent,
-    NumericValue,
-    Minimum,
-    Maximum,
-    Step,
-    GroupName,
-    RadioLabel,
-    IsIndeterminate,
-    IsActive,
-    IsExpanded,
-    InfoBarTitle,
-    InfoBarMessage,
-    InfoBarSeverity,
-    InfoBarIsOpen,
-    /// Used by `InfoBar` and `TabViewItem` to control whether the user can
-    /// dismiss/close the control.
-    IsClosable,
-    InfoBadgeValue,
-    PersonDisplayName,
-    PersonInitials,
-    Fill,
-    Stroke,
-    StrokeThickness,
-    CornerRadius,
-    BorderBrush,
-    BorderThickness,
-    LineEndpoints,
-    ImageSource,
-    ImageStretch,
-    SelectedIndex,
-    TabHeader,
-    TabItemKey,
-    TabContent,
-    /// Enables drag-to-reorder on `TabView` tabs.
-    CanReorderTabs,
-    /// Controls the visibility of the TabView's built-in add-tab button.
-    IsAddTabButtonVisible,
-    NavigateUri,
-    NavMenuItems,
-    NavSelectedTag,
-    /// Whether the NavigationView has an AutoSuggestBox for search.
-    NavAutoSuggestBox,
-    /// Placeholder text for NavigationView's AutoSuggestBox.
-    NavAutoSuggestPlaceholder,
-    /// Items shown in NavigationView's AutoSuggestBox suggestion list.
-    NavAutoSuggestItems,
-    IsPaneOpen,
-    PaneDisplayMode,
-    IsBackEnabled,
-    IsSettingsVisible,
-    PaneTitle,
-    NavHeaderString,
-    TitleBarTitle,
-    TitleBarSubtitle,
-    TitleBarTall,
-    IsBackButtonVisible,
-    IsPaneToggleButtonVisible,
-    PivotTitle,
-    PivotItemHeader,
-    BreadcrumbItems,
-    IsTextSelectionEnabled,
-    TextWrappingWrap,
     AcceptsReturn,
-    PasswordValue,
-    PasswordRevealMode,
-    IsPasswordRevealButtonEnabled,
-    RadioButtonsItems,
-    RadioButtonsMaxColumns,
-    ComboBoxItems,
-    /// Non-templated items list for `ListBox`.
-    ListBoxItems,
-    /// Enables the editable/text-entry mode on `ComboBox`.
-    IsEditable,
+    ActionButton,
+    ActionButtonText,
+    AlignBottomWithPanel,
+    AlignHCenterWithPanel,
+    AlignLeftWithPanel,
+    AlignRightWithPanel,
+    AlignTopWithPanel,
+    AlignVCenterWithPanel,
     AttachedCanvasLeft,
     AttachedCanvasTop,
     AttachedCanvasZIndex,
-    ContentDialogTitle,
-    ContentDialogBody,
-    ContentDialogPrimaryText,
-    ContentDialogSecondaryText,
-    ContentDialogCloseText,
-    ContentDialogPrimaryEnabled,
-    ContentDialogSecondaryEnabled,
-    ContentDialogIsOpen,
-    /// Button style variant (Accent, Default).
-    ButtonStyleVariant,
-    /// Repeat delay in ms for `RepeatButton`.
-    RepeatDelay,
-    /// Repeat interval in ms for `RepeatButton`.
-    RepeatInterval,
-    /// Maximum rating for `RatingControl`.
-    MaxRating,
-    /// Caption text for `RatingControl`.
-    RatingCaption,
-    /// Whether `RatingControl` is read-only.
-    IsReadOnly,
-    /// Placeholder value for `RatingControl` (shown when Value is unset).
-    PlaceholderValue,
-    /// ARGB color value for `ColorPicker`.
-    ColorValue,
-    /// Whether alpha channel editing is enabled in `ColorPicker`.
-    IsAlphaEnabled,
-    /// Whether the hex input field is visible in `ColorPicker`.
-    IsHexInputVisible,
-    /// Whether the color slider is visible in `ColorPicker`.
-    IsColorSliderVisible,
-    /// Whether channel text inputs are visible in `ColorPicker`.
-    IsColorChannelTextInputVisible,
-    /// Whether day column is visible in `DatePicker`.
-    DayVisible,
-    /// Whether month column is visible in `DatePicker`.
-    MonthVisible,
-    /// Whether year column is visible in `DatePicker`.
-    YearVisible,
-    /// Clock identifier for `TimePicker` (e.g. "12HourClock", "24HourClock").
-    ClockIdentifier,
-    /// Minute increment for `TimePicker`.
-    MinuteIncrement,
-    /// Whether today is highlighted in `CalendarDatePicker`.
-    IsTodayHighlighted,
-    /// Whether the calendar popup is open in `CalendarDatePicker`.
-    IsCalendarOpen,
-    /// CalendarView: whether group labels are visible.
-    IsGroupLabelVisible,
-    /// Items list for `AutoSuggestBox` suggestions.
+    AttachedGridColumn,
+    AttachedGridColumnSpan,
+    AttachedGridRow,
+    AttachedGridRowSpan,
+    AutoSuggestBox,
     AutoSuggestItems,
-    /// Text value for `AutoSuggestBox`.
-    AutoSuggestText,
-    /// Display mode for `SplitView`.
-    SplitViewDisplayMode,
-    /// Whether the pane is open in `SplitView`.
-    SplitViewIsPaneOpen,
-    /// Width of the pane when fully open in `SplitView`.
-    SplitViewOpenPaneLength,
-    /// Width of the pane when compact in `SplitView`.
-    SplitViewCompactPaneLength,
-    /// Menu items for `MenuBar`.
-    MenuBarItems,
-    /// Menu flyout items for a button's flyout.
-    MenuFlyoutItems,
-    /// Tree nodes for `TreeView`.
-    TreeViewNodes,
-    /// Selection mode for `TreeView`.
-    TreeViewSelectionMode,
-    /// Primary commands for `CommandBar`.
-    CommandBarPrimaryCommands,
-    /// Secondary commands for `CommandBar`.
-    CommandBarSecondaryCommands,
-    /// Default label position for `CommandBar`.
-    CommandBarDefaultLabelPosition,
-    /// Primary + secondary commands for `CommandBarFlyout` on a Button.
+    AutoSuggestPlaceholder,
+    Background,
+    BorderBrush,
+    BorderThickness,
+    CanReorderTabs,
+    Caption,
+    ClockIdentifier,
+    CloseButton,
+    CloseButtonText,
+    ColorValue,
+    Columns,
+    ColumnSpacing,
     CommandBarFlyoutCommands,
-    /// Title for `TeachingTip`.
-    TeachingTipTitle,
-    /// Subtitle for `TeachingTip`.
-    TeachingTipSubtitle,
-    /// IsOpen for `TeachingTip`.
-    TeachingTipIsOpen,
-    /// IsLightDismissEnabled for `TeachingTip`.
-    TeachingTipIsLightDismiss,
-    /// PreferredPlacement for `TeachingTip`.
-    TeachingTipPlacement,
-    /// ActionButtonContent for `TeachingTip`.
-    TeachingTipActionButton,
-    /// CloseButtonContent for `TeachingTip`.
-    TeachingTipCloseButton,
-    /// Items for `SelectorBar`.
-    SelectorBarItems,
-    /// Icon for `Button` (symbol icon rendered alongside content).
-    ButtonIcon,
-    /// Text value for `RichEditBox` (plain text round-trip).
-    RichEditBoxText,
-    /// Whether `RichEditBox` is read-only.
-    RichEditBoxIsReadOnly,
-    /// Flyout content element for a `Button`.
+    CompactPaneLength,
+    Content,
+    CornerRadius,
+    DayVisible,
+    DefaultLabelPosition,
+    Delay,
+    DisplayMode,
+    DisplayName,
+    Fill,
     FlyoutContent,
-    /// Flyout placement mode.
+    FlyoutItems,
     FlyoutPlacement,
-    /// RelativePanel: align child to left edge of panel.
-    RelativePanelAlignLeftWithPanel,
-    /// RelativePanel: align child to right edge of panel.
-    RelativePanelAlignRightWithPanel,
-    /// RelativePanel: align child to top edge of panel.
-    RelativePanelAlignTopWithPanel,
-    /// RelativePanel: align child to bottom edge of panel.
-    RelativePanelAlignBottomWithPanel,
-    /// RelativePanel: center child horizontally in panel.
-    RelativePanelAlignHCenterWithPanel,
-    /// RelativePanel: center child vertically in panel.
-    RelativePanelAlignVCenterWithPanel,
-    /// Key/value entries written into `FrameworkElement.Resources`.
+    FontFamily,
+    FontSize,
+    FontWeight,
+    Foreground,
+    GridColumns,
+    GridRows,
+    GroupName,
+    Header,
+    Height,
+    HorizontalAlignment,
+    HorizontalScrollBarVisibility,
+    Icon,
+    ImageSource,
+    Initials,
+    Interval,
+    IsActive,
+    IsAddTabButtonVisible,
+    IsAlphaEnabled,
+    IsBackButtonEnabled,
+    IsBackButtonVisible,
+    IsBackEnabled,
+    IsCalendarOpen,
+    IsChecked,
+    IsClosable,
+    IsColorChannelTextInputVisible,
+    IsColorSliderVisible,
+    IsEditable,
+    IsEnabled,
+    IsExpanded,
+    IsGroupLabelVisible,
+    IsHexInputVisible,
+    IsIndeterminate,
+    IsLightDismissEnabled,
+    IsOn,
+    IsOpen,
+    IsPaneOpen,
+    IsPaneToggleButtonVisible,
+    IsPasswordRevealButtonEnabled,
+    IsPrimaryButtonEnabled,
+    IsReadOnly,
+    IsSecondaryButtonEnabled,
+    IsSettingsVisible,
+    IsTall,
+    IsTextSelectionEnabled,
+    IsTodayHighlighted,
+    ItemHeader,
+    ItemKey,
+    Items,
+    LineEndpoints,
+    Margin,
+    MaxColumns,
+    MaxHeight,
+    Maximum,
+    MaxRating,
+    MaxWidth,
+    MenuFlyoutItems,
+    MenuItems,
+    Message,
+    MinHeight,
+    Minimum,
+    MinuteIncrement,
+    MinWidth,
+    MonthVisible,
+    NavigateUri,
+    Nodes,
+    OffContent,
+    OnContent,
+    Opacity,
+    OpenPaneLength,
+    Orientation,
+    Padding,
+    PaneDisplayMode,
+    PaneTitle,
+    PasswordRevealMode,
+    PlaceholderText,
+    PlaceholderValue,
+    PreferredPlacement,
+    PrimaryButtonText,
+    PrimaryCommands,
     Resources,
+    Rows,
+    RowSpacing,
+    SecondaryButtonText,
+    SecondaryCommands,
+    SelectedIndex,
+    SelectedTag,
+    SelectionMode,
+    Severity,
+    Spacing,
+    Step,
+    Stretch,
+    Stroke,
+    StrokeThickness,
+    Style,
+    StyleVariant,
+    Subtitle,
+    Tall,
+    Text,
+    TextWrapping,
+    TextWrappingWrap,
+    Title,
+    Value,
+    VerticalAlignment,
+    VerticalScrollBarVisibility,
+    Width,
+    YearVisible,
 }
 
 
@@ -384,75 +303,34 @@ pub enum PropValue {
 /// Closed enum of every backend-observable input event.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum Event {
-    Click,
-    CheckedChanged,
-    TextChanged,
-    Toggled,
-    ValueChanged,
-    RadioChecked,
-    ExpandedChanged,
-    InfoBarClosed,
-    TabSelectionChanged,
-    TabCloseRequested,
-    /// TabView: the built-in "+" add-tab button was clicked.
+    ActionButtonClick,
     AddTabButtonClick,
-    NavSelectionChanged,
-    NavBackRequested,
-    /// NavigationView: search box query submitted.
-    NavSearchQuerySubmitted,
-    /// NavigationView: search box text changed.
-    NavSearchTextChanged,
-    /// NavigationView: search box suggestion chosen (clicked).
-    NavSearchSuggestionChosen,
-    TitleBarBackRequested,
-    TitleBarPaneToggle,
-    PivotSelectionChanged,
-    BreadcrumbItemClicked,
-    PasswordChanged,
-    RadioButtonsSelectionChanged,
-    ComboSelectionChanged,
-    ContentDialogClosed,
-    RatingValueChanged,
+    BackRequested,
+    CalendarDateSelected,
+    Changed,
+    Checked,
+    Click,
+    Closed,
+    CloseRequested,
+    CommandBarFlyoutClick,
     ColorChanged,
     DateSelected,
+    Expanding,
+    ItemClicked,
+    ItemInvoked,
+    MenuItemClicked,
+    Opened,
+    PaneClosed,
+    PaneToggleRequested,
+    PasswordChanged,
+    QuerySubmitted,
+    SelectedDatesChanged,
+    SelectionChanged,
+    SuggestionChosen,
+    TextChanged,
     TimeSelected,
-    CalendarDateSelected,
-    /// CalendarView: dates selection changed.
-    CalendarViewSelectionChanged,
-    /// ListBox: selection changed (fires index).
-    ListBoxSelectionChanged,
-    /// SplitButton: primary action clicked.
-    SplitButtonClick,
-    /// AutoSuggestBox: text changed by user input.
-    AutoSuggestTextChanged,
-    /// AutoSuggestBox: query submitted.
-    AutoSuggestQuerySubmitted,
-    /// AutoSuggestBox: suggestion chosen from the list.
-    AutoSuggestSuggestionChosen,
-    /// SplitView: pane closed.
-    SplitViewPaneClosed,
-    /// MenuBar: a menu flyout item was clicked.
-    MenuBarItemClicked,
-    /// MenuFlyout on a button: item was clicked.
-    MenuFlyoutItemClicked,
-    /// TreeView: an item was invoked (clicked/tapped).
-    TreeViewItemInvoked,
-    /// CommandBar: a command button was clicked (label is sent).
-    CommandBarClick,
-    /// CommandBarFlyout: a primary/secondary command was clicked.
-    CommandBarFlyoutClick,
-    /// TeachingTip: closed.
-    TeachingTipClosed,
-    /// TeachingTip: action button clicked.
-    TeachingTipActionClick,
-    /// SelectorBar: selection changed (selected item text is sent).
-    SelectorBarSelectionChanged,
-    /// RichEditBox: text changed.
-    RichEditBoxTextChanged,
-    /// Flyout: opened.
-    FlyoutOpened,
-    /// Flyout: closed.
-    FlyoutClosed,
+    Toggled,
+    ValueChanged,
 }
 
 /// Typed wrapper around a callback for a specific [`Event`] payload shape.
@@ -460,6 +338,8 @@ pub enum Event {
 #[derive(Clone, PartialEq, Eq)]
 pub enum EventHandler {
     Click(Callback<()>),
+    Changed(Callback<bool>),
+    Checked(Callback<bool>),
     CheckedChanged(Callback<bool>),
     TextChanged(Callback<String>),
     ValueChanged(Callback<f64>),
@@ -474,6 +354,8 @@ impl fmt::Debug for EventHandler {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             EventHandler::Click(_) => f.write_str("EventHandler::Click(..)"),
+            EventHandler::Changed(_) => f.write_str("EventHandler::Changed(..)"),
+            EventHandler::Checked(_) => f.write_str("EventHandler::Checked(..)"),
             EventHandler::CheckedChanged(_) => f.write_str("EventHandler::CheckedChanged(..)"),
             EventHandler::TextChanged(_) => f.write_str("EventHandler::TextChanged(..)"),
             EventHandler::ValueChanged(_) => f.write_str("EventHandler::ValueChanged(..)"),
@@ -506,7 +388,7 @@ impl EventHandler {
 
     pub fn invoke_bool(&self, v: bool) {
         match self {
-            EventHandler::CheckedChanged(cb) => cb.invoke(v),
+            EventHandler::Changed(cb) | EventHandler::Checked(cb) | EventHandler::CheckedChanged(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_bool() called on {other:?}"),
         }
     }
@@ -560,7 +442,7 @@ impl EventHandler {
 pub trait Backend {
     fn create(&mut self, kind: ControlKind) -> ControlId;
 
-    fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue);
+    fn set_prop(&mut self, id: ControlId, prop: Prop, value: &PropValue);
 
     fn append_child(&mut self, parent: ControlId, child: ControlId);
 
@@ -966,8 +848,12 @@ impl Backend for RecordingBackend {
         id
     }
 
-    fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue) {
-        self.ops.push(Op::SetProp { id, prop, value });
+    fn set_prop(&mut self, id: ControlId, prop: Prop, value: &PropValue) {
+        self.ops.push(Op::SetProp {
+            id,
+            prop,
+            value: value.clone(),
+        });
     }
 
     fn append_child(&mut self, parent: ControlId, child: ControlId) {

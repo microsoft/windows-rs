@@ -73,36 +73,6 @@ impl PasswordBox {
 impl Widget for PasswordBox {
     widget_header!(ControlKind::PasswordBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(
-            Prop::PasswordValue,
-            PropValue::Str(self.value.clone()),
-        ));
-        if let Some(ph) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(ph.clone())));
-        }
-        if let Some(hd) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(hd.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Prop(
-            Prop::PasswordRevealMode,
-            PropValue::PasswordRevealMode(self.reveal_mode),
-        ));
-        if !self.is_password_reveal_button_enabled {
-            out.push(Binding::Prop(
-                Prop::IsPasswordRevealButtonEnabled,
-                PropValue::Bool(false),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::PasswordChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::password_box_bindings(self)
     }
 }

@@ -4,8 +4,10 @@ use std::rc::Rc;
 use windows_reactor::core::backend::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
 use windows_reactor::core::element::Element;
 use windows_reactor::core::element::{
-    BreadcrumbBar, InfoBadge, InfoBar, InfoBarSeverity, NavViewItem, NavViewPaneDisplayMode,
-    NavigationView, Pivot, PivotItem, TabItem, TabView, TitleBar,
+    BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarLabelPos, ContentDialog, InfoBadge,
+    InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, NavViewItem, NavViewPaneDisplayMode,
+    NavigationView, Pivot, PivotItem, SelectorBar, SelectorBarItemDef, TabItem, TabView,
+    TeachingTip, TeachingTipPlacement, TitleBar, TreeNodeDef, TreeSelectionMode, TreeView,
 };
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::dsl::text_block;
@@ -20,6 +22,19 @@ fn count_create_ops(ops: &[Op], k: ControlKind) -> usize {
     ops.iter()
         .filter(|op| matches!(op, Op::Create { kind, .. } if *kind == k))
         .count()
+}
+
+fn first_create(
+    r: &Reconciler<RecordingBackend>,
+) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+    r.backend
+        .ops
+        .iter()
+        .find_map(|op| match op {
+            Op::Create { id, kind } => Some((*kind, *id)),
+            _ => None,
+        })
+        .expect("no Create op")
 }
 
 #[test]
@@ -49,7 +64,7 @@ fn tab_view_mounts_with_headers_and_content() {
         .iter()
         .filter_map(|op| match op {
             Op::SetProp {
-                prop: Prop::TabHeader,
+                prop: Prop::Header,
                 value: PropValue::Str(s),
                 ..
             } => Some(s.clone()),
@@ -92,8 +107,9 @@ fn tab_view_selected_index_update_emits_single_set() {
 
 #[test]
 fn tab_view_add_tab_button_visible_prop_emits_set() {
+    // WinUI default is true; non_default = "true" means emit only when false
     let el: Element = TabView::new([TabItem::new("A", text_block("a"))])
-        .is_add_tab_button_visible(true)
+        .is_add_tab_button_visible(false)
         .into();
     let r = mount(&el);
 
@@ -102,7 +118,7 @@ fn tab_view_add_tab_button_visible_prop_emits_set() {
             op,
             Op::SetProp {
                 prop: Prop::IsAddTabButtonVisible,
-                value: PropValue::Bool(true),
+                value: PropValue::Bool(false),
                 ..
             }
         )
@@ -182,14 +198,14 @@ fn info_bar_mounts_with_title_message_severity() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::InfoBarTitle, PropValue::Str(s)) if s == "Heads up" => saw_title = true,
-                (Prop::InfoBarMessage, PropValue::Str(s)) if s == "Something happened" => {
+                (Prop::Title, PropValue::Str(s)) if s == "Heads up" => saw_title = true,
+                (Prop::Message, PropValue::Str(s)) if s == "Something happened" => {
                     saw_msg = true;
                 }
-                (Prop::InfoBarSeverity, PropValue::InfoBarSev(InfoBarSeverity::Warning)) => {
+                (Prop::Severity, PropValue::InfoBarSev(InfoBarSeverity::Warning)) => {
                     saw_sev = true;
                 }
-                (Prop::InfoBarIsOpen, PropValue::Bool(true)) => saw_open = true,
+                (Prop::IsOpen, PropValue::Bool(true)) => saw_open = true,
                 _ => {}
             }
         }
@@ -208,7 +224,7 @@ fn info_badge_numeric_sets_value() {
         matches!(
             op,
             Op::SetProp {
-                prop: Prop::InfoBadgeValue,
+                prop: Prop::Value,
                 value: PropValue::I32(5),
                 ..
             }
@@ -219,19 +235,20 @@ fn info_badge_numeric_sets_value() {
 
 #[test]
 fn info_badge_dot_uses_negative_sentinel() {
+    // dot() has value=None; with emit="optional" no Value prop is emitted.
+    // WinUI shows a dot badge by default when no Value is set.
     let el: Element = InfoBadge::dot().into();
     let r = mount(&el);
     let got_value = r.backend.ops.iter().any(|op| {
         matches!(
             op,
             Op::SetProp {
-                prop: Prop::InfoBadgeValue,
-                value: PropValue::I32(-1),
+                prop: Prop::Value,
                 ..
             }
         )
     });
-    assert!(got_value);
+    assert!(!got_value, "dot badge should not emit a Value prop");
 }
 #[test]
 fn navigation_view_mounts_with_menu_items_and_content() {
@@ -262,10 +279,10 @@ fn navigation_view_mounts_with_menu_items_and_content() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::NavMenuItems, PropValue::NavMenuItems(items)) => {
+                (Prop::MenuItems, PropValue::NavMenuItems(items)) => {
                     saw_menu = items.len() == 3 && items[0].is_header && items[1].content == "Home";
                 }
-                (Prop::NavSelectedTag, PropValue::Str(s)) if s == "home" => saw_tag = true,
+                (Prop::SelectedTag, PropValue::Str(s)) if s == "home" => saw_tag = true,
                 (Prop::PaneDisplayMode, PropValue::NavPaneDisplayMode(m))
                     if *m == NavViewPaneDisplayMode::Left =>
                 {
@@ -305,7 +322,7 @@ fn navigation_view_selection_changed_callback_fires() {
     };
 
     r.backend
-        .fire_string(nv_id, Event::NavSelectionChanged, "settings".into());
+        .fire_string(nv_id, Event::SelectionChanged, "settings".into());
     assert_eq!(*observed.borrow(), Some("settings".to_string()));
 }
 
@@ -332,7 +349,7 @@ fn navigation_view_back_requested_fires_zero_arg() {
         _ => panic!("no NavigationView Create op"),
     };
 
-    r.backend.fire(nv_id, Event::NavBackRequested);
+    r.backend.fire(nv_id, Event::BackRequested);
     assert_eq!(count.get(), 1);
 }
 
@@ -360,7 +377,7 @@ fn navigation_view_update_emits_only_changed_props() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: Prop::NavSelectedTag,
+                    prop: Prop::SelectedTag,
                     ..
                 }
             )
@@ -376,7 +393,7 @@ fn navigation_view_update_emits_only_changed_props() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: Prop::NavMenuItems,
+                    prop: Prop::MenuItems,
                     ..
                 }
             )
@@ -404,10 +421,10 @@ fn title_bar_mounts_with_title_subtitle_and_button_visibility() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::TitleBarTitle, PropValue::Str(s)) if s == "MyApp" => saw_title = true,
-                (Prop::TitleBarSubtitle, PropValue::Str(s)) if s == "Preview" => saw_sub = true,
+                (Prop::Title, PropValue::Str(s)) if s == "MyApp" => saw_title = true,
+                (Prop::Subtitle, PropValue::Str(s)) if s == "Preview" => saw_sub = true,
                 (Prop::IsBackButtonVisible, PropValue::Bool(true)) => saw_back_visible = true,
-                (Prop::IsBackEnabled, PropValue::Bool(true)) => saw_back_enabled = true,
+                (Prop::IsBackButtonEnabled, PropValue::Bool(true)) => saw_back_enabled = true,
                 (Prop::IsPaneToggleButtonVisible, PropValue::Bool(true)) => saw_pane = true,
                 _ => {}
             }
@@ -444,8 +461,8 @@ fn title_bar_back_and_pane_callbacks_fire_via_recording_backend() {
         Some(Op::Create { id, .. }) => *id,
         _ => panic!("no TitleBar Create op"),
     };
-    r.backend.fire(id, Event::TitleBarBackRequested);
-    r.backend.fire(id, Event::TitleBarPaneToggle);
+    r.backend.fire(id, Event::BackRequested);
+    r.backend.fire(id, Event::PaneToggleRequested);
     assert_eq!(back.get(), 1);
     assert_eq!(pane.get(), 1);
 }
@@ -468,7 +485,7 @@ fn title_bar_update_diffs_only_changed_string_fields() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: Prop::TitleBarTitle,
+                    prop: Prop::Title,
                     ..
                 }
             )
@@ -482,7 +499,7 @@ fn title_bar_update_diffs_only_changed_string_fields() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: Prop::TitleBarSubtitle,
+                    prop: Prop::Subtitle,
                     ..
                 }
             )
@@ -513,9 +530,9 @@ fn pivot_mounts_with_items_and_content() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::PivotTitle, PropValue::Str(s)) if s == "My Pivot" => saw_title = true,
+                (Prop::Title, PropValue::Str(s)) if s == "My Pivot" => saw_title = true,
                 (Prop::SelectedIndex, PropValue::I32(1)) => saw_idx = true,
-                (Prop::PivotItemHeader, PropValue::Str(s)) => headers.push(s.clone()),
+                (Prop::ItemHeader, PropValue::Str(s)) => headers.push(s.clone()),
                 _ => {}
             }
         }
@@ -545,7 +562,7 @@ fn pivot_selection_changed_dispatches_index() {
         Some(Op::Create { id, .. }) => *id,
         _ => panic!("no Pivot Create op"),
     };
-    r.backend.fire_i32(id, Event::PivotSelectionChanged, 2);
+    r.backend.fire_i32(id, Event::SelectionChanged, 2);
     assert_eq!(observed.get(), 2);
 }
 
@@ -588,7 +605,7 @@ fn breadcrumb_bar_mounts_items_as_string_list() {
 
     let saw_items = r.backend.ops.iter().any(|op| {
         matches!(op, Op::SetProp {
-            prop: Prop::BreadcrumbItems,
+            prop: Prop::Items,
             value: PropValue::StrList(v),
             ..
         } if v == &vec!["Root".to_string(), "Folder".to_string(), "File.txt".to_string()])
@@ -616,7 +633,7 @@ fn breadcrumb_bar_item_clicked_dispatches_index() {
         Some(Op::Create { id, .. }) => *id,
         _ => panic!("no BreadcrumbBar Create op"),
     };
-    r.backend.fire_i32(id, Event::BreadcrumbItemClicked, 0);
+    r.backend.fire_i32(id, Event::ItemClicked, 0);
     assert_eq!(observed.get(), 0);
 }
 
@@ -639,7 +656,7 @@ fn breadcrumb_bar_update_emits_set_only_when_items_change() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: Prop::BreadcrumbItems,
+                    prop: Prop::Items,
                     ..
                 }
             )
@@ -657,11 +674,224 @@ fn breadcrumb_bar_update_emits_set_only_when_items_change() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: Prop::BreadcrumbItems,
+                    prop: Prop::Items,
                     ..
                 }
             )
         })
         .count();
     assert_eq!(grew_sets, 1);
+}
+
+#[test]
+fn content_dialog_mounts_with_buttons_and_enabled_state() {
+    let el: Element = ContentDialog::new("Confirm")
+        .content("Are you sure?")
+        .primary_button_text("Yes")
+        .secondary_button_text("No")
+        .close_button_text("Cancel")
+        .is_primary_button_enabled(true)
+        .is_secondary_button_enabled(false)
+        .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::ContentDialog);
+
+    let mut saw_title = false;
+    let mut saw_content = false;
+    let mut saw_primary = false;
+    let mut saw_secondary = false;
+    let mut saw_close = false;
+    let mut saw_primary_enabled = false;
+    let mut saw_secondary_enabled = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::Title, PropValue::Str(s)) if s == "Confirm" => saw_title = true,
+                (Prop::Content, PropValue::Str(s)) if s == "Are you sure?" => saw_content = true,
+                (Prop::PrimaryButtonText, PropValue::Str(s)) if s == "Yes" => saw_primary = true,
+                (Prop::SecondaryButtonText, PropValue::Str(s)) if s == "No" => saw_secondary = true,
+                (Prop::CloseButtonText, PropValue::Str(s)) if s == "Cancel" => saw_close = true,
+                (Prop::IsPrimaryButtonEnabled, PropValue::Bool(true)) => saw_primary_enabled = true,
+                (Prop::IsSecondaryButtonEnabled, PropValue::Bool(false)) => {
+                    saw_secondary_enabled = true;
+                }
+                _ => {}
+            }
+        }
+    }
+    assert!(
+        saw_title
+            && saw_content
+            && saw_primary
+            && saw_secondary
+            && saw_close
+            && saw_primary_enabled
+            && saw_secondary_enabled
+    );
+}
+
+#[test]
+fn command_bar_mounts_with_primary_secondary_commands_and_label_position() {
+    let primary = vec![CommandBarCommandDef::Button {
+        label: "Open".into(),
+        icon: None,
+    }];
+    let secondary = vec![CommandBarCommandDef::Toggle {
+        label: "Pin".into(),
+        icon: None,
+    }];
+    let el: Element = CommandBar::new(primary.clone())
+        .secondary_commands(secondary.clone())
+        .default_label_position(CommandBarLabelPos::Right)
+        .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::CommandBar);
+
+    let mut saw_primary = false;
+    let mut saw_secondary = false;
+    let mut saw_label_pos = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::PrimaryCommands, PropValue::CommandBarCommands(v)) if v == &primary => {
+                    saw_primary = true;
+                }
+                (Prop::SecondaryCommands, PropValue::CommandBarCommands(v)) if v == &secondary => {
+                    saw_secondary = true;
+                }
+                (
+                    Prop::DefaultLabelPosition,
+                    PropValue::CommandBarLabelPosition(CommandBarLabelPos::Right),
+                ) => saw_label_pos = true,
+                _ => {}
+            }
+        }
+    }
+    assert!(saw_primary && saw_secondary && saw_label_pos);
+}
+
+#[test]
+fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
+    let el: Element = TeachingTip::new("Title")
+        .subtitle("Sub")
+        .is_open(true)
+        .light_dismiss()
+        .preferred_placement(TeachingTipPlacement::Top)
+        .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::TeachingTip);
+
+    let mut saw_title = false;
+    let mut saw_subtitle = false;
+    let mut saw_open = false;
+    let mut saw_dismiss = false;
+    let mut saw_placement = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::Title, PropValue::Str(s)) if s == "Title" => saw_title = true,
+                (Prop::Subtitle, PropValue::Str(s)) if s == "Sub" => saw_subtitle = true,
+                (Prop::IsOpen, PropValue::Bool(true)) => saw_open = true,
+                (Prop::IsLightDismissEnabled, PropValue::Bool(true)) => saw_dismiss = true,
+                (
+                    Prop::PreferredPlacement,
+                    PropValue::TeachingTipPlacement(TeachingTipPlacement::Top),
+                ) => saw_placement = true,
+                _ => {}
+            }
+        }
+    }
+    assert!(saw_title && saw_subtitle && saw_open && saw_dismiss && saw_placement);
+}
+
+#[test]
+fn teaching_tip_closed_event_fires() {
+    let count = Rc::new(Cell::new(0));
+    let count_c = Rc::clone(&count);
+    let el: Element = TeachingTip::new("Title")
+        .on_closed(move || count_c.set(count_c.get() + 1))
+        .into();
+    let r = mount(&el);
+
+    let (_, id) = first_create(&r);
+    r.backend.fire(id, Event::Closed);
+    assert_eq!(count.get(), 1);
+}
+
+#[test]
+fn menu_bar_mounts_with_menu_items() {
+    let items = vec![MenuBarItemDef::new(
+        "File",
+        vec![windows_reactor::core::element::menu_item("Open")],
+    )];
+    let el: Element = MenuBar::new(items.clone()).into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::MenuBar);
+
+    let saw_items = r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::SetProp {
+                prop: Prop::Items,
+                value: PropValue::MenuBarItems(v),
+                ..
+            } if v == &items
+        )
+    });
+    assert!(saw_items);
+}
+
+#[test]
+fn selector_bar_mounts_with_items() {
+    let items = vec![
+        SelectorBarItemDef::new("Home"),
+        SelectorBarItemDef::new("Settings"),
+    ];
+    let el: Element = SelectorBar::new(items.clone()).into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::SelectorBar);
+
+    let saw_items = r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::SetProp {
+                prop: Prop::Items,
+                value: PropValue::SelectorBarItems(v),
+                ..
+            } if v == &items
+        )
+    });
+    assert!(saw_items);
+}
+
+#[test]
+fn tree_view_mounts_with_nodes_and_selection_mode() {
+    let nodes = vec![TreeNodeDef::new("Root").child(TreeNodeDef::new("Child"))];
+    let el: Element = TreeView::new(nodes.clone())
+        .selection_mode(TreeSelectionMode::Multiple)
+        .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::TreeView);
+
+    let mut saw_nodes = false;
+    let mut saw_selection_mode = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::Nodes, PropValue::TreeViewNodes(v)) if v == &nodes => saw_nodes = true,
+                (
+                    Prop::SelectionMode,
+                    PropValue::TreeViewSelectionMode(TreeSelectionMode::Multiple),
+                ) => saw_selection_mode = true,
+                _ => {}
+            }
+        }
+    }
+    assert!(saw_nodes && saw_selection_mode);
 }

@@ -57,33 +57,6 @@ impl ComboBox {
 impl Widget for ComboBox {
     widget_header!(ControlKind::ComboBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
-        out.push(Binding::Prop(
-            Prop::ComboBoxItems,
-            PropValue::StrList(self.items.clone()),
-        ));
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(self.selected_index),
-        ));
-        if let Some(h) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(h.clone())));
-        }
-        if let Some(p) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(p.clone())));
-        }
-        if self.is_editable {
-            out.push(Binding::Prop(Prop::IsEditable, PropValue::Bool(true)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::ComboSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::IndexChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::combo_box_bindings(self)
     }
 }

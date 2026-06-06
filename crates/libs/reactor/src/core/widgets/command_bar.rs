@@ -1,6 +1,6 @@
 use super::*;
 
-/// Definition of a single command in a [`CommandBarWidget`].
+/// Definition of a single command in a [`CommandBar`].
 #[derive(Clone, Debug, PartialEq)]
 pub enum CommandBarCommandDef {
     /// A clickable button with optional icon and label.
@@ -54,7 +54,7 @@ pub fn app_bar_separator() -> CommandBarCommandDef {
     CommandBarCommandDef::Separator
 }
 
-/// Default label position for a [`CommandBarWidget`].
+/// Default label position for a [`CommandBar`].
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum CommandBarLabelPos {
     /// Labels appear below the icon.
@@ -68,7 +68,7 @@ pub enum CommandBarLabelPos {
 
 /// `Microsoft.UI.Xaml.Controls.CommandBar`. A toolbar with primary and secondary commands.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct CommandBarWidget {
+pub struct CommandBar {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub primary_commands: Vec<CommandBarCommandDef>,
@@ -77,7 +77,7 @@ pub struct CommandBarWidget {
     pub on_click: Option<Callback<String>>,
 }
 
-impl CommandBarWidget {
+impl CommandBar {
     pub fn new(primary: Vec<CommandBarCommandDef>) -> Self {
         Self {
             primary_commands: primary,
@@ -101,32 +101,13 @@ impl CommandBarWidget {
     }
 }
 
-impl Widget for CommandBarWidget {
+impl Widget for CommandBar {
     widget_header!(ControlKind::CommandBar);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::CommandBarPrimaryCommands,
-                PropValue::CommandBarCommands(self.primary_commands.clone()),
-            ),
-            Binding::Prop(
-                Prop::CommandBarSecondaryCommands,
-                PropValue::CommandBarCommands(self.secondary_commands.clone()),
-            ),
-            Binding::Prop(
-                Prop::CommandBarDefaultLabelPosition,
-                PropValue::CommandBarLabelPosition(self.default_label_position),
-            ),
-            Binding::Event(
-                Event::CommandBarClick,
-                self.on_click
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ),
-        ]
+        crate::core::generated_bindings::command_bar_bindings(self)
     }
 }
 
-pub fn command_bar(primary: Vec<CommandBarCommandDef>) -> CommandBarWidget {
-    CommandBarWidget::new(primary)
+pub fn command_bar(primary: Vec<CommandBarCommandDef>) -> CommandBar {
+    CommandBar::new(primary)
 }

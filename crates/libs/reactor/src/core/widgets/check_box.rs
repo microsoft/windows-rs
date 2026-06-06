@@ -6,7 +6,7 @@ pub struct CheckBox {
     pub modifiers: Modifiers,
     pub is_checked: bool,
     pub on_changed: Option<Callback<bool>>,
-    pub label: Option<String>,
+    pub content: Option<String>,
     pub is_enabled: bool,
 }
 impl CheckBox {
@@ -22,27 +22,7 @@ impl CheckBox {
 impl Widget for CheckBox {
     widget_header!(ControlKind::CheckBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        out.push(Binding::Prop(
-            Prop::IsChecked,
-            PropValue::Bool(self.is_checked),
-        ));
-        if let Some(label) = &self.label {
-            out.push(Binding::Prop(
-                Prop::CheckBoxLabel,
-                PropValue::Str(label.clone()),
-            ));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::CheckedChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::CheckedChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::check_box_bindings(self)
     }
 }
 
@@ -52,8 +32,8 @@ impl CheckBox {
         self
     }
 
-    pub fn label(mut self, s: impl Into<String>) -> Self {
-        self.label = Some(s.into());
+    pub fn content(mut self, s: impl Into<String>) -> Self {
+        self.content = Some(s.into());
         self
     }
 

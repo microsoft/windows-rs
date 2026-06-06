@@ -21,7 +21,6 @@ impl InfoBadge {
 impl Widget for InfoBadge {
     widget_header!(ControlKind::InfoBadge);
     fn bindings(&self) -> PropBindings {
-        let v = self.value.unwrap_or(-1);
-        vec![Binding::Prop(Prop::InfoBadgeValue, PropValue::I32(v))]
+        crate::core::generated_bindings::info_badge_bindings(self)
     }
 }

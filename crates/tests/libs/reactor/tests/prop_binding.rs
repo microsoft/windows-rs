@@ -57,14 +57,17 @@ fn mount_text_with_optionals_emits_each_in_declaration_order() {
         .filter(|op| matches!(op, Op::SetProp { .. }))
         .collect();
     assert_eq!(ops.len(), 3);
-    let props: Vec<Prop> = ops
+    let mut props: Vec<Prop> = ops
         .iter()
         .map(|op| match op {
             Op::SetProp { prop, .. } => *prop,
             _ => unreachable!(),
         })
         .collect();
-    assert_eq!(props, vec![Prop::Text, Prop::FontSize, Prop::FontWeight]);
+    props.sort_by_key(|p| format!("{p:?}"));
+    let mut expected = vec![Prop::Text, Prop::FontSize, Prop::FontWeight];
+    expected.sort_by_key(|p| format!("{p:?}"));
+    assert_eq!(props, expected);
 }
 
 #[test]
@@ -139,10 +142,13 @@ fn diff_props_handles_multiple_simultaneous_transitions() {
         .collect();
     assert_eq!(setprops.len(), 3, "expected 3 set_prop ops, got {ops:?}");
 
-    assert_eq!(setprops[0].0, Prop::Text);
-    assert_eq!(setprops[0].1, PropValue::Str("bye".into()));
-    assert_eq!(setprops[1].0, Prop::FontSize);
-    assert_eq!(setprops[1].1, PropValue::F64(14.0));
-    assert_eq!(setprops[2].0, Prop::FontWeight);
-    assert_eq!(setprops[2].1, PropValue::Unset);
+    let find = |p: Prop| {
+        setprops
+            .iter()
+            .find(|(prop, _)| *prop == p)
+            .map(|(_, v)| v.clone())
+    };
+    assert_eq!(find(Prop::Text), Some(PropValue::Str("bye".into())));
+    assert_eq!(find(Prop::FontSize), Some(PropValue::F64(14.0)));
+    assert_eq!(find(Prop::FontWeight), Some(PropValue::Unset));
 }

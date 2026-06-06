@@ -49,33 +49,7 @@ impl RatingControl {
 impl Widget for RatingControl {
     widget_header!(ControlKind::RatingControl);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
-        out.push(Binding::Prop(
-            Prop::NumericValue,
-            PropValue::F64(self.value),
-        ));
-        if let Some(max) = self.max_rating {
-            out.push(Binding::Prop(Prop::MaxRating, PropValue::I32(max)));
-        }
-        if let Some(s) = &self.caption {
-            out.push(Binding::Prop(
-                Prop::RatingCaption,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        if let Some(v) = self.placeholder_value {
-            out.push(Binding::Prop(Prop::PlaceholderValue, PropValue::F64(v)));
-        }
-        if self.is_read_only {
-            out.push(Binding::Prop(Prop::IsReadOnly, PropValue::Bool(true)));
-        }
-        out.push(Binding::Event(
-            Event::RatingValueChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::ValueChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::rating_control_bindings(self)
     }
 }
 

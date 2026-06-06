@@ -33,7 +33,7 @@ fn app(cx: &mut RenderCx) -> Element {
             .selected_index(selected)
             .can_reorder_tabs(true)
             .on_selection_changed(move |i| set_selected.call(i))
-            .on_tab_close_requested(move |key| {
+            .on_close_requested(move |key| {
                 let next: Vec<_> = tabs_for_close
                     .iter()
                     .filter(|(k, _)| *k != key)
