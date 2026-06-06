@@ -51,6 +51,9 @@ pub enum ParamClass {
 /// Pre-built lookup: `(class_short_name, method_name) → MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
+    /// Value-type structs that wrap a single primitive field.
+    /// Maps `(namespace, name)` → the unwrapped inner `Type`.
+    single_field_types: HashMap<(String, String), Type>,
 }
 
 impl MetadataResolver {
@@ -92,7 +95,25 @@ impl MetadataResolver {
                 .is_some()
         });
 
-        MetadataResolver { lookup }
+        // Build single-field struct map: value types with exactly one field
+        // get mapped to their inner primitive type (e.g. FontWeight → U16).
+        let mut single_field_types = HashMap::new();
+        for (namespace, name, typedef) in index.iter() {
+            let fields: Vec<_> = typedef.fields().collect();
+            if fields.len() == 1 {
+                let inner_ty = fields[0].ty();
+                // Only map if the inner type is a primitive we recognize.
+                if Self::primitive_value_for_type(&inner_ty).is_some() {
+                    single_field_types
+                        .insert((namespace.to_string(), name.to_string()), inner_ty);
+                }
+            }
+        }
+
+        MetadataResolver {
+            lookup,
+            single_field_types,
+        }
     }
 
     /// Walk a class's interface hierarchy and record every `put_*` / `get_*` /
@@ -198,12 +219,38 @@ impl MetadataResolver {
             .get(&(class_name.to_string(), method_name.to_string()))?;
         // put_ methods have exactly one parameter
         let param = mref.param_types.first()?;
-        Self::value_for_type(param)
+        self.value_for_type(param)
     }
 
     /// Map a metadata Type to a PropValue variant name.
-    /// Returns None for types that need explicit TOML declaration.
-    pub fn value_for_type(ty: &Type) -> Option<String> {
+    /// Handles primitives, IReference<bool>, single-field wrapper structs
+    /// (e.g. FontWeight{Weight: u16} → U16), and multi-field value-type
+    /// structs by using the struct's short name (e.g. Thickness → "Thickness").
+    pub fn value_for_type(&self, ty: &Type) -> Option<String> {
+        // Try primitives and well-known types first.
+        if let Some(v) = Self::primitive_value_for_type(ty) {
+            return Some(v);
+        }
+        match ty {
+            Type::ValueName(tn) => {
+                let key = (tn.namespace.to_string(), tn.name.to_string());
+                // Single-field wrapper structs → unwrap to inner primitive
+                if let Some(inner) = self.single_field_types.get(&key) {
+                    return Self::primitive_value_for_type(inner);
+                }
+                // Multi-field value types → use the struct's short name as
+                // the PropValue variant (e.g. Thickness → "Thickness").
+                // If there's no matching PropValue variant the generated code
+                // won't compile, signalling that an explicit override is needed.
+                Some(tn.name.to_string())
+            }
+            _ => None,
+        }
+    }
+
+    /// Map primitive and well-known Type variants to PropValue names.
+    /// Does not require resolver state — used during construction.
+    fn primitive_value_for_type(ty: &Type) -> Option<String> {
         match ty {
             Type::String => Some("Str".to_string()),
             Type::Bool => Some("Bool".to_string()),
@@ -211,9 +258,7 @@ impl MetadataResolver {
             Type::I32 => Some("I32".to_string()),
             Type::U16 => Some("U16".to_string()),
             Type::U32 => Some("U32".to_string()),
-            // IInspectable properties that accept Str are handled via textblock/ireference
             Type::Object => Some("Str".to_string()),
-            // IReference<bool> → Bool
             Type::ClassName(tn)
                 if tn.namespace == "Windows.Foundation"
                     && tn.name == "IReference`1"
@@ -362,6 +407,26 @@ mod tests {
         assert_eq!(
             iface.unwrap().full_path(),
             "Microsoft.UI.Xaml.Controls.Primitives.IRangeBase"
+        );
+    }
+
+    #[test]
+    fn infer_single_field_wrapper_types() {
+        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        // FontWeight is a struct with one field (Weight: u16) → unwraps to U16
+        assert_eq!(
+            resolver.infer_value_type("TextBlock", "put_FontWeight"),
+            Some("U16".to_string())
+        );
+        // Thickness is a multi-field struct → uses struct short name
+        assert_eq!(
+            resolver.infer_value_type("Border", "put_BorderThickness"),
+            Some("Thickness".to_string())
+        );
+        // NavigateUri takes a Uri class → not a ValueName, returns None
+        assert_eq!(
+            resolver.infer_value_type("HyperlinkButton", "put_NavigateUri"),
+            None
         );
     }
 }

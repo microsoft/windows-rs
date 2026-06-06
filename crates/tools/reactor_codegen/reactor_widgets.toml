@@ -4,7 +4,7 @@
 # emit is always required. Only other overrides are added when needed.
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
-Text = { emit = "always", setter_fn = true, value = "Str" }
+Text = { emit = "always", setter_fn = true }
 Items = { emit = "always", setter_fn = true, value = "StrList" }
 PlaceholderText = { field = "placeholder", emit = "optional" }
 Header = { emit = "optional", wrap = "ireference" }
@@ -15,14 +15,14 @@ SuggestionChosen = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.Border"]
 CornerRadius = { emit = "optional", setter_fn = true, value = "F64" }
-BorderThickness = { emit = "optional", setter_fn = true, value = "Thickness" }
+BorderThickness = { emit = "optional", setter_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
 Items = { emit = "always", setter_fn = true, value = "StrList" }
 ItemClicked = { handler = "IndexChanged", invoke = "invoke_i32_args", getter = "get_Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
-Content = { emit = "always", setter_fn = true, value = "Str" }
+Content = { emit = "always", setter_fn = true }
 IsEnabled = { emit = "when_false" }
 Style = { emit = { non_default = "ButtonStyle::Default" }, setter_fn = true, value = "ButtonStyle" }
 Icon = { emit = "optional", setter_fn = true, value = "SymbolIcon" }
@@ -119,7 +119,7 @@ Click = {}
 Stretch = { emit = { non_default = "ImageStretch::default()" }, value = "ImageStretch", enum_map = { winui_type = "Stretch", variants = [["Uniform", "Uniform"], ["UniformToFill", "UniformToFill"], ["Fill", "Fill"], ["None", "None"]] } }
 
 ["Microsoft.UI.Xaml.Controls.InfoBadge"]
-Value = { emit = "optional", setter_fn = true, value = "I32" }
+Value = { emit = "optional", setter_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.InfoBar"]
 Title = { emit = "optional", unset = { default = "\"\"" } }
@@ -294,8 +294,8 @@ ActionButtonClick = { field = "on_action_click", handler = "Click" }
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = { field = "content", emit = "always", unset = { default = "\"\"" } }
 FontSize = { emit = "optional", unset = { default = "14.0" } }
-FontWeight = { emit = "optional", setter_fn = true, value = "U16" }
-TextWrapping = { field = "wrap_text", emit = "when_true", value = "Bool", bool_enum = { enum_type = "TextWrapping", true_variant = "Wrap", false_variant = "NoWrap" } }
+FontWeight = { emit = "optional", setter_fn = true }
+TextWrapping = { field = "wrap_text", emit = "when_true", bool_enum = { enum_type = "TextWrapping", true_variant = "Wrap", false_variant = "NoWrap" } }
 IsTextSelectionEnabled = { emit = "when_true" }
 
 ["Microsoft.UI.Xaml.Controls.TextBox"]
@@ -304,7 +304,7 @@ PlaceholderText = { field = "placeholder", emit = "optional", unset = { default 
 Header = { emit = "optional" }
 IsEnabled = { emit = "when_false" }
 AcceptsReturn = { emit = "when_true" }
-TextWrapping = { field = "text_wrapping_wrap", emit = "when_true", value = "Bool", bool_enum = { enum_type = "TextWrapping", true_variant = "Wrap", false_variant = "NoWrap" } }
+TextWrapping = { field = "text_wrapping_wrap", emit = "when_true", bool_enum = { enum_type = "TextWrapping", true_variant = "Wrap", false_variant = "NoWrap" } }
 TextChanged = { field = "on_changed", getter = "get_Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]

@@ -232,8 +232,9 @@ fn build_prop(
 
     let value = if let Some(v) = &overrides.value {
         Some(v.clone())
-    } else if setter_fn.is_some() {
-        None
+    } else if overrides.bool_enum.is_some() {
+        // bool_enum always maps to PropValue::Bool
+        Some("Bool".to_string())
     } else if has_method {
         resolver.infer_value_type(handle, &method_name)
     } else {
