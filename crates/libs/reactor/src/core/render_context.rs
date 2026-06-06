@@ -139,9 +139,9 @@ impl<A: 'static> From<Dispatch<A>> for super::callback::Callback<A> {
 pub struct AsyncSetState<T: Send + 'static> {
     cell: Arc<Mutex<Box<dyn Any + Send>>>,
     marshaller: UiMarshaller,
-    /// Owning component's async-dirty flag, set on a real change so the
-    /// reconciler re-renders the component even when nested under a parent
-    /// whose element tree is unchanged.
+    /// Owning component's `state_dirty` flag (shared with `RenderCx`), set on
+    /// a real change so the reconciler re-renders the component even when
+    /// nested under a parent whose element tree is unchanged.
     dirty: Arc<AtomicBool>,
     type_name: &'static str,
     _marker: std::marker::PhantomData<fn(T)>,
@@ -263,15 +263,16 @@ pub struct RenderCx {
     hooks: Rc<RefCell<Vec<HookSlot>>>,
     cursor: usize,
     request_rerender: Rc<dyn Fn()>,
-    /// Shared flag set by `SetState` when a value changes; the reconciler
-    /// checks this to force re-render of the owning component even when the
-    /// parent's element tree is structurally identical.
-    state_dirty: Rc<Cell<bool>>,
-    /// `Send + Sync` counterpart to `state_dirty`, set by `AsyncSetState`
-    /// when an off-thread write changes a value. Folded into
-    /// [`Self::peek_state_dirty`] so nested components re-render after an
-    /// async state update, not just root components.
-    async_dirty: Arc<AtomicBool>,
+    /// Shared flag set whenever a hook value changes, by both the synchronous
+    /// setters (`SetState`/`Updater`/`Dispatch`) and the off-thread
+    /// [`AsyncSetState`]. The reconciler checks this to force a re-render of
+    /// the owning component even when the parent's element tree is
+    /// structurally identical, so nested components are not skipped after a
+    /// state update. It is an `Arc<AtomicBool>` rather than a `Cell` because
+    /// [`AsyncSetState`] captures it into a `Send` closure that is marshalled
+    /// onto the UI thread; the synchronous setters only ever touch it from the
+    /// UI thread.
+    state_dirty: Arc<AtomicBool>,
     ui_thread: Option<ThreadId>,
     context_stack: Option<Rc<ContextStack>>,
     read_contexts: RefCell<FxHashSet<ContextId>>,
@@ -303,8 +304,7 @@ impl RenderCx {
             hooks: Rc::new(RefCell::new(Vec::new())),
             cursor: 0,
             request_rerender,
-            state_dirty: Rc::new(Cell::new(false)),
-            async_dirty: Arc::new(AtomicBool::new(false)),
+            state_dirty: Arc::new(AtomicBool::new(false)),
             ui_thread: None,
             context_stack: None,
             read_contexts: RefCell::new(FxHashSet::default()),
@@ -343,8 +343,7 @@ impl RenderCx {
         self.cursor = 0;
         self.ui_thread = Some(thread::current().id());
         self.read_contexts.borrow_mut().clear();
-        self.state_dirty.set(false);
-        self.async_dirty.store(false, Ordering::Relaxed);
+        self.state_dirty.store(false, Ordering::Relaxed);
     }
 
     pub fn hook_count(&self) -> usize {
@@ -355,16 +354,15 @@ impl RenderCx {
         self.request_rerender = request_rerender;
     }
 
-    /// Returns `true` if any `SetState` called since the last render changed
-    /// a hook value, and clears the flag.
+    /// Returns `true` if any state write (synchronous or off-thread async)
+    /// has changed a hook value since the last render, and clears the flag.
     pub fn take_state_dirty(&self) -> bool {
-        let async_dirty = self.async_dirty.swap(false, Ordering::Relaxed);
-        self.state_dirty.replace(false) || async_dirty
+        self.state_dirty.swap(false, Ordering::Relaxed)
     }
 
     /// Returns the current dirty state without clearing it.
     pub fn peek_state_dirty(&self) -> bool {
-        self.state_dirty.get() || self.async_dirty.load(Ordering::Relaxed)
+        self.state_dirty.load(Ordering::Relaxed)
     }
 
     /// Install (or replace) the [`UiMarshaller`] used by
@@ -433,7 +431,7 @@ impl RenderCx {
         let setter = AsyncSetState::<T> {
             cell,
             marshaller,
-            dirty: Arc::clone(&self.async_dirty),
+            dirty: Arc::clone(&self.state_dirty),
             type_name,
             _marker: std::marker::PhantomData,
         };
@@ -769,7 +767,7 @@ impl RenderCx {
         T: 'static + Clone + PartialEq,
     {
         let request = Rc::clone(&self.request_rerender);
-        let dirty = Rc::clone(&self.state_dirty);
+        let dirty = Arc::clone(&self.state_dirty);
         let ui_thread = self.ui_thread;
         SetState {
             inner: Rc::new(move |value: T| {
@@ -791,7 +789,7 @@ impl RenderCx {
                 }
                 *slot = Box::new(value);
                 drop(slot);
-                dirty.set(true);
+                dirty.store(true, Ordering::Relaxed);
                 request();
             }),
         }
@@ -802,7 +800,7 @@ impl RenderCx {
         T: 'static + Clone + PartialEq,
     {
         let request = Rc::clone(&self.request_rerender);
-        let dirty = Rc::clone(&self.state_dirty);
+        let dirty = Arc::clone(&self.state_dirty);
         let ui_thread = self.ui_thread;
         Updater {
             inner: Rc::new(move |reducer: ReducerClosure<T>| {
@@ -825,7 +823,7 @@ impl RenderCx {
                     return;
                 }
                 *cell.borrow_mut() = Box::new(next);
-                dirty.set(true);
+                dirty.store(true, Ordering::Relaxed);
                 request();
             }),
         }
@@ -843,7 +841,7 @@ impl RenderCx {
         R: Fn(S, A) -> S + 'static,
     {
         let request = Rc::clone(&self.request_rerender);
-        let dirty = Rc::clone(&self.state_dirty);
+        let dirty = Arc::clone(&self.state_dirty);
         let ui_thread = self.ui_thread;
         let reducer = Rc::new(reducer);
         Dispatch {
@@ -866,7 +864,7 @@ impl RenderCx {
                     return;
                 }
                 *cell.borrow_mut() = Box::new(next);
-                dirty.set(true);
+                dirty.store(true, Ordering::Relaxed);
                 request();
             }),
         }
