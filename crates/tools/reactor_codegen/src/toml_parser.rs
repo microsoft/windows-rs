@@ -19,9 +19,7 @@ use serde::Deserialize;
 
 use crate::helpers::to_snake_case;
 use crate::metadata::MetadataResolver;
-use crate::schema::{
-    BoolEnumSetter, Control, Emit, EnumMapSetter, EventDecl, PropDecl, UnsetPolicy,
-};
+use crate::schema::{Control, Emit, EnumMapSetter, EventDecl, PropDecl, UnsetPolicy};
 
 /// Reserved key for control-level options (widget name, kind, etc.)
 const CONTROL_KEY: &str = "_control";
@@ -70,9 +68,6 @@ struct MemberOverride {
     /// Enum map setter.
     #[serde(default)]
     enum_map: Option<EnumMapSetter>,
-    /// Bool-to-enum setter.
-    #[serde(default)]
-    bool_enum: Option<BoolEnumSetter>,
     /// Explicit Prop enum variant name (when it must differ from metadata name).
     #[serde(default)]
     prop: Option<String>,
@@ -239,8 +234,6 @@ fn build_prop(
             resolver.is_copy_value_name(v)
         };
         (Some(v.clone()), Some(copy))
-    } else if overrides.bool_enum.is_some() {
-        (Some("Bool".to_string()), Some(true))
     } else if has_method {
         match resolver.infer_value_type(handle, &method_name) {
             Some((name, copy)) => (Some(name), Some(copy)),
@@ -252,38 +245,28 @@ fn build_prop(
 
     // Check if metadata says this is an enum type (for auto-inference).
     let is_metadata_enum = overrides.enum_map.is_none()
-        && overrides.bool_enum.is_none()
         && setter_fn.is_none()
         && has_method
         && resolver.enum_info(handle, &method_name).is_some();
 
-    let (method, method_optional, method_ireference, method_textblock) = if setter_fn.is_some()
-        || overrides.enum_map.is_some()
-        || overrides.bool_enum.is_some()
-        || is_metadata_enum
-    {
-        (None, None, None, None)
-    } else if has_method {
-        classify_setter(handle, &method_name, wrap.as_deref(), resolver)
-    } else {
-        (None, None, None, None)
-    };
+    let (method, method_optional, method_ireference, method_textblock) =
+        if setter_fn.is_some() || overrides.enum_map.is_some() || is_metadata_enum {
+            (None, None, None, None)
+        } else if has_method {
+            classify_setter(handle, &method_name, wrap.as_deref(), resolver)
+        } else {
+            (None, None, None, None)
+        };
 
-    // Pre-set method on bool_enum/enum_map from the metadata name (TOML key),
+    // Pre-set method on enum_map from the metadata name (TOML key),
     // since resolve_defaults infers from field/prop which may differ.
-    let method_bool_enum = overrides.bool_enum.clone().map(|mut s| {
-        if s.method.is_none() && has_method {
-            s.method = Some(method_name.clone());
-        }
-        s
-    });
     let method_enum_map = if let Some(mut s) = overrides.enum_map.clone() {
         // Explicit enum_map in TOML — just fill in method if missing.
         if s.method.is_none() && has_method {
             s.method = Some(method_name);
         }
         Some(s)
-    } else if overrides.bool_enum.is_none() && setter_fn.is_none() && has_method {
+    } else if setter_fn.is_none() && has_method {
         // No explicit enum_map — try to infer from metadata.
         if let Some((enum_name, variants)) = resolver.enum_info(handle, &method_name) {
             Some(EnumMapSetter {
@@ -300,12 +283,11 @@ fn build_prop(
     };
 
     // Infer whether the PropValue variant is Copy.
-    // bool_enum and enum_map always wrap Copy types; metadata inference
-    // derives copy-ness from the Type variant (ValueName → Copy,
+    // enum_map always wraps Copy types; metadata inference derives
+    // copy-ness from the Type variant (ValueName → Copy,
     // String/ClassName → non-Copy); explicit overrides without metadata
     // default to non-Copy (safe — .clone() always works).
-    let copy_value =
-        method_bool_enum.is_some() || method_enum_map.is_some() || inferred_copy.unwrap_or(false);
+    let copy_value = method_enum_map.is_some() || inferred_copy.unwrap_or(false);
 
     PropDecl {
         field,
@@ -318,7 +300,6 @@ fn build_prop(
         method_optional,
         method_ireference,
         method_textblock,
-        method_bool_enum,
         method_enum_map,
         setter_fn,
         unset: overrides.unset.clone(),

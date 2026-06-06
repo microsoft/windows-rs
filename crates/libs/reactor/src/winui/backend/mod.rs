@@ -796,11 +796,11 @@ impl Backend for WinUIBackend {
                 (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(false)
                 }
-                (Prop::TextWrappingWrap, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
-                    let mode = if *v {
-                        Xaml::TextWrapping::Wrap
-                    } else {
-                        Xaml::TextWrapping::NoWrap
+                (Prop::TextWrappingWrap, PropValue::TextWrapping(v), Handle::RichTextBlock(tb)) => {
+                    let mode = match v {
+                        TextWrapping::NoWrap => Xaml::TextWrapping::NoWrap,
+                        TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
+                        TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
                     };
                     tb.put_TextWrapping(mode)
                 }
@@ -3108,10 +3108,9 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         }
         Element::StackPanel(s) => {
             let sp = Xaml::StackPanel::new().ok()?;
-            let orientation = if s.vertical {
-                Xaml::Orientation::Vertical
-            } else {
-                Xaml::Orientation::Horizontal
+            let orientation = match s.orientation {
+                Orientation::Vertical => Xaml::Orientation::Vertical,
+                Orientation::Horizontal => Xaml::Orientation::Horizontal,
             };
             sp.put_Orientation(orientation).ok()?;
             if let Some(sp_val) = s.spacing {

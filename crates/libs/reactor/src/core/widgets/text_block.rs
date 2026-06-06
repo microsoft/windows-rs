@@ -1,5 +1,13 @@
 use super::*;
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum TextWrapping {
+    #[default]
+    NoWrap,
+    Wrap,
+    WrapWholeWords,
+}
+
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct TextBlock {
     pub key: Option<String>,
@@ -7,7 +15,7 @@ pub struct TextBlock {
     pub content: String,
     pub font_size: Option<f64>,
     pub font_weight: Option<u16>,
-    pub wrap_text: bool,
+    pub text_wrapping: TextWrapping,
     pub is_text_selection_enabled: bool,
 }
 impl TextBlock {
@@ -48,7 +56,7 @@ impl TextBlock {
     }
 
     pub fn wrap(mut self) -> Self {
-        self.wrap_text = true;
+        self.text_wrapping = TextWrapping::Wrap;
         self
     }
 

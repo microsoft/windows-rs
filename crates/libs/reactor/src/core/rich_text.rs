@@ -59,7 +59,7 @@ pub struct RichTextBlock {
     pub paragraphs: Vec<RichTextParagraph>,
     pub font_size: Option<f64>,
     pub is_text_selection_enabled: bool,
-    pub text_wrapping_wrap: bool,
+    pub text_wrapping: TextWrapping,
 }
 
 /// Backward-compat alias.
@@ -88,7 +88,7 @@ impl RichTextBlock {
     }
 
     pub fn wrap(mut self) -> Self {
-        self.text_wrapping_wrap = true;
+        self.text_wrapping = TextWrapping::Wrap;
         self
     }
 }
@@ -106,8 +106,11 @@ impl Widget for RichTextBlock {
                 PropValue::Bool(true),
             ));
         }
-        if self.text_wrapping_wrap {
-            out.push(Binding::Prop(Prop::TextWrappingWrap, PropValue::Bool(true)));
+        if self.text_wrapping != TextWrapping::NoWrap {
+            out.push(Binding::Prop(
+                Prop::TextWrappingWrap,
+                PropValue::TextWrapping(self.text_wrapping),
+            ));
         }
         out
     }

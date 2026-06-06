@@ -84,10 +84,6 @@ pub struct PropDecl {
     ///   unset: `h.cast::<I>()?.put_Header(None)?`
     pub method_textblock: Option<String>,
 
-    /// Bool→enum mapping setter. Generates code that maps a bool to a
-    /// WinUI enum value and calls the COM method.
-    pub method_bool_enum: Option<BoolEnumSetter>,
-
     /// Multi-variant enum mapping setter. Maps each Rust enum variant to a
     /// WinUI enum variant and calls one `put_*` method.
     pub method_enum_map: Option<EnumMapSetter>,
@@ -105,30 +101,9 @@ pub struct PropDecl {
     pub unset: Option<UnsetPolicy>,
 
     /// Whether the PropValue variant wraps a Copy type (no `.clone()` needed).
-    /// Inferred automatically: primitives, bool_enums, enum_maps, and
-    /// metadata value-type structs are Copy; String/Vec wrappers are not.
+    /// Inferred automatically: primitives, enum_maps, and metadata
+    /// value-type structs are Copy; String/Vec wrappers are not.
     pub copy_value: bool,
-}
-
-/// Bool-to-enum setter configuration.
-#[derive(Deserialize, Clone, Debug)]
-pub struct BoolEnumSetter {
-    /// COM method name (e.g. `"put_Orientation"`).
-    /// Defaults to `put_{meta_name}`.
-    #[serde(default)]
-    pub method: Option<String>,
-    /// Enum type path relative to `Xaml::` (e.g. `"Orientation"`).
-    pub enum_type: String,
-    /// Variant when true (e.g. `"Vertical"`).
-    pub true_variant: String,
-    /// Variant when false (e.g. `"Horizontal"`).
-    pub false_variant: String,
-}
-
-impl BoolEnumSetter {
-    pub fn method(&self) -> &str {
-        self.method.as_deref().expect("method must be resolved")
-    }
 }
 
 /// Multi-variant enum mapping setter.
@@ -172,10 +147,6 @@ pub enum SetterKind<'a> {
     MethodTextblock {
         method: &'a str,
     },
-    /// Map bool to enum variant then call method.
-    MethodBoolEnum {
-        setter: &'a BoolEnumSetter,
-    },
     /// Map multi-variant Rust enum to WinUI enum.
     MethodEnumMap {
         setter: &'a EnumMapSetter,
@@ -218,7 +189,6 @@ impl PropDecl {
             || self.method_optional.is_some()
             || self.method_ireference.is_some()
             || self.method_textblock.is_some()
-            || self.method_bool_enum.is_some()
             || self.method_enum_map.is_some()
             || self.setter_fn.is_some();
         if !has_setter {
@@ -249,16 +219,8 @@ impl PropDecl {
             }
         }
 
-        // Resolve default method for bool_enum/enum_map when omitted.
+        // Resolve default method for enum_map when omitted.
         // Use put_{meta_name} — the metadata name is authoritative.
-        if self
-            .method_bool_enum
-            .as_ref()
-            .is_some_and(|s| s.method.is_none())
-        {
-            let method = format!("put_{}", self.meta_name);
-            self.method_bool_enum.as_mut().unwrap().method = Some(method);
-        }
         if self
             .method_enum_map
             .as_ref()
@@ -276,10 +238,6 @@ impl PropDecl {
                 .or(self.method_optional.as_deref())
                 .or(self.method_ireference.as_deref())
                 .or(self.method_textblock.as_deref())
-                .or(self
-                    .method_bool_enum
-                    .as_ref()
-                    .and_then(|s| s.method.as_deref()))
                 .or(self
                     .method_enum_map
                     .as_ref()
@@ -311,7 +269,6 @@ impl PropDecl {
             + self.method_optional.is_some() as u8
             + self.method_ireference.is_some() as u8
             + self.method_textblock.is_some() as u8
-            + self.method_bool_enum.is_some() as u8
             + self.method_enum_map.is_some() as u8
             + self.setter_fn.is_some() as u8;
         assert!(
@@ -320,7 +277,7 @@ impl PropDecl {
         );
         assert!(
             count >= 1,
-            "prop '{prop}' has no setter — set one of method/method_optional/method_ireference/method_textblock/method_bool_enum/setter_fn",
+            "prop '{prop}' has no setter — set one of method/method_optional/method_ireference/method_textblock/setter_fn",
         );
         if let Some(m) = &self.method {
             SetterKind::Method { method: m }
@@ -330,8 +287,6 @@ impl PropDecl {
             SetterKind::MethodIReference { method: m }
         } else if let Some(m) = &self.method_textblock {
             SetterKind::MethodTextblock { method: m }
-        } else if let Some(s) = &self.method_bool_enum {
-            SetterKind::MethodBoolEnum { setter: s }
         } else if let Some(s) = &self.method_enum_map {
             SetterKind::MethodEnumMap { setter: s }
         } else {
@@ -512,10 +467,6 @@ pub fn validate(controls: &[Control], resolver: &MetadataResolver) -> Vec<String
                 .or(p.method_optional.as_deref())
                 .or(p.method_ireference.as_deref())
                 .or(p.method_textblock.as_deref())
-                .or(p
-                    .method_bool_enum
-                    .as_ref()
-                    .and_then(|s| s.method.as_deref()))
                 .or(p.method_enum_map.as_ref().and_then(|s| s.method.as_deref()));
             if let Some(method) = method_name
                 && resolver.resolve(handle, method).is_none()

@@ -64,7 +64,6 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                 SetterKind::MethodOptional { method } => Some(method),
                 SetterKind::MethodIReference { method } => Some(method),
                 SetterKind::MethodTextblock { method } => Some(method),
-                SetterKind::MethodBoolEnum { setter } => Some(setter.method()),
                 SetterKind::MethodEnumMap { setter } => Some(setter.method()),
                 SetterKind::Custom => None,
             };

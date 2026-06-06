@@ -153,36 +153,6 @@ fn gen_prop_arms(
             });
             return arms; // Already handled unset
         }
-        SetterKind::MethodBoolEnum { setter } => {
-            let iface_ref = resolver
-                .resolve(handle_name, setter.method())
-                .unwrap_or_else(|| {
-                    panic!(
-                        "metadata: cannot resolve {handle_name}.{} (bool_enum)",
-                        setter.method()
-                    )
-                });
-            let iface = ident(iface_ref.short_name());
-            let method_ident = ident(setter.method());
-            let enum_type = ident(&setter.enum_type);
-            let true_variant = ident(&setter.true_variant);
-            let false_variant = ident(&setter.false_variant);
-
-            // Set arm: map bool to enum
-            arms.push(quote! {
-                (Prop::#prop, PropValue::#value_variant(v), Handle::#handle(h)) => {
-                    let val = if *v { Xaml::#enum_type::#true_variant } else { Xaml::#enum_type::#false_variant };
-                    h.cast::<Xaml::#iface>()?.#method_ident(val)?;
-                }
-            });
-            // Unset arm: use false variant as default
-            arms.push(quote! {
-                (Prop::#prop, PropValue::Unset, Handle::#handle(h)) => {
-                    h.cast::<Xaml::#iface>()?.#method_ident(Xaml::#enum_type::#false_variant)?;
-                }
-            });
-            return arms; // Already handled unset
-        }
         SetterKind::MethodEnumMap { setter } => {
             let iface_ref = resolver
                 .resolve(handle_name, setter.method())

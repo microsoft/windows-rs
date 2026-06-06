@@ -878,8 +878,11 @@ pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
     }
     out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
     out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
-    if w.vertical {
-        out.push(Binding::Prop(Prop::Orientation, PropValue::Vertical(true)));
+    if w.orientation != Orientation::Horizontal {
+        out.push(Binding::Prop(
+            Prop::Orientation,
+            PropValue::Orientation(w.orientation),
+        ));
     }
     if let Some(v) = w.step {
         out.push(Binding::Prop(Prop::Step, PropValue::F64(v)));
@@ -933,8 +936,11 @@ pub(crate) fn split_view_bindings(w: &SplitView) -> PropBindings {
 }
 pub(crate) fn stack_panel_bindings(w: &StackPanel) -> PropBindings {
     let mut out = Vec::with_capacity(2usize);
-    if !w.vertical {
-        out.push(Binding::Prop(Prop::Orientation, PropValue::Vertical(false)));
+    if w.orientation != Orientation::Vertical {
+        out.push(Binding::Prop(
+            Prop::Orientation,
+            PropValue::Orientation(w.orientation),
+        ));
     }
     if let Some(v) = w.spacing {
         out.push(Binding::Prop(Prop::Spacing, PropValue::F64(v)));
@@ -1043,8 +1049,11 @@ pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
         ));
     }
     out.push(Binding::Prop(Prop::Text, PropValue::Str(w.content.clone())));
-    if w.wrap_text {
-        out.push(Binding::Prop(Prop::TextWrapping, PropValue::Bool(true)));
+    if w.text_wrapping != TextWrapping::NoWrap {
+        out.push(Binding::Prop(
+            Prop::TextWrapping,
+            PropValue::TextWrapping(w.text_wrapping),
+        ));
     }
     out
 }
@@ -1065,8 +1074,11 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
             PropValue::Str(v.clone()),
         ));
     }
-    if w.text_wrapping_wrap {
-        out.push(Binding::Prop(Prop::TextWrapping, PropValue::Bool(true)));
+    if w.text_wrapping != TextWrapping::NoWrap {
+        out.push(Binding::Prop(
+            Prop::TextWrapping,
+            PropValue::TextWrapping(w.text_wrapping),
+        ));
     }
     out.push(Binding::Prop(Prop::Value, PropValue::Str(w.value.clone())));
     out.push(Binding::Event(

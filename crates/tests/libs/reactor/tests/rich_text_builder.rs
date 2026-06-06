@@ -28,6 +28,6 @@ fn rich_text_builder_chain() {
         .wrap();
     assert_eq!(rt.font_size, Some(20.0));
     assert!(rt.is_text_selection_enabled);
-    assert!(rt.text_wrapping_wrap);
+    assert_eq!(rt.text_wrapping, windows_reactor::TextWrapping::Wrap);
     assert_eq!(rt.paragraphs.len(), 1);
 }

@@ -19,7 +19,7 @@ use windows_reactor::core::backend::{
     Backend, ControlId, ControlKind, Op, Prop, PropValue, RecordingBackend,
 };
 use windows_reactor::core::custom::{CustomElement, CustomElementHandle};
-use windows_reactor::core::element::{Element, StackPanel, TextBlock};
+use windows_reactor::core::element::{Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::reconciler::Reconciler;
 
 fn noop() -> Rc<dyn Fn()> {
@@ -355,7 +355,7 @@ fn custom_before_destroy_uses_latest_handle_after_updates() {
 #[test]
 fn custom_lives_alongside_built_in_widgets_inside_a_stack() {
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             Element::TextBlock(TextBlock::new("title")),
             into_element(BadgeText::new("Inbox", 5)),
@@ -375,7 +375,7 @@ fn custom_lives_alongside_built_in_widgets_inside_a_stack() {
 #[test]
 fn custom_keyed_reorder_inside_stack_reuses_controls() {
     let initial = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             keyed_badge("a", "A", 1),
             keyed_badge("b", "B", 2),
@@ -384,7 +384,7 @@ fn custom_keyed_reorder_inside_stack_reuses_controls() {
         ..Default::default()
     });
     let updated = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             keyed_badge("c", "C", 3),
             keyed_badge("a", "A", 1),

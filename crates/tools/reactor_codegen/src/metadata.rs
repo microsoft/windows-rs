@@ -451,26 +451,6 @@ impl MetadataResolver {
                             failed += 1;
                         }
                     }
-                    crate::schema::SetterKind::MethodBoolEnum { setter } => {
-                        if let Some(iface) = self.resolve(ctrl.handle(), setter.method()) {
-                            eprintln!(
-                                "  \u{2713} {}.{} -> {} resolved to {} (bool_enum)",
-                                ctrl.handle(),
-                                p.prop(),
-                                setter.method(),
-                                iface.short_name()
-                            );
-                            resolved += 1;
-                        } else {
-                            eprintln!(
-                                "  \u{2717} {}.{} -> {} NOT FOUND (bool_enum)",
-                                ctrl.handle(),
-                                p.prop(),
-                                setter.method()
-                            );
-                            failed += 1;
-                        }
-                    }
                     crate::schema::SetterKind::MethodEnumMap { setter } => {
                         if let Some(iface) = self.resolve(ctrl.handle(), setter.method()) {
                             eprintln!(

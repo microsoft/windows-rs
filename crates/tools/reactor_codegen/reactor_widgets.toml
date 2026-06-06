@@ -253,7 +253,7 @@ Maximum = { emit = "always" }
 Value = { emit = "always" }
 Step = { emit = "optional", setter_fn = true, value = "F64" }
 Header = { emit = "optional" }
-Orientation = { field = "vertical", emit = "when_true", value = "Vertical", bool_enum = { enum_type = "Orientation", true_variant = "Vertical", false_variant = "Horizontal" } }
+Orientation = { emit = { non_default = "Orientation::Horizontal" } }
 IsEnabled = { emit = "when_false" }
 ValueChanged = { field = "on_changed", invoke = "invoke_f64_args", getter = "get_NewValue" }
 
@@ -269,7 +269,7 @@ CompactPaneLength = { emit = "optional" }
 PaneClosed = { handler = "Click" }
 
 ["Microsoft.UI.Xaml.Controls.StackPanel"]
-Orientation = { field = "vertical", emit = "when_false", value = "Vertical", bool_enum = { enum_type = "Orientation", true_variant = "Vertical", false_variant = "Horizontal" } }
+Orientation = { emit = { non_default = "Orientation::Vertical" } }
 Spacing = { emit = "optional", unset = { default = "0.0" } }
 
 ["Microsoft.UI.Xaml.Controls.TabView"]
@@ -295,7 +295,7 @@ ActionButtonClick = { field = "on_action_click", handler = "Click" }
 Text = { field = "content", emit = "always", unset = { default = "\"\"" } }
 FontSize = { emit = "optional", unset = { default = "14.0" } }
 FontWeight = { emit = "optional", setter_fn = true }
-TextWrapping = { field = "wrap_text", emit = "when_true", bool_enum = { enum_type = "TextWrapping", true_variant = "Wrap", false_variant = "NoWrap" } }
+TextWrapping = { emit = { non_default = "TextWrapping::NoWrap" } }
 IsTextSelectionEnabled = { emit = "when_true" }
 
 ["Microsoft.UI.Xaml.Controls.TextBox"]
@@ -304,7 +304,7 @@ PlaceholderText = { field = "placeholder", emit = "optional", unset = { default 
 Header = { emit = "optional" }
 IsEnabled = { emit = "when_false" }
 AcceptsReturn = { emit = "when_true" }
-TextWrapping = { field = "text_wrapping_wrap", emit = "when_true", bool_enum = { enum_type = "TextWrapping", true_variant = "Wrap", false_variant = "NoWrap" } }
+TextWrapping = { emit = { non_default = "TextWrapping::NoWrap" } }
 TextChanged = { field = "on_changed", getter = "get_Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]

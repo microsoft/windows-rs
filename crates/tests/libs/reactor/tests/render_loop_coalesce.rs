@@ -5,7 +5,7 @@ use windows_reactor::core::backend::RecordingBackend;
 use windows_reactor::core::component::Component;
 use windows_reactor::core::component_element::component;
 use windows_reactor::core::dispatcher::{DispatchPriority, Dispatcher, RunOnDemandDispatcher};
-use windows_reactor::core::element::{Element, StackPanel, TextBlock};
+use windows_reactor::core::element::{Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::render_context::{RenderCx, SetState};
 use windows_reactor::core::render_host::RenderHost;
 use windows_reactor::core::window::Size;
@@ -224,7 +224,7 @@ impl Component for ToggleRoot {
         } else {
             use windows_reactor::core::element::StackPanel;
             Element::StackPanel(StackPanel {
-                vertical: true,
+                orientation: Orientation::Vertical,
                 ..StackPanel::default()
             })
         }
@@ -359,7 +359,7 @@ struct InnerSizeRoot {
 impl Component for InnerSizeRoot {
     fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
         Element::StackPanel(StackPanel {
-            vertical: true,
+            orientation: Orientation::Vertical,
             children: vec![component(
                 InnerSizeLeaf {
                     renders: Rc::clone(&self.child_renders),

@@ -1,5 +1,6 @@
 use windows_reactor::core::element::{
-    Button, Color, Element, Modifiers, StackPanel, TextBlock, Thickness, can_skip_update,
+    Button, Color, Element, Modifiers, Orientation, StackPanel, TextBlock, Thickness,
+    can_skip_update,
 };
 
 #[test]
@@ -62,7 +63,7 @@ fn variant_kind_mismatch_prevents_skip() {
 #[test]
 fn stack_with_matching_children_skips() {
     let a = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::TextBlock(TextBlock::new("b")),
@@ -76,12 +77,12 @@ fn stack_with_matching_children_skips() {
 #[test]
 fn stack_with_different_child_does_not_skip() {
     let a = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![Element::TextBlock(TextBlock::new("a"))],
         ..StackPanel::default()
     });
     let b = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![Element::TextBlock(TextBlock::new("B"))],
         ..StackPanel::default()
     });

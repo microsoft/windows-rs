@@ -1,4 +1,4 @@
-use windows_reactor::core::element::Element;
+use windows_reactor::core::element::{Element, Orientation};
 use windows_reactor::dsl::factories::{border, button, hstack, text_block, vstack};
 
 #[test]
@@ -31,7 +31,7 @@ fn button_disabled_clears_flag() {
 #[test]
 fn vstack_collects_children_in_order() {
     let s = vstack([text_block("a"), text_block("b")]);
-    assert!(s.vertical);
+    assert_eq!(s.orientation, Orientation::Vertical);
     assert_eq!(s.children.len(), 2);
     match &s.children[0] {
         Element::TextBlock(t) => assert_eq!(t.content, "a"),
@@ -42,7 +42,7 @@ fn vstack_collects_children_in_order() {
 #[test]
 fn hstack_is_horizontal() {
     let s = hstack(());
-    assert!(!s.vertical);
+    assert_eq!(s.orientation, Orientation::Horizontal);
 }
 
 #[test]
@@ -75,7 +75,7 @@ fn nested_stacks_compose() {
     assert_eq!(tree.children.len(), 2);
     match &tree.children[1] {
         Element::StackPanel(s) => {
-            assert!(!s.vertical);
+            assert_eq!(s.orientation, Orientation::Horizontal);
             assert_eq!(s.spacing, Some(8.0));
             assert_eq!(s.children.len(), 2);
         }

@@ -4,8 +4,8 @@ use windows_reactor::core::backend::{ControlId, Event, Op, Prop, PropValue, Reco
 use windows_reactor::core::callback::Callback;
 use windows_reactor::core::element::ToggleSwitch;
 use windows_reactor::core::element::{
-    Border, Button, CheckBox, Color, Element, Modifiers, ScrollViewer, StackPanel, TextBlock,
-    TextBox, Thickness,
+    Border, Button, CheckBox, Color, Element, Modifiers, Orientation, ScrollViewer, StackPanel,
+    TextBlock, TextBox, Thickness,
 };
 use windows_reactor::core::reconciler::Reconciler;
 
@@ -153,11 +153,11 @@ fn button_click_handler_swap_re_attaches_event() {
 #[test]
 fn stack_orientation_change_emits_single_set_prop() {
     let old = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         ..StackPanel::default()
     });
     let new = Element::StackPanel(StackPanel {
-        vertical: false,
+        orientation: Orientation::Horizontal,
         ..StackPanel::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -167,7 +167,7 @@ fn stack_orientation_change_emits_single_set_prop() {
         ops[0],
         Op::SetProp {
             prop: Prop::Orientation,
-            value: PropValue::Vertical(false),
+            value: PropValue::Orientation(Orientation::Horizontal),
             ..
         }
     ));

@@ -1,7 +1,7 @@
 use std::rc::Rc;
 
 use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, StackPanel, TextBlock};
+use windows_reactor::core::element::{Button, Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::reconciler::Reconciler;
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
@@ -74,7 +74,7 @@ fn mounting_button_sets_content_and_enables_by_default() {
 #[test]
 fn mounting_stack_appends_children_in_order() {
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::Button(Button::new("b")),
@@ -132,9 +132,9 @@ fn mounting_border_appends_single_child() {
 #[test]
 fn nested_stacks_mount_in_tree_order() {
     let tree = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![Element::StackPanel(StackPanel {
-            vertical: false,
+            orientation: Orientation::Horizontal,
             children: vec![
                 Element::TextBlock(TextBlock::new("a")),
                 Element::TextBlock(TextBlock::new("b")),

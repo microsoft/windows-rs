@@ -656,17 +656,12 @@ pub(crate) fn dispatch(
         (Prop::Minimum, PropValue::F64(v), Handle::Slider(h)) => {
             h.cast::<Xaml::IRangeBase>()?.put_Minimum(*v)?;
         }
-        (Prop::Orientation, PropValue::Vertical(v), Handle::Slider(h)) => {
-            let val = if *v {
-                Xaml::Orientation::Vertical
-            } else {
-                Xaml::Orientation::Horizontal
+        (Prop::Orientation, PropValue::Orientation(v), Handle::Slider(h)) => {
+            let mapped = match v {
+                Orientation::Vertical => Xaml::Orientation::Vertical,
+                Orientation::Horizontal => Xaml::Orientation::Horizontal,
             };
-            h.cast::<Xaml::ISlider>()?.put_Orientation(val)?;
-        }
-        (Prop::Orientation, PropValue::Unset, Handle::Slider(h)) => {
-            h.cast::<Xaml::ISlider>()?
-                .put_Orientation(Xaml::Orientation::Horizontal)?;
+            h.cast::<Xaml::ISlider>()?.put_Orientation(mapped)?;
         }
         (Prop::Value, PropValue::F64(v), Handle::Slider(h)) => {
             h.cast::<Xaml::IRangeBase>()?.put_Value(*v)?;
@@ -693,17 +688,12 @@ pub(crate) fn dispatch(
         (Prop::OpenPaneLength, PropValue::F64(v), Handle::SplitView(h)) => {
             h.cast::<Xaml::ISplitView>()?.put_OpenPaneLength(*v)?;
         }
-        (Prop::Orientation, PropValue::Vertical(v), Handle::StackPanel(h)) => {
-            let val = if *v {
-                Xaml::Orientation::Vertical
-            } else {
-                Xaml::Orientation::Horizontal
+        (Prop::Orientation, PropValue::Orientation(v), Handle::StackPanel(h)) => {
+            let mapped = match v {
+                Orientation::Vertical => Xaml::Orientation::Vertical,
+                Orientation::Horizontal => Xaml::Orientation::Horizontal,
             };
-            h.cast::<Xaml::IStackPanel>()?.put_Orientation(val)?;
-        }
-        (Prop::Orientation, PropValue::Unset, Handle::StackPanel(h)) => {
-            h.cast::<Xaml::IStackPanel>()?
-                .put_Orientation(Xaml::Orientation::Horizontal)?;
+            h.cast::<Xaml::IStackPanel>()?.put_Orientation(mapped)?;
         }
         (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(h)) => {
             h.cast::<Xaml::IStackPanel>()?.put_Spacing(*v)?;
@@ -781,17 +771,13 @@ pub(crate) fn dispatch(
         (Prop::Text, PropValue::Unset, Handle::TextBlock(h)) => {
             h.cast::<Xaml::ITextBlock>()?.put_Text("")?;
         }
-        (Prop::TextWrapping, PropValue::Bool(v), Handle::TextBlock(h)) => {
-            let val = if *v {
-                Xaml::TextWrapping::Wrap
-            } else {
-                Xaml::TextWrapping::NoWrap
+        (Prop::TextWrapping, PropValue::TextWrapping(v), Handle::TextBlock(h)) => {
+            let mapped = match v {
+                TextWrapping::NoWrap => Xaml::TextWrapping::NoWrap,
+                TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
+                TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
             };
-            h.cast::<Xaml::ITextBlock>()?.put_TextWrapping(val)?;
-        }
-        (Prop::TextWrapping, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?
-                .put_TextWrapping(Xaml::TextWrapping::NoWrap)?;
+            h.cast::<Xaml::ITextBlock>()?.put_TextWrapping(mapped)?;
         }
         (Prop::AcceptsReturn, PropValue::Bool(v), Handle::TextBox(h)) => {
             h.cast::<Xaml::ITextBox>()?.put_AcceptsReturn(*v)?;
@@ -819,17 +805,13 @@ pub(crate) fn dispatch(
         (Prop::PlaceholderText, PropValue::Unset, Handle::TextBox(h)) => {
             h.cast::<Xaml::ITextBox>()?.put_PlaceholderText("")?;
         }
-        (Prop::TextWrapping, PropValue::Bool(v), Handle::TextBox(h)) => {
-            let val = if *v {
-                Xaml::TextWrapping::Wrap
-            } else {
-                Xaml::TextWrapping::NoWrap
+        (Prop::TextWrapping, PropValue::TextWrapping(v), Handle::TextBox(h)) => {
+            let mapped = match v {
+                TextWrapping::NoWrap => Xaml::TextWrapping::NoWrap,
+                TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
+                TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
             };
-            h.cast::<Xaml::ITextBox>()?.put_TextWrapping(val)?;
-        }
-        (Prop::TextWrapping, PropValue::Unset, Handle::TextBox(h)) => {
-            h.cast::<Xaml::ITextBox>()?
-                .put_TextWrapping(Xaml::TextWrapping::NoWrap)?;
+            h.cast::<Xaml::ITextBox>()?.put_TextWrapping(mapped)?;
         }
         (Prop::ClockIdentifier, PropValue::Str(v), Handle::TimePicker(h)) => {
             h.cast::<Xaml::ITimePicker>()?

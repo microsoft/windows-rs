@@ -10,7 +10,7 @@ pub struct TextBox {
     pub header: Option<String>,
     pub is_enabled: bool,
     pub accepts_return: bool,
-    pub text_wrapping_wrap: bool,
+    pub text_wrapping: TextWrapping,
 }
 impl TextBox {
     pub fn new(value: impl Into<String>) -> Self {
@@ -55,14 +55,14 @@ impl TextBox {
         self
     }
 
-    pub fn text_wrapping_wrap(mut self, v: bool) -> Self {
-        self.text_wrapping_wrap = v;
+    pub fn text_wrapping(mut self, v: TextWrapping) -> Self {
+        self.text_wrapping = v;
         self
     }
 
     pub fn multiline(mut self) -> Self {
         self.accepts_return = true;
-        self.text_wrapping_wrap = true;
+        self.text_wrapping = TextWrapping::Wrap;
         self
     }
 }

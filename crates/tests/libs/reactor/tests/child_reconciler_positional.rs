@@ -1,7 +1,7 @@
 use std::rc::Rc;
 
 use windows_reactor::core::backend::{ControlId, Op, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, StackPanel, TextBlock};
+use windows_reactor::core::element::{Button, Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::reconciler::Reconciler;
 
 fn rr() -> Rc<dyn Fn()> {
@@ -10,7 +10,7 @@ fn rr() -> Rc<dyn Fn()> {
 
 fn make_stack(children: Vec<Element>) -> Element {
     Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children,
         ..StackPanel::default()
     })
@@ -71,7 +71,7 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
     r.backend.clear_ops();
 
     let old = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         spacing: Some(4.0),
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
@@ -80,7 +80,7 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
         ..StackPanel::default()
     });
     let new = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         spacing: Some(8.0),
         children: vec![
             Element::TextBlock(TextBlock::new("a")),

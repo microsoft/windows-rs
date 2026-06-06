@@ -1,23 +1,30 @@
 use super::*;
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum Orientation {
+    #[default]
+    Vertical,
+    Horizontal,
+}
+
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct StackPanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub vertical: bool,
+    pub orientation: Orientation,
     pub spacing: Option<f64>,
     pub children: Vec<Element>,
 }
 impl StackPanel {
     pub fn vertical() -> Self {
         Self {
-            vertical: true,
+            orientation: Orientation::Vertical,
             ..Self::default()
         }
     }
     pub fn horizontal() -> Self {
         Self {
-            vertical: false,
+            orientation: Orientation::Horizontal,
             ..Self::default()
         }
     }

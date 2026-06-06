@@ -10,7 +10,7 @@ pub struct Slider {
     pub step: Option<f64>,
     pub on_changed: Option<Callback<f64>>,
     pub header: Option<String>,
-    pub vertical: bool,
+    pub orientation: Orientation,
     pub is_enabled: bool,
 }
 impl Default for Slider {
@@ -24,7 +24,7 @@ impl Default for Slider {
             step: None,
             on_changed: None,
             header: None,
-            vertical: false,
+            orientation: Orientation::Horizontal,
             is_enabled: true,
         }
     }
@@ -55,12 +55,12 @@ impl Slider {
     }
     /// Switch to a vertical slider (`ISlider::Orientation = Vertical`).
     pub fn vertical(mut self) -> Self {
-        self.vertical = true;
+        self.orientation = Orientation::Vertical;
         self
     }
     /// Switch to a horizontal slider (default).
     pub fn horizontal(mut self) -> Self {
-        self.vertical = false;
+        self.orientation = Orientation::Horizontal;
         self
     }
     pub fn enabled(mut self, enabled: bool) -> Self {
