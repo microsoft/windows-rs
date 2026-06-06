@@ -3,23 +3,6 @@
 use super::*;
 pub(crate) fn auto_suggest_box_bindings(w: &AutoSuggestBox) -> PropBindings {
     let mut out = Vec::with_capacity(8usize);
-    if let Some(v) = &w.header {
-        out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-    }
-    out.push(Binding::Prop(
-        Prop::Items,
-        PropValue::StrList(w.items.clone()),
-    ));
-    if let Some(v) = &w.placeholder {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
-    out.push(Binding::Prop(Prop::Text, PropValue::Str(w.text.clone())));
     out.push(Binding::Event(
         Event::QuerySubmitted,
         w.on_query_submitted
@@ -38,6 +21,23 @@ pub(crate) fn auto_suggest_box_bindings(w: &AutoSuggestBox) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
+    if let Some(v) = &w.header {
+        out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
+    }
+    if !w.is_enabled {
+        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+    }
+    out.push(Binding::Prop(
+        Prop::Items,
+        PropValue::StrList(w.items.clone()),
+    ));
+    if let Some(v) = &w.placeholder {
+        out.push(Binding::Prop(
+            Prop::PlaceholderText,
+            PropValue::Str(v.clone()),
+        ));
+    }
+    out.push(Binding::Prop(Prop::Text, PropValue::Str(w.text.clone())));
     out
 }
 pub(crate) fn border_bindings(w: &Border) -> PropBindings {
@@ -55,17 +55,35 @@ pub(crate) fn border_bindings(w: &Border) -> PropBindings {
 }
 pub(crate) fn breadcrumb_bar_bindings(w: &BreadcrumbBar) -> PropBindings {
     vec![
-        Binding::Prop(Prop::Items, PropValue::StrList(w.items.clone())),
         Binding::Event(
             Event::ItemClicked,
             w.on_item_clicked
                 .as_ref()
                 .map(|cb| EventHandler::IndexChanged(cb.clone())),
         ),
+        Binding::Prop(Prop::Items, PropValue::StrList(w.items.clone())),
     ]
 }
 pub(crate) fn button_bindings(w: &Button) -> PropBindings {
     let mut out = Vec::with_capacity(8usize);
+    out.push(Binding::Event(
+        Event::Click,
+        w.on_click
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::CommandBarFlyoutClick,
+        w.on_command_bar_flyout_click
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::MenuItemClicked,
+        w.on_menu_item_clicked
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     out.push(Binding::Prop(
         Prop::Content,
         PropValue::Str(w.content.clone()),
@@ -88,24 +106,6 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
             PropValue::ButtonStyle(w.style.clone()),
         ));
     }
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::CommandBarFlyoutClick,
-        w.on_command_bar_flyout_click
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::MenuItemClicked,
-        w.on_menu_item_clicked
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn calendar_date_picker_bindings(w: &CalendarDatePicker) -> PropBindings {
@@ -132,6 +132,12 @@ pub(crate) fn calendar_date_picker_bindings(w: &CalendarDatePicker) -> PropBindi
 }
 pub(crate) fn calendar_view_bindings(w: &CalendarView) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::SelectedDatesChanged,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
@@ -141,12 +147,6 @@ pub(crate) fn calendar_view_bindings(w: &CalendarView) -> PropBindings {
     if let Some(v) = w.is_today_highlighted {
         out.push(Binding::Prop(Prop::IsTodayHighlighted, PropValue::Bool(v)));
     }
-    out.push(Binding::Event(
-        Event::SelectedDatesChanged,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn canvas_bindings(_w: &Canvas) -> PropBindings {
@@ -154,6 +154,12 @@ pub(crate) fn canvas_bindings(_w: &Canvas) -> PropBindings {
 }
 pub(crate) fn check_box_bindings(w: &CheckBox) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::Checked,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::Checked(cb.clone())),
+    ));
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
@@ -164,16 +170,16 @@ pub(crate) fn check_box_bindings(w: &CheckBox) -> PropBindings {
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    out.push(Binding::Event(
-        Event::Checked,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::Checked(cb.clone())),
-    ));
     out
 }
 pub(crate) fn color_picker_bindings(w: &ColorPicker) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
+    out.push(Binding::Event(
+        Event::Changed,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::ColorChanged(cb.clone())),
+    ));
     if let Some(v) = w.is_alpha_enabled {
         out.push(Binding::Prop(Prop::IsAlphaEnabled, PropValue::Bool(v)));
     }
@@ -192,16 +198,16 @@ pub(crate) fn color_picker_bindings(w: &ColorPicker) -> PropBindings {
     if let Some(v) = w.is_hex_input_visible {
         out.push(Binding::Prop(Prop::IsHexInputVisible, PropValue::Bool(v)));
     }
-    out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::ColorChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
     let mut out = Vec::with_capacity(7usize);
+    out.push(Binding::Event(
+        Event::SelectionChanged,
+        w.on_selection_changed
+            .as_ref()
+            .map(|cb| EventHandler::IndexChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -227,16 +233,16 @@ pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
             PropValue::I32(w.selected_index),
         ));
     }
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::IndexChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn command_bar_bindings(w: &CommandBar) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::Click,
+        w.on_click
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     if w.default_label_position != CommandBarDefaultLabelPosition::default() {
         out.push(Binding::Prop(
             Prop::DefaultLabelPosition,
@@ -250,12 +256,6 @@ pub(crate) fn command_bar_bindings(w: &CommandBar) -> PropBindings {
     out.push(Binding::Prop(
         Prop::SecondaryCommands,
         PropValue::CommandBarCommands(w.secondary_commands.clone()),
-    ));
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
     out
 }
@@ -298,6 +298,12 @@ pub(crate) fn content_dialog_bindings(w: &ContentDialog) -> PropBindings {
 }
 pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
+    out.push(Binding::Event(
+        Event::Changed,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::DateTimeChanged(cb.clone())),
+    ));
     if let Some(v) = w.day_visible {
         out.push(Binding::Prop(Prop::DayVisible, PropValue::Bool(v)));
     }
@@ -313,28 +319,10 @@ pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
     if let Some(v) = w.year_visible {
         out.push(Binding::Prop(Prop::YearVisible, PropValue::Bool(v)));
     }
-    out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::DateTimeChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn drop_down_button_bindings(w: &DropDownButton) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
-    if let Some(v) = &w.content {
-        out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
-    }
-    if let Some(v) = &w.flyout_items {
-        out.push(Binding::Prop(
-            Prop::FlyoutItems,
-            PropValue::MenuFlyoutItems(v.clone()),
-        ));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-    }
     out.push(Binding::Event(
         Event::Click,
         w.on_click
@@ -347,22 +335,34 @@ pub(crate) fn drop_down_button_bindings(w: &DropDownButton) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
+    if let Some(v) = &w.content {
+        out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
+    }
+    if let Some(v) = &w.flyout_items {
+        out.push(Binding::Prop(
+            Prop::FlyoutItems,
+            PropValue::MenuFlyoutItems(v.clone()),
+        ));
+    }
+    if !w.is_enabled {
+        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+    }
     out
 }
 pub(crate) fn expander_bindings(w: &Expander) -> PropBindings {
     let mut out = Vec::with_capacity(2usize);
-    if w.is_expanded {
-        out.push(Binding::Prop(
-            Prop::IsExpanded,
-            PropValue::Bool(w.is_expanded),
-        ));
-    }
     out.push(Binding::Event(
         Event::Expanding,
         w.on_expanded
             .as_ref()
             .map(|cb| EventHandler::CheckedChanged(cb.clone())),
     ));
+    if w.is_expanded {
+        out.push(Binding::Prop(
+            Prop::IsExpanded,
+            PropValue::Bool(w.is_expanded),
+        ));
+    }
     out
 }
 pub(crate) fn grid_bindings(w: &Grid) -> PropBindings {
@@ -389,6 +389,12 @@ pub(crate) fn grid_bindings(w: &Grid) -> PropBindings {
 }
 pub(crate) fn hyperlink_button_bindings(w: &HyperlinkButton) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::Click,
+        w.on_click
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     out.push(Binding::Prop(
         Prop::Content,
         PropValue::Str(w.content.clone()),
@@ -399,12 +405,6 @@ pub(crate) fn hyperlink_button_bindings(w: &HyperlinkButton) -> PropBindings {
     if let Some(v) = &w.navigate_uri {
         out.push(Binding::Prop(Prop::NavigateUri, PropValue::Str(v.clone())));
     }
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn image_bindings(w: &Image) -> PropBindings {
@@ -423,6 +423,12 @@ pub(crate) fn info_badge_bindings(w: &InfoBadge) -> PropBindings {
 }
 pub(crate) fn info_bar_bindings(w: &InfoBar) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
+    out.push(Binding::Event(
+        Event::Closed,
+        w.on_closed
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     if !w.is_closable {
         out.push(Binding::Prop(
             Prop::IsClosable,
@@ -444,16 +450,16 @@ pub(crate) fn info_bar_bindings(w: &InfoBar) -> PropBindings {
     if let Some(v) = &w.title {
         out.push(Binding::Prop(Prop::Title, PropValue::Str(v.clone())));
     }
-    out.push(Binding::Event(
-        Event::Closed,
-        w.on_closed
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn list_box_bindings(w: &ListBox) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::SelectionChanged,
+        w.on_selection_changed
+            .as_ref()
+            .map(|cb| EventHandler::IndexChanged(cb.clone())),
+    ));
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
@@ -464,27 +470,51 @@ pub(crate) fn list_box_bindings(w: &ListBox) -> PropBindings {
     if let Some(v) = w.selected_index {
         out.push(Binding::Prop(Prop::SelectedIndex, PropValue::I32(v)));
     }
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::IndexChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn menu_bar_bindings(w: &MenuBar) -> PropBindings {
     vec![
-        Binding::Prop(Prop::Items, PropValue::MenuBarItems(w.items.clone())),
         Binding::Event(
             Event::ItemClicked,
             w.on_item_clicked
                 .as_ref()
                 .map(|cb| EventHandler::TextChanged(cb.clone())),
         ),
+        Binding::Prop(Prop::Items, PropValue::MenuBarItems(w.items.clone())),
     ]
 }
 pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     let mut out = Vec::with_capacity(17usize);
+    out.push(Binding::Event(
+        Event::BackRequested,
+        w.on_back_requested
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::QuerySubmitted,
+        w.on_query_submitted
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::SelectionChanged,
+        w.on_selection_changed
+            .as_ref()
+            .map(|cb| EventHandler::TabKey(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::SuggestionChosen,
+        w.on_suggestion_chosen
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::TextChanged,
+        w.on_text_changed
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     out.push(Binding::Prop(
         Prop::AutoSuggestItems,
         PropValue::StrList(w.auto_suggest_items.clone()),
@@ -541,40 +571,16 @@ pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     if let Some(v) = &w.selected_tag {
         out.push(Binding::Prop(Prop::SelectedTag, PropValue::Str(v.clone())));
     }
-    out.push(Binding::Event(
-        Event::BackRequested,
-        w.on_back_requested
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::QuerySubmitted,
-        w.on_query_submitted
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::TabKey(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::SuggestionChosen,
-        w.on_suggestion_chosen
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::TextChanged,
-        w.on_text_changed
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn number_box_bindings(w: &NumberBox) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
+    out.push(Binding::Event(
+        Event::ValueChanged,
+        w.on_value_changed
+            .as_ref()
+            .map(|cb| EventHandler::ValueChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -590,16 +596,16 @@ pub(crate) fn number_box_bindings(w: &NumberBox) -> PropBindings {
     if w.value != 0.0 {
         out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
     }
-    out.push(Binding::Event(
-        Event::ValueChanged,
-        w.on_value_changed
-            .as_ref()
-            .map(|cb| EventHandler::ValueChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
     let mut out = Vec::with_capacity(7usize);
+    out.push(Binding::Event(
+        Event::PasswordChanged,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -625,12 +631,6 @@ pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
         ));
     }
     out.push(Binding::Prop(Prop::Value, PropValue::Str(w.value.clone())));
-    out.push(Binding::Event(
-        Event::PasswordChanged,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn person_picture_bindings(w: &PersonPicture) -> PropBindings {
@@ -645,6 +645,12 @@ pub(crate) fn person_picture_bindings(w: &PersonPicture) -> PropBindings {
 }
 pub(crate) fn pivot_bindings(w: &Pivot) -> PropBindings {
     let mut out = Vec::with_capacity(3usize);
+    out.push(Binding::Event(
+        Event::SelectionChanged,
+        w.on_selection_changed
+            .as_ref()
+            .map(|cb| EventHandler::IndexChanged(cb.clone())),
+    ));
     if w.selected_index != 0 {
         out.push(Binding::Prop(
             Prop::SelectedIndex,
@@ -654,16 +660,16 @@ pub(crate) fn pivot_bindings(w: &Pivot) -> PropBindings {
     if let Some(v) = &w.title {
         out.push(Binding::Prop(Prop::Title, PropValue::Str(v.clone())));
     }
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::IndexChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn repeat_button_bindings(w: &RepeatButton) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
+    out.push(Binding::Event(
+        Event::Click,
+        w.on_click
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     out.push(Binding::Prop(
         Prop::Content,
         PropValue::Str(w.content.clone()),
@@ -677,16 +683,16 @@ pub(crate) fn repeat_button_bindings(w: &RepeatButton) -> PropBindings {
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn toggle_button_bindings(w: &ToggleButton) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::Checked,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::Checked(cb.clone())),
+    ));
     out.push(Binding::Prop(
         Prop::Content,
         PropValue::Str(w.content.clone()),
@@ -700,12 +706,6 @@ pub(crate) fn toggle_button_bindings(w: &ToggleButton) -> PropBindings {
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    out.push(Binding::Event(
-        Event::Checked,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::Checked(cb.clone())),
-    ));
     out
 }
 pub(crate) fn progress_bar_bindings(w: &ProgressBar) -> PropBindings {
@@ -733,6 +733,12 @@ pub(crate) fn progress_ring_bindings(w: &ProgressRing) -> PropBindings {
 }
 pub(crate) fn radio_button_bindings(w: &RadioButton) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
+    out.push(Binding::Event(
+        Event::Checked,
+        w.on_checked
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
@@ -748,16 +754,16 @@ pub(crate) fn radio_button_bindings(w: &RadioButton) -> PropBindings {
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    out.push(Binding::Event(
-        Event::Checked,
-        w.on_checked
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn radio_buttons_bindings(w: &RadioButtons) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
+    out.push(Binding::Event(
+        Event::SelectionChanged,
+        w.on_selection_changed
+            .as_ref()
+            .map(|cb| EventHandler::IndexChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -774,16 +780,16 @@ pub(crate) fn radio_buttons_bindings(w: &RadioButtons) -> PropBindings {
             PropValue::I32(w.selected_index),
         ));
     }
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::IndexChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn rating_control_bindings(w: &RatingControl) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
+    out.push(Binding::Event(
+        Event::ValueChanged,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::ValueChanged(cb.clone())),
+    ));
     if let Some(v) = &w.caption {
         out.push(Binding::Prop(Prop::Caption, PropValue::Str(v.clone())));
     }
@@ -799,12 +805,6 @@ pub(crate) fn rating_control_bindings(w: &RatingControl) -> PropBindings {
     if w.value != 0.0 {
         out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
     }
-    out.push(Binding::Event(
-        Event::ValueChanged,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::ValueChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn relative_panel_bindings(_w: &RelativePanel) -> PropBindings {
@@ -812,6 +812,12 @@ pub(crate) fn relative_panel_bindings(_w: &RelativePanel) -> PropBindings {
 }
 pub(crate) fn rich_edit_box_bindings(w: &RichEditBox) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
+    out.push(Binding::Event(
+        Event::Changed,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -825,12 +831,6 @@ pub(crate) fn rich_edit_box_bindings(w: &RichEditBox) -> PropBindings {
         ));
     }
     out.push(Binding::Prop(Prop::Text, PropValue::Str(w.text.clone())));
-    out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn scroll_view_bindings(w: &ScrollView) -> PropBindings {
@@ -859,17 +859,23 @@ pub(crate) fn scroll_viewer_bindings(w: &ScrollViewer) -> PropBindings {
 }
 pub(crate) fn selector_bar_bindings(w: &SelectorBar) -> PropBindings {
     vec![
-        Binding::Prop(Prop::Items, PropValue::SelectorBarItems(w.items.clone())),
         Binding::Event(
             Event::SelectionChanged,
             w.on_selection_changed
                 .as_ref()
                 .map(|cb| EventHandler::TextChanged(cb.clone())),
         ),
+        Binding::Prop(Prop::Items, PropValue::SelectorBarItems(w.items.clone())),
     ]
 }
 pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
     let mut out = Vec::with_capacity(8usize);
+    out.push(Binding::Event(
+        Event::ValueChanged,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::ValueChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -888,32 +894,32 @@ pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
         out.push(Binding::Prop(Prop::Step, PropValue::F64(v)));
     }
     out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
-    out.push(Binding::Event(
-        Event::ValueChanged,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::ValueChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn split_button_bindings(w: &SplitButton) -> PropBindings {
     let mut out = Vec::with_capacity(3usize);
-    if let Some(v) = &w.content {
-        out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-    }
     out.push(Binding::Event(
         Event::Click,
         w.on_click
             .as_ref()
             .map(|cb| EventHandler::Click(cb.clone())),
     ));
+    if let Some(v) = &w.content {
+        out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
+    }
+    if !w.is_enabled {
+        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+    }
     out
 }
 pub(crate) fn split_view_bindings(w: &SplitView) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
+    out.push(Binding::Event(
+        Event::PaneClosed,
+        w.on_pane_closed
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     if let Some(v) = w.compact_pane_length {
         out.push(Binding::Prop(Prop::CompactPaneLength, PropValue::F64(v)));
     }
@@ -926,12 +932,6 @@ pub(crate) fn split_view_bindings(w: &SplitView) -> PropBindings {
     if let Some(v) = w.open_pane_length {
         out.push(Binding::Prop(Prop::OpenPaneLength, PropValue::F64(v)));
     }
-    out.push(Binding::Event(
-        Event::PaneClosed,
-        w.on_pane_closed
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn stack_panel_bindings(w: &StackPanel) -> PropBindings {
@@ -949,24 +949,6 @@ pub(crate) fn stack_panel_bindings(w: &StackPanel) -> PropBindings {
 }
 pub(crate) fn tab_view_bindings(w: &TabView) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
-    if w.can_reorder_tabs {
-        out.push(Binding::Prop(
-            Prop::CanReorderTabs,
-            PropValue::Bool(w.can_reorder_tabs),
-        ));
-    }
-    if !w.is_add_tab_button_visible {
-        out.push(Binding::Prop(
-            Prop::IsAddTabButtonVisible,
-            PropValue::Bool(w.is_add_tab_button_visible),
-        ));
-    }
-    if w.selected_index != 0 {
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(w.selected_index),
-        ));
-    }
     out.push(Binding::Event(
         Event::AddTabButtonClick,
         w.on_add_tab_button_click
@@ -985,10 +967,40 @@ pub(crate) fn tab_view_bindings(w: &TabView) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::IndexChanged(cb.clone())),
     ));
+    if w.can_reorder_tabs {
+        out.push(Binding::Prop(
+            Prop::CanReorderTabs,
+            PropValue::Bool(w.can_reorder_tabs),
+        ));
+    }
+    if !w.is_add_tab_button_visible {
+        out.push(Binding::Prop(
+            Prop::IsAddTabButtonVisible,
+            PropValue::Bool(w.is_add_tab_button_visible),
+        ));
+    }
+    if w.selected_index != 0 {
+        out.push(Binding::Prop(
+            Prop::SelectedIndex,
+            PropValue::I32(w.selected_index),
+        ));
+    }
     out
 }
 pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
     let mut out = Vec::with_capacity(9usize);
+    out.push(Binding::Event(
+        Event::ActionButtonClick,
+        w.on_action_click
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::Closed,
+        w.on_closed
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     if let Some(v) = &w.action_button_text {
         out.push(Binding::Prop(
             Prop::ActionButtonText,
@@ -1020,18 +1032,6 @@ pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
         out.push(Binding::Prop(Prop::Subtitle, PropValue::Str(v.clone())));
     }
     out.push(Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())));
-    out.push(Binding::Event(
-        Event::ActionButtonClick,
-        w.on_action_click
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::Closed,
-        w.on_closed
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
@@ -1059,6 +1059,12 @@ pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
 }
 pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
     let mut out = Vec::with_capacity(7usize);
+    out.push(Binding::Event(
+        Event::TextChanged,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     if w.accepts_return {
         out.push(Binding::Prop(Prop::AcceptsReturn, PropValue::Bool(true)));
     }
@@ -1081,16 +1087,16 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
         ));
     }
     out.push(Binding::Prop(Prop::Value, PropValue::Str(w.value.clone())));
-    out.push(Binding::Event(
-        Event::TextChanged,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn time_picker_bindings(w: &TimePicker) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
+    out.push(Binding::Event(
+        Event::Changed,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::TimeChanged(cb.clone())),
+    ));
     if let Some(v) = &w.clock_identifier {
         out.push(Binding::Prop(
             Prop::ClockIdentifier,
@@ -1106,16 +1112,22 @@ pub(crate) fn time_picker_bindings(w: &TimePicker) -> PropBindings {
     if let Some(v) = w.minute_increment {
         out.push(Binding::Prop(Prop::MinuteIncrement, PropValue::I32(v)));
     }
-    out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::TimeChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn title_bar_bindings(w: &TitleBar) -> PropBindings {
     let mut out = Vec::with_capacity(8usize);
+    out.push(Binding::Event(
+        Event::BackRequested,
+        w.on_back_requested
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
+    out.push(Binding::Event(
+        Event::PaneToggleRequested,
+        w.on_pane_toggle_requested
+            .as_ref()
+            .map(|cb| EventHandler::Click(cb.clone())),
+    ));
     if w.is_back_button_enabled {
         out.push(Binding::Prop(
             Prop::IsBackButtonEnabled,
@@ -1141,22 +1153,16 @@ pub(crate) fn title_bar_bindings(w: &TitleBar) -> PropBindings {
         out.push(Binding::Prop(Prop::Subtitle, PropValue::Str(v.clone())));
     }
     out.push(Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())));
-    out.push(Binding::Event(
-        Event::BackRequested,
-        w.on_back_requested
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::PaneToggleRequested,
-        w.on_pane_toggle_requested
-            .as_ref()
-            .map(|cb| EventHandler::Click(cb.clone())),
-    ));
     out
 }
 pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
+    out.push(Binding::Event(
+        Event::Toggled,
+        w.on_changed
+            .as_ref()
+            .map(|cb| EventHandler::CheckedChanged(cb.clone())),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
@@ -1170,16 +1176,16 @@ pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
     if let Some(v) = &w.on_content {
         out.push(Binding::Prop(Prop::OnContent, PropValue::Str(v.clone())));
     }
-    out.push(Binding::Event(
-        Event::Toggled,
-        w.on_changed
-            .as_ref()
-            .map(|cb| EventHandler::CheckedChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn tree_view_bindings(w: &TreeView) -> PropBindings {
     let mut out = Vec::with_capacity(3usize);
+    out.push(Binding::Event(
+        Event::ItemInvoked,
+        w.on_item_invoked
+            .as_ref()
+            .map(|cb| EventHandler::TextChanged(cb.clone())),
+    ));
     out.push(Binding::Prop(
         Prop::Nodes,
         PropValue::TreeViewNodes(w.nodes.clone()),
@@ -1190,12 +1196,6 @@ pub(crate) fn tree_view_bindings(w: &TreeView) -> PropBindings {
             PropValue::TreeViewSelectionMode(w.selection_mode),
         ));
     }
-    out.push(Binding::Event(
-        Event::ItemInvoked,
-        w.on_item_invoked
-            .as_ref()
-            .map(|cb| EventHandler::TextChanged(cb.clone())),
-    ));
     out
 }
 pub(crate) fn viewbox_bindings(w: &Viewbox) -> PropBindings {

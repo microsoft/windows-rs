@@ -38,15 +38,15 @@ fn generate_one(ctrl: &Control) -> TokenStream {
         let event_items: Vec<TokenStream> = ctrl.event.iter().map(gen_event_item).collect();
         quote! {
             pub(crate) fn #fn_name(w: &#widget_type) -> PropBindings {
-                vec![#(#prop_items,)* #(#event_items,)*]
+                vec![#(#event_items,)* #(#prop_items,)*]
             }
         }
     } else {
         quote! {
             pub(crate) fn #fn_name(w: &#widget_type) -> PropBindings {
                 let mut out = Vec::with_capacity(#cap);
-                #(#prop_stmts)*
                 #(#event_stmts)*
+                #(#prop_stmts)*
                 out
             }
         }
