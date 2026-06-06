@@ -10,7 +10,6 @@ use Xaml::FontWeight as WinFontWeight;
 mod convert;
 mod diag;
 mod generated_attach_event;
-#[allow(clippy::match_same_arms)]
 mod generated_set_prop;
 use convert::*;
 
