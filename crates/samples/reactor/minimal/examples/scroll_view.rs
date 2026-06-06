@@ -21,8 +21,8 @@ fn app(_cx: &mut RenderCx) -> Element {
         scroll_view(tall_body).max_height(120.0),
         text_block("Both axes, always visible").bold(),
         scroll_view(wide_body)
-            .horizontal_scroll_bar_visibility(ScrollViewScrollBarVisibility::Visible)
-            .vertical_scroll_bar_visibility(ScrollViewScrollBarVisibility::Visible)
+            .horizontal_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
+            .vertical_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
             .max_width(280.0)
             .max_height(80.0),
     ))

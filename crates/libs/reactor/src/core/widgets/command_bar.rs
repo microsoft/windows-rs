@@ -56,7 +56,7 @@ pub fn app_bar_separator() -> CommandBarCommandDef {
 
 /// Default label position for a [`CommandBar`].
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum CommandBarLabelPos {
+pub enum CommandBarDefaultLabelPosition {
     /// Labels appear below the icon.
     #[default]
     Bottom,
@@ -73,7 +73,7 @@ pub struct CommandBar {
     pub modifiers: Modifiers,
     pub primary_commands: Vec<CommandBarCommandDef>,
     pub secondary_commands: Vec<CommandBarCommandDef>,
-    pub default_label_position: CommandBarLabelPos,
+    pub default_label_position: CommandBarDefaultLabelPosition,
     pub on_click: Option<Callback<String>>,
 }
 
@@ -90,7 +90,7 @@ impl CommandBar {
         self
     }
 
-    pub fn default_label_position(mut self, pos: CommandBarLabelPos) -> Self {
+    pub fn default_label_position(mut self, pos: CommandBarDefaultLabelPosition) -> Self {
         self.default_label_position = pos;
         self
     }

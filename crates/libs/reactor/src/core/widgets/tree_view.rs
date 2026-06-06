@@ -43,7 +43,7 @@ pub fn tree_node(text: impl Into<String>) -> TreeNodeDef {
 
 /// Selection mode for [`TreeView`].
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TreeSelectionMode {
+pub enum TreeViewSelectionMode {
     /// No selection.
     None,
     /// Single item selection.
@@ -59,7 +59,7 @@ pub struct TreeView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub nodes: Vec<TreeNodeDef>,
-    pub selection_mode: TreeSelectionMode,
+    pub selection_mode: TreeViewSelectionMode,
     pub on_item_invoked: Option<Callback<String>>,
 }
 
@@ -71,7 +71,7 @@ impl TreeView {
         }
     }
 
-    pub fn selection_mode(mut self, mode: TreeSelectionMode) -> Self {
+    pub fn selection_mode(mut self, mode: TreeViewSelectionMode) -> Self {
         self.selection_mode = mode;
         self
     }

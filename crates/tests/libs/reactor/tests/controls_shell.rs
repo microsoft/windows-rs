@@ -4,10 +4,11 @@ use std::rc::Rc;
 use windows_reactor::core::backend::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
 use windows_reactor::core::element::Element;
 use windows_reactor::core::element::{
-    BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarLabelPos, ContentDialog, InfoBadge,
-    InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, NavViewItem, NavViewPaneDisplayMode,
-    NavigationView, Pivot, PivotItem, SelectorBar, SelectorBarItemDef, TabItem, TabView,
-    TeachingTip, TeachingTipPlacement, TitleBar, TreeNodeDef, TreeSelectionMode, TreeView,
+    BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarDefaultLabelPosition, ContentDialog,
+    InfoBadge, InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, NavViewItem, NavigationView,
+    NavigationViewPaneDisplayMode, Pivot, PivotItem, SelectorBar, SelectorBarItemDef, TabItem,
+    TabView, TeachingTip, TeachingTipPlacementMode, TitleBar, TreeNodeDef, TreeView,
+    TreeViewSelectionMode,
 };
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::dsl::text_block;
@@ -202,7 +203,7 @@ fn info_bar_mounts_with_title_message_severity() {
                 (Prop::Message, PropValue::Str(s)) if s == "Something happened" => {
                     saw_msg = true;
                 }
-                (Prop::Severity, PropValue::InfoBarSev(InfoBarSeverity::Warning)) => {
+                (Prop::Severity, PropValue::InfoBarSeverity(InfoBarSeverity::Warning)) => {
                     saw_sev = true;
                 }
                 (Prop::IsOpen, PropValue::Bool(true)) => saw_open = true,
@@ -262,7 +263,7 @@ fn navigation_view_mounts_with_menu_items_and_content() {
     )
     .selected_tag("home")
     .pane_open(true)
-    .pane_display_mode(NavViewPaneDisplayMode::Left)
+    .pane_display_mode(NavigationViewPaneDisplayMode::Left)
     .into();
     let r = mount(&nv);
 
@@ -283,8 +284,8 @@ fn navigation_view_mounts_with_menu_items_and_content() {
                     saw_menu = items.len() == 3 && items[0].is_header && items[1].content == "Home";
                 }
                 (Prop::SelectedTag, PropValue::Str(s)) if s == "home" => saw_tag = true,
-                (Prop::PaneDisplayMode, PropValue::NavPaneDisplayMode(m))
-                    if *m == NavViewPaneDisplayMode::Left =>
+                (Prop::PaneDisplayMode, PropValue::NavigationViewPaneDisplayMode(m))
+                    if *m == NavigationViewPaneDisplayMode::Left =>
                 {
                     saw_pane_mode = true;
                 }
@@ -743,7 +744,7 @@ fn command_bar_mounts_with_primary_secondary_commands_and_label_position() {
     }];
     let el: Element = CommandBar::new(primary.clone())
         .secondary_commands(secondary.clone())
-        .default_label_position(CommandBarLabelPos::Right)
+        .default_label_position(CommandBarDefaultLabelPosition::Right)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -763,7 +764,9 @@ fn command_bar_mounts_with_primary_secondary_commands_and_label_position() {
                 }
                 (
                     Prop::DefaultLabelPosition,
-                    PropValue::CommandBarLabelPosition(CommandBarLabelPos::Right),
+                    PropValue::CommandBarDefaultLabelPosition(
+                        CommandBarDefaultLabelPosition::Right,
+                    ),
                 ) => saw_label_pos = true,
                 _ => {}
             }
@@ -778,7 +781,7 @@ fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
         .subtitle("Sub")
         .is_open(true)
         .light_dismiss()
-        .preferred_placement(TeachingTipPlacement::Top)
+        .preferred_placement(TeachingTipPlacementMode::Top)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -798,7 +801,7 @@ fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
                 (Prop::IsLightDismissEnabled, PropValue::Bool(true)) => saw_dismiss = true,
                 (
                     Prop::PreferredPlacement,
-                    PropValue::TeachingTipPlacement(TeachingTipPlacement::Top),
+                    PropValue::TeachingTipPlacementMode(TeachingTipPlacementMode::Top),
                 ) => saw_placement = true,
                 _ => {}
             }
@@ -873,7 +876,7 @@ fn selector_bar_mounts_with_items() {
 fn tree_view_mounts_with_nodes_and_selection_mode() {
     let nodes = vec![TreeNodeDef::new("Root").child(TreeNodeDef::new("Child"))];
     let el: Element = TreeView::new(nodes.clone())
-        .selection_mode(TreeSelectionMode::Multiple)
+        .selection_mode(TreeViewSelectionMode::Multiple)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -887,7 +890,7 @@ fn tree_view_mounts_with_nodes_and_selection_mode() {
                 (Prop::Nodes, PropValue::TreeViewNodes(v)) if v == &nodes => saw_nodes = true,
                 (
                     Prop::SelectionMode,
-                    PropValue::TreeViewSelectionMode(TreeSelectionMode::Multiple),
+                    PropValue::TreeViewSelectionMode(TreeViewSelectionMode::Multiple),
                 ) => saw_selection_mode = true,
                 _ => {}
             }

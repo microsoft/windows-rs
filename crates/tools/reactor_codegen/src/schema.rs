@@ -134,7 +134,7 @@ pub struct EnumMapSetter {
     #[serde(default)]
     pub method: Option<String>,
     /// Rust enum type used inside the PropValue variant when it differs from
-    /// the PropValue variant name (e.g. `"TreeSelectionMode"`).
+    /// the PropValue variant name (e.g. `"TreeViewSelectionMode"`).
     #[serde(default)]
     pub rust_type: Option<String>,
     /// WinUI enum type relative to `Xaml::` (e.g. `"InfoBarSeverity"`).

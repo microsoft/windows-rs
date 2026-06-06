@@ -6,8 +6,8 @@ use windows_reactor::core::Thickness;
 use windows_reactor::core::backend::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
 use windows_reactor::core::element::Element;
 use windows_reactor::core::element::{
-    Border, Expander, Grid, GridLength, ImageStretch, ScrollBarVisibility, ScrollView,
-    ScrollViewScrollBarVisibility, ScrollViewer, SplitView, Viewbox,
+    Border, Expander, Grid, GridLength, ScrollBarVisibility, ScrollView, ScrollViewer,
+    ScrollingScrollBarVisibility, SplitView, Stretch, Viewbox,
 };
 use windows_reactor::core::reconciler::Reconciler;
 use windows_reactor::dsl::text_block;
@@ -223,7 +223,7 @@ fn split_view_pane_closed_event_fires() {
 #[test]
 fn viewbox_mounts_with_stretch() {
     let el: Element = Viewbox::new(text_block("content"))
-        .stretch(ImageStretch::Fill)
+        .stretch(Stretch::Fill)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -234,7 +234,7 @@ fn viewbox_mounts_with_stretch() {
             op,
             Op::SetProp {
                 prop: Prop::Stretch,
-                value: PropValue::ImageStretch(ImageStretch::Fill),
+                value: PropValue::Stretch(Stretch::Fill),
                 ..
             }
         )
@@ -245,8 +245,8 @@ fn viewbox_mounts_with_stretch() {
 #[test]
 fn scroll_view_mounts_with_horizontal_and_vertical_visibility() {
     let el: Element = ScrollView::new(text_block("content"))
-        .horizontal_scroll_bar_visibility(ScrollViewScrollBarVisibility::Hidden)
-        .vertical_scroll_bar_visibility(ScrollViewScrollBarVisibility::Visible)
+        .horizontal_scroll_bar_visibility(ScrollingScrollBarVisibility::Hidden)
+        .vertical_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -259,11 +259,11 @@ fn scroll_view_mounts_with_horizontal_and_vertical_visibility() {
             match (prop, value) {
                 (
                     Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(ScrollViewScrollBarVisibility::Hidden),
+                    PropValue::ScrollingScrollBarVisibility(ScrollingScrollBarVisibility::Hidden),
                 ) => saw_horizontal = true,
                 (
                     Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollViewScrollBarVis(ScrollViewScrollBarVisibility::Visible),
+                    PropValue::ScrollingScrollBarVisibility(ScrollingScrollBarVisibility::Visible),
                 ) => saw_vertical = true,
                 _ => {}
             }

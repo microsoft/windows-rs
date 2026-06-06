@@ -237,10 +237,10 @@ pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
 }
 pub(crate) fn command_bar_bindings(w: &CommandBar) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
-    if w.default_label_position != CommandBarLabelPos::default() {
+    if w.default_label_position != CommandBarDefaultLabelPosition::default() {
         out.push(Binding::Prop(
             Prop::DefaultLabelPosition,
-            PropValue::CommandBarLabelPosition(w.default_label_position),
+            PropValue::CommandBarDefaultLabelPosition(w.default_label_position),
         ));
     }
     out.push(Binding::Prop(
@@ -409,11 +409,8 @@ pub(crate) fn hyperlink_button_bindings(w: &HyperlinkButton) -> PropBindings {
 }
 pub(crate) fn image_bindings(w: &Image) -> PropBindings {
     let mut out = Vec::with_capacity(1usize);
-    if w.stretch != ImageStretch::default() {
-        out.push(Binding::Prop(
-            Prop::Stretch,
-            PropValue::ImageStretch(w.stretch),
-        ));
+    if w.stretch != Stretch::default() {
+        out.push(Binding::Prop(Prop::Stretch, PropValue::Stretch(w.stretch)));
     }
     out
 }
@@ -441,7 +438,7 @@ pub(crate) fn info_bar_bindings(w: &InfoBar) -> PropBindings {
     if w.severity != InfoBarSeverity::default() {
         out.push(Binding::Prop(
             Prop::Severity,
-            PropValue::InfoBarSev(w.severity),
+            PropValue::InfoBarSeverity(w.severity),
         ));
     }
     if let Some(v) = &w.title {
@@ -532,10 +529,10 @@ pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
         Prop::MenuItems,
         PropValue::NavMenuItems(w.menu_items.clone()),
     ));
-    if w.pane_display_mode != NavViewPaneDisplayMode::default() {
+    if w.pane_display_mode != NavigationViewPaneDisplayMode::default() {
         out.push(Binding::Prop(
             Prop::PaneDisplayMode,
-            PropValue::NavPaneDisplayMode(w.pane_display_mode),
+            PropValue::NavigationViewPaneDisplayMode(w.pane_display_mode),
         ));
     }
     if let Some(v) = &w.pane_title {
@@ -840,11 +837,11 @@ pub(crate) fn scroll_view_bindings(w: &ScrollView) -> PropBindings {
     vec![
         Binding::Prop(
             Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollViewScrollBarVis(w.horizontal_scroll_bar_visibility),
+            PropValue::ScrollingScrollBarVisibility(w.horizontal_scroll_bar_visibility),
         ),
         Binding::Prop(
             Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollViewScrollBarVis(w.vertical_scroll_bar_visibility),
+            PropValue::ScrollingScrollBarVisibility(w.vertical_scroll_bar_visibility),
         ),
     ]
 }
@@ -1007,10 +1004,10 @@ pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
     if w.is_open {
         out.push(Binding::Prop(Prop::IsOpen, PropValue::Bool(w.is_open)));
     }
-    if w.preferred_placement != TeachingTipPlacement::default() {
+    if w.preferred_placement != TeachingTipPlacementMode::default() {
         out.push(Binding::Prop(
             Prop::PreferredPlacement,
-            PropValue::TeachingTipPlacement(w.preferred_placement),
+            PropValue::TeachingTipPlacementMode(w.preferred_placement),
         ));
     }
     if let Some(v) = &w.subtitle {
@@ -1175,7 +1172,7 @@ pub(crate) fn tree_view_bindings(w: &TreeView) -> PropBindings {
         Prop::Nodes,
         PropValue::TreeViewNodes(w.nodes.clone()),
     ));
-    if w.selection_mode != TreeSelectionMode::default() {
+    if w.selection_mode != TreeViewSelectionMode::default() {
         out.push(Binding::Prop(
             Prop::SelectionMode,
             PropValue::TreeViewSelectionMode(w.selection_mode),
@@ -1190,8 +1187,5 @@ pub(crate) fn tree_view_bindings(w: &TreeView) -> PropBindings {
     out
 }
 pub(crate) fn viewbox_bindings(w: &Viewbox) -> PropBindings {
-    vec![Binding::Prop(
-        Prop::Stretch,
-        PropValue::ImageStretch(w.stretch),
-    )]
+    vec![Binding::Prop(Prop::Stretch, PropValue::Stretch(w.stretch))]
 }

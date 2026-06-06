@@ -118,7 +118,7 @@ fn app(cx: &mut RenderCx) -> Element {
     NavigationView::new(menu_items, body)
         .selected_tag(page.tag())
         .on_selection_changed(move |tag: String| set_page.call(Page::from_tag(&tag)))
-        .pane_display_mode(NavViewPaneDisplayMode::Left)
+        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
         .pane_title("My App")
         .into()
 }

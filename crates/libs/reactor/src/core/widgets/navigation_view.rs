@@ -36,7 +36,7 @@ impl NavViewItem {
     }
 }
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum NavViewPaneDisplayMode {
+pub enum NavigationViewPaneDisplayMode {
     #[default]
     Auto,
     Left,
@@ -53,7 +53,7 @@ pub struct NavigationView {
     pub selected_tag: Option<String>,
     pub on_selection_changed: Option<Callback<String>>,
     pub is_pane_open: Option<bool>,
-    pub pane_display_mode: NavViewPaneDisplayMode,
+    pub pane_display_mode: NavigationViewPaneDisplayMode,
     pub is_back_enabled: bool,
     pub on_back_requested: Option<Callback<()>>,
     pub is_settings_visible: bool,
@@ -77,7 +77,7 @@ impl Default for NavigationView {
             selected_tag: None,
             on_selection_changed: None,
             is_pane_open: None,
-            pane_display_mode: NavViewPaneDisplayMode::Auto,
+            pane_display_mode: NavigationViewPaneDisplayMode::Auto,
             is_back_enabled: false,
             on_back_requested: None,
             is_settings_visible: true,
@@ -116,7 +116,7 @@ impl NavigationView {
         self.is_pane_open = Some(v);
         self
     }
-    pub fn pane_display_mode(mut self, mode: NavViewPaneDisplayMode) -> Self {
+    pub fn pane_display_mode(mut self, mode: NavigationViewPaneDisplayMode) -> Self {
         self.pane_display_mode = mode;
         self
     }

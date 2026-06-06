@@ -71,7 +71,7 @@ SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
 ["Microsoft.UI.Xaml.Controls.CommandBar"]
 PrimaryCommands = { emit = "always", setter_fn = true, value = "CommandBarCommands" }
 SecondaryCommands = { emit = "always", setter_fn = true, value = "CommandBarCommands" }
-DefaultLabelPosition = { emit = { non_default = "CommandBarLabelPos::default()" }, value = "CommandBarLabelPosition", enum_map = { rust_type = "CommandBarLabelPos", winui_type = "CommandBarDefaultLabelPosition", variants = [["Bottom", "Bottom"], ["Right", "Right"], ["Collapsed", "Collapsed"]] } }
+DefaultLabelPosition = { emit = { non_default = "CommandBarDefaultLabelPosition::default()" } }
 Click = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.ContentDialog"]
@@ -116,7 +116,7 @@ IsEnabled = { emit = "when_false" }
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Image"]
-Stretch = { emit = { non_default = "ImageStretch::default()" }, value = "ImageStretch", enum_map = { winui_type = "Stretch", variants = [["Uniform", "Uniform"], ["UniformToFill", "UniformToFill"], ["Fill", "Fill"], ["None", "None"]] } }
+Stretch = { emit = { non_default = "Stretch::default()" } }
 
 ["Microsoft.UI.Xaml.Controls.InfoBadge"]
 Value = { emit = "optional", setter_fn = true }
@@ -124,7 +124,7 @@ Value = { emit = "optional", setter_fn = true }
 ["Microsoft.UI.Xaml.Controls.InfoBar"]
 Title = { emit = "optional", unset = { default = "\"\"" } }
 Message = { emit = "optional", unset = { default = "\"\"" } }
-Severity = { emit = { non_default = "InfoBarSeverity::default()" }, value = "InfoBarSev", enum_map = { rust_type = "InfoBarSeverity", winui_type = "InfoBarSeverity", variants = [["Informational", "Informational"], ["Success", "Success"], ["Warning", "Warning"], ["Error", "Error"]] } }
+Severity = { emit = { non_default = "InfoBarSeverity::default()" } }
 IsOpen = { emit = { non_default = "false" } }
 IsClosable = { emit = { non_default = "true" } }
 Closed = { handler = "Click" }
@@ -142,7 +142,7 @@ ItemClicked = { attach_fn = true, handler = "TextChanged" }
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
 MenuItems = { emit = "always", setter_fn = true, value = "NavMenuItems" }
 IsPaneOpen = { emit = "optional" }
-PaneDisplayMode = { emit = { non_default = "NavViewPaneDisplayMode::default()" }, value = "NavPaneDisplayMode", enum_map = { rust_type = "NavViewPaneDisplayMode", winui_type = "NavigationViewPaneDisplayMode", variants = [["Auto", "Auto"], ["Left", "Left"], ["Top", "Top"], ["LeftCompact", "LeftCompact"], ["LeftMinimal", "LeftMinimal"]] } }
+PaneDisplayMode = { emit = { non_default = "NavigationViewPaneDisplayMode::default()" } }
 IsBackEnabled = { emit = { non_default = "false" } }
 IsSettingsVisible = { emit = { non_default = "true" } }
 IsPaneToggleButtonVisible = { emit = "when_false", unset = "custom" }
@@ -171,7 +171,7 @@ Value = { emit = "always", setter_fn = true, value = "Str" }
 PlaceholderText = { field = "placeholder", emit = "optional", unset = { default = "\"\"" } }
 Header = { emit = "optional" }
 IsEnabled = { emit = "when_false" }
-PasswordRevealMode = { field = "reveal_mode", emit = { non_default = "PasswordRevealMode::default()" }, value = "PasswordRevealMode", enum_map = { winui_type = "PasswordRevealMode", variants = [["Peek", "Peek"], ["Hidden", "Hidden"], ["Visible", "Visible"]] } }
+PasswordRevealMode = { field = "reveal_mode", emit = { non_default = "PasswordRevealMode::default()" } }
 IsPasswordRevealButtonEnabled = { emit = { non_default = "true" }, unset = { default = "true" } }
 PasswordChanged = { field = "on_changed", handler = "TextChanged", getter = "get_Password" }
 
@@ -236,8 +236,8 @@ IsReadOnly = { emit = "when_true", unset = "custom" }
 Changed = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
-HorizontalScrollBarVisibility = { emit = "always", value = "ScrollViewScrollBarVis", enum_map = { rust_type = "ScrollViewScrollBarVisibility", winui_type = "ScrollingScrollBarVisibility", variants = [["Auto", "Auto"], ["Visible", "Visible"], ["Hidden", "Hidden"]] } }
-VerticalScrollBarVisibility = { emit = "always", value = "ScrollViewScrollBarVis", enum_map = { rust_type = "ScrollViewScrollBarVisibility", winui_type = "ScrollingScrollBarVisibility", variants = [["Auto", "Auto"], ["Visible", "Visible"], ["Hidden", "Hidden"]] } }
+HorizontalScrollBarVisibility = { emit = "always" }
+VerticalScrollBarVisibility = { emit = "always" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollViewer"]
 HorizontalScrollBarVisibility = { emit = "always" }
@@ -285,7 +285,7 @@ Title = { emit = "always" }
 Subtitle = { emit = "optional" }
 IsOpen = { emit = { non_default = "false" } }
 IsLightDismissEnabled = { emit = "when_true", unset = "custom" }
-PreferredPlacement = { emit = { non_default = "TeachingTipPlacement::default()" }, value = "TeachingTipPlacement", enum_map = { winui_type = "TeachingTipPlacementMode", variants = [["Auto", "Auto"], ["Top", "Top"], ["Bottom", "Bottom"], ["Left", "Left"], ["Right", "Right"], ["TopRight", "TopRight"], ["TopLeft", "TopLeft"], ["BottomRight", "BottomRight"], ["BottomLeft", "BottomLeft"], ["LeftTop", "LeftTop"], ["LeftBottom", "LeftBottom"], ["RightTop", "RightTop"], ["RightBottom", "RightBottom"], ["Center", "Center"]] } }
+PreferredPlacement = { emit = { non_default = "TeachingTipPlacementMode::default()" } }
 ActionButtonText = { emit = "optional", setter_fn = true, value = "Str" }
 CloseButtonText = { emit = "optional", setter_fn = true, value = "Str" }
 Closed = { handler = "Click" }
@@ -340,8 +340,8 @@ Toggled = { field = "on_changed", handler = "CheckedChanged", getter = "get_IsOn
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 Nodes = { emit = "always", setter_fn = true, value = "TreeViewNodes" }
-SelectionMode = { emit = { non_default = "TreeSelectionMode::default()" }, value = "TreeViewSelectionMode", enum_map = { rust_type = "TreeSelectionMode", winui_type = "TreeViewSelectionMode", variants = [["None", "None"], ["Single", "Single"], ["Multiple", "Multiple"]] } }
+SelectionMode = { emit = { non_default = "TreeViewSelectionMode::default()" } }
 ItemInvoked = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.Viewbox"]
-Stretch = { emit = "always", value = "ImageStretch", enum_map = { winui_type = "Stretch", variants = [["Uniform", "Uniform"], ["UniformToFill", "UniformToFill"], ["Fill", "Fill"], ["None", "None"]] } }
+Stretch = { emit = "always" }

@@ -151,7 +151,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
                 }
             }
         })
-        .pane_display_mode(NavViewPaneDisplayMode::Left)
+        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
         .pane_open(is_pane_open)
         .pane_toggle_button_visible(false)
         .back_button_visible(false)

@@ -3,7 +3,7 @@ use super::*;
 /// Scroll bar visibility for [`ScrollView`].
 /// Maps to `ScrollingScrollBarVisibility` in WinUI.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum ScrollViewScrollBarVisibility {
+pub enum ScrollingScrollBarVisibility {
     /// Shown only when needed.
     #[default]
     Auto,
@@ -35,8 +35,8 @@ pub struct ScrollView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub child: Box<Element>,
-    pub horizontal_scroll_bar_visibility: ScrollViewScrollBarVisibility,
-    pub vertical_scroll_bar_visibility: ScrollViewScrollBarVisibility,
+    pub horizontal_scroll_bar_visibility: ScrollingScrollBarVisibility,
+    pub vertical_scroll_bar_visibility: ScrollingScrollBarVisibility,
     pub content_orientation: ScrollViewContentOrientation,
 }
 
@@ -46,8 +46,8 @@ impl Default for ScrollView {
             key: None,
             modifiers: Modifiers::default(),
             child: Box::new(Element::Empty),
-            horizontal_scroll_bar_visibility: ScrollViewScrollBarVisibility::Auto,
-            vertical_scroll_bar_visibility: ScrollViewScrollBarVisibility::Auto,
+            horizontal_scroll_bar_visibility: ScrollingScrollBarVisibility::Auto,
+            vertical_scroll_bar_visibility: ScrollingScrollBarVisibility::Auto,
             content_orientation: ScrollViewContentOrientation::Vertical,
         }
     }
@@ -61,12 +61,12 @@ impl ScrollView {
         }
     }
 
-    pub fn horizontal_scroll_bar_visibility(mut self, v: ScrollViewScrollBarVisibility) -> Self {
+    pub fn horizontal_scroll_bar_visibility(mut self, v: ScrollingScrollBarVisibility) -> Self {
         self.horizontal_scroll_bar_visibility = v;
         self
     }
 
-    pub fn vertical_scroll_bar_visibility(mut self, v: ScrollViewScrollBarVisibility) -> Self {
+    pub fn vertical_scroll_bar_visibility(mut self, v: ScrollingScrollBarVisibility) -> Self {
         self.vertical_scroll_bar_visibility = v;
         self
     }

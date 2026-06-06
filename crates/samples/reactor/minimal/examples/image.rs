@@ -13,17 +13,17 @@ fn app(_cx: &mut RenderCx) -> Element {
         Image::new_with_uri(&source).width(120.0).height(60.0),
         text_block("UniformToFill"),
         Image::new_with_uri(&source)
-            .stretch(ImageStretch::UniformToFill)
+            .stretch(Stretch::UniformToFill)
             .width(120.0)
             .height(60.0),
         text_block("Fill"),
         Image::new_with_uri(&source)
-            .stretch(ImageStretch::Fill)
+            .stretch(Stretch::Fill)
             .width(120.0)
             .height(60.0),
         text_block("None"),
         Image::new_with_uri(&source)
-            .stretch(ImageStretch::None)
+            .stretch(Stretch::None)
             .width(120.0)
             .height(60.0),
     ))

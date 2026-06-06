@@ -5,7 +5,7 @@ pub struct Image {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub source: ImageSource,
-    pub stretch: ImageStretch,
+    pub stretch: Stretch,
 }
 #[derive(Clone, Default, Debug, PartialEq)]
 pub enum ImageSource {
@@ -25,7 +25,7 @@ impl From<Option<SurfaceImageSource>> for ImageSource {
     }
 }
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum ImageStretch {
+pub enum Stretch {
     #[default]
     Uniform,
     UniformToFill,
@@ -44,7 +44,7 @@ impl Image {
         Self::new(ImageSource::Uri(source.into()))
     }
 
-    pub fn stretch(mut self, v: ImageStretch) -> Self {
+    pub fn stretch(mut self, v: Stretch) -> Self {
         self.stretch = v;
         self
     }

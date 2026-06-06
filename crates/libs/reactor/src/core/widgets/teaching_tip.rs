@@ -2,7 +2,7 @@ use super::*;
 
 /// Preferred placement for a [`TeachingTip`].
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TeachingTipPlacement {
+pub enum TeachingTipPlacementMode {
     #[default]
     Auto,
     Top,
@@ -29,7 +29,7 @@ pub struct TeachingTip {
     pub subtitle: Option<String>,
     pub is_open: bool,
     pub is_light_dismiss_enabled: bool,
-    pub preferred_placement: TeachingTipPlacement,
+    pub preferred_placement: TeachingTipPlacementMode,
     pub action_button_text: Option<String>,
     pub close_button_text: Option<String>,
     pub on_closed: Option<Callback<()>>,
@@ -59,7 +59,7 @@ impl TeachingTip {
         self
     }
 
-    pub fn preferred_placement(mut self, p: TeachingTipPlacement) -> Self {
+    pub fn preferred_placement(mut self, p: TeachingTipPlacementMode) -> Self {
         self.preferred_placement = p;
         self
     }

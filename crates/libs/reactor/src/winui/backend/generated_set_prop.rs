@@ -138,13 +138,19 @@ pub(crate) fn dispatch(
         }
         (
             Prop::DefaultLabelPosition,
-            PropValue::CommandBarLabelPosition(v),
+            PropValue::CommandBarDefaultLabelPosition(v),
             Handle::CommandBar(h),
         ) => {
             let mapped = match v {
-                CommandBarLabelPos::Bottom => Xaml::CommandBarDefaultLabelPosition::Bottom,
-                CommandBarLabelPos::Right => Xaml::CommandBarDefaultLabelPosition::Right,
-                CommandBarLabelPos::Collapsed => Xaml::CommandBarDefaultLabelPosition::Collapsed,
+                CommandBarDefaultLabelPosition::Bottom => {
+                    Xaml::CommandBarDefaultLabelPosition::Bottom
+                }
+                CommandBarDefaultLabelPosition::Right => {
+                    Xaml::CommandBarDefaultLabelPosition::Right
+                }
+                CommandBarDefaultLabelPosition::Collapsed => {
+                    Xaml::CommandBarDefaultLabelPosition::Collapsed
+                }
             };
             h.cast::<Xaml::ICommandBar>()?
                 .put_DefaultLabelPosition(mapped)?;
@@ -257,12 +263,12 @@ pub(crate) fn dispatch(
         (Prop::IsEnabled, PropValue::Unset, Handle::HyperlinkButton(h)) => {
             h.cast::<Xaml::IControl>()?.put_IsEnabled(true)?;
         }
-        (Prop::Stretch, PropValue::ImageStretch(v), Handle::Image(h)) => {
+        (Prop::Stretch, PropValue::Stretch(v), Handle::Image(h)) => {
             let mapped = match v {
-                ImageStretch::Uniform => Xaml::Stretch::Uniform,
-                ImageStretch::UniformToFill => Xaml::Stretch::UniformToFill,
-                ImageStretch::Fill => Xaml::Stretch::Fill,
-                ImageStretch::None => Xaml::Stretch::None,
+                Stretch::None => Xaml::Stretch::None,
+                Stretch::Fill => Xaml::Stretch::Fill,
+                Stretch::Uniform => Xaml::Stretch::Uniform,
+                Stretch::UniformToFill => Xaml::Stretch::UniformToFill,
             };
             h.cast::<Xaml::IImage>()?.put_Stretch(mapped)?;
         }
@@ -278,7 +284,7 @@ pub(crate) fn dispatch(
         (Prop::Message, PropValue::Unset, Handle::InfoBar(h)) => {
             h.cast::<Xaml::IInfoBar>()?.put_Message("")?;
         }
-        (Prop::Severity, PropValue::InfoBarSev(v), Handle::InfoBar(h)) => {
+        (Prop::Severity, PropValue::InfoBarSeverity(v), Handle::InfoBar(h)) => {
             let mapped = match v {
                 InfoBarSeverity::Informational => Xaml::InfoBarSeverity::Informational,
                 InfoBarSeverity::Success => Xaml::InfoBarSeverity::Success,
@@ -323,15 +329,19 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::INavigationView>()?
                 .put_IsSettingsVisible(*v)?;
         }
-        (Prop::PaneDisplayMode, PropValue::NavPaneDisplayMode(v), Handle::NavigationView(h)) => {
+        (
+            Prop::PaneDisplayMode,
+            PropValue::NavigationViewPaneDisplayMode(v),
+            Handle::NavigationView(h),
+        ) => {
             let mapped = match v {
-                NavViewPaneDisplayMode::Auto => Xaml::NavigationViewPaneDisplayMode::Auto,
-                NavViewPaneDisplayMode::Left => Xaml::NavigationViewPaneDisplayMode::Left,
-                NavViewPaneDisplayMode::Top => Xaml::NavigationViewPaneDisplayMode::Top,
-                NavViewPaneDisplayMode::LeftCompact => {
+                NavigationViewPaneDisplayMode::Auto => Xaml::NavigationViewPaneDisplayMode::Auto,
+                NavigationViewPaneDisplayMode::Left => Xaml::NavigationViewPaneDisplayMode::Left,
+                NavigationViewPaneDisplayMode::Top => Xaml::NavigationViewPaneDisplayMode::Top,
+                NavigationViewPaneDisplayMode::LeftCompact => {
                     Xaml::NavigationViewPaneDisplayMode::LeftCompact
                 }
-                NavViewPaneDisplayMode::LeftMinimal => {
+                NavigationViewPaneDisplayMode::LeftMinimal => {
                     Xaml::NavigationViewPaneDisplayMode::LeftMinimal
                 }
             };
@@ -571,30 +581,30 @@ pub(crate) fn dispatch(
         }
         (
             Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollViewScrollBarVis(v),
+            PropValue::ScrollingScrollBarVisibility(v),
             Handle::ScrollView(h),
         ) => {
             let mapped = match v {
-                ScrollViewScrollBarVisibility::Auto => Xaml::ScrollingScrollBarVisibility::Auto,
-                ScrollViewScrollBarVisibility::Visible => {
+                ScrollingScrollBarVisibility::Auto => Xaml::ScrollingScrollBarVisibility::Auto,
+                ScrollingScrollBarVisibility::Visible => {
                     Xaml::ScrollingScrollBarVisibility::Visible
                 }
-                ScrollViewScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
+                ScrollingScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
             };
             h.cast::<Xaml::IScrollView>()?
                 .put_HorizontalScrollBarVisibility(mapped)?;
         }
         (
             Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollViewScrollBarVis(v),
+            PropValue::ScrollingScrollBarVisibility(v),
             Handle::ScrollView(h),
         ) => {
             let mapped = match v {
-                ScrollViewScrollBarVisibility::Auto => Xaml::ScrollingScrollBarVisibility::Auto,
-                ScrollViewScrollBarVisibility::Visible => {
+                ScrollingScrollBarVisibility::Auto => Xaml::ScrollingScrollBarVisibility::Auto,
+                ScrollingScrollBarVisibility::Visible => {
                     Xaml::ScrollingScrollBarVisibility::Visible
                 }
-                ScrollViewScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
+                ScrollingScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
             };
             h.cast::<Xaml::IScrollView>()?
                 .put_VerticalScrollBarVisibility(mapped)?;
@@ -717,22 +727,30 @@ pub(crate) fn dispatch(
         (Prop::IsOpen, PropValue::Bool(v), Handle::TeachingTip(h)) => {
             h.cast::<Xaml::ITeachingTip>()?.put_IsOpen(*v)?;
         }
-        (Prop::PreferredPlacement, PropValue::TeachingTipPlacement(v), Handle::TeachingTip(h)) => {
+        (
+            Prop::PreferredPlacement,
+            PropValue::TeachingTipPlacementMode(v),
+            Handle::TeachingTip(h),
+        ) => {
             let mapped = match v {
-                TeachingTipPlacement::Auto => Xaml::TeachingTipPlacementMode::Auto,
-                TeachingTipPlacement::Top => Xaml::TeachingTipPlacementMode::Top,
-                TeachingTipPlacement::Bottom => Xaml::TeachingTipPlacementMode::Bottom,
-                TeachingTipPlacement::Left => Xaml::TeachingTipPlacementMode::Left,
-                TeachingTipPlacement::Right => Xaml::TeachingTipPlacementMode::Right,
-                TeachingTipPlacement::TopRight => Xaml::TeachingTipPlacementMode::TopRight,
-                TeachingTipPlacement::TopLeft => Xaml::TeachingTipPlacementMode::TopLeft,
-                TeachingTipPlacement::BottomRight => Xaml::TeachingTipPlacementMode::BottomRight,
-                TeachingTipPlacement::BottomLeft => Xaml::TeachingTipPlacementMode::BottomLeft,
-                TeachingTipPlacement::LeftTop => Xaml::TeachingTipPlacementMode::LeftTop,
-                TeachingTipPlacement::LeftBottom => Xaml::TeachingTipPlacementMode::LeftBottom,
-                TeachingTipPlacement::RightTop => Xaml::TeachingTipPlacementMode::RightTop,
-                TeachingTipPlacement::RightBottom => Xaml::TeachingTipPlacementMode::RightBottom,
-                TeachingTipPlacement::Center => Xaml::TeachingTipPlacementMode::Center,
+                TeachingTipPlacementMode::Auto => Xaml::TeachingTipPlacementMode::Auto,
+                TeachingTipPlacementMode::Top => Xaml::TeachingTipPlacementMode::Top,
+                TeachingTipPlacementMode::Bottom => Xaml::TeachingTipPlacementMode::Bottom,
+                TeachingTipPlacementMode::Left => Xaml::TeachingTipPlacementMode::Left,
+                TeachingTipPlacementMode::Right => Xaml::TeachingTipPlacementMode::Right,
+                TeachingTipPlacementMode::TopRight => Xaml::TeachingTipPlacementMode::TopRight,
+                TeachingTipPlacementMode::TopLeft => Xaml::TeachingTipPlacementMode::TopLeft,
+                TeachingTipPlacementMode::BottomRight => {
+                    Xaml::TeachingTipPlacementMode::BottomRight
+                }
+                TeachingTipPlacementMode::BottomLeft => Xaml::TeachingTipPlacementMode::BottomLeft,
+                TeachingTipPlacementMode::LeftTop => Xaml::TeachingTipPlacementMode::LeftTop,
+                TeachingTipPlacementMode::LeftBottom => Xaml::TeachingTipPlacementMode::LeftBottom,
+                TeachingTipPlacementMode::RightTop => Xaml::TeachingTipPlacementMode::RightTop,
+                TeachingTipPlacementMode::RightBottom => {
+                    Xaml::TeachingTipPlacementMode::RightBottom
+                }
+                TeachingTipPlacementMode::Center => Xaml::TeachingTipPlacementMode::Center,
             };
             h.cast::<Xaml::ITeachingTip>()?
                 .put_PreferredPlacement(mapped)?;
@@ -884,18 +902,18 @@ pub(crate) fn dispatch(
         }
         (Prop::SelectionMode, PropValue::TreeViewSelectionMode(v), Handle::TreeView(h)) => {
             let mapped = match v {
-                TreeSelectionMode::None => Xaml::TreeViewSelectionMode::None,
-                TreeSelectionMode::Single => Xaml::TreeViewSelectionMode::Single,
-                TreeSelectionMode::Multiple => Xaml::TreeViewSelectionMode::Multiple,
+                TreeViewSelectionMode::None => Xaml::TreeViewSelectionMode::None,
+                TreeViewSelectionMode::Single => Xaml::TreeViewSelectionMode::Single,
+                TreeViewSelectionMode::Multiple => Xaml::TreeViewSelectionMode::Multiple,
             };
             h.cast::<Xaml::ITreeView>()?.put_SelectionMode(mapped)?;
         }
-        (Prop::Stretch, PropValue::ImageStretch(v), Handle::Viewbox(h)) => {
+        (Prop::Stretch, PropValue::Stretch(v), Handle::Viewbox(h)) => {
             let mapped = match v {
-                ImageStretch::Uniform => Xaml::Stretch::Uniform,
-                ImageStretch::UniformToFill => Xaml::Stretch::UniformToFill,
-                ImageStretch::Fill => Xaml::Stretch::Fill,
-                ImageStretch::None => Xaml::Stretch::None,
+                Stretch::None => Xaml::Stretch::None,
+                Stretch::Fill => Xaml::Stretch::Fill,
+                Stretch::Uniform => Xaml::Stretch::Uniform,
+                Stretch::UniformToFill => Xaml::Stretch::UniformToFill,
             };
             h.cast::<Xaml::IViewbox>()?.put_Stretch(mapped)?;
         }

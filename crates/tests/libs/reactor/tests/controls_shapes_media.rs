@@ -3,7 +3,7 @@ use std::rc::Rc;
 use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
 use windows_reactor::core::element::{Brush, Color, Element};
 use windows_reactor::core::element::{
-    HyperlinkButton, Image, ImageStretch, ProgressBar, ProgressRing, Shape,
+    HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch,
 };
 use windows_reactor::core::reconciler::Reconciler;
 
@@ -128,7 +128,7 @@ fn shape_kind_change_remounts_control() {
 #[test]
 fn image_mounts_with_source_and_stretch() {
     let el: Element = Image::new_with_uri("ms-appx:///Assets/logo.png")
-        .stretch(ImageStretch::UniformToFill)
+        .stretch(Stretch::UniformToFill)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -143,7 +143,7 @@ fn image_mounts_with_source_and_stretch() {
             op,
             Op::SetProp {
                 prop: Prop::Stretch,
-                value: PropValue::ImageStretch(ImageStretch::UniformToFill),
+                value: PropValue::Stretch(Stretch::UniformToFill),
                 ..
             }
         )
