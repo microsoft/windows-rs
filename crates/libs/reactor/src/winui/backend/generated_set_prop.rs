@@ -12,39 +12,37 @@ pub(crate) fn dispatch(
 ) -> windows_core::Result<bool> {
     match (prop, value, handle) {
         (Prop::AcceptsReturn, PropValue::Bool(v), Handle::TextBox(h)) => {
-            h.cast::<Xaml::ITextBox>()?.put_AcceptsReturn(*v)?;
+            h.put_AcceptsReturn(*v)?;
         }
         (Prop::AcceptsReturn, PropValue::Unset, Handle::TextBox(h)) => {
-            h.cast::<Xaml::ITextBox>()?.put_AcceptsReturn(false)?;
+            h.put_AcceptsReturn(false)?;
         }
         (Prop::CanReorderTabs, PropValue::Bool(v), Handle::TabView(h)) => {
-            h.cast::<Xaml::ITabView>()?.put_CanReorderTabs(*v)?;
+            h.put_CanReorderTabs(*v)?;
         }
         (Prop::Caption, PropValue::Str(v), Handle::RatingControl(h)) => {
-            h.cast::<Xaml::IRatingControl>()?.put_Caption(v.as_str())?;
+            h.put_Caption(v.as_str())?;
         }
         (Prop::Caption, PropValue::Unset, Handle::RatingControl(h)) => {
-            h.cast::<Xaml::IRatingControl>()?.put_Caption("")?;
+            h.put_Caption("")?;
         }
         (Prop::ClockIdentifier, PropValue::Str(v), Handle::TimePicker(h)) => {
-            h.cast::<Xaml::ITimePicker>()?
-                .put_ClockIdentifier(v.as_str())?;
+            h.put_ClockIdentifier(v.as_str())?;
         }
         (Prop::CloseButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_CloseButtonText(v.as_str())?;
+            h.put_CloseButtonText(v.as_str())?;
         }
         (Prop::CloseButtonText, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?.put_CloseButtonText("")?;
+            h.put_CloseButtonText("")?;
         }
         (Prop::ColumnSpacing, PropValue::F64(v), Handle::Grid(h)) => {
-            h.cast::<Xaml::IGrid>()?.put_ColumnSpacing(*v)?;
+            h.put_ColumnSpacing(*v)?;
         }
         (Prop::ColumnSpacing, PropValue::Unset, Handle::Grid(h)) => {
-            h.cast::<Xaml::IGrid>()?.put_ColumnSpacing(0.0)?;
+            h.put_ColumnSpacing(0.0)?;
         }
         (Prop::CompactPaneLength, PropValue::F64(v), Handle::SplitView(h)) => {
-            h.cast::<Xaml::ISplitView>()?.put_CompactPaneLength(*v)?;
+            h.put_CompactPaneLength(*v)?;
         }
         (Prop::Content, PropValue::Str(v), Handle::DropDownButton(_) | Handle::SplitButton(_)) => {
             let insp = windows_reference::IReference::from(v.as_str());
@@ -84,10 +82,10 @@ pub(crate) fn dispatch(
                 .put_Content(None)?;
         }
         (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_DayVisible(*v)?;
+            h.put_DayVisible(*v)?;
         }
         (Prop::DayVisible, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_DayVisible(true)?;
+            h.put_DayVisible(true)?;
         }
         (
             Prop::DefaultLabelPosition,
@@ -105,118 +103,116 @@ pub(crate) fn dispatch(
                     Xaml::CommandBarDefaultLabelPosition::Collapsed
                 }
             };
-            h.cast::<Xaml::ICommandBar>()?
-                .put_DefaultLabelPosition(mapped)?;
+            h.put_DefaultLabelPosition(mapped)?;
         }
         (Prop::Delay, PropValue::I32(v), Handle::RepeatButton(h)) => {
-            h.cast::<Xaml::IRepeatButton>()?.put_Delay(*v)?;
+            h.put_Delay(*v)?;
         }
         (Prop::DisplayName, PropValue::Str(v), Handle::PersonPicture(h)) => {
-            h.cast::<Xaml::IPersonPicture>()?
-                .put_DisplayName(v.as_str())?;
+            h.put_DisplayName(v.as_str())?;
         }
         (Prop::FontSize, PropValue::F64(v), Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?.put_FontSize(*v)?;
+            h.put_FontSize(*v)?;
         }
         (Prop::FontSize, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?.put_FontSize(14.0)?;
+            h.put_FontSize(14.0)?;
         }
         (Prop::GroupName, PropValue::Str(v), Handle::RadioButton(h)) => {
-            h.cast::<Xaml::IRadioButton>()?.put_GroupName(v.as_str())?;
+            h.put_GroupName(v.as_str())?;
         }
         (Prop::GroupName, PropValue::Unset, Handle::RadioButton(h)) => {
-            h.cast::<Xaml::IRadioButton>()?.put_GroupName("")?;
+            h.put_GroupName("")?;
         }
         (Prop::Header, PropValue::Str(v), Handle::AutoSuggestBox(h)) => {
             let insp = windows_reference::IReference::from(v.as_str());
-            h.cast::<Xaml::IAutoSuggestBox>()?.put_Header(&insp)?;
+            h.put_Header(&insp)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::CalendarDatePicker(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::ICalendarDatePicker>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::ComboBox(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IComboBox>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::DatePicker(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IDatePicker>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::NavigationView(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::INavigationView>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::NumberBox(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::INumberBox>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::PasswordBox(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IPasswordBox>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::RadioButtons(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IRadioButtons>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::RichEditBox(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IRichEditBox>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::Slider(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::ISlider>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::TextBox(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::ITextBox>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::TimePicker(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::ITimePicker>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Str(v), Handle::ToggleSwitch(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IToggleSwitch>()?.put_Header(&tb)?;
+            h.put_Header(&tb)?;
         }
         (Prop::Header, PropValue::Unset, Handle::AutoSuggestBox(h)) => {
-            h.cast::<Xaml::IAutoSuggestBox>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::ComboBox(h)) => {
-            h.cast::<Xaml::IComboBox>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::NumberBox(h)) => {
-            h.cast::<Xaml::INumberBox>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::PasswordBox(h)) => {
-            h.cast::<Xaml::IPasswordBox>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::RadioButtons(h)) => {
-            h.cast::<Xaml::IRadioButtons>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::RichEditBox(h)) => {
-            h.cast::<Xaml::IRichEditBox>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::Slider(h)) => {
-            h.cast::<Xaml::ISlider>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::TextBox(h)) => {
-            h.cast::<Xaml::ITextBox>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::TimePicker(h)) => {
-            h.cast::<Xaml::ITimePicker>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (Prop::Header, PropValue::Unset, Handle::ToggleSwitch(h)) => {
-            h.cast::<Xaml::IToggleSwitch>()?.put_Header(None)?;
+            h.put_Header(None)?;
         }
         (
             Prop::HorizontalScrollBarVisibility,
@@ -229,8 +225,7 @@ pub(crate) fn dispatch(
                 ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
                 ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
             };
-            h.cast::<Xaml::IScrollViewer>()?
-                .put_HorizontalScrollBarVisibility(mapped)?;
+            h.put_HorizontalScrollBarVisibility(mapped)?;
         }
         (
             Prop::HorizontalScrollBarVisibility,
@@ -244,240 +239,215 @@ pub(crate) fn dispatch(
                 }
                 ScrollingScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
             };
-            h.cast::<Xaml::IScrollView>()?
-                .put_HorizontalScrollBarVisibility(mapped)?;
+            h.put_HorizontalScrollBarVisibility(mapped)?;
         }
         (Prop::Initials, PropValue::Str(v), Handle::PersonPicture(h)) => {
-            h.cast::<Xaml::IPersonPicture>()?.put_Initials(v.as_str())?;
+            h.put_Initials(v.as_str())?;
         }
         (Prop::Interval, PropValue::I32(v), Handle::RepeatButton(h)) => {
-            h.cast::<Xaml::IRepeatButton>()?.put_Interval(*v)?;
+            h.put_Interval(*v)?;
         }
         (Prop::IsActive, PropValue::Bool(v), Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?.put_IsActive(*v)?;
+            h.put_IsActive(*v)?;
         }
         (Prop::IsActive, PropValue::Unset, Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?.put_IsActive(false)?;
+            h.put_IsActive(false)?;
         }
         (Prop::IsAddTabButtonVisible, PropValue::Bool(v), Handle::TabView(h)) => {
-            h.cast::<Xaml::ITabView>()?.put_IsAddTabButtonVisible(*v)?;
+            h.put_IsAddTabButtonVisible(*v)?;
         }
         (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?.put_IsAlphaEnabled(*v)?;
+            h.put_IsAlphaEnabled(*v)?;
         }
         (Prop::IsAlphaEnabled, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?.put_IsAlphaEnabled(true)?;
+            h.put_IsAlphaEnabled(true)?;
         }
         (Prop::IsBackButtonEnabled, PropValue::Bool(v), Handle::TitleBar(h)) => {
-            h.cast::<Xaml::ITitleBar>()?.put_IsBackButtonEnabled(*v)?;
+            h.put_IsBackButtonEnabled(*v)?;
         }
         (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::TitleBar(h)) => {
-            h.cast::<Xaml::ITitleBar>()?.put_IsBackButtonVisible(*v)?;
+            h.put_IsBackButtonVisible(*v)?;
         }
         (Prop::IsBackEnabled, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?.put_IsBackEnabled(*v)?;
         }
         (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?
-                .put_IsCalendarOpen(*v)?;
+            h.put_IsCalendarOpen(*v)?;
         }
         (Prop::IsCalendarOpen, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?
-                .put_IsCalendarOpen(false)?;
+            h.put_IsCalendarOpen(false)?;
         }
         (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(h)) => {
-            h.cast::<Xaml::IInfoBar>()?.put_IsClosable(*v)?;
+            h.put_IsClosable(*v)?;
         }
         (Prop::IsColorChannelTextInputVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?
-                .put_IsColorChannelTextInputVisible(*v)?;
+            h.put_IsColorChannelTextInputVisible(*v)?;
         }
         (Prop::IsColorChannelTextInputVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?
-                .put_IsColorChannelTextInputVisible(true)?;
+            h.put_IsColorChannelTextInputVisible(true)?;
         }
         (Prop::IsColorSliderVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?
-                .put_IsColorSliderVisible(*v)?;
+            h.put_IsColorSliderVisible(*v)?;
         }
         (Prop::IsColorSliderVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?
-                .put_IsColorSliderVisible(true)?;
+            h.put_IsColorSliderVisible(true)?;
         }
         (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(h)) => {
-            h.cast::<Xaml::IComboBox>()?.put_IsEditable(*v)?;
+            h.put_IsEditable(*v)?;
         }
         (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(h)) => {
-            h.cast::<Xaml::IExpander>()?.put_IsExpanded(*v)?;
+            h.put_IsExpanded(*v)?;
         }
         (Prop::IsGroupLabelVisible, PropValue::Bool(v), Handle::CalendarView(h)) => {
-            h.cast::<Xaml::ICalendarView>()?
-                .put_IsGroupLabelVisible(*v)?;
+            h.put_IsGroupLabelVisible(*v)?;
         }
         (Prop::IsGroupLabelVisible, PropValue::Unset, Handle::CalendarView(h)) => {
-            h.cast::<Xaml::ICalendarView>()?
-                .put_IsGroupLabelVisible(true)?;
+            h.put_IsGroupLabelVisible(true)?;
         }
         (Prop::IsHexInputVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?.put_IsHexInputVisible(*v)?;
+            h.put_IsHexInputVisible(*v)?;
         }
         (Prop::IsHexInputVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.cast::<Xaml::IColorPicker>()?
-                .put_IsHexInputVisible(true)?;
+            h.put_IsHexInputVisible(true)?;
         }
         (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(h)) => {
-            h.cast::<Xaml::IProgressBar>()?.put_IsIndeterminate(*v)?;
+            h.put_IsIndeterminate(*v)?;
         }
         (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?.put_IsIndeterminate(*v)?;
+            h.put_IsIndeterminate(*v)?;
         }
         (Prop::IsIndeterminate, PropValue::Unset, Handle::ProgressBar(h)) => {
-            h.cast::<Xaml::IProgressBar>()?.put_IsIndeterminate(false)?;
+            h.put_IsIndeterminate(false)?;
         }
         (Prop::IsIndeterminate, PropValue::Unset, Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?
-                .put_IsIndeterminate(false)?;
+            h.put_IsIndeterminate(false)?;
         }
         (Prop::IsLightDismissEnabled, PropValue::Bool(v), Handle::TeachingTip(h)) => {
-            h.cast::<Xaml::ITeachingTip>()?
-                .put_IsLightDismissEnabled(*v)?;
+            h.put_IsLightDismissEnabled(*v)?;
         }
         (Prop::IsOn, PropValue::Bool(v), Handle::ToggleSwitch(h)) => {
-            h.cast::<Xaml::IToggleSwitch>()?.put_IsOn(*v)?;
+            h.put_IsOn(*v)?;
         }
         (Prop::IsOpen, PropValue::Bool(v), Handle::InfoBar(h)) => {
-            h.cast::<Xaml::IInfoBar>()?.put_IsOpen(*v)?;
+            h.put_IsOpen(*v)?;
         }
         (Prop::IsOpen, PropValue::Bool(v), Handle::TeachingTip(h)) => {
-            h.cast::<Xaml::ITeachingTip>()?.put_IsOpen(*v)?;
+            h.put_IsOpen(*v)?;
         }
         (Prop::IsPaneOpen, PropValue::Bool(v), Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView>()?.put_IsPaneOpen(*v)?;
+            h.put_IsPaneOpen(*v)?;
         }
         (Prop::IsPaneOpen, PropValue::Bool(v), Handle::SplitView(h)) => {
-            h.cast::<Xaml::ISplitView>()?.put_IsPaneOpen(*v)?;
+            h.put_IsPaneOpen(*v)?;
         }
         (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView>()?
-                .put_IsPaneToggleButtonVisible(*v)?;
+            h.put_IsPaneToggleButtonVisible(*v)?;
         }
         (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::TitleBar(h)) => {
-            h.cast::<Xaml::ITitleBar>()?
-                .put_IsPaneToggleButtonVisible(*v)?;
+            h.put_IsPaneToggleButtonVisible(*v)?;
         }
         (Prop::IsPasswordRevealButtonEnabled, PropValue::Bool(v), Handle::PasswordBox(h)) => {
-            h.cast::<Xaml::IPasswordBox>()?
-                .put_IsPasswordRevealButtonEnabled(*v)?;
+            h.put_IsPasswordRevealButtonEnabled(*v)?;
         }
         (Prop::IsPasswordRevealButtonEnabled, PropValue::Unset, Handle::PasswordBox(h)) => {
-            h.cast::<Xaml::IPasswordBox>()?
-                .put_IsPasswordRevealButtonEnabled(true)?;
+            h.put_IsPasswordRevealButtonEnabled(true)?;
         }
         (Prop::IsPrimaryButtonEnabled, PropValue::Bool(v), Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_IsPrimaryButtonEnabled(*v)?;
+            h.put_IsPrimaryButtonEnabled(*v)?;
         }
         (Prop::IsReadOnly, PropValue::Bool(v), Handle::RatingControl(h)) => {
-            h.cast::<Xaml::IRatingControl>()?.put_IsReadOnly(*v)?;
+            h.put_IsReadOnly(*v)?;
         }
         (Prop::IsReadOnly, PropValue::Bool(v), Handle::RichEditBox(h)) => {
-            h.cast::<Xaml::IRichEditBox>()?.put_IsReadOnly(*v)?;
+            h.put_IsReadOnly(*v)?;
         }
         (Prop::IsSecondaryButtonEnabled, PropValue::Bool(v), Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_IsSecondaryButtonEnabled(*v)?;
+            h.put_IsSecondaryButtonEnabled(*v)?;
         }
         (Prop::IsSettingsVisible, PropValue::Bool(v), Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView>()?
-                .put_IsSettingsVisible(*v)?;
+            h.put_IsSettingsVisible(*v)?;
         }
         (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?
-                .put_IsTextSelectionEnabled(*v)?;
+            h.put_IsTextSelectionEnabled(*v)?;
         }
         (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?
-                .put_IsTextSelectionEnabled(false)?;
+            h.put_IsTextSelectionEnabled(false)?;
         }
         (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?
-                .put_IsTodayHighlighted(*v)?;
+            h.put_IsTodayHighlighted(*v)?;
         }
         (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarView(h)) => {
-            h.cast::<Xaml::ICalendarView>()?
-                .put_IsTodayHighlighted(*v)?;
+            h.put_IsTodayHighlighted(*v)?;
         }
         (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?
-                .put_IsTodayHighlighted(true)?;
+            h.put_IsTodayHighlighted(true)?;
         }
         (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarView(h)) => {
-            h.cast::<Xaml::ICalendarView>()?
-                .put_IsTodayHighlighted(true)?;
+            h.put_IsTodayHighlighted(true)?;
         }
         (Prop::MaxColumns, PropValue::I32(v), Handle::RadioButtons(h)) => {
-            h.cast::<Xaml::IRadioButtons>()?.put_MaxColumns(*v)?;
+            h.put_MaxColumns(*v)?;
         }
         (Prop::MaxRating, PropValue::I32(v), Handle::RatingControl(h)) => {
-            h.cast::<Xaml::IRatingControl>()?.put_MaxRating(*v)?;
+            h.put_MaxRating(*v)?;
         }
         (Prop::Maximum, PropValue::F64(v), Handle::NumberBox(h)) => {
-            h.cast::<Xaml::INumberBox>()?.put_Maximum(*v)?;
+            h.put_Maximum(*v)?;
         }
         (Prop::Maximum, PropValue::F64(v), Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?.put_Maximum(*v)?;
+            h.put_Maximum(*v)?;
         }
         (Prop::Message, PropValue::Str(v), Handle::InfoBar(h)) => {
-            h.cast::<Xaml::IInfoBar>()?.put_Message(v.as_str())?;
+            h.put_Message(v.as_str())?;
         }
         (Prop::Message, PropValue::Unset, Handle::InfoBar(h)) => {
-            h.cast::<Xaml::IInfoBar>()?.put_Message("")?;
+            h.put_Message("")?;
         }
         (Prop::Minimum, PropValue::F64(v), Handle::NumberBox(h)) => {
-            h.cast::<Xaml::INumberBox>()?.put_Minimum(*v)?;
+            h.put_Minimum(*v)?;
         }
         (Prop::Minimum, PropValue::F64(v), Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?.put_Minimum(*v)?;
+            h.put_Minimum(*v)?;
         }
         (Prop::MinuteIncrement, PropValue::I32(v), Handle::TimePicker(h)) => {
-            h.cast::<Xaml::ITimePicker>()?.put_MinuteIncrement(*v)?;
+            h.put_MinuteIncrement(*v)?;
         }
         (Prop::MonthVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_MonthVisible(*v)?;
+            h.put_MonthVisible(*v)?;
         }
         (Prop::MonthVisible, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_MonthVisible(true)?;
+            h.put_MonthVisible(true)?;
         }
         (Prop::OffContent, PropValue::Str(v), Handle::ToggleSwitch(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IToggleSwitch>()?.put_OffContent(&tb)?;
+            h.put_OffContent(&tb)?;
         }
         (Prop::OffContent, PropValue::Unset, Handle::ToggleSwitch(h)) => {
-            h.cast::<Xaml::IToggleSwitch>()?.put_OffContent(None)?;
+            h.put_OffContent(None)?;
         }
         (Prop::OnContent, PropValue::Str(v), Handle::ToggleSwitch(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IToggleSwitch>()?.put_OnContent(&tb)?;
+            h.put_OnContent(&tb)?;
         }
         (Prop::OnContent, PropValue::Unset, Handle::ToggleSwitch(h)) => {
-            h.cast::<Xaml::IToggleSwitch>()?.put_OnContent(None)?;
+            h.put_OnContent(None)?;
         }
         (Prop::OpenPaneLength, PropValue::F64(v), Handle::SplitView(h)) => {
-            h.cast::<Xaml::ISplitView>()?.put_OpenPaneLength(*v)?;
+            h.put_OpenPaneLength(*v)?;
         }
         (Prop::Orientation, PropValue::Orientation(v), Handle::Slider(h)) => {
             let mapped = match v {
                 Orientation::Vertical => Xaml::Orientation::Vertical,
                 Orientation::Horizontal => Xaml::Orientation::Horizontal,
             };
-            h.cast::<Xaml::ISlider>()?.put_Orientation(mapped)?;
+            h.put_Orientation(mapped)?;
         }
         (Prop::Orientation, PropValue::Orientation(v), Handle::StackPanel(h)) => {
             let mapped = match v {
                 Orientation::Vertical => Xaml::Orientation::Vertical,
                 Orientation::Horizontal => Xaml::Orientation::Horizontal,
             };
-            h.cast::<Xaml::IStackPanel>()?.put_Orientation(mapped)?;
+            h.put_Orientation(mapped)?;
         }
         (
             Prop::PaneDisplayMode,
@@ -511,51 +481,43 @@ pub(crate) fn dispatch(
                 PasswordRevealMode::Hidden => Xaml::PasswordRevealMode::Hidden,
                 PasswordRevealMode::Visible => Xaml::PasswordRevealMode::Visible,
             };
-            h.cast::<Xaml::IPasswordBox>()?
-                .put_PasswordRevealMode(mapped)?;
+            h.put_PasswordRevealMode(mapped)?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::AutoSuggestBox(h)) => {
-            h.cast::<Xaml::IAutoSuggestBox>()?
-                .put_PlaceholderText(v.as_str())?;
+            h.put_PlaceholderText(v.as_str())?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?
-                .put_PlaceholderText(v.as_str())?;
+            h.put_PlaceholderText(v.as_str())?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::ComboBox(h)) => {
-            h.cast::<Xaml::IComboBox>()?
-                .put_PlaceholderText(v.as_str())?;
+            h.put_PlaceholderText(v.as_str())?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::PasswordBox(h)) => {
-            h.cast::<Xaml::IPasswordBox>()?
-                .put_PlaceholderText(v.as_str())?;
+            h.put_PlaceholderText(v.as_str())?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::RichEditBox(h)) => {
-            h.cast::<Xaml::IRichEditBox>()?
-                .put_PlaceholderText(v.as_str())?;
+            h.put_PlaceholderText(v.as_str())?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::TextBox(h)) => {
-            h.cast::<Xaml::ITextBox>()?
-                .put_PlaceholderText(v.as_str())?;
+            h.put_PlaceholderText(v.as_str())?;
         }
         (Prop::PlaceholderText, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.cast::<Xaml::ICalendarDatePicker>()?
-                .put_PlaceholderText("")?;
+            h.put_PlaceholderText("")?;
         }
         (Prop::PlaceholderText, PropValue::Unset, Handle::ComboBox(h)) => {
-            h.cast::<Xaml::IComboBox>()?.put_PlaceholderText("")?;
+            h.put_PlaceholderText("")?;
         }
         (Prop::PlaceholderText, PropValue::Unset, Handle::PasswordBox(h)) => {
-            h.cast::<Xaml::IPasswordBox>()?.put_PlaceholderText("")?;
+            h.put_PlaceholderText("")?;
         }
         (Prop::PlaceholderText, PropValue::Unset, Handle::RichEditBox(h)) => {
-            h.cast::<Xaml::IRichEditBox>()?.put_PlaceholderText("")?;
+            h.put_PlaceholderText("")?;
         }
         (Prop::PlaceholderText, PropValue::Unset, Handle::TextBox(h)) => {
-            h.cast::<Xaml::ITextBox>()?.put_PlaceholderText("")?;
+            h.put_PlaceholderText("")?;
         }
         (Prop::PlaceholderValue, PropValue::F64(v), Handle::RatingControl(h)) => {
-            h.cast::<Xaml::IRatingControl>()?.put_PlaceholderValue(*v)?;
+            h.put_PlaceholderValue(*v)?;
         }
         (
             Prop::PreferredPlacement,
@@ -582,39 +544,34 @@ pub(crate) fn dispatch(
                 }
                 TeachingTipPlacementMode::Center => Xaml::TeachingTipPlacementMode::Center,
             };
-            h.cast::<Xaml::ITeachingTip>()?
-                .put_PreferredPlacement(mapped)?;
+            h.put_PreferredPlacement(mapped)?;
         }
         (Prop::PrimaryButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_PrimaryButtonText(v.as_str())?;
+            h.put_PrimaryButtonText(v.as_str())?;
         }
         (Prop::PrimaryButtonText, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_PrimaryButtonText("")?;
+            h.put_PrimaryButtonText("")?;
         }
         (Prop::RowSpacing, PropValue::F64(v), Handle::Grid(h)) => {
-            h.cast::<Xaml::IGrid>()?.put_RowSpacing(*v)?;
+            h.put_RowSpacing(*v)?;
         }
         (Prop::RowSpacing, PropValue::Unset, Handle::Grid(h)) => {
-            h.cast::<Xaml::IGrid>()?.put_RowSpacing(0.0)?;
+            h.put_RowSpacing(0.0)?;
         }
         (Prop::SecondaryButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_SecondaryButtonText(v.as_str())?;
+            h.put_SecondaryButtonText(v.as_str())?;
         }
         (Prop::SecondaryButtonText, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?
-                .put_SecondaryButtonText("")?;
+            h.put_SecondaryButtonText("")?;
         }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::Pivot(h)) => {
-            h.cast::<Xaml::IPivot>()?.put_SelectedIndex(*v)?;
+            h.put_SelectedIndex(*v)?;
         }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::RadioButtons(h)) => {
-            h.cast::<Xaml::IRadioButtons>()?.put_SelectedIndex(*v)?;
+            h.put_SelectedIndex(*v)?;
         }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(h)) => {
-            h.cast::<Xaml::ITabView>()?.put_SelectedIndex(*v)?;
+            h.put_SelectedIndex(*v)?;
         }
         (Prop::SelectionMode, PropValue::TreeViewSelectionMode(v), Handle::TreeView(h)) => {
             let mapped = match v {
@@ -622,7 +579,7 @@ pub(crate) fn dispatch(
                 TreeViewSelectionMode::Single => Xaml::TreeViewSelectionMode::Single,
                 TreeViewSelectionMode::Multiple => Xaml::TreeViewSelectionMode::Multiple,
             };
-            h.cast::<Xaml::ITreeView>()?.put_SelectionMode(mapped)?;
+            h.put_SelectionMode(mapped)?;
         }
         (Prop::Severity, PropValue::InfoBarSeverity(v), Handle::InfoBar(h)) => {
             let mapped = match v {
@@ -631,13 +588,13 @@ pub(crate) fn dispatch(
                 InfoBarSeverity::Warning => Xaml::InfoBarSeverity::Warning,
                 InfoBarSeverity::Error => Xaml::InfoBarSeverity::Error,
             };
-            h.cast::<Xaml::IInfoBar>()?.put_Severity(mapped)?;
+            h.put_Severity(mapped)?;
         }
         (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(h)) => {
-            h.cast::<Xaml::IStackPanel>()?.put_Spacing(*v)?;
+            h.put_Spacing(*v)?;
         }
         (Prop::Spacing, PropValue::Unset, Handle::StackPanel(h)) => {
-            h.cast::<Xaml::IStackPanel>()?.put_Spacing(0.0)?;
+            h.put_Spacing(0.0)?;
         }
         (Prop::Stretch, PropValue::Stretch(v), Handle::Image(h)) => {
             let mapped = match v {
@@ -646,7 +603,7 @@ pub(crate) fn dispatch(
                 Stretch::Uniform => Xaml::Stretch::Uniform,
                 Stretch::UniformToFill => Xaml::Stretch::UniformToFill,
             };
-            h.cast::<Xaml::IImage>()?.put_Stretch(mapped)?;
+            h.put_Stretch(mapped)?;
         }
         (Prop::Stretch, PropValue::Stretch(v), Handle::Viewbox(h)) => {
             let mapped = match v {
@@ -655,22 +612,22 @@ pub(crate) fn dispatch(
                 Stretch::Uniform => Xaml::Stretch::Uniform,
                 Stretch::UniformToFill => Xaml::Stretch::UniformToFill,
             };
-            h.cast::<Xaml::IViewbox>()?.put_Stretch(mapped)?;
+            h.put_Stretch(mapped)?;
         }
         (Prop::Subtitle, PropValue::Str(v), Handle::TeachingTip(h)) => {
-            h.cast::<Xaml::ITeachingTip>()?.put_Subtitle(v.as_str())?;
+            h.put_Subtitle(v.as_str())?;
         }
         (Prop::Subtitle, PropValue::Str(v), Handle::TitleBar(h)) => {
-            h.cast::<Xaml::ITitleBar>()?.put_Subtitle(v.as_str())?;
+            h.put_Subtitle(v.as_str())?;
         }
         (Prop::Subtitle, PropValue::Unset, Handle::TitleBar(h)) => {
-            h.cast::<Xaml::ITitleBar>()?.put_Subtitle("")?;
+            h.put_Subtitle("")?;
         }
         (Prop::Text, PropValue::Str(v), Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?.put_Text(v.as_str())?;
+            h.put_Text(v.as_str())?;
         }
         (Prop::Text, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.cast::<Xaml::ITextBlock>()?.put_Text("")?;
+            h.put_Text("")?;
         }
         (Prop::TextWrapping, PropValue::TextWrapping(v), Handle::TextBlock(h)) => {
             let mapped = match v {
@@ -678,7 +635,7 @@ pub(crate) fn dispatch(
                 TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
                 TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
             };
-            h.cast::<Xaml::ITextBlock>()?.put_TextWrapping(mapped)?;
+            h.put_TextWrapping(mapped)?;
         }
         (Prop::TextWrapping, PropValue::TextWrapping(v), Handle::TextBox(h)) => {
             let mapped = match v {
@@ -686,45 +643,45 @@ pub(crate) fn dispatch(
                 TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
                 TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
             };
-            h.cast::<Xaml::ITextBox>()?.put_TextWrapping(mapped)?;
+            h.put_TextWrapping(mapped)?;
         }
         (Prop::Title, PropValue::Str(v), Handle::InfoBar(h)) => {
-            h.cast::<Xaml::IInfoBar>()?.put_Title(v.as_str())?;
+            h.put_Title(v.as_str())?;
         }
         (Prop::Title, PropValue::Str(v), Handle::TeachingTip(h)) => {
-            h.cast::<Xaml::ITeachingTip>()?.put_Title(v.as_str())?;
+            h.put_Title(v.as_str())?;
         }
         (Prop::Title, PropValue::Str(v), Handle::TitleBar(h)) => {
-            h.cast::<Xaml::ITitleBar>()?.put_Title(v.as_str())?;
+            h.put_Title(v.as_str())?;
         }
         (Prop::Title, PropValue::Str(v), Handle::ContentDialog(h)) => {
             let insp = windows_reference::IReference::from(v.as_str());
-            h.cast::<Xaml::IContentDialog>()?.put_Title(&insp)?;
+            h.put_Title(&insp)?;
         }
         (Prop::Title, PropValue::Str(v), Handle::Pivot(h)) => {
             let tb = string_as_textblock(v.as_str())?;
-            h.cast::<Xaml::IPivot>()?.put_Title(&tb)?;
+            h.put_Title(&tb)?;
         }
         (Prop::Title, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.cast::<Xaml::IContentDialog>()?.put_Title(None)?;
+            h.put_Title(None)?;
         }
         (Prop::Title, PropValue::Unset, Handle::Pivot(h)) => {
-            h.cast::<Xaml::IPivot>()?.put_Title(None)?;
+            h.put_Title(None)?;
         }
         (Prop::Title, PropValue::Unset, Handle::InfoBar(h)) => {
-            h.cast::<Xaml::IInfoBar>()?.put_Title("")?;
+            h.put_Title("")?;
         }
         (Prop::Value, PropValue::F64(v), Handle::NumberBox(h)) => {
-            h.cast::<Xaml::INumberBox>()?.put_Value(*v)?;
+            h.put_Value(*v)?;
         }
         (Prop::Value, PropValue::F64(v), Handle::ProgressRing(h)) => {
-            h.cast::<Xaml::IProgressRing>()?.put_Value(*v)?;
+            h.put_Value(*v)?;
         }
         (Prop::Value, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
             handle.cast_inner::<Xaml::IRangeBase>()?.put_Value(*v)?;
         }
         (Prop::Value, PropValue::F64(v), Handle::RatingControl(h)) => {
-            h.cast::<Xaml::IRatingControl>()?.put_Value(*v)?;
+            h.put_Value(*v)?;
         }
         (
             Prop::VerticalScrollBarVisibility,
@@ -737,8 +694,7 @@ pub(crate) fn dispatch(
                 ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
                 ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
             };
-            h.cast::<Xaml::IScrollViewer>()?
-                .put_VerticalScrollBarVisibility(mapped)?;
+            h.put_VerticalScrollBarVisibility(mapped)?;
         }
         (
             Prop::VerticalScrollBarVisibility,
@@ -752,14 +708,13 @@ pub(crate) fn dispatch(
                 }
                 ScrollingScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
             };
-            h.cast::<Xaml::IScrollView>()?
-                .put_VerticalScrollBarVisibility(mapped)?;
+            h.put_VerticalScrollBarVisibility(mapped)?;
         }
         (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_YearVisible(*v)?;
+            h.put_YearVisible(*v)?;
         }
         (Prop::YearVisible, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.cast::<Xaml::IDatePicker>()?.put_YearVisible(true)?;
+            h.put_YearVisible(true)?;
         }
         (Prop::IsChecked, PropValue::Bool(v), _) => {
             handle

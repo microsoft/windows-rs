@@ -14,16 +14,14 @@ pub(crate) fn dispatch(
         (Event::ItemClicked, Handle::BreadcrumbBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IBreadcrumbBar>()
-                    .unwrap()
-                    .add_ItemClicked(move |_sender, args| {
-                        if let Some(a) = args.as_ref()
-                            && let Ok(v) = a.get_Index()
-                        {
-                            handler.invoke_i32(v);
-                        }
-                    })
-                    .unwrap(),
+                h.add_ItemClicked(move |_sender, args| {
+                    if let Some(a) = args.as_ref()
+                        && let Ok(v) = a.get_Index()
+                    {
+                        handler.invoke_i32(v);
+                    }
+                })
+                .unwrap(),
             );
         }
         (Event::Click, Handle::Button(h)) => {
@@ -40,12 +38,10 @@ pub(crate) fn dispatch(
         (Event::SelectedDatesChanged, Handle::CalendarView(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ICalendarView>()
-                    .unwrap()
-                    .add_SelectedDatesChanged(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_SelectedDatesChanged(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::Checked, Handle::CheckBox(h)) => {
@@ -82,21 +78,17 @@ pub(crate) fn dispatch(
         (Event::Expanding, Handle::Expander(h)) => {
             let true_handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IExpander>()
-                    .unwrap()
-                    .add_Expanding(move |_sender, _args| {
-                        true_handler.invoke_bool(true);
-                    })
-                    .unwrap(),
+                h.add_Expanding(move |_sender, _args| {
+                    true_handler.invoke_bool(true);
+                })
+                .unwrap(),
             );
             let false_handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IExpander>()
-                    .unwrap()
-                    .add_Collapsed(move |_sender, _args| {
-                        false_handler.invoke_bool(false);
-                    })
-                    .unwrap(),
+                h.add_Collapsed(move |_sender, _args| {
+                    false_handler.invoke_bool(false);
+                })
+                .unwrap(),
             );
         }
         (Event::Click, Handle::HyperlinkButton(h)) => {
@@ -113,12 +105,10 @@ pub(crate) fn dispatch(
         (Event::Closed, Handle::InfoBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IInfoBar>()
-                    .unwrap()
-                    .add_Closed(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_Closed(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::BackRequested, Handle::NavigationView(h)) => {
@@ -135,32 +125,28 @@ pub(crate) fn dispatch(
         (Event::ValueChanged, Handle::NumberBox(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::INumberBox>()
-                    .unwrap()
-                    .add_ValueChanged(move |_sender, args| {
-                        if let Some(a) = args.as_ref()
-                            && let Ok(v) = a.get_NewValue()
-                        {
-                            handler.invoke_f64(v);
-                        }
-                    })
-                    .unwrap(),
+                h.add_ValueChanged(move |_sender, args| {
+                    if let Some(a) = args.as_ref()
+                        && let Ok(v) = a.get_NewValue()
+                    {
+                        handler.invoke_f64(v);
+                    }
+                })
+                .unwrap(),
             );
         }
         (Event::PasswordChanged, Handle::PasswordBox(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IPasswordBox>()
-                    .unwrap()
-                    .add_PasswordChanged(move |sender, _args| {
-                        let v = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::PasswordBox>().ok())
-                            .and_then(|s| s.get_Password().ok())
-                            .unwrap_or(Default::default());
-                        handler.invoke_string(v);
-                    })
-                    .unwrap(),
+                h.add_PasswordChanged(move |sender, _args| {
+                    let v = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::PasswordBox>().ok())
+                        .and_then(|s| s.get_Password().ok())
+                        .unwrap_or(Default::default());
+                    handler.invoke_string(v);
+                })
+                .unwrap(),
             );
         }
         (Event::Click, Handle::RepeatButton(h)) => {
@@ -177,21 +163,17 @@ pub(crate) fn dispatch(
         (Event::Checked, Handle::ToggleButton(h)) => {
             let true_handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IToggleButton>()
-                    .unwrap()
-                    .add_Checked(move |_sender, _args| {
-                        true_handler.invoke_bool(true);
-                    })
-                    .unwrap(),
+                h.add_Checked(move |_sender, _args| {
+                    true_handler.invoke_bool(true);
+                })
+                .unwrap(),
             );
             let false_handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IToggleButton>()
-                    .unwrap()
-                    .add_Unchecked(move |_sender, _args| {
-                        false_handler.invoke_bool(false);
-                    })
-                    .unwrap(),
+                h.add_Unchecked(move |_sender, _args| {
+                    false_handler.invoke_bool(false);
+                })
+                .unwrap(),
             );
         }
         (Event::Checked, Handle::RadioButton(h)) => {
@@ -208,33 +190,29 @@ pub(crate) fn dispatch(
         (Event::SelectionChanged, Handle::RadioButtons(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IRadioButtons>()
-                    .unwrap()
-                    .add_SelectionChanged(move |sender, _args| {
-                        let v = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::RadioButtons>().ok())
-                            .and_then(|s| s.get_SelectedIndex().ok())
-                            .unwrap_or(-1);
-                        handler.invoke_i32(v);
-                    })
-                    .unwrap(),
+                h.add_SelectionChanged(move |sender, _args| {
+                    let v = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::RadioButtons>().ok())
+                        .and_then(|s| s.get_SelectedIndex().ok())
+                        .unwrap_or(-1);
+                    handler.invoke_i32(v);
+                })
+                .unwrap(),
             );
         }
         (Event::ValueChanged, Handle::RatingControl(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IRatingControl>()
-                    .unwrap()
-                    .add_ValueChanged(move |sender, _args| {
-                        let v = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::RatingControl>().ok())
-                            .and_then(|s| s.get_Value().ok())
-                            .unwrap_or(-1.0);
-                        handler.invoke_f64(v);
-                    })
-                    .unwrap(),
+                h.add_ValueChanged(move |sender, _args| {
+                    let v = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::RatingControl>().ok())
+                        .and_then(|s| s.get_Value().ok())
+                        .unwrap_or(-1.0);
+                    handler.invoke_f64(v);
+                })
+                .unwrap(),
             );
         }
         (Event::ValueChanged, Handle::Slider(h)) => {
@@ -255,110 +233,92 @@ pub(crate) fn dispatch(
         (Event::Click, Handle::SplitButton(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ISplitButton>()
-                    .unwrap()
-                    .add_Click(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_Click(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::PaneClosed, Handle::SplitView(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ISplitView>()
-                    .unwrap()
-                    .add_PaneClosed(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_PaneClosed(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::AddTabButtonClick, Handle::TabView(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ITabView>()
-                    .unwrap()
-                    .add_AddTabButtonClick(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_AddTabButtonClick(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::ActionButtonClick, Handle::TeachingTip(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ITeachingTip>()
-                    .unwrap()
-                    .add_ActionButtonClick(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_ActionButtonClick(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::Closed, Handle::TeachingTip(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ITeachingTip>()
-                    .unwrap()
-                    .add_Closed(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_Closed(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::TextChanged, Handle::TextBox(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ITextBox>()
-                    .unwrap()
-                    .add_TextChanged(move |sender, _args| {
-                        let v = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::TextBox>().ok())
-                            .and_then(|s| s.get_Text().ok())
-                            .unwrap_or(Default::default());
-                        handler.invoke_string(v);
-                    })
-                    .unwrap(),
+                h.add_TextChanged(move |sender, _args| {
+                    let v = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::TextBox>().ok())
+                        .and_then(|s| s.get_Text().ok())
+                        .unwrap_or(Default::default());
+                    handler.invoke_string(v);
+                })
+                .unwrap(),
             );
         }
         (Event::BackRequested, Handle::TitleBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ITitleBar>()
-                    .unwrap()
-                    .add_BackRequested(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_BackRequested(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::PaneToggleRequested, Handle::TitleBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::ITitleBar>()
-                    .unwrap()
-                    .add_PaneToggleRequested(move |_sender, _args| {
-                        handler.invoke();
-                    })
-                    .unwrap(),
+                h.add_PaneToggleRequested(move |_sender, _args| {
+                    handler.invoke();
+                })
+                .unwrap(),
             );
         }
         (Event::Toggled, Handle::ToggleSwitch(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.cast::<Xaml::IToggleSwitch>()
-                    .unwrap()
-                    .add_Toggled(move |sender, _args| {
-                        let v = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<Xaml::ToggleSwitch>().ok())
-                            .and_then(|s| s.get_IsOn().ok())
-                            .unwrap_or(false);
-                        handler.invoke_bool(v);
-                    })
-                    .unwrap(),
+                h.add_Toggled(move |sender, _args| {
+                    let v = sender
+                        .as_ref()
+                        .and_then(|s| s.cast::<Xaml::ToggleSwitch>().ok())
+                        .and_then(|s| s.get_IsOn().ok())
+                        .unwrap_or(false);
+                    handler.invoke_bool(v);
+                })
+                .unwrap(),
             );
         }
         _ => return None,

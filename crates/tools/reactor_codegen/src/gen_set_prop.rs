@@ -358,7 +358,12 @@ fn resolve_iface(resolver: &MetadataResolver, handle: &str, method: &str) -> Str
 /// Render a single arm — either a specific `Handle::X(h)` or a wildcard `_`.
 fn render_arm(desc: &ArmDesc, wildcard: bool) -> TokenStream {
     let prop_id = ident(&desc.prop);
-    let body = render_body(&desc.body, wildcard);
+    let handle_name = if wildcard {
+        None
+    } else {
+        Some(desc.handle.as_str())
+    };
+    let body = render_body(&desc.body, wildcard, handle_name);
 
     match (desc.value_pat.as_str(), wildcard) {
         ("Unset", true) => quote! {
@@ -390,7 +395,7 @@ fn render_arm(desc: &ArmDesc, wildcard: bool) -> TokenStream {
 /// Uses `handle.cast_inner()` since individual inner types are not bound.
 fn render_or_pattern(descs: &[&ArmDesc]) -> TokenStream {
     let prop_id = ident(&descs[0].prop);
-    let body = render_body(&descs[0].body, true);
+    let body = render_body(&descs[0].body, true, None);
 
     let mut handles: Vec<&str> = descs.iter().map(|d| d.handle.as_str()).collect();
     handles.sort();
@@ -415,7 +420,12 @@ fn render_or_pattern(descs: &[&ArmDesc]) -> TokenStream {
 }
 
 /// Generate the cast expression: specific `h.cast` or merged `handle.cast_inner`.
-fn cast_tokens(iface: &str, wildcard: bool) -> TokenStream {
+/// When the interface is the default (deref target) for the handle, no cast is needed.
+fn cast_tokens(iface: &str, wildcard: bool, handle_name: Option<&str>) -> TokenStream {
+    // Default interface for class `Foo` is `IFoo` — Deref handles it.
+    if !wildcard && handle_name.is_some_and(|h| iface == format!("I{h}")) {
+        return quote! { h };
+    }
     let i = ident(iface);
     if wildcard {
         quote! { handle.cast_inner::<Xaml::#i>()? }
@@ -425,14 +435,14 @@ fn cast_tokens(iface: &str, wildcard: bool) -> TokenStream {
 }
 
 /// Render the body of a match arm.
-fn render_body(body: &Body, wildcard: bool) -> TokenStream {
+fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenStream {
     match body {
         Body::Cast {
             iface,
             method,
             value_variant,
         } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             let arg = arg_tokens(value_variant);
             quote! { #cast.#m(#arg)?; }
@@ -442,18 +452,18 @@ fn render_body(body: &Body, wildcard: bool) -> TokenStream {
             method,
             value_variant,
         } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             let arg = arg_tokens(value_variant);
             quote! { #cast.#m(Some(#arg))?; }
         }
         Body::CastNone { iface, method } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             quote! { #cast.#m(None)?; }
         }
         Body::IReference { iface, method } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             quote! {
                 let insp = windows_reference::IReference::from(v.as_str());
@@ -461,7 +471,7 @@ fn render_body(body: &Body, wildcard: bool) -> TokenStream {
             }
         }
         Body::Textblock { iface, method } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             quote! {
                 let tb = string_as_textblock(v.as_str())?;
@@ -475,7 +485,7 @@ fn render_body(body: &Body, wildcard: bool) -> TokenStream {
             winui_type,
             variants,
         } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             let rt = ident(rust_type);
             let wt = ident(winui_type);
@@ -497,7 +507,7 @@ fn render_body(body: &Body, wildcard: bool) -> TokenStream {
             method,
             default_expr,
         } => {
-            let cast = cast_tokens(iface, wildcard);
+            let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
             let default: TokenStream = default_expr.parse().unwrap();
             quote! { #cast.#m(#default)?; }

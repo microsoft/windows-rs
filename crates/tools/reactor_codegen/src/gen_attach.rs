@@ -9,6 +9,15 @@ use crate::helpers::*;
 use crate::metadata::MetadataResolver;
 use crate::schema::*;
 
+/// Returns `h` (via Deref) if iface is the default for the handle, else `h.cast::<Xaml::I...>().unwrap()`.
+fn event_receiver(iface: &proc_macro2::Ident, handle_name: &str) -> TokenStream {
+    if iface == &format!("I{handle_name}") {
+        quote! { h }
+    } else {
+        quote! { h.cast::<Xaml::#iface>().unwrap() }
+    }
+}
+
 pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
     let mut all_arms = Vec::new();
 
@@ -60,11 +69,11 @@ fn gen_sender_getter(
 ) -> TokenStream {
     let getter_ident = ident(getter);
     let handle_ident = ident(handle_name);
+    let receiver = event_receiver(iface, handle_name);
     quote! {
         let handler = handler.clone();
         revokers.push(
-            h.cast::<Xaml::#iface>()
-                .unwrap()
+            #receiver
                 .#add_ident(move |sender, _args| {
                     let v = sender.as_ref()
                         .and_then(|s| s.cast::<Xaml::#handle_ident>().ok())
@@ -81,15 +90,16 @@ fn gen_sender_getter(
 fn gen_args_getter(
     iface: &proc_macro2::Ident,
     add_ident: &proc_macro2::Ident,
+    handle_name: &str,
     getter: &str,
     invoke_call: TokenStream,
 ) -> TokenStream {
     let getter_ident = ident(getter);
+    let receiver = event_receiver(iface, handle_name);
     quote! {
         let handler = handler.clone();
         revokers.push(
-            h.cast::<Xaml::#iface>()
-                .unwrap()
+            #receiver
                 .#add_ident(move |_sender, args| {
                     if let Some(a) = args.as_ref()
                         && let Ok(v) = a.#getter_ident()
@@ -137,11 +147,11 @@ fn gen_event_arm(
 
     let handler_body = match invoke {
         "invoke" => {
+            let receiver = event_receiver(&iface, handle_name);
             quote! {
                 let handler = handler.clone();
                 revokers.push(
-                    h.cast::<Xaml::#iface>()
-                        .unwrap()
+                    #receiver
                         .#add_ident(move |_sender, _args| {
                             handler.invoke();
                         })
@@ -195,11 +205,11 @@ fn gen_event_arm(
         }
         "invoke_i32_args" => {
             let g = require_getter(e, handle_name, invoke);
-            gen_args_getter(&iface, &add_ident, g, quote!(invoke_i32(v)))
+            gen_args_getter(&iface, &add_ident, handle_name, g, quote!(invoke_i32(v)))
         }
         "invoke_f64_args" => {
             let g = require_getter(e, handle_name, invoke);
-            gen_args_getter(&iface, &add_ident, g, quote!(invoke_f64(v)))
+            gen_args_getter(&iface, &add_ident, handle_name, g, quote!(invoke_f64(v)))
         }
         "invoke_bool_dual" => {
             let add_false = e.add_method_false.as_deref().unwrap_or_else(|| {
@@ -212,11 +222,12 @@ fn gen_event_arm(
                 panic!("metadata: cannot resolve {handle_name}.{add_false} for event")
             });
             let iface_false = ident(iface_false_ref.short_name());
+            let receiver = event_receiver(&iface, handle_name);
+            let receiver_false = event_receiver(&iface_false, handle_name);
             quote! {
                 let true_handler = handler.clone();
                 revokers.push(
-                    h.cast::<Xaml::#iface>()
-                        .unwrap()
+                    #receiver
                         .#add_ident(move |_sender, _args| {
                             true_handler.invoke_bool(true);
                         })
@@ -224,8 +235,7 @@ fn gen_event_arm(
                 );
                 let false_handler = handler.clone();
                 revokers.push(
-                    h.cast::<Xaml::#iface_false>()
-                        .unwrap()
+                    #receiver_false
                         .#add_false_ident(move |_sender, _args| {
                             false_handler.invoke_bool(false);
                         })
