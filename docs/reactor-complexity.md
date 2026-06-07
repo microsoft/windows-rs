@@ -22,14 +22,18 @@ See [reactor-codegen.md](reactor-codegen.md) for the tool architecture and
 
 ### Results
 
-- **52 controls** fully declared in a single 291-line TOML file
-- **~2300 lines** of generated dispatch code (bindings, set_prop, attach_event)
+- **52 controls** fully declared in a single 296-line TOML file (`winui.toml`)
+- **~2290 lines** of generated dispatch code (bindings, set_prop, attach_event)
 - **Widget naming aligned to WinUI** — no more "Widget" suffix, metadata-derived field names
 - **Prop/Event/PropValue enums use metadata names** — no synthetic overrides
 - **Match arm collapsing** — duplicate set_prop arms merged via wildcards and OR-patterns,
   eliminating `#[allow(clippy::match_same_arms)]`
+- **Deref-aware cast elimination** — 132 redundant `.cast()` calls removed from set_prop,
+  20 from attach_event; only non-default interfaces require explicit casts
 - **Type inference from metadata** — value types, copy semantics, enum variants all
   resolved from `.winmd` files instead of hardcoded lists
+- **`emit` defaults to `optional`** — 72 TOML entries simplified; only non-standard
+  strategies need explicit override
 
 ### Failed Approaches (Historical)
 

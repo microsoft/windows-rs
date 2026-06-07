@@ -13,9 +13,9 @@ generate type-safe Rust dispatch code for `windows-reactor` via `quote`/`proc-ma
 |-----------|-------|
 | Hand-written backend (`mod.rs`) | ~3160 |
 | Hand-written backend (`convert.rs`) | 338 |
-| Generated code (3 files) | ~2320 |
-| TOML config (non-blank) | ~290 |
-| Tool source | ~2890 |
+| Generated code (3 files) | ~2290 |
+| TOML config (non-blank) | ~296 |
+| Tool source | ~2660 |
 
 ## Architecture
 
@@ -42,8 +42,8 @@ metadata. The tool looks up `put_{Name}` or `add_{Name}` to classify as property
 Minimum = { emit = "always" }                    # value "F64" inferred from metadata
 Maximum = { emit = "always" }
 Value = { emit = "always" }
-Step = { emit = "optional", setter_fn = true, value = "F64" }  # hand-written setter
-Header = { emit = "optional" }
+Step = { setter_fn = true, value = "F64" }       # hand-written setter; emit defaults to optional
+Header = {}                                      # emit defaults to optional, value inferred
 IsEnabled = { emit = "when_false" }              # unset auto-inferred to { default = "true" }
 ValueChanged = { field = "on_changed", invoke = "invoke_f64_args", getter = "get_NewValue" }
 ```
@@ -52,6 +52,7 @@ ValueChanged = { field = "on_changed", invoke = "invoke_f64_args", getter = "get
 
 | Field | Default | Example |
 |-------|---------|---------|
+| `emit` | `optional` | Omit for most props; override with `always`, `when_true`, `when_false`, or `non_default` |
 | `field` | `snake_case(Name)` for props, `on_snake_case(Name)` for events | `PlaceholderText` → `placeholder_text` |
 | `method` | `put_{Name}` | `Value` → `put_Value` |
 | `value` | Inferred from metadata param type | `put_IsEnabled(bool)` → `Bool` |
@@ -85,10 +86,10 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 
 ### Emit modes
 
+- `optional` *(default)* — emitted if `Some` (field: `Option<T>`)
 - `always` — always emitted (field: `T`)
-- `optional` — emitted if `Some` (field: `Option<T>`)
-- `when_true` / `when_false` — emitted if bool matches
-- `non_default` — emitted if `!=` default value
+- `when_true` / `when_false` — emitted if bool matches (field: `bool`)
+- `non_default` — emitted if `!=` default value (field: `T`)
 
 ## Match Arm Collapsing
 
@@ -122,6 +123,15 @@ crates/tools/reactor/src/
   derived automatically via `on_snake_case(Name)`. Only truly ergonomic overrides
   (e.g., `placeholder` for `PlaceholderText`) use `field = "..."`.
 - **Generated + hand-written coexist** — generated dispatch falls through to hand-written
-  code in mod.rs for complex cases (~36 setter_fn, ~23 attach_fn).
+  code in mod.rs for complex cases (~36 setter_fn, ~23 attach_fn). Widget `bindings()`
+  implementations can supplement generated bindings with hand-written logic for compound
+  types (BrushBinding, ColorArgb, FlyoutDef, ImageSource, ContentDialogResult).
+- **Deref-aware cast elimination** — generated code skips `.cast::<IFoo>()` when the
+  Handle variant's class Derefs to the target interface (the default interface). Only
+  non-default interfaces (INavigationView2, IButtonBase, IToggleButton, IRangeBase,
+  IControl, IContentControl) require explicit casts.
+- **Filter file split** — `base.txt` contains hand-written filter entries (composition,
+  dispatching, native interop). `generated.txt` is auto-derived from the TOML — never
+  edit it by hand. Both are passed to `windows-bindgen` to produce `bindings.rs`.
 - **One tool, one run** — TOML → code → bindings.rs all in one `cargo run`.
 - **20 codegen tests + 3 metadata tests** validate the pipeline.

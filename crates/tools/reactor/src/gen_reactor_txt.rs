@@ -1,17 +1,16 @@
-/// Generates `reactor_generated.txt` — additional control-specific binding
-/// requirements derived from the TOML + metadata that are NOT already in
-/// `reactor_base.txt`.
+/// Generates `generated.txt` — control-specific binding filter entries
+/// derived from the TOML + metadata that are NOT already in `base.txt`.
 ///
-/// This file is consumed alongside `reactor_base.txt` by `tool_bindings`
-/// (via tool_reactor). It only contains entries that the base file
-/// doesn't already provide.
+/// Both files are passed to `windows-bindgen` to produce `bindings.rs`.
+/// `generated.txt` should never be edited by hand — it is regenerated
+/// each time the tool runs.
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
 
 use crate::metadata::MetadataResolver;
 use crate::schema::*;
 
-/// Generate reactor_generated.txt content — only entries not in base.
+/// Generate `generated.txt` content — only entries not in `base.txt`.
 pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &Path) -> String {
     // Parse base file to know what's already covered
     let base_content = std::fs::read_to_string(base_path)

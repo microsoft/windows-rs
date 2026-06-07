@@ -17,10 +17,10 @@ and `on_snake_case(Name)` for events. Only genuinely ergonomic overrides use
 
 ```toml
 ["Microsoft.UI.Xaml.Controls.DatePicker"]
-Header = { emit = "optional" }
-DayVisible = { emit = "optional" }
-MonthVisible = { emit = "optional" }
-YearVisible = { emit = "optional" }
+Header = {}                                      # emit defaults to "optional"
+DayVisible = { emit = "when_false" }
+MonthVisible = { emit = "when_false" }
+YearVisible = { emit = "when_false" }
 IsEnabled = { emit = "when_false" }
 SelectedDateChanged = { attach_fn = true, handler = "DateTimeChanged" }
 ```
@@ -34,6 +34,11 @@ Given `"DayVisible"` on `Microsoft.UI.Xaml.Controls.DatePicker`:
 4. Method = `put_DayVisible`, interface = `IDatePicker`
 5. `when_false` + `method` → unset auto-inferred as `{ default = "true" }`
 
+Given `"Header"` with no overrides:
+1. Emit defaults to `optional` (field: `Option<String>`)
+2. `put_Header` takes IInspectable → `method_textblock` setter pattern
+3. Value type `Str` inferred from param classification
+
 Given `"SelectedDateChanged"`:
 1. No `put_` method found → classified as event
 2. Event variant = `SelectedDateChanged`
@@ -45,7 +50,7 @@ Given `"SelectedDateChanged"`:
 
 | Category | Count | Why |
 |----------|-------|-----|
-| `emit` | 190 | Always required — controls mount/diff behavior |
+| `emit` | ~50 | Only non-default strategies (`always`, `when_true`, `when_false`, `non_default`); `optional` is the default and omitted |
 | `setter_fn = true` | 36 | Custom setter logic (collections, complex types) |
 | `handler = "..."` | ~34 | Event handler type differs from event name |
 | `value = "..."` | ~31 | Non-primitive types, setter_fn props |
