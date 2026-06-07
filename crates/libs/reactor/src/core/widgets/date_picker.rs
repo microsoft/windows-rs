@@ -5,9 +5,9 @@ pub struct DatePicker {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub header: Option<String>,
-    pub day_visible: Option<bool>,
-    pub month_visible: Option<bool>,
-    pub year_visible: Option<bool>,
+    pub day_visible: bool,
+    pub month_visible: bool,
+    pub year_visible: bool,
     pub is_enabled: bool,
     pub on_selected_date_changed: Option<Callback<windows_time::DateTime>>,
 }
@@ -15,6 +15,9 @@ pub struct DatePicker {
 impl DatePicker {
     pub fn new() -> Self {
         Self {
+            day_visible: true,
+            month_visible: true,
+            year_visible: true,
             is_enabled: true,
             ..Default::default()
         }
@@ -26,17 +29,17 @@ impl DatePicker {
     }
 
     pub fn day_visible(mut self, v: bool) -> Self {
-        self.day_visible = Some(v);
+        self.day_visible = v;
         self
     }
 
     pub fn month_visible(mut self, v: bool) -> Self {
-        self.month_visible = Some(v);
+        self.month_visible = v;
         self
     }
 
     pub fn year_visible(mut self, v: bool) -> Self {
-        self.year_visible = Some(v);
+        self.year_visible = v;
         self
     }
 

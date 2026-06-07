@@ -113,14 +113,17 @@ pub(crate) fn calendar_date_picker_bindings(w: &CalendarDatePicker) -> PropBindi
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if let Some(v) = w.is_calendar_open {
-        out.push(Binding::Prop(Prop::IsCalendarOpen, PropValue::Bool(v)));
+    if w.is_calendar_open {
+        out.push(Binding::Prop(Prop::IsCalendarOpen, PropValue::Bool(true)));
     }
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    if let Some(v) = w.is_today_highlighted {
-        out.push(Binding::Prop(Prop::IsTodayHighlighted, PropValue::Bool(v)));
+    if !w.is_today_highlighted {
+        out.push(Binding::Prop(
+            Prop::IsTodayHighlighted,
+            PropValue::Bool(false),
+        ));
     }
     if let Some(v) = &w.placeholder_text {
         out.push(Binding::Prop(
@@ -141,11 +144,17 @@ pub(crate) fn calendar_view_bindings(w: &CalendarView) -> PropBindings {
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    if let Some(v) = w.is_group_label_visible {
-        out.push(Binding::Prop(Prop::IsGroupLabelVisible, PropValue::Bool(v)));
+    if !w.is_group_label_visible {
+        out.push(Binding::Prop(
+            Prop::IsGroupLabelVisible,
+            PropValue::Bool(false),
+        ));
     }
-    if let Some(v) = w.is_today_highlighted {
-        out.push(Binding::Prop(Prop::IsTodayHighlighted, PropValue::Bool(v)));
+    if !w.is_today_highlighted {
+        out.push(Binding::Prop(
+            Prop::IsTodayHighlighted,
+            PropValue::Bool(false),
+        ));
     }
     out
 }
@@ -180,23 +189,26 @@ pub(crate) fn color_picker_bindings(w: &ColorPicker) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::ColorChanged(cb.clone())),
     ));
-    if let Some(v) = w.is_alpha_enabled {
-        out.push(Binding::Prop(Prop::IsAlphaEnabled, PropValue::Bool(v)));
+    if !w.is_alpha_enabled {
+        out.push(Binding::Prop(Prop::IsAlphaEnabled, PropValue::Bool(false)));
     }
-    if let Some(v) = w.is_color_channel_text_input_visible {
+    if !w.is_color_channel_text_input_visible {
         out.push(Binding::Prop(
             Prop::IsColorChannelTextInputVisible,
-            PropValue::Bool(v),
+            PropValue::Bool(false),
         ));
     }
-    if let Some(v) = w.is_color_slider_visible {
+    if !w.is_color_slider_visible {
         out.push(Binding::Prop(
             Prop::IsColorSliderVisible,
-            PropValue::Bool(v),
+            PropValue::Bool(false),
         ));
     }
-    if let Some(v) = w.is_hex_input_visible {
-        out.push(Binding::Prop(Prop::IsHexInputVisible, PropValue::Bool(v)));
+    if !w.is_hex_input_visible {
+        out.push(Binding::Prop(
+            Prop::IsHexInputVisible,
+            PropValue::Bool(false),
+        ));
     }
     out
 }
@@ -304,8 +316,8 @@ pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::DateTimeChanged(cb.clone())),
     ));
-    if let Some(v) = w.day_visible {
-        out.push(Binding::Prop(Prop::DayVisible, PropValue::Bool(v)));
+    if !w.day_visible {
+        out.push(Binding::Prop(Prop::DayVisible, PropValue::Bool(false)));
     }
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
@@ -313,11 +325,11 @@ pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
     }
-    if let Some(v) = w.month_visible {
-        out.push(Binding::Prop(Prop::MonthVisible, PropValue::Bool(v)));
+    if !w.month_visible {
+        out.push(Binding::Prop(Prop::MonthVisible, PropValue::Bool(false)));
     }
-    if let Some(v) = w.year_visible {
-        out.push(Binding::Prop(Prop::YearVisible, PropValue::Bool(v)));
+    if !w.year_visible {
+        out.push(Binding::Prop(Prop::YearVisible, PropValue::Bool(false)));
     }
     out
 }

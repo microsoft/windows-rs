@@ -24,10 +24,10 @@ pub struct ColorPicker {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub color: ColorArgb,
-    pub is_alpha_enabled: Option<bool>,
-    pub is_hex_input_visible: Option<bool>,
-    pub is_color_slider_visible: Option<bool>,
-    pub is_color_channel_text_input_visible: Option<bool>,
+    pub is_alpha_enabled: bool,
+    pub is_hex_input_visible: bool,
+    pub is_color_slider_visible: bool,
+    pub is_color_channel_text_input_visible: bool,
     pub on_color_changed: Option<Callback<(u8, u8, u8, u8)>>,
 }
 
@@ -35,27 +35,31 @@ impl ColorPicker {
     pub fn new(color: ColorArgb) -> Self {
         Self {
             color,
+            is_alpha_enabled: true,
+            is_hex_input_visible: true,
+            is_color_slider_visible: true,
+            is_color_channel_text_input_visible: true,
             ..Default::default()
         }
     }
 
     pub fn alpha_enabled(mut self, v: bool) -> Self {
-        self.is_alpha_enabled = Some(v);
+        self.is_alpha_enabled = v;
         self
     }
 
     pub fn hex_input_visible(mut self, v: bool) -> Self {
-        self.is_hex_input_visible = Some(v);
+        self.is_hex_input_visible = v;
         self
     }
 
     pub fn color_slider_visible(mut self, v: bool) -> Self {
-        self.is_color_slider_visible = Some(v);
+        self.is_color_slider_visible = v;
         self
     }
 
     pub fn color_channel_text_input_visible(mut self, v: bool) -> Self {
-        self.is_color_channel_text_input_visible = Some(v);
+        self.is_color_channel_text_input_visible = v;
         self
     }
 

@@ -34,13 +34,13 @@ CommandBarFlyoutClick = { attach_fn = true, handler = "TextChanged" }
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
 Header = { emit = "optional" }
 PlaceholderText = { emit = "optional", unset = { default = "\"\"" } }
-IsTodayHighlighted = { emit = "optional" }
-IsCalendarOpen = { emit = "optional" }
+IsTodayHighlighted = { emit = "when_false" }
+IsCalendarOpen = { emit = "when_true" }
 IsEnabled = { emit = "when_false" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarView"]
-IsTodayHighlighted = { emit = "optional" }
-IsGroupLabelVisible = { emit = "optional" }
+IsTodayHighlighted = { emit = "when_false" }
+IsGroupLabelVisible = { emit = "when_false" }
 IsEnabled = { emit = "when_false" }
 SelectedDatesChanged = { field = "on_changed", handler = "Click" }
 
@@ -53,10 +53,10 @@ IsEnabled = { emit = "when_false" }
 Checked = { field = "on_changed", add_method_false = "add_Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ColorPicker"]
-IsAlphaEnabled = { emit = "optional" }
-IsHexInputVisible = { emit = "optional" }
-IsColorSliderVisible = { emit = "optional" }
-IsColorChannelTextInputVisible = { emit = "optional" }
+IsAlphaEnabled = { emit = "when_false" }
+IsHexInputVisible = { emit = "when_false" }
+IsColorSliderVisible = { emit = "when_false" }
+IsColorChannelTextInputVisible = { emit = "when_false" }
 ColorChanged = { attach_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
@@ -86,9 +86,9 @@ IsOpen = { emit = "always", setter_fn = true, value = "Bool" }
 
 ["Microsoft.UI.Xaml.Controls.DatePicker"]
 Header = { emit = "optional" }
-DayVisible = { emit = "optional" }
-MonthVisible = { emit = "optional" }
-YearVisible = { emit = "optional" }
+DayVisible = { emit = "when_false" }
+MonthVisible = { emit = "when_false" }
+YearVisible = { emit = "when_false" }
 IsEnabled = { emit = "when_false" }
 SelectedDateChanged = { attach_fn = true, handler = "DateTimeChanged" }
 

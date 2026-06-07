@@ -86,6 +86,9 @@ pub(crate) fn dispatch(
         (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.cast::<Xaml::IDatePicker>()?.put_DayVisible(*v)?;
         }
+        (Prop::DayVisible, PropValue::Unset, Handle::DatePicker(h)) => {
+            h.cast::<Xaml::IDatePicker>()?.put_DayVisible(true)?;
+        }
         (
             Prop::DefaultLabelPosition,
             PropValue::CommandBarDefaultLabelPosition(v),
@@ -262,6 +265,9 @@ pub(crate) fn dispatch(
         (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.cast::<Xaml::IColorPicker>()?.put_IsAlphaEnabled(*v)?;
         }
+        (Prop::IsAlphaEnabled, PropValue::Unset, Handle::ColorPicker(h)) => {
+            h.cast::<Xaml::IColorPicker>()?.put_IsAlphaEnabled(true)?;
+        }
         (Prop::IsBackButtonEnabled, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.cast::<Xaml::ITitleBar>()?.put_IsBackButtonEnabled(*v)?;
         }
@@ -275,6 +281,10 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::ICalendarDatePicker>()?
                 .put_IsCalendarOpen(*v)?;
         }
+        (Prop::IsCalendarOpen, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
+            h.cast::<Xaml::ICalendarDatePicker>()?
+                .put_IsCalendarOpen(false)?;
+        }
         (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(h)) => {
             h.cast::<Xaml::IInfoBar>()?.put_IsClosable(*v)?;
         }
@@ -282,9 +292,17 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::IColorPicker>()?
                 .put_IsColorChannelTextInputVisible(*v)?;
         }
+        (Prop::IsColorChannelTextInputVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
+            h.cast::<Xaml::IColorPicker>()?
+                .put_IsColorChannelTextInputVisible(true)?;
+        }
         (Prop::IsColorSliderVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.cast::<Xaml::IColorPicker>()?
                 .put_IsColorSliderVisible(*v)?;
+        }
+        (Prop::IsColorSliderVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
+            h.cast::<Xaml::IColorPicker>()?
+                .put_IsColorSliderVisible(true)?;
         }
         (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(h)) => {
             h.cast::<Xaml::IComboBox>()?.put_IsEditable(*v)?;
@@ -296,8 +314,16 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::ICalendarView>()?
                 .put_IsGroupLabelVisible(*v)?;
         }
+        (Prop::IsGroupLabelVisible, PropValue::Unset, Handle::CalendarView(h)) => {
+            h.cast::<Xaml::ICalendarView>()?
+                .put_IsGroupLabelVisible(true)?;
+        }
         (Prop::IsHexInputVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.cast::<Xaml::IColorPicker>()?.put_IsHexInputVisible(*v)?;
+        }
+        (Prop::IsHexInputVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
+            h.cast::<Xaml::IColorPicker>()?
+                .put_IsHexInputVisible(true)?;
         }
         (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(h)) => {
             h.cast::<Xaml::IProgressBar>()?.put_IsIndeterminate(*v)?;
@@ -381,6 +407,14 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::ICalendarView>()?
                 .put_IsTodayHighlighted(*v)?;
         }
+        (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
+            h.cast::<Xaml::ICalendarDatePicker>()?
+                .put_IsTodayHighlighted(true)?;
+        }
+        (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarView(h)) => {
+            h.cast::<Xaml::ICalendarView>()?
+                .put_IsTodayHighlighted(true)?;
+        }
         (Prop::MaxColumns, PropValue::I32(v), Handle::RadioButtons(h)) => {
             h.cast::<Xaml::IRadioButtons>()?.put_MaxColumns(*v)?;
         }
@@ -410,6 +444,9 @@ pub(crate) fn dispatch(
         }
         (Prop::MonthVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.cast::<Xaml::IDatePicker>()?.put_MonthVisible(*v)?;
+        }
+        (Prop::MonthVisible, PropValue::Unset, Handle::DatePicker(h)) => {
+            h.cast::<Xaml::IDatePicker>()?.put_MonthVisible(true)?;
         }
         (Prop::OffContent, PropValue::Str(v), Handle::ToggleSwitch(h)) => {
             let tb = string_as_textblock(v.as_str())?;
@@ -720,6 +757,9 @@ pub(crate) fn dispatch(
         }
         (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.cast::<Xaml::IDatePicker>()?.put_YearVisible(*v)?;
+        }
+        (Prop::YearVisible, PropValue::Unset, Handle::DatePicker(h)) => {
+            h.cast::<Xaml::IDatePicker>()?.put_YearVisible(true)?;
         }
         (Prop::IsChecked, PropValue::Bool(v), _) => {
             handle

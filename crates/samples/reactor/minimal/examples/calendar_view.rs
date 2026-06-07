@@ -8,7 +8,7 @@ fn app(cx: &mut RenderCx) -> Element {
     let bump = move || set_count.call(count + 1);
 
     vstack((
-        calendar_view().today_highlighted(true).on_changed(bump),
+        calendar_view().on_changed(bump),
         text_block(format!("Selection changed {count} time(s)")),
     ))
     .spacing(8.0)

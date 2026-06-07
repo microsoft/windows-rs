@@ -68,7 +68,7 @@ fn calendar_date_picker_mounts_with_header_placeholder_and_today_highlighted() {
     let el: Element = CalendarDatePicker::new()
         .header("Date")
         .placeholder_text("Pick...")
-        .today_highlighted(true)
+        .today_highlighted(false)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -84,7 +84,7 @@ fn calendar_date_picker_mounts_with_header_placeholder_and_today_highlighted() {
                 (Prop::PlaceholderText, PropValue::Str(s)) if s == "Pick..." => {
                     saw_placeholder = true;
                 }
-                (Prop::IsTodayHighlighted, PropValue::Bool(true)) => saw_today = true,
+                (Prop::IsTodayHighlighted, PropValue::Bool(false)) => saw_today = true,
                 _ => {}
             }
         }
@@ -95,7 +95,7 @@ fn calendar_date_picker_mounts_with_header_placeholder_and_today_highlighted() {
 #[test]
 fn calendar_view_mounts_with_today_highlight_and_group_label_visibility() {
     let el: Element = CalendarView::new()
-        .today_highlighted(true)
+        .today_highlighted(false)
         .group_label_visible(false)
         .into();
     let r = mount(&el);
@@ -107,7 +107,7 @@ fn calendar_view_mounts_with_today_highlight_and_group_label_visibility() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::IsTodayHighlighted, PropValue::Bool(true)) => saw_today = true,
+                (Prop::IsTodayHighlighted, PropValue::Bool(false)) => saw_today = true,
                 (Prop::IsGroupLabelVisible, PropValue::Bool(false)) => saw_group_labels = true,
                 _ => {}
             }
@@ -119,7 +119,7 @@ fn calendar_view_mounts_with_today_highlight_and_group_label_visibility() {
 #[test]
 fn color_picker_mounts_with_alpha_and_hex_visibility() {
     let el: Element = ColorPicker::new(ColorArgb::new(1, 2, 3))
-        .alpha_enabled(true)
+        .alpha_enabled(false)
         .hex_input_visible(false)
         .into();
     let r = mount(&el);
@@ -131,7 +131,7 @@ fn color_picker_mounts_with_alpha_and_hex_visibility() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::IsAlphaEnabled, PropValue::Bool(true)) => saw_alpha = true,
+                (Prop::IsAlphaEnabled, PropValue::Bool(false)) => saw_alpha = true,
                 (Prop::IsHexInputVisible, PropValue::Bool(false)) => saw_hex = true,
                 _ => {}
             }
@@ -144,8 +144,7 @@ fn color_picker_mounts_with_alpha_and_hex_visibility() {
 fn date_picker_mounts_with_header_and_component_visibility() {
     let el: Element = DatePicker::new()
         .header("Birthday")
-        .day_visible(true)
-        .month_visible(true)
+        .day_visible(false)
         .year_visible(false)
         .into();
     let r = mount(&el);
@@ -154,20 +153,18 @@ fn date_picker_mounts_with_header_and_component_visibility() {
 
     let mut saw_header = false;
     let mut saw_day = false;
-    let mut saw_month = false;
     let mut saw_year = false;
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
                 (Prop::Header, PropValue::Str(s)) if s == "Birthday" => saw_header = true,
-                (Prop::DayVisible, PropValue::Bool(true)) => saw_day = true,
-                (Prop::MonthVisible, PropValue::Bool(true)) => saw_month = true,
+                (Prop::DayVisible, PropValue::Bool(false)) => saw_day = true,
                 (Prop::YearVisible, PropValue::Bool(false)) => saw_year = true,
                 _ => {}
             }
         }
     }
-    assert!(saw_header && saw_day && saw_month && saw_year);
+    assert!(saw_header && saw_day && saw_year);
 }
 
 #[test]

@@ -4,8 +4,8 @@ use super::*;
 pub struct CalendarView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub is_today_highlighted: Option<bool>,
-    pub is_group_label_visible: Option<bool>,
+    pub is_today_highlighted: bool,
+    pub is_group_label_visible: bool,
     pub is_enabled: bool,
     pub on_changed: Option<Callback<()>>,
 }
@@ -13,18 +13,20 @@ pub struct CalendarView {
 impl CalendarView {
     pub fn new() -> Self {
         Self {
+            is_today_highlighted: true,
+            is_group_label_visible: true,
             is_enabled: true,
             ..Default::default()
         }
     }
 
     pub fn today_highlighted(mut self, v: bool) -> Self {
-        self.is_today_highlighted = Some(v);
+        self.is_today_highlighted = v;
         self
     }
 
     pub fn group_label_visible(mut self, v: bool) -> Self {
-        self.is_group_label_visible = Some(v);
+        self.is_group_label_visible = v;
         self
     }
 

@@ -14,7 +14,6 @@ pub fn calendar_date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                     calendar_date_picker()
                         .header("Appointment Date")
                         .placeholder_text("Select a date")
-                        .today_highlighted(true)
                         .on_changed({
                             let set_selected_date = set_selected_date;
                             move |value| {

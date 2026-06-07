@@ -6,8 +6,8 @@ pub struct CalendarDatePicker {
     pub modifiers: Modifiers,
     pub header: Option<String>,
     pub placeholder_text: Option<String>,
-    pub is_today_highlighted: Option<bool>,
-    pub is_calendar_open: Option<bool>,
+    pub is_today_highlighted: bool,
+    pub is_calendar_open: bool,
     pub is_enabled: bool,
     pub on_changed: Option<Callback<Option<windows_time::DateTime>>>,
 }
@@ -15,6 +15,7 @@ pub struct CalendarDatePicker {
 impl CalendarDatePicker {
     pub fn new() -> Self {
         Self {
+            is_today_highlighted: true,
             is_enabled: true,
             ..Default::default()
         }
@@ -31,12 +32,12 @@ impl CalendarDatePicker {
     }
 
     pub fn today_highlighted(mut self, v: bool) -> Self {
-        self.is_today_highlighted = Some(v);
+        self.is_today_highlighted = v;
         self
     }
 
     pub fn calendar_open(mut self, v: bool) -> Self {
-        self.is_calendar_open = Some(v);
+        self.is_calendar_open = v;
         self
     }
 
