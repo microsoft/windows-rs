@@ -35,8 +35,7 @@ calendar_view()
             ),
             sample_card(
                 "CalendarView without Labels",
-                calendar_view()
-                .group_label_visible(false),
+                calendar_view().group_label_visible(false),
                 "calendar_view().group_label_visible(false)",
             ),
         ],
