@@ -8,7 +8,7 @@ pub struct TimePicker {
     pub clock_identifier: Option<String>,
     pub minute_increment: Option<i32>,
     pub is_enabled: bool,
-    pub on_changed: Option<Callback<windows_time::TimeSpan>>,
+    pub on_selected_time_changed: Option<Callback<windows_time::TimeSpan>>,
 }
 
 impl TimePicker {
@@ -40,8 +40,8 @@ impl TimePicker {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<windows_time::TimeSpan>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_selected_time_changed(mut self, f: impl IntoCallback<windows_time::TimeSpan>) -> Self {
+        self.on_selected_time_changed = Some(f.into_callback());
         self
     }
 }

@@ -28,7 +28,7 @@ pub struct ColorPicker {
     pub is_hex_input_visible: Option<bool>,
     pub is_color_slider_visible: Option<bool>,
     pub is_color_channel_text_input_visible: Option<bool>,
-    pub on_changed: Option<Callback<(u8, u8, u8, u8)>>,
+    pub on_color_changed: Option<Callback<(u8, u8, u8, u8)>>,
 }
 
 impl ColorPicker {
@@ -59,8 +59,8 @@ impl ColorPicker {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<(u8, u8, u8, u8)>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_color_changed(mut self, f: impl IntoCallback<(u8, u8, u8, u8)>) -> Self {
+        self.on_color_changed = Some(f.into_callback());
         self
     }
 }

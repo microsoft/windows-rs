@@ -12,7 +12,7 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         color_picker(ColorArgb::with_alpha(a, r, g, b))
             .alpha_enabled(true)
-            .on_changed(update),
+            .on_color_changed(update),
         text_block(format!("ARGB: ({a}, {r}, {g}, {b})")),
         text_block(format!("Hex: #{r:02X}{g:02X}{b:02X}")),
     ))

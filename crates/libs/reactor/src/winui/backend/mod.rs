@@ -2483,7 +2483,7 @@ impl Backend for WinUIBackend {
                 );
             }
             // ── W9: DatePicker ────────────────────────────────────────────
-            (Event::DateSelected, Handle::DatePicker(dp)) => {
+            (Event::SelectedDateChanged, Handle::DatePicker(dp)) => {
                 revokers.push(
                     dp.add_SelectedDateChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
@@ -2496,7 +2496,7 @@ impl Backend for WinUIBackend {
                 );
             }
             // ── W10: TimePicker ───────────────────────────────────────────
-            (Event::TimeSelected, Handle::TimePicker(tp)) => {
+            (Event::SelectedTimeChanged, Handle::TimePicker(tp)) => {
                 revokers.push(
                     tp.add_SelectedTimeChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
@@ -2684,7 +2684,7 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            (Event::Opened, _) | (Event::Closed, _) => {
+            (Event::Closed, _) => {
                 // Flyout open/close events are not yet wired.
             }
             // Events handled by generated_attach_event::dispatch — if we reach here, the

@@ -8,7 +8,7 @@ pub struct DropDownButton {
     pub content: Option<String>,
     pub is_enabled: bool,
     pub on_click: Option<Callback<()>>,
-    pub flyout_items: Option<Vec<MenuItemDef>>,
+    pub menu_flyout_items: Option<Vec<MenuItemDef>>,
     pub on_item_clicked: Option<Callback<String>>,
 }
 
@@ -33,7 +33,7 @@ impl DropDownButton {
 
     /// Attach a menu flyout with the given items.
     pub fn menu_flyout(mut self, items: Vec<MenuItemDef>) -> Self {
-        self.flyout_items = Some(items);
+        self.menu_flyout_items = Some(items);
         self
     }
 

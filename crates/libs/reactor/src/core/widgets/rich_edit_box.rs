@@ -10,7 +10,7 @@ pub struct RichEditBox {
     pub placeholder: Option<String>,
     pub header: Option<String>,
     pub is_read_only: bool,
-    pub on_changed: Option<Callback<String>>,
+    pub on_text_changed: Option<Callback<String>>,
 }
 
 impl RichEditBox {
@@ -36,8 +36,8 @@ impl RichEditBox {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<String>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_text_changed(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_text_changed = Some(f.into_callback());
         self
     }
 }

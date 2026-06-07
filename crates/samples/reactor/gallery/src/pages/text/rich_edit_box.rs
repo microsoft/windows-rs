@@ -13,7 +13,7 @@ pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 rich_edit_box(&editor_text)
                     .header("Document")
                     .placeholder("Start typing...")
-                    .on_changed({
+                    .on_text_changed({
                         let set_editor_text = set_editor_text;
                         move |text: String| set_editor_text.call(text)
                     })
@@ -29,7 +29,7 @@ pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> Element {
             r#"rich_edit_box(&editor_text)
     .header(\"Document\")
     .placeholder(\"Start typing...\")
-    .on_changed(|text| set_editor_text.call(text))"#,
+    .on_text_changed(|text| set_editor_text.call(text))"#,
         )],
     )
 }

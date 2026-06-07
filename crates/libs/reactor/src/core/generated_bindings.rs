@@ -79,7 +79,7 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
     out.push(Binding::Event(
-        Event::MenuItemClicked,
+        Event::ItemClicked,
         w.on_menu_item_clicked
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
@@ -175,8 +175,8 @@ pub(crate) fn check_box_bindings(w: &CheckBox) -> PropBindings {
 pub(crate) fn color_picker_bindings(w: &ColorPicker) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
     out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
+        Event::ColorChanged,
+        w.on_color_changed
             .as_ref()
             .map(|cb| EventHandler::ColorChanged(cb.clone())),
     ));
@@ -299,8 +299,8 @@ pub(crate) fn content_dialog_bindings(w: &ContentDialog) -> PropBindings {
 pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
     out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
+        Event::SelectedDateChanged,
+        w.on_selected_date_changed
             .as_ref()
             .map(|cb| EventHandler::DateTimeChanged(cb.clone())),
     ));
@@ -338,14 +338,14 @@ pub(crate) fn drop_down_button_bindings(w: &DropDownButton) -> PropBindings {
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
-    if let Some(v) = &w.flyout_items {
-        out.push(Binding::Prop(
-            Prop::FlyoutItems,
-            PropValue::MenuFlyoutItems(v.clone()),
-        ));
-    }
     if !w.is_enabled {
         out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+    }
+    if let Some(v) = &w.menu_flyout_items {
+        out.push(Binding::Prop(
+            Prop::MenuFlyoutItems,
+            PropValue::MenuFlyoutItems(v.clone()),
+        ));
     }
     out
 }
@@ -813,8 +813,8 @@ pub(crate) fn relative_panel_bindings(_w: &RelativePanel) -> PropBindings {
 pub(crate) fn rich_edit_box_bindings(w: &RichEditBox) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
     out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
+        Event::TextChanged,
+        w.on_text_changed
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
@@ -1092,8 +1092,8 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
 pub(crate) fn time_picker_bindings(w: &TimePicker) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
     out.push(Binding::Event(
-        Event::Changed,
-        w.on_changed
+        Event::SelectedTimeChanged,
+        w.on_selected_time_changed
             .as_ref()
             .map(|cb| EventHandler::TimeChanged(cb.clone())),
     ));

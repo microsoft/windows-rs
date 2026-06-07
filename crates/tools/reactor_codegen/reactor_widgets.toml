@@ -28,7 +28,7 @@ Style = { emit = { non_default = "ButtonStyle::Default" }, setter_fn = true, val
 Icon = { emit = "optional", setter_fn = true, value = "Symbol" }
 MenuFlyoutItems = { emit = "optional", setter_fn = true, value = "MenuFlyoutItems" }
 Click = {}
-MenuItemClicked = { attach_fn = true, handler = "TextChanged" }
+ItemClicked = { field = "on_menu_item_clicked", attach_fn = true, handler = "TextChanged" }
 CommandBarFlyoutClick = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
@@ -57,7 +57,7 @@ IsAlphaEnabled = { emit = "optional" }
 IsHexInputVisible = { emit = "optional" }
 IsColorSliderVisible = { emit = "optional" }
 IsColorChannelTextInputVisible = { emit = "optional" }
-Changed = { attach_fn = true, handler = "ColorChanged" }
+ColorChanged = { attach_fn = true, handler = "ColorChanged" }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
 Items = { emit = "always", setter_fn = true, value = "StrList" }
@@ -90,12 +90,12 @@ DayVisible = { emit = "optional" }
 MonthVisible = { emit = "optional" }
 YearVisible = { emit = "optional" }
 IsEnabled = { emit = "when_false" }
-Changed = { attach_fn = true, handler = "DateTimeChanged" }
+SelectedDateChanged = { attach_fn = true, handler = "DateTimeChanged" }
 
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
 Content = { emit = "optional", wrap = "ireference" }
 IsEnabled = { emit = "when_false" }
-FlyoutItems = { emit = "optional", setter_fn = true, value = "MenuFlyoutItems" }
+MenuFlyoutItems = { emit = "optional", setter_fn = true, value = "MenuFlyoutItems" }
 ItemClicked = { attach_fn = true, handler = "TextChanged" }
 Click = {}
 
@@ -233,7 +233,7 @@ Text = { emit = "always", setter_fn = true, value = "Str" }
 PlaceholderText = { field = "placeholder", emit = "optional", unset = { default = "\"\"" } }
 Header = { emit = "optional" }
 IsReadOnly = { emit = "when_true", unset = "custom" }
-Changed = { attach_fn = true, handler = "TextChanged" }
+TextChanged = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
 HorizontalScrollBarVisibility = { emit = "always" }
@@ -312,7 +312,7 @@ Header = { emit = "optional" }
 ClockIdentifier = { emit = "optional" }
 MinuteIncrement = { emit = "optional" }
 IsEnabled = { emit = "when_false" }
-Changed = { attach_fn = true, handler = "TimeChanged" }
+SelectedTimeChanged = { attach_fn = true, handler = "TimeChanged" }
 
 ["Microsoft.UI.Xaml.Controls.TitleBar"]
 Title = { emit = "always" }

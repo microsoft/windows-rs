@@ -9,7 +9,7 @@ pub struct DatePicker {
     pub month_visible: Option<bool>,
     pub year_visible: Option<bool>,
     pub is_enabled: bool,
-    pub on_changed: Option<Callback<windows_time::DateTime>>,
+    pub on_selected_date_changed: Option<Callback<windows_time::DateTime>>,
 }
 
 impl DatePicker {
@@ -45,8 +45,8 @@ impl DatePicker {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<windows_time::DateTime>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_selected_date_changed(mut self, f: impl IntoCallback<windows_time::DateTime>) -> Self {
+        self.on_selected_date_changed = Some(f.into_callback());
         self
     }
 }

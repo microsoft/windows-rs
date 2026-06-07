@@ -10,7 +10,7 @@ fn app(cx: &mut RenderCx) -> Element {
     };
 
     vstack((
-        date_picker().header("Pick a date").on_changed(on_date),
+        date_picker().header("Pick a date").on_selected_date_changed(on_date),
         text_block(&*label),
     ))
     .spacing(8.0)

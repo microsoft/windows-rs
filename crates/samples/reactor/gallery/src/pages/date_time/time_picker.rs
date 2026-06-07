@@ -11,7 +11,7 @@ pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Basic TimePicker",
                 vstack((
-                    time_picker().header("Select time").on_changed({
+                    time_picker().header("Select time").on_selected_time_changed({
                         let set_selected_time = set_selected_time;
                         move |time: windows_reactor::TimeSpan| {
                             let hours = time.whole_hours();
@@ -24,7 +24,7 @@ pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                 .spacing(8.0),
                 r#"time_picker()
     .header(\"Select time\")
-    .on_changed(|time| set_selected_time.call(...))"#,
+    .on_selected_time_changed(|time| set_selected_time.call(...))"#,
             ),
             sample_card(
                 "15-Minute Increments",
