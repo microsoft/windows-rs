@@ -51,8 +51,15 @@ pub struct PropDecl {
     /// `PropValue` variant name (e.g. `"Str"`, `"F64"`, `"Bool"`).
     /// If omitted, inferred from metadata parameter type.
     pub value: Option<String>,
-    /// Emission rule for `bindings()`.
-    pub emit: Emit,
+    /// Whether the binding is always emitted (field is `T`, never skipped).
+    /// Used for core widget state like Content, Items, Value.
+    pub required: bool,
+
+    /// WinUI default value expression (e.g. `"true"`, `"0"`, `"Stretch::default()"`).
+    /// When set, the field type is `T` (not Option) and the binding is only
+    /// emitted when the value differs from this default.
+    /// When absent and `required` is false, the field is `Option<T>`.
+    pub default: Option<String>,
 
     /// Override for IInspectable params: `"ireference"` to use IReference wrapping
     /// instead of the default TextBlock wrapping.
@@ -249,16 +256,14 @@ impl PropDecl {
             }
         }
 
-        // Infer unset from emit: when_false → true, when_true → false.
-        if self.unset.is_none() && self.method.is_some() {
-            let inferred = match &self.emit {
-                Emit::WhenFalse => Some("true".to_string()),
-                Emit::WhenTrue => Some("false".to_string()),
-                _ => None,
-            };
-            if let Some(default) = inferred {
-                self.unset = Some(UnsetPolicy::Default { default });
-            }
+        // Infer unset from default: auto-reset to the declared default value.
+        if self.unset.is_none()
+            && self.method.is_some()
+            && let Some(ref default_expr) = self.default
+        {
+            self.unset = Some(UnsetPolicy::Default {
+                default: default_expr.clone(),
+            });
         }
     }
 
@@ -293,23 +298,6 @@ impl PropDecl {
             SetterKind::Custom
         }
     }
-}
-
-/// When a prop is emitted in `bindings()`.
-#[derive(Deserialize, Clone, PartialEq, Eq, Debug)]
-#[serde(rename_all = "snake_case")]
-pub enum Emit {
-    /// Always emitted, even at default value.
-    Always,
-    /// Emitted only when `Some(v)` (field is `Option<T>`).
-    Optional,
-    /// Emitted only when the bool field is `true`.
-    WhenTrue,
-    /// Emitted only when the bool field is `false`.
-    WhenFalse,
-    /// Emitted only when the field differs from a default value.
-    /// The string is the default expression to compare against.
-    NonDefault(String),
 }
 
 /// What happens when a previously-set prop is removed (`PropValue::Unset`).

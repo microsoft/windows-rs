@@ -20,6 +20,9 @@ pub(crate) fn dispatch(
         (Prop::CanReorderTabs, PropValue::Bool(v), Handle::TabView(h)) => {
             h.put_CanReorderTabs(*v)?;
         }
+        (Prop::CanReorderTabs, PropValue::Unset, Handle::TabView(h)) => {
+            h.put_CanReorderTabs(false)?;
+        }
         (Prop::Caption, PropValue::Str(v), Handle::RatingControl(h)) => {
             h.put_Caption(v.as_str())?;
         }
@@ -256,6 +259,9 @@ pub(crate) fn dispatch(
         (Prop::IsAddTabButtonVisible, PropValue::Bool(v), Handle::TabView(h)) => {
             h.put_IsAddTabButtonVisible(*v)?;
         }
+        (Prop::IsAddTabButtonVisible, PropValue::Unset, Handle::TabView(h)) => {
+            h.put_IsAddTabButtonVisible(true)?;
+        }
         (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.put_IsAlphaEnabled(*v)?;
         }
@@ -265,11 +271,21 @@ pub(crate) fn dispatch(
         (Prop::IsBackButtonEnabled, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.put_IsBackButtonEnabled(*v)?;
         }
+        (Prop::IsBackButtonEnabled, PropValue::Unset, Handle::TitleBar(h)) => {
+            h.put_IsBackButtonEnabled(false)?;
+        }
         (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.put_IsBackButtonVisible(*v)?;
         }
+        (Prop::IsBackButtonVisible, PropValue::Unset, Handle::TitleBar(h)) => {
+            h.put_IsBackButtonVisible(false)?;
+        }
         (Prop::IsBackEnabled, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?.put_IsBackEnabled(*v)?;
+        }
+        (Prop::IsBackEnabled, PropValue::Unset, Handle::NavigationView(h)) => {
+            h.cast::<Xaml::INavigationView2>()?
+                .put_IsBackEnabled(false)?;
         }
         (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(h)) => {
             h.put_IsCalendarOpen(*v)?;
@@ -279,6 +295,9 @@ pub(crate) fn dispatch(
         }
         (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(h)) => {
             h.put_IsClosable(*v)?;
+        }
+        (Prop::IsClosable, PropValue::Unset, Handle::InfoBar(h)) => {
+            h.put_IsClosable(true)?;
         }
         (Prop::IsColorChannelTextInputVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.put_IsColorChannelTextInputVisible(*v)?;
@@ -297,6 +316,9 @@ pub(crate) fn dispatch(
         }
         (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(h)) => {
             h.put_IsExpanded(*v)?;
+        }
+        (Prop::IsExpanded, PropValue::Unset, Handle::Expander(h)) => {
+            h.put_IsExpanded(false)?;
         }
         (Prop::IsGroupLabelVisible, PropValue::Bool(v), Handle::CalendarView(h)) => {
             h.put_IsGroupLabelVisible(*v)?;
@@ -334,17 +356,29 @@ pub(crate) fn dispatch(
         (Prop::IsOpen, PropValue::Bool(v), Handle::TeachingTip(h)) => {
             h.put_IsOpen(*v)?;
         }
+        (Prop::IsOpen, PropValue::Unset, Handle::InfoBar(h)) => {
+            h.put_IsOpen(false)?;
+        }
+        (Prop::IsOpen, PropValue::Unset, Handle::TeachingTip(h)) => {
+            h.put_IsOpen(false)?;
+        }
         (Prop::IsPaneOpen, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.put_IsPaneOpen(*v)?;
         }
         (Prop::IsPaneOpen, PropValue::Bool(v), Handle::SplitView(h)) => {
             h.put_IsPaneOpen(*v)?;
         }
+        (Prop::IsPaneOpen, PropValue::Unset, Handle::SplitView(h)) => {
+            h.put_IsPaneOpen(false)?;
+        }
         (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.put_IsPaneToggleButtonVisible(*v)?;
         }
         (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.put_IsPaneToggleButtonVisible(*v)?;
+        }
+        (Prop::IsPaneToggleButtonVisible, PropValue::Unset, Handle::TitleBar(h)) => {
+            h.put_IsPaneToggleButtonVisible(false)?;
         }
         (Prop::IsPasswordRevealButtonEnabled, PropValue::Bool(v), Handle::PasswordBox(h)) => {
             h.put_IsPasswordRevealButtonEnabled(*v)?;
@@ -366,6 +400,9 @@ pub(crate) fn dispatch(
         }
         (Prop::IsSettingsVisible, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.put_IsSettingsVisible(*v)?;
+        }
+        (Prop::IsSettingsVisible, PropValue::Unset, Handle::NavigationView(h)) => {
+            h.put_IsSettingsVisible(true)?;
         }
         (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(h)) => {
             h.put_IsTextSelectionEnabled(*v)?;
@@ -573,6 +610,18 @@ pub(crate) fn dispatch(
         (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(h)) => {
             h.put_SelectedIndex(*v)?;
         }
+        (Prop::SelectedIndex, PropValue::Unset, Handle::Pivot(h)) => {
+            h.put_SelectedIndex(0)?;
+        }
+        (Prop::SelectedIndex, PropValue::Unset, Handle::RadioButtons(h)) => {
+            h.put_SelectedIndex(0)?;
+        }
+        (Prop::SelectedIndex, PropValue::Unset, Handle::ComboBox(h)) => {
+            h.cast::<Xaml::ISelector>()?.put_SelectedIndex(0)?;
+        }
+        (Prop::SelectedIndex, PropValue::Unset, Handle::TabView(h)) => {
+            h.put_SelectedIndex(0)?;
+        }
         (Prop::SelectionMode, PropValue::TreeViewSelectionMode(v), Handle::TreeView(h)) => {
             let mapped = match v {
                 TreeViewSelectionMode::None => Xaml::TreeViewSelectionMode::None,
@@ -682,6 +731,12 @@ pub(crate) fn dispatch(
         }
         (Prop::Value, PropValue::F64(v), Handle::RatingControl(h)) => {
             h.put_Value(*v)?;
+        }
+        (Prop::Value, PropValue::Unset, Handle::NumberBox(h)) => {
+            h.put_Value(0.0)?;
+        }
+        (Prop::Value, PropValue::Unset, Handle::RatingControl(h)) => {
+            h.put_Value(0.0)?;
         }
         (
             Prop::VerticalScrollBarVisibility,

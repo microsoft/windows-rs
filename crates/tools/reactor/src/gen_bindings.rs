@@ -19,7 +19,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
     let fn_name = ident(&format!("{}_bindings", to_snake_case(&ctrl.name)));
     let widget_type = ident(&ctrl.name);
 
-    let has_conditional_props = ctrl.prop.iter().any(|p| !matches!(p.emit, Emit::Always));
+    let has_conditional_props = ctrl.prop.iter().any(|p| !p.required);
     let all_unconditional = !has_conditional_props;
 
     let prop_stmts: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_binding).collect();
@@ -57,69 +57,52 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
     let prop = ident(&p.prop());
     let field = ident(&p.field);
 
-    match &p.emit {
-        Emit::Always => {
+    if p.required {
+        // Always emit — field is T, never skipped.
+        let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+        quote! {
+            out.push(Binding::Prop(Prop::#prop, #value_expr));
+        }
+    } else if let Some(default_expr) = &p.default {
+        // Emit when value differs from the WinUI default.
+        if default_expr == "false" {
+            // `w.field != false` → `w.field`
             let value_expr = always_value_expr(p.value(), &field, p.copy_value);
             quote! {
-                out.push(Binding::Prop(Prop::#prop, #value_expr));
-            }
-        }
-        Emit::Optional => {
-            let value_variant = ident(p.value());
-            if p.copy_value {
-                quote! {
-                    if let Some(v) = w.#field {
-                        out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v)));
-                    }
-                }
-            } else {
-                quote! {
-                    if let Some(v) = &w.#field {
-                        out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v.clone())));
-                    }
-                }
-            }
-        }
-        Emit::WhenTrue => {
-            let val = when_bool_value(p.value(), true);
-            quote! {
                 if w.#field {
-                    out.push(Binding::Prop(Prop::#prop, #val));
+                    out.push(Binding::Prop(Prop::#prop, #value_expr));
                 }
             }
-        }
-        Emit::WhenFalse => {
-            let val = when_bool_value(p.value(), false);
+        } else if default_expr == "true" {
+            // `w.field != true` → `!w.field`
+            let value_expr = always_value_expr(p.value(), &field, p.copy_value);
             quote! {
                 if !w.#field {
-                    out.push(Binding::Prop(Prop::#prop, #val));
+                    out.push(Binding::Prop(Prop::#prop, #value_expr));
+                }
+            }
+        } else {
+            let default_tokens: TokenStream = default_expr.parse().unwrap();
+            let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+            quote! {
+                if w.#field != #default_tokens {
+                    out.push(Binding::Prop(Prop::#prop, #value_expr));
                 }
             }
         }
-        Emit::NonDefault(default_expr) => {
-            if default_expr == "false" {
-                // `w.field != false` → `w.field`
-                let value_expr = always_value_expr(p.value(), &field, p.copy_value);
-                quote! {
-                    if w.#field {
-                        out.push(Binding::Prop(Prop::#prop, #value_expr));
-                    }
+    } else {
+        // Optional — field is Option<T>, emit when Some.
+        let value_variant = ident(p.value());
+        if p.copy_value {
+            quote! {
+                if let Some(v) = w.#field {
+                    out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v)));
                 }
-            } else if default_expr == "true" {
-                // `w.field != true` → `!w.field`
-                let value_expr = always_value_expr(p.value(), &field, p.copy_value);
-                quote! {
-                    if !w.#field {
-                        out.push(Binding::Prop(Prop::#prop, #value_expr));
-                    }
-                }
-            } else {
-                let default_tokens: TokenStream = default_expr.parse().unwrap();
-                let value_expr = always_value_expr(p.value(), &field, p.copy_value);
-                quote! {
-                    if w.#field != #default_tokens {
-                        out.push(Binding::Prop(Prop::#prop, #value_expr));
-                    }
+            }
+        } else {
+            quote! {
+                if let Some(v) = &w.#field {
+                    out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v.clone())));
                 }
             }
         }
@@ -168,9 +151,4 @@ fn always_value_expr(value_variant: &str, field: &proc_macro2::Ident, copy: bool
     } else {
         quote! { PropValue::#variant(w.#field.clone()) }
     }
-}
-
-fn when_bool_value(value_variant: &str, val: bool) -> TokenStream {
-    let variant = ident(value_variant);
-    quote! { PropValue::#variant(#val) }
 }

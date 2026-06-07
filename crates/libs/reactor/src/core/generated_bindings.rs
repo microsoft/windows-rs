@@ -25,7 +25,10 @@ pub(crate) fn auto_suggest_box_bindings(w: &AutoSuggestBox) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out.push(Binding::Prop(
         Prop::Items,
@@ -92,7 +95,10 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
         out.push(Binding::Prop(Prop::Icon, PropValue::Symbol(v)));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if let Some(v) = &w.menu_flyout_items {
         out.push(Binding::Prop(
@@ -114,15 +120,21 @@ pub(crate) fn calendar_date_picker_bindings(w: &CalendarDatePicker) -> PropBindi
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if w.is_calendar_open {
-        out.push(Binding::Prop(Prop::IsCalendarOpen, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::IsCalendarOpen,
+            PropValue::Bool(w.is_calendar_open),
+        ));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if !w.is_today_highlighted {
         out.push(Binding::Prop(
             Prop::IsTodayHighlighted,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_today_highlighted),
         ));
     }
     if let Some(v) = &w.placeholder_text {
@@ -142,18 +154,21 @@ pub(crate) fn calendar_view_bindings(w: &CalendarView) -> PropBindings {
             .map(|cb| EventHandler::Click(cb.clone())),
     ));
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if !w.is_group_label_visible {
         out.push(Binding::Prop(
             Prop::IsGroupLabelVisible,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_group_label_visible),
         ));
     }
     if !w.is_today_highlighted {
         out.push(Binding::Prop(
             Prop::IsTodayHighlighted,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_today_highlighted),
         ));
     }
     out
@@ -177,7 +192,10 @@ pub(crate) fn check_box_bindings(w: &CheckBox) -> PropBindings {
         PropValue::Bool(w.is_checked),
     ));
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out
 }
@@ -190,24 +208,27 @@ pub(crate) fn color_picker_bindings(w: &ColorPicker) -> PropBindings {
             .map(|cb| EventHandler::ColorChanged(cb.clone())),
     ));
     if !w.is_alpha_enabled {
-        out.push(Binding::Prop(Prop::IsAlphaEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsAlphaEnabled,
+            PropValue::Bool(w.is_alpha_enabled),
+        ));
     }
     if !w.is_color_channel_text_input_visible {
         out.push(Binding::Prop(
             Prop::IsColorChannelTextInputVisible,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_color_channel_text_input_visible),
         ));
     }
     if !w.is_color_slider_visible {
         out.push(Binding::Prop(
             Prop::IsColorSliderVisible,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_color_slider_visible),
         ));
     }
     if !w.is_hex_input_visible {
         out.push(Binding::Prop(
             Prop::IsHexInputVisible,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_hex_input_visible),
         ));
     }
     out
@@ -224,10 +245,16 @@ pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if w.is_editable {
-        out.push(Binding::Prop(Prop::IsEditable, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::IsEditable,
+            PropValue::Bool(w.is_editable),
+        ));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out.push(Binding::Prop(
         Prop::Items,
@@ -317,19 +344,31 @@ pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
             .map(|cb| EventHandler::DateTimeChanged(cb.clone())),
     ));
     if !w.day_visible {
-        out.push(Binding::Prop(Prop::DayVisible, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::DayVisible,
+            PropValue::Bool(w.day_visible),
+        ));
     }
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if !w.month_visible {
-        out.push(Binding::Prop(Prop::MonthVisible, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::MonthVisible,
+            PropValue::Bool(w.month_visible),
+        ));
     }
     if !w.year_visible {
-        out.push(Binding::Prop(Prop::YearVisible, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::YearVisible,
+            PropValue::Bool(w.year_visible),
+        ));
     }
     out
 }
@@ -351,7 +390,10 @@ pub(crate) fn drop_down_button_bindings(w: &DropDownButton) -> PropBindings {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if let Some(v) = &w.menu_flyout_items {
         out.push(Binding::Prop(
@@ -412,7 +454,10 @@ pub(crate) fn hyperlink_button_bindings(w: &HyperlinkButton) -> PropBindings {
         PropValue::Str(w.content.clone()),
     ));
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if let Some(v) = &w.navigate_uri {
         out.push(Binding::Prop(Prop::NavigateUri, PropValue::Str(v.clone())));
@@ -473,7 +518,10 @@ pub(crate) fn list_box_bindings(w: &ListBox) -> PropBindings {
             .map(|cb| EventHandler::IndexChanged(cb.clone())),
     ));
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out.push(Binding::Prop(
         Prop::Items,
@@ -543,7 +591,7 @@ pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     if !w.is_back_button_visible {
         out.push(Binding::Prop(
             Prop::IsBackButtonVisible,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_back_button_visible),
         ));
     }
     if w.is_back_enabled {
@@ -558,7 +606,7 @@ pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     if !w.is_pane_toggle_button_visible {
         out.push(Binding::Prop(
             Prop::IsPaneToggleButtonVisible,
-            PropValue::Bool(false),
+            PropValue::Bool(w.is_pane_toggle_button_visible),
         ));
     }
     if !w.is_settings_visible {
@@ -597,7 +645,10 @@ pub(crate) fn number_box_bindings(w: &NumberBox) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if let Some(v) = w.maximum {
         out.push(Binding::Prop(Prop::Maximum, PropValue::F64(v)));
@@ -622,7 +673,10 @@ pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if !w.is_password_reveal_button_enabled {
         out.push(Binding::Prop(
@@ -693,7 +747,10 @@ pub(crate) fn repeat_button_bindings(w: &RepeatButton) -> PropBindings {
         out.push(Binding::Prop(Prop::Interval, PropValue::I32(v)));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out
 }
@@ -716,14 +773,20 @@ pub(crate) fn toggle_button_bindings(w: &ToggleButton) -> PropBindings {
         ));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out
 }
 pub(crate) fn progress_bar_bindings(w: &ProgressBar) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
     if w.is_indeterminate {
-        out.push(Binding::Prop(Prop::IsIndeterminate, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::IsIndeterminate,
+            PropValue::Bool(w.is_indeterminate),
+        ));
     }
     out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
     out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
@@ -733,10 +796,13 @@ pub(crate) fn progress_bar_bindings(w: &ProgressBar) -> PropBindings {
 pub(crate) fn progress_ring_bindings(w: &ProgressRing) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
     if w.is_active {
-        out.push(Binding::Prop(Prop::IsActive, PropValue::Bool(true)));
+        out.push(Binding::Prop(Prop::IsActive, PropValue::Bool(w.is_active)));
     }
     if w.is_indeterminate {
-        out.push(Binding::Prop(Prop::IsIndeterminate, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::IsIndeterminate,
+            PropValue::Bool(w.is_indeterminate),
+        ));
     }
     out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
     out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
@@ -764,7 +830,10 @@ pub(crate) fn radio_button_bindings(w: &RadioButton) -> PropBindings {
         ));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out
 }
@@ -806,7 +875,10 @@ pub(crate) fn rating_control_bindings(w: &RatingControl) -> PropBindings {
         out.push(Binding::Prop(Prop::Caption, PropValue::Str(v.clone())));
     }
     if w.is_read_only {
-        out.push(Binding::Prop(Prop::IsReadOnly, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::IsReadOnly,
+            PropValue::Bool(w.is_read_only),
+        ));
     }
     if let Some(v) = w.max_rating {
         out.push(Binding::Prop(Prop::MaxRating, PropValue::I32(v)));
@@ -834,7 +906,10 @@ pub(crate) fn rich_edit_box_bindings(w: &RichEditBox) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if w.is_read_only {
-        out.push(Binding::Prop(Prop::IsReadOnly, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::IsReadOnly,
+            PropValue::Bool(w.is_read_only),
+        ));
     }
     if let Some(v) = &w.placeholder {
         out.push(Binding::Prop(
@@ -892,7 +967,10 @@ pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
     out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
@@ -920,7 +998,10 @@ pub(crate) fn split_button_bindings(w: &SplitButton) -> PropBindings {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out
 }
@@ -1028,7 +1109,7 @@ pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
     if w.is_light_dismiss_enabled {
         out.push(Binding::Prop(
             Prop::IsLightDismissEnabled,
-            PropValue::Bool(true),
+            PropValue::Bool(w.is_light_dismiss_enabled),
         ));
     }
     if w.is_open {
@@ -1057,7 +1138,7 @@ pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
     if w.is_text_selection_enabled {
         out.push(Binding::Prop(
             Prop::IsTextSelectionEnabled,
-            PropValue::Bool(true),
+            PropValue::Bool(w.is_text_selection_enabled),
         ));
     }
     out.push(Binding::Prop(Prop::Text, PropValue::Str(w.content.clone())));
@@ -1078,13 +1159,19 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
     if w.accepts_return {
-        out.push(Binding::Prop(Prop::AcceptsReturn, PropValue::Bool(true)));
+        out.push(Binding::Prop(
+            Prop::AcceptsReturn,
+            PropValue::Bool(w.accepts_return),
+        ));
     }
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if let Some(v) = &w.placeholder {
         out.push(Binding::Prop(
@@ -1119,7 +1206,10 @@ pub(crate) fn time_picker_bindings(w: &TimePicker) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     if let Some(v) = w.minute_increment {
         out.push(Binding::Prop(Prop::MinuteIncrement, PropValue::I32(v)));
@@ -1179,7 +1269,10 @@ pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
     if !w.is_enabled {
-        out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
+        out.push(Binding::Prop(
+            Prop::IsEnabled,
+            PropValue::Bool(w.is_enabled),
+        ));
     }
     out.push(Binding::Prop(Prop::IsOn, PropValue::Bool(w.is_on)));
     if let Some(v) = &w.off_content {

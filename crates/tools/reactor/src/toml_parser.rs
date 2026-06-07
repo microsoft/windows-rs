@@ -3,8 +3,8 @@
 /// Format:
 /// ```toml
 /// ["Microsoft.UI.Xaml.Controls.Button"]
-/// Content = { emit = "optional", wrap = "ireference" }
-/// IsEnabled = { emit = "when_false" }
+/// Content = { wrap = "ireference" }
+/// IsEnabled = { default = "true" }
 /// Click = {}
 /// ```
 ///
@@ -19,7 +19,7 @@ use serde::Deserialize;
 
 use crate::helpers::to_snake_case;
 use crate::metadata::MetadataResolver;
-use crate::schema::{Control, Emit, EnumMapSetter, EventDecl, PropDecl, UnsetPolicy};
+use crate::schema::{Control, EnumMapSetter, EventDecl, PropDecl, UnsetPolicy};
 
 /// Reserved key for control-level options (widget name, kind, etc.)
 const CONTROL_KEY: &str = "_control";
@@ -45,9 +45,14 @@ struct ControlMeta {
 #[serde(deny_unknown_fields)]
 struct MemberOverride {
     // ── Shared ──
-    /// Emission pattern override.
+    /// WinUI default value expression. When set, the field type is `T` and the
+    /// binding is only emitted when the value differs from this default.
+    /// When absent and `required` is false, the field is `Option<T>`.
     #[serde(default)]
-    emit: Option<Emit>,
+    default: Option<String>,
+    /// Whether this property is always emitted (field is `T`, never skipped).
+    #[serde(default)]
+    required: Option<bool>,
     /// Unset/reset policy.
     #[serde(default)]
     unset: Option<UnsetPolicy>,
@@ -213,7 +218,8 @@ fn build_prop(
         .unwrap_or_else(|| to_snake_case(member_name));
     let prop_variant = overrides.prop.clone();
 
-    let emit = overrides.emit.clone().unwrap_or(Emit::Optional);
+    let required = overrides.required.unwrap_or(false);
+    let default = overrides.default.clone();
 
     let setter_fn = overrides.setter_fn.map(|_| "__custom__".to_string());
     let wrap = overrides.wrap.clone();
@@ -290,7 +296,8 @@ fn build_prop(
         meta_name: member_name.to_string(),
         prop: prop_variant,
         value,
-        emit,
+        required,
+        default,
         wrap,
         method,
         method_optional,
@@ -423,7 +430,7 @@ mod tests {
     fn parse_simple_prop() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = { emit = "always" }
+Text = { required = true }
 "#;
         let controls = parse(toml, &resolver());
         assert_eq!(controls.len(), 1);
@@ -449,7 +456,7 @@ Click = {}
     fn parse_field_override() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = { field = "content", emit = "always" }
+Text = { field = "content", required = true }
 "#;
         let controls = parse(toml, &resolver());
         assert_eq!(controls[0].prop[0].field, "content");
@@ -469,7 +476,7 @@ Closed = { handler = "Click" }
     fn parse_setter_fn_prop() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.Button"]
-Content = { emit = "always", setter_fn = true, value = "Str" }
+Content = { required = true, setter_fn = true, value = "Str" }
 "#;
         let controls = parse(toml, &resolver());
         assert!(controls[0].prop[0].setter_fn.is_some());
@@ -508,7 +515,7 @@ Click = {}
     fn parse_value_inferred_from_metadata() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
-Value = { emit = "always" }
+Value = { required = true }
 "#;
         let controls = parse(toml, &resolver());
         // put_Value on RangeBase takes f64 — value should be inferred
@@ -522,7 +529,7 @@ Value = { emit = "always" }
     fn error_includes_line_number() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.Button"]
-NonExistentProperty = { emit = "always" }
+NonExistentProperty = { required = true }
 "#;
         parse(toml, &resolver());
     }
@@ -532,7 +539,7 @@ NonExistentProperty = { emit = "always" }
     fn error_unknown_member() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.Button"]
-NonExistentProperty = { emit = "always" }
+NonExistentProperty = { required = true }
 "#;
         parse(toml, &resolver());
     }
@@ -544,7 +551,8 @@ NonExistentProperty = { emit = "always" }
 Text = {}
 "#;
         let controls = parse(toml, &resolver());
-        assert_eq!(controls[0].prop[0].emit, crate::schema::Emit::Optional);
+        assert!(!controls[0].prop[0].required);
+        assert!(controls[0].prop[0].default.is_none());
     }
 
     #[test]
