@@ -13,7 +13,6 @@
 #   setter_fn = true     Use hand-written custom_set_{control}_{field}.
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
 #   prop = "Name"        Override Prop enum variant name.
-#   enum_map = { ... }   Map Rust enum → WinUI enum with variant pairs.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
 #   unset = { default = "expr" }   Reset to literal on unset.
 #
@@ -25,8 +24,6 @@
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
 #   add_method_false     Second add method for bool_dual event patterns.
-#   event = "Name"       Override Event enum variant name.
-#   value = "Variant"    EventHandler variant (same as handler).
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
 Text = { required = true, setter_fn = true }

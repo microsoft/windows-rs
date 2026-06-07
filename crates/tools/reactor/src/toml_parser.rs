@@ -70,9 +70,6 @@ struct MemberOverride {
     /// IReference wrapping (e.g. "ireference").
     #[serde(default)]
     wrap: Option<String>,
-    /// Enum map setter.
-    #[serde(default)]
-    enum_map: Option<EnumMapSetter>,
     /// Explicit Prop enum variant name (when it must differ from metadata name).
     #[serde(default)]
     prop: Option<String>,
@@ -93,9 +90,6 @@ struct MemberOverride {
     /// Second add method for bool_dual events.
     #[serde(default)]
     add_method_false: Option<String>,
-    /// Explicit Event enum variant name (when it must differ from metadata name).
-    #[serde(default)]
-    event: Option<String>,
 }
 
 /// Parse the v2 TOML and resolve against metadata to produce `Vec<Control>`.
@@ -246,13 +240,12 @@ fn build_prop(
     };
 
     // Check if metadata says this is an enum type (for auto-inference).
-    let is_metadata_enum = overrides.enum_map.is_none()
-        && setter_fn.is_none()
+    let is_metadata_enum = setter_fn.is_none()
         && has_method
         && resolver.enum_info(handle, &method_name).is_some();
 
     let (method, method_optional, method_ireference, method_textblock) =
-        if setter_fn.is_some() || overrides.enum_map.is_some() || is_metadata_enum {
+        if setter_fn.is_some() || is_metadata_enum {
             (None, None, None, None)
         } else if has_method {
             classify_setter(handle, &method_name, wrap.as_deref(), resolver)
@@ -260,16 +253,8 @@ fn build_prop(
             (None, None, None, None)
         };
 
-    // Pre-set method on enum_map from the metadata name (TOML key),
-    // since resolve_defaults infers from field/prop which may differ.
-    let method_enum_map = if let Some(mut s) = overrides.enum_map.clone() {
-        // Explicit enum_map in TOML — just fill in method if missing.
-        if s.method.is_none() && has_method {
-            s.method = Some(method_name);
-        }
-        Some(s)
-    } else if setter_fn.is_none() && has_method {
-        // No explicit enum_map — try to infer from metadata.
+    // Infer enum_map from metadata when the parameter is an enum type.
+    let method_enum_map = if setter_fn.is_none() && has_method {
         if let Some((enum_name, variants)) = resolver.enum_info(handle, &method_name) {
             Some(EnumMapSetter {
                 method: Some(method_name.clone()),
@@ -350,7 +335,6 @@ fn build_event(
         .field
         .clone()
         .unwrap_or_else(|| format!("on_{}", to_snake_case(member_name)));
-    let event_variant = overrides.event.clone();
     let handler = overrides.handler.clone();
     let attach_fn = overrides.attach_fn.map(|_| "__custom__".to_string());
     let add_method = if attach_fn.is_some() {
@@ -362,7 +346,7 @@ fn build_event(
     EventDecl {
         field,
         meta_name: member_name.to_string(),
-        event: event_variant,
+        event: None,
         handler,
         attach_fn,
         add_method,
