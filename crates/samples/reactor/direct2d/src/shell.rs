@@ -1,13 +1,25 @@
 //! Hub shell hosting the Direct2D samples in a `NavigationView`. Each sample is
 //! a self-contained component, so its state (such as the render thread) is
 //! created and torn down as the user navigates between samples.
+//!
+//! The shell owns the app-wide shared GPU [`Device`] and publishes it through the
+//! [`DEVICE`] context, so every sample renders with the same device.
 
+use crate::device::{Device, device_context};
 use crate::surface_image_source::surface_image_source_sample;
 use crate::swap_chain::swap_chain_sample;
 use windows_reactor::*;
 
 pub fn shell(cx: &mut RenderCx) -> Element {
     let (selected_tag, set_selected_tag) = cx.use_state(String::from("swap-chain"));
+
+    // The single shared device for the whole app. Created once on mount; the
+    // samples below read it from the `DEVICE` context.
+    let (device, set_device) = cx.use_state::<Option<Device>>(None);
+    cx.use_effect((), move || match Device::new() {
+        Ok(d) => set_device.call(Some(d)),
+        Err(e) => eprintln!("failed to create shared device: {e}"),
+    });
 
     let nav_items = vec![
         NavViewItem::new("Swap Chain Panel")
@@ -33,5 +45,5 @@ pub fn shell(cx: &mut RenderCx) -> Element {
                 set_selected_tag.call(tag);
             }
         })
-        .into()
+        .provide(&device_context(), device)
 }

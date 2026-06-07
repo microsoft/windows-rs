@@ -1,12 +1,9 @@
 //! Demo of displaying a `SurfaceImageSource` with the reactor `Image` widget,
-//! drawing into it once with Direct2D.
+//! drawing into it once with Direct2D using the app-wide shared device.
 
+use crate::device::{Device, device_context};
 use windows::Win32::Graphics::Direct2D::Common::*;
 use windows::Win32::Graphics::Direct2D::*;
-use windows::Win32::Graphics::Direct3D::*;
-use windows::Win32::Graphics::Direct3D11::*;
-use windows::Win32::Graphics::Dxgi::*;
-use windows::core::{Interface, Result};
 use windows_numerics::{Matrix3x2, Vector2};
 use windows_reactor::*;
 
@@ -14,39 +11,12 @@ use windows_reactor::*;
 /// 1:1 mapping at 96 DPI.
 const SIZE: i32 = 256;
 
-/// Create a Direct2D device backed by a hardware D3D11 device, suitable for
-/// handing to a `SurfaceImageSource`.
-fn create_d2d_device() -> Result<ID2D1Device> {
-    let mut d3d_device: Option<ID3D11Device> = None;
-    unsafe {
-        D3D11CreateDevice(
-            None,
-            D3D_DRIVER_TYPE_HARDWARE,
-            None,
-            D3D11_CREATE_DEVICE_BGRA_SUPPORT,
-            Some(&[D3D_FEATURE_LEVEL_11_0]),
-            D3D11_SDK_VERSION,
-            Some(&mut d3d_device),
-            None,
-            None,
-        )?;
-    }
-    let d3d_device = d3d_device.unwrap();
-
-    let d2d_factory: ID2D1Factory1 =
-        unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, None)? };
-    let dxgi_device: IDXGIDevice = d3d_device.cast()?;
-    unsafe { d2d_factory.CreateDevice(&dxgi_device) }
-}
-
-/// Create a `SurfaceImageSource`, attach a Direct2D device, and draw a single
-/// static frame into it. Runs on the UI thread, as required by
+/// Create a `SurfaceImageSource`, attach the shared Direct2D device, and draw a
+/// single static frame into it. Runs on the UI thread, as required by
 /// `SurfaceImageSource`.
-fn build_surface() -> Result<SurfaceImageSource> {
+fn build_surface(device: &Device) -> windows::core::Result<SurfaceImageSource> {
     let surface = SurfaceImageSource::new(SIZE, SIZE)?;
-
-    let device = create_d2d_device()?;
-    surface.set_device(&device)?;
+    surface.set_device(device.d2d_device())?;
 
     let (context, (offset_x, offset_y)) =
         surface.begin_draw::<ID2D1DeviceContext>(0, 0, SIZE, SIZE)?;
@@ -94,22 +64,38 @@ fn build_surface() -> Result<SurfaceImageSource> {
 /// Sample page: a static Direct2D drawing rendered into a `SurfaceImageSource`
 /// and displayed with the reactor `Image` widget.
 pub fn surface_image_source_sample(_: &(), cx: &mut RenderCx) -> Element {
-    // Create and draw the surface once; it persists across re-renders.
+    let device = cx.use_context(&device_context());
     let surface = cx.use_ref::<Option<SurfaceImageSource>>(None);
-    if surface.borrow().is_none() {
-        match build_surface() {
-            Ok(sis) => surface.set(Some(sis)),
-            Err(e) => eprintln!("failed to build surface: {e}"),
+    // The device the current surface was built with; rebuild when it changes
+    // (e.g. the shared device is recreated after a device-lost event).
+    let built_for = cx.use_ref::<Option<Device>>(None);
+
+    let stale = built_for.borrow().as_ref() != device.as_ref();
+    if stale {
+        if let Some(dev) = device.as_ref() {
+            match build_surface(dev) {
+                Ok(sis) => {
+                    surface.set(Some(sis));
+                    built_for.set(Some(dev.clone()));
+                }
+                Err(e) => eprintln!("failed to build surface: {e}"),
+            }
+        } else {
+            surface.set(None);
+            built_for.set(None);
         }
     }
 
-    vstack((
-        text_block("Image backed by a SurfaceImageSource:"),
-        Image::new(surface.get_cloned().into())
+    let image: Element = match surface.get_cloned() {
+        Some(sis) => Image::new(sis.into())
             .width(SIZE as f64)
-            .height(SIZE as f64),
-    ))
-    .spacing(8.0)
-    .margin(Thickness::uniform(16.0))
-    .into()
+            .height(SIZE as f64)
+            .into(),
+        None => text_block("Creating shared device\u{2026}").into(),
+    };
+
+    vstack((text_block("Image backed by a SurfaceImageSource:"), image))
+        .spacing(8.0)
+        .margin(Thickness::uniform(16.0))
+        .into()
 }

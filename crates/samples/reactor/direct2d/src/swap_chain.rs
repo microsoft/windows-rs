@@ -1,8 +1,14 @@
 //! Hosts Direct2D content inside a reactor UI via `SwapChainPanel`, with WinUI
 //! buttons to add/remove animated circles. Direct2D rendering runs on a
 //! dedicated worker thread that presents into a composition swap chain.
+//!
+//! The D3D/D2D device is not created here; it is the app-wide shared `Device`
+//! taken from the `DEVICE` context and handed to the worker thread as an owned
+//! `SharedDevice` snapshot.
 
+use crate::device::{Device, device_context};
 use render::{RenderThread, SendSwap};
+use std::rc::Rc;
 use windows_reactor::*;
 
 /// Direct2D rendering, isolated on a dedicated worker thread. Only the handle
@@ -12,14 +18,13 @@ mod render {
     use std::thread::{self, JoinHandle};
     use std::time::Duration;
 
+    use crate::device::SharedDevice;
     use windows::Win32::Foundation::DXGI_STATUS_OCCLUDED;
     use windows::Win32::Graphics::Direct2D::Common::*;
     use windows::Win32::Graphics::Direct2D::*;
-    use windows::Win32::Graphics::Direct3D::*;
-    use windows::Win32::Graphics::Direct3D11::*;
     use windows::Win32::Graphics::Dxgi::Common::*;
     use windows::Win32::Graphics::Dxgi::*;
-    use windows::core::{Interface, Result};
+    use windows::core::Result;
     use windows_numerics::*;
 
     struct D2DState {
@@ -69,17 +74,19 @@ mod render {
     }
 
     impl RenderThread {
-        /// Spawn the render thread. `initial_count` is the number of circles to
-        /// draw before the first `set_circle_count`. `on_swap_chain` is invoked
-        /// once, on the render thread, after the swap chain is created so the
-        /// caller can attach it to its presentation surface.
+        /// Spawn the render thread. `device` is the app-wide shared device the
+        /// thread renders with. `initial_count` is the number of circles to draw
+        /// before the first `set_circle_count`. `on_swap_chain` is invoked once,
+        /// on the render thread, after the swap chain is created so the caller can
+        /// attach it to its presentation surface.
         pub fn new(
+            device: SharedDevice,
             initial_count: u32,
             on_swap_chain: impl FnOnce(SendSwap) + Send + 'static,
         ) -> Self {
             let (commands, rx) = channel();
             let worker = thread::spawn(move || {
-                if let Err(e) = render_loop(rx, initial_count, on_swap_chain) {
+                if let Err(e) = render_loop(rx, device, initial_count, on_swap_chain) {
                     eprintln!("render thread failed: {e}");
                 }
             });
@@ -106,7 +113,15 @@ mod render {
     }
 
     impl Drop for RenderThread {
-        /// Ask the render thread to stop and wait for it to finish.
+        /// Ask the render thread to stop and wait for it to finish, so the worker
+        /// has fully released its device and swap-chain references before we
+        /// return. Joining (rather than detaching) is what prevents an orphaned
+        /// worker from continuing to render on the shared device and racing a
+        /// newly spawned worker when the sample is switched away and back.
+        ///
+        /// This is safe to do on the UI thread: the worker only ever blocks in
+        /// `Present(1)`, which returns at the next vblank regardless of the UI
+        /// message pump, so it promptly observes `Shutdown` and exits.
         fn drop(&mut self) {
             self.send(RenderCommand::Shutdown);
             if let Some(worker) = self.worker.take() {
@@ -149,31 +164,13 @@ mod render {
         Ok(())
     }
 
-    fn create_d2d_state(width: u32, height: u32) -> Result<D2DState> {
-        let mut device: Option<ID3D11Device> = None;
-        unsafe {
-            D3D11CreateDevice(
-                None,
-                D3D_DRIVER_TYPE_HARDWARE,
-                None,
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT,
-                Some(&[D3D_FEATURE_LEVEL_11_0]),
-                D3D11_SDK_VERSION,
-                Some(&mut device),
-                None,
-                None,
-            )?;
-        }
-        let device = device.unwrap();
-
-        let d2d_factory: ID2D1Factory1 =
-            unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, None)? };
-        let dxgi_device: IDXGIDevice = device.cast()?;
-        let d2d_device = unsafe { d2d_factory.CreateDevice(&dxgi_device)? };
-        let target = unsafe { d2d_device.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)? };
-
-        let dxgi_adapter = unsafe { dxgi_device.GetAdapter()? };
-        let dxgi_factory: IDXGIFactory2 = unsafe { dxgi_adapter.GetParent()? };
+    fn create_d2d_state(device: &SharedDevice, width: u32, height: u32) -> Result<D2DState> {
+        // Per-thread device context from the shared D2D device.
+        let target = unsafe {
+            device
+                .d2d_device()
+                .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?
+        };
 
         let desc = DXGI_SWAP_CHAIN_DESC1 {
             Width: width,
@@ -190,8 +187,13 @@ mod render {
             ..Default::default()
         };
 
-        let swap_chain =
-            unsafe { dxgi_factory.CreateSwapChainForComposition(&device, &desc, None)? };
+        // Swap-chain creation and the initial bitmap binding are D3D/DXGI interop
+        // on the shared device.
+        let swap_chain = unsafe {
+            device
+                .dxgi_factory()
+                .CreateSwapChainForComposition(device.d3d_device(), &desc, None)?
+        };
 
         let surface: IDXGISurface = unsafe { swap_chain.GetBuffer(0)? };
         let bitmap_props = D2D1_BITMAP_PROPERTIES1 {
@@ -276,6 +278,9 @@ mod render {
 
             state.target.EndDraw(None, None)?;
 
+            // `Present(1)` blocks until vblank, pacing the loop at the display
+            // refresh rate.
+            //
             // `DXGI_STATUS_OCCLUDED` is a success status, so it has to be
             // inspected before `ok()` discards it. The caller throttles on it.
             let present = state.swap_chain.Present(1, DXGI_PRESENT(0));
@@ -288,20 +293,21 @@ mod render {
         Ok(FrameStatus::Presented)
     }
 
-    /// Entry point for the dedicated render thread. Owns all D3D/D2D state, drains
-    /// commands from the caller, and drives the animation loop. `Present(1)` paces
+    /// Entry point for the dedicated render thread. Drives the animation loop on
+    /// the shared `device`, draining commands from the caller. `Present(1)` paces
     /// the loop at the display refresh rate while the surface is visible.
     ///
     /// `on_swap_chain` is invoked once, after the swap chain is created, so the
     /// caller can attach it to its presentation surface.
     fn render_loop(
         rx: Receiver<RenderCommand>,
+        device: SharedDevice,
         initial_count: u32,
         on_swap_chain: impl FnOnce(SendSwap),
     ) -> Result<()> {
         let mut size = (400_u32, 300_u32);
         let mut count = initial_count;
-        let mut state = create_d2d_state(size.0, size.1)?;
+        let mut state = create_d2d_state(&device, size.0, size.1)?;
 
         // Hand the swap chain back to the caller to attach it to its surface.
         on_swap_chain(SendSwap(state.swap_chain.clone()));
@@ -336,9 +342,40 @@ mod render {
 /// with buttons to add or remove circles.
 pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
+    let device = cx.use_context(&device_context());
     let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
     let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
+    // Tracks which device the live render thread was started with, so the thread
+    // is (re)spawned when the shared device first appears or is later swapped.
+    let started_for = cx.use_ref::<Option<Device>>(None);
+
+    // (Re)spawn the render thread once both the panel and the shared device are
+    // available, and whenever the device identity changes. Constructing the new
+    // thread and storing it drops any previous one (joining it).
+    let try_start: Rc<dyn Fn()> = {
+        let panel = panel.clone();
+        let render_thread = render_thread.clone();
+        let device = device.clone();
+        Rc::new(move || {
+            let Some(dev) = device.clone() else {
+                return;
+            };
+            if panel.borrow().is_none() {
+                return;
+            }
+            if started_for.borrow().as_ref() == Some(&dev) {
+                return;
+            }
+
+            let set_swap_chain = set_swap_chain.clone();
+            let thread = RenderThread::new(dev.to_send(), count, move |swap| {
+                set_swap_chain.call(Some(swap));
+            });
+            render_thread.set(Some(thread));
+            started_for.set(Some(dev));
+        })
+    };
 
     // Attach the swap chain to the panel once the worker thread reports it.
     cx.use_effect(swap_chain.clone(), {
@@ -351,6 +388,12 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
                 eprintln!("set_swap_chain failed: {e}");
             }
         }
+    });
+
+    // (Re)start the render thread when the shared device appears or changes.
+    cx.use_effect(device, {
+        let try_start = try_start.clone();
+        move || try_start()
     });
 
     // Push the current circle count to the render thread whenever it changes.
@@ -380,20 +423,25 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
         Element::from(
             swap_chain_panel()
                 .on_mounted({
-                    let render_thread = render_thread.clone();
+                    let try_start = try_start.clone();
                     move |handle| {
                         panel.set(Some(handle));
-                        let set_swap_chain = set_swap_chain.clone();
-                        render_thread.set(Some(RenderThread::new(count, move |swap| {
-                            set_swap_chain.call(Some(swap));
-                        })));
+                        try_start();
                     }
                 })
-                .on_resize({
-                    move |w, h| {
-                        if let Some(r) = render_thread.borrow().as_ref() {
-                            r.resize(w as u32, h as u32);
-                        }
+                .on_unmounted({
+                    let render_thread = render_thread.clone();
+                    move |_handle| {
+                        // Stop and join the render worker while the panel and
+                        // its swap chain still exist, so the worker never
+                        // presents into a panel that has already been destroyed.
+                        let thread = render_thread.borrow_mut().take();
+                        drop(thread);
+                    }
+                })
+                .on_resize(move |w, h| {
+                    if let Some(r) = render_thread.borrow().as_ref() {
+                        r.resize(w as u32, h as u32);
                     }
                 })
                 .margin(Thickness {
