@@ -149,7 +149,7 @@ pub fn parse(toml_content: &str, resolver: &MetadataResolver) -> Vec<Control> {
             );
             if !is_prop && !is_event {
                 if overrides.setter_fn.is_some() {
-                    let prop = build_prop(member_name, handle, &overrides, resolver, &line);
+                    let prop = build_prop(member_name, handle, &overrides, resolver);
                     props.push(prop);
                     continue;
                 }
@@ -164,7 +164,7 @@ pub fn parse(toml_content: &str, resolver: &MetadataResolver) -> Vec<Control> {
             }
 
             if is_prop {
-                let prop = build_prop(member_name, handle, &overrides, resolver, &line);
+                let prop = build_prop(member_name, handle, &overrides, resolver);
                 props.push(prop);
             } else {
                 let event = build_event(member_name, handle, &overrides, resolver);
@@ -206,7 +206,6 @@ fn build_prop(
     handle: &str,
     overrides: &MemberOverride,
     resolver: &MetadataResolver,
-    line: &str,
 ) -> PropDecl {
     let field = overrides
         .field
@@ -214,10 +213,7 @@ fn build_prop(
         .unwrap_or_else(|| to_snake_case(member_name));
     let prop_variant = overrides.prop.clone();
 
-    let emit = overrides
-        .emit
-        .clone()
-        .unwrap_or_else(|| panic!("{line}'{member_name}' on '{handle}' needs explicit 'emit'"));
+    let emit = overrides.emit.clone().unwrap_or(Emit::Optional);
 
     let setter_fn = overrides.setter_fn.map(|_| "__custom__".to_string());
     let wrap = overrides.wrap.clone();
@@ -542,13 +538,13 @@ NonExistentProperty = { emit = "always" }
     }
 
     #[test]
-    #[should_panic(expected = "needs explicit 'emit'")]
-    fn error_missing_emit() {
+    fn emit_defaults_to_optional() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = {}
 "#;
-        parse(toml, &resolver());
+        let controls = parse(toml, &resolver());
+        assert_eq!(controls[0].prop[0].emit, crate::schema::Emit::Optional);
     }
 
     #[test]
