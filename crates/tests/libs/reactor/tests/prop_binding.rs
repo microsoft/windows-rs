@@ -48,7 +48,7 @@ fn mount_text_with_no_optionals_emits_only_text_prop() {
 }
 
 #[test]
-fn mount_text_with_optionals_emits_each_in_declaration_order() {
+fn mount_text_with_optionals_emits_all_expected_props() {
     let (r, _id) = mount(&text_with("hi", Some(14.0), Some(700)));
     let ops: Vec<&Op> = r
         .backend
