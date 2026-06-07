@@ -1,8 +1,32 @@
-# Reactor widget declarations - metadata-driven format.
-# Keys are WinUI type names; members are metadata property/event names.
-# The tool infers method, value, interface from .winmd metadata.
-# No annotation = optional (field is Option<T>, emit when Some).
-# Add required = true to always emit, or default = "expr" for the WinUI default value.
+# Reactor widget declarations — metadata-driven format.
+#
+# Section keys are full WinUI type names. Member keys are metadata
+# property or event names. The tool resolves put_/add_ methods, value
+# types, and interfaces from .winmd metadata automatically.
+#
+# ── Property overrides ──────────────────────────────────────────────
+#   (no overrides)       Optional: field is Option<T>, emit when Some.
+#   required = true      Always emit (field is T). For core state.
+#   default = "expr"     Emit only when != expr (field is T). Auto-infers unset.
+#   field = "name"       Rust field name (default: snake_case of key).
+#   value = "Variant"    PropValue variant (default: inferred from metadata).
+#   setter_fn = true     Use hand-written custom_set_{control}_{field}.
+#   wrap = "ireference"  Wrap IInspectable param via IReference.
+#   prop = "Name"        Override Prop enum variant name.
+#   enum_map = { ... }   Map Rust enum → WinUI enum with variant pairs.
+#   unset = "custom"     Hand-written unset handler (skip codegen).
+#   unset = { default = "expr" }   Reset to literal on unset.
+#
+# ── Event overrides ─────────────────────────────────────────────────
+#   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
+#   field = "name"       Rust field name (default: on_{snake_case}).
+#   handler = "Name"     EventHandler variant (default: event name).
+#   attach_fn = true     Use hand-written custom_attach_{control}_{field}.
+#   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
+#   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
+#   add_method_false     Second add method for bool_dual event patterns.
+#   event = "Name"       Override Event enum variant name.
+#   value = "Variant"    EventHandler variant (same as handler).
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
 Text = { required = true, setter_fn = true }
