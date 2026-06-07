@@ -73,7 +73,14 @@ impl Default for Border {
 impl Widget for Border {
     widget_header!(ControlKind::Border);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::border_bindings(self)
+        let mut out = crate::core::generated_bindings::border_bindings(self);
+        if let Some(BrushBinding::Direct(br)) = &self.border_brush {
+            out.push(Binding::Prop(
+                Prop::BorderBrush,
+                PropValue::Brush(br.clone()),
+            ));
+        }
+        out
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)
