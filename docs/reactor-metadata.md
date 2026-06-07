@@ -2,9 +2,16 @@
 
 ## Design Principle
 
-The TOML should be driven by WinUI metadata names. Given a type and member name, the
-tool resolves everything from `.winmd` files — only overrides for non-standard mappings
-are needed.
+The TOML is driven by WinUI metadata names. TOML keys match the exact WinUI method
+names (e.g., `SelectedTimeChanged`, `ColorChanged`, `IsEnabled`). Given a type and
+member name, the tool resolves everything from `.winmd` files — only overrides for
+non-standard mappings are needed.
+
+Event/prop names that are only used internally in generated backend code need no
+overrides — they derive naturally from the metadata. The public API field names
+(what crate users see) are derived automatically via `snake_case(Name)` for props
+and `on_snake_case(Name)` for events. Only genuinely ergonomic overrides use
+`field = "..."` (e.g., `placeholder` for `PlaceholderText`).
 
 ## Current Format
 
@@ -15,7 +22,7 @@ DayVisible = { emit = "optional" }
 MonthVisible = { emit = "optional" }
 YearVisible = { emit = "optional" }
 IsEnabled = { emit = "when_false" }
-Changed = { attach_fn = true, handler = "DateTimeChanged" }
+SelectedDateChanged = { attach_fn = true, handler = "DateTimeChanged" }
 ```
 
 ## What the Tool Infers
@@ -27,24 +34,31 @@ Given `"DayVisible"` on `Microsoft.UI.Xaml.Controls.DatePicker`:
 4. Method = `put_DayVisible`, interface = `IDatePicker`
 5. `when_false` + `method` → unset auto-inferred as `{ default = "true" }`
 
+Given `"SelectedDateChanged"`:
+1. No `put_` method found → classified as event
+2. Event variant = `SelectedDateChanged`
+3. Rust field = `on_selected_date_changed` (auto-derived)
+4. `attach_fn = true` → hand-written backend handler
+5. `handler = "DateTimeChanged"` → EventHandler variant (non-default, override needed)
+
 ## Remaining Overrides
 
 | Category | Count | Why |
 |----------|-------|-----|
 | `emit` | 190 | Always required — controls mount/diff behavior |
-| `value = "..."` | 57 | Non-primitive types, setter_fn props |
 | `setter_fn = true` | 36 | Custom setter logic (collections, complex types) |
-| `handler = "..."` | 36 | Event handler type differs from event name |
-| `unset = { default }` | 20 | Non-bool defaults like `""`, `0.0` |
+| `handler = "..."` | ~34 | Event handler type differs from event name |
+| `value = "..."` | ~31 | Non-primitive types, setter_fn props |
 | `attach_fn = true` | 23 | Custom event attachment logic |
-| `field = "..."` | 21 | Ergonomic Rust names (e.g., `placeholder`, `on_changed`) |
+| `unset = { default }` | 20 | Non-bool defaults like `""`, `0.0` |
+| `field = "..."` | ~18 | Ergonomic Rust names (e.g., `placeholder`) |
 | `unset = "custom"` | 5 | Block auto-inference on when_true/when_false |
 
 ## Implementation Status
 
-- **295 non-blank lines** (73% reduction from 1105 original)
+- **~290 non-blank TOML lines** (74% reduction from 1105 original)
 - V1 format removed — single parser, single format
-- Prop/Event enum variants use metadata names
+- Prop/Event enum variants use metadata names (no synthetic names)
 - Widget structs use WinUI type names (no "Widget" suffix)
 - Error messages include TOML line numbers
-- 19 codegen tests + 3 metadata tests
+- 20 codegen tests + 3 metadata tests

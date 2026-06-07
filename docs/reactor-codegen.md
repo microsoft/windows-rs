@@ -11,11 +11,11 @@ generate type-safe Rust dispatch code for `windows-reactor` via `quote`/`proc-ma
 
 | Component | Lines |
 |-----------|-------|
-| Hand-written backend (`mod.rs`) | 3166 |
+| Hand-written backend (`mod.rs`) | ~3160 |
 | Hand-written backend (`convert.rs`) | 338 |
-| Generated code (3 files) | 2523 |
-| TOML config (non-blank) | 295 |
-| Tool source | ~2450 |
+| Generated code (3 files) | ~2320 |
+| TOML config (non-blank) | ~290 |
+| Tool source | ~2890 |
 
 ## Architecture
 
@@ -26,7 +26,7 @@ reactor_widgets.toml          ← 52 controls, metadata-driven declarations
 tool_reactor_codegen          ← Reads TOML + loads winmd metadata
         │
         ├── generated_bindings.rs     (per-widget bindings() helpers)
-        ├── generated_set_prop.rs     (set_prop dispatch, 7 setter patterns)
+        ├── generated_set_prop.rs     (set_prop dispatch, 6 setter patterns)
         ├── generated_attach_event.rs (event dispatch, 8 invoke patterns)
         ├── reactor_generated.txt     (binding filter entries)
         └── bindings.rs               (via windows-bindgen)
@@ -69,7 +69,6 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 | `method_optional` | Wraps in `Some()`: `put_IsChecked(Some(v))` |
 | `method_ireference` | Wraps in `IReference` |
 | `method_textblock` | Wraps string in TextBlock for IInspectable params |
-| `method_bool_enum` | Bool → WinUI enum mapping |
 | `method_enum_map` | Multi-variant Rust enum → WinUI enum mapping |
 | `setter_fn` | Hand-written custom setter in mod.rs |
 
@@ -91,6 +90,14 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 - `when_true` / `when_false` — emitted if bool matches
 - `non_default` — emitted if `!=` default value
 
+## Match Arm Collapsing
+
+The `gen_set_prop` module groups duplicate match arms that share the same body across
+multiple `Handle` variants. For non-custom props (those without `setter_fn`), the largest
+duplicate group uses a wildcard `_` arm. For custom props, OR-patterns explicitly list
+handles. This eliminated ~60 duplicate arms and removed the need for
+`#[allow(clippy::match_same_arms)]`.
+
 ## Tool Structure
 
 ```
@@ -99,8 +106,8 @@ crates/tools/reactor_codegen/src/
 ├── schema.rs         Data types + resolve_defaults() inference
 ├── toml_parser.rs    TOML → Control structs (with metadata validation)
 ├── metadata.rs       winmd resolver (method → interface + param types)
-├── gen_bindings.rs   bindings() helpers
-├── gen_set_prop.rs   set_prop dispatch
+├── gen_bindings.rs   bindings() helpers (events before props for correct ordering)
+├── gen_set_prop.rs   set_prop dispatch (with arm collapsing)
 ├── gen_attach.rs     attach_event dispatch
 ├── gen_reactor_txt.rs  reactor_generated.txt filter
 └── helpers.rs        Shared utilities
@@ -108,8 +115,13 @@ crates/tools/reactor_codegen/src/
 
 ## Design Choices
 
-- **Metadata-driven** — field, method, value, and unset are inferred from `.winmd`.
-  Only non-standard mappings need explicit TOML overrides.
+- **Metadata-driven** — field, method, value, copy semantics, and enum variants are
+  inferred from `.winmd`. Only non-standard mappings need explicit TOML overrides.
+- **TOML keys = metadata names** — event/prop TOML keys match WinUI metadata names
+  (e.g., `SelectedTimeChanged`, `ColorChanged`). Field names for the public API are
+  derived automatically via `on_snake_case(Name)`. Only truly ergonomic overrides
+  (e.g., `placeholder` for `PlaceholderText`) use `field = "..."`.
 - **Generated + hand-written coexist** — generated dispatch falls through to hand-written
   code in mod.rs for complex cases (~36 setter_fn, ~23 attach_fn).
 - **One tool, one run** — TOML → code → bindings.rs all in one `cargo run`.
+- **20 codegen tests + 3 metadata tests** validate the pipeline.
