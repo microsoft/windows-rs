@@ -65,49 +65,32 @@ Microsoft.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer::{CreatePeerFo
 Microsoft.UI.Xaml.Controls.AppBarButton::{CreateInstance}
 Microsoft.UI.Xaml.Controls.AppBarSeparator::{CreateInstance}
 Microsoft.UI.Xaml.Controls.AppBarToggleButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.AutoSuggestBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs
 Microsoft.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs
 Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs
 Microsoft.UI.Xaml.Controls.AutoSuggestionBoxTextChangeReason
-Microsoft.UI.Xaml.Controls.Border::{CreateInstance}
-Microsoft.UI.Xaml.Controls.BreadcrumbBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Button::{CreateInstance}
-Microsoft.UI.Xaml.Controls.CalendarDatePicker::{CreateInstance}
 Microsoft.UI.Xaml.Controls.CalendarDatePickerDateChangedEventArgs
-Microsoft.UI.Xaml.Controls.CalendarView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.CalendarViewSelectedDatesChangedEventArgs
-Microsoft.UI.Xaml.Controls.Canvas::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Canvas::{SetLeft, SetTop, SetZIndex, GetLeft, GetTop}
-Microsoft.UI.Xaml.Controls.CheckBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ColorChangedEventArgs
-Microsoft.UI.Xaml.Controls.ColorPicker::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ColumnDefinition::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ColumnDefinitionCollection
-Microsoft.UI.Xaml.Controls.ComboBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.CommandBar::{CreateInstance}
 Microsoft.UI.Xaml.Controls.CommandBarDefaultLabelPosition
 Microsoft.UI.Xaml.Controls.CommandBarFlyout::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ContentControl
-Microsoft.UI.Xaml.Controls.ContentDialog::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ContentDialogClosedEventArgs
 Microsoft.UI.Xaml.Controls.ContentDialogResult
 Microsoft.UI.Xaml.Controls.Control
-Microsoft.UI.Xaml.Controls.DatePicker::{CreateInstance}
 Microsoft.UI.Xaml.Controls.DatePickerSelectedValueChangedEventArgs
-Microsoft.UI.Xaml.Controls.DropDownButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Expander::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ExpanderCollapsedEventArgs
 Microsoft.UI.Xaml.Controls.ExpanderExpandingEventArgs
 Microsoft.UI.Xaml.Controls.FlipView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Flyout::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Grid::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Grid::{SetColumn, SetColumnSpan, SetRow, SetRowSpan, GetRow}
 Microsoft.UI.Xaml.Controls.GridView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.HyperlinkButton::{CreateInstance}
 Microsoft.UI.Xaml.Controls.IAppBarButton::{put_Label, get_Label, put_Icon}
 Microsoft.UI.Xaml.Controls.IAppBarToggleButton::{put_Label, put_Icon}
-Microsoft.UI.Xaml.Controls.IAutoSuggestBox::{put_Text, get_Text, put_PlaceholderText, put_Header, add_QuerySubmitted, add_TextChanged, add_SuggestionChosen}
+Microsoft.UI.Xaml.Controls.IAutoSuggestBox::{put_Text, get_Text, add_QuerySubmitted, add_TextChanged, add_SuggestionChosen}
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs::{get_QueryText}
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs::{get_SelectedItem}
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs::{get_Reason}
@@ -116,177 +99,135 @@ Microsoft.UI.Xaml.Controls.IBreadcrumbBar::{put_ItemsSource, add_ItemClicked}
 Microsoft.UI.Xaml.Controls.IBreadcrumbBarItemClickedEventArgs::{get_Index}
 Microsoft.UI.Xaml.Controls.BreadcrumbBarItemClickedEventArgs
 Microsoft.UI.Xaml.Controls.IButton::{put_Flyout, get_Flyout}
-Microsoft.UI.Xaml.Controls.ICalendarDatePicker::{put_Header, put_PlaceholderText, put_IsTodayHighlighted, put_IsCalendarOpen, add_DateChanged}
+Microsoft.UI.Xaml.Controls.ICalendarDatePicker::{add_DateChanged}
 Microsoft.UI.Xaml.Controls.ICalendarDatePickerDateChangedEventArgs::{get_NewDate}
-Microsoft.UI.Xaml.Controls.ICalendarView::{put_IsTodayHighlighted, put_IsGroupLabelVisible, add_SelectedDatesChanged}
+Microsoft.UI.Xaml.Controls.ICalendarView::{add_SelectedDatesChanged}
 Microsoft.UI.Xaml.Controls.ICalendarViewSelectedDatesChangedEventArgs::{get_AddedDates, get_RemovedDates}
 Microsoft.UI.Xaml.Controls.IColorChangedEventArgs::{get_NewColor}
-Microsoft.UI.Xaml.Controls.IColorPicker::{put_Color, put_IsAlphaEnabled, put_IsHexInputVisible, put_IsColorSliderVisible, put_IsColorChannelTextInputVisible, add_ColorChanged}
+Microsoft.UI.Xaml.Controls.IColorPicker::{put_Color, add_ColorChanged}
 Microsoft.UI.Xaml.Controls.IColumnDefinition::{put_Width}
-Microsoft.UI.Xaml.Controls.IComboBox::{put_Header, put_PlaceholderText, put_IsEditable}
-Microsoft.UI.Xaml.Controls.ICommandBar::{get_PrimaryCommands, get_SecondaryCommands, put_DefaultLabelPosition}
+Microsoft.UI.Xaml.Controls.ICommandBar::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft.UI.Xaml.Controls.ICommandBarElement
 Microsoft.UI.Xaml.Controls.ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft.UI.Xaml.Controls.ICommandBarFlyoutFactory
-Microsoft.UI.Xaml.Controls.IContentControl::{put_Content, get_Content}
-Microsoft.UI.Xaml.Controls.IContentDialog::{put_Title, put_PrimaryButtonText, put_SecondaryButtonText, put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, ShowAsync, Hide, add_Closed}
+Microsoft.UI.Xaml.Controls.IContentControl::{get_Content}
+Microsoft.UI.Xaml.Controls.IContentDialog::{ShowAsync, Hide, add_Closed}
 Microsoft.UI.Xaml.Controls.IContentDialogClosedEventArgs::{get_Result}
-Microsoft.UI.Xaml.Controls.IControl::{put_IsEnabled, get_IsEnabled, put_Padding, put_Background, put_Foreground, put_FontSize, put_FontWeight, put_FontFamily}
-Microsoft.UI.Xaml.Controls.IDatePicker::{put_Header, put_DayVisible, put_MonthVisible, put_YearVisible, add_SelectedDateChanged}
+Microsoft.UI.Xaml.Controls.IControl::{get_IsEnabled, put_Padding, put_Background, put_Foreground, put_FontSize, put_FontWeight, put_FontFamily}
+Microsoft.UI.Xaml.Controls.IDatePicker::{add_SelectedDateChanged}
 Microsoft.UI.Xaml.Controls.IDatePickerSelectedValueChangedEventArgs::{get_NewDate}
-Microsoft.UI.Xaml.Controls.IExpander::{put_Header, put_IsExpanded, add_Expanding, add_Collapsed}
+Microsoft.UI.Xaml.Controls.IExpander::{put_Header, add_Expanding, add_Collapsed}
 Microsoft.UI.Xaml.Controls.IFlyout::{put_Content}
-Microsoft.UI.Xaml.Controls.IGrid::{get_RowDefinitions, get_ColumnDefinitions, put_RowSpacing, put_ColumnSpacing}
+Microsoft.UI.Xaml.Controls.IGrid::{get_RowDefinitions, get_ColumnDefinitions}
 Microsoft.UI.Xaml.Controls.IHyperlinkButton::{put_NavigateUri}
-Microsoft.UI.Xaml.Controls.IImage::{put_Source, put_Stretch}
-Microsoft.UI.Xaml.Controls.IInfoBar::{put_Title, put_Message, put_Severity, put_IsOpen, put_IsClosable, add_Closed}
+Microsoft.UI.Xaml.Controls.IImage::{put_Source}
+Microsoft.UI.Xaml.Controls.IInfoBar::{add_Closed}
 Microsoft.UI.Xaml.Controls.IItemsControl::{get_Items, put_ItemsSource}
 Microsoft.UI.Xaml.Controls.IListBox::{put_SelectionMode}
 Microsoft.UI.Xaml.Controls.IListViewBase::{put_SelectionMode, ScrollIntoView}
-Microsoft.UI.Xaml.Controls.Image::{CreateInstance}
 Microsoft.UI.Xaml.Controls.IMenuBar::{get_Items}
 Microsoft.UI.Xaml.Controls.IMenuBarItem::{get_Items, put_Title}
 Microsoft.UI.Xaml.Controls.IMenuFlyout::{get_Items}
 Microsoft.UI.Xaml.Controls.IMenuFlyoutItem::{put_Text, get_Text, add_Click}
 Microsoft.UI.Xaml.Controls.IMenuFlyoutSubItem::{get_Items, put_Text}
-Microsoft.UI.Xaml.Controls.INavigationView::{get_MenuItems, put_SelectedItem, get_SelectedItem, put_Header, put_IsSettingsVisible, put_AutoSuggestBox, get_AutoSuggestBox, put_IsPaneToggleButtonVisible, put_IsPaneOpen, add_SelectionChanged}
-Microsoft.UI.Xaml.Controls.INavigationView2::{put_PaneDisplayMode, put_IsBackEnabled, put_PaneTitle, put_IsBackButtonVisible, add_BackRequested}
+Microsoft.UI.Xaml.Controls.INavigationView::{get_MenuItems, put_SelectedItem, get_SelectedItem, put_AutoSuggestBox, get_AutoSuggestBox, add_SelectionChanged}
+Microsoft.UI.Xaml.Controls.INavigationView2::{put_IsBackButtonVisible, add_BackRequested}
 Microsoft.UI.Xaml.Controls.INavigationViewItem::{put_Icon}
 Microsoft.UI.Xaml.Controls.INavigationViewItem2::{get_MenuItems}
 Microsoft.UI.Xaml.Controls.INavigationViewSelectionChangedEventArgs::{get_SelectedItem}
 Microsoft.UI.Xaml.Controls.InfoBadge::{put_Value}
-Microsoft.UI.Xaml.Controls.InfoBar::{CreateInstance}
 Microsoft.UI.Xaml.Controls.InfoBarClosedEventArgs
 Microsoft.UI.Xaml.Controls.InfoBarSeverity
-Microsoft.UI.Xaml.Controls.INumberBox::{put_Value, put_Minimum, put_Maximum, put_Header, add_ValueChanged}
+Microsoft.UI.Xaml.Controls.INumberBox::{add_ValueChanged}
 Microsoft.UI.Xaml.Controls.INumberBoxValueChangedEventArgs::{get_NewValue}
 Microsoft.UI.Xaml.Controls.IPanel::{get_Children, put_Background}
-Microsoft.UI.Xaml.Controls.IPasswordBox::{get_Password, put_Password, put_PlaceholderText, put_Header, put_PasswordRevealMode, put_IsPasswordRevealButtonEnabled, add_PasswordChanged}
-Microsoft.UI.Xaml.Controls.IPersonPicture::{put_DisplayName, put_Initials}
-Microsoft.UI.Xaml.Controls.IPivot::{put_SelectedIndex, put_Title, add_SelectionChanged}
+Microsoft.UI.Xaml.Controls.IPasswordBox::{get_Password, put_Password, add_PasswordChanged}
+Microsoft.UI.Xaml.Controls.IPivot::{add_SelectionChanged}
 Microsoft.UI.Xaml.Controls.IPivotItem::{put_Header}
-Microsoft.UI.Xaml.Controls.IProgressBar::{put_IsIndeterminate}
-Microsoft.UI.Xaml.Controls.IProgressRing::{put_IsActive, put_IsIndeterminate, put_Maximum, put_Minimum}
-Microsoft.UI.Xaml.Controls.IRadioButton::{put_GroupName}
-Microsoft.UI.Xaml.Controls.IRadioButtons::{add_SelectionChanged, get_Items, get_SelectedIndex, put_Header, put_MaxColumns, put_SelectedIndex}
-Microsoft.UI.Xaml.Controls.IRatingControl::{put_Value, get_Value, put_MaxRating, put_Caption, put_PlaceholderValue, put_IsReadOnly, add_ValueChanged}
-Microsoft.UI.Xaml.Controls.IRichEditBox::{get_Document, put_PlaceholderText, put_Header, put_IsReadOnly, add_TextChanged}
+Microsoft.UI.Xaml.Controls.IRadioButtons::{add_SelectionChanged, get_Items, get_SelectedIndex}
+Microsoft.UI.Xaml.Controls.IRatingControl::{get_Value, add_ValueChanged}
+Microsoft.UI.Xaml.Controls.IRichEditBox::{get_Document, add_TextChanged}
 Microsoft.UI.Xaml.Controls.IRichTextBlock::{put_FontSize, put_FontFamily, put_IsTextSelectionEnabled, put_TextWrapping, put_Foreground, get_Blocks}
 Microsoft.UI.Xaml.Controls.IRowDefinition::{put_Height}
-Microsoft.UI.Xaml.Controls.IScrollView::{put_Content, put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
-Microsoft.UI.Xaml.Controls.IScrollViewer::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
+Microsoft.UI.Xaml.Controls.IScrollView::{put_Content}
 Microsoft.UI.Xaml.Controls.ISelectorBar::{get_Items, get_SelectedItem, add_SelectionChanged}
 Microsoft.UI.Xaml.Controls.ISelectorBarItem::{put_Text, get_Text, put_Icon}
-Microsoft.UI.Xaml.Controls.ISlider::{put_StepFrequency, put_Header, put_Orientation}
+Microsoft.UI.Xaml.Controls.ISlider::{put_StepFrequency}
 Microsoft.UI.Xaml.Controls.ISplitButton::{add_Click}
-Microsoft.UI.Xaml.Controls.ISplitView::{put_DisplayMode, put_IsPaneOpen, put_OpenPaneLength, put_CompactPaneLength, put_Content, put_Pane, add_PaneClosed}
-Microsoft.UI.Xaml.Controls.IStackPanel::{put_Orientation, put_Spacing}
+Microsoft.UI.Xaml.Controls.ISplitView::{put_DisplayMode, put_Content, put_Pane, add_PaneClosed}
 Microsoft.UI.Xaml.Controls.ISymbolIcon::{get_Symbol}
-Microsoft.UI.Xaml.Controls.ITabView::{get_TabItems, put_SelectedIndex, get_SelectedIndex, put_CanReorderTabs, put_IsAddTabButtonVisible, add_SelectionChanged, add_TabCloseRequested, add_AddTabButtonClick}
+Microsoft.UI.Xaml.Controls.ITabView::{get_TabItems, get_SelectedIndex, add_SelectionChanged, add_TabCloseRequested, add_AddTabButtonClick}
 Microsoft.UI.Xaml.Controls.ITabViewItem::{put_Header, put_IsClosable}
 Microsoft.UI.Xaml.Controls.ITabViewTabCloseRequestedEventArgs::{get_Tab}
-Microsoft.UI.Xaml.Controls.ITeachingTip::{put_Title, put_Subtitle, put_IsOpen, put_IsLightDismissEnabled, put_PreferredPlacement, put_ActionButtonContent, put_CloseButtonContent, add_Closed, add_ActionButtonClick}
+Microsoft.UI.Xaml.Controls.ITeachingTip::{put_ActionButtonContent, put_CloseButtonContent, add_Closed, add_ActionButtonClick}
 Microsoft.UI.Xaml.Controls.ItemCollection
 Microsoft.UI.Xaml.Controls.ItemsControl
-Microsoft.UI.Xaml.Controls.ITextBlock::{put_Text, get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground, put_TextWrapping, put_IsTextSelectionEnabled}
-Microsoft.UI.Xaml.Controls.ITextBox::{get_Text, put_Text, put_PlaceholderText, put_Header, put_AcceptsReturn, put_TextWrapping, add_TextChanged}
-Microsoft.UI.Xaml.Controls.ITimePicker::{put_Header, put_ClockIdentifier, put_MinuteIncrement, add_SelectedTimeChanged}
+Microsoft.UI.Xaml.Controls.ITextBlock::{get_Text, put_FontWeight, put_FontFamily, put_Foreground}
+Microsoft.UI.Xaml.Controls.ITextBox::{get_Text, put_Text, add_TextChanged}
+Microsoft.UI.Xaml.Controls.ITimePicker::{add_SelectedTimeChanged}
 Microsoft.UI.Xaml.Controls.ITimePickerSelectedValueChangedEventArgs::{get_NewTime}
-Microsoft.UI.Xaml.Controls.ITitleBar::{put_Title, put_Subtitle, put_Content, put_RightHeader, put_IsBackButtonVisible, put_IsBackButtonEnabled, put_IsPaneToggleButtonVisible, add_BackRequested, add_PaneToggleRequested}
-Microsoft.UI.Xaml.Controls.IToggleSwitch::{put_IsOn, get_IsOn, put_OnContent, put_OffContent, put_Header, add_Toggled}
-Microsoft.UI.Xaml.Controls.ITreeView::{get_RootNodes, put_SelectionMode, add_ItemInvoked}
+Microsoft.UI.Xaml.Controls.ITitleBar::{put_Content, put_RightHeader, add_BackRequested, add_PaneToggleRequested}
+Microsoft.UI.Xaml.Controls.IToggleSwitch::{get_IsOn, add_Toggled}
+Microsoft.UI.Xaml.Controls.ITreeView::{get_RootNodes, add_ItemInvoked}
 Microsoft.UI.Xaml.Controls.ITreeViewItemInvokedEventArgs::{get_InvokedItem}
 Microsoft.UI.Xaml.Controls.ITreeViewNode::{put_Content, get_Content, put_IsExpanded, get_Children}
-Microsoft.UI.Xaml.Controls.IViewbox::{put_Child, put_Stretch}
-Microsoft.UI.Xaml.Controls.ListBox::{CreateInstance}
+Microsoft.UI.Xaml.Controls.IViewbox::{put_Child}
 Microsoft.UI.Xaml.Controls.ListView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ListViewSelectionMode
-Microsoft.UI.Xaml.Controls.MenuBar::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuBarItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuFlyout::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuFlyoutItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuFlyoutSeparator::{CreateInstance}
 Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem::{CreateInstance}
-Microsoft.UI.Xaml.Controls.NavigationView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible::{Collapsed, Auto}
 Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs
 Microsoft.UI.Xaml.Controls.NavigationViewItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.NavigationViewItemHeader::{CreateInstance}
 Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode
 Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs
-Microsoft.UI.Xaml.Controls.NumberBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.NumberBoxValueChangedEventArgs
 Microsoft.UI.Xaml.Controls.Orientation
 Microsoft.UI.Xaml.Controls.Panel
-Microsoft.UI.Xaml.Controls.PasswordBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.PasswordRevealMode
-Microsoft.UI.Xaml.Controls.PersonPicture::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Pivot::{CreateInstance}
 Microsoft.UI.Xaml.Controls.PivotItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
 Microsoft.UI.Xaml.Controls.Primitives.IButtonBase::{add_Click}
 Microsoft.UI.Xaml.Controls.Primitives.IFlyoutBase::{put_Placement}
-Microsoft.UI.Xaml.Controls.Primitives.IRangeBase::{put_Value, get_Value, put_Minimum, put_Maximum, put_SmallChange, add_ValueChanged}
+Microsoft.UI.Xaml.Controls.Primitives.IRangeBase::{get_Value, put_SmallChange, add_ValueChanged}
 Microsoft.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs::{get_NewValue}
-Microsoft.UI.Xaml.Controls.Primitives.IRepeatButton::{put_Delay, put_Interval}
-Microsoft.UI.Xaml.Controls.Primitives.ISelector::{put_SelectedIndex, get_SelectedIndex, get_SelectedItem, add_SelectionChanged}
-Microsoft.UI.Xaml.Controls.Primitives.IToggleButton::{put_IsChecked, get_IsChecked, add_Checked, add_Unchecked}
+Microsoft.UI.Xaml.Controls.Primitives.ISelector::{get_SelectedIndex, get_SelectedItem, add_SelectionChanged}
+Microsoft.UI.Xaml.Controls.Primitives.IToggleButton::{get_IsChecked, add_Checked, add_Unchecked}
 Microsoft.UI.Xaml.Controls.Primitives.PlacementMode
 Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
-Microsoft.UI.Xaml.Controls.Primitives.RepeatButton::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Primitives.Selector
-Microsoft.UI.Xaml.Controls.Primitives.ToggleButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ProgressBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ProgressRing::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RadioButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RadioButtons::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RatingControl::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RelativePanel::{CreateInstance}
 Microsoft.UI.Xaml.Controls.RelativePanel::{SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
-Microsoft.UI.Xaml.Controls.RichEditBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.RichTextBlock
 Microsoft.UI.Xaml.Controls.RowDefinition::{CreateInstance}
 Microsoft.UI.Xaml.Controls.RowDefinitionCollection
 Microsoft.UI.Xaml.Controls.ScrollBarVisibility
 Microsoft.UI.Xaml.Controls.ScrollingScrollBarVisibility
-Microsoft.UI.Xaml.Controls.ScrollView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ScrollViewer::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SelectionChangedEventHandler
-Microsoft.UI.Xaml.Controls.SelectorBar::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SelectorBarItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SelectorBarSelectionChangedEventArgs
-Microsoft.UI.Xaml.Controls.Slider::{CreateInstance}
-Microsoft.UI.Xaml.Controls.SplitButton::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SplitButtonClickEventArgs
-Microsoft.UI.Xaml.Controls.SplitView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SplitViewDisplayMode
-Microsoft.UI.Xaml.Controls.StackPanel::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SwapChainPanel::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
 Microsoft.UI.Xaml.Controls.Symbol
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstanceWithSymbol}
-Microsoft.UI.Xaml.Controls.TabView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TabViewItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TabViewTabCloseRequestedEventArgs
-Microsoft.UI.Xaml.Controls.TeachingTip::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TeachingTipClosedEventArgs
 Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode
-Microsoft.UI.Xaml.Controls.TextBlock::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TextBox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TextChangedEventHandler
-Microsoft.UI.Xaml.Controls.TimePicker::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TimePickerSelectedValueChangedEventArgs
-Microsoft.UI.Xaml.Controls.TitleBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ToggleSwitch::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ToolTip::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ToolTipService::{SetPlacement, SetToolTip, GetPlacement, GetToolTip}
-Microsoft.UI.Xaml.Controls.TreeView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TreeViewItemInvokedEventArgs
 Microsoft.UI.Xaml.Controls.TreeViewNode::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TreeViewSelectionMode
 Microsoft.UI.Xaml.Controls.UIElementCollection
-Microsoft.UI.Xaml.Controls.Viewbox::{CreateInstance}
 Microsoft.UI.Xaml.Controls.XamlControlsResources
 Microsoft.UI.Xaml.CornerRadius
 Microsoft.UI.Xaml.DataTemplate::{CreateInstance}
