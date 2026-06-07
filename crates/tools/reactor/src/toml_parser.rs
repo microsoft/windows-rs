@@ -590,7 +590,7 @@ Click = {}
     #[test]
     fn parse_full_production_toml() {
         // Parse the actual production TOML to ensure it's valid
-        let toml_path = "../../../crates/tools/reactor_codegen/reactor_widgets.toml";
+        let toml_path = "src/winui.toml";
         let toml = std::fs::read_to_string(toml_path).expect("production TOML should exist");
         let controls = parse(&toml, &resolver());
         assert!(

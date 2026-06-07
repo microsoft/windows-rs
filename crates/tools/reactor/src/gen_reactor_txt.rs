@@ -3,7 +3,7 @@
 /// `reactor_base.txt`.
 ///
 /// This file is consumed alongside `reactor_base.txt` by `tool_bindings`
-/// (via tool_reactor_codegen). It only contains entries that the base file
+/// (via tool_reactor). It only contains entries that the base file
 /// doesn't already provide.
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;

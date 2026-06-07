@@ -2,10 +2,10 @@
 
 ## Overview
 
-`tool_reactor_codegen` reads `reactor_widgets.toml` and WinUI `.winmd` metadata to
+`tool_reactor` reads `winui.toml` and WinUI `.winmd` metadata to
 generate type-safe Rust dispatch code for `windows-reactor` via `quote`/`proc-macro2`.
 
-**Run:** `cargo run -p tool_reactor_codegen` (~7s, regenerates everything)
+**Run:** `cargo run -p tool_reactor` (~7s, regenerates everything)
 
 ## Metrics
 
@@ -20,15 +20,15 @@ generate type-safe Rust dispatch code for `windows-reactor` via `quote`/`proc-ma
 ## Architecture
 
 ```
-reactor_widgets.toml          ← 52 controls, metadata-driven declarations
+winui.toml                    ← 52 controls, metadata-driven declarations
         │
         ▼
-tool_reactor_codegen          ← Reads TOML + loads winmd metadata
+tool_reactor                  ← Reads TOML + loads winmd metadata
         │
         ├── generated_bindings.rs     (per-widget bindings() helpers)
         ├── generated_set_prop.rs     (set_prop dispatch, 6 setter patterns)
         ├── generated_attach_event.rs (event dispatch, 8 invoke patterns)
-        ├── reactor_generated.txt     (binding filter entries)
+        ├── generated.txt             (binding filter entries)
         └── bindings.rs               (via windows-bindgen)
 ```
 
@@ -101,7 +101,7 @@ handles. This eliminated ~60 duplicate arms and removed the need for
 ## Tool Structure
 
 ```
-crates/tools/reactor_codegen/src/
+crates/tools/reactor/src/
 ├── main.rs           Pipeline: TOML → resolve → codegen → bindgen
 ├── schema.rs         Data types + resolve_defaults() inference
 ├── toml_parser.rs    TOML → Control structs (with metadata validation)
@@ -109,7 +109,7 @@ crates/tools/reactor_codegen/src/
 ├── gen_bindings.rs   bindings() helpers (events before props for correct ordering)
 ├── gen_set_prop.rs   set_prop dispatch (with arm collapsing)
 ├── gen_attach.rs     attach_event dispatch
-├── gen_reactor_txt.rs  reactor_generated.txt filter
+├── gen_reactor_txt.rs  generated.txt filter
 └── helpers.rs        Shared utilities
 ```
 

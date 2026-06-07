@@ -15,7 +15,7 @@ fn main() {
 
     let resolver = MetadataResolver::load(&PathBuf::from("winmd"));
 
-    let toml_path = PathBuf::from("crates/tools/reactor_codegen/reactor_widgets.toml");
+    let toml_path = PathBuf::from("crates/tools/reactor/src/winui.toml");
     let toml_content = std::fs::read_to_string(&toml_path)
         .unwrap_or_else(|e| panic!("Failed to read {}: {e}", toml_path.display()));
     let mut controls = toml_parser::parse(&toml_content, &resolver);
@@ -56,17 +56,17 @@ fn main() {
         &attach_code,
     );
 
-    let reactor_base_path = std::path::Path::new("crates/tools/bindings/src/reactor_base.txt");
+    let reactor_base_path = std::path::Path::new("crates/tools/reactor/src/base.txt");
     let reactor_txt_content = gen_reactor_txt::generate(&controls, &resolver, reactor_base_path);
     write_plain_if_changed(
-        "crates/tools/bindings/src/reactor_generated.txt",
+        "crates/tools/reactor/src/generated.txt",
         &reactor_txt_content,
     );
 
     generate_reactor_bindings();
 
     println!(
-        "reactor_codegen: generated code for {} controls in {:.2}s",
+        "tool_reactor: generated code for {} controls in {:.2}s",
         controls.len(),
         time.elapsed().as_secs_f32()
     );
@@ -75,7 +75,7 @@ fn main() {
 /// Generate the reactor's `bindings.rs` and test bindings from winmd + filter files.
 fn generate_reactor_bindings() {
     windows_rdl::Reader::new()
-        .input("crates/tools/bindings/src/reactor.rdl")
+        .input("crates/tools/reactor/src/extras.rdl")
         .input("winmd/Windows.Win32.winmd")
         .output("winmd/extras.winmd")
         .write()
@@ -93,8 +93,8 @@ fn generate_reactor_bindings() {
         "--flat",
         "--filter",
         "--etc",
-        "crates/tools/bindings/src/reactor_base.txt",
-        "crates/tools/bindings/src/reactor_generated.txt",
+        "crates/tools/reactor/src/base.txt",
+        "crates/tools/reactor/src/generated.txt",
     ];
     _ = windows_bindgen::bindgen(reactor_args);
 
@@ -107,9 +107,9 @@ fn generate_reactor_bindings() {
         "--flat",
         "--filter",
         "--etc",
-        "crates/tools/bindings/src/reactor_base.txt",
-        "crates/tools/bindings/src/reactor_generated.txt",
-        "crates/tools/bindings/src/reactor_test.txt",
+        "crates/tools/reactor/src/base.txt",
+        "crates/tools/reactor/src/generated.txt",
+        "crates/tools/reactor/src/test.txt",
     ];
     _ = windows_bindgen::bindgen(test_args);
 }

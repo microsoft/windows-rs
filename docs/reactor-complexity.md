@@ -15,7 +15,7 @@ controls:
 ## What Was Done — Option A: Build-time Code Generation
 
 After evaluating three approaches (typed handlers, `widget_map!` macros, proc macros),
-**Option A** — a standalone codegen tool — was implemented successfully via `tool_reactor_codegen`.
+**Option A** — a standalone codegen tool — was implemented successfully via `tool_reactor`.
 
 See [reactor-codegen.md](reactor-codegen.md) for the tool architecture and
 [reactor-metadata.md](reactor-metadata.md) for the metadata-driven TOML design.
