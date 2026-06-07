@@ -45,7 +45,33 @@ impl Button {
 impl Widget for Button {
     widget_header!(ControlKind::Button);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::button_bindings(self)
+        let mut out = crate::core::generated_bindings::button_bindings(self);
+        // Flyout and CommandBarFlyout are compound types not in TOML.
+        if let Some(ref fly) = self.flyout {
+            out.push(Binding::Prop(
+                Prop::FlyoutContent,
+                PropValue::Str(fly.text.clone()),
+            ));
+            if fly.placement != FlyoutPlacement::default() {
+                out.push(Binding::Prop(
+                    Prop::FlyoutPlacement,
+                    PropValue::FlyoutPlacement(fly.placement),
+                ));
+            }
+        }
+        if let Some(ref primary) = self.command_bar_flyout_primary {
+            out.push(Binding::Prop(
+                Prop::CommandBarFlyoutCommands,
+                PropValue::CommandBarFlyoutDef {
+                    primary: primary.clone(),
+                    secondary: self
+                        .command_bar_flyout_secondary
+                        .clone()
+                        .unwrap_or_default(),
+                },
+            ));
+        }
+        out
     }
 }
 

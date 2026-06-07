@@ -18,7 +18,6 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
         .unwrap_or_else(|e| panic!("Failed to read {}: {e}", base_path.display()));
 
     let mut base_iface_methods: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
-    let mut base_bare: BTreeSet<String> = BTreeSet::new();
 
     for line in base_content.lines() {
         let line = line.trim();
@@ -36,8 +35,6 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                 .entry(iface.to_string())
                 .or_default()
                 .extend(methods);
-        } else {
-            base_bare.insert(line.to_string());
         }
     }
 
