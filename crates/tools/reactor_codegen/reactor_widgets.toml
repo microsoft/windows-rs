@@ -57,7 +57,7 @@ IsAlphaEnabled = { emit = "optional" }
 IsHexInputVisible = { emit = "optional" }
 IsColorSliderVisible = { emit = "optional" }
 IsColorChannelTextInputVisible = { emit = "optional" }
-ColorChanged = { attach_fn = true, handler = "ColorChanged" }
+ColorChanged = { attach_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
 Items = { emit = "always", setter_fn = true, value = "StrList" }
@@ -233,7 +233,7 @@ Text = { emit = "always", setter_fn = true, value = "Str" }
 PlaceholderText = { field = "placeholder", emit = "optional", unset = { default = "\"\"" } }
 Header = { emit = "optional" }
 IsReadOnly = { emit = "when_true", unset = "custom" }
-TextChanged = { attach_fn = true, handler = "TextChanged" }
+TextChanged = { attach_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
 HorizontalScrollBarVisibility = { emit = "always" }
