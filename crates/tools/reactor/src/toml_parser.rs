@@ -73,9 +73,6 @@ struct MemberOverride {
     /// Skip codegen; hand-written attach_event in backend.
     #[serde(default)]
     manual: Option<bool>,
-    /// Explicit invoke pattern.
-    #[serde(default)]
-    invoke: Option<String>,
     /// Property name on sender/args (e.g. "IsOn"); codegen prepends "get_".
     #[serde(default)]
     property: Option<String>,
@@ -321,22 +318,49 @@ fn build_event(
         .field
         .clone()
         .unwrap_or_else(|| format!("on_{}", to_snake_case(member_name)));
-    // Infer value (type) from property or invoke pattern when not explicit.
+
+    // Does the property live on the sender (control) or on the event args?
+    let property_on_sender = overrides.property.as_ref().is_some_and(|prop| {
+        let put_method = format!("put_{prop}");
+        resolver.has_method(handle, &put_method)
+    });
+
+    // Infer value (type) from property metadata when not explicit.
     let value = overrides.value.clone().or_else(|| {
-        if let Some(prop) = &overrides.property {
-            // Try sender property: look up put_{Property} on the control.
+        let prop = overrides.property.as_deref()?;
+        if property_on_sender {
             let put_method = format!("put_{prop}");
-            if let Some((v, _)) = resolver.infer_value_type(handle, &put_method) {
-                return Some(v);
-            }
-        }
-        // Infer from invoke pattern name.
-        match overrides.invoke.as_deref() {
-            Some("invoke_f64_args") => Some("F64".to_string()),
-            Some("invoke_i32_args") => Some("I32".to_string()),
-            _ => None,
+            resolver
+                .infer_value_type(handle, &put_method)
+                .map(|(v, _)| v)
+        } else {
+            let add_event = format!("add_{member_name}");
+            resolver.infer_event_args_type(handle, &add_event, prop)
         }
     });
+
+    // Infer invoke pattern.
+    let invoke = if overrides.false_event.is_some() {
+        Some("invoke_bool_dual".to_string())
+    } else if overrides.property.is_some() {
+        value.as_deref().and_then(|v| {
+            let suffix = if property_on_sender {
+                "_getter"
+            } else {
+                "_args"
+            };
+            Some(match v {
+                "Bool" => format!("invoke_bool{suffix}"),
+                "Str" => format!("invoke_string{suffix}"),
+                "F64" => format!("invoke_f64{suffix}"),
+                "I32" => format!("invoke_i32{suffix}"),
+                _ => return None,
+            })
+        })
+    } else {
+        None
+    };
+
     let manual = overrides.manual.unwrap_or(false);
     let add_method = if manual {
         None
@@ -351,7 +375,7 @@ fn build_event(
         value,
         manual,
         add_method,
-        invoke: overrides.invoke.clone(),
+        invoke,
         property: overrides.property.clone(),
         false_event: overrides.false_event.clone(),
     }

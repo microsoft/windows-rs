@@ -33,6 +33,8 @@ pub struct MethodRef {
     pub interface: InterfaceRef,
     /// Parameter types from the method signature (excludes `this`/return).
     pub param_types: Vec<Type>,
+    /// Return type of the method.
+    pub return_type: Type,
 }
 
 /// Classification of a metadata parameter type for setter pattern inference.
@@ -169,6 +171,7 @@ impl MetadataResolver {
                                     name: iface_name.to_string(),
                                 },
                                 param_types: sig.types,
+                                return_type: sig.return_type,
                             }
                         });
                 }
@@ -253,6 +256,45 @@ impl MetadataResolver {
         // IReference<T> unwraps to T, single-field wrappers unwrap to inner.
         let copy = self.is_unwrapped_copy(param);
         Some((name, copy))
+    }
+
+    /// Infer the value type of a property on an event's args class.
+    ///
+    /// Given `(class, add_event, property)`, resolves the delegate parameter of
+    /// `add_{event}` to find the args class, then looks up `get_{property}` on
+    /// that class and returns the value type from its return type.
+    pub fn infer_event_args_type(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<String> {
+        // Get the delegate type from the add method's first param.
+        let add_ref = self
+            .lookup
+            .get(&(class_name.to_string(), add_event.to_string()))?;
+        let delegate_type = add_ref.param_types.first()?;
+        // Extract the args class name from the delegate type.
+        let args_class = match delegate_type {
+            // TypedEventHandler<TSender, TArgs> — extract TArgs.
+            Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
+                Type::ClassName(args_tn) => args_tn.name.clone(),
+                Type::ValueName(args_tn) => args_tn.name.clone(),
+                _ => return None,
+            },
+            // Non-generic delegate (e.g. RangeBaseValueChangedEventHandler):
+            // derive args class by replacing "EventHandler" → "EventArgs".
+            Type::ClassName(tn) if tn.name.ends_with("EventHandler") => {
+                format!("{}EventArgs", tn.name.strip_suffix("EventHandler").unwrap())
+            }
+            _ => return None,
+        };
+        // Look up get_{property} on the args class.
+        let getter = format!("get_{property}");
+        let getter_ref = self
+            .lookup
+            .get(&(args_class, getter))?;
+        self.value_for_type(&getter_ref.return_type)
     }
 
     /// Returns true if a metadata `Type` is Copy (primitive or value type).
@@ -545,5 +587,38 @@ mod tests {
         );
         // Text takes String → non-Copy
         assert!(!resolver.is_method_copy("TextBlock", "put_Text"));
+    }
+
+    #[test]
+    fn infer_event_args_type_numberbox() {
+        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let result = resolver.infer_event_args_type("NumberBox", "add_ValueChanged", "NewValue");
+        assert_eq!(
+            result.as_deref(),
+            Some("F64"),
+            "NumberBox ValueChanged NewValue should be F64"
+        );
+    }
+
+    #[test]
+    fn infer_event_args_type_slider() {
+        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let result = resolver.infer_event_args_type("Slider", "add_ValueChanged", "NewValue");
+        assert_eq!(
+            result.as_deref(),
+            Some("F64"),
+            "Slider ValueChanged NewValue should be F64"
+        );
+    }
+
+    #[test]
+    fn infer_event_args_type_breadcrumbbar() {
+        let resolver = MetadataResolver::load(Path::new("../../../winmd"));
+        let result = resolver.infer_event_args_type("BreadcrumbBar", "add_ItemClicked", "Index");
+        assert_eq!(
+            result.as_deref(),
+            Some("I32"),
+            "BreadcrumbBar ItemClicked Index should be I32"
+        );
     }
 }

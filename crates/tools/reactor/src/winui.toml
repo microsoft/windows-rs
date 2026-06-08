@@ -15,9 +15,8 @@
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
-#   type = "Type"       EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
+#   type = "Type"        EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
 #   manual = true        Skip codegen; hand-written attach_event in backend.
-#   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   property = "Name"    Property on sender/args (e.g. "IsOn"); codegen calls get_Name.
 #   false_event = "Name"  Complement event for bool-dual (e.g. "Unchecked").
 
@@ -32,7 +31,7 @@ SuggestionChosen = { manual = true, type = "Str" }
 ["Microsoft.UI.Xaml.Controls.Border"]
 
 ["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
-ItemClicked = { invoke = "invoke_i32_args", property = "Index" }
+ItemClicked = { property = "Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
 IsEnabled = { default = "true" }
@@ -157,7 +156,7 @@ Minimum = {}
 Maximum = {}
 Header = {}
 IsEnabled = { default = "true" }
-ValueChanged = { invoke = "invoke_f64_args", property = "NewValue" }
+ValueChanged = { property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.PasswordBox"]
 PlaceholderText = { unset = { default = "\"\"" } }
@@ -243,7 +242,7 @@ Value = { required = true }
 Header = {}
 Orientation = { default = "Orientation::Horizontal" }
 IsEnabled = { default = "true" }
-ValueChanged = { invoke = "invoke_f64_args", property = "NewValue" }
+ValueChanged = { property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.SplitButton"]
 Content = { wrap = "ireference" }

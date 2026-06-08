@@ -417,35 +417,11 @@ impl EventDecl {
         Some(format!("add_{}", self.event()))
     }
 
-    /// Resolve the invoke pattern, inferring from value + property + false_event.
+    /// Resolve the invoke pattern.
     ///
-    /// Rules:
-    /// - Explicit invoke override → use as-is
-    /// - false_event present → "invoke_bool_dual"
-    /// - value = "Bool" + property → "invoke_bool_getter"
-    /// - value = "Str" + getter → "invoke_string_getter"
-    /// - value = "F64" + getter → "invoke_f64_getter"
-    /// - value = "I32" + getter → "invoke_i32_getter"
-    /// - Otherwise → "invoke" (unit)
+    /// Fully resolved at parse time by `build_event`. Falls back to `"invoke"` (unit).
     pub fn invoke(&self) -> &str {
-        if let Some(inv) = &self.invoke {
-            return inv;
-        }
-        if self.false_event.is_some() {
-            return "invoke_bool_dual";
-        }
-        if self.property.is_some()
-            && let Some(v) = &self.value
-        {
-            return match v.as_str() {
-                "Bool" => "invoke_bool_getter",
-                "Str" => "invoke_string_getter",
-                "F64" => "invoke_f64_getter",
-                "I32" => "invoke_i32_getter",
-                _ => "invoke",
-            };
-        }
-        "invoke"
+        self.invoke.as_deref().unwrap_or("invoke")
     }
 }
 
