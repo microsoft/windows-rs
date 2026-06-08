@@ -167,9 +167,9 @@ fn stack_orientation_change_emits_single_set_prop() {
         ops[0],
         Op::SetProp {
             prop: Prop::Orientation,
-            value: PropValue::Orientation(Orientation::Horizontal),
+            value: PropValue::I32(v),
             ..
-        }
+        } if v == Orientation::Horizontal.0
     ));
 }
 

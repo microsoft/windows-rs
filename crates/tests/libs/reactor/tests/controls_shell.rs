@@ -203,7 +203,7 @@ fn info_bar_mounts_with_title_message_severity() {
                 (Prop::Message, PropValue::Str(s)) if s == "Something happened" => {
                     saw_msg = true;
                 }
-                (Prop::Severity, PropValue::InfoBarSeverity(InfoBarSeverity::Warning)) => {
+                (Prop::Severity, PropValue::I32(v)) if *v == InfoBarSeverity::Warning.0 => {
                     saw_sev = true;
                 }
                 (Prop::IsOpen, PropValue::Bool(true)) => saw_open = true,
@@ -284,8 +284,8 @@ fn navigation_view_mounts_with_menu_items_and_content() {
                     saw_menu = items.len() == 3 && items[0].is_header && items[1].content == "Home";
                 }
                 (Prop::SelectedTag, PropValue::Str(s)) if s == "home" => saw_tag = true,
-                (Prop::PaneDisplayMode, PropValue::NavigationViewPaneDisplayMode(m))
-                    if *m == NavigationViewPaneDisplayMode::Left =>
+                (Prop::PaneDisplayMode, PropValue::I32(v))
+                    if *v == NavigationViewPaneDisplayMode::Left.0 =>
                 {
                     saw_pane_mode = true;
                 }
@@ -762,12 +762,11 @@ fn command_bar_mounts_with_primary_secondary_commands_and_label_position() {
                 (Prop::SecondaryCommands, PropValue::CommandBarCommands(v)) if v == &secondary => {
                     saw_secondary = true;
                 }
-                (
-                    Prop::DefaultLabelPosition,
-                    PropValue::CommandBarDefaultLabelPosition(
-                        CommandBarDefaultLabelPosition::Right,
-                    ),
-                ) => saw_label_pos = true,
+                (Prop::DefaultLabelPosition, PropValue::I32(v))
+                    if *v == CommandBarDefaultLabelPosition::Right.0 =>
+                {
+                    saw_label_pos = true;
+                }
                 _ => {}
             }
         }
@@ -799,10 +798,11 @@ fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
                 (Prop::Subtitle, PropValue::Str(s)) if s == "Sub" => saw_subtitle = true,
                 (Prop::IsOpen, PropValue::Bool(true)) => saw_open = true,
                 (Prop::IsLightDismissEnabled, PropValue::Bool(true)) => saw_dismiss = true,
-                (
-                    Prop::PreferredPlacement,
-                    PropValue::TeachingTipPlacementMode(TeachingTipPlacementMode::Top),
-                ) => saw_placement = true,
+                (Prop::PreferredPlacement, PropValue::I32(v))
+                    if *v == TeachingTipPlacementMode::Top.0 =>
+                {
+                    saw_placement = true;
+                }
                 _ => {}
             }
         }
@@ -888,10 +888,11 @@ fn tree_view_mounts_with_nodes_and_selection_mode() {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
                 (Prop::Nodes, PropValue::TreeViewNodes(v)) if v == &nodes => saw_nodes = true,
-                (
-                    Prop::SelectionMode,
-                    PropValue::TreeViewSelectionMode(TreeViewSelectionMode::Multiple),
-                ) => saw_selection_mode = true,
+                (Prop::SelectionMode, PropValue::I32(v))
+                    if *v == TreeViewSelectionMode::Multiple.0 =>
+                {
+                    saw_selection_mode = true;
+                }
                 _ => {}
             }
         }

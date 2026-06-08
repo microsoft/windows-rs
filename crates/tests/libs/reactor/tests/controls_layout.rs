@@ -234,9 +234,9 @@ fn viewbox_mounts_with_stretch() {
             op,
             Op::SetProp {
                 prop: Prop::Stretch,
-                value: PropValue::Stretch(Stretch::Fill),
+                value: PropValue::I32(v),
                 ..
-            }
+            } if *v == Stretch::Fill.0
         )
     });
     assert!(saw_stretch);
@@ -257,14 +257,16 @@ fn scroll_view_mounts_with_horizontal_and_vertical_visibility() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollingScrollBarVisibility(ScrollingScrollBarVisibility::Hidden),
-                ) => saw_horizontal = true,
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollingScrollBarVisibility(ScrollingScrollBarVisibility::Visible),
-                ) => saw_vertical = true,
+                (Prop::HorizontalScrollBarVisibility, PropValue::I32(v))
+                    if *v == ScrollingScrollBarVisibility::Hidden.0 =>
+                {
+                    saw_horizontal = true;
+                }
+                (Prop::VerticalScrollBarVisibility, PropValue::I32(v))
+                    if *v == ScrollingScrollBarVisibility::Visible.0 =>
+                {
+                    saw_vertical = true;
+                }
                 _ => {}
             }
         }
@@ -287,14 +289,16 @@ fn scroll_viewer_mounts_with_horizontal_and_vertical_visibility() {
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (
-                    Prop::HorizontalScrollBarVisibility,
-                    PropValue::ScrollBarVisibility(ScrollBarVisibility::Hidden),
-                ) => saw_horizontal = true,
-                (
-                    Prop::VerticalScrollBarVisibility,
-                    PropValue::ScrollBarVisibility(ScrollBarVisibility::Auto),
-                ) => saw_vertical = true,
+                (Prop::HorizontalScrollBarVisibility, PropValue::I32(v))
+                    if *v == ScrollBarVisibility::Hidden.0 =>
+                {
+                    saw_horizontal = true;
+                }
+                (Prop::VerticalScrollBarVisibility, PropValue::I32(v))
+                    if *v == ScrollBarVisibility::Auto.0 =>
+                {
+                    saw_vertical = true;
+                }
                 _ => {}
             }
         }

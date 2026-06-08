@@ -143,9 +143,9 @@ fn image_mounts_with_source_and_stretch() {
             op,
             Op::SetProp {
                 prop: Prop::Stretch,
-                value: PropValue::Stretch(Stretch::UniformToFill),
+                value: PropValue::I32(v),
                 ..
-            }
+            } if *v == Stretch::UniformToFill.0
         )
     });
     assert!(saw_stretch);
