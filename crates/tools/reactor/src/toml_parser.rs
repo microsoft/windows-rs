@@ -65,6 +65,9 @@ struct MemberOverride {
     field: Option<String>,
 
     // ── Property-specific ──
+    /// Custom hand-written setter in mod.rs (skip codegen for this prop).
+    #[serde(default)]
+    setter_fn: Option<bool>,
     /// IReference wrapping (e.g. "ireference").
     #[serde(default)]
     wrap: Option<String>,
@@ -139,6 +142,11 @@ pub fn parse(toml_content: &str, resolver: &MetadataResolver) -> Vec<Control> {
                 "{line}'{member_name}' on '{type_name}' is both a property and an event in metadata — add explicit kind"
             );
             if !is_prop && !is_event {
+                if overrides.setter_fn.is_some() {
+                    let prop = build_prop(member_name, handle, &overrides, resolver);
+                    props.push(prop);
+                    continue;
+                }
                 if overrides.attach_fn.is_some() {
                     let event = build_event(member_name, handle, &overrides, resolver);
                     events.push(event);
@@ -227,16 +235,19 @@ fn build_prop(
     // Check if metadata says this is an enum type (for auto-inference).
     let is_metadata_enum = has_method && resolver.enum_info(handle, &method_name).is_some();
 
-    let (method, method_optional, method_ireference, method_textblock) = if is_metadata_enum {
-        (None, None, None, None)
-    } else if has_method {
-        classify_setter(handle, &method_name, wrap.as_deref(), resolver)
-    } else {
-        (None, None, None, None)
-    };
+    let is_custom = overrides.setter_fn == Some(true);
+
+    let (method, method_optional, method_ireference, method_textblock) =
+        if is_custom || is_metadata_enum {
+            (None, None, None, None)
+        } else if has_method {
+            classify_setter(handle, &method_name, wrap.as_deref(), resolver)
+        } else {
+            (None, None, None, None)
+        };
 
     // Infer enum_map from metadata when the parameter is an enum type.
-    let method_enum_map = if has_method {
+    let method_enum_map = if !is_custom && has_method {
         if let Some((enum_name, _variants)) = resolver.enum_info(handle, &method_name) {
             Some(EnumMapSetter {
                 method: Some(method_name.clone()),
@@ -278,6 +289,7 @@ fn build_prop(
         unset: overrides.unset.clone(),
         copy_value,
         enum_as_i32,
+        custom_setter: is_custom,
     }
 }
 

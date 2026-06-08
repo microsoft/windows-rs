@@ -11,6 +11,7 @@
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
 #   unset = { default = "expr" }   Reset to literal on unset.
+#   setter_fn = true     Hand-written setter in mod.rs (skip codegen).
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
@@ -19,10 +20,6 @@
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
 #   add_method_false     Second add method for bool_dual event patterns.
-#
-# Properties with custom hand-written setters are NOT listed here.
-# They are handled entirely in the widget's bindings() method and the
-# backend's set_prop match arms.
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
 PlaceholderText = { }
@@ -38,6 +35,7 @@ SuggestionChosen = { attach_fn = true, value = "Str" }
 ItemClicked = { value = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
+Content = { setter_fn = true }
 IsEnabled = { default = "true" }
 Click = {}
 ItemClicked = { attach_fn = true, value = "Str" }

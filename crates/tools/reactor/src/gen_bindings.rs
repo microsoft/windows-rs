@@ -19,12 +19,21 @@ fn generate_one(ctrl: &Control) -> TokenStream {
     let fn_name = ident(&format!("{}_bindings", to_snake_case(&ctrl.name)));
     let widget_type = ident(&ctrl.name);
 
-    let has_conditional_props = ctrl.prop.iter().any(|p| !p.required);
+    let has_conditional_props = ctrl
+        .prop
+        .iter()
+        .filter(|p| !p.custom_setter)
+        .any(|p| !p.required);
     let all_unconditional = !has_conditional_props;
 
-    let prop_stmts: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_binding).collect();
+    let prop_stmts: Vec<TokenStream> = ctrl
+        .prop
+        .iter()
+        .filter(|p| !p.custom_setter)
+        .map(gen_prop_binding)
+        .collect();
     let event_stmts: Vec<TokenStream> = ctrl.event.iter().map(gen_event_binding).collect();
-    let cap = ctrl.prop.len() + ctrl.event.len();
+    let cap = ctrl.prop.iter().filter(|p| !p.custom_setter).count() + ctrl.event.len();
 
     if cap == 0 {
         quote! {
@@ -34,7 +43,12 @@ fn generate_one(ctrl: &Control) -> TokenStream {
         }
     } else if all_unconditional {
         // All items are unconditional — use vec![...] directly
-        let prop_items: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_item).collect();
+        let prop_items: Vec<TokenStream> = ctrl
+            .prop
+            .iter()
+            .filter(|p| !p.custom_setter)
+            .map(gen_prop_item)
+            .collect();
         let event_items: Vec<TokenStream> = ctrl.event.iter().map(gen_event_item).collect();
         quote! {
             pub(crate) fn #fn_name(w: &#widget_type) -> PropBindings {

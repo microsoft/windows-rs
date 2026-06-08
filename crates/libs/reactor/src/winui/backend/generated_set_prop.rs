@@ -53,6 +53,37 @@ pub(crate) fn dispatch(
                 .cast_inner::<Xaml::IContentControl>()?
                 .put_Content(&insp)?;
         }
+        (
+            Prop::Content,
+            PropValue::Str(v),
+            Handle::CheckBox(_)
+            | Handle::ContentDialog(_)
+            | Handle::HyperlinkButton(_)
+            | Handle::RadioButton(_)
+            | Handle::RepeatButton(_)
+            | Handle::ToggleButton(_),
+        ) => {
+            let tb = string_as_textblock(v.as_str())?;
+            handle
+                .cast_inner::<Xaml::IContentControl>()?
+                .put_Content(&tb)?;
+        }
+        (
+            Prop::Content,
+            PropValue::Unset,
+            Handle::CheckBox(_)
+            | Handle::ContentDialog(_)
+            | Handle::DropDownButton(_)
+            | Handle::HyperlinkButton(_)
+            | Handle::RadioButton(_)
+            | Handle::RepeatButton(_)
+            | Handle::SplitButton(_)
+            | Handle::ToggleButton(_),
+        ) => {
+            handle
+                .cast_inner::<Xaml::IContentControl>()?
+                .put_Content(None)?;
+        }
         (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.put_DayVisible(*v)?;
         }
@@ -594,17 +625,6 @@ pub(crate) fn dispatch(
         }
         (Prop::YearVisible, PropValue::Unset, Handle::DatePicker(h)) => {
             h.put_YearVisible(true)?;
-        }
-        (Prop::Content, PropValue::Str(v), _) => {
-            let tb = string_as_textblock(v.as_str())?;
-            handle
-                .cast_inner::<Xaml::IContentControl>()?
-                .put_Content(&tb)?;
-        }
-        (Prop::Content, PropValue::Unset, _) => {
-            handle
-                .cast_inner::<Xaml::IContentControl>()?
-                .put_Content(None)?;
         }
         (Prop::IsChecked, PropValue::Bool(v), _) => {
             handle
