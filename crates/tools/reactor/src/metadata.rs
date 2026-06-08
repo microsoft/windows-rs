@@ -58,6 +58,9 @@ pub struct MetadataResolver {
     single_field_types: HashMap<(String, String), Type>,
     /// Enum types: maps `(namespace, name)` → list of variant names.
     enum_variants: HashMap<(String, String), Vec<String>>,
+    /// Non-generic delegate → args class short name, resolved from the
+    /// delegate's `Invoke` method signature.
+    delegate_args: HashMap<String, String>,
 }
 
 impl MetadataResolver {
@@ -124,10 +127,48 @@ impl MetadataResolver {
             }
         }
 
+        // Build delegate→args map: for non-generic delegates used by add_*
+        // methods, resolve the Invoke method's second parameter to find the
+        // event args class.
+        let mut delegate_args = HashMap::new();
+        for ((_, method_name), mref) in &lookup {
+            if !method_name.starts_with("add_") {
+                continue;
+            }
+            let Some(Type::ClassName(tn)) = mref.param_types.first() else {
+                continue;
+            };
+            if !tn.generics.is_empty() || delegate_args.contains_key(&tn.name) {
+                continue;
+            }
+            // Look up the delegate typedef and find its Invoke method.
+            let Some(delegate_def) = index.get(&tn.namespace, &tn.name).next() else {
+                continue;
+            };
+            for method in delegate_def.methods() {
+                if method.name() == "Invoke" {
+                    let sig = method.signature(&[]);
+                    // Second parameter is the args type (first is sender).
+                    if let Some(args_type) = sig.types.get(1) {
+                        let args_name = match args_type {
+                            Type::ClassName(args_tn) => Some(args_tn.name.clone()),
+                            Type::ValueName(args_tn) => Some(args_tn.name.clone()),
+                            _ => None,
+                        };
+                        if let Some(name) = args_name {
+                            delegate_args.insert(tn.name.clone(), name);
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
         MetadataResolver {
             lookup,
             single_field_types,
             enum_variants,
+            delegate_args,
         }
     }
 
@@ -276,24 +317,19 @@ impl MetadataResolver {
         let delegate_type = add_ref.param_types.first()?;
         // Extract the args class name from the delegate type.
         let args_class = match delegate_type {
-            // TypedEventHandler<TSender, TArgs> — extract TArgs.
+            // TypedEventHandler<TSender, TArgs> — extract TArgs from generics.
             Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
                 Type::ClassName(args_tn) => args_tn.name.clone(),
                 Type::ValueName(args_tn) => args_tn.name.clone(),
                 _ => return None,
             },
-            // Non-generic delegate (e.g. RangeBaseValueChangedEventHandler):
-            // derive args class by replacing "EventHandler" → "EventArgs".
-            Type::ClassName(tn) if tn.name.ends_with("EventHandler") => {
-                format!("{}EventArgs", tn.name.strip_suffix("EventHandler").unwrap())
-            }
+            // Non-generic delegate — look up args class from Invoke signature.
+            Type::ClassName(tn) => self.delegate_args.get(&tn.name)?.clone(),
             _ => return None,
         };
         // Look up get_{property} on the args class.
         let getter = format!("get_{property}");
-        let getter_ref = self
-            .lookup
-            .get(&(args_class, getter))?;
+        let getter_ref = self.lookup.get(&(args_class, getter))?;
         self.value_for_type(&getter_ref.return_type)
     }
 
