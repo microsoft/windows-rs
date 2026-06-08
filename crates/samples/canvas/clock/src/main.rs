@@ -16,30 +16,28 @@ struct Resources {
 }
 
 fn app(cx: &mut RenderCx) -> Element {
-    
     let res = cx.use_ref::<Option<Resources>>(None);
 
     animated_canvas(move |ctx| {
         ctx.clear(ColorF::WHITE);
 
-        // Recreate cached resources on device loss or resize.
         if ctx.device_changed() {
-            let Ok(style) = ctx.device().create_stroke_style(
-                &StrokeStyleBuilder::new()
-                    .start_cap(CapStyle::Round)
-                    .end_cap(CapStyle::Triangle),
-            ) else {
-                return;
-            };
-            let Ok(brush) = ctx.create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8)) else {
-                return;
-            };
-            let Ok(target) = ctx.create_bitmap_target() else {
-                return;
-            };
-            let Ok(shadow) = ctx.create_shadow(&target) else {
-                return;
-            };
+            let style = ctx
+                .device()
+                .create_stroke_style(
+                    &StrokeStyleBuilder::new()
+                        .start_cap(CapStyle::Round)
+                        .end_cap(CapStyle::Triangle),
+                )
+                .unwrap();
+
+            let brush = ctx
+                .create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8))
+                .unwrap();
+
+            let target = ctx.create_bitmap_target().unwrap();
+            let shadow = ctx.create_shadow(&target).unwrap();
+
             *res.borrow_mut() = Some(Resources {
                 style,
                 brush,
