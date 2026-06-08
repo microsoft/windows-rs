@@ -18,7 +18,7 @@
 #   type = "Type"       EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
 #   manual = true        Skip codegen; hand-written attach_event in backend.
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
-#   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
+#   property = "Name"    Property on sender/args (e.g. "IsOn"); codegen calls get_Name.
 #   add_method_false     Second add method for bool_dual event patterns.
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
@@ -32,7 +32,7 @@ SuggestionChosen = { manual = true, type = "Str" }
 ["Microsoft.UI.Xaml.Controls.Border"]
 
 ["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
-ItemClicked = { type = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
+ItemClicked = { invoke = "invoke_i32_args", property = "Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
 IsEnabled = { default = "true" }
@@ -157,7 +157,7 @@ Minimum = {}
 Maximum = {}
 Header = {}
 IsEnabled = { default = "true" }
-ValueChanged = { invoke = "invoke_f64_args", getter = "get_NewValue" }
+ValueChanged = { invoke = "invoke_f64_args", property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.PasswordBox"]
 PlaceholderText = { unset = { default = "\"\"" } }
@@ -165,7 +165,7 @@ Header = {}
 IsEnabled = { default = "true" }
 PasswordRevealMode = { default = "PasswordRevealMode::default()" }
 IsPasswordRevealButtonEnabled = { default = "true", unset = { default = "true" } }
-PasswordChanged = { type = "Str", getter = "get_Password" }
+PasswordChanged = { property = "Password" }
 
 ["Microsoft.UI.Xaml.Controls.PersonPicture"]
 DisplayName = {}
@@ -200,7 +200,7 @@ Checked = {}
 Header = {}
 SelectedIndex = { default = "0" }
 MaxColumns = {}
-SelectionChanged = { type = "I32", getter = "get_SelectedIndex" }
+SelectionChanged = { property = "SelectedIndex" }
 
 ["Microsoft.UI.Xaml.Controls.RatingControl"]
 Value = { default = "0.0" }
@@ -208,7 +208,7 @@ MaxRating = {}
 Caption = { unset = { default = "\"\"" } }
 PlaceholderValue = {}
 IsReadOnly = { default = "false", unset = "custom" }
-ValueChanged = { type = "F64", getter = "get_Value" }
+ValueChanged = { property = "Value" }
 
 ["Microsoft.UI.Xaml.Controls.RelativePanel"]
 
@@ -243,7 +243,7 @@ Value = { required = true }
 Header = {}
 Orientation = { default = "Orientation::Horizontal" }
 IsEnabled = { default = "true" }
-ValueChanged = { invoke = "invoke_f64_args", getter = "get_NewValue" }
+ValueChanged = { invoke = "invoke_f64_args", property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.SplitButton"]
 Content = { wrap = "ireference" }
@@ -289,7 +289,7 @@ Header = {}
 IsEnabled = { default = "true" }
 AcceptsReturn = { default = "false" }
 TextWrapping = { default = "TextWrapping::NoWrap" }
-TextChanged = { type = "Str", getter = "get_Text" }
+TextChanged = { property = "Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]
 Header = {}
@@ -319,7 +319,7 @@ OnContent = {}
 OffContent = {}
 Header = {}
 IsEnabled = { default = "true" }
-Toggled = { type = "Bool", getter = "get_IsOn" }
+Toggled = { property = "IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 SelectionMode = { default = "TreeViewSelectionMode::Single" }

@@ -76,9 +76,9 @@ struct MemberOverride {
     /// Explicit invoke pattern.
     #[serde(default)]
     invoke: Option<String>,
-    /// Getter method on event args.
+    /// Property name on sender/args (e.g. "IsOn"); codegen prepends "get_".
     #[serde(default)]
-    getter: Option<String>,
+    property: Option<String>,
     /// Second add method for bool_dual events.
     #[serde(default)]
     add_method_false: Option<String>,
@@ -313,15 +313,30 @@ fn classify_setter(
 /// Build an EventDecl from metadata + overrides.
 fn build_event(
     member_name: &str,
-    _handle: &str,
+    handle: &str,
     overrides: &MemberOverride,
-    _resolver: &MetadataResolver,
+    resolver: &MetadataResolver,
 ) -> EventDecl {
     let field = overrides
         .field
         .clone()
         .unwrap_or_else(|| format!("on_{}", to_snake_case(member_name)));
-    let value = overrides.value.clone();
+    // Infer value (type) from property or invoke pattern when not explicit.
+    let value = overrides.value.clone().or_else(|| {
+        if let Some(prop) = &overrides.property {
+            // Try sender property: look up put_{Property} on the control.
+            let put_method = format!("put_{prop}");
+            if let Some((v, _)) = resolver.infer_value_type(handle, &put_method) {
+                return Some(v);
+            }
+        }
+        // Infer from invoke pattern name.
+        match overrides.invoke.as_deref() {
+            Some("invoke_f64_args") => Some("F64".to_string()),
+            Some("invoke_i32_args") => Some("I32".to_string()),
+            _ => None,
+        }
+    });
     let manual = overrides.manual.unwrap_or(false);
     let add_method = if manual {
         None
@@ -337,7 +352,7 @@ fn build_event(
         manual,
         add_method,
         invoke: overrides.invoke.clone(),
-        getter: overrides.getter.clone(),
+        property: overrides.property.clone(),
         add_method_false: overrides.add_method_false.clone(),
     }
 }

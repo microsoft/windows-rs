@@ -113,14 +113,15 @@ fn gen_args_getter(
     }
 }
 
-fn require_getter<'a>(e: &'a EventDecl, handle_name: &str, pattern: &str) -> &'a str {
-    e.getter.as_deref().unwrap_or_else(|| {
+fn require_property(e: &EventDecl, handle_name: &str, pattern: &str) -> String {
+    let prop = e.property.as_deref().unwrap_or_else(|| {
         panic!(
-            "event '{}.{}': {pattern} requires getter",
+            "event '{}.{}': {pattern} requires property",
             handle_name,
             e.event()
         )
-    })
+    });
+    format!("get_{prop}")
 }
 
 fn gen_event_arm(
@@ -161,56 +162,56 @@ fn gen_event_arm(
             }
         }
         "invoke_bool_getter" => {
-            let g = require_getter(e, handle_name, invoke);
+            let g = require_property(e, handle_name, invoke);
             gen_sender_getter(
                 &iface,
                 &add_ident,
                 handle_name,
-                g,
+                &g,
                 quote!(invoke_bool(v)),
                 quote!(false),
             )
         }
         "invoke_string_getter" => {
-            let g = require_getter(e, handle_name, invoke);
+            let g = require_property(e, handle_name, invoke);
             gen_sender_getter(
                 &iface,
                 &add_ident,
                 handle_name,
-                g,
+                &g,
                 quote!(invoke_string(v)),
                 quote!(Default::default()),
             )
         }
         "invoke_i32_getter" => {
-            let g = require_getter(e, handle_name, invoke);
+            let g = require_property(e, handle_name, invoke);
             gen_sender_getter(
                 &iface,
                 &add_ident,
                 handle_name,
-                g,
+                &g,
                 quote!(invoke_i32(v)),
                 quote!(-1),
             )
         }
         "invoke_f64_getter" => {
-            let g = require_getter(e, handle_name, invoke);
+            let g = require_property(e, handle_name, invoke);
             gen_sender_getter(
                 &iface,
                 &add_ident,
                 handle_name,
-                g,
+                &g,
                 quote!(invoke_f64(v)),
                 quote!(-1.0),
             )
         }
         "invoke_i32_args" => {
-            let g = require_getter(e, handle_name, invoke);
-            gen_args_getter(&iface, &add_ident, handle_name, g, quote!(invoke_i32(v)))
+            let g = require_property(e, handle_name, invoke);
+            gen_args_getter(&iface, &add_ident, handle_name, &g, quote!(invoke_i32(v)))
         }
         "invoke_f64_args" => {
-            let g = require_getter(e, handle_name, invoke);
-            gen_args_getter(&iface, &add_ident, handle_name, g, quote!(invoke_f64(v)))
+            let g = require_property(e, handle_name, invoke);
+            gen_args_getter(&iface, &add_ident, handle_name, &g, quote!(invoke_f64(v)))
         }
         "invoke_bool_dual" => {
             let add_false = e.add_method_false.as_deref().unwrap_or_else(|| {

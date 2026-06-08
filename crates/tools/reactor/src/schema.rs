@@ -370,8 +370,9 @@ pub struct EventDecl {
     /// How the handler is invoked. Required when `add_method` is set.
     pub invoke: Option<String>,
 
-    /// Getter method on sender/args for extracting values (e.g. `"get_IsOn"`).
-    pub getter: Option<String>,
+    /// Property name on sender/args for extracting values (e.g. `"IsOn"`).
+    /// Code generation prepends `get_` to form the method name.
+    pub property: Option<String>,
 
     /// Second add method for dual-event patterns (e.g. `"add_Collapsed"`).
     pub add_method_false: Option<String>,
@@ -432,7 +433,7 @@ impl EventDecl {
         if self.add_method_false.is_some() {
             return "invoke_bool_dual";
         }
-        if self.getter.is_some()
+        if self.property.is_some()
             && let Some(v) = &self.value
         {
             return match v.as_str() {
