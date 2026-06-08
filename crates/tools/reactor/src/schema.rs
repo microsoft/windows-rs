@@ -59,11 +59,6 @@ pub struct PropDecl {
     /// When absent and `required` is false, the field is `Option<T>`.
     pub default: Option<String>,
 
-    /// Override for IInspectable params: `"ireference"` to use IReference wrapping
-    /// instead of the default TextBlock wrapping.
-    /// Only meaningful when the metadata param type is IInspectable.
-    pub wrap: Option<String>,
-
     // ── Setter (pick one) ─────────────────────────────────────────
     /// COM method name (e.g. `"put_Text"`).  The codegen tool resolves
     /// the owning interface from winmd metadata automatically.
@@ -177,7 +172,8 @@ impl PropDecl {
     /// * `method` defaults to `put_{meta_name}` when no setter kind is specified.
     /// * `value` defaults to the metadata-inferred type when available.
     /// * Setter pattern auto-detected from metadata param type:
-    ///   - IInspectable + Str → `method_textblock` (or `method_ireference` with `wrap = "ireference"`)
+    ///   - IInspectable + explicit `value` → `method_ireference` (IReference boxing)
+    ///   - IInspectable (no explicit value) → `method_textblock` (TextBlock wrapping)
     ///   - IReference<bool> → `method_optional`
     ///
     /// Must be called after construction, before any codegen.
@@ -198,7 +194,7 @@ impl PropDecl {
                 if let Some(param_class) = resolver.classify_param(handle, &method_name) {
                     match param_class {
                         ParamClass::IInspectable => {
-                            if self.wrap.as_deref() == Some("ireference") {
+                            if self.value.is_some() {
                                 self.method_ireference = Some(method_name);
                             } else {
                                 self.method_textblock = Some(method_name);

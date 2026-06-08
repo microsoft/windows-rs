@@ -42,7 +42,8 @@ pub struct MethodRef {
 pub enum ParamClass {
     /// Primitive type (String, Bool, F64, etc.) → direct `put_X(value)`.
     Primitive,
-    /// IInspectable → needs wrapping (textblock by default, or IReference with override).
+    /// IInspectable → needs wrapping (textblock by default, or IReference when
+    /// the TOML specifies an explicit type).
     IInspectable,
     /// IReference<bool> → `put_X(Some(value))`.
     NullableBool,

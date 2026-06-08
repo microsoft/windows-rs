@@ -8,21 +8,22 @@
 #   (no overrides)       Optional: field is Option<T>, emit when Some.
 #   required = true      Always emit (field is T). For core state.
 #   default = "expr"     Emit only when != expr (field is T). Auto-infers unset.
-#   wrap = "ireference"  Wrap IInspectable param via IReference.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
 #   unset = { default = "expr" }   Reset to literal on unset.
 #   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
+#                        For Object (IInspectable) params, selects IReference<T>
+#                        wrapping instead of the default TextBlock wrapping.
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
 #   type = "Type"        EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
 #   manual = true        Skip codegen; hand-written attach_event in backend.
 #   property = "Name"    Property on sender/args (e.g. "IsOn"); codegen calls get_Name.
-#   false_event = "Name"  Complement event for bool-dual (e.g. "Unchecked").
+#   false_event = "Name" Complement event for bool-dual (e.g. "Unchecked").
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
 PlaceholderText = { }
-Header = { wrap = "ireference" }
+Header = { type = "Str" }
 IsEnabled = { default = "true" }
 TextChanged = { manual = true, type = "Str" }
 QuerySubmitted = { manual = true, type = "Str" }
@@ -80,7 +81,7 @@ DefaultLabelPosition = { default = "CommandBarDefaultLabelPosition::default()" }
 Click = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ContentDialog"]
-Title = { wrap = "ireference" }
+Title = { type = "Str" }
 Content = {}
 PrimaryButtonText = { unset = { default = "\"\"" } }
 SecondaryButtonText = { unset = { default = "\"\"" } }
@@ -97,7 +98,7 @@ IsEnabled = { default = "true" }
 SelectedDateChanged = { manual = true, type = "DateTime" }
 
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
-Content = { wrap = "ireference" }
+Content = { type = "Str" }
 IsEnabled = { default = "true" }
 ItemClicked = { manual = true, type = "Str" }
 Click = {}
@@ -245,7 +246,7 @@ IsEnabled = { default = "true" }
 ValueChanged = { property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.SplitButton"]
-Content = { wrap = "ireference" }
+Content = { type = "Str" }
 IsEnabled = { default = "true" }
 Click = {}
 

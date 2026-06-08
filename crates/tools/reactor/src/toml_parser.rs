@@ -3,7 +3,7 @@
 /// Format:
 /// ```toml
 /// ["Microsoft.UI.Xaml.Controls.Button"]
-/// Content = { wrap = "ireference" }
+/// Content = { type = "Str" }
 /// IsEnabled = { default = "true" }
 /// Click = {}
 /// ```
@@ -63,11 +63,6 @@ struct MemberOverride {
     /// Explicit Rust field name (overrides snake_case of key).
     #[serde(default)]
     field: Option<String>,
-
-    // ── Property-specific ──
-    /// IReference wrapping (e.g. "ireference").
-    #[serde(default)]
-    wrap: Option<String>,
 
     // ── Event-specific ──
     /// Skip codegen; hand-written attach_event in backend.
@@ -198,7 +193,7 @@ fn build_prop(
     let required = overrides.required.unwrap_or(false);
     let default = overrides.default.clone();
 
-    let wrap = overrides.wrap.clone();
+    let has_explicit_type = overrides.value.is_some();
 
     let method_name = format!("put_{member_name}");
     let has_method = resolver.has_method(handle, &method_name);
@@ -227,7 +222,7 @@ fn build_prop(
     let (method, method_optional, method_ireference, method_textblock) = if is_metadata_enum {
         (None, None, None, None)
     } else if has_method {
-        classify_setter(handle, &method_name, wrap.as_deref(), resolver)
+        classify_setter(handle, &method_name, has_explicit_type, resolver)
     } else {
         (None, None, None, None)
     };
@@ -266,7 +261,6 @@ fn build_prop(
         value,
         required,
         default,
-        wrap,
         method,
         method_optional,
         method_ireference,
@@ -279,10 +273,14 @@ fn build_prop(
 }
 
 /// Classify a property setter method into the correct setter kind.
+///
+/// When the metadata param type is `Object` (IInspectable), an explicit `type`
+/// in the TOML selects IReference wrapping (boxing the value); otherwise the
+/// default TextBlock wrapping is used.
 fn classify_setter(
     handle: &str,
     method_name: &str,
-    wrap: Option<&str>,
+    has_explicit_type: bool,
     resolver: &MetadataResolver,
 ) -> (
     Option<String>,
@@ -297,7 +295,7 @@ fn classify_setter(
     match param_class {
         Some(ParamClass::NullableBool) => (None, Some(method_name.to_string()), None, None),
         Some(ParamClass::IInspectable) => {
-            if wrap == Some("ireference") {
+            if has_explicit_type {
                 (None, None, Some(method_name.to_string()), None)
             } else {
                 (None, None, None, Some(method_name.to_string()))
