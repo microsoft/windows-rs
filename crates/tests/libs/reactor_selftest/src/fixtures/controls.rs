@@ -403,8 +403,8 @@ pub fn mount_password_box(h: Harness) -> FixtureFuture {
         h.mount(cc(|_| {
             PasswordBox::new()
                 .header("Password")
-                .placeholder("type something")
-                .reveal_mode(PasswordRevealMode::Peek)
+                .placeholder_text("type something")
+                .password_reveal_mode(PasswordRevealMode::Peek)
                 .into()
         }));
         h.render().await;
@@ -434,7 +434,7 @@ pub fn mount_combo_box(h: Harness) -> FixtureFuture {
         h.mount(cc(|_| {
             ComboBox::new(["Red", "Green", "Blue"])
                 .header("Color")
-                .placeholder("pick a color")
+                .placeholder_text("pick a color")
                 .into()
         }));
         h.render().await;

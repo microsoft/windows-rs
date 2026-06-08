@@ -7,12 +7,12 @@ pub struct PasswordBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub value: String,
-    pub placeholder: Option<String>,
+    pub placeholder_text: Option<String>,
     pub header: Option<String>,
     pub is_enabled: bool,
     pub is_password_reveal_button_enabled: bool,
-    pub reveal_mode: PasswordRevealMode,
-    pub on_changed: Option<Callback<String>>,
+    pub password_reveal_mode: PasswordRevealMode,
+    pub on_password_changed: Option<Callback<String>>,
 }
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum PasswordRevealMode {
@@ -27,12 +27,12 @@ impl Default for PasswordBox {
             key: None,
             modifiers: Modifiers::default(),
             value: String::new(),
-            placeholder: None,
+            placeholder_text: None,
             header: None,
             is_enabled: true,
             is_password_reveal_button_enabled: true,
-            reveal_mode: PasswordRevealMode::Peek,
-            on_changed: None,
+            password_reveal_mode: PasswordRevealMode::Peek,
+            on_password_changed: None,
         }
     }
 }
@@ -44,24 +44,24 @@ impl PasswordBox {
         self.value = s.into();
         self
     }
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = Some(s.into());
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {
         self.header = Some(s.into());
         self
     }
-    pub fn reveal_mode(mut self, mode: PasswordRevealMode) -> Self {
-        self.reveal_mode = mode;
+    pub fn password_reveal_mode(mut self, mode: PasswordRevealMode) -> Self {
+        self.password_reveal_mode = mode;
         self
     }
     pub fn reveal_button_enabled(mut self, v: bool) -> Self {
         self.is_password_reveal_button_enabled = v;
         self
     }
-    pub fn on_changed(mut self, f: impl IntoCallback<String>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_password_changed(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_password_changed = Some(f.into_callback());
         self
     }
     pub fn enabled(mut self, enabled: bool) -> Self {

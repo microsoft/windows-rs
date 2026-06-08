@@ -8,7 +8,7 @@ fn check_box_default_state() {
     assert!(c.is_checked);
     assert!(c.is_enabled);
     assert!(c.content.is_none());
-    assert!(c.on_changed.is_none());
+    assert!(c.on_checked.is_none());
 }
 
 #[test]
@@ -19,8 +19,8 @@ fn check_box_content_installs_content() {
 
 #[test]
 fn check_box_on_changed_stores_callback() {
-    let c = check_box(false).on_changed(|_v| {});
-    assert!(c.on_changed.is_some());
+    let c = check_box(false).on_checked(|_v| {});
+    assert!(c.on_checked.is_some());
 }
 
 #[test]
@@ -41,21 +41,21 @@ fn text_field_default_state() {
     let t = text_box("hello");
     assert_eq!(t.value, "hello");
     assert!(t.is_enabled);
-    assert!(t.placeholder.is_none());
+    assert!(t.placeholder_text.is_none());
     assert!(t.header.is_none());
 }
 
 #[test]
 fn text_field_placeholder_and_header() {
-    let t = text_box("").placeholder("Start typing...").header("Notes");
-    assert_eq!(t.placeholder.as_deref(), Some("Start typing..."));
+    let t = text_box("").placeholder_text("Start typing...").header("Notes");
+    assert_eq!(t.placeholder_text.as_deref(), Some("Start typing..."));
     assert_eq!(t.header.as_deref(), Some("Notes"));
 }
 
 #[test]
 fn text_field_on_changed_installs_handler() {
-    let t = text_box("").on_changed(|_v| {});
-    assert!(t.on_changed.is_some());
+    let t = text_box("").on_text_changed(|_v| {});
+    assert!(t.on_text_changed.is_some());
 }
 
 #[test]
@@ -170,7 +170,7 @@ mod mount {
 
     #[test]
     fn mount_text_field_records_value_and_placeholder() {
-        let t = text_box("draft").placeholder("…");
+        let t = text_box("draft").placeholder_text("…");
         let r = mount_one(t.into());
         let sets: Vec<_> = r
             .backend

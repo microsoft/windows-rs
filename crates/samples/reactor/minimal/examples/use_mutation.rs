@@ -45,7 +45,7 @@ fn app(cx: &mut RenderCx) -> Element {
 
     vstack((
         text_block("use_mutation Demo").font_size(24.0),
-        text_box(name).header("Name").on_changed(on_name_changed),
+        text_box(name).header("Name").on_text_changed(on_name_changed),
         hstack((
             button("Save")
                 .enabled(!save_state.is_loading())

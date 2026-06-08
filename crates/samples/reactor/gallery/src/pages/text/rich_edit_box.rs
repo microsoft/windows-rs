@@ -12,7 +12,7 @@ pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> Element {
             vstack((
                 rich_edit_box(&editor_text)
                     .header("Document")
-                    .placeholder("Start typing...")
+                    .placeholder_text("Start typing...")
                     .on_text_changed({
                         let set_editor_text = set_editor_text;
                         move |text: String| set_editor_text.call(text)
@@ -28,7 +28,7 @@ pub fn rich_edit_box_page(_: &(), cx: &mut RenderCx) -> Element {
             .spacing(8.0),
             r#"rich_edit_box(&editor_text)
     .header(\"Document\")
-    .placeholder(\"Start typing...\")
+    .placeholder_text(\"Start typing...\")
     .on_text_changed(|text| set_editor_text.call(text))"#,
         )],
     )

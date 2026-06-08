@@ -3102,7 +3102,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
     match el {
         Element::TextBlock(t) => {
             let tb = Xaml::TextBlock::new().ok()?;
-            tb.put_Text(t.content.as_str()).ok()?;
+            tb.put_Text(t.text.as_str()).ok()?;
             tb.cast::<Xaml::UIElement>().ok()
         }
         Element::StackPanel(s) => {

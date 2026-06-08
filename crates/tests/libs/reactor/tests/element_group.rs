@@ -22,7 +22,7 @@ fn label(name: &str) -> Element {
 fn keyed_label(key: &str, name: &str) -> Element {
     Element::TextBlock(TextBlock {
         key: Some(key.into()),
-        content: name.into(),
+        text: name.into(),
         ..Default::default()
     })
 }
@@ -328,3 +328,4 @@ fn group_works_with_mixed_widget_kinds() {
         .unwrap();
     assert_eq!(r.backend.children_of(parent).len(), 3);
 }
+

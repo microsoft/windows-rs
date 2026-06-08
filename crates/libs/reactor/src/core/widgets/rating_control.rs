@@ -9,7 +9,7 @@ pub struct RatingControl {
     pub caption: Option<String>,
     pub placeholder_value: Option<f64>,
     pub is_read_only: bool,
-    pub on_changed: Option<Callback<f64>>,
+    pub on_value_changed: Option<Callback<f64>>,
 }
 
 impl RatingControl {
@@ -40,8 +40,8 @@ impl RatingControl {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<f64>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_value_changed(mut self, f: impl IntoCallback<f64>) -> Self {
+        self.on_value_changed = Some(f.into_callback());
         self
     }
 }

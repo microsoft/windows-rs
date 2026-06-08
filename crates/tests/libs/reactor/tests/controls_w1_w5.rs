@@ -49,8 +49,8 @@ fn password_box_mounts_with_value_header_and_reveal_mode() {
     let el: Element = PasswordBox::new()
         .value("hunter2")
         .header("Secret")
-        .placeholder("type something")
-        .reveal_mode(PasswordRevealMode::Visible)
+        .placeholder_text("type something")
+        .password_reveal_mode(PasswordRevealMode::Visible)
         .into();
     let r = mount(&el);
     let (kind, id) = first_create(&r);
@@ -97,7 +97,7 @@ fn password_box_attaches_password_changed_event() {
     let captured = Rc::new(Cell::new(None::<String>));
     let cap = Rc::clone(&captured);
     let el: Element = PasswordBox::new()
-        .on_changed(move |s| cap.set(Some(s)))
+        .on_password_changed(move |s| cap.set(Some(s)))
         .into();
     let r = mount(&el);
     let (_, id) = first_create(&r);
@@ -166,7 +166,7 @@ fn radio_buttons_fires_selection_changed() {
 fn combo_box_mounts_with_items_placeholder_and_selection() {
     let el: Element = ComboBox::new(["Red", "Green", "Blue"])
         .selected_index(2)
-        .placeholder("color")
+        .placeholder_text("color")
         .header("Pick a color")
         .into();
     let r = mount(&el);

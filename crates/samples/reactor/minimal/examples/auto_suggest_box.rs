@@ -40,7 +40,7 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         auto_suggest_box(query)
             .items(suggestions)
-            .placeholder("Search fruits…")
+            .placeholder_text("Search fruits…")
             .on_text_changed(on_text)
             .on_suggestion_chosen(on_chosen),
         text_block(if chosen.is_empty() {

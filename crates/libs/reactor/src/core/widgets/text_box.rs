@@ -5,8 +5,8 @@ pub struct TextBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub value: String,
-    pub on_changed: Option<Callback<String>>,
-    pub placeholder: Option<String>,
+    pub on_text_changed: Option<Callback<String>>,
+    pub placeholder_text: Option<String>,
     pub header: Option<String>,
     pub is_enabled: bool,
     pub accepts_return: bool,
@@ -30,13 +30,13 @@ impl Widget for TextBox {
 }
 
 impl TextBox {
-    pub fn on_changed(mut self, f: impl IntoCallback<String>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_text_changed(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_text_changed = Some(f.into_callback());
         self
     }
 
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = Some(s.into());
         self
     }
 

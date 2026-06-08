@@ -56,7 +56,7 @@ fn toggle_switch_attaches_toggled_event() {
     let fired = Rc::new(Cell::new(None::<bool>));
     let fired_c = Rc::clone(&fired);
     let el: Element = ToggleSwitch::new(false)
-        .on_changed(move |v| fired_c.set(Some(v)))
+        .on_toggled(move |v| fired_c.set(Some(v)))
         .into();
     let r = mount(&el);
 
@@ -124,7 +124,7 @@ fn slider_value_changed_event_routes_through_fire_f64() {
     let fired = Rc::new(Cell::new(None::<f64>));
     let fired_c = Rc::clone(&fired);
     let el: Element = Slider::new(0.0)
-        .on_changed(move |v| fired_c.set(Some(v)))
+        .on_value_changed(move |v| fired_c.set(Some(v)))
         .into();
     let r = mount(&el);
 
@@ -213,7 +213,7 @@ fn check_box_checked_event_routes_bool_value() {
     let fired = Rc::new(Cell::new(None::<bool>));
     let fired_c = Rc::clone(&fired);
     let el: Element = CheckBox::new(false)
-        .on_changed(move |v| fired_c.set(Some(v)))
+        .on_checked(move |v| fired_c.set(Some(v)))
         .into();
     let r = mount(&el);
 
@@ -225,7 +225,7 @@ fn check_box_checked_event_routes_bool_value() {
 #[test]
 fn text_box_mounts_with_value_placeholder_header_and_accepts_return() {
     let el: Element = TextBox::new("initial")
-        .placeholder("Type...")
+        .placeholder_text("Type...")
         .header("Name")
         .accepts_return(true)
         .into();
@@ -258,7 +258,7 @@ fn text_box_text_changed_event_routes_string_value() {
     let fired = Rc::new(std::cell::RefCell::new(None::<String>));
     let fired_c = Rc::clone(&fired);
     let el: Element = TextBox::new("")
-        .on_changed(move |s| *fired_c.borrow_mut() = Some(s))
+        .on_text_changed(move |s| *fired_c.borrow_mut() = Some(s))
         .into();
     let r = mount(&el);
 
@@ -298,7 +298,7 @@ fn toggle_button_checked_event_routes_bool_value() {
     let fired = Rc::new(Cell::new(None::<bool>));
     let fired_c = Rc::clone(&fired);
     let el: Element = ToggleButton::new("Bold", true)
-        .on_changed(move |v| fired_c.set(Some(v)))
+        .on_checked(move |v| fired_c.set(Some(v)))
         .into();
     let r = mount(&el);
 
@@ -377,7 +377,7 @@ fn repeat_button_click_event_fires() {
 #[test]
 fn rich_edit_box_mounts_with_text_placeholder_header_and_read_only() {
     let el: Element = RichEditBox::new("text")
-        .placeholder("Enter...")
+        .placeholder_text("Enter...")
         .header("Doc")
         .read_only()
         .into();

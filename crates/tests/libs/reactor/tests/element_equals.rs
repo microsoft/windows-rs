@@ -20,12 +20,12 @@ fn content_difference_prevents_skip() {
 #[test]
 fn font_size_difference_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_size: Some(14.0),
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_size: Some(20.0),
         ..TextBlock::default()
     });
@@ -35,7 +35,7 @@ fn font_size_difference_prevents_skip() {
 #[test]
 fn modifier_difference_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(5.0)),
             ..Modifiers::default()
@@ -43,7 +43,7 @@ fn modifier_difference_prevents_skip() {
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(10.0)),
             ..Modifiers::default()
@@ -145,7 +145,7 @@ fn text_attached_difference_prevents_skip() {
 #[test]
 fn foreground_brush_change_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             foreground: Some(Color::rgb(255, 0, 0).into()),
             ..Modifiers::default()
@@ -153,7 +153,7 @@ fn foreground_brush_change_prevents_skip() {
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             foreground: Some(Color::rgb(0, 0, 255).into()),
             ..Modifiers::default()
@@ -172,7 +172,7 @@ fn theme_bindings_present_prevents_skip_even_when_otherwise_equal() {
     bindings.insert(Prop::Background, ThemeRef::Accent);
 
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             theme_bindings: Some(Box::new(bindings.clone())),
             ..Modifiers::default()
@@ -180,7 +180,7 @@ fn theme_bindings_present_prevents_skip_even_when_otherwise_equal() {
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             theme_bindings: Some(Box::new(bindings)),
             ..Modifiers::default()
@@ -199,7 +199,7 @@ fn theme_bindings_present_prevents_skip_even_when_otherwise_equal() {
 #[test]
 fn empty_theme_bindings_map_still_allows_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             theme_bindings: Some(Box::default()),
             ..Modifiers::default()
@@ -209,3 +209,4 @@ fn empty_theme_bindings_map_still_allows_skip() {
     let b = a.clone();
     assert!(can_skip_update(&a, &b));
 }
+

@@ -79,12 +79,12 @@ fn kind_change_destroys_old_and_mounts_new() {
 #[test]
 fn font_weight_unset_emits_unset_prop_value() {
     let old = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_weight: Some(700),
         ..TextBlock::default()
     });
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_weight: None,
         ..TextBlock::default()
     });
@@ -176,7 +176,7 @@ fn stack_orientation_change_emits_single_set_prop() {
 #[test]
 fn modifiers_diff_only_emits_for_changed_fields() {
     let old = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(5.0)),
             opacity: Some(1.0),
@@ -185,7 +185,7 @@ fn modifiers_diff_only_emits_for_changed_fields() {
         ..TextBlock::default()
     });
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(10.0)),
             opacity: Some(1.0),
@@ -208,7 +208,7 @@ fn modifiers_diff_only_emits_for_changed_fields() {
 #[test]
 fn modifier_some_to_none_emits_unset() {
     let old = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             background: Some(Color::rgb(255, 0, 0).into()),
             ..Modifiers::default()
@@ -216,7 +216,7 @@ fn modifier_some_to_none_emits_unset() {
         ..TextBlock::default()
     });
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers::default(),
         ..TextBlock::default()
     });
@@ -236,7 +236,7 @@ fn modifier_some_to_none_emits_unset() {
 fn keyed_text(key: &str, content: &str) -> Element {
     Element::TextBlock(TextBlock {
         key: Some(key.into()),
-        content: content.into(),
+        text: content.into(),
         ..TextBlock::default()
     })
 }
@@ -373,13 +373,13 @@ fn checkbox_changed_handler_some_to_none_emits_detach() {
     let old = Element::CheckBox(CheckBox {
         is_checked: false,
         is_enabled: true,
-        on_changed: Some(cb),
+        on_checked: Some(cb),
         ..CheckBox::default()
     });
     let new = Element::CheckBox(CheckBox {
         is_checked: false,
         is_enabled: true,
-        on_changed: None,
+        on_checked: None,
         ..CheckBox::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -400,13 +400,13 @@ fn textfield_changed_handler_some_to_none_emits_detach() {
     let old = Element::TextBox(TextBox {
         value: "hi".into(),
         is_enabled: true,
-        on_changed: Some(cb),
+        on_text_changed: Some(cb),
         ..TextBox::default()
     });
     let new = Element::TextBox(TextBox {
         value: "hi".into(),
         is_enabled: true,
-        on_changed: None,
+        on_text_changed: None,
         ..TextBox::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -427,13 +427,13 @@ fn toggle_switch_changed_handler_some_to_none_emits_detach() {
     let old = Element::ToggleSwitch(ToggleSwitch {
         is_on: false,
         is_enabled: true,
-        on_changed: Some(cb),
+        on_toggled: Some(cb),
         ..ToggleSwitch::default()
     });
     let new = Element::ToggleSwitch(ToggleSwitch {
         is_on: false,
         is_enabled: true,
-        on_changed: None,
+        on_toggled: None,
         ..ToggleSwitch::default()
     });
     let (_, ops) = update_ops(old, new);

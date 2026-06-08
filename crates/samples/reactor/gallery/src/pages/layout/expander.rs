@@ -20,7 +20,7 @@ pub fn expander_page(_: &(), cx: &mut RenderCx) -> Element {
                     )
                     .header("Click to expand/collapse")
                     .expanded(is_expanded)
-                    .on_expanded(move |v| set_expanded.call(v)),
+                    .on_expanding(move |v| set_expanded.call(v)),
                     text_block(format!(
                         "State: {}",
                         if is_expanded { "expanded" } else { "collapsed" }
@@ -28,7 +28,7 @@ pub fn expander_page(_: &(), cx: &mut RenderCx) -> Element {
                     .opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"Expander::new(content).header("...").expanded(state).on_expanded(handler)"#,
+                r#"Expander::new(content).header("...").expanded(state).on_expanding(handler)"#,
             ),
             sample_card(
                 "Collapsed by Default",

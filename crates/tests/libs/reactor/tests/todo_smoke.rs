@@ -206,7 +206,7 @@ impl Component for TodoComponent {
             .map(|i| {
                 let toggle_d = dispatch.clone();
                 let id_for_toggle = i.id.clone();
-                let toggle = check_box(i.is_completed).on_changed(move |_v| {
+                let toggle = check_box(i.is_completed).on_checked(move |_v| {
                     toggle_d.call(TodoAction::ToggleItem(id_for_toggle.clone()));
                 });
                 let delete_d = dispatch.clone();

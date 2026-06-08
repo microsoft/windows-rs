@@ -83,7 +83,7 @@ fn person_picture_builder_sets_fields() {
 #[test]
 fn password_box_default_uses_peek_reveal_mode() {
     let p = PasswordBox::new();
-    assert_eq!(p.reveal_mode, PasswordRevealMode::Peek);
+    assert_eq!(p.password_reveal_mode, PasswordRevealMode::Peek);
     assert!(p.is_enabled);
 }
 

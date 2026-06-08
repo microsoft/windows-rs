@@ -177,7 +177,7 @@ text_block("Center").grid_column(1).grid_column_span(2)"#,
                 vstack((
                     ToggleSwitch::new(wide)
                         .header("Wide layout (3 columns)")
-                        .on_changed(move |v: bool| set_wide.call(v)),
+                        .on_toggled(move |v: bool| set_wide.call(v)),
                     switchable_grid,
                 ))
                 .spacing(12.0),

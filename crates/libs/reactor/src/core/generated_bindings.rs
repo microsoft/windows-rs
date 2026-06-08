@@ -34,7 +34,7 @@ pub(crate) fn auto_suggest_box_bindings(w: &AutoSuggestBox) -> PropBindings {
         Prop::Items,
         PropValue::StrList(w.items.clone()),
     ));
-    if let Some(v) = &w.placeholder {
+    if let Some(v) = &w.placeholder_text {
         out.push(Binding::Prop(
             Prop::PlaceholderText,
             PropValue::Str(v.clone()),
@@ -83,7 +83,7 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
     ));
     out.push(Binding::Event(
         Event::ItemClicked,
-        w.on_menu_item_clicked
+        w.on_item_clicked
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
@@ -149,7 +149,7 @@ pub(crate) fn calendar_view_bindings(w: &CalendarView) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
     out.push(Binding::Event(
         Event::SelectedDatesChanged,
-        w.on_changed
+        w.on_selected_dates_changed
             .as_ref()
             .map(|cb| EventHandler::Click(cb.clone())),
     ));
@@ -180,7 +180,7 @@ pub(crate) fn check_box_bindings(w: &CheckBox) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
     out.push(Binding::Event(
         Event::Checked,
-        w.on_changed
+        w.on_checked
             .as_ref()
             .map(|cb| EventHandler::Checked(cb.clone())),
     ));
@@ -260,7 +260,7 @@ pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
         Prop::Items,
         PropValue::StrList(w.items.clone()),
     ));
-    if let Some(v) = &w.placeholder {
+    if let Some(v) = &w.placeholder_text {
         out.push(Binding::Prop(
             Prop::PlaceholderText,
             PropValue::Str(v.clone()),
@@ -407,7 +407,7 @@ pub(crate) fn expander_bindings(w: &Expander) -> PropBindings {
     let mut out = Vec::with_capacity(2usize);
     out.push(Binding::Event(
         Event::Expanding,
-        w.on_expanded
+        w.on_expanding
             .as_ref()
             .map(|cb| EventHandler::CheckedChanged(cb.clone())),
     ));
@@ -665,7 +665,7 @@ pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
     let mut out = Vec::with_capacity(7usize);
     out.push(Binding::Event(
         Event::PasswordChanged,
-        w.on_changed
+        w.on_password_changed
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
@@ -684,13 +684,13 @@ pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
             PropValue::Bool(w.is_password_reveal_button_enabled),
         ));
     }
-    if w.reveal_mode != PasswordRevealMode::default() {
+    if w.password_reveal_mode != PasswordRevealMode::default() {
         out.push(Binding::Prop(
             Prop::PasswordRevealMode,
-            PropValue::PasswordRevealMode(w.reveal_mode),
+            PropValue::PasswordRevealMode(w.password_reveal_mode),
         ));
     }
-    if let Some(v) = &w.placeholder {
+    if let Some(v) = &w.placeholder_text {
         out.push(Binding::Prop(
             Prop::PlaceholderText,
             PropValue::Str(v.clone()),
@@ -758,7 +758,7 @@ pub(crate) fn toggle_button_bindings(w: &ToggleButton) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
     out.push(Binding::Event(
         Event::Checked,
-        w.on_changed
+        w.on_checked
             .as_ref()
             .map(|cb| EventHandler::Checked(cb.clone())),
     ));
@@ -867,7 +867,7 @@ pub(crate) fn rating_control_bindings(w: &RatingControl) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
     out.push(Binding::Event(
         Event::ValueChanged,
-        w.on_changed
+        w.on_value_changed
             .as_ref()
             .map(|cb| EventHandler::ValueChanged(cb.clone())),
     ));
@@ -911,7 +911,7 @@ pub(crate) fn rich_edit_box_bindings(w: &RichEditBox) -> PropBindings {
             PropValue::Bool(w.is_read_only),
         ));
     }
-    if let Some(v) = &w.placeholder {
+    if let Some(v) = &w.placeholder_text {
         out.push(Binding::Prop(
             Prop::PlaceholderText,
             PropValue::Str(v.clone()),
@@ -959,7 +959,7 @@ pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
     let mut out = Vec::with_capacity(8usize);
     out.push(Binding::Event(
         Event::ValueChanged,
-        w.on_changed
+        w.on_value_changed
             .as_ref()
             .map(|cb| EventHandler::ValueChanged(cb.clone())),
     ));
@@ -1084,7 +1084,7 @@ pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
     let mut out = Vec::with_capacity(9usize);
     out.push(Binding::Event(
         Event::ActionButtonClick,
-        w.on_action_click
+        w.on_action_button_click
             .as_ref()
             .map(|cb| EventHandler::Click(cb.clone())),
     ));
@@ -1141,7 +1141,7 @@ pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
             PropValue::Bool(w.is_text_selection_enabled),
         ));
     }
-    out.push(Binding::Prop(Prop::Text, PropValue::Str(w.content.clone())));
+    out.push(Binding::Prop(Prop::Text, PropValue::Str(w.text.clone())));
     if w.text_wrapping != TextWrapping::NoWrap {
         out.push(Binding::Prop(
             Prop::TextWrapping,
@@ -1154,7 +1154,7 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
     let mut out = Vec::with_capacity(7usize);
     out.push(Binding::Event(
         Event::TextChanged,
-        w.on_changed
+        w.on_text_changed
             .as_ref()
             .map(|cb| EventHandler::TextChanged(cb.clone())),
     ));
@@ -1173,7 +1173,7 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
             PropValue::Bool(w.is_enabled),
         ));
     }
-    if let Some(v) = &w.placeholder {
+    if let Some(v) = &w.placeholder_text {
         out.push(Binding::Prop(
             Prop::PlaceholderText,
             PropValue::Str(v.clone()),
@@ -1261,7 +1261,7 @@ pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
     out.push(Binding::Event(
         Event::Toggled,
-        w.on_changed
+        w.on_toggled
             .as_ref()
             .map(|cb| EventHandler::CheckedChanged(cb.clone())),
     ));

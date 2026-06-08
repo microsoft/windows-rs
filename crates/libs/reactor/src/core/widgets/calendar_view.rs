@@ -7,7 +7,7 @@ pub struct CalendarView {
     pub is_today_highlighted: bool,
     pub is_group_label_visible: bool,
     pub is_enabled: bool,
-    pub on_changed: Option<Callback<()>>,
+    pub on_selected_dates_changed: Option<Callback<()>>,
 }
 
 impl CalendarView {
@@ -35,8 +35,8 @@ impl CalendarView {
         self
     }
 
-    pub fn on_changed<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_changed = Some(Callback::new(move |()| f()));
+    pub fn on_selected_dates_changed<F: Fn() + 'static>(mut self, f: F) -> Self {
+        self.on_selected_dates_changed = Some(Callback::new(move |()| f()));
         self
     }
 }

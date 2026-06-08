@@ -8,7 +8,7 @@ pub struct ToggleButton {
     pub modifiers: Modifiers,
     pub content: String,
     pub is_checked: bool,
-    pub on_changed: Option<Callback<bool>>,
+    pub on_checked: Option<Callback<bool>>,
     pub is_enabled: bool,
 }
 
@@ -22,8 +22,8 @@ impl ToggleButton {
         }
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<bool>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_checked(mut self, f: impl IntoCallback<bool>) -> Self {
+        self.on_checked = Some(f.into_callback());
         self
     }
 

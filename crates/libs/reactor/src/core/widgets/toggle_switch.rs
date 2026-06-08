@@ -5,7 +5,7 @@ pub struct ToggleSwitch {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub is_on: bool,
-    pub on_changed: Option<Callback<bool>>,
+    pub on_toggled: Option<Callback<bool>>,
     pub on_content: Option<String>,
     pub off_content: Option<String>,
     pub header: Option<String>,
@@ -19,8 +19,8 @@ impl ToggleSwitch {
             ..Default::default()
         }
     }
-    pub fn on_changed(mut self, f: impl IntoCallback<bool>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_toggled(mut self, f: impl IntoCallback<bool>) -> Self {
+        self.on_toggled = Some(f.into_callback());
         self
     }
     pub fn on_content(mut self, s: impl Into<String>) -> Self {

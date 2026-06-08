@@ -7,7 +7,7 @@ pub struct RichEditBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub text: String,
-    pub placeholder: Option<String>,
+    pub placeholder_text: Option<String>,
     pub header: Option<String>,
     pub is_read_only: bool,
     pub on_text_changed: Option<Callback<String>>,
@@ -21,8 +21,8 @@ impl RichEditBox {
         }
     }
 
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = Some(s.into());
         self
     }
 

@@ -27,7 +27,7 @@ pub struct Button {
     pub on_click: Option<Callback<()>>,
     pub flyout: Option<FlyoutDef>,
     pub menu_flyout_items: Option<Vec<MenuItemDef>>,
-    pub on_menu_item_clicked: Option<Callback<String>>,
+    pub on_item_clicked: Option<Callback<String>>,
     pub command_bar_flyout_primary: Option<Vec<CommandBarCommandDef>>,
     pub command_bar_flyout_secondary: Option<Vec<CommandBarCommandDef>>,
     pub on_command_bar_flyout_click: Option<Callback<String>>,
@@ -131,8 +131,8 @@ impl Button {
         self
     }
 
-    pub fn on_menu_item_clicked<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_menu_item_clicked = Some(Callback::new(f));
+    pub fn on_item_clicked<F: Fn(String) + 'static>(mut self, f: F) -> Self {
+        self.on_item_clicked = Some(Callback::new(f));
         self
     }
 

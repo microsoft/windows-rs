@@ -12,7 +12,7 @@ fn rr() -> Rc<dyn Fn()> {
 
 fn mount_text_with_modifiers(mods: Modifiers) -> (Reconciler<RecordingBackend>, Vec<Op>) {
     let el = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: mods,
         ..TextBlock::default()
     });
@@ -96,7 +96,7 @@ fn diff_modifiers_identical_emits_no_ops() {
         ..Modifiers::default()
     };
     let el = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: mods,
         ..TextBlock::default()
     });
@@ -106,7 +106,7 @@ fn diff_modifiers_identical_emits_no_ops() {
 
     let old = el.clone();
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(5.0)),
             width: Some(200.0),
@@ -164,3 +164,4 @@ fn mount_emits_modifiers_after_create() {
     assert_eq!(modifier_props[1], Prop::Opacity);
     assert_eq!(modifier_props[2], Prop::Background);
 }
+

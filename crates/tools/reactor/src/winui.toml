@@ -8,7 +8,6 @@
 #   (no overrides)       Optional: field is Option<T>, emit when Some.
 #   required = true      Always emit (field is T). For core state.
 #   default = "expr"     Emit only when != expr (field is T). Auto-infers unset.
-#   field = "name"       Rust field name (default: snake_case of key).
 #   value = "Variant"    PropValue variant (default: inferred from metadata).
 #   setter_fn = true     Use hand-written custom_set_{control}_{field}.
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
@@ -18,7 +17,6 @@
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
-#   field = "name"       Rust field name (default: on_{snake_case}).
 #   handler = "Name"     EventHandler variant (default: event name).
 #   attach_fn = true     Use hand-written custom_attach_{control}_{field}.
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
@@ -28,7 +26,7 @@
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
 Text = { required = true, setter_fn = true }
 Items = { required = true, setter_fn = true, value = "StrList" }
-PlaceholderText = { field = "placeholder" }
+PlaceholderText = { }
 Header = { wrap = "ireference" }
 IsEnabled = { default = "true" }
 TextChanged = { attach_fn = true }
@@ -50,7 +48,7 @@ Style = { default = "ButtonStyle::Default", setter_fn = true, value = "ButtonSty
 Icon = { setter_fn = true, value = "Symbol" }
 MenuFlyoutItems = { setter_fn = true, value = "MenuFlyoutItems" }
 Click = {}
-ItemClicked = { field = "on_menu_item_clicked", attach_fn = true, handler = "TextChanged" }
+ItemClicked = { attach_fn = true, handler = "TextChanged" }
 CommandBarFlyoutClick = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
@@ -64,7 +62,7 @@ IsEnabled = { default = "true" }
 IsTodayHighlighted = { default = "true" }
 IsGroupLabelVisible = { default = "true" }
 IsEnabled = { default = "true" }
-SelectedDatesChanged = { field = "on_changed", handler = "Click" }
+SelectedDatesChanged = { handler = "Click" }
 
 ["Microsoft.UI.Xaml.Controls.Canvas"]
 
@@ -72,7 +70,7 @@ SelectedDatesChanged = { field = "on_changed", handler = "Click" }
 IsChecked = { required = true }
 Content = {}
 IsEnabled = { default = "true" }
-Checked = { field = "on_changed", add_method_false = "add_Unchecked" }
+Checked = { add_method_false = "add_Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ColorPicker"]
 IsAlphaEnabled = { default = "true" }
@@ -85,7 +83,7 @@ ColorChanged = { attach_fn = true }
 Items = { required = true, setter_fn = true, value = "StrList" }
 SelectedIndex = { default = "0" }
 Header = {}
-PlaceholderText = { field = "placeholder", unset = { default = "\"\"" } }
+PlaceholderText = { unset = { default = "\"\"" } }
 IsEditable = { default = "false", unset = "custom" }
 IsEnabled = { default = "true" }
 SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
@@ -123,7 +121,7 @@ Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Expander"]
 IsExpanded = { default = "false" }
-Expanding = { field = "on_expanded", handler = "CheckedChanged", add_method_false = "add_Collapsed" }
+Expanding = { handler = "CheckedChanged", add_method_false = "add_Collapsed" }
 
 ["Microsoft.UI.Xaml.Controls.Grid"]
 Rows = { prop = "GridRows", default = "Vec::new()", setter_fn = true, value = "GridLengths" }
@@ -190,12 +188,12 @@ ValueChanged = { invoke = "invoke_f64_args", getter = "get_NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.PasswordBox"]
 Value = { required = true, setter_fn = true, value = "Str" }
-PlaceholderText = { field = "placeholder", unset = { default = "\"\"" } }
+PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsEnabled = { default = "true" }
-PasswordRevealMode = { field = "reveal_mode", default = "PasswordRevealMode::default()" }
+PasswordRevealMode = { default = "PasswordRevealMode::default()" }
 IsPasswordRevealButtonEnabled = { default = "true", unset = { default = "true" } }
-PasswordChanged = { field = "on_changed", handler = "TextChanged", getter = "get_Password" }
+PasswordChanged = { handler = "TextChanged", getter = "get_Password" }
 
 ["Microsoft.UI.Xaml.Controls.PersonPicture"]
 DisplayName = {}
@@ -239,7 +237,7 @@ MaxRating = {}
 Caption = { unset = { default = "\"\"" } }
 PlaceholderValue = {}
 IsReadOnly = { default = "false", unset = "custom" }
-ValueChanged = { field = "on_changed", getter = "get_Value" }
+ValueChanged = { getter = "get_Value" }
 
 ["Microsoft.UI.Xaml.Controls.RelativePanel"]
 
@@ -252,7 +250,7 @@ Click = {}
 
 ["Microsoft.UI.Xaml.Controls.RichEditBox"]
 Text = { required = true, setter_fn = true, value = "Str" }
-PlaceholderText = { field = "placeholder", unset = { default = "\"\"" } }
+PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsReadOnly = { default = "false", unset = "custom" }
 TextChanged = { attach_fn = true }
@@ -277,7 +275,7 @@ Step = { setter_fn = true, value = "F64" }
 Header = {}
 Orientation = { default = "Orientation::Horizontal" }
 IsEnabled = { default = "true" }
-ValueChanged = { field = "on_changed", invoke = "invoke_f64_args", getter = "get_NewValue" }
+ValueChanged = { invoke = "invoke_f64_args", getter = "get_NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.SplitButton"]
 Content = { wrap = "ireference" }
@@ -311,10 +309,10 @@ PreferredPlacement = { default = "TeachingTipPlacementMode::default()" }
 ActionButtonText = { setter_fn = true, value = "Str" }
 CloseButtonText = { setter_fn = true, value = "Str" }
 Closed = { handler = "Click" }
-ActionButtonClick = { field = "on_action_click", handler = "Click" }
+ActionButtonClick = { handler = "Click" }
 
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = { field = "content", required = true, unset = { default = "\"\"" } }
+Text = { required = true, unset = { default = "\"\"" } }
 FontSize = { unset = { default = "14.0" } }
 FontWeight = { setter_fn = true }
 TextWrapping = { default = "TextWrapping::NoWrap" }
@@ -322,12 +320,12 @@ IsTextSelectionEnabled = { default = "false" }
 
 ["Microsoft.UI.Xaml.Controls.TextBox"]
 Value = { required = true, setter_fn = true, value = "Str" }
-PlaceholderText = { field = "placeholder", unset = { default = "\"\"" } }
+PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsEnabled = { default = "true" }
 AcceptsReturn = { default = "false" }
 TextWrapping = { default = "TextWrapping::NoWrap" }
-TextChanged = { field = "on_changed", getter = "get_Text" }
+TextChanged = { getter = "get_Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]
 Header = {}
@@ -350,7 +348,7 @@ PaneToggleRequested = { handler = "Click" }
 IsChecked = { default = "false" }
 Content = { required = true }
 IsEnabled = { default = "true" }
-Checked = { field = "on_changed", add_method_false = "add_Unchecked" }
+Checked = { add_method_false = "add_Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ToggleSwitch"]
 IsOn = { required = true }
@@ -358,7 +356,7 @@ OnContent = {}
 OffContent = {}
 Header = {}
 IsEnabled = { default = "true" }
-Toggled = { field = "on_changed", handler = "CheckedChanged", getter = "get_IsOn" }
+Toggled = { handler = "CheckedChanged", getter = "get_IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 Nodes = { required = true, setter_fn = true, value = "TreeViewNodes" }

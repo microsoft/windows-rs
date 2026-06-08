@@ -8,7 +8,7 @@ pub struct Slider {
     pub minimum: f64,
     pub maximum: f64,
     pub step: Option<f64>,
-    pub on_changed: Option<Callback<f64>>,
+    pub on_value_changed: Option<Callback<f64>>,
     pub header: Option<String>,
     pub orientation: Orientation,
     pub is_enabled: bool,
@@ -22,7 +22,7 @@ impl Default for Slider {
             minimum: 0.0,
             maximum: 100.0,
             step: None,
-            on_changed: None,
+            on_value_changed: None,
             header: None,
             orientation: Orientation::Horizontal,
             is_enabled: true,
@@ -45,8 +45,8 @@ impl Slider {
         self.step = Some(v);
         self
     }
-    pub fn on_changed(mut self, f: impl IntoCallback<f64>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_value_changed(mut self, f: impl IntoCallback<f64>) -> Self {
+        self.on_value_changed = Some(f.into_callback());
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {

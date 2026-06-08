@@ -240,9 +240,8 @@ fn build_prop(
     };
 
     // Check if metadata says this is an enum type (for auto-inference).
-    let is_metadata_enum = setter_fn.is_none()
-        && has_method
-        && resolver.enum_info(handle, &method_name).is_some();
+    let is_metadata_enum =
+        setter_fn.is_none() && has_method && resolver.enum_info(handle, &method_name).is_some();
 
     let (method, method_optional, method_ireference, method_textblock) =
         if setter_fn.is_some() || is_metadata_enum {

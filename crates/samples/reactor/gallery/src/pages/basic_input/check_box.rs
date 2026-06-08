@@ -21,7 +21,7 @@ pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     check_box(accepted)
                         .content("I accept the terms and conditions")
-                        .on_changed({
+                        .on_checked({
                             let set_accepted = set_accepted;
                             move |v| set_accepted.call(v)
                         }),
@@ -33,7 +33,7 @@ pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
                     .opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"check_box(checked).content("I accept").on_changed(move |v| set(v))"#,
+                r#"check_box(checked).content("I accept").on_checked(move |v| set(v))"#,
             ),
             sample_card(
                 "Notification Preferences",
@@ -41,28 +41,28 @@ pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
                     text_block("Choose your notification channels:").bold(),
                     check_box(email_opt_in)
                         .content("Email notifications")
-                        .on_changed({
+                        .on_checked({
                             let set_email = set_email;
                             move |v| set_email.call(v)
                         }),
                     check_box(sms_opt_in)
                         .content("SMS notifications")
-                        .on_changed({
+                        .on_checked({
                             let set_sms = set_sms;
                             move |v| set_sms.call(v)
                         }),
                     check_box(push_opt_in)
                         .content("Push notifications")
-                        .on_changed({
+                        .on_checked({
                             let set_push = set_push;
                             move |v| set_push.call(v)
                         }),
                     text_block(format!("{active_count} channel(s) active")).opacity(0.6),
                 ))
                 .spacing(6.0),
-                r#"check_box(email).content("Email").on_changed(handler)
-check_box(sms).content("SMS").on_changed(handler)
-check_box(push).content("Push").on_changed(handler)"#,
+                r#"check_box(email).content("Email").on_checked(handler)
+check_box(sms).content("SMS").on_checked(handler)
+check_box(push).content("Push").on_checked(handler)"#,
             ),
             sample_card(
                 "Disabled States",

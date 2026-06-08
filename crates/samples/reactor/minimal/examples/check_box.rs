@@ -10,7 +10,7 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         check_box(checked)
             .content("I accept the terms")
-            .on_changed(toggle),
+            .on_checked(toggle),
         text_block(if checked {
             "Accepted ✓"
         } else {

@@ -9,7 +9,7 @@ pub struct ComboBox {
     pub items: Vec<String>,
     pub selected_index: i32,
     pub header: Option<String>,
-    pub placeholder: Option<String>,
+    pub placeholder_text: Option<String>,
     pub is_editable: bool,
     pub is_enabled: bool,
     pub on_selection_changed: Option<Callback<i32>>,
@@ -35,8 +35,8 @@ impl ComboBox {
         self.header = Some(s.into());
         self
     }
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = Some(s.into());
         self
     }
     /// Enable the text-entry mode (`IComboBox::IsEditable`).

@@ -33,7 +33,7 @@ pub struct TeachingTip {
     pub action_button_text: Option<String>,
     pub close_button_text: Option<String>,
     pub on_closed: Option<Callback<()>>,
-    pub on_action_click: Option<Callback<()>>,
+    pub on_action_button_click: Option<Callback<()>>,
 }
 
 impl TeachingTip {
@@ -79,8 +79,8 @@ impl TeachingTip {
         self
     }
 
-    pub fn on_action_click<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_action_click = Some(Callback::new(move |()| f()));
+    pub fn on_action_button_click<F: Fn() + 'static>(mut self, f: F) -> Self {
+        self.on_action_button_click = Some(Callback::new(move |()| f()));
         self
     }
 }

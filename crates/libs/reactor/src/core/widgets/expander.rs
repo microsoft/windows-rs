@@ -15,7 +15,7 @@ pub struct Expander {
     pub header: Option<ExpanderHeader>,
     pub child: Box<Element>,
     pub is_expanded: bool,
-    pub on_expanded: Option<Callback<bool>>,
+    pub on_expanding: Option<Callback<bool>>,
 }
 impl Default for Expander {
     fn default() -> Self {
@@ -25,7 +25,7 @@ impl Default for Expander {
             header: None,
             child: Box::new(Element::Empty),
             is_expanded: false,
-            on_expanded: None,
+            on_expanding: None,
         }
     }
 }
@@ -50,8 +50,8 @@ impl Expander {
         self.is_expanded = v;
         self
     }
-    pub fn on_expanded<F: Fn(bool) + 'static>(mut self, f: F) -> Self {
-        self.on_expanded = Some(Callback::new(f));
+    pub fn on_expanding<F: Fn(bool) + 'static>(mut self, f: F) -> Self {
+        self.on_expanding = Some(Callback::new(f));
         self
     }
 }

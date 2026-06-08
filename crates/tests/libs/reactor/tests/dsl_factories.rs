@@ -34,7 +34,7 @@ fn vstack_collects_children_in_order() {
     assert_eq!(s.orientation, Orientation::Vertical);
     assert_eq!(s.children.len(), 2);
     match &s.children[0] {
-        Element::TextBlock(t) => assert_eq!(t.content, "a"),
+        Element::TextBlock(t) => assert_eq!(t.text, "a"),
         other => panic!("unexpected {other:?}"),
     }
 }
@@ -61,7 +61,7 @@ fn text_bold_sets_weight_700() {
 fn border_wraps_child() {
     let b = border(text_block("inside"));
     match *b.child {
-        Element::TextBlock(t) => assert_eq!(t.content, "inside"),
+        Element::TextBlock(t) => assert_eq!(t.text, "inside"),
         other => panic!("unexpected {other:?}"),
     }
 }

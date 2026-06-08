@@ -10,7 +10,7 @@ fn vstack_macro_collects_heterogeneous_children_in_order() {
     assert_eq!(s.orientation, Orientation::Vertical);
     assert_eq!(s.children.len(), 3);
     match &s.children[0] {
-        Element::TextBlock(t) => assert_eq!(t.content, "a"),
+        Element::TextBlock(t) => assert_eq!(t.text, "a"),
         other => panic!("expected text, got {other:?}"),
     }
     match &s.children[2] {

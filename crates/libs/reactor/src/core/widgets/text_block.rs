@@ -12,7 +12,7 @@ pub enum TextWrapping {
 pub struct TextBlock {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub content: String,
+    pub text: String,
     pub font_size: Option<f64>,
     pub font_weight: Option<u16>,
     pub text_wrapping: TextWrapping,
@@ -21,7 +21,7 @@ pub struct TextBlock {
 impl TextBlock {
     pub fn new(content: impl Into<String>) -> Self {
         Self {
-            content: content.into(),
+            text: content.into(),
             ..Self::default()
         }
     }

@@ -12,7 +12,7 @@ fn app(cx: &mut RenderCx) -> Element {
             .header("Notifications")
             .on_content("On")
             .off_content("Off")
-            .on_changed(toggle),
+            .on_toggled(toggle),
         text_block(if on {
             "Notifications enabled"
         } else {

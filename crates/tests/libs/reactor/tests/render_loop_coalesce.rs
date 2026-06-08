@@ -19,7 +19,7 @@ impl Component for Counter {
         let (count, set) = cx.use_state(0_i32);
         *self.setter_slot.borrow_mut() = Some(set);
         Element::TextBlock(TextBlock {
-            content: format!("Count: {count}"),
+            text: format!("Count: {count}"),
             ..TextBlock::default()
         })
     }
@@ -134,7 +134,7 @@ impl Component for SetDuringRender {
             set.call(7);
         }
         Element::TextBlock(TextBlock {
-            content: "x".into(),
+            text: "x".into(),
             ..TextBlock::default()
         })
     }
@@ -218,7 +218,7 @@ impl Component for ToggleRoot {
         *self.setter_slot.borrow_mut() = Some(set);
         if show {
             Element::TextBlock(TextBlock {
-                content: "T".into(),
+                text: "T".into(),
                 ..TextBlock::default()
             })
         } else {
@@ -407,3 +407,4 @@ fn inner_size_change_rerenders_children_once_and_resets_force_flag() {
         "force rerender flag should be cleared after the size-driven pass"
     );
 }
+

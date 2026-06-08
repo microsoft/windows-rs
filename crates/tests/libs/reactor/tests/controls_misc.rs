@@ -32,7 +32,7 @@ fn first_create(
 fn auto_suggest_box_mounts_with_text_items_placeholder_and_header() {
     let el: Element = AutoSuggestBox::new("init")
         .items(["A", "B"])
-        .placeholder("Search...")
+        .placeholder_text("Search...")
         .header("Query")
         .into();
     let r = mount(&el);

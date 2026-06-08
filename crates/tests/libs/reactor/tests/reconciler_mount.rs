@@ -168,7 +168,7 @@ fn nested_stacks_mount_in_tree_order() {
 #[test]
 fn font_size_and_weight_are_set_when_present() {
     let t = TextBlock {
-        content: "Heading".to_string(),
+        text: "Heading".to_string(),
         font_size: Some(28.0),
         font_weight: Some(700),
         ..TextBlock::default()
@@ -208,3 +208,4 @@ fn disabled_button_emits_is_enabled_false() {
         }
     )));
 }
+

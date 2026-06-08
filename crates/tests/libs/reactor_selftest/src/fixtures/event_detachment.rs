@@ -1,4 +1,4 @@
-//! Event detachment fixtures: verify that `on_click` / `on_changed` handlers
+//! Event detachment fixtures: verify that control event handlers
 //! are properly revoked when a control is unmounted or re-rendered without
 //! the callback attached. This catches leaks in the EventRevoker lifecycle.
 
@@ -74,7 +74,7 @@ pub fn on_click_detach_on_unmount(h: Harness) -> FixtureFuture {
     })
 }
 
-/// Verify that when an `on_changed` callback is conditionally removed from
+/// Verify that when an `on_checked` callback is conditionally removed from
 /// a CheckBox (control stays mounted, but handler is gone), subsequent
 /// state changes via the WinUI property no longer trigger the old handler.
 pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
@@ -90,7 +90,7 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
             let cb: Element = if attach_handler {
                 check_box(checked)
                     .content("target")
-                    .on_changed(move |v| {
+                    .on_checked(move |v| {
                         fc.set(fc.get() + 1);
                         set_checked.call(v);
                     })
@@ -118,7 +118,7 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
             fire_count.get() >= 1,
         );
 
-        // Detach the handler (re-render without on_changed)
+        // Detach the handler (re-render without on_checked)
         let _ = h.click_button("Detach");
         h.render().await;
         h.check(
@@ -138,7 +138,7 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
     })
 }
 
-/// Verify that a Slider's `on_changed` handler is properly replaced when
+/// Verify that a Slider's `on_value_changed` handler is properly replaced when
 /// the component re-renders with a new closure (no stale closure leak).
 pub fn on_changed_handler_replacement(h: Harness) -> FixtureFuture {
     Box::pin(async move {
@@ -152,7 +152,7 @@ pub fn on_changed_handler_replacement(h: Harness) -> FixtureFuture {
                 text_block(format!("mult={multiplier}")),
                 Slider::new(5.0)
                     .range(0.0, 10.0)
-                    .on_changed(move |v| set_result.call((v as i32) * m)),
+                    .on_value_changed(move |v| set_result.call((v as i32) * m)),
                 button("DoubleMult").on_click(move || set_mult.call(multiplier * 2)),
             ))
             .into()

@@ -81,10 +81,10 @@ fn settings_page(_: &(), cx: &mut RenderCx) -> Element {
         text_block("Settings").font_size(28.0).bold(),
         ToggleSwitch::new(dark_mode)
             .header("Dark mode")
-            .on_changed(set_dark),
+            .on_toggled(set_dark),
         ToggleSwitch::new(notifications)
             .header("Notifications")
-            .on_changed(set_notif),
+            .on_toggled(set_notif),
         text_block(format!(
             "Dark: {} | Notifications: {}",
             if dark_mode { "on" } else { "off" },

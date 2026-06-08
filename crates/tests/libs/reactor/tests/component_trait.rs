@@ -34,7 +34,7 @@ fn props_component_receives_props() {
     let mut cx = RenderCx::for_test();
     let out = c.render(&Greeting { who: "x".into() }, &mut cx);
     match out {
-        Element::TextBlock(t) => assert_eq!(t.content, "hi x"),
+        Element::TextBlock(t) => assert_eq!(t.text, "hi x"),
         other => panic!("unexpected {other:?}"),
     }
 }

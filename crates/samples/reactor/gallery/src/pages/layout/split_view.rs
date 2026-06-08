@@ -12,7 +12,7 @@ pub fn split_view_page(_: &(), cx: &mut RenderCx) -> Element {
             vstack((
                 ToggleSwitch::new(open)
                     .header("Pane open")
-                    .on_changed(move |v: bool| set_open.call(v)),
+                    .on_toggled(move |v: bool| set_open.call(v)),
                 split_view(text_block("Main content area"))
                     .pane(text_block("Pane content"))
                     .is_pane_open(open),
