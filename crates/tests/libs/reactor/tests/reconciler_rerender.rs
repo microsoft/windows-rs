@@ -4,8 +4,8 @@ use windows_reactor::core::backend::{ControlId, Event, Op, Prop, PropValue, Reco
 use windows_reactor::core::callback::Callback;
 use windows_reactor::core::element::ToggleSwitch;
 use windows_reactor::core::element::{
-    Border, Button, CheckBox, Color, Element, Modifiers, ScrollViewer, StackPanel, TextBlock,
-    TextBox, Thickness,
+    Border, Button, CheckBox, Color, Element, Modifiers, Orientation, ScrollViewer, StackPanel,
+    TextBlock, TextBox, Thickness,
 };
 use windows_reactor::core::reconciler::Reconciler;
 
@@ -67,24 +67,24 @@ fn kind_change_destroys_old_and_mounts_new() {
             ..
         }
     ));
-    assert!(matches!(
-        ops[2],
+    assert!(ops.iter().any(|op| matches!(
+        op,
         Op::SetProp {
-            prop: Prop::ButtonContent,
+            prop: Prop::Content,
             ..
         }
-    ));
+    )));
 }
 
 #[test]
 fn font_weight_unset_emits_unset_prop_value() {
     let old = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_weight: Some(700),
         ..TextBlock::default()
     });
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_weight: None,
         ..TextBlock::default()
     });
@@ -105,13 +105,13 @@ fn font_weight_unset_emits_unset_prop_value() {
 fn button_label_change_does_not_reattach_unchanged_click_handler() {
     let cb = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "a".into(),
+        content: "a".into(),
         is_enabled: true,
         on_click: Some(cb.clone()),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "b".into(),
+        content: "b".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
@@ -122,7 +122,7 @@ fn button_label_change_does_not_reattach_unchanged_click_handler() {
     assert!(ops.iter().any(|o| matches!(
         o,
         Op::SetProp {
-            prop: Prop::ButtonContent,
+            prop: Prop::Content,
             ..
         }
     )));
@@ -133,13 +133,13 @@ fn button_click_handler_swap_re_attaches_event() {
     let cb_a = Callback::<()>::new(|()| {});
     let cb_b = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_a),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_b),
         ..Button::default()
@@ -153,11 +153,11 @@ fn button_click_handler_swap_re_attaches_event() {
 #[test]
 fn stack_orientation_change_emits_single_set_prop() {
     let old = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         ..StackPanel::default()
     });
     let new = Element::StackPanel(StackPanel {
-        vertical: false,
+        orientation: Orientation::Horizontal,
         ..StackPanel::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -167,16 +167,16 @@ fn stack_orientation_change_emits_single_set_prop() {
         ops[0],
         Op::SetProp {
             prop: Prop::Orientation,
-            value: PropValue::Vertical(false),
+            value: PropValue::I32(v),
             ..
-        }
+        } if v == Orientation::Horizontal.0
     ));
 }
 
 #[test]
 fn modifiers_diff_only_emits_for_changed_fields() {
     let old = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(5.0)),
             opacity: Some(1.0),
@@ -185,7 +185,7 @@ fn modifiers_diff_only_emits_for_changed_fields() {
         ..TextBlock::default()
     });
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(10.0)),
             opacity: Some(1.0),
@@ -208,7 +208,7 @@ fn modifiers_diff_only_emits_for_changed_fields() {
 #[test]
 fn modifier_some_to_none_emits_unset() {
     let old = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             background: Some(Color::rgb(255, 0, 0).into()),
             ..Modifiers::default()
@@ -216,7 +216,7 @@ fn modifier_some_to_none_emits_unset() {
         ..TextBlock::default()
     });
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers::default(),
         ..TextBlock::default()
     });
@@ -236,7 +236,7 @@ fn modifier_some_to_none_emits_unset() {
 fn keyed_text(key: &str, content: &str) -> Element {
     Element::TextBlock(TextBlock {
         key: Some(key.into()),
-        content: content.into(),
+        text: content.into(),
         ..TextBlock::default()
     })
 }
@@ -319,13 +319,13 @@ fn scrollview_child_swap_matches_border_child_swap() {
 fn button_click_handler_some_to_none_emits_detach() {
     let cb = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: None,
         ..Button::default()
@@ -344,13 +344,13 @@ fn button_click_handler_some_to_none_emits_detach() {
 fn button_click_handler_none_to_some_emits_attach_only() {
     let cb = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: None,
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
@@ -373,13 +373,13 @@ fn checkbox_changed_handler_some_to_none_emits_detach() {
     let old = Element::CheckBox(CheckBox {
         is_checked: false,
         is_enabled: true,
-        on_changed: Some(cb),
+        on_checked: Some(cb),
         ..CheckBox::default()
     });
     let new = Element::CheckBox(CheckBox {
         is_checked: false,
         is_enabled: true,
-        on_changed: None,
+        on_checked: None,
         ..CheckBox::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -387,7 +387,7 @@ fn checkbox_changed_handler_some_to_none_emits_detach() {
     assert!(ops.iter().any(|o| matches!(
         o,
         Op::DetachEvent {
-            event: Event::CheckedChanged,
+            event: Event::Checked,
             ..
         }
     )));
@@ -400,13 +400,13 @@ fn textfield_changed_handler_some_to_none_emits_detach() {
     let old = Element::TextBox(TextBox {
         value: "hi".into(),
         is_enabled: true,
-        on_changed: Some(cb),
+        on_text_changed: Some(cb),
         ..TextBox::default()
     });
     let new = Element::TextBox(TextBox {
         value: "hi".into(),
         is_enabled: true,
-        on_changed: None,
+        on_text_changed: None,
         ..TextBox::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -427,13 +427,13 @@ fn toggle_switch_changed_handler_some_to_none_emits_detach() {
     let old = Element::ToggleSwitch(ToggleSwitch {
         is_on: false,
         is_enabled: true,
-        on_changed: Some(cb),
+        on_toggled: Some(cb),
         ..ToggleSwitch::default()
     });
     let new = Element::ToggleSwitch(ToggleSwitch {
         is_on: false,
         is_enabled: true,
-        on_changed: None,
+        on_toggled: None,
         ..ToggleSwitch::default()
     });
     let (_, ops) = update_ops(old, new);
@@ -453,13 +453,13 @@ fn handler_swap_emits_attach_without_detach() {
     let cb_a = Callback::<()>::new(|()| {});
     let cb_b = Callback::<()>::new(|()| {});
     let old = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_a),
         ..Button::default()
     });
     let new = Element::Button(Button {
-        label: "x".into(),
+        content: "x".into(),
         is_enabled: true,
         on_click: Some(cb_b),
         ..Button::default()

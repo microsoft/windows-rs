@@ -8,9 +8,9 @@ pub struct Slider {
     pub minimum: f64,
     pub maximum: f64,
     pub step: Option<f64>,
-    pub on_changed: Option<Callback<f64>>,
+    pub on_value_changed: Option<Callback<f64>>,
     pub header: Option<String>,
-    pub vertical: bool,
+    pub orientation: Orientation,
     pub is_enabled: bool,
 }
 impl Default for Slider {
@@ -22,9 +22,9 @@ impl Default for Slider {
             minimum: 0.0,
             maximum: 100.0,
             step: None,
-            on_changed: None,
+            on_value_changed: None,
             header: None,
-            vertical: false,
+            orientation: Orientation::Horizontal,
             is_enabled: true,
         }
     }
@@ -45,8 +45,8 @@ impl Slider {
         self.step = Some(v);
         self
     }
-    pub fn on_changed(mut self, f: impl IntoCallback<f64>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_value_changed(mut self, f: impl IntoCallback<f64>) -> Self {
+        self.on_value_changed = Some(f.into_callback());
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {
@@ -55,12 +55,12 @@ impl Slider {
     }
     /// Switch to a vertical slider (`ISlider::Orientation = Vertical`).
     pub fn vertical(mut self) -> Self {
-        self.vertical = true;
+        self.orientation = Orientation::Vertical;
         self
     }
     /// Switch to a horizontal slider (default).
     pub fn horizontal(mut self) -> Self {
-        self.vertical = false;
+        self.orientation = Orientation::Horizontal;
         self
     }
     pub fn enabled(mut self, enabled: bool) -> Self {
@@ -72,31 +72,10 @@ impl Slider {
 impl Widget for Slider {
     widget_header!(ControlKind::Slider);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(Prop::Minimum, PropValue::F64(self.minimum)));
-        out.push(Binding::Prop(Prop::Maximum, PropValue::F64(self.maximum)));
-        out.push(Binding::Prop(
-            Prop::NumericValue,
-            PropValue::F64(self.value),
-        ));
-        if let Some(step) = self.step {
-            out.push(Binding::Prop(Prop::Step, PropValue::F64(step)));
+        let mut out = crate::core::generated_bindings::slider_bindings(self);
+        if let Some(v) = self.step {
+            out.push(Binding::Prop(Prop::Step, PropValue::F64(v)));
         }
-        if let Some(h) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(h.clone())));
-        }
-        if self.vertical {
-            out.push(Binding::Prop(Prop::Orientation, PropValue::Vertical(true)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::ValueChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::ValueChanged(cb.clone())),
-        ));
         out
     }
 }

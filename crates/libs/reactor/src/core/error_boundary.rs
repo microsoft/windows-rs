@@ -54,7 +54,7 @@ mod tests {
         let fb = Fallback::new(|msg| TextBlock::new(format!("oops: {msg}")).into());
         let e = fb.invoke("boom");
         match e {
-            Element::TextBlock(t) => assert_eq!(t.content, "oops: boom"),
+            Element::TextBlock(t) => assert_eq!(t.text, "oops: boom"),
             other => panic!("unexpected {other:?}"),
         }
     }

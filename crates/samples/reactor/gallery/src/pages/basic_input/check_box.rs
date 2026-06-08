@@ -20,8 +20,8 @@ pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Basic CheckBox",
                 vstack((
                     check_box(accepted)
-                        .label("I accept the terms and conditions")
-                        .on_changed({
+                        .content("I accept the terms and conditions")
+                        .on_checked({
                             let set_accepted = set_accepted;
                             move |v| set_accepted.call(v)
                         }),
@@ -33,49 +33,49 @@ pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
                     .opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"check_box(checked).label("I accept").on_changed(move |v| set(v))"#,
+                r#"check_box(checked).content("I accept").on_checked(move |v| set(v))"#,
             ),
             sample_card(
                 "Notification Preferences",
                 vstack((
                     text_block("Choose your notification channels:").bold(),
                     check_box(email_opt_in)
-                        .label("Email notifications")
-                        .on_changed({
+                        .content("Email notifications")
+                        .on_checked({
                             let set_email = set_email;
                             move |v| set_email.call(v)
                         }),
                     check_box(sms_opt_in)
-                        .label("SMS notifications")
-                        .on_changed({
+                        .content("SMS notifications")
+                        .on_checked({
                             let set_sms = set_sms;
                             move |v| set_sms.call(v)
                         }),
                     check_box(push_opt_in)
-                        .label("Push notifications")
-                        .on_changed({
+                        .content("Push notifications")
+                        .on_checked({
                             let set_push = set_push;
                             move |v| set_push.call(v)
                         }),
                     text_block(format!("{active_count} channel(s) active")).opacity(0.6),
                 ))
                 .spacing(6.0),
-                r#"check_box(email).label("Email").on_changed(handler)
-check_box(sms).label("SMS").on_changed(handler)
-check_box(push).label("Push").on_changed(handler)"#,
+                r#"check_box(email).content("Email").on_checked(handler)
+check_box(sms).content("SMS").on_checked(handler)
+check_box(push).content("Push").on_checked(handler)"#,
             ),
             sample_card(
                 "Disabled States",
                 vstack((
                     check_box(true)
-                        .label("Always enabled (checked, disabled)")
+                        .content("Always enabled (checked, disabled)")
                         .enabled(false),
                     check_box(false)
-                        .label("Always disabled (unchecked, disabled)")
+                        .content("Always disabled (unchecked, disabled)")
                         .enabled(false),
                 ))
                 .spacing(6.0),
-                r#"check_box(true).label("Locked on").enabled(false)"#,
+                r#"check_box(true).content("Locked on").enabled(false)"#,
             ),
         ],
     )

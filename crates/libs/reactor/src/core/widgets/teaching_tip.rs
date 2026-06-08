@@ -1,42 +1,24 @@
 use super::*;
 
-/// Preferred placement for a [`TeachingTipWidget`].
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TeachingTipPlacement {
-    #[default]
-    Auto,
-    Top,
-    Bottom,
-    Left,
-    Right,
-    TopRight,
-    TopLeft,
-    BottomRight,
-    BottomLeft,
-    LeftTop,
-    LeftBottom,
-    RightTop,
-    RightBottom,
-    Center,
-}
+pub use crate::bindings::TeachingTipPlacementMode;
 
 /// `Microsoft.UI.Xaml.Controls.TeachingTip`. A contextual teaching popup.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct TeachingTipWidget {
+pub struct TeachingTip {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub title: String,
-    pub subtitle: Option<String>,
+    pub subtitle: String,
     pub is_open: bool,
     pub is_light_dismiss_enabled: bool,
-    pub preferred_placement: TeachingTipPlacement,
+    pub preferred_placement: TeachingTipPlacementMode,
     pub action_button_text: Option<String>,
     pub close_button_text: Option<String>,
     pub on_closed: Option<Callback<()>>,
-    pub on_action_click: Option<Callback<()>>,
+    pub on_action_button_click: Option<Callback<()>>,
 }
 
-impl TeachingTipWidget {
+impl TeachingTip {
     pub fn new(title: impl Into<String>) -> Self {
         Self {
             title: title.into(),
@@ -45,7 +27,7 @@ impl TeachingTipWidget {
     }
 
     pub fn subtitle(mut self, s: impl Into<String>) -> Self {
-        self.subtitle = Some(s.into());
+        self.subtitle = s.into();
         self
     }
 
@@ -59,7 +41,7 @@ impl TeachingTipWidget {
         self
     }
 
-    pub fn preferred_placement(mut self, p: TeachingTipPlacement) -> Self {
+    pub fn preferred_placement(mut self, p: TeachingTipPlacementMode) -> Self {
         self.preferred_placement = p;
         self
     }
@@ -79,68 +61,32 @@ impl TeachingTipWidget {
         self
     }
 
-    pub fn on_action_click<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_action_click = Some(Callback::new(move |()| f()));
+    pub fn on_action_button_click<F: Fn() + 'static>(mut self, f: F) -> Self {
+        self.on_action_button_click = Some(Callback::new(move |()| f()));
         self
     }
 }
 
-impl Widget for TeachingTipWidget {
+impl Widget for TeachingTip {
     widget_header!(ControlKind::TeachingTip);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(8);
-        out.push(Binding::Prop(
-            Prop::TeachingTipTitle,
-            PropValue::Str(self.title.clone()),
-        ));
-        if let Some(sub) = &self.subtitle {
+        let mut out = crate::core::generated_bindings::teaching_tip_bindings(self);
+        if let Some(v) = &self.action_button_text {
             out.push(Binding::Prop(
-                Prop::TeachingTipSubtitle,
-                PropValue::Str(sub.clone()),
+                Prop::ActionButtonText,
+                PropValue::Str(v.clone()),
             ));
         }
-        out.push(Binding::Prop(
-            Prop::TeachingTipIsOpen,
-            PropValue::Bool(self.is_open),
-        ));
-        if self.is_light_dismiss_enabled {
+        if let Some(v) = &self.close_button_text {
             out.push(Binding::Prop(
-                Prop::TeachingTipIsLightDismiss,
-                PropValue::Bool(true),
+                Prop::CloseButtonText,
+                PropValue::Str(v.clone()),
             ));
         }
-        out.push(Binding::Prop(
-            Prop::TeachingTipPlacement,
-            PropValue::TeachingTipPlacement(self.preferred_placement),
-        ));
-        if let Some(text) = &self.action_button_text {
-            out.push(Binding::Prop(
-                Prop::TeachingTipActionButton,
-                PropValue::Str(text.clone()),
-            ));
-        }
-        if let Some(text) = &self.close_button_text {
-            out.push(Binding::Prop(
-                Prop::TeachingTipCloseButton,
-                PropValue::Str(text.clone()),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::TeachingTipClosed,
-            self.on_closed
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::TeachingTipActionClick,
-            self.on_action_click
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
         out
     }
 }
 
-pub fn teaching_tip(title: impl Into<String>) -> TeachingTipWidget {
-    TeachingTipWidget::new(title)
+pub fn teaching_tip(title: impl Into<String>) -> TeachingTip {
+    TeachingTip::new(title)
 }

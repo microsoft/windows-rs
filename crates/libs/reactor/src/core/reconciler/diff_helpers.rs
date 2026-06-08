@@ -12,8 +12,8 @@ impl<B: Backend> Reconciler<B> {
             return;
         }
         match new {
-            Some(v) => self.backend.set_prop(id, prop, PropValue::F64(v)),
-            None => self.backend.set_prop(id, prop, PropValue::Unset),
+            Some(v) => self.backend.set_prop(id, prop, &PropValue::F64(v)),
+            None => self.backend.set_prop(id, prop, &PropValue::Unset),
         }
     }
 
@@ -29,8 +29,8 @@ impl<B: Backend> Reconciler<B> {
             return;
         }
         match new {
-            Some(v) => self.backend.set_prop(id, prop, wrap(v)),
-            None => self.backend.set_prop(id, prop, PropValue::Unset),
+            Some(v) => self.backend.set_prop(id, prop, &wrap(v)),
+            None => self.backend.set_prop(id, prop, &PropValue::Unset),
         }
     }
 
@@ -46,15 +46,15 @@ impl<B: Backend> Reconciler<B> {
             return;
         }
         match new {
-            Some(v) => self.backend.set_prop(id, prop, wrap(v.clone())),
-            None => self.backend.set_prop(id, prop, PropValue::Unset),
+            Some(v) => self.backend.set_prop(id, prop, &wrap(v.clone())),
+            None => self.backend.set_prop(id, prop, &PropValue::Unset),
         }
     }
 
     pub(crate) fn apply_props(&mut self, id: ControlId, bindings: &[Binding]) {
         for b in bindings {
             match b {
-                Binding::Prop(p, v) => self.backend.set_prop(id, *p, v.clone()),
+                Binding::Prop(p, v) => self.backend.set_prop(id, *p, v),
                 Binding::Event(e, Some(h)) => self.backend.attach_event(id, *e, h.clone()),
                 Binding::Event(_, None) => {}
             }
@@ -66,10 +66,11 @@ impl<B: Backend> Reconciler<B> {
             match b {
                 Binding::Prop(p, v) => match find_prop(old, *p) {
                     Some(ov) if ov == v => {}
-                    _ => self.backend.set_prop(id, *p, v.clone()),
+                    _ => self.backend.set_prop(id, *p, v),
                 },
                 Binding::Event(e, new_h) => {
-                    let old_inner: Option<&_> = find_event(old, *e).and_then(|o| o.as_ref());
+                    let old_inner: Option<&_> =
+                        find_event(old, *e).and_then(|o| o.as_ref());
                     if old_inner == new_h.as_ref() {
                         continue;
                     }
@@ -84,7 +85,7 @@ impl<B: Backend> Reconciler<B> {
             match b {
                 Binding::Prop(p, _) => {
                     if find_prop(new, *p).is_none() {
-                        self.backend.set_prop(id, *p, PropValue::Unset);
+                        self.backend.set_prop(id, *p, &PropValue::Unset);
                     }
                 }
                 Binding::Event(e, old_h) => {

@@ -11,20 +11,23 @@ pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Basic TimePicker",
                 vstack((
-                    time_picker().header("Select time").on_changed({
-                        let set_selected_time = set_selected_time;
-                        move |time: windows_reactor::TimeSpan| {
-                            let hours = time.whole_hours();
-                            let minutes = time.whole_minutes() % 60;
-                            set_selected_time.call(format!("Selected: {hours:02}:{minutes:02}"));
-                        }
-                    }),
+                    time_picker()
+                        .header("Select time")
+                        .on_selected_time_changed({
+                            let set_selected_time = set_selected_time;
+                            move |time: windows_reactor::TimeSpan| {
+                                let hours = time.whole_hours();
+                                let minutes = time.whole_minutes() % 60;
+                                set_selected_time
+                                    .call(format!("Selected: {hours:02}:{minutes:02}"));
+                            }
+                        }),
                     text_block(selected_time).opacity(0.6),
                 ))
                 .spacing(8.0),
                 r#"time_picker()
     .header(\"Select time\")
-    .on_changed(|time| set_selected_time.call(...))"#,
+    .on_selected_time_changed(|time| set_selected_time.call(...))"#,
             ),
             sample_card(
                 "15-Minute Increments",

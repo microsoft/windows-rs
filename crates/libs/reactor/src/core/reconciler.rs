@@ -413,58 +413,58 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         if let Some(v) = mods.margin {
             self.backend
-                .set_prop(id, Prop::Margin, PropValue::Thickness(v));
+                .set_prop(id, Prop::Margin, &PropValue::Thickness(v));
         }
         if let Some(v) = mods.padding {
             self.backend
-                .set_prop(id, Prop::Padding, PropValue::Thickness(v));
+                .set_prop(id, Prop::Padding, &PropValue::Thickness(v));
         }
         if let Some(v) = mods.width {
-            self.backend.set_prop(id, Prop::Width, PropValue::F64(v));
+            self.backend.set_prop(id, Prop::Width, &PropValue::F64(v));
         }
         if let Some(v) = mods.height {
-            self.backend.set_prop(id, Prop::Height, PropValue::F64(v));
+            self.backend.set_prop(id, Prop::Height, &PropValue::F64(v));
         }
         if let Some(v) = mods.min_width {
-            self.backend.set_prop(id, Prop::MinWidth, PropValue::F64(v));
+            self.backend.set_prop(id, Prop::MinWidth, &PropValue::F64(v));
         }
         if let Some(v) = mods.max_width {
-            self.backend.set_prop(id, Prop::MaxWidth, PropValue::F64(v));
+            self.backend.set_prop(id, Prop::MaxWidth, &PropValue::F64(v));
         }
         if let Some(v) = mods.min_height {
             self.backend
-                .set_prop(id, Prop::MinHeight, PropValue::F64(v));
+                .set_prop(id, Prop::MinHeight, &PropValue::F64(v));
         }
         if let Some(v) = mods.max_height {
             self.backend
-                .set_prop(id, Prop::MaxHeight, PropValue::F64(v));
+                .set_prop(id, Prop::MaxHeight, &PropValue::F64(v));
         }
         if let Some(v) = mods.horizontal_alignment {
             self.backend
-                .set_prop(id, Prop::HorizontalAlignment, PropValue::HAlign(v));
+                .set_prop(id, Prop::HorizontalAlignment, &PropValue::I32(v.0));
         }
         if let Some(v) = mods.vertical_alignment {
             self.backend
-                .set_prop(id, Prop::VerticalAlignment, PropValue::VAlign(v));
+                .set_prop(id, Prop::VerticalAlignment, &PropValue::I32(v.0));
         }
         if let Some(v) = mods.opacity {
-            self.backend.set_prop(id, Prop::Opacity, PropValue::F64(v));
+            self.backend.set_prop(id, Prop::Opacity, &PropValue::F64(v));
         }
         if let Some(v) = &mods.background {
             self.backend
-                .set_prop(id, Prop::Background, PropValue::Brush(v.clone()));
+                .set_prop(id, Prop::Background, &PropValue::Brush(v.clone()));
         }
         if let Some(v) = &mods.foreground {
             self.backend
-                .set_prop(id, Prop::Foreground, PropValue::Brush(v.clone()));
+                .set_prop(id, Prop::Foreground, &PropValue::Brush(v.clone()));
         }
         if let Some(v) = &mods.font_family {
             self.backend
-                .set_prop(id, Prop::FontFamily, PropValue::Str(v.clone()));
+                .set_prop(id, Prop::FontFamily, &PropValue::Str(v.clone()));
         }
         if let Some(v) = mods.font_size {
             self.backend
-                .set_prop(id, Prop::FontSize, PropValue::F64(v));
+                .set_prop(id, Prop::FontSize, &PropValue::F64(v));
         }
 
         self.apply_theme_bindings_for(id, mods);
@@ -481,7 +481,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         if let Some(res) = &mods.resources
             && !res.is_empty() {
                 self.backend
-                    .set_prop(id, Prop::Resources, PropValue::Resources((**res).clone()));
+                    .set_prop(id, Prop::Resources, &PropValue::Resources((**res).clone()));
             }
     }
 
@@ -610,14 +610,14 @@ impl<B: Backend + 'static> Reconciler<B> {
             Prop::HorizontalAlignment,
             old.horizontal_alignment,
             new.horizontal_alignment,
-            PropValue::HAlign,
+            |v: HorizontalAlignment| PropValue::I32(v.0),
         );
         self.diff_opt_copy(
             id,
             Prop::VerticalAlignment,
             old.vertical_alignment,
             new.vertical_alignment,
-            PropValue::VAlign,
+            |v: VerticalAlignment| PropValue::I32(v.0),
         );
         self.diff_opt_f64(id, Prop::Opacity, old.opacity, new.opacity);
         self.diff_opt_clone(
@@ -709,7 +709,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             && let Some(res) = &new.resources
                 && !res.is_empty() {
                     self.backend
-                        .set_prop(id, Prop::Resources, PropValue::Resources((**res).clone()));
+                        .set_prop(id, Prop::Resources, &PropValue::Resources((**res).clone()));
                 }
     }
 

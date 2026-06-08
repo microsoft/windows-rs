@@ -6,32 +6,26 @@ pub struct Grid {
     pub modifiers: Modifiers,
     pub rows: Vec<GridLength>,
     pub columns: Vec<GridLength>,
-    pub row_spacing: Option<f64>,
-    pub column_spacing: Option<f64>,
+    pub row_spacing: f64,
+    pub column_spacing: f64,
     pub children: Vec<Element>,
 }
 
 impl Widget for Grid {
     widget_header!(ControlKind::Grid);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        if !self.rows.is_empty() {
+        let mut out = crate::core::generated_bindings::grid_bindings(self);
+        if self.rows != Vec::new() {
             out.push(Binding::Prop(
                 Prop::GridRows,
                 PropValue::GridLengths(self.rows.clone()),
             ));
         }
-        if !self.columns.is_empty() {
+        if self.columns != Vec::new() {
             out.push(Binding::Prop(
                 Prop::GridColumns,
                 PropValue::GridLengths(self.columns.clone()),
             ));
-        }
-        if let Some(v) = self.row_spacing {
-            out.push(Binding::Prop(Prop::GridRowSpacing, PropValue::F64(v)));
-        }
-        if let Some(v) = self.column_spacing {
-            out.push(Binding::Prop(Prop::GridColumnSpacing, PropValue::F64(v)));
         }
         out
     }
@@ -52,12 +46,12 @@ impl Grid {
     }
 
     pub fn row_spacing(mut self, v: f64) -> Self {
-        self.row_spacing = Some(v);
+        self.row_spacing = v;
         self
     }
 
     pub fn column_spacing(mut self, v: f64) -> Self {
-        self.column_spacing = Some(v);
+        self.column_spacing = v;
         self
     }
 }

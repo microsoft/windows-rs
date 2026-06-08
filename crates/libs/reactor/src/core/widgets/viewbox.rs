@@ -5,7 +5,7 @@ pub struct Viewbox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub child: Box<Element>,
-    pub stretch: ImageStretch,
+    pub stretch: Stretch,
 }
 
 impl Default for Viewbox {
@@ -14,7 +14,7 @@ impl Default for Viewbox {
             key: None,
             modifiers: Modifiers::default(),
             child: Box::new(Element::Empty),
-            stretch: ImageStretch::Uniform,
+            stretch: Stretch::Uniform,
         }
     }
 }
@@ -27,7 +27,7 @@ impl Viewbox {
         }
     }
 
-    pub fn stretch(mut self, v: ImageStretch) -> Self {
+    pub fn stretch(mut self, v: Stretch) -> Self {
         self.stretch = v;
         self
     }
@@ -36,10 +36,7 @@ impl Viewbox {
 impl Widget for Viewbox {
     widget_header!(ControlKind::Viewbox);
     fn bindings(&self) -> PropBindings {
-        vec![Binding::Prop(
-            Prop::ImageStretch,
-            PropValue::ImageStretch(self.stretch),
-        )]
+        crate::core::generated_bindings::viewbox_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)

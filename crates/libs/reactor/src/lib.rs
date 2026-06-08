@@ -38,6 +38,18 @@ pub use core::context::Context;
 pub use core::custom::*;
 pub use core::dispatcher::*;
 pub use core::element::*;
+// Nightly Rust 2024 edition does not propagate `pub use` items through glob
+// re-exports. Explicitly re-export types that element.rs sources from sibling
+// modules so that downstream crates can rely on `windows_reactor::X`.
+pub use core::element::{
+    AccessibilityModifiers, AttachedProps, Brush, Color, CommandBarDefaultLabelPosition,
+    FlyoutPlacementMode, GridLength, GridPlacement, HeadingLevel, HorizontalAlignment,
+    InfoBarSeverity, KeyModifiers, KeyboardAccelerator, KeyboardKey, LiveSetting, Modifiers,
+    NavigationViewPaneDisplayMode, Orientation, PasswordRevealMode, PointerEventInfo,
+    PointerHandlers, ScrollBarVisibility, ScrollingScrollBarVisibility, Stretch, Symbol,
+    TeachingTipPlacementMode, TextWrapping, Thickness, Tooltip, TooltipContent, TooltipPlacement,
+    TreeViewSelectionMode, VerticalAlignment,
+};
 pub use core::error_boundary::*;
 pub use core::into_elements::IntoElements;
 pub use core::render_context::*;

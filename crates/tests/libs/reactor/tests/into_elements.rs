@@ -1,20 +1,20 @@
 //! Tests for the `IntoElements` tuple trait used by `vstack`/`hstack`/`grid`.
 
-use windows_reactor::core::element::Element;
+use windows_reactor::core::element::{Element, Orientation};
 use windows_reactor::dsl::factories::{button, text_block};
 use windows_reactor::{grid, hstack, vstack};
 
 #[test]
 fn vstack_macro_collects_heterogeneous_children_in_order() {
     let s = vstack((text_block("a"), text_block("b").bold(), button("c")));
-    assert!(s.vertical);
+    assert_eq!(s.orientation, Orientation::Vertical);
     assert_eq!(s.children.len(), 3);
     match &s.children[0] {
-        Element::TextBlock(t) => assert_eq!(t.content, "a"),
+        Element::TextBlock(t) => assert_eq!(t.text, "a"),
         other => panic!("expected text, got {other:?}"),
     }
     match &s.children[2] {
-        Element::Button(b) => assert_eq!(b.label, "c"),
+        Element::Button(b) => assert_eq!(b.content, "c"),
         other => panic!("expected button, got {other:?}"),
     }
 }
@@ -22,8 +22,8 @@ fn vstack_macro_collects_heterogeneous_children_in_order() {
 #[test]
 fn hstack_macro_is_horizontal_and_chainable() {
     let s = hstack((button("-"), button("+"))).spacing(8.0);
-    assert!(!s.vertical);
-    assert_eq!(s.spacing, Some(8.0));
+    assert_eq!(s.orientation, Orientation::Horizontal);
+    assert_eq!(s.spacing, 8.0);
     assert_eq!(s.children.len(), 2);
 }
 
@@ -36,11 +36,11 @@ fn grid_macro_collects_children() {
 #[test]
 fn empty_invocations_compile_and_produce_empty_builders() {
     let v = vstack(());
-    assert!(v.vertical);
+    assert_eq!(v.orientation, Orientation::Vertical);
     assert!(v.children.is_empty());
 
     let h = hstack(());
-    assert!(!h.vertical);
+    assert_eq!(h.orientation, Orientation::Horizontal);
     assert!(h.children.is_empty());
 
     let g = grid(());
@@ -62,8 +62,8 @@ fn macros_nest_without_element_from() {
     assert_eq!(tree.children.len(), 2);
     match &tree.children[1] {
         Element::StackPanel(s) => {
-            assert!(!s.vertical);
-            assert_eq!(s.spacing, Some(8.0));
+            assert_eq!(s.orientation, Orientation::Horizontal);
+            assert_eq!(s.spacing, 8.0);
             assert_eq!(s.children.len(), 2);
         }
         other => panic!("expected stack, got {other:?}"),

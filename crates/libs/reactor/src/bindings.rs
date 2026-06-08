@@ -12425,6 +12425,15 @@ impl IProgressRing {
             .ok()
         }
     }
+    pub fn put_Value(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_Value)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub fn put_Minimum(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_Minimum)(
@@ -12456,7 +12465,7 @@ pub struct IProgressRing_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_TemplateSettings: usize,
     get_Value: usize,
-    put_Value: usize,
+    pub put_Value: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     get_Minimum: usize,
     pub put_Minimum:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,

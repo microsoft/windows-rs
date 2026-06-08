@@ -20,7 +20,7 @@ pub fn combo_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     ComboBox::new(colors)
                         .header("Color")
-                        .placeholder("Pick a color")
+                        .placeholder_text("Pick a color")
                         .selected_index(selected)
                         .on_selection_changed(move |i| set_selected.call(i)),
                     text_block(format!("Selected: {label}")).opacity(0.6),
@@ -32,7 +32,7 @@ pub fn combo_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Editable ComboBox",
                 ComboBox::new(["Cat", "Dog", "Fox"])
                     .header("Animal")
-                    .placeholder("Type or pick")
+                    .placeholder_text("Type or pick")
                     .editable(true),
                 r#"ComboBox::new(items).editable(true)"#,
             ),

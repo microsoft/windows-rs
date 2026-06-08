@@ -13,7 +13,7 @@ pub fn info_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     ToggleSwitch::new(visible)
                         .header("Show InfoBar")
-                        .on_changed(move |value: bool| set_visible.call(value)),
+                        .on_toggled(move |value: bool| set_visible.call(value)),
                     InfoBar::new("Update available")
                         .message("A new version is ready to install.")
                         .informational()

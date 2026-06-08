@@ -183,7 +183,7 @@ impl Component<EmptyProps> for UsesStringState {
 
         use windows_reactor::core::element::Button;
         Element::Button(Button {
-            label: format!("str:{s}"),
+            content: format!("str:{s}"),
             ..Button::default()
         })
     }
@@ -205,20 +205,20 @@ fn component_type_swap_does_not_reuse_old_render_cx() {
 #[test]
 fn parent_children_mirror_syncs_when_component_swap_changes_inner_id() {
     use windows_reactor::core::backend::{ControlId, ControlKind, Op};
-    use windows_reactor::core::element::StackPanel;
+    use windows_reactor::core::element::{Orientation, StackPanel};
 
     let stack_a = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![component(UsesI32State, EmptyProps)],
         ..StackPanel::default()
     });
     let stack_b = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![component(UsesStringState, EmptyProps)],
         ..StackPanel::default()
     });
     let empty_stack = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![],
         ..StackPanel::default()
     });
@@ -271,7 +271,7 @@ fn parent_children_mirror_syncs_when_component_swap_changes_inner_id() {
 
 #[test]
 fn unmounted_component_runs_effect_cleanup() {
-    use windows_reactor::core::element::StackPanel;
+    use windows_reactor::core::element::{Orientation, StackPanel};
 
     let cleaned = Rc::new(Cell::new(0));
     let inner = component(
@@ -282,12 +282,12 @@ fn unmounted_component_runs_effect_cleanup() {
     );
 
     let with_child = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![inner],
         ..StackPanel::default()
     });
     let without_child = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![],
         ..StackPanel::default()
     });

@@ -68,7 +68,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
     };
 
     let search_box: Element = auto_suggest_box(&*search_text)
-        .placeholder("Search controls and samples...")
+        .placeholder_text("Search controls and samples...")
         .items(suggestions)
         .on_text_changed(move |text| set_search_text.call(text))
         .on_query_submitted({
@@ -151,7 +151,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
                 }
             }
         })
-        .pane_display_mode(NavViewPaneDisplayMode::Left)
+        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
         .pane_open(is_pane_open)
         .pane_toggle_button_visible(false)
         .back_button_visible(false)

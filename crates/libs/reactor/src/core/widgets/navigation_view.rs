@@ -35,15 +35,7 @@ impl NavViewItem {
         self
     }
 }
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum NavViewPaneDisplayMode {
-    #[default]
-    Auto,
-    Left,
-    Top,
-    LeftCompact,
-    LeftMinimal,
-}
+pub use crate::bindings::NavigationViewPaneDisplayMode;
 #[derive(Clone, Debug, PartialEq)]
 pub struct NavigationView {
     pub key: Option<String>,
@@ -52,18 +44,18 @@ pub struct NavigationView {
     pub content: Box<Element>,
     pub selected_tag: Option<String>,
     pub on_selection_changed: Option<Callback<String>>,
-    pub is_pane_open: Option<bool>,
-    pub pane_display_mode: NavViewPaneDisplayMode,
+    pub is_pane_open: bool,
+    pub pane_display_mode: NavigationViewPaneDisplayMode,
     pub is_back_enabled: bool,
     pub on_back_requested: Option<Callback<()>>,
     pub is_settings_visible: bool,
-    pub pane_title: Option<String>,
+    pub pane_title: String,
     pub header: Option<String>,
     pub auto_suggest_placeholder: Option<String>,
     pub auto_suggest_items: Vec<String>,
-    pub on_search_query_submitted: Option<Callback<String>>,
-    pub on_search_text_changed: Option<Callback<String>>,
-    pub on_search_suggestion_chosen: Option<Callback<String>>,
+    pub on_query_submitted: Option<Callback<String>>,
+    pub on_text_changed: Option<Callback<String>>,
+    pub on_suggestion_chosen: Option<Callback<String>>,
     pub is_pane_toggle_button_visible: bool,
     pub is_back_button_visible: bool,
 }
@@ -76,18 +68,18 @@ impl Default for NavigationView {
             content: Box::new(Element::Empty),
             selected_tag: None,
             on_selection_changed: None,
-            is_pane_open: None,
-            pane_display_mode: NavViewPaneDisplayMode::Auto,
+            is_pane_open: true,
+            pane_display_mode: NavigationViewPaneDisplayMode::Auto,
             is_back_enabled: false,
             on_back_requested: None,
             is_settings_visible: true,
-            pane_title: None,
+            pane_title: String::new(),
             header: None,
             auto_suggest_placeholder: None,
             auto_suggest_items: Vec::new(),
-            on_search_query_submitted: None,
-            on_search_text_changed: None,
-            on_search_suggestion_chosen: None,
+            on_query_submitted: None,
+            on_text_changed: None,
+            on_suggestion_chosen: None,
             is_pane_toggle_button_visible: true,
             is_back_button_visible: true,
         }
@@ -113,10 +105,10 @@ impl NavigationView {
         self
     }
     pub fn pane_open(mut self, v: bool) -> Self {
-        self.is_pane_open = Some(v);
+        self.is_pane_open = v;
         self
     }
-    pub fn pane_display_mode(mut self, mode: NavViewPaneDisplayMode) -> Self {
+    pub fn pane_display_mode(mut self, mode: NavigationViewPaneDisplayMode) -> Self {
         self.pane_display_mode = mode;
         self
     }
@@ -133,7 +125,7 @@ impl NavigationView {
         self
     }
     pub fn pane_title(mut self, s: impl Into<String>) -> Self {
-        self.pane_title = Some(s.into());
+        self.pane_title = s.into();
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {
@@ -152,16 +144,16 @@ impl NavigationView {
         self.auto_suggest_items = items.into_iter().map(Into::into).collect();
         self
     }
-    pub fn on_search_query_submitted<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_search_query_submitted = Some(Callback::new(f));
+    pub fn on_query_submitted<F: Fn(String) + 'static>(mut self, f: F) -> Self {
+        self.on_query_submitted = Some(Callback::new(f));
         self
     }
-    pub fn on_search_text_changed<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_search_text_changed = Some(Callback::new(f));
+    pub fn on_text_changed<F: Fn(String) + 'static>(mut self, f: F) -> Self {
+        self.on_text_changed = Some(Callback::new(f));
         self
     }
-    pub fn on_search_suggestion_chosen<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_search_suggestion_chosen = Some(Callback::new(f));
+    pub fn on_suggestion_chosen<F: Fn(String) + 'static>(mut self, f: F) -> Self {
+        self.on_suggestion_chosen = Some(Callback::new(f));
         self
     }
     pub fn pane_toggle_button_visible(mut self, v: bool) -> Self {
@@ -177,106 +169,29 @@ impl NavigationView {
 impl Widget for NavigationView {
     widget_header!(ControlKind::NavigationView);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(15);
+        let mut out = crate::core::generated_bindings::navigation_view_bindings(self);
         out.push(Binding::Prop(
-            Prop::NavMenuItems,
+            Prop::MenuItems,
             PropValue::NavMenuItems(self.menu_items.clone()),
         ));
-        if let Some(pane_open) = self.is_pane_open {
-            out.push(Binding::Prop(
-                Prop::IsPaneOpen,
-                PropValue::Bool(pane_open),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::PaneDisplayMode,
-            PropValue::NavPaneDisplayMode(self.pane_display_mode),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsBackEnabled,
-            PropValue::Bool(self.is_back_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsSettingsVisible,
-            PropValue::Bool(self.is_settings_visible),
-        ));
-        if !self.is_pane_toggle_button_visible {
-            out.push(Binding::Prop(
-                Prop::IsPaneToggleButtonVisible,
-                PropValue::Bool(false),
-            ));
-        }
         if !self.is_back_button_visible {
             out.push(Binding::Prop(
                 Prop::IsBackButtonVisible,
-                PropValue::Bool(false),
+                PropValue::Bool(self.is_back_button_visible),
             ));
         }
-        if let Some(t) = &self.pane_title {
-            out.push(Binding::Prop(Prop::PaneTitle, PropValue::Str(t.clone())));
+        if let Some(v) = &self.selected_tag {
+            out.push(Binding::Prop(Prop::SelectedTag, PropValue::Str(v.clone())));
         }
-        if let Some(h) = &self.header {
+        if let Some(v) = &self.auto_suggest_placeholder {
             out.push(Binding::Prop(
-                Prop::NavHeaderString,
-                PropValue::Str(h.clone()),
+                Prop::AutoSuggestPlaceholder,
+                PropValue::Str(v.clone()),
             ));
         }
-        out.push(Binding::Event(
-            Event::NavSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::TabKey(cb.clone())),
-        ));
-        if let Some(tag) = &self.selected_tag {
-            out.push(Binding::Prop(
-                Prop::NavSelectedTag,
-                PropValue::Str(tag.clone()),
-            ));
-        }
-        // Search box
-        let has_search = self.auto_suggest_placeholder.is_some()
-            || self.on_search_query_submitted.is_some()
-            || self.on_search_text_changed.is_some()
-            || self.on_search_suggestion_chosen.is_some();
         out.push(Binding::Prop(
-            Prop::NavAutoSuggestBox,
-            PropValue::Bool(has_search),
-        ));
-        if let Some(ph) = &self.auto_suggest_placeholder {
-            out.push(Binding::Prop(
-                Prop::NavAutoSuggestPlaceholder,
-                PropValue::Str(ph.clone()),
-            ));
-        }
-        if !self.auto_suggest_items.is_empty() {
-            out.push(Binding::Prop(
-                Prop::NavAutoSuggestItems,
-                PropValue::StrList(self.auto_suggest_items.clone()),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::NavBackRequested,
-            self.on_back_requested
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::NavSearchQuerySubmitted,
-            self.on_search_query_submitted
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::NavSearchTextChanged,
-            self.on_search_text_changed
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::NavSearchSuggestionChosen,
-            self.on_search_suggestion_chosen
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
+            Prop::AutoSuggestItems,
+            PropValue::StrList(self.auto_suggest_items.clone()),
         ));
         out
     }

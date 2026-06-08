@@ -1,19 +1,21 @@
 use super::*;
 
+pub use crate::bindings::TextWrapping;
+
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct TextBlock {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub content: String,
+    pub text: String,
     pub font_size: Option<f64>,
     pub font_weight: Option<u16>,
-    pub wrap_text: bool,
+    pub text_wrapping: TextWrapping,
     pub is_text_selection_enabled: bool,
 }
 impl TextBlock {
     pub fn new(content: impl Into<String>) -> Self {
         Self {
-            content: content.into(),
+            text: content.into(),
             ..Self::default()
         }
     }
@@ -22,25 +24,12 @@ impl TextBlock {
 impl Widget for TextBlock {
     widget_header!(ControlKind::TextBlock);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::Text,
-            PropValue::Str(self.content.clone()),
-        ));
-        if let Some(fs) = self.font_size {
-            out.push(Binding::Prop(Prop::FontSize, PropValue::F64(fs)));
+        let mut out = crate::core::generated_bindings::text_block_bindings(self);
+        if let Some(v) = self.font_size {
+            out.push(Binding::Prop(Prop::FontSize, PropValue::F64(v)));
         }
-        if let Some(fw) = self.font_weight {
-            out.push(Binding::Prop(Prop::FontWeight, PropValue::U16(fw)));
-        }
-        if self.wrap_text {
-            out.push(Binding::Prop(Prop::TextWrappingWrap, PropValue::Bool(true)));
-        }
-        if self.is_text_selection_enabled {
-            out.push(Binding::Prop(
-                Prop::IsTextSelectionEnabled,
-                PropValue::Bool(true),
-            ));
+        if let Some(v) = self.font_weight {
+            out.push(Binding::Prop(Prop::FontWeight, PropValue::U16(v)));
         }
         out
     }
@@ -68,7 +57,7 @@ impl TextBlock {
     }
 
     pub fn wrap(mut self) -> Self {
-        self.wrap_text = true;
+        self.text_wrapping = TextWrapping::Wrap;
         self
     }
 

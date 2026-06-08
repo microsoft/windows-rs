@@ -5,7 +5,7 @@ pub struct TitleBar {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub title: String,
-    pub subtitle: Option<String>,
+    pub subtitle: String,
     pub is_back_button_visible: bool,
     pub is_back_button_enabled: bool,
     pub is_pane_toggle_button_visible: bool,
@@ -25,7 +25,7 @@ impl TitleBar {
         }
     }
     pub fn subtitle(mut self, s: impl Into<String>) -> Self {
-        self.subtitle = Some(s.into());
+        self.subtitle = s.into();
         self
     }
     pub fn back_button_visible(mut self, v: bool) -> Self {
@@ -65,45 +65,13 @@ impl TitleBar {
 impl Widget for TitleBar {
     widget_header!(ControlKind::TitleBar);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
-        out.push(Binding::Prop(
-            Prop::TitleBarTitle,
-            PropValue::Str(self.title.clone()),
-        ));
-        if let Some(s) = &self.subtitle {
+        let mut out = crate::core::generated_bindings::title_bar_bindings(self);
+        if self.is_tall {
             out.push(Binding::Prop(
-                Prop::TitleBarSubtitle,
-                PropValue::Str(s.clone()),
+                Prop::IsTall,
+                PropValue::Bool(self.is_tall),
             ));
         }
-        out.push(Binding::Prop(
-            Prop::IsBackButtonVisible,
-            PropValue::Bool(self.is_back_button_visible),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsBackEnabled,
-            PropValue::Bool(self.is_back_button_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::IsPaneToggleButtonVisible,
-            PropValue::Bool(self.is_pane_toggle_button_visible),
-        ));
-        out.push(Binding::Prop(
-            Prop::TitleBarTall,
-            PropValue::Bool(self.is_tall),
-        ));
-        out.push(Binding::Event(
-            Event::TitleBarBackRequested,
-            self.on_back_requested
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::TitleBarPaneToggle,
-            self.on_pane_toggle_requested
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
         out
     }
     /// Maps to WinUI `TitleBar.Content`.

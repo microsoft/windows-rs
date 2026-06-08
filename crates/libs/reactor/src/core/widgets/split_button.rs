@@ -3,7 +3,7 @@ use super::*;
 /// `Microsoft.UI.Xaml.Controls.SplitButton`. A button with a primary
 /// action and a secondary dropdown action.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct SplitButtonWidget {
+pub struct SplitButton {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub content: Option<String>,
@@ -11,7 +11,7 @@ pub struct SplitButtonWidget {
     pub on_click: Option<Callback<()>>,
 }
 
-impl SplitButtonWidget {
+impl SplitButton {
     pub fn new(content: impl Into<String>) -> Self {
         Self {
             content: Some(content.into()),
@@ -31,29 +31,13 @@ impl SplitButtonWidget {
     }
 }
 
-impl Widget for SplitButtonWidget {
+impl Widget for SplitButton {
     widget_header!(ControlKind::SplitButton);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(3);
-        if let Some(s) = &self.content {
-            out.push(Binding::Prop(
-                Prop::ButtonContent,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::SplitButtonClick,
-            self.on_click
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::split_button_bindings(self)
     }
 }
 
-pub fn split_button(content: impl Into<String>) -> SplitButtonWidget {
-    SplitButtonWidget::new(content)
+pub fn split_button(content: impl Into<String>) -> SplitButton {
+    SplitButton::new(content)
 }

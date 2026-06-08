@@ -53,7 +53,7 @@ impl Component for EffectsAfterReconcile {
             observed.set(observed.get() + 1);
         });
         Element::TextBlock(TextBlock {
-            content: "hi".into(),
+            text: "hi".into(),
             ..TextBlock::default()
         })
     }
@@ -108,7 +108,7 @@ impl Component for EffectWithStateDep {
             log_c.borrow_mut().push(count);
         });
         Element::TextBlock(TextBlock {
-            content: format!("n={count}"),
+            text: format!("n={count}"),
             ..TextBlock::default()
         })
     }

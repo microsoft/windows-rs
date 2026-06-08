@@ -4,7 +4,7 @@ use std::rc::Rc;
 use windows_core::Interface;
 
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
-/// [`on_ready`](SwapChainPanelWidget::on_ready) callback.
+/// [`on_ready`](SwapChainPanel::on_ready) callback.
 #[derive(Clone)]
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
@@ -52,22 +52,22 @@ impl SwapChainPanelHandle {
 /// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` — hosts
 /// custom Direct3D / Direct2D rendering inside a WinUI 3 XAML tree.
 ///
-/// Use [`on_ready`](SwapChainPanelWidget::on_ready) to receive a
+/// Use [`on_ready`](SwapChainPanel::on_ready) to receive a
 /// [`SwapChainPanelHandle`] for attaching your DXGI swap chain.
 #[derive(Clone, Debug, PartialEq)]
-pub struct SwapChainPanelWidget {
+pub struct SwapChainPanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub(crate) mounted: Option<Callback<windows_core::IInspectable>>,
 }
 
-impl Default for SwapChainPanelWidget {
+impl Default for SwapChainPanel {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl SwapChainPanelWidget {
+impl SwapChainPanel {
     pub fn new() -> Self {
         Self {
             key: None,
@@ -118,7 +118,7 @@ impl SwapChainPanelWidget {
     }
 }
 
-impl Widget for SwapChainPanelWidget {
+impl Widget for SwapChainPanel {
     widget_header!(ControlKind::SwapChainPanel);
     fn bindings(&self) -> PropBindings {
         Vec::new()
@@ -128,7 +128,7 @@ impl Widget for SwapChainPanelWidget {
     }
 }
 
-/// Factory function for a [`SwapChainPanelWidget`].
-pub fn swap_chain_panel() -> SwapChainPanelWidget {
-    SwapChainPanelWidget::new()
+/// Factory function for a [`SwapChainPanel`].
+pub fn swap_chain_panel() -> SwapChainPanel {
+    SwapChainPanel::new()
 }

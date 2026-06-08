@@ -8,7 +8,7 @@ fn app(cx: &mut RenderCx) -> Element {
     let update = move |v: f64| set_rating.call(v);
 
     vstack((
-        RatingControl::new(rating).on_changed(update),
+        RatingControl::new(rating).on_value_changed(update),
         text_block(format!("Rating: {rating:.1} / 5")),
         RatingControl::new(4.0).max_rating(10).caption("Out of 10"),
         RatingControl::new(2.5).read_only(),

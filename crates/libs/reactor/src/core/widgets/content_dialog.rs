@@ -10,9 +10,9 @@ pub struct ContentDialog {
     pub modifiers: Modifiers,
     pub title: Option<String>,
     pub content: Option<String>,
-    pub primary_button_text: Option<String>,
-    pub secondary_button_text: Option<String>,
-    pub close_button_text: Option<String>,
+    pub primary_button_text: String,
+    pub secondary_button_text: String,
+    pub close_button_text: String,
     pub is_primary_button_enabled: bool,
     pub is_secondary_button_enabled: bool,
     pub is_open: bool,
@@ -54,15 +54,15 @@ impl ContentDialog {
         self
     }
     pub fn primary_button_text(mut self, s: impl Into<String>) -> Self {
-        self.primary_button_text = Some(s.into());
+        self.primary_button_text = s.into();
         self
     }
     pub fn secondary_button_text(mut self, s: impl Into<String>) -> Self {
-        self.secondary_button_text = Some(s.into());
+        self.secondary_button_text = s.into();
         self
     }
     pub fn close_button_text(mut self, s: impl Into<String>) -> Self {
-        self.close_button_text = Some(s.into());
+        self.close_button_text = s.into();
         self
     }
     pub fn is_primary_button_enabled(mut self, v: bool) -> Self {
@@ -86,55 +86,15 @@ impl ContentDialog {
 impl Widget for ContentDialog {
     widget_header!(ControlKind::ContentDialog);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(8);
-        if let Some(t) = &self.title {
-            out.push(Binding::Prop(
-                Prop::ContentDialogTitle,
-                PropValue::Str(t.clone()),
-            ));
-        }
-        if let Some(c) = &self.content {
-            out.push(Binding::Prop(
-                Prop::ContentDialogBody,
-                PropValue::Str(c.clone()),
-            ));
-        }
-        if let Some(s) = &self.primary_button_text {
-            out.push(Binding::Prop(
-                Prop::ContentDialogPrimaryText,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        if let Some(s) = &self.secondary_button_text {
-            out.push(Binding::Prop(
-                Prop::ContentDialogSecondaryText,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        if let Some(s) = &self.close_button_text {
-            out.push(Binding::Prop(
-                Prop::ContentDialogCloseText,
-                PropValue::Str(s.clone()),
-            ));
-        }
-        out.push(Binding::Prop(
-            Prop::ContentDialogPrimaryEnabled,
-            PropValue::Bool(self.is_primary_button_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::ContentDialogSecondaryEnabled,
-            PropValue::Bool(self.is_secondary_button_enabled),
-        ));
-        out.push(Binding::Prop(
-            Prop::ContentDialogIsOpen,
-            PropValue::Bool(self.is_open),
-        ));
+        let mut out = crate::core::generated_bindings::content_dialog_bindings(self);
+        // Closed event needs ContentDialogResult wrapping (i32 → enum).
         let closed_cb = self.on_closed.clone().map(|cb| {
-            EventHandler::IndexChanged(Callback::new(move |i: i32| {
+            EventHandler::I32(Callback::new(move |i: i32| {
                 cb.invoke(ContentDialogResult::from_i32(i));
             }))
         });
-        out.push(Binding::Event(Event::ContentDialogClosed, closed_cb));
+        out.push(Binding::Event(Event::Closed, closed_cb));
+        out.push(Binding::Prop(Prop::IsOpen, PropValue::Bool(self.is_open)));
         out
     }
 }

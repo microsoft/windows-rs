@@ -19,7 +19,7 @@ pub fn progress_ring_page(_: &(), cx: &mut RenderCx) -> Element {
                     ProgressRing::new(value),
                     Slider::new(value)
                         .range(0.0, 100.0)
-                        .on_changed(move |v: f64| set_value.call(v)),
+                        .on_value_changed(move |v: f64| set_value.call(v)),
                     text_block(format!("{value:.0}%")).opacity(0.6),
                 ))
                 .spacing(8.0),

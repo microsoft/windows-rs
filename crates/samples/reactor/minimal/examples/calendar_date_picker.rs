@@ -31,7 +31,6 @@ fn app(cx: &mut RenderCx) -> Element {
         calendar_date_picker()
             .header("Select a date")
             .placeholder_text("Choose...")
-            .today_highlighted(true)
             .on_changed(on_date),
         text_block(&*label),
     ))

@@ -98,265 +98,178 @@ pub enum ControlKind {
 /// variant pairs with one or more [`PropValue`] kinds at runtime.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum Prop {
-    Text,
-    FontSize,
-    FontWeight,
-    FontFamily,
-    ButtonContent,
-    IsEnabled,
-    Orientation,
-    Spacing,
-    Margin,
-    Padding,
-    Width,
-    Height,
-    MinWidth,
-    MaxWidth,
-    MinHeight,
-    MaxHeight,
-    HorizontalAlignment,
-    VerticalAlignment,
-    Opacity,
-    Background,
-    Foreground,
-    IsChecked,
-    CheckBoxLabel,
-    TextBoxValue,
-    Placeholder,
-    Header,
-    GridRows,
-    GridColumns,
-    GridRowSpacing,
-    GridColumnSpacing,
-    AttachedGridRow,
-    AttachedGridColumn,
-    AttachedGridRowSpan,
-    AttachedGridColumnSpan,
-    HorizontalScrollBarVisibility,
-    VerticalScrollBarVisibility,
-    IsOn,
-    OnContent,
-    OffContent,
-    NumericValue,
-    Minimum,
-    Maximum,
-    Step,
-    GroupName,
-    RadioLabel,
-    IsIndeterminate,
-    IsActive,
-    IsExpanded,
-    InfoBarTitle,
-    InfoBarMessage,
-    InfoBarSeverity,
-    InfoBarIsOpen,
-    /// Used by `InfoBar` and `TabViewItem` to control whether the user can
-    /// dismiss/close the control.
-    IsClosable,
-    InfoBadgeValue,
-    PersonDisplayName,
-    PersonInitials,
-    Fill,
-    Stroke,
-    StrokeThickness,
-    CornerRadius,
-    BorderBrush,
-    BorderThickness,
-    LineEndpoints,
-    ImageSource,
-    ImageStretch,
-    SelectedIndex,
-    TabHeader,
-    TabItemKey,
-    TabContent,
-    /// Enables drag-to-reorder on `TabView` tabs.
-    CanReorderTabs,
-    /// Controls the visibility of the TabView's built-in add-tab button.
-    IsAddTabButtonVisible,
-    NavigateUri,
-    NavMenuItems,
-    NavSelectedTag,
-    /// Whether the NavigationView has an AutoSuggestBox for search.
-    NavAutoSuggestBox,
-    /// Placeholder text for NavigationView's AutoSuggestBox.
-    NavAutoSuggestPlaceholder,
-    /// Items shown in NavigationView's AutoSuggestBox suggestion list.
-    NavAutoSuggestItems,
-    IsPaneOpen,
-    PaneDisplayMode,
-    IsBackEnabled,
-    IsSettingsVisible,
-    PaneTitle,
-    NavHeaderString,
-    TitleBarTitle,
-    TitleBarSubtitle,
-    TitleBarTall,
-    IsBackButtonVisible,
-    IsPaneToggleButtonVisible,
-    PivotTitle,
-    PivotItemHeader,
-    BreadcrumbItems,
-    IsTextSelectionEnabled,
-    TextWrappingWrap,
     AcceptsReturn,
-    PasswordValue,
-    PasswordRevealMode,
-    IsPasswordRevealButtonEnabled,
-    RadioButtonsItems,
-    RadioButtonsMaxColumns,
-    ComboBoxItems,
-    /// Non-templated items list for `ListBox`.
-    ListBoxItems,
-    /// Enables the editable/text-entry mode on `ComboBox`.
-    IsEditable,
+    ActionButton,
+    ActionButtonText,
+    AlignBottomWithPanel,
+    AlignHCenterWithPanel,
+    AlignLeftWithPanel,
+    AlignRightWithPanel,
+    AlignTopWithPanel,
+    AlignVCenterWithPanel,
     AttachedCanvasLeft,
     AttachedCanvasTop,
     AttachedCanvasZIndex,
-    ContentDialogTitle,
-    ContentDialogBody,
-    ContentDialogPrimaryText,
-    ContentDialogSecondaryText,
-    ContentDialogCloseText,
-    ContentDialogPrimaryEnabled,
-    ContentDialogSecondaryEnabled,
-    ContentDialogIsOpen,
-    /// Button style variant (Accent, Default).
-    ButtonStyleVariant,
-    /// Repeat delay in ms for `RepeatButton`.
-    RepeatDelay,
-    /// Repeat interval in ms for `RepeatButton`.
-    RepeatInterval,
-    /// Maximum rating for `RatingControl`.
-    MaxRating,
-    /// Caption text for `RatingControl`.
-    RatingCaption,
-    /// Whether `RatingControl` is read-only.
-    IsReadOnly,
-    /// Placeholder value for `RatingControl` (shown when Value is unset).
-    PlaceholderValue,
-    /// ARGB color value for `ColorPicker`.
-    ColorValue,
-    /// Whether alpha channel editing is enabled in `ColorPicker`.
-    IsAlphaEnabled,
-    /// Whether the hex input field is visible in `ColorPicker`.
-    IsHexInputVisible,
-    /// Whether the color slider is visible in `ColorPicker`.
-    IsColorSliderVisible,
-    /// Whether channel text inputs are visible in `ColorPicker`.
-    IsColorChannelTextInputVisible,
-    /// Whether day column is visible in `DatePicker`.
-    DayVisible,
-    /// Whether month column is visible in `DatePicker`.
-    MonthVisible,
-    /// Whether year column is visible in `DatePicker`.
-    YearVisible,
-    /// Clock identifier for `TimePicker` (e.g. "12HourClock", "24HourClock").
-    ClockIdentifier,
-    /// Minute increment for `TimePicker`.
-    MinuteIncrement,
-    /// Whether today is highlighted in `CalendarDatePicker`.
-    IsTodayHighlighted,
-    /// Whether the calendar popup is open in `CalendarDatePicker`.
-    IsCalendarOpen,
-    /// CalendarView: whether group labels are visible.
-    IsGroupLabelVisible,
-    /// Items list for `AutoSuggestBox` suggestions.
+    AttachedGridColumn,
+    AttachedGridColumnSpan,
+    AttachedGridRow,
+    AttachedGridRowSpan,
+    AutoSuggestBox,
     AutoSuggestItems,
-    /// Text value for `AutoSuggestBox`.
-    AutoSuggestText,
-    /// Display mode for `SplitView`.
-    SplitViewDisplayMode,
-    /// Whether the pane is open in `SplitView`.
-    SplitViewIsPaneOpen,
-    /// Width of the pane when fully open in `SplitView`.
-    SplitViewOpenPaneLength,
-    /// Width of the pane when compact in `SplitView`.
-    SplitViewCompactPaneLength,
-    /// Menu items for `MenuBar`.
-    MenuBarItems,
-    /// Menu flyout items for a button's flyout.
-    MenuFlyoutItems,
-    /// Tree nodes for `TreeView`.
-    TreeViewNodes,
-    /// Selection mode for `TreeView`.
-    TreeViewSelectionMode,
-    /// Primary commands for `CommandBar`.
-    CommandBarPrimaryCommands,
-    /// Secondary commands for `CommandBar`.
-    CommandBarSecondaryCommands,
-    /// Default label position for `CommandBar`.
-    CommandBarDefaultLabelPosition,
-    /// Primary + secondary commands for `CommandBarFlyout` on a Button.
+    AutoSuggestPlaceholder,
+    Background,
+    BorderBrush,
+    BorderThickness,
+    CanReorderTabs,
+    Caption,
+    ClockIdentifier,
+    CloseButton,
+    CloseButtonText,
+    ColorValue,
+    Columns,
+    ColumnSpacing,
     CommandBarFlyoutCommands,
-    /// Title for `TeachingTip`.
-    TeachingTipTitle,
-    /// Subtitle for `TeachingTip`.
-    TeachingTipSubtitle,
-    /// IsOpen for `TeachingTip`.
-    TeachingTipIsOpen,
-    /// IsLightDismissEnabled for `TeachingTip`.
-    TeachingTipIsLightDismiss,
-    /// PreferredPlacement for `TeachingTip`.
-    TeachingTipPlacement,
-    /// ActionButtonContent for `TeachingTip`.
-    TeachingTipActionButton,
-    /// CloseButtonContent for `TeachingTip`.
-    TeachingTipCloseButton,
-    /// Items for `SelectorBar`.
-    SelectorBarItems,
-    /// Icon for `Button` (symbol icon rendered alongside content).
-    ButtonIcon,
-    /// Text value for `RichEditBox` (plain text round-trip).
-    RichEditBoxText,
-    /// Whether `RichEditBox` is read-only.
-    RichEditBoxIsReadOnly,
-    /// Flyout content element for a `Button`.
+    CompactPaneLength,
+    Content,
+    CornerRadius,
+    DayVisible,
+    DefaultLabelPosition,
+    Delay,
+    DisplayMode,
+    DisplayName,
+    Fill,
     FlyoutContent,
-    /// Flyout placement mode.
     FlyoutPlacement,
-    /// RelativePanel: align child to left edge of panel.
-    RelativePanelAlignLeftWithPanel,
-    /// RelativePanel: align child to right edge of panel.
-    RelativePanelAlignRightWithPanel,
-    /// RelativePanel: align child to top edge of panel.
-    RelativePanelAlignTopWithPanel,
-    /// RelativePanel: align child to bottom edge of panel.
-    RelativePanelAlignBottomWithPanel,
-    /// RelativePanel: center child horizontally in panel.
-    RelativePanelAlignHCenterWithPanel,
-    /// RelativePanel: center child vertically in panel.
-    RelativePanelAlignVCenterWithPanel,
-    /// Key/value entries written into `FrameworkElement.Resources`.
+    FontFamily,
+    FontSize,
+    FontWeight,
+    Foreground,
+    GridColumns,
+    GridRows,
+    GroupName,
+    Header,
+    Height,
+    HorizontalAlignment,
+    HorizontalScrollBarVisibility,
+    Icon,
+    ImageSource,
+    Initials,
+    Interval,
+    IsActive,
+    IsAddTabButtonVisible,
+    IsAlphaEnabled,
+    IsBackButtonEnabled,
+    IsBackButtonVisible,
+    IsBackEnabled,
+    IsCalendarOpen,
+    IsChecked,
+    IsClosable,
+    IsColorChannelTextInputVisible,
+    IsColorSliderVisible,
+    IsEditable,
+    IsEnabled,
+    IsExpanded,
+    IsGroupLabelVisible,
+    IsHexInputVisible,
+    IsIndeterminate,
+    IsLightDismissEnabled,
+    IsOn,
+    IsOpen,
+    IsPaneOpen,
+    IsPaneToggleButtonVisible,
+    IsPasswordRevealButtonEnabled,
+    IsPrimaryButtonEnabled,
+    IsReadOnly,
+    IsSecondaryButtonEnabled,
+    IsSettingsVisible,
+    IsTall,
+    IsTextSelectionEnabled,
+    IsTodayHighlighted,
+    ItemHeader,
+    ItemKey,
+    Items,
+    LineEndpoints,
+    Margin,
+    MaxColumns,
+    MaxHeight,
+    Maximum,
+    MaxRating,
+    MaxWidth,
+    MenuFlyoutItems,
+    MenuItems,
+    Message,
+    MinHeight,
+    Minimum,
+    MinuteIncrement,
+    MinWidth,
+    MonthVisible,
+    NavigateUri,
+    Nodes,
+    OffContent,
+    OnContent,
+    Opacity,
+    OpenPaneLength,
+    Orientation,
+    Padding,
+    PaneDisplayMode,
+    PaneTitle,
+    PasswordRevealMode,
+    PlaceholderText,
+    PlaceholderValue,
+    PreferredPlacement,
+    PrimaryButtonText,
+    PrimaryCommands,
     Resources,
+    Rows,
+    RowSpacing,
+    SecondaryButtonText,
+    SecondaryCommands,
+    SelectedIndex,
+    SelectedTag,
+    SelectionMode,
+    Severity,
+    Spacing,
+    Step,
+    Stretch,
+    Stroke,
+    StrokeThickness,
+    Style,
+    StyleVariant,
+    Subtitle,
+    Tall,
+    Text,
+    TextWrapping,
+    TextWrappingWrap,
+    Title,
+    Value,
+    VerticalAlignment,
+    VerticalScrollBarVisibility,
+    Width,
+    YearVisible,
 }
 
 
 /// Tagged union of every value type that can appear in a [`Backend::set_prop`]
 /// call. `Unset` clears a previously-applied value.
+///
+/// Reactor enums that mirror WinRT enums are transported as `I32` — each
+/// reactor enum is `#[repr(i32)]` with discriminants matching WinRT, so the
+/// backend can construct the WinRT enum directly from the integer.
 #[derive(Clone, PartialEq, Debug)]
 pub enum PropValue {
     Str(String),
     F64(f64),
     U16(u16),
     Bool(bool),
+    I32(i32),
     Thickness(Thickness),
-    HAlign(HorizontalAlignment),
-    VAlign(VerticalAlignment),
-    Vertical(bool),
     Brush(Brush),
     Unset,
-    I32(i32),
     GridLengths(Vec<GridLength>),
-    ScrollVis(ScrollBarVisibility),
-    InfoBarSev(InfoBarSeverity),
-    ImageStretch(ImageStretch),
     SurfaceImageSource(SurfaceImageSource),
     LineEndpoints(LineEndpoints),
     NavMenuItems(Vec<NavViewItem>),
-    NavPaneDisplayMode(NavViewPaneDisplayMode),
     StrList(Vec<String>),
-    PasswordRevealMode(PasswordRevealMode),
-    ButtonStyle(ButtonStyle),
     Color {
         a: u8,
         r: u8,
@@ -366,138 +279,87 @@ pub enum PropValue {
     MenuBarItems(Vec<MenuBarItemDef>),
     MenuFlyoutItems(Vec<MenuItemDef>),
     TreeViewNodes(Vec<TreeNodeDef>),
-    TreeViewSelectionMode(TreeSelectionMode),
-    ScrollViewScrollBarVis(ScrollViewScrollBarVisibility),
     CommandBarCommands(Vec<CommandBarCommandDef>),
-    CommandBarLabelPosition(CommandBarLabelPos),
     CommandBarFlyoutDef {
         primary: Vec<CommandBarCommandDef>,
         secondary: Vec<CommandBarCommandDef>,
     },
-    TeachingTipPlacement(TeachingTipPlacement),
     SelectorBarItems(Vec<SelectorBarItemDef>),
-    SymbolIcon(SymbolGlyph),
-    FlyoutPlacement(FlyoutPlacement),
     Resources(HashMap<String, String>),
 }
 
 /// Closed enum of every backend-observable input event.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum Event {
+    ActionButtonClick,
+    AddTabButtonClick,
+    BackRequested,
+    CalendarDateSelected,
+    Checked,
     Click,
-    CheckedChanged,
+    Closed,
+    CloseRequested,
+    CommandBarFlyoutClick,
+    ColorChanged,
+    Expanding,
+    ItemClicked,
+    ItemInvoked,
+    PaneClosed,
+    PaneToggleRequested,
+    PasswordChanged,
+    QuerySubmitted,
+    SelectedDateChanged,
+    SelectedDatesChanged,
+    SelectedTimeChanged,
+    SelectionChanged,
+    SuggestionChosen,
     TextChanged,
     Toggled,
     ValueChanged,
-    RadioChecked,
-    ExpandedChanged,
-    InfoBarClosed,
-    TabSelectionChanged,
-    TabCloseRequested,
-    /// TabView: the built-in "+" add-tab button was clicked.
-    AddTabButtonClick,
-    NavSelectionChanged,
-    NavBackRequested,
-    /// NavigationView: search box query submitted.
-    NavSearchQuerySubmitted,
-    /// NavigationView: search box text changed.
-    NavSearchTextChanged,
-    /// NavigationView: search box suggestion chosen (clicked).
-    NavSearchSuggestionChosen,
-    TitleBarBackRequested,
-    TitleBarPaneToggle,
-    PivotSelectionChanged,
-    BreadcrumbItemClicked,
-    PasswordChanged,
-    RadioButtonsSelectionChanged,
-    ComboSelectionChanged,
-    ContentDialogClosed,
-    RatingValueChanged,
-    ColorChanged,
-    DateSelected,
-    TimeSelected,
-    CalendarDateSelected,
-    /// CalendarView: dates selection changed.
-    CalendarViewSelectionChanged,
-    /// ListBox: selection changed (fires index).
-    ListBoxSelectionChanged,
-    /// SplitButton: primary action clicked.
-    SplitButtonClick,
-    /// AutoSuggestBox: text changed by user input.
-    AutoSuggestTextChanged,
-    /// AutoSuggestBox: query submitted.
-    AutoSuggestQuerySubmitted,
-    /// AutoSuggestBox: suggestion chosen from the list.
-    AutoSuggestSuggestionChosen,
-    /// SplitView: pane closed.
-    SplitViewPaneClosed,
-    /// MenuBar: a menu flyout item was clicked.
-    MenuBarItemClicked,
-    /// MenuFlyout on a button: item was clicked.
-    MenuFlyoutItemClicked,
-    /// TreeView: an item was invoked (clicked/tapped).
-    TreeViewItemInvoked,
-    /// CommandBar: a command button was clicked (label is sent).
-    CommandBarClick,
-    /// CommandBarFlyout: a primary/secondary command was clicked.
-    CommandBarFlyoutClick,
-    /// TeachingTip: closed.
-    TeachingTipClosed,
-    /// TeachingTip: action button clicked.
-    TeachingTipActionClick,
-    /// SelectorBar: selection changed (selected item text is sent).
-    SelectorBarSelectionChanged,
-    /// RichEditBox: text changed.
-    RichEditBoxTextChanged,
-    /// Flyout: opened.
-    FlyoutOpened,
-    /// Flyout: closed.
-    FlyoutClosed,
 }
 
 /// Typed wrapper around a callback for a specific [`Event`] payload shape.
+/// Variants are named by payload type, mirroring `PropValue`.
 /// The `invoke_*` accessors panic when called on a mismatching variant.
 #[derive(Clone, PartialEq, Eq)]
 pub enum EventHandler {
-    Click(Callback<()>),
-    CheckedChanged(Callback<bool>),
-    TextChanged(Callback<String>),
-    ValueChanged(Callback<f64>),
-    IndexChanged(Callback<i32>),
-    TabKey(Callback<String>),
-    ColorChanged(Callback<(u8, u8, u8, u8)>),
-    DateTimeChanged(Callback<windows_time::DateTime>),
-    TimeChanged(Callback<windows_time::TimeSpan>),
+    Unit(Callback<()>),
+    Bool(Callback<bool>),
+    Str(Callback<String>),
+    F64(Callback<f64>),
+    I32(Callback<i32>),
+    Color(Callback<(u8, u8, u8, u8)>),
+    DateTime(Callback<windows_time::DateTime>),
+    TimeSpan(Callback<windows_time::TimeSpan>),
 }
 
 impl fmt::Debug for EventHandler {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            EventHandler::Click(_) => f.write_str("EventHandler::Click(..)"),
-            EventHandler::CheckedChanged(_) => f.write_str("EventHandler::CheckedChanged(..)"),
-            EventHandler::TextChanged(_) => f.write_str("EventHandler::TextChanged(..)"),
-            EventHandler::ValueChanged(_) => f.write_str("EventHandler::ValueChanged(..)"),
-            EventHandler::IndexChanged(_) => f.write_str("EventHandler::IndexChanged(..)"),
-            EventHandler::TabKey(_) => f.write_str("EventHandler::TabKey(..)"),
-            EventHandler::ColorChanged(_) => f.write_str("EventHandler::ColorChanged(..)"),
-            EventHandler::DateTimeChanged(_) => f.write_str("EventHandler::DateTimeChanged(..)"),
-            EventHandler::TimeChanged(_) => f.write_str("EventHandler::TimeChanged(..)"),
+            EventHandler::Unit(_) => f.write_str("EventHandler::Unit(..)"),
+            EventHandler::Bool(_) => f.write_str("EventHandler::Bool(..)"),
+            EventHandler::Str(_) => f.write_str("EventHandler::Str(..)"),
+            EventHandler::F64(_) => f.write_str("EventHandler::F64(..)"),
+            EventHandler::I32(_) => f.write_str("EventHandler::I32(..)"),
+            EventHandler::Color(_) => f.write_str("EventHandler::Color(..)"),
+            EventHandler::DateTime(_) => f.write_str("EventHandler::DateTime(..)"),
+            EventHandler::TimeSpan(_) => f.write_str("EventHandler::TimeSpan(..)"),
         }
     }
 }
 
 impl EventHandler {
     pub fn new(cb: Callback<()>) -> Self {
-        Self::Click(cb)
+        Self::Unit(cb)
     }
 
     pub fn from_fn<F: Fn() + 'static>(f: F) -> Self {
-        Self::Click(Callback::new(move |()| f()))
+        Self::Unit(Callback::new(move |()| f()))
     }
 
     pub fn invoke(&self) {
         match self {
-            EventHandler::Click(cb) => cb.invoke(()),
+            EventHandler::Unit(cb) => cb.invoke(()),
             other => {
                 panic!("EventHandler::invoke() called on {other:?} — use invoke_bool/invoke_string")
             }
@@ -506,49 +368,49 @@ impl EventHandler {
 
     pub fn invoke_bool(&self, v: bool) {
         match self {
-            EventHandler::CheckedChanged(cb) => cb.invoke(v),
+            EventHandler::Bool(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_bool() called on {other:?}"),
         }
     }
 
     pub fn invoke_string(&self, s: String) {
         match self {
-            EventHandler::TextChanged(cb) | EventHandler::TabKey(cb) => cb.invoke(s),
+            EventHandler::Str(cb) => cb.invoke(s),
             other => panic!("EventHandler::invoke_string() called on {other:?}"),
         }
     }
 
     pub fn invoke_f64(&self, v: f64) {
         match self {
-            EventHandler::ValueChanged(cb) => cb.invoke(v),
+            EventHandler::F64(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_f64() called on {other:?}"),
         }
     }
 
     pub fn invoke_i32(&self, v: i32) {
         match self {
-            EventHandler::IndexChanged(cb) => cb.invoke(v),
+            EventHandler::I32(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_i32() called on {other:?}"),
         }
     }
 
     pub fn invoke_color(&self, argb: (u8, u8, u8, u8)) {
         match self {
-            EventHandler::ColorChanged(cb) => cb.invoke(argb),
+            EventHandler::Color(cb) => cb.invoke(argb),
             other => panic!("EventHandler::invoke_color() called on {other:?}"),
         }
     }
 
     pub fn invoke_datetime(&self, dt: windows_time::DateTime) {
         match self {
-            EventHandler::DateTimeChanged(cb) => cb.invoke(dt),
+            EventHandler::DateTime(cb) => cb.invoke(dt),
             other => panic!("EventHandler::invoke_datetime() called on {other:?}"),
         }
     }
 
     pub fn invoke_timespan(&self, ts: windows_time::TimeSpan) {
         match self {
-            EventHandler::TimeChanged(cb) => cb.invoke(ts),
+            EventHandler::TimeSpan(cb) => cb.invoke(ts),
             other => panic!("EventHandler::invoke_timespan() called on {other:?}"),
         }
     }
@@ -560,7 +422,7 @@ impl EventHandler {
 pub trait Backend {
     fn create(&mut self, kind: ControlKind) -> ControlId;
 
-    fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue);
+    fn set_prop(&mut self, id: ControlId, prop: Prop, value: &PropValue);
 
     fn append_child(&mut self, parent: ControlId, child: ControlId);
 
@@ -966,8 +828,12 @@ impl Backend for RecordingBackend {
         id
     }
 
-    fn set_prop(&mut self, id: ControlId, prop: Prop, value: PropValue) {
-        self.ops.push(Op::SetProp { id, prop, value });
+    fn set_prop(&mut self, id: ControlId, prop: Prop, value: &PropValue) {
+        self.ops.push(Op::SetProp {
+            id,
+            prop,
+            value: value.clone(),
+        });
     }
 
     fn append_child(&mut self, parent: ControlId, child: ControlId) {

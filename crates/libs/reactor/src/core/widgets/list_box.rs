@@ -1,16 +1,29 @@
 use super::*;
 
-#[derive(Clone, Default, Debug, PartialEq)]
-pub struct ListBoxWidget {
+#[derive(Clone, Debug, PartialEq)]
+pub struct ListBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub items: Vec<String>,
-    pub selected_index: Option<i32>,
+    pub selected_index: i32,
     pub is_enabled: bool,
     pub on_selection_changed: Option<Callback<i32>>,
 }
 
-impl ListBoxWidget {
+impl Default for ListBox {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            items: Vec::new(),
+            selected_index: -1,
+            is_enabled: true,
+            on_selection_changed: None,
+        }
+    }
+}
+
+impl ListBox {
     pub fn new() -> Self {
         Self {
             is_enabled: true,
@@ -24,7 +37,7 @@ impl ListBoxWidget {
     }
 
     pub fn selected_index(mut self, idx: i32) -> Self {
-        self.selected_index = Some(idx);
+        self.selected_index = idx;
         self
     }
 
@@ -39,32 +52,18 @@ impl ListBoxWidget {
     }
 }
 
-impl Widget for ListBoxWidget {
+impl Widget for ListBox {
     widget_header!(ControlKind::ListBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(4);
-        if !self.items.is_empty() {
-            out.push(Binding::Prop(
-                Prop::ListBoxItems,
-                PropValue::StrList(self.items.clone()),
-            ));
-        }
-        if let Some(idx) = self.selected_index {
-            out.push(Binding::Prop(Prop::SelectedIndex, PropValue::I32(idx)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::ListBoxSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::IndexChanged(cb.clone())),
+        let mut out = crate::core::generated_bindings::list_box_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Items,
+            PropValue::StrList(self.items.clone()),
         ));
         out
     }
 }
 
-pub fn list_box() -> ListBoxWidget {
-    ListBoxWidget::new()
+pub fn list_box() -> ListBox {
+    ListBox::new()
 }

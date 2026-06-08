@@ -7,8 +7,8 @@ fn app(cx: &mut RenderCx) -> Element {
 
     text_box(text)
         .multiline()
-        .placeholder("Start typing…")
-        .on_changed(set_text)
+        .placeholder_text("Start typing…")
+        .on_text_changed(set_text)
         .horizontal_alignment(HorizontalAlignment::Stretch)
         .vertical_alignment(VerticalAlignment::Stretch)
         .into()

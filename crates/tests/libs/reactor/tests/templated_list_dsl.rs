@@ -26,7 +26,7 @@ fn build_item_view_invokes_view_builder() {
         panic!()
     };
     match tl.build_item_view(1) {
-        Element::TextBlock(t) => assert_eq!(t.content, "1:b"),
+        Element::TextBlock(t) => assert_eq!(t.text, "1:b"),
         other => panic!("unexpected {other:?}"),
     }
 }

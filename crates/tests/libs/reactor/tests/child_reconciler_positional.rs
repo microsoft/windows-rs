@@ -1,7 +1,7 @@
 use std::rc::Rc;
 
 use windows_reactor::core::backend::{ControlId, Op, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, StackPanel, TextBlock};
+use windows_reactor::core::element::{Button, Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::reconciler::Reconciler;
 
 fn rr() -> Rc<dyn Fn()> {
@@ -10,7 +10,7 @@ fn rr() -> Rc<dyn Fn()> {
 
 fn make_stack(children: Vec<Element>) -> Element {
     Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children,
         ..StackPanel::default()
     })
@@ -71,8 +71,8 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
     r.backend.clear_ops();
 
     let old = Element::StackPanel(StackPanel {
-        vertical: true,
-        spacing: Some(4.0),
+        orientation: Orientation::Vertical,
+        spacing: 4.0,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::TextBlock(TextBlock::new("b")),
@@ -80,8 +80,8 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
         ..StackPanel::default()
     });
     let new = Element::StackPanel(StackPanel {
-        vertical: true,
-        spacing: Some(8.0),
+        orientation: Orientation::Vertical,
+        spacing: 8.0,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::TextBlock(TextBlock::new("b")),
@@ -121,10 +121,13 @@ fn appending_one_child_creates_and_appends() {
     );
 
     let ops = &r.backend.ops;
-    assert_eq!(ops.len(), 3, "ops: {ops:?}");
+    assert_eq!(ops.len(), 5, "ops: {ops:?}");
     assert!(matches!(ops[0], Op::Create { .. }));
+    // SetProp for IsTextSelectionEnabled, Text, TextWrapping
     assert!(matches!(ops[1], Op::SetProp { .. }));
-    match &ops[2] {
+    assert!(matches!(ops[2], Op::SetProp { .. }));
+    assert!(matches!(ops[3], Op::SetProp { .. }));
+    match &ops[4] {
         Op::AppendChild { parent, .. } => assert_eq!(*parent, id),
         other => panic!("unexpected {other:?}"),
     }

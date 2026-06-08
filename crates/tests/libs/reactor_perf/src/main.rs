@@ -659,7 +659,7 @@ impl Component for StockGridApp {
                 .vertical_alignment(windows_reactor::core::element::VerticalAlignment::Center),
             Slider::new(percent)
                 .range(0.0, 100.0)
-                .on_changed(move |v| set_percent.call(v))
+                .on_value_changed(move |v| set_percent.call(v))
                 .width(200.0),
             text_block(fps_lbl)
                 .vertical_alignment(windows_reactor::core::element::VerticalAlignment::Center)
