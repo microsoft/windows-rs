@@ -3,17 +3,20 @@ use std::path::Path;
 
 use crate::bindings::*;
 
-/// A GPU-resident bitmap that can be drawn to the canvas.
+/// A GPU-resident bitmap.
 ///
-/// Load from a file with [`crate::SwapChain::load_bitmap`] and draw with
-/// [`crate::DrawingSession::draw_bitmap`].
+/// - **File-loaded** — via [`crate::SwapChain::load_bitmap`] or
+///   [`crate::DrawingSession::load_bitmap`].
+/// - **Render target** — via [`crate::DrawingSession::create_bitmap_target`].
+///   Can be drawn into with [`crate::DrawingSession::with_target`] and used
+///   as input for [`crate::Effect`].
 #[derive(Clone)]
-pub struct Bitmap(pub(crate) ID2D1Bitmap);
+pub struct Bitmap(pub(crate) ID2D1Bitmap1);
 
 impl Bitmap {
     /// Load a bitmap from an image file (PNG, JPEG, BMP, etc.).
     pub(crate) fn load_from_file(
-        context: &ID2D1RenderTarget,
+        context: &ID2D1DeviceContext,
         path: &Path,
     ) -> windows_core::Result<Self> {
         unsafe {
