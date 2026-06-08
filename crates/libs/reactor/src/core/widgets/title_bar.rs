@@ -5,7 +5,7 @@ pub struct TitleBar {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub title: String,
-    pub subtitle: Option<String>,
+    pub subtitle: String,
     pub is_back_button_visible: bool,
     pub is_back_button_enabled: bool,
     pub is_pane_toggle_button_visible: bool,
@@ -25,7 +25,7 @@ impl TitleBar {
         }
     }
     pub fn subtitle(mut self, s: impl Into<String>) -> Self {
-        self.subtitle = Some(s.into());
+        self.subtitle = s.into();
         self
     }
     pub fn back_button_visible(mut self, v: bool) -> Self {

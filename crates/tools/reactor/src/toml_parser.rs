@@ -19,7 +19,7 @@ use serde::Deserialize;
 
 use crate::helpers::to_snake_case;
 use crate::metadata::MetadataResolver;
-use crate::schema::{Control, EnumMapSetter, EventDecl, PropDecl, UnsetPolicy};
+use crate::schema::{Control, EnumMapSetter, EventDecl, PropDecl};
 
 /// Reserved key for control-level options (widget name, kind, etc.)
 const CONTROL_KEY: &str = "_control";
@@ -45,17 +45,6 @@ struct ControlMeta {
 #[serde(deny_unknown_fields)]
 struct MemberOverride {
     // ── Shared ──
-    /// WinUI default value expression. When set, the field type is `T` and the
-    /// binding is only emitted when the value differs from this default.
-    /// When absent and `required` is false, the field is `Option<T>`.
-    #[serde(default)]
-    default: Option<String>,
-    /// Whether this property is always emitted (field is `T`, never skipped).
-    #[serde(default)]
-    required: Option<bool>,
-    /// Unset/reset policy.
-    #[serde(default)]
-    unset: Option<UnsetPolicy>,
     /// Explicit PropValue variant name (for properties) or
     /// EventHandler variant name (for events: Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
     #[serde(default, rename = "type")]
@@ -63,6 +52,13 @@ struct MemberOverride {
     /// Explicit Rust field name (overrides snake_case of key).
     #[serde(default)]
     field: Option<String>,
+
+    // ── Property-specific ──
+    /// When true, the widget struct field is `Option<T>` and the binding is
+    /// only emitted when `Some`. Use for properties where `T::default()` does
+    /// not match the WinUI default (e.g. FontSize where 0.0 ≠ 14.0).
+    #[serde(default)]
+    optional: Option<bool>,
 
     // ── Event-specific ──
     /// Skip codegen; hand-written attach_event in backend.
@@ -190,9 +186,6 @@ fn build_prop(
         .clone()
         .unwrap_or_else(|| to_snake_case(member_name));
 
-    let required = overrides.required.unwrap_or(false);
-    let default = overrides.default.clone();
-
     let has_explicit_type = overrides.value.is_some();
 
     let method_name = format!("put_{member_name}");
@@ -259,14 +252,12 @@ fn build_prop(
         field,
         meta_name: member_name.to_string(),
         value,
-        required,
-        default,
+        optional: overrides.optional,
         method,
         method_optional,
         method_ireference,
         method_textblock,
         method_enum_map,
-        unset: overrides.unset.clone(),
         copy_value,
         enum_as_i32,
     }
@@ -437,7 +428,7 @@ mod tests {
     fn parse_simple_prop() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = { required = true }
+Text = {}
 "#;
         let controls = parse(toml, &resolver());
         assert_eq!(controls.len(), 1);
@@ -463,7 +454,7 @@ Click = {}
     fn parse_field_override() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = { field = "content", required = true }
+Text = { field = "content" }
 "#;
         let controls = parse(toml, &resolver());
         assert_eq!(controls[0].prop[0].field, "content");
@@ -512,7 +503,7 @@ Click = {}
     fn parse_value_inferred_from_metadata() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
-Value = { required = true }
+Value = {}
 "#;
         let controls = parse(toml, &resolver());
         // put_Value on RangeBase takes f64 — value should be inferred
@@ -526,7 +517,7 @@ Value = { required = true }
     fn error_includes_line_number() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.Button"]
-NonExistentProperty = { required = true }
+NonExistentProperty = {}
 "#;
         parse(toml, &resolver());
     }
@@ -536,20 +527,20 @@ NonExistentProperty = { required = true }
     fn error_unknown_member() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.Button"]
-NonExistentProperty = { required = true }
+NonExistentProperty = {}
 "#;
         parse(toml, &resolver());
     }
 
     #[test]
-    fn emit_defaults_to_optional() {
+    fn optional_defaults_to_false() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = {}
 "#;
         let controls = parse(toml, &resolver());
-        assert!(!controls[0].prop[0].required);
-        assert!(controls[0].prop[0].default.is_none());
+        assert!(controls[0].prop[0].optional.is_none());
+        assert!(!controls[0].prop[0].is_optional());
     }
 
     #[test]

@@ -24,18 +24,14 @@ pub(crate) fn auto_suggest_box_bindings(w: &AutoSuggestBox) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if let Some(v) = &w.placeholder_text {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::PlaceholderText,
+        PropValue::Str(w.placeholder_text.clone()),
+    ));
     out
 }
 pub(crate) fn border_bindings(_w: &Border) -> PropBindings {
@@ -50,89 +46,67 @@ pub(crate) fn breadcrumb_bar_bindings(w: &BreadcrumbBar) -> PropBindings {
     )]
 }
 pub(crate) fn button_bindings(w: &Button) -> PropBindings {
-    let mut out = Vec::with_capacity(4usize);
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click.as_ref().map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::CommandBarFlyoutClick,
-        w.on_command_bar_flyout_click
-            .as_ref()
-            .map(|cb| EventHandler::Str(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::ItemClicked,
-        w.on_item_clicked
-            .as_ref()
-            .map(|cb| EventHandler::Str(cb.clone())),
-    ));
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::Click,
+            w.on_click.as_ref().map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Event(
+            Event::CommandBarFlyoutClick,
+            w.on_command_bar_flyout_click
+                .as_ref()
+                .map(|cb| EventHandler::Str(cb.clone())),
+        ),
+        Binding::Event(
+            Event::ItemClicked,
+            w.on_item_clicked
+                .as_ref()
+                .map(|cb| EventHandler::Str(cb.clone())),
+        ),
+        Binding::Prop(Prop::IsEnabled, PropValue::Bool(w.is_enabled)),
+    ]
 }
 pub(crate) fn calendar_date_picker_bindings(w: &CalendarDatePicker) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if w.is_calendar_open {
-        out.push(Binding::Prop(
-            Prop::IsCalendarOpen,
-            PropValue::Bool(w.is_calendar_open),
-        ));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if !w.is_today_highlighted {
-        out.push(Binding::Prop(
-            Prop::IsTodayHighlighted,
-            PropValue::Bool(w.is_today_highlighted),
-        ));
-    }
-    if let Some(v) = &w.placeholder_text {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsCalendarOpen,
+        PropValue::Bool(w.is_calendar_open),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsTodayHighlighted,
+        PropValue::Bool(w.is_today_highlighted),
+    ));
+    out.push(Binding::Prop(
+        Prop::PlaceholderText,
+        PropValue::Str(w.placeholder_text.clone()),
+    ));
     out
 }
 pub(crate) fn calendar_view_bindings(w: &CalendarView) -> PropBindings {
-    let mut out = Vec::with_capacity(4usize);
-    out.push(Binding::Event(
-        Event::SelectedDatesChanged,
-        w.on_selected_dates_changed
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if !w.is_group_label_visible {
-        out.push(Binding::Prop(
+    vec![
+        Binding::Event(
+            Event::SelectedDatesChanged,
+            w.on_selected_dates_changed
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(Prop::IsEnabled, PropValue::Bool(w.is_enabled)),
+        Binding::Prop(
             Prop::IsGroupLabelVisible,
             PropValue::Bool(w.is_group_label_visible),
-        ));
-    }
-    if !w.is_today_highlighted {
-        out.push(Binding::Prop(
+        ),
+        Binding::Prop(
             Prop::IsTodayHighlighted,
             PropValue::Bool(w.is_today_highlighted),
-        ));
-    }
-    out
+        ),
+    ]
 }
 pub(crate) fn canvas_bindings(_w: &Canvas) -> PropBindings {
     Vec::new()
@@ -152,47 +126,34 @@ pub(crate) fn check_box_bindings(w: &CheckBox) -> PropBindings {
         Prop::IsChecked,
         PropValue::Bool(w.is_checked),
     ));
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
     out
 }
 pub(crate) fn color_picker_bindings(w: &ColorPicker) -> PropBindings {
-    let mut out = Vec::with_capacity(5usize);
-    out.push(Binding::Event(
-        Event::ColorChanged,
-        w.on_color_changed
-            .as_ref()
-            .map(|cb| EventHandler::Color(cb.clone())),
-    ));
-    if !w.is_alpha_enabled {
-        out.push(Binding::Prop(
-            Prop::IsAlphaEnabled,
-            PropValue::Bool(w.is_alpha_enabled),
-        ));
-    }
-    if !w.is_color_channel_text_input_visible {
-        out.push(Binding::Prop(
+    vec![
+        Binding::Event(
+            Event::ColorChanged,
+            w.on_color_changed
+                .as_ref()
+                .map(|cb| EventHandler::Color(cb.clone())),
+        ),
+        Binding::Prop(Prop::IsAlphaEnabled, PropValue::Bool(w.is_alpha_enabled)),
+        Binding::Prop(
             Prop::IsColorChannelTextInputVisible,
             PropValue::Bool(w.is_color_channel_text_input_visible),
-        ));
-    }
-    if !w.is_color_slider_visible {
-        out.push(Binding::Prop(
+        ),
+        Binding::Prop(
             Prop::IsColorSliderVisible,
             PropValue::Bool(w.is_color_slider_visible),
-        ));
-    }
-    if !w.is_hex_input_visible {
-        out.push(Binding::Prop(
+        ),
+        Binding::Prop(
             Prop::IsHexInputVisible,
             PropValue::Bool(w.is_hex_input_visible),
-        ));
-    }
-    out
+        ),
+    ]
 }
 pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
@@ -205,54 +166,42 @@ pub(crate) fn combo_box_bindings(w: &ComboBox) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if w.is_editable {
-        out.push(Binding::Prop(
-            Prop::IsEditable,
-            PropValue::Bool(w.is_editable),
-        ));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if let Some(v) = &w.placeholder_text {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
-    if w.selected_index != 0 {
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(w.selected_index),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEditable,
+        PropValue::Bool(w.is_editable),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::PlaceholderText,
+        PropValue::Str(w.placeholder_text.clone()),
+    ));
+    out.push(Binding::Prop(
+        Prop::SelectedIndex,
+        PropValue::I32(w.selected_index),
+    ));
     out
 }
 pub(crate) fn command_bar_bindings(w: &CommandBar) -> PropBindings {
-    let mut out = Vec::with_capacity(2usize);
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click.as_ref().map(|cb| EventHandler::Str(cb.clone())),
-    ));
-    if w.default_label_position != CommandBarDefaultLabelPosition::default() {
-        out.push(Binding::Prop(
+    vec![
+        Binding::Event(
+            Event::Click,
+            w.on_click.as_ref().map(|cb| EventHandler::Str(cb.clone())),
+        ),
+        Binding::Prop(
             Prop::DefaultLabelPosition,
             PropValue::I32(w.default_label_position.0),
-        ));
-    }
-    out
+        ),
+    ]
 }
 pub(crate) fn content_dialog_bindings(w: &ContentDialog) -> PropBindings {
     let mut out = Vec::with_capacity(7usize);
-    if let Some(v) = &w.close_button_text {
-        out.push(Binding::Prop(
-            Prop::CloseButtonText,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::CloseButtonText,
+        PropValue::Str(w.close_button_text.clone()),
+    ));
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
@@ -264,18 +213,14 @@ pub(crate) fn content_dialog_bindings(w: &ContentDialog) -> PropBindings {
         Prop::IsSecondaryButtonEnabled,
         PropValue::Bool(w.is_secondary_button_enabled),
     ));
-    if let Some(v) = &w.primary_button_text {
-        out.push(Binding::Prop(
-            Prop::PrimaryButtonText,
-            PropValue::Str(v.clone()),
-        ));
-    }
-    if let Some(v) = &w.secondary_button_text {
-        out.push(Binding::Prop(
-            Prop::SecondaryButtonText,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::PrimaryButtonText,
+        PropValue::Str(w.primary_button_text.clone()),
+    ));
+    out.push(Binding::Prop(
+        Prop::SecondaryButtonText,
+        PropValue::Str(w.secondary_button_text.clone()),
+    ));
     if let Some(v) = &w.title {
         out.push(Binding::Prop(Prop::Title, PropValue::Str(v.clone())));
     }
@@ -289,33 +234,25 @@ pub(crate) fn date_picker_bindings(w: &DatePicker) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::DateTime(cb.clone())),
     ));
-    if !w.day_visible {
-        out.push(Binding::Prop(
-            Prop::DayVisible,
-            PropValue::Bool(w.day_visible),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::DayVisible,
+        PropValue::Bool(w.day_visible),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if !w.month_visible {
-        out.push(Binding::Prop(
-            Prop::MonthVisible,
-            PropValue::Bool(w.month_visible),
-        ));
-    }
-    if !w.year_visible {
-        out.push(Binding::Prop(
-            Prop::YearVisible,
-            PropValue::Bool(w.year_visible),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::MonthVisible,
+        PropValue::Bool(w.month_visible),
+    ));
+    out.push(Binding::Prop(
+        Prop::YearVisible,
+        PropValue::Bool(w.year_visible),
+    ));
     out
 }
 pub(crate) fn drop_down_button_bindings(w: &DropDownButton) -> PropBindings {
@@ -333,114 +270,71 @@ pub(crate) fn drop_down_button_bindings(w: &DropDownButton) -> PropBindings {
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
     out
 }
 pub(crate) fn expander_bindings(w: &Expander) -> PropBindings {
-    let mut out = Vec::with_capacity(2usize);
-    out.push(Binding::Event(
-        Event::Expanding,
-        w.on_expanding
-            .as_ref()
-            .map(|cb| EventHandler::Bool(cb.clone())),
-    ));
-    if w.is_expanded {
-        out.push(Binding::Prop(
-            Prop::IsExpanded,
-            PropValue::Bool(w.is_expanded),
-        ));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::Expanding,
+            w.on_expanding
+                .as_ref()
+                .map(|cb| EventHandler::Bool(cb.clone())),
+        ),
+        Binding::Prop(Prop::IsExpanded, PropValue::Bool(w.is_expanded)),
+    ]
 }
 pub(crate) fn grid_bindings(w: &Grid) -> PropBindings {
-    let mut out = Vec::with_capacity(2usize);
-    if let Some(v) = w.column_spacing {
-        out.push(Binding::Prop(Prop::ColumnSpacing, PropValue::F64(v)));
-    }
-    if let Some(v) = w.row_spacing {
-        out.push(Binding::Prop(Prop::RowSpacing, PropValue::F64(v)));
-    }
-    out
+    vec![
+        Binding::Prop(Prop::ColumnSpacing, PropValue::F64(w.column_spacing)),
+        Binding::Prop(Prop::RowSpacing, PropValue::F64(w.row_spacing)),
+    ]
 }
 pub(crate) fn hyperlink_button_bindings(w: &HyperlinkButton) -> PropBindings {
-    let mut out = Vec::with_capacity(3usize);
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click.as_ref().map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    out.push(Binding::Prop(
-        Prop::Content,
-        PropValue::Str(w.content.clone()),
-    ));
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::Click,
+            w.on_click.as_ref().map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(Prop::Content, PropValue::Str(w.content.clone())),
+        Binding::Prop(Prop::IsEnabled, PropValue::Bool(w.is_enabled)),
+    ]
 }
 pub(crate) fn image_bindings(w: &Image) -> PropBindings {
-    let mut out = Vec::with_capacity(1usize);
-    if w.stretch != Stretch::Uniform {
-        out.push(Binding::Prop(Prop::Stretch, PropValue::I32(w.stretch.0)));
-    }
-    out
+    vec![Binding::Prop(Prop::Stretch, PropValue::I32(w.stretch.0))]
 }
 pub(crate) fn info_badge_bindings(_w: &InfoBadge) -> PropBindings {
     Vec::new()
 }
 pub(crate) fn info_bar_bindings(w: &InfoBar) -> PropBindings {
-    let mut out = Vec::with_capacity(6usize);
-    out.push(Binding::Event(
-        Event::Closed,
-        w.on_closed
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    if !w.is_closable {
-        out.push(Binding::Prop(
-            Prop::IsClosable,
-            PropValue::Bool(w.is_closable),
-        ));
-    }
-    if w.is_open {
-        out.push(Binding::Prop(Prop::IsOpen, PropValue::Bool(w.is_open)));
-    }
-    if let Some(v) = &w.message {
-        out.push(Binding::Prop(Prop::Message, PropValue::Str(v.clone())));
-    }
-    if w.severity != InfoBarSeverity::default() {
-        out.push(Binding::Prop(Prop::Severity, PropValue::I32(w.severity.0)));
-    }
-    if let Some(v) = &w.title {
-        out.push(Binding::Prop(Prop::Title, PropValue::Str(v.clone())));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::Closed,
+            w.on_closed
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(Prop::IsClosable, PropValue::Bool(w.is_closable)),
+        Binding::Prop(Prop::IsOpen, PropValue::Bool(w.is_open)),
+        Binding::Prop(Prop::Message, PropValue::Str(w.message.clone())),
+        Binding::Prop(Prop::Severity, PropValue::I32(w.severity.0)),
+        Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())),
+    ]
 }
 pub(crate) fn list_box_bindings(w: &ListBox) -> PropBindings {
-    let mut out = Vec::with_capacity(3usize);
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::I32(cb.clone())),
-    ));
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if let Some(v) = w.selected_index {
-        out.push(Binding::Prop(Prop::SelectedIndex, PropValue::I32(v)));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::SelectionChanged,
+            w.on_selection_changed
+                .as_ref()
+                .map(|cb| EventHandler::I32(cb.clone())),
+        ),
+        Binding::Prop(Prop::IsEnabled, PropValue::Bool(w.is_enabled)),
+        Binding::Prop(Prop::SelectedIndex, PropValue::I32(w.selected_index)),
+    ]
 }
 pub(crate) fn menu_bar_bindings(w: &MenuBar) -> PropBindings {
     vec![Binding::Event(
@@ -485,36 +379,30 @@ pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if w.is_back_enabled {
-        out.push(Binding::Prop(
-            Prop::IsBackEnabled,
-            PropValue::Bool(w.is_back_enabled),
-        ));
-    }
-    if let Some(v) = w.is_pane_open {
-        out.push(Binding::Prop(Prop::IsPaneOpen, PropValue::Bool(v)));
-    }
-    if !w.is_pane_toggle_button_visible {
-        out.push(Binding::Prop(
-            Prop::IsPaneToggleButtonVisible,
-            PropValue::Bool(w.is_pane_toggle_button_visible),
-        ));
-    }
-    if !w.is_settings_visible {
-        out.push(Binding::Prop(
-            Prop::IsSettingsVisible,
-            PropValue::Bool(w.is_settings_visible),
-        ));
-    }
-    if w.pane_display_mode != NavigationViewPaneDisplayMode::default() {
-        out.push(Binding::Prop(
-            Prop::PaneDisplayMode,
-            PropValue::I32(w.pane_display_mode.0),
-        ));
-    }
-    if let Some(v) = &w.pane_title {
-        out.push(Binding::Prop(Prop::PaneTitle, PropValue::Str(v.clone())));
-    }
+    out.push(Binding::Prop(
+        Prop::IsBackEnabled,
+        PropValue::Bool(w.is_back_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsPaneOpen,
+        PropValue::Bool(w.is_pane_open),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsPaneToggleButtonVisible,
+        PropValue::Bool(w.is_pane_toggle_button_visible),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsSettingsVisible,
+        PropValue::Bool(w.is_settings_visible),
+    ));
+    out.push(Binding::Prop(
+        Prop::PaneDisplayMode,
+        PropValue::I32(w.pane_display_mode.0),
+    ));
+    out.push(Binding::Prop(
+        Prop::PaneTitle,
+        PropValue::Str(w.pane_title.clone()),
+    ));
     out
 }
 pub(crate) fn number_box_bindings(w: &NumberBox) -> PropBindings {
@@ -528,21 +416,13 @@ pub(crate) fn number_box_bindings(w: &NumberBox) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if let Some(v) = w.maximum {
-        out.push(Binding::Prop(Prop::Maximum, PropValue::F64(v)));
-    }
-    if let Some(v) = w.minimum {
-        out.push(Binding::Prop(Prop::Minimum, PropValue::F64(v)));
-    }
-    if w.value != 0.0 {
-        out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
+    out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
+    out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
     out
 }
 pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
@@ -556,41 +436,29 @@ pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if !w.is_password_reveal_button_enabled {
-        out.push(Binding::Prop(
-            Prop::IsPasswordRevealButtonEnabled,
-            PropValue::Bool(w.is_password_reveal_button_enabled),
-        ));
-    }
-    if w.password_reveal_mode != PasswordRevealMode::default() {
-        out.push(Binding::Prop(
-            Prop::PasswordRevealMode,
-            PropValue::I32(w.password_reveal_mode.0),
-        ));
-    }
-    if let Some(v) = &w.placeholder_text {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsPasswordRevealButtonEnabled,
+        PropValue::Bool(w.is_password_reveal_button_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::PasswordRevealMode,
+        PropValue::I32(w.password_reveal_mode.0),
+    ));
+    out.push(Binding::Prop(
+        Prop::PlaceholderText,
+        PropValue::Str(w.placeholder_text.clone()),
+    ));
     out
 }
 pub(crate) fn person_picture_bindings(w: &PersonPicture) -> PropBindings {
-    let mut out = Vec::with_capacity(2usize);
-    if let Some(v) = &w.display_name {
-        out.push(Binding::Prop(Prop::DisplayName, PropValue::Str(v.clone())));
-    }
-    if let Some(v) = &w.initials {
-        out.push(Binding::Prop(Prop::Initials, PropValue::Str(v.clone())));
-    }
-    out
+    vec![
+        Binding::Prop(Prop::DisplayName, PropValue::Str(w.display_name.clone())),
+        Binding::Prop(Prop::Initials, PropValue::Str(w.initials.clone())),
+    ]
 }
 pub(crate) fn pivot_bindings(w: &Pivot) -> PropBindings {
     let mut out = Vec::with_capacity(3usize);
@@ -600,95 +468,56 @@ pub(crate) fn pivot_bindings(w: &Pivot) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::I32(cb.clone())),
     ));
-    if w.selected_index != 0 {
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(w.selected_index),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::SelectedIndex,
+        PropValue::I32(w.selected_index),
+    ));
     if let Some(v) = &w.title {
         out.push(Binding::Prop(Prop::Title, PropValue::Str(v.clone())));
     }
     out
 }
 pub(crate) fn repeat_button_bindings(w: &RepeatButton) -> PropBindings {
-    let mut out = Vec::with_capacity(5usize);
-    out.push(Binding::Event(
-        Event::Click,
-        w.on_click.as_ref().map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    out.push(Binding::Prop(
-        Prop::Content,
-        PropValue::Str(w.content.clone()),
-    ));
-    if let Some(v) = w.delay {
-        out.push(Binding::Prop(Prop::Delay, PropValue::I32(v)));
-    }
-    if let Some(v) = w.interval {
-        out.push(Binding::Prop(Prop::Interval, PropValue::I32(v)));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::Click,
+            w.on_click.as_ref().map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(Prop::Content, PropValue::Str(w.content.clone())),
+        Binding::Prop(Prop::Delay, PropValue::I32(w.delay)),
+        Binding::Prop(Prop::Interval, PropValue::I32(w.interval)),
+        Binding::Prop(Prop::IsEnabled, PropValue::Bool(w.is_enabled)),
+    ]
 }
 pub(crate) fn toggle_button_bindings(w: &ToggleButton) -> PropBindings {
-    let mut out = Vec::with_capacity(4usize);
-    out.push(Binding::Event(
-        Event::Checked,
-        w.on_checked
-            .as_ref()
-            .map(|cb| EventHandler::Bool(cb.clone())),
-    ));
-    out.push(Binding::Prop(
-        Prop::Content,
-        PropValue::Str(w.content.clone()),
-    ));
-    if w.is_checked {
-        out.push(Binding::Prop(
-            Prop::IsChecked,
-            PropValue::Bool(w.is_checked),
-        ));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::Checked,
+            w.on_checked
+                .as_ref()
+                .map(|cb| EventHandler::Bool(cb.clone())),
+        ),
+        Binding::Prop(Prop::Content, PropValue::Str(w.content.clone())),
+        Binding::Prop(Prop::IsChecked, PropValue::Bool(w.is_checked)),
+        Binding::Prop(Prop::IsEnabled, PropValue::Bool(w.is_enabled)),
+    ]
 }
 pub(crate) fn progress_bar_bindings(w: &ProgressBar) -> PropBindings {
-    let mut out = Vec::with_capacity(4usize);
-    if w.is_indeterminate {
-        out.push(Binding::Prop(
-            Prop::IsIndeterminate,
-            PropValue::Bool(w.is_indeterminate),
-        ));
-    }
-    out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
-    out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
-    out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
-    out
+    vec![
+        Binding::Prop(Prop::IsIndeterminate, PropValue::Bool(w.is_indeterminate)),
+        Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)),
+        Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)),
+        Binding::Prop(Prop::Value, PropValue::F64(w.value)),
+    ]
 }
 pub(crate) fn progress_ring_bindings(w: &ProgressRing) -> PropBindings {
-    let mut out = Vec::with_capacity(5usize);
-    if w.is_active {
-        out.push(Binding::Prop(Prop::IsActive, PropValue::Bool(w.is_active)));
-    }
-    if w.is_indeterminate {
-        out.push(Binding::Prop(
-            Prop::IsIndeterminate,
-            PropValue::Bool(w.is_indeterminate),
-        ));
-    }
-    out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
-    out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
-    out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
-    out
+    vec![
+        Binding::Prop(Prop::IsActive, PropValue::Bool(w.is_active)),
+        Binding::Prop(Prop::IsIndeterminate, PropValue::Bool(w.is_indeterminate)),
+        Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)),
+        Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)),
+        Binding::Prop(Prop::Value, PropValue::F64(w.value)),
+    ]
 }
 pub(crate) fn radio_button_bindings(w: &RadioButton) -> PropBindings {
     let mut out = Vec::with_capacity(5usize);
@@ -701,21 +530,18 @@ pub(crate) fn radio_button_bindings(w: &RadioButton) -> PropBindings {
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
-    if let Some(v) = &w.group_name {
-        out.push(Binding::Prop(Prop::GroupName, PropValue::Str(v.clone())));
-    }
-    if w.is_checked {
-        out.push(Binding::Prop(
-            Prop::IsChecked,
-            PropValue::Bool(w.is_checked),
-        ));
-    }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::GroupName,
+        PropValue::Str(w.group_name.clone()),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsChecked,
+        PropValue::Bool(w.is_checked),
+    ));
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
     out
 }
 pub(crate) fn radio_buttons_bindings(w: &RadioButtons) -> PropBindings {
@@ -729,44 +555,30 @@ pub(crate) fn radio_buttons_bindings(w: &RadioButtons) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if let Some(v) = w.max_columns {
-        out.push(Binding::Prop(Prop::MaxColumns, PropValue::I32(v)));
-    }
-    if w.selected_index != 0 {
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(w.selected_index),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::MaxColumns,
+        PropValue::I32(w.max_columns),
+    ));
+    out.push(Binding::Prop(
+        Prop::SelectedIndex,
+        PropValue::I32(w.selected_index),
+    ));
     out
 }
 pub(crate) fn rating_control_bindings(w: &RatingControl) -> PropBindings {
-    let mut out = Vec::with_capacity(6usize);
-    out.push(Binding::Event(
-        Event::ValueChanged,
-        w.on_value_changed
-            .as_ref()
-            .map(|cb| EventHandler::F64(cb.clone())),
-    ));
-    if let Some(v) = &w.caption {
-        out.push(Binding::Prop(Prop::Caption, PropValue::Str(v.clone())));
-    }
-    if w.is_read_only {
-        out.push(Binding::Prop(
-            Prop::IsReadOnly,
-            PropValue::Bool(w.is_read_only),
-        ));
-    }
-    if let Some(v) = w.max_rating {
-        out.push(Binding::Prop(Prop::MaxRating, PropValue::I32(v)));
-    }
-    if let Some(v) = w.placeholder_value {
-        out.push(Binding::Prop(Prop::PlaceholderValue, PropValue::F64(v)));
-    }
-    if w.value != 0.0 {
-        out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::ValueChanged,
+            w.on_value_changed
+                .as_ref()
+                .map(|cb| EventHandler::F64(cb.clone())),
+        ),
+        Binding::Prop(Prop::Caption, PropValue::Str(w.caption.clone())),
+        Binding::Prop(Prop::IsReadOnly, PropValue::Bool(w.is_read_only)),
+        Binding::Prop(Prop::MaxRating, PropValue::I32(w.max_rating)),
+        Binding::Prop(Prop::PlaceholderValue, PropValue::F64(w.placeholder_value)),
+        Binding::Prop(Prop::Value, PropValue::F64(w.value)),
+    ]
 }
 pub(crate) fn relative_panel_bindings(_w: &RelativePanel) -> PropBindings {
     Vec::new()
@@ -782,18 +594,14 @@ pub(crate) fn rich_edit_box_bindings(w: &RichEditBox) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if w.is_read_only {
-        out.push(Binding::Prop(
-            Prop::IsReadOnly,
-            PropValue::Bool(w.is_read_only),
-        ));
-    }
-    if let Some(v) = &w.placeholder_text {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsReadOnly,
+        PropValue::Bool(w.is_read_only),
+    ));
+    out.push(Binding::Prop(
+        Prop::PlaceholderText,
+        PropValue::Str(w.placeholder_text.clone()),
+    ));
     out
 }
 pub(crate) fn scroll_view_bindings(w: &ScrollView) -> PropBindings {
@@ -839,20 +647,16 @@ pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
     out.push(Binding::Prop(Prop::Maximum, PropValue::F64(w.maximum)));
     out.push(Binding::Prop(Prop::Minimum, PropValue::F64(w.minimum)));
-    if w.orientation != Orientation::Horizontal {
-        out.push(Binding::Prop(
-            Prop::Orientation,
-            PropValue::I32(w.orientation.0),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::Orientation,
+        PropValue::I32(w.orientation.0),
+    ));
     out.push(Binding::Prop(Prop::Value, PropValue::F64(w.value)));
     out
 }
@@ -865,142 +669,103 @@ pub(crate) fn split_button_bindings(w: &SplitButton) -> PropBindings {
     if let Some(v) = &w.content {
         out.push(Binding::Prop(Prop::Content, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
     out
 }
 pub(crate) fn split_view_bindings(w: &SplitView) -> PropBindings {
-    let mut out = Vec::with_capacity(4usize);
-    out.push(Binding::Event(
-        Event::PaneClosed,
-        w.on_pane_closed
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    if let Some(v) = w.compact_pane_length {
-        out.push(Binding::Prop(Prop::CompactPaneLength, PropValue::F64(v)));
-    }
-    if w.is_pane_open {
-        out.push(Binding::Prop(
-            Prop::IsPaneOpen,
-            PropValue::Bool(w.is_pane_open),
-        ));
-    }
-    if let Some(v) = w.open_pane_length {
-        out.push(Binding::Prop(Prop::OpenPaneLength, PropValue::F64(v)));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::PaneClosed,
+            w.on_pane_closed
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(
+            Prop::CompactPaneLength,
+            PropValue::F64(w.compact_pane_length),
+        ),
+        Binding::Prop(Prop::IsPaneOpen, PropValue::Bool(w.is_pane_open)),
+        Binding::Prop(Prop::OpenPaneLength, PropValue::F64(w.open_pane_length)),
+    ]
 }
 pub(crate) fn stack_panel_bindings(w: &StackPanel) -> PropBindings {
-    let mut out = Vec::with_capacity(2usize);
-    if w.orientation != Orientation::Vertical {
-        out.push(Binding::Prop(
-            Prop::Orientation,
-            PropValue::I32(w.orientation.0),
-        ));
-    }
-    if let Some(v) = w.spacing {
-        out.push(Binding::Prop(Prop::Spacing, PropValue::F64(v)));
-    }
-    out
+    vec![
+        Binding::Prop(Prop::Orientation, PropValue::I32(w.orientation.0)),
+        Binding::Prop(Prop::Spacing, PropValue::F64(w.spacing)),
+    ]
 }
 pub(crate) fn tab_view_bindings(w: &TabView) -> PropBindings {
-    let mut out = Vec::with_capacity(6usize);
-    out.push(Binding::Event(
-        Event::AddTabButtonClick,
-        w.on_add_tab_button_click
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::CloseRequested,
-        w.on_close_requested
-            .as_ref()
-            .map(|cb| EventHandler::Str(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::SelectionChanged,
-        w.on_selection_changed
-            .as_ref()
-            .map(|cb| EventHandler::I32(cb.clone())),
-    ));
-    if w.can_reorder_tabs {
-        out.push(Binding::Prop(
-            Prop::CanReorderTabs,
-            PropValue::Bool(w.can_reorder_tabs),
-        ));
-    }
-    if !w.is_add_tab_button_visible {
-        out.push(Binding::Prop(
+    vec![
+        Binding::Event(
+            Event::AddTabButtonClick,
+            w.on_add_tab_button_click
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Event(
+            Event::CloseRequested,
+            w.on_close_requested
+                .as_ref()
+                .map(|cb| EventHandler::Str(cb.clone())),
+        ),
+        Binding::Event(
+            Event::SelectionChanged,
+            w.on_selection_changed
+                .as_ref()
+                .map(|cb| EventHandler::I32(cb.clone())),
+        ),
+        Binding::Prop(Prop::CanReorderTabs, PropValue::Bool(w.can_reorder_tabs)),
+        Binding::Prop(
             Prop::IsAddTabButtonVisible,
             PropValue::Bool(w.is_add_tab_button_visible),
-        ));
-    }
-    if w.selected_index != 0 {
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(w.selected_index),
-        ));
-    }
-    out
+        ),
+        Binding::Prop(Prop::SelectedIndex, PropValue::I32(w.selected_index)),
+    ]
 }
 pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
-    let mut out = Vec::with_capacity(7usize);
-    out.push(Binding::Event(
-        Event::ActionButtonClick,
-        w.on_action_button_click
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::Closed,
-        w.on_closed
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    if w.is_light_dismiss_enabled {
-        out.push(Binding::Prop(
+    vec![
+        Binding::Event(
+            Event::ActionButtonClick,
+            w.on_action_button_click
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Event(
+            Event::Closed,
+            w.on_closed
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(
             Prop::IsLightDismissEnabled,
             PropValue::Bool(w.is_light_dismiss_enabled),
-        ));
-    }
-    if w.is_open {
-        out.push(Binding::Prop(Prop::IsOpen, PropValue::Bool(w.is_open)));
-    }
-    if w.preferred_placement != TeachingTipPlacementMode::default() {
-        out.push(Binding::Prop(
+        ),
+        Binding::Prop(Prop::IsOpen, PropValue::Bool(w.is_open)),
+        Binding::Prop(
             Prop::PreferredPlacement,
             PropValue::I32(w.preferred_placement.0),
-        ));
-    }
-    if let Some(v) = &w.subtitle {
-        out.push(Binding::Prop(Prop::Subtitle, PropValue::Str(v.clone())));
-    }
-    out.push(Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())));
-    out
+        ),
+        Binding::Prop(Prop::Subtitle, PropValue::Str(w.subtitle.clone())),
+        Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())),
+    ]
 }
 pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
     let mut out = Vec::with_capacity(4usize);
     if let Some(v) = w.font_size {
         out.push(Binding::Prop(Prop::FontSize, PropValue::F64(v)));
     }
-    if w.is_text_selection_enabled {
-        out.push(Binding::Prop(
-            Prop::IsTextSelectionEnabled,
-            PropValue::Bool(w.is_text_selection_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsTextSelectionEnabled,
+        PropValue::Bool(w.is_text_selection_enabled),
+    ));
     out.push(Binding::Prop(Prop::Text, PropValue::Str(w.text.clone())));
-    if w.text_wrapping != TextWrapping::NoWrap {
-        out.push(Binding::Prop(
-            Prop::TextWrapping,
-            PropValue::I32(w.text_wrapping.0),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::TextWrapping,
+        PropValue::I32(w.text_wrapping.0),
+    ));
     out
 }
 pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
@@ -1011,33 +776,25 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::Str(cb.clone())),
     ));
-    if w.accepts_return {
-        out.push(Binding::Prop(
-            Prop::AcceptsReturn,
-            PropValue::Bool(w.accepts_return),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::AcceptsReturn,
+        PropValue::Bool(w.accepts_return),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if let Some(v) = &w.placeholder_text {
-        out.push(Binding::Prop(
-            Prop::PlaceholderText,
-            PropValue::Str(v.clone()),
-        ));
-    }
-    if w.text_wrapping != TextWrapping::NoWrap {
-        out.push(Binding::Prop(
-            Prop::TextWrapping,
-            PropValue::I32(w.text_wrapping.0),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::PlaceholderText,
+        PropValue::Str(w.placeholder_text.clone()),
+    ));
+    out.push(Binding::Prop(
+        Prop::TextWrapping,
+        PropValue::I32(w.text_wrapping.0),
+    ));
     out
 }
 pub(crate) fn time_picker_bindings(w: &TimePicker) -> PropBindings {
@@ -1048,63 +805,52 @@ pub(crate) fn time_picker_bindings(w: &TimePicker) -> PropBindings {
             .as_ref()
             .map(|cb| EventHandler::TimeSpan(cb.clone())),
     ));
-    if let Some(v) = &w.clock_identifier {
-        out.push(Binding::Prop(
-            Prop::ClockIdentifier,
-            PropValue::Str(v.clone()),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::ClockIdentifier,
+        PropValue::Str(w.clock_identifier.clone()),
+    ));
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
-    if let Some(v) = w.minute_increment {
-        out.push(Binding::Prop(Prop::MinuteIncrement, PropValue::I32(v)));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
+    out.push(Binding::Prop(
+        Prop::MinuteIncrement,
+        PropValue::I32(w.minute_increment),
+    ));
     out
 }
 pub(crate) fn title_bar_bindings(w: &TitleBar) -> PropBindings {
-    let mut out = Vec::with_capacity(7usize);
-    out.push(Binding::Event(
-        Event::BackRequested,
-        w.on_back_requested
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    out.push(Binding::Event(
-        Event::PaneToggleRequested,
-        w.on_pane_toggle_requested
-            .as_ref()
-            .map(|cb| EventHandler::Unit(cb.clone())),
-    ));
-    if w.is_back_button_enabled {
-        out.push(Binding::Prop(
+    vec![
+        Binding::Event(
+            Event::BackRequested,
+            w.on_back_requested
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Event(
+            Event::PaneToggleRequested,
+            w.on_pane_toggle_requested
+                .as_ref()
+                .map(|cb| EventHandler::Unit(cb.clone())),
+        ),
+        Binding::Prop(
             Prop::IsBackButtonEnabled,
             PropValue::Bool(w.is_back_button_enabled),
-        ));
-    }
-    if w.is_back_button_visible {
-        out.push(Binding::Prop(
+        ),
+        Binding::Prop(
             Prop::IsBackButtonVisible,
             PropValue::Bool(w.is_back_button_visible),
-        ));
-    }
-    if w.is_pane_toggle_button_visible {
-        out.push(Binding::Prop(
+        ),
+        Binding::Prop(
             Prop::IsPaneToggleButtonVisible,
             PropValue::Bool(w.is_pane_toggle_button_visible),
-        ));
-    }
-    if let Some(v) = &w.subtitle {
-        out.push(Binding::Prop(Prop::Subtitle, PropValue::Str(v.clone())));
-    }
-    out.push(Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())));
-    out
+        ),
+        Binding::Prop(Prop::Subtitle, PropValue::Str(w.subtitle.clone())),
+        Binding::Prop(Prop::Title, PropValue::Str(w.title.clone())),
+    ]
 }
 pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
     let mut out = Vec::with_capacity(6usize);
@@ -1117,12 +863,10 @@ pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
     if let Some(v) = &w.header {
         out.push(Binding::Prop(Prop::Header, PropValue::Str(v.clone())));
     }
-    if !w.is_enabled {
-        out.push(Binding::Prop(
-            Prop::IsEnabled,
-            PropValue::Bool(w.is_enabled),
-        ));
-    }
+    out.push(Binding::Prop(
+        Prop::IsEnabled,
+        PropValue::Bool(w.is_enabled),
+    ));
     out.push(Binding::Prop(Prop::IsOn, PropValue::Bool(w.is_on)));
     if let Some(v) = &w.off_content {
         out.push(Binding::Prop(Prop::OffContent, PropValue::Str(v.clone())));
@@ -1133,20 +877,15 @@ pub(crate) fn toggle_switch_bindings(w: &ToggleSwitch) -> PropBindings {
     out
 }
 pub(crate) fn tree_view_bindings(w: &TreeView) -> PropBindings {
-    let mut out = Vec::with_capacity(2usize);
-    out.push(Binding::Event(
-        Event::ItemInvoked,
-        w.on_item_invoked
-            .as_ref()
-            .map(|cb| EventHandler::Str(cb.clone())),
-    ));
-    if w.selection_mode != TreeViewSelectionMode::Single {
-        out.push(Binding::Prop(
-            Prop::SelectionMode,
-            PropValue::I32(w.selection_mode.0),
-        ));
-    }
-    out
+    vec![
+        Binding::Event(
+            Event::ItemInvoked,
+            w.on_item_invoked
+                .as_ref()
+                .map(|cb| EventHandler::Str(cb.clone())),
+        ),
+        Binding::Prop(Prop::SelectionMode, PropValue::I32(w.selection_mode.0)),
+    ]
 }
 pub(crate) fn viewbox_bindings(w: &Viewbox) -> PropBindings {
     vec![Binding::Prop(Prop::Stretch, PropValue::I32(w.stretch.0))]

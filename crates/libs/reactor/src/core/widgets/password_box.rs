@@ -7,7 +7,7 @@ pub struct PasswordBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub value: String,
-    pub placeholder_text: Option<String>,
+    pub placeholder_text: String,
     pub header: Option<String>,
     pub is_enabled: bool,
     pub is_password_reveal_button_enabled: bool,
@@ -21,7 +21,7 @@ impl Default for PasswordBox {
             key: None,
             modifiers: Modifiers::default(),
             value: String::new(),
-            placeholder_text: None,
+            placeholder_text: String::new(),
             header: None,
             is_enabled: true,
             is_password_reveal_button_enabled: true,
@@ -39,7 +39,7 @@ impl PasswordBox {
         self
     }
     pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
-        self.placeholder_text = Some(s.into());
+        self.placeholder_text = s.into();
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {

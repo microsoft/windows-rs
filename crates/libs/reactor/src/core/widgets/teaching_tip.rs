@@ -8,7 +8,7 @@ pub struct TeachingTip {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub title: String,
-    pub subtitle: Option<String>,
+    pub subtitle: String,
     pub is_open: bool,
     pub is_light_dismiss_enabled: bool,
     pub preferred_placement: TeachingTipPlacementMode,
@@ -27,7 +27,7 @@ impl TeachingTip {
     }
 
     pub fn subtitle(mut self, s: impl Into<String>) -> Self {
-        self.subtitle = Some(s.into());
+        self.subtitle = s.into();
         self
     }
 

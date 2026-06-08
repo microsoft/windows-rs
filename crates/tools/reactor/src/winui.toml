@@ -5,14 +5,15 @@
 # types, and interfaces from .winmd metadata automatically.
 #
 # ── Property overrides ──────────────────────────────────────────────
-#   (no overrides)       Optional: field is Option<T>, emit when Some.
-#   required = true      Always emit (field is T). For core state.
-#   default = "expr"     Emit only when != expr (field is T). Auto-infers unset.
-#   unset = "custom"     Hand-written unset handler (skip codegen).
-#   unset = { default = "expr" }   Reset to literal on unset.
+#   (no overrides)       Field is T, binding always emitted.
+#   optional = true      Field is Option<T>, emit when Some. Use when
+#                        T::default() != WinUI default (e.g. FontSize).
 #   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
 #                        For Object (IInspectable) params, selects IReference<T>
 #                        wrapping instead of the default TextBlock wrapping.
+#
+# Textblock, IReference, and Optional setters are always Option<T>
+# (they need None to clear the WinUI value). No override needed.
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
@@ -22,9 +23,9 @@
 #   false_event = "Name" Complement event for bool-dual (e.g. "Unchecked").
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
-PlaceholderText = { }
+PlaceholderText = {}
 Header = { type = "Str" }
-IsEnabled = { default = "true" }
+IsEnabled = {}
 TextChanged = { manual = true, type = "Str" }
 QuerySubmitted = { manual = true, type = "Str" }
 SuggestionChosen = { manual = true, type = "Str" }
@@ -35,103 +36,103 @@ SuggestionChosen = { manual = true, type = "Str" }
 ItemClicked = { property = "Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
-IsEnabled = { default = "true" }
+IsEnabled = {}
 Click = {}
 ItemClicked = { manual = true, type = "Str" }
 CommandBarFlyoutClick = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
 Header = {}
-PlaceholderText = { unset = { default = "\"\"" } }
-IsTodayHighlighted = { default = "true" }
-IsCalendarOpen = { default = "false" }
-IsEnabled = { default = "true" }
+PlaceholderText = {}
+IsTodayHighlighted = {}
+IsCalendarOpen = {}
+IsEnabled = {}
 
 ["Microsoft.UI.Xaml.Controls.CalendarView"]
-IsTodayHighlighted = { default = "true" }
-IsGroupLabelVisible = { default = "true" }
-IsEnabled = { default = "true" }
+IsTodayHighlighted = {}
+IsGroupLabelVisible = {}
+IsEnabled = {}
 SelectedDatesChanged = {}
 
 ["Microsoft.UI.Xaml.Controls.Canvas"]
 
 ["Microsoft.UI.Xaml.Controls.CheckBox"]
-IsChecked = { required = true }
+IsChecked = {}
 Content = {}
-IsEnabled = { default = "true" }
+IsEnabled = {}
 Checked = { false_event = "Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ColorPicker"]
-IsAlphaEnabled = { default = "true" }
-IsHexInputVisible = { default = "true" }
-IsColorSliderVisible = { default = "true" }
-IsColorChannelTextInputVisible = { default = "true" }
+IsAlphaEnabled = {}
+IsHexInputVisible = {}
+IsColorSliderVisible = {}
+IsColorChannelTextInputVisible = {}
 ColorChanged = { manual = true, type = "Color" }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
-SelectedIndex = { default = "0" }
+SelectedIndex = {}
 Header = {}
-PlaceholderText = { unset = { default = "\"\"" } }
-IsEditable = { default = "false", unset = "custom" }
-IsEnabled = { default = "true" }
+PlaceholderText = {}
+IsEditable = {}
+IsEnabled = {}
 SelectionChanged = { manual = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.CommandBar"]
-DefaultLabelPosition = { default = "CommandBarDefaultLabelPosition::default()" }
+DefaultLabelPosition = {}
 Click = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ContentDialog"]
 Title = { type = "Str" }
 Content = {}
-PrimaryButtonText = { unset = { default = "\"\"" } }
-SecondaryButtonText = { unset = { default = "\"\"" } }
-CloseButtonText = { unset = { default = "\"\"" } }
-IsPrimaryButtonEnabled = { required = true }
-IsSecondaryButtonEnabled = { required = true }
+PrimaryButtonText = {}
+SecondaryButtonText = {}
+CloseButtonText = {}
+IsPrimaryButtonEnabled = {}
+IsSecondaryButtonEnabled = {}
 
 ["Microsoft.UI.Xaml.Controls.DatePicker"]
 Header = {}
-DayVisible = { default = "true" }
-MonthVisible = { default = "true" }
-YearVisible = { default = "true" }
-IsEnabled = { default = "true" }
+DayVisible = {}
+MonthVisible = {}
+YearVisible = {}
+IsEnabled = {}
 SelectedDateChanged = { manual = true, type = "DateTime" }
 
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
 Content = { type = "Str" }
-IsEnabled = { default = "true" }
+IsEnabled = {}
 ItemClicked = { manual = true, type = "Str" }
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Expander"]
-IsExpanded = { default = "false" }
+IsExpanded = {}
 Expanding = { false_event = "Collapsed" }
 
 ["Microsoft.UI.Xaml.Controls.Grid"]
-RowSpacing = { unset = { default = "0.0" } }
-ColumnSpacing = { unset = { default = "0.0" } }
+RowSpacing = {}
+ColumnSpacing = {}
 
 ["Microsoft.UI.Xaml.Controls.HyperlinkButton"]
-Content = { required = true }
-IsEnabled = { default = "true" }
+Content = { optional = false }
+IsEnabled = {}
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Image"]
-Stretch = { default = "Stretch::Uniform" }
+Stretch = {}
 
 ["Microsoft.UI.Xaml.Controls.InfoBadge"]
 
 ["Microsoft.UI.Xaml.Controls.InfoBar"]
-Title = { unset = { default = "\"\"" } }
-Message = { unset = { default = "\"\"" } }
-Severity = { default = "InfoBarSeverity::default()" }
-IsOpen = { default = "false" }
-IsClosable = { default = "true" }
+Title = {}
+Message = {}
+Severity = {}
+IsOpen = {}
+IsClosable = {}
 Closed = {}
 
 ["Microsoft.UI.Xaml.Controls.ListBox"]
 SelectedIndex = {}
-IsEnabled = { default = "true" }
+IsEnabled = {}
 SelectionChanged = { manual = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.MenuBar"]
@@ -139,11 +140,11 @@ ItemClicked = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
 IsPaneOpen = {}
-PaneDisplayMode = { default = "NavigationViewPaneDisplayMode::default()" }
-IsBackEnabled = { default = "false" }
-IsSettingsVisible = { default = "true" }
-IsPaneToggleButtonVisible = { default = "true", unset = "custom" }
-PaneTitle = { unset = { default = "\"\"" } }
+PaneDisplayMode = {}
+IsBackEnabled = {}
+IsSettingsVisible = {}
+IsPaneToggleButtonVisible = {}
+PaneTitle = {}
 Header = {}
 SelectionChanged = { manual = true, type = "Str" }
 BackRequested = {}
@@ -152,19 +153,19 @@ TextChanged = { manual = true, type = "Str" }
 SuggestionChosen = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NumberBox"]
-Value = { default = "0.0" }
+Value = {}
 Minimum = {}
 Maximum = {}
 Header = {}
-IsEnabled = { default = "true" }
+IsEnabled = {}
 ValueChanged = { property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.PasswordBox"]
-PlaceholderText = { unset = { default = "\"\"" } }
+PlaceholderText = {}
 Header = {}
-IsEnabled = { default = "true" }
-PasswordRevealMode = { default = "PasswordRevealMode::default()" }
-IsPasswordRevealButtonEnabled = { default = "true", unset = { default = "true" } }
+IsEnabled = {}
+PasswordRevealMode = {}
+IsPasswordRevealButtonEnabled = {}
 PasswordChanged = { property = "Password" }
 
 ["Microsoft.UI.Xaml.Controls.PersonPicture"]
@@ -172,158 +173,158 @@ DisplayName = {}
 Initials = {}
 
 ["Microsoft.UI.Xaml.Controls.Pivot"]
-SelectedIndex = { default = "0" }
+SelectedIndex = {}
 Title = {}
 SelectionChanged = { manual = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
-Value = { required = true }
-Minimum = { required = true }
-Maximum = { required = true }
-IsIndeterminate = { default = "false" }
+Value = {}
+Minimum = {}
+Maximum = {}
+IsIndeterminate = {}
 
 ["Microsoft.UI.Xaml.Controls.ProgressRing"]
-Value = { required = true }
-Minimum = { required = true }
-Maximum = { required = true }
-IsActive = { default = "false" }
-IsIndeterminate = { default = "false" }
+Value = {}
+Minimum = {}
+Maximum = {}
+IsActive = {}
+IsIndeterminate = {}
 
 ["Microsoft.UI.Xaml.Controls.RadioButton"]
 Content = {}
-IsChecked = { default = "false" }
-GroupName = { unset = { default = "\"\"" } }
-IsEnabled = { default = "true" }
+IsChecked = {}
+GroupName = {}
+IsEnabled = {}
 Checked = {}
 
 ["Microsoft.UI.Xaml.Controls.RadioButtons"]
 Header = {}
-SelectedIndex = { default = "0" }
+SelectedIndex = {}
 MaxColumns = {}
 SelectionChanged = { property = "SelectedIndex" }
 
 ["Microsoft.UI.Xaml.Controls.RatingControl"]
-Value = { default = "0.0" }
+Value = {}
 MaxRating = {}
-Caption = { unset = { default = "\"\"" } }
+Caption = {}
 PlaceholderValue = {}
-IsReadOnly = { default = "false", unset = "custom" }
+IsReadOnly = {}
 ValueChanged = { property = "Value" }
 
 ["Microsoft.UI.Xaml.Controls.RelativePanel"]
 
 ["Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"]
-Content = { required = true }
-IsEnabled = { default = "true" }
+Content = { optional = false }
+IsEnabled = {}
 Delay = {}
 Interval = {}
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.RichEditBox"]
-PlaceholderText = { unset = { default = "\"\"" } }
+PlaceholderText = {}
 Header = {}
-IsReadOnly = { default = "false", unset = "custom" }
+IsReadOnly = {}
 TextChanged = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
-HorizontalScrollBarVisibility = { required = true }
-VerticalScrollBarVisibility = { required = true }
+HorizontalScrollBarVisibility = {}
+VerticalScrollBarVisibility = {}
 
 ["Microsoft.UI.Xaml.Controls.ScrollViewer"]
-HorizontalScrollBarVisibility = { required = true }
-VerticalScrollBarVisibility = { required = true }
+HorizontalScrollBarVisibility = {}
+VerticalScrollBarVisibility = {}
 
 ["Microsoft.UI.Xaml.Controls.SelectorBar"]
 SelectionChanged = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Slider"]
-Minimum = { required = true }
-Maximum = { required = true }
-Value = { required = true }
+Minimum = {}
+Maximum = {}
+Value = {}
 Header = {}
-Orientation = { default = "Orientation::Horizontal" }
-IsEnabled = { default = "true" }
+Orientation = {}
+IsEnabled = {}
 ValueChanged = { property = "NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.SplitButton"]
 Content = { type = "Str" }
-IsEnabled = { default = "true" }
+IsEnabled = {}
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.SplitView"]
-IsPaneOpen = { default = "false" }
+IsPaneOpen = {}
 OpenPaneLength = {}
 CompactPaneLength = {}
 PaneClosed = {}
 
 ["Microsoft.UI.Xaml.Controls.StackPanel"]
-Orientation = { default = "Orientation::Vertical" }
-Spacing = { unset = { default = "0.0" } }
+Orientation = {}
+Spacing = {}
 
 ["Microsoft.UI.Xaml.Controls.TabView"]
-SelectedIndex = { default = "0" }
-CanReorderTabs = { default = "false" }
-IsAddTabButtonVisible = { default = "true" }
+SelectedIndex = {}
+CanReorderTabs = {}
+IsAddTabButtonVisible = {}
 SelectionChanged = { manual = true, type = "I32" }
 CloseRequested = { manual = true, type = "Str" }
 AddTabButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TeachingTip"]
-Title = { required = true }
+Title = {}
 Subtitle = {}
-IsOpen = { default = "false" }
-IsLightDismissEnabled = { default = "false", unset = "custom" }
-PreferredPlacement = { default = "TeachingTipPlacementMode::default()" }
+IsOpen = {}
+IsLightDismissEnabled = {}
+PreferredPlacement = {}
 Closed = {}
 ActionButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = { required = true, unset = { default = "\"\"" } }
-FontSize = { unset = { default = "14.0" } }
-TextWrapping = { default = "TextWrapping::NoWrap" }
-IsTextSelectionEnabled = { default = "false" }
+Text = {}
+FontSize = { optional = true }
+TextWrapping = {}
+IsTextSelectionEnabled = {}
 
 ["Microsoft.UI.Xaml.Controls.TextBox"]
-PlaceholderText = { unset = { default = "\"\"" } }
+PlaceholderText = {}
 Header = {}
-IsEnabled = { default = "true" }
-AcceptsReturn = { default = "false" }
-TextWrapping = { default = "TextWrapping::NoWrap" }
+IsEnabled = {}
+AcceptsReturn = {}
+TextWrapping = {}
 TextChanged = { property = "Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]
 Header = {}
 ClockIdentifier = {}
 MinuteIncrement = {}
-IsEnabled = { default = "true" }
+IsEnabled = {}
 SelectedTimeChanged = { manual = true, type = "TimeSpan" }
 
 ["Microsoft.UI.Xaml.Controls.TitleBar"]
-Title = { required = true }
-Subtitle = { unset = { default = "\"\"" } }
-IsBackButtonVisible = { default = "false" }
-IsBackButtonEnabled = { default = "false" }
-IsPaneToggleButtonVisible = { default = "false" }
+Title = {}
+Subtitle = {}
+IsBackButtonVisible = {}
+IsBackButtonEnabled = {}
+IsPaneToggleButtonVisible = {}
 BackRequested = {}
 PaneToggleRequested = {}
 
 ["Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"]
-IsChecked = { default = "false" }
-Content = { required = true }
-IsEnabled = { default = "true" }
+IsChecked = {}
+Content = { optional = false }
+IsEnabled = {}
 Checked = { false_event = "Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ToggleSwitch"]
-IsOn = { required = true }
+IsOn = {}
 OnContent = {}
 OffContent = {}
 Header = {}
-IsEnabled = { default = "true" }
+IsEnabled = {}
 Toggled = { property = "IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
-SelectionMode = { default = "TreeViewSelectionMode::Single" }
+SelectionMode = {}
 ItemInvoked = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Viewbox"]
-Stretch = { required = true }
+Stretch = {}

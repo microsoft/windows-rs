@@ -10,9 +10,9 @@ pub struct ContentDialog {
     pub modifiers: Modifiers,
     pub title: Option<String>,
     pub content: Option<String>,
-    pub primary_button_text: Option<String>,
-    pub secondary_button_text: Option<String>,
-    pub close_button_text: Option<String>,
+    pub primary_button_text: String,
+    pub secondary_button_text: String,
+    pub close_button_text: String,
     pub is_primary_button_enabled: bool,
     pub is_secondary_button_enabled: bool,
     pub is_open: bool,
@@ -54,15 +54,15 @@ impl ContentDialog {
         self
     }
     pub fn primary_button_text(mut self, s: impl Into<String>) -> Self {
-        self.primary_button_text = Some(s.into());
+        self.primary_button_text = s.into();
         self
     }
     pub fn secondary_button_text(mut self, s: impl Into<String>) -> Self {
-        self.secondary_button_text = Some(s.into());
+        self.secondary_button_text = s.into();
         self
     }
     pub fn close_button_text(mut self, s: impl Into<String>) -> Self {
-        self.close_button_text = Some(s.into());
+        self.close_button_text = s.into();
         self
     }
     pub fn is_primary_button_enabled(mut self, v: bool) -> Self {

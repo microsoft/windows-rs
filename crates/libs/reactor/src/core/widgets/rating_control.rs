@@ -1,15 +1,30 @@
 use super::*;
 
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RatingControl {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub value: f64,
-    pub max_rating: Option<i32>,
-    pub caption: Option<String>,
-    pub placeholder_value: Option<f64>,
+    pub max_rating: i32,
+    pub caption: String,
+    pub placeholder_value: f64,
     pub is_read_only: bool,
     pub on_value_changed: Option<Callback<f64>>,
+}
+
+impl Default for RatingControl {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            value: 0.0,
+            max_rating: 5,
+            caption: String::new(),
+            placeholder_value: -1.0,
+            is_read_only: false,
+            on_value_changed: None,
+        }
+    }
 }
 
 impl RatingControl {
@@ -21,17 +36,17 @@ impl RatingControl {
     }
 
     pub fn max_rating(mut self, max: i32) -> Self {
-        self.max_rating = Some(max);
+        self.max_rating = max;
         self
     }
 
     pub fn caption(mut self, s: impl Into<String>) -> Self {
-        self.caption = Some(s.into());
+        self.caption = s.into();
         self
     }
 
     pub fn placeholder_value(mut self, v: f64) -> Self {
-        self.placeholder_value = Some(v);
+        self.placeholder_value = v;
         self
     }
 

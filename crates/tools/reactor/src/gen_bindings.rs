@@ -19,8 +19,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
     let fn_name = ident(&format!("{}_bindings", to_snake_case(&ctrl.name)));
     let widget_type = ident(&ctrl.name);
 
-    let has_conditional_props = ctrl.prop.iter().any(|p| !p.required);
-    let all_unconditional = !has_conditional_props;
+    let has_optional_props = ctrl.prop.iter().any(|p| p.is_optional());
 
     let prop_stmts: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_binding).collect();
     let event_stmts: Vec<TokenStream> = ctrl.event.iter().map(gen_event_binding).collect();
@@ -32,7 +31,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
                 Vec::new()
             }
         }
-    } else if all_unconditional {
+    } else if !has_optional_props {
         // All items are unconditional — use vec![...] directly
         let prop_items: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_item).collect();
         let event_items: Vec<TokenStream> = ctrl.event.iter().map(gen_event_item).collect();
@@ -57,43 +56,9 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
     let prop = ident(p.prop());
     let field = ident(&p.field);
 
-    if p.required {
-        // Always emit — field is T, never skipped.
-        let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
-        quote! {
-            out.push(Binding::Prop(Prop::#prop, #value_expr));
-        }
-    } else if let Some(default_expr) = &p.default {
-        // Emit when value differs from the WinUI default.
-        if default_expr == "false" {
-            // `w.field != false` → `w.field`
-            let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
-            quote! {
-                if w.#field {
-                    out.push(Binding::Prop(Prop::#prop, #value_expr));
-                }
-            }
-        } else if default_expr == "true" {
-            // `w.field != true` → `!w.field`
-            let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
-            quote! {
-                if !w.#field {
-                    out.push(Binding::Prop(Prop::#prop, #value_expr));
-                }
-            }
-        } else {
-            let default_tokens: TokenStream = default_expr.parse().unwrap();
-            let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
-            quote! {
-                if w.#field != #default_tokens {
-                    out.push(Binding::Prop(Prop::#prop, #value_expr));
-                }
-            }
-        }
-    } else {
+    if p.is_optional() {
         // Optional — field is Option<T>, emit when Some.
         if p.is_enum_as_i32() {
-            // Enum properties: access inner i32 of WinRT struct.
             quote! {
                 if let Some(v) = w.#field {
                     out.push(Binding::Prop(Prop::#prop, PropValue::I32(v.0)));
@@ -114,6 +79,12 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
                     }
                 }
             }
+        }
+    } else {
+        // Always emit — field is T, never skipped.
+        let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
+        quote! {
+            out.push(Binding::Prop(Prop::#prop, #value_expr));
         }
     }
 }

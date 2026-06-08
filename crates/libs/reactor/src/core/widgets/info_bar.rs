@@ -4,8 +4,8 @@ use super::*;
 pub struct InfoBar {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub title: Option<String>,
-    pub message: Option<String>,
+    pub title: String,
+    pub message: String,
     pub severity: InfoBarSeverity,
     pub is_open: bool,
     pub is_closable: bool,
@@ -16,8 +16,8 @@ impl Default for InfoBar {
         Self {
             key: None,
             modifiers: Modifiers::default(),
-            title: None,
-            message: None,
+            title: String::new(),
+            message: String::new(),
             severity: InfoBarSeverity::default(),
             is_open: false,
             is_closable: true,
@@ -29,13 +29,13 @@ pub use crate::bindings::InfoBarSeverity;
 impl InfoBar {
     pub fn new(title: impl Into<String>) -> Self {
         Self {
-            title: Some(title.into()),
+            title: title.into(),
             is_open: true,
             ..Default::default()
         }
     }
     pub fn message(mut self, s: impl Into<String>) -> Self {
-        self.message = Some(s.into());
+        self.message = s.into();
         self
     }
     pub fn severity(mut self, s: InfoBarSeverity) -> Self {

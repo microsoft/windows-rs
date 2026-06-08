@@ -6,8 +6,8 @@ pub struct Grid {
     pub modifiers: Modifiers,
     pub rows: Vec<GridLength>,
     pub columns: Vec<GridLength>,
-    pub row_spacing: Option<f64>,
-    pub column_spacing: Option<f64>,
+    pub row_spacing: f64,
+    pub column_spacing: f64,
     pub children: Vec<Element>,
 }
 
@@ -46,12 +46,12 @@ impl Grid {
     }
 
     pub fn row_spacing(mut self, v: f64) -> Self {
-        self.row_spacing = Some(v);
+        self.row_spacing = v;
         self
     }
 
     pub fn column_spacing(mut self, v: f64) -> Self {
-        self.column_spacing = Some(v);
+        self.column_spacing = v;
         self
     }
 }

@@ -6,7 +6,7 @@ pub struct TextBox {
     pub modifiers: Modifiers,
     pub value: String,
     pub on_text_changed: Option<Callback<String>>,
-    pub placeholder_text: Option<String>,
+    pub placeholder_text: String,
     pub header: Option<String>,
     pub is_enabled: bool,
     pub accepts_return: bool,
@@ -41,7 +41,7 @@ impl TextBox {
     }
 
     pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
-        self.placeholder_text = Some(s.into());
+        self.placeholder_text = s.into();
         self
     }
 

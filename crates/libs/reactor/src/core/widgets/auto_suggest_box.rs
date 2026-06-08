@@ -8,7 +8,7 @@ pub struct AutoSuggestBox {
     pub modifiers: Modifiers,
     pub text: String,
     pub items: Vec<String>,
-    pub placeholder_text: Option<String>,
+    pub placeholder_text: String,
     pub header: Option<String>,
     pub is_enabled: bool,
     pub on_text_changed: Option<Callback<String>>,
@@ -35,7 +35,7 @@ impl AutoSuggestBox {
     }
 
     pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
-        self.placeholder_text = Some(s.into());
+        self.placeholder_text = s.into();
         self
     }
 

@@ -24,8 +24,8 @@ pub struct SplitView {
     pub pane: Box<Element>,
     pub display_mode: SplitViewDisplayMode,
     pub is_pane_open: bool,
-    pub open_pane_length: Option<f64>,
-    pub compact_pane_length: Option<f64>,
+    pub open_pane_length: f64,
+    pub compact_pane_length: f64,
     pub on_pane_closed: Option<Callback<()>>,
 }
 
@@ -38,8 +38,8 @@ impl Default for SplitView {
             pane: Box::new(Element::Empty),
             display_mode: SplitViewDisplayMode::default(),
             is_pane_open: true,
-            open_pane_length: None,
-            compact_pane_length: None,
+            open_pane_length: 320.0,
+            compact_pane_length: 48.0,
             on_pane_closed: None,
         }
     }
@@ -69,12 +69,12 @@ impl SplitView {
     }
 
     pub fn open_pane_length(mut self, len: f64) -> Self {
-        self.open_pane_length = Some(len);
+        self.open_pane_length = len;
         self
     }
 
     pub fn compact_pane_length(mut self, len: f64) -> Self {
-        self.compact_pane_length = Some(len);
+        self.compact_pane_length = len;
         self
     }
 

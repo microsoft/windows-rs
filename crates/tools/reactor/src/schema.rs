@@ -49,15 +49,17 @@ pub struct PropDecl {
     /// `PropValue` variant name (e.g. `"Str"`, `"F64"`, `"Bool"`).
     /// If omitted, inferred from metadata parameter type.
     pub value: Option<String>,
-    /// Whether the binding is always emitted (field is `T`, never skipped).
-    /// Used for core widget state like Content, Items, Value.
-    pub required: bool,
 
-    /// WinUI default value expression (e.g. `"true"`, `"0"`, `"Stretch::default()"`).
-    /// When set, the field type is `T` (not Option) and the binding is only
-    /// emitted when the value differs from this default.
-    /// When absent and `required` is false, the field is `Option<T>`.
-    pub default: Option<String>,
+    /// When true, the widget struct field is `Option<T>` and the binding is
+    /// only emitted when `Some`. Use for properties where `T::default()` does
+    /// not match the WinUI default (e.g. FontSize where 0.0 ≠ 14.0).
+    ///
+    /// Normally inferred from setter kind: Textblock and IReference setters
+    /// default to optional (they need `None` to clear the value).
+    /// Set `optional = true` to force Method setter props to Option<T>.
+    /// Set `optional = false` to override auto-inference on Textblock/IReference
+    /// setters that are always required (e.g. HyperlinkButton.Content).
+    pub optional: Option<bool>,
 
     // ── Setter (pick one) ─────────────────────────────────────────
     /// COM method name (e.g. `"put_Text"`).  The codegen tool resolves
@@ -87,12 +89,6 @@ pub struct PropDecl {
     /// Multi-variant enum mapping setter. Maps each Rust enum variant to a
     /// WinUI enum variant and calls one `put_*` method.
     pub method_enum_map: Option<EnumMapSetter>,
-
-    /// How `PropValue::Unset` is handled.
-    /// - `unset = "custom"` → auto-generates `custom_unset_{control}_{field}`
-    /// - `unset = { default = "value" }` → reset to literal
-    /// - `unset = { fn = "name" }` → call explicit function
-    pub unset: Option<UnsetPolicy>,
 
     /// Whether the PropValue variant wraps a Copy type (no `.clone()` needed).
     /// Inferred automatically: primitives, enum_maps, and metadata
@@ -165,6 +161,17 @@ impl PropDecl {
     /// The generated bindings must emit `PropValue::I32(w.field as i32)`.
     pub fn is_enum_as_i32(&self) -> bool {
         self.enum_as_i32
+    }
+
+    /// Whether this property uses `Option<T>` in the widget struct.
+    ///
+    /// Explicit `optional` overrides auto-inference. When not set, Textblock
+    /// and IReference setters default to optional (they need `None` to clear).
+    pub fn is_optional(&self) -> bool {
+        if let Some(explicit) = self.optional {
+            return explicit;
+        }
+        self.method_textblock.is_some() || self.method_ireference.is_some()
     }
 
     /// Fill in default values that can be inferred.
@@ -249,16 +256,6 @@ impl PropDecl {
                 self.value = Some(value);
             }
         }
-
-        // Infer unset from default: auto-reset to the declared default value.
-        if self.unset.is_none()
-            && self.method.is_some()
-            && let Some(ref default_expr) = self.default
-        {
-            self.unset = Some(UnsetPolicy::Default {
-                default: default_expr.clone(),
-            });
-        }
     }
 
     /// Get the resolved setter kind, validating mutual exclusion.
@@ -289,39 +286,6 @@ impl PropDecl {
             SetterKind::MethodEnumMap { setter: s }
         } else {
             SetterKind::Custom
-        }
-    }
-}
-
-/// What happens when a previously-set prop is removed (`PropValue::Unset`).
-#[derive(Clone, Debug)]
-pub enum UnsetPolicy {
-    /// `unset = "custom"` — hand-written in mod.rs, skip codegen.
-    Custom,
-    /// `unset = { default = "expr" }` — reset to literal default.
-    Default { default: String },
-}
-
-impl<'de> serde::Deserialize<'de> for UnsetPolicy {
-    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
-        let value = toml::Value::deserialize(deserializer)?;
-        match &value {
-            toml::Value::String(s) if s == "custom" => Ok(UnsetPolicy::Custom),
-            toml::Value::String(s) => Err(serde::de::Error::custom(format!(
-                "unknown unset policy: \"{s}\""
-            ))),
-            toml::Value::Table(t) => {
-                if let Some(d) = t.get("default").and_then(|v| v.as_str()) {
-                    Ok(UnsetPolicy::Default {
-                        default: d.to_string(),
-                    })
-                } else {
-                    Err(serde::de::Error::custom(
-                        "unset table must have a 'default' key",
-                    ))
-                }
-            }
-            _ => Err(serde::de::Error::custom("unset must be a string or table")),
         }
     }
 }

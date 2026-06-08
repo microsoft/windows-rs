@@ -3057,9 +3057,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         Element::StackPanel(s) => {
             let sp = Xaml::StackPanel::new().ok()?;
             sp.put_Orientation(s.orientation).ok()?;
-            if let Some(sp_val) = s.spacing {
-                sp.put_Spacing(sp_val).ok()?;
-            }
+            sp.put_Spacing(s.spacing).ok()?;
             let children = sp
                 .cast::<Xaml::IPanel>()
                 .ok()?

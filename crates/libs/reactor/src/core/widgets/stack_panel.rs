@@ -7,7 +7,7 @@ pub struct StackPanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub orientation: Orientation,
-    pub spacing: Option<f64>,
+    pub spacing: f64,
     pub children: Vec<Element>,
 }
 impl StackPanel {
@@ -37,7 +37,7 @@ impl Widget for StackPanel {
 
 impl StackPanel {
     pub fn spacing(mut self, v: f64) -> Self {
-        self.spacing = Some(v);
+        self.spacing = v;
         self
     }
 }

@@ -1,13 +1,26 @@
 use super::*;
 
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ListBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub items: Vec<String>,
-    pub selected_index: Option<i32>,
+    pub selected_index: i32,
     pub is_enabled: bool,
     pub on_selection_changed: Option<Callback<i32>>,
+}
+
+impl Default for ListBox {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            items: Vec::new(),
+            selected_index: -1,
+            is_enabled: true,
+            on_selection_changed: None,
+        }
+    }
 }
 
 impl ListBox {
@@ -24,7 +37,7 @@ impl ListBox {
     }
 
     pub fn selected_index(mut self, idx: i32) -> Self {
-        self.selected_index = Some(idx);
+        self.selected_index = idx;
         self
     }
 

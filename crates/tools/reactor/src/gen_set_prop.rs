@@ -11,7 +11,6 @@ use quote::quote;
 use crate::helpers::*;
 use crate::metadata::MetadataResolver;
 use crate::schema::*;
-
 // ── Intermediate representation ──────────────────────────────────────
 
 /// A match arm descriptor, collected before rendering.
@@ -54,12 +53,6 @@ enum Body {
         method: String,
         winui_type: String,
     },
-    /// `{cast}.{method}({default})?`
-    UnsetDefault {
-        iface: String,
-        method: String,
-        default_expr: String,
-    },
 }
 
 impl Body {
@@ -89,11 +82,6 @@ impl Body {
             } => {
                 format!("enum.{iface}.{method}.{winui_type}")
             }
-            Self::UnsetDefault {
-                iface,
-                method,
-                default_expr,
-            } => format!("unset.{iface}.{method}.{default_expr}"),
         }
     }
 }
@@ -266,23 +254,6 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
         }
     }
 
-    // Unset arm — only for Method setters with a default reset value.
-    if let Some(UnsetPolicy::Default { default }) = &p.unset
-        && let Some(method) = &p.method
-    {
-        let iface = resolve_iface(resolver, handle, method);
-        descs.push(make_arm(
-            prop,
-            "Unset",
-            handle,
-            Body::UnsetDefault {
-                iface,
-                method: method.clone(),
-                default_expr: default.clone(),
-            },
-        ));
-    }
-
     descs
 }
 
@@ -429,16 +400,6 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
             quote! {
                 #cast.#m(Xaml::#wt(*v))?;
             }
-        }
-        Body::UnsetDefault {
-            iface,
-            method,
-            default_expr,
-        } => {
-            let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
-            let default: TokenStream = default_expr.parse().unwrap();
-            quote! { #cast.#m(#default)?; }
         }
     }
 }

@@ -44,12 +44,12 @@ pub struct NavigationView {
     pub content: Box<Element>,
     pub selected_tag: Option<String>,
     pub on_selection_changed: Option<Callback<String>>,
-    pub is_pane_open: Option<bool>,
+    pub is_pane_open: bool,
     pub pane_display_mode: NavigationViewPaneDisplayMode,
     pub is_back_enabled: bool,
     pub on_back_requested: Option<Callback<()>>,
     pub is_settings_visible: bool,
-    pub pane_title: Option<String>,
+    pub pane_title: String,
     pub header: Option<String>,
     pub auto_suggest_placeholder: Option<String>,
     pub auto_suggest_items: Vec<String>,
@@ -68,12 +68,12 @@ impl Default for NavigationView {
             content: Box::new(Element::Empty),
             selected_tag: None,
             on_selection_changed: None,
-            is_pane_open: None,
+            is_pane_open: true,
             pane_display_mode: NavigationViewPaneDisplayMode::Auto,
             is_back_enabled: false,
             on_back_requested: None,
             is_settings_visible: true,
-            pane_title: None,
+            pane_title: String::new(),
             header: None,
             auto_suggest_placeholder: None,
             auto_suggest_items: Vec::new(),
@@ -105,7 +105,7 @@ impl NavigationView {
         self
     }
     pub fn pane_open(mut self, v: bool) -> Self {
-        self.is_pane_open = Some(v);
+        self.is_pane_open = v;
         self
     }
     pub fn pane_display_mode(mut self, mode: NavigationViewPaneDisplayMode) -> Self {
@@ -125,7 +125,7 @@ impl NavigationView {
         self
     }
     pub fn pane_title(mut self, s: impl Into<String>) -> Self {
-        self.pane_title = Some(s.into());
+        self.pane_title = s.into();
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {

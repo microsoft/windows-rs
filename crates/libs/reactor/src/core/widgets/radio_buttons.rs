@@ -3,15 +3,28 @@ use super::*;
 /// W3 — `Microsoft.UI.Xaml.Controls.RadioButtons`. A grouped collection
 /// of radio options with mutually-exclusive selection, exposed as a
 /// flat list of strings.
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RadioButtons {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub header: Option<String>,
     pub items: Vec<String>,
     pub selected_index: i32,
-    pub max_columns: Option<i32>,
+    pub max_columns: i32,
     pub on_selection_changed: Option<Callback<i32>>,
+}
+impl Default for RadioButtons {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            header: None,
+            items: Vec::new(),
+            selected_index: -1,
+            max_columns: 1,
+            on_selection_changed: None,
+        }
+    }
 }
 impl RadioButtons {
     pub fn new<I, S>(items: I) -> Self
@@ -21,7 +34,6 @@ impl RadioButtons {
     {
         Self {
             items: items.into_iter().map(Into::into).collect(),
-            selected_index: -1,
             ..Default::default()
         }
     }
@@ -34,7 +46,7 @@ impl RadioButtons {
         self
     }
     pub fn max_columns(mut self, n: i32) -> Self {
-        self.max_columns = Some(n);
+        self.max_columns = n;
         self
     }
     pub fn on_selection_changed(mut self, f: impl IntoCallback<i32>) -> Self {

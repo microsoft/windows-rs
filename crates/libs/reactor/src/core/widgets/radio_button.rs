@@ -7,7 +7,7 @@ pub struct RadioButton {
     pub content: Option<String>,
     pub is_checked: bool,
     pub on_checked: Option<Callback<()>>,
-    pub group_name: Option<String>,
+    pub group_name: String,
     pub is_enabled: bool,
 }
 impl RadioButton {
@@ -27,7 +27,7 @@ impl RadioButton {
         self
     }
     pub fn group(mut self, s: impl Into<String>) -> Self {
-        self.group_name = Some(s.into());
+        self.group_name = s.into();
         self
     }
     pub fn enabled(mut self, enabled: bool) -> Self {

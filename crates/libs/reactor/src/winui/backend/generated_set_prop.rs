@@ -14,20 +14,11 @@ pub(crate) fn dispatch(
         (Prop::AcceptsReturn, PropValue::Bool(v), Handle::TextBox(h)) => {
             h.put_AcceptsReturn(*v)?;
         }
-        (Prop::AcceptsReturn, PropValue::Unset, Handle::TextBox(h)) => {
-            h.put_AcceptsReturn(false)?;
-        }
         (Prop::CanReorderTabs, PropValue::Bool(v), Handle::TabView(h)) => {
             h.put_CanReorderTabs(*v)?;
         }
-        (Prop::CanReorderTabs, PropValue::Unset, Handle::TabView(h)) => {
-            h.put_CanReorderTabs(false)?;
-        }
         (Prop::Caption, PropValue::Str(v), Handle::RatingControl(h)) => {
             h.put_Caption(v.as_str())?;
-        }
-        (Prop::Caption, PropValue::Unset, Handle::RatingControl(h)) => {
-            h.put_Caption("")?;
         }
         (Prop::ClockIdentifier, PropValue::Str(v), Handle::TimePicker(h)) => {
             h.put_ClockIdentifier(v.as_str())?;
@@ -35,14 +26,8 @@ pub(crate) fn dispatch(
         (Prop::CloseButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
             h.put_CloseButtonText(v.as_str())?;
         }
-        (Prop::CloseButtonText, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.put_CloseButtonText("")?;
-        }
         (Prop::ColumnSpacing, PropValue::F64(v), Handle::Grid(h)) => {
             h.put_ColumnSpacing(*v)?;
-        }
-        (Prop::ColumnSpacing, PropValue::Unset, Handle::Grid(h)) => {
-            h.put_ColumnSpacing(0.0)?;
         }
         (Prop::CompactPaneLength, PropValue::F64(v), Handle::SplitView(h)) => {
             h.put_CompactPaneLength(*v)?;
@@ -87,9 +72,6 @@ pub(crate) fn dispatch(
         (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.put_DayVisible(*v)?;
         }
-        (Prop::DayVisible, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.put_DayVisible(true)?;
-        }
         (Prop::DefaultLabelPosition, PropValue::I32(v), Handle::CommandBar(h)) => {
             h.put_DefaultLabelPosition(Xaml::CommandBarDefaultLabelPosition(*v))?;
         }
@@ -102,14 +84,8 @@ pub(crate) fn dispatch(
         (Prop::FontSize, PropValue::F64(v), Handle::TextBlock(h)) => {
             h.put_FontSize(*v)?;
         }
-        (Prop::FontSize, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.put_FontSize(14.0)?;
-        }
         (Prop::GroupName, PropValue::Str(v), Handle::RadioButton(h)) => {
             h.put_GroupName(v.as_str())?;
-        }
-        (Prop::GroupName, PropValue::Unset, Handle::RadioButton(h)) => {
-            h.put_GroupName("")?;
         }
         (Prop::Header, PropValue::Str(v), Handle::AutoSuggestBox(h)) => {
             let insp = windows_reference::IReference::from(v.as_str());
@@ -217,45 +193,23 @@ pub(crate) fn dispatch(
         (Prop::IsActive, PropValue::Bool(v), Handle::ProgressRing(h)) => {
             h.put_IsActive(*v)?;
         }
-        (Prop::IsActive, PropValue::Unset, Handle::ProgressRing(h)) => {
-            h.put_IsActive(false)?;
-        }
         (Prop::IsAddTabButtonVisible, PropValue::Bool(v), Handle::TabView(h)) => {
             h.put_IsAddTabButtonVisible(*v)?;
-        }
-        (Prop::IsAddTabButtonVisible, PropValue::Unset, Handle::TabView(h)) => {
-            h.put_IsAddTabButtonVisible(true)?;
         }
         (Prop::IsAlphaEnabled, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.put_IsAlphaEnabled(*v)?;
         }
-        (Prop::IsAlphaEnabled, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.put_IsAlphaEnabled(true)?;
-        }
         (Prop::IsBackButtonEnabled, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.put_IsBackButtonEnabled(*v)?;
-        }
-        (Prop::IsBackButtonEnabled, PropValue::Unset, Handle::TitleBar(h)) => {
-            h.put_IsBackButtonEnabled(false)?;
         }
         (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.put_IsBackButtonVisible(*v)?;
         }
-        (Prop::IsBackButtonVisible, PropValue::Unset, Handle::TitleBar(h)) => {
-            h.put_IsBackButtonVisible(false)?;
-        }
         (Prop::IsBackEnabled, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?.put_IsBackEnabled(*v)?;
         }
-        (Prop::IsBackEnabled, PropValue::Unset, Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView2>()?
-                .put_IsBackEnabled(false)?;
-        }
         (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(h)) => {
             h.put_IsCalendarOpen(*v)?;
-        }
-        (Prop::IsCalendarOpen, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.put_IsCalendarOpen(false)?;
         }
         (
             Prop::IsChecked,
@@ -278,20 +232,11 @@ pub(crate) fn dispatch(
         (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(h)) => {
             h.put_IsClosable(*v)?;
         }
-        (Prop::IsClosable, PropValue::Unset, Handle::InfoBar(h)) => {
-            h.put_IsClosable(true)?;
-        }
         (Prop::IsColorChannelTextInputVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.put_IsColorChannelTextInputVisible(*v)?;
         }
-        (Prop::IsColorChannelTextInputVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.put_IsColorChannelTextInputVisible(true)?;
-        }
         (Prop::IsColorSliderVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.put_IsColorSliderVisible(*v)?;
-        }
-        (Prop::IsColorSliderVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.put_IsColorSliderVisible(true)?;
         }
         (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(h)) => {
             h.put_IsEditable(*v)?;
@@ -322,61 +267,20 @@ pub(crate) fn dispatch(
         ) => {
             handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(*v)?;
         }
-        (
-            Prop::IsEnabled,
-            PropValue::Unset,
-            Handle::AutoSuggestBox(_)
-            | Handle::Button(_)
-            | Handle::CalendarDatePicker(_)
-            | Handle::CalendarView(_)
-            | Handle::CheckBox(_)
-            | Handle::ComboBox(_)
-            | Handle::DatePicker(_)
-            | Handle::DropDownButton(_)
-            | Handle::HyperlinkButton(_)
-            | Handle::ListBox(_)
-            | Handle::NumberBox(_)
-            | Handle::PasswordBox(_)
-            | Handle::RadioButton(_)
-            | Handle::RepeatButton(_)
-            | Handle::Slider(_)
-            | Handle::SplitButton(_)
-            | Handle::TextBox(_)
-            | Handle::TimePicker(_)
-            | Handle::ToggleButton(_)
-            | Handle::ToggleSwitch(_),
-        ) => {
-            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(true)?;
-        }
         (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(h)) => {
             h.put_IsExpanded(*v)?;
-        }
-        (Prop::IsExpanded, PropValue::Unset, Handle::Expander(h)) => {
-            h.put_IsExpanded(false)?;
         }
         (Prop::IsGroupLabelVisible, PropValue::Bool(v), Handle::CalendarView(h)) => {
             h.put_IsGroupLabelVisible(*v)?;
         }
-        (Prop::IsGroupLabelVisible, PropValue::Unset, Handle::CalendarView(h)) => {
-            h.put_IsGroupLabelVisible(true)?;
-        }
         (Prop::IsHexInputVisible, PropValue::Bool(v), Handle::ColorPicker(h)) => {
             h.put_IsHexInputVisible(*v)?;
-        }
-        (Prop::IsHexInputVisible, PropValue::Unset, Handle::ColorPicker(h)) => {
-            h.put_IsHexInputVisible(true)?;
         }
         (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressBar(h)) => {
             h.put_IsIndeterminate(*v)?;
         }
         (Prop::IsIndeterminate, PropValue::Bool(v), Handle::ProgressRing(h)) => {
             h.put_IsIndeterminate(*v)?;
-        }
-        (Prop::IsIndeterminate, PropValue::Unset, Handle::ProgressBar(h)) => {
-            h.put_IsIndeterminate(false)?;
-        }
-        (Prop::IsIndeterminate, PropValue::Unset, Handle::ProgressRing(h)) => {
-            h.put_IsIndeterminate(false)?;
         }
         (Prop::IsLightDismissEnabled, PropValue::Bool(v), Handle::TeachingTip(h)) => {
             h.put_IsLightDismissEnabled(*v)?;
@@ -390,20 +294,11 @@ pub(crate) fn dispatch(
         (Prop::IsOpen, PropValue::Bool(v), Handle::TeachingTip(h)) => {
             h.put_IsOpen(*v)?;
         }
-        (Prop::IsOpen, PropValue::Unset, Handle::InfoBar(h)) => {
-            h.put_IsOpen(false)?;
-        }
-        (Prop::IsOpen, PropValue::Unset, Handle::TeachingTip(h)) => {
-            h.put_IsOpen(false)?;
-        }
         (Prop::IsPaneOpen, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.put_IsPaneOpen(*v)?;
         }
         (Prop::IsPaneOpen, PropValue::Bool(v), Handle::SplitView(h)) => {
             h.put_IsPaneOpen(*v)?;
-        }
-        (Prop::IsPaneOpen, PropValue::Unset, Handle::SplitView(h)) => {
-            h.put_IsPaneOpen(false)?;
         }
         (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.put_IsPaneToggleButtonVisible(*v)?;
@@ -411,14 +306,8 @@ pub(crate) fn dispatch(
         (Prop::IsPaneToggleButtonVisible, PropValue::Bool(v), Handle::TitleBar(h)) => {
             h.put_IsPaneToggleButtonVisible(*v)?;
         }
-        (Prop::IsPaneToggleButtonVisible, PropValue::Unset, Handle::TitleBar(h)) => {
-            h.put_IsPaneToggleButtonVisible(false)?;
-        }
         (Prop::IsPasswordRevealButtonEnabled, PropValue::Bool(v), Handle::PasswordBox(h)) => {
             h.put_IsPasswordRevealButtonEnabled(*v)?;
-        }
-        (Prop::IsPasswordRevealButtonEnabled, PropValue::Unset, Handle::PasswordBox(h)) => {
-            h.put_IsPasswordRevealButtonEnabled(true)?;
         }
         (Prop::IsPrimaryButtonEnabled, PropValue::Bool(v), Handle::ContentDialog(h)) => {
             h.put_IsPrimaryButtonEnabled(*v)?;
@@ -435,26 +324,14 @@ pub(crate) fn dispatch(
         (Prop::IsSettingsVisible, PropValue::Bool(v), Handle::NavigationView(h)) => {
             h.put_IsSettingsVisible(*v)?;
         }
-        (Prop::IsSettingsVisible, PropValue::Unset, Handle::NavigationView(h)) => {
-            h.put_IsSettingsVisible(true)?;
-        }
         (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::TextBlock(h)) => {
             h.put_IsTextSelectionEnabled(*v)?;
-        }
-        (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.put_IsTextSelectionEnabled(false)?;
         }
         (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarDatePicker(h)) => {
             h.put_IsTodayHighlighted(*v)?;
         }
         (Prop::IsTodayHighlighted, PropValue::Bool(v), Handle::CalendarView(h)) => {
             h.put_IsTodayHighlighted(*v)?;
-        }
-        (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.put_IsTodayHighlighted(true)?;
-        }
-        (Prop::IsTodayHighlighted, PropValue::Unset, Handle::CalendarView(h)) => {
-            h.put_IsTodayHighlighted(true)?;
         }
         (Prop::MaxColumns, PropValue::I32(v), Handle::RadioButtons(h)) => {
             h.put_MaxColumns(*v)?;
@@ -474,9 +351,6 @@ pub(crate) fn dispatch(
         (Prop::Message, PropValue::Str(v), Handle::InfoBar(h)) => {
             h.put_Message(v.as_str())?;
         }
-        (Prop::Message, PropValue::Unset, Handle::InfoBar(h)) => {
-            h.put_Message("")?;
-        }
         (Prop::Minimum, PropValue::F64(v), Handle::NumberBox(h)) => {
             h.put_Minimum(*v)?;
         }
@@ -491,9 +365,6 @@ pub(crate) fn dispatch(
         }
         (Prop::MonthVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.put_MonthVisible(*v)?;
-        }
-        (Prop::MonthVisible, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.put_MonthVisible(true)?;
         }
         (Prop::OffContent, PropValue::Str(v), Handle::ToggleSwitch(h)) => {
             let tb = string_as_textblock(v.as_str())?;
@@ -526,9 +397,6 @@ pub(crate) fn dispatch(
             h.cast::<Xaml::INavigationView2>()?
                 .put_PaneTitle(v.as_str())?;
         }
-        (Prop::PaneTitle, PropValue::Unset, Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView2>()?.put_PaneTitle("")?;
-        }
         (Prop::PasswordRevealMode, PropValue::I32(v), Handle::PasswordBox(h)) => {
             h.put_PasswordRevealMode(Xaml::PasswordRevealMode(*v))?;
         }
@@ -550,21 +418,6 @@ pub(crate) fn dispatch(
         (Prop::PlaceholderText, PropValue::Str(v), Handle::TextBox(h)) => {
             h.put_PlaceholderText(v.as_str())?;
         }
-        (Prop::PlaceholderText, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
-            h.put_PlaceholderText("")?;
-        }
-        (Prop::PlaceholderText, PropValue::Unset, Handle::ComboBox(h)) => {
-            h.put_PlaceholderText("")?;
-        }
-        (Prop::PlaceholderText, PropValue::Unset, Handle::PasswordBox(h)) => {
-            h.put_PlaceholderText("")?;
-        }
-        (Prop::PlaceholderText, PropValue::Unset, Handle::RichEditBox(h)) => {
-            h.put_PlaceholderText("")?;
-        }
-        (Prop::PlaceholderText, PropValue::Unset, Handle::TextBox(h)) => {
-            h.put_PlaceholderText("")?;
-        }
         (Prop::PlaceholderValue, PropValue::F64(v), Handle::RatingControl(h)) => {
             h.put_PlaceholderValue(*v)?;
         }
@@ -574,20 +427,11 @@ pub(crate) fn dispatch(
         (Prop::PrimaryButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
             h.put_PrimaryButtonText(v.as_str())?;
         }
-        (Prop::PrimaryButtonText, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.put_PrimaryButtonText("")?;
-        }
         (Prop::RowSpacing, PropValue::F64(v), Handle::Grid(h)) => {
             h.put_RowSpacing(*v)?;
         }
-        (Prop::RowSpacing, PropValue::Unset, Handle::Grid(h)) => {
-            h.put_RowSpacing(0.0)?;
-        }
         (Prop::SecondaryButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
             h.put_SecondaryButtonText(v.as_str())?;
-        }
-        (Prop::SecondaryButtonText, PropValue::Unset, Handle::ContentDialog(h)) => {
-            h.put_SecondaryButtonText("")?;
         }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::Pivot(h)) => {
             h.put_SelectedIndex(*v)?;
@@ -603,18 +447,6 @@ pub(crate) fn dispatch(
         (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(h)) => {
             h.put_SelectedIndex(*v)?;
         }
-        (Prop::SelectedIndex, PropValue::Unset, Handle::Pivot(h)) => {
-            h.put_SelectedIndex(0)?;
-        }
-        (Prop::SelectedIndex, PropValue::Unset, Handle::RadioButtons(h)) => {
-            h.put_SelectedIndex(0)?;
-        }
-        (Prop::SelectedIndex, PropValue::Unset, Handle::ComboBox(h)) => {
-            h.cast::<Xaml::ISelector>()?.put_SelectedIndex(0)?;
-        }
-        (Prop::SelectedIndex, PropValue::Unset, Handle::TabView(h)) => {
-            h.put_SelectedIndex(0)?;
-        }
         (Prop::SelectionMode, PropValue::I32(v), Handle::TreeView(h)) => {
             h.put_SelectionMode(Xaml::TreeViewSelectionMode(*v))?;
         }
@@ -623,9 +455,6 @@ pub(crate) fn dispatch(
         }
         (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(h)) => {
             h.put_Spacing(*v)?;
-        }
-        (Prop::Spacing, PropValue::Unset, Handle::StackPanel(h)) => {
-            h.put_Spacing(0.0)?;
         }
         (Prop::Stretch, PropValue::I32(v), Handle::Image(h)) => {
             h.put_Stretch(Xaml::Stretch(*v))?;
@@ -639,14 +468,8 @@ pub(crate) fn dispatch(
         (Prop::Subtitle, PropValue::Str(v), Handle::TitleBar(h)) => {
             h.put_Subtitle(v.as_str())?;
         }
-        (Prop::Subtitle, PropValue::Unset, Handle::TitleBar(h)) => {
-            h.put_Subtitle("")?;
-        }
         (Prop::Text, PropValue::Str(v), Handle::TextBlock(h)) => {
             h.put_Text(v.as_str())?;
-        }
-        (Prop::Text, PropValue::Unset, Handle::TextBlock(h)) => {
-            h.put_Text("")?;
         }
         (Prop::TextWrapping, PropValue::I32(v), Handle::TextBlock(h)) => {
             h.put_TextWrapping(Xaml::TextWrapping(*v))?;
@@ -677,9 +500,6 @@ pub(crate) fn dispatch(
         (Prop::Title, PropValue::Unset, Handle::Pivot(h)) => {
             h.put_Title(None)?;
         }
-        (Prop::Title, PropValue::Unset, Handle::InfoBar(h)) => {
-            h.put_Title("")?;
-        }
         (Prop::Value, PropValue::F64(v), Handle::NumberBox(h)) => {
             h.put_Value(*v)?;
         }
@@ -692,12 +512,6 @@ pub(crate) fn dispatch(
         (Prop::Value, PropValue::F64(v), Handle::RatingControl(h)) => {
             h.put_Value(*v)?;
         }
-        (Prop::Value, PropValue::Unset, Handle::NumberBox(h)) => {
-            h.put_Value(0.0)?;
-        }
-        (Prop::Value, PropValue::Unset, Handle::RatingControl(h)) => {
-            h.put_Value(0.0)?;
-        }
         (Prop::VerticalScrollBarVisibility, PropValue::I32(v), Handle::ScrollView(h)) => {
             h.put_VerticalScrollBarVisibility(Xaml::ScrollingScrollBarVisibility(*v))?;
         }
@@ -706,9 +520,6 @@ pub(crate) fn dispatch(
         }
         (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.put_YearVisible(*v)?;
-        }
-        (Prop::YearVisible, PropValue::Unset, Handle::DatePicker(h)) => {
-            h.put_YearVisible(true)?;
         }
         _ => return Ok(false),
     }
