@@ -69,7 +69,7 @@ pub struct PropDecl {
     // ── Setter (pick one) ─────────────────────────────────────────
     /// COM method name (e.g. `"put_Text"`).  The codegen tool resolves
     /// the owning interface from winmd metadata automatically.
-    /// Mutually exclusive with `setter_fn` and `method_textblock`.
+    /// Mutually exclusive with `method_textblock`.
     pub method: Option<String>,
 
     /// Like `method` but wraps the value in `Some()` before calling.
@@ -94,12 +94,6 @@ pub struct PropDecl {
     /// Multi-variant enum mapping setter. Maps each Rust enum variant to a
     /// WinUI enum variant and calls one `put_*` method.
     pub method_enum_map: Option<EnumMapSetter>,
-
-    /// Hand-written custom function name (e.g. `"custom_set_button_content"`).
-    /// Used for complex setters that can't be expressed as a simple COM call.
-    /// Can be `true` to auto-generate: `custom_set_{control}_{field}`.
-    /// Mutually exclusive with `method`.
-    pub setter_fn: Option<String>,
 
     /// How `PropValue::Unset` is handled.
     /// - `unset = "custom"` → auto-generates `custom_unset_{control}_{field}`
@@ -201,8 +195,7 @@ impl PropDecl {
             || self.method_optional.is_some()
             || self.method_ireference.is_some()
             || self.method_textblock.is_some()
-            || self.method_enum_map.is_some()
-            || self.setter_fn.is_some();
+            || self.method_enum_map.is_some();
         if !has_setter {
             let method_name = format!("put_{}", self.meta_name);
             // Auto-detect setter pattern from metadata param type.
@@ -284,15 +277,14 @@ impl PropDecl {
             + self.method_optional.is_some() as u8
             + self.method_ireference.is_some() as u8
             + self.method_textblock.is_some() as u8
-            + self.method_enum_map.is_some() as u8
-            + self.setter_fn.is_some() as u8;
+            + self.method_enum_map.is_some() as u8;
         assert!(
             count <= 1,
             "prop '{prop}' has multiple setter types — pick exactly one",
         );
         assert!(
             count >= 1,
-            "prop '{prop}' has no setter — set one of method/method_optional/method_ireference/method_textblock/setter_fn",
+            "prop '{prop}' has no setter — set one of method/method_optional/method_ireference/method_textblock/method_enum_map",
         );
         if let Some(m) = &self.method {
             SetterKind::Method { method: m }
@@ -455,10 +447,6 @@ pub fn validate(controls: &[Control], resolver: &MetadataResolver) -> Vec<String
     for ctrl in controls {
         let handle = ctrl.handle();
         for p in &ctrl.prop {
-            // Skip custom setters — they have hand-written code.
-            if p.setter_fn.is_some() {
-                continue;
-            }
             let method_name = p
                 .method
                 .as_deref()

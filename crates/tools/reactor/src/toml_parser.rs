@@ -64,9 +64,6 @@ struct MemberOverride {
     field: Option<String>,
 
     // ── Property-specific ──
-    /// Custom setter function.
-    #[serde(default)]
-    setter_fn: Option<bool>,
     /// IReference wrapping (e.g. "ireference").
     #[serde(default)]
     wrap: Option<String>,
@@ -147,11 +144,6 @@ pub fn parse(toml_content: &str, resolver: &MetadataResolver) -> Vec<Control> {
                 "{line}'{member_name}' on '{type_name}' is both a property and an event in metadata — add explicit kind"
             );
             if !is_prop && !is_event {
-                if overrides.setter_fn.is_some() {
-                    let prop = build_prop(member_name, handle, &overrides, resolver);
-                    props.push(prop);
-                    continue;
-                }
                 if overrides.attach_fn.is_some() {
                     let event = build_event(member_name, handle, &overrides, resolver);
                     events.push(event);
@@ -215,7 +207,6 @@ fn build_prop(
     let required = overrides.required.unwrap_or(false);
     let default = overrides.default.clone();
 
-    let setter_fn = overrides.setter_fn.map(|_| "__custom__".to_string());
     let wrap = overrides.wrap.clone();
 
     let method_name = format!("put_{member_name}");
@@ -240,20 +231,18 @@ fn build_prop(
     };
 
     // Check if metadata says this is an enum type (for auto-inference).
-    let is_metadata_enum =
-        setter_fn.is_none() && has_method && resolver.enum_info(handle, &method_name).is_some();
+    let is_metadata_enum = has_method && resolver.enum_info(handle, &method_name).is_some();
 
-    let (method, method_optional, method_ireference, method_textblock) =
-        if setter_fn.is_some() || is_metadata_enum {
-            (None, None, None, None)
-        } else if has_method {
-            classify_setter(handle, &method_name, wrap.as_deref(), resolver)
-        } else {
-            (None, None, None, None)
-        };
+    let (method, method_optional, method_ireference, method_textblock) = if is_metadata_enum {
+        (None, None, None, None)
+    } else if has_method {
+        classify_setter(handle, &method_name, wrap.as_deref(), resolver)
+    } else {
+        (None, None, None, None)
+    };
 
     // Infer enum_map from metadata when the parameter is an enum type.
-    let method_enum_map = if setter_fn.is_none() && has_method {
+    let method_enum_map = if has_method {
         if let Some((enum_name, _variants)) = resolver.enum_info(handle, &method_name) {
             Some(EnumMapSetter {
                 method: Some(method_name.clone()),
@@ -274,10 +263,7 @@ fn build_prop(
     let copy_value = method_enum_map.is_some() || inferred_copy.unwrap_or(false);
 
     // Enum-map properties are transported as I32 — override any metadata-inferred value.
-    // setter_fn properties with explicit value = "I32" also transport enums as I32.
-    let (value, enum_as_i32) = if method_enum_map.is_some()
-        || (overrides.value.as_deref() == Some("I32") && setter_fn.is_some())
-    {
+    let (value, enum_as_i32) = if method_enum_map.is_some() {
         (Some("I32".to_string()), true)
     } else {
         (value, false)
@@ -296,7 +282,6 @@ fn build_prop(
         method_ireference,
         method_textblock,
         method_enum_map,
-        setter_fn,
         unset: overrides.unset.clone(),
         copy_value,
         enum_as_i32,
@@ -462,16 +447,6 @@ Closed = { handler = "Click" }
 "#;
         let controls = parse(toml, &resolver());
         assert_eq!(controls[0].event[0].handler(), "Click");
-    }
-
-    #[test]
-    fn parse_setter_fn_prop() {
-        let toml = r#"
-["Microsoft.UI.Xaml.Controls.Button"]
-Content = { required = true, setter_fn = true, value = "Str" }
-"#;
-        let controls = parse(toml, &resolver());
-        assert!(controls[0].prop[0].setter_fn.is_some());
     }
 
     #[test]

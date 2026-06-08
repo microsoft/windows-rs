@@ -72,6 +72,10 @@ impl Slider {
 impl Widget for Slider {
     widget_header!(ControlKind::Slider);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::slider_bindings(self)
+        let mut out = crate::core::generated_bindings::slider_bindings(self);
+        if let Some(v) = self.step {
+            out.push(Binding::Prop(Prop::Step, PropValue::F64(v)));
+        }
+        out
     }
 }

@@ -54,7 +54,12 @@ impl SelectorBar {
 impl Widget for SelectorBar {
     widget_header!(ControlKind::SelectorBar);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::selector_bar_bindings(self)
+        let mut out = crate::core::generated_bindings::selector_bar_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Items,
+            PropValue::SelectorBarItems(self.items.clone()),
+        ));
+        out
     }
 }
 

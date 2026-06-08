@@ -67,6 +67,11 @@ impl PasswordBox {
 impl Widget for PasswordBox {
     widget_header!(ControlKind::PasswordBox);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::password_box_bindings(self)
+        let mut out = crate::core::generated_bindings::password_box_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Value,
+            PropValue::Str(self.value.clone()),
+        ));
+        out
     }
 }

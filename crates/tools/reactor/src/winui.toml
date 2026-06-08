@@ -8,8 +8,6 @@
 #   (no overrides)       Optional: field is Option<T>, emit when Some.
 #   required = true      Always emit (field is T). For core state.
 #   default = "expr"     Emit only when != expr (field is T). Auto-infers unset.
-#   value = "Variant"    PropValue variant (default: inferred from metadata).
-#   setter_fn = true     Use hand-written custom_set_{control}_{field}.
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
 #   prop = "Name"        Override Prop enum variant name.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
@@ -22,10 +20,12 @@
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
 #   add_method_false     Second add method for bool_dual event patterns.
+#
+# Properties with custom hand-written setters are NOT listed here.
+# They are handled entirely in the widget's bindings() method and the
+# backend's set_prop match arms.
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
-Text = { required = true, setter_fn = true }
-Items = { required = true, setter_fn = true, value = "StrList" }
 PlaceholderText = { }
 Header = { wrap = "ireference" }
 IsEnabled = { default = "true" }
@@ -34,19 +34,12 @@ QuerySubmitted = { attach_fn = true, handler = "TextChanged" }
 SuggestionChosen = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.Border"]
-CornerRadius = { setter_fn = true, value = "F64" }
-BorderThickness = { setter_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
-Items = { required = true, setter_fn = true, value = "StrList" }
 ItemClicked = { handler = "IndexChanged", invoke = "invoke_i32_args", getter = "get_Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
-Content = { required = true, setter_fn = true }
 IsEnabled = { default = "true" }
-Style = { default = "ButtonStyle::Default", setter_fn = true, value = "I32" }
-Icon = { setter_fn = true, value = "I32" }
-MenuFlyoutItems = { setter_fn = true, value = "MenuFlyoutItems" }
 Click = {}
 ItemClicked = { attach_fn = true, handler = "TextChanged" }
 CommandBarFlyoutClick = { attach_fn = true, handler = "TextChanged" }
@@ -80,7 +73,6 @@ IsColorChannelTextInputVisible = { default = "true" }
 ColorChanged = { attach_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
-Items = { required = true, setter_fn = true, value = "StrList" }
 SelectedIndex = { default = "0" }
 Header = {}
 PlaceholderText = { unset = { default = "\"\"" } }
@@ -89,8 +81,6 @@ IsEnabled = { default = "true" }
 SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
 
 ["Microsoft.UI.Xaml.Controls.CommandBar"]
-PrimaryCommands = { required = true, setter_fn = true, value = "CommandBarCommands" }
-SecondaryCommands = { required = true, setter_fn = true, value = "CommandBarCommands" }
 DefaultLabelPosition = { default = "CommandBarDefaultLabelPosition::default()" }
 Click = { attach_fn = true, handler = "TextChanged" }
 
@@ -102,7 +92,6 @@ SecondaryButtonText = { unset = { default = "\"\"" } }
 CloseButtonText = { unset = { default = "\"\"" } }
 IsPrimaryButtonEnabled = { required = true }
 IsSecondaryButtonEnabled = { required = true }
-IsOpen = { required = true, setter_fn = true, value = "Bool" }
 
 ["Microsoft.UI.Xaml.Controls.DatePicker"]
 Header = {}
@@ -115,7 +104,6 @@ SelectedDateChanged = { attach_fn = true, handler = "DateTimeChanged" }
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
 Content = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-MenuFlyoutItems = { setter_fn = true, value = "MenuFlyoutItems" }
 ItemClicked = { attach_fn = true, handler = "TextChanged" }
 Click = {}
 
@@ -124,14 +112,11 @@ IsExpanded = { default = "false" }
 Expanding = { handler = "CheckedChanged", add_method_false = "add_Collapsed" }
 
 ["Microsoft.UI.Xaml.Controls.Grid"]
-Rows = { prop = "GridRows", default = "Vec::new()", setter_fn = true, value = "GridLengths" }
-Columns = { prop = "GridColumns", default = "Vec::new()", setter_fn = true, value = "GridLengths" }
 RowSpacing = { unset = { default = "0.0" } }
 ColumnSpacing = { unset = { default = "0.0" } }
 
 ["Microsoft.UI.Xaml.Controls.HyperlinkButton"]
 Content = { required = true }
-NavigateUri = { setter_fn = true, value = "Str" }
 IsEnabled = { default = "true" }
 Click = {}
 
@@ -139,7 +124,6 @@ Click = {}
 Stretch = { default = "Stretch::Uniform" }
 
 ["Microsoft.UI.Xaml.Controls.InfoBadge"]
-Value = { setter_fn = true }
 
 ["Microsoft.UI.Xaml.Controls.InfoBar"]
 Title = { unset = { default = "\"\"" } }
@@ -150,28 +134,21 @@ IsClosable = { default = "true" }
 Closed = { handler = "Click" }
 
 ["Microsoft.UI.Xaml.Controls.ListBox"]
-Items = { required = true, setter_fn = true, value = "StrList" }
 SelectedIndex = {}
 IsEnabled = { default = "true" }
 SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
 
 ["Microsoft.UI.Xaml.Controls.MenuBar"]
-Items = { required = true, setter_fn = true, value = "MenuBarItems" }
 ItemClicked = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
-MenuItems = { required = true, setter_fn = true, value = "NavMenuItems" }
 IsPaneOpen = {}
 PaneDisplayMode = { default = "NavigationViewPaneDisplayMode::default()" }
 IsBackEnabled = { default = "false" }
 IsSettingsVisible = { default = "true" }
 IsPaneToggleButtonVisible = { default = "true", unset = "custom" }
-IsBackButtonVisible = { default = "true", setter_fn = true, value = "Bool" }
 PaneTitle = { unset = { default = "\"\"" } }
 Header = {}
-SelectedTag = { setter_fn = true, value = "Str" }
-AutoSuggestPlaceholder = { setter_fn = true, value = "Str" }
-AutoSuggestItems = { required = true, setter_fn = true, value = "StrList" }
 SelectionChanged = { attach_fn = true, handler = "TabKey" }
 BackRequested = { handler = "Click" }
 QuerySubmitted = { attach_fn = true, handler = "TextChanged" }
@@ -187,7 +164,6 @@ IsEnabled = { default = "true" }
 ValueChanged = { invoke = "invoke_f64_args", getter = "get_NewValue" }
 
 ["Microsoft.UI.Xaml.Controls.PasswordBox"]
-Value = { required = true, setter_fn = true, value = "Str" }
 PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsEnabled = { default = "true" }
@@ -226,7 +202,6 @@ Checked = { handler = "Click" }
 
 ["Microsoft.UI.Xaml.Controls.RadioButtons"]
 Header = {}
-Items = { required = true, setter_fn = true, value = "StrList" }
 SelectedIndex = { default = "0" }
 MaxColumns = {}
 SelectionChanged = { handler = "IndexChanged", getter = "get_SelectedIndex" }
@@ -249,7 +224,6 @@ Interval = {}
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.RichEditBox"]
-Text = { required = true, setter_fn = true, value = "Str" }
 PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsReadOnly = { default = "false", unset = "custom" }
@@ -264,14 +238,12 @@ HorizontalScrollBarVisibility = { required = true }
 VerticalScrollBarVisibility = { required = true }
 
 ["Microsoft.UI.Xaml.Controls.SelectorBar"]
-Items = { required = true, setter_fn = true, value = "SelectorBarItems" }
 SelectionChanged = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.Slider"]
 Minimum = { required = true }
 Maximum = { required = true }
 Value = { required = true }
-Step = { setter_fn = true, value = "F64" }
 Header = {}
 Orientation = { default = "Orientation::Horizontal" }
 IsEnabled = { default = "true" }
@@ -306,20 +278,16 @@ Subtitle = {}
 IsOpen = { default = "false" }
 IsLightDismissEnabled = { default = "false", unset = "custom" }
 PreferredPlacement = { default = "TeachingTipPlacementMode::default()" }
-ActionButtonText = { setter_fn = true, value = "Str" }
-CloseButtonText = { setter_fn = true, value = "Str" }
 Closed = { handler = "Click" }
 ActionButtonClick = { handler = "Click" }
 
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = { required = true, unset = { default = "\"\"" } }
 FontSize = { unset = { default = "14.0" } }
-FontWeight = { setter_fn = true }
 TextWrapping = { default = "TextWrapping::NoWrap" }
 IsTextSelectionEnabled = { default = "false" }
 
 ["Microsoft.UI.Xaml.Controls.TextBox"]
-Value = { required = true, setter_fn = true, value = "Str" }
 PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsEnabled = { default = "true" }
@@ -340,7 +308,6 @@ Subtitle = { unset = { default = "\"\"" } }
 IsBackButtonVisible = { default = "false" }
 IsBackButtonEnabled = { default = "false" }
 IsPaneToggleButtonVisible = { default = "false" }
-IsTall = { default = "false", setter_fn = true, value = "Bool" }
 BackRequested = { handler = "Click" }
 PaneToggleRequested = { handler = "Click" }
 
@@ -359,7 +326,6 @@ IsEnabled = { default = "true" }
 Toggled = { handler = "CheckedChanged", getter = "get_IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
-Nodes = { required = true, setter_fn = true, value = "TreeViewNodes" }
 SelectionMode = { default = "TreeViewSelectionMode::Single" }
 ItemInvoked = { attach_fn = true, handler = "TextChanged" }
 

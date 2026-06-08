@@ -80,7 +80,12 @@ impl MenuBar {
 impl Widget for MenuBar {
     widget_header!(ControlKind::MenuBar);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::menu_bar_bindings(self)
+        let mut out = crate::core::generated_bindings::menu_bar_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Items,
+            PropValue::MenuBarItems(self.items.clone()),
+        ));
+        out
     }
 }
 

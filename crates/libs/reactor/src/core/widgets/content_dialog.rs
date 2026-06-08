@@ -94,6 +94,7 @@ impl Widget for ContentDialog {
             }))
         });
         out.push(Binding::Event(Event::Closed, closed_cb));
+        out.push(Binding::Prop(Prop::IsOpen, PropValue::Bool(self.is_open)));
         out
     }
 }

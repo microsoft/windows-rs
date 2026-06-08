@@ -14,7 +14,20 @@ pub struct Grid {
 impl Widget for Grid {
     widget_header!(ControlKind::Grid);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::grid_bindings(self)
+        let mut out = crate::core::generated_bindings::grid_bindings(self);
+        if self.rows != Vec::new() {
+            out.push(Binding::Prop(
+                Prop::GridRows,
+                PropValue::GridLengths(self.rows.clone()),
+            ));
+        }
+        if self.columns != Vec::new() {
+            out.push(Binding::Prop(
+                Prop::GridColumns,
+                PropValue::GridLengths(self.columns.clone()),
+            ));
+        }
+        out
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)

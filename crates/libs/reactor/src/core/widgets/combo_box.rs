@@ -57,6 +57,11 @@ impl ComboBox {
 impl Widget for ComboBox {
     widget_header!(ControlKind::ComboBox);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::combo_box_bindings(self)
+        let mut out = crate::core::generated_bindings::combo_box_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Items,
+            PropValue::StrList(self.items.clone()),
+        ));
+        out
     }
 }

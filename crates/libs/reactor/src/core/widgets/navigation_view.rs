@@ -169,7 +169,31 @@ impl NavigationView {
 impl Widget for NavigationView {
     widget_header!(ControlKind::NavigationView);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::navigation_view_bindings(self)
+        let mut out = crate::core::generated_bindings::navigation_view_bindings(self);
+        out.push(Binding::Prop(
+            Prop::MenuItems,
+            PropValue::NavMenuItems(self.menu_items.clone()),
+        ));
+        if !self.is_back_button_visible {
+            out.push(Binding::Prop(
+                Prop::IsBackButtonVisible,
+                PropValue::Bool(self.is_back_button_visible),
+            ));
+        }
+        if let Some(v) = &self.selected_tag {
+            out.push(Binding::Prop(Prop::SelectedTag, PropValue::Str(v.clone())));
+        }
+        if let Some(v) = &self.auto_suggest_placeholder {
+            out.push(Binding::Prop(
+                Prop::AutoSuggestPlaceholder,
+                PropValue::Str(v.clone()),
+            ));
+        }
+        out.push(Binding::Prop(
+            Prop::AutoSuggestItems,
+            PropValue::StrList(self.auto_suggest_items.clone()),
+        ));
+        out
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.content)

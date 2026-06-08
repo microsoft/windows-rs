@@ -80,6 +80,15 @@ impl Widget for Border {
                 PropValue::Brush(br.clone()),
             ));
         }
+        if let Some(v) = self.border_thickness {
+            out.push(Binding::Prop(
+                Prop::BorderThickness,
+                PropValue::Thickness(v),
+            ));
+        }
+        if let Some(v) = self.corner_radius {
+            out.push(Binding::Prop(Prop::CornerRadius, PropValue::F64(v)));
+        }
         out
     }
     fn children(&self) -> Children<'_> {

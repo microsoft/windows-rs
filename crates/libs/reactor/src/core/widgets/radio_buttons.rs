@@ -46,6 +46,11 @@ impl RadioButtons {
 impl Widget for RadioButtons {
     widget_header!(ControlKind::RadioButtons);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::radio_buttons_bindings(self)
+        let mut out = crate::core::generated_bindings::radio_buttons_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Items,
+            PropValue::StrList(self.items.clone()),
+        ));
+        out
     }
 }
