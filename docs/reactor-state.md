@@ -158,7 +158,7 @@ cell) but is scoped to the component and cleaned up on unmount.
 
 The `direct2d.rs` sample (raw D2D via `SwapChainPanel`) still uses
 `thread_local!` for the `D2DState` struct. This is a legitimate case: the
-`on_ready` and `on_resize` callbacks are framework-provided closures that
+`on_mounted` and `on_resize` callbacks are framework-provided closures that
 don't carry a `RenderCx`, and the D2D device context is a heavy COM object
 that outlives individual renders. In this scenario, `thread_local!` or
 `use_ref` with careful lifetime management are both viable — but `use_ref`

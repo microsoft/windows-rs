@@ -382,7 +382,7 @@ fn app(cx: &mut RenderCx) -> Element {
     grid((
         Element::from(
             swap_chain_panel()
-                .on_ready({
+                .on_mounted({
                     let render_thread = render_thread.clone();
                     move |handle| {
                         panel.set(Some(handle));

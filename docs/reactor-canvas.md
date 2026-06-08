@@ -216,8 +216,8 @@ session.fill_path(&path, &brush);
 
 ### Design Notes
 
-- **`on_resize` / `on_ready` ordering** — `on_resize` stores the size in a
-  `Cell`; `on_ready` reads it to create the initial swap chain. If `on_ready`
+- **`on_resize` / `on_mounted` ordering** — `on_resize` stores the size in a
+  `Cell`; `on_mounted` reads it to create the initial swap chain. If `on_mounted`
   fires first when size is still (0,0), `.max(1)` ensures a 1×1 chain, then
   `on_resize` resizes correctly. Not a bug — documented here for awareness.
 
