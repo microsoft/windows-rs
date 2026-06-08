@@ -52,7 +52,6 @@ ValueChanged = { property = "NewValue" }          # get_NewValue on args → f64
 | Field | Default | Notes |
 |-------|---------|-------|
 | `type` | Inferred from metadata param type | `put_IsEnabled(bool)` → `Bool` |
-| `optional` | Inferred from setter kind | Textblock/IReference → `true`; Method → `false` |
 | method | `put_{Name}` | Setter kind auto-detected from metadata param type |
 | field | `snake_case(Name)` for props, `on_snake_case(Name)` for events | Derived automatically |
 | invoke | Inferred from metadata delegate signature | Matches arg types to invoke pattern |
@@ -64,8 +63,6 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 | Override | Description |
 |----------|-------------|
 | `type = "Type"` | Explicit PropValue variant (`Str`/`F64`/`Bool`/`I32`/etc). For Object params, selects IReference wrapping instead of Textblock. |
-| `optional = true` | Force `Option<T>` field. Use when `T::default()` ≠ WinUI default (e.g. FontSize). |
-| `optional = false` | Force `T` field even for Textblock/IReference setters that normally infer `Option<T>`. |
 
 ### Event overrides
 
@@ -102,9 +99,11 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 
 - **Default** — Field is `T`, binding always emitted. The diff engine compares old vs
   new bindings and only calls `set_prop` when the value changes.
-- **Optional** (`Option<T>`) — Binding emitted when `Some`, unset when `None`. Inferred
-  automatically for Textblock and IReference setters (they need `None` to clear the
-  WinUI value). Can be forced with `optional = true/false`.
+- **Textblock/IReference setters** — Generated code uses the `ToPropStr` trait, which
+  works with both `String` and `Option<String>` struct fields. The widget struct author
+  decides whether the field is optional — no TOML override needed. When the field is
+  `Option<String>` and `None`, the binding is omitted; the diff engine handles
+  `Some→None` transitions by emitting `PropValue::Unset`.
 
 ## Match Arm Collapsing
 

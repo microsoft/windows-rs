@@ -25,6 +25,9 @@ impl Widget for TextBlock {
     widget_header!(ControlKind::TextBlock);
     fn bindings(&self) -> PropBindings {
         let mut out = crate::core::generated_bindings::text_block_bindings(self);
+        if let Some(v) = self.font_size {
+            out.push(Binding::Prop(Prop::FontSize, PropValue::F64(v)));
+        }
         if let Some(v) = self.font_weight {
             out.push(Binding::Prop(Prop::FontWeight, PropValue::U16(v)));
         }

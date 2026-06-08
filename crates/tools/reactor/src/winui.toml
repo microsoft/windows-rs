@@ -9,13 +9,10 @@
 #   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
 #                        For Object (IInspectable) params, selects IReference<T>
 #                        wrapping instead of the default TextBlock wrapping.
-#   optional = true      Field is Option<T>, emit when Some. Use when
-#                        T::default() != WinUI default (e.g. FontSize).
-#   optional = false     Force field to T even for Textblock/IReference
-#                        setters that would normally infer Option<T>.
 #
-# Textblock and IReference setters default to Option<T> (they need
-# None to clear the WinUI value) unless overridden with optional = false.
+# Textblock and IReference setters use a trait-based binding that works
+# with both T and Option<T> widget struct fields. The struct author
+# decides whether the field is optional — no TOML override needed.
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
@@ -115,7 +112,7 @@ RowSpacing = {}
 ColumnSpacing = {}
 
 ["Microsoft.UI.Xaml.Controls.HyperlinkButton"]
-Content = { optional = false }
+Content = {}
 IsEnabled = {}
 Click = {}
 
@@ -216,7 +213,7 @@ ValueChanged = { property = "Value" }
 ["Microsoft.UI.Xaml.Controls.RelativePanel"]
 
 ["Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"]
-Content = { optional = false }
+Content = {}
 IsEnabled = {}
 Delay = {}
 Interval = {}
@@ -282,7 +279,6 @@ ActionButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = {}
-FontSize = { optional = true }
 TextWrapping = {}
 IsTextSelectionEnabled = {}
 
@@ -312,7 +308,7 @@ PaneToggleRequested = {}
 
 ["Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"]
 IsChecked = {}
-Content = { optional = false }
+Content = {}
 IsEnabled = {}
 Checked = { false_event = "Unchecked" }
 

@@ -50,17 +50,6 @@ pub struct PropDecl {
     /// If omitted, inferred from metadata parameter type.
     pub value: Option<String>,
 
-    /// When true, the widget struct field is `Option<T>` and the binding is
-    /// only emitted when `Some`. Use for properties where `T::default()` does
-    /// not match the WinUI default (e.g. FontSize where 0.0 ≠ 14.0).
-    ///
-    /// Normally inferred from setter kind: Textblock and IReference setters
-    /// default to optional (they need `None` to clear the value).
-    /// Set `optional = true` to force Method setter props to Option<T>.
-    /// Set `optional = false` to override auto-inference on Textblock/IReference
-    /// setters that are always required (e.g. HyperlinkButton.Content).
-    pub optional: Option<bool>,
-
     // ── Setter (pick one) ─────────────────────────────────────────
     /// COM method name (e.g. `"put_Text"`).  The codegen tool resolves
     /// the owning interface from winmd metadata automatically.
@@ -163,14 +152,12 @@ impl PropDecl {
         self.enum_as_i32
     }
 
-    /// Whether this property uses `Option<T>` in the widget struct.
+    /// Whether this property uses the `ToPropStr` trait for binding generation.
     ///
-    /// Explicit `optional` overrides auto-inference. When not set, Textblock
-    /// and IReference setters default to optional (they need `None` to clear).
-    pub fn is_optional(&self) -> bool {
-        if let Some(explicit) = self.optional {
-            return explicit;
-        }
+    /// True for Textblock and IReference setters — the trait lets the same
+    /// generated code work whether the widget struct field is `String` or
+    /// `Option<String>`.
+    pub fn uses_trait_binding(&self) -> bool {
         self.method_textblock.is_some() || self.method_ireference.is_some()
     }
 

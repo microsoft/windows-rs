@@ -53,13 +53,6 @@ struct MemberOverride {
     #[serde(default)]
     field: Option<String>,
 
-    // ── Property-specific ──
-    /// When true, the widget struct field is `Option<T>` and the binding is
-    /// only emitted when `Some`. Use for properties where `T::default()` does
-    /// not match the WinUI default (e.g. FontSize where 0.0 ≠ 14.0).
-    #[serde(default)]
-    optional: Option<bool>,
-
     // ── Event-specific ──
     /// Skip codegen; hand-written attach_event in backend.
     #[serde(default)]
@@ -252,7 +245,6 @@ fn build_prop(
         field,
         meta_name: member_name.to_string(),
         value,
-        optional: overrides.optional,
         method,
         method_optional,
         method_ireference,
@@ -533,14 +525,13 @@ NonExistentProperty = {}
     }
 
     #[test]
-    fn optional_defaults_to_false() {
+    fn method_setter_is_not_trait_binding() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = {}
 "#;
         let controls = parse(toml, &resolver());
-        assert!(controls[0].prop[0].optional.is_none());
-        assert!(!controls[0].prop[0].is_optional());
+        assert!(!controls[0].prop[0].uses_trait_binding());
     }
 
     #[test]

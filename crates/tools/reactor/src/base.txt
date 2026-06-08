@@ -162,7 +162,7 @@ Microsoft.UI.Xaml.Controls.ITabViewTabCloseRequestedEventArgs::{get_Tab}
 Microsoft.UI.Xaml.Controls.ITeachingTip::{put_ActionButtonContent, put_CloseButtonContent, add_Closed, add_ActionButtonClick}
 Microsoft.UI.Xaml.Controls.ItemCollection
 Microsoft.UI.Xaml.Controls.ItemsControl
-Microsoft.UI.Xaml.Controls.ITextBlock::{get_Text, put_FontWeight, put_FontFamily, put_Foreground}
+Microsoft.UI.Xaml.Controls.ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground}
 Microsoft.UI.Xaml.Controls.ITextBox::{get_Text, put_Text, add_TextChanged}
 Microsoft.UI.Xaml.Controls.ITimePicker::{add_SelectedTimeChanged}
 Microsoft.UI.Xaml.Controls.ITimePickerSelectedValueChangedEventArgs::{get_NewTime}

@@ -48,7 +48,7 @@ Microsoft.UI.Xaml.Controls.ISplitView::{put_CompactPaneLength, put_IsPaneOpen, p
 Microsoft.UI.Xaml.Controls.IStackPanel::{put_Orientation, put_Spacing}
 Microsoft.UI.Xaml.Controls.ITabView::{put_CanReorderTabs, put_IsAddTabButtonVisible, put_SelectedIndex}
 Microsoft.UI.Xaml.Controls.ITeachingTip::{put_IsLightDismissEnabled, put_IsOpen, put_PreferredPlacement, put_Subtitle, put_Title}
-Microsoft.UI.Xaml.Controls.ITextBlock::{put_FontSize, put_IsTextSelectionEnabled, put_Text, put_TextWrapping}
+Microsoft.UI.Xaml.Controls.ITextBlock::{put_IsTextSelectionEnabled, put_Text, put_TextWrapping}
 Microsoft.UI.Xaml.Controls.ITextBox::{put_AcceptsReturn, put_Header, put_PlaceholderText, put_TextWrapping}
 Microsoft.UI.Xaml.Controls.ITimePicker::{put_ClockIdentifier, put_Header, put_MinuteIncrement}
 Microsoft.UI.Xaml.Controls.ITitleBar::{put_IsBackButtonEnabled, put_IsBackButtonVisible, put_IsPaneToggleButtonVisible, put_Subtitle, put_Title}

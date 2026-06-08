@@ -19,7 +19,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
     let fn_name = ident(&format!("{}_bindings", to_snake_case(&ctrl.name)));
     let widget_type = ident(&ctrl.name);
 
-    let has_optional_props = ctrl.prop.iter().any(|p| p.is_optional());
+    let has_trait_props = ctrl.prop.iter().any(|p| p.uses_trait_binding());
 
     let prop_stmts: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_binding).collect();
     let event_stmts: Vec<TokenStream> = ctrl.event.iter().map(gen_event_binding).collect();
@@ -31,7 +31,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
                 Vec::new()
             }
         }
-    } else if !has_optional_props {
+    } else if !has_trait_props {
         // All items are unconditional — use vec![...] directly
         let prop_items: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_item).collect();
         let event_items: Vec<TokenStream> = ctrl.event.iter().map(gen_event_item).collect();
@@ -56,28 +56,12 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
     let prop = ident(p.prop());
     let field = ident(&p.field);
 
-    if p.is_optional() {
-        // Optional — field is Option<T>, emit when Some.
-        if p.is_enum_as_i32() {
-            quote! {
-                if let Some(v) = w.#field {
-                    out.push(Binding::Prop(Prop::#prop, PropValue::I32(v.0)));
-                }
-            }
-        } else {
-            let vv = ident(p.value());
-            if p.copy_value {
-                quote! {
-                    if let Some(v) = w.#field {
-                        out.push(Binding::Prop(Prop::#prop, PropValue::#vv(v)));
-                    }
-                }
-            } else {
-                quote! {
-                    if let Some(v) = &w.#field {
-                        out.push(Binding::Prop(Prop::#prop, PropValue::#vv(v.clone())));
-                    }
-                }
+    if p.uses_trait_binding() {
+        // Textblock/IReference setter — use ToPropStr trait so the same
+        // generated code works whether the struct field is String or Option<String>.
+        quote! {
+            if let Some(v) = w.#field.to_prop_str() {
+                out.push(Binding::Prop(Prop::#prop, v));
             }
         }
     } else {

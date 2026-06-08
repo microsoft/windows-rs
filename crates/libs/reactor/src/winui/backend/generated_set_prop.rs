@@ -81,9 +81,6 @@ pub(crate) fn dispatch(
         (Prop::DisplayName, PropValue::Str(v), Handle::PersonPicture(h)) => {
             h.put_DisplayName(v.as_str())?;
         }
-        (Prop::FontSize, PropValue::F64(v), Handle::TextBlock(h)) => {
-            h.put_FontSize(*v)?;
-        }
         (Prop::GroupName, PropValue::Str(v), Handle::RadioButton(h)) => {
             h.put_GroupName(v.as_str())?;
         }
