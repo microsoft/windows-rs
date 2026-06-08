@@ -359,12 +359,12 @@ pub struct EventDecl {
     pub value: Option<String>,
 
     // ── Attachment (pick one) ─────────────────────────────
-    /// Custom attach function name. If present, event attachment is
-    /// delegated to this hand-written function.
-    pub attach_fn: Option<String>,
+    /// If true, codegen skips this event; attachment is handled by
+    /// hand-written code in the backend's `attach_event` fallback match.
+    pub manual: bool,
 
     /// COM add method name for auto-generated event attachment.
-    /// If omitted and no `attach_fn`, inferred as `"add_{event}"`.
+    /// If omitted and not `manual`, inferred as `"add_{event}"`.
     pub add_method: Option<String>,
 
     /// How the handler is invoked. Required when `add_method` is set.
@@ -408,7 +408,7 @@ impl EventDecl {
         if let Some(m) = &self.add_method {
             return Some(m.clone());
         }
-        if self.attach_fn.is_some() {
+        if self.manual {
             return None;
         }
         // Infer: "Click" → "add_Click"
@@ -473,7 +473,7 @@ pub fn validate(controls: &[Control], resolver: &MetadataResolver) -> Vec<String
         }
         for e in &ctrl.event {
             // Skip custom attach — they have hand-written code.
-            if e.attach_fn.is_some() {
+            if e.manual {
                 continue;
             }
             if let Some(add_method) = e.add_method()

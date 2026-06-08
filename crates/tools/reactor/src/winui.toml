@@ -16,7 +16,7 @@
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
 #   type = "Type"       EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
-#   attach_fn = true     Use hand-written custom_attach_{control}_{field}.
+#   manual = true        Skip codegen; hand-written attach_event in backend.
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
 #   add_method_false     Second add method for bool_dual event patterns.
@@ -25,9 +25,9 @@
 PlaceholderText = { }
 Header = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-TextChanged = { attach_fn = true, type = "Str" }
-QuerySubmitted = { attach_fn = true, type = "Str" }
-SuggestionChosen = { attach_fn = true, type = "Str" }
+TextChanged = { manual = true, type = "Str" }
+QuerySubmitted = { manual = true, type = "Str" }
+SuggestionChosen = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Border"]
 
@@ -37,8 +37,8 @@ ItemClicked = { type = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
 ["Microsoft.UI.Xaml.Controls.Button"]
 IsEnabled = { default = "true" }
 Click = {}
-ItemClicked = { attach_fn = true, type = "Str" }
-CommandBarFlyoutClick = { attach_fn = true, type = "Str" }
+ItemClicked = { manual = true, type = "Str" }
+CommandBarFlyoutClick = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
 Header = {}
@@ -66,7 +66,7 @@ IsAlphaEnabled = { default = "true" }
 IsHexInputVisible = { default = "true" }
 IsColorSliderVisible = { default = "true" }
 IsColorChannelTextInputVisible = { default = "true" }
-ColorChanged = { attach_fn = true, type = "Color" }
+ColorChanged = { manual = true, type = "Color" }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
 SelectedIndex = { default = "0" }
@@ -74,11 +74,11 @@ Header = {}
 PlaceholderText = { unset = { default = "\"\"" } }
 IsEditable = { default = "false", unset = "custom" }
 IsEnabled = { default = "true" }
-SelectionChanged = { attach_fn = true, type = "I32" }
+SelectionChanged = { manual = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.CommandBar"]
 DefaultLabelPosition = { default = "CommandBarDefaultLabelPosition::default()" }
-Click = { attach_fn = true, type = "Str" }
+Click = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ContentDialog"]
 Title = { wrap = "ireference" }
@@ -95,12 +95,12 @@ DayVisible = { default = "true" }
 MonthVisible = { default = "true" }
 YearVisible = { default = "true" }
 IsEnabled = { default = "true" }
-SelectedDateChanged = { attach_fn = true, type = "DateTime" }
+SelectedDateChanged = { manual = true, type = "DateTime" }
 
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
 Content = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-ItemClicked = { attach_fn = true, type = "Str" }
+ItemClicked = { manual = true, type = "Str" }
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Expander"]
@@ -132,10 +132,10 @@ Closed = {}
 ["Microsoft.UI.Xaml.Controls.ListBox"]
 SelectedIndex = {}
 IsEnabled = { default = "true" }
-SelectionChanged = { attach_fn = true, type = "I32" }
+SelectionChanged = { manual = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.MenuBar"]
-ItemClicked = { attach_fn = true, type = "Str" }
+ItemClicked = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
 IsPaneOpen = {}
@@ -145,11 +145,11 @@ IsSettingsVisible = { default = "true" }
 IsPaneToggleButtonVisible = { default = "true", unset = "custom" }
 PaneTitle = { unset = { default = "\"\"" } }
 Header = {}
-SelectionChanged = { attach_fn = true, type = "Str" }
+SelectionChanged = { manual = true, type = "Str" }
 BackRequested = {}
-QuerySubmitted = { attach_fn = true, type = "Str" }
-TextChanged = { attach_fn = true, type = "Str" }
-SuggestionChosen = { attach_fn = true, type = "Str" }
+QuerySubmitted = { manual = true, type = "Str" }
+TextChanged = { manual = true, type = "Str" }
+SuggestionChosen = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NumberBox"]
 Value = { default = "0.0" }
@@ -174,7 +174,7 @@ Initials = {}
 ["Microsoft.UI.Xaml.Controls.Pivot"]
 SelectedIndex = { default = "0" }
 Title = {}
-SelectionChanged = { attach_fn = true, type = "I32" }
+SelectionChanged = { manual = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
 Value = { required = true }
@@ -223,7 +223,7 @@ Click = {}
 PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsReadOnly = { default = "false", unset = "custom" }
-TextChanged = { attach_fn = true, type = "Str" }
+TextChanged = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
 HorizontalScrollBarVisibility = { required = true }
@@ -234,7 +234,7 @@ HorizontalScrollBarVisibility = { required = true }
 VerticalScrollBarVisibility = { required = true }
 
 ["Microsoft.UI.Xaml.Controls.SelectorBar"]
-SelectionChanged = { attach_fn = true, type = "Str" }
+SelectionChanged = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Slider"]
 Minimum = { required = true }
@@ -264,8 +264,8 @@ Spacing = { unset = { default = "0.0" } }
 SelectedIndex = { default = "0" }
 CanReorderTabs = { default = "false" }
 IsAddTabButtonVisible = { default = "true" }
-SelectionChanged = { attach_fn = true, type = "I32" }
-CloseRequested = { attach_fn = true, type = "Str" }
+SelectionChanged = { manual = true, type = "I32" }
+CloseRequested = { manual = true, type = "Str" }
 AddTabButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TeachingTip"]
@@ -296,7 +296,7 @@ Header = {}
 ClockIdentifier = {}
 MinuteIncrement = {}
 IsEnabled = { default = "true" }
-SelectedTimeChanged = { attach_fn = true, type = "TimeSpan" }
+SelectedTimeChanged = { manual = true, type = "TimeSpan" }
 
 ["Microsoft.UI.Xaml.Controls.TitleBar"]
 Title = { required = true }
@@ -323,7 +323,7 @@ Toggled = { type = "Bool", getter = "get_IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 SelectionMode = { default = "TreeViewSelectionMode::Single" }
-ItemInvoked = { attach_fn = true, type = "Str" }
+ItemInvoked = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Viewbox"]
 Stretch = { required = true }

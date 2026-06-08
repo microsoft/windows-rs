@@ -70,9 +70,9 @@ struct MemberOverride {
     wrap: Option<String>,
 
     // ── Event-specific ──
-    /// Custom event attachment function.
+    /// Skip codegen; hand-written attach_event in backend.
     #[serde(default)]
-    attach_fn: Option<bool>,
+    manual: Option<bool>,
     /// Explicit invoke pattern.
     #[serde(default)]
     invoke: Option<String>,
@@ -139,7 +139,7 @@ pub fn parse(toml_content: &str, resolver: &MetadataResolver) -> Vec<Control> {
                 "{line}'{member_name}' on '{type_name}' is both a property and an event in metadata — add explicit kind"
             );
             if !is_prop && !is_event {
-                if overrides.attach_fn.is_some() {
+                if overrides.manual.is_some() {
                     let event = build_event(member_name, handle, &overrides, resolver);
                     events.push(event);
                     continue;
@@ -322,8 +322,8 @@ fn build_event(
         .clone()
         .unwrap_or_else(|| format!("on_{}", to_snake_case(member_name)));
     let value = overrides.value.clone();
-    let attach_fn = overrides.attach_fn.map(|_| "__custom__".to_string());
-    let add_method = if attach_fn.is_some() {
+    let manual = overrides.manual.unwrap_or(false);
+    let add_method = if manual {
         None
     } else {
         Some(format!("add_{member_name}"))
@@ -334,7 +334,7 @@ fn build_event(
         meta_name: member_name.to_string(),
         event: None,
         value,
-        attach_fn,
+        manual,
         add_method,
         invoke: overrides.invoke.clone(),
         getter: overrides.getter.clone(),

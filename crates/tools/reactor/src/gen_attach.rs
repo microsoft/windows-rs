@@ -1,7 +1,8 @@
 /// Generates `attach_event` dispatch arms from control declarations.
 ///
 /// Events with `add_method` + `invoke` are auto-generated.
-/// Events with `attach_fn` delegate to hand-written functions.
+/// Events with `manual = true` are skipped; they use hand-written
+/// attach_event arms in the backend.
 use proc_macro2::TokenStream;
 use quote::quote;
 
@@ -128,13 +129,13 @@ fn gen_event_arm(
     e: &EventDecl,
     resolver: &MetadataResolver,
 ) -> Option<TokenStream> {
-    if e.attach_fn.is_some() {
+    if e.manual {
         return None;
     }
 
     let event_name = e.event();
     let add_method = e.add_method().unwrap_or_else(|| {
-        panic!("event '{handle_name}.{event_name}' has neither attach_fn nor add_method")
+        panic!("event '{handle_name}.{event_name}' has neither manual nor add_method")
     });
     let invoke = e.invoke();
 
