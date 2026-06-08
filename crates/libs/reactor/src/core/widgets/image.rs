@@ -96,11 +96,13 @@ mod tests {
 
     #[test]
     fn default_emits_no_image_source() {
-        // An `Image` with no source emits no `ImageSource` binding and
-        // no `Stretch` binding (Stretch is `non_default`, so the default
-        // value `Uniform` is omitted).
+        // An `Image` with no source emits no `ImageSource` binding.
+        // Stretch is always emitted (it's a non-optional enum field).
         let image = Image::default();
         assert_eq!(image_source(&image), None);
-        assert!(image.bindings().is_empty());
+        assert!(!image
+            .bindings()
+            .iter()
+            .any(|b| matches!(b, Binding::Prop(Prop::ImageSource, ..))));
     }
 }
