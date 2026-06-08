@@ -66,12 +66,10 @@ impl Widget for TitleBar {
     widget_header!(ControlKind::TitleBar);
     fn bindings(&self) -> PropBindings {
         let mut out = crate::core::generated_bindings::title_bar_bindings(self);
-        if self.is_tall {
-            out.push(Binding::Prop(
-                Prop::IsTall,
-                PropValue::Bool(self.is_tall),
-            ));
-        }
+        out.push(Binding::Prop(
+            Prop::Tall,
+            PropValue::Bool(self.is_tall),
+        ));
         out
     }
     /// Maps to WinUI `TitleBar.Content`.

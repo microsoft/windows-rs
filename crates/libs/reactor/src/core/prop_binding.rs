@@ -12,7 +12,7 @@ pub type PropBindings = Vec<Binding>;
 
 /// Converts a widget struct field to an optional `PropValue::Str`.
 ///
-/// Generated binding code calls `w.field.to_prop_str()` for Textblock
+/// Generated binding code calls `w.field.to_prop_str()` for TextBlock
 /// and IReference setters. The trait lets the same generated code work
 /// whether the field is `String` (always `Some`) or `Option<String>`
 /// (mirrors the Option).

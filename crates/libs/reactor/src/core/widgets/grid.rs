@@ -15,13 +15,13 @@ impl Widget for Grid {
     widget_header!(ControlKind::Grid);
     fn bindings(&self) -> PropBindings {
         let mut out = crate::core::generated_bindings::grid_bindings(self);
-        if self.rows != Vec::new() {
+        if !self.rows.is_empty() {
             out.push(Binding::Prop(
                 Prop::GridRows,
                 PropValue::GridLengths(self.rows.clone()),
             ));
         }
-        if self.columns != Vec::new() {
+        if !self.columns.is_empty() {
             out.push(Binding::Prop(
                 Prop::GridColumns,
                 PropValue::GridLengths(self.columns.clone()),

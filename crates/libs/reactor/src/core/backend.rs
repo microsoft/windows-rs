@@ -182,7 +182,6 @@ pub enum Prop {
     IsReadOnly,
     IsSecondaryButtonEnabled,
     IsSettingsVisible,
-    IsTall,
     IsTextSelectionEnabled,
     IsTodayHighlighted,
     ItemHeader,
