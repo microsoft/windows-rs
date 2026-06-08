@@ -38,6 +38,7 @@ pub use core::context::Context;
 pub use core::custom::*;
 pub use core::dispatcher::*;
 pub use core::element::*;
+pub use core::element::{HorizontalAlignment, VerticalAlignment};
 pub use core::error_boundary::*;
 pub use core::into_elements::IntoElements;
 pub use core::render_context::*;
