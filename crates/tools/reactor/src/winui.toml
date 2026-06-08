@@ -11,11 +11,11 @@
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
 #   unset = { default = "expr" }   Reset to literal on unset.
-#
+#   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
-#   value = "Type"       EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
+#   type = "Type"       EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
 #   attach_fn = true     Use hand-written custom_attach_{control}_{field}.
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
@@ -25,20 +25,20 @@
 PlaceholderText = { }
 Header = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-TextChanged = { attach_fn = true, value = "Str" }
-QuerySubmitted = { attach_fn = true, value = "Str" }
-SuggestionChosen = { attach_fn = true, value = "Str" }
+TextChanged = { attach_fn = true, type = "Str" }
+QuerySubmitted = { attach_fn = true, type = "Str" }
+SuggestionChosen = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Border"]
 
 ["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
-ItemClicked = { value = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
+ItemClicked = { type = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
 IsEnabled = { default = "true" }
 Click = {}
-ItemClicked = { attach_fn = true, value = "Str" }
-CommandBarFlyoutClick = { attach_fn = true, value = "Str" }
+ItemClicked = { attach_fn = true, type = "Str" }
+CommandBarFlyoutClick = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
 Header = {}
@@ -66,7 +66,7 @@ IsAlphaEnabled = { default = "true" }
 IsHexInputVisible = { default = "true" }
 IsColorSliderVisible = { default = "true" }
 IsColorChannelTextInputVisible = { default = "true" }
-ColorChanged = { attach_fn = true, value = "Color" }
+ColorChanged = { attach_fn = true, type = "Color" }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
 SelectedIndex = { default = "0" }
@@ -74,11 +74,11 @@ Header = {}
 PlaceholderText = { unset = { default = "\"\"" } }
 IsEditable = { default = "false", unset = "custom" }
 IsEnabled = { default = "true" }
-SelectionChanged = { attach_fn = true, value = "I32" }
+SelectionChanged = { attach_fn = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.CommandBar"]
 DefaultLabelPosition = { default = "CommandBarDefaultLabelPosition::default()" }
-Click = { attach_fn = true, value = "Str" }
+Click = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ContentDialog"]
 Title = { wrap = "ireference" }
@@ -95,12 +95,12 @@ DayVisible = { default = "true" }
 MonthVisible = { default = "true" }
 YearVisible = { default = "true" }
 IsEnabled = { default = "true" }
-SelectedDateChanged = { attach_fn = true, value = "DateTime" }
+SelectedDateChanged = { attach_fn = true, type = "DateTime" }
 
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
 Content = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-ItemClicked = { attach_fn = true, value = "Str" }
+ItemClicked = { attach_fn = true, type = "Str" }
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Expander"]
@@ -132,10 +132,10 @@ Closed = {}
 ["Microsoft.UI.Xaml.Controls.ListBox"]
 SelectedIndex = {}
 IsEnabled = { default = "true" }
-SelectionChanged = { attach_fn = true, value = "I32" }
+SelectionChanged = { attach_fn = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.MenuBar"]
-ItemClicked = { attach_fn = true, value = "Str" }
+ItemClicked = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
 IsPaneOpen = {}
@@ -145,11 +145,11 @@ IsSettingsVisible = { default = "true" }
 IsPaneToggleButtonVisible = { default = "true", unset = "custom" }
 PaneTitle = { unset = { default = "\"\"" } }
 Header = {}
-SelectionChanged = { attach_fn = true, value = "Str" }
+SelectionChanged = { attach_fn = true, type = "Str" }
 BackRequested = {}
-QuerySubmitted = { attach_fn = true, value = "Str" }
-TextChanged = { attach_fn = true, value = "Str" }
-SuggestionChosen = { attach_fn = true, value = "Str" }
+QuerySubmitted = { attach_fn = true, type = "Str" }
+TextChanged = { attach_fn = true, type = "Str" }
+SuggestionChosen = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NumberBox"]
 Value = { default = "0.0" }
@@ -165,7 +165,7 @@ Header = {}
 IsEnabled = { default = "true" }
 PasswordRevealMode = { default = "PasswordRevealMode::default()" }
 IsPasswordRevealButtonEnabled = { default = "true", unset = { default = "true" } }
-PasswordChanged = { value = "Str", getter = "get_Password" }
+PasswordChanged = { type = "Str", getter = "get_Password" }
 
 ["Microsoft.UI.Xaml.Controls.PersonPicture"]
 DisplayName = {}
@@ -174,7 +174,7 @@ Initials = {}
 ["Microsoft.UI.Xaml.Controls.Pivot"]
 SelectedIndex = { default = "0" }
 Title = {}
-SelectionChanged = { attach_fn = true, value = "I32" }
+SelectionChanged = { attach_fn = true, type = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
 Value = { required = true }
@@ -200,7 +200,7 @@ Checked = {}
 Header = {}
 SelectedIndex = { default = "0" }
 MaxColumns = {}
-SelectionChanged = { value = "I32", getter = "get_SelectedIndex" }
+SelectionChanged = { type = "I32", getter = "get_SelectedIndex" }
 
 ["Microsoft.UI.Xaml.Controls.RatingControl"]
 Value = { default = "0.0" }
@@ -208,7 +208,7 @@ MaxRating = {}
 Caption = { unset = { default = "\"\"" } }
 PlaceholderValue = {}
 IsReadOnly = { default = "false", unset = "custom" }
-ValueChanged = { value = "F64", getter = "get_Value" }
+ValueChanged = { type = "F64", getter = "get_Value" }
 
 ["Microsoft.UI.Xaml.Controls.RelativePanel"]
 
@@ -223,7 +223,7 @@ Click = {}
 PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsReadOnly = { default = "false", unset = "custom" }
-TextChanged = { attach_fn = true, value = "Str" }
+TextChanged = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
 HorizontalScrollBarVisibility = { required = true }
@@ -234,7 +234,7 @@ HorizontalScrollBarVisibility = { required = true }
 VerticalScrollBarVisibility = { required = true }
 
 ["Microsoft.UI.Xaml.Controls.SelectorBar"]
-SelectionChanged = { attach_fn = true, value = "Str" }
+SelectionChanged = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Slider"]
 Minimum = { required = true }
@@ -264,8 +264,8 @@ Spacing = { unset = { default = "0.0" } }
 SelectedIndex = { default = "0" }
 CanReorderTabs = { default = "false" }
 IsAddTabButtonVisible = { default = "true" }
-SelectionChanged = { attach_fn = true, value = "I32" }
-CloseRequested = { attach_fn = true, value = "Str" }
+SelectionChanged = { attach_fn = true, type = "I32" }
+CloseRequested = { attach_fn = true, type = "Str" }
 AddTabButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TeachingTip"]
@@ -289,14 +289,14 @@ Header = {}
 IsEnabled = { default = "true" }
 AcceptsReturn = { default = "false" }
 TextWrapping = { default = "TextWrapping::NoWrap" }
-TextChanged = { value = "Str", getter = "get_Text" }
+TextChanged = { type = "Str", getter = "get_Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]
 Header = {}
 ClockIdentifier = {}
 MinuteIncrement = {}
 IsEnabled = { default = "true" }
-SelectedTimeChanged = { attach_fn = true, value = "TimeSpan" }
+SelectedTimeChanged = { attach_fn = true, type = "TimeSpan" }
 
 ["Microsoft.UI.Xaml.Controls.TitleBar"]
 Title = { required = true }
@@ -319,11 +319,11 @@ OnContent = {}
 OffContent = {}
 Header = {}
 IsEnabled = { default = "true" }
-Toggled = { value = "Bool", getter = "get_IsOn" }
+Toggled = { type = "Bool", getter = "get_IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 SelectionMode = { default = "TreeViewSelectionMode::Single" }
-ItemInvoked = { attach_fn = true, value = "Str" }
+ItemInvoked = { attach_fn = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Viewbox"]
 Stretch = { required = true }

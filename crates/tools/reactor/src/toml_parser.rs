@@ -58,7 +58,7 @@ struct MemberOverride {
     unset: Option<UnsetPolicy>,
     /// Explicit PropValue variant name (for properties) or
     /// EventHandler variant name (for events: Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
-    #[serde(default)]
+    #[serde(default, rename = "type")]
     value: Option<String>,
     /// Explicit Rust field name (overrides snake_case of key).
     #[serde(default)]
@@ -433,10 +433,10 @@ Text = { field = "content", required = true }
     }
 
     #[test]
-    fn parse_event_value_override() {
+    fn parse_event_type_override() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.InfoBar"]
-Closed = { value = "Bool" }
+Closed = { type = "Bool" }
 "#;
         let controls = parse(toml, &resolver());
         assert_eq!(controls[0].event[0].value(), "Bool");
