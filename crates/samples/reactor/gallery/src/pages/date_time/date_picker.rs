@@ -11,16 +11,18 @@ pub fn date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Full DatePicker",
                 vstack((
-                    date_picker().header("Select date").on_changed({
-                        let set_selected_date = set_selected_date;
-                        move |date| set_selected_date.call(format!("Selected: {date}"))
-                    }),
+                    date_picker()
+                        .header("Select date")
+                        .on_selected_date_changed({
+                            let set_selected_date = set_selected_date;
+                            move |date| set_selected_date.call(format!("Selected: {date}"))
+                        }),
                     text_block(selected_date).opacity(0.6),
                 ))
                 .spacing(8.0),
                 r#"date_picker()
     .header(\"Select date\")
-    .on_changed(|date| set_selected_date.call(format!(\"Selected: {date}\")))"#,
+    .on_selected_date_changed(|date| set_selected_date.call(format!(\"Selected: {date}\")))"#,
             ),
             sample_card(
                 "Month and Year Only",

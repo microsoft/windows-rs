@@ -1,23 +1,25 @@
 use super::*;
 
+pub use crate::bindings::Orientation;
+
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct StackPanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub vertical: bool,
-    pub spacing: Option<f64>,
+    pub orientation: Orientation,
+    pub spacing: f64,
     pub children: Vec<Element>,
 }
 impl StackPanel {
     pub fn vertical() -> Self {
         Self {
-            vertical: true,
+            orientation: Orientation::Vertical,
             ..Self::default()
         }
     }
     pub fn horizontal() -> Self {
         Self {
-            vertical: false,
+            orientation: Orientation::Horizontal,
             ..Self::default()
         }
     }
@@ -26,15 +28,7 @@ impl StackPanel {
 impl Widget for StackPanel {
     widget_header!(ControlKind::StackPanel);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(2);
-        out.push(Binding::Prop(
-            Prop::Orientation,
-            PropValue::Vertical(self.vertical),
-        ));
-        if let Some(sp) = self.spacing {
-            out.push(Binding::Prop(Prop::Spacing, PropValue::F64(sp)));
-        }
-        out
+        crate::core::generated_bindings::stack_panel_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)
@@ -43,7 +37,7 @@ impl Widget for StackPanel {
 
 impl StackPanel {
     pub fn spacing(mut self, v: f64) -> Self {
-        self.spacing = Some(v);
+        self.spacing = v;
         self
     }
 }

@@ -1,5 +1,5 @@
 //! End-to-end interaction fixtures: drive each input control through the
-//! real WinUI event surface and verify the reactor's `on_changed` callback
+//! real WinUI event surface and verify the reactor's widget callbacks
 //! fires and the next render reflects the new state. These complement the
 //! purely-structural `mount_*` fixtures, which only assert initial render.
 
@@ -21,8 +21,8 @@ pub fn checkbox_toggles_state(h: Harness) -> FixtureFuture {
             vstack((
                 text_block(format!("checked={checked}")),
                 check_box(checked)
-                    .label("agree")
-                    .on_changed(move |v| set.call(v)),
+                    .content("agree")
+                    .on_checked(move |v| set.call(v)),
             ))
             .into()
         }));
@@ -47,7 +47,7 @@ pub fn toggle_switch_changes_state(h: Harness) -> FixtureFuture {
             let (on, set) = cx.use_state(false);
             vstack((
                 text_block(format!("on={on}")),
-                ToggleSwitch::new(on).on_changed(move |v| set.call(v)),
+                ToggleSwitch::new(on).on_toggled(move |v| set.call(v)),
             ))
             .into()
         }));
@@ -74,7 +74,7 @@ pub fn slider_value_changes_state(h: Harness) -> FixtureFuture {
                 text_block(format!("value={}", value as i32)),
                 Slider::new(value)
                     .range(0.0, 100.0)
-                    .on_changed(move |v| set.call(v)),
+                    .on_value_changed(move |v| set.call(v)),
             ))
             .into()
         }));
@@ -99,7 +99,7 @@ pub fn text_field_changes_state(h: Harness) -> FixtureFuture {
             let (text, set) = cx.use_state(String::new());
             vstack((
                 text_block(format!("typed='{text}'")),
-                text_box(text).on_changed(move |v| set.call(v)),
+                text_box(text).on_text_changed(move |v| set.call(v)),
             ))
             .into()
         }));
@@ -240,7 +240,7 @@ pub fn password_box_changes_state(h: Harness) -> FixtureFuture {
                 text_block(format!("pwd-len={}", value.len())),
                 PasswordBox::new()
                     .value(value)
-                    .on_changed(move |v| set.call(v)),
+                    .on_password_changed(move |v| set.call(v)),
             ))
             .into()
         }));

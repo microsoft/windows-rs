@@ -54,7 +54,7 @@ impl Component for StableTree {
             .map(|i| Element::TextBlock(TextBlock::new(format!("row-{i}"))))
             .collect();
         let mut s = windows_reactor::dsl::vstack(children);
-        s.spacing = Some(4.0);
+        s.spacing = 4.0;
         Element::StackPanel(s)
     }
 }

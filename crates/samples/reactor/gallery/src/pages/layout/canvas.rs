@@ -29,11 +29,11 @@ pub fn canvas_page(_: &(), cx: &mut RenderCx) -> Element {
                 Slider::new(x)
                     .range(0.0, 250.0)
                     .header("X position")
-                    .on_changed(move |v: f64| set_x.call(v)),
+                    .on_value_changed(move |v: f64| set_x.call(v)),
                 Slider::new(y)
                     .range(0.0, 160.0)
                     .header("Y position")
-                    .on_changed(move |v: f64| set_y.call(v)),
+                    .on_value_changed(move |v: f64| set_y.call(v)),
             ))
             .spacing(8.0),
             r#"Canvas::new([el.canvas_left(x).canvas_top(y)]) // x, y from sliders"#,

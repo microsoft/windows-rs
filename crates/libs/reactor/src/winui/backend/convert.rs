@@ -11,12 +11,6 @@ use crate::bindings as Xaml;
 use crate::core::*;
 use Xaml::Color as WinColor;
 
-// `HAlign` / `VAlign` are local shorthands for the converters below; the
-// rest of the WinUI backend writes the full `HorizontalAlignment` /
-// `VerticalAlignment` names directly.
-type HAlign = HorizontalAlignment;
-type VAlign = VerticalAlignment;
-
 pub(super) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {
     Xaml::Thickness {
         Left: t.left,
@@ -110,43 +104,6 @@ pub(super) fn reactor_key_to_virtual_key(k: KeyboardKey) -> Xaml::VirtualKey {
     }
 }
 
-pub(super) fn to_xaml_halign(v: HAlign) -> Xaml::HorizontalAlignment {
-    match v {
-        HAlign::Left => Xaml::HorizontalAlignment::Left,
-        HAlign::Center => Xaml::HorizontalAlignment::Center,
-        HAlign::Right => Xaml::HorizontalAlignment::Right,
-        HAlign::Stretch => Xaml::HorizontalAlignment::Stretch,
-    }
-}
-
-pub(super) fn to_xaml_valign(v: VAlign) -> Xaml::VerticalAlignment {
-    match v {
-        VAlign::Top => Xaml::VerticalAlignment::Top,
-        VAlign::Center => Xaml::VerticalAlignment::Center,
-        VAlign::Bottom => Xaml::VerticalAlignment::Bottom,
-        VAlign::Stretch => Xaml::VerticalAlignment::Stretch,
-    }
-}
-
-pub(super) fn to_winui_info_bar_severity(v: InfoBarSeverity) -> Xaml::InfoBarSeverity {
-    use InfoBarSeverity as E;
-    match v {
-        E::Informational => Xaml::InfoBarSeverity::Informational,
-        E::Success => Xaml::InfoBarSeverity::Success,
-        E::Warning => Xaml::InfoBarSeverity::Warning,
-        E::Error => Xaml::InfoBarSeverity::Error,
-    }
-}
-
-pub(super) fn to_xaml_scroll_visibility(v: ScrollBarVisibility) -> Xaml::ScrollBarVisibility {
-    match v {
-        ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
-        ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
-        ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
-        ScrollBarVisibility::Disabled => Xaml::ScrollBarVisibility::Disabled,
-    }
-}
-
 pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::GridLength> {
     use Xaml::GridUnitType;
     match v {
@@ -188,16 +145,6 @@ pub(super) fn string_as_textblock(s: &str) -> windows_core::Result<Xaml::TextBlo
     Ok(tb)
 }
 
-pub(super) fn sender_is_checked(sender: windows_core::Ref<windows_core::IInspectable>) -> bool {
-    let Some(sender) = sender.as_ref() else {
-        return false;
-    };
-    let Ok(tb) = sender.cast::<Xaml::IToggleButton>() else {
-        return false;
-    };
-    tb.get_IsChecked().unwrap_or(false)
-}
-
 pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from: usize, to: usize) {
     let v = coll
         .cast::<windows_collections::IVector<Xaml::UIElement>>()
@@ -205,16 +152,6 @@ pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from:
     let item = v.GetAt(from as u32).unwrap();
     v.RemoveAt(from as u32).unwrap();
     v.InsertAt(to as u32, &item).unwrap();
-}
-
-pub(super) fn sender_text(sender: windows_core::Ref<windows_core::IInspectable>) -> String {
-    let Some(sender) = sender.as_ref() else {
-        return String::new();
-    };
-    let Ok(tb) = sender.cast::<Xaml::TextBox>() else {
-        return String::new();
-    };
-    tb.get_Text().unwrap_or_default()
 }
 
 pub(super) fn build_nav_view_item(
@@ -235,7 +172,7 @@ pub(super) fn build_nav_view_item(
         .cast::<Xaml::IFrameworkElement>()?
         .put_Tag(&tag_inspectable)?;
     if let Some(sym) = &item.icon {
-        let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+        let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
         nv_item.put_Icon(&icon_elem)?;
     }
     if !item.children.is_empty() {
@@ -353,8 +290,7 @@ pub(super) fn build_command_bar_element(
             let btn = Xaml::AppBarButton::new()?;
             btn.put_Label(label)?;
             if let Some(sym) = icon {
-                let icon_elem =
-                    Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+                let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
                 btn.put_Icon(&icon_elem)?;
             }
             btn.cast()
@@ -363,8 +299,7 @@ pub(super) fn build_command_bar_element(
             let btn = Xaml::AppBarToggleButton::new()?;
             btn.put_Label(label)?;
             if let Some(sym) = icon {
-                let icon_elem =
-                    Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+                let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
                 btn.put_Icon(&icon_elem)?;
             }
             btn.cast()

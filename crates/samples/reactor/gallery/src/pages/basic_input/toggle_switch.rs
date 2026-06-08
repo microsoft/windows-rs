@@ -17,7 +17,7 @@ pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
                     ToggleSwitch::new(wifi_on)
                         .on_content("On")
                         .off_content("Off")
-                        .on_changed({
+                        .on_toggled({
                             let set_wifi_on = set_wifi_on;
                             move |value| set_wifi_on.call(value)
                         }),
@@ -30,7 +30,7 @@ pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
                 ))
                 .spacing(8.0),
                 r#"ToggleSwitch::new(wifi_on)
-    .on_changed(...)"#,
+    .on_toggled(...)"#,
             ),
             sample_card(
                 "Toggle with Header",
@@ -39,7 +39,7 @@ pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
                         .header("Notifications")
                         .on_content("On")
                         .off_content("Muted")
-                        .on_changed({
+                        .on_toggled({
                             let set_notifications_on = set_notifications_on;
                             move |value| set_notifications_on.call(value)
                         }),
@@ -53,21 +53,21 @@ pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
                 .spacing(8.0),
                 r#"ToggleSwitch::new(notifications_on)
     .header("Notifications")
-    .on_changed(...)"#,
+    .on_toggled(...)"#,
             ),
             sample_card(
                 "Disabled State",
                 vstack((
                     ToggleSwitch::new(automation_enabled)
                         .header("Enable scheduled updates")
-                        .on_changed({
+                        .on_toggled({
                             let set_automation_enabled = set_automation_enabled;
                             move |value| set_automation_enabled.call(value)
                         }),
                     ToggleSwitch::new(overnight_updates)
                         .header("Install updates overnight")
                         .enabled(automation_enabled)
-                        .on_changed({
+                        .on_toggled({
                             let set_overnight_updates = set_overnight_updates;
                             move |value| set_overnight_updates.call(value)
                         }),
@@ -83,7 +83,7 @@ pub fn toggle_switch_page(_: &(), cx: &mut RenderCx) -> Element {
                 .spacing(8.0),
                 r#"ToggleSwitch::new(overnight_updates)
     .enabled(automation_enabled)
-    .on_changed(...)"#,
+    .on_toggled(...)"#,
             ),
         ],
     )

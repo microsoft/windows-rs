@@ -42,7 +42,7 @@ pub fn relative_panel_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     ToggleSwitch::new(show_alt_layout)
                         .header("Show bottom corners")
-                        .on_changed(move |value: bool| set_show_alt_layout.call(value)),
+                        .on_toggled(move |value: bool| set_show_alt_layout.call(value)),
                     border(relative_panel(dynamic_items).height(200.0))
                         .padding(Thickness::uniform(16.0)),
                 ))

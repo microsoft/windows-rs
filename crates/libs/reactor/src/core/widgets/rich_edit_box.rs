@@ -3,17 +3,17 @@ use super::*;
 /// `Microsoft.UI.Xaml.Controls.RichEditBox`. A multi-line rich text
 /// editor with optional header and placeholder text.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct RichEditBoxWidget {
+pub struct RichEditBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub text: String,
-    pub placeholder: Option<String>,
+    pub placeholder_text: String,
     pub header: Option<String>,
     pub is_read_only: bool,
-    pub on_changed: Option<Callback<String>>,
+    pub on_text_changed: Option<Callback<String>>,
 }
 
-impl RichEditBoxWidget {
+impl RichEditBox {
     pub fn new(text: impl Into<String>) -> Self {
         Self {
             text: text.into(),
@@ -21,8 +21,8 @@ impl RichEditBoxWidget {
         }
     }
 
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = s.into();
         self
     }
 
@@ -36,42 +36,21 @@ impl RichEditBoxWidget {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<String>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_text_changed(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_text_changed = Some(f.into_callback());
         self
     }
 }
 
-impl Widget for RichEditBoxWidget {
+impl Widget for RichEditBox {
     widget_header!(ControlKind::RichEditBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::RichEditBoxText,
-            PropValue::Str(self.text.clone()),
-        ));
-        if let Some(ph) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(ph.clone())));
-        }
-        if let Some(hd) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(hd.clone())));
-        }
-        if self.is_read_only {
-            out.push(Binding::Prop(
-                Prop::RichEditBoxIsReadOnly,
-                PropValue::Bool(true),
-            ));
-        }
-        out.push(Binding::Event(
-            Event::RichEditBoxTextChanged,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
+        let mut out = crate::core::generated_bindings::rich_edit_box_bindings(self);
+        out.push(Binding::Prop(Prop::Text, PropValue::Str(self.text.clone())));
         out
     }
 }
 
-pub fn rich_edit_box(text: impl Into<String>) -> RichEditBoxWidget {
-    RichEditBoxWidget::new(text)
+pub fn rich_edit_box(text: impl Into<String>) -> RichEditBox {
+    RichEditBox::new(text)
 }

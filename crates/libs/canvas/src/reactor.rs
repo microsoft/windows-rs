@@ -2,7 +2,7 @@ use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use windows_reactor::{
-    Rendering, SwapChainPanelHandle, SwapChainPanelWidget, on_rendering, swap_chain_panel,
+    Rendering, SwapChainPanel, SwapChainPanelHandle, on_rendering, swap_chain_panel,
 };
 
 use crate::color::ColorF;
@@ -83,7 +83,7 @@ impl RenderState {
 /// })
 /// .margin(16.0)
 /// ```
-pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanelWidget {
+pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanel {
     let state: Rc<RefCell<Option<RenderState>>> = Rc::new(RefCell::new(None));
     let size: Rc<Cell<(f32, f32)>> = Rc::new(Cell::new((0.0, 0.0)));
     let scale: Rc<Cell<f32>> = Rc::new(Cell::new(1.0));

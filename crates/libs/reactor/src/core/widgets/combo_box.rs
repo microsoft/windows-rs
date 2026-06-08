@@ -9,7 +9,7 @@ pub struct ComboBox {
     pub items: Vec<String>,
     pub selected_index: i32,
     pub header: Option<String>,
-    pub placeholder: Option<String>,
+    pub placeholder_text: String,
     pub is_editable: bool,
     pub is_enabled: bool,
     pub on_selection_changed: Option<Callback<i32>>,
@@ -35,8 +35,8 @@ impl ComboBox {
         self.header = Some(s.into());
         self
     }
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = s.into();
         self
     }
     /// Enable the text-entry mode (`IComboBox::IsEditable`).
@@ -57,32 +57,10 @@ impl ComboBox {
 impl Widget for ComboBox {
     widget_header!(ControlKind::ComboBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
+        let mut out = crate::core::generated_bindings::combo_box_bindings(self);
         out.push(Binding::Prop(
-            Prop::ComboBoxItems,
+            Prop::Items,
             PropValue::StrList(self.items.clone()),
-        ));
-        out.push(Binding::Prop(
-            Prop::SelectedIndex,
-            PropValue::I32(self.selected_index),
-        ));
-        if let Some(h) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(h.clone())));
-        }
-        if let Some(p) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(p.clone())));
-        }
-        if self.is_editable {
-            out.push(Binding::Prop(Prop::IsEditable, PropValue::Bool(true)));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::ComboSelectionChanged,
-            self.on_selection_changed
-                .as_ref()
-                .map(|cb| EventHandler::IndexChanged(cb.clone())),
         ));
         out
     }

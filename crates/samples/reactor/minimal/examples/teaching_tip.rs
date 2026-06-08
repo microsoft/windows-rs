@@ -16,10 +16,10 @@ fn app(cx: &mut RenderCx) -> Element {
             .subtitle("This is a teaching tip with action and close buttons.")
             .is_open(is_open)
             .light_dismiss()
-            .preferred_placement(TeachingTipPlacement::Bottom)
+            .preferred_placement(TeachingTipPlacementMode::Bottom)
             .action_button("Got it")
             .close_button("Dismiss")
-            .on_action_click({
+            .on_action_button_click({
                 let set_status = set_status.clone();
                 move || {
                     set_status.call(String::from("Action button clicked!"));

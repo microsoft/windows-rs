@@ -10,6 +10,28 @@ pub enum Binding {
 
 pub type PropBindings = Vec<Binding>;
 
+/// Converts a widget struct field to an optional `PropValue::Str`.
+///
+/// Generated binding code calls `w.field.to_prop_str()` for TextBlock
+/// and IReference setters. The trait lets the same generated code work
+/// whether the field is `String` (always `Some`) or `Option<String>`
+/// (mirrors the Option).
+pub(crate) trait ToPropStr {
+    fn to_prop_str(&self) -> Option<PropValue>;
+}
+
+impl ToPropStr for String {
+    fn to_prop_str(&self) -> Option<PropValue> {
+        Some(PropValue::Str(self.clone()))
+    }
+}
+
+impl ToPropStr for Option<String> {
+    fn to_prop_str(&self) -> Option<PropValue> {
+        self.as_ref().map(|s| PropValue::Str(s.clone()))
+    }
+}
+
 pub(crate) fn find_prop(bindings: &[Binding], prop: Prop) -> Option<&PropValue> {
     bindings.iter().find_map(|b| match b {
         Binding::Prop(p, v) if *p == prop => Some(v),

@@ -36,10 +36,10 @@ impl<T> Callback<T> {
 /// # Examples
 /// ```ignore
 /// // Before: manual adapter closure
-/// text_box(name).on_changed(move |v| set_name.call(v))
+/// text_box(name).on_text_changed(move |v| set_name.call(v))
 ///
 /// // After: pass the setter directly
-/// text_box(name).on_changed(set_name)
+/// text_box(name).on_text_changed(set_name)
 /// ```
 pub trait IntoCallback<T> {
     fn into_callback(self) -> Callback<T>;

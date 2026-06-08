@@ -20,7 +20,7 @@ fn app(cx: &mut RenderCx) -> Element {
     NavigationView::new(menu_items, body)
         .selected_tag(page.clone())
         .on_selection_changed(move |tag| set_page.call(tag))
-        .pane_display_mode(NavViewPaneDisplayMode::Left)
+        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
         .pane_title("Demo")
         .header(format!("page: {page}"))
         .settings_visible(false)

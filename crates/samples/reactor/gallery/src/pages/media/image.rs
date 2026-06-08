@@ -5,10 +5,10 @@ pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
     let (stretch_idx, set_stretch) = cx.use_state(0_i32);
 
     let stretch = match stretch_idx {
-        1 => ImageStretch::UniformToFill,
-        2 => ImageStretch::Fill,
-        3 => ImageStretch::None,
-        _ => ImageStretch::Uniform,
+        1 => Stretch::UniformToFill,
+        2 => Stretch::Fill,
+        3 => Stretch::None,
+        _ => Stretch::Uniform,
     };
     let stretch_name = match stretch_idx {
         1 => "UniformToFill",
@@ -53,7 +53,7 @@ pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
                 text_block(format!("Current: {stretch_name}")).opacity(0.6),
             ))
             .spacing(8.0),
-            r#"Image::new_with_uri(uri).stretch(ImageStretch::Uniform).width(300.0).height(150.0)"#,
+            r#"Image::new_with_uri(uri).stretch(Stretch::Uniform).width(300.0).height(150.0)"#,
         )],
     )
 }

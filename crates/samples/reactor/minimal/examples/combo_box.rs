@@ -20,13 +20,13 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         ComboBox::new(colors)
             .header("Color")
-            .placeholder("Pick a color")
+            .placeholder_text("Pick a color")
             .selected_index(selected)
             .on_selection_changed(update_selected),
         text_block(format!("selected_index = {selected} ({label})")),
         ComboBox::new(["Cat", "Dog", "Fox"])
             .header("Editable")
-            .placeholder("Type or pick an animal")
+            .placeholder_text("Type or pick an animal")
             .editable(true),
         ComboBox::new(["A", "B", "C"])
             .header("Disabled")

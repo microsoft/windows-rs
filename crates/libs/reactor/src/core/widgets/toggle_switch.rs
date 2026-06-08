@@ -5,7 +5,7 @@ pub struct ToggleSwitch {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub is_on: bool,
-    pub on_changed: Option<Callback<bool>>,
+    pub on_toggled: Option<Callback<bool>>,
     pub on_content: Option<String>,
     pub off_content: Option<String>,
     pub header: Option<String>,
@@ -19,8 +19,8 @@ impl ToggleSwitch {
             ..Default::default()
         }
     }
-    pub fn on_changed(mut self, f: impl IntoCallback<bool>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_toggled(mut self, f: impl IntoCallback<bool>) -> Self {
+        self.on_toggled = Some(f.into_callback());
         self
     }
     pub fn on_content(mut self, s: impl Into<String>) -> Self {
@@ -44,26 +44,6 @@ impl ToggleSwitch {
 impl Widget for ToggleSwitch {
     widget_header!(ControlKind::ToggleSwitch);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(6);
-        out.push(Binding::Prop(Prop::IsOn, PropValue::Bool(self.is_on)));
-        if let Some(s) = &self.on_content {
-            out.push(Binding::Prop(Prop::OnContent, PropValue::Str(s.clone())));
-        }
-        if let Some(s) = &self.off_content {
-            out.push(Binding::Prop(Prop::OffContent, PropValue::Str(s.clone())));
-        }
-        if let Some(s) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(s.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::Toggled,
-            self.on_changed
-                .as_ref()
-                .map(|cb| EventHandler::CheckedChanged(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::toggle_switch_bindings(self)
     }
 }

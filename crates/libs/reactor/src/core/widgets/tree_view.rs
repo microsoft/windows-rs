@@ -1,6 +1,6 @@
 use super::*;
 
-/// Definition of a single node in a [`TreeViewWidget`].
+/// Definition of a single node in a [`TreeView`].
 #[derive(Clone, Debug, PartialEq)]
 pub struct TreeNodeDef {
     /// Display text of this node.
@@ -41,29 +41,30 @@ pub fn tree_node(text: impl Into<String>) -> TreeNodeDef {
     TreeNodeDef::new(text)
 }
 
-/// Selection mode for [`TreeViewWidget`].
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TreeSelectionMode {
-    /// No selection.
-    None,
-    /// Single item selection.
-    #[default]
-    Single,
-    /// Multiple items can be selected.
-    Multiple,
-}
+pub use crate::bindings::TreeViewSelectionMode;
 
 /// `Microsoft.UI.Xaml.Controls.TreeView`. A hierarchical list view.
-#[derive(Clone, Default, Debug, PartialEq)]
-pub struct TreeViewWidget {
+#[derive(Clone, Debug, PartialEq)]
+pub struct TreeView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub nodes: Vec<TreeNodeDef>,
-    pub selection_mode: TreeSelectionMode,
+    pub selection_mode: TreeViewSelectionMode,
     pub on_item_invoked: Option<Callback<String>>,
 }
+impl Default for TreeView {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            nodes: Vec::new(),
+            selection_mode: TreeViewSelectionMode::Single,
+            on_item_invoked: None,
+        }
+    }
+}
 
-impl TreeViewWidget {
+impl TreeView {
     pub fn new(nodes: Vec<TreeNodeDef>) -> Self {
         Self {
             nodes,
@@ -71,7 +72,7 @@ impl TreeViewWidget {
         }
     }
 
-    pub fn selection_mode(mut self, mode: TreeSelectionMode) -> Self {
+    pub fn selection_mode(mut self, mode: TreeViewSelectionMode) -> Self {
         self.selection_mode = mode;
         self
     }
@@ -82,28 +83,18 @@ impl TreeViewWidget {
     }
 }
 
-impl Widget for TreeViewWidget {
+impl Widget for TreeView {
     widget_header!(ControlKind::TreeView);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::TreeViewNodes,
-                PropValue::TreeViewNodes(self.nodes.clone()),
-            ),
-            Binding::Prop(
-                Prop::TreeViewSelectionMode,
-                PropValue::TreeViewSelectionMode(self.selection_mode),
-            ),
-            Binding::Event(
-                Event::TreeViewItemInvoked,
-                self.on_item_invoked
-                    .as_ref()
-                    .map(|cb| EventHandler::TextChanged(cb.clone())),
-            ),
-        ]
+        let mut out = crate::core::generated_bindings::tree_view_bindings(self);
+        out.push(Binding::Prop(
+            Prop::Nodes,
+            PropValue::TreeViewNodes(self.nodes.clone()),
+        ));
+        out
     }
 }
 
-pub fn tree_view(nodes: Vec<TreeNodeDef>) -> TreeViewWidget {
-    TreeViewWidget::new(nodes)
+pub fn tree_view(nodes: Vec<TreeNodeDef>) -> TreeView {
+    TreeView::new(nodes)
 }

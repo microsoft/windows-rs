@@ -18,7 +18,7 @@ fn recording_backend_assigns_sequential_ids() {
 fn set_prop_is_logged_verbatim() {
     let mut b = RecordingBackend::new();
     let id = b.create(ControlKind::TextBlock);
-    b.set_prop(id, Prop::Text, PropValue::Str("hi".into()));
+    b.set_prop(id, Prop::Text, &PropValue::Str("hi".into()));
     assert_eq!(b.ops.len(), 2);
     match &b.ops[1] {
         Op::SetProp {

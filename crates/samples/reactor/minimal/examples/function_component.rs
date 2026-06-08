@@ -39,8 +39,8 @@ fn app(cx: &mut RenderCx) -> Element {
         component(greeting, GreetingProps { name: name.clone() }),
         text_box(name)
             .header("Your name")
-            .placeholder("Type a name…")
-            .on_changed(set_name),
+            .placeholder_text("Type a name…")
+            .on_text_changed(set_name),
         component(counter, ()),
     ))
     .spacing(12.0)

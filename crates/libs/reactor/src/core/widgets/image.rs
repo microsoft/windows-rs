@@ -1,11 +1,21 @@
 use super::*;
 
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Image {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub source: ImageSource,
-    pub stretch: ImageStretch,
+    pub stretch: Stretch,
+}
+impl Default for Image {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            source: ImageSource::default(),
+            stretch: Stretch::Uniform,
+        }
+    }
 }
 #[derive(Clone, Default, Debug, PartialEq)]
 pub enum ImageSource {
@@ -24,14 +34,7 @@ impl From<Option<SurfaceImageSource>> for ImageSource {
         source.map_or(ImageSource::None, ImageSource::Surface)
     }
 }
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum ImageStretch {
-    #[default]
-    Uniform,
-    UniformToFill,
-    Fill,
-    None,
-}
+pub use crate::bindings::Stretch;
 impl Image {
     pub fn new(source: ImageSource) -> Self {
         Self {
@@ -44,7 +47,7 @@ impl Image {
         Self::new(ImageSource::Uri(source.into()))
     }
 
-    pub fn stretch(mut self, v: ImageStretch) -> Self {
+    pub fn stretch(mut self, v: Stretch) -> Self {
         self.stretch = v;
         self
     }
@@ -53,22 +56,20 @@ impl Image {
 impl Widget for Image {
     widget_header!(ControlKind::Image);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(2);
+        let mut out = crate::core::generated_bindings::image_bindings(self);
+        // ImageSource is a compound type not expressible in TOML.
         match &self.source {
+            ImageSource::Uri(uri) => {
+                out.push(Binding::Prop(Prop::ImageSource, PropValue::Str(uri.clone())));
+            }
+            ImageSource::Surface(s) => {
+                out.push(Binding::Prop(
+                    Prop::ImageSource,
+                    PropValue::SurfaceImageSource(s.clone()),
+                ));
+            }
             ImageSource::None => {}
-            ImageSource::Uri(s) => out.push(Binding::Prop(
-                Prop::ImageSource,
-                PropValue::Str(s.clone()),
-            )),
-            ImageSource::Surface(sis) => out.push(Binding::Prop(
-                Prop::ImageSource,
-                PropValue::SurfaceImageSource(sis.clone()),
-            )),
         }
-        out.push(Binding::Prop(
-            Prop::ImageStretch,
-            PropValue::ImageStretch(self.stretch),
-        ));
         out
     }
 }
@@ -95,15 +96,13 @@ mod tests {
 
     #[test]
     fn default_emits_no_image_source() {
-        // An `Image` with no source emits no `ImageSource` binding, but still
-        // binds its stretch.
+        // An `Image` with no source emits no `ImageSource` binding.
+        // Stretch is always emitted (it's a non-optional enum field).
         let image = Image::default();
         assert_eq!(image_source(&image), None);
-        assert!(
-            image
-                .bindings()
-                .iter()
-                .any(|b| matches!(b, Binding::Prop(Prop::ImageStretch, _)))
-        );
+        assert!(!image
+            .bindings()
+            .iter()
+            .any(|b| matches!(b, Binding::Prop(Prop::ImageSource, ..))));
     }
 }

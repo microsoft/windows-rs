@@ -73,21 +73,21 @@ impl Default for Border {
 impl Widget for Border {
     widget_header!(ControlKind::Border);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(3);
-        if let Some(cr) = self.corner_radius {
-            out.push(Binding::Prop(Prop::CornerRadius, PropValue::F64(cr)));
-        }
+        let mut out = crate::core::generated_bindings::border_bindings(self);
         if let Some(BrushBinding::Direct(br)) = &self.border_brush {
             out.push(Binding::Prop(
                 Prop::BorderBrush,
                 PropValue::Brush(br.clone()),
             ));
         }
-        if let Some(t) = self.border_thickness {
+        if let Some(v) = self.border_thickness {
             out.push(Binding::Prop(
                 Prop::BorderThickness,
-                PropValue::Thickness(t),
+                PropValue::Thickness(v),
             ));
+        }
+        if let Some(v) = self.corner_radius {
+            out.push(Binding::Prop(Prop::CornerRadius, PropValue::F64(v)));
         }
         out
     }

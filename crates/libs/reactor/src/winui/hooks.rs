@@ -5,8 +5,7 @@ use crate::bindings::*;
 /// RAII timer wrapper; stops and unhooks on drop.
 pub struct DispatcherTimer {
     timer: DispatcherQueueTimer,
-    #[allow(dead_code)]
-    tick_revoker: windows_core::EventRevoker,
+    _tick_revoker: windows_core::EventRevoker,
 }
 
 impl DispatcherTimer {
@@ -39,7 +38,7 @@ impl DispatcherTimer {
         timer.Start()?;
         Ok(Self {
             timer,
-            tick_revoker,
+            _tick_revoker: tick_revoker,
         })
     }
 
@@ -60,8 +59,7 @@ impl Drop for DispatcherTimer {
 
 /// RAII handle for a `CompositionTarget::Rendering` subscription; detaches on drop.
 pub struct Rendering {
-    #[allow(dead_code)]
-    revoker: windows_core::EventRevoker,
+    _revoker: windows_core::EventRevoker,
 }
 
 /// Subscribe `f` to `CompositionTarget::Rendering` for the current thread.
@@ -72,7 +70,7 @@ where
     let revoker = CompositionTarget::add_Rendering(move |_, _| {
         f();
     })?;
-    Ok(Rendering { revoker })
+    Ok(Rendering { _revoker: revoker })
 }
 
 fn duration_to_timespan(d: Duration) -> windows_time::TimeSpan {

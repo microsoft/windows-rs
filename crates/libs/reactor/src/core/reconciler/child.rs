@@ -1,4 +1,5 @@
 use rustc_hash::{FxHashMap, FxHashSet};
+use std::borrow::Cow;
 
 use super::*;
 
@@ -123,11 +124,11 @@ fn reconcile_positional_live<B: Backend + 'static>(
     }
 }
 
-fn effective_key(el: &Element, positional_index: usize) -> String {
+fn effective_key(el: &Element, positional_index: usize) -> Cow<'_, str> {
     if let Some(k) = el.key() {
-        return k.to_string();
+        return Cow::Borrowed(k);
     }
-    format!("__pos_{positional_index}_{}", el.kind_name())
+    Cow::Owned(format!("__pos_{positional_index}_{}", el.kind_name()))
 }
 
 fn key_match(a: &Element, b: &Element) -> bool {
@@ -264,7 +265,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
     new_mid_len: usize,
     prefix: usize,
 ) {
-    let mut old_key_map: FxHashMap<String, usize> = FxHashMap::default();
+    let mut old_key_map: FxHashMap<Cow<'_, str>, usize> = FxHashMap::default();
     old_key_map.reserve(old_mid_len);
     for i in 0..old_mid_len {
         let el = old.get(old_start + i).unwrap();
@@ -277,7 +278,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
     for i in 0..new_mid_len {
         let el = new.get(new_start + i).unwrap();
         let key = effective_key(el, new_start + i);
-        if let Some(&old_rel) = old_key_map.get(&key) {
+        if let Some(&old_rel) = old_key_map.get(key.as_ref()) {
             let old_el = old.get(old_start + old_rel).unwrap();
 
             if old_el.can_update(el) {
@@ -299,7 +300,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         }
     }
 
-    let mut key_to_panel: FxHashMap<String, usize> = FxHashMap::default();
+    let mut key_to_panel: FxHashMap<Cow<'_, str>, usize> = FxHashMap::default();
     {
         let mut panel_idx = prefix;
         for i in 0..old_mid_len {
@@ -337,7 +338,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             // regression test in this module.)
             let key = effective_key(old_el, old_start + old_rel);
             let actual_pos = *key_to_panel
-                .get(&key)
+                .get(key.as_ref())
                 .unwrap();
             if reconciler.child_at(parent, actual_pos).is_some() {
                 if can_skip_update(old_el, new_el) {
@@ -358,7 +359,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             let old_el = old.get(old_start + old_rel).unwrap();
             let key = effective_key(old_el, old_start + old_rel);
             let current_pos = *key_to_panel
-                .get(&key)
+                .get(key.as_ref())
                 .unwrap();
             if current_pos != target_panel_idx {
                 reconciler.move_child_tracked(parent, current_pos, target_panel_idx);
@@ -647,7 +648,7 @@ mod tests {
         for op in &reconciler.backend.ops {
             if let Op::SetProp {
                 id,
-                prop: crate::core::backend::Prop::ButtonContent,
+                prop: crate::core::backend::Prop::Content,
                 value: PropValue::Str(s),
             } = op
             {

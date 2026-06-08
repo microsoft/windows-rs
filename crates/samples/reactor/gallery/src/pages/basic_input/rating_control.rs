@@ -11,14 +11,14 @@ pub fn rating_control_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Basic RatingControl",
                 vstack((
-                    RatingControl::new(rating).on_changed({
+                    RatingControl::new(rating).on_value_changed({
                         let set_rating = set_rating;
                         move |v| set_rating.call(v)
                     }),
                     text_block(format!("Rating: {rating:.1} / 5")).opacity(0.6),
                 ))
                 .spacing(8.0),
-                "RatingControl::new(rating).on_changed(handler)",
+                "RatingControl::new(rating).on_value_changed(handler)",
             ),
             sample_card(
                 "Custom Max Rating",

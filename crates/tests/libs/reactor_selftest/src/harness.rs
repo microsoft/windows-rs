@@ -592,7 +592,7 @@ impl Harness {
 
     /// Set the underlying WinUI value on the first CheckBox in the tree.
     /// Fires the Checked/Unchecked event the reactor has wired, which in
-    /// turn drives any `on_changed` callback.
+    /// turn drives any `on_checked` callback.
     pub fn set_checkbox_value(&self, checked: bool) -> Result<()> {
         let Some(cb) = self.find_first::<CheckBox>(&|_| true) else {
             self.diag("set_checkbox_value: no CheckBox found in visual tree");

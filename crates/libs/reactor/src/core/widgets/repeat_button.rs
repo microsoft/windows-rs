@@ -1,14 +1,28 @@
 use super::*;
 
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RepeatButton {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub content: String,
     pub on_click: Option<Callback<()>>,
     pub is_enabled: bool,
-    pub delay: Option<i32>,
-    pub interval: Option<i32>,
+    pub delay: i32,
+    pub interval: i32,
+}
+
+impl Default for RepeatButton {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            content: String::new(),
+            on_click: None,
+            is_enabled: true,
+            delay: 500,
+            interval: 33,
+        }
+    }
 }
 
 impl RepeatButton {
@@ -32,13 +46,13 @@ impl RepeatButton {
 
     /// Initial delay in milliseconds before repeating begins (default 500).
     pub fn delay(mut self, ms: i32) -> Self {
-        self.delay = Some(ms);
+        self.delay = ms;
         self
     }
 
     /// Interval in milliseconds between repeats (default 33).
     pub fn interval(mut self, ms: i32) -> Self {
-        self.interval = Some(ms);
+        self.interval = ms;
         self
     }
 }
@@ -46,27 +60,7 @@ impl RepeatButton {
 impl Widget for RepeatButton {
     widget_header!(ControlKind::RepeatButton);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(5);
-        out.push(Binding::Prop(
-            Prop::ButtonContent,
-            PropValue::Str(self.content.clone()),
-        ));
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        if let Some(ms) = self.delay {
-            out.push(Binding::Prop(Prop::RepeatDelay, PropValue::I32(ms)));
-        }
-        if let Some(ms) = self.interval {
-            out.push(Binding::Prop(Prop::RepeatInterval, PropValue::I32(ms)));
-        }
-        out.push(Binding::Event(
-            Event::Click,
-            self.on_click
-                .as_ref()
-                .map(|cb| EventHandler::Click(cb.clone())),
-        ));
-        out
+        crate::core::generated_bindings::repeat_button_bindings(self)
     }
 }
 

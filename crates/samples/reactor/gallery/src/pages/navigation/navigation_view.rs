@@ -62,13 +62,13 @@ pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Top-Mode NavigationView",
                 NavigationView::new(top_items, top_body)
-                    .pane_display_mode(NavViewPaneDisplayMode::Top)
+                    .pane_display_mode(NavigationViewPaneDisplayMode::Top)
                     .selected_tag(&top_selected)
                     .on_selection_changed(move |tag: String| set_top_selected.call(tag))
                     .settings_visible(false)
                     .height(200.0),
                 r#"NavigationView::new(items, body)
-    .pane_display_mode(NavViewPaneDisplayMode::Top)"#,
+    .pane_display_mode(NavigationViewPaneDisplayMode::Top)"#,
             ),
         ],
     )

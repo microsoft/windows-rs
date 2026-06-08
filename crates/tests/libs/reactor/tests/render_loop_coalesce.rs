@@ -5,7 +5,7 @@ use windows_reactor::core::backend::RecordingBackend;
 use windows_reactor::core::component::Component;
 use windows_reactor::core::component_element::component;
 use windows_reactor::core::dispatcher::{DispatchPriority, Dispatcher, RunOnDemandDispatcher};
-use windows_reactor::core::element::{Element, StackPanel, TextBlock};
+use windows_reactor::core::element::{Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::render_context::{RenderCx, SetState};
 use windows_reactor::core::render_host::RenderHost;
 use windows_reactor::core::window::Size;
@@ -19,7 +19,7 @@ impl Component for Counter {
         let (count, set) = cx.use_state(0_i32);
         *self.setter_slot.borrow_mut() = Some(set);
         Element::TextBlock(TextBlock {
-            content: format!("Count: {count}"),
+            text: format!("Count: {count}"),
             ..TextBlock::default()
         })
     }
@@ -134,7 +134,7 @@ impl Component for SetDuringRender {
             set.call(7);
         }
         Element::TextBlock(TextBlock {
-            content: "x".into(),
+            text: "x".into(),
             ..TextBlock::default()
         })
     }
@@ -218,13 +218,13 @@ impl Component for ToggleRoot {
         *self.setter_slot.borrow_mut() = Some(set);
         if show {
             Element::TextBlock(TextBlock {
-                content: "T".into(),
+                text: "T".into(),
                 ..TextBlock::default()
             })
         } else {
             use windows_reactor::core::element::StackPanel;
             Element::StackPanel(StackPanel {
-                vertical: true,
+                orientation: Orientation::Vertical,
                 ..StackPanel::default()
             })
         }
@@ -359,7 +359,7 @@ struct InnerSizeRoot {
 impl Component for InnerSizeRoot {
     fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
         Element::StackPanel(StackPanel {
-            vertical: true,
+            orientation: Orientation::Vertical,
             children: vec![component(
                 InnerSizeLeaf {
                     renders: Rc::clone(&self.child_renders),

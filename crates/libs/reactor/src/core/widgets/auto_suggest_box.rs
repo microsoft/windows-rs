@@ -3,12 +3,12 @@ use super::*;
 /// `Microsoft.UI.Xaml.Controls.AutoSuggestBox`. A text input that displays
 /// a filtered suggestion list as the user types.
 #[derive(Clone, Default, Debug, PartialEq)]
-pub struct AutoSuggestBoxWidget {
+pub struct AutoSuggestBox {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub text: String,
     pub items: Vec<String>,
-    pub placeholder: Option<String>,
+    pub placeholder_text: String,
     pub header: Option<String>,
     pub is_enabled: bool,
     pub on_text_changed: Option<Callback<String>>,
@@ -16,7 +16,7 @@ pub struct AutoSuggestBoxWidget {
     pub on_suggestion_chosen: Option<Callback<String>>,
 }
 
-impl AutoSuggestBoxWidget {
+impl AutoSuggestBox {
     pub fn new(text: impl Into<String>) -> Self {
         Self {
             text: text.into(),
@@ -34,8 +34,8 @@ impl AutoSuggestBoxWidget {
         self
     }
 
-    pub fn placeholder(mut self, s: impl Into<String>) -> Self {
-        self.placeholder = Some(s.into());
+    pub fn placeholder_text(mut self, s: impl Into<String>) -> Self {
+        self.placeholder_text = s.into();
         self
     }
 
@@ -65,49 +65,19 @@ impl AutoSuggestBoxWidget {
     }
 }
 
-impl Widget for AutoSuggestBoxWidget {
+impl Widget for AutoSuggestBox {
     widget_header!(ControlKind::AutoSuggestBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = Vec::with_capacity(7);
+        let mut out = crate::core::generated_bindings::auto_suggest_box_bindings(self);
+        out.push(Binding::Prop(Prop::Text, PropValue::Str(self.text.clone())));
         out.push(Binding::Prop(
-            Prop::AutoSuggestText,
-            PropValue::Str(self.text.clone()),
-        ));
-        out.push(Binding::Prop(
-            Prop::AutoSuggestItems,
+            Prop::Items,
             PropValue::StrList(self.items.clone()),
-        ));
-        if let Some(ph) = &self.placeholder {
-            out.push(Binding::Prop(Prop::Placeholder, PropValue::Str(ph.clone())));
-        }
-        if let Some(hd) = &self.header {
-            out.push(Binding::Prop(Prop::Header, PropValue::Str(hd.clone())));
-        }
-        if !self.is_enabled {
-            out.push(Binding::Prop(Prop::IsEnabled, PropValue::Bool(false)));
-        }
-        out.push(Binding::Event(
-            Event::AutoSuggestTextChanged,
-            self.on_text_changed
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::AutoSuggestQuerySubmitted,
-            self.on_query_submitted
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
-        ));
-        out.push(Binding::Event(
-            Event::AutoSuggestSuggestionChosen,
-            self.on_suggestion_chosen
-                .as_ref()
-                .map(|cb| EventHandler::TextChanged(cb.clone())),
         ));
         out
     }
 }
 
-pub fn auto_suggest_box(text: impl Into<String>) -> AutoSuggestBoxWidget {
-    AutoSuggestBoxWidget::new(text)
+pub fn auto_suggest_box(text: impl Into<String>) -> AutoSuggestBox {
+    AutoSuggestBox::new(text)
 }

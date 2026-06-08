@@ -57,21 +57,9 @@ impl From<Color> for Brush {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum HorizontalAlignment {
-    Left,
-    Center,
-    Right,
-    Stretch,
-}
-
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum VerticalAlignment {
-    Top,
-    Center,
-    Bottom,
-    Stretch,
-}
+pub use crate::bindings::HorizontalAlignment;
+pub use crate::bindings::ScrollBarVisibility;
+pub use crate::bindings::VerticalAlignment;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum GridLength {
@@ -82,12 +70,4 @@ pub enum GridLength {
 
 impl GridLength {
     pub const STAR: Self = GridLength::Star(1.0);
-}
-
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum ScrollBarVisibility {
-    Auto,
-    Visible,
-    Hidden,
-    Disabled,
 }

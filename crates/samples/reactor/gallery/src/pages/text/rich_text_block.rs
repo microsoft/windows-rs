@@ -19,7 +19,7 @@ pub fn rich_text_block_page(_: &(), cx: &mut RenderCx) -> Element {
                     Slider::new(font_size)
                         .range(10.0, 28.0)
                         .header("Font Size")
-                        .on_changed({
+                        .on_value_changed({
                             let set_font_size = set_font_size;
                             move |v: f64| set_font_size.call(v)
                         }),

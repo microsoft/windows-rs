@@ -53,6 +53,8 @@ pub(crate) use prop_binding::*;
 #[allow(unused_imports)]
 pub(crate) use widget::*;
 
+pub(crate) mod generated_bindings;
+
 pub(crate) mod into_elements;
 pub(crate) mod rc_fn;
 pub use into_elements::IntoElements;

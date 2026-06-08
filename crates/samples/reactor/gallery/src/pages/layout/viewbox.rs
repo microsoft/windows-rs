@@ -26,7 +26,7 @@ pub fn viewbox_page(_: &(), cx: &mut RenderCx) -> Element {
                 Slider::new(content_size)
                     .range(60.0, 220.0)
                     .header("Content size")
-                    .on_changed(move |value: f64| set_content_size.call(value)),
+                    .on_value_changed(move |value: f64| set_content_size.call(value)),
                 text_block("The Viewbox stays fixed while its child grows or shrinks.")
                     .opacity(0.6),
             ))

@@ -31,16 +31,7 @@ impl ScrollViewer {
 impl Widget for ScrollViewer {
     widget_header!(ControlKind::ScrollViewer);
     fn bindings(&self) -> PropBindings {
-        vec![
-            Binding::Prop(
-                Prop::HorizontalScrollBarVisibility,
-                PropValue::ScrollVis(self.horizontal_scroll_bar_visibility),
-            ),
-            Binding::Prop(
-                Prop::VerticalScrollBarVisibility,
-                PropValue::ScrollVis(self.vertical_scroll_bar_visibility),
-            ),
-        ]
+        crate::core::generated_bindings::scroll_viewer_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)
