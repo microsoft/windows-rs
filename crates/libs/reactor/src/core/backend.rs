@@ -319,52 +319,47 @@ pub enum Event {
 }
 
 /// Typed wrapper around a callback for a specific [`Event`] payload shape.
+/// Variants are named by payload type, mirroring `PropValue`.
 /// The `invoke_*` accessors panic when called on a mismatching variant.
 #[derive(Clone, PartialEq, Eq)]
 pub enum EventHandler {
-    Click(Callback<()>),
-    Changed(Callback<bool>),
-    Checked(Callback<bool>),
-    CheckedChanged(Callback<bool>),
-    TextChanged(Callback<String>),
-    ValueChanged(Callback<f64>),
-    IndexChanged(Callback<i32>),
-    TabKey(Callback<String>),
-    ColorChanged(Callback<(u8, u8, u8, u8)>),
-    DateTimeChanged(Callback<windows_time::DateTime>),
-    TimeChanged(Callback<windows_time::TimeSpan>),
+    Unit(Callback<()>),
+    Bool(Callback<bool>),
+    Str(Callback<String>),
+    F64(Callback<f64>),
+    I32(Callback<i32>),
+    Color(Callback<(u8, u8, u8, u8)>),
+    DateTime(Callback<windows_time::DateTime>),
+    TimeSpan(Callback<windows_time::TimeSpan>),
 }
 
 impl fmt::Debug for EventHandler {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            EventHandler::Click(_) => f.write_str("EventHandler::Click(..)"),
-            EventHandler::Changed(_) => f.write_str("EventHandler::Changed(..)"),
-            EventHandler::Checked(_) => f.write_str("EventHandler::Checked(..)"),
-            EventHandler::CheckedChanged(_) => f.write_str("EventHandler::CheckedChanged(..)"),
-            EventHandler::TextChanged(_) => f.write_str("EventHandler::TextChanged(..)"),
-            EventHandler::ValueChanged(_) => f.write_str("EventHandler::ValueChanged(..)"),
-            EventHandler::IndexChanged(_) => f.write_str("EventHandler::IndexChanged(..)"),
-            EventHandler::TabKey(_) => f.write_str("EventHandler::TabKey(..)"),
-            EventHandler::ColorChanged(_) => f.write_str("EventHandler::ColorChanged(..)"),
-            EventHandler::DateTimeChanged(_) => f.write_str("EventHandler::DateTimeChanged(..)"),
-            EventHandler::TimeChanged(_) => f.write_str("EventHandler::TimeChanged(..)"),
+            EventHandler::Unit(_) => f.write_str("EventHandler::Unit(..)"),
+            EventHandler::Bool(_) => f.write_str("EventHandler::Bool(..)"),
+            EventHandler::Str(_) => f.write_str("EventHandler::Str(..)"),
+            EventHandler::F64(_) => f.write_str("EventHandler::F64(..)"),
+            EventHandler::I32(_) => f.write_str("EventHandler::I32(..)"),
+            EventHandler::Color(_) => f.write_str("EventHandler::Color(..)"),
+            EventHandler::DateTime(_) => f.write_str("EventHandler::DateTime(..)"),
+            EventHandler::TimeSpan(_) => f.write_str("EventHandler::TimeSpan(..)"),
         }
     }
 }
 
 impl EventHandler {
     pub fn new(cb: Callback<()>) -> Self {
-        Self::Click(cb)
+        Self::Unit(cb)
     }
 
     pub fn from_fn<F: Fn() + 'static>(f: F) -> Self {
-        Self::Click(Callback::new(move |()| f()))
+        Self::Unit(Callback::new(move |()| f()))
     }
 
     pub fn invoke(&self) {
         match self {
-            EventHandler::Click(cb) => cb.invoke(()),
+            EventHandler::Unit(cb) => cb.invoke(()),
             other => {
                 panic!("EventHandler::invoke() called on {other:?} — use invoke_bool/invoke_string")
             }
@@ -373,49 +368,49 @@ impl EventHandler {
 
     pub fn invoke_bool(&self, v: bool) {
         match self {
-            EventHandler::Changed(cb) | EventHandler::Checked(cb) | EventHandler::CheckedChanged(cb) => cb.invoke(v),
+            EventHandler::Bool(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_bool() called on {other:?}"),
         }
     }
 
     pub fn invoke_string(&self, s: String) {
         match self {
-            EventHandler::TextChanged(cb) | EventHandler::TabKey(cb) => cb.invoke(s),
+            EventHandler::Str(cb) => cb.invoke(s),
             other => panic!("EventHandler::invoke_string() called on {other:?}"),
         }
     }
 
     pub fn invoke_f64(&self, v: f64) {
         match self {
-            EventHandler::ValueChanged(cb) => cb.invoke(v),
+            EventHandler::F64(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_f64() called on {other:?}"),
         }
     }
 
     pub fn invoke_i32(&self, v: i32) {
         match self {
-            EventHandler::IndexChanged(cb) => cb.invoke(v),
+            EventHandler::I32(cb) => cb.invoke(v),
             other => panic!("EventHandler::invoke_i32() called on {other:?}"),
         }
     }
 
     pub fn invoke_color(&self, argb: (u8, u8, u8, u8)) {
         match self {
-            EventHandler::ColorChanged(cb) => cb.invoke(argb),
+            EventHandler::Color(cb) => cb.invoke(argb),
             other => panic!("EventHandler::invoke_color() called on {other:?}"),
         }
     }
 
     pub fn invoke_datetime(&self, dt: windows_time::DateTime) {
         match self {
-            EventHandler::DateTimeChanged(cb) => cb.invoke(dt),
+            EventHandler::DateTime(cb) => cb.invoke(dt),
             other => panic!("EventHandler::invoke_datetime() called on {other:?}"),
         }
     }
 
     pub fn invoke_timespan(&self, ts: windows_time::TimeSpan) {
         match self {
-            EventHandler::TimeChanged(cb) => cb.invoke(ts),
+            EventHandler::TimeSpan(cb) => cb.invoke(ts),
             other => panic!("EventHandler::invoke_timespan() called on {other:?}"),
         }
     }

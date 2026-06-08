@@ -47,7 +47,9 @@ fn text_field_default_state() {
 
 #[test]
 fn text_field_placeholder_and_header() {
-    let t = text_box("").placeholder_text("Start typing...").header("Notes");
+    let t = text_box("")
+        .placeholder_text("Start typing...")
+        .header("Notes");
     assert_eq!(t.placeholder_text.as_deref(), Some("Start typing..."));
     assert_eq!(t.header.as_deref(), Some("Notes"));
 }

@@ -328,4 +328,3 @@ fn group_works_with_mixed_widget_kinds() {
         .unwrap();
     assert_eq!(r.backend.children_of(parent).len(), 3);
 }
-

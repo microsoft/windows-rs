@@ -138,4 +138,3 @@ fn effect_deps_on_use_state_reruns_on_setter_change() {
 
     assert_eq!(*log.borrow(), vec![0, 5], "effect re-ran with new deps");
 }
-

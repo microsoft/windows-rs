@@ -25,7 +25,9 @@ macro_rules! assert_present {
 
 pub fn mount_auto_suggest_box(h: Harness) -> FixtureFuture {
     Box::pin(async move {
-        h.mount(cc(|_| AutoSuggestBox::new("").placeholder_text("Search").into()));
+        h.mount(cc(|_| {
+            AutoSuggestBox::new("").placeholder_text("Search").into()
+        }));
         h.render().await;
         assert_present!(
             h,

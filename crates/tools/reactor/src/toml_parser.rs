@@ -56,7 +56,8 @@ struct MemberOverride {
     /// Unset/reset policy.
     #[serde(default)]
     unset: Option<UnsetPolicy>,
-    /// Explicit PropValue/EventHandler variant name.
+    /// Explicit PropValue variant name (for properties) or
+    /// EventHandler variant name (for events: Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
     #[serde(default)]
     value: Option<String>,
     /// Explicit Rust field name (overrides snake_case of key).
@@ -72,9 +73,6 @@ struct MemberOverride {
     /// Custom event attachment function.
     #[serde(default)]
     attach_fn: Option<bool>,
-    /// Explicit event handler type.
-    #[serde(default)]
-    handler: Option<String>,
     /// Explicit invoke pattern.
     #[serde(default)]
     invoke: Option<String>,
@@ -323,7 +321,7 @@ fn build_event(
         .field
         .clone()
         .unwrap_or_else(|| format!("on_{}", to_snake_case(member_name)));
-    let handler = overrides.handler.clone();
+    let value = overrides.value.clone();
     let attach_fn = overrides.attach_fn.map(|_| "__custom__".to_string());
     let add_method = if attach_fn.is_some() {
         None
@@ -335,7 +333,7 @@ fn build_event(
         field,
         meta_name: member_name.to_string(),
         event: None,
-        handler,
+        value,
         attach_fn,
         add_method,
         invoke: overrides.invoke.clone(),
@@ -435,13 +433,13 @@ Text = { field = "content", required = true }
     }
 
     #[test]
-    fn parse_event_handler_override() {
+    fn parse_event_value_override() {
         let toml = r#"
 ["Microsoft.UI.Xaml.Controls.InfoBar"]
-Closed = { handler = "Click" }
+Closed = { value = "Bool" }
 "#;
         let controls = parse(toml, &resolver());
-        assert_eq!(controls[0].event[0].handler(), "Click");
+        assert_eq!(controls[0].event[0].value(), "Bool");
     }
 
     #[test]

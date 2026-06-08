@@ -353,8 +353,10 @@ pub struct EventDecl {
     pub meta_name: String,
     /// `Event` enum variant name override. If omitted, defaults to `meta_name`.
     pub event: Option<String>,
-    /// `EventHandler` variant name. If omitted, inferred from `event`.
-    pub handler: Option<String>,
+    /// `EventHandler` variant name (payload type: `"Unit"`, `"Bool"`, `"Str"`,
+    /// `"F64"`, `"I32"`, `"Color"`, `"DateTime"`, `"TimeSpan"`).
+    /// If omitted, inferred from invoke pattern.
+    pub value: Option<String>,
 
     // ── Attachment (pick one) ─────────────────────────────
     /// Custom attach function name. If present, event attachment is
@@ -384,13 +386,21 @@ impl EventDecl {
         self.meta_name.clone()
     }
 
-    /// Resolve the handler name, inferring from event if not explicit.
-    pub fn handler(&self) -> String {
-        if let Some(h) = &self.handler {
-            return h.clone();
+    /// Resolve the EventHandler variant name (payload type).
+    /// Inferred from invoke pattern when not explicit.
+    pub fn value(&self) -> &str {
+        if let Some(v) = &self.value {
+            return v;
         }
-        // Default: handler = event
-        self.event()
+        // Infer from invoke pattern
+        match self.invoke() {
+            "invoke" => "Unit",
+            "invoke_bool_getter" | "invoke_bool_dual" => "Bool",
+            "invoke_string_getter" => "Str",
+            "invoke_f64_getter" | "invoke_f64_args" => "F64",
+            "invoke_i32_getter" | "invoke_i32_args" => "I32",
+            _ => "Unit",
+        }
     }
 
     /// Resolve the add_method, inferring from event if not explicit.
@@ -405,16 +415,16 @@ impl EventDecl {
         Some(format!("add_{}", self.event()))
     }
 
-    /// Resolve the invoke pattern, inferring from handler + getter + add_method_false.
+    /// Resolve the invoke pattern, inferring from value + getter + add_method_false.
     ///
     /// Rules:
     /// - Explicit invoke override → use as-is
-    /// - add_method_false present → "invoke_bool_dual" (hooks both true/false events)
-    /// - Click handler (unit callback) → "invoke"
-    /// - CheckedChanged + getter → "invoke_bool_getter"
-    /// - TextChanged + getter → "invoke_string_getter"
-    /// - ValueChanged + getter → "invoke_f64_getter" (or "invoke_f64_args" if explicit)
-    /// - IndexChanged + getter → "invoke_i32_getter" (or "invoke_i32_args" if explicit)
+    /// - add_method_false present → "invoke_bool_dual"
+    /// - value = "Bool" + getter → "invoke_bool_getter"
+    /// - value = "Str" + getter → "invoke_string_getter"
+    /// - value = "F64" + getter → "invoke_f64_getter"
+    /// - value = "I32" + getter → "invoke_i32_getter"
+    /// - Otherwise → "invoke" (unit)
     pub fn invoke(&self) -> &str {
         if let Some(inv) = &self.invoke {
             return inv;
@@ -422,15 +432,18 @@ impl EventDecl {
         if self.add_method_false.is_some() {
             return "invoke_bool_dual";
         }
-        let handler = self.handler();
-        match handler.as_str() {
-            "Click" => "invoke",
-            "CheckedChanged" => "invoke_bool_getter",
-            "TextChanged" | "TabKey" if self.getter.is_some() => "invoke_string_getter",
-            "ValueChanged" if self.getter.is_some() => "invoke_f64_getter",
-            "IndexChanged" if self.getter.is_some() => "invoke_i32_getter",
-            _ => "invoke",
+        if self.getter.is_some()
+            && let Some(v) = &self.value
+        {
+            return match v.as_str() {
+                "Bool" => "invoke_bool_getter",
+                "Str" => "invoke_string_getter",
+                "F64" => "invoke_f64_getter",
+                "I32" => "invoke_i32_getter",
+                _ => "invoke",
+            };
         }
+        "invoke"
     }
 }
 

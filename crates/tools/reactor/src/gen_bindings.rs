@@ -129,7 +129,7 @@ fn gen_prop_item(p: &PropDecl) -> TokenStream {
 /// Generate a `Binding::Event(...)` expression for use inside `vec![...]`.
 fn gen_event_item(e: &EventDecl) -> TokenStream {
     let event = ident(&e.event());
-    let handler_variant = ident(&e.handler());
+    let handler_variant = ident(e.value());
     let field = ident(&e.field);
     quote! {
         Binding::Event(
@@ -141,7 +141,7 @@ fn gen_event_item(e: &EventDecl) -> TokenStream {
 
 fn gen_event_binding(e: &EventDecl) -> TokenStream {
     let event = ident(&e.event());
-    let handler_variant = ident(&e.handler());
+    let handler_variant = ident(e.value());
     let field = ident(&e.field);
 
     quote! {

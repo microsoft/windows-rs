@@ -209,4 +209,3 @@ fn empty_theme_bindings_map_still_allows_skip() {
     let b = a.clone();
     assert!(can_skip_update(&a, &b));
 }
-

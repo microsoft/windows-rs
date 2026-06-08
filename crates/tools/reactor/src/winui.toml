@@ -14,7 +14,7 @@
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
-#   handler = "Name"     EventHandler variant (default: event name).
+#   value = "Type"       EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
 #   attach_fn = true     Use hand-written custom_attach_{control}_{field}.
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   getter = "method"    Getter on sender/args (e.g. "get_IsOn").
@@ -28,20 +28,20 @@
 PlaceholderText = { }
 Header = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-TextChanged = { attach_fn = true }
-QuerySubmitted = { attach_fn = true, handler = "TextChanged" }
-SuggestionChosen = { attach_fn = true, handler = "TextChanged" }
+TextChanged = { attach_fn = true, value = "Str" }
+QuerySubmitted = { attach_fn = true, value = "Str" }
+SuggestionChosen = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Border"]
 
 ["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
-ItemClicked = { handler = "IndexChanged", invoke = "invoke_i32_args", getter = "get_Index" }
+ItemClicked = { value = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
 IsEnabled = { default = "true" }
 Click = {}
-ItemClicked = { attach_fn = true, handler = "TextChanged" }
-CommandBarFlyoutClick = { attach_fn = true, handler = "TextChanged" }
+ItemClicked = { attach_fn = true, value = "Str" }
+CommandBarFlyoutClick = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
 Header = {}
@@ -54,7 +54,7 @@ IsEnabled = { default = "true" }
 IsTodayHighlighted = { default = "true" }
 IsGroupLabelVisible = { default = "true" }
 IsEnabled = { default = "true" }
-SelectedDatesChanged = { handler = "Click" }
+SelectedDatesChanged = {}
 
 ["Microsoft.UI.Xaml.Controls.Canvas"]
 
@@ -69,7 +69,7 @@ IsAlphaEnabled = { default = "true" }
 IsHexInputVisible = { default = "true" }
 IsColorSliderVisible = { default = "true" }
 IsColorChannelTextInputVisible = { default = "true" }
-ColorChanged = { attach_fn = true }
+ColorChanged = { attach_fn = true, value = "Color" }
 
 ["Microsoft.UI.Xaml.Controls.ComboBox"]
 SelectedIndex = { default = "0" }
@@ -77,11 +77,11 @@ Header = {}
 PlaceholderText = { unset = { default = "\"\"" } }
 IsEditable = { default = "false", unset = "custom" }
 IsEnabled = { default = "true" }
-SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
+SelectionChanged = { attach_fn = true, value = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.CommandBar"]
 DefaultLabelPosition = { default = "CommandBarDefaultLabelPosition::default()" }
-Click = { attach_fn = true, handler = "TextChanged" }
+Click = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ContentDialog"]
 Title = { wrap = "ireference" }
@@ -98,17 +98,17 @@ DayVisible = { default = "true" }
 MonthVisible = { default = "true" }
 YearVisible = { default = "true" }
 IsEnabled = { default = "true" }
-SelectedDateChanged = { attach_fn = true, handler = "DateTimeChanged" }
+SelectedDateChanged = { attach_fn = true, value = "DateTime" }
 
 ["Microsoft.UI.Xaml.Controls.DropDownButton"]
 Content = { wrap = "ireference" }
 IsEnabled = { default = "true" }
-ItemClicked = { attach_fn = true, handler = "TextChanged" }
+ItemClicked = { attach_fn = true, value = "Str" }
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Expander"]
 IsExpanded = { default = "false" }
-Expanding = { handler = "CheckedChanged", add_method_false = "add_Collapsed" }
+Expanding = { add_method_false = "add_Collapsed" }
 
 ["Microsoft.UI.Xaml.Controls.Grid"]
 RowSpacing = { unset = { default = "0.0" } }
@@ -130,15 +130,15 @@ Message = { unset = { default = "\"\"" } }
 Severity = { default = "InfoBarSeverity::default()" }
 IsOpen = { default = "false" }
 IsClosable = { default = "true" }
-Closed = { handler = "Click" }
+Closed = {}
 
 ["Microsoft.UI.Xaml.Controls.ListBox"]
 SelectedIndex = {}
 IsEnabled = { default = "true" }
-SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
+SelectionChanged = { attach_fn = true, value = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.MenuBar"]
-ItemClicked = { attach_fn = true, handler = "TextChanged" }
+ItemClicked = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
 IsPaneOpen = {}
@@ -148,11 +148,11 @@ IsSettingsVisible = { default = "true" }
 IsPaneToggleButtonVisible = { default = "true", unset = "custom" }
 PaneTitle = { unset = { default = "\"\"" } }
 Header = {}
-SelectionChanged = { attach_fn = true, handler = "TabKey" }
-BackRequested = { handler = "Click" }
-QuerySubmitted = { attach_fn = true, handler = "TextChanged" }
-TextChanged = { attach_fn = true }
-SuggestionChosen = { attach_fn = true, handler = "TextChanged" }
+SelectionChanged = { attach_fn = true, value = "Str" }
+BackRequested = {}
+QuerySubmitted = { attach_fn = true, value = "Str" }
+TextChanged = { attach_fn = true, value = "Str" }
+SuggestionChosen = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NumberBox"]
 Value = { default = "0.0" }
@@ -168,7 +168,7 @@ Header = {}
 IsEnabled = { default = "true" }
 PasswordRevealMode = { default = "PasswordRevealMode::default()" }
 IsPasswordRevealButtonEnabled = { default = "true", unset = { default = "true" } }
-PasswordChanged = { handler = "TextChanged", getter = "get_Password" }
+PasswordChanged = { value = "Str", getter = "get_Password" }
 
 ["Microsoft.UI.Xaml.Controls.PersonPicture"]
 DisplayName = {}
@@ -177,7 +177,7 @@ Initials = {}
 ["Microsoft.UI.Xaml.Controls.Pivot"]
 SelectedIndex = { default = "0" }
 Title = {}
-SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
+SelectionChanged = { attach_fn = true, value = "I32" }
 
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
 Value = { required = true }
@@ -197,13 +197,13 @@ Content = {}
 IsChecked = { default = "false" }
 GroupName = { unset = { default = "\"\"" } }
 IsEnabled = { default = "true" }
-Checked = { handler = "Click" }
+Checked = {}
 
 ["Microsoft.UI.Xaml.Controls.RadioButtons"]
 Header = {}
 SelectedIndex = { default = "0" }
 MaxColumns = {}
-SelectionChanged = { handler = "IndexChanged", getter = "get_SelectedIndex" }
+SelectionChanged = { value = "I32", getter = "get_SelectedIndex" }
 
 ["Microsoft.UI.Xaml.Controls.RatingControl"]
 Value = { default = "0.0" }
@@ -211,7 +211,7 @@ MaxRating = {}
 Caption = { unset = { default = "\"\"" } }
 PlaceholderValue = {}
 IsReadOnly = { default = "false", unset = "custom" }
-ValueChanged = { getter = "get_Value" }
+ValueChanged = { value = "F64", getter = "get_Value" }
 
 ["Microsoft.UI.Xaml.Controls.RelativePanel"]
 
@@ -226,7 +226,7 @@ Click = {}
 PlaceholderText = { unset = { default = "\"\"" } }
 Header = {}
 IsReadOnly = { default = "false", unset = "custom" }
-TextChanged = { attach_fn = true }
+TextChanged = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]
 HorizontalScrollBarVisibility = { required = true }
@@ -237,7 +237,7 @@ HorizontalScrollBarVisibility = { required = true }
 VerticalScrollBarVisibility = { required = true }
 
 ["Microsoft.UI.Xaml.Controls.SelectorBar"]
-SelectionChanged = { attach_fn = true, handler = "TextChanged" }
+SelectionChanged = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Slider"]
 Minimum = { required = true }
@@ -257,7 +257,7 @@ Click = {}
 IsPaneOpen = { default = "false" }
 OpenPaneLength = {}
 CompactPaneLength = {}
-PaneClosed = { handler = "Click" }
+PaneClosed = {}
 
 ["Microsoft.UI.Xaml.Controls.StackPanel"]
 Orientation = { default = "Orientation::Vertical" }
@@ -267,9 +267,9 @@ Spacing = { unset = { default = "0.0" } }
 SelectedIndex = { default = "0" }
 CanReorderTabs = { default = "false" }
 IsAddTabButtonVisible = { default = "true" }
-SelectionChanged = { attach_fn = true, handler = "IndexChanged" }
-CloseRequested = { attach_fn = true, handler = "TabKey" }
-AddTabButtonClick = { handler = "Click" }
+SelectionChanged = { attach_fn = true, value = "I32" }
+CloseRequested = { attach_fn = true, value = "Str" }
+AddTabButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TeachingTip"]
 Title = { required = true }
@@ -277,8 +277,8 @@ Subtitle = {}
 IsOpen = { default = "false" }
 IsLightDismissEnabled = { default = "false", unset = "custom" }
 PreferredPlacement = { default = "TeachingTipPlacementMode::default()" }
-Closed = { handler = "Click" }
-ActionButtonClick = { handler = "Click" }
+Closed = {}
+ActionButtonClick = {}
 
 ["Microsoft.UI.Xaml.Controls.TextBlock"]
 Text = { required = true, unset = { default = "\"\"" } }
@@ -292,14 +292,14 @@ Header = {}
 IsEnabled = { default = "true" }
 AcceptsReturn = { default = "false" }
 TextWrapping = { default = "TextWrapping::NoWrap" }
-TextChanged = { getter = "get_Text" }
+TextChanged = { value = "Str", getter = "get_Text" }
 
 ["Microsoft.UI.Xaml.Controls.TimePicker"]
 Header = {}
 ClockIdentifier = {}
 MinuteIncrement = {}
 IsEnabled = { default = "true" }
-SelectedTimeChanged = { attach_fn = true, handler = "TimeChanged" }
+SelectedTimeChanged = { attach_fn = true, value = "TimeSpan" }
 
 ["Microsoft.UI.Xaml.Controls.TitleBar"]
 Title = { required = true }
@@ -307,8 +307,8 @@ Subtitle = { unset = { default = "\"\"" } }
 IsBackButtonVisible = { default = "false" }
 IsBackButtonEnabled = { default = "false" }
 IsPaneToggleButtonVisible = { default = "false" }
-BackRequested = { handler = "Click" }
-PaneToggleRequested = { handler = "Click" }
+BackRequested = {}
+PaneToggleRequested = {}
 
 ["Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"]
 IsChecked = { default = "false" }
@@ -322,11 +322,11 @@ OnContent = {}
 OffContent = {}
 Header = {}
 IsEnabled = { default = "true" }
-Toggled = { handler = "CheckedChanged", getter = "get_IsOn" }
+Toggled = { value = "Bool", getter = "get_IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 SelectionMode = { default = "TreeViewSelectionMode::Single" }
-ItemInvoked = { attach_fn = true, handler = "TextChanged" }
+ItemInvoked = { attach_fn = true, value = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.Viewbox"]
 Stretch = { required = true }

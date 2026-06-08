@@ -164,4 +164,3 @@ fn mount_emits_modifiers_after_create() {
     assert_eq!(modifier_props[1], Prop::Opacity);
     assert_eq!(modifier_props[2], Prop::Background);
 }
-

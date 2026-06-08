@@ -407,4 +407,3 @@ fn inner_size_change_rerenders_children_once_and_resets_force_flag() {
         "force rerender flag should be cleared after the size-driven pass"
     );
 }
-

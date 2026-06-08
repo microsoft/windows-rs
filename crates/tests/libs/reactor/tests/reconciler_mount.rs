@@ -208,4 +208,3 @@ fn disabled_button_emits_is_enabled_false() {
         }
     )));
 }
-
