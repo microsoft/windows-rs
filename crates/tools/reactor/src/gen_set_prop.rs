@@ -110,7 +110,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
         .iter()
         .flat_map(|c| c.prop.iter())
         .filter(|p| matches!(p.setter(), SetterKind::Custom))
-        .map(|p| p.prop())
+        .map(|p| p.prop().to_string())
         .collect();
 
     // Phase 1: collect all arm descriptors.
@@ -202,7 +202,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
         SetterKind::Method { method } => {
             let iface = resolve_iface(resolver, handle, method);
             descs.push(make_arm(
-                &prop,
+                prop,
                 p.value(),
                 handle,
                 Body::Cast {
@@ -216,7 +216,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
         SetterKind::MethodOptional { method } => {
             let iface = resolve_iface(resolver, handle, method);
             descs.push(make_arm(
-                &prop,
+                prop,
                 p.value(),
                 handle,
                 Body::CastOptional {
@@ -226,7 +226,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
                 },
             ));
             descs.push(make_arm(
-                &prop,
+                prop,
                 "Unset",
                 handle,
                 Body::CastNone {
@@ -240,7 +240,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
         SetterKind::MethodIReference { method } => {
             let iface = resolve_iface(resolver, handle, method);
             descs.push(make_arm(
-                &prop,
+                prop,
                 "Str",
                 handle,
                 Body::IReference {
@@ -249,7 +249,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
                 },
             ));
             descs.push(make_arm(
-                &prop,
+                prop,
                 "Unset",
                 handle,
                 Body::CastNone {
@@ -263,7 +263,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
         SetterKind::MethodTextblock { method } => {
             let iface = resolve_iface(resolver, handle, method);
             descs.push(make_arm(
-                &prop,
+                prop,
                 "Str",
                 handle,
                 Body::Textblock {
@@ -272,7 +272,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
                 },
             ));
             descs.push(make_arm(
-                &prop,
+                prop,
                 "Unset",
                 handle,
                 Body::CastNone {
@@ -286,7 +286,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
         SetterKind::MethodEnumMap { setter } => {
             let iface = resolve_iface(resolver, handle, setter.method());
             descs.push(make_arm(
-                &prop,
+                prop,
                 "I32",
                 handle,
                 Body::EnumMap {
@@ -305,7 +305,7 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
     {
         let iface = resolve_iface(resolver, handle, method);
         descs.push(make_arm(
-            &prop,
+            prop,
             "Unset",
             handle,
             Body::UnsetDefault {

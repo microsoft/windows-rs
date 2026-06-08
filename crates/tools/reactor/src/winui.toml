@@ -9,7 +9,6 @@
 #   required = true      Always emit (field is T). For core state.
 #   default = "expr"     Emit only when != expr (field is T). Auto-infers unset.
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
-#   prop = "Name"        Override Prop enum variant name.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
 #   unset = { default = "expr" }   Reset to literal on unset.
 #

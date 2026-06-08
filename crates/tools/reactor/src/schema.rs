@@ -44,10 +44,8 @@ pub struct PropDecl {
     /// Widget struct field name (e.g. `"content"`, `"font_size"`).
     pub field: String,
     /// WinUI metadata property name (the TOML key, e.g. `"PlaceholderText"`).
-    /// Used as the default for `prop()` (Prop enum variant).
+    /// Also used as the `Prop` enum variant name.
     pub meta_name: String,
-    /// `Prop` enum variant name override. If omitted, defaults to `meta_name`.
-    pub prop: Option<String>,
     /// `PropValue` variant name (e.g. `"Str"`, `"F64"`, `"Bool"`).
     /// If omitted, inferred from metadata parameter type.
     pub value: Option<String>,
@@ -155,12 +153,9 @@ pub enum SetterKind<'a> {
 }
 
 impl PropDecl {
-    /// Resolve the prop name. Defaults to metadata name (TOML key).
-    pub fn prop(&self) -> String {
-        if let Some(p) = &self.prop {
-            return p.clone();
-        }
-        self.meta_name.clone()
+    /// The `Prop` enum variant name — always the metadata name (TOML key).
+    pub fn prop(&self) -> &str {
+        &self.meta_name
     }
 
     /// Get the resolved value variant name.

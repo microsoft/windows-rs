@@ -54,7 +54,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
 }
 
 fn gen_prop_binding(p: &PropDecl) -> TokenStream {
-    let prop = ident(&p.prop());
+    let prop = ident(p.prop());
     let field = ident(&p.field);
 
     if p.required {
@@ -120,7 +120,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
 
 /// Generate a `Binding::Prop(...)` expression for use inside `vec![...]`.
 fn gen_prop_item(p: &PropDecl) -> TokenStream {
-    let prop = ident(&p.prop());
+    let prop = ident(p.prop());
     let field = ident(&p.field);
     let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
     quote! { Binding::Prop(Prop::#prop, #value_expr) }

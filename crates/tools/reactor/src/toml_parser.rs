@@ -67,9 +67,6 @@ struct MemberOverride {
     /// IReference wrapping (e.g. "ireference").
     #[serde(default)]
     wrap: Option<String>,
-    /// Explicit Prop enum variant name (when it must differ from metadata name).
-    #[serde(default)]
-    prop: Option<String>,
 
     // ── Event-specific ──
     /// Custom event attachment function.
@@ -202,7 +199,6 @@ fn build_prop(
         .field
         .clone()
         .unwrap_or_else(|| to_snake_case(member_name));
-    let prop_variant = overrides.prop.clone();
 
     let required = overrides.required.unwrap_or(false);
     let default = overrides.default.clone();
@@ -272,7 +268,6 @@ fn build_prop(
     PropDecl {
         field,
         meta_name: member_name.to_string(),
-        prop: prop_variant,
         value,
         required,
         default,
