@@ -107,11 +107,6 @@ pub struct PropDecl {
     /// Whether this property transports a `#[repr(i32)]` enum as `I32`.
     /// When true, generated bindings emit `PropValue::I32(w.field as i32)`.
     pub enum_as_i32: bool,
-
-    /// Whether this property has a custom hand-written setter in mod.rs.
-    /// When true, `resolve_defaults` skips auto-detection and gen_set_prop
-    /// skips codegen, ensuring the manual dispatch arm is reachable.
-    pub custom_setter: bool,
 }
 
 /// Enum-typed setter: maps a `#[repr(i32)]` reactor enum to a WinRT enum.
@@ -196,7 +191,7 @@ impl PropDecl {
             || self.method_ireference.is_some()
             || self.method_textblock.is_some()
             || self.method_enum_map.is_some();
-        if !has_setter && !self.custom_setter {
+        if !has_setter {
             let method_name = format!("put_{}", self.meta_name);
             // Auto-detect setter pattern from metadata param type.
             if let Some(resolver) = resolver {
@@ -272,9 +267,6 @@ impl PropDecl {
 
     /// Get the resolved setter kind, validating mutual exclusion.
     pub fn setter(&self) -> SetterKind<'_> {
-        if self.custom_setter {
-            return SetterKind::Custom;
-        }
         let prop = self.prop();
         let count = self.method.is_some() as u8
             + self.method_optional.is_some() as u8

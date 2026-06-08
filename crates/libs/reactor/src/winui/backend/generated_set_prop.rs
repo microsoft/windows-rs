@@ -257,6 +257,24 @@ pub(crate) fn dispatch(
         (Prop::IsCalendarOpen, PropValue::Unset, Handle::CalendarDatePicker(h)) => {
             h.put_IsCalendarOpen(false)?;
         }
+        (
+            Prop::IsChecked,
+            PropValue::Bool(v),
+            Handle::CheckBox(_) | Handle::RadioButton(_) | Handle::ToggleButton(_),
+        ) => {
+            handle
+                .cast_inner::<Xaml::IToggleButton>()?
+                .put_IsChecked(Some(*v))?;
+        }
+        (
+            Prop::IsChecked,
+            PropValue::Unset,
+            Handle::CheckBox(_) | Handle::RadioButton(_) | Handle::ToggleButton(_),
+        ) => {
+            handle
+                .cast_inner::<Xaml::IToggleButton>()?
+                .put_IsChecked(None)?;
+        }
         (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(h)) => {
             h.put_IsClosable(*v)?;
         }
@@ -277,6 +295,58 @@ pub(crate) fn dispatch(
         }
         (Prop::IsEditable, PropValue::Bool(v), Handle::ComboBox(h)) => {
             h.put_IsEditable(*v)?;
+        }
+        (
+            Prop::IsEnabled,
+            PropValue::Bool(v),
+            Handle::AutoSuggestBox(_)
+            | Handle::Button(_)
+            | Handle::CalendarDatePicker(_)
+            | Handle::CalendarView(_)
+            | Handle::CheckBox(_)
+            | Handle::ComboBox(_)
+            | Handle::DatePicker(_)
+            | Handle::DropDownButton(_)
+            | Handle::HyperlinkButton(_)
+            | Handle::ListBox(_)
+            | Handle::NumberBox(_)
+            | Handle::PasswordBox(_)
+            | Handle::RadioButton(_)
+            | Handle::RepeatButton(_)
+            | Handle::Slider(_)
+            | Handle::SplitButton(_)
+            | Handle::TextBox(_)
+            | Handle::TimePicker(_)
+            | Handle::ToggleButton(_)
+            | Handle::ToggleSwitch(_),
+        ) => {
+            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(*v)?;
+        }
+        (
+            Prop::IsEnabled,
+            PropValue::Unset,
+            Handle::AutoSuggestBox(_)
+            | Handle::Button(_)
+            | Handle::CalendarDatePicker(_)
+            | Handle::CalendarView(_)
+            | Handle::CheckBox(_)
+            | Handle::ComboBox(_)
+            | Handle::DatePicker(_)
+            | Handle::DropDownButton(_)
+            | Handle::HyperlinkButton(_)
+            | Handle::ListBox(_)
+            | Handle::NumberBox(_)
+            | Handle::PasswordBox(_)
+            | Handle::RadioButton(_)
+            | Handle::RepeatButton(_)
+            | Handle::Slider(_)
+            | Handle::SplitButton(_)
+            | Handle::TextBox(_)
+            | Handle::TimePicker(_)
+            | Handle::ToggleButton(_)
+            | Handle::ToggleSwitch(_),
+        ) => {
+            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(true)?;
         }
         (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(h)) => {
             h.put_IsExpanded(*v)?;
@@ -398,6 +468,9 @@ pub(crate) fn dispatch(
         (Prop::Maximum, PropValue::F64(v), Handle::ProgressRing(h)) => {
             h.put_Maximum(*v)?;
         }
+        (Prop::Maximum, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
+            handle.cast_inner::<Xaml::IRangeBase>()?.put_Maximum(*v)?;
+        }
         (Prop::Message, PropValue::Str(v), Handle::InfoBar(h)) => {
             h.put_Message(v.as_str())?;
         }
@@ -409,6 +482,9 @@ pub(crate) fn dispatch(
         }
         (Prop::Minimum, PropValue::F64(v), Handle::ProgressRing(h)) => {
             h.put_Minimum(*v)?;
+        }
+        (Prop::Minimum, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
+            handle.cast_inner::<Xaml::IRangeBase>()?.put_Minimum(*v)?;
         }
         (Prop::MinuteIncrement, PropValue::I32(v), Handle::TimePicker(h)) => {
             h.put_MinuteIncrement(*v)?;
@@ -519,6 +595,11 @@ pub(crate) fn dispatch(
         (Prop::SelectedIndex, PropValue::I32(v), Handle::RadioButtons(h)) => {
             h.put_SelectedIndex(*v)?;
         }
+        (Prop::SelectedIndex, PropValue::I32(v), Handle::ComboBox(_) | Handle::ListBox(_)) => {
+            handle
+                .cast_inner::<Xaml::ISelector>()?
+                .put_SelectedIndex(*v)?;
+        }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(h)) => {
             h.put_SelectedIndex(*v)?;
         }
@@ -605,6 +686,9 @@ pub(crate) fn dispatch(
         (Prop::Value, PropValue::F64(v), Handle::ProgressRing(h)) => {
             h.put_Value(*v)?;
         }
+        (Prop::Value, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
+            handle.cast_inner::<Xaml::IRangeBase>()?.put_Value(*v)?;
+        }
         (Prop::Value, PropValue::F64(v), Handle::RatingControl(h)) => {
             h.put_Value(*v)?;
         }
@@ -625,36 +709,6 @@ pub(crate) fn dispatch(
         }
         (Prop::YearVisible, PropValue::Unset, Handle::DatePicker(h)) => {
             h.put_YearVisible(true)?;
-        }
-        (Prop::IsChecked, PropValue::Bool(v), _) => {
-            handle
-                .cast_inner::<Xaml::IToggleButton>()?
-                .put_IsChecked(Some(*v))?;
-        }
-        (Prop::IsChecked, PropValue::Unset, _) => {
-            handle
-                .cast_inner::<Xaml::IToggleButton>()?
-                .put_IsChecked(None)?;
-        }
-        (Prop::IsEnabled, PropValue::Bool(v), _) => {
-            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(*v)?;
-        }
-        (Prop::IsEnabled, PropValue::Unset, _) => {
-            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(true)?;
-        }
-        (Prop::Maximum, PropValue::F64(v), _) => {
-            handle.cast_inner::<Xaml::IRangeBase>()?.put_Maximum(*v)?;
-        }
-        (Prop::Minimum, PropValue::F64(v), _) => {
-            handle.cast_inner::<Xaml::IRangeBase>()?.put_Minimum(*v)?;
-        }
-        (Prop::SelectedIndex, PropValue::I32(v), _) => {
-            handle
-                .cast_inner::<Xaml::ISelector>()?
-                .put_SelectedIndex(*v)?;
-        }
-        (Prop::Value, PropValue::F64(v), _) => {
-            handle.cast_inner::<Xaml::IRangeBase>()?.put_Value(*v)?;
         }
         _ => return Ok(false),
     }

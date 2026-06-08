@@ -1,12 +1,9 @@
 /// Generates `set_prop` dispatch arms from control declarations.
 ///
-/// Arms that share the same body across multiple Handle variants are merged:
-/// - Into a wildcard `_` arm when no custom handler exists for that Prop
-/// - Into an OR-pattern arm listing specific handles when custom handlers exist
-///
-/// This eliminates duplicate arms for base-interface properties like
-/// `put_IsEnabled` (IControl) and `put_Content` (IContentControl).
-use std::collections::{BTreeMap, HashSet};
+/// Arms that share the same body across multiple Handle variants are merged
+/// into OR-pattern arms listing specific handles. This ensures hand-written
+/// dispatch arms in mod.rs remain reachable for handles not listed here.
+use std::collections::BTreeMap;
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -104,15 +101,6 @@ impl Body {
 // ── Public entry point ───────────────────────────────────────────────
 
 pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
-    // Props with custom handlers (setter_fn) can't use wildcard arms because
-    // the hand-written dispatch in mod.rs must remain reachable for those handles.
-    let custom_props: HashSet<String> = controls
-        .iter()
-        .flat_map(|c| c.prop.iter())
-        .filter(|p| matches!(p.setter(), SetterKind::Custom))
-        .map(|p| p.prop().to_string())
-        .collect();
-
     // Phase 1: collect all arm descriptors.
     let mut all_descs: Vec<ArmDesc> = Vec::new();
     for ctrl in controls {
@@ -130,44 +118,23 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
             .push(desc);
     }
 
-    // Phase 3: merge duplicate sub-groups.
-    let mut specific_arms = Vec::new();
-    let mut wildcard_arms = Vec::new();
+    // Phase 3: merge duplicate sub-groups into OR-pattern arms.
+    let mut all_arms = Vec::new();
 
-    for ((prop_name, _), descs) in &groups {
+    for descs in groups.values() {
         let mut by_body: BTreeMap<&str, Vec<&ArmDesc>> = BTreeMap::new();
         for d in descs {
             by_body.entry(&d.body_key).or_default().push(d);
         }
 
-        let has_custom = custom_props.contains(prop_name);
-
-        // Find the body_key with the most arms (>1) — candidate for wildcard.
-        let merge_key = by_body
-            .iter()
-            .filter(|(_, v)| v.len() > 1)
-            .max_by_key(|(_, v)| v.len())
-            .map(|(k, _)| *k);
-
-        for (key, sub) in &by_body {
+        for sub in by_body.values() {
             if sub.len() > 1 {
-                if Some(*key) == merge_key && !has_custom {
-                    // Largest duplicate group + no custom conflict → wildcard
-                    wildcard_arms.push(render_arm(sub[0], true));
-                } else {
-                    // Custom conflict or non-largest group → OR-pattern
-                    specific_arms.push(render_or_pattern(sub));
-                }
+                all_arms.push(render_or_pattern(sub));
             } else {
-                // Singleton — specific arm
-                specific_arms.push(render_arm(sub[0], false));
+                all_arms.push(render_arm(sub[0]));
             }
         }
     }
-
-    // Specific/OR-pattern arms before wildcards (specifics take priority).
-    let mut all_arms = specific_arms;
-    all_arms.extend(wildcard_arms);
 
     format_generated(quote! {
         use super::*;
@@ -344,38 +311,22 @@ fn resolve_iface(resolver: &MetadataResolver, handle: &str, method: &str) -> Str
 
 // ── Rendering ────────────────────────────────────────────────────────
 
-/// Render a single arm — either a specific `Handle::X(h)` or a wildcard `_`.
-fn render_arm(desc: &ArmDesc, wildcard: bool) -> TokenStream {
+/// Render a single arm with a specific `Handle::X(h)` pattern.
+fn render_arm(desc: &ArmDesc) -> TokenStream {
     let prop_id = ident(&desc.prop);
-    let handle_name = if wildcard {
-        None
-    } else {
-        Some(desc.handle.as_str())
-    };
-    let body = render_body(&desc.body, wildcard, handle_name);
+    let handle_name = Some(desc.handle.as_str());
+    let body = render_body(&desc.body, false, handle_name);
 
-    match (desc.value_pat.as_str(), wildcard) {
-        ("Unset", true) => quote! {
-            (Prop::#prop_id, PropValue::Unset, _) => { #body }
-        },
-        ("Unset", false) => {
-            let h = ident(&desc.handle);
-            quote! {
-                (Prop::#prop_id, PropValue::Unset, Handle::#h(h)) => { #body }
-            }
+    if desc.value_pat == "Unset" {
+        let h = ident(&desc.handle);
+        quote! {
+            (Prop::#prop_id, PropValue::Unset, Handle::#h(h)) => { #body }
         }
-        (vp, true) => {
-            let v = ident(vp);
-            quote! {
-                (Prop::#prop_id, PropValue::#v(v), _) => { #body }
-            }
-        }
-        (vp, false) => {
-            let v = ident(vp);
-            let h = ident(&desc.handle);
-            quote! {
-                (Prop::#prop_id, PropValue::#v(v), Handle::#h(h)) => { #body }
-            }
+    } else {
+        let v = ident(&desc.value_pat);
+        let h = ident(&desc.handle);
+        quote! {
+            (Prop::#prop_id, PropValue::#v(v), Handle::#h(h)) => { #body }
         }
     }
 }

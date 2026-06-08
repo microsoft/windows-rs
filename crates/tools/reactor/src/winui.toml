@@ -11,7 +11,7 @@
 #   wrap = "ireference"  Wrap IInspectable param via IReference.
 #   unset = "custom"     Hand-written unset handler (skip codegen).
 #   unset = { default = "expr" }   Reset to literal on unset.
-#   setter_fn = true     Hand-written setter in mod.rs (skip codegen).
+#
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
@@ -35,7 +35,6 @@ SuggestionChosen = { attach_fn = true, value = "Str" }
 ItemClicked = { value = "I32", invoke = "invoke_i32_args", getter = "get_Index" }
 
 ["Microsoft.UI.Xaml.Controls.Button"]
-Content = { setter_fn = true }
 IsEnabled = { default = "true" }
 Click = {}
 ItemClicked = { attach_fn = true, value = "Str" }
