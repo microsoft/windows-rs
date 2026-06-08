@@ -19,7 +19,7 @@
 #   manual = true        Skip codegen; hand-written attach_event in backend.
 #   invoke = "pattern"   Invoke pattern (e.g. "invoke_bool_getter").
 #   property = "Name"    Property on sender/args (e.g. "IsOn"); codegen calls get_Name.
-#   add_method_false     Second add method for bool_dual event patterns.
+#   false_event = "Name"  Complement event for bool-dual (e.g. "Unchecked").
 
 ["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
 PlaceholderText = { }
@@ -59,7 +59,7 @@ SelectedDatesChanged = {}
 IsChecked = { required = true }
 Content = {}
 IsEnabled = { default = "true" }
-Checked = { add_method_false = "add_Unchecked" }
+Checked = { false_event = "Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ColorPicker"]
 IsAlphaEnabled = { default = "true" }
@@ -105,7 +105,7 @@ Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Expander"]
 IsExpanded = { default = "false" }
-Expanding = { add_method_false = "add_Collapsed" }
+Expanding = { false_event = "Collapsed" }
 
 ["Microsoft.UI.Xaml.Controls.Grid"]
 RowSpacing = { unset = { default = "0.0" } }
@@ -311,7 +311,7 @@ PaneToggleRequested = {}
 IsChecked = { default = "false" }
 Content = { required = true }
 IsEnabled = { default = "true" }
-Checked = { add_method_false = "add_Unchecked" }
+Checked = { false_event = "Unchecked" }
 
 ["Microsoft.UI.Xaml.Controls.ToggleSwitch"]
 IsOn = { required = true }

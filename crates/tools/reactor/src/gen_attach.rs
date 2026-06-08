@@ -214,15 +214,16 @@ fn gen_event_arm(
             gen_args_getter(&iface, &add_ident, handle_name, &g, quote!(invoke_f64(v)))
         }
         "invoke_bool_dual" => {
-            let add_false = e.add_method_false.as_deref().unwrap_or_else(|| {
-                panic!(
-                    "event '{handle_name}.{event_name}': invoke_bool_dual requires add_method_false"
-                )
+            let false_evt = e.false_event.as_deref().unwrap_or_else(|| {
+                panic!("event '{handle_name}.{event_name}': invoke_bool_dual requires false_event")
             });
-            let add_false_ident = ident(add_false);
-            let iface_false_ref = resolver.resolve(handle_name, add_false).unwrap_or_else(|| {
-                panic!("metadata: cannot resolve {handle_name}.{add_false} for event")
-            });
+            let add_false = format!("add_{false_evt}");
+            let add_false_ident = ident(&add_false);
+            let iface_false_ref = resolver
+                .resolve(handle_name, &add_false)
+                .unwrap_or_else(|| {
+                    panic!("metadata: cannot resolve {handle_name}.{add_false} for event")
+                });
             let iface_false = ident(iface_false_ref.short_name());
             let receiver = event_receiver(&iface, handle_name);
             let receiver_false = event_receiver(&iface_false, handle_name);

@@ -79,9 +79,9 @@ struct MemberOverride {
     /// Property name on sender/args (e.g. "IsOn"); codegen prepends "get_".
     #[serde(default)]
     property: Option<String>,
-    /// Second add method for bool_dual events.
+    /// Complement event for bool-dual patterns (e.g. "Unchecked").
     #[serde(default)]
-    add_method_false: Option<String>,
+    false_event: Option<String>,
 }
 
 /// Parse the v2 TOML and resolve against metadata to produce `Vec<Control>`.
@@ -353,7 +353,7 @@ fn build_event(
         add_method,
         invoke: overrides.invoke.clone(),
         property: overrides.property.clone(),
-        add_method_false: overrides.add_method_false.clone(),
+        false_event: overrides.false_event.clone(),
     }
 }
 

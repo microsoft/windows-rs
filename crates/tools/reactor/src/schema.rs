@@ -374,8 +374,9 @@ pub struct EventDecl {
     /// Code generation prepends `get_` to form the method name.
     pub property: Option<String>,
 
-    /// Second add method for dual-event patterns (e.g. `"add_Collapsed"`).
-    pub add_method_false: Option<String>,
+    /// Complement event that fires `false` for bool-dual patterns (e.g. `"Unchecked"`).
+    /// Code generation prepends `add_` to form the method name.
+    pub false_event: Option<String>,
 }
 
 impl EventDecl {
@@ -416,12 +417,12 @@ impl EventDecl {
         Some(format!("add_{}", self.event()))
     }
 
-    /// Resolve the invoke pattern, inferring from value + getter + add_method_false.
+    /// Resolve the invoke pattern, inferring from value + property + false_event.
     ///
     /// Rules:
     /// - Explicit invoke override → use as-is
-    /// - add_method_false present → "invoke_bool_dual"
-    /// - value = "Bool" + getter → "invoke_bool_getter"
+    /// - false_event present → "invoke_bool_dual"
+    /// - value = "Bool" + property → "invoke_bool_getter"
     /// - value = "Str" + getter → "invoke_string_getter"
     /// - value = "F64" + getter → "invoke_f64_getter"
     /// - value = "I32" + getter → "invoke_i32_getter"
@@ -430,7 +431,7 @@ impl EventDecl {
         if let Some(inv) = &self.invoke {
             return inv;
         }
-        if self.add_method_false.is_some() {
+        if self.false_event.is_some() {
             return "invoke_bool_dual";
         }
         if self.property.is_some()
