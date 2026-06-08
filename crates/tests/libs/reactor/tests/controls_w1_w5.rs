@@ -72,10 +72,9 @@ fn password_box_mounts_with_value_header_and_reveal_mode() {
             }
             match (prop, value) {
                 (Prop::Value, PropValue::Str(s)) if s == "hunter2" => value_set = true,
-                (
-                    Prop::PasswordRevealMode,
-                    PropValue::PasswordRevealMode(PasswordRevealMode::Visible),
-                ) => {
+                (Prop::PasswordRevealMode, PropValue::I32(v))
+                    if *v == PasswordRevealMode::Visible.0 =>
+                {
                     reveal_set = true;
                 }
                 (Prop::Header, PropValue::Str(s)) if s == "Secret" => header_set = true,
