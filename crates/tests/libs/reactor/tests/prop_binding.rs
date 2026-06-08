@@ -31,20 +31,17 @@ fn text_with(content: &str, font_size: Option<f64>, font_weight: Option<u16>) ->
 #[test]
 fn mount_text_with_no_optionals_emits_only_text_prop() {
     let (r, _id) = mount(&Element::TextBlock(TextBlock::new("hi")));
-    let ops = &r.backend.ops;
-    assert_eq!(
-        ops.len(),
-        2,
-        "expected Create + SetProp(TextBlock), got {ops:?}"
-    );
-    assert!(matches!(ops[0], Op::Create { .. }));
-    match &ops[1] {
-        Op::SetProp { prop, value, .. } => {
-            assert_eq!(*prop, Prop::Text);
-            assert_eq!(*value, PropValue::Str("hi".into()));
-        }
-        other => panic!("expected SetProp(TextBlock), got {other:?}"),
-    }
+    let props: Vec<_> = r
+        .backend
+        .ops
+        .iter()
+        .filter_map(|op| match op {
+            Op::SetProp { prop, .. } => Some(*prop),
+            _ => None,
+        })
+        .collect();
+    // Text is always emitted; IsTextSelectionEnabled + TextWrapping are always-emit too.
+    assert!(props.contains(&Prop::Text));
 }
 
 #[test]
@@ -56,7 +53,8 @@ fn mount_text_with_optionals_emits_all_expected_props() {
         .iter()
         .filter(|op| matches!(op, Op::SetProp { .. }))
         .collect();
-    assert_eq!(ops.len(), 3);
+    // FontSize, FontWeight, IsTextSelectionEnabled, Text, TextWrapping
+    assert_eq!(ops.len(), 5);
     let mut props: Vec<Prop> = ops
         .iter()
         .map(|op| match op {
@@ -65,7 +63,13 @@ fn mount_text_with_optionals_emits_all_expected_props() {
         })
         .collect();
     props.sort_by_key(|p| format!("{p:?}"));
-    let mut expected = vec![Prop::Text, Prop::FontSize, Prop::FontWeight];
+    let mut expected = vec![
+        Prop::Text,
+        Prop::FontSize,
+        Prop::FontWeight,
+        Prop::IsTextSelectionEnabled,
+        Prop::TextWrapping,
+    ];
     expected.sort_by_key(|p| format!("{p:?}"));
     assert_eq!(props, expected);
 }

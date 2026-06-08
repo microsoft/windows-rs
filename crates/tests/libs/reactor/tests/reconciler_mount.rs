@@ -25,26 +25,10 @@ fn mounting_text_records_create_and_set_text() {
     let id = id.expect("TextBlock mount produces an id");
 
     let ops = &r.backend.ops;
-    assert_eq!(ops.len(), 2, "expected 2 ops, got {ops:?}");
-    match &ops[0] {
-        Op::Create { id: got, kind } => {
-            assert_eq!(*got, id);
-            assert_eq!(*kind, ControlKind::TextBlock);
-        }
-        other => panic!("unexpected {other:?}"),
-    }
-    match &ops[1] {
-        Op::SetProp {
-            id: got,
-            prop,
-            value,
-        } => {
-            assert_eq!(*got, id);
-            assert_eq!(*prop, Prop::Text);
-            assert_eq!(*value, PropValue::Str("hi".into()));
-        }
-        other => panic!("unexpected {other:?}"),
-    }
+    assert!(
+        matches!(&ops[0], Op::Create { id: got, kind } if *got == id && *kind == ControlKind::TextBlock)
+    );
+    assert!(ops.iter().any(|op| matches!(op, Op::SetProp { prop: Prop::Text, value: PropValue::Str(s), .. } if s == "hi")));
 }
 
 #[test]
@@ -54,21 +38,24 @@ fn mounting_button_sets_content_and_enables_by_default() {
 
     let ops = &r.backend.ops;
 
-    assert_eq!(ops.len(), 2);
-    match &ops[0] {
-        Op::Create { id: got, kind } => {
-            assert_eq!(*got, id);
-            assert_eq!(*kind, ControlKind::Button);
-        }
-        other => panic!("unexpected {other:?}"),
-    }
-    assert!(matches!(
-        ops[1],
+    assert!(
+        matches!(&ops[0], Op::Create { id: got, kind } if *got == id && *kind == ControlKind::Button)
+    );
+    assert!(ops.iter().any(|op| matches!(
+        op,
         Op::SetProp {
             prop: Prop::Content,
             ..
         }
-    ));
+    )));
+    assert!(ops.iter().any(|op| matches!(
+        op,
+        Op::SetProp {
+            prop: Prop::IsEnabled,
+            value: PropValue::Bool(true),
+            ..
+        }
+    )));
 }
 
 #[test]
@@ -86,7 +73,7 @@ fn mounting_stack_appends_children_in_order() {
 
     let ops = &r.backend.ops;
 
-    assert_eq!(ops.len(), 7, "ops: {ops:#?}");
+    assert_eq!(ops.len(), 12, "ops: {ops:#?}");
 
     let appends: Vec<_> = ops
         .iter()

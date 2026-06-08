@@ -72,7 +72,7 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
 
     let old = Element::StackPanel(StackPanel {
         orientation: Orientation::Vertical,
-        spacing: Some(4.0),
+        spacing: 4.0,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::TextBlock(TextBlock::new("b")),
@@ -81,7 +81,7 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
     });
     let new = Element::StackPanel(StackPanel {
         orientation: Orientation::Vertical,
-        spacing: Some(8.0),
+        spacing: 8.0,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::TextBlock(TextBlock::new("b")),
@@ -121,10 +121,13 @@ fn appending_one_child_creates_and_appends() {
     );
 
     let ops = &r.backend.ops;
-    assert_eq!(ops.len(), 3, "ops: {ops:?}");
+    assert_eq!(ops.len(), 5, "ops: {ops:?}");
     assert!(matches!(ops[0], Op::Create { .. }));
+    // SetProp for IsTextSelectionEnabled, Text, TextWrapping
     assert!(matches!(ops[1], Op::SetProp { .. }));
-    match &ops[2] {
+    assert!(matches!(ops[2], Op::SetProp { .. }));
+    assert!(matches!(ops[3], Op::SetProp { .. }));
+    match &ops[4] {
         Op::AppendChild { parent, .. } => assert_eq!(*parent, id),
         other => panic!("unexpected {other:?}"),
     }

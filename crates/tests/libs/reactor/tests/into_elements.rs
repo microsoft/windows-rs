@@ -23,7 +23,7 @@ fn vstack_macro_collects_heterogeneous_children_in_order() {
 fn hstack_macro_is_horizontal_and_chainable() {
     let s = hstack((button("-"), button("+"))).spacing(8.0);
     assert_eq!(s.orientation, Orientation::Horizontal);
-    assert_eq!(s.spacing, Some(8.0));
+    assert_eq!(s.spacing, 8.0);
     assert_eq!(s.children.len(), 2);
 }
 
@@ -63,7 +63,7 @@ fn macros_nest_without_element_from() {
     match &tree.children[1] {
         Element::StackPanel(s) => {
             assert_eq!(s.orientation, Orientation::Horizontal);
-            assert_eq!(s.spacing, Some(8.0));
+            assert_eq!(s.spacing, 8.0);
             assert_eq!(s.children.len(), 2);
         }
         other => panic!("expected stack, got {other:?}"),

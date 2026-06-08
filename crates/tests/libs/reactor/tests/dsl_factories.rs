@@ -48,7 +48,7 @@ fn hstack_is_horizontal() {
 #[test]
 fn stack_spacing_sets_field() {
     let s = vstack(()).spacing(8.0);
-    assert_eq!(s.spacing, Some(8.0));
+    assert_eq!(s.spacing, 8.0);
 }
 
 #[test]
@@ -76,7 +76,7 @@ fn nested_stacks_compose() {
     match &tree.children[1] {
         Element::StackPanel(s) => {
             assert_eq!(s.orientation, Orientation::Horizontal);
-            assert_eq!(s.spacing, Some(8.0));
+            assert_eq!(s.spacing, 8.0);
             assert_eq!(s.children.len(), 2);
         }
         other => panic!("unexpected {other:?}"),

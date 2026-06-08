@@ -157,14 +157,14 @@ fn image_default_emits_no_bindings() {
     let r = mount(&el);
     let (kind, _) = first_create(&r);
     assert_eq!(kind, ControlKind::Image);
-    // Default Image has no source and default stretch (Uniform) — no SetProp ops.
+    // Default Image has no source; Stretch is always emitted (defaults to Uniform).
     let prop_ops: Vec<_> = r
         .backend
         .ops
         .iter()
         .filter(|op| matches!(op, Op::SetProp { .. }))
         .collect();
-    assert!(prop_ops.is_empty());
+    assert_eq!(prop_ops.len(), 1);
 }
 
 #[test]

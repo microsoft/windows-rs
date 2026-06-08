@@ -6,14 +6,16 @@
 #
 # ── Property overrides ──────────────────────────────────────────────
 #   (no overrides)       Field is T, binding always emitted.
-#   optional = true      Field is Option<T>, emit when Some. Use when
-#                        T::default() != WinUI default (e.g. FontSize).
 #   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
 #                        For Object (IInspectable) params, selects IReference<T>
 #                        wrapping instead of the default TextBlock wrapping.
+#   optional = true      Field is Option<T>, emit when Some. Use when
+#                        T::default() != WinUI default (e.g. FontSize).
+#   optional = false     Force field to T even for Textblock/IReference
+#                        setters that would normally infer Option<T>.
 #
-# Textblock, IReference, and Optional setters are always Option<T>
-# (they need None to clear the WinUI value). No override needed.
+# Textblock and IReference setters default to Option<T> (they need
+# None to clear the WinUI value) unless overridden with optional = false.
 #
 # ── Event overrides ─────────────────────────────────────────────────
 #   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.

@@ -57,9 +57,9 @@ fn expander_mounts_with_header_and_collapses_by_default() {
     });
     assert!(header_set);
 
-    // IsExpanded defaults to false (WinUI default) and uses when_true emit,
-    // so the default value is NOT emitted — WinUI handles it natively.
-    let collapsed_set = r.backend.ops.iter().any(|op| {
+    // IsExpanded defaults to false. With always-emit, the binding is always
+    // present so that the diff engine can track changes.
+    let expanded_set = r.backend.ops.iter().any(|op| {
         matches!(
             op,
             Op::SetProp {
@@ -69,7 +69,7 @@ fn expander_mounts_with_header_and_collapses_by_default() {
             }
         )
     });
-    assert!(!collapsed_set);
+    assert!(expanded_set);
 }
 
 #[test]

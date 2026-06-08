@@ -67,13 +67,13 @@ fn kind_change_destroys_old_and_mounts_new() {
             ..
         }
     ));
-    assert!(matches!(
-        ops[2],
+    assert!(ops.iter().any(|op| matches!(
+        op,
         Op::SetProp {
             prop: Prop::Content,
             ..
         }
-    ));
+    )));
 }
 
 #[test]

@@ -11,11 +11,11 @@ generate type-safe Rust dispatch code for `windows-reactor` via `quote`/`proc-ma
 
 | Component | Lines |
 |-----------|-------|
-| Hand-written backend (`mod.rs`) | ~3160 |
-| Hand-written backend (`convert.rs`) | 338 |
-| Generated code (3 files) | ~2290 |
-| TOML config (non-blank) | ~296 |
-| Tool source | ~2660 |
+| Hand-written backend (`mod.rs`) | ~3100 |
+| Hand-written backend (`convert.rs`) | ~310 |
+| Generated code (3 files) | ~1750 |
+| TOML config (non-blank) | ~255 |
+| Tool source | ~2800 |
 
 ## Architecture
 
@@ -39,28 +39,42 @@ metadata. The tool looks up `put_{Name}` or `add_{Name}` to classify as property
 
 ```toml
 ["Microsoft.UI.Xaml.Controls.Slider"]
-Minimum = { emit = "always" }                    # value "F64" inferred from metadata
-Maximum = { emit = "always" }
-Value = { emit = "always" }
-Step = { setter_fn = true, value = "F64" }       # hand-written setter; emit defaults to optional
-Header = {}                                      # emit defaults to optional, value inferred
-IsEnabled = { emit = "when_false" }              # unset auto-inferred to { default = "true" }
-ValueChanged = { field = "on_changed", invoke = "invoke_f64_args", getter = "get_NewValue" }
+Minimum = {}                                     # type "F64" inferred from metadata
+Maximum = {}
+Value = {}
+Header = {}                                      # Textblock setter, auto Option<T>
+IsEnabled = {}
+ValueChanged = { property = "NewValue" }          # get_NewValue on args → f64
 ```
 
 ### Inference rules
 
-| Field | Default | Example |
-|-------|---------|---------|
-| `emit` | `optional` | Omit for most props; override with `always`, `when_true`, `when_false`, or `non_default` |
-| `field` | `snake_case(Name)` for props, `on_snake_case(Name)` for events | `PlaceholderText` → `placeholder_text` |
-| `method` | `put_{Name}` | `Value` → `put_Value` |
-| `value` | Inferred from metadata param type | `put_IsEnabled(bool)` → `Bool` |
-| `handler` | Same as event name | `Click` → `Click` |
-| `add_method` | `add_{Name}` | `Click` → `add_Click` |
-| `unset` | `when_false` → `{default="true"}`, `when_true` → `{default="false"}` | auto-inferred |
+| Field | Default | Notes |
+|-------|---------|-------|
+| `type` | Inferred from metadata param type | `put_IsEnabled(bool)` → `Bool` |
+| `optional` | Inferred from setter kind | Textblock/IReference → `true`; Method → `false` |
+| method | `put_{Name}` | Setter kind auto-detected from metadata param type |
+| field | `snake_case(Name)` for props, `on_snake_case(Name)` for events | Derived automatically |
+| invoke | Inferred from metadata delegate signature | Matches arg types to invoke pattern |
 
 Only overrides need explicit declaration. Error messages include TOML line numbers.
+
+### Property overrides
+
+| Override | Description |
+|----------|-------------|
+| `type = "Type"` | Explicit PropValue variant (`Str`/`F64`/`Bool`/`I32`/etc). For Object params, selects IReference wrapping instead of Textblock. |
+| `optional = true` | Force `Option<T>` field. Use when `T::default()` ≠ WinUI default (e.g. FontSize). |
+| `optional = false` | Force `T` field even for Textblock/IReference setters that normally infer `Option<T>`. |
+
+### Event overrides
+
+| Override | Description |
+|----------|-------------|
+| `type = "Type"` | EventHandler payload type (`Unit`/`Bool`/`Str`/`F64`/`I32`/`Color`/`DateTime`/`TimeSpan`). |
+| `manual = true` | Skip codegen; hand-written `attach_event` in backend. |
+| `property = "Name"` | Property on sender/args (e.g. `"IsOn"`); codegen calls `get_Name`. |
+| `false_event = "Name"` | Complement event for bool-dual (e.g. `"Unchecked"`). |
 
 ### Setter patterns
 
@@ -73,7 +87,7 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 | `method_enum_map` | Multi-variant Rust enum → WinUI enum mapping |
 | `setter_fn` | Hand-written custom setter in mod.rs |
 
-### Event patterns
+### Event invoke patterns
 
 | Pattern | Description |
 |---------|-------------|
@@ -84,12 +98,13 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 | `invoke_string_getter` | String from sender |
 | `invoke_i32_args` / `invoke_i32_getter` | i32 from args or sender |
 
-### Emit modes
+### Field optionality
 
-- `optional` *(default)* — emitted if `Some` (field: `Option<T>`)
-- `always` — always emitted (field: `T`)
-- `when_true` / `when_false` — emitted if bool matches (field: `bool`)
-- `non_default` — emitted if `!=` default value (field: `T`)
+- **Default** — Field is `T`, binding always emitted. The diff engine compares old vs
+  new bindings and only calls `set_prop` when the value changes.
+- **Optional** (`Option<T>`) — Binding emitted when `Some`, unset when `None`. Inferred
+  automatically for Textblock and IReference setters (they need `None` to clear the
+  WinUI value). Can be forced with `optional = true/false`.
 
 ## Match Arm Collapsing
 
@@ -116,14 +131,13 @@ crates/tools/reactor/src/
 
 ## Design Choices
 
-- **Metadata-driven** — field, method, value, copy semantics, and enum variants are
-  inferred from `.winmd`. Only non-standard mappings need explicit TOML overrides.
+- **Metadata-driven** — method, value type, copy semantics, setter pattern, and invoke
+  pattern are inferred from `.winmd`. Only non-standard mappings need explicit TOML overrides.
 - **TOML keys = metadata names** — event/prop TOML keys match WinUI metadata names
   (e.g., `SelectedTimeChanged`, `ColorChanged`). Field names for the public API are
-  derived automatically via `on_snake_case(Name)`. Only truly ergonomic overrides
-  (e.g., `placeholder` for `PlaceholderText`) use `field = "..."`.
+  derived automatically via `on_snake_case(Name)`.
 - **Generated + hand-written coexist** — generated dispatch falls through to hand-written
-  code in mod.rs for complex cases (~36 setter_fn, ~23 attach_fn). Widget `bindings()`
+  code in mod.rs for complex cases (~36 setter_fn, ~23 manual events). Widget `bindings()`
   implementations can supplement generated bindings with hand-written logic for compound
   types (BrushBinding, ColorArgb, FlyoutDef, ImageSource, ContentDialogResult).
 - **Deref-aware cast elimination** — generated code skips `.cast::<IFoo>()` when the
@@ -134,4 +148,4 @@ crates/tools/reactor/src/
   dispatching, native interop). `generated.txt` is auto-derived from the TOML — never
   edit it by hand. Both are passed to `windows-bindgen` to produce `bindings.rs`.
 - **One tool, one run** — TOML → code → bindings.rs all in one `cargo run`.
-- **20 codegen tests + 3 metadata tests** validate the pipeline.
+- **22 codegen tests** validate the pipeline.

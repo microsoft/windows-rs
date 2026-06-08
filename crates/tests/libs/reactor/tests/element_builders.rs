@@ -41,7 +41,7 @@ fn text_field_default_state() {
     let t = text_box("hello");
     assert_eq!(t.value, "hello");
     assert!(t.is_enabled);
-    assert!(t.placeholder_text.is_none());
+    assert!(t.placeholder_text.is_empty());
     assert!(t.header.is_none());
 }
 
@@ -50,7 +50,7 @@ fn text_field_placeholder_and_header() {
     let t = text_box("")
         .placeholder_text("Start typing...")
         .header("Notes");
-    assert_eq!(t.placeholder_text.as_deref(), Some("Start typing..."));
+    assert_eq!(t.placeholder_text, "Start typing...");
     assert_eq!(t.header.as_deref(), Some("Notes"));
 }
 
@@ -69,8 +69,8 @@ fn grid_builder_sets_row_and_column_definitions() {
         .column_spacing(6.0);
     assert_eq!(g.rows.len(), 2);
     assert_eq!(g.columns.len(), 2);
-    assert_eq!(g.row_spacing, Some(4.0));
-    assert_eq!(g.column_spacing, Some(6.0));
+    assert_eq!(g.row_spacing, 4.0);
+    assert_eq!(g.column_spacing, 6.0);
     assert_eq!(g.children.len(), 1);
 }
 

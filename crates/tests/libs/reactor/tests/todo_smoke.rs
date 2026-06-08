@@ -221,7 +221,7 @@ impl Component for TodoComponent {
             .collect();
 
         let mut body = StackPanel::vertical();
-        body.spacing = Some(4.0);
+        body.spacing = 4.0;
         body.children = rows;
 
         let footer = text_block(format!("{remaining} left"));
