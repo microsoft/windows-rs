@@ -313,7 +313,7 @@ impl<'a> DrawingSession<'a> {
         self.context
     }
 
-    /// Create a bitmap render target matching the current target's size, format, and DPI.
+    /// Create a BGRA8 premultiplied bitmap render target matching the current target's size and DPI.
     pub fn create_bitmap_target(&self) -> windows_core::Result<Bitmap> {
         unsafe {
             let mut dpi_x = 0.0f32;

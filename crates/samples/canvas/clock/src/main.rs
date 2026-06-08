@@ -2,7 +2,7 @@
 //!
 //! Compare with `crates/samples/windows/direct2d/src/main.rs`.
 
-// #![windows_subsystem = "windows"]
+#![windows_subsystem = "windows"]
 
 use windows_canvas::*;
 use windows_reactor::*;
