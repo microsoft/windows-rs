@@ -251,31 +251,25 @@ pub enum Prop {
 
 /// Tagged union of every value type that can appear in a [`Backend::set_prop`]
 /// call. `Unset` clears a previously-applied value.
+///
+/// Reactor enums that mirror WinRT enums are transported as `I32` — each
+/// reactor enum is `#[repr(i32)]` with discriminants matching WinRT, so the
+/// backend can construct the WinRT enum directly from the integer.
 #[derive(Clone, PartialEq, Debug)]
 pub enum PropValue {
     Str(String),
     F64(f64),
     U16(u16),
     Bool(bool),
+    I32(i32),
     Thickness(Thickness),
-    HAlign(HorizontalAlignment),
-    VAlign(VerticalAlignment),
-    Orientation(Orientation),
-    TextWrapping(TextWrapping),
     Brush(Brush),
     Unset,
-    I32(i32),
     GridLengths(Vec<GridLength>),
-    ScrollBarVisibility(ScrollBarVisibility),
-    InfoBarSeverity(InfoBarSeverity),
-    Stretch(Stretch),
     SurfaceImageSource(SurfaceImageSource),
     LineEndpoints(LineEndpoints),
     NavMenuItems(Vec<NavViewItem>),
-    NavigationViewPaneDisplayMode(NavigationViewPaneDisplayMode),
     StrList(Vec<String>),
-    PasswordRevealMode(PasswordRevealMode),
-    ButtonStyle(ButtonStyle),
     Color {
         a: u8,
         r: u8,
@@ -285,18 +279,12 @@ pub enum PropValue {
     MenuBarItems(Vec<MenuBarItemDef>),
     MenuFlyoutItems(Vec<MenuItemDef>),
     TreeViewNodes(Vec<TreeNodeDef>),
-    TreeViewSelectionMode(TreeViewSelectionMode),
-    ScrollingScrollBarVisibility(ScrollingScrollBarVisibility),
     CommandBarCommands(Vec<CommandBarCommandDef>),
-    CommandBarDefaultLabelPosition(CommandBarDefaultLabelPosition),
     CommandBarFlyoutDef {
         primary: Vec<CommandBarCommandDef>,
         secondary: Vec<CommandBarCommandDef>,
     },
-    TeachingTipPlacementMode(TeachingTipPlacementMode),
     SelectorBarItems(Vec<SelectorBarItemDef>),
-    Symbol(SymbolGlyph),
-    FlyoutPlacement(FlyoutPlacement),
     Resources(HashMap<String, String>),
 }
 

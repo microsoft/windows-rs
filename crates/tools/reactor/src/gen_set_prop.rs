@@ -51,13 +51,11 @@ enum Body {
     IReference { iface: String, method: String },
     /// `let tb = string_as_textblock(v.as_str())?; {cast}.{method}(&tb)?`
     Textblock { iface: String, method: String },
-    /// `let mapped = match v { ... }; {cast}.{method}(mapped)?`
+    /// `{cast}.{method}(Xaml::{winui_type}(*v))?`
     EnumMap {
         iface: String,
         method: String,
-        rust_type: String,
         winui_type: String,
-        variants: Vec<[String; 2]>,
     },
     /// `{cast}.{method}({default})?`
     UnsetDefault {
@@ -90,15 +88,9 @@ impl Body {
             Self::EnumMap {
                 iface,
                 method,
-                rust_type,
                 winui_type,
-                variants,
             } => {
-                let vs: Vec<String> = variants.iter().map(|[r, w]| format!("{r}={w}")).collect();
-                format!(
-                    "enum.{iface}.{method}.{rust_type}.{winui_type}.{}",
-                    vs.join(",")
-                )
+                format!("enum.{iface}.{method}.{winui_type}")
             }
             Self::UnsetDefault {
                 iface,
@@ -293,17 +285,14 @@ fn collect_prop_arms(handle: &str, p: &PropDecl, resolver: &MetadataResolver) ->
 
         SetterKind::MethodEnumMap { setter } => {
             let iface = resolve_iface(resolver, handle, setter.method());
-            let rust_type = setter.rust_type.as_deref().unwrap_or(p.value()).to_string();
             descs.push(make_arm(
                 &prop,
-                p.value(),
+                "I32",
                 handle,
                 Body::EnumMap {
                     iface,
                     method: setter.method().to_string(),
-                    rust_type,
                     winui_type: setter.winui_type.clone(),
-                    variants: setter.variants.clone(),
                 },
             ));
             return descs;
@@ -481,25 +470,13 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
         Body::EnumMap {
             iface,
             method,
-            rust_type,
             winui_type,
-            variants,
         } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
             let m = ident(method);
-            let rt = ident(rust_type);
             let wt = ident(winui_type);
-            let variant_arms: Vec<TokenStream> = variants
-                .iter()
-                .map(|[rv, wv]| {
-                    let r = ident(rv);
-                    let w = ident(wv);
-                    quote! { #rt::#r => Xaml::#wt::#w, }
-                })
-                .collect();
             quote! {
-                let mapped = match v { #(#variant_arms)* };
-                #cast.#m(mapped)?;
+                #cast.#m(Xaml::#wt(*v))?;
             }
         }
         Body::UnsetDefault {

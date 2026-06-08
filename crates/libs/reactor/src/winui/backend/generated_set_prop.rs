@@ -90,23 +90,8 @@ pub(crate) fn dispatch(
         (Prop::DayVisible, PropValue::Unset, Handle::DatePicker(h)) => {
             h.put_DayVisible(true)?;
         }
-        (
-            Prop::DefaultLabelPosition,
-            PropValue::CommandBarDefaultLabelPosition(v),
-            Handle::CommandBar(h),
-        ) => {
-            let mapped = match v {
-                CommandBarDefaultLabelPosition::Bottom => {
-                    Xaml::CommandBarDefaultLabelPosition::Bottom
-                }
-                CommandBarDefaultLabelPosition::Right => {
-                    Xaml::CommandBarDefaultLabelPosition::Right
-                }
-                CommandBarDefaultLabelPosition::Collapsed => {
-                    Xaml::CommandBarDefaultLabelPosition::Collapsed
-                }
-            };
-            h.put_DefaultLabelPosition(mapped)?;
+        (Prop::DefaultLabelPosition, PropValue::I32(v), Handle::CommandBar(h)) => {
+            h.put_DefaultLabelPosition(Xaml::CommandBarDefaultLabelPosition(*v))?;
         }
         (Prop::Delay, PropValue::I32(v), Handle::RepeatButton(h)) => {
             h.put_Delay(*v)?;
@@ -217,32 +202,11 @@ pub(crate) fn dispatch(
         (Prop::Header, PropValue::Unset, Handle::ToggleSwitch(h)) => {
             h.put_Header(None)?;
         }
-        (
-            Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollBarVisibility(v),
-            Handle::ScrollViewer(h),
-        ) => {
-            let mapped = match v {
-                ScrollBarVisibility::Disabled => Xaml::ScrollBarVisibility::Disabled,
-                ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
-                ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
-                ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
-            };
-            h.put_HorizontalScrollBarVisibility(mapped)?;
+        (Prop::HorizontalScrollBarVisibility, PropValue::I32(v), Handle::ScrollView(h)) => {
+            h.put_HorizontalScrollBarVisibility(Xaml::ScrollingScrollBarVisibility(*v))?;
         }
-        (
-            Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollingScrollBarVisibility(v),
-            Handle::ScrollView(h),
-        ) => {
-            let mapped = match v {
-                ScrollingScrollBarVisibility::Auto => Xaml::ScrollingScrollBarVisibility::Auto,
-                ScrollingScrollBarVisibility::Visible => {
-                    Xaml::ScrollingScrollBarVisibility::Visible
-                }
-                ScrollingScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
-            };
-            h.put_HorizontalScrollBarVisibility(mapped)?;
+        (Prop::HorizontalScrollBarVisibility, PropValue::I32(v), Handle::ScrollViewer(h)) => {
+            h.put_HorizontalScrollBarVisibility(Xaml::ScrollBarVisibility(*v))?;
         }
         (Prop::Initials, PropValue::Str(v), Handle::PersonPicture(h)) => {
             h.put_Initials(v.as_str())?;
@@ -472,38 +436,15 @@ pub(crate) fn dispatch(
         (Prop::OpenPaneLength, PropValue::F64(v), Handle::SplitView(h)) => {
             h.put_OpenPaneLength(*v)?;
         }
-        (Prop::Orientation, PropValue::Orientation(v), Handle::Slider(h)) => {
-            let mapped = match v {
-                Orientation::Vertical => Xaml::Orientation::Vertical,
-                Orientation::Horizontal => Xaml::Orientation::Horizontal,
-            };
-            h.put_Orientation(mapped)?;
+        (Prop::Orientation, PropValue::I32(v), Handle::Slider(h)) => {
+            h.put_Orientation(Xaml::Orientation(*v))?;
         }
-        (Prop::Orientation, PropValue::Orientation(v), Handle::StackPanel(h)) => {
-            let mapped = match v {
-                Orientation::Vertical => Xaml::Orientation::Vertical,
-                Orientation::Horizontal => Xaml::Orientation::Horizontal,
-            };
-            h.put_Orientation(mapped)?;
+        (Prop::Orientation, PropValue::I32(v), Handle::StackPanel(h)) => {
+            h.put_Orientation(Xaml::Orientation(*v))?;
         }
-        (
-            Prop::PaneDisplayMode,
-            PropValue::NavigationViewPaneDisplayMode(v),
-            Handle::NavigationView(h),
-        ) => {
-            let mapped = match v {
-                NavigationViewPaneDisplayMode::Auto => Xaml::NavigationViewPaneDisplayMode::Auto,
-                NavigationViewPaneDisplayMode::Left => Xaml::NavigationViewPaneDisplayMode::Left,
-                NavigationViewPaneDisplayMode::Top => Xaml::NavigationViewPaneDisplayMode::Top,
-                NavigationViewPaneDisplayMode::LeftCompact => {
-                    Xaml::NavigationViewPaneDisplayMode::LeftCompact
-                }
-                NavigationViewPaneDisplayMode::LeftMinimal => {
-                    Xaml::NavigationViewPaneDisplayMode::LeftMinimal
-                }
-            };
+        (Prop::PaneDisplayMode, PropValue::I32(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?
-                .put_PaneDisplayMode(mapped)?;
+                .put_PaneDisplayMode(Xaml::NavigationViewPaneDisplayMode(*v))?;
         }
         (Prop::PaneTitle, PropValue::Str(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?
@@ -512,13 +453,8 @@ pub(crate) fn dispatch(
         (Prop::PaneTitle, PropValue::Unset, Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?.put_PaneTitle("")?;
         }
-        (Prop::PasswordRevealMode, PropValue::PasswordRevealMode(v), Handle::PasswordBox(h)) => {
-            let mapped = match v {
-                PasswordRevealMode::Peek => Xaml::PasswordRevealMode::Peek,
-                PasswordRevealMode::Hidden => Xaml::PasswordRevealMode::Hidden,
-                PasswordRevealMode::Visible => Xaml::PasswordRevealMode::Visible,
-            };
-            h.put_PasswordRevealMode(mapped)?;
+        (Prop::PasswordRevealMode, PropValue::I32(v), Handle::PasswordBox(h)) => {
+            h.put_PasswordRevealMode(Xaml::PasswordRevealMode(*v))?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::AutoSuggestBox(h)) => {
             h.put_PlaceholderText(v.as_str())?;
@@ -556,32 +492,8 @@ pub(crate) fn dispatch(
         (Prop::PlaceholderValue, PropValue::F64(v), Handle::RatingControl(h)) => {
             h.put_PlaceholderValue(*v)?;
         }
-        (
-            Prop::PreferredPlacement,
-            PropValue::TeachingTipPlacementMode(v),
-            Handle::TeachingTip(h),
-        ) => {
-            let mapped = match v {
-                TeachingTipPlacementMode::Auto => Xaml::TeachingTipPlacementMode::Auto,
-                TeachingTipPlacementMode::Top => Xaml::TeachingTipPlacementMode::Top,
-                TeachingTipPlacementMode::Bottom => Xaml::TeachingTipPlacementMode::Bottom,
-                TeachingTipPlacementMode::Left => Xaml::TeachingTipPlacementMode::Left,
-                TeachingTipPlacementMode::Right => Xaml::TeachingTipPlacementMode::Right,
-                TeachingTipPlacementMode::TopRight => Xaml::TeachingTipPlacementMode::TopRight,
-                TeachingTipPlacementMode::TopLeft => Xaml::TeachingTipPlacementMode::TopLeft,
-                TeachingTipPlacementMode::BottomRight => {
-                    Xaml::TeachingTipPlacementMode::BottomRight
-                }
-                TeachingTipPlacementMode::BottomLeft => Xaml::TeachingTipPlacementMode::BottomLeft,
-                TeachingTipPlacementMode::LeftTop => Xaml::TeachingTipPlacementMode::LeftTop,
-                TeachingTipPlacementMode::LeftBottom => Xaml::TeachingTipPlacementMode::LeftBottom,
-                TeachingTipPlacementMode::RightTop => Xaml::TeachingTipPlacementMode::RightTop,
-                TeachingTipPlacementMode::RightBottom => {
-                    Xaml::TeachingTipPlacementMode::RightBottom
-                }
-                TeachingTipPlacementMode::Center => Xaml::TeachingTipPlacementMode::Center,
-            };
-            h.put_PreferredPlacement(mapped)?;
+        (Prop::PreferredPlacement, PropValue::I32(v), Handle::TeachingTip(h)) => {
+            h.put_PreferredPlacement(Xaml::TeachingTipPlacementMode(*v))?;
         }
         (Prop::PrimaryButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
             h.put_PrimaryButtonText(v.as_str())?;
@@ -622,22 +534,11 @@ pub(crate) fn dispatch(
         (Prop::SelectedIndex, PropValue::Unset, Handle::TabView(h)) => {
             h.put_SelectedIndex(0)?;
         }
-        (Prop::SelectionMode, PropValue::TreeViewSelectionMode(v), Handle::TreeView(h)) => {
-            let mapped = match v {
-                TreeViewSelectionMode::None => Xaml::TreeViewSelectionMode::None,
-                TreeViewSelectionMode::Single => Xaml::TreeViewSelectionMode::Single,
-                TreeViewSelectionMode::Multiple => Xaml::TreeViewSelectionMode::Multiple,
-            };
-            h.put_SelectionMode(mapped)?;
+        (Prop::SelectionMode, PropValue::I32(v), Handle::TreeView(h)) => {
+            h.put_SelectionMode(Xaml::TreeViewSelectionMode(*v))?;
         }
-        (Prop::Severity, PropValue::InfoBarSeverity(v), Handle::InfoBar(h)) => {
-            let mapped = match v {
-                InfoBarSeverity::Informational => Xaml::InfoBarSeverity::Informational,
-                InfoBarSeverity::Success => Xaml::InfoBarSeverity::Success,
-                InfoBarSeverity::Warning => Xaml::InfoBarSeverity::Warning,
-                InfoBarSeverity::Error => Xaml::InfoBarSeverity::Error,
-            };
-            h.put_Severity(mapped)?;
+        (Prop::Severity, PropValue::I32(v), Handle::InfoBar(h)) => {
+            h.put_Severity(Xaml::InfoBarSeverity(*v))?;
         }
         (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(h)) => {
             h.put_Spacing(*v)?;
@@ -645,23 +546,11 @@ pub(crate) fn dispatch(
         (Prop::Spacing, PropValue::Unset, Handle::StackPanel(h)) => {
             h.put_Spacing(0.0)?;
         }
-        (Prop::Stretch, PropValue::Stretch(v), Handle::Image(h)) => {
-            let mapped = match v {
-                Stretch::None => Xaml::Stretch::None,
-                Stretch::Fill => Xaml::Stretch::Fill,
-                Stretch::Uniform => Xaml::Stretch::Uniform,
-                Stretch::UniformToFill => Xaml::Stretch::UniformToFill,
-            };
-            h.put_Stretch(mapped)?;
+        (Prop::Stretch, PropValue::I32(v), Handle::Image(h)) => {
+            h.put_Stretch(Xaml::Stretch(*v))?;
         }
-        (Prop::Stretch, PropValue::Stretch(v), Handle::Viewbox(h)) => {
-            let mapped = match v {
-                Stretch::None => Xaml::Stretch::None,
-                Stretch::Fill => Xaml::Stretch::Fill,
-                Stretch::Uniform => Xaml::Stretch::Uniform,
-                Stretch::UniformToFill => Xaml::Stretch::UniformToFill,
-            };
-            h.put_Stretch(mapped)?;
+        (Prop::Stretch, PropValue::I32(v), Handle::Viewbox(h)) => {
+            h.put_Stretch(Xaml::Stretch(*v))?;
         }
         (Prop::Subtitle, PropValue::Str(v), Handle::TeachingTip(h)) => {
             h.put_Subtitle(v.as_str())?;
@@ -678,21 +567,11 @@ pub(crate) fn dispatch(
         (Prop::Text, PropValue::Unset, Handle::TextBlock(h)) => {
             h.put_Text("")?;
         }
-        (Prop::TextWrapping, PropValue::TextWrapping(v), Handle::TextBlock(h)) => {
-            let mapped = match v {
-                TextWrapping::NoWrap => Xaml::TextWrapping::NoWrap,
-                TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
-                TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
-            };
-            h.put_TextWrapping(mapped)?;
+        (Prop::TextWrapping, PropValue::I32(v), Handle::TextBlock(h)) => {
+            h.put_TextWrapping(Xaml::TextWrapping(*v))?;
         }
-        (Prop::TextWrapping, PropValue::TextWrapping(v), Handle::TextBox(h)) => {
-            let mapped = match v {
-                TextWrapping::NoWrap => Xaml::TextWrapping::NoWrap,
-                TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
-                TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
-            };
-            h.put_TextWrapping(mapped)?;
+        (Prop::TextWrapping, PropValue::I32(v), Handle::TextBox(h)) => {
+            h.put_TextWrapping(Xaml::TextWrapping(*v))?;
         }
         (Prop::Title, PropValue::Str(v), Handle::InfoBar(h)) => {
             h.put_Title(v.as_str())?;
@@ -738,32 +617,11 @@ pub(crate) fn dispatch(
         (Prop::Value, PropValue::Unset, Handle::RatingControl(h)) => {
             h.put_Value(0.0)?;
         }
-        (
-            Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollBarVisibility(v),
-            Handle::ScrollViewer(h),
-        ) => {
-            let mapped = match v {
-                ScrollBarVisibility::Disabled => Xaml::ScrollBarVisibility::Disabled,
-                ScrollBarVisibility::Auto => Xaml::ScrollBarVisibility::Auto,
-                ScrollBarVisibility::Hidden => Xaml::ScrollBarVisibility::Hidden,
-                ScrollBarVisibility::Visible => Xaml::ScrollBarVisibility::Visible,
-            };
-            h.put_VerticalScrollBarVisibility(mapped)?;
+        (Prop::VerticalScrollBarVisibility, PropValue::I32(v), Handle::ScrollView(h)) => {
+            h.put_VerticalScrollBarVisibility(Xaml::ScrollingScrollBarVisibility(*v))?;
         }
-        (
-            Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollingScrollBarVisibility(v),
-            Handle::ScrollView(h),
-        ) => {
-            let mapped = match v {
-                ScrollingScrollBarVisibility::Auto => Xaml::ScrollingScrollBarVisibility::Auto,
-                ScrollingScrollBarVisibility::Visible => {
-                    Xaml::ScrollingScrollBarVisibility::Visible
-                }
-                ScrollingScrollBarVisibility::Hidden => Xaml::ScrollingScrollBarVisibility::Hidden,
-            };
-            h.put_VerticalScrollBarVisibility(mapped)?;
+        (Prop::VerticalScrollBarVisibility, PropValue::I32(v), Handle::ScrollViewer(h)) => {
+            h.put_VerticalScrollBarVisibility(Xaml::ScrollBarVisibility(*v))?;
         }
         (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.put_YearVisible(*v)?;

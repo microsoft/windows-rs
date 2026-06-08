@@ -25,14 +25,7 @@ impl Default for InfoBar {
         }
     }
 }
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum InfoBarSeverity {
-    #[default]
-    Informational,
-    Success,
-    Warning,
-    Error,
-}
+pub use crate::bindings::InfoBarSeverity;
 impl InfoBar {
     pub fn new(title: impl Into<String>) -> Self {
         Self {

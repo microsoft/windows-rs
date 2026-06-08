@@ -1,24 +1,6 @@
 use super::*;
 
-/// Preferred placement for a [`TeachingTip`].
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TeachingTipPlacementMode {
-    #[default]
-    Auto,
-    Top,
-    Bottom,
-    Left,
-    Right,
-    TopRight,
-    TopLeft,
-    BottomRight,
-    BottomLeft,
-    LeftTop,
-    LeftBottom,
-    RightTop,
-    RightBottom,
-    Center,
-}
+pub use crate::bindings::TeachingTipPlacementMode;
 
 /// `Microsoft.UI.Xaml.Controls.TeachingTip`. A contextual teaching popup.
 #[derive(Clone, Default, Debug, PartialEq)]

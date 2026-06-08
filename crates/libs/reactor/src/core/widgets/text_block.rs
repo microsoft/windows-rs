@@ -1,12 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TextWrapping {
-    #[default]
-    NoWrap,
-    Wrap,
-    WrapWholeWords,
-}
+pub use crate::bindings::TextWrapping;
 
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct TextBlock {

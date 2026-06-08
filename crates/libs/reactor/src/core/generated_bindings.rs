@@ -92,7 +92,7 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
         PropValue::Str(w.content.clone()),
     ));
     if let Some(v) = w.icon {
-        out.push(Binding::Prop(Prop::Icon, PropValue::Symbol(v)));
+        out.push(Binding::Prop(Prop::Icon, PropValue::I32(v.0)));
     }
     if !w.is_enabled {
         out.push(Binding::Prop(
@@ -107,10 +107,7 @@ pub(crate) fn button_bindings(w: &Button) -> PropBindings {
         ));
     }
     if w.style != ButtonStyle::Default {
-        out.push(Binding::Prop(
-            Prop::Style,
-            PropValue::ButtonStyle(w.style.clone()),
-        ));
+        out.push(Binding::Prop(Prop::Style, PropValue::I32(w.style.0)));
     }
     out
 }
@@ -285,7 +282,7 @@ pub(crate) fn command_bar_bindings(w: &CommandBar) -> PropBindings {
     if w.default_label_position != CommandBarDefaultLabelPosition::default() {
         out.push(Binding::Prop(
             Prop::DefaultLabelPosition,
-            PropValue::CommandBarDefaultLabelPosition(w.default_label_position),
+            PropValue::I32(w.default_label_position.0),
         ));
     }
     out.push(Binding::Prop(
@@ -466,8 +463,8 @@ pub(crate) fn hyperlink_button_bindings(w: &HyperlinkButton) -> PropBindings {
 }
 pub(crate) fn image_bindings(w: &Image) -> PropBindings {
     let mut out = Vec::with_capacity(1usize);
-    if w.stretch != Stretch::default() {
-        out.push(Binding::Prop(Prop::Stretch, PropValue::Stretch(w.stretch)));
+    if w.stretch != Stretch::Uniform {
+        out.push(Binding::Prop(Prop::Stretch, PropValue::I32(w.stretch.0)));
     }
     out
 }
@@ -499,10 +496,7 @@ pub(crate) fn info_bar_bindings(w: &InfoBar) -> PropBindings {
         out.push(Binding::Prop(Prop::Message, PropValue::Str(v.clone())));
     }
     if w.severity != InfoBarSeverity::default() {
-        out.push(Binding::Prop(
-            Prop::Severity,
-            PropValue::InfoBarSeverity(w.severity),
-        ));
+        out.push(Binding::Prop(Prop::Severity, PropValue::I32(w.severity.0)));
     }
     if let Some(v) = &w.title {
         out.push(Binding::Prop(Prop::Title, PropValue::Str(v.clone())));
@@ -622,7 +616,7 @@ pub(crate) fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     if w.pane_display_mode != NavigationViewPaneDisplayMode::default() {
         out.push(Binding::Prop(
             Prop::PaneDisplayMode,
-            PropValue::NavigationViewPaneDisplayMode(w.pane_display_mode),
+            PropValue::I32(w.pane_display_mode.0),
         ));
     }
     if let Some(v) = &w.pane_title {
@@ -687,7 +681,7 @@ pub(crate) fn password_box_bindings(w: &PasswordBox) -> PropBindings {
     if w.password_reveal_mode != PasswordRevealMode::default() {
         out.push(Binding::Prop(
             Prop::PasswordRevealMode,
-            PropValue::PasswordRevealMode(w.password_reveal_mode),
+            PropValue::I32(w.password_reveal_mode.0),
         ));
     }
     if let Some(v) = &w.placeholder_text {
@@ -924,11 +918,11 @@ pub(crate) fn scroll_view_bindings(w: &ScrollView) -> PropBindings {
     vec![
         Binding::Prop(
             Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollingScrollBarVisibility(w.horizontal_scroll_bar_visibility),
+            PropValue::I32(w.horizontal_scroll_bar_visibility.0),
         ),
         Binding::Prop(
             Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollingScrollBarVisibility(w.vertical_scroll_bar_visibility),
+            PropValue::I32(w.vertical_scroll_bar_visibility.0),
         ),
     ]
 }
@@ -936,11 +930,11 @@ pub(crate) fn scroll_viewer_bindings(w: &ScrollViewer) -> PropBindings {
     vec![
         Binding::Prop(
             Prop::HorizontalScrollBarVisibility,
-            PropValue::ScrollBarVisibility(w.horizontal_scroll_bar_visibility),
+            PropValue::I32(w.horizontal_scroll_bar_visibility.0),
         ),
         Binding::Prop(
             Prop::VerticalScrollBarVisibility,
-            PropValue::ScrollBarVisibility(w.vertical_scroll_bar_visibility),
+            PropValue::I32(w.vertical_scroll_bar_visibility.0),
         ),
     ]
 }
@@ -977,7 +971,7 @@ pub(crate) fn slider_bindings(w: &Slider) -> PropBindings {
     if w.orientation != Orientation::Horizontal {
         out.push(Binding::Prop(
             Prop::Orientation,
-            PropValue::Orientation(w.orientation),
+            PropValue::I32(w.orientation.0),
         ));
     }
     if let Some(v) = w.step {
@@ -1032,7 +1026,7 @@ pub(crate) fn stack_panel_bindings(w: &StackPanel) -> PropBindings {
     if w.orientation != Orientation::Vertical {
         out.push(Binding::Prop(
             Prop::Orientation,
-            PropValue::Orientation(w.orientation),
+            PropValue::I32(w.orientation.0),
         ));
     }
     if let Some(v) = w.spacing {
@@ -1118,7 +1112,7 @@ pub(crate) fn teaching_tip_bindings(w: &TeachingTip) -> PropBindings {
     if w.preferred_placement != TeachingTipPlacementMode::default() {
         out.push(Binding::Prop(
             Prop::PreferredPlacement,
-            PropValue::TeachingTipPlacementMode(w.preferred_placement),
+            PropValue::I32(w.preferred_placement.0),
         ));
     }
     if let Some(v) = &w.subtitle {
@@ -1145,7 +1139,7 @@ pub(crate) fn text_block_bindings(w: &TextBlock) -> PropBindings {
     if w.text_wrapping != TextWrapping::NoWrap {
         out.push(Binding::Prop(
             Prop::TextWrapping,
-            PropValue::TextWrapping(w.text_wrapping),
+            PropValue::I32(w.text_wrapping.0),
         ));
     }
     out
@@ -1182,7 +1176,7 @@ pub(crate) fn text_box_bindings(w: &TextBox) -> PropBindings {
     if w.text_wrapping != TextWrapping::NoWrap {
         out.push(Binding::Prop(
             Prop::TextWrapping,
-            PropValue::TextWrapping(w.text_wrapping),
+            PropValue::I32(w.text_wrapping.0),
         ));
     }
     out.push(Binding::Prop(Prop::Value, PropValue::Str(w.value.clone())));
@@ -1295,14 +1289,14 @@ pub(crate) fn tree_view_bindings(w: &TreeView) -> PropBindings {
         Prop::Nodes,
         PropValue::TreeViewNodes(w.nodes.clone()),
     ));
-    if w.selection_mode != TreeViewSelectionMode::default() {
+    if w.selection_mode != TreeViewSelectionMode::Single {
         out.push(Binding::Prop(
             Prop::SelectionMode,
-            PropValue::TreeViewSelectionMode(w.selection_mode),
+            PropValue::I32(w.selection_mode.0),
         ));
     }
     out
 }
 pub(crate) fn viewbox_bindings(w: &Viewbox) -> PropBindings {
-    vec![Binding::Prop(Prop::Stretch, PropValue::Stretch(w.stretch))]
+    vec![Binding::Prop(Prop::Stretch, PropValue::I32(w.stretch.0))]
 }

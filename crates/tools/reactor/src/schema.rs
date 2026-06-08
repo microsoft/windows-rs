@@ -111,23 +111,22 @@ pub struct PropDecl {
     /// Inferred automatically: primitives, enum_maps, and metadata
     /// value-type structs are Copy; String/Vec wrappers are not.
     pub copy_value: bool,
+
+    /// Whether this property transports a `#[repr(i32)]` enum as `I32`.
+    /// When true, generated bindings emit `PropValue::I32(w.field as i32)`.
+    pub enum_as_i32: bool,
 }
 
-/// Multi-variant enum mapping setter.
+/// Enum-typed setter: maps a `#[repr(i32)]` reactor enum to a WinRT enum.
+/// The `I32` transport means the backend constructs `Xaml::WinUIType(v)` directly.
 #[derive(Deserialize, Clone, Debug)]
 pub struct EnumMapSetter {
     /// COM method name (e.g. `"put_Severity"`).
     /// Defaults to `put_{meta_name}`.
     #[serde(default)]
     pub method: Option<String>,
-    /// Rust enum type used inside the PropValue variant when it differs from
-    /// the PropValue variant name (e.g. `"TreeViewSelectionMode"`).
-    #[serde(default)]
-    pub rust_type: Option<String>,
     /// WinUI enum type relative to `Xaml::` (e.g. `"InfoBarSeverity"`).
     pub winui_type: String,
-    /// `[RustVariant, WinUIVariant]` pairs.
-    pub variants: Vec<[String; 2]>,
 }
 
 impl EnumMapSetter {
@@ -176,6 +175,12 @@ impl PropDecl {
         self.value
             .as_deref()
             .unwrap_or_else(|| panic!("prop '{}' has no value — set it explicitly or ensure resolve_defaults() was called", self.prop()))
+    }
+
+    /// True if this property carries a `#[repr(i32)]` enum transported as `I32`.
+    /// The generated bindings must emit `PropValue::I32(w.field as i32)`.
+    pub fn is_enum_as_i32(&self) -> bool {
+        self.enum_as_i32
     }
 
     /// Fill in default values that can be inferred.
@@ -235,6 +240,11 @@ impl PropDecl {
         {
             let method = format!("put_{}", self.meta_name);
             self.method_enum_map.as_mut().unwrap().method = Some(method);
+        }
+
+        // Enum-map properties are transported as I32.
+        if self.method_enum_map.is_some() && self.value.is_none() {
+            self.value = Some("I32".to_string());
         }
 
         // Infer value from metadata when omitted.

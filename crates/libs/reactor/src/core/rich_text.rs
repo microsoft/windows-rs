@@ -109,7 +109,7 @@ impl Widget for RichTextBlock {
         if self.text_wrapping != TextWrapping::NoWrap {
             out.push(Binding::Prop(
                 Prop::TextWrappingWrap,
-                PropValue::TextWrapping(self.text_wrapping),
+                PropValue::I32(self.text_wrapping.0),
             ));
         }
         out

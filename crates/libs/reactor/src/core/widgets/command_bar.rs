@@ -54,17 +54,7 @@ pub fn app_bar_separator() -> CommandBarCommandDef {
     CommandBarCommandDef::Separator
 }
 
-/// Default label position for a [`CommandBar`].
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum CommandBarDefaultLabelPosition {
-    /// Labels appear below the icon.
-    #[default]
-    Bottom,
-    /// Labels appear to the right of the icon.
-    Right,
-    /// Labels are hidden.
-    Collapsed,
-}
+pub use crate::bindings::CommandBarDefaultLabelPosition;
 
 /// `Microsoft.UI.Xaml.Controls.CommandBar`. A toolbar with primary and secondary commands.
 #[derive(Clone, Default, Debug, PartialEq)]

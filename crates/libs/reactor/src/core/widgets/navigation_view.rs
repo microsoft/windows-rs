@@ -35,15 +35,7 @@ impl NavViewItem {
         self
     }
 }
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum NavigationViewPaneDisplayMode {
-    #[default]
-    Auto,
-    Left,
-    Top,
-    LeftCompact,
-    LeftMinimal,
-}
+pub use crate::bindings::NavigationViewPaneDisplayMode;
 #[derive(Clone, Debug, PartialEq)]
 pub struct NavigationView {
     pub key: Option<String>,

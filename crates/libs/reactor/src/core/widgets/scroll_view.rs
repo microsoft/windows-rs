@@ -1,17 +1,6 @@
 use super::*;
 
-/// Scroll bar visibility for [`ScrollView`].
-/// Maps to `ScrollingScrollBarVisibility` in WinUI.
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum ScrollingScrollBarVisibility {
-    /// Shown only when needed.
-    #[default]
-    Auto,
-    /// Always visible.
-    Visible,
-    /// Hidden but scrolling is still enabled.
-    Hidden,
-}
+pub use crate::bindings::ScrollingScrollBarVisibility;
 
 /// Content orientation for [`ScrollView`].
 /// Maps to `ScrollingContentOrientation` in WinUI.

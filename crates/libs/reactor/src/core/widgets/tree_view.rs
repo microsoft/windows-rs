@@ -41,26 +41,27 @@ pub fn tree_node(text: impl Into<String>) -> TreeNodeDef {
     TreeNodeDef::new(text)
 }
 
-/// Selection mode for [`TreeView`].
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum TreeViewSelectionMode {
-    /// No selection.
-    None,
-    /// Single item selection.
-    #[default]
-    Single,
-    /// Multiple items can be selected.
-    Multiple,
-}
+pub use crate::bindings::TreeViewSelectionMode;
 
 /// `Microsoft.UI.Xaml.Controls.TreeView`. A hierarchical list view.
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TreeView {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub nodes: Vec<TreeNodeDef>,
     pub selection_mode: TreeViewSelectionMode,
     pub on_item_invoked: Option<Callback<String>>,
+}
+impl Default for TreeView {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            nodes: Vec::new(),
+            selection_mode: TreeViewSelectionMode::Single,
+            on_item_invoked: None,
+        }
+    }
 }
 
 impl TreeView {

@@ -1,11 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum Orientation {
-    #[default]
-    Vertical,
-    Horizontal,
-}
+pub use crate::bindings::Orientation;
 
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct StackPanel {

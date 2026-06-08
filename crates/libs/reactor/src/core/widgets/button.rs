@@ -2,18 +2,20 @@ use super::command_bar::CommandBarCommandDef;
 use super::menu_bar::MenuItemDef;
 use super::*;
 
-/// Visual style for a [`Button`].
-#[derive(Clone, Default, Debug, PartialEq, Eq, Hash)]
-pub enum ButtonStyle {
+/// Visual style for a [`Button`]. Not a WinRT enum — maps to resource key strings.
+#[repr(transparent)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+pub struct ButtonStyle(pub i32);
+#[allow(non_upper_case_globals)]
+impl ButtonStyle {
     /// Standard button (framework default).
-    #[default]
-    Default,
+    pub const Default: Self = Self(0);
     /// Accent-colored button (primary action).
-    Accent,
+    pub const Accent: Self = Self(1);
     /// Chromeless subtle button (secondary action).
-    Subtle,
+    pub const Subtle: Self = Self(2);
     /// Borderless text-link style (inline hyperlink pattern).
-    TextLink,
+    pub const TextLink: Self = Self(3);
 }
 
 #[derive(Clone, Default, Debug, PartialEq)]
@@ -55,7 +57,7 @@ impl Widget for Button {
             if fly.placement != FlyoutPlacement::default() {
                 out.push(Binding::Prop(
                     Prop::FlyoutPlacement,
-                    PropValue::FlyoutPlacement(fly.placement),
+                    PropValue::I32(fly.placement.0),
                 ));
             }
         }

@@ -59,7 +59,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
 
     if p.required {
         // Always emit — field is T, never skipped.
-        let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+        let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
         quote! {
             out.push(Binding::Prop(Prop::#prop, #value_expr));
         }
@@ -67,7 +67,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
         // Emit when value differs from the WinUI default.
         if default_expr == "false" {
             // `w.field != false` → `w.field`
-            let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+            let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
             quote! {
                 if w.#field {
                     out.push(Binding::Prop(Prop::#prop, #value_expr));
@@ -75,7 +75,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
             }
         } else if default_expr == "true" {
             // `w.field != true` → `!w.field`
-            let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+            let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
             quote! {
                 if !w.#field {
                     out.push(Binding::Prop(Prop::#prop, #value_expr));
@@ -83,7 +83,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
             }
         } else {
             let default_tokens: TokenStream = default_expr.parse().unwrap();
-            let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+            let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
             quote! {
                 if w.#field != #default_tokens {
                     out.push(Binding::Prop(Prop::#prop, #value_expr));
@@ -92,17 +92,26 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
         }
     } else {
         // Optional — field is Option<T>, emit when Some.
-        let value_variant = ident(p.value());
-        if p.copy_value {
+        if p.is_enum_as_i32() {
+            // Enum properties: access inner i32 of WinRT struct.
             quote! {
                 if let Some(v) = w.#field {
-                    out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v)));
+                    out.push(Binding::Prop(Prop::#prop, PropValue::I32(v.0)));
                 }
             }
         } else {
-            quote! {
-                if let Some(v) = &w.#field {
-                    out.push(Binding::Prop(Prop::#prop, PropValue::#value_variant(v.clone())));
+            let vv = ident(p.value());
+            if p.copy_value {
+                quote! {
+                    if let Some(v) = w.#field {
+                        out.push(Binding::Prop(Prop::#prop, PropValue::#vv(v)));
+                    }
+                }
+            } else {
+                quote! {
+                    if let Some(v) = &w.#field {
+                        out.push(Binding::Prop(Prop::#prop, PropValue::#vv(v.clone())));
+                    }
                 }
             }
         }
@@ -113,7 +122,7 @@ fn gen_prop_binding(p: &PropDecl) -> TokenStream {
 fn gen_prop_item(p: &PropDecl) -> TokenStream {
     let prop = ident(&p.prop());
     let field = ident(&p.field);
-    let value_expr = always_value_expr(p.value(), &field, p.copy_value);
+    let value_expr = always_value_expr(p.value(), &field, p.copy_value, p.is_enum_as_i32());
     quote! { Binding::Prop(Prop::#prop, #value_expr) }
 }
 
@@ -144,7 +153,16 @@ fn gen_event_binding(e: &EventDecl) -> TokenStream {
 }
 
 /// Build the `PropValue::Variant(w.field)` expression for an always-emit prop.
-fn always_value_expr(value_variant: &str, field: &proc_macro2::Ident, copy: bool) -> TokenStream {
+fn always_value_expr(
+    value_variant: &str,
+    field: &proc_macro2::Ident,
+    copy: bool,
+    enum_as_i32: bool,
+) -> TokenStream {
+    // Enum properties use `.0` to access the inner i32 of the WinRT struct type.
+    if enum_as_i32 {
+        return quote! { PropValue::I32(w.#field.0) };
+    }
     let variant = ident(value_variant);
     if copy {
         quote! { PropValue::#variant(w.#field) }

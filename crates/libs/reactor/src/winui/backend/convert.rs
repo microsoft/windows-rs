@@ -11,12 +11,6 @@ use crate::bindings as Xaml;
 use crate::core::*;
 use Xaml::Color as WinColor;
 
-// `HAlign` / `VAlign` are local shorthands for the converters below; the
-// rest of the WinUI backend writes the full `HorizontalAlignment` /
-// `VerticalAlignment` names directly.
-type HAlign = HorizontalAlignment;
-type VAlign = VerticalAlignment;
-
 pub(super) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {
     Xaml::Thickness {
         Left: t.left,
@@ -110,24 +104,6 @@ pub(super) fn reactor_key_to_virtual_key(k: KeyboardKey) -> Xaml::VirtualKey {
     }
 }
 
-pub(super) fn to_xaml_halign(v: HAlign) -> Xaml::HorizontalAlignment {
-    match v {
-        HAlign::Left => Xaml::HorizontalAlignment::Left,
-        HAlign::Center => Xaml::HorizontalAlignment::Center,
-        HAlign::Right => Xaml::HorizontalAlignment::Right,
-        HAlign::Stretch => Xaml::HorizontalAlignment::Stretch,
-    }
-}
-
-pub(super) fn to_xaml_valign(v: VAlign) -> Xaml::VerticalAlignment {
-    match v {
-        VAlign::Top => Xaml::VerticalAlignment::Top,
-        VAlign::Center => Xaml::VerticalAlignment::Center,
-        VAlign::Bottom => Xaml::VerticalAlignment::Bottom,
-        VAlign::Stretch => Xaml::VerticalAlignment::Stretch,
-    }
-}
-
 pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::GridLength> {
     use Xaml::GridUnitType;
     match v {
@@ -196,7 +172,7 @@ pub(super) fn build_nav_view_item(
         .cast::<Xaml::IFrameworkElement>()?
         .put_Tag(&tag_inspectable)?;
     if let Some(sym) = &item.icon {
-        let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+        let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
         nv_item.put_Icon(&icon_elem)?;
     }
     if !item.children.is_empty() {
@@ -314,8 +290,7 @@ pub(super) fn build_command_bar_element(
             let btn = Xaml::AppBarButton::new()?;
             btn.put_Label(label)?;
             if let Some(sym) = icon {
-                let icon_elem =
-                    Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+                let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
                 btn.put_Icon(&icon_elem)?;
             }
             btn.cast()
@@ -324,8 +299,7 @@ pub(super) fn build_command_bar_element(
             let btn = Xaml::AppBarToggleButton::new()?;
             btn.put_Label(label)?;
             if let Some(sym) = icon {
-                let icon_elem =
-                    Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+                let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
                 btn.put_Icon(&icon_elem)?;
             }
             btn.cast()

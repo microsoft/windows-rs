@@ -254,12 +254,10 @@ fn build_prop(
 
     // Infer enum_map from metadata when the parameter is an enum type.
     let method_enum_map = if setter_fn.is_none() && has_method {
-        if let Some((enum_name, variants)) = resolver.enum_info(handle, &method_name) {
+        if let Some((enum_name, _variants)) = resolver.enum_info(handle, &method_name) {
             Some(EnumMapSetter {
                 method: Some(method_name.clone()),
-                rust_type: None,
                 winui_type: enum_name.to_string(),
-                variants: variants.iter().map(|v| [v.clone(), v.clone()]).collect(),
             })
         } else {
             None
@@ -274,6 +272,16 @@ fn build_prop(
     // String/ClassName → non-Copy); explicit overrides without metadata
     // default to non-Copy (safe — .clone() always works).
     let copy_value = method_enum_map.is_some() || inferred_copy.unwrap_or(false);
+
+    // Enum-map properties are transported as I32 — override any metadata-inferred value.
+    // setter_fn properties with explicit value = "I32" also transport enums as I32.
+    let (value, enum_as_i32) = if method_enum_map.is_some()
+        || (overrides.value.as_deref() == Some("I32") && setter_fn.is_some())
+    {
+        (Some("I32".to_string()), true)
+    } else {
+        (value, false)
+    };
 
     PropDecl {
         field,
@@ -291,6 +299,7 @@ fn build_prop(
         setter_fn,
         unset: overrides.unset.clone(),
         copy_value,
+        enum_as_i32,
     }
 }
 

@@ -795,13 +795,8 @@ impl Backend for WinUIBackend {
                 (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(false)
                 }
-                (Prop::TextWrappingWrap, PropValue::TextWrapping(v), Handle::RichTextBlock(tb)) => {
-                    let mode = match v {
-                        TextWrapping::NoWrap => Xaml::TextWrapping::NoWrap,
-                        TextWrapping::Wrap => Xaml::TextWrapping::Wrap,
-                        TextWrapping::WrapWholeWords => Xaml::TextWrapping::WrapWholeWords,
-                    };
-                    tb.put_TextWrapping(mode)
+                (Prop::TextWrappingWrap, PropValue::I32(v), Handle::RichTextBlock(tb)) => {
+                    tb.put_TextWrapping(Xaml::TextWrapping(*v))
                 }
                 (Prop::Content, PropValue::Str(s), Handle::Button(b)) => {
                     let cc = b.cast::<Xaml::IContentControl>()?;
@@ -821,9 +816,8 @@ impl Backend for WinUIBackend {
                     let tb = string_as_textblock(s)?;
                     cc.put_Content(&tb)
                 }
-                (Prop::Icon, PropValue::Symbol(sym), Handle::Button(b)) => {
-                    let icon_elem =
-                        Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(sym.to_raw()))?;
+                (Prop::Icon, PropValue::I32(v), Handle::Button(b)) => {
+                    let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(*v))?;
                     let cc = b.cast::<Xaml::IContentControl>()?;
                     // If the button already has an icon+text StackPanel layout,
                     // replace just the icon child (index 0) to preserve the text.
@@ -863,14 +857,13 @@ impl Backend for WinUIBackend {
                         cc.put_Content(&panel)
                     }
                 }
-                (Prop::StyleVariant, PropValue::ButtonStyle(style), Handle::Button(b)) => {
-                    use crate::core::widgets::ButtonStyle;
+                (Prop::StyleVariant, PropValue::I32(v), Handle::Button(b)) => {
                     let fe = b.cast::<Xaml::IFrameworkElement>()?;
-                    let style_key = match style {
-                        ButtonStyle::Accent => Some("AccentButtonStyle"),
-                        ButtonStyle::Subtle => Some("SubtleButtonStyle"),
-                        ButtonStyle::TextLink => Some("TextBlockButtonStyle"),
-                        ButtonStyle::Default => None,
+                    let style_key = match *v {
+                        1 => Some("AccentButtonStyle"),
+                        2 => Some("SubtleButtonStyle"),
+                        3 => Some("TextBlockButtonStyle"),
+                        _ => None, // 0 = Default
                     };
                     if let Some(key_str) = style_key {
                         let resources =
@@ -996,18 +989,18 @@ impl Backend for WinUIBackend {
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
                     .put_MaxHeight(f64::INFINITY),
-                (Prop::HorizontalAlignment, PropValue::HAlign(v), _) => handle
+                (Prop::HorizontalAlignment, PropValue::I32(v), _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
-                    .put_HorizontalAlignment(to_xaml_halign(*v)),
+                    .put_HorizontalAlignment(Xaml::HorizontalAlignment(*v)),
                 (Prop::HorizontalAlignment, PropValue::Unset, _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
                     .put_HorizontalAlignment(Xaml::HorizontalAlignment::Stretch),
-                (Prop::VerticalAlignment, PropValue::VAlign(v), _) => handle
+                (Prop::VerticalAlignment, PropValue::I32(v), _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
-                    .put_VerticalAlignment(to_xaml_valign(*v)),
+                    .put_VerticalAlignment(Xaml::VerticalAlignment(*v)),
                 (Prop::VerticalAlignment, PropValue::Unset, _) => handle
                     .as_framework_element()
                     .cast::<Xaml::IFrameworkElement>()?
@@ -1632,9 +1625,7 @@ impl Backend for WinUIBackend {
                         let item = Xaml::SelectorBarItem::new()?;
                         item.put_Text(&def.text)?;
                         if let Some(sym) = &def.icon {
-                            let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(
-                                Xaml::Symbol(sym.to_raw()),
-                            )?;
+                            let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
                             item.put_Icon(&icon_elem)?;
                         }
                         vec.Append(&item)?;
@@ -1663,54 +1654,12 @@ impl Backend for WinUIBackend {
                     b.put_Flyout(&flyout)?;
                     Ok(())
                 }
-                (Prop::FlyoutPlacement, PropValue::FlyoutPlacement(p), Handle::Button(b)) => {
+                (Prop::FlyoutPlacement, PropValue::I32(v), Handle::Button(b)) => {
                     // The flyout must already exist (FlyoutContent set first).
                     if let Ok(fb) = b.get_Flyout() {
-                        let mode = match p {
-                            crate::core::widgets::FlyoutPlacement::Top => {
-                                Xaml::FlyoutPlacementMode::Top
-                            }
-                            crate::core::widgets::FlyoutPlacement::Bottom => {
-                                Xaml::FlyoutPlacementMode::Bottom
-                            }
-                            crate::core::widgets::FlyoutPlacement::Left => {
-                                Xaml::FlyoutPlacementMode::Left
-                            }
-                            crate::core::widgets::FlyoutPlacement::Right => {
-                                Xaml::FlyoutPlacementMode::Right
-                            }
-                            crate::core::widgets::FlyoutPlacement::Full => {
-                                Xaml::FlyoutPlacementMode::Full
-                            }
-                            crate::core::widgets::FlyoutPlacement::TopEdgeAlignedLeft => {
-                                Xaml::FlyoutPlacementMode::TopEdgeAlignedLeft
-                            }
-                            crate::core::widgets::FlyoutPlacement::TopEdgeAlignedRight => {
-                                Xaml::FlyoutPlacementMode::TopEdgeAlignedRight
-                            }
-                            crate::core::widgets::FlyoutPlacement::BottomEdgeAlignedLeft => {
-                                Xaml::FlyoutPlacementMode::BottomEdgeAlignedLeft
-                            }
-                            crate::core::widgets::FlyoutPlacement::BottomEdgeAlignedRight => {
-                                Xaml::FlyoutPlacementMode::BottomEdgeAlignedRight
-                            }
-                            crate::core::widgets::FlyoutPlacement::LeftEdgeAlignedTop => {
-                                Xaml::FlyoutPlacementMode::LeftEdgeAlignedTop
-                            }
-                            crate::core::widgets::FlyoutPlacement::LeftEdgeAlignedBottom => {
-                                Xaml::FlyoutPlacementMode::LeftEdgeAlignedBottom
-                            }
-                            crate::core::widgets::FlyoutPlacement::RightEdgeAlignedTop => {
-                                Xaml::FlyoutPlacementMode::RightEdgeAlignedTop
-                            }
-                            crate::core::widgets::FlyoutPlacement::RightEdgeAlignedBottom => {
-                                Xaml::FlyoutPlacementMode::RightEdgeAlignedBottom
-                            }
-                            crate::core::widgets::FlyoutPlacement::Auto => {
-                                Xaml::FlyoutPlacementMode::Auto
-                            }
-                        };
-                        let _ = fb.cast::<Xaml::IFlyoutBase>()?.put_Placement(mode);
+                        let _ = fb
+                            .cast::<Xaml::IFlyoutBase>()?
+                            .put_Placement(Xaml::FlyoutPlacementMode(*v));
                     }
                     Ok(())
                 }
@@ -3107,11 +3056,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<Xaml::UIElement> {
         }
         Element::StackPanel(s) => {
             let sp = Xaml::StackPanel::new().ok()?;
-            let orientation = match s.orientation {
-                Orientation::Vertical => Xaml::Orientation::Vertical,
-                Orientation::Horizontal => Xaml::Orientation::Horizontal,
-            };
-            sp.put_Orientation(orientation).ok()?;
+            sp.put_Orientation(s.orientation).ok()?;
             if let Some(sp_val) = s.spacing {
                 sp.put_Spacing(sp_val).ok()?;
             }

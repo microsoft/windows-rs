@@ -441,11 +441,11 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         if let Some(v) = mods.horizontal_alignment {
             self.backend
-                .set_prop(id, Prop::HorizontalAlignment, &PropValue::HAlign(v));
+                .set_prop(id, Prop::HorizontalAlignment, &PropValue::I32(v.0));
         }
         if let Some(v) = mods.vertical_alignment {
             self.backend
-                .set_prop(id, Prop::VerticalAlignment, &PropValue::VAlign(v));
+                .set_prop(id, Prop::VerticalAlignment, &PropValue::I32(v.0));
         }
         if let Some(v) = mods.opacity {
             self.backend.set_prop(id, Prop::Opacity, &PropValue::F64(v));
@@ -610,14 +610,14 @@ impl<B: Backend + 'static> Reconciler<B> {
             Prop::HorizontalAlignment,
             old.horizontal_alignment,
             new.horizontal_alignment,
-            PropValue::HAlign,
+            |v: HorizontalAlignment| PropValue::I32(v.0),
         );
         self.diff_opt_copy(
             id,
             Prop::VerticalAlignment,
             old.vertical_alignment,
             new.vertical_alignment,
-            PropValue::VAlign,
+            |v: VerticalAlignment| PropValue::I32(v.0),
         );
         self.diff_opt_f64(id, Prop::Opacity, old.opacity, new.opacity);
         self.diff_opt_clone(

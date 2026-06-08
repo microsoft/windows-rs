@@ -44,8 +44,8 @@ ItemClicked = { handler = "IndexChanged", invoke = "invoke_i32_args", getter = "
 ["Microsoft.UI.Xaml.Controls.Button"]
 Content = { required = true, setter_fn = true }
 IsEnabled = { default = "true" }
-Style = { default = "ButtonStyle::Default", setter_fn = true, value = "ButtonStyle" }
-Icon = { setter_fn = true, value = "Symbol" }
+Style = { default = "ButtonStyle::Default", setter_fn = true, value = "I32" }
+Icon = { setter_fn = true, value = "I32" }
 MenuFlyoutItems = { setter_fn = true, value = "MenuFlyoutItems" }
 Click = {}
 ItemClicked = { attach_fn = true, handler = "TextChanged" }
@@ -136,7 +136,7 @@ IsEnabled = { default = "true" }
 Click = {}
 
 ["Microsoft.UI.Xaml.Controls.Image"]
-Stretch = { default = "Stretch::default()" }
+Stretch = { default = "Stretch::Uniform" }
 
 ["Microsoft.UI.Xaml.Controls.InfoBadge"]
 Value = { setter_fn = true }
@@ -360,7 +360,7 @@ Toggled = { handler = "CheckedChanged", getter = "get_IsOn" }
 
 ["Microsoft.UI.Xaml.Controls.TreeView"]
 Nodes = { required = true, setter_fn = true, value = "TreeViewNodes" }
-SelectionMode = { default = "TreeViewSelectionMode::default()" }
+SelectionMode = { default = "TreeViewSelectionMode::Single" }
 ItemInvoked = { attach_fn = true, handler = "TextChanged" }
 
 ["Microsoft.UI.Xaml.Controls.Viewbox"]

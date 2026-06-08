@@ -1,11 +1,21 @@
 use super::*;
 
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Image {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub source: ImageSource,
     pub stretch: Stretch,
+}
+impl Default for Image {
+    fn default() -> Self {
+        Self {
+            key: None,
+            modifiers: Modifiers::default(),
+            source: ImageSource::default(),
+            stretch: Stretch::Uniform,
+        }
+    }
 }
 #[derive(Clone, Default, Debug, PartialEq)]
 pub enum ImageSource {
@@ -24,14 +34,7 @@ impl From<Option<SurfaceImageSource>> for ImageSource {
         source.map_or(ImageSource::None, ImageSource::Surface)
     }
 }
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
-pub enum Stretch {
-    #[default]
-    Uniform,
-    UniformToFill,
-    Fill,
-    None,
-}
+pub use crate::bindings::Stretch;
 impl Image {
     pub fn new(source: ImageSource) -> Self {
         Self {
