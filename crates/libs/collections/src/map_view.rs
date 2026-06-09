@@ -94,7 +94,7 @@ where
     fn Current(&self) -> Result<IKeyValuePair<K, V>> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
         if let Some((key, value)) = self.owner.map.iter().nth(current) {
-            Ok(ComObject::new(super::key_value_pair::StockKeyValuePair {
+            Ok(ComObject::new(key_value_pair::StockKeyValuePair {
                 key: key.clone(),
                 value: value.clone(),
             })
@@ -133,7 +133,7 @@ where
 
         for (pair, (key, value)) in pairs.iter_mut().zip(self.owner.map.iter().skip(current)) {
             *pair = Some(
-                ComObject::new(super::key_value_pair::StockKeyValuePair {
+                ComObject::new(key_value_pair::StockKeyValuePair {
                     key: key.clone(),
                     value: value.clone(),
                 })

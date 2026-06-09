@@ -18,7 +18,7 @@ impl HStringHeader {
     /// The space for the terminating null character is already accounted for
     /// inside of `HStringHeader` (via `buffer_start`).
     fn alloc_bytes(len: u32) -> usize {
-        core::mem::size_of::<Self>() + 2 * len as usize
+        size_of::<Self>() + 2 * len as usize
     }
 
     pub fn alloc(len: u32) -> *mut Self {

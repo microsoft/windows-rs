@@ -1,3 +1,4 @@
+#![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![debugger_visualizer(natvis_file = "../windows-result.natvis")]
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]

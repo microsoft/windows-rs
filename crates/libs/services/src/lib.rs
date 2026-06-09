@@ -1,3 +1,4 @@
+#![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![expect(
@@ -211,7 +212,7 @@ impl<'a> Service<'a> {
     }
 
     /// The raw handle representing the service.
-    pub fn handle(&self) -> *mut core::ffi::c_void {
+    pub fn handle(&self) -> *mut c_void {
         *self.handle.read().unwrap()
     }
 
