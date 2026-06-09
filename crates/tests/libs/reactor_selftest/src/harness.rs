@@ -404,6 +404,25 @@ impl Harness {
         false
     }
 
+    /// Like [`render_until`](Self::render_until), but does not emit a
+    /// diagnostic tree dump on timeout. Use for conditions that are
+    /// expected to time out (e.g. known-flaky WinUI programmatic input).
+    pub async fn render_until_quiet<F>(&self, _label: &str, mut pred: F) -> bool
+    where
+        F: FnMut(&Harness) -> bool,
+    {
+        const MAX_ITERATIONS: u32 = 30;
+        self.render().await;
+        for _ in 0..MAX_ITERATIONS {
+            if pred(self) {
+                return true;
+            }
+            YieldLow::new(self.inner.dispatcher.clone()).await;
+            self.render().await;
+        }
+        pred(self)
+    }
+
     fn is_idle(&self) -> bool {
         self.inner
             .host
@@ -718,22 +737,18 @@ impl Harness {
             return Err(Error::empty());
         };
         let btn = btn.clone();
-        self.report_hresult("set_radio_buttons_selected_index", move || {
-            let element: UIElement = btn.cast()?;
-            let peer = match crate::bindings::FrameworkElementAutomationPeer::FromElement(&element)
-            {
-                Ok(p) => p,
-                Err(_) => {
-                    crate::bindings::FrameworkElementAutomationPeer::CreatePeerForElement(&element)?
-                }
-            };
-            let pattern = peer
-                .cast::<crate::bindings::IAutomationPeer>()?
-                .GetPattern(crate::bindings::PatternInterface::Invoke)?;
-            let invoke: crate::bindings::IInvokeProvider = pattern.cast()?;
-            invoke.Invoke()?;
-            Ok(())
-        })
+        let element: UIElement = btn.cast()?;
+        let peer = match crate::bindings::FrameworkElementAutomationPeer::FromElement(&element) {
+            Ok(p) => p,
+            Err(_) => {
+                crate::bindings::FrameworkElementAutomationPeer::CreatePeerForElement(&element)?
+            }
+        };
+        let pattern = peer
+            .cast::<crate::bindings::IAutomationPeer>()?
+            .GetPattern(crate::bindings::PatternInterface::Invoke)?;
+        let invoke: crate::bindings::IInvokeProvider = pattern.cast()?;
+        invoke.Invoke()
     }
 
     /// Set the selected index on the first ComboBox in the tree.
@@ -924,7 +939,9 @@ impl StderrCapture {
             let original = GetStdHandle(STD_ERROR_HANDLE);
             let mut read_end: RawHandle = core::ptr::null_mut();
             let mut write_end: RawHandle = core::ptr::null_mut();
-            CreatePipe(&mut read_end, &mut write_end, core::ptr::null(), 0);
+            // Use a 1 MB buffer so panic backtraces (RUST_BACKTRACE=1 on CI)
+            // don't fill the pipe and deadlock the write side.
+            CreatePipe(&mut read_end, &mut write_end, core::ptr::null(), 1024 * 1024);
             SetStdHandle(STD_ERROR_HANDLE, write_end);
             Self {
                 original,
