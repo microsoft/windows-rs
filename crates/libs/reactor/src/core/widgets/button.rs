@@ -62,7 +62,7 @@ impl Widget for Button {
             ));
         }
         if self.style != ButtonStyle::Default {
-            out.push(Binding::Prop(Prop::Style, PropValue::I32(self.style.0)));
+            out.push(Binding::Prop(Prop::StyleVariant, PropValue::I32(self.style.0)));
         }
         // Flyout and CommandBarFlyout are compound types not in TOML.
         if let Some(ref fly) = self.flyout {
