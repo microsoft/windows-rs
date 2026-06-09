@@ -107,7 +107,7 @@ fn app(cx: &mut RenderCx) -> Element {
     });
 
     swap_chain_panel()
-        .on_ready({
+        .on_mounted({
             let d3d = d3d.clone();
 
             move |panel| match create_d3d_swap_chain(&panel, 400, 300) {

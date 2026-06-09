@@ -31,10 +31,23 @@ pub(crate) trait Widget {
         None
     }
     /// Optional post-mount callback. When present, the reconciler invokes it
-    /// with the native element (`IInspectable`) immediately after creation.
+    /// immediately after creation with the native element (`IInspectable`), or
+    /// `None` if the backend exposes no native element for the control.
     fn on_mounted_callback(
         &self,
-    ) -> Option<&crate::core::callback::Callback<windows_core::IInspectable>> {
+    ) -> Option<&crate::core::callback::Callback<Option<windows_core::IInspectable>>> {
+        None
+    }
+    /// Optional pre-unmount callback. When present, the reconciler invokes it
+    /// just before the control is destroyed, while the control still exists,
+    /// with the native element (`IInspectable`), or `None` if the backend
+    /// exposes no native element. Owners use this to tear down external
+    /// resources bound to the control (e.g. join a render thread that presents
+    /// into the control's swap chain) — teardown runs regardless of whether a
+    /// native element is present.
+    fn on_unmounted_callback(
+        &self,
+    ) -> Option<&crate::core::callback::Callback<Option<windows_core::IInspectable>>> {
         None
     }
 }

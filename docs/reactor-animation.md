@@ -177,7 +177,7 @@ animated_canvas(|ctx| {
 
 ### How the Loop Works
 
-1. **`on_ready`** — fires when the `SwapChainPanel` is attached to the visual tree.
+1. **`on_mounted`** — fires when the `SwapChainPanel` is attached to the visual tree.
    Creates the `GpuDevice` and `SwapChain`.
 2. **`on_rendering`** — subscribes to `CompositionTarget::Rendering`, which fires
    once per compositor frame (~60 fps or display refresh rate).
@@ -243,7 +243,7 @@ Win2D (C#) provides two distinct controls:
 |---|---|
 | `CanvasAnimatedControl` | `animated_canvas()` |
 | `CanvasControl` | Deferred (roadmap item #9: `canvas()`) |
-| `CreateResources` event | Resources created in `on_ready`; device-lost rebuilds automatically |
+| `CreateResources` event | Resources created in `on_mounted`; device-lost rebuilds automatically |
 | `Update` event | Part of the draw closure (no separation) |
 | `Draw` event | The draw closure itself |
 | `CanvasAnimatedDrawEventArgs.Timing` | Not provided (use `Instant::now()` / `elapsed()`) |

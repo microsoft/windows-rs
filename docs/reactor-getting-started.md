@@ -266,12 +266,12 @@ error_boundary(
 
 ## Custom Rendering (Direct3D / SwapChainPanel)
 
-Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI. The `on_ready` callback provides a `SwapChainPanelHandle` for attaching your DXGI swap chain, and `on_resize` fires when the panel's layout size changes:
+Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI. The `on_mounted` callback provides a `SwapChainPanelHandle` for attaching your DXGI swap chain, and `on_resize` fires when the panel's layout size changes:
 
 ```rust
 fn app(cx: &mut RenderCx) -> Element {
     swap_chain_panel()
-        .on_ready(|panel| {
+        .on_mounted(|panel| {
             // Create D3D device + swap chain, then:
             // panel.set_swap_chain(&swap_chain).unwrap();
         })
