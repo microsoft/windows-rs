@@ -15,6 +15,7 @@ mod bitmap;
 mod color;
 mod device;
 mod device_lost;
+mod effect;
 mod geometry;
 #[cfg(feature = "reactor")]
 mod reactor;
@@ -26,6 +27,7 @@ mod types;
 pub use bitmap::Bitmap;
 pub use color::ColorF;
 pub use device::GpuDevice;
+pub use effect::Effect;
 pub use geometry::{Path, PathBuilder};
 #[cfg(feature = "reactor")]
 pub use reactor::{DrawContext, animated_canvas};
