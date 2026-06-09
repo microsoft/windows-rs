@@ -45,6 +45,9 @@ pub struct Parser<'a> {
     pub pending_macros: Vec<String>,
     /// Enum names for which `DEFINE_ENUM_FLAG_OPERATORS(X)` was seen.
     pub flag_enums: HashSet<String>,
+    /// IID variables: maps interface name → UUID string (e.g. `"IFoo"` → `"23170f69-40c1-278a-0000-000300010000"`).
+    /// Populated from `extern "C" const GUID IID_XXX = { ... };` variable declarations.
+    pub iid_vars: HashMap<String, String>,
 }
 
 impl<'a> Parser<'a> {
@@ -64,6 +67,7 @@ impl<'a> Parser<'a> {
             pending_typedefs: vec![],
             pending_macros: vec![],
             flag_enums: HashSet::new(),
+            iid_vars: HashMap::new(),
         }
     }
 
@@ -248,6 +252,20 @@ impl<'a> Parser<'a> {
                         // Also record for the case where the enum definition
                         // comes after the macro invocation.
                         self.flag_enums.insert(enum_name);
+                    }
+                }
+            }
+            // Detect `extern "C" const GUID IID_XXX = { ... };` variable declarations.
+            // These associate a GUID with an interface whose C++ declaration does not
+            // carry `__declspec(uuid("..."))` (e.g. the 7zip SDK pattern).
+            CXCursor_VarDecl => {
+                let name = child.name();
+                if let Some(iface_name) = name.strip_prefix("IID_") {
+                    if is_guid_type(&child.ty()) {
+                        let tokens = self.tu.tokenize(self.tu.to_expansion_range(child.extent()));
+                        if let Some(uuid) = parse_guid_initializer(&tokens) {
+                            self.iid_vars.insert(iface_name.to_string(), uuid);
+                        }
                     }
                 }
             }
@@ -562,6 +580,10 @@ impl Clang {
             }
         }
 
+        // Apply IID variable declarations (e.g. `const GUID IID_IFoo = { ... }`)
+        // to interfaces that don't already have a UUID from __declspec(uuid(...)).
+        collector.apply_iid_vars(&parser.iid_vars);
+
         Ok(parser.pending_macros)
     }
 }
@@ -723,4 +745,98 @@ fn matches_filter(file: &str, filter: &str) -> bool {
     let filter = filter.replace('\\', "/");
     file.ends_with(filter.as_str())
         && (file.len() == filter.len() || file.as_bytes()[file.len() - filter.len() - 1] == b'/')
+}
+
+/// Returns `true` if the clang `Type` refers to a GUID struct.
+///
+/// Handles `const GUID`, `const IID`, `const struct _GUID`, elaborated types,
+/// and typedef aliases for `GUID`/`IID`.
+fn is_guid_type(ty: &cx::Type) -> bool {
+    // Peel off any top-level const qualifier by looking at the canonical type.
+    let name = match ty.kind() {
+        CXType_Elaborated => ty.underlying_type().ty().name(),
+        CXType_Record => ty.ty().name(),
+        CXType_Typedef => ty.ty().name(),
+        _ => return false,
+    };
+    matches!(name.as_str(), "GUID" | "_GUID" | "IID")
+}
+
+/// Parse a GUID struct initializer from a token stream.
+///
+/// Expects the token stream for a variable declaration like:
+/// ```c
+/// const GUID IID_IFoo = { 0x23170F69, 0x40C1, 0x278A, { 0, 0, 0, 3, 0, 1, 0, 0 } };
+/// ```
+///
+/// Scans past the `=` token, then collects exactly 11 integer literals from
+/// the balanced `{ ... { ... } }` initializer: `data1` (u32), `data2` (u16),
+/// `data3` (u16), and `data4[0..8]` (8 × u8).
+///
+/// Returns the UUID in standard `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` format,
+/// or `None` if the token sequence does not match the expected shape.
+fn parse_guid_initializer(tokens: &[(CXTokenKind, String)]) -> Option<String> {
+    // Find the `=` that starts the initializer.
+    let eq_pos = tokens
+        .iter()
+        .position(|(k, s)| *k == CXToken_Punctuation && s == "=")?;
+
+    // Collect all integer literals after the `=`.
+    let mut values = Vec::with_capacity(11);
+    for (kind, spelling) in &tokens[eq_pos + 1..] {
+        if *kind == CXToken_Literal {
+            let v = parse_c_int_literal(spelling)?;
+            values.push(v);
+        }
+    }
+
+    // Must have exactly 11 values: data1, data2, data3, data4[0..8].
+    if values.len() != 11 {
+        return None;
+    }
+
+    let data1 = values[0];
+    let data2 = values[1];
+    let data3 = values[2];
+
+    // Range-check: data1 ≤ u32, data2/data3 ≤ u16, data4 bytes ≤ u8.
+    if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
+        return None;
+    }
+    for &b in &values[3..11] {
+        if b > u8::MAX as u64 {
+            return None;
+        }
+    }
+
+    // Format as standard UUID: "data1-data2-data3-d4[0]d4[1]-d4[2]..d4[7]"
+    Some(format!(
+        "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+        data1,
+        data2,
+        data3,
+        values[3],
+        values[4],
+        values[5],
+        values[6],
+        values[7],
+        values[8],
+        values[9],
+        values[10],
+    ))
+}
+
+/// Parse a C integer literal into a `u64`, stripping any type suffix
+/// (`U`, `L`, `UL`, `LL`, `ULL`, etc.) and handling hex (`0x`) and decimal.
+fn parse_c_int_literal(lit: &str) -> Option<u64> {
+    // Strip trailing suffixes (L, U, LL, ULL, etc.).
+    let digits = lit.trim_end_matches(['u', 'U', 'l', 'L']);
+    if let Some(hex) = digits
+        .strip_prefix("0x")
+        .or_else(|| digits.strip_prefix("0X"))
+    {
+        u64::from_str_radix(hex, 16).ok()
+    } else {
+        digits.parse::<u64>().ok()
+    }
 }
