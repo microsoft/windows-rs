@@ -39,6 +39,10 @@ jobs:
       - name: Check riddle
         run:  cargo check -p riddle --all-features
       - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-animation
+        run:  cargo check -p windows-animation --all-features
+      - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-bindgen
         run:  cargo check -p windows-bindgen --all-features
