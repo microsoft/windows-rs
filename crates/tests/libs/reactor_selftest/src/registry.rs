@@ -50,6 +50,18 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     ("Reconciler_Mount_ScrollView", controls::mount_scroll_view),
     ("Reconciler_Mount_Viewbox", controls::mount_viewbox),
     ("Reconciler_Mount_Button", controls::mount_button),
+    (
+        "Reconciler_Mount_ButtonAccent",
+        controls::mount_button_accent,
+    ),
+    (
+        "Reconciler_Mount_ButtonSubtle",
+        controls::mount_button_subtle,
+    ),
+    (
+        "Reconciler_Mount_ButtonTextLink",
+        controls::mount_button_text_link,
+    ),
     ("Reconciler_Mount_CheckBox", controls::mount_check_box),
     ("Reconciler_Mount_TextField", controls::mount_text_field),
     (

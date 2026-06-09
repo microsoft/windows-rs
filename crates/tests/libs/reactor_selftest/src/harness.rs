@@ -425,16 +425,15 @@ impl Harness {
         F: FnOnce() -> String,
     {
         if ok {
-            println!("ok {name}");
-        } else {
-            let d = diag();
-            if d.is_empty() {
-                println!("not ok {name}");
-            } else {
-                println!("not ok {name} - {d}");
-            }
-            self.inner.failures.set(self.inner.failures.get() + 1);
+            return;
         }
+        let d = diag();
+        if d.is_empty() {
+            println!("not ok {name}");
+        } else {
+            println!("not ok {name} - {d}");
+        }
+        self.inner.failures.set(self.inner.failures.get() + 1);
         let _ = std::io::stdout().flush();
     }
 
@@ -461,6 +460,27 @@ impl Harness {
     pub fn check_skip(&self, name: &str, reason: &str) {
         println!("ok {name} # SKIP {reason}");
         let _ = std::io::stdout().flush();
+    }
+
+    /// Begin capturing stderr output. Returns a [`StderrCapture`] that,
+    /// when finished, yields the captured bytes as a string. Use this to
+    /// detect `windows-reactor:` diagnostic warnings emitted by the
+    /// backend's `eprintln!` calls.
+    #[allow(clippy::unused_self)]
+    pub fn capture_stderr(&self) -> StderrCapture {
+        StderrCapture::start()
+    }
+
+    /// Assert that the captured stderr contains no `windows-reactor:`
+    /// diagnostic lines.
+    pub fn check_no_reactor_warnings(&self, name: &str, captured: &str) {
+        let warnings: Vec<&str> = captured
+            .lines()
+            .filter(|l| l.contains("windows-reactor:"))
+            .collect();
+        self.check_with(name, warnings.is_empty(), || {
+            format!("{} warning(s): {}", warnings.len(), warnings.join("; "))
+        });
     }
 
     /// Emit a free-form TAP diagnostic comment. Useful from driver helpers
@@ -855,4 +875,104 @@ fn window_hwnd(window: &Window) -> Result<HWND> {
     let mut hwnd = HWND(std::ptr::null_mut());
     unsafe { native.WindowHandle(&mut hwnd as *mut HWND).ok()? };
     Ok(hwnd)
+}
+
+// ── Stderr capture ─────────────────────────────────────────────────────
+
+type RawHandle = *mut core::ffi::c_void;
+const STD_ERROR_HANDLE: u32 = 0xFFFF_FFF4; // (DWORD)-12
+
+unsafe extern "system" {
+    fn GetStdHandle(nStdHandle: u32) -> RawHandle;
+    fn SetStdHandle(nStdHandle: u32, hHandle: RawHandle) -> i32;
+    fn CreatePipe(
+        hReadPipe: *mut RawHandle,
+        hWritePipe: *mut RawHandle,
+        lpPipeAttributes: *const core::ffi::c_void,
+        nSize: u32,
+    ) -> i32;
+    fn PeekNamedPipe(
+        hNamedPipe: RawHandle,
+        lpBuffer: *mut core::ffi::c_void,
+        nBufferSize: u32,
+        lpBytesRead: *mut u32,
+        lpTotalBytesAvail: *mut u32,
+        lpBytesLeftThisMessage: *mut u32,
+    ) -> i32;
+    fn ReadFile(
+        hFile: RawHandle,
+        lpBuffer: *mut u8,
+        nNumberOfBytesToRead: u32,
+        lpNumberOfBytesRead: *mut u32,
+        lpOverlapped: *mut core::ffi::c_void,
+    ) -> i32;
+    fn CloseHandle(hObject: RawHandle) -> i32;
+}
+
+/// Captures stderr output by redirecting the Win32 standard error handle
+/// to an anonymous pipe. Rust's `eprintln!` calls `GetStdHandle` on each
+/// write, so `SetStdHandle` is the correct redirection mechanism.
+pub struct StderrCapture {
+    original: RawHandle,
+    write_end: RawHandle,
+    read_end: RawHandle,
+}
+
+impl StderrCapture {
+    pub fn start() -> Self {
+        unsafe {
+            let original = GetStdHandle(STD_ERROR_HANDLE);
+            let mut read_end: RawHandle = core::ptr::null_mut();
+            let mut write_end: RawHandle = core::ptr::null_mut();
+            CreatePipe(&mut read_end, &mut write_end, core::ptr::null(), 0);
+            SetStdHandle(STD_ERROR_HANDLE, write_end);
+            Self {
+                original,
+                write_end,
+                read_end,
+            }
+        }
+    }
+
+    pub fn finish(self) -> String {
+        unsafe {
+            let _ = std::io::stderr().flush();
+            SetStdHandle(STD_ERROR_HANDLE, self.original);
+            CloseHandle(self.write_end);
+
+            let mut buf = vec![0u8; 65536];
+            let mut total = 0usize;
+            loop {
+                let mut avail: u32 = 0;
+                if PeekNamedPipe(
+                    self.read_end,
+                    core::ptr::null_mut(),
+                    0,
+                    core::ptr::null_mut(),
+                    &mut avail,
+                    core::ptr::null_mut(),
+                ) == 0
+                    || avail == 0
+                {
+                    break;
+                }
+                let mut read: u32 = 0;
+                let to_read = avail.min((buf.len() - total) as u32);
+                ReadFile(
+                    self.read_end,
+                    buf.as_mut_ptr().add(total),
+                    to_read,
+                    &mut read,
+                    core::ptr::null_mut(),
+                );
+                total += read as usize;
+                if total >= buf.len() {
+                    break;
+                }
+            }
+            CloseHandle(self.read_end);
+            buf.truncate(total);
+            String::from_utf8_lossy(&buf).into_owned()
+        }
+    }
 }

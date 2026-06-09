@@ -95,12 +95,13 @@ async fn run_all(
         let _ = harness.update_progress(test_index, name);
         let failures_before = harness.failures();
 
-        println!("# Running: {name}");
-        let _ = std::io::stdout().flush();
-
         f(harness.clone()).await;
 
         let passed = harness.failures() == failures_before;
+        if !passed {
+            println!("# FAILED: {name}");
+            let _ = std::io::stdout().flush();
+        }
         let _ = harness.mark_fixture_result(idx, passed);
 
         if slow {

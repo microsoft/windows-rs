@@ -1268,6 +1268,11 @@ impl Backend for WinUIBackend {
                     let tb = string_as_textblock(s)?;
                     ti.put_Header(&tb)
                 }
+                (Prop::Header, PropValue::Str(s), Handle::Expander(e)) => {
+                    let tb = string_as_textblock(s)?;
+                    e.put_Header(&tb)
+                }
+                (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.put_Header(None),
                 (Prop::ItemKey, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tag = windows_reference::IReference::from(s.as_str());
                     ti.cast::<Xaml::IFrameworkElement>()?.put_Tag(&tag)

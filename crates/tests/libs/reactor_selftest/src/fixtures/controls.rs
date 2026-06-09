@@ -493,6 +493,51 @@ pub fn mount_button(h: Harness) -> FixtureFuture {
     })
 }
 
+pub fn mount_button_accent(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        let capture = h.capture_stderr();
+        h.mount(cc(|_| button("Accent").accent().into()));
+        h.render().await;
+        let stderr = capture.finish();
+        assert_present!(h, "Reconciler_Mount_ButtonAccent", bindings::Button);
+        h.check(
+            "Reconciler_Mount_ButtonAccent_HasLabel",
+            h.find_button("Accent").is_some(),
+        );
+        h.check_no_reactor_warnings("Reconciler_Mount_ButtonAccent_NoWarnings", &stderr);
+    })
+}
+
+pub fn mount_button_subtle(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        let capture = h.capture_stderr();
+        h.mount(cc(|_| button("Subtle").subtle().into()));
+        h.render().await;
+        let stderr = capture.finish();
+        assert_present!(h, "Reconciler_Mount_ButtonSubtle", bindings::Button);
+        h.check(
+            "Reconciler_Mount_ButtonSubtle_HasLabel",
+            h.find_button("Subtle").is_some(),
+        );
+        h.check_no_reactor_warnings("Reconciler_Mount_ButtonSubtle_NoWarnings", &stderr);
+    })
+}
+
+pub fn mount_button_text_link(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        let capture = h.capture_stderr();
+        h.mount(cc(|_| button("Link").text_link().into()));
+        h.render().await;
+        let stderr = capture.finish();
+        assert_present!(h, "Reconciler_Mount_ButtonTextLink", bindings::Button);
+        h.check(
+            "Reconciler_Mount_ButtonTextLink_HasLabel",
+            h.find_button("Link").is_some(),
+        );
+        h.check_no_reactor_warnings("Reconciler_Mount_ButtonTextLink_NoWarnings", &stderr);
+    })
+}
+
 pub fn mount_person_picture(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| PersonPicture::new().initials("AB").into()));
