@@ -1,3 +1,4 @@
+#![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![cfg_attr(not(test), no_std)]
@@ -95,7 +96,7 @@ pub fn revision() -> u32 {
 impl OSVERSIONINFOEXW {
     fn new() -> Self {
         Self {
-            dwOSVersionInfoSize: core::mem::size_of::<Self>() as u32,
+            dwOSVersionInfoSize: size_of::<Self>() as u32,
             ..Default::default()
         }
     }

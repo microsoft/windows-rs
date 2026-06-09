@@ -1,3 +1,4 @@
+#![warn(unused_qualifications)]
 #![expect(
     missing_docs,
     non_snake_case,
@@ -9,6 +10,7 @@
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 mod r#async;
+#[allow(unused_qualifications)]
 mod bindings;
 #[cfg(windows)]
 mod bindings_impl;
