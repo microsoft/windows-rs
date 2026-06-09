@@ -4,6 +4,7 @@ use crate::bindings::*;
 use crate::bitmap::Bitmap;
 use crate::color::ColorF;
 use crate::device_lost;
+use crate::effect::Effect;
 use crate::geometry::Path;
 use crate::text::TextFormat;
 use crate::types::{
@@ -15,7 +16,6 @@ use windows_numerics::Vector2;
 /// Safe wrapper over `ID2D1DeviceContext`.
 ///
 /// Calls `BeginDraw` on creation and `EndDraw` on drop.
-/// All drawing methods are safe — no UB is possible through this API.
 pub struct DrawingSession<'a> {
     context: &'a ID2D1DeviceContext,
     device_lost_flag: &'a Cell<bool>,
@@ -156,7 +156,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Create a solid color brush bound to this session's device context.
+    /// Create a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> windows_core::Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
@@ -282,8 +282,8 @@ impl<'a> DrawingSession<'a> {
 
     /// Load a bitmap from an image file (PNG, JPEG, BMP, etc.).
     ///
-    /// Requires COM to be initialized. For best performance, load bitmaps once
-    /// (e.g. via [`crate::SwapChain::load_bitmap`]) and reuse across frames.
+    /// Requires COM to be initialized. For best performance, load once
+    /// and reuse across frames.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> windows_core::Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
@@ -311,6 +311,85 @@ impl<'a> DrawingSession<'a> {
     /// Access the raw D2D1 device context for advanced usage.
     pub fn raw(&self) -> &ID2D1DeviceContext {
         self.context
+    }
+
+    /// Create a BGRA8 premultiplied bitmap render target matching the current target's size and DPI.
+    pub fn create_bitmap_target(&self) -> windows_core::Result<Bitmap> {
+        unsafe {
+            let mut dpi_x = 0.0f32;
+            let mut dpi_y = 0.0f32;
+            self.context.GetDpi(&mut dpi_x, &mut dpi_y);
+            let pixel_size = self.context.GetPixelSize();
+
+            let properties = D2D1_BITMAP_PROPERTIES1 {
+                pixelFormat: D2D1_PIXEL_FORMAT {
+                    format: DXGI_FORMAT_B8G8R8A8_UNORM,
+                    alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
+                },
+                dpiX: dpi_x,
+                dpiY: dpi_y,
+                bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET,
+                ..Default::default()
+            };
+
+            self.context
+                .CreateBitmap(pixel_size, None, 0, &properties)
+                .map(Bitmap)
+        }
+    }
+
+    /// Create a drop shadow effect for a bitmap render target.
+    pub fn create_shadow(&self, source: &Bitmap) -> windows_core::Result<Effect> {
+        unsafe {
+            let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
+            effect.SetInput(0, &source.0, true);
+            Ok(Effect(effect))
+        }
+    }
+
+    /// Temporarily redirect drawing to a bitmap render target.
+    ///
+    /// Restores the previous target when the closure returns.
+    pub fn with_target(&self, bitmap: &Bitmap, f: impl FnOnce()) {
+        unsafe {
+            let previous = self.context.GetTarget();
+            self.context.SetTarget(&bitmap.0);
+            f();
+            match previous {
+                Ok(prev) => self.context.SetTarget(&prev),
+                Err(_) => self.context.SetTarget(None::<&ID2D1Image>),
+            }
+        }
+    }
+
+    /// Draw a bitmap at its natural size at the current transform.
+    ///
+    /// Unlike [`draw_bitmap`](Self::draw_bitmap) which scales to a destination rect.
+    pub fn draw_image(&self, bitmap: &Bitmap) {
+        unsafe {
+            self.context.DrawImage(
+                &bitmap.0,
+                None,
+                None,
+                D2D1_INTERPOLATION_MODE_LINEAR,
+                0, // D2D1_COMPOSITE_MODE_SOURCE_OVER
+            );
+        }
+    }
+
+    /// Draw an effect's output at the current transform.
+    pub fn draw_effect(&self, effect: &Effect) {
+        if let Ok(output) = unsafe { effect.0.GetOutput() } {
+            unsafe {
+                self.context.DrawImage(
+                    &output,
+                    None,
+                    None,
+                    D2D1_INTERPOLATION_MODE_LINEAR,
+                    0, // D2D1_COMPOSITE_MODE_SOURCE_OVER
+                );
+            }
+        }
     }
 }
 

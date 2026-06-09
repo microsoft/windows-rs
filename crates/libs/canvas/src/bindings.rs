@@ -4,6 +4,8 @@ windows_core::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut co
 windows_core::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const windows_core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 pub type CLSCTX = u32;
 pub const CLSCTX_INPROC_SERVER: CLSCTX = 1u32;
+pub const CLSID_D2D1Shadow: windows_core::GUID =
+    windows_core::GUID::from_u128(0xc67ea361_1863_4e69_89db_695d3e9a5b6b);
 pub const CLSID_WICImagingFactory: windows_core::GUID =
     windows_core::GUID::from_u128(0xcacaf262_9370_4615_a13b_9f5539da4c0a);
 pub type D2D1_ALPHA_MODE = i32;
@@ -18,13 +20,6 @@ pub struct D2D1_BEZIER_SEGMENT {
 pub type D2D1_BITMAP_OPTIONS = i32;
 pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = 2i32;
 pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = 1i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D1_BITMAP_PROPERTIES {
-    pub pixelFormat: D2D1_PIXEL_FORMAT,
-    pub dpiX: f32,
-    pub dpiY: f32,
-}
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct D2D1_BITMAP_PROPERTIES1 {
@@ -53,6 +48,7 @@ pub struct D2D1_COLOR_F {
     pub b: f32,
     pub a: f32,
 }
+pub type D2D1_COMPOSITE_MODE = i32;
 pub type D2D1_DASH_STYLE = i32;
 pub const D2D1_DASH_STYLE_DASH: D2D1_DASH_STYLE = 1i32;
 pub const D2D1_DASH_STYLE_DASH_DOT: D2D1_DASH_STYLE = 3i32;
@@ -152,6 +148,12 @@ pub struct D2D_RECT_F {
 pub struct D2D_SIZE_F {
     pub width: f32,
     pub height: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D2D_SIZE_U {
+    pub width: u32,
+    pub height: u32,
 }
 pub const D3D11_CREATE_DEVICE_BGRA_SUPPORT: D3D11_CREATE_DEVICE_FLAG = 32u32;
 pub type D3D11_CREATE_DEVICE_FLAG = u32;
@@ -427,6 +429,45 @@ windows_core::imp::interface_hierarchy!(
     ID2D1RenderTarget
 );
 impl ID2D1DeviceContext {
+    pub unsafe fn CreateBitmap(
+        &self,
+        size: D2D_SIZE_U,
+        sourcedata: Option<*const core::ffi::c_void>,
+        pitch: u32,
+        bitmapproperties: *const D2D1_BITMAP_PROPERTIES1,
+    ) -> windows_core::Result<ID2D1Bitmap1> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateBitmap)(
+                windows_core::Interface::as_raw(self),
+                size,
+                sourcedata.unwrap_or(core::mem::zeroed()) as _,
+                pitch,
+                bitmapproperties,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub unsafe fn CreateBitmapFromWicBitmap<P0>(
+        &self,
+        wicbitmapsource: P0,
+        bitmapproperties: Option<*const D2D1_BITMAP_PROPERTIES1>,
+    ) -> windows_core::Result<ID2D1Bitmap1>
+    where
+        P0: windows_core::Param<IWICBitmapSource>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateBitmapFromWicBitmap)(
+                windows_core::Interface::as_raw(self),
+                wicbitmapsource.param().abi(),
+                bitmapproperties.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub unsafe fn CreateBitmapFromDxgiSurface<P0>(
         &self,
         surface: P0,
@@ -446,6 +487,20 @@ impl ID2D1DeviceContext {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub unsafe fn CreateEffect(
+        &self,
+        effectid: *const windows_core::GUID,
+    ) -> windows_core::Result<ID2D1Effect> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateEffect)(
+                windows_core::Interface::as_raw(self),
+                effectid,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub unsafe fn SetTarget<P0>(&self, image: P0)
     where
         P0: windows_core::Param<ID2D1Image>,
@@ -454,6 +509,37 @@ impl ID2D1DeviceContext {
             (windows_core::Interface::vtable(self).SetTarget)(
                 windows_core::Interface::as_raw(self),
                 image.param().abi(),
+            );
+        }
+    }
+    pub unsafe fn GetTarget(&self) -> windows_core::Result<ID2D1Image> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTarget)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            );
+            windows_core::Type::from_abi(result__)
+        }
+    }
+    pub unsafe fn DrawImage<P0>(
+        &self,
+        image: P0,
+        targetoffset: Option<*const windows_numerics::Vector2>,
+        imagerectangle: Option<*const D2D_RECT_F>,
+        interpolationmode: D2D1_INTERPOLATION_MODE,
+        compositemode: D2D1_COMPOSITE_MODE,
+    ) where
+        P0: windows_core::Param<ID2D1Image>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).DrawImage)(
+                windows_core::Interface::as_raw(self),
+                image.param().abi(),
+                targetoffset.unwrap_or(core::mem::zeroed()) as _,
+                imagerectangle.unwrap_or(core::mem::zeroed()) as _,
+                interpolationmode,
+                compositemode,
             );
         }
     }
@@ -485,8 +571,20 @@ impl ID2D1DeviceContext {
 #[doc(hidden)]
 pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
-    CreateBitmap: usize,
-    CreateBitmapFromWicBitmap: usize,
+    pub CreateBitmap: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        D2D_SIZE_U,
+        *const core::ffi::c_void,
+        u32,
+        *const D2D1_BITMAP_PROPERTIES1,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub CreateBitmapFromWicBitmap: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *const D2D1_BITMAP_PROPERTIES1,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateColorContext: usize,
     CreateColorContextFromFilename: usize,
     CreateColorContextFromWicColorContext: usize,
@@ -496,7 +594,11 @@ pub struct ID2D1DeviceContext_Vtbl {
         *const D2D1_BITMAP_PROPERTIES1,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateEffect: usize,
+    pub CreateEffect: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const windows_core::GUID,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateGradientStopCollection: usize,
     CreateImageBrush: usize,
     CreateBitmapBrush: usize,
@@ -508,7 +610,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     GetGlyphRunWorldBounds: usize,
     GetDevice: usize,
     pub SetTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
-    GetTarget: usize,
+    pub GetTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
     SetRenderingControls: usize,
     GetRenderingControls: usize,
     SetPrimitiveBlend: usize,
@@ -516,7 +618,14 @@ pub struct ID2D1DeviceContext_Vtbl {
     SetUnitMode: usize,
     GetUnitMode: usize,
     DrawGlyphRun: usize,
-    DrawImage: usize,
+    pub DrawImage: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *const windows_numerics::Vector2,
+        *const D2D_RECT_F,
+        D2D1_INTERPOLATION_MODE,
+        D2D1_COMPOSITE_MODE,
+    ),
     DrawGdiMetafile: usize,
     pub DrawBitmap: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -537,6 +646,61 @@ pub struct ID2D1DeviceContext_Vtbl {
 unsafe impl Send for ID2D1DeviceContext {}
 unsafe impl Sync for ID2D1DeviceContext {}
 impl windows_core::RuntimeName for ID2D1DeviceContext {}
+windows_core::imp::define_interface!(
+    ID2D1Effect,
+    ID2D1Effect_Vtbl,
+    0x28211a43_7d89_476f_8181_2d6159b220ad
+);
+impl core::ops::Deref for ID2D1Effect {
+    type Target = ID2D1Properties;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID2D1Effect, windows_core::IUnknown, ID2D1Properties);
+impl ID2D1Effect {
+    pub unsafe fn SetInput<P1>(&self, index: u32, input: P1, invalidate: bool)
+    where
+        P1: windows_core::Param<ID2D1Image>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetInput)(
+                windows_core::Interface::as_raw(self),
+                index,
+                input.param().abi(),
+                invalidate.into(),
+            );
+        }
+    }
+    pub unsafe fn GetOutput(&self) -> windows_core::Result<ID2D1Image> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOutput)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            );
+            windows_core::Type::from_abi(result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID2D1Effect_Vtbl {
+    pub base__: ID2D1Properties_Vtbl,
+    pub SetInput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ),
+    SetInputCount: usize,
+    GetInput: usize,
+    GetInputCount: usize,
+    pub GetOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
+}
+unsafe impl Send for ID2D1Effect {}
+unsafe impl Sync for ID2D1Effect {}
+impl windows_core::RuntimeName for ID2D1Effect {}
 windows_core::imp::define_interface!(
     ID2D1Factory,
     ID2D1Factory_Vtbl,
@@ -881,6 +1045,31 @@ unsafe impl Send for ID2D1PathGeometry1 {}
 unsafe impl Sync for ID2D1PathGeometry1 {}
 impl windows_core::RuntimeName for ID2D1PathGeometry1 {}
 windows_core::imp::define_interface!(
+    ID2D1Properties,
+    ID2D1Properties_Vtbl,
+    0x483473d7_cd46_4f9d_9d3a_3112aa80159d
+);
+windows_core::imp::interface_hierarchy!(ID2D1Properties, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID2D1Properties_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    GetPropertyCount: usize,
+    GetPropertyName: usize,
+    GetPropertyNameLength: usize,
+    GetType: usize,
+    GetPropertyIndex: usize,
+    SetValueByName: usize,
+    SetValue: usize,
+    GetValueByName: usize,
+    GetValue: usize,
+    GetValueSize: usize,
+    GetSubProperties: usize,
+}
+unsafe impl Send for ID2D1Properties {}
+unsafe impl Sync for ID2D1Properties {}
+impl windows_core::RuntimeName for ID2D1Properties {}
+windows_core::imp::define_interface!(
     ID2D1RadialGradientBrush,
     ID2D1RadialGradientBrush_Vtbl,
     0x2cd906ac_12e2_11dc_9fed_001143a055f9
@@ -927,25 +1116,6 @@ impl core::ops::Deref for ID2D1RenderTarget {
 }
 windows_core::imp::interface_hierarchy!(ID2D1RenderTarget, windows_core::IUnknown, ID2D1Resource);
 impl ID2D1RenderTarget {
-    pub unsafe fn CreateBitmapFromWicBitmap<P0>(
-        &self,
-        wicbitmapsource: P0,
-        bitmapproperties: Option<*const D2D1_BITMAP_PROPERTIES>,
-    ) -> windows_core::Result<ID2D1Bitmap>
-    where
-        P0: windows_core::Param<IWICBitmapSource>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBitmapFromWicBitmap)(
-                windows_core::Interface::as_raw(self),
-                wicbitmapsource.param().abi(),
-                bitmapproperties.unwrap_or(core::mem::zeroed()) as _,
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     pub unsafe fn CreateSolidColorBrush(
         &self,
         color: *const D2D1_COLOR_F,
@@ -1256,18 +1426,32 @@ impl ID2D1RenderTarget {
             );
         }
     }
+    pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetDpi)(
+                windows_core::Interface::as_raw(self),
+                dpix as _,
+                dpiy as _,
+            );
+        }
+    }
+    pub unsafe fn GetPixelSize(&self) -> D2D_SIZE_U {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPixelSize)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            );
+            result__
+        }
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1RenderTarget_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     CreateBitmap: usize,
-    pub CreateBitmapFromWicBitmap: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *const D2D1_BITMAP_PROPERTIES,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    CreateBitmapFromWicBitmap: usize,
     CreateSharedBitmap: usize,
     CreateBitmapBrush: usize,
     pub CreateSolidColorBrush: unsafe extern "system" fn(
@@ -1401,9 +1585,9 @@ pub struct ID2D1RenderTarget_Vtbl {
     ) -> windows_core::HRESULT,
     GetPixelFormat: usize,
     pub SetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32),
-    GetDpi: usize,
+    pub GetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32),
     GetSize: usize,
-    GetPixelSize: usize,
+    pub GetPixelSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D_SIZE_U),
     GetMaximumBitmapSize: usize,
     IsSupported: usize,
 }
