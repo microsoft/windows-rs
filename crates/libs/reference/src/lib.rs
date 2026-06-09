@@ -1,3 +1,4 @@
+#![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 #![allow(

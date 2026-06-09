@@ -1,4 +1,4 @@
-#![deny(clippy::correctness)]
+#![warn(unused_qualifications)]
 
 #[allow(
     non_snake_case,

@@ -24,7 +24,7 @@ impl Value {
     }
 }
 
-impl core::ops::Deref for Value {
+impl Deref for Value {
     type Target = [u8];
 
     fn deref(&self) -> &[u8] {

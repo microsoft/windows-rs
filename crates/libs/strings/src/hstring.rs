@@ -359,7 +359,7 @@ impl PartialEq<&HSTRING> for std::ffi::OsString {
 impl TryFrom<&HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
-    fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
+    fn try_from(hstring: &HSTRING) -> Result<Self, Self::Error> {
         Self::from_utf16(hstring)
     }
 }
@@ -367,7 +367,7 @@ impl TryFrom<&HSTRING> for String {
 impl TryFrom<HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
-    fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
+    fn try_from(hstring: HSTRING) -> Result<Self, Self::Error> {
         Self::try_from(&hstring)
     }
 }
