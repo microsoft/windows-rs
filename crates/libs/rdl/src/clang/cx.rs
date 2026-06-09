@@ -6,8 +6,7 @@ pub struct Library;
 
 impl Library {
     pub fn new() -> Result<Self, Error> {
-        clang_sys::load()
-            .map_err(|e| Error::new(&format!("failed to load libclang: {e}"), "", 0, 0))?;
+        load().map_err(|e| Error::new(&format!("failed to load libclang: {e}"), "", 0, 0))?;
         Ok(Self)
     }
 
@@ -19,7 +18,7 @@ impl Library {
 
 impl Drop for Library {
     fn drop(&mut self) {
-        _ = clang_sys::unload();
+        _ = unload();
     }
 }
 
