@@ -277,7 +277,7 @@ fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Re
     Ok(())
 }
 
-fn read_winrt_expected<S: syn::spanned::Spanned>(
+fn read_winrt_expected<S: Spanned>(
     source_file: &str,
     span: &S,
     attrs: &[syn::Attribute],
@@ -297,7 +297,7 @@ fn read_winrt_expected<S: syn::spanned::Spanned>(
     }
 }
 
-fn read_winrt<S: syn::spanned::Spanned>(
+fn read_winrt<S: Spanned>(
     source_file: &str,
     span: &S,
     attrs: &[syn::Attribute],
@@ -391,13 +391,13 @@ struct Encoder<'a> {
 }
 
 impl Encoder<'_> {
-    fn error<S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Error {
+    fn error<S: Spanned>(&self, spanned: S, message: &str) -> Error {
         let start = spanned.span().start();
 
         Error::new(message, &self.file.source, start.line, start.column)
     }
 
-    fn err<T, S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
+    fn err<T, S: Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
         Err(self.error(spanned, message))
     }
 
@@ -867,7 +867,7 @@ impl Encoder<'_> {
     /// or anywhere else.  Primitive types and generic type parameters are always valid.
     /// Named types (structs, enums, interfaces, …) are checked against the local index
     /// first, then against any loaded reference metadata.
-    fn validate_type_is_winrt<S: syn::spanned::Spanned + quote::ToTokens>(
+    fn validate_type_is_winrt<S: Spanned + quote::ToTokens>(
         &self,
         span: &S,
         ty: &metadata::Type,

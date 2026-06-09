@@ -107,14 +107,14 @@ impl File {
         let dos = IMAGE_DOS_HEADER {
             e_magic: IMAGE_DOS_SIGNATURE,
             e_lfarlc: 64,
-            e_lfanew: core::mem::size_of::<IMAGE_DOS_HEADER>() as i32,
+            e_lfanew: size_of::<IMAGE_DOS_HEADER>() as i32,
             ..Default::default()
         };
 
         let file = IMAGE_FILE_HEADER {
             Machine: IMAGE_FILE_MACHINE_I386,
             NumberOfSections: 1,
-            SizeOfOptionalHeader: core::mem::size_of::<IMAGE_OPTIONAL_HEADER32>() as u16,
+            SizeOfOptionalHeader: size_of::<IMAGE_OPTIONAL_HEADER32>() as u16,
             Characteristics: IMAGE_FILE_DLL
                 | IMAGE_FILE_32BIT_MACHINE
                 | IMAGE_FILE_EXECUTABLE_IMAGE,
@@ -152,7 +152,7 @@ impl File {
         };
 
         let mut clr = IMAGE_COR20_HEADER {
-            cb: core::mem::size_of::<IMAGE_COR20_HEADER>() as u32,
+            cb: size_of::<IMAGE_COR20_HEADER>() as u32,
             MajorRuntimeVersion: 2,
             MinorRuntimeVersion: 5,
             Flags: 1,
@@ -174,14 +174,14 @@ impl File {
         type GuidsHeader = STREAM_HEADER<8>;
         type BlobsHeader = STREAM_HEADER<8>;
 
-        let size_of_stream_headers = core::mem::size_of::<TablesHeader>()
-            + core::mem::size_of::<StringsHeader>()
-            + core::mem::size_of::<GuidsHeader>()
-            + core::mem::size_of::<BlobsHeader>();
+        let size_of_stream_headers = size_of::<TablesHeader>()
+            + size_of::<StringsHeader>()
+            + size_of::<GuidsHeader>()
+            + size_of::<BlobsHeader>();
 
         let size_of_image = optional.FileAlignment as usize
-            + core::mem::size_of::<IMAGE_COR20_HEADER>()
-            + core::mem::size_of::<METADATA_HEADER>()
+            + size_of::<IMAGE_COR20_HEADER>()
+            + size_of::<METADATA_HEADER>()
             + size_of_stream_headers
             + size_of_streams;
 
@@ -202,15 +202,14 @@ impl File {
         optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize] =
             IMAGE_DATA_DIRECTORY {
                 VirtualAddress: SECTION_ALIGNMENT,
-                Size: core::mem::size_of::<IMAGE_COR20_HEADER>() as u32,
+                Size: size_of::<IMAGE_COR20_HEADER>() as u32,
             };
 
         section.PointerToRawData = optional.FileAlignment;
 
-        clr.MetaData.VirtualAddress =
-            SECTION_ALIGNMENT + core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.VirtualAddress = SECTION_ALIGNMENT + size_of::<IMAGE_COR20_HEADER>() as u32;
 
-        clr.MetaData.Size = virtual_size - core::mem::size_of::<IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.Size = virtual_size - size_of::<IMAGE_COR20_HEADER>() as u32;
 
         let mut buffer = Vec::<u8>::new();
         buffer.write_header(&dos);

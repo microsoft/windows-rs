@@ -85,7 +85,7 @@ impl Struct {
         };
 
         let packed_attr = if let Some(packing) = self.packing {
-            let size = proc_macro2::Literal::u16_unsuffixed(packing);
+            let size = Literal::u16_unsuffixed(packing);
             quote! { #[packed(#size)] }
         } else {
             quote! {}
