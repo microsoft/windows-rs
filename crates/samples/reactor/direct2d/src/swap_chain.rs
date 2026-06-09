@@ -122,33 +122,29 @@ mod render {
         unsafe {
             state.target.SetTarget(None);
 
-            if state
-                .swap_chain
-                .ResizeBuffers(
-                    0,
-                    width,
-                    height,
-                    DXGI_FORMAT_UNKNOWN,
-                    DXGI_SWAP_CHAIN_FLAG(0),
-                )
-                .is_ok()
-            {
-                let surface: IDXGISurface = state.swap_chain.GetBuffer(0)?;
-                let props = D2D1_BITMAP_PROPERTIES1 {
-                    pixelFormat: D2D1_PIXEL_FORMAT {
-                        format: DXGI_FORMAT_B8G8R8A8_UNORM,
-                        alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
-                    },
-                    dpiX: 96.0,
-                    dpiY: 96.0,
-                    bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
-                    ..Default::default()
-                };
-                let bitmap = state
-                    .target
-                    .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
-                state.target.SetTarget(&bitmap);
-            }
+            state.swap_chain.ResizeBuffers(
+                0,
+                width,
+                height,
+                DXGI_FORMAT_UNKNOWN,
+                DXGI_SWAP_CHAIN_FLAG(0),
+            )?;
+
+            let surface: IDXGISurface = state.swap_chain.GetBuffer(0)?;
+            let props = D2D1_BITMAP_PROPERTIES1 {
+                pixelFormat: D2D1_PIXEL_FORMAT {
+                    format: DXGI_FORMAT_B8G8R8A8_UNORM,
+                    alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
+                },
+                dpiX: 96.0,
+                dpiY: 96.0,
+                bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
+                ..Default::default()
+            };
+            let bitmap = state
+                .target
+                .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
+            state.target.SetTarget(&bitmap);
         }
         Ok(())
     }
