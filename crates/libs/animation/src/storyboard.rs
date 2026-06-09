@@ -13,7 +13,7 @@ impl Storyboard {
         &self,
         variable: &Variable,
         transition: &Transition,
-    ) -> windows_core::Result<Keyframe> {
+    ) -> Result<Keyframe> {
         unsafe {
             self.0.AddTransition(&variable.0, &transition.0)?;
             let kf = self.0.AddKeyframeAfterTransition(&transition.0)?;
@@ -27,7 +27,7 @@ impl Storyboard {
         variable: &Variable,
         transition: &Transition,
         keyframe: Keyframe,
-    ) -> windows_core::Result<()> {
+    ) -> Result<()> {
         unsafe {
             self.0
                 .AddTransitionAtKeyframe(&variable.0, &transition.0, keyframe.0)
@@ -35,7 +35,7 @@ impl Storyboard {
     }
 
     /// Schedules the storyboard to begin at the specified time.
-    pub fn schedule(&self, time: f64) -> windows_core::Result<()> {
+    pub fn schedule(&self, time: f64) -> Result<()> {
         unsafe { self.0.Schedule(time, None) }?;
         Ok(())
     }

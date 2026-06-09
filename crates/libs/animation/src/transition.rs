@@ -8,14 +8,14 @@ pub struct TransitionLibrary(IUIAnimationTransitionLibrary2);
 
 impl TransitionLibrary {
     /// Creates a new transition library.
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self> {
         unsafe {
             let mut ptr = core::ptr::null_mut();
             CoCreateInstance(
                 &UIAnimationTransitionLibrary2,
                 core::ptr::null_mut(),
                 CLSCTX_INPROC_SERVER,
-                &<IUIAnimationTransitionLibrary2 as windows_core::Interface>::IID,
+                &IUIAnimationTransitionLibrary2::IID,
                 &mut ptr,
             )
             .ok()?;
@@ -32,7 +32,7 @@ impl TransitionLibrary {
         final_value: f64,
         acceleration_ratio: f64,
         deceleration_ratio: f64,
-    ) -> windows_core::Result<Transition> {
+    ) -> Result<Transition> {
         unsafe {
             Ok(Transition(self.0.CreateAccelerateDecelerateTransition(
                 duration,
@@ -44,7 +44,7 @@ impl TransitionLibrary {
     }
 
     /// Creates a linear transition to the final value.
-    pub fn linear(&self, duration: f64, final_value: f64) -> windows_core::Result<Transition> {
+    pub fn linear(&self, duration: f64, final_value: f64) -> Result<Transition> {
         unsafe {
             Ok(Transition(
                 self.0.CreateLinearTransition(duration, final_value)?,
@@ -53,7 +53,7 @@ impl TransitionLibrary {
     }
 
     /// Creates an instantaneous transition that jumps to the final value.
-    pub fn instantaneous(&self, final_value: f64) -> windows_core::Result<Transition> {
+    pub fn instantaneous(&self, final_value: f64) -> Result<Transition> {
         unsafe {
             Ok(Transition(
                 self.0.CreateInstantaneousTransition(final_value)?,

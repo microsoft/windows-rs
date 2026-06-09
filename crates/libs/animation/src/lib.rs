@@ -1,3 +1,5 @@
+#![warn(unused_qualifications)]
+
 #[expect(
     non_snake_case,
     non_upper_case_globals,
@@ -11,8 +13,10 @@ mod transition;
 mod variable;
 
 use bindings::*;
+use windows_core::Interface;
+
 pub use manager::Manager;
 pub use storyboard::{Keyframe, Storyboard};
 pub use transition::{Transition, TransitionLibrary};
 pub use variable::Variable;
-pub use windows_core::{Error, Result};
+pub use windows_core::Result;
