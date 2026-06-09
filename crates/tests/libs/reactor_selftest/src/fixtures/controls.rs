@@ -369,25 +369,24 @@ pub fn mount_reorderable_list_view(h: Harness) -> FixtureFuture {
         );
 
         let lv = h.find_all::<bindings::ListView>(&|_| true);
-        if let Some(lv) = lv.first() {
-            let lvb: bindings::IListViewBase = lv.cast().unwrap();
-            h.check_eq(
-                "Reconciler_Mount_ReorderableListView_CanDragItems",
-                true,
-                lvb.get_CanDragItems().unwrap_or(false),
-            );
-            h.check_eq(
-                "Reconciler_Mount_ReorderableListView_CanReorderItems",
-                true,
-                lvb.get_CanReorderItems().unwrap_or(false),
-            );
-            let ui: bindings::IUIElement = lv.cast().unwrap();
-            h.check_eq(
-                "Reconciler_Mount_ReorderableListView_AllowDrop",
-                true,
-                ui.get_AllowDrop().unwrap_or(false),
-            );
-        }
+        let lv = lv.first().expect("ListView not found");
+        let lvb: bindings::IListViewBase = lv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_CanDragItems",
+            true,
+            lvb.get_CanDragItems().unwrap(),
+        );
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_CanReorderItems",
+            true,
+            lvb.get_CanReorderItems().unwrap(),
+        );
+        let ui: bindings::IUIElement = lv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_AllowDrop",
+            true,
+            ui.get_AllowDrop().unwrap(),
+        );
     })
 }
 
