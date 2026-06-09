@@ -684,6 +684,21 @@ pub struct RecordingBackend {
     selection_handlers: rustc_hash::FxHashMap<ControlId, Callback<i32>>,
     theme_style_cache: rustc_hash::FxHashSet<(ControlKind, Vec<(Prop, ThemeRef)>)>,
     theme_bindings_live: rustc_hash::FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>,
+    /// A stand-in [`IInspectable`] fabricated for every control so that
+    /// [`get_native_element`](Backend::get_native_element) returns `Some`,
+    /// mirroring the real WinUI backend (which returns the live XAML element).
+    /// This lets `on_mounted` / `on_unmounted` callbacks fire in tests. The
+    /// entry is removed in [`destroy`](Backend::destroy), so a destroyed
+    /// control reports `None` again.
+    native_elements: rustc_hash::FxHashMap<ControlId, windows_core::IInspectable>,
+}
+
+/// Builds a stand-in native [`IInspectable`] for [`RecordingBackend`]. Any
+/// concrete `IInspectable` works — the reconciler only forwards it opaquely to
+/// mount / unmount callbacks — so a boxed `IReference<i32>` is the cheapest
+/// dependency-free choice (the real WinUI backend returns the XAML element).
+fn stub_native_element() -> windows_core::IInspectable {
+    windows_reference::IReference::<i32>::from(0).into()
 }
 
 impl RecordingBackend {
@@ -824,6 +839,7 @@ impl Backend for RecordingBackend {
         self.next_id += 1;
         let id = ControlId::new(self.next_id);
         self.ops.push(Op::Create { id, kind });
+        self.native_elements.insert(id, stub_native_element());
         id
     }
 
@@ -898,6 +914,7 @@ impl Backend for RecordingBackend {
 
     fn destroy(&mut self, id: ControlId) {
         self.children.remove(&id);
+        self.native_elements.remove(&id);
 
         self.handlers.retain(|(hid, _), _| *hid != id);
         self.ops.push(Op::Destroy { id });
@@ -1058,5 +1075,9 @@ impl Backend for RecordingBackend {
             id,
             tooltip: tooltip.cloned(),
         });
+    }
+
+    fn get_native_element(&self, id: ControlId) -> Option<windows_core::IInspectable> {
+        self.native_elements.get(&id).cloned()
     }
 }

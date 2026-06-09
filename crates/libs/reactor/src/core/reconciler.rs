@@ -40,6 +40,11 @@ pub struct Reconciler<B: Backend> {
     pub(crate) deferred_unmounts: Vec<ControlId>,
     pub realization_queue: RealizationQueue,
     pub(crate) selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
+    /// Pre-unmount callbacks keyed by control id, invoked with the native
+    /// element (or `None`) just before the control is destroyed (see
+    /// [`Widget::on_unmounted_callback`]).
+    pub(crate) unmount_callbacks:
+        FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
     /// Tracks header element control IDs for widgets that use header_element().
     pub(crate) header_elements: FxHashMap<ControlId, ControlId>,
     /// Tracks pane element control IDs for widgets that use pane_element().
@@ -81,6 +86,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             custom_handles: FxHashMap::default(),
             realization_queue: new_realization_queue(),
             selection_callbacks: FxHashMap::default(),
+            unmount_callbacks: FxHashMap::default(),
             header_elements: FxHashMap::default(),
             pane_elements: FxHashMap::default(),
             eager_templated_realization: false,
@@ -326,6 +332,14 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
 
             self.selection_callbacks.remove(&node);
+
+            // Let the control tear down resources bound to it (e.g. join a
+            // render thread) while the native control still exists, before it
+            // is destroyed. The callback always runs when registered; the
+            // native element is passed when available, else `None`.
+            if let Some(cb) = self.unmount_callbacks.remove(&node) {
+                cb.invoke(self.backend.get_native_element(node));
+            }
 
             self.error_boundary_fallbacks.remove(&node);
 
@@ -865,5 +879,193 @@ fn push_live<'a>(el: &'a Element, out: &mut Vec<&'a Element>) {
             }
         }
         other => out.push(other),
+    }
+}
+
+#[cfg(test)]
+mod lifecycle_tests {
+    use super::*;
+    use crate::core::backend::{
+        Backend, ControlKind, Event, EventHandler, Op, Prop, PropValue, RecordingBackend,
+    };
+    use crate::core::callback::Callback;
+    use std::cell::RefCell;
+
+    /// Each entry records a callback invocation as `(tag, native_present)`,
+    /// where `native_present` is whether a native element was passed.
+    type Log = Rc<RefCell<Vec<(&'static str, bool)>>>;
+
+    /// Minimal in-crate [`Widget`] used to exercise the general mount/unmount
+    /// callback mechanism independently of any concrete widget's None policy.
+    /// It forwards the raw `Option<IInspectable>` straight into the log.
+    struct ProbeWidget {
+        modifiers: Modifiers,
+        mounted: Option<Callback<Option<windows_core::IInspectable>>>,
+        unmounted: Option<Callback<Option<windows_core::IInspectable>>>,
+    }
+
+    impl ProbeWidget {
+        fn new(log: &Log, with_mount: bool, with_unmount: bool) -> Self {
+            let mk = |tag: &'static str| {
+                let log = log.clone();
+                Callback::new(move |native: Option<windows_core::IInspectable>| {
+                    log.borrow_mut().push((tag, native.is_some()));
+                })
+            };
+            Self {
+                modifiers: Modifiers::default(),
+                mounted: with_mount.then(|| mk("mount")),
+                unmounted: with_unmount.then(|| mk("unmount")),
+            }
+        }
+    }
+
+    impl Widget for ProbeWidget {
+        fn kind(&self) -> ControlKind {
+            ControlKind::Border
+        }
+        fn key(&self) -> Option<&str> {
+            None
+        }
+        fn modifiers(&self) -> &Modifiers {
+            &self.modifiers
+        }
+        fn bindings(&self) -> PropBindings {
+            Vec::new()
+        }
+        fn on_mounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
+            self.mounted.as_ref()
+        }
+        fn on_unmounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
+            self.unmounted.as_ref()
+        }
+    }
+
+    /// A backend that exposes no native elements (its `get_native_element`
+    /// uses the trait default, returning `None`). Models a real backend — or
+    /// a control kind — without a native handle, so the general "fire the
+    /// callback with `None`" path can be exercised. Only the operations the
+    /// lifecycle tests rely on are recorded.
+    #[derive(Default)]
+    struct NoNativeBackend {
+        next_id: u32,
+        destroyed: Vec<ControlId>,
+    }
+
+    impl Backend for NoNativeBackend {
+        fn create(&mut self, _kind: ControlKind) -> ControlId {
+            self.next_id += 1;
+            ControlId::new(self.next_id)
+        }
+        fn set_prop(&mut self, _id: ControlId, _prop: Prop, _value: &PropValue) {}
+        fn append_child(&mut self, _parent: ControlId, _child: ControlId) {}
+        fn remove_child(&mut self, _parent: ControlId, _index: usize) {}
+        fn replace_child(&mut self, _parent: ControlId, _index: usize, _new: ControlId) {}
+        fn move_child(&mut self, _parent: ControlId, _from: usize, _to: usize) {}
+        fn insert_child(&mut self, _parent: ControlId, _index: usize, _child: ControlId) {}
+        fn destroy(&mut self, id: ControlId) {
+            self.destroyed.push(id);
+        }
+        fn attach_event(&mut self, _id: ControlId, _event: Event, _handler: EventHandler) {}
+    }
+
+    fn reconciler() -> Reconciler<RecordingBackend> {
+        Reconciler::new(RecordingBackend::new())
+    }
+
+    fn destroyed(r: &Reconciler<RecordingBackend>, id: ControlId) -> bool {
+        r.backend
+            .ops
+            .iter()
+            .any(|op| matches!(op, Op::Destroy { id: did } if *did == id))
+    }
+
+    #[test]
+    fn mount_callback_fires_once_with_native_when_available() {
+        let log: Log = Rc::default();
+        let mut r = reconciler();
+        let probe = ProbeWidget::new(&log, true, false);
+        r.mount_widget(&probe);
+        assert_eq!(*log.borrow(), vec![("mount", true)]);
+    }
+
+    #[test]
+    fn mount_callback_fires_once_with_none_when_no_native() {
+        // The callback still fires even when the backend exposes no native
+        // element — it simply receives `None`.
+        let log: Log = Rc::default();
+        let mut r = Reconciler::new(NoNativeBackend::default());
+        let probe = ProbeWidget::new(&log, true, false);
+        r.mount_widget(&probe);
+        assert_eq!(*log.borrow(), vec![("mount", false)]);
+    }
+
+    #[test]
+    fn unmount_callback_fires_before_destroy_with_native() {
+        // The backend drops a control's native element in `destroy`, so the
+        // callback receiving a `Some` native element proves it ran *before*
+        // the destroy for that node.
+        let log: Log = Rc::default();
+        let mut r = reconciler();
+        let probe = ProbeWidget::new(&log, false, true);
+        let id = r.mount_widget(&probe);
+        assert!(log.borrow().is_empty(), "must not fire before unmount");
+
+        r.unmount(id);
+        assert_eq!(*log.borrow(), vec![("unmount", true)]);
+        assert!(destroyed(&r, id), "control was destroyed");
+    }
+
+    #[test]
+    fn unmount_callback_fires_with_none_when_no_native() {
+        // Teardown must run regardless of native-element presence; here it
+        // receives `None`.
+        let log: Log = Rc::default();
+        let mut r = Reconciler::new(NoNativeBackend::default());
+        let probe = ProbeWidget::new(&log, false, true);
+        let id = r.mount_widget(&probe);
+        r.unmount(id);
+        assert_eq!(*log.borrow(), vec![("unmount", false)]);
+        assert!(r.backend.destroyed.contains(&id), "control was destroyed");
+    }
+
+    #[test]
+    fn mount_and_unmount_fire_across_lifecycle() {
+        let log: Log = Rc::default();
+        let mut r = reconciler();
+        let probe = ProbeWidget::new(&log, true, true);
+        let id = r.mount_widget(&probe);
+        assert_eq!(*log.borrow(), vec![("mount", true)]);
+        r.unmount(id);
+        assert_eq!(*log.borrow(), vec![("mount", true), ("unmount", true)]);
+    }
+
+    #[test]
+    fn update_replaces_then_removes_unmount_callback() {
+        let log: Log = Rc::default();
+        let mut r = reconciler();
+
+        // Mount with an unmount callback registered.
+        let first = ProbeWidget::new(&log, false, true);
+        let id = r.mount_widget(&first);
+
+        // Update with a fresh unmount callback — replaces the registered one.
+        let second_log: Log = Rc::default();
+        let second = ProbeWidget::new(&second_log, false, true);
+        r.update_widget(&first, &second, id);
+
+        // Update again without an unmount callback — clears the registration.
+        let third = ProbeWidget::new(&log, false, false);
+        r.update_widget(&second, &third, id);
+
+        r.unmount(id);
+        assert!(
+            log.borrow().is_empty(),
+            "neither the original nor a cleared callback fires"
+        );
+        assert!(
+            second_log.borrow().is_empty(),
+            "the replaced callback was cleared before teardown"
+        );
     }
 }

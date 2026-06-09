@@ -4,7 +4,8 @@ use std::rc::Rc;
 use windows_core::Interface;
 
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
-/// [`on_ready`](SwapChainPanel::on_ready) callback.
+/// Opaque handle to the native `SwapChainPanel` control, passed to the
+/// [`on_mounted`](SwapChainPanel::on_mounted) callback.
 #[derive(Clone)]
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
@@ -52,13 +53,14 @@ impl SwapChainPanelHandle {
 /// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` — hosts
 /// custom Direct3D / Direct2D rendering inside a WinUI 3 XAML tree.
 ///
-/// Use [`on_ready`](SwapChainPanel::on_ready) to receive a
+/// Use [`on_mounted`](SwapChainPanel::on_mounted) to receive a
 /// [`SwapChainPanelHandle`] for attaching your DXGI swap chain.
 #[derive(Clone, Debug, PartialEq)]
 pub struct SwapChainPanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub(crate) mounted: Option<Callback<windows_core::IInspectable>>,
+    pub(crate) mounted: Option<Callback<Option<windows_core::IInspectable>>>,
+    pub(crate) unmounted: Option<Callback<Option<windows_core::IInspectable>>>,
 }
 
 impl Default for SwapChainPanel {
@@ -73,12 +75,32 @@ impl SwapChainPanel {
             key: None,
             modifiers: Modifiers::default(),
             mounted: None,
+            unmounted: None,
         }
     }
 
     /// Callback invoked once after the native control is created.
-    pub fn on_ready(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
-        self.mounted = Some(Callback::new(move |native| f(SwapChainPanelHandle(native))));
+    pub fn on_mounted(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
+        // A `SwapChainPanel` always has a native control in practice; the
+        // handle is only built when one is present.
+        self.mounted = Some(Callback::new(move |native: Option<_>| {
+            if let Some(native) = native {
+                f(SwapChainPanelHandle(native));
+            }
+        }));
+        self
+    }
+
+    /// Callback invoked just before the native control is destroyed, while it
+    /// still exists. Use this to tear down resources bound to the panel (for
+    /// example, stop and join a render thread that presents into its swap
+    /// chain) before the panel — and its swap chain — go away.
+    pub fn on_unmounted(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
+        self.unmounted = Some(Callback::new(move |native: Option<_>| {
+            if let Some(native) = native {
+                f(SwapChainPanelHandle(native));
+            }
+        }));
         self
     }
 
@@ -88,10 +110,13 @@ impl SwapChainPanel {
     pub fn on_resize(mut self, f: impl Fn(f64, f64) + 'static) -> Self {
         let f = Rc::new(f);
         let prev = self.mounted.take();
-        self.mounted = Some(Callback::new(move |native: windows_core::IInspectable| {
+        self.mounted = Some(Callback::new(move |native: Option<windows_core::IInspectable>| {
             if let Some(ref cb) = prev {
                 cb.invoke(native.clone());
             }
+            let Some(native) = native else {
+                return;
+            };
             // Subscribe to SizeChanged on the FrameworkElement.
             if let Ok(fe) = native.cast::<crate::bindings::IFrameworkElement>() {
                 let f = f.clone();
@@ -123,8 +148,11 @@ impl Widget for SwapChainPanel {
     fn bindings(&self) -> PropBindings {
         Vec::new()
     }
-    fn on_mounted_callback(&self) -> Option<&Callback<windows_core::IInspectable>> {
+    fn on_mounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
         self.mounted.as_ref()
+    }
+    fn on_unmounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
+        self.unmounted.as_ref()
     }
 }
 
