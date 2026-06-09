@@ -2079,6 +2079,40 @@ impl Backend for WinUIBackend {
         let _ = lvb.put_SelectionMode(winui_mode);
     }
 
+    fn set_templated_can_drag_items(&mut self, id: ControlId, value: bool) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else { return };
+        let lvb: Xaml::IListViewBase = match handle {
+            Handle::ListView(lv) => lv.cast().unwrap(),
+            Handle::GridView(gv) => gv.cast().unwrap(),
+            _ => return,
+        };
+        let _ = lvb.put_CanDragItems(value);
+    }
+
+    fn set_templated_can_reorder_items(&mut self, id: ControlId, value: bool) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else { return };
+        let lvb: Xaml::IListViewBase = match handle {
+            Handle::ListView(lv) => lv.cast().unwrap(),
+            Handle::GridView(gv) => gv.cast().unwrap(),
+            _ => return,
+        };
+        let _ = lvb.put_CanReorderItems(value);
+    }
+
+    fn set_templated_allow_drop(&mut self, id: ControlId, value: bool) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else { return };
+        let ui: Xaml::IUIElement = match handle {
+            Handle::ListView(lv) => lv.cast().unwrap(),
+            Handle::GridView(gv) => gv.cast().unwrap(),
+            Handle::FlipView(fv) => fv.cast().unwrap(),
+            _ => return,
+        };
+        let _ = ui.put_AllowDrop(value);
+    }
+
     fn set_header_element(&mut self, id: ControlId, header_id: Option<ControlId>) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else { return };

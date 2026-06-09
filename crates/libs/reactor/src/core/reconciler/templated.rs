@@ -77,6 +77,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_templated_item_count(id, count);
         self.backend
             .set_templated_selection_mode(id, tl.selection_mode);
+        if tl.can_drag_items {
+            self.backend.set_templated_can_drag_items(id, true);
+        }
+        if tl.can_reorder_items {
+            self.backend.set_templated_can_reorder_items(id, true);
+        }
+        if tl.allow_drop {
+            self.backend.set_templated_allow_drop(id, true);
+        }
         let sel = tl.selected_index();
         if sel >= 0 {
             self.backend.set_templated_selected_index(id, sel);
@@ -119,6 +128,21 @@ impl<B: Backend + 'static> Reconciler<B> {
         if old.selection_mode != new.selection_mode {
             self.backend
                 .set_templated_selection_mode(id, new.selection_mode);
+        }
+
+        if old.can_drag_items != new.can_drag_items {
+            self.backend
+                .set_templated_can_drag_items(id, new.can_drag_items);
+        }
+
+        if old.can_reorder_items != new.can_reorder_items {
+            self.backend
+                .set_templated_can_reorder_items(id, new.can_reorder_items);
+        }
+
+        if old.allow_drop != new.allow_drop {
+            self.backend
+                .set_templated_allow_drop(id, new.allow_drop);
         }
 
         let old_count = old.item_count();

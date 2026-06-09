@@ -3,3 +3,5 @@ Microsoft.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer::*
 Microsoft.UI.Xaml.Automation.Peers.PatternInterface
 Microsoft.UI.Xaml.Automation.Provider.IInvokeProvider::*
 Microsoft.UI.Xaml.Media.VisualTreeHelper::*
+Microsoft.UI.Xaml.Controls.IListViewBase::{get_CanDragItems, get_CanReorderItems}
+Microsoft.UI.Xaml.IUIElement::{get_AllowDrop}
