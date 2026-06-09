@@ -52,9 +52,11 @@
     Windows.Win32.Graphics.Direct2D.D2D1_DASH_STYLE_DOT
     Windows.Win32.Graphics.Direct2D.D2D1_DASH_STYLE_DASH_DOT
     Windows.Win32.Graphics.Direct2D.ID2D1Device::{CreateDeviceContext}
-    Windows.Win32.Graphics.Direct2D.ID2D1DeviceContext::{CreateBitmapFromDxgiSurface, SetTarget, DrawBitmap}
+    Windows.Win32.Graphics.Direct2D.ID2D1DeviceContext::{CreateBitmap, CreateBitmapFromDxgiSurface, CreateBitmapFromWicBitmap, CreateEffect, SetTarget, GetTarget, DrawBitmap, DrawImage}
+    Windows.Win32.Graphics.Direct2D.ID2D1Effect::{SetInput, GetOutput}
+    Windows.Win32.Graphics.Direct2D.CLSID_D2D1Shadow
     Windows.Win32.Graphics.Direct2D.D2D1_INTERPOLATION_MODE_LINEAR
-    Windows.Win32.Graphics.Direct2D.ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, CreateBitmapFromWicBitmap, GetTransform, SetTransform, SetDpi}
+    Windows.Win32.Graphics.Direct2D.ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
     Windows.Win32.Graphics.Direct2D.ID2D1SolidColorBrush::{SetColor}
     Windows.Win32.Graphics.Direct2D.ID2D1Bitmap::{GetSize}
     Windows.Win32.Graphics.Direct2D.D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES
