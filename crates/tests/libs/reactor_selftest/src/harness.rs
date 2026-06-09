@@ -941,7 +941,12 @@ impl StderrCapture {
             let mut write_end: RawHandle = core::ptr::null_mut();
             // Use a 1 MB buffer so panic backtraces (RUST_BACKTRACE=1 on CI)
             // don't fill the pipe and deadlock the write side.
-            CreatePipe(&mut read_end, &mut write_end, core::ptr::null(), 1024 * 1024);
+            CreatePipe(
+                &mut read_end,
+                &mut write_end,
+                core::ptr::null(),
+                1024 * 1024,
+            );
             SetStdHandle(STD_ERROR_HANDLE, write_end);
             Self {
                 original,
