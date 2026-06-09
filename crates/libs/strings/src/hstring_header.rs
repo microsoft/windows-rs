@@ -124,4 +124,4 @@ unsafe fn heap_free(ptr: *mut u8, bytes: usize) {
 }
 
 #[cfg(not(windows))]
-const ALIGN: usize = core::mem::align_of::<HStringHeader>();
+const ALIGN: usize = align_of::<HStringHeader>();
