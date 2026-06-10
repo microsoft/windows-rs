@@ -91,12 +91,13 @@ produces exactly 2 renders with no recursion. A depth guard is unnecessary.
 
 ### Hook Order Violation Handling
 
-The C# `RenderContext` throws `HookOrderException` when a component changes
-hook order between renders, with a clear error message. The Rust `RenderCx`
-panics on type mismatch (via `downcast_ref().unwrap()`) but the message is a
-generic "hook order invariant violated" without naming the component or listing
-expected vs actual hook types. Better diagnostics here would save debugging
-time.
+Both frameworks detect hook-order violations and panic/throw with diagnostic
+messages. The Rust `RenderCx` reports the slot index, the previous type, and
+the requested type — e.g., `"slot 0 was 'i32', now called as
+'use_state::<String>'"`. Combined with Rust's panic backtrace (which points
+directly at the offending `render()` call site), this provides sufficient
+context for debugging. The C# framework additionally names the component class,
+but Rust's backtrace serves the same purpose.
 
 ---
 
@@ -107,16 +108,18 @@ time.
 | Error boundary element | ✅ | ✅ `error_boundary()` | No |
 | **Panic payload extraction** | ✅ Detailed context | ⚠️ Basic `panic_message()` | Minor |
 | **Factory-vs-constructor guard** | ✅ Throws with guidance if element wasn't created via factory | ❌ | Minor |
-| **Post-shutdown setter protection** | ✅ Throws if background setter fires after dispatcher shutdown | ❌ | **Yes** |
+| Post-shutdown setter behavior | ✅ Throws if background setter fires after dispatcher shutdown | ✅ Silently drops (TryEnqueue returns false) | No |
 
-### Post-Shutdown Setter Protection
+### Post-Shutdown Setter Behavior
 
-The C# framework detects when a background `UseState` setter fires after the
-dispatcher has been shut down and throws a clear error rather than silently
-dropping the update or crashing. The Rust `AsyncSetState::call` dispatches via
-`UiMarshaller` with no check for whether the dispatcher is still alive. If the
-window has closed and the dispatcher is gone, this could panic inside the
-marshaller or silently leak.
+The C# framework throws an exception when a background `UseState` setter fires
+after the dispatcher shuts down. The Rust `AsyncSetState::call` dispatches via
+`UiMarshaller`, which calls `DispatcherQueue::TryEnqueue`. When the queue is
+shut down, `TryEnqueue` returns `false`, the closure is dropped, and no work
+is performed — no panic, no crash, no leak. This is the correct behavior:
+silently dropping a state update for a window that no longer exists is
+preferable to forcing every background task to handle an "app is closing"
+error.
 
 ---
 
@@ -331,19 +334,19 @@ core:
 
 ### High Priority (correctness / robustness)
 
-1. **Post-shutdown setter protection** — `AsyncSetState` should check dispatcher
-   liveness before dispatching
-2. **Hook-order error messages** — name the component and expected/actual types
+No high-priority gaps identified. The areas initially flagged (rerender depth
+guard, post-shutdown setter protection, hook-order diagnostics) were
+investigated and found to be non-issues — Rust handles each correctly by design.
 
 ### Medium Priority (minor improvements)
 
-3. **Style caching** — deduplicate WinUI Style objects for theme bindings
+1. **Style caching** — deduplicate WinUI Style objects for theme bindings
 
 ### Lower Priority (feature gaps)
 
-4. **Full accessibility surface** — add missing `AutomationProperties`
-5. **Modern ScrollView** — wrap `Microsoft.UI.Xaml.Controls.ScrollView`
-6. **Multi-window** — foundation for desktop app scenarios
+2. **Full accessibility surface** — add missing `AutomationProperties`
+3. **Modern ScrollView** — wrap `Microsoft.UI.Xaml.Controls.ScrollView`
+4. **Multi-window** — foundation for desktop app scenarios
 
 ### Not Recommended (based on C# data)
 
