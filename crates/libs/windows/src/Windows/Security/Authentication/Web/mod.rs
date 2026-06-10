@@ -50,9 +50,9 @@ pub struct IWebAuthenticationResult_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
-    pub const Rsa2048: Self = Self(0i32);
-    pub const EcdsaP256: Self = Self(1i32);
-    pub const AnyExisting: Self = Self(2i32);
+    pub const Rsa2048: Self = Self(0);
+    pub const EcdsaP256: Self = Self(1);
+    pub const AnyExisting: Self = Self(2);
 }
 impl windows_core::TypeKind for TokenBindingKeyType {
     type TypeKind = windows_core::CopyType;
@@ -144,11 +144,11 @@ impl windows_core::RuntimeName for WebAuthenticationBroker {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
-    pub const None: Self = Self(0u32);
-    pub const SilentMode: Self = Self(1u32);
-    pub const UseTitle: Self = Self(2u32);
-    pub const UseHttpPost: Self = Self(4u32);
-    pub const UseCorporateNetwork: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const SilentMode: Self = Self(1);
+    pub const UseTitle: Self = Self(2);
+    pub const UseHttpPost: Self = Self(4);
+    pub const UseCorporateNetwork: Self = Self(8);
 }
 impl windows_core::TypeKind for WebAuthenticationOptions {
     type TypeKind = windows_core::CopyType;
@@ -228,9 +228,9 @@ impl windows_core::RuntimeName for WebAuthenticationResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UserCancel: Self = Self(1i32);
-    pub const ErrorHttp: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const UserCancel: Self = Self(1);
+    pub const ErrorHttp: Self = Self(2);
 }
 impl windows_core::TypeKind for WebAuthenticationStatus {
     type TypeKind = windows_core::CopyType;

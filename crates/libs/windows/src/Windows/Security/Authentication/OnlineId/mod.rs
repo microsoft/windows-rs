@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
-    pub const PromptIfNeeded: Self = Self(0i32);
-    pub const RetypeCredentials: Self = Self(1i32);
-    pub const DoNotPrompt: Self = Self(2i32);
+    pub const PromptIfNeeded: Self = Self(0);
+    pub const RetypeCredentials: Self = Self(1);
+    pub const DoNotPrompt: Self = Self(2);
 }
 impl windows_core::TypeKind for CredentialPromptType {
     type TypeKind = windows_core::CopyType;
@@ -433,9 +433,9 @@ unsafe impl Sync for OnlineIdSystemTicketResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const ServiceConnectionError: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const Error: Self = Self(1);
+    pub const ServiceConnectionError: Self = Self(2);
 }
 impl windows_core::TypeKind for OnlineIdSystemTicketStatus {
     type TypeKind = windows_core::CopyType;

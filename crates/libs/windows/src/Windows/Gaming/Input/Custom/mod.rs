@@ -108,9 +108,9 @@ unsafe impl Sync for GipFirmwareUpdateResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
-    pub const Completed: Self = Self(0i32);
-    pub const UpToDate: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
+    pub const Completed: Self = Self(0);
+    pub const UpToDate: Self = Self(1);
+    pub const Failed: Self = Self(2);
 }
 impl windows_core::TypeKind for GipFirmwareUpdateStatus {
     type TypeKind = windows_core::CopyType;
@@ -193,9 +193,9 @@ unsafe impl Sync for GipGameControllerProvider {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
-    pub const Command: Self = Self(0i32);
-    pub const LowLatency: Self = Self(1i32);
-    pub const StandardLatency: Self = Self(2i32);
+    pub const Command: Self = Self(0);
+    pub const LowLatency: Self = Self(1);
+    pub const StandardLatency: Self = Self(2);
 }
 impl windows_core::TypeKind for GipMessageClass {
     type TypeKind = windows_core::CopyType;
@@ -789,17 +789,17 @@ pub struct IXusbGameControllerProvider_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
-    pub const Unknown: Self = Self(0i32);
-    pub const Gamepad: Self = Self(1i32);
-    pub const ArcadePad: Self = Self(2i32);
-    pub const ArcadeStick: Self = Self(3i32);
-    pub const FlightStick: Self = Self(4i32);
-    pub const Wheel: Self = Self(5i32);
-    pub const Guitar: Self = Self(6i32);
-    pub const GuitarAlternate: Self = Self(7i32);
-    pub const GuitarBass: Self = Self(8i32);
-    pub const DrumKit: Self = Self(9i32);
-    pub const DancePad: Self = Self(10i32);
+    pub const Unknown: Self = Self(0);
+    pub const Gamepad: Self = Self(1);
+    pub const ArcadePad: Self = Self(2);
+    pub const ArcadeStick: Self = Self(3);
+    pub const FlightStick: Self = Self(4);
+    pub const Wheel: Self = Self(5);
+    pub const Guitar: Self = Self(6);
+    pub const GuitarAlternate: Self = Self(7);
+    pub const GuitarBass: Self = Self(8);
+    pub const DrumKit: Self = Self(9);
+    pub const DancePad: Self = Self(10);
 }
 impl windows_core::TypeKind for XusbDeviceSubtype {
     type TypeKind = windows_core::CopyType;
@@ -812,8 +812,8 @@ impl windows_core::RuntimeType for XusbDeviceSubtype {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XusbDeviceType(pub i32);
 impl XusbDeviceType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Gamepad: Self = Self(1i32);
+    pub const Unknown: Self = Self(0);
+    pub const Gamepad: Self = Self(1);
 }
 impl windows_core::TypeKind for XusbDeviceType {
     type TypeKind = windows_core::CopyType;

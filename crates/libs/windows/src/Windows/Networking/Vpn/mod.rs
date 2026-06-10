@@ -1774,9 +1774,9 @@ unsafe impl Sync for VpnAppId {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnAppIdType(pub i32);
 impl VpnAppIdType {
-    pub const PackageFamilyName: Self = Self(0i32);
-    pub const FullyQualifiedBinaryName: Self = Self(1i32);
-    pub const FilePath: Self = Self(2i32);
+    pub const PackageFamilyName: Self = Self(0);
+    pub const FullyQualifiedBinaryName: Self = Self(1);
+    pub const FilePath: Self = Self(2);
 }
 impl windows_core::TypeKind for VpnAppIdType {
     type TypeKind = windows_core::CopyType;
@@ -1789,10 +1789,10 @@ impl windows_core::RuntimeType for VpnAppIdType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnAuthenticationMethod(pub i32);
 impl VpnAuthenticationMethod {
-    pub const Mschapv2: Self = Self(0i32);
-    pub const Eap: Self = Self(1i32);
-    pub const Certificate: Self = Self(2i32);
-    pub const PresharedKey: Self = Self(3i32);
+    pub const Mschapv2: Self = Self(0);
+    pub const Eap: Self = Self(1);
+    pub const Certificate: Self = Self(2);
+    pub const PresharedKey: Self = Self(3);
 }
 impl windows_core::TypeKind for VpnAuthenticationMethod {
     type TypeKind = windows_core::CopyType;
@@ -2146,8 +2146,8 @@ unsafe impl Sync for VpnChannelActivityEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnChannelActivityEventType(pub i32);
 impl VpnChannelActivityEventType {
-    pub const Idle: Self = Self(0i32);
-    pub const Active: Self = Self(1i32);
+    pub const Idle: Self = Self(0);
+    pub const Active: Self = Self(1);
 }
 impl windows_core::TypeKind for VpnChannelActivityEventType {
     type TypeKind = windows_core::CopyType;
@@ -2227,9 +2227,9 @@ unsafe impl Sync for VpnChannelConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnChannelRequestCredentialsOptions(pub u32);
 impl VpnChannelRequestCredentialsOptions {
-    pub const None: Self = Self(0u32);
-    pub const Retrying: Self = Self(1u32);
-    pub const UseForSingleSignIn: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Retrying: Self = Self(1);
+    pub const UseForSingleSignIn: Self = Self(2);
 }
 impl windows_core::TypeKind for VpnChannelRequestCredentialsOptions {
     type TypeKind = windows_core::CopyType;
@@ -2320,13 +2320,13 @@ unsafe impl Sync for VpnCredential {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnCredentialType(pub i32);
 impl VpnCredentialType {
-    pub const UsernamePassword: Self = Self(0i32);
-    pub const UsernameOtpPin: Self = Self(1i32);
-    pub const UsernamePasswordAndPin: Self = Self(2i32);
-    pub const UsernamePasswordChange: Self = Self(3i32);
-    pub const SmartCard: Self = Self(4i32);
-    pub const ProtectedCertificate: Self = Self(5i32);
-    pub const UnProtectedCertificate: Self = Self(6i32);
+    pub const UsernamePassword: Self = Self(0);
+    pub const UsernameOtpPin: Self = Self(1);
+    pub const UsernamePasswordAndPin: Self = Self(2);
+    pub const UsernamePasswordChange: Self = Self(3);
+    pub const SmartCard: Self = Self(4);
+    pub const ProtectedCertificate: Self = Self(5);
+    pub const UnProtectedCertificate: Self = Self(6);
 }
 impl windows_core::TypeKind for VpnCredentialType {
     type TypeKind = windows_core::CopyType;
@@ -2996,8 +2996,8 @@ unsafe impl Sync for VpnCustomTextBox {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnDataPathType(pub i32);
 impl VpnDataPathType {
-    pub const Send: Self = Self(0i32);
-    pub const Receive: Self = Self(1i32);
+    pub const Send: Self = Self(0);
+    pub const Receive: Self = Self(1);
 }
 impl windows_core::TypeKind for VpnDataPathType {
     type TypeKind = windows_core::CopyType;
@@ -3126,9 +3126,9 @@ unsafe impl Sync for VpnDomainNameInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnDomainNameType(pub i32);
 impl VpnDomainNameType {
-    pub const Suffix: Self = Self(0i32);
-    pub const FullyQualified: Self = Self(1i32);
-    pub const Reserved: Self = Self(65535i32);
+    pub const Suffix: Self = Self(0);
+    pub const FullyQualified: Self = Self(1);
+    pub const Reserved: Self = Self(65535);
 }
 impl windows_core::TypeKind for VpnDomainNameType {
     type TypeKind = windows_core::CopyType;
@@ -3242,13 +3242,13 @@ unsafe impl Sync for VpnForegroundActivationOperation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnIPProtocol(pub i32);
 impl VpnIPProtocol {
-    pub const None: Self = Self(0i32);
-    pub const Tcp: Self = Self(6i32);
-    pub const Udp: Self = Self(17i32);
-    pub const Icmp: Self = Self(1i32);
-    pub const Ipv6Icmp: Self = Self(58i32);
-    pub const Igmp: Self = Self(2i32);
-    pub const Pgm: Self = Self(113i32);
+    pub const None: Self = Self(0);
+    pub const Tcp: Self = Self(6);
+    pub const Udp: Self = Self(17);
+    pub const Icmp: Self = Self(1);
+    pub const Ipv6Icmp: Self = Self(58);
+    pub const Igmp: Self = Self(2);
+    pub const Pgm: Self = Self(113);
 }
 impl windows_core::TypeKind for VpnIPProtocol {
     type TypeKind = windows_core::CopyType;
@@ -3392,10 +3392,10 @@ unsafe impl Sync for VpnManagementAgent {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnManagementConnectionStatus(pub i32);
 impl VpnManagementConnectionStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Disconnecting: Self = Self(1i32);
-    pub const Connected: Self = Self(2i32);
-    pub const Connecting: Self = Self(3i32);
+    pub const Disconnected: Self = Self(0);
+    pub const Disconnecting: Self = Self(1);
+    pub const Connected: Self = Self(2);
+    pub const Connecting: Self = Self(3);
 }
 impl windows_core::TypeKind for VpnManagementConnectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -3408,25 +3408,25 @@ impl windows_core::RuntimeType for VpnManagementConnectionStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnManagementErrorStatus(pub i32);
 impl VpnManagementErrorStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const Other: Self = Self(1i32);
-    pub const InvalidXmlSyntax: Self = Self(2i32);
-    pub const ProfileNameTooLong: Self = Self(3i32);
-    pub const ProfileInvalidAppId: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
-    pub const CannotFindProfile: Self = Self(6i32);
-    pub const AlreadyDisconnecting: Self = Self(7i32);
-    pub const AlreadyConnected: Self = Self(8i32);
-    pub const GeneralAuthenticationFailure: Self = Self(9i32);
-    pub const EapFailure: Self = Self(10i32);
-    pub const SmartCardFailure: Self = Self(11i32);
-    pub const CertificateFailure: Self = Self(12i32);
-    pub const ServerConfiguration: Self = Self(13i32);
-    pub const NoConnection: Self = Self(14i32);
-    pub const ServerConnection: Self = Self(15i32);
-    pub const UserNamePassword: Self = Self(16i32);
-    pub const DnsNotResolvable: Self = Self(17i32);
-    pub const InvalidIP: Self = Self(18i32);
+    pub const Ok: Self = Self(0);
+    pub const Other: Self = Self(1);
+    pub const InvalidXmlSyntax: Self = Self(2);
+    pub const ProfileNameTooLong: Self = Self(3);
+    pub const ProfileInvalidAppId: Self = Self(4);
+    pub const AccessDenied: Self = Self(5);
+    pub const CannotFindProfile: Self = Self(6);
+    pub const AlreadyDisconnecting: Self = Self(7);
+    pub const AlreadyConnected: Self = Self(8);
+    pub const GeneralAuthenticationFailure: Self = Self(9);
+    pub const EapFailure: Self = Self(10);
+    pub const SmartCardFailure: Self = Self(11);
+    pub const CertificateFailure: Self = Self(12);
+    pub const ServerConfiguration: Self = Self(13);
+    pub const NoConnection: Self = Self(14);
+    pub const ServerConnection: Self = Self(15);
+    pub const UserNamePassword: Self = Self(16);
+    pub const DnsNotResolvable: Self = Self(17);
+    pub const InvalidIP: Self = Self(18);
 }
 impl windows_core::TypeKind for VpnManagementErrorStatus {
     type TypeKind = windows_core::CopyType;
@@ -3710,9 +3710,9 @@ unsafe impl Sync for VpnNativeProfile {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnNativeProtocolType(pub i32);
 impl VpnNativeProtocolType {
-    pub const Pptp: Self = Self(0i32);
-    pub const L2tp: Self = Self(1i32);
-    pub const IpsecIkev2: Self = Self(2i32);
+    pub const Pptp: Self = Self(0);
+    pub const L2tp: Self = Self(1);
+    pub const IpsecIkev2: Self = Self(2);
 }
 impl windows_core::TypeKind for VpnNativeProtocolType {
     type TypeKind = windows_core::CopyType;
@@ -3885,8 +3885,8 @@ impl IntoIterator for &VpnPacketBufferList {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnPacketBufferStatus(pub i32);
 impl VpnPacketBufferStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const InvalidBufferSize: Self = Self(1i32);
+    pub const Ok: Self = Self(0);
+    pub const InvalidBufferSize: Self = Self(1);
 }
 impl windows_core::TypeKind for VpnPacketBufferStatus {
     type TypeKind = windows_core::CopyType;
@@ -4201,8 +4201,8 @@ unsafe impl Sync for VpnRouteAssignment {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {
-    pub const SplitRouting: Self = Self(0i32);
-    pub const ForceAllTrafficOverVpn: Self = Self(1i32);
+    pub const SplitRouting: Self = Self(0);
+    pub const ForceAllTrafficOverVpn: Self = Self(1);
 }
 impl windows_core::TypeKind for VpnRoutingPolicyType {
     type TypeKind = windows_core::CopyType;

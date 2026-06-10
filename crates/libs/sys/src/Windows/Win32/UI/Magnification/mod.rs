@@ -49,12 +49,12 @@ impl Default for MAGTRANSFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
-pub const MS_INVERTCOLORS: i32 = 4i32;
-pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
+pub const MS_CLIPAROUNDCURSOR: i32 = 2;
+pub const MS_INVERTCOLORS: i32 = 4;
+pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1;
 pub type MW_FILTERMODE = u32;
-pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = 0u32;
-pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = 1u32;
+pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = 0;
+pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = 1;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> windows_sys::core::BOOL>;
 pub const WC_MAGNIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");

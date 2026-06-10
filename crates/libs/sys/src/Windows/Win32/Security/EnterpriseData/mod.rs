@@ -14,10 +14,10 @@ windows_link::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : sup
 windows_link::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation::HANDLE, enterpriseid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_sys::core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_sys::core::HRESULT);
 pub type ENTERPRISE_DATA_POLICIES = i32;
-pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = 1i32;
-pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = 2i32;
-pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = 4i32;
-pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = 0i32;
+pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = 1;
+pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = 2;
+pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = 4;
+pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_UNPROTECT_OPTIONS {
@@ -35,9 +35,9 @@ impl Default for HTHREAD_NETWORK_CONTEXT {
     }
 }
 pub type SRPHOSTING_TYPE = i32;
-pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = 0i32;
-pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = 1i32;
-pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = 2i32;
+pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = 0;
+pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = 1;
+pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = 2;
 pub type SRPHOSTING_VERSION = i32;
-pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = 1i32;
+pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = 1;
 pub type _SRP_REQUEST = isize;

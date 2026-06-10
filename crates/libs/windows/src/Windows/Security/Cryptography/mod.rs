@@ -8,9 +8,9 @@ pub mod DataProtection;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {
-    pub const Utf8: Self = Self(0i32);
-    pub const Utf16LE: Self = Self(1i32);
-    pub const Utf16BE: Self = Self(2i32);
+    pub const Utf8: Self = Self(0);
+    pub const Utf16LE: Self = Self(1);
+    pub const Utf16BE: Self = Self(2);
 }
 impl windows_core::TypeKind for BinaryStringEncoding {
     type TypeKind = windows_core::CopyType;

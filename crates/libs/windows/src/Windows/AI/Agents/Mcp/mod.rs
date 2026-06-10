@@ -214,8 +214,8 @@ pub struct IMcpMessageFilterResponseExperimental2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct McpMessageDirection(pub i32);
 impl McpMessageDirection {
-    pub const ClientToServer: Self = Self(0i32);
-    pub const ServerToClient: Self = Self(1i32);
+    pub const ClientToServer: Self = Self(0);
+    pub const ServerToClient: Self = Self(1);
 }
 impl windows_core::TypeKind for McpMessageDirection {
     type TypeKind = windows_core::CopyType;

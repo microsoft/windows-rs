@@ -140,9 +140,9 @@ impl windows_core::RuntimeName for SearchSuggestion {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {
-    pub const Query: Self = Self(0i32);
-    pub const Result: Self = Self(1i32);
-    pub const Separator: Self = Self(2i32);
+    pub const Query: Self = Self(0);
+    pub const Result: Self = Self(1);
+    pub const Separator: Self = Self(2);
 }
 impl windows_core::TypeKind for SearchSuggestionKind {
     type TypeKind = windows_core::CopyType;

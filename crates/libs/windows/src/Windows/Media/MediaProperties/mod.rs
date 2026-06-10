@@ -161,10 +161,10 @@ unsafe impl Sync for AudioEncodingProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
-    pub const Auto: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-    pub const Medium: Self = Self(2i32);
-    pub const Low: Self = Self(3i32);
+    pub const Auto: Self = Self(0);
+    pub const High: Self = Self(1);
+    pub const Medium: Self = Self(2);
+    pub const Low: Self = Self(3);
 }
 impl windows_core::TypeKind for AudioEncodingQuality {
     type TypeKind = windows_core::CopyType;
@@ -1976,9 +1976,9 @@ impl windows_core::RuntimeName for MediaEncodingSubtypes {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
-    pub const None: Self = Self(0u32);
-    pub const Horizontal: Self = Self(1u32);
-    pub const Vertical: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Horizontal: Self = Self(1);
+    pub const Vertical: Self = Self(2);
 }
 impl windows_core::TypeKind for MediaMirroringOptions {
     type TypeKind = windows_core::CopyType;
@@ -2024,9 +2024,9 @@ impl core::ops::Not for MediaMirroringOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
-    pub const Nv12: Self = Self(0i32);
-    pub const Bgra8: Self = Self(1i32);
-    pub const P010: Self = Self(2i32);
+    pub const Nv12: Self = Self(0);
+    pub const Bgra8: Self = Self(1);
+    pub const P010: Self = Self(2);
 }
 impl windows_core::TypeKind for MediaPixelFormat {
     type TypeKind = windows_core::CopyType;
@@ -2161,10 +2161,10 @@ unsafe impl Sync for MediaRatio {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
-    pub const None: Self = Self(0i32);
-    pub const Clockwise90Degrees: Self = Self(1i32);
-    pub const Clockwise180Degrees: Self = Self(2i32);
-    pub const Clockwise270Degrees: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Clockwise90Degrees: Self = Self(1);
+    pub const Clockwise180Degrees: Self = Self(2);
+    pub const Clockwise270Degrees: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaRotation {
     type TypeKind = windows_core::CopyType;
@@ -2177,8 +2177,8 @@ impl windows_core::RuntimeType for MediaRotation {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
-    pub const Bmp: Self = Self(0i32);
-    pub const Bgra8: Self = Self(1i32);
+    pub const Bmp: Self = Self(0);
+    pub const Bgra8: Self = Self(1);
 }
 impl windows_core::TypeKind for MediaThumbnailFormat {
     type TypeKind = windows_core::CopyType;
@@ -2231,9 +2231,9 @@ impl windows_core::RuntimeName for Mpeg2ProfileIds {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
-    pub const None: Self = Self(0i32);
-    pub const Unsupported: Self = Self(1i32);
-    pub const Equirectangular: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Unsupported: Self = Self(1);
+    pub const Equirectangular: Self = Self(2);
 }
 impl windows_core::TypeKind for SphericalVideoFrameFormat {
     type TypeKind = windows_core::CopyType;
@@ -2246,9 +2246,9 @@ impl windows_core::RuntimeType for SphericalVideoFrameFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
-    pub const None: Self = Self(0i32);
-    pub const SideBySide: Self = Self(1i32);
-    pub const TopBottom: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const SideBySide: Self = Self(1);
+    pub const TopBottom: Self = Self(2);
 }
 impl windows_core::TypeKind for StereoscopicVideoPackingMode {
     type TypeKind = windows_core::CopyType;
@@ -2528,16 +2528,16 @@ unsafe impl Sync for VideoEncodingProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {
-    pub const Auto: Self = Self(0i32);
-    pub const HD1080p: Self = Self(1i32);
-    pub const HD720p: Self = Self(2i32);
-    pub const Wvga: Self = Self(3i32);
-    pub const Ntsc: Self = Self(4i32);
-    pub const Pal: Self = Self(5i32);
-    pub const Vga: Self = Self(6i32);
-    pub const Qvga: Self = Self(7i32);
-    pub const Uhd2160p: Self = Self(8i32);
-    pub const Uhd4320p: Self = Self(9i32);
+    pub const Auto: Self = Self(0);
+    pub const HD1080p: Self = Self(1);
+    pub const HD720p: Self = Self(2);
+    pub const Wvga: Self = Self(3);
+    pub const Ntsc: Self = Self(4);
+    pub const Pal: Self = Self(5);
+    pub const Vga: Self = Self(6);
+    pub const Qvga: Self = Self(7);
+    pub const Uhd2160p: Self = Self(8);
+    pub const Uhd4320p: Self = Self(9);
 }
 impl windows_core::TypeKind for VideoEncodingQuality {
     type TypeKind = windows_core::CopyType;

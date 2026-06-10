@@ -770,8 +770,8 @@ unsafe impl Sync for MediaFrameReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
-    pub const Realtime: Self = Self(0i32);
-    pub const Buffered: Self = Self(1i32);
+    pub const Realtime: Self = Self(0);
+    pub const Buffered: Self = Self(1);
 }
 impl windows_core::TypeKind for MediaFrameReaderAcquisitionMode {
     type TypeKind = windows_core::CopyType;
@@ -784,11 +784,11 @@ impl windows_core::RuntimeType for MediaFrameReaderAcquisitionMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const DeviceNotAvailable: Self = Self(2i32);
-    pub const OutputFormatNotSupported: Self = Self(3i32);
-    pub const ExclusiveControlNotAvailable: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const DeviceNotAvailable: Self = Self(2);
+    pub const OutputFormatNotSupported: Self = Self(3);
+    pub const ExclusiveControlNotAvailable: Self = Self(4);
 }
 impl windows_core::TypeKind for MediaFrameReaderStartStatus {
     type TypeKind = windows_core::CopyType;
@@ -1046,12 +1046,12 @@ unsafe impl Sync for MediaFrameSourceGetPropertyResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const DeviceNotAvailable: Self = Self(3i32);
-    pub const MaxPropertyValueSizeTooSmall: Self = Self(4i32);
-    pub const MaxPropertyValueSizeRequired: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const NotSupported: Self = Self(2);
+    pub const DeviceNotAvailable: Self = Self(3);
+    pub const MaxPropertyValueSizeTooSmall: Self = Self(4);
+    pub const MaxPropertyValueSizeRequired: Self = Self(5);
 }
 impl windows_core::TypeKind for MediaFrameSourceGetPropertyStatus {
     type TypeKind = windows_core::CopyType;
@@ -1216,13 +1216,13 @@ unsafe impl Sync for MediaFrameSourceInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
-    pub const Custom: Self = Self(0i32);
-    pub const Color: Self = Self(1i32);
-    pub const Infrared: Self = Self(2i32);
-    pub const Depth: Self = Self(3i32);
-    pub const Audio: Self = Self(4i32);
-    pub const Image: Self = Self(5i32);
-    pub const Metadata: Self = Self(6i32);
+    pub const Custom: Self = Self(0);
+    pub const Color: Self = Self(1);
+    pub const Infrared: Self = Self(2);
+    pub const Depth: Self = Self(3);
+    pub const Audio: Self = Self(4);
+    pub const Image: Self = Self(5);
+    pub const Metadata: Self = Self(6);
 }
 impl windows_core::TypeKind for MediaFrameSourceKind {
     type TypeKind = windows_core::CopyType;
@@ -1235,12 +1235,12 @@ impl windows_core::RuntimeType for MediaFrameSourceKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const InvalidValue: Self = Self(3i32);
-    pub const DeviceNotAvailable: Self = Self(4i32);
-    pub const NotInControl: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const NotSupported: Self = Self(2);
+    pub const InvalidValue: Self = Self(3);
+    pub const DeviceNotAvailable: Self = Self(4);
+    pub const NotInControl: Self = Self(5);
 }
 impl windows_core::TypeKind for MediaFrameSourceSetPropertyStatus {
     type TypeKind = windows_core::CopyType;
@@ -1333,11 +1333,11 @@ unsafe impl Sync for MultiSourceMediaFrameReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotSupported: Self = Self(1i32);
-    pub const InsufficientResources: Self = Self(2i32);
-    pub const DeviceNotAvailable: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const NotSupported: Self = Self(1);
+    pub const InsufficientResources: Self = Self(2);
+    pub const DeviceNotAvailable: Self = Self(3);
+    pub const UnknownFailure: Self = Self(4);
 }
 impl windows_core::TypeKind for MultiSourceMediaFrameReaderStartStatus {
     type TypeKind = windows_core::CopyType;

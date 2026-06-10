@@ -604,9 +604,9 @@ impl windows_core::RuntimeName for PlatformAutomaticAppSignInManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformAutomaticAppSignInPolicy(pub i32);
 impl PlatformAutomaticAppSignInPolicy {
-    pub const Unknown: Self = Self(0i32);
-    pub const PermissionRequired: Self = Self(1i32);
-    pub const AlwaysAllowed: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const PermissionRequired: Self = Self(1);
+    pub const AlwaysAllowed: Self = Self(2);
 }
 impl windows_core::TypeKind for PlatformAutomaticAppSignInPolicy {
     type TypeKind = windows_core::CopyType;
@@ -619,10 +619,10 @@ impl windows_core::RuntimeType for PlatformAutomaticAppSignInPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
-    pub const Security: Self = Self(0i32);
-    pub const Basic: Self = Self(1i32);
-    pub const Enhanced: Self = Self(2i32);
-    pub const Full: Self = Self(3i32);
+    pub const Security: Self = Self(0);
+    pub const Basic: Self = Self(1);
+    pub const Enhanced: Self = Self(2);
+    pub const Full: Self = Self(3);
 }
 impl windows_core::TypeKind for PlatformDataCollectionLevel {
     type TypeKind = windows_core::CopyType;
@@ -801,10 +801,10 @@ unsafe impl Sync for SystemIdentificationInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
-    pub const None: Self = Self(0i32);
-    pub const Tpm: Self = Self(1i32);
-    pub const Uefi: Self = Self(2i32);
-    pub const Registry: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Tpm: Self = Self(1);
+    pub const Uefi: Self = Self(2);
+    pub const Registry: Self = Self(3);
 }
 impl windows_core::TypeKind for SystemIdentificationSource {
     type TypeKind = windows_core::CopyType;
@@ -817,9 +817,9 @@ impl windows_core::RuntimeType for SystemIdentificationSource {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
-    pub const NotStarted: Self = Self(0i32);
-    pub const InProgress: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
+    pub const NotStarted: Self = Self(0);
+    pub const InProgress: Self = Self(1);
+    pub const Completed: Self = Self(2);
 }
 impl windows_core::TypeKind for SystemOutOfBoxExperienceState {
     type TypeKind = windows_core::CopyType;
@@ -890,8 +890,8 @@ unsafe impl Sync for UnsupportedAppRequirement {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {
-    pub const Unknown: Self = Self(0u32);
-    pub const DeniedBySystem: Self = Self(1u32);
+    pub const Unknown: Self = Self(0);
+    pub const DeniedBySystem: Self = Self(1);
 }
 impl windows_core::TypeKind for UnsupportedAppRequirementReasons {
     type TypeKind = windows_core::CopyType;

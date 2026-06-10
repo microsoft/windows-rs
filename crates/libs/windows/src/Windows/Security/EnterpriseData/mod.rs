@@ -135,12 +135,12 @@ impl windows_core::RuntimeName for DataProtectionManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
-    pub const ProtectedToOtherIdentity: Self = Self(0i32);
-    pub const Protected: Self = Self(1i32);
-    pub const Revoked: Self = Self(2i32);
-    pub const Unprotected: Self = Self(3i32);
-    pub const LicenseExpired: Self = Self(4i32);
-    pub const AccessSuspended: Self = Self(5i32);
+    pub const ProtectedToOtherIdentity: Self = Self(0);
+    pub const Protected: Self = Self(1);
+    pub const Revoked: Self = Self(2);
+    pub const Unprotected: Self = Self(3);
+    pub const LicenseExpired: Self = Self(4);
+    pub const AccessSuspended: Self = Self(5);
 }
 impl windows_core::TypeKind for DataProtectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -153,10 +153,10 @@ impl windows_core::RuntimeType for DataProtectionStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
-    pub const NoProtection: Self = Self(0i32);
-    pub const Silent: Self = Self(1i32);
-    pub const Override: Self = Self(2i32);
-    pub const Block: Self = Self(3i32);
+    pub const NoProtection: Self = Self(0);
+    pub const Silent: Self = Self(1);
+    pub const Override: Self = Self(2);
+    pub const Block: Self = Self(3);
 }
 impl windows_core::TypeKind for EnforcementLevel {
     type TypeKind = windows_core::CopyType;
@@ -355,18 +355,18 @@ impl windows_core::RuntimeName for FileProtectionManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
-    pub const Undetermined: Self = Self(0i32);
-    pub const Unknown: Self = Self(0i32);
-    pub const Unprotected: Self = Self(1i32);
-    pub const Revoked: Self = Self(2i32);
-    pub const Protected: Self = Self(3i32);
-    pub const ProtectedByOtherUser: Self = Self(4i32);
-    pub const ProtectedToOtherEnterprise: Self = Self(5i32);
-    pub const NotProtectable: Self = Self(6i32);
-    pub const ProtectedToOtherIdentity: Self = Self(7i32);
-    pub const LicenseExpired: Self = Self(8i32);
-    pub const AccessSuspended: Self = Self(9i32);
-    pub const FileInUse: Self = Self(10i32);
+    pub const Undetermined: Self = Self(0);
+    pub const Unknown: Self = Self(0);
+    pub const Unprotected: Self = Self(1);
+    pub const Revoked: Self = Self(2);
+    pub const Protected: Self = Self(3);
+    pub const ProtectedByOtherUser: Self = Self(4);
+    pub const ProtectedToOtherEnterprise: Self = Self(5);
+    pub const NotProtectable: Self = Self(6);
+    pub const ProtectedToOtherIdentity: Self = Self(7);
+    pub const LicenseExpired: Self = Self(8);
+    pub const AccessSuspended: Self = Self(9);
+    pub const FileInUse: Self = Self(10);
 }
 impl windows_core::TypeKind for FileProtectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -1102,14 +1102,14 @@ unsafe impl Sync for ProtectedFileCreateResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const Undetermined: Self = Self(1i32);
-    pub const Unprotected: Self = Self(2i32);
-    pub const Revoked: Self = Self(3i32);
-    pub const NotRoamable: Self = Self(4i32);
-    pub const ProtectedToOtherIdentity: Self = Self(5i32);
-    pub const LicenseExpired: Self = Self(6i32);
-    pub const AccessSuspended: Self = Self(7i32);
+    pub const Ok: Self = Self(0);
+    pub const Undetermined: Self = Self(1);
+    pub const Unprotected: Self = Self(2);
+    pub const Revoked: Self = Self(3);
+    pub const NotRoamable: Self = Self(4);
+    pub const ProtectedToOtherIdentity: Self = Self(5);
+    pub const LicenseExpired: Self = Self(6);
+    pub const AccessSuspended: Self = Self(7);
 }
 impl windows_core::TypeKind for ProtectedImportExportStatus {
     type TypeKind = windows_core::CopyType;
@@ -1122,10 +1122,10 @@ impl windows_core::RuntimeType for ProtectedImportExportStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
-    pub const Decrypt: Self = Self(0i32);
-    pub const CopyToLocation: Self = Self(1i32);
-    pub const SendToRecipient: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
+    pub const Decrypt: Self = Self(0);
+    pub const CopyToLocation: Self = Self(1);
+    pub const SendToRecipient: Self = Self(2);
+    pub const Other: Self = Self(3);
 }
 impl windows_core::TypeKind for ProtectionPolicyAuditAction {
     type TypeKind = windows_core::CopyType;
@@ -1208,9 +1208,9 @@ unsafe impl Sync for ProtectionPolicyAuditInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const Blocked: Self = Self(1i32);
-    pub const ConsentRequired: Self = Self(2i32);
+    pub const Allowed: Self = Self(0);
+    pub const Blocked: Self = Self(1);
+    pub const ConsentRequired: Self = Self(2);
 }
 impl windows_core::TypeKind for ProtectionPolicyEvaluationResult {
     type TypeKind = windows_core::CopyType;
@@ -1561,8 +1561,8 @@ unsafe impl Sync for ProtectionPolicyManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
-    pub const Decrypt: Self = Self(0i32);
-    pub const TreatOverridePolicyAsBlock: Self = Self(1i32);
+    pub const Decrypt: Self = Self(0);
+    pub const TreatOverridePolicyAsBlock: Self = Self(1);
 }
 impl windows_core::TypeKind for ProtectionPolicyRequestAccessBehavior {
     type TypeKind = windows_core::CopyType;

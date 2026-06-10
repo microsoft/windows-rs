@@ -159,19 +159,19 @@ unsafe impl Sync for ArcadeStick {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
-    pub const None: Self = Self(0u32);
-    pub const StickUp: Self = Self(1u32);
-    pub const StickDown: Self = Self(2u32);
-    pub const StickLeft: Self = Self(4u32);
-    pub const StickRight: Self = Self(8u32);
-    pub const Action1: Self = Self(16u32);
-    pub const Action2: Self = Self(32u32);
-    pub const Action3: Self = Self(64u32);
-    pub const Action4: Self = Self(128u32);
-    pub const Action5: Self = Self(256u32);
-    pub const Action6: Self = Self(512u32);
-    pub const Special1: Self = Self(1024u32);
-    pub const Special2: Self = Self(2048u32);
+    pub const None: Self = Self(0);
+    pub const StickUp: Self = Self(1);
+    pub const StickDown: Self = Self(2);
+    pub const StickLeft: Self = Self(4);
+    pub const StickRight: Self = Self(8);
+    pub const Action1: Self = Self(16);
+    pub const Action2: Self = Self(32);
+    pub const Action3: Self = Self(64);
+    pub const Action4: Self = Self(128);
+    pub const Action5: Self = Self(256);
+    pub const Action6: Self = Self(512);
+    pub const Special1: Self = Self(1024);
+    pub const Special2: Self = Self(2048);
 }
 impl windows_core::TypeKind for ArcadeStickButtons {
     type TypeKind = windows_core::CopyType;
@@ -383,9 +383,9 @@ unsafe impl Sync for FlightStick {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
-    pub const None: Self = Self(0u32);
-    pub const FirePrimary: Self = Self(1u32);
-    pub const FireSecondary: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const FirePrimary: Self = Self(1);
+    pub const FireSecondary: Self = Self(2);
 }
 impl windows_core::TypeKind for FlightStickButtons {
     type TypeKind = windows_core::CopyType;
@@ -449,75 +449,75 @@ impl windows_core::RuntimeType for FlightStickReading {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
-    pub const None: Self = Self(0i32);
-    pub const XboxBack: Self = Self(1i32);
-    pub const XboxStart: Self = Self(2i32);
-    pub const XboxMenu: Self = Self(3i32);
-    pub const XboxView: Self = Self(4i32);
-    pub const XboxUp: Self = Self(5i32);
-    pub const XboxDown: Self = Self(6i32);
-    pub const XboxLeft: Self = Self(7i32);
-    pub const XboxRight: Self = Self(8i32);
-    pub const XboxA: Self = Self(9i32);
-    pub const XboxB: Self = Self(10i32);
-    pub const XboxX: Self = Self(11i32);
-    pub const XboxY: Self = Self(12i32);
-    pub const XboxLeftBumper: Self = Self(13i32);
-    pub const XboxLeftTrigger: Self = Self(14i32);
-    pub const XboxLeftStickButton: Self = Self(15i32);
-    pub const XboxRightBumper: Self = Self(16i32);
-    pub const XboxRightTrigger: Self = Self(17i32);
-    pub const XboxRightStickButton: Self = Self(18i32);
-    pub const XboxPaddle1: Self = Self(19i32);
-    pub const XboxPaddle2: Self = Self(20i32);
-    pub const XboxPaddle3: Self = Self(21i32);
-    pub const XboxPaddle4: Self = Self(22i32);
-    pub const Mode: Self = Self(23i32);
-    pub const Select: Self = Self(24i32);
-    pub const Menu: Self = Self(25i32);
-    pub const View: Self = Self(26i32);
-    pub const Back: Self = Self(27i32);
-    pub const Start: Self = Self(28i32);
-    pub const Options: Self = Self(29i32);
-    pub const Share: Self = Self(30i32);
-    pub const Up: Self = Self(31i32);
-    pub const Down: Self = Self(32i32);
-    pub const Left: Self = Self(33i32);
-    pub const Right: Self = Self(34i32);
-    pub const LetterA: Self = Self(35i32);
-    pub const LetterB: Self = Self(36i32);
-    pub const LetterC: Self = Self(37i32);
-    pub const LetterL: Self = Self(38i32);
-    pub const LetterR: Self = Self(39i32);
-    pub const LetterX: Self = Self(40i32);
-    pub const LetterY: Self = Self(41i32);
-    pub const LetterZ: Self = Self(42i32);
-    pub const Cross: Self = Self(43i32);
-    pub const Circle: Self = Self(44i32);
-    pub const Square: Self = Self(45i32);
-    pub const Triangle: Self = Self(46i32);
-    pub const LeftBumper: Self = Self(47i32);
-    pub const LeftTrigger: Self = Self(48i32);
-    pub const LeftStickButton: Self = Self(49i32);
-    pub const Left1: Self = Self(50i32);
-    pub const Left2: Self = Self(51i32);
-    pub const Left3: Self = Self(52i32);
-    pub const RightBumper: Self = Self(53i32);
-    pub const RightTrigger: Self = Self(54i32);
-    pub const RightStickButton: Self = Self(55i32);
-    pub const Right1: Self = Self(56i32);
-    pub const Right2: Self = Self(57i32);
-    pub const Right3: Self = Self(58i32);
-    pub const Paddle1: Self = Self(59i32);
-    pub const Paddle2: Self = Self(60i32);
-    pub const Paddle3: Self = Self(61i32);
-    pub const Paddle4: Self = Self(62i32);
-    pub const Plus: Self = Self(63i32);
-    pub const Minus: Self = Self(64i32);
-    pub const DownLeftArrow: Self = Self(65i32);
-    pub const DialLeft: Self = Self(66i32);
-    pub const DialRight: Self = Self(67i32);
-    pub const Suspension: Self = Self(68i32);
+    pub const None: Self = Self(0);
+    pub const XboxBack: Self = Self(1);
+    pub const XboxStart: Self = Self(2);
+    pub const XboxMenu: Self = Self(3);
+    pub const XboxView: Self = Self(4);
+    pub const XboxUp: Self = Self(5);
+    pub const XboxDown: Self = Self(6);
+    pub const XboxLeft: Self = Self(7);
+    pub const XboxRight: Self = Self(8);
+    pub const XboxA: Self = Self(9);
+    pub const XboxB: Self = Self(10);
+    pub const XboxX: Self = Self(11);
+    pub const XboxY: Self = Self(12);
+    pub const XboxLeftBumper: Self = Self(13);
+    pub const XboxLeftTrigger: Self = Self(14);
+    pub const XboxLeftStickButton: Self = Self(15);
+    pub const XboxRightBumper: Self = Self(16);
+    pub const XboxRightTrigger: Self = Self(17);
+    pub const XboxRightStickButton: Self = Self(18);
+    pub const XboxPaddle1: Self = Self(19);
+    pub const XboxPaddle2: Self = Self(20);
+    pub const XboxPaddle3: Self = Self(21);
+    pub const XboxPaddle4: Self = Self(22);
+    pub const Mode: Self = Self(23);
+    pub const Select: Self = Self(24);
+    pub const Menu: Self = Self(25);
+    pub const View: Self = Self(26);
+    pub const Back: Self = Self(27);
+    pub const Start: Self = Self(28);
+    pub const Options: Self = Self(29);
+    pub const Share: Self = Self(30);
+    pub const Up: Self = Self(31);
+    pub const Down: Self = Self(32);
+    pub const Left: Self = Self(33);
+    pub const Right: Self = Self(34);
+    pub const LetterA: Self = Self(35);
+    pub const LetterB: Self = Self(36);
+    pub const LetterC: Self = Self(37);
+    pub const LetterL: Self = Self(38);
+    pub const LetterR: Self = Self(39);
+    pub const LetterX: Self = Self(40);
+    pub const LetterY: Self = Self(41);
+    pub const LetterZ: Self = Self(42);
+    pub const Cross: Self = Self(43);
+    pub const Circle: Self = Self(44);
+    pub const Square: Self = Self(45);
+    pub const Triangle: Self = Self(46);
+    pub const LeftBumper: Self = Self(47);
+    pub const LeftTrigger: Self = Self(48);
+    pub const LeftStickButton: Self = Self(49);
+    pub const Left1: Self = Self(50);
+    pub const Left2: Self = Self(51);
+    pub const Left3: Self = Self(52);
+    pub const RightBumper: Self = Self(53);
+    pub const RightTrigger: Self = Self(54);
+    pub const RightStickButton: Self = Self(55);
+    pub const Right1: Self = Self(56);
+    pub const Right2: Self = Self(57);
+    pub const Right3: Self = Self(58);
+    pub const Paddle1: Self = Self(59);
+    pub const Paddle2: Self = Self(60);
+    pub const Paddle3: Self = Self(61);
+    pub const Paddle4: Self = Self(62);
+    pub const Plus: Self = Self(63);
+    pub const Minus: Self = Self(64);
+    pub const DownLeftArrow: Self = Self(65);
+    pub const DialLeft: Self = Self(66);
+    pub const DialRight: Self = Self(67);
+    pub const Suspension: Self = Self(68);
 }
 impl windows_core::TypeKind for GameControllerButtonLabel {
     type TypeKind = windows_core::CopyType;
@@ -530,9 +530,9 @@ impl windows_core::RuntimeType for GameControllerButtonLabel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
-    pub const TwoWay: Self = Self(0i32);
-    pub const FourWay: Self = Self(1i32);
-    pub const EightWay: Self = Self(2i32);
+    pub const TwoWay: Self = Self(0);
+    pub const FourWay: Self = Self(1);
+    pub const EightWay: Self = Self(2);
 }
 impl windows_core::TypeKind for GameControllerSwitchKind {
     type TypeKind = windows_core::CopyType;
@@ -545,15 +545,15 @@ impl windows_core::RuntimeType for GameControllerSwitchKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
-    pub const Center: Self = Self(0i32);
-    pub const Up: Self = Self(1i32);
-    pub const UpRight: Self = Self(2i32);
-    pub const Right: Self = Self(3i32);
-    pub const DownRight: Self = Self(4i32);
-    pub const Down: Self = Self(5i32);
-    pub const DownLeft: Self = Self(6i32);
-    pub const Left: Self = Self(7i32);
-    pub const UpLeft: Self = Self(8i32);
+    pub const Center: Self = Self(0);
+    pub const Up: Self = Self(1);
+    pub const UpRight: Self = Self(2);
+    pub const Right: Self = Self(3);
+    pub const DownRight: Self = Self(4);
+    pub const Down: Self = Self(5);
+    pub const DownLeft: Self = Self(6);
+    pub const Left: Self = Self(7);
+    pub const UpLeft: Self = Self(8);
 }
 impl windows_core::TypeKind for GameControllerSwitchPosition {
     type TypeKind = windows_core::CopyType;
@@ -727,25 +727,25 @@ unsafe impl Sync for Gamepad {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
-    pub const None: Self = Self(0u32);
-    pub const Menu: Self = Self(1u32);
-    pub const View: Self = Self(2u32);
-    pub const A: Self = Self(4u32);
-    pub const B: Self = Self(8u32);
-    pub const X: Self = Self(16u32);
-    pub const Y: Self = Self(32u32);
-    pub const DPadUp: Self = Self(64u32);
-    pub const DPadDown: Self = Self(128u32);
-    pub const DPadLeft: Self = Self(256u32);
-    pub const DPadRight: Self = Self(512u32);
-    pub const LeftShoulder: Self = Self(1024u32);
-    pub const RightShoulder: Self = Self(2048u32);
-    pub const LeftThumbstick: Self = Self(4096u32);
-    pub const RightThumbstick: Self = Self(8192u32);
-    pub const Paddle1: Self = Self(16384u32);
-    pub const Paddle2: Self = Self(32768u32);
-    pub const Paddle3: Self = Self(65536u32);
-    pub const Paddle4: Self = Self(131072u32);
+    pub const None: Self = Self(0);
+    pub const Menu: Self = Self(1);
+    pub const View: Self = Self(2);
+    pub const A: Self = Self(4);
+    pub const B: Self = Self(8);
+    pub const X: Self = Self(16);
+    pub const Y: Self = Self(32);
+    pub const DPadUp: Self = Self(64);
+    pub const DPadDown: Self = Self(128);
+    pub const DPadLeft: Self = Self(256);
+    pub const DPadRight: Self = Self(512);
+    pub const LeftShoulder: Self = Self(1024);
+    pub const RightShoulder: Self = Self(2048);
+    pub const LeftThumbstick: Self = Self(4096);
+    pub const RightThumbstick: Self = Self(8192);
+    pub const Paddle1: Self = Self(16384);
+    pub const Paddle2: Self = Self(32768);
+    pub const Paddle3: Self = Self(65536);
+    pub const Paddle4: Self = Self(131072);
 }
 impl windows_core::TypeKind for GamepadButtons {
     type TypeKind = windows_core::CopyType;
@@ -1402,19 +1402,19 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
-    pub const None: Self = Self(0u32);
-    pub const Context1: Self = Self(1u32);
-    pub const Context2: Self = Self(2u32);
-    pub const Context3: Self = Self(4u32);
-    pub const Context4: Self = Self(8u32);
-    pub const PageUp: Self = Self(16u32);
-    pub const PageDown: Self = Self(32u32);
-    pub const PageLeft: Self = Self(64u32);
-    pub const PageRight: Self = Self(128u32);
-    pub const ScrollUp: Self = Self(256u32);
-    pub const ScrollDown: Self = Self(512u32);
-    pub const ScrollLeft: Self = Self(1024u32);
-    pub const ScrollRight: Self = Self(2048u32);
+    pub const None: Self = Self(0);
+    pub const Context1: Self = Self(1);
+    pub const Context2: Self = Self(2);
+    pub const Context3: Self = Self(4);
+    pub const Context4: Self = Self(8);
+    pub const PageUp: Self = Self(16);
+    pub const PageDown: Self = Self(32);
+    pub const PageLeft: Self = Self(64);
+    pub const PageRight: Self = Self(128);
+    pub const ScrollUp: Self = Self(256);
+    pub const ScrollDown: Self = Self(512);
+    pub const ScrollLeft: Self = Self(1024);
+    pub const ScrollRight: Self = Self(2048);
 }
 impl windows_core::TypeKind for OptionalUINavigationButtons {
     type TypeKind = windows_core::CopyType;
@@ -1648,29 +1648,29 @@ unsafe impl Sync for RacingWheel {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
-    pub const None: Self = Self(0u32);
-    pub const PreviousGear: Self = Self(1u32);
-    pub const NextGear: Self = Self(2u32);
-    pub const DPadUp: Self = Self(4u32);
-    pub const DPadDown: Self = Self(8u32);
-    pub const DPadLeft: Self = Self(16u32);
-    pub const DPadRight: Self = Self(32u32);
-    pub const Button1: Self = Self(64u32);
-    pub const Button2: Self = Self(128u32);
-    pub const Button3: Self = Self(256u32);
-    pub const Button4: Self = Self(512u32);
-    pub const Button5: Self = Self(1024u32);
-    pub const Button6: Self = Self(2048u32);
-    pub const Button7: Self = Self(4096u32);
-    pub const Button8: Self = Self(8192u32);
-    pub const Button9: Self = Self(16384u32);
-    pub const Button10: Self = Self(32768u32);
-    pub const Button11: Self = Self(65536u32);
-    pub const Button12: Self = Self(131072u32);
-    pub const Button13: Self = Self(262144u32);
-    pub const Button14: Self = Self(524288u32);
-    pub const Button15: Self = Self(1048576u32);
-    pub const Button16: Self = Self(2097152u32);
+    pub const None: Self = Self(0);
+    pub const PreviousGear: Self = Self(1);
+    pub const NextGear: Self = Self(2);
+    pub const DPadUp: Self = Self(4);
+    pub const DPadDown: Self = Self(8);
+    pub const DPadLeft: Self = Self(16);
+    pub const DPadRight: Self = Self(32);
+    pub const Button1: Self = Self(64);
+    pub const Button2: Self = Self(128);
+    pub const Button3: Self = Self(256);
+    pub const Button4: Self = Self(512);
+    pub const Button5: Self = Self(1024);
+    pub const Button6: Self = Self(2048);
+    pub const Button7: Self = Self(4096);
+    pub const Button8: Self = Self(8192);
+    pub const Button9: Self = Self(16384);
+    pub const Button10: Self = Self(32768);
+    pub const Button11: Self = Self(65536);
+    pub const Button12: Self = Self(131072);
+    pub const Button13: Self = Self(262144);
+    pub const Button14: Self = Self(524288);
+    pub const Button15: Self = Self(1048576);
+    pub const Button16: Self = Self(2097152);
 }
 impl windows_core::TypeKind for RacingWheelButtons {
     type TypeKind = windows_core::CopyType;
@@ -1947,15 +1947,15 @@ unsafe impl Sync for RawGameController {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
-    pub const None: Self = Self(0u32);
-    pub const Menu: Self = Self(1u32);
-    pub const View: Self = Self(2u32);
-    pub const Accept: Self = Self(4u32);
-    pub const Cancel: Self = Self(8u32);
-    pub const Up: Self = Self(16u32);
-    pub const Down: Self = Self(32u32);
-    pub const Left: Self = Self(64u32);
-    pub const Right: Self = Self(128u32);
+    pub const None: Self = Self(0);
+    pub const Menu: Self = Self(1);
+    pub const View: Self = Self(2);
+    pub const Accept: Self = Self(4);
+    pub const Cancel: Self = Self(8);
+    pub const Up: Self = Self(16);
+    pub const Down: Self = Self(32);
+    pub const Left: Self = Self(64);
+    pub const Right: Self = Self(128);
 }
 impl windows_core::TypeKind for RequiredUINavigationButtons {
     type TypeKind = windows_core::CopyType;

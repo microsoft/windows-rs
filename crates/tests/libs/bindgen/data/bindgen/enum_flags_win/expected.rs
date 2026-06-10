@@ -2,11 +2,11 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
-    pub const None: Self = Self(0u32);
-    pub const SuppressExceptions: Self = Self(1u32);
-    pub const ForceExceptions: Self = Self(2u32);
-    pub const UseSetErrorInfo: Self = Self(4u32);
-    pub const SuppressSetErrorInfo: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const SuppressExceptions: Self = Self(1);
+    pub const ForceExceptions: Self = Self(2);
+    pub const UseSetErrorInfo: Self = Self(4);
+    pub const SuppressSetErrorInfo: Self = Self(8);
 }
 impl windows_core::TypeKind for ErrorOptions {
     type TypeKind = windows_core::CopyType;

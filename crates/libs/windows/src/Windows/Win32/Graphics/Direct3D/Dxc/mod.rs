@@ -52,33 +52,33 @@ pub const DXC_ARG_WARNINGS_ARE_ERRORS: windows_core::PCWSTR = windows_core::w!("
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXC_CP(pub u32);
-pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
-pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
-pub const DXC_CP_UTF32: DXC_CP = DXC_CP(12000u32);
-pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
-pub const DXC_CP_WIDE: DXC_CP = DXC_CP(1200u32);
+pub const DXC_CP_ACP: DXC_CP = DXC_CP(0);
+pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200);
+pub const DXC_CP_UTF32: DXC_CP = DXC_CP(12000);
+pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001);
+pub const DXC_CP_WIDE: DXC_CP = DXC_CP(1200);
 pub const DXC_EXTRA_OUTPUT_NAME_STDERR: windows_core::PCWSTR = windows_core::w!("*stderr*");
 pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: windows_core::PCWSTR = windows_core::w!("*stdout*");
-pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
-pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
-pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
-pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
-pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
+pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1;
+pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5);
+pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2);
+pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10);
+pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXC_OUT_KIND(pub i32);
-pub const DXC_OUT_LAST: DXC_OUT_KIND = DXC_OUT_KIND(13i32);
-pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
-pub const DXC_OUT_NUM_ENUMS: DXC_OUT_KIND = DXC_OUT_KIND(14i32);
-pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
-pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
-pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
-pub const DXC_OUT_REMARKS: DXC_OUT_KIND = DXC_OUT_KIND(11i32);
-pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
-pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
-pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
-pub const DXC_OUT_TIME_REPORT: DXC_OUT_KIND = DXC_OUT_KIND(12i32);
-pub const DXC_OUT_TIME_TRACE: DXC_OUT_KIND = DXC_OUT_KIND(13i32);
+pub const DXC_OUT_LAST: DXC_OUT_KIND = DXC_OUT_KIND(13);
+pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0);
+pub const DXC_OUT_NUM_ENUMS: DXC_OUT_KIND = DXC_OUT_KIND(14);
+pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1);
+pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3);
+pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8);
+pub const DXC_OUT_REMARKS: DXC_OUT_KIND = DXC_OUT_KIND(11);
+pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9);
+pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4);
+pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7);
+pub const DXC_OUT_TIME_REPORT: DXC_OUT_KIND = DXC_OUT_KIND(12);
+pub const DXC_OUT_TIME_TRACE: DXC_OUT_KIND = DXC_OUT_KIND(13);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DxcArgPair {
@@ -117,14 +117,14 @@ impl Default for DxcShaderHash {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DxcValidatorFlags_Default: u32 = 0u32;
-pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
-pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
-pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
-pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
-pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
-pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
-pub const DxcVersionInfoFlags_None: u32 = 0u32;
+pub const DxcValidatorFlags_Default: u32 = 0;
+pub const DxcValidatorFlags_InPlaceEdit: u32 = 1;
+pub const DxcValidatorFlags_ModuleOnly: u32 = 4;
+pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2;
+pub const DxcValidatorFlags_ValidMask: u32 = 7;
+pub const DxcVersionInfoFlags_Debug: u32 = 1;
+pub const DxcVersionInfoFlags_Internal: u32 = 2;
+pub const DxcVersionInfoFlags_None: u32 = 0;
 windows_core::imp::define_interface!(IDxcAssembler, IDxcAssembler_Vtbl, 0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
 windows_core::imp::interface_hierarchy!(IDxcAssembler, windows_core::IUnknown);
 impl IDxcAssembler {

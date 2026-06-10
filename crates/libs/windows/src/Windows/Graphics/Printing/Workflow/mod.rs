@@ -724,12 +724,12 @@ pub struct IPrintWorkflowXpsObjectModelProvider_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PdlConversionHostBasedProcessingOperations(pub u32);
 impl PdlConversionHostBasedProcessingOperations {
-    pub const None: Self = Self(0u32);
-    pub const PageRotation: Self = Self(1u32);
-    pub const PageOrdering: Self = Self(2u32);
-    pub const Copies: Self = Self(4u32);
-    pub const BlankPageInsertion: Self = Self(8u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const PageRotation: Self = Self(1);
+    pub const PageOrdering: Self = Self(2);
+    pub const Copies: Self = Self(4);
+    pub const BlankPageInsertion: Self = Self(8);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for PdlConversionHostBasedProcessingOperations {
     type TypeKind = windows_core::CopyType;
@@ -775,9 +775,9 @@ impl core::ops::Not for PdlConversionHostBasedProcessingOperations {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowAttributesMergePolicy(pub i32);
 impl PrintWorkflowAttributesMergePolicy {
-    pub const MergePreferPrintTicketOnConflict: Self = Self(0i32);
-    pub const MergePreferPsaOnConflict: Self = Self(1i32);
-    pub const DoNotMergeWithPrintTicket: Self = Self(2i32);
+    pub const MergePreferPrintTicketOnConflict: Self = Self(0);
+    pub const MergePreferPsaOnConflict: Self = Self(1);
+    pub const DoNotMergeWithPrintTicket: Self = Self(2);
 }
 impl windows_core::TypeKind for PrintWorkflowAttributesMergePolicy {
     type TypeKind = windows_core::CopyType;
@@ -1009,8 +1009,8 @@ unsafe impl Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
-    pub const JobFailed: Self = Self(0i32);
-    pub const UserCanceled: Self = Self(1i32);
+    pub const JobFailed: Self = Self(0);
+    pub const UserCanceled: Self = Self(1);
 }
 impl windows_core::TypeKind for PrintWorkflowJobAbortReason {
     type TypeKind = windows_core::CopyType;
@@ -1228,17 +1228,17 @@ unsafe impl Sync for PrintWorkflowJobIssueDetectedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowJobIssueKind(pub i32);
 impl PrintWorkflowJobIssueKind {
-    pub const Other: Self = Self(0i32);
-    pub const AttentionRequired: Self = Self(1i32);
-    pub const DoorOpen: Self = Self(2i32);
-    pub const MarkerSupplyLow: Self = Self(3i32);
-    pub const MarkerSupplyEmpty: Self = Self(4i32);
-    pub const MediaJam: Self = Self(5i32);
-    pub const MediaEmpty: Self = Self(6i32);
-    pub const MediaLow: Self = Self(7i32);
-    pub const OutputAreaAlmostFull: Self = Self(8i32);
-    pub const OutputAreaFull: Self = Self(9i32);
-    pub const JobPrintingError: Self = Self(10i32);
+    pub const Other: Self = Self(0);
+    pub const AttentionRequired: Self = Self(1);
+    pub const DoorOpen: Self = Self(2);
+    pub const MarkerSupplyLow: Self = Self(3);
+    pub const MarkerSupplyEmpty: Self = Self(4);
+    pub const MediaJam: Self = Self(5);
+    pub const MediaEmpty: Self = Self(6);
+    pub const MediaLow: Self = Self(7);
+    pub const OutputAreaAlmostFull: Self = Self(8);
+    pub const OutputAreaFull: Self = Self(9);
+    pub const JobPrintingError: Self = Self(10);
 }
 impl windows_core::TypeKind for PrintWorkflowJobIssueKind {
     type TypeKind = windows_core::CopyType;
@@ -1486,10 +1486,10 @@ unsafe impl Sync for PrintWorkflowObjectModelTargetPackage {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
-    pub const XpsToPdf: Self = Self(0i32);
-    pub const XpsToPwgr: Self = Self(1i32);
-    pub const XpsToPclm: Self = Self(2i32);
-    pub const XpsToTiff: Self = Self(3i32);
+    pub const XpsToPdf: Self = Self(0);
+    pub const XpsToPwgr: Self = Self(1);
+    pub const XpsToPclm: Self = Self(2);
+    pub const XpsToTiff: Self = Self(3);
 }
 impl windows_core::TypeKind for PrintWorkflowPdlConversionType {
     type TypeKind = windows_core::CopyType;
@@ -1869,10 +1869,10 @@ unsafe impl Sync for PrintWorkflowPrinterJob {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
-    pub const Error: Self = Self(0i32);
-    pub const Aborted: Self = Self(1i32);
-    pub const InProgress: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
+    pub const Error: Self = Self(0);
+    pub const Aborted: Self = Self(1);
+    pub const InProgress: Self = Self(2);
+    pub const Completed: Self = Self(3);
 }
 impl windows_core::TypeKind for PrintWorkflowPrinterJobStatus {
     type TypeKind = windows_core::CopyType;
@@ -1921,11 +1921,11 @@ unsafe impl Sync for PrintWorkflowPrinterJobStatusChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
-    pub const Started: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Aborted: Self = Self(2i32);
-    pub const Closed: Self = Self(3i32);
-    pub const PdlDataAvailableForModification: Self = Self(4i32);
+    pub const Started: Self = Self(0);
+    pub const Completed: Self = Self(1);
+    pub const Aborted: Self = Self(2);
+    pub const Closed: Self = Self(3);
+    pub const PdlDataAvailableForModification: Self = Self(4);
 }
 impl windows_core::TypeKind for PrintWorkflowSessionStatus {
     type TypeKind = windows_core::CopyType;
@@ -2098,9 +2098,9 @@ unsafe impl Sync for PrintWorkflowSubmittedOperation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Canceled: Self = Self(1);
+    pub const Failed: Self = Self(2);
 }
 impl windows_core::TypeKind for PrintWorkflowSubmittedStatus {
     type TypeKind = windows_core::CopyType;
@@ -2230,10 +2230,10 @@ unsafe impl Sync for PrintWorkflowUIActivatedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
-    pub const Completed: Self = Self(0i32);
-    pub const LaunchFailed: Self = Self(1i32);
-    pub const JobFailed: Self = Self(2i32);
-    pub const UserCanceled: Self = Self(3i32);
+    pub const Completed: Self = Self(0);
+    pub const LaunchFailed: Self = Self(1);
+    pub const JobFailed: Self = Self(2);
+    pub const UserCanceled: Self = Self(3);
 }
 impl windows_core::TypeKind for PrintWorkflowUICompletionStatus {
     type TypeKind = windows_core::CopyType;

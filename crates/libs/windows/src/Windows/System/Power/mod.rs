@@ -86,10 +86,10 @@ impl windows_core::RuntimeName for BackgroundEnergyManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
-    pub const NotPresent: Self = Self(0i32);
-    pub const Discharging: Self = Self(1i32);
-    pub const Idle: Self = Self(2i32);
-    pub const Charging: Self = Self(3i32);
+    pub const NotPresent: Self = Self(0);
+    pub const Discharging: Self = Self(1);
+    pub const Idle: Self = Self(2);
+    pub const Charging: Self = Self(3);
 }
 impl windows_core::TypeKind for BatteryStatus {
     type TypeKind = windows_core::CopyType;
@@ -102,9 +102,9 @@ impl windows_core::RuntimeType for BatteryStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
-    pub const Disabled: Self = Self(0i32);
-    pub const Off: Self = Self(1i32);
-    pub const On: Self = Self(2i32);
+    pub const Disabled: Self = Self(0);
+    pub const Off: Self = Self(1);
+    pub const On: Self = Self(2);
 }
 impl windows_core::TypeKind for EnergySaverStatus {
     type TypeKind = windows_core::CopyType;
@@ -354,9 +354,9 @@ impl windows_core::RuntimeName for PowerManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {
-    pub const NotPresent: Self = Self(0i32);
-    pub const Inadequate: Self = Self(1i32);
-    pub const Adequate: Self = Self(2i32);
+    pub const NotPresent: Self = Self(0);
+    pub const Inadequate: Self = Self(1);
+    pub const Adequate: Self = Self(2);
 }
 impl windows_core::TypeKind for PowerSupplyStatus {
     type TypeKind = windows_core::CopyType;

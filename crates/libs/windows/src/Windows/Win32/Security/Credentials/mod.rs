@@ -873,7 +873,7 @@ where
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *const u8, datalen : u32) -> i32);
     unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
 }
-pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121u32;
+pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
@@ -885,8 +885,8 @@ impl Default for BINARY_BLOB_CREDENTIAL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3i32);
-pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5i32);
+pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3);
+pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERT_CREDENTIAL_INFO {
@@ -898,7 +898,7 @@ impl Default for CERT_CREDENTIAL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CERT_HASH_LENGTH: u32 = 20u32;
+pub const CERT_HASH_LENGTH: u32 = 20;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREDENTIALA {
@@ -1029,17 +1029,17 @@ pub struct CREDSSP_CRED_EX {
     pub Reserved: u32,
     pub Cred: CREDSSP_CRED,
 }
-pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
-pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
+pub const CREDSSP_CRED_EX_VERSION: u32 = 0;
+pub const CREDSSP_FLAG_REDIRECT: u32 = 1;
 pub const CREDSSP_NAME: windows_core::PCWSTR = windows_core::w!("CREDSSP");
-pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
-pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
-pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
-pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(16u32);
-pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(2u32);
-pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
-pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(256u32);
-pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(512u32);
+pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2;
+pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4;
+pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1;
+pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(16);
+pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(2);
+pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648;
+pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(256);
+pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(512);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUIWIN_FLAGS(pub u32);
@@ -1076,13 +1076,13 @@ impl core::ops::Not for CREDUIWIN_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1u32);
-pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
-pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(32u32);
-pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456u32);
-pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192u32);
-pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096u32);
-pub const CREDUIWIN_USE_V2: u32 = 64u32;
+pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1);
+pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144;
+pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(32);
+pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456);
+pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192);
+pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096);
+pub const CREDUIWIN_USE_V2: u32 = 64;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_FLAGS(pub u32);
@@ -1119,24 +1119,24 @@ impl core::ops::Not for CREDUI_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128u32);
-pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(2048u32);
-pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(2u32);
-pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = CREDUI_FLAGS(8u32);
-pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = CREDUI_FLAGS(131072u32);
-pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(262144u32);
-pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = CREDUI_FLAGS(1u32);
-pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1048576u32);
-pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = CREDUI_FLAGS(512u32);
-pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(4096u32);
-pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = CREDUI_FLAGS(4u32);
-pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = CREDUI_FLAGS(16u32);
-pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = CREDUI_FLAGS(256u32);
-pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
-pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
-pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
-pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
-pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322u32;
+pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128);
+pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(2048);
+pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(2);
+pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = CREDUI_FLAGS(8);
+pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = CREDUI_FLAGS(131072);
+pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(262144);
+pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = CREDUI_FLAGS(1);
+pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1048576);
+pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = CREDUI_FLAGS(512);
+pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(4096);
+pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = CREDUI_FLAGS(4);
+pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = CREDUI_FLAGS(16);
+pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = CREDUI_FLAGS(256);
+pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384);
+pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64);
+pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288);
+pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024);
+pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1157,15 +1157,15 @@ pub struct CREDUI_INFOW {
     pub pszCaptionText: windows_core::PCWSTR,
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
-pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
-pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
-pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
-pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
-pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
-pub const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: u32 = 212664323u32;
-pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
-pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
-pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
+pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128;
+pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337;
+pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767;
+pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024;
+pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513;
+pub const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: u32 = 212664323;
+pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1;
+pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1;
+pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
@@ -1238,29 +1238,29 @@ impl core::ops::Not for CRED_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = CRED_FLAGS(128u32);
-pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = CRED_FLAGS(8u32);
-pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
-pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = CRED_FLAGS(2u32);
-pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = CRED_FLAGS(16u32);
-pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = CRED_FLAGS(4u32);
-pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = CRED_FLAGS(61695u32);
-pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = CRED_FLAGS(61599u32);
-pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = CRED_FLAGS(64u32);
-pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = CRED_FLAGS(32u32);
-pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
+pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = CRED_FLAGS(128);
+pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = CRED_FLAGS(8);
+pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1);
+pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = CRED_FLAGS(2);
+pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = CRED_FLAGS(16);
+pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = CRED_FLAGS(4);
+pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = CRED_FLAGS(61695);
+pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = CRED_FLAGS(61599);
+pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = CRED_FLAGS(64);
+pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = CRED_FLAGS(32);
+pub const CRED_LOGON_TYPES_MASK: u32 = 61440;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
-pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
-pub const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560u32;
-pub const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337u32;
-pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
-pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
-pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
-pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
-pub const CRED_MAX_USERNAME_LENGTH: u32 = 513u32;
-pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
+pub const CRED_MAX_ATTRIBUTES: u32 = 64;
+pub const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560;
+pub const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337;
+pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767;
+pub const CRED_MAX_STRING_LENGTH: u32 = 256;
+pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256;
+pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256;
+pub const CRED_MAX_USERNAME_LENGTH: u32 = 513;
+pub const CRED_MAX_VALUE_SIZE: u32 = 256;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_PACK_FLAGS(pub u32);
@@ -1297,23 +1297,23 @@ impl core::ops::Not for CRED_PACK_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(4u32);
-pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(8u32);
-pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u32);
-pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = CRED_PACK_FLAGS(2u32);
+pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(4);
+pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(8);
+pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1);
+pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = CRED_PACK_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_PERSIST(pub u32);
-pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = CRED_PERSIST(3u32);
-pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = CRED_PERSIST(2u32);
-pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
-pub const CRED_PERSIST_SESSION: CRED_PERSIST = CRED_PERSIST(1u32);
-pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
+pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = CRED_PERSIST(3);
+pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = CRED_PERSIST(2);
+pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0);
+pub const CRED_PERSIST_SESSION: CRED_PERSIST = CRED_PERSIST(1);
+pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
-pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
-pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
+pub const CRED_PROTECT_AS_SELF: u32 = 1;
+pub const CRED_PROTECT_TO_SYSTEM: u32 = 2;
 pub const CRED_SESSION_WILDCARD_NAME: windows_core::PCWSTR = windows_core::w!("*Session");
 pub const CRED_SESSION_WILDCARD_NAME_A: windows_core::PCSTR = windows_core::s!("*Session");
 pub const CRED_SESSION_WILDCARD_NAME_W: windows_core::PCWSTR = windows_core::w!("*Session");
@@ -1349,53 +1349,53 @@ pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_A: windows_core::PCSTR = windows_core
 pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_W: windows_core::PCWSTR = windows_core::w!("Domain");
 pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A: windows_core::PCSTR = windows_core::s!("LegacyGeneric");
 pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: windows_core::PCWSTR = windows_core::w!("LegacyGeneric");
-pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
-pub const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64u32;
-pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2u32;
-pub const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4u32;
-pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
-pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
-pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
-pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
+pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16;
+pub const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64;
+pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2;
+pub const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4;
+pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1;
+pub const CRED_TI_USERNAME_TARGET: u32 = 8;
+pub const CRED_TI_VALID_FLAGS: u32 = 61567;
+pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRED_TYPE(pub u32);
-pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = CRED_TYPE(3u32);
-pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = CRED_TYPE(6u32);
-pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = CRED_TYPE(2u32);
-pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = CRED_TYPE(4u32);
-pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1u32);
-pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = CRED_TYPE(5u32);
-pub const CRED_TYPE_MAXIMUM: CRED_TYPE = CRED_TYPE(7u32);
-pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = CRED_TYPE(1007u32);
-pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
-pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
-pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1i32);
-pub const CredForSystemProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(3i32);
-pub const CredTrustedProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(2i32);
-pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
-pub const CredUserProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(1i32);
-pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(13i32);
-pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100i32);
-pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
-pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(4i32);
-pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50i32);
-pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51i32);
-pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
+pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = CRED_TYPE(3);
+pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = CRED_TYPE(6);
+pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = CRED_TYPE(2);
+pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = CRED_TYPE(4);
+pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1);
+pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = CRED_TYPE(5);
+pub const CRED_TYPE_MAXIMUM: CRED_TYPE = CRED_TYPE(7);
+pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = CRED_TYPE(1007);
+pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2;
+pub const CRED_UNPROTECT_AS_SELF: u32 = 1;
+pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1);
+pub const CredForSystemProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(3);
+pub const CredTrustedProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(2);
+pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0);
+pub const CredUserProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(1);
+pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(13);
+pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100);
+pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2);
+pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(4);
+pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50);
+pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51);
+pub const FILE_DEVICE_SMARTCARD: u32 = 49;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: windows_core::GUID = windows_core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: windows_core::GUID,
 }
-pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4i32);
-pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1i32);
-pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32i32);
-pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0i32);
-pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64i32);
-pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16i32);
-pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8i32);
-pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2i32);
+pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4);
+pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1);
+pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32);
+pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0);
+pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64);
+pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16);
+pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8);
+pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialManagerOperationErrorStates(pub i32);
@@ -1435,15 +1435,15 @@ impl core::ops::Not for KeyCredentialManagerOperationErrorStates {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialManagerOperationType(pub i32);
-pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
-pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
-pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
+pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1);
+pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2);
+pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0);
 pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: usize, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *const core::ffi::c_void) -> usize>;
 pub type LPOCNCONNPROCW = Option<unsafe extern "system" fn(param0: usize, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *const core::ffi::c_void) -> usize>;
 pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void)>;
-pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
-pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
+pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32;
+pub const MAXIMUM_SMARTCARD_READERS: u32 = 10;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEA {
@@ -1662,10 +1662,10 @@ pub struct READER_SEL_RESPONSE {
     pub cbCardNameOffset: u32,
     pub cchCardNameLength: u32,
 }
-pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
-pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
-pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
-pub const SCARD_ABSENT: u32 = 1u32;
+pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3);
+pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1);
+pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2);
+pub const SCARD_ABSENT: u32 = 1;
 pub const SCARD_ALL_READERS: windows_core::PCWSTR = windows_core::w!("SCard$AllReaders\u{0}00");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1679,44 +1679,44 @@ impl Default for SCARD_ATRMASK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCARD_ATR_LENGTH: u32 = 33u32;
-pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
-pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1u32;
-pub const SCARD_CLASS_COMMUNICATIONS: u32 = 2u32;
-pub const SCARD_CLASS_ICC_STATE: u32 = 9u32;
-pub const SCARD_CLASS_IFD_PROTOCOL: u32 = 8u32;
-pub const SCARD_CLASS_MECHANICAL: u32 = 6u32;
-pub const SCARD_CLASS_PERF: u32 = 32766u32;
-pub const SCARD_CLASS_POWER_MGMT: u32 = 4u32;
-pub const SCARD_CLASS_PROTOCOL: u32 = 3u32;
-pub const SCARD_CLASS_SECURITY: u32 = 5u32;
-pub const SCARD_CLASS_SYSTEM: u32 = 32767u32;
-pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7u32;
-pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
-pub const SCARD_COLD_RESET: u32 = 1u32;
+pub const SCARD_ATR_LENGTH: u32 = 33;
+pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0;
+pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1;
+pub const SCARD_CLASS_COMMUNICATIONS: u32 = 2;
+pub const SCARD_CLASS_ICC_STATE: u32 = 9;
+pub const SCARD_CLASS_IFD_PROTOCOL: u32 = 8;
+pub const SCARD_CLASS_MECHANICAL: u32 = 6;
+pub const SCARD_CLASS_PERF: u32 = 32766;
+pub const SCARD_CLASS_POWER_MGMT: u32 = 4;
+pub const SCARD_CLASS_PROTOCOL: u32 = 3;
+pub const SCARD_CLASS_SECURITY: u32 = 5;
+pub const SCARD_CLASS_SYSTEM: u32 = 32767;
+pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7;
+pub const SCARD_CLASS_VENDOR_INFO: u32 = 1;
+pub const SCARD_COLD_RESET: u32 = 1;
 pub const SCARD_DEFAULT_READERS: windows_core::PCWSTR = windows_core::w!("SCard$DefaultReaders\u{0}00");
-pub const SCARD_EJECT_CARD: u32 = 3u32;
+pub const SCARD_EJECT_CARD: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
 }
-pub const SCARD_LEAVE_CARD: u32 = 0u32;
+pub const SCARD_LEAVE_CARD: u32 = 0;
 pub const SCARD_LOCAL_READERS: windows_core::PCWSTR = windows_core::w!("SCard$LocalReaders\u{0}00");
-pub const SCARD_NEGOTIABLE: u32 = 5u32;
-pub const SCARD_POWERED: u32 = 4u32;
-pub const SCARD_POWER_DOWN: u32 = 0u32;
-pub const SCARD_PRESENT: u32 = 2u32;
-pub const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648u32;
-pub const SCARD_PROTOCOL_OPTIMAL: u32 = 0u32;
-pub const SCARD_PROTOCOL_RAW: u32 = 65536u32;
-pub const SCARD_PROTOCOL_T0: u32 = 1u32;
-pub const SCARD_PROTOCOL_T1: u32 = 2u32;
-pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0u32;
-pub const SCARD_PROVIDER_CSP: u32 = 2u32;
-pub const SCARD_PROVIDER_KSP: u32 = 3u32;
-pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
+pub const SCARD_NEGOTIABLE: u32 = 5;
+pub const SCARD_POWERED: u32 = 4;
+pub const SCARD_POWER_DOWN: u32 = 0;
+pub const SCARD_PRESENT: u32 = 2;
+pub const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648;
+pub const SCARD_PROTOCOL_OPTIMAL: u32 = 0;
+pub const SCARD_PROTOCOL_RAW: u32 = 65536;
+pub const SCARD_PROTOCOL_T0: u32 = 1;
+pub const SCARD_PROTOCOL_T1: u32 = 2;
+pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0;
+pub const SCARD_PROVIDER_CSP: u32 = 2;
+pub const SCARD_PROVIDER_KSP: u32 = 3;
+pub const SCARD_PROVIDER_PRIMARY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCARD_READERSTATEA {
@@ -1747,52 +1747,52 @@ impl Default for SCARD_READERSTATEW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCARD_READER_CONFISCATES: u32 = 4u32;
-pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
-pub const SCARD_READER_EJECTS: u32 = 2u32;
-pub const SCARD_READER_SWALLOWS: u32 = 1u32;
-pub const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048u32;
-pub const SCARD_READER_TYPE_IDE: u32 = 16u32;
-pub const SCARD_READER_TYPE_KEYBOARD: u32 = 4u32;
-pub const SCARD_READER_TYPE_NFC: u32 = 256u32;
-pub const SCARD_READER_TYPE_NGC: u32 = 1024u32;
-pub const SCARD_READER_TYPE_PARALELL: u32 = 2u32;
-pub const SCARD_READER_TYPE_PCMCIA: u32 = 64u32;
-pub const SCARD_READER_TYPE_SCSI: u32 = 8u32;
-pub const SCARD_READER_TYPE_SERIAL: u32 = 1u32;
-pub const SCARD_READER_TYPE_TPM: u32 = 128u32;
-pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
-pub const SCARD_READER_TYPE_USB: u32 = 32u32;
-pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
-pub const SCARD_RESET_CARD: u32 = 1u32;
+pub const SCARD_READER_CONFISCATES: u32 = 4;
+pub const SCARD_READER_CONTACTLESS: u32 = 8;
+pub const SCARD_READER_EJECTS: u32 = 2;
+pub const SCARD_READER_SWALLOWS: u32 = 1;
+pub const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048;
+pub const SCARD_READER_TYPE_IDE: u32 = 16;
+pub const SCARD_READER_TYPE_KEYBOARD: u32 = 4;
+pub const SCARD_READER_TYPE_NFC: u32 = 256;
+pub const SCARD_READER_TYPE_NGC: u32 = 1024;
+pub const SCARD_READER_TYPE_PARALELL: u32 = 2;
+pub const SCARD_READER_TYPE_PCMCIA: u32 = 64;
+pub const SCARD_READER_TYPE_SCSI: u32 = 8;
+pub const SCARD_READER_TYPE_SERIAL: u32 = 1;
+pub const SCARD_READER_TYPE_TPM: u32 = 128;
+pub const SCARD_READER_TYPE_UICC: u32 = 512;
+pub const SCARD_READER_TYPE_USB: u32 = 32;
+pub const SCARD_READER_TYPE_VENDOR: u32 = 240;
+pub const SCARD_RESET_CARD: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_SCOPE(pub u32);
-pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = SCARD_SCOPE(2u32);
-pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
-pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
-pub const SCARD_SHARE_DIRECT: u32 = 3u32;
-pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
-pub const SCARD_SHARE_SHARED: u32 = 2u32;
-pub const SCARD_SPECIFIC: u32 = 6u32;
+pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = SCARD_SCOPE(2);
+pub const SCARD_SCOPE_TERMINAL: u32 = 1;
+pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0);
+pub const SCARD_SHARE_DIRECT: u32 = 3;
+pub const SCARD_SHARE_EXCLUSIVE: u32 = 1;
+pub const SCARD_SHARE_SHARED: u32 = 2;
+pub const SCARD_SPECIFIC: u32 = 6;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_STATE(pub u32);
-pub const SCARD_STATE_ATRMATCH: SCARD_STATE = SCARD_STATE(64u32);
-pub const SCARD_STATE_CHANGED: SCARD_STATE = SCARD_STATE(2u32);
-pub const SCARD_STATE_EMPTY: SCARD_STATE = SCARD_STATE(16u32);
-pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = SCARD_STATE(128u32);
-pub const SCARD_STATE_IGNORE: SCARD_STATE = SCARD_STATE(1u32);
-pub const SCARD_STATE_INUSE: SCARD_STATE = SCARD_STATE(256u32);
-pub const SCARD_STATE_MUTE: SCARD_STATE = SCARD_STATE(512u32);
-pub const SCARD_STATE_PRESENT: SCARD_STATE = SCARD_STATE(32u32);
-pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = SCARD_STATE(8u32);
-pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0u32);
-pub const SCARD_STATE_UNKNOWN: SCARD_STATE = SCARD_STATE(4u32);
-pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
-pub const SCARD_SWALLOWED: u32 = 3u32;
+pub const SCARD_STATE_ATRMATCH: SCARD_STATE = SCARD_STATE(64);
+pub const SCARD_STATE_CHANGED: SCARD_STATE = SCARD_STATE(2);
+pub const SCARD_STATE_EMPTY: SCARD_STATE = SCARD_STATE(16);
+pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = SCARD_STATE(128);
+pub const SCARD_STATE_IGNORE: SCARD_STATE = SCARD_STATE(1);
+pub const SCARD_STATE_INUSE: SCARD_STATE = SCARD_STATE(256);
+pub const SCARD_STATE_MUTE: SCARD_STATE = SCARD_STATE(512);
+pub const SCARD_STATE_PRESENT: SCARD_STATE = SCARD_STATE(32);
+pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = SCARD_STATE(8);
+pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0);
+pub const SCARD_STATE_UNKNOWN: SCARD_STATE = SCARD_STATE(4);
+pub const SCARD_STATE_UNPOWERED: u32 = 1024;
+pub const SCARD_SWALLOWED: u32 = 3;
 pub const SCARD_SYSTEM_READERS: windows_core::PCWSTR = windows_core::w!("SCard$SystemReaders\u{0}00");
-pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
+pub const SCARD_T0_CMD_LENGTH: u32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCARD_T0_COMMAND {
@@ -1802,7 +1802,7 @@ pub struct SCARD_T0_COMMAND {
     pub bP2: u8,
     pub bP3: u8,
 }
-pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
+pub const SCARD_T0_HEADER_LENGTH: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCARD_T0_REQUEST {
@@ -1827,25 +1827,25 @@ impl Default for SCARD_T0_REQUEST_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
-pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
-pub const SCARD_T1_MAX_IFS: u32 = 254u32;
-pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
+pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2;
+pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1;
+pub const SCARD_T1_MAX_IFS: u32 = 254;
+pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }
-pub const SCARD_UNKNOWN: u32 = 0u32;
-pub const SCARD_UNPOWER_CARD: u32 = 2u32;
-pub const SCARD_WARM_RESET: u32 = 2u32;
-pub const SCERR_NOCARDNAME: u32 = 16384u32;
-pub const SCERR_NOGUIDS: u32 = 32768u32;
-pub const SC_DLG_FORCE_UI: u32 = 4u32;
-pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
-pub const SC_DLG_NO_UI: u32 = 2u32;
-pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
-pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
+pub const SCARD_UNKNOWN: u32 = 0;
+pub const SCARD_UNPOWER_CARD: u32 = 2;
+pub const SCARD_WARM_RESET: u32 = 2;
+pub const SCERR_NOCARDNAME: u32 = 16384;
+pub const SCERR_NOGUIDS: u32 = 32768;
+pub const SC_DLG_FORCE_UI: u32 = 4;
+pub const SC_DLG_MINIMAL_UI: u32 = 1;
+pub const SC_DLG_NO_UI: u32 = 2;
+pub const SECPKG_ALT_ATTR: u32 = 2147483648;
+pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781;
 pub const STATUS_ACCOUNT_DISABLED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000072_u32 as _);
 pub const STATUS_ACCOUNT_EXPIRED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000193_u32 as _);
 pub const STATUS_ACCOUNT_LOCKED_OUT: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000234_u32 as _);
@@ -1883,6 +1883,6 @@ pub const TS_SSP_NAME_A: windows_core::PCSTR = windows_core::s!("TSSSP");
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_core::PWSTR,
 }
-pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i32);
-pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
+pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4);
+pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2);
 pub const szOID_TS_KP_TS_SERVER_AUTH: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.54.1.2");

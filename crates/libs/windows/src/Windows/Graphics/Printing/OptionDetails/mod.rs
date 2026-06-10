@@ -2149,9 +2149,9 @@ unsafe impl Sync for PrintMediaTypeOptionDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
-    pub const None: Self = Self(0u32);
-    pub const Enabled: Self = Self(1u32);
-    pub const Constrained: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Enabled: Self = Self(1);
+    pub const Constrained: Self = Self(2);
 }
 impl windows_core::TypeKind for PrintOptionStates {
     type TypeKind = windows_core::CopyType;
@@ -2197,11 +2197,11 @@ impl core::ops::Not for PrintOptionStates {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Number: Self = Self(1i32);
-    pub const Text: Self = Self(2i32);
-    pub const ItemList: Self = Self(3i32);
-    pub const Toggle: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Number: Self = Self(1);
+    pub const Text: Self = Self(2);
+    pub const ItemList: Self = Self(3);
+    pub const Toggle: Self = Self(4);
 }
 impl windows_core::TypeKind for PrintOptionType {
     type TypeKind = windows_core::CopyType;

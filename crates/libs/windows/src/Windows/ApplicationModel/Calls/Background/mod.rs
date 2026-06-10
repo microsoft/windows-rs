@@ -81,9 +81,9 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
-    pub const InCallBlockingList: Self = Self(0i32);
-    pub const PrivateNumber: Self = Self(1i32);
-    pub const UnknownNumber: Self = Self(2i32);
+    pub const InCallBlockingList: Self = Self(0);
+    pub const PrivateNumber: Self = Self(1);
+    pub const UnknownNumber: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneCallBlockedReason {
     type TypeKind = windows_core::CopyType;
@@ -162,10 +162,10 @@ unsafe impl Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const CallRejected: Self = Self(1i32);
-    pub const TextReply: Self = Self(2i32);
-    pub const ConnectionLost: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const CallRejected: Self = Self(1);
+    pub const TextReply: Self = Self(2);
+    pub const ConnectionLost: Self = Self(3);
 }
 impl windows_core::TypeKind for PhoneIncomingCallDismissedReason {
     type TypeKind = windows_core::CopyType;
@@ -262,9 +262,9 @@ unsafe impl Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
-    pub const Added: Self = Self(0i32);
-    pub const Removed: Self = Self(1i32);
-    pub const PropertiesChanged: Self = Self(2i32);
+    pub const Added: Self = Self(0);
+    pub const Removed: Self = Self(1);
+    pub const PropertiesChanged: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneLineChangeKind {
     type TypeKind = windows_core::CopyType;
@@ -313,16 +313,16 @@ unsafe impl Sync for PhoneLineChangedTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
-    pub const None: Self = Self(0u32);
-    pub const BrandingOptions: Self = Self(1u32);
-    pub const CanDial: Self = Self(2u32);
-    pub const CellularDetails: Self = Self(4u32);
-    pub const DisplayColor: Self = Self(8u32);
-    pub const DisplayName: Self = Self(16u32);
-    pub const NetworkName: Self = Self(32u32);
-    pub const NetworkState: Self = Self(64u32);
-    pub const Transport: Self = Self(128u32);
-    pub const Voicemail: Self = Self(256u32);
+    pub const None: Self = Self(0);
+    pub const BrandingOptions: Self = Self(1);
+    pub const CanDial: Self = Self(2);
+    pub const CellularDetails: Self = Self(4);
+    pub const DisplayColor: Self = Self(8);
+    pub const DisplayName: Self = Self(16);
+    pub const NetworkName: Self = Self(32);
+    pub const NetworkState: Self = Self(64);
+    pub const Transport: Self = Self(128);
+    pub const Voicemail: Self = Self(256);
 }
 impl windows_core::TypeKind for PhoneLineProperties {
     type TypeKind = windows_core::CopyType;
@@ -404,14 +404,14 @@ unsafe impl Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {
-    pub const NewVoicemailMessage: Self = Self(0i32);
-    pub const CallHistoryChanged: Self = Self(1i32);
-    pub const LineChanged: Self = Self(2i32);
-    pub const AirplaneModeDisabledForEmergencyCall: Self = Self(3i32);
-    pub const CallOriginDataRequest: Self = Self(4i32);
-    pub const CallBlocked: Self = Self(5i32);
-    pub const IncomingCallDismissed: Self = Self(6i32);
-    pub const IncomingCallNotification: Self = Self(7i32);
+    pub const NewVoicemailMessage: Self = Self(0);
+    pub const CallHistoryChanged: Self = Self(1);
+    pub const LineChanged: Self = Self(2);
+    pub const AirplaneModeDisabledForEmergencyCall: Self = Self(3);
+    pub const CallOriginDataRequest: Self = Self(4);
+    pub const CallBlocked: Self = Self(5);
+    pub const IncomingCallDismissed: Self = Self(6);
+    pub const IncomingCallNotification: Self = Self(7);
 }
 impl windows_core::TypeKind for PhoneTriggerType {
     type TypeKind = windows_core::CopyType;

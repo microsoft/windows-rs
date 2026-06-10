@@ -848,8 +848,8 @@ unsafe impl Sync for UserActivitySessionHistoryItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
-    pub const New: Self = Self(0i32);
-    pub const Published: Self = Self(1i32);
+    pub const New: Self = Self(0);
+    pub const Published: Self = Self(1);
 }
 impl windows_core::TypeKind for UserActivityState {
     type TypeKind = windows_core::CopyType;

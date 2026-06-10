@@ -5,9 +5,9 @@ windows_core::link!("user32.dll" "system" fn PeekMessageA(lpmsg : *mut MSG, hwnd
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("user32.dll" "system" fn RegisterClassA(lpwndclass : *const WNDCLASSA) -> u16);
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
-pub const CS_HREDRAW: WNDCLASS_STYLES = 2u32;
-pub const CS_VREDRAW: WNDCLASS_STYLES = 1u32;
-pub const CW_USEDEFAULT: i32 = -2147483648i32;
+pub const CS_HREDRAW: WNDCLASS_STYLES = 2;
+pub const CS_VREDRAW: WNDCLASS_STYLES = 1;
+pub const CW_USEDEFAULT: i32 = -2147483648;
 pub type HBRUSH = *mut core::ffi::c_void;
 pub type HCURSOR = *mut core::ffi::c_void;
 pub type HICON = *mut core::ffi::c_void;
@@ -27,7 +27,7 @@ pub struct MSG {
     pub pt: POINT,
 }
 pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
-pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = 1u32;
+pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINT {
@@ -36,8 +36,8 @@ pub struct POINT {
 }
 pub type WINDOW_EX_STYLE = u32;
 pub type WINDOW_STYLE = u32;
-pub const WM_DESTROY: u32 = 2u32;
-pub const WM_QUIT: u32 = 18u32;
+pub const WM_DESTROY: u32 = 2;
+pub const WM_QUIT: u32 = 18;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WNDCLASSA {
@@ -57,5 +57,5 @@ pub type WNDPROC = Option<
     unsafe extern "system" fn(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> LRESULT,
 >;
 pub type WPARAM = usize;
-pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = 13565952u32;
-pub const WS_VISIBLE: WINDOW_STYLE = 268435456u32;
+pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = 13565952;
+pub const WS_VISIBLE: WINDOW_STYLE = 268435456;

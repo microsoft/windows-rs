@@ -43,9 +43,9 @@ pub struct IWalletManagerSystemStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
-    pub const None: Self = Self(0i32);
-    pub const AppInstalled: Self = Self(1i32);
-    pub const AppNotInstalled: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const AppInstalled: Self = Self(1);
+    pub const AppNotInstalled: Self = Self(2);
 }
 impl windows_core::TypeKind for WalletItemAppAssociation {
     type TypeKind = windows_core::CopyType;

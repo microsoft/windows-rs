@@ -57,10 +57,10 @@ unsafe impl Sync for ActivitySensorTrigger {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const AllowedWithWakeupCapability: Self = Self(1i32);
-    pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
-    pub const Denied: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const AllowedWithWakeupCapability: Self = Self(1);
+    pub const AllowedWithoutWakeupCapability: Self = Self(2);
+    pub const Denied: Self = Self(3);
 }
 impl windows_core::TypeKind for AlarmAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -275,10 +275,10 @@ unsafe impl Sync for ApplicationTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const CurrentlyRunning: Self = Self(1i32);
-    pub const DisabledByPolicy: Self = Self(2i32);
-    pub const UnknownError: Self = Self(3i32);
+    pub const Allowed: Self = Self(0);
+    pub const CurrentlyRunning: Self = Self(1);
+    pub const DisabledByPolicy: Self = Self(2);
+    pub const UnknownError: Self = Self(3);
 }
 impl windows_core::TypeKind for ApplicationTriggerResult {
     type TypeKind = windows_core::CopyType;
@@ -317,8 +317,8 @@ unsafe impl Sync for AppointmentStoreNotificationTrigger {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
-    pub const AlwaysAllowed: Self = Self(0i32);
-    pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
+    pub const AlwaysAllowed: Self = Self(0);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(1);
 }
 impl windows_core::TypeKind for BackgroundAccessRequestKind {
     type TypeKind = windows_core::CopyType;
@@ -331,14 +331,14 @@ impl windows_core::RuntimeType for BackgroundAccessRequestKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const AllowedWithAlwaysOnRealTimeConnectivity: Self = Self(1i32);
-    pub const AllowedMayUseActiveRealTimeConnectivity: Self = Self(2i32);
-    pub const Denied: Self = Self(3i32);
-    pub const AlwaysAllowed: Self = Self(4i32);
-    pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
-    pub const DeniedBySystemPolicy: Self = Self(6i32);
-    pub const DeniedByUser: Self = Self(7i32);
+    pub const Unspecified: Self = Self(0);
+    pub const AllowedWithAlwaysOnRealTimeConnectivity: Self = Self(1);
+    pub const AllowedMayUseActiveRealTimeConnectivity: Self = Self(2);
+    pub const Denied: Self = Self(3);
+    pub const AlwaysAllowed: Self = Self(4);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(5);
+    pub const DeniedBySystemPolicy: Self = Self(6);
+    pub const DeniedByUser: Self = Self(7);
 }
 impl windows_core::TypeKind for BackgroundAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -596,18 +596,18 @@ impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellatio
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
-    pub const Abort: Self = Self(0i32);
-    pub const Terminating: Self = Self(1i32);
-    pub const LoggingOff: Self = Self(2i32);
-    pub const ServicingUpdate: Self = Self(3i32);
-    pub const IdleTask: Self = Self(4i32);
-    pub const Uninstall: Self = Self(5i32);
-    pub const ConditionLoss: Self = Self(6i32);
-    pub const SystemPolicy: Self = Self(7i32);
-    pub const QuietHoursEntered: Self = Self(8i32);
-    pub const ExecutionTimeExceeded: Self = Self(9i32);
-    pub const ResourceRevocation: Self = Self(10i32);
-    pub const EnergySaver: Self = Self(11i32);
+    pub const Abort: Self = Self(0);
+    pub const Terminating: Self = Self(1);
+    pub const LoggingOff: Self = Self(2);
+    pub const ServicingUpdate: Self = Self(3);
+    pub const IdleTask: Self = Self(4);
+    pub const Uninstall: Self = Self(5);
+    pub const ConditionLoss: Self = Self(6);
+    pub const SystemPolicy: Self = Self(7);
+    pub const QuietHoursEntered: Self = Self(8);
+    pub const ExecutionTimeExceeded: Self = Self(9);
+    pub const ResourceRevocation: Self = Self(10);
+    pub const EnergySaver: Self = Self(11);
 }
 impl windows_core::TypeKind for BackgroundTaskCancellationReason {
     type TypeKind = windows_core::CopyType;
@@ -955,9 +955,9 @@ unsafe impl Sync for BackgroundTaskRegistrationGroup {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
-    pub const All: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const Network: Self = Self(2i32);
+    pub const All: Self = Self(0);
+    pub const Cpu: Self = Self(1);
+    pub const Network: Self = Self(2);
 }
 impl windows_core::TypeKind for BackgroundTaskThrottleCounter {
     type TypeKind = windows_core::CopyType;
@@ -1008,9 +1008,9 @@ impl windows_core::RuntimeName for BackgroundWorkCost {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
-    pub const Low: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const High: Self = Self(2i32);
+    pub const Low: Self = Self(0);
+    pub const Medium: Self = Self(1);
+    pub const High: Self = Self(2);
 }
 impl windows_core::TypeKind for BackgroundWorkCostValue {
     type TypeKind = windows_core::CopyType;
@@ -1524,8 +1524,8 @@ impl windows_core::RuntimeName for CustomSystemEventTrigger {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
-    pub const Once: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
+    pub const Once: Self = Self(0);
+    pub const Always: Self = Self(1);
 }
 impl windows_core::TypeKind for CustomSystemEventTriggerRecurrence {
     type TypeKind = windows_core::CopyType;
@@ -1665,10 +1665,10 @@ unsafe impl Sync for DeviceServicingTrigger {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const DeniedByUser: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const LowBattery: Self = Self(3i32);
+    pub const Allowed: Self = Self(0);
+    pub const DeniedByUser: Self = Self(1);
+    pub const DeniedBySystem: Self = Self(2);
+    pub const LowBattery: Self = Self(3);
 }
 impl windows_core::TypeKind for DeviceTriggerResult {
     type TypeKind = windows_core::CopyType;
@@ -1760,10 +1760,10 @@ unsafe impl Sync for EmailStoreNotificationTrigger {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnergyUseLevel(pub i32);
 impl EnergyUseLevel {
-    pub const Unknown: Self = Self(0i32);
-    pub const UnderHalfOfBudget: Self = Self(1i32);
-    pub const OverHalfOfBudget: Self = Self(2i32);
-    pub const OverBudget: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const UnderHalfOfBudget: Self = Self(1);
+    pub const OverHalfOfBudget: Self = Self(2);
+    pub const OverBudget: Self = Self(3);
 }
 impl windows_core::TypeKind for EnergyUseLevel {
     type TypeKind = windows_core::CopyType;
@@ -4098,7 +4098,7 @@ unsafe impl Sync for LocationTrigger {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
-    pub const Geofence: Self = Self(0i32);
+    pub const Geofence: Self = Self(0);
 }
 impl windows_core::TypeKind for LocationTriggerType {
     type TypeKind = windows_core::CopyType;
@@ -4190,10 +4190,10 @@ impl windows_core::RuntimeName for MediaProcessingTrigger {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const CurrentlyRunning: Self = Self(1i32);
-    pub const DisabledByPolicy: Self = Self(2i32);
-    pub const UnknownError: Self = Self(3i32);
+    pub const Allowed: Self = Self(0);
+    pub const CurrentlyRunning: Self = Self(1);
+    pub const DisabledByPolicy: Self = Self(2);
+    pub const UnknownError: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaProcessingTriggerResult {
     type TypeKind = windows_core::CopyType;
@@ -4878,15 +4878,15 @@ impl windows_core::RuntimeName for SystemCondition {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
-    pub const Invalid: Self = Self(0i32);
-    pub const UserPresent: Self = Self(1i32);
-    pub const UserNotPresent: Self = Self(2i32);
-    pub const InternetAvailable: Self = Self(3i32);
-    pub const InternetNotAvailable: Self = Self(4i32);
-    pub const SessionConnected: Self = Self(5i32);
-    pub const SessionDisconnected: Self = Self(6i32);
-    pub const FreeNetworkAvailable: Self = Self(7i32);
-    pub const BackgroundWorkCostNotHigh: Self = Self(8i32);
+    pub const Invalid: Self = Self(0);
+    pub const UserPresent: Self = Self(1);
+    pub const UserNotPresent: Self = Self(2);
+    pub const InternetAvailable: Self = Self(3);
+    pub const InternetNotAvailable: Self = Self(4);
+    pub const SessionConnected: Self = Self(5);
+    pub const SessionDisconnected: Self = Self(6);
+    pub const FreeNetworkAvailable: Self = Self(7);
+    pub const BackgroundWorkCostNotHigh: Self = Self(8);
 }
 impl windows_core::TypeKind for SystemConditionType {
     type TypeKind = windows_core::CopyType;
@@ -4938,22 +4938,22 @@ impl windows_core::RuntimeName for SystemTrigger {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
-    pub const Invalid: Self = Self(0i32);
-    pub const SmsReceived: Self = Self(1i32);
-    pub const UserPresent: Self = Self(2i32);
-    pub const UserAway: Self = Self(3i32);
-    pub const NetworkStateChange: Self = Self(4i32);
-    pub const ControlChannelReset: Self = Self(5i32);
-    pub const InternetAvailable: Self = Self(6i32);
-    pub const SessionConnected: Self = Self(7i32);
-    pub const ServicingComplete: Self = Self(8i32);
-    pub const LockScreenApplicationAdded: Self = Self(9i32);
-    pub const LockScreenApplicationRemoved: Self = Self(10i32);
-    pub const TimeZoneChange: Self = Self(11i32);
-    pub const OnlineIdConnectedStateChange: Self = Self(12i32);
-    pub const BackgroundWorkCostChange: Self = Self(13i32);
-    pub const PowerStateChange: Self = Self(14i32);
-    pub const DefaultSignInAccountChange: Self = Self(15i32);
+    pub const Invalid: Self = Self(0);
+    pub const SmsReceived: Self = Self(1);
+    pub const UserPresent: Self = Self(2);
+    pub const UserAway: Self = Self(3);
+    pub const NetworkStateChange: Self = Self(4);
+    pub const ControlChannelReset: Self = Self(5);
+    pub const InternetAvailable: Self = Self(6);
+    pub const SessionConnected: Self = Self(7);
+    pub const ServicingComplete: Self = Self(8);
+    pub const LockScreenApplicationAdded: Self = Self(9);
+    pub const LockScreenApplicationRemoved: Self = Self(10);
+    pub const TimeZoneChange: Self = Self(11);
+    pub const OnlineIdConnectedStateChange: Self = Self(12);
+    pub const BackgroundWorkCostChange: Self = Self(13);
+    pub const PowerStateChange: Self = Self(14);
+    pub const DefaultSignInAccountChange: Self = Self(15);
 }
 impl windows_core::TypeKind for SystemTriggerType {
     type TypeKind = windows_core::CopyType;

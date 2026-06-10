@@ -48,9 +48,9 @@ pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
-    pub const Success: Self = Self(0i32);
-    pub const FreeNetworkNotAvailable: Self = Self(1i32);
-    pub const ACPowerNotAvailable: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const FreeNetworkNotAvailable: Self = Self(1);
+    pub const ACPowerNotAvailable: Self = Self(2);
 }
 impl windows_core::TypeKind for PlatformDiagnosticActionState {
     type TypeKind = windows_core::CopyType;
@@ -124,8 +124,8 @@ impl windows_core::RuntimeName for PlatformDiagnosticActions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
 impl PlatformDiagnosticEscalationType {
-    pub const OnCompletion: Self = Self(0i32);
-    pub const OnFailure: Self = Self(1i32);
+    pub const OnCompletion: Self = Self(0);
+    pub const OnFailure: Self = Self(1);
 }
 impl windows_core::TypeKind for PlatformDiagnosticEscalationType {
     type TypeKind = windows_core::CopyType;
@@ -138,9 +138,9 @@ impl windows_core::RuntimeType for PlatformDiagnosticEscalationType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
 impl PlatformDiagnosticEventBufferLatencies {
-    pub const Normal: Self = Self(1u32);
-    pub const CostDeferred: Self = Self(2u32);
-    pub const Realtime: Self = Self(4u32);
+    pub const Normal: Self = Self(1);
+    pub const CostDeferred: Self = Self(2);
+    pub const Realtime: Self = Self(4);
 }
 impl windows_core::TypeKind for PlatformDiagnosticEventBufferLatencies {
     type TypeKind = windows_core::CopyType;
@@ -240,8 +240,8 @@ unsafe impl Sync for PlatformDiagnosticTraceInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
-    pub const Normal: Self = Self(0i32);
-    pub const UserElevated: Self = Self(1i32);
+    pub const Normal: Self = Self(0);
+    pub const UserElevated: Self = Self(1);
 }
 impl windows_core::TypeKind for PlatformDiagnosticTracePriority {
     type TypeKind = windows_core::CopyType;
@@ -284,9 +284,9 @@ unsafe impl Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {
-    pub const NotRunning: Self = Self(0i32);
-    pub const Running: Self = Self(1i32);
-    pub const Throttled: Self = Self(2i32);
+    pub const NotRunning: Self = Self(0);
+    pub const Running: Self = Self(1);
+    pub const Throttled: Self = Self(2);
 }
 impl windows_core::TypeKind for PlatformDiagnosticTraceSlotState {
     type TypeKind = windows_core::CopyType;
@@ -299,9 +299,9 @@ impl windows_core::RuntimeType for PlatformDiagnosticTraceSlotState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);
 impl PlatformDiagnosticTraceSlotType {
-    pub const Alternative: Self = Self(0i32);
-    pub const AlwaysOn: Self = Self(1i32);
-    pub const Mini: Self = Self(2i32);
+    pub const Alternative: Self = Self(0);
+    pub const AlwaysOn: Self = Self(1);
+    pub const Mini: Self = Self(2);
 }
 impl windows_core::TypeKind for PlatformDiagnosticTraceSlotType {
     type TypeKind = windows_core::CopyType;

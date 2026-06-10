@@ -341,9 +341,9 @@ unsafe impl Sync for ResourceCandidate {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
-    pub const String: Self = Self(0i32);
-    pub const File: Self = Self(1i32);
-    pub const EmbeddedData: Self = Self(2i32);
+    pub const String: Self = Self(0);
+    pub const File: Self = Self(1);
+    pub const EmbeddedData: Self = Self(2);
 }
 impl windows_core::TypeKind for ResourceCandidateKind {
     type TypeKind = windows_core::CopyType;
@@ -1150,8 +1150,8 @@ impl IntoIterator for &ResourceQualifierObservableMap {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
-    pub const None: Self = Self(0i32);
-    pub const LocalMachine: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const LocalMachine: Self = Self(1);
 }
 impl windows_core::TypeKind for ResourceQualifierPersistence {
     type TypeKind = windows_core::CopyType;

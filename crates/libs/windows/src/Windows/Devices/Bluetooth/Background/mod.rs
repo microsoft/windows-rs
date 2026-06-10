@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothEventTriggeringMode(pub i32);
 impl BluetoothEventTriggeringMode {
-    pub const Serial: Self = Self(0i32);
-    pub const Batch: Self = Self(1i32);
-    pub const KeepLatest: Self = Self(2i32);
+    pub const Serial: Self = Self(0);
+    pub const Batch: Self = Self(1);
+    pub const KeepLatest: Self = Self(2);
 }
 impl windows_core::TypeKind for BluetoothEventTriggeringMode {
     type TypeKind = windows_core::CopyType;

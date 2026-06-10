@@ -851,8 +851,8 @@ impl IMarshalingStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMarshalingStream {}
-pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
-pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
+pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2);
+pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STDMSHLFLAGS(pub i32);

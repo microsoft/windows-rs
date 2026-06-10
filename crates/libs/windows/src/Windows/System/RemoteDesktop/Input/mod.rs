@@ -50,11 +50,11 @@ pub struct IRemoteTextConnectionFactory2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteKeyEventAttributes(pub u32);
 impl RemoteKeyEventAttributes {
-    pub const None: Self = Self(0u32);
-    pub const KeyUp: Self = Self(1u32);
-    pub const Repeat: Self = Self(2u32);
-    pub const Extended: Self = Self(4u32);
-    pub const Extended1: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const KeyUp: Self = Self(1);
+    pub const Repeat: Self = Self(2);
+    pub const Extended: Self = Self(4);
+    pub const Extended1: Self = Self(8);
 }
 impl windows_core::TypeKind for RemoteKeyEventAttributes {
     type TypeKind = windows_core::CopyType;
@@ -216,8 +216,8 @@ impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConn
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteTextConnectionOptions(pub u32);
 impl RemoteTextConnectionOptions {
-    pub const None: Self = Self(0u32);
-    pub const EnablePredictedKeyReporting: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const EnablePredictedKeyReporting: Self = Self(1);
 }
 impl windows_core::TypeKind for RemoteTextConnectionOptions {
     type TypeKind = windows_core::CopyType;

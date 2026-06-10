@@ -321,9 +321,9 @@ unsafe impl Sync for AppWindowClosedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
-    pub const Other: Self = Self(0i32);
-    pub const AppInitiated: Self = Self(1i32);
-    pub const UserInitiated: Self = Self(2i32);
+    pub const Other: Self = Self(0);
+    pub const AppInitiated: Self = Self(1);
+    pub const UserInitiated: Self = Self(2);
 }
 impl windows_core::TypeKind for AppWindowClosedReason {
     type TypeKind = windows_core::CopyType;
@@ -372,8 +372,8 @@ unsafe impl Sync for AppWindowFrame {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
-    pub const Default: Self = Self(0i32);
-    pub const NoFrame: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const NoFrame: Self = Self(1);
 }
 impl windows_core::TypeKind for AppWindowFrameStyle {
     type TypeKind = windows_core::CopyType;
@@ -446,9 +446,9 @@ unsafe impl Sync for AppWindowPresentationConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
-    pub const Default: Self = Self(0i32);
-    pub const CompactOverlay: Self = Self(1i32);
-    pub const FullScreen: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const CompactOverlay: Self = Self(1);
+    pub const FullScreen: Self = Self(2);
 }
 impl windows_core::TypeKind for AppWindowPresentationKind {
     type TypeKind = windows_core::CopyType;
@@ -700,8 +700,8 @@ unsafe impl Sync for AppWindowTitleBarOcclusion {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
-    pub const Default: Self = Self(0i32);
-    pub const AlwaysHidden: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const AlwaysHidden: Self = Self(1);
 }
 impl windows_core::TypeKind for AppWindowTitleBarVisibility {
     type TypeKind = windows_core::CopyType;
@@ -1353,9 +1353,9 @@ unsafe impl Sync for WindowingEnvironmentChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Overlapped: Self = Self(1i32);
-    pub const Tiled: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Overlapped: Self = Self(1);
+    pub const Tiled: Self = Self(2);
 }
 impl windows_core::TypeKind for WindowingEnvironmentKind {
     type TypeKind = windows_core::CopyType;

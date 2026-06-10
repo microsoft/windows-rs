@@ -491,12 +491,12 @@ unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Opened: Self = Self(1i32);
-    pub const Changing: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
-    pub const Playing: Self = Self(4i32);
-    pub const Paused: Self = Self(5i32);
+    pub const Closed: Self = Self(0);
+    pub const Opened: Self = Self(1);
+    pub const Changing: Self = Self(2);
+    pub const Stopped: Self = Self(3);
+    pub const Playing: Self = Self(4);
+    pub const Paused: Self = Self(5);
 }
 impl windows_core::TypeKind for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type TypeKind = windows_core::CopyType;

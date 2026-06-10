@@ -42,9 +42,9 @@ pub struct CAT_MEMBERINFO2 {
     pub dwCertVersion: u32,
 }
 pub const CAT_MEMBERINFO2_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.2.3");
-pub const CAT_MEMBERINFO2_STRUCT: windows_sys::core::PCSTR = 2223i32 as _;
+pub const CAT_MEMBERINFO2_STRUCT: windows_sys::core::PCSTR = 2223 as _;
 pub const CAT_MEMBERINFO_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.2.2");
-pub const CAT_MEMBERINFO_STRUCT: windows_sys::core::PCSTR = 2222i32 as _;
+pub const CAT_MEMBERINFO_STRUCT: windows_sys::core::PCSTR = 2222 as _;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -60,16 +60,16 @@ impl Default for CAT_NAMEVALUE {
     }
 }
 pub const CAT_NAMEVALUE_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.2.1");
-pub const CAT_NAMEVALUE_STRUCT: windows_sys::core::PCSTR = 2221i32 as _;
-pub const CCPI_RESULT_ALLOW: u32 = 1u32;
-pub const CCPI_RESULT_AUDIT: u32 = 3u32;
-pub const CCPI_RESULT_DENY: u32 = 2u32;
-pub const CERT_CONFIDENCE_AUTHIDEXT: u32 = 65536u32;
-pub const CERT_CONFIDENCE_HIGHEST: u32 = 286330880u32;
-pub const CERT_CONFIDENCE_HYGIENE: u32 = 4096u32;
-pub const CERT_CONFIDENCE_SIG: u32 = 268435456u32;
-pub const CERT_CONFIDENCE_TIME: u32 = 16777216u32;
-pub const CERT_CONFIDENCE_TIMENEST: u32 = 1048576u32;
+pub const CAT_NAMEVALUE_STRUCT: windows_sys::core::PCSTR = 2221 as _;
+pub const CCPI_RESULT_ALLOW: u32 = 1;
+pub const CCPI_RESULT_AUDIT: u32 = 3;
+pub const CCPI_RESULT_DENY: u32 = 2;
+pub const CERT_CONFIDENCE_AUTHIDEXT: u32 = 65536;
+pub const CERT_CONFIDENCE_HIGHEST: u32 = 286330880;
+pub const CERT_CONFIDENCE_HYGIENE: u32 = 4096;
+pub const CERT_CONFIDENCE_SIG: u32 = 268435456;
+pub const CERT_CONFIDENCE_TIME: u32 = 16777216;
+pub const CERT_CONFIDENCE_TIMENEST: u32 = 1048576;
 pub const CONFIG_CI_ACTION_VERIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6078065b_8f22_4b13_bd9b_5b762776f386);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -112,18 +112,18 @@ impl Default for CONFIG_CI_PROV_INFO_RESULT2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CPD_CHOICE_SIP: u32 = 1u32;
-pub const CPD_RETURN_LOWER_QUALITY_CHAINS: u32 = 1048576u32;
-pub const CPD_REVOCATION_CHECK_CHAIN: u32 = 262144u32;
-pub const CPD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 524288u32;
-pub const CPD_REVOCATION_CHECK_END_CERT: u32 = 131072u32;
-pub const CPD_REVOCATION_CHECK_NONE: u32 = 65536u32;
-pub const CPD_RFC3161v21: u32 = 2097152u32;
-pub const CPD_UISTATE_MODE_ALLOW: u32 = 2u32;
-pub const CPD_UISTATE_MODE_BLOCK: u32 = 1u32;
-pub const CPD_UISTATE_MODE_MASK: u32 = 3u32;
-pub const CPD_UISTATE_MODE_PROMPT: u32 = 0u32;
-pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648u32;
+pub const CPD_CHOICE_SIP: u32 = 1;
+pub const CPD_RETURN_LOWER_QUALITY_CHAINS: u32 = 1048576;
+pub const CPD_REVOCATION_CHECK_CHAIN: u32 = 262144;
+pub const CPD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 524288;
+pub const CPD_REVOCATION_CHECK_END_CERT: u32 = 131072;
+pub const CPD_REVOCATION_CHECK_NONE: u32 = 65536;
+pub const CPD_RFC3161v21: u32 = 2097152;
+pub const CPD_UISTATE_MODE_ALLOW: u32 = 2;
+pub const CPD_UISTATE_MODE_BLOCK: u32 = 1;
+pub const CPD_UISTATE_MODE_MASK: u32 = 3;
+pub const CPD_UISTATE_MODE_PROMPT: u32 = 0;
+pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -410,8 +410,8 @@ pub struct DRIVER_VER_MAJORMINOR {
     pub dwMajor: u32,
     pub dwMinor: u32,
 }
-pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 1u32;
-pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 2u32;
+pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 1;
+pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 2;
 pub const GENERIC_CHAIN_CERTTRUST_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("GenericChainCertificateTrust");
 pub const GENERIC_CHAIN_FINALPOLICY_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("GenericChainFinalProv");
 pub const HTTPSPROV_ACTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x573e31f8_aaba_11d0_8ccb_00c04fc295ee);
@@ -424,7 +424,7 @@ pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
     pub seal: bool,
 }
-pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2010i32 as _;
+pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2010 as _;
 pub const OFFICESIGN_ACTION_VERIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5555c2cd_17fb_11d1_85c4_00c04fc295ee);
 pub const OFFICE_CLEANUPPOLICY_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("OfficeCleanupPolicy");
 pub const OFFICE_INITPROV_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("OfficeInitializePolicy");
@@ -488,7 +488,7 @@ pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub signatureAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub encryptedDigest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2011i32 as _;
+pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2011 as _;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Default)]
@@ -497,15 +497,15 @@ pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub signerIndex: u32,
     pub sealTimeStampToken: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2012i32 as _;
-pub const SGNR_TYPE_TIMESTAMP: u32 = 16u32;
+pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2012 as _;
+pub const SGNR_TYPE_TIMESTAMP: u32 = 16;
 pub const SPC_CAB_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.25");
-pub const SPC_CAB_DATA_STRUCT: windows_sys::core::PCSTR = 2008i32 as _;
+pub const SPC_CAB_DATA_STRUCT: windows_sys::core::PCSTR = 2008 as _;
 pub const SPC_CERT_EXTENSIONS_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.14");
 pub const SPC_COMMERCIAL_SP_KEY_PURPOSE_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.22");
 pub const SPC_COMMON_NAME_OBJID: windows_sys::core::PCWSTR = windows_sys::core::w!("2.5.4.3");
 pub const SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.6.2");
-pub const SPC_FILE_LINK_CHOICE: u32 = 3u32;
+pub const SPC_FILE_LINK_CHOICE: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SPC_FINANCIAL_CRITERIA {
@@ -513,7 +513,7 @@ pub struct SPC_FINANCIAL_CRITERIA {
     pub fMeetsCriteria: windows_sys::core::BOOL,
 }
 pub const SPC_FINANCIAL_CRITERIA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.27");
-pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_sys::core::PCSTR = 2002i32 as _;
+pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_sys::core::PCSTR = 2002 as _;
 pub const SPC_GLUE_RDN_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.25");
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -539,11 +539,11 @@ pub struct SPC_INDIRECT_DATA_CONTENT {
     pub DigestAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: windows_sys::core::PCSTR = 2003i32 as _;
+pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: windows_sys::core::PCSTR = 2003 as _;
 pub const SPC_INDIRECT_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.4");
 pub const SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.21");
 pub const SPC_JAVA_CLASS_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.20");
-pub const SPC_JAVA_CLASS_DATA_STRUCT: windows_sys::core::PCSTR = 2009i32 as _;
+pub const SPC_JAVA_CLASS_DATA_STRUCT: windows_sys::core::PCSTR = 2009 as _;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -572,10 +572,10 @@ impl Default for SPC_LINK_0 {
     }
 }
 pub const SPC_LINK_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.28");
-pub const SPC_LINK_STRUCT: windows_sys::core::PCSTR = 2005i32 as _;
+pub const SPC_LINK_STRUCT: windows_sys::core::PCSTR = 2005 as _;
 pub const SPC_MINIMAL_CRITERIA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.26");
-pub const SPC_MINIMAL_CRITERIA_STRUCT: windows_sys::core::PCSTR = 2001i32 as _;
-pub const SPC_MONIKER_LINK_CHOICE: u32 = 2u32;
+pub const SPC_MINIMAL_CRITERIA_STRUCT: windows_sys::core::PCSTR = 2001 as _;
+pub const SPC_MONIKER_LINK_CHOICE: u32 = 2;
 pub const SPC_NATURAL_AUTH_PLUGIN_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.96.1.1");
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -591,7 +591,7 @@ impl Default for SPC_PE_IMAGE_DATA {
     }
 }
 pub const SPC_PE_IMAGE_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.15");
-pub const SPC_PE_IMAGE_DATA_STRUCT: windows_sys::core::PCSTR = 2004i32 as _;
+pub const SPC_PE_IMAGE_DATA_STRUCT: windows_sys::core::PCSTR = 2004 as _;
 pub const SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.3.1");
 pub const SPC_PE_IMAGE_PAGE_HASHES_V2_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.3.2");
 pub const SPC_RAW_FILE_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.18");
@@ -621,7 +621,7 @@ pub struct SPC_SIGINFO {
     pub dwReserved5: u32,
 }
 pub const SPC_SIGINFO_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.30");
-pub const SPC_SIGINFO_STRUCT: windows_sys::core::PCSTR = 2130i32 as _;
+pub const SPC_SIGINFO_STRUCT: windows_sys::core::PCSTR = 2130 as _;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -638,7 +638,7 @@ impl Default for SPC_SP_AGENCY_INFO {
     }
 }
 pub const SPC_SP_AGENCY_INFO_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.10");
-pub const SPC_SP_AGENCY_INFO_STRUCT: windows_sys::core::PCSTR = 2000i32 as _;
+pub const SPC_SP_AGENCY_INFO_STRUCT: windows_sys::core::PCSTR = 2000 as _;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -654,7 +654,7 @@ impl Default for SPC_SP_OPUS_INFO {
     }
 }
 pub const SPC_SP_OPUS_INFO_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.12");
-pub const SPC_SP_OPUS_INFO_STRUCT: windows_sys::core::PCSTR = 2007i32 as _;
+pub const SPC_SP_OPUS_INFO_STRUCT: windows_sys::core::PCSTR = 2007 as _;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SPC_STATEMENT_TYPE {
@@ -667,11 +667,11 @@ impl Default for SPC_STATEMENT_TYPE {
     }
 }
 pub const SPC_STATEMENT_TYPE_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.11");
-pub const SPC_STATEMENT_TYPE_STRUCT: windows_sys::core::PCSTR = 2006i32 as _;
+pub const SPC_STATEMENT_TYPE_STRUCT: windows_sys::core::PCSTR = 2006 as _;
 pub const SPC_STRUCTURED_STORAGE_DATA_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.1.19");
 pub const SPC_TIME_STAMP_REQUEST_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.3.2.1");
-pub const SPC_URL_LINK_CHOICE: u32 = 1u32;
-pub const SPC_UUID_LENGTH: u32 = 16u32;
+pub const SPC_URL_LINK_CHOICE: u32 = 1;
+pub const SPC_UUID_LENGTH: u32 = 16;
 pub const SPC_WINDOWS_HELLO_COMPATIBILITY_OBJID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.10.41.1");
 pub const SP_CHKCERT_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("SoftpubCheckCert");
 pub const SP_CLEANUPPOLICY_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("SoftpubCleanup");
@@ -682,33 +682,33 @@ pub const SP_OBJTRUST_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w
 pub const SP_POLICY_PROVIDER_DLL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("WINTRUST.DLL");
 pub const SP_SIGTRUST_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("SoftpubLoadSignature");
 pub const SP_TESTDUMPPOLICY_FUNCTION_TEST: windows_sys::core::PCWSTR = windows_sys::core::w!("SoftpubDumpStructure");
-pub const TRUSTERROR_MAX_STEPS: u32 = 38u32;
-pub const TRUSTERROR_STEP_CATALOGFILE: u32 = 6u32;
-pub const TRUSTERROR_STEP_CERTSTORE: u32 = 7u32;
-pub const TRUSTERROR_STEP_FILEIO: u32 = 2u32;
-pub const TRUSTERROR_STEP_FINAL_CERTCHKPROV: u32 = 35u32;
-pub const TRUSTERROR_STEP_FINAL_CERTPROV: u32 = 34u32;
-pub const TRUSTERROR_STEP_FINAL_INITPROV: u32 = 31u32;
-pub const TRUSTERROR_STEP_FINAL_OBJPROV: u32 = 32u32;
-pub const TRUSTERROR_STEP_FINAL_POLICYPROV: u32 = 36u32;
-pub const TRUSTERROR_STEP_FINAL_SIGPROV: u32 = 33u32;
-pub const TRUSTERROR_STEP_FINAL_UIPROV: u32 = 37u32;
-pub const TRUSTERROR_STEP_FINAL_WVTINIT: u32 = 30u32;
-pub const TRUSTERROR_STEP_MESSAGE: u32 = 8u32;
-pub const TRUSTERROR_STEP_MSG_CERTCHAIN: u32 = 15u32;
-pub const TRUSTERROR_STEP_MSG_COUNTERSIGCERT: u32 = 17u32;
-pub const TRUSTERROR_STEP_MSG_COUNTERSIGINFO: u32 = 16u32;
-pub const TRUSTERROR_STEP_MSG_INNERCNT: u32 = 11u32;
-pub const TRUSTERROR_STEP_MSG_INNERCNTTYPE: u32 = 10u32;
-pub const TRUSTERROR_STEP_MSG_SIGNERCERT: u32 = 14u32;
-pub const TRUSTERROR_STEP_MSG_SIGNERCOUNT: u32 = 9u32;
-pub const TRUSTERROR_STEP_MSG_SIGNERINFO: u32 = 13u32;
-pub const TRUSTERROR_STEP_MSG_STORE: u32 = 12u32;
-pub const TRUSTERROR_STEP_SIP: u32 = 3u32;
-pub const TRUSTERROR_STEP_SIPSUBJINFO: u32 = 5u32;
-pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18u32;
-pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
-pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
+pub const TRUSTERROR_MAX_STEPS: u32 = 38;
+pub const TRUSTERROR_STEP_CATALOGFILE: u32 = 6;
+pub const TRUSTERROR_STEP_CERTSTORE: u32 = 7;
+pub const TRUSTERROR_STEP_FILEIO: u32 = 2;
+pub const TRUSTERROR_STEP_FINAL_CERTCHKPROV: u32 = 35;
+pub const TRUSTERROR_STEP_FINAL_CERTPROV: u32 = 34;
+pub const TRUSTERROR_STEP_FINAL_INITPROV: u32 = 31;
+pub const TRUSTERROR_STEP_FINAL_OBJPROV: u32 = 32;
+pub const TRUSTERROR_STEP_FINAL_POLICYPROV: u32 = 36;
+pub const TRUSTERROR_STEP_FINAL_SIGPROV: u32 = 33;
+pub const TRUSTERROR_STEP_FINAL_UIPROV: u32 = 37;
+pub const TRUSTERROR_STEP_FINAL_WVTINIT: u32 = 30;
+pub const TRUSTERROR_STEP_MESSAGE: u32 = 8;
+pub const TRUSTERROR_STEP_MSG_CERTCHAIN: u32 = 15;
+pub const TRUSTERROR_STEP_MSG_COUNTERSIGCERT: u32 = 17;
+pub const TRUSTERROR_STEP_MSG_COUNTERSIGINFO: u32 = 16;
+pub const TRUSTERROR_STEP_MSG_INNERCNT: u32 = 11;
+pub const TRUSTERROR_STEP_MSG_INNERCNTTYPE: u32 = 10;
+pub const TRUSTERROR_STEP_MSG_SIGNERCERT: u32 = 14;
+pub const TRUSTERROR_STEP_MSG_SIGNERCOUNT: u32 = 9;
+pub const TRUSTERROR_STEP_MSG_SIGNERINFO: u32 = 13;
+pub const TRUSTERROR_STEP_MSG_STORE: u32 = 12;
+pub const TRUSTERROR_STEP_SIP: u32 = 3;
+pub const TRUSTERROR_STEP_SIPSUBJINFO: u32 = 5;
+pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18;
+pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19;
+pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0;
 pub const WINTRUST_ACTION_GENERIC_CERT_VERIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x189a3842_3041_11d1_85e1_00c04fc295ee);
 pub const WINTRUST_ACTION_GENERIC_CHAIN_VERIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc451c16_ac75_11d1_b4b8_00c04fb66ea0);
 pub const WINTRUST_ACTION_GENERIC_VERIFY_V2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00aac56b_cd44_11d0_8cc2_00c04fc295ee);
@@ -829,8 +829,8 @@ impl Default for WINTRUST_DETACHED_SIG_BLOBS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINTRUST_DETACHED_SIG_CHOICE_BLOB: u32 = 2u32;
-pub const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: u32 = 1u32;
+pub const WINTRUST_DETACHED_SIG_CHOICE_BLOB: u32 = 2;
+pub const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINTRUST_DETACHED_SIG_FILE_HANDLES {
@@ -879,9 +879,9 @@ impl Default for WINTRUST_FILE_INFO {
     }
 }
 pub type WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = u32;
-pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
+pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576;
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("MaxHashBytesToMap");
-pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
+pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("MaxHeaderBytesToMap");
 pub type WINTRUST_POLICY_FLAGS = u32;
 #[repr(C)]
@@ -931,12 +931,12 @@ impl Default for WIN_CERTIFICATE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WIN_CERT_REVISION_1_0: u32 = 256u32;
-pub const WIN_CERT_REVISION_2_0: u32 = 512u32;
-pub const WIN_CERT_TYPE_PKCS_SIGNED_DATA: u32 = 2u32;
-pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3u32;
-pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4u32;
-pub const WIN_CERT_TYPE_X509: u32 = 1u32;
+pub const WIN_CERT_REVISION_1_0: u32 = 256;
+pub const WIN_CERT_REVISION_2_0: u32 = 512;
+pub const WIN_CERT_TYPE_PKCS_SIGNED_DATA: u32 = 2;
+pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3;
+pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4;
+pub const WIN_CERT_TYPE_X509: u32 = 1;
 pub const WIN_SPUB_ACTION_NT_ACTIVATE_IMAGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bc96b00_8da1_11cf_8736_00aa00a485eb);
 pub const WIN_SPUB_ACTION_PUBLISHED_SOFTWARE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x64b9d180_8da2_11cf_8736_00aa00a485eb);
 pub const WIN_SPUB_ACTION_TRUSTED_PUBLISHER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66426730_8da1_11cf_8736_00aa00a485eb);
@@ -1006,29 +1006,29 @@ pub const WIN_TRUST_SUBJTYPE_PE_IMAGE: windows_sys::core::GUID = windows_sys::co
 pub const WIN_TRUST_SUBJTYPE_PE_IMAGEEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f458111_c2f1_11cf_8a69_00aa006c3706);
 pub const WIN_TRUST_SUBJTYPE_RAW_FILE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x959dc450_8d9e_11cf_8736_00aa00a485eb);
 pub const WIN_TRUST_SUBJTYPE_RAW_FILEEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f458110_c2f1_11cf_8a69_00aa006c3706);
-pub const WSS_CERTTRUST_SUPPORT: u32 = 4u32;
-pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 2u32;
-pub const WSS_INPUT_FLAG_MASK: u32 = 7u32;
-pub const WSS_OBJTRUST_SUPPORT: u32 = 1u32;
-pub const WSS_OUTPUT_FLAG_MASK: u32 = 3758096384u32;
-pub const WSS_OUT_FILE_SUPPORTS_SEAL: u32 = 536870912u32;
-pub const WSS_OUT_HAS_SEALING_INTENT: u32 = 1073741824u32;
-pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648u32;
-pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
-pub const WSS_VERIFY_SEALING: u32 = 4u32;
-pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 1u32;
-pub const WTCI_DONT_OPEN_STORES: u32 = 1u32;
-pub const WTCI_OPEN_ONLY_ROOT: u32 = 2u32;
-pub const WTCI_USE_LOCAL_MACHINE: u32 = 4u32;
-pub const WTD_CACHE_ONLY_URL_RETRIEVAL: WINTRUST_DATA_PROVIDER_FLAGS = 4096u32;
-pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = 3u32;
-pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = 2u32;
-pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = 5u32;
-pub const WTD_CHOICE_DETACHED_SIG: u32 = 6u32;
-pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = 1u32;
-pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = 4u32;
-pub const WTD_CODE_INTEGRITY_DRIVER_MODE: u32 = 32768u32;
-pub const WTD_DISABLE_MD2_MD4: WINTRUST_DATA_PROVIDER_FLAGS = 8192u32;
+pub const WSS_CERTTRUST_SUPPORT: u32 = 4;
+pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 2;
+pub const WSS_INPUT_FLAG_MASK: u32 = 7;
+pub const WSS_OBJTRUST_SUPPORT: u32 = 1;
+pub const WSS_OUTPUT_FLAG_MASK: u32 = 3758096384;
+pub const WSS_OUT_FILE_SUPPORTS_SEAL: u32 = 536870912;
+pub const WSS_OUT_HAS_SEALING_INTENT: u32 = 1073741824;
+pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648;
+pub const WSS_SIGTRUST_SUPPORT: u32 = 2;
+pub const WSS_VERIFY_SEALING: u32 = 4;
+pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 1;
+pub const WTCI_DONT_OPEN_STORES: u32 = 1;
+pub const WTCI_OPEN_ONLY_ROOT: u32 = 2;
+pub const WTCI_USE_LOCAL_MACHINE: u32 = 4;
+pub const WTD_CACHE_ONLY_URL_RETRIEVAL: WINTRUST_DATA_PROVIDER_FLAGS = 4096;
+pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = 3;
+pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = 2;
+pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = 5;
+pub const WTD_CHOICE_DETACHED_SIG: u32 = 6;
+pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = 1;
+pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = 4;
+pub const WTD_CODE_INTEGRITY_DRIVER_MODE: u32 = 32768;
+pub const WTD_DISABLE_MD2_MD4: WINTRUST_DATA_PROVIDER_FLAGS = 8192;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -1118,52 +1118,52 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 512u32;
-pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 2048u32;
-pub const WTD_MOTW: WINTRUST_DATA_PROVIDER_FLAGS = 16384u32;
-pub const WTD_NO_IE4_CHAIN_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 2u32;
-pub const WTD_NO_POLICY_USAGE_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 4u32;
-pub const WTD_PROV_FLAGS_MASK: u32 = 65535u32;
-pub const WTD_REVOCATION_CHECK_CHAIN: WINTRUST_DATA_PROVIDER_FLAGS = 64u32;
-pub const WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: WINTRUST_DATA_PROVIDER_FLAGS = 128u32;
-pub const WTD_REVOCATION_CHECK_END_CERT: WINTRUST_DATA_PROVIDER_FLAGS = 32u32;
-pub const WTD_REVOCATION_CHECK_NONE: WINTRUST_DATA_PROVIDER_FLAGS = 16u32;
-pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = 0u32;
-pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = 1u32;
-pub const WTD_SAFER_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 256u32;
-pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = 3u32;
-pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = 4u32;
-pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = 2u32;
-pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = 0u32;
-pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = 1u32;
-pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = 0u32;
-pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = 1u32;
-pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = 1u32;
-pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = 3u32;
-pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = 4u32;
-pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = 2u32;
-pub const WTD_USE_DEFAULT_OSVER_CHECK: WINTRUST_DATA_PROVIDER_FLAGS = 1024u32;
-pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 1u32;
-pub const WTD_USE_LOCAL_MACHINE_CERTS: u32 = 8u32;
-pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = 262144u32;
-pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = 256u32;
-pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = 131072u32;
-pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = 512u32;
-pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = 8192u32;
-pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = 4096u32;
-pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = 2048u32;
-pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = 1024u32;
-pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = 128u32;
-pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = 32u32;
-pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = 65536u32;
-pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;
-pub const WT_CURRENT_VERSION: u32 = 512u32;
+pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 512;
+pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 2048;
+pub const WTD_MOTW: WINTRUST_DATA_PROVIDER_FLAGS = 16384;
+pub const WTD_NO_IE4_CHAIN_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 2;
+pub const WTD_NO_POLICY_USAGE_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 4;
+pub const WTD_PROV_FLAGS_MASK: u32 = 65535;
+pub const WTD_REVOCATION_CHECK_CHAIN: WINTRUST_DATA_PROVIDER_FLAGS = 64;
+pub const WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: WINTRUST_DATA_PROVIDER_FLAGS = 128;
+pub const WTD_REVOCATION_CHECK_END_CERT: WINTRUST_DATA_PROVIDER_FLAGS = 32;
+pub const WTD_REVOCATION_CHECK_NONE: WINTRUST_DATA_PROVIDER_FLAGS = 16;
+pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = 0;
+pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = 1;
+pub const WTD_SAFER_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 256;
+pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = 3;
+pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = 4;
+pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = 2;
+pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = 0;
+pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = 1;
+pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = 0;
+pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = 1;
+pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = 1;
+pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = 3;
+pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = 4;
+pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = 2;
+pub const WTD_USE_DEFAULT_OSVER_CHECK: WINTRUST_DATA_PROVIDER_FLAGS = 1024;
+pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 1;
+pub const WTD_USE_LOCAL_MACHINE_CERTS: u32 = 8;
+pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = 262144;
+pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = 256;
+pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = 131072;
+pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = 512;
+pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = 8192;
+pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = 4096;
+pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = 2048;
+pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = 1024;
+pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = 128;
+pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = 32;
+pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = 65536;
+pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1;
+pub const WT_CURRENT_VERSION: u32 = 512;
 pub const WT_PROVIDER_CERTTRUST_FUNCTION: windows_sys::core::PCWSTR = windows_sys::core::w!("WintrustCertificateTrust");
 pub const WT_PROVIDER_DLL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("WINTRUST.DLL");
-pub const WT_TRUSTDBDIALOG_NO_UI_FLAG: u32 = 1u32;
-pub const WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG: u32 = 2u32;
-pub const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: u32 = 512u32;
-pub const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: u32 = 256u32;
+pub const WT_TRUSTDBDIALOG_NO_UI_FLAG: u32 = 1;
+pub const WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG: u32 = 2;
+pub const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: u32 = 512;
+pub const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: u32 = 256;
 pub const szOID_ENHANCED_HASH: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.5.1");
 pub const szOID_INTENT_TO_SEAL: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.4.2");
 pub const szOID_NESTED_SIGNATURE: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.2.4.1");

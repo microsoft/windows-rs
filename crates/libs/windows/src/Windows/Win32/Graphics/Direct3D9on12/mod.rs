@@ -100,7 +100,7 @@ impl IDirect3DDevice9On12_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 impl windows_core::RuntimeName for IDirect3DDevice9On12 {}
-pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
+pub const MAX_D3D9ON12_QUEUES: u32 = 2;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PFN_Direct3DCreate9On12 = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> Option<super::Direct3D9::IDirect3D9>>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]

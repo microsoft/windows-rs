@@ -18,7 +18,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct CompletedCallback_Vtbl {
         base__: windows_core::IUnknown_Vtbl,
         Invoke: unsafe extern "system" fn(
@@ -59,7 +58,6 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct Handler_Vtbl {
         base__: windows_core::IUnknown_Vtbl,
         Invoke: unsafe extern "system" fn(
@@ -233,7 +231,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Bar:

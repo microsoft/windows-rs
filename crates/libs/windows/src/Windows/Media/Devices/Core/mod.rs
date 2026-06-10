@@ -518,9 +518,9 @@ impl windows_core::RuntimeName for FrameFlashControl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
-    pub const Disable: Self = Self(0i32);
-    pub const Enable: Self = Self(1i32);
-    pub const Global: Self = Self(2i32);
+    pub const Disable: Self = Self(0);
+    pub const Enable: Self = Self(1);
+    pub const Global: Self = Self(2);
 }
 impl windows_core::TypeKind for FrameFlashMode {
     type TypeKind = windows_core::CopyType;

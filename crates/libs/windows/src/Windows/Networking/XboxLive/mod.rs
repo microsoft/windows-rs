@@ -446,8 +446,8 @@ unsafe impl Sync for XboxLiveEndpointPair {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
-    pub const None: Self = Self(0u32);
-    pub const ReevaluatePath: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const ReevaluatePath: Self = Self(1);
 }
 impl windows_core::TypeKind for XboxLiveEndpointPairCreationBehaviors {
     type TypeKind = windows_core::CopyType;
@@ -535,15 +535,15 @@ unsafe impl Sync for XboxLiveEndpointPairCreationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const NoLocalNetworks: Self = Self(1i32);
-    pub const NoCompatibleNetworkPaths: Self = Self(2i32);
-    pub const LocalSystemNotAuthorized: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const TimedOut: Self = Self(5i32);
-    pub const RemoteSystemNotAuthorized: Self = Self(6i32);
-    pub const RefusedDueToConfiguration: Self = Self(7i32);
-    pub const UnexpectedInternalError: Self = Self(8i32);
+    pub const Succeeded: Self = Self(0);
+    pub const NoLocalNetworks: Self = Self(1);
+    pub const NoCompatibleNetworkPaths: Self = Self(2);
+    pub const LocalSystemNotAuthorized: Self = Self(3);
+    pub const Canceled: Self = Self(4);
+    pub const TimedOut: Self = Self(5);
+    pub const RemoteSystemNotAuthorized: Self = Self(6);
+    pub const RefusedDueToConfiguration: Self = Self(7);
+    pub const UnexpectedInternalError: Self = Self(8);
 }
 impl windows_core::TypeKind for XboxLiveEndpointPairCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -556,13 +556,13 @@ impl windows_core::RuntimeType for XboxLiveEndpointPairCreationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
-    pub const Invalid: Self = Self(0i32);
-    pub const CreatingOutbound: Self = Self(1i32);
-    pub const CreatingInbound: Self = Self(2i32);
-    pub const Ready: Self = Self(3i32);
-    pub const DeletingLocally: Self = Self(4i32);
-    pub const RemoteEndpointTerminating: Self = Self(5i32);
-    pub const Deleted: Self = Self(6i32);
+    pub const Invalid: Self = Self(0);
+    pub const CreatingOutbound: Self = Self(1);
+    pub const CreatingInbound: Self = Self(2);
+    pub const Ready: Self = Self(3);
+    pub const DeletingLocally: Self = Self(4);
+    pub const RemoteEndpointTerminating: Self = Self(5);
+    pub const Deleted: Self = Self(6);
 }
 impl windows_core::TypeKind for XboxLiveEndpointPairState {
     type TypeKind = windows_core::CopyType;
@@ -753,9 +753,9 @@ unsafe impl Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
-    pub const Open: Self = Self(0i32);
-    pub const Moderate: Self = Self(1i32);
-    pub const Strict: Self = Self(2i32);
+    pub const Open: Self = Self(0);
+    pub const Moderate: Self = Self(1);
+    pub const Strict: Self = Self(2);
 }
 impl windows_core::TypeKind for XboxLiveNetworkAccessKind {
     type TypeKind = windows_core::CopyType;
@@ -946,18 +946,18 @@ unsafe impl Sync for XboxLiveQualityOfServiceMeasurement {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
-    pub const NotStarted: Self = Self(0i32);
-    pub const InProgress: Self = Self(1i32);
-    pub const InProgressWithProvisionalResults: Self = Self(2i32);
-    pub const Succeeded: Self = Self(3i32);
-    pub const NoLocalNetworks: Self = Self(4i32);
-    pub const NoCompatibleNetworkPaths: Self = Self(5i32);
-    pub const LocalSystemNotAuthorized: Self = Self(6i32);
-    pub const Canceled: Self = Self(7i32);
-    pub const TimedOut: Self = Self(8i32);
-    pub const RemoteSystemNotAuthorized: Self = Self(9i32);
-    pub const RefusedDueToConfiguration: Self = Self(10i32);
-    pub const UnexpectedInternalError: Self = Self(11i32);
+    pub const NotStarted: Self = Self(0);
+    pub const InProgress: Self = Self(1);
+    pub const InProgressWithProvisionalResults: Self = Self(2);
+    pub const Succeeded: Self = Self(3);
+    pub const NoLocalNetworks: Self = Self(4);
+    pub const NoCompatibleNetworkPaths: Self = Self(5);
+    pub const LocalSystemNotAuthorized: Self = Self(6);
+    pub const Canceled: Self = Self(7);
+    pub const TimedOut: Self = Self(8);
+    pub const RemoteSystemNotAuthorized: Self = Self(9);
+    pub const RefusedDueToConfiguration: Self = Self(10);
+    pub const UnexpectedInternalError: Self = Self(11);
 }
 impl windows_core::TypeKind for XboxLiveQualityOfServiceMeasurementStatus {
     type TypeKind = windows_core::CopyType;
@@ -970,15 +970,15 @@ impl windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
-    pub const AverageLatencyInMilliseconds: Self = Self(0i32);
-    pub const MinLatencyInMilliseconds: Self = Self(1i32);
-    pub const MaxLatencyInMilliseconds: Self = Self(2i32);
-    pub const AverageOutboundBitsPerSecond: Self = Self(3i32);
-    pub const MinOutboundBitsPerSecond: Self = Self(4i32);
-    pub const MaxOutboundBitsPerSecond: Self = Self(5i32);
-    pub const AverageInboundBitsPerSecond: Self = Self(6i32);
-    pub const MinInboundBitsPerSecond: Self = Self(7i32);
-    pub const MaxInboundBitsPerSecond: Self = Self(8i32);
+    pub const AverageLatencyInMilliseconds: Self = Self(0);
+    pub const MinLatencyInMilliseconds: Self = Self(1);
+    pub const MaxLatencyInMilliseconds: Self = Self(2);
+    pub const AverageOutboundBitsPerSecond: Self = Self(3);
+    pub const MinOutboundBitsPerSecond: Self = Self(4);
+    pub const MaxOutboundBitsPerSecond: Self = Self(5);
+    pub const AverageInboundBitsPerSecond: Self = Self(6);
+    pub const MinInboundBitsPerSecond: Self = Self(7);
+    pub const MaxInboundBitsPerSecond: Self = Self(8);
 }
 impl windows_core::TypeKind for XboxLiveQualityOfServiceMetric {
     type TypeKind = windows_core::CopyType;
@@ -1070,9 +1070,9 @@ unsafe impl Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
-    pub const None: Self = Self(0i32);
-    pub const Datagram: Self = Self(1i32);
-    pub const Stream: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Datagram: Self = Self(1);
+    pub const Stream: Self = Self(2);
 }
 impl windows_core::TypeKind for XboxLiveSocketKind {
     type TypeKind = windows_core::CopyType;

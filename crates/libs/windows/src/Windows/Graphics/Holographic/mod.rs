@@ -362,8 +362,8 @@ unsafe impl Sync for HolographicCameraViewportParameters {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
-    pub const DepthReprojection: Self = Self(0i32);
-    pub const AutoPlanar: Self = Self(1i32);
+    pub const DepthReprojection: Self = Self(0);
+    pub const AutoPlanar: Self = Self(1);
 }
 impl windows_core::TypeKind for HolographicDepthReprojectionMethod {
     type TypeKind = windows_core::CopyType;
@@ -584,8 +584,8 @@ unsafe impl Sync for HolographicFramePrediction {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
-    pub const Success: Self = Self(0i32);
-    pub const DeviceRemoved: Self = Self(1i32);
+    pub const Success: Self = Self(0);
+    pub const DeviceRemoved: Self = Self(1);
 }
 impl windows_core::TypeKind for HolographicFramePresentResult {
     type TypeKind = windows_core::CopyType;
@@ -598,8 +598,8 @@ impl windows_core::RuntimeType for HolographicFramePresentResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
-    pub const WaitForFrameToFinish: Self = Self(0i32);
-    pub const DoNotWaitForFrameToFinish: Self = Self(1i32);
+    pub const WaitForFrameToFinish: Self = Self(0);
+    pub const DoNotWaitForFrameToFinish: Self = Self(1);
 }
 impl windows_core::TypeKind for HolographicFramePresentWaitBehavior {
     type TypeKind = windows_core::CopyType;
@@ -927,9 +927,9 @@ unsafe impl Sync for HolographicQuadLayerUpdateParameters {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
-    pub const PositionAndOrientation: Self = Self(0i32);
-    pub const OrientationOnly: Self = Self(1i32);
-    pub const Disabled: Self = Self(2i32);
+    pub const PositionAndOrientation: Self = Self(0);
+    pub const OrientationOnly: Self = Self(1);
+    pub const Disabled: Self = Self(2);
 }
 impl windows_core::TypeKind for HolographicReprojectionMode {
     type TypeKind = windows_core::CopyType;
@@ -1152,9 +1152,9 @@ unsafe impl Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
-    pub const Absent: Self = Self(0i32);
-    pub const PresentPassive: Self = Self(1i32);
-    pub const PresentActive: Self = Self(2i32);
+    pub const Absent: Self = Self(0);
+    pub const PresentPassive: Self = Self(1);
+    pub const PresentActive: Self = Self(2);
 }
 impl windows_core::TypeKind for HolographicSpaceUserPresence {
     type TypeKind = windows_core::CopyType;
@@ -1274,8 +1274,8 @@ unsafe impl Sync for HolographicViewConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {
-    pub const Display: Self = Self(0i32);
-    pub const PhotoVideoCamera: Self = Self(1i32);
+    pub const Display: Self = Self(0);
+    pub const PhotoVideoCamera: Self = Self(1);
 }
 impl windows_core::TypeKind for HolographicViewConfigurationKind {
     type TypeKind = windows_core::CopyType;

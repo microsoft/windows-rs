@@ -1068,10 +1068,10 @@ unsafe impl Sync for RemoteSystem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemAccessStatus(pub i32);
 impl RemoteSystemAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const DeniedBySystem: Self = Self(3);
 }
 impl windows_core::TypeKind for RemoteSystemAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -1225,9 +1225,9 @@ unsafe impl Sync for RemoteSystemAppRegistration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
-    pub const SameUser: Self = Self(0i32);
-    pub const Anonymous: Self = Self(1i32);
-    pub const SameFamily: Self = Self(2i32);
+    pub const SameUser: Self = Self(0);
+    pub const Anonymous: Self = Self(1);
+    pub const SameFamily: Self = Self(2);
 }
 impl windows_core::TypeKind for RemoteSystemAuthorizationKind {
     type TypeKind = windows_core::CopyType;
@@ -1396,10 +1396,10 @@ unsafe impl Sync for RemoteSystemConnectionRequest {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemDiscoveryType(pub i32);
 impl RemoteSystemDiscoveryType {
-    pub const Any: Self = Self(0i32);
-    pub const Proximal: Self = Self(1i32);
-    pub const Cloud: Self = Self(2i32);
-    pub const SpatiallyProximal: Self = Self(3i32);
+    pub const Any: Self = Self(0);
+    pub const Proximal: Self = Self(1);
+    pub const Cloud: Self = Self(2);
+    pub const SpatiallyProximal: Self = Self(3);
 }
 impl windows_core::TypeKind for RemoteSystemDiscoveryType {
     type TypeKind = windows_core::CopyType;
@@ -1563,11 +1563,11 @@ impl windows_core::RuntimeName for RemoteSystemKinds {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemPlatform(pub i32);
 impl RemoteSystemPlatform {
-    pub const Unknown: Self = Self(0i32);
-    pub const Windows: Self = Self(1i32);
-    pub const Android: Self = Self(2i32);
-    pub const Ios: Self = Self(3i32);
-    pub const Linux: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Windows: Self = Self(1);
+    pub const Android: Self = Self(2);
+    pub const Ios: Self = Self(3);
+    pub const Linux: Self = Self(4);
 }
 impl windows_core::TypeKind for RemoteSystemPlatform {
     type TypeKind = windows_core::CopyType;
@@ -1800,9 +1800,9 @@ unsafe impl Sync for RemoteSystemSessionCreationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemSessionCreationStatus(pub i32);
 impl RemoteSystemSessionCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SessionLimitsExceeded: Self = Self(1i32);
-    pub const OperationAborted: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const SessionLimitsExceeded: Self = Self(1);
+    pub const OperationAborted: Self = Self(2);
 }
 impl windows_core::TypeKind for RemoteSystemSessionCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1839,9 +1839,9 @@ unsafe impl Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemSessionDisconnectedReason(pub i32);
 impl RemoteSystemSessionDisconnectedReason {
-    pub const SessionUnavailable: Self = Self(0i32);
-    pub const RemovedByController: Self = Self(1i32);
-    pub const SessionClosed: Self = Self(2i32);
+    pub const SessionUnavailable: Self = Self(0);
+    pub const RemovedByController: Self = Self(1);
+    pub const SessionClosed: Self = Self(2);
 }
 impl windows_core::TypeKind for RemoteSystemSessionDisconnectedReason {
     type TypeKind = windows_core::CopyType;
@@ -2068,11 +2068,11 @@ unsafe impl Sync for RemoteSystemSessionJoinResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemSessionJoinStatus(pub i32);
 impl RemoteSystemSessionJoinStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SessionLimitsExceeded: Self = Self(1i32);
-    pub const OperationAborted: Self = Self(2i32);
-    pub const SessionUnavailable: Self = Self(3i32);
-    pub const RejectedByController: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const SessionLimitsExceeded: Self = Self(1);
+    pub const OperationAborted: Self = Self(2);
+    pub const SessionUnavailable: Self = Self(3);
+    pub const RejectedByController: Self = Self(4);
 }
 impl windows_core::TypeKind for RemoteSystemSessionJoinStatus {
     type TypeKind = windows_core::CopyType;
@@ -2175,8 +2175,8 @@ unsafe impl Sync for RemoteSystemSessionMessageChannel {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
-    pub const Reliable: Self = Self(0i32);
-    pub const Unreliable: Self = Self(1i32);
+    pub const Reliable: Self = Self(0);
+    pub const Unreliable: Self = Self(1);
 }
 impl windows_core::TypeKind for RemoteSystemSessionMessageChannelReliability {
     type TypeKind = windows_core::CopyType;
@@ -2368,12 +2368,12 @@ unsafe impl Sync for RemoteSystemSessionParticipantWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
 impl RemoteSystemSessionParticipantWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for RemoteSystemSessionParticipantWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -2531,12 +2531,12 @@ unsafe impl Sync for RemoteSystemSessionWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemSessionWatcherStatus(pub i32);
 impl RemoteSystemSessionWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for RemoteSystemSessionWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -2549,10 +2549,10 @@ impl windows_core::RuntimeType for RemoteSystemSessionWatcherStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemStatus(pub i32);
 impl RemoteSystemStatus {
-    pub const Unavailable: Self = Self(0i32);
-    pub const DiscoveringAvailability: Self = Self(1i32);
-    pub const Available: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
+    pub const Unavailable: Self = Self(0);
+    pub const DiscoveringAvailability: Self = Self(1);
+    pub const Available: Self = Self(2);
+    pub const Unknown: Self = Self(3);
 }
 impl windows_core::TypeKind for RemoteSystemStatus {
     type TypeKind = windows_core::CopyType;
@@ -2565,8 +2565,8 @@ impl windows_core::RuntimeType for RemoteSystemStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemStatusType(pub i32);
 impl RemoteSystemStatusType {
-    pub const Any: Self = Self(0i32);
-    pub const Available: Self = Self(1i32);
+    pub const Any: Self = Self(0);
+    pub const Available: Self = Self(1);
 }
 impl windows_core::TypeKind for RemoteSystemStatusType {
     type TypeKind = windows_core::CopyType;
@@ -2733,9 +2733,9 @@ unsafe impl Sync for RemoteSystemWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteSystemWatcherError(pub i32);
 impl RemoteSystemWatcherError {
-    pub const Unknown: Self = Self(0i32);
-    pub const InternetNotAvailable: Self = Self(1i32);
-    pub const AuthenticationError: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const InternetNotAvailable: Self = Self(1);
+    pub const AuthenticationError: Self = Self(2);
 }
 impl windows_core::TypeKind for RemoteSystemWatcherError {
     type TypeKind = windows_core::CopyType;

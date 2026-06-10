@@ -3024,13 +3024,13 @@ pub struct IPlayReadyStatics5_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDCertificateFeature(pub i32);
 impl NDCertificateFeature {
-    pub const Transmitter: Self = Self(1i32);
-    pub const Receiver: Self = Self(2i32);
-    pub const SharedCertificate: Self = Self(3i32);
-    pub const SecureClock: Self = Self(4i32);
-    pub const AntiRollBackClock: Self = Self(5i32);
-    pub const CRLS: Self = Self(9i32);
-    pub const PlayReady3Features: Self = Self(13i32);
+    pub const Transmitter: Self = Self(1);
+    pub const Receiver: Self = Self(2);
+    pub const SharedCertificate: Self = Self(3);
+    pub const SecureClock: Self = Self(4);
+    pub const AntiRollBackClock: Self = Self(5);
+    pub const CRLS: Self = Self(9);
+    pub const PlayReady3Features: Self = Self(13);
 }
 impl windows_core::TypeKind for NDCertificateFeature {
     type TypeKind = windows_core::CopyType;
@@ -3043,18 +3043,18 @@ impl windows_core::RuntimeType for NDCertificateFeature {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDCertificatePlatformID(pub i32);
 impl NDCertificatePlatformID {
-    pub const Windows: Self = Self(0i32);
-    pub const OSX: Self = Self(1i32);
-    pub const WindowsOnARM: Self = Self(2i32);
-    pub const WindowsMobile7: Self = Self(5i32);
-    pub const iOSOnARM: Self = Self(6i32);
-    pub const XBoxOnPPC: Self = Self(7i32);
-    pub const WindowsPhone8OnARM: Self = Self(8i32);
-    pub const WindowsPhone8OnX86: Self = Self(9i32);
-    pub const XboxOne: Self = Self(10i32);
-    pub const AndroidOnARM: Self = Self(11i32);
-    pub const WindowsPhone81OnARM: Self = Self(12i32);
-    pub const WindowsPhone81OnX86: Self = Self(13i32);
+    pub const Windows: Self = Self(0);
+    pub const OSX: Self = Self(1);
+    pub const WindowsOnARM: Self = Self(2);
+    pub const WindowsMobile7: Self = Self(5);
+    pub const iOSOnARM: Self = Self(6);
+    pub const XBoxOnPPC: Self = Self(7);
+    pub const WindowsPhone8OnARM: Self = Self(8);
+    pub const WindowsPhone8OnX86: Self = Self(9);
+    pub const XboxOne: Self = Self(10);
+    pub const AndroidOnARM: Self = Self(11);
+    pub const WindowsPhone81OnARM: Self = Self(12);
+    pub const WindowsPhone81OnX86: Self = Self(13);
 }
 impl windows_core::TypeKind for NDCertificatePlatformID {
     type TypeKind = windows_core::CopyType;
@@ -3067,19 +3067,19 @@ impl windows_core::RuntimeType for NDCertificatePlatformID {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDCertificateType(pub i32);
 impl NDCertificateType {
-    pub const Unknown: Self = Self(0i32);
-    pub const PC: Self = Self(1i32);
-    pub const Device: Self = Self(2i32);
-    pub const Domain: Self = Self(3i32);
-    pub const Issuer: Self = Self(4i32);
-    pub const CrlSigner: Self = Self(5i32);
-    pub const Service: Self = Self(6i32);
-    pub const Silverlight: Self = Self(7i32);
-    pub const Application: Self = Self(8i32);
-    pub const Metering: Self = Self(9i32);
-    pub const KeyFileSigner: Self = Self(10i32);
-    pub const Server: Self = Self(11i32);
-    pub const LicenseSigner: Self = Self(12i32);
+    pub const Unknown: Self = Self(0);
+    pub const PC: Self = Self(1);
+    pub const Device: Self = Self(2);
+    pub const Domain: Self = Self(3);
+    pub const Issuer: Self = Self(4);
+    pub const CrlSigner: Self = Self(5);
+    pub const Service: Self = Self(6);
+    pub const Silverlight: Self = Self(7);
+    pub const Application: Self = Self(8);
+    pub const Metering: Self = Self(9);
+    pub const KeyFileSigner: Self = Self(10);
+    pub const Server: Self = Self(11);
+    pub const LicenseSigner: Self = Self(12);
 }
 impl windows_core::TypeKind for NDCertificateType {
     type TypeKind = windows_core::CopyType;
@@ -3215,9 +3215,9 @@ impl windows_core::RuntimeName for NDClient {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDClosedCaptionFormat(pub i32);
 impl NDClosedCaptionFormat {
-    pub const ATSC: Self = Self(0i32);
-    pub const SCTE20: Self = Self(1i32);
-    pub const Unknown: Self = Self(2i32);
+    pub const ATSC: Self = Self(0);
+    pub const SCTE20: Self = Self(1);
+    pub const Unknown: Self = Self(2);
 }
 impl windows_core::TypeKind for NDClosedCaptionFormat {
     type TypeKind = windows_core::CopyType;
@@ -3230,9 +3230,9 @@ impl windows_core::RuntimeType for NDClosedCaptionFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDContentIDType(pub i32);
 impl NDContentIDType {
-    pub const KeyID: Self = Self(1i32);
-    pub const PlayReadyObject: Self = Self(2i32);
-    pub const Custom: Self = Self(3i32);
+    pub const KeyID: Self = Self(1);
+    pub const PlayReadyObject: Self = Self(2);
+    pub const Custom: Self = Self(3);
 }
 impl windows_core::TypeKind for NDContentIDType {
     type TypeKind = windows_core::CopyType;
@@ -3380,8 +3380,8 @@ impl windows_core::RuntimeName for NDLicenseFetchDescriptor {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDMediaStreamType(pub i32);
 impl NDMediaStreamType {
-    pub const Audio: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+    pub const Audio: Self = Self(1);
+    pub const Video: Self = Self(2);
 }
 impl windows_core::TypeKind for NDMediaStreamType {
     type TypeKind = windows_core::CopyType;
@@ -3394,9 +3394,9 @@ impl windows_core::RuntimeType for NDMediaStreamType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDProximityDetectionType(pub i32);
 impl NDProximityDetectionType {
-    pub const UDP: Self = Self(1i32);
-    pub const TCP: Self = Self(2i32);
-    pub const TransportAgnostic: Self = Self(4i32);
+    pub const UDP: Self = Self(1);
+    pub const TCP: Self = Self(2);
+    pub const TransportAgnostic: Self = Self(4);
 }
 impl windows_core::TypeKind for NDProximityDetectionType {
     type TypeKind = windows_core::CopyType;
@@ -3409,8 +3409,8 @@ impl windows_core::RuntimeType for NDProximityDetectionType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDStartAsyncOptions(pub i32);
 impl NDStartAsyncOptions {
-    pub const MutualAuthentication: Self = Self(1i32);
-    pub const WaitForLicenseDescriptor: Self = Self(2i32);
+    pub const MutualAuthentication: Self = Self(1);
+    pub const WaitForLicenseDescriptor: Self = Self(2);
 }
 impl windows_core::TypeKind for NDStartAsyncOptions {
     type TypeKind = windows_core::CopyType;
@@ -3710,8 +3710,8 @@ impl windows_core::RuntimeName for PlayReadyContentResolver {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
-    pub const Uninitialized: Self = Self(0i32);
-    pub const OnDemand: Self = Self(1i32);
+    pub const Uninitialized: Self = Self(0);
+    pub const OnDemand: Self = Self(1);
 }
 impl windows_core::TypeKind for PlayReadyDecryptorSetup {
     type TypeKind = windows_core::CopyType;
@@ -4097,12 +4097,12 @@ impl windows_core::RuntimeName for PlayReadyDomainLeaveServiceRequest {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlayReadyEncryptionAlgorithm(pub i32);
 impl PlayReadyEncryptionAlgorithm {
-    pub const Unprotected: Self = Self(0i32);
-    pub const Aes128Ctr: Self = Self(1i32);
-    pub const Cocktail: Self = Self(4i32);
-    pub const Aes128Cbc: Self = Self(5i32);
-    pub const Unspecified: Self = Self(65535i32);
-    pub const Uninitialized: Self = Self(2147483647i32);
+    pub const Unprotected: Self = Self(0);
+    pub const Aes128Ctr: Self = Self(1);
+    pub const Cocktail: Self = Self(4);
+    pub const Aes128Cbc: Self = Self(5);
+    pub const Unspecified: Self = Self(65535);
+    pub const Uninitialized: Self = Self(2147483647);
 }
 impl windows_core::TypeKind for PlayReadyEncryptionAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -4115,9 +4115,9 @@ impl windows_core::RuntimeType for PlayReadyEncryptionAlgorithm {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
-    pub const HardwareDRM: Self = Self(1i32);
-    pub const HEVC: Self = Self(2i32);
-    pub const Aes128Cbc: Self = Self(3i32);
+    pub const HardwareDRM: Self = Self(1);
+    pub const HEVC: Self = Self(2);
+    pub const Aes128Cbc: Self = Self(3);
 }
 impl windows_core::TypeKind for PlayReadyHardwareDRMFeatures {
     type TypeKind = windows_core::CopyType;
@@ -4130,8 +4130,8 @@ impl windows_core::RuntimeType for PlayReadyHardwareDRMFeatures {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {
-    pub const SerializedProperties: Self = Self(0i32);
-    pub const SerializedProperties_WithContentProtectionWrapper: Self = Self(1i32);
+    pub const SerializedProperties: Self = Self(0);
+    pub const SerializedProperties_WithContentProtectionWrapper: Self = Self(1);
 }
 impl windows_core::TypeKind for PlayReadyITADataFormat {
     type TypeKind = windows_core::CopyType;

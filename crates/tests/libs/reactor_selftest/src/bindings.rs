@@ -332,10 +332,10 @@ unsafe impl Sync for AppWindowPresenter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppWindowPresenterKind(pub i32);
 impl AppWindowPresenterKind {
-    pub const Default: Self = Self(0i32);
-    pub const CompactOverlay: Self = Self(1i32);
-    pub const FullScreen: Self = Self(2i32);
-    pub const Overlapped: Self = Self(3i32);
+    pub const Default: Self = Self(0);
+    pub const CompactOverlay: Self = Self(1);
+    pub const FullScreen: Self = Self(2);
+    pub const Overlapped: Self = Self(3);
 }
 impl windows_core::TypeKind for AppWindowPresenterKind {
     type TypeKind = windows_core::CopyType;
@@ -753,9 +753,9 @@ unsafe impl Sync for AutoSuggestBoxTextChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoSuggestionBoxTextChangeReason(pub i32);
 impl AutoSuggestionBoxTextChangeReason {
-    pub const UserInput: Self = Self(0i32);
-    pub const ProgrammaticChange: Self = Self(1i32);
-    pub const SuggestionChosen: Self = Self(2i32);
+    pub const UserInput: Self = Self(0);
+    pub const ProgrammaticChange: Self = Self(1);
+    pub const SuggestionChosen: Self = Self(2);
 }
 impl windows_core::TypeKind for AutoSuggestionBoxTextChangeReason {
     type TypeKind = windows_core::CopyType;
@@ -769,48 +769,48 @@ impl windows_core::RuntimeType for AutoSuggestionBoxTextChangeReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationControlType(pub i32);
 impl AutomationControlType {
-    pub const Button: Self = Self(0i32);
-    pub const Calendar: Self = Self(1i32);
-    pub const CheckBox: Self = Self(2i32);
-    pub const ComboBox: Self = Self(3i32);
-    pub const Edit: Self = Self(4i32);
-    pub const Hyperlink: Self = Self(5i32);
-    pub const Image: Self = Self(6i32);
-    pub const ListItem: Self = Self(7i32);
-    pub const List: Self = Self(8i32);
-    pub const Menu: Self = Self(9i32);
-    pub const MenuBar: Self = Self(10i32);
-    pub const MenuItem: Self = Self(11i32);
-    pub const ProgressBar: Self = Self(12i32);
-    pub const RadioButton: Self = Self(13i32);
-    pub const ScrollBar: Self = Self(14i32);
-    pub const Slider: Self = Self(15i32);
-    pub const Spinner: Self = Self(16i32);
-    pub const StatusBar: Self = Self(17i32);
-    pub const Tab: Self = Self(18i32);
-    pub const TabItem: Self = Self(19i32);
-    pub const Text: Self = Self(20i32);
-    pub const ToolBar: Self = Self(21i32);
-    pub const ToolTip: Self = Self(22i32);
-    pub const Tree: Self = Self(23i32);
-    pub const TreeItem: Self = Self(24i32);
-    pub const Custom: Self = Self(25i32);
-    pub const Group: Self = Self(26i32);
-    pub const Thumb: Self = Self(27i32);
-    pub const DataGrid: Self = Self(28i32);
-    pub const DataItem: Self = Self(29i32);
-    pub const Document: Self = Self(30i32);
-    pub const SplitButton: Self = Self(31i32);
-    pub const Window: Self = Self(32i32);
-    pub const Pane: Self = Self(33i32);
-    pub const Header: Self = Self(34i32);
-    pub const HeaderItem: Self = Self(35i32);
-    pub const Table: Self = Self(36i32);
-    pub const TitleBar: Self = Self(37i32);
-    pub const Separator: Self = Self(38i32);
-    pub const SemanticZoom: Self = Self(39i32);
-    pub const AppBar: Self = Self(40i32);
-    pub const FlipView: Self = Self(41i32);
+    pub const Button: Self = Self(0);
+    pub const Calendar: Self = Self(1);
+    pub const CheckBox: Self = Self(2);
+    pub const ComboBox: Self = Self(3);
+    pub const Edit: Self = Self(4);
+    pub const Hyperlink: Self = Self(5);
+    pub const Image: Self = Self(6);
+    pub const ListItem: Self = Self(7);
+    pub const List: Self = Self(8);
+    pub const Menu: Self = Self(9);
+    pub const MenuBar: Self = Self(10);
+    pub const MenuItem: Self = Self(11);
+    pub const ProgressBar: Self = Self(12);
+    pub const RadioButton: Self = Self(13);
+    pub const ScrollBar: Self = Self(14);
+    pub const Slider: Self = Self(15);
+    pub const Spinner: Self = Self(16);
+    pub const StatusBar: Self = Self(17);
+    pub const Tab: Self = Self(18);
+    pub const TabItem: Self = Self(19);
+    pub const Text: Self = Self(20);
+    pub const ToolBar: Self = Self(21);
+    pub const ToolTip: Self = Self(22);
+    pub const Tree: Self = Self(23);
+    pub const TreeItem: Self = Self(24);
+    pub const Custom: Self = Self(25);
+    pub const Group: Self = Self(26);
+    pub const Thumb: Self = Self(27);
+    pub const DataGrid: Self = Self(28);
+    pub const DataItem: Self = Self(29);
+    pub const Document: Self = Self(30);
+    pub const SplitButton: Self = Self(31);
+    pub const Window: Self = Self(32);
+    pub const Pane: Self = Self(33);
+    pub const Header: Self = Self(34);
+    pub const HeaderItem: Self = Self(35);
+    pub const Table: Self = Self(36);
+    pub const TitleBar: Self = Self(37);
+    pub const Separator: Self = Self(38);
+    pub const SemanticZoom: Self = Self(39);
+    pub const AppBar: Self = Self(40);
+    pub const FlipView: Self = Self(41);
 }
 impl windows_core::TypeKind for AutomationControlType {
     type TypeKind = windows_core::CopyType;
@@ -824,36 +824,36 @@ impl windows_core::RuntimeType for AutomationControlType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationEvents(pub i32);
 impl AutomationEvents {
-    pub const ToolTipOpened: Self = Self(0i32);
-    pub const ToolTipClosed: Self = Self(1i32);
-    pub const MenuOpened: Self = Self(2i32);
-    pub const MenuClosed: Self = Self(3i32);
-    pub const AutomationFocusChanged: Self = Self(4i32);
-    pub const InvokePatternOnInvoked: Self = Self(5i32);
-    pub const SelectionItemPatternOnElementAddedToSelection: Self = Self(6i32);
-    pub const SelectionItemPatternOnElementRemovedFromSelection: Self = Self(7i32);
-    pub const SelectionItemPatternOnElementSelected: Self = Self(8i32);
-    pub const SelectionPatternOnInvalidated: Self = Self(9i32);
-    pub const TextPatternOnTextSelectionChanged: Self = Self(10i32);
-    pub const TextPatternOnTextChanged: Self = Self(11i32);
-    pub const AsyncContentLoaded: Self = Self(12i32);
-    pub const PropertyChanged: Self = Self(13i32);
-    pub const StructureChanged: Self = Self(14i32);
-    pub const DragStart: Self = Self(15i32);
-    pub const DragCancel: Self = Self(16i32);
-    pub const DragComplete: Self = Self(17i32);
-    pub const DragEnter: Self = Self(18i32);
-    pub const DragLeave: Self = Self(19i32);
-    pub const Dropped: Self = Self(20i32);
-    pub const LiveRegionChanged: Self = Self(21i32);
-    pub const InputReachedTarget: Self = Self(22i32);
-    pub const InputReachedOtherElement: Self = Self(23i32);
-    pub const InputDiscarded: Self = Self(24i32);
-    pub const WindowClosed: Self = Self(25i32);
-    pub const WindowOpened: Self = Self(26i32);
-    pub const ConversionTargetChanged: Self = Self(27i32);
-    pub const TextEditTextChanged: Self = Self(28i32);
-    pub const LayoutInvalidated: Self = Self(29i32);
+    pub const ToolTipOpened: Self = Self(0);
+    pub const ToolTipClosed: Self = Self(1);
+    pub const MenuOpened: Self = Self(2);
+    pub const MenuClosed: Self = Self(3);
+    pub const AutomationFocusChanged: Self = Self(4);
+    pub const InvokePatternOnInvoked: Self = Self(5);
+    pub const SelectionItemPatternOnElementAddedToSelection: Self = Self(6);
+    pub const SelectionItemPatternOnElementRemovedFromSelection: Self = Self(7);
+    pub const SelectionItemPatternOnElementSelected: Self = Self(8);
+    pub const SelectionPatternOnInvalidated: Self = Self(9);
+    pub const TextPatternOnTextSelectionChanged: Self = Self(10);
+    pub const TextPatternOnTextChanged: Self = Self(11);
+    pub const AsyncContentLoaded: Self = Self(12);
+    pub const PropertyChanged: Self = Self(13);
+    pub const StructureChanged: Self = Self(14);
+    pub const DragStart: Self = Self(15);
+    pub const DragCancel: Self = Self(16);
+    pub const DragComplete: Self = Self(17);
+    pub const DragEnter: Self = Self(18);
+    pub const DragLeave: Self = Self(19);
+    pub const Dropped: Self = Self(20);
+    pub const LiveRegionChanged: Self = Self(21);
+    pub const InputReachedTarget: Self = Self(22);
+    pub const InputReachedOtherElement: Self = Self(23);
+    pub const InputDiscarded: Self = Self(24);
+    pub const WindowClosed: Self = Self(25);
+    pub const WindowOpened: Self = Self(26);
+    pub const ConversionTargetChanged: Self = Self(27);
+    pub const TextEditTextChanged: Self = Self(28);
+    pub const LayoutInvalidated: Self = Self(29);
 }
 impl windows_core::TypeKind for AutomationEvents {
     type TypeKind = windows_core::CopyType;
@@ -867,16 +867,16 @@ impl windows_core::RuntimeType for AutomationEvents {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationHeadingLevel(pub i32);
 impl AutomationHeadingLevel {
-    pub const None: Self = Self(0i32);
-    pub const Level1: Self = Self(1i32);
-    pub const Level2: Self = Self(2i32);
-    pub const Level3: Self = Self(3i32);
-    pub const Level4: Self = Self(4i32);
-    pub const Level5: Self = Self(5i32);
-    pub const Level6: Self = Self(6i32);
-    pub const Level7: Self = Self(7i32);
-    pub const Level8: Self = Self(8i32);
-    pub const Level9: Self = Self(9i32);
+    pub const None: Self = Self(0);
+    pub const Level1: Self = Self(1);
+    pub const Level2: Self = Self(2);
+    pub const Level3: Self = Self(3);
+    pub const Level4: Self = Self(4);
+    pub const Level5: Self = Self(5);
+    pub const Level6: Self = Self(6);
+    pub const Level7: Self = Self(7);
+    pub const Level8: Self = Self(8);
+    pub const Level9: Self = Self(9);
 }
 impl windows_core::TypeKind for AutomationHeadingLevel {
     type TypeKind = windows_core::CopyType;
@@ -890,12 +890,12 @@ impl windows_core::RuntimeType for AutomationHeadingLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationLandmarkType(pub i32);
 impl AutomationLandmarkType {
-    pub const None: Self = Self(0i32);
-    pub const Custom: Self = Self(1i32);
-    pub const Form: Self = Self(2i32);
-    pub const Main: Self = Self(3i32);
-    pub const Navigation: Self = Self(4i32);
-    pub const Search: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const Custom: Self = Self(1);
+    pub const Form: Self = Self(2);
+    pub const Main: Self = Self(3);
+    pub const Navigation: Self = Self(4);
+    pub const Search: Self = Self(5);
 }
 impl windows_core::TypeKind for AutomationLandmarkType {
     type TypeKind = windows_core::CopyType;
@@ -909,9 +909,9 @@ impl windows_core::RuntimeType for AutomationLandmarkType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationLiveSetting(pub i32);
 impl AutomationLiveSetting {
-    pub const Off: Self = Self(0i32);
-    pub const Polite: Self = Self(1i32);
-    pub const Assertive: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const Polite: Self = Self(1);
+    pub const Assertive: Self = Self(2);
 }
 impl windows_core::TypeKind for AutomationLiveSetting {
     type TypeKind = windows_core::CopyType;
@@ -925,11 +925,11 @@ impl windows_core::RuntimeType for AutomationLiveSetting {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationNavigationDirection(pub i32);
 impl AutomationNavigationDirection {
-    pub const Parent: Self = Self(0i32);
-    pub const NextSibling: Self = Self(1i32);
-    pub const PreviousSibling: Self = Self(2i32);
-    pub const FirstChild: Self = Self(3i32);
-    pub const LastChild: Self = Self(4i32);
+    pub const Parent: Self = Self(0);
+    pub const NextSibling: Self = Self(1);
+    pub const PreviousSibling: Self = Self(2);
+    pub const FirstChild: Self = Self(3);
+    pub const LastChild: Self = Self(4);
 }
 impl windows_core::TypeKind for AutomationNavigationDirection {
     type TypeKind = windows_core::CopyType;
@@ -943,11 +943,11 @@ impl windows_core::RuntimeType for AutomationNavigationDirection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationNotificationKind(pub i32);
 impl AutomationNotificationKind {
-    pub const ItemAdded: Self = Self(0i32);
-    pub const ItemRemoved: Self = Self(1i32);
-    pub const ActionCompleted: Self = Self(2i32);
-    pub const ActionAborted: Self = Self(3i32);
-    pub const Other: Self = Self(4i32);
+    pub const ItemAdded: Self = Self(0);
+    pub const ItemRemoved: Self = Self(1);
+    pub const ActionCompleted: Self = Self(2);
+    pub const ActionAborted: Self = Self(3);
+    pub const Other: Self = Self(4);
 }
 impl windows_core::TypeKind for AutomationNotificationKind {
     type TypeKind = windows_core::CopyType;
@@ -961,11 +961,11 @@ impl windows_core::RuntimeType for AutomationNotificationKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationNotificationProcessing(pub i32);
 impl AutomationNotificationProcessing {
-    pub const ImportantAll: Self = Self(0i32);
-    pub const ImportantMostRecent: Self = Self(1i32);
-    pub const All: Self = Self(2i32);
-    pub const MostRecent: Self = Self(3i32);
-    pub const CurrentThenMostRecent: Self = Self(4i32);
+    pub const ImportantAll: Self = Self(0);
+    pub const ImportantMostRecent: Self = Self(1);
+    pub const All: Self = Self(2);
+    pub const MostRecent: Self = Self(3);
+    pub const CurrentThenMostRecent: Self = Self(4);
 }
 impl windows_core::TypeKind for AutomationNotificationProcessing {
     type TypeKind = windows_core::CopyType;
@@ -979,9 +979,9 @@ impl windows_core::RuntimeType for AutomationNotificationProcessing {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationOrientation(pub i32);
 impl AutomationOrientation {
-    pub const None: Self = Self(0i32);
-    pub const Horizontal: Self = Self(1i32);
-    pub const Vertical: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Horizontal: Self = Self(1);
+    pub const Vertical: Self = Self(2);
 }
 impl windows_core::TypeKind for AutomationOrientation {
     type TypeKind = windows_core::CopyType;
@@ -1204,12 +1204,12 @@ unsafe impl Sync for AutomationProperty {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationStructureChangeType(pub i32);
 impl AutomationStructureChangeType {
-    pub const ChildAdded: Self = Self(0i32);
-    pub const ChildRemoved: Self = Self(1i32);
-    pub const ChildrenInvalidated: Self = Self(2i32);
-    pub const ChildrenBulkAdded: Self = Self(3i32);
-    pub const ChildrenBulkRemoved: Self = Self(4i32);
-    pub const ChildrenReordered: Self = Self(5i32);
+    pub const ChildAdded: Self = Self(0);
+    pub const ChildRemoved: Self = Self(1);
+    pub const ChildrenInvalidated: Self = Self(2);
+    pub const ChildrenBulkAdded: Self = Self(3);
+    pub const ChildrenBulkRemoved: Self = Self(4);
+    pub const ChildrenReordered: Self = Self(5);
 }
 impl windows_core::TypeKind for AutomationStructureChangeType {
     type TypeKind = windows_core::CopyType;
@@ -1223,10 +1223,10 @@ impl windows_core::RuntimeType for AutomationStructureChangeType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationTextEditChangeType(pub i32);
 impl AutomationTextEditChangeType {
-    pub const None: Self = Self(0i32);
-    pub const AutoCorrect: Self = Self(1i32);
-    pub const Composition: Self = Self(2i32);
-    pub const CompositionFinalized: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const AutoCorrect: Self = Self(1);
+    pub const Composition: Self = Self(2);
+    pub const CompositionFinalized: Self = Self(3);
 }
 impl windows_core::TypeKind for AutomationTextEditChangeType {
     type TypeKind = windows_core::CopyType;
@@ -1754,7 +1754,7 @@ impl windows_core::RuntimeName for ButtonBaseAutomationPeer {
 unsafe impl Send for ButtonBaseAutomationPeer {}
 unsafe impl Sync for ButtonBaseAutomationPeer {}
 pub type COINIT = i32;
-pub const COINIT_APARTMENTTHREADED: COINIT = 2i32;
+pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CalendarDatePicker(windows_core::IUnknown);
@@ -2531,9 +2531,9 @@ unsafe impl Sync for CommandBar {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommandBarDefaultLabelPosition(pub i32);
 impl CommandBarDefaultLabelPosition {
-    pub const Bottom: Self = Self(0i32);
-    pub const Right: Self = Self(1i32);
-    pub const Collapsed: Self = Self(2i32);
+    pub const Bottom: Self = Self(0);
+    pub const Right: Self = Self(1);
+    pub const Collapsed: Self = Self(2);
 }
 impl windows_core::TypeKind for CommandBarDefaultLabelPosition {
     type TypeKind = windows_core::CopyType;
@@ -2954,8 +2954,8 @@ unsafe impl Sync for ContentDialogClosedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContentDialogPlacement(pub i32);
 impl ContentDialogPlacement {
-    pub const Popup: Self = Self(0i32);
-    pub const InPlace: Self = Self(1i32);
+    pub const Popup: Self = Self(0);
+    pub const InPlace: Self = Self(1);
 }
 impl windows_core::TypeKind for ContentDialogPlacement {
     type TypeKind = windows_core::CopyType;
@@ -2969,9 +2969,9 @@ impl windows_core::RuntimeType for ContentDialogPlacement {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContentDialogResult(pub i32);
 impl ContentDialogResult {
-    pub const None: Self = Self(0i32);
-    pub const Primary: Self = Self(1i32);
-    pub const Secondary: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Primary: Self = Self(1);
+    pub const Secondary: Self = Self(2);
 }
 impl windows_core::TypeKind for ContentDialogResult {
     type TypeKind = windows_core::CopyType;
@@ -3085,7 +3085,7 @@ impl windows_core::RuntimeName for CubicBezierEasingFunction {
 unsafe impl Send for CubicBezierEasingFunction {}
 unsafe impl Sync for CubicBezierEasingFunction {}
 pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4i32 as _;
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataTemplate(windows_core::IUnknown);
@@ -3545,9 +3545,9 @@ impl<F: Fn() + 'static> DispatcherQueueHandlerBox<F> {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
-    pub const Low: Self = Self(-10i32);
-    pub const Normal: Self = Self(0i32);
-    pub const High: Self = Self(10i32);
+    pub const Low: Self = Self(-10);
+    pub const Normal: Self = Self(0);
+    pub const High: Self = Self(10);
 }
 impl windows_core::TypeKind for DispatcherQueuePriority {
     type TypeKind = windows_core::CopyType;
@@ -3719,9 +3719,9 @@ unsafe impl Sync for ElementCompositionPreview {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ElementTheme(pub i32);
 impl ElementTheme {
-    pub const Default: Self = Self(0i32);
-    pub const Light: Self = Self(1i32);
-    pub const Dark: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const Light: Self = Self(1);
+    pub const Dark: Self = Self(2);
 }
 impl windows_core::TypeKind for ElementTheme {
     type TypeKind = windows_core::CopyType;
@@ -4145,20 +4145,20 @@ unsafe impl Sync for FlyoutBase {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FlyoutPlacementMode(pub i32);
 impl FlyoutPlacementMode {
-    pub const Top: Self = Self(0i32);
-    pub const Bottom: Self = Self(1i32);
-    pub const Left: Self = Self(2i32);
-    pub const Right: Self = Self(3i32);
-    pub const Full: Self = Self(4i32);
-    pub const TopEdgeAlignedLeft: Self = Self(5i32);
-    pub const TopEdgeAlignedRight: Self = Self(6i32);
-    pub const BottomEdgeAlignedLeft: Self = Self(7i32);
-    pub const BottomEdgeAlignedRight: Self = Self(8i32);
-    pub const LeftEdgeAlignedTop: Self = Self(9i32);
-    pub const LeftEdgeAlignedBottom: Self = Self(10i32);
-    pub const RightEdgeAlignedTop: Self = Self(11i32);
-    pub const RightEdgeAlignedBottom: Self = Self(12i32);
-    pub const Auto: Self = Self(13i32);
+    pub const Top: Self = Self(0);
+    pub const Bottom: Self = Self(1);
+    pub const Left: Self = Self(2);
+    pub const Right: Self = Self(3);
+    pub const Full: Self = Self(4);
+    pub const TopEdgeAlignedLeft: Self = Self(5);
+    pub const TopEdgeAlignedRight: Self = Self(6);
+    pub const BottomEdgeAlignedLeft: Self = Self(7);
+    pub const BottomEdgeAlignedRight: Self = Self(8);
+    pub const LeftEdgeAlignedTop: Self = Self(9);
+    pub const LeftEdgeAlignedBottom: Self = Self(10);
+    pub const RightEdgeAlignedTop: Self = Self(11);
+    pub const RightEdgeAlignedBottom: Self = Self(12);
+    pub const Auto: Self = Self(13);
 }
 impl windows_core::TypeKind for FlyoutPlacementMode {
     type TypeKind = windows_core::CopyType;
@@ -4589,9 +4589,9 @@ impl windows_core::RuntimeType for GridLength {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GridUnitType(pub i32);
 impl GridUnitType {
-    pub const Auto: Self = Self(0i32);
-    pub const Pixel: Self = Self(1i32);
-    pub const Star: Self = Self(2i32);
+    pub const Auto: Self = Self(0);
+    pub const Pixel: Self = Self(1);
+    pub const Star: Self = Self(2);
 }
 impl windows_core::TypeKind for GridUnitType {
     type TypeKind = windows_core::CopyType;
@@ -4677,16 +4677,16 @@ impl windows_core::RuntimeName for GridView {
 unsafe impl Send for GridView {}
 unsafe impl Sync for GridView {}
 pub type HMONITOR = *mut core::ffi::c_void;
-pub const HTCLIENT: u32 = 1u32;
+pub const HTCLIENT: u32 = 1;
 pub type HWND = *mut core::ffi::c_void;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HorizontalAlignment(pub i32);
 impl HorizontalAlignment {
-    pub const Left: Self = Self(0i32);
-    pub const Center: Self = Self(1i32);
-    pub const Right: Self = Self(2i32);
-    pub const Stretch: Self = Self(3i32);
+    pub const Left: Self = Self(0);
+    pub const Center: Self = Self(1);
+    pub const Right: Self = Self(2);
+    pub const Stretch: Self = Self(3);
 }
 impl windows_core::TypeKind for HorizontalAlignment {
     type TypeKind = windows_core::CopyType;
@@ -22081,10 +22081,10 @@ unsafe impl Sync for InfoBarClosedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InfoBarSeverity(pub i32);
 impl InfoBarSeverity {
-    pub const Informational: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const Warning: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
+    pub const Informational: Self = Self(0);
+    pub const Success: Self = Self(1);
+    pub const Warning: Self = Self(2);
+    pub const Error: Self = Self(3);
 }
 impl windows_core::TypeKind for InfoBarSeverity {
     type TypeKind = windows_core::CopyType;
@@ -22384,8 +22384,8 @@ unsafe impl Sync for KeyboardAcceleratorInvokedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyboardAcceleratorPlacementMode(pub i32);
 impl KeyboardAcceleratorPlacementMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Hidden: Self = Self(1i32);
+    pub const Auto: Self = Self(0);
+    pub const Hidden: Self = Self(1);
 }
 impl windows_core::TypeKind for KeyboardAcceleratorPlacementMode {
     type TypeKind = windows_core::CopyType;
@@ -22721,10 +22721,10 @@ unsafe impl Sync for ListViewItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ListViewSelectionMode(pub i32);
 impl ListViewSelectionMode {
-    pub const None: Self = Self(0i32);
-    pub const Single: Self = Self(1i32);
-    pub const Multiple: Self = Self(2i32);
-    pub const Extended: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Single: Self = Self(1);
+    pub const Multiple: Self = Self(2);
+    pub const Extended: Self = Self(3);
 }
 impl windows_core::TypeKind for ListViewSelectionMode {
     type TypeKind = windows_core::CopyType;
@@ -22753,12 +22753,11 @@ impl Default for MONITORINFOEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2u32;
+pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2;
 pub type MONITOR_FROM_FLAGS = u32;
 pub type MddBootstrapInitializeOptions = i32;
-pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8i32;
-pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions =
-    16i32;
+pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
+pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MenuBar(windows_core::IUnknown);
@@ -23282,8 +23281,8 @@ unsafe impl Sync for MicaBackdrop {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MicaKind(pub i32);
 impl MicaKind {
-    pub const Base: Self = Self(0i32);
-    pub const BaseAlt: Self = Self(1i32);
+    pub const Base: Self = Self(0);
+    pub const BaseAlt: Self = Self(1);
 }
 impl windows_core::TypeKind for MicaKind {
     type TypeKind = windows_core::CopyType;
@@ -23371,8 +23370,8 @@ unsafe impl Sync for NavigationView {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NavigationViewBackButtonVisible(pub i32);
 impl NavigationViewBackButtonVisible {
-    pub const Collapsed: Self = Self(0i32);
-    pub const Auto: Self = Self(2i32);
+    pub const Collapsed: Self = Self(0);
+    pub const Auto: Self = Self(2);
 }
 impl windows_core::TypeKind for NavigationViewBackButtonVisible {
     type TypeKind = windows_core::CopyType;
@@ -23609,11 +23608,11 @@ unsafe impl Sync for NavigationViewItemHeader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NavigationViewPaneDisplayMode(pub i32);
 impl NavigationViewPaneDisplayMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Left: Self = Self(1i32);
-    pub const Top: Self = Self(2i32);
-    pub const LeftCompact: Self = Self(3i32);
-    pub const LeftMinimal: Self = Self(4i32);
+    pub const Auto: Self = Self(0);
+    pub const Left: Self = Self(1);
+    pub const Top: Self = Self(2);
+    pub const LeftCompact: Self = Self(3);
+    pub const LeftMinimal: Self = Self(4);
 }
 impl windows_core::TypeKind for NavigationViewPaneDisplayMode {
     type TypeKind = windows_core::CopyType;
@@ -23758,8 +23757,8 @@ unsafe impl Sync for NumberBoxValueChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Orientation(pub i32);
 impl Orientation {
-    pub const Vertical: Self = Self(0i32);
-    pub const Horizontal: Self = Self(1i32);
+    pub const Vertical: Self = Self(0);
+    pub const Horizontal: Self = Self(1);
 }
 impl windows_core::TypeKind for Orientation {
     type TypeKind = windows_core::CopyType;
@@ -23928,9 +23927,9 @@ unsafe impl Sync for PasswordBox {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PasswordRevealMode(pub i32);
 impl PasswordRevealMode {
-    pub const Peek: Self = Self(0i32);
-    pub const Hidden: Self = Self(1i32);
-    pub const Visible: Self = Self(2i32);
+    pub const Peek: Self = Self(0);
+    pub const Hidden: Self = Self(1);
+    pub const Visible: Self = Self(2);
 }
 impl windows_core::TypeKind for PasswordRevealMode {
     type TypeKind = windows_core::CopyType;
@@ -23944,40 +23943,40 @@ impl windows_core::RuntimeType for PasswordRevealMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PatternInterface(pub i32);
 impl PatternInterface {
-    pub const Invoke: Self = Self(0i32);
-    pub const Selection: Self = Self(1i32);
-    pub const Value: Self = Self(2i32);
-    pub const RangeValue: Self = Self(3i32);
-    pub const Scroll: Self = Self(4i32);
-    pub const ScrollItem: Self = Self(5i32);
-    pub const ExpandCollapse: Self = Self(6i32);
-    pub const Grid: Self = Self(7i32);
-    pub const GridItem: Self = Self(8i32);
-    pub const MultipleView: Self = Self(9i32);
-    pub const Window: Self = Self(10i32);
-    pub const SelectionItem: Self = Self(11i32);
-    pub const Dock: Self = Self(12i32);
-    pub const Table: Self = Self(13i32);
-    pub const TableItem: Self = Self(14i32);
-    pub const Toggle: Self = Self(15i32);
-    pub const Transform: Self = Self(16i32);
-    pub const Text: Self = Self(17i32);
-    pub const ItemContainer: Self = Self(18i32);
-    pub const VirtualizedItem: Self = Self(19i32);
-    pub const Text2: Self = Self(20i32);
-    pub const TextChild: Self = Self(21i32);
-    pub const TextRange: Self = Self(22i32);
-    pub const Annotation: Self = Self(23i32);
-    pub const Drag: Self = Self(24i32);
-    pub const DropTarget: Self = Self(25i32);
-    pub const ObjectModel: Self = Self(26i32);
-    pub const Spreadsheet: Self = Self(27i32);
-    pub const SpreadsheetItem: Self = Self(28i32);
-    pub const Styles: Self = Self(29i32);
-    pub const Transform2: Self = Self(30i32);
-    pub const SynchronizedInput: Self = Self(31i32);
-    pub const TextEdit: Self = Self(32i32);
-    pub const CustomNavigation: Self = Self(33i32);
+    pub const Invoke: Self = Self(0);
+    pub const Selection: Self = Self(1);
+    pub const Value: Self = Self(2);
+    pub const RangeValue: Self = Self(3);
+    pub const Scroll: Self = Self(4);
+    pub const ScrollItem: Self = Self(5);
+    pub const ExpandCollapse: Self = Self(6);
+    pub const Grid: Self = Self(7);
+    pub const GridItem: Self = Self(8);
+    pub const MultipleView: Self = Self(9);
+    pub const Window: Self = Self(10);
+    pub const SelectionItem: Self = Self(11);
+    pub const Dock: Self = Self(12);
+    pub const Table: Self = Self(13);
+    pub const TableItem: Self = Self(14);
+    pub const Toggle: Self = Self(15);
+    pub const Transform: Self = Self(16);
+    pub const Text: Self = Self(17);
+    pub const ItemContainer: Self = Self(18);
+    pub const VirtualizedItem: Self = Self(19);
+    pub const Text2: Self = Self(20);
+    pub const TextChild: Self = Self(21);
+    pub const TextRange: Self = Self(22);
+    pub const Annotation: Self = Self(23);
+    pub const Drag: Self = Self(24);
+    pub const DropTarget: Self = Self(25);
+    pub const ObjectModel: Self = Self(26);
+    pub const Spreadsheet: Self = Self(27);
+    pub const SpreadsheetItem: Self = Self(28);
+    pub const Styles: Self = Self(29);
+    pub const Transform2: Self = Self(30);
+    pub const SynchronizedInput: Self = Self(31);
+    pub const TextEdit: Self = Self(32);
+    pub const CustomNavigation: Self = Self(33);
 }
 impl windows_core::TypeKind for PatternInterface {
     type TypeKind = windows_core::CopyType;
@@ -24208,11 +24207,11 @@ unsafe impl Sync for PivotItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlacementMode(pub i32);
 impl PlacementMode {
-    pub const Bottom: Self = Self(2i32);
-    pub const Left: Self = Self(9i32);
-    pub const Mouse: Self = Self(7i32);
-    pub const Right: Self = Self(4i32);
-    pub const Top: Self = Self(10i32);
+    pub const Bottom: Self = Self(2);
+    pub const Left: Self = Self(9);
+    pub const Mouse: Self = Self(7);
+    pub const Right: Self = Self(4);
+    pub const Top: Self = Self(10);
 }
 impl windows_core::TypeKind for PlacementMode {
     type TypeKind = windows_core::CopyType;
@@ -25667,9 +25666,9 @@ impl windows_core::RuntimeName for Run {
 unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
 pub type SET_WINDOW_POS_FLAGS = u32;
-pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16u32;
-pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1u32;
-pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4u32;
+pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16;
+pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1;
+pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
@@ -25708,10 +25707,10 @@ unsafe impl Sync for ScalarKeyFrameAnimation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollBarVisibility(pub i32);
 impl ScrollBarVisibility {
-    pub const Disabled: Self = Self(0i32);
-    pub const Auto: Self = Self(1i32);
-    pub const Hidden: Self = Self(2i32);
-    pub const Visible: Self = Self(3i32);
+    pub const Disabled: Self = Self(0);
+    pub const Auto: Self = Self(1);
+    pub const Hidden: Self = Self(2);
+    pub const Visible: Self = Self(3);
 }
 impl windows_core::TypeKind for ScrollBarVisibility {
     type TypeKind = windows_core::CopyType;
@@ -25725,8 +25724,8 @@ impl windows_core::RuntimeType for ScrollBarVisibility {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollIntoViewAlignment(pub i32);
 impl ScrollIntoViewAlignment {
-    pub const Default: Self = Self(0i32);
-    pub const Leading: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const Leading: Self = Self(1);
 }
 impl windows_core::TypeKind for ScrollIntoViewAlignment {
     type TypeKind = windows_core::CopyType;
@@ -25865,9 +25864,9 @@ unsafe impl Sync for ScrollViewer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollingScrollBarVisibility(pub i32);
 impl ScrollingScrollBarVisibility {
-    pub const Auto: Self = Self(0i32);
-    pub const Visible: Self = Self(1i32);
-    pub const Hidden: Self = Self(2i32);
+    pub const Auto: Self = Self(0);
+    pub const Visible: Self = Self(1);
+    pub const Hidden: Self = Self(2);
 }
 impl windows_core::TypeKind for ScrollingScrollBarVisibility {
     type TypeKind = windows_core::CopyType;
@@ -25965,9 +25964,9 @@ impl<
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SelectionMode(pub i32);
 impl SelectionMode {
-    pub const Single: Self = Self(0i32);
-    pub const Multiple: Self = Self(1i32);
-    pub const Extended: Self = Self(2i32);
+    pub const Single: Self = Self(0);
+    pub const Multiple: Self = Self(1);
+    pub const Extended: Self = Self(2);
 }
 impl windows_core::TypeKind for SelectionMode {
     type TypeKind = windows_core::CopyType;
@@ -26676,10 +26675,10 @@ unsafe impl Sync for SplitView {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SplitViewDisplayMode(pub i32);
 impl SplitViewDisplayMode {
-    pub const Overlay: Self = Self(0i32);
-    pub const Inline: Self = Self(1i32);
-    pub const CompactOverlay: Self = Self(2i32);
-    pub const CompactInline: Self = Self(3i32);
+    pub const Overlay: Self = Self(0);
+    pub const Inline: Self = Self(1);
+    pub const CompactOverlay: Self = Self(2);
+    pub const CompactInline: Self = Self(3);
 }
 impl windows_core::TypeKind for SplitViewDisplayMode {
     type TypeKind = windows_core::CopyType;
@@ -26766,10 +26765,10 @@ unsafe impl Sync for StackPanel {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Stretch(pub i32);
 impl Stretch {
-    pub const None: Self = Self(0i32);
-    pub const Fill: Self = Self(1i32);
-    pub const Uniform: Self = Self(2i32);
-    pub const UniformToFill: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Fill: Self = Self(1);
+    pub const Uniform: Self = Self(2);
+    pub const UniformToFill: Self = Self(3);
 }
 impl windows_core::TypeKind for Stretch {
     type TypeKind = windows_core::CopyType;
@@ -26978,203 +26977,203 @@ unsafe impl Sync for SwapChainPanel {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Symbol(pub i32);
 impl Symbol {
-    pub const Previous: Self = Self(57600i32);
-    pub const Next: Self = Self(57601i32);
-    pub const Play: Self = Self(57602i32);
-    pub const Pause: Self = Self(57603i32);
-    pub const Edit: Self = Self(57604i32);
-    pub const Save: Self = Self(57605i32);
-    pub const Clear: Self = Self(57606i32);
-    pub const Delete: Self = Self(57607i32);
-    pub const Remove: Self = Self(57608i32);
-    pub const Add: Self = Self(57609i32);
-    pub const Cancel: Self = Self(57610i32);
-    pub const Accept: Self = Self(57611i32);
-    pub const More: Self = Self(57612i32);
-    pub const Redo: Self = Self(57613i32);
-    pub const Undo: Self = Self(57614i32);
-    pub const Home: Self = Self(57615i32);
-    pub const Up: Self = Self(57616i32);
-    pub const Forward: Self = Self(57617i32);
-    pub const Back: Self = Self(57618i32);
-    pub const Favorite: Self = Self(57619i32);
-    pub const Camera: Self = Self(57620i32);
-    pub const Setting: Self = Self(57621i32);
-    pub const Video: Self = Self(57622i32);
-    pub const Sync: Self = Self(57623i32);
-    pub const Download: Self = Self(57624i32);
-    pub const Mail: Self = Self(57625i32);
-    pub const Find: Self = Self(57626i32);
-    pub const Help: Self = Self(57627i32);
-    pub const Upload: Self = Self(57628i32);
-    pub const Emoji: Self = Self(57629i32);
-    pub const TwoPage: Self = Self(57630i32);
-    pub const LeaveChat: Self = Self(57631i32);
-    pub const MailForward: Self = Self(57632i32);
-    pub const Clock: Self = Self(57633i32);
-    pub const Send: Self = Self(57634i32);
-    pub const Crop: Self = Self(57635i32);
-    pub const RotateCamera: Self = Self(57636i32);
-    pub const People: Self = Self(57637i32);
-    pub const OpenPane: Self = Self(57638i32);
-    pub const ClosePane: Self = Self(57639i32);
-    pub const World: Self = Self(57640i32);
-    pub const Flag: Self = Self(57641i32);
-    pub const PreviewLink: Self = Self(57642i32);
-    pub const Globe: Self = Self(57643i32);
-    pub const Trim: Self = Self(57644i32);
-    pub const AttachCamera: Self = Self(57645i32);
-    pub const ZoomIn: Self = Self(57646i32);
-    pub const Bookmarks: Self = Self(57647i32);
-    pub const Document: Self = Self(57648i32);
-    pub const ProtectedDocument: Self = Self(57649i32);
-    pub const Page: Self = Self(57650i32);
-    pub const Bullets: Self = Self(57651i32);
-    pub const Comment: Self = Self(57652i32);
-    pub const MailFilled: Self = Self(57653i32);
-    pub const ContactInfo: Self = Self(57654i32);
-    pub const HangUp: Self = Self(57655i32);
-    pub const ViewAll: Self = Self(57656i32);
-    pub const MapPin: Self = Self(57657i32);
-    pub const Phone: Self = Self(57658i32);
-    pub const VideoChat: Self = Self(57659i32);
-    pub const Switch: Self = Self(57660i32);
-    pub const Contact: Self = Self(57661i32);
-    pub const Rename: Self = Self(57662i32);
-    pub const Pin: Self = Self(57665i32);
-    pub const MusicInfo: Self = Self(57666i32);
-    pub const Go: Self = Self(57667i32);
-    pub const Keyboard: Self = Self(57668i32);
-    pub const DockLeft: Self = Self(57669i32);
-    pub const DockRight: Self = Self(57670i32);
-    pub const DockBottom: Self = Self(57671i32);
-    pub const Remote: Self = Self(57672i32);
-    pub const Refresh: Self = Self(57673i32);
-    pub const Rotate: Self = Self(57674i32);
-    pub const Shuffle: Self = Self(57675i32);
-    pub const List: Self = Self(57676i32);
-    pub const Shop: Self = Self(57677i32);
-    pub const SelectAll: Self = Self(57678i32);
-    pub const Orientation: Self = Self(57679i32);
-    pub const Import: Self = Self(57680i32);
-    pub const ImportAll: Self = Self(57681i32);
-    pub const BrowsePhotos: Self = Self(57685i32);
-    pub const WebCam: Self = Self(57686i32);
-    pub const Pictures: Self = Self(57688i32);
-    pub const SaveLocal: Self = Self(57689i32);
-    pub const Caption: Self = Self(57690i32);
-    pub const Stop: Self = Self(57691i32);
-    pub const ShowResults: Self = Self(57692i32);
-    pub const Volume: Self = Self(57693i32);
-    pub const Repair: Self = Self(57694i32);
-    pub const Message: Self = Self(57695i32);
-    pub const Page2: Self = Self(57696i32);
-    pub const CalendarDay: Self = Self(57697i32);
-    pub const CalendarWeek: Self = Self(57698i32);
-    pub const Calendar: Self = Self(57699i32);
-    pub const Character: Self = Self(57700i32);
-    pub const MailReplyAll: Self = Self(57701i32);
-    pub const Read: Self = Self(57702i32);
-    pub const Link: Self = Self(57703i32);
-    pub const Account: Self = Self(57704i32);
-    pub const ShowBcc: Self = Self(57705i32);
-    pub const HideBcc: Self = Self(57706i32);
-    pub const Cut: Self = Self(57707i32);
-    pub const Attach: Self = Self(57708i32);
-    pub const Paste: Self = Self(57709i32);
-    pub const Filter: Self = Self(57710i32);
-    pub const Copy: Self = Self(57711i32);
-    pub const Emoji2: Self = Self(57712i32);
-    pub const Important: Self = Self(57713i32);
-    pub const MailReply: Self = Self(57714i32);
-    pub const SlideShow: Self = Self(57715i32);
-    pub const Sort: Self = Self(57716i32);
-    pub const Manage: Self = Self(57720i32);
-    pub const AllApps: Self = Self(57721i32);
-    pub const DisconnectDrive: Self = Self(57722i32);
-    pub const MapDrive: Self = Self(57723i32);
-    pub const NewWindow: Self = Self(57724i32);
-    pub const OpenWith: Self = Self(57725i32);
-    pub const ContactPresence: Self = Self(57729i32);
-    pub const Priority: Self = Self(57730i32);
-    pub const GoToToday: Self = Self(57732i32);
-    pub const Font: Self = Self(57733i32);
-    pub const FontColor: Self = Self(57734i32);
-    pub const Contact2: Self = Self(57735i32);
-    pub const Folder: Self = Self(57736i32);
-    pub const Audio: Self = Self(57737i32);
-    pub const Placeholder: Self = Self(57738i32);
-    pub const View: Self = Self(57739i32);
-    pub const SetLockScreen: Self = Self(57740i32);
-    pub const SetTile: Self = Self(57741i32);
-    pub const ClosedCaption: Self = Self(57744i32);
-    pub const StopSlideShow: Self = Self(57745i32);
-    pub const Permissions: Self = Self(57746i32);
-    pub const Highlight: Self = Self(57747i32);
-    pub const DisableUpdates: Self = Self(57748i32);
-    pub const UnFavorite: Self = Self(57749i32);
-    pub const UnPin: Self = Self(57750i32);
-    pub const OpenLocal: Self = Self(57751i32);
-    pub const Mute: Self = Self(57752i32);
-    pub const Italic: Self = Self(57753i32);
-    pub const Underline: Self = Self(57754i32);
-    pub const Bold: Self = Self(57755i32);
-    pub const MoveToFolder: Self = Self(57756i32);
-    pub const LikeDislike: Self = Self(57757i32);
-    pub const Dislike: Self = Self(57758i32);
-    pub const Like: Self = Self(57759i32);
-    pub const AlignRight: Self = Self(57760i32);
-    pub const AlignCenter: Self = Self(57761i32);
-    pub const AlignLeft: Self = Self(57762i32);
-    pub const Zoom: Self = Self(57763i32);
-    pub const ZoomOut: Self = Self(57764i32);
-    pub const OpenFile: Self = Self(57765i32);
-    pub const OtherUser: Self = Self(57766i32);
-    pub const Admin: Self = Self(57767i32);
-    pub const Street: Self = Self(57795i32);
-    pub const Map: Self = Self(57796i32);
-    pub const ClearSelection: Self = Self(57797i32);
-    pub const FontDecrease: Self = Self(57798i32);
-    pub const FontIncrease: Self = Self(57799i32);
-    pub const FontSize: Self = Self(57800i32);
-    pub const CellPhone: Self = Self(57801i32);
-    pub const ReShare: Self = Self(57802i32);
-    pub const Tag: Self = Self(57803i32);
-    pub const RepeatOne: Self = Self(57804i32);
-    pub const RepeatAll: Self = Self(57805i32);
-    pub const OutlineStar: Self = Self(57806i32);
-    pub const SolidStar: Self = Self(57807i32);
-    pub const Calculator: Self = Self(57808i32);
-    pub const Directions: Self = Self(57809i32);
-    pub const Target: Self = Self(57810i32);
-    pub const Library: Self = Self(57811i32);
-    pub const PhoneBook: Self = Self(57812i32);
-    pub const Memo: Self = Self(57813i32);
-    pub const Microphone: Self = Self(57814i32);
-    pub const PostUpdate: Self = Self(57815i32);
-    pub const BackToWindow: Self = Self(57816i32);
-    pub const FullScreen: Self = Self(57817i32);
-    pub const NewFolder: Self = Self(57818i32);
-    pub const CalendarReply: Self = Self(57819i32);
-    pub const UnSyncFolder: Self = Self(57821i32);
-    pub const ReportHacked: Self = Self(57822i32);
-    pub const SyncFolder: Self = Self(57823i32);
-    pub const BlockContact: Self = Self(57824i32);
-    pub const SwitchApps: Self = Self(57825i32);
-    pub const AddFriend: Self = Self(57826i32);
-    pub const TouchPointer: Self = Self(57827i32);
-    pub const GoToStart: Self = Self(57828i32);
-    pub const ZeroBars: Self = Self(57829i32);
-    pub const OneBar: Self = Self(57830i32);
-    pub const TwoBars: Self = Self(57831i32);
-    pub const ThreeBars: Self = Self(57832i32);
-    pub const FourBars: Self = Self(57833i32);
-    pub const Scan: Self = Self(58004i32);
-    pub const Preview: Self = Self(58005i32);
-    pub const GlobalNavigationButton: Self = Self(59136i32);
-    pub const Share: Self = Self(59181i32);
-    pub const Print: Self = Self(59209i32);
-    pub const XboxOneConsole: Self = Self(59792i32);
+    pub const Previous: Self = Self(57600);
+    pub const Next: Self = Self(57601);
+    pub const Play: Self = Self(57602);
+    pub const Pause: Self = Self(57603);
+    pub const Edit: Self = Self(57604);
+    pub const Save: Self = Self(57605);
+    pub const Clear: Self = Self(57606);
+    pub const Delete: Self = Self(57607);
+    pub const Remove: Self = Self(57608);
+    pub const Add: Self = Self(57609);
+    pub const Cancel: Self = Self(57610);
+    pub const Accept: Self = Self(57611);
+    pub const More: Self = Self(57612);
+    pub const Redo: Self = Self(57613);
+    pub const Undo: Self = Self(57614);
+    pub const Home: Self = Self(57615);
+    pub const Up: Self = Self(57616);
+    pub const Forward: Self = Self(57617);
+    pub const Back: Self = Self(57618);
+    pub const Favorite: Self = Self(57619);
+    pub const Camera: Self = Self(57620);
+    pub const Setting: Self = Self(57621);
+    pub const Video: Self = Self(57622);
+    pub const Sync: Self = Self(57623);
+    pub const Download: Self = Self(57624);
+    pub const Mail: Self = Self(57625);
+    pub const Find: Self = Self(57626);
+    pub const Help: Self = Self(57627);
+    pub const Upload: Self = Self(57628);
+    pub const Emoji: Self = Self(57629);
+    pub const TwoPage: Self = Self(57630);
+    pub const LeaveChat: Self = Self(57631);
+    pub const MailForward: Self = Self(57632);
+    pub const Clock: Self = Self(57633);
+    pub const Send: Self = Self(57634);
+    pub const Crop: Self = Self(57635);
+    pub const RotateCamera: Self = Self(57636);
+    pub const People: Self = Self(57637);
+    pub const OpenPane: Self = Self(57638);
+    pub const ClosePane: Self = Self(57639);
+    pub const World: Self = Self(57640);
+    pub const Flag: Self = Self(57641);
+    pub const PreviewLink: Self = Self(57642);
+    pub const Globe: Self = Self(57643);
+    pub const Trim: Self = Self(57644);
+    pub const AttachCamera: Self = Self(57645);
+    pub const ZoomIn: Self = Self(57646);
+    pub const Bookmarks: Self = Self(57647);
+    pub const Document: Self = Self(57648);
+    pub const ProtectedDocument: Self = Self(57649);
+    pub const Page: Self = Self(57650);
+    pub const Bullets: Self = Self(57651);
+    pub const Comment: Self = Self(57652);
+    pub const MailFilled: Self = Self(57653);
+    pub const ContactInfo: Self = Self(57654);
+    pub const HangUp: Self = Self(57655);
+    pub const ViewAll: Self = Self(57656);
+    pub const MapPin: Self = Self(57657);
+    pub const Phone: Self = Self(57658);
+    pub const VideoChat: Self = Self(57659);
+    pub const Switch: Self = Self(57660);
+    pub const Contact: Self = Self(57661);
+    pub const Rename: Self = Self(57662);
+    pub const Pin: Self = Self(57665);
+    pub const MusicInfo: Self = Self(57666);
+    pub const Go: Self = Self(57667);
+    pub const Keyboard: Self = Self(57668);
+    pub const DockLeft: Self = Self(57669);
+    pub const DockRight: Self = Self(57670);
+    pub const DockBottom: Self = Self(57671);
+    pub const Remote: Self = Self(57672);
+    pub const Refresh: Self = Self(57673);
+    pub const Rotate: Self = Self(57674);
+    pub const Shuffle: Self = Self(57675);
+    pub const List: Self = Self(57676);
+    pub const Shop: Self = Self(57677);
+    pub const SelectAll: Self = Self(57678);
+    pub const Orientation: Self = Self(57679);
+    pub const Import: Self = Self(57680);
+    pub const ImportAll: Self = Self(57681);
+    pub const BrowsePhotos: Self = Self(57685);
+    pub const WebCam: Self = Self(57686);
+    pub const Pictures: Self = Self(57688);
+    pub const SaveLocal: Self = Self(57689);
+    pub const Caption: Self = Self(57690);
+    pub const Stop: Self = Self(57691);
+    pub const ShowResults: Self = Self(57692);
+    pub const Volume: Self = Self(57693);
+    pub const Repair: Self = Self(57694);
+    pub const Message: Self = Self(57695);
+    pub const Page2: Self = Self(57696);
+    pub const CalendarDay: Self = Self(57697);
+    pub const CalendarWeek: Self = Self(57698);
+    pub const Calendar: Self = Self(57699);
+    pub const Character: Self = Self(57700);
+    pub const MailReplyAll: Self = Self(57701);
+    pub const Read: Self = Self(57702);
+    pub const Link: Self = Self(57703);
+    pub const Account: Self = Self(57704);
+    pub const ShowBcc: Self = Self(57705);
+    pub const HideBcc: Self = Self(57706);
+    pub const Cut: Self = Self(57707);
+    pub const Attach: Self = Self(57708);
+    pub const Paste: Self = Self(57709);
+    pub const Filter: Self = Self(57710);
+    pub const Copy: Self = Self(57711);
+    pub const Emoji2: Self = Self(57712);
+    pub const Important: Self = Self(57713);
+    pub const MailReply: Self = Self(57714);
+    pub const SlideShow: Self = Self(57715);
+    pub const Sort: Self = Self(57716);
+    pub const Manage: Self = Self(57720);
+    pub const AllApps: Self = Self(57721);
+    pub const DisconnectDrive: Self = Self(57722);
+    pub const MapDrive: Self = Self(57723);
+    pub const NewWindow: Self = Self(57724);
+    pub const OpenWith: Self = Self(57725);
+    pub const ContactPresence: Self = Self(57729);
+    pub const Priority: Self = Self(57730);
+    pub const GoToToday: Self = Self(57732);
+    pub const Font: Self = Self(57733);
+    pub const FontColor: Self = Self(57734);
+    pub const Contact2: Self = Self(57735);
+    pub const Folder: Self = Self(57736);
+    pub const Audio: Self = Self(57737);
+    pub const Placeholder: Self = Self(57738);
+    pub const View: Self = Self(57739);
+    pub const SetLockScreen: Self = Self(57740);
+    pub const SetTile: Self = Self(57741);
+    pub const ClosedCaption: Self = Self(57744);
+    pub const StopSlideShow: Self = Self(57745);
+    pub const Permissions: Self = Self(57746);
+    pub const Highlight: Self = Self(57747);
+    pub const DisableUpdates: Self = Self(57748);
+    pub const UnFavorite: Self = Self(57749);
+    pub const UnPin: Self = Self(57750);
+    pub const OpenLocal: Self = Self(57751);
+    pub const Mute: Self = Self(57752);
+    pub const Italic: Self = Self(57753);
+    pub const Underline: Self = Self(57754);
+    pub const Bold: Self = Self(57755);
+    pub const MoveToFolder: Self = Self(57756);
+    pub const LikeDislike: Self = Self(57757);
+    pub const Dislike: Self = Self(57758);
+    pub const Like: Self = Self(57759);
+    pub const AlignRight: Self = Self(57760);
+    pub const AlignCenter: Self = Self(57761);
+    pub const AlignLeft: Self = Self(57762);
+    pub const Zoom: Self = Self(57763);
+    pub const ZoomOut: Self = Self(57764);
+    pub const OpenFile: Self = Self(57765);
+    pub const OtherUser: Self = Self(57766);
+    pub const Admin: Self = Self(57767);
+    pub const Street: Self = Self(57795);
+    pub const Map: Self = Self(57796);
+    pub const ClearSelection: Self = Self(57797);
+    pub const FontDecrease: Self = Self(57798);
+    pub const FontIncrease: Self = Self(57799);
+    pub const FontSize: Self = Self(57800);
+    pub const CellPhone: Self = Self(57801);
+    pub const ReShare: Self = Self(57802);
+    pub const Tag: Self = Self(57803);
+    pub const RepeatOne: Self = Self(57804);
+    pub const RepeatAll: Self = Self(57805);
+    pub const OutlineStar: Self = Self(57806);
+    pub const SolidStar: Self = Self(57807);
+    pub const Calculator: Self = Self(57808);
+    pub const Directions: Self = Self(57809);
+    pub const Target: Self = Self(57810);
+    pub const Library: Self = Self(57811);
+    pub const PhoneBook: Self = Self(57812);
+    pub const Memo: Self = Self(57813);
+    pub const Microphone: Self = Self(57814);
+    pub const PostUpdate: Self = Self(57815);
+    pub const BackToWindow: Self = Self(57816);
+    pub const FullScreen: Self = Self(57817);
+    pub const NewFolder: Self = Self(57818);
+    pub const CalendarReply: Self = Self(57819);
+    pub const UnSyncFolder: Self = Self(57821);
+    pub const ReportHacked: Self = Self(57822);
+    pub const SyncFolder: Self = Self(57823);
+    pub const BlockContact: Self = Self(57824);
+    pub const SwitchApps: Self = Self(57825);
+    pub const AddFriend: Self = Self(57826);
+    pub const TouchPointer: Self = Self(57827);
+    pub const GoToStart: Self = Self(57828);
+    pub const ZeroBars: Self = Self(57829);
+    pub const OneBar: Self = Self(57830);
+    pub const TwoBars: Self = Self(57831);
+    pub const ThreeBars: Self = Self(57832);
+    pub const FourBars: Self = Self(57833);
+    pub const Scan: Self = Self(58004);
+    pub const Preview: Self = Self(58005);
+    pub const GlobalNavigationButton: Self = Self(59136);
+    pub const Share: Self = Self(59181);
+    pub const Print: Self = Self(59209);
+    pub const XboxOneConsole: Self = Self(59792);
 }
 impl windows_core::TypeKind for Symbol {
     type TypeKind = windows_core::CopyType;
@@ -27658,20 +27657,20 @@ unsafe impl Sync for TeachingTipClosedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TeachingTipPlacementMode(pub i32);
 impl TeachingTipPlacementMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Top: Self = Self(1i32);
-    pub const Bottom: Self = Self(2i32);
-    pub const Left: Self = Self(3i32);
-    pub const Right: Self = Self(4i32);
-    pub const TopRight: Self = Self(5i32);
-    pub const TopLeft: Self = Self(6i32);
-    pub const BottomRight: Self = Self(7i32);
-    pub const BottomLeft: Self = Self(8i32);
-    pub const LeftTop: Self = Self(9i32);
-    pub const LeftBottom: Self = Self(10i32);
-    pub const RightTop: Self = Self(11i32);
-    pub const RightBottom: Self = Self(12i32);
-    pub const Center: Self = Self(13i32);
+    pub const Auto: Self = Self(0);
+    pub const Top: Self = Self(1);
+    pub const Bottom: Self = Self(2);
+    pub const Left: Self = Self(3);
+    pub const Right: Self = Self(4);
+    pub const TopRight: Self = Self(5);
+    pub const TopLeft: Self = Self(6);
+    pub const BottomRight: Self = Self(7);
+    pub const BottomLeft: Self = Self(8);
+    pub const LeftTop: Self = Self(9);
+    pub const LeftBottom: Self = Self(10);
+    pub const RightTop: Self = Self(11);
+    pub const RightBottom: Self = Self(12);
+    pub const Center: Self = Self(13);
 }
 impl windows_core::TypeKind for TeachingTipPlacementMode {
     type TypeKind = windows_core::CopyType;
@@ -27911,15 +27910,15 @@ unsafe impl Sync for TextElement {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
-    pub const None: Self = Self(0u32);
-    pub const AdjustCrlf: Self = Self(1u32);
-    pub const UseCrlf: Self = Self(2u32);
-    pub const UseObjectText: Self = Self(4u32);
-    pub const AllowFinalEop: Self = Self(8u32);
-    pub const NoHidden: Self = Self(32u32);
-    pub const IncludeNumbering: Self = Self(64u32);
-    pub const FormatRtf: Self = Self(8192u32);
-    pub const UseLf: Self = Self(16777216u32);
+    pub const None: Self = Self(0);
+    pub const AdjustCrlf: Self = Self(1);
+    pub const UseCrlf: Self = Self(2);
+    pub const UseObjectText: Self = Self(4);
+    pub const AllowFinalEop: Self = Self(8);
+    pub const NoHidden: Self = Self(32);
+    pub const IncludeNumbering: Self = Self(64);
+    pub const FormatRtf: Self = Self(8192);
+    pub const UseLf: Self = Self(16777216);
 }
 impl windows_core::TypeKind for TextGetOptions {
     type TypeKind = windows_core::CopyType;
@@ -27965,13 +27964,13 @@ impl core::ops::Not for TextGetOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
-    pub const None: Self = Self(0u32);
-    pub const UnicodeBidi: Self = Self(1u32);
-    pub const Unlink: Self = Self(8u32);
-    pub const Unhide: Self = Self(16u32);
-    pub const CheckTextLimit: Self = Self(32u32);
-    pub const FormatRtf: Self = Self(8192u32);
-    pub const ApplyRtfDocumentDefaults: Self = Self(16384u32);
+    pub const None: Self = Self(0);
+    pub const UnicodeBidi: Self = Self(1);
+    pub const Unlink: Self = Self(8);
+    pub const Unhide: Self = Self(16);
+    pub const CheckTextLimit: Self = Self(32);
+    pub const FormatRtf: Self = Self(8192);
+    pub const ApplyRtfDocumentDefaults: Self = Self(16384);
 }
 impl windows_core::TypeKind for TextSetOptions {
     type TypeKind = windows_core::CopyType;
@@ -28017,9 +28016,9 @@ impl core::ops::Not for TextSetOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextWrapping(pub i32);
 impl TextWrapping {
-    pub const NoWrap: Self = Self(1i32);
-    pub const Wrap: Self = Self(2i32);
-    pub const WrapWholeWords: Self = Self(3i32);
+    pub const NoWrap: Self = Self(1);
+    pub const Wrap: Self = Self(2);
+    pub const WrapWholeWords: Self = Self(3);
 }
 impl windows_core::TypeKind for TextWrapping {
     type TypeKind = windows_core::CopyType;
@@ -28224,8 +28223,8 @@ unsafe impl Sync for TitleBar {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TitleBarHeightOption(pub i32);
 impl TitleBarHeightOption {
-    pub const Standard: Self = Self(0i32);
-    pub const Tall: Self = Self(1i32);
+    pub const Standard: Self = Self(0);
+    pub const Tall: Self = Self(1);
 }
 impl windows_core::TypeKind for TitleBarHeightOption {
     type TypeKind = windows_core::CopyType;
@@ -28239,9 +28238,9 @@ impl windows_core::RuntimeType for TitleBarHeightOption {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TitleBarTheme(pub i32);
 impl TitleBarTheme {
-    pub const UseDefaultAppMode: Self = Self(1i32);
-    pub const Light: Self = Self(2i32);
-    pub const Dark: Self = Self(3i32);
+    pub const UseDefaultAppMode: Self = Self(1);
+    pub const Light: Self = Self(2);
+    pub const Dark: Self = Self(3);
 }
 impl windows_core::TypeKind for TitleBarTheme {
     type TypeKind = windows_core::CopyType;
@@ -28713,9 +28712,9 @@ unsafe impl Sync for TreeViewNode {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TreeViewSelectionMode(pub i32);
 impl TreeViewSelectionMode {
-    pub const None: Self = Self(0i32);
-    pub const Single: Self = Self(1i32);
-    pub const Multiple: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Single: Self = Self(1);
+    pub const Multiple: Self = Self(2);
 }
 impl windows_core::TypeKind for TreeViewSelectionMode {
     type TypeKind = windows_core::CopyType;
@@ -28757,9 +28756,9 @@ unsafe impl Sync for TriggerBase {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TypeKind(pub i32);
 impl TypeKind {
-    pub const Primitive: Self = Self(0i32);
-    pub const Metadata: Self = Self(1i32);
-    pub const Custom: Self = Self(2i32);
+    pub const Primitive: Self = Self(0);
+    pub const Metadata: Self = Self(1);
+    pub const Custom: Self = Self(2);
 }
 impl windows_core::TypeKind for TypeKind {
     type TypeKind = windows_core::CopyType;
@@ -28998,10 +28997,10 @@ unsafe impl Sync for Vector3KeyFrameAnimation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VerticalAlignment(pub i32);
 impl VerticalAlignment {
-    pub const Top: Self = Self(0i32);
-    pub const Center: Self = Self(1i32);
-    pub const Bottom: Self = Self(2i32);
-    pub const Stretch: Self = Self(3i32);
+    pub const Top: Self = Self(0);
+    pub const Center: Self = Self(1);
+    pub const Bottom: Self = Self(2);
+    pub const Stretch: Self = Self(3);
 }
 impl windows_core::TypeKind for VerticalAlignment {
     type TypeKind = windows_core::CopyType;
@@ -29059,178 +29058,178 @@ unsafe impl Sync for Viewbox {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
-    pub const None: Self = Self(0i32);
-    pub const LeftButton: Self = Self(1i32);
-    pub const RightButton: Self = Self(2i32);
-    pub const Cancel: Self = Self(3i32);
-    pub const MiddleButton: Self = Self(4i32);
-    pub const XButton1: Self = Self(5i32);
-    pub const XButton2: Self = Self(6i32);
-    pub const Back: Self = Self(8i32);
-    pub const Tab: Self = Self(9i32);
-    pub const Clear: Self = Self(12i32);
-    pub const Enter: Self = Self(13i32);
-    pub const Shift: Self = Self(16i32);
-    pub const Control: Self = Self(17i32);
-    pub const Menu: Self = Self(18i32);
-    pub const Pause: Self = Self(19i32);
-    pub const CapitalLock: Self = Self(20i32);
-    pub const Kana: Self = Self(21i32);
-    pub const Hangul: Self = Self(21i32);
-    pub const ImeOn: Self = Self(22i32);
-    pub const Junja: Self = Self(23i32);
-    pub const Final: Self = Self(24i32);
-    pub const Hanja: Self = Self(25i32);
-    pub const Kanji: Self = Self(25i32);
-    pub const ImeOff: Self = Self(26i32);
-    pub const Escape: Self = Self(27i32);
-    pub const Convert: Self = Self(28i32);
-    pub const NonConvert: Self = Self(29i32);
-    pub const Accept: Self = Self(30i32);
-    pub const ModeChange: Self = Self(31i32);
-    pub const Space: Self = Self(32i32);
-    pub const PageUp: Self = Self(33i32);
-    pub const PageDown: Self = Self(34i32);
-    pub const End: Self = Self(35i32);
-    pub const Home: Self = Self(36i32);
-    pub const Left: Self = Self(37i32);
-    pub const Up: Self = Self(38i32);
-    pub const Right: Self = Self(39i32);
-    pub const Down: Self = Self(40i32);
-    pub const Select: Self = Self(41i32);
-    pub const Print: Self = Self(42i32);
-    pub const Execute: Self = Self(43i32);
-    pub const Snapshot: Self = Self(44i32);
-    pub const Insert: Self = Self(45i32);
-    pub const Delete: Self = Self(46i32);
-    pub const Help: Self = Self(47i32);
-    pub const Number0: Self = Self(48i32);
-    pub const Number1: Self = Self(49i32);
-    pub const Number2: Self = Self(50i32);
-    pub const Number3: Self = Self(51i32);
-    pub const Number4: Self = Self(52i32);
-    pub const Number5: Self = Self(53i32);
-    pub const Number6: Self = Self(54i32);
-    pub const Number7: Self = Self(55i32);
-    pub const Number8: Self = Self(56i32);
-    pub const Number9: Self = Self(57i32);
-    pub const A: Self = Self(65i32);
-    pub const B: Self = Self(66i32);
-    pub const C: Self = Self(67i32);
-    pub const D: Self = Self(68i32);
-    pub const E: Self = Self(69i32);
-    pub const F: Self = Self(70i32);
-    pub const G: Self = Self(71i32);
-    pub const H: Self = Self(72i32);
-    pub const I: Self = Self(73i32);
-    pub const J: Self = Self(74i32);
-    pub const K: Self = Self(75i32);
-    pub const L: Self = Self(76i32);
-    pub const M: Self = Self(77i32);
-    pub const N: Self = Self(78i32);
-    pub const O: Self = Self(79i32);
-    pub const P: Self = Self(80i32);
-    pub const Q: Self = Self(81i32);
-    pub const R: Self = Self(82i32);
-    pub const S: Self = Self(83i32);
-    pub const T: Self = Self(84i32);
-    pub const U: Self = Self(85i32);
-    pub const V: Self = Self(86i32);
-    pub const W: Self = Self(87i32);
-    pub const X: Self = Self(88i32);
-    pub const Y: Self = Self(89i32);
-    pub const Z: Self = Self(90i32);
-    pub const LeftWindows: Self = Self(91i32);
-    pub const RightWindows: Self = Self(92i32);
-    pub const Application: Self = Self(93i32);
-    pub const Sleep: Self = Self(95i32);
-    pub const NumberPad0: Self = Self(96i32);
-    pub const NumberPad1: Self = Self(97i32);
-    pub const NumberPad2: Self = Self(98i32);
-    pub const NumberPad3: Self = Self(99i32);
-    pub const NumberPad4: Self = Self(100i32);
-    pub const NumberPad5: Self = Self(101i32);
-    pub const NumberPad6: Self = Self(102i32);
-    pub const NumberPad7: Self = Self(103i32);
-    pub const NumberPad8: Self = Self(104i32);
-    pub const NumberPad9: Self = Self(105i32);
-    pub const Multiply: Self = Self(106i32);
-    pub const Add: Self = Self(107i32);
-    pub const Separator: Self = Self(108i32);
-    pub const Subtract: Self = Self(109i32);
-    pub const Decimal: Self = Self(110i32);
-    pub const Divide: Self = Self(111i32);
-    pub const F1: Self = Self(112i32);
-    pub const F2: Self = Self(113i32);
-    pub const F3: Self = Self(114i32);
-    pub const F4: Self = Self(115i32);
-    pub const F5: Self = Self(116i32);
-    pub const F6: Self = Self(117i32);
-    pub const F7: Self = Self(118i32);
-    pub const F8: Self = Self(119i32);
-    pub const F9: Self = Self(120i32);
-    pub const F10: Self = Self(121i32);
-    pub const F11: Self = Self(122i32);
-    pub const F12: Self = Self(123i32);
-    pub const F13: Self = Self(124i32);
-    pub const F14: Self = Self(125i32);
-    pub const F15: Self = Self(126i32);
-    pub const F16: Self = Self(127i32);
-    pub const F17: Self = Self(128i32);
-    pub const F18: Self = Self(129i32);
-    pub const F19: Self = Self(130i32);
-    pub const F20: Self = Self(131i32);
-    pub const F21: Self = Self(132i32);
-    pub const F22: Self = Self(133i32);
-    pub const F23: Self = Self(134i32);
-    pub const F24: Self = Self(135i32);
-    pub const NavigationView: Self = Self(136i32);
-    pub const NavigationMenu: Self = Self(137i32);
-    pub const NavigationUp: Self = Self(138i32);
-    pub const NavigationDown: Self = Self(139i32);
-    pub const NavigationLeft: Self = Self(140i32);
-    pub const NavigationRight: Self = Self(141i32);
-    pub const NavigationAccept: Self = Self(142i32);
-    pub const NavigationCancel: Self = Self(143i32);
-    pub const NumberKeyLock: Self = Self(144i32);
-    pub const Scroll: Self = Self(145i32);
-    pub const LeftShift: Self = Self(160i32);
-    pub const RightShift: Self = Self(161i32);
-    pub const LeftControl: Self = Self(162i32);
-    pub const RightControl: Self = Self(163i32);
-    pub const LeftMenu: Self = Self(164i32);
-    pub const RightMenu: Self = Self(165i32);
-    pub const GoBack: Self = Self(166i32);
-    pub const GoForward: Self = Self(167i32);
-    pub const Refresh: Self = Self(168i32);
-    pub const Stop: Self = Self(169i32);
-    pub const Search: Self = Self(170i32);
-    pub const Favorites: Self = Self(171i32);
-    pub const GoHome: Self = Self(172i32);
-    pub const GamepadA: Self = Self(195i32);
-    pub const GamepadB: Self = Self(196i32);
-    pub const GamepadX: Self = Self(197i32);
-    pub const GamepadY: Self = Self(198i32);
-    pub const GamepadRightShoulder: Self = Self(199i32);
-    pub const GamepadLeftShoulder: Self = Self(200i32);
-    pub const GamepadLeftTrigger: Self = Self(201i32);
-    pub const GamepadRightTrigger: Self = Self(202i32);
-    pub const GamepadDPadUp: Self = Self(203i32);
-    pub const GamepadDPadDown: Self = Self(204i32);
-    pub const GamepadDPadLeft: Self = Self(205i32);
-    pub const GamepadDPadRight: Self = Self(206i32);
-    pub const GamepadMenu: Self = Self(207i32);
-    pub const GamepadView: Self = Self(208i32);
-    pub const GamepadLeftThumbstickButton: Self = Self(209i32);
-    pub const GamepadRightThumbstickButton: Self = Self(210i32);
-    pub const GamepadLeftThumbstickUp: Self = Self(211i32);
-    pub const GamepadLeftThumbstickDown: Self = Self(212i32);
-    pub const GamepadLeftThumbstickRight: Self = Self(213i32);
-    pub const GamepadLeftThumbstickLeft: Self = Self(214i32);
-    pub const GamepadRightThumbstickUp: Self = Self(215i32);
-    pub const GamepadRightThumbstickDown: Self = Self(216i32);
-    pub const GamepadRightThumbstickRight: Self = Self(217i32);
-    pub const GamepadRightThumbstickLeft: Self = Self(218i32);
+    pub const None: Self = Self(0);
+    pub const LeftButton: Self = Self(1);
+    pub const RightButton: Self = Self(2);
+    pub const Cancel: Self = Self(3);
+    pub const MiddleButton: Self = Self(4);
+    pub const XButton1: Self = Self(5);
+    pub const XButton2: Self = Self(6);
+    pub const Back: Self = Self(8);
+    pub const Tab: Self = Self(9);
+    pub const Clear: Self = Self(12);
+    pub const Enter: Self = Self(13);
+    pub const Shift: Self = Self(16);
+    pub const Control: Self = Self(17);
+    pub const Menu: Self = Self(18);
+    pub const Pause: Self = Self(19);
+    pub const CapitalLock: Self = Self(20);
+    pub const Kana: Self = Self(21);
+    pub const Hangul: Self = Self(21);
+    pub const ImeOn: Self = Self(22);
+    pub const Junja: Self = Self(23);
+    pub const Final: Self = Self(24);
+    pub const Hanja: Self = Self(25);
+    pub const Kanji: Self = Self(25);
+    pub const ImeOff: Self = Self(26);
+    pub const Escape: Self = Self(27);
+    pub const Convert: Self = Self(28);
+    pub const NonConvert: Self = Self(29);
+    pub const Accept: Self = Self(30);
+    pub const ModeChange: Self = Self(31);
+    pub const Space: Self = Self(32);
+    pub const PageUp: Self = Self(33);
+    pub const PageDown: Self = Self(34);
+    pub const End: Self = Self(35);
+    pub const Home: Self = Self(36);
+    pub const Left: Self = Self(37);
+    pub const Up: Self = Self(38);
+    pub const Right: Self = Self(39);
+    pub const Down: Self = Self(40);
+    pub const Select: Self = Self(41);
+    pub const Print: Self = Self(42);
+    pub const Execute: Self = Self(43);
+    pub const Snapshot: Self = Self(44);
+    pub const Insert: Self = Self(45);
+    pub const Delete: Self = Self(46);
+    pub const Help: Self = Self(47);
+    pub const Number0: Self = Self(48);
+    pub const Number1: Self = Self(49);
+    pub const Number2: Self = Self(50);
+    pub const Number3: Self = Self(51);
+    pub const Number4: Self = Self(52);
+    pub const Number5: Self = Self(53);
+    pub const Number6: Self = Self(54);
+    pub const Number7: Self = Self(55);
+    pub const Number8: Self = Self(56);
+    pub const Number9: Self = Self(57);
+    pub const A: Self = Self(65);
+    pub const B: Self = Self(66);
+    pub const C: Self = Self(67);
+    pub const D: Self = Self(68);
+    pub const E: Self = Self(69);
+    pub const F: Self = Self(70);
+    pub const G: Self = Self(71);
+    pub const H: Self = Self(72);
+    pub const I: Self = Self(73);
+    pub const J: Self = Self(74);
+    pub const K: Self = Self(75);
+    pub const L: Self = Self(76);
+    pub const M: Self = Self(77);
+    pub const N: Self = Self(78);
+    pub const O: Self = Self(79);
+    pub const P: Self = Self(80);
+    pub const Q: Self = Self(81);
+    pub const R: Self = Self(82);
+    pub const S: Self = Self(83);
+    pub const T: Self = Self(84);
+    pub const U: Self = Self(85);
+    pub const V: Self = Self(86);
+    pub const W: Self = Self(87);
+    pub const X: Self = Self(88);
+    pub const Y: Self = Self(89);
+    pub const Z: Self = Self(90);
+    pub const LeftWindows: Self = Self(91);
+    pub const RightWindows: Self = Self(92);
+    pub const Application: Self = Self(93);
+    pub const Sleep: Self = Self(95);
+    pub const NumberPad0: Self = Self(96);
+    pub const NumberPad1: Self = Self(97);
+    pub const NumberPad2: Self = Self(98);
+    pub const NumberPad3: Self = Self(99);
+    pub const NumberPad4: Self = Self(100);
+    pub const NumberPad5: Self = Self(101);
+    pub const NumberPad6: Self = Self(102);
+    pub const NumberPad7: Self = Self(103);
+    pub const NumberPad8: Self = Self(104);
+    pub const NumberPad9: Self = Self(105);
+    pub const Multiply: Self = Self(106);
+    pub const Add: Self = Self(107);
+    pub const Separator: Self = Self(108);
+    pub const Subtract: Self = Self(109);
+    pub const Decimal: Self = Self(110);
+    pub const Divide: Self = Self(111);
+    pub const F1: Self = Self(112);
+    pub const F2: Self = Self(113);
+    pub const F3: Self = Self(114);
+    pub const F4: Self = Self(115);
+    pub const F5: Self = Self(116);
+    pub const F6: Self = Self(117);
+    pub const F7: Self = Self(118);
+    pub const F8: Self = Self(119);
+    pub const F9: Self = Self(120);
+    pub const F10: Self = Self(121);
+    pub const F11: Self = Self(122);
+    pub const F12: Self = Self(123);
+    pub const F13: Self = Self(124);
+    pub const F14: Self = Self(125);
+    pub const F15: Self = Self(126);
+    pub const F16: Self = Self(127);
+    pub const F17: Self = Self(128);
+    pub const F18: Self = Self(129);
+    pub const F19: Self = Self(130);
+    pub const F20: Self = Self(131);
+    pub const F21: Self = Self(132);
+    pub const F22: Self = Self(133);
+    pub const F23: Self = Self(134);
+    pub const F24: Self = Self(135);
+    pub const NavigationView: Self = Self(136);
+    pub const NavigationMenu: Self = Self(137);
+    pub const NavigationUp: Self = Self(138);
+    pub const NavigationDown: Self = Self(139);
+    pub const NavigationLeft: Self = Self(140);
+    pub const NavigationRight: Self = Self(141);
+    pub const NavigationAccept: Self = Self(142);
+    pub const NavigationCancel: Self = Self(143);
+    pub const NumberKeyLock: Self = Self(144);
+    pub const Scroll: Self = Self(145);
+    pub const LeftShift: Self = Self(160);
+    pub const RightShift: Self = Self(161);
+    pub const LeftControl: Self = Self(162);
+    pub const RightControl: Self = Self(163);
+    pub const LeftMenu: Self = Self(164);
+    pub const RightMenu: Self = Self(165);
+    pub const GoBack: Self = Self(166);
+    pub const GoForward: Self = Self(167);
+    pub const Refresh: Self = Self(168);
+    pub const Stop: Self = Self(169);
+    pub const Search: Self = Self(170);
+    pub const Favorites: Self = Self(171);
+    pub const GoHome: Self = Self(172);
+    pub const GamepadA: Self = Self(195);
+    pub const GamepadB: Self = Self(196);
+    pub const GamepadX: Self = Self(197);
+    pub const GamepadY: Self = Self(198);
+    pub const GamepadRightShoulder: Self = Self(199);
+    pub const GamepadLeftShoulder: Self = Self(200);
+    pub const GamepadLeftTrigger: Self = Self(201);
+    pub const GamepadRightTrigger: Self = Self(202);
+    pub const GamepadDPadUp: Self = Self(203);
+    pub const GamepadDPadDown: Self = Self(204);
+    pub const GamepadDPadLeft: Self = Self(205);
+    pub const GamepadDPadRight: Self = Self(206);
+    pub const GamepadMenu: Self = Self(207);
+    pub const GamepadView: Self = Self(208);
+    pub const GamepadLeftThumbstickButton: Self = Self(209);
+    pub const GamepadRightThumbstickButton: Self = Self(210);
+    pub const GamepadLeftThumbstickUp: Self = Self(211);
+    pub const GamepadLeftThumbstickDown: Self = Self(212);
+    pub const GamepadLeftThumbstickRight: Self = Self(213);
+    pub const GamepadLeftThumbstickLeft: Self = Self(214);
+    pub const GamepadRightThumbstickUp: Self = Self(215);
+    pub const GamepadRightThumbstickDown: Self = Self(216);
+    pub const GamepadRightThumbstickRight: Self = Self(217);
+    pub const GamepadRightThumbstickLeft: Self = Self(218);
 }
 impl windows_core::TypeKind for VirtualKey {
     type TypeKind = windows_core::CopyType;
@@ -29243,11 +29242,11 @@ impl windows_core::RuntimeType for VirtualKey {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {
-    pub const None: Self = Self(0u32);
-    pub const Control: Self = Self(1u32);
-    pub const Menu: Self = Self(2u32);
-    pub const Shift: Self = Self(4u32);
-    pub const Windows: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const Control: Self = Self(1);
+    pub const Menu: Self = Self(2);
+    pub const Shift: Self = Self(4);
+    pub const Windows: Self = Self(8);
 }
 impl windows_core::TypeKind for VirtualKeyModifiers {
     type TypeKind = windows_core::CopyType;
@@ -29381,11 +29380,11 @@ impl windows_core::RuntimeName for VisualTreeHelper {
 }
 unsafe impl Send for VisualTreeHelper {}
 unsafe impl Sync for VisualTreeHelper {}
-pub const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 131072i32;
+pub const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 131072;
 pub const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: windows_core::PCWSTR = windows_core::w!("");
-pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562949953486848u64;
-pub const WM_MOUSEMOVE: u32 = 512u32;
-pub const WM_SETCURSOR: u32 = 32u32;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562949953486848;
+pub const WM_MOUSEMOVE: u32 = 512;
+pub const WM_SETCURSOR: u32 = 32;
 pub type WPARAM = usize;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
