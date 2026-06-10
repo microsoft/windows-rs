@@ -386,9 +386,9 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
-    pub const None: Self = Self(0u32);
-    pub const Browse: Self = Self(1u32);
-    pub const Triggered: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Browse: Self = Self(1);
+    pub const Triggered: Self = Self(2);
 }
 impl windows_core::TypeKind for PeerDiscoveryTypes {
     type TypeKind = windows_core::CopyType;
@@ -627,9 +627,9 @@ unsafe impl Sync for PeerInformation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
-    pub const Peer: Self = Self(0i32);
-    pub const Host: Self = Self(1i32);
-    pub const Client: Self = Self(2i32);
+    pub const Peer: Self = Self(0);
+    pub const Host: Self = Self(1);
+    pub const Client: Self = Self(2);
 }
 impl windows_core::TypeKind for PeerRole {
     type TypeKind = windows_core::CopyType;
@@ -732,12 +732,12 @@ unsafe impl Sync for PeerWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for PeerWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -945,12 +945,12 @@ unsafe impl Sync for ProximityMessage {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
-    pub const PeerFound: Self = Self(0i32);
-    pub const Listening: Self = Self(1i32);
-    pub const Connecting: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const Failed: Self = Self(5i32);
+    pub const PeerFound: Self = Self(0);
+    pub const Listening: Self = Self(1);
+    pub const Connecting: Self = Self(2);
+    pub const Completed: Self = Self(3);
+    pub const Canceled: Self = Self(4);
+    pub const Failed: Self = Self(5);
 }
 impl windows_core::TypeKind for TriggeredConnectState {
     type TypeKind = windows_core::CopyType;

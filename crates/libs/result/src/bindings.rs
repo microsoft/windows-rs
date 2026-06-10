@@ -10,13 +10,13 @@ windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR))
 windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
 pub type BOOL = i32;
 pub type BSTR = *const u16;
-pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
-pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113u32;
+pub const ERROR_INVALID_DATA: WIN32_ERROR = 13;
+pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113;
 pub const E_UNEXPECTED: HRESULT = 0x8000FFFF_u32 as _;
-pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
-pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
-pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
-pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
+pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256;
+pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048;
+pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096;
+pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512;
 pub type FORMAT_MESSAGE_OPTIONS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -76,7 +76,7 @@ pub struct IUnknown_Vtbl {
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
 pub type LOAD_LIBRARY_FLAGS = u32;
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;

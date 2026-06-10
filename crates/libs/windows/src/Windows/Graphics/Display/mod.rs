@@ -88,9 +88,9 @@ unsafe impl Sync for AdvancedColorInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
-    pub const StandardDynamicRange: Self = Self(0i32);
-    pub const WideColorGamut: Self = Self(1i32);
-    pub const HighDynamicRange: Self = Self(2i32);
+    pub const StandardDynamicRange: Self = Self(0);
+    pub const WideColorGamut: Self = Self(1);
+    pub const HighDynamicRange: Self = Self(2);
 }
 impl windows_core::TypeKind for AdvancedColorKind {
     type TypeKind = windows_core::CopyType;
@@ -304,8 +304,8 @@ unsafe impl Sync for ColorOverrideSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
-    pub const None: Self = Self(0u32);
-    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1);
 }
 impl windows_core::TypeKind for DisplayBrightnessOverrideOptions {
     type TypeKind = windows_core::CopyType;
@@ -351,9 +351,9 @@ impl core::ops::Not for DisplayBrightnessOverrideOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
-    pub const IdleBrightness: Self = Self(0i32);
-    pub const BarcodeReadingBrightness: Self = Self(1i32);
-    pub const FullBrightness: Self = Self(2i32);
+    pub const IdleBrightness: Self = Self(0);
+    pub const BarcodeReadingBrightness: Self = Self(1);
+    pub const FullBrightness: Self = Self(2);
 }
 impl windows_core::TypeKind for DisplayBrightnessOverrideScenario {
     type TypeKind = windows_core::CopyType;
@@ -366,10 +366,10 @@ impl windows_core::RuntimeType for DisplayBrightnessOverrideScenario {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
-    pub const DefaultBrightness: Self = Self(0i32);
-    pub const IdleBrightness: Self = Self(1i32);
-    pub const BarcodeReadingBrightness: Self = Self(2i32);
-    pub const FullBrightness: Self = Self(3i32);
+    pub const DefaultBrightness: Self = Self(0);
+    pub const IdleBrightness: Self = Self(1);
+    pub const BarcodeReadingBrightness: Self = Self(2);
+    pub const FullBrightness: Self = Self(3);
 }
 impl windows_core::TypeKind for DisplayBrightnessScenario {
     type TypeKind = windows_core::CopyType;
@@ -382,7 +382,7 @@ impl windows_core::RuntimeType for DisplayBrightnessScenario {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
-    pub const Accurate: Self = Self(0i32);
+    pub const Accurate: Self = Self(0);
 }
 impl windows_core::TypeKind for DisplayColorOverrideScenario {
     type TypeKind = windows_core::CopyType;
@@ -762,11 +762,11 @@ unsafe impl Sync for DisplayInformation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
-    pub const None: Self = Self(0u32);
-    pub const Landscape: Self = Self(1u32);
-    pub const Portrait: Self = Self(2u32);
-    pub const LandscapeFlipped: Self = Self(4u32);
-    pub const PortraitFlipped: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const Landscape: Self = Self(1);
+    pub const Portrait: Self = Self(2);
+    pub const LandscapeFlipped: Self = Self(4);
+    pub const PortraitFlipped: Self = Self(8);
 }
 impl windows_core::TypeKind for DisplayOrientations {
     type TypeKind = windows_core::CopyType;
@@ -995,8 +995,8 @@ unsafe impl Sync for DisplayServices {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
-    pub const Hdr10: Self = Self(0i32);
-    pub const Hdr10Plus: Self = Self(1i32);
+    pub const Hdr10: Self = Self(0);
+    pub const Hdr10Plus: Self = Self(1);
 }
 impl windows_core::TypeKind for HdrMetadataFormat {
     type TypeKind = windows_core::CopyType;
@@ -1331,23 +1331,23 @@ impl windows_core::RuntimeType for NitRange {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {
-    pub const Invalid: Self = Self(0i32);
-    pub const Scale100Percent: Self = Self(100i32);
-    pub const Scale120Percent: Self = Self(120i32);
-    pub const Scale125Percent: Self = Self(125i32);
-    pub const Scale140Percent: Self = Self(140i32);
-    pub const Scale150Percent: Self = Self(150i32);
-    pub const Scale160Percent: Self = Self(160i32);
-    pub const Scale175Percent: Self = Self(175i32);
-    pub const Scale180Percent: Self = Self(180i32);
-    pub const Scale200Percent: Self = Self(200i32);
-    pub const Scale225Percent: Self = Self(225i32);
-    pub const Scale250Percent: Self = Self(250i32);
-    pub const Scale300Percent: Self = Self(300i32);
-    pub const Scale350Percent: Self = Self(350i32);
-    pub const Scale400Percent: Self = Self(400i32);
-    pub const Scale450Percent: Self = Self(450i32);
-    pub const Scale500Percent: Self = Self(500i32);
+    pub const Invalid: Self = Self(0);
+    pub const Scale100Percent: Self = Self(100);
+    pub const Scale120Percent: Self = Self(120);
+    pub const Scale125Percent: Self = Self(125);
+    pub const Scale140Percent: Self = Self(140);
+    pub const Scale150Percent: Self = Self(150);
+    pub const Scale160Percent: Self = Self(160);
+    pub const Scale175Percent: Self = Self(175);
+    pub const Scale180Percent: Self = Self(180);
+    pub const Scale200Percent: Self = Self(200);
+    pub const Scale225Percent: Self = Self(225);
+    pub const Scale250Percent: Self = Self(250);
+    pub const Scale300Percent: Self = Self(300);
+    pub const Scale350Percent: Self = Self(350);
+    pub const Scale400Percent: Self = Self(400);
+    pub const Scale450Percent: Self = Self(450);
+    pub const Scale500Percent: Self = Self(500);
 }
 impl windows_core::TypeKind for ResolutionScale {
     type TypeKind = windows_core::CopyType;

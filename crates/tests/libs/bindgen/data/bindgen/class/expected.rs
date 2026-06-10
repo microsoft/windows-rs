@@ -8,7 +8,6 @@ pub mod Test {
         windows_core::IInspectable,
         IBase
     );
-    impl Base {}
     impl windows_core::RuntimeType for Base {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_class::<Self, IBase>();
@@ -30,7 +29,6 @@ pub mod Test {
         IDerived
     );
     windows_core::imp::required_hierarchy!(Derived, IBase, Base);
-    impl Derived {}
     impl windows_core::RuntimeType for Derived {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_class::<Self, IDerived>();

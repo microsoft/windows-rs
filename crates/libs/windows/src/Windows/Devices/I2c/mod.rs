@@ -4,8 +4,8 @@ pub mod Provider;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct I2cBusSpeed(pub i32);
 impl I2cBusSpeed {
-    pub const StandardMode: Self = Self(0i32);
-    pub const FastMode: Self = Self(1i32);
+    pub const StandardMode: Self = Self(0);
+    pub const FastMode: Self = Self(1);
 }
 impl windows_core::TypeKind for I2cBusSpeed {
     type TypeKind = windows_core::CopyType;
@@ -207,8 +207,8 @@ unsafe impl Sync for I2cDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const Shared: Self = Self(1i32);
+    pub const Exclusive: Self = Self(0);
+    pub const Shared: Self = Self(1);
 }
 impl windows_core::TypeKind for I2cSharingMode {
     type TypeKind = windows_core::CopyType;
@@ -234,11 +234,11 @@ impl windows_core::RuntimeType for I2cTransferResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct I2cTransferStatus(pub i32);
 impl I2cTransferStatus {
-    pub const FullTransfer: Self = Self(0i32);
-    pub const PartialTransfer: Self = Self(1i32);
-    pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
-    pub const ClockStretchTimeout: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
+    pub const FullTransfer: Self = Self(0);
+    pub const PartialTransfer: Self = Self(1);
+    pub const SlaveAddressNotAcknowledged: Self = Self(2);
+    pub const ClockStretchTimeout: Self = Self(3);
+    pub const UnknownError: Self = Self(4);
 }
 impl windows_core::TypeKind for I2cTransferStatus {
     type TypeKind = windows_core::CopyType;

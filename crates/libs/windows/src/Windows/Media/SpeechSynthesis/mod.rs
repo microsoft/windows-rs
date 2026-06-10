@@ -129,8 +129,8 @@ pub struct IVoiceInformation_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const Min: Self = Self(1);
 }
 impl windows_core::TypeKind for SpeechAppendedSilence {
     type TypeKind = windows_core::CopyType;
@@ -143,8 +143,8 @@ impl windows_core::RuntimeType for SpeechAppendedSilence {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const Min: Self = Self(1);
 }
 impl windows_core::TypeKind for SpeechPunctuationSilence {
     type TypeKind = windows_core::CopyType;
@@ -476,8 +476,8 @@ unsafe impl Sync for SpeechSynthesizerOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
-    pub const Male: Self = Self(0i32);
-    pub const Female: Self = Self(1i32);
+    pub const Male: Self = Self(0);
+    pub const Female: Self = Self(1);
 }
 impl windows_core::TypeKind for VoiceGender {
     type TypeKind = windows_core::CopyType;

@@ -194,7 +194,7 @@ unsafe impl Sync for Class {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Flags(pub u32);
 impl Flags {
-    pub const Ok: Self = Self(0u32);
+    pub const Ok: Self = Self(0);
 }
 impl windows_core::TypeKind for Flags {
     type TypeKind = windows_core::CopyType;

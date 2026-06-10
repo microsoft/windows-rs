@@ -279,7 +279,7 @@ where
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceDiscoveryMechanism(pub i32);
-pub const DirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(1i32);
+pub const DirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(1);
 windows_core::imp::define_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 windows_core::imp::interface_hierarchy!(IWSDAddress, windows_core::IUnknown);
 impl IWSDAddress {
@@ -3769,55 +3769,55 @@ impl IWSDiscoveryPublisherNotify_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWSDiscoveryPublisherNotify {}
-pub const MulticastDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(0i32);
-pub const ONE_WAY: WSDUdpMessageType = WSDUdpMessageType(0i32);
-pub const OpAnyElement: WSDXML_OP = WSDXML_OP(6i32);
-pub const OpAnyElements: WSDXML_OP = WSDXML_OP(7i32);
-pub const OpAnyNumber: WSDXML_OP = WSDXML_OP(17i32);
-pub const OpAnyText: WSDXML_OP = WSDXML_OP(8i32);
-pub const OpAnything: WSDXML_OP = WSDXML_OP(16i32);
-pub const OpAttribute_: WSDXML_OP = WSDXML_OP(9i32);
-pub const OpBeginAll: WSDXML_OP = WSDXML_OP(14i32);
-pub const OpBeginAnyElement: WSDXML_OP = WSDXML_OP(3i32);
-pub const OpBeginChoice: WSDXML_OP = WSDXML_OP(10i32);
-pub const OpBeginElement_: WSDXML_OP = WSDXML_OP(2i32);
-pub const OpBeginSequence: WSDXML_OP = WSDXML_OP(12i32);
-pub const OpElement_: WSDXML_OP = WSDXML_OP(5i32);
-pub const OpEndAll: WSDXML_OP = WSDXML_OP(15i32);
-pub const OpEndChoice: WSDXML_OP = WSDXML_OP(11i32);
-pub const OpEndElement: WSDXML_OP = WSDXML_OP(4i32);
-pub const OpEndOfTable: WSDXML_OP = WSDXML_OP(1i32);
-pub const OpEndSequence: WSDXML_OP = WSDXML_OP(13i32);
-pub const OpFormatBool_: WSDXML_OP = WSDXML_OP(20i32);
-pub const OpFormatDateTime_: WSDXML_OP = WSDXML_OP(40i32);
-pub const OpFormatDom_: WSDXML_OP = WSDXML_OP(30i32);
-pub const OpFormatDouble_: WSDXML_OP = WSDXML_OP(42i32);
-pub const OpFormatDuration_: WSDXML_OP = WSDXML_OP(39i32);
-pub const OpFormatDynamicType_: WSDXML_OP = WSDXML_OP(37i32);
-pub const OpFormatFloat_: WSDXML_OP = WSDXML_OP(41i32);
-pub const OpFormatInt16_: WSDXML_OP = WSDXML_OP(22i32);
-pub const OpFormatInt32_: WSDXML_OP = WSDXML_OP(23i32);
-pub const OpFormatInt64_: WSDXML_OP = WSDXML_OP(24i32);
-pub const OpFormatInt8_: WSDXML_OP = WSDXML_OP(21i32);
-pub const OpFormatListInsertTail_: WSDXML_OP = WSDXML_OP(35i32);
-pub const OpFormatLookupType_: WSDXML_OP = WSDXML_OP(38i32);
-pub const OpFormatMax: WSDXML_OP = WSDXML_OP(46i32);
-pub const OpFormatName_: WSDXML_OP = WSDXML_OP(34i32);
-pub const OpFormatStruct_: WSDXML_OP = WSDXML_OP(31i32);
-pub const OpFormatType_: WSDXML_OP = WSDXML_OP(36i32);
-pub const OpFormatUInt16_: WSDXML_OP = WSDXML_OP(26i32);
-pub const OpFormatUInt32_: WSDXML_OP = WSDXML_OP(27i32);
-pub const OpFormatUInt64_: WSDXML_OP = WSDXML_OP(28i32);
-pub const OpFormatUInt8_: WSDXML_OP = WSDXML_OP(25i32);
-pub const OpFormatUnicodeString_: WSDXML_OP = WSDXML_OP(29i32);
-pub const OpFormatUri_: WSDXML_OP = WSDXML_OP(32i32);
-pub const OpFormatUuidUri_: WSDXML_OP = WSDXML_OP(33i32);
-pub const OpFormatXMLDeclaration_: WSDXML_OP = WSDXML_OP(45i32);
-pub const OpNone: WSDXML_OP = WSDXML_OP(0i32);
-pub const OpOneOrMore: WSDXML_OP = WSDXML_OP(18i32);
-pub const OpOptional: WSDXML_OP = WSDXML_OP(19i32);
-pub const OpProcess_: WSDXML_OP = WSDXML_OP(43i32);
-pub const OpQualifiedAttribute_: WSDXML_OP = WSDXML_OP(44i32);
+pub const MulticastDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(0);
+pub const ONE_WAY: WSDUdpMessageType = WSDUdpMessageType(0);
+pub const OpAnyElement: WSDXML_OP = WSDXML_OP(6);
+pub const OpAnyElements: WSDXML_OP = WSDXML_OP(7);
+pub const OpAnyNumber: WSDXML_OP = WSDXML_OP(17);
+pub const OpAnyText: WSDXML_OP = WSDXML_OP(8);
+pub const OpAnything: WSDXML_OP = WSDXML_OP(16);
+pub const OpAttribute_: WSDXML_OP = WSDXML_OP(9);
+pub const OpBeginAll: WSDXML_OP = WSDXML_OP(14);
+pub const OpBeginAnyElement: WSDXML_OP = WSDXML_OP(3);
+pub const OpBeginChoice: WSDXML_OP = WSDXML_OP(10);
+pub const OpBeginElement_: WSDXML_OP = WSDXML_OP(2);
+pub const OpBeginSequence: WSDXML_OP = WSDXML_OP(12);
+pub const OpElement_: WSDXML_OP = WSDXML_OP(5);
+pub const OpEndAll: WSDXML_OP = WSDXML_OP(15);
+pub const OpEndChoice: WSDXML_OP = WSDXML_OP(11);
+pub const OpEndElement: WSDXML_OP = WSDXML_OP(4);
+pub const OpEndOfTable: WSDXML_OP = WSDXML_OP(1);
+pub const OpEndSequence: WSDXML_OP = WSDXML_OP(13);
+pub const OpFormatBool_: WSDXML_OP = WSDXML_OP(20);
+pub const OpFormatDateTime_: WSDXML_OP = WSDXML_OP(40);
+pub const OpFormatDom_: WSDXML_OP = WSDXML_OP(30);
+pub const OpFormatDouble_: WSDXML_OP = WSDXML_OP(42);
+pub const OpFormatDuration_: WSDXML_OP = WSDXML_OP(39);
+pub const OpFormatDynamicType_: WSDXML_OP = WSDXML_OP(37);
+pub const OpFormatFloat_: WSDXML_OP = WSDXML_OP(41);
+pub const OpFormatInt16_: WSDXML_OP = WSDXML_OP(22);
+pub const OpFormatInt32_: WSDXML_OP = WSDXML_OP(23);
+pub const OpFormatInt64_: WSDXML_OP = WSDXML_OP(24);
+pub const OpFormatInt8_: WSDXML_OP = WSDXML_OP(21);
+pub const OpFormatListInsertTail_: WSDXML_OP = WSDXML_OP(35);
+pub const OpFormatLookupType_: WSDXML_OP = WSDXML_OP(38);
+pub const OpFormatMax: WSDXML_OP = WSDXML_OP(46);
+pub const OpFormatName_: WSDXML_OP = WSDXML_OP(34);
+pub const OpFormatStruct_: WSDXML_OP = WSDXML_OP(31);
+pub const OpFormatType_: WSDXML_OP = WSDXML_OP(36);
+pub const OpFormatUInt16_: WSDXML_OP = WSDXML_OP(26);
+pub const OpFormatUInt32_: WSDXML_OP = WSDXML_OP(27);
+pub const OpFormatUInt64_: WSDXML_OP = WSDXML_OP(28);
+pub const OpFormatUInt8_: WSDXML_OP = WSDXML_OP(25);
+pub const OpFormatUnicodeString_: WSDXML_OP = WSDXML_OP(29);
+pub const OpFormatUri_: WSDXML_OP = WSDXML_OP(32);
+pub const OpFormatUuidUri_: WSDXML_OP = WSDXML_OP(33);
+pub const OpFormatXMLDeclaration_: WSDXML_OP = WSDXML_OP(45);
+pub const OpNone: WSDXML_OP = WSDXML_OP(0);
+pub const OpOneOrMore: WSDXML_OP = WSDXML_OP(18);
+pub const OpOptional: WSDXML_OP = WSDXML_OP(19);
+pub const OpProcess_: WSDXML_OP = WSDXML_OP(43);
+pub const OpQualifiedAttribute_: WSDXML_OP = WSDXML_OP(44);
 pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: windows_core::Ref<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3921,25 +3921,25 @@ impl Default for RESPONSEBODY_SubscriptionEnd {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(2i32);
-pub const TWO_WAY: WSDUdpMessageType = WSDUdpMessageType(1i32);
-pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1u32;
-pub const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2u32;
-pub const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1u32;
-pub const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1u32;
-pub const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2u32;
-pub const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3u32;
-pub const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0u32;
-pub const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2u32;
-pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
-pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
-pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
-pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
-pub const WSDET_INCOMING_FAULT: WSDEventType = WSDEventType(2i32);
-pub const WSDET_INCOMING_MESSAGE: WSDEventType = WSDEventType(1i32);
-pub const WSDET_NONE: WSDEventType = WSDEventType(0i32);
-pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = WSDEventType(4i32);
-pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = WSDEventType(3i32);
+pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(2);
+pub const TWO_WAY: WSDUdpMessageType = WSDUdpMessageType(1);
+pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1;
+pub const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2;
+pub const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1;
+pub const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1;
+pub const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2;
+pub const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3;
+pub const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0;
+pub const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2;
+pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16;
+pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1;
+pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8;
+pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4;
+pub const WSDET_INCOMING_FAULT: WSDEventType = WSDEventType(2);
+pub const WSDET_INCOMING_MESSAGE: WSDEventType = WSDEventType(1);
+pub const WSDET_NONE: WSDEventType = WSDEventType(0);
+pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = WSDEventType(4);
+pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = WSDEventType(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDEventType(pub i32);
@@ -4026,8 +4026,8 @@ pub struct WSDXML_NODE {
     pub Next: *mut WSDXML_NODE,
 }
 impl WSDXML_NODE {
-    pub const ElementType: i32 = 0i32;
-    pub const TextType: i32 = 1i32;
+    pub const ElementType: i32 = 0;
+    pub const TextType: i32 = 1;
 }
 impl Default for WSDXML_NODE {
     fn default() -> Self {
@@ -4096,10 +4096,10 @@ impl Default for WSD_CONFIG_ADDRESSES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(10i32);
-pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(9i32);
-pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(1i32);
-pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(2i32);
+pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(10);
+pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(9);
+pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(1);
+pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_CONFIG_PARAM {
@@ -4423,11 +4423,11 @@ impl Default for WSD_PROBE_MATCH_LIST {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSD_PROTOCOL_TYPE(pub i32);
-pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(255i32);
-pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(2i32);
-pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(4i32);
-pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(0i32);
-pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(1i32);
+pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(255);
+pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(2);
+pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(4);
+pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(0);
+pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_REFERENCE_PARAMETERS {
@@ -4543,12 +4543,12 @@ impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(7i32);
-pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(8i32);
-pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
-pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
-pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(12i32);
-pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(11i32);
+pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(7);
+pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(8);
+pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1;
+pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2;
+pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(12);
+pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(11);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4564,11 +4564,11 @@ impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(3i32);
-pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(5i32);
-pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(6i32);
-pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(4i32);
-pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(13i32);
+pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(3);
+pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(5);
+pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(6);
+pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(4);
+pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(13);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSD_SERVICE_METADATA {

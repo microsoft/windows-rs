@@ -49,14 +49,14 @@ pub const FD_CONSTRAINTVALUE_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE
 pub const FD_CONSTRAINTVALUE_UNPAIRED: windows_core::PCWSTR = windows_core::w!("UnPaired");
 pub const FD_CONSTRAINTVALUE_VISIBILITY_ALL: windows_core::PCWSTR = windows_core::w!("1");
 pub const FD_CONSTRAINTVALUE_VISIBILITY_DEFAULT: windows_core::PCWSTR = windows_core::w!("0");
-pub const FD_EVENTID: u32 = 1000u32;
-pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001u32;
-pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003u32;
-pub const FD_EVENTID_PRIVATE: u32 = 100u32;
-pub const FD_EVENTID_QUERYREFRESH: u32 = 1004u32;
-pub const FD_EVENTID_SEARCHCOMPLETE: u32 = 1000u32;
-pub const FD_EVENTID_SEARCHSTART: u32 = 1002u32;
-pub const FD_LONGHORN: u32 = 1u32;
+pub const FD_EVENTID: u32 = 1000;
+pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001;
+pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003;
+pub const FD_EVENTID_PRIVATE: u32 = 100;
+pub const FD_EVENTID_QUERYREFRESH: u32 = 1004;
+pub const FD_EVENTID_SEARCHCOMPLETE: u32 = 1000;
+pub const FD_EVENTID_SEARCHSTART: u32 = 1002;
+pub const FD_LONGHORN: u32 = 1;
 pub const FD_QUERYCONSTRAINT_COMCLSCONTEXT: windows_core::PCWSTR = windows_core::w!("COMClsContext");
 pub const FD_QUERYCONSTRAINT_INQUIRY_TIMEOUT: windows_core::PCWSTR = windows_core::w!("InquiryModeTimeout");
 pub const FD_QUERYCONSTRAINT_PAIRING_STATE: windows_core::PCWSTR = windows_core::w!("PairingState");
@@ -66,8 +66,8 @@ pub const FD_QUERYCONSTRAINT_ROUTINGSCOPE: windows_core::PCWSTR = windows_core::
 pub const FD_QUERYCONSTRAINT_SUBCATEGORY: windows_core::PCWSTR = windows_core::w!("Subcategory");
 pub const FD_QUERYCONSTRAINT_VISIBILITY: windows_core::PCWSTR = windows_core::w!("Visibility");
 pub const FD_SUBKEY: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\Function Discovery\\");
-pub const FD_Visibility_Default: u32 = 0u32;
-pub const FD_Visibility_Hidden: u32 = 1u32;
+pub const FD_Visibility_Default: u32 = 0;
+pub const FD_Visibility_Hidden: u32 = 1;
 pub const FMTID_Device: windows_core::GUID = windows_core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57);
 pub const FMTID_DeviceInterface: windows_core::GUID = windows_core::GUID::from_u128(0x53808008_07bb_4661_bc3c_b5953e708560);
 pub const FMTID_FD: windows_core::GUID = windows_core::GUID::from_u128(0x904b03a2_471d_423c_a584_f3483238a146);
@@ -1892,8 +1892,8 @@ impl IProviderQueryConstraintCollection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IProviderQueryConstraintCollection {}
-pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
-pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000u32;
+pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100;
+pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000;
 pub const ONLINE_PROVIDER_DEVICES_QUERYCONSTRAINT_OWNERNAME: windows_core::PCWSTR = windows_core::w!("OwnerName");
 pub const PKEY_DeviceClass_Characteristics: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 29 };
 pub const PKEY_DeviceClass_ClassCoInstallers: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x713d1703_a2e2_49f5_9214_56472ef3da5c), pid: 2 };
@@ -2151,10 +2151,10 @@ pub const PNPX_DEVICECATEGORY_PRINTER: windows_core::PCWSTR = windows_core::w!("
 pub const PNPX_DEVICECATEGORY_SCANNER: windows_core::PCWSTR = windows_core::w!("Scanners");
 pub const PNPX_DEVICECATEGORY_STORAGE: windows_core::PCWSTR = windows_core::w!("Storage");
 pub const PNPX_DEVICECATEGORY_TELEPHONE: windows_core::PCWSTR = windows_core::w!("Phones");
-pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
-pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
-pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
-pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
+pub const PNPX_INSTALLSTATE_FAILED: u32 = 3;
+pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1;
+pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2;
+pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0;
 pub const PNP_CONSTRAINTVALUE_NOTIFICATIONSONLY: windows_core::PCWSTR = windows_core::w!("TRUE");
 pub const PNP_CONSTRAINTVALUE_NOTPRESENT: windows_core::PCWSTR = windows_core::w!("TRUE");
 pub const PROVIDERDDO_QUERYCONSTRAINT_DEVICEFUNCTIONDISPLAYOBJECTS: windows_core::PCWSTR = windows_core::w!("DeviceFunctionDisplayObjects");
@@ -2179,21 +2179,21 @@ pub const PROVIDERWSD_QUERYCONSTRAINT_TYPE: windows_core::PCWSTR = windows_core:
 pub struct PropertyConstraint(pub i32);
 pub const PropertyStore: windows_core::GUID = windows_core::GUID::from_u128(0xe4796550_df61_448b_9193_13fc1341b163);
 pub const PropertyStoreCollection: windows_core::GUID = windows_core::GUID::from_u128(0xedd36029_d753_4862_aa5b_5bccad2a4d29);
-pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
-pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
-pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
-pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
-pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
-pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
-pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4i32);
-pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5i32);
-pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2i32);
-pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3i32);
-pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1i32);
-pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
-pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
-pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
-pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
+pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1);
+pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0);
+pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9);
+pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8);
+pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0);
+pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7);
+pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4);
+pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5);
+pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2);
+pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3);
+pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1);
+pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6);
+pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0);
+pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2);
+pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QueryCategoryType(pub i32);
@@ -2216,8 +2216,8 @@ pub const SSDP_CONSTRAINTVALUE_TYPE_ALL: windows_core::PCWSTR = windows_core::w!
 pub const SSDP_CONSTRAINTVALUE_TYPE_DEVICE_PREFIX: windows_core::PCWSTR = windows_core::w!("urn:schemas-upnp-org:device:");
 pub const SSDP_CONSTRAINTVALUE_TYPE_ROOT: windows_core::PCWSTR = windows_core::w!("upnp:rootdevice");
 pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: windows_core::PCWSTR = windows_core::w!("urn:schemas-upnp-org:service:");
-pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
-pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
+pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0);
+pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemVisibilityFlags(pub i32);

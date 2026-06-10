@@ -2,11 +2,11 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AccessCacheOptions(pub u32);
 impl AccessCacheOptions {
-    pub const None: Self = Self(0u32);
-    pub const DisallowUserInput: Self = Self(1u32);
-    pub const FastLocationsOnly: Self = Self(2u32);
-    pub const UseReadOnlyCachedCopy: Self = Self(4u32);
-    pub const SuppressAccessTimeUpdate: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const DisallowUserInput: Self = Self(1);
+    pub const FastLocationsOnly: Self = Self(2);
+    pub const UseReadOnlyCachedCopy: Self = Self(4);
+    pub const SuppressAccessTimeUpdate: Self = Self(8);
 }
 impl windows_core::TypeKind for AccessCacheOptions {
     type TypeKind = windows_core::CopyType;
@@ -585,8 +585,8 @@ impl windows_core::RuntimeName for ItemRemovedEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {
-    pub const AppOnly: Self = Self(0i32);
-    pub const AppAndSystem: Self = Self(1i32);
+    pub const AppOnly: Self = Self(0);
+    pub const AppAndSystem: Self = Self(1);
 }
 impl windows_core::TypeKind for RecentStorageItemVisibility {
     type TypeKind = windows_core::CopyType;

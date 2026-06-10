@@ -42,10 +42,10 @@ unsafe impl Sync for AppServiceClosedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
-    pub const Completed: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const ResourceLimitsExceeded: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
+    pub const Completed: Self = Self(0);
+    pub const Canceled: Self = Self(1);
+    pub const ResourceLimitsExceeded: Self = Self(2);
+    pub const Unknown: Self = Self(3);
 }
 impl windows_core::TypeKind for AppServiceClosedStatus {
     type TypeKind = windows_core::CopyType;
@@ -189,18 +189,18 @@ unsafe impl Sync for AppServiceConnection {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AppNotInstalled: Self = Self(1i32);
-    pub const AppUnavailable: Self = Self(2i32);
-    pub const AppServiceUnavailable: Self = Self(3i32);
-    pub const Unknown: Self = Self(4i32);
-    pub const RemoteSystemUnavailable: Self = Self(5i32);
-    pub const RemoteSystemNotSupportedByApp: Self = Self(6i32);
-    pub const NotAuthorized: Self = Self(7i32);
-    pub const AuthenticationError: Self = Self(8i32);
-    pub const NetworkNotAvailable: Self = Self(9i32);
-    pub const DisabledByPolicy: Self = Self(10i32);
-    pub const WebServiceUnavailable: Self = Self(11i32);
+    pub const Success: Self = Self(0);
+    pub const AppNotInstalled: Self = Self(1);
+    pub const AppUnavailable: Self = Self(2);
+    pub const AppServiceUnavailable: Self = Self(3);
+    pub const Unknown: Self = Self(4);
+    pub const RemoteSystemUnavailable: Self = Self(5);
+    pub const RemoteSystemNotSupportedByApp: Self = Self(6);
+    pub const NotAuthorized: Self = Self(7);
+    pub const AuthenticationError: Self = Self(8);
+    pub const NetworkNotAvailable: Self = Self(9);
+    pub const DisabledByPolicy: Self = Self(10);
+    pub const WebServiceUnavailable: Self = Self(11);
 }
 impl windows_core::TypeKind for AppServiceConnectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -330,17 +330,17 @@ unsafe impl Sync for AppServiceResponse {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Failure: Self = Self(1i32);
-    pub const ResourceLimitsExceeded: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
-    pub const RemoteSystemUnavailable: Self = Self(4i32);
-    pub const MessageSizeTooLarge: Self = Self(5i32);
-    pub const AppUnavailable: Self = Self(6i32);
-    pub const AuthenticationError: Self = Self(7i32);
-    pub const NetworkNotAvailable: Self = Self(8i32);
-    pub const DisabledByPolicy: Self = Self(9i32);
-    pub const WebServiceUnavailable: Self = Self(10i32);
+    pub const Success: Self = Self(0);
+    pub const Failure: Self = Self(1);
+    pub const ResourceLimitsExceeded: Self = Self(2);
+    pub const Unknown: Self = Self(3);
+    pub const RemoteSystemUnavailable: Self = Self(4);
+    pub const MessageSizeTooLarge: Self = Self(5);
+    pub const AppUnavailable: Self = Self(6);
+    pub const AuthenticationError: Self = Self(7);
+    pub const NetworkNotAvailable: Self = Self(8);
+    pub const DisabledByPolicy: Self = Self(9);
+    pub const WebServiceUnavailable: Self = Self(10);
 }
 impl windows_core::TypeKind for AppServiceResponseStatus {
     type TypeKind = windows_core::CopyType;
@@ -639,21 +639,21 @@ unsafe impl Sync for StatelessAppServiceResponse {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AppNotInstalled: Self = Self(1i32);
-    pub const AppUnavailable: Self = Self(2i32);
-    pub const AppServiceUnavailable: Self = Self(3i32);
-    pub const RemoteSystemUnavailable: Self = Self(4i32);
-    pub const RemoteSystemNotSupportedByApp: Self = Self(5i32);
-    pub const NotAuthorized: Self = Self(6i32);
-    pub const ResourceLimitsExceeded: Self = Self(7i32);
-    pub const MessageSizeTooLarge: Self = Self(8i32);
-    pub const Failure: Self = Self(9i32);
-    pub const Unknown: Self = Self(10i32);
-    pub const AuthenticationError: Self = Self(11i32);
-    pub const NetworkNotAvailable: Self = Self(12i32);
-    pub const DisabledByPolicy: Self = Self(13i32);
-    pub const WebServiceUnavailable: Self = Self(14i32);
+    pub const Success: Self = Self(0);
+    pub const AppNotInstalled: Self = Self(1);
+    pub const AppUnavailable: Self = Self(2);
+    pub const AppServiceUnavailable: Self = Self(3);
+    pub const RemoteSystemUnavailable: Self = Self(4);
+    pub const RemoteSystemNotSupportedByApp: Self = Self(5);
+    pub const NotAuthorized: Self = Self(6);
+    pub const ResourceLimitsExceeded: Self = Self(7);
+    pub const MessageSizeTooLarge: Self = Self(8);
+    pub const Failure: Self = Self(9);
+    pub const Unknown: Self = Self(10);
+    pub const AuthenticationError: Self = Self(11);
+    pub const NetworkNotAvailable: Self = Self(12);
+    pub const DisabledByPolicy: Self = Self(13);
+    pub const WebServiceUnavailable: Self = Self(14);
 }
 impl windows_core::TypeKind for StatelessAppServiceResponseStatus {
     type TypeKind = windows_core::CopyType;

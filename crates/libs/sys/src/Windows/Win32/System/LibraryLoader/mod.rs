@@ -47,8 +47,8 @@ windows_link::link!("kernel32.dll" "system" fn SetDllDirectoryW(lppathname : win
 windows_link::link!("kernel32.dll" "system" fn SizeofResource(hmodule : super::super::Foundation::HMODULE, hresinfo : super::super::Foundation::HRSRC) -> u32);
 windows_link::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : super::super::Foundation::HANDLE, lptype : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : super::super::Foundation::HANDLE, lptype : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
-pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
-pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = 1u32;
+pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1;
+pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = 1;
 pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCSTR, lpname: windows_sys::core::PCSTR, wlanguage: u16, lparam: isize) -> windows_sys::core::BOOL>;
 pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCWSTR, lpname: windows_sys::core::PCWSTR, wlanguage: u16, lparam: isize) -> windows_sys::core::BOOL>;
 pub type ENUMRESNAMEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCSTR, lpname: windows_sys::core::PCSTR, lparam: isize) -> windows_sys::core::BOOL>;
@@ -67,27 +67,27 @@ impl Default for ENUMUILANG {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
-pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
-pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
-pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
-pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
-pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
-pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = 16u32;
-pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = 2u32;
-pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = 64u32;
-pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = 32u32;
+pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024;
+pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512;
+pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256;
+pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4;
+pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1;
+pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2;
+pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = 16;
+pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = 2;
+pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = 64;
+pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = 32;
 pub type LOAD_LIBRARY_FLAGS = u32;
-pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
-pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = 128u32;
-pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = 8192u32;
-pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = 512u32;
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
-pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = 256u32;
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = 2048u32;
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = 16384u32;
-pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = 1024u32;
-pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = 8u32;
+pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768;
+pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = 128;
+pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = 8192;
+pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = 512;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096;
+pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = 256;
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = 2048;
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = 16384;
+pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = 1024;
+pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = 8;
 pub type PGET_MODULE_HANDLE_EXA = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_sys::core::PCSTR, phmodule: *mut super::super::Foundation::HMODULE) -> windows_sys::core::BOOL>;
 pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_sys::core::PCWSTR, phmodule: *mut super::super::Foundation::HMODULE) -> windows_sys::core::BOOL>;
 #[repr(C)]
@@ -114,9 +114,9 @@ impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RESOURCE_ENUM_LN: u32 = 1u32;
-pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;
-pub const RESOURCE_ENUM_MUI: u32 = 2u32;
-pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
-pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
-pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
+pub const RESOURCE_ENUM_LN: u32 = 1;
+pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16;
+pub const RESOURCE_ENUM_MUI: u32 = 2;
+pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4;
+pub const RESOURCE_ENUM_VALIDATE: u32 = 8;
+pub const SUPPORT_LANG_NUMBER: u32 = 32;

@@ -367,11 +367,11 @@ unsafe impl Sync for CoreTextFormatUpdatingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
-    pub const None: Self = Self(0i32);
-    pub const CompositionUnconverted: Self = Self(1i32);
-    pub const CompositionConverted: Self = Self(2i32);
-    pub const CompositionTargetUnconverted: Self = Self(3i32);
-    pub const CompositionTargetConverted: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const CompositionUnconverted: Self = Self(1);
+    pub const CompositionConverted: Self = Self(2);
+    pub const CompositionTargetUnconverted: Self = Self(3);
+    pub const CompositionTargetConverted: Self = Self(4);
 }
 impl windows_core::TypeKind for CoreTextFormatUpdatingReason {
     type TypeKind = windows_core::CopyType;
@@ -384,8 +384,8 @@ impl windows_core::RuntimeType for CoreTextFormatUpdatingReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Failed: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreTextFormatUpdatingResult {
     type TypeKind = windows_core::CopyType;
@@ -398,8 +398,8 @@ impl windows_core::RuntimeType for CoreTextFormatUpdatingResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
-    pub const Automatic: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
+    pub const Automatic: Self = Self(0);
+    pub const Manual: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreTextInputPaneDisplayPolicy {
     type TypeKind = windows_core::CopyType;
@@ -412,73 +412,73 @@ impl windows_core::RuntimeType for CoreTextInputPaneDisplayPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
-    pub const Default: Self = Self(0i32);
-    pub const Url: Self = Self(1i32);
-    pub const FilePath: Self = Self(2i32);
-    pub const FileName: Self = Self(3i32);
-    pub const EmailUserName: Self = Self(4i32);
-    pub const EmailAddress: Self = Self(5i32);
-    pub const UserName: Self = Self(6i32);
-    pub const PersonalFullName: Self = Self(7i32);
-    pub const PersonalNamePrefix: Self = Self(8i32);
-    pub const PersonalGivenName: Self = Self(9i32);
-    pub const PersonalMiddleName: Self = Self(10i32);
-    pub const PersonalSurname: Self = Self(11i32);
-    pub const PersonalNameSuffix: Self = Self(12i32);
-    pub const Address: Self = Self(13i32);
-    pub const AddressPostalCode: Self = Self(14i32);
-    pub const AddressStreet: Self = Self(15i32);
-    pub const AddressStateOrProvince: Self = Self(16i32);
-    pub const AddressCity: Self = Self(17i32);
-    pub const AddressCountryName: Self = Self(18i32);
-    pub const AddressCountryShortName: Self = Self(19i32);
-    pub const CurrencyAmountAndSymbol: Self = Self(20i32);
-    pub const CurrencyAmount: Self = Self(21i32);
-    pub const Date: Self = Self(22i32);
-    pub const DateMonth: Self = Self(23i32);
-    pub const DateDay: Self = Self(24i32);
-    pub const DateYear: Self = Self(25i32);
-    pub const DateMonthName: Self = Self(26i32);
-    pub const DateDayName: Self = Self(27i32);
-    pub const Number: Self = Self(29i32);
-    pub const SingleCharacter: Self = Self(30i32);
-    pub const Password: Self = Self(31i32);
-    pub const TelephoneNumber: Self = Self(32i32);
-    pub const TelephoneCountryCode: Self = Self(33i32);
-    pub const TelephoneAreaCode: Self = Self(34i32);
-    pub const TelephoneLocalNumber: Self = Self(35i32);
-    pub const Time: Self = Self(36i32);
-    pub const TimeHour: Self = Self(37i32);
-    pub const TimeMinuteOrSecond: Self = Self(38i32);
-    pub const NumberFullWidth: Self = Self(39i32);
-    pub const AlphanumericHalfWidth: Self = Self(40i32);
-    pub const AlphanumericFullWidth: Self = Self(41i32);
-    pub const CurrencyChinese: Self = Self(42i32);
-    pub const Bopomofo: Self = Self(43i32);
-    pub const Hiragana: Self = Self(44i32);
-    pub const KatakanaHalfWidth: Self = Self(45i32);
-    pub const KatakanaFullWidth: Self = Self(46i32);
-    pub const Hanja: Self = Self(47i32);
-    pub const HangulHalfWidth: Self = Self(48i32);
-    pub const HangulFullWidth: Self = Self(49i32);
-    pub const Search: Self = Self(50i32);
-    pub const Formula: Self = Self(51i32);
-    pub const SearchIncremental: Self = Self(52i32);
-    pub const ChineseHalfWidth: Self = Self(53i32);
-    pub const ChineseFullWidth: Self = Self(54i32);
-    pub const NativeScript: Self = Self(55i32);
-    pub const Text: Self = Self(57i32);
-    pub const Chat: Self = Self(58i32);
-    pub const NameOrPhoneNumber: Self = Self(59i32);
-    pub const EmailUserNameOrAddress: Self = Self(60i32);
-    pub const Private: Self = Self(61i32);
-    pub const Maps: Self = Self(62i32);
-    pub const PasswordNumeric: Self = Self(63i32);
-    pub const FormulaNumber: Self = Self(67i32);
-    pub const ChatWithoutEmoji: Self = Self(68i32);
-    pub const Digits: Self = Self(28i32);
-    pub const PinNumeric: Self = Self(64i32);
-    pub const PinAlphanumeric: Self = Self(65i32);
+    pub const Default: Self = Self(0);
+    pub const Url: Self = Self(1);
+    pub const FilePath: Self = Self(2);
+    pub const FileName: Self = Self(3);
+    pub const EmailUserName: Self = Self(4);
+    pub const EmailAddress: Self = Self(5);
+    pub const UserName: Self = Self(6);
+    pub const PersonalFullName: Self = Self(7);
+    pub const PersonalNamePrefix: Self = Self(8);
+    pub const PersonalGivenName: Self = Self(9);
+    pub const PersonalMiddleName: Self = Self(10);
+    pub const PersonalSurname: Self = Self(11);
+    pub const PersonalNameSuffix: Self = Self(12);
+    pub const Address: Self = Self(13);
+    pub const AddressPostalCode: Self = Self(14);
+    pub const AddressStreet: Self = Self(15);
+    pub const AddressStateOrProvince: Self = Self(16);
+    pub const AddressCity: Self = Self(17);
+    pub const AddressCountryName: Self = Self(18);
+    pub const AddressCountryShortName: Self = Self(19);
+    pub const CurrencyAmountAndSymbol: Self = Self(20);
+    pub const CurrencyAmount: Self = Self(21);
+    pub const Date: Self = Self(22);
+    pub const DateMonth: Self = Self(23);
+    pub const DateDay: Self = Self(24);
+    pub const DateYear: Self = Self(25);
+    pub const DateMonthName: Self = Self(26);
+    pub const DateDayName: Self = Self(27);
+    pub const Number: Self = Self(29);
+    pub const SingleCharacter: Self = Self(30);
+    pub const Password: Self = Self(31);
+    pub const TelephoneNumber: Self = Self(32);
+    pub const TelephoneCountryCode: Self = Self(33);
+    pub const TelephoneAreaCode: Self = Self(34);
+    pub const TelephoneLocalNumber: Self = Self(35);
+    pub const Time: Self = Self(36);
+    pub const TimeHour: Self = Self(37);
+    pub const TimeMinuteOrSecond: Self = Self(38);
+    pub const NumberFullWidth: Self = Self(39);
+    pub const AlphanumericHalfWidth: Self = Self(40);
+    pub const AlphanumericFullWidth: Self = Self(41);
+    pub const CurrencyChinese: Self = Self(42);
+    pub const Bopomofo: Self = Self(43);
+    pub const Hiragana: Self = Self(44);
+    pub const KatakanaHalfWidth: Self = Self(45);
+    pub const KatakanaFullWidth: Self = Self(46);
+    pub const Hanja: Self = Self(47);
+    pub const HangulHalfWidth: Self = Self(48);
+    pub const HangulFullWidth: Self = Self(49);
+    pub const Search: Self = Self(50);
+    pub const Formula: Self = Self(51);
+    pub const SearchIncremental: Self = Self(52);
+    pub const ChineseHalfWidth: Self = Self(53);
+    pub const ChineseFullWidth: Self = Self(54);
+    pub const NativeScript: Self = Self(55);
+    pub const Text: Self = Self(57);
+    pub const Chat: Self = Self(58);
+    pub const NameOrPhoneNumber: Self = Self(59);
+    pub const EmailUserNameOrAddress: Self = Self(60);
+    pub const Private: Self = Self(61);
+    pub const Maps: Self = Self(62);
+    pub const PasswordNumeric: Self = Self(63);
+    pub const FormulaNumber: Self = Self(67);
+    pub const ChatWithoutEmoji: Self = Self(68);
+    pub const Digits: Self = Self(28);
+    pub const PinNumeric: Self = Self(64);
+    pub const PinAlphanumeric: Self = Self(65);
 }
 impl windows_core::TypeKind for CoreTextInputScope {
     type TypeKind = windows_core::CopyType;
@@ -721,8 +721,8 @@ unsafe impl Sync for CoreTextSelectionUpdatingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Failed: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreTextSelectionUpdatingResult {
     type TypeKind = windows_core::CopyType;
@@ -937,8 +937,8 @@ unsafe impl Sync for CoreTextTextUpdatingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Failed: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreTextTextUpdatingResult {
     type TypeKind = windows_core::CopyType;

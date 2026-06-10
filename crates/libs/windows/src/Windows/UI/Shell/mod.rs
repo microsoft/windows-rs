@@ -539,7 +539,7 @@ pub struct IWindowTabThumbnailRequestedEventArgs_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
-    pub const WebProtection: Self = Self(0i32);
+    pub const WebProtection: Self = Self(0);
 }
 impl windows_core::TypeKind for SecurityAppKind {
     type TypeKind = windows_core::CopyType;
@@ -595,8 +595,8 @@ unsafe impl Sync for SecurityAppManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
-    pub const Disabled: Self = Self(0i32);
-    pub const Enabled: Self = Self(1i32);
+    pub const Disabled: Self = Self(0);
+    pub const Enabled: Self = Self(1);
 }
 impl windows_core::TypeKind for SecurityAppState {
     type TypeKind = windows_core::CopyType;
@@ -609,10 +609,10 @@ impl windows_core::RuntimeType for SecurityAppState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
-    pub const Undetermined: Self = Self(0i32);
-    pub const NoActionNeeded: Self = Self(1i32);
-    pub const ActionRecommended: Self = Self(2i32);
-    pub const ActionNeeded: Self = Self(3i32);
+    pub const Undetermined: Self = Self(0);
+    pub const NoActionNeeded: Self = Self(1);
+    pub const ActionRecommended: Self = Self(2);
+    pub const ActionNeeded: Self = Self(3);
 }
 impl windows_core::TypeKind for SecurityAppSubstatus {
     type TypeKind = windows_core::CopyType;
@@ -625,9 +625,9 @@ impl windows_core::RuntimeType for SecurityAppSubstatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
-    pub const None: Self = Self(0i32);
-    pub const StartSharing: Self = Self(1i32);
-    pub const StopSharing: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const StartSharing: Self = Self(1);
+    pub const StopSharing: Self = Self(2);
 }
 impl windows_core::TypeKind for ShareWindowCommand {
     type TypeKind = windows_core::CopyType;

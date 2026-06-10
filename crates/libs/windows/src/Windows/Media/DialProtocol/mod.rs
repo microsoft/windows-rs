@@ -44,10 +44,10 @@ unsafe impl Sync for DialApp {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
-    pub const Launched: Self = Self(0i32);
-    pub const FailedToLaunch: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
+    pub const Launched: Self = Self(0);
+    pub const FailedToLaunch: Self = Self(1);
+    pub const NotFound: Self = Self(2);
+    pub const NetworkFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for DialAppLaunchResult {
     type TypeKind = windows_core::CopyType;
@@ -60,10 +60,10 @@ impl windows_core::RuntimeType for DialAppLaunchResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Stopped: Self = Self(1i32);
-    pub const Running: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Stopped: Self = Self(1);
+    pub const Running: Self = Self(2);
+    pub const NetworkFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for DialAppState {
     type TypeKind = windows_core::CopyType;
@@ -106,10 +106,10 @@ unsafe impl Sync for DialAppStateDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
-    pub const Stopped: Self = Self(0i32);
-    pub const StopFailed: Self = Self(1i32);
-    pub const OperationNotSupported: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
+    pub const Stopped: Self = Self(0);
+    pub const StopFailed: Self = Self(1);
+    pub const OperationNotSupported: Self = Self(2);
+    pub const NetworkFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for DialAppStopResult {
     type TypeKind = windows_core::CopyType;
@@ -193,12 +193,12 @@ unsafe impl Sync for DialDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
-    pub const None: Self = Self(0i32);
-    pub const Connecting: Self = Self(1i32);
-    pub const Connected: Self = Self(2i32);
-    pub const Disconnecting: Self = Self(3i32);
-    pub const Disconnected: Self = Self(4i32);
-    pub const Error: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const Connecting: Self = Self(1);
+    pub const Connected: Self = Self(2);
+    pub const Disconnecting: Self = Self(3);
+    pub const Disconnected: Self = Self(4);
+    pub const Error: Self = Self(5);
 }
 impl windows_core::TypeKind for DialDeviceDisplayStatus {
     type TypeKind = windows_core::CopyType;

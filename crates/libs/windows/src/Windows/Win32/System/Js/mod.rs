@@ -482,75 +482,75 @@ pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *
     windows_core::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant::VARIANT, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsVariantToValue(core::mem::transmute(variant), value as _) }
 }
-pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
-pub const JsArray: JsValueType = JsValueType(8i32);
+pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615;
+pub const JsArray: JsValueType = JsValueType(8);
 pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
 pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
-pub const JsBoolean: JsValueType = JsValueType(4i32);
-pub const JsError: JsValueType = JsValueType(7i32);
-pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
-pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
-pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
-pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
-pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
-pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
-pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
-pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
-pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
-pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
+pub const JsBoolean: JsValueType = JsValueType(4);
+pub const JsError: JsValueType = JsValueType(7);
+pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552);
+pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553);
+pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548);
+pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544);
+pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546);
+pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551);
+pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072);
+pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144);
+pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608);
+pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsErrorCode(pub u32);
-pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
-pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
-pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
-pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
-pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
-pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
-pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
-pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
-pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
-pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
-pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
-pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
-pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
-pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
-pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
-pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
-pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
-pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
+pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145);
+pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547);
+pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554);
+pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545);
+pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540);
+pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549);
+pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550);
+pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537);
+pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539);
+pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541);
+pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538);
+pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073);
+pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543);
+pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610);
+pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612);
+pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609);
+pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611);
+pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542);
 pub type JsFinalizeCallback = Option<unsafe extern "system" fn(data: *const core::ffi::c_void)>;
-pub const JsFunction: JsValueType = JsValueType(6i32);
-pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
+pub const JsFunction: JsValueType = JsValueType(6);
+pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0);
 pub type JsMemoryAllocationCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsMemoryEventType(pub i32);
-pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
-pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
+pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2);
+pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1);
 pub type JsNativeFunction = Option<unsafe extern "system" fn(callee: *const core::ffi::c_void, isconstructcall: bool, arguments: *const *const core::ffi::c_void, argumentcount: u16, callbackstate: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
-pub const JsNull: JsValueType = JsValueType(1i32);
-pub const JsNumber: JsValueType = JsValueType(2i32);
-pub const JsObject: JsValueType = JsValueType(5i32);
-pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
-pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
-pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
-pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
-pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
-pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
+pub const JsNoError: JsErrorCode = JsErrorCode(0);
+pub const JsNull: JsValueType = JsValueType(1);
+pub const JsNumber: JsValueType = JsValueType(2);
+pub const JsObject: JsValueType = JsValueType(5);
+pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2);
+pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1);
+pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16);
+pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8);
+pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4);
+pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsRuntimeAttributes(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsRuntimeVersion(pub i32);
-pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
-pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
-pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
-pub const JsString: JsValueType = JsValueType(3i32);
+pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0);
+pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1);
+pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1);
+pub const JsString: JsValueType = JsValueType(3);
 pub type JsThreadServiceCallback = Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const core::ffi::c_void) -> bool>;
-pub const JsUndefined: JsValueType = JsValueType(0i32);
+pub const JsUndefined: JsValueType = JsValueType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsValueType(pub i32);

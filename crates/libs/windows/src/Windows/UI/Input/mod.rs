@@ -90,13 +90,13 @@ impl windows_core::RuntimeName for CrossSlidingEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
-    pub const Started: Self = Self(0i32);
-    pub const Dragging: Self = Self(1i32);
-    pub const Selecting: Self = Self(2i32);
-    pub const SelectSpeedBumping: Self = Self(3i32);
-    pub const SpeedBumping: Self = Self(4i32);
-    pub const Rearranging: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
+    pub const Started: Self = Self(0);
+    pub const Dragging: Self = Self(1);
+    pub const Selecting: Self = Self(2);
+    pub const SelectSpeedBumping: Self = Self(3);
+    pub const SpeedBumping: Self = Self(4);
+    pub const Rearranging: Self = Self(5);
+    pub const Completed: Self = Self(6);
 }
 impl windows_core::TypeKind for CrossSlidingState {
     type TypeKind = windows_core::CopyType;
@@ -151,9 +151,9 @@ impl windows_core::RuntimeName for DraggingEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
-    pub const Started: Self = Self(0i32);
-    pub const Continuing: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
+    pub const Started: Self = Self(0);
+    pub const Continuing: Self = Self(1);
+    pub const Completed: Self = Self(2);
 }
 impl windows_core::TypeKind for DraggingState {
     type TypeKind = windows_core::CopyType;
@@ -250,9 +250,9 @@ impl windows_core::RuntimeName for EdgeGestureEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
-    pub const Touch: Self = Self(0i32);
-    pub const Keyboard: Self = Self(1i32);
-    pub const Mouse: Self = Self(2i32);
+    pub const Touch: Self = Self(0);
+    pub const Keyboard: Self = Self(1);
+    pub const Mouse: Self = Self(2);
 }
 impl windows_core::TypeKind for EdgeGestureKind {
     type TypeKind = windows_core::CopyType;
@@ -265,10 +265,10 @@ impl windows_core::RuntimeType for EdgeGestureKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const DeniedBySystem: Self = Self(3);
 }
 impl windows_core::TypeKind for GazeInputAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -692,24 +692,24 @@ impl windows_core::RuntimeName for GestureRecognizer {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
-    pub const None: Self = Self(0u32);
-    pub const Tap: Self = Self(1u32);
-    pub const DoubleTap: Self = Self(2u32);
-    pub const Hold: Self = Self(4u32);
-    pub const HoldWithMouse: Self = Self(8u32);
-    pub const RightTap: Self = Self(16u32);
-    pub const Drag: Self = Self(32u32);
-    pub const ManipulationTranslateX: Self = Self(64u32);
-    pub const ManipulationTranslateY: Self = Self(128u32);
-    pub const ManipulationTranslateRailsX: Self = Self(256u32);
-    pub const ManipulationTranslateRailsY: Self = Self(512u32);
-    pub const ManipulationRotate: Self = Self(1024u32);
-    pub const ManipulationScale: Self = Self(2048u32);
-    pub const ManipulationTranslateInertia: Self = Self(4096u32);
-    pub const ManipulationRotateInertia: Self = Self(8192u32);
-    pub const ManipulationScaleInertia: Self = Self(16384u32);
-    pub const CrossSlide: Self = Self(32768u32);
-    pub const ManipulationMultipleFingerPanning: Self = Self(65536u32);
+    pub const None: Self = Self(0);
+    pub const Tap: Self = Self(1);
+    pub const DoubleTap: Self = Self(2);
+    pub const Hold: Self = Self(4);
+    pub const HoldWithMouse: Self = Self(8);
+    pub const RightTap: Self = Self(16);
+    pub const Drag: Self = Self(32);
+    pub const ManipulationTranslateX: Self = Self(64);
+    pub const ManipulationTranslateY: Self = Self(128);
+    pub const ManipulationTranslateRailsX: Self = Self(256);
+    pub const ManipulationTranslateRailsY: Self = Self(512);
+    pub const ManipulationRotate: Self = Self(1024);
+    pub const ManipulationScale: Self = Self(2048);
+    pub const ManipulationTranslateInertia: Self = Self(4096);
+    pub const ManipulationRotateInertia: Self = Self(8192);
+    pub const ManipulationScaleInertia: Self = Self(16384);
+    pub const CrossSlide: Self = Self(32768);
+    pub const ManipulationMultipleFingerPanning: Self = Self(65536);
 }
 impl windows_core::TypeKind for GestureSettings {
     type TypeKind = windows_core::CopyType;
@@ -804,9 +804,9 @@ impl windows_core::RuntimeName for HoldingEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
-    pub const Started: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
+    pub const Started: Self = Self(0);
+    pub const Completed: Self = Self(1);
+    pub const Canceled: Self = Self(2);
 }
 impl windows_core::TypeKind for HoldingState {
     type TypeKind = windows_core::CopyType;
@@ -2113,10 +2113,10 @@ unsafe impl Sync for InputActivationListenerActivationChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
-    pub const None: Self = Self(0i32);
-    pub const Deactivated: Self = Self(1i32);
-    pub const ActivatedNotForeground: Self = Self(2i32);
-    pub const ActivatedInForeground: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Deactivated: Self = Self(1);
+    pub const ActivatedNotForeground: Self = Self(2);
+    pub const ActivatedInForeground: Self = Self(3);
 }
 impl windows_core::TypeKind for InputActivationState {
     type TypeKind = windows_core::CopyType;
@@ -2956,17 +2956,17 @@ impl windows_core::RuntimeName for PointerPointProperties {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
-    pub const Other: Self = Self(0i32);
-    pub const LeftButtonPressed: Self = Self(1i32);
-    pub const LeftButtonReleased: Self = Self(2i32);
-    pub const RightButtonPressed: Self = Self(3i32);
-    pub const RightButtonReleased: Self = Self(4i32);
-    pub const MiddleButtonPressed: Self = Self(5i32);
-    pub const MiddleButtonReleased: Self = Self(6i32);
-    pub const XButton1Pressed: Self = Self(7i32);
-    pub const XButton1Released: Self = Self(8i32);
-    pub const XButton2Pressed: Self = Self(9i32);
-    pub const XButton2Released: Self = Self(10i32);
+    pub const Other: Self = Self(0);
+    pub const LeftButtonPressed: Self = Self(1);
+    pub const LeftButtonReleased: Self = Self(2);
+    pub const RightButtonPressed: Self = Self(3);
+    pub const RightButtonReleased: Self = Self(4);
+    pub const MiddleButtonPressed: Self = Self(5);
+    pub const MiddleButtonReleased: Self = Self(6);
+    pub const XButton1Pressed: Self = Self(7);
+    pub const XButton1Released: Self = Self(8);
+    pub const XButton2Pressed: Self = Self(9);
+    pub const XButton2Released: Self = Self(10);
 }
 impl windows_core::TypeKind for PointerUpdateKind {
     type TypeKind = windows_core::CopyType;
@@ -3604,15 +3604,15 @@ unsafe impl Sync for RadialControllerMenuItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
-    pub const Scroll: Self = Self(0i32);
-    pub const Zoom: Self = Self(1i32);
-    pub const UndoRedo: Self = Self(2i32);
-    pub const Volume: Self = Self(3i32);
-    pub const NextPreviousTrack: Self = Self(4i32);
-    pub const Ruler: Self = Self(5i32);
-    pub const InkColor: Self = Self(6i32);
-    pub const InkThickness: Self = Self(7i32);
-    pub const PenType: Self = Self(8i32);
+    pub const Scroll: Self = Self(0);
+    pub const Zoom: Self = Self(1);
+    pub const UndoRedo: Self = Self(2);
+    pub const Volume: Self = Self(3);
+    pub const NextPreviousTrack: Self = Self(4);
+    pub const Ruler: Self = Self(5);
+    pub const InkColor: Self = Self(6);
+    pub const InkThickness: Self = Self(7);
+    pub const PenType: Self = Self(8);
 }
 impl windows_core::TypeKind for RadialControllerMenuKnownIcon {
     type TypeKind = windows_core::CopyType;
@@ -3809,11 +3809,11 @@ unsafe impl Sync for RadialControllerScreenContactStartedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
-    pub const Scroll: Self = Self(0i32);
-    pub const Zoom: Self = Self(1i32);
-    pub const UndoRedo: Self = Self(2i32);
-    pub const Volume: Self = Self(3i32);
-    pub const NextPreviousTrack: Self = Self(4i32);
+    pub const Scroll: Self = Self(0);
+    pub const Zoom: Self = Self(1);
+    pub const UndoRedo: Self = Self(2);
+    pub const Volume: Self = Self(3);
+    pub const NextPreviousTrack: Self = Self(4);
 }
 impl windows_core::TypeKind for RadialControllerSystemMenuItemKind {
     type TypeKind = windows_core::CopyType;
@@ -4203,15 +4203,15 @@ unsafe impl Sync for TouchpadGesturesController {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TouchpadGlobalAction(pub i32);
 impl TouchpadGlobalAction {
-    pub const ThreeFingerTap: Self = Self(0i32);
-    pub const FourFingerTap: Self = Self(1i32);
-    pub const FiveFingerTap: Self = Self(2i32);
-    pub const ThreeFingerPressDown: Self = Self(3i32);
-    pub const FourFingerPressDown: Self = Self(4i32);
-    pub const FiveFingerPressDown: Self = Self(5i32);
-    pub const ThreeFingerPressUp: Self = Self(6i32);
-    pub const FourFingerPressUp: Self = Self(7i32);
-    pub const FiveFingerPressUp: Self = Self(8i32);
+    pub const ThreeFingerTap: Self = Self(0);
+    pub const FourFingerTap: Self = Self(1);
+    pub const FiveFingerTap: Self = Self(2);
+    pub const ThreeFingerPressDown: Self = Self(3);
+    pub const FourFingerPressDown: Self = Self(4);
+    pub const FiveFingerPressDown: Self = Self(5);
+    pub const ThreeFingerPressUp: Self = Self(6);
+    pub const FourFingerPressUp: Self = Self(7);
+    pub const FiveFingerPressUp: Self = Self(8);
 }
 impl windows_core::TypeKind for TouchpadGlobalAction {
     type TypeKind = windows_core::CopyType;
@@ -4255,13 +4255,13 @@ unsafe impl Sync for TouchpadGlobalActionEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TouchpadGlobalGestureKinds(pub u32);
 impl TouchpadGlobalGestureKinds {
-    pub const None: Self = Self(0u32);
-    pub const ThreeFingerManipulations: Self = Self(1u32);
-    pub const FourFingerManipulations: Self = Self(2u32);
-    pub const FiveFingerManipulations: Self = Self(4u32);
-    pub const ThreeFingerActions: Self = Self(8u32);
-    pub const FourFingerActions: Self = Self(16u32);
-    pub const FiveFingerActions: Self = Self(32u32);
+    pub const None: Self = Self(0);
+    pub const ThreeFingerManipulations: Self = Self(1);
+    pub const FourFingerManipulations: Self = Self(2);
+    pub const FiveFingerManipulations: Self = Self(4);
+    pub const ThreeFingerActions: Self = Self(8);
+    pub const FourFingerActions: Self = Self(16);
+    pub const FiveFingerActions: Self = Self(32);
 }
 impl windows_core::TypeKind for TouchpadGlobalGestureKinds {
     type TypeKind = windows_core::CopyType;

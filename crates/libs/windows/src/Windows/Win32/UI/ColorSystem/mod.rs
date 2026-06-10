@@ -770,53 +770,53 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
     windows_core::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, noutputchannels, cdtoutput, cboutput, poutputdata as _) }
 }
-pub const ATTRIB_MATTE: u32 = 2u32;
-pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
-pub const BEST_MODE: u32 = 3u32;
+pub const ATTRIB_MATTE: u32 = 2;
+pub const ATTRIB_TRANSPARENCY: u32 = 1;
+pub const BEST_MODE: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BMFORMAT(pub i32);
-pub const BM_10b_G3CH: BMFORMAT = BMFORMAT(1028i32);
-pub const BM_10b_Lab: BMFORMAT = BMFORMAT(1027i32);
-pub const BM_10b_RGB: BMFORMAT = BMFORMAT(9i32);
-pub const BM_10b_XYZ: BMFORMAT = BMFORMAT(1025i32);
-pub const BM_10b_Yxy: BMFORMAT = BMFORMAT(1026i32);
-pub const BM_16b_G3CH: BMFORMAT = BMFORMAT(1284i32);
-pub const BM_16b_GRAY: BMFORMAT = BMFORMAT(1285i32);
-pub const BM_16b_Lab: BMFORMAT = BMFORMAT(1283i32);
-pub const BM_16b_RGB: BMFORMAT = BMFORMAT(10i32);
-pub const BM_16b_XYZ: BMFORMAT = BMFORMAT(1281i32);
-pub const BM_16b_Yxy: BMFORMAT = BMFORMAT(1282i32);
-pub const BM_32b_scARGB: BMFORMAT = BMFORMAT(1538i32);
-pub const BM_32b_scRGB: BMFORMAT = BMFORMAT(1537i32);
-pub const BM_565RGB: BMFORMAT = BMFORMAT(1i32);
-pub const BM_5CHANNEL: BMFORMAT = BMFORMAT(517i32);
-pub const BM_6CHANNEL: BMFORMAT = BMFORMAT(518i32);
-pub const BM_7CHANNEL: BMFORMAT = BMFORMAT(519i32);
-pub const BM_8CHANNEL: BMFORMAT = BMFORMAT(520i32);
-pub const BM_BGRTRIPLETS: BMFORMAT = BMFORMAT(4i32);
-pub const BM_CMYKQUADS: BMFORMAT = BMFORMAT(32i32);
-pub const BM_G3CHTRIPLETS: BMFORMAT = BMFORMAT(516i32);
-pub const BM_GRAY: BMFORMAT = BMFORMAT(521i32);
-pub const BM_KYMCQUADS: BMFORMAT = BMFORMAT(773i32);
-pub const BM_LabTRIPLETS: BMFORMAT = BMFORMAT(515i32);
-pub const BM_NAMED_INDEX: BMFORMAT = BMFORMAT(1029i32);
-pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793i32);
-pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794i32);
-pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795i32);
-pub const BM_RGBTRIPLETS: BMFORMAT = BMFORMAT(2i32);
-pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540i32);
-pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = BMFORMAT(1539i32);
-pub const BM_XYZTRIPLETS: BMFORMAT = BMFORMAT(513i32);
-pub const BM_YxyTRIPLETS: BMFORMAT = BMFORMAT(514i32);
-pub const BM_x555G3CH: BMFORMAT = BMFORMAT(260i32);
-pub const BM_x555Lab: BMFORMAT = BMFORMAT(259i32);
-pub const BM_x555RGB: BMFORMAT = BMFORMAT(0i32);
-pub const BM_x555XYZ: BMFORMAT = BMFORMAT(257i32);
-pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258i32);
-pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16i32);
-pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772i32);
-pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8i32);
+pub const BM_10b_G3CH: BMFORMAT = BMFORMAT(1028);
+pub const BM_10b_Lab: BMFORMAT = BMFORMAT(1027);
+pub const BM_10b_RGB: BMFORMAT = BMFORMAT(9);
+pub const BM_10b_XYZ: BMFORMAT = BMFORMAT(1025);
+pub const BM_10b_Yxy: BMFORMAT = BMFORMAT(1026);
+pub const BM_16b_G3CH: BMFORMAT = BMFORMAT(1284);
+pub const BM_16b_GRAY: BMFORMAT = BMFORMAT(1285);
+pub const BM_16b_Lab: BMFORMAT = BMFORMAT(1283);
+pub const BM_16b_RGB: BMFORMAT = BMFORMAT(10);
+pub const BM_16b_XYZ: BMFORMAT = BMFORMAT(1281);
+pub const BM_16b_Yxy: BMFORMAT = BMFORMAT(1282);
+pub const BM_32b_scARGB: BMFORMAT = BMFORMAT(1538);
+pub const BM_32b_scRGB: BMFORMAT = BMFORMAT(1537);
+pub const BM_565RGB: BMFORMAT = BMFORMAT(1);
+pub const BM_5CHANNEL: BMFORMAT = BMFORMAT(517);
+pub const BM_6CHANNEL: BMFORMAT = BMFORMAT(518);
+pub const BM_7CHANNEL: BMFORMAT = BMFORMAT(519);
+pub const BM_8CHANNEL: BMFORMAT = BMFORMAT(520);
+pub const BM_BGRTRIPLETS: BMFORMAT = BMFORMAT(4);
+pub const BM_CMYKQUADS: BMFORMAT = BMFORMAT(32);
+pub const BM_G3CHTRIPLETS: BMFORMAT = BMFORMAT(516);
+pub const BM_GRAY: BMFORMAT = BMFORMAT(521);
+pub const BM_KYMCQUADS: BMFORMAT = BMFORMAT(773);
+pub const BM_LabTRIPLETS: BMFORMAT = BMFORMAT(515);
+pub const BM_NAMED_INDEX: BMFORMAT = BMFORMAT(1029);
+pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793);
+pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794);
+pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795);
+pub const BM_RGBTRIPLETS: BMFORMAT = BMFORMAT(2);
+pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540);
+pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = BMFORMAT(1539);
+pub const BM_XYZTRIPLETS: BMFORMAT = BMFORMAT(513);
+pub const BM_YxyTRIPLETS: BMFORMAT = BMFORMAT(514);
+pub const BM_x555G3CH: BMFORMAT = BMFORMAT(260);
+pub const BM_x555Lab: BMFORMAT = BMFORMAT(259);
+pub const BM_x555RGB: BMFORMAT = BMFORMAT(0);
+pub const BM_x555XYZ: BMFORMAT = BMFORMAT(257);
+pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258);
+pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16);
+pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772);
+pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BlackInformation {
@@ -824,31 +824,31 @@ pub struct BlackInformation {
     pub blackWeight: f32,
 }
 pub const CATID_WcsPlugin: windows_core::GUID = windows_core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
-pub const CMM_DESCRIPTION: u32 = 5u32;
-pub const CMM_DLL_VERSION: u32 = 3u32;
-pub const CMM_DRIVER_VERSION: u32 = 2u32;
-pub const CMM_FROM_PROFILE: u32 = 0u32;
-pub const CMM_IDENT: u32 = 1u32;
-pub const CMM_LOGOICON: u32 = 6u32;
-pub const CMM_VERSION: u32 = 4u32;
-pub const CMM_WIN_VERSION: u32 = 0u32;
-pub const CMS_BACKWARD: u32 = 1u32;
-pub const CMS_DISABLEICM: u32 = 1u32;
-pub const CMS_DISABLEINTENT: u32 = 1024u32;
-pub const CMS_DISABLERENDERINTENT: u32 = 2048u32;
-pub const CMS_ENABLEPROOFING: u32 = 2u32;
-pub const CMS_FORWARD: u32 = 0u32;
-pub const CMS_MONITOROVERFLOW: i32 = -2147483648i32;
-pub const CMS_PRINTEROVERFLOW: i32 = 1073741824i32;
-pub const CMS_SETMONITORPROFILE: u32 = 16u32;
-pub const CMS_SETPRINTERPROFILE: u32 = 32u32;
-pub const CMS_SETPROOFINTENT: u32 = 8u32;
-pub const CMS_SETRENDERINTENT: u32 = 4u32;
-pub const CMS_SETTARGETPROFILE: u32 = 64u32;
-pub const CMS_TARGETOVERFLOW: i32 = 536870912i32;
-pub const CMS_USEAPPLYCALLBACK: u32 = 256u32;
-pub const CMS_USEDESCRIPTION: u32 = 512u32;
-pub const CMS_USEHOOK: u32 = 128u32;
+pub const CMM_DESCRIPTION: u32 = 5;
+pub const CMM_DLL_VERSION: u32 = 3;
+pub const CMM_DRIVER_VERSION: u32 = 2;
+pub const CMM_FROM_PROFILE: u32 = 0;
+pub const CMM_IDENT: u32 = 1;
+pub const CMM_LOGOICON: u32 = 6;
+pub const CMM_VERSION: u32 = 4;
+pub const CMM_WIN_VERSION: u32 = 0;
+pub const CMS_BACKWARD: u32 = 1;
+pub const CMS_DISABLEICM: u32 = 1;
+pub const CMS_DISABLEINTENT: u32 = 1024;
+pub const CMS_DISABLERENDERINTENT: u32 = 2048;
+pub const CMS_ENABLEPROOFING: u32 = 2;
+pub const CMS_FORWARD: u32 = 0;
+pub const CMS_MONITOROVERFLOW: i32 = -2147483648;
+pub const CMS_PRINTEROVERFLOW: i32 = 1073741824;
+pub const CMS_SETMONITORPROFILE: u32 = 16;
+pub const CMS_SETPRINTERPROFILE: u32 = 32;
+pub const CMS_SETPROOFINTENT: u32 = 8;
+pub const CMS_SETRENDERINTENT: u32 = 4;
+pub const CMS_SETTARGETPROFILE: u32 = 64;
+pub const CMS_TARGETOVERFLOW: i32 = 536870912;
+pub const CMS_USEAPPLYCALLBACK: u32 = 256;
+pub const CMS_USEDESCRIPTION: u32 = 512;
+pub const CMS_USEHOOK: u32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMYKCOLOR {
@@ -947,54 +947,54 @@ pub struct COLORPROFILETYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORTYPE(pub i32);
-pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5i32);
-pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6i32);
-pub const COLOR_3_CHANNEL: COLORTYPE = COLORTYPE(6i32);
-pub const COLOR_5_CHANNEL: COLORTYPE = COLORTYPE(8i32);
-pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9i32);
-pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10i32);
-pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11i32);
-pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1i32);
-pub const COLOR_CMYK: COLORTYPE = COLORTYPE(7i32);
-pub const COLOR_FLOAT: COLORDATATYPE = COLORDATATYPE(3i32);
-pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7i32);
-pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
-pub const COLOR_Lab: COLORTYPE = COLORTYPE(5i32);
+pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5);
+pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6);
+pub const COLOR_3_CHANNEL: COLORTYPE = COLORTYPE(6);
+pub const COLOR_5_CHANNEL: COLORTYPE = COLORTYPE(8);
+pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9);
+pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10);
+pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11);
+pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1);
+pub const COLOR_CMYK: COLORTYPE = COLORTYPE(7);
+pub const COLOR_FLOAT: COLORDATATYPE = COLORDATATYPE(3);
+pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7);
+pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1);
+pub const COLOR_Lab: COLORTYPE = COLORTYPE(5);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub u32);
-pub const COLOR_MATCH_VERSION: u32 = 512u32;
-pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12i32);
-pub const COLOR_RGB: COLORTYPE = COLORTYPE(2i32);
-pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4i32);
-pub const COLOR_WORD: COLORDATATYPE = COLORDATATYPE(2i32);
-pub const COLOR_XYZ: COLORTYPE = COLORTYPE(3i32);
-pub const COLOR_Yxy: COLORTYPE = COLORTYPE(4i32);
-pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(3i32);
-pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6i32);
-pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8i32);
-pub const CPST_NONE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(4i32);
-pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0i32);
-pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(1i32);
-pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5i32);
-pub const CPST_SATURATION: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(2i32);
-pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7i32);
-pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2i32);
-pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1i32);
-pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3i32);
-pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
-pub const CSA_A: u32 = 1u32;
-pub const CSA_ABC: u32 = 2u32;
-pub const CSA_CMYK: u32 = 7u32;
-pub const CSA_DEF: u32 = 3u32;
-pub const CSA_DEFG: u32 = 4u32;
-pub const CSA_GRAY: u32 = 5u32;
-pub const CSA_Lab: u32 = 8u32;
-pub const CSA_RGB: u32 = 6u32;
-pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3u32);
-pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2u32);
-pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1u32);
-pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
+pub const COLOR_MATCH_VERSION: u32 = 512;
+pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12);
+pub const COLOR_RGB: COLORTYPE = COLORTYPE(2);
+pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4);
+pub const COLOR_WORD: COLORDATATYPE = COLORDATATYPE(2);
+pub const COLOR_XYZ: COLORTYPE = COLORTYPE(3);
+pub const COLOR_Yxy: COLORTYPE = COLORTYPE(4);
+pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(3);
+pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6);
+pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8);
+pub const CPST_NONE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(4);
+pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0);
+pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(1);
+pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5);
+pub const CPST_SATURATION: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(2);
+pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7);
+pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2);
+pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1);
+pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3);
+pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0);
+pub const CSA_A: u32 = 1;
+pub const CSA_ABC: u32 = 2;
+pub const CSA_CMYK: u32 = 7;
+pub const CSA_DEF: u32 = 3;
+pub const CSA_DEFG: u32 = 4;
+pub const CSA_GRAY: u32 = 5;
+pub const CSA_Lab: u32 = 8;
+pub const CSA_RGB: u32 = 6;
+pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3);
+pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2);
+pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1);
+pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1020,7 +1020,7 @@ impl Default for EMRCREATECOLORSPACEW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
+pub const ENABLE_GAMUT_CHECKING: u32 = 65536;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMTYPEA {
@@ -1079,30 +1079,30 @@ impl Default for ENUMTYPEW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ENUM_TYPE_VERSION: u32 = 768u32;
-pub const ET_ATTRIBUTES: u32 = 8192u32;
-pub const ET_CLASS: u32 = 32u32;
-pub const ET_CMMTYPE: u32 = 16u32;
-pub const ET_CONNECTIONSPACE: u32 = 128u32;
-pub const ET_CREATOR: u32 = 32768u32;
-pub const ET_DATACOLORSPACE: u32 = 64u32;
-pub const ET_DEVICECLASS: u32 = 65536u32;
-pub const ET_DEVICENAME: u32 = 1u32;
-pub const ET_DITHERMODE: u32 = 4u32;
-pub const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144u32;
-pub const ET_MANUFACTURER: u32 = 2048u32;
-pub const ET_MEDIATYPE: u32 = 2u32;
-pub const ET_MODEL: u32 = 4096u32;
-pub const ET_PLATFORM: u32 = 512u32;
-pub const ET_PROFILEFLAGS: u32 = 1024u32;
-pub const ET_RENDERINGINTENT: u32 = 16384u32;
-pub const ET_RESOLUTION: u32 = 8u32;
-pub const ET_SIGNATURE: u32 = 256u32;
-pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
-pub const FAST_TRANSLATE: u32 = 262144u32;
-pub const FLAG_DEPENDENTONDATA: u32 = 2u32;
-pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
-pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
+pub const ENUM_TYPE_VERSION: u32 = 768;
+pub const ET_ATTRIBUTES: u32 = 8192;
+pub const ET_CLASS: u32 = 32;
+pub const ET_CMMTYPE: u32 = 16;
+pub const ET_CONNECTIONSPACE: u32 = 128;
+pub const ET_CREATOR: u32 = 32768;
+pub const ET_DATACOLORSPACE: u32 = 64;
+pub const ET_DEVICECLASS: u32 = 65536;
+pub const ET_DEVICENAME: u32 = 1;
+pub const ET_DITHERMODE: u32 = 4;
+pub const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144;
+pub const ET_MANUFACTURER: u32 = 2048;
+pub const ET_MEDIATYPE: u32 = 2;
+pub const ET_MODEL: u32 = 4096;
+pub const ET_PLATFORM: u32 = 512;
+pub const ET_PROFILEFLAGS: u32 = 1024;
+pub const ET_RENDERINGINTENT: u32 = 16384;
+pub const ET_RESOLUTION: u32 = 8;
+pub const ET_SIGNATURE: u32 = 256;
+pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072;
+pub const FAST_TRANSLATE: u32 = 262144;
+pub const FLAG_DEPENDENTONDATA: u32 = 2;
+pub const FLAG_EMBEDDEDPROFILE: u32 = 1;
+pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GENERIC3CHANNEL {
@@ -1191,23 +1191,23 @@ impl Default for HiFiCOLOR {
 }
 pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
+pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICM_COMMAND(pub u32);
-pub const ICM_DELETEPROFILE: ICM_COMMAND = ICM_COMMAND(2u32);
-pub const ICM_DONE_OUTSIDEDC: ICM_MODE = ICM_MODE(4i32);
+pub const ICM_DELETEPROFILE: ICM_COMMAND = ICM_COMMAND(2);
+pub const ICM_DONE_OUTSIDEDC: ICM_MODE = ICM_MODE(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICM_MODE(pub i32);
-pub const ICM_OFF: ICM_MODE = ICM_MODE(1i32);
-pub const ICM_ON: ICM_MODE = ICM_MODE(2i32);
-pub const ICM_QUERY: ICM_MODE = ICM_MODE(3i32);
-pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7u32);
-pub const ICM_QUERYPROFILE: ICM_COMMAND = ICM_COMMAND(3u32);
-pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5u32);
-pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4u32);
-pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6u32);
+pub const ICM_OFF: ICM_MODE = ICM_MODE(1);
+pub const ICM_ON: ICM_MODE = ICM_MODE(2);
+pub const ICM_QUERY: ICM_MODE = ICM_MODE(3);
+pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7);
+pub const ICM_QUERYPROFILE: ICM_COMMAND = ICM_COMMAND(3);
+pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5);
+pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4);
+pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6);
 windows_core::imp::define_interface!(IDeviceModelPlugIn, IDeviceModelPlugIn_Vtbl, 0x1cd63475_07c4_46fe_a903_d655316d11fd);
 windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, windows_core::IUnknown);
 impl IDeviceModelPlugIn {
@@ -1451,11 +1451,11 @@ impl IGamutMapModelPlugIn_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IGamutMapModelPlugIn {}
-pub const INDEX_DONT_CARE: u32 = 0u32;
-pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
-pub const INTENT_PERCEPTUAL: u32 = 0u32;
-pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
-pub const INTENT_SATURATION: u32 = 2u32;
+pub const INDEX_DONT_CARE: u32 = 0;
+pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3;
+pub const INTENT_PERCEPTUAL: u32 = 0;
+pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
+pub const INTENT_SATURATION: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JChColorF {
@@ -1473,9 +1473,9 @@ pub struct JabColorF {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCSCSTYPE(pub i32);
-pub const LCS_CALIBRATED_RGB: LCSCSTYPE = LCSCSTYPE(0i32);
-pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = LCSCSTYPE(1466527264i32);
-pub const LCS_sRGB: LCSCSTYPE = LCSCSTYPE(1934772034i32);
+pub const LCS_CALIBRATED_RGB: LCSCSTYPE = LCSCSTYPE(0);
+pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = LCSCSTYPE(1466527264);
+pub const LCS_sRGB: LCSCSTYPE = LCSCSTYPE(1934772034);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1526,8 +1526,8 @@ pub struct LabCOLOR {
     pub a: u16,
     pub b: u16,
 }
-pub const MAX_COLOR_CHANNELS: u32 = 8u32;
-pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
+pub const MAX_COLOR_CHANNELS: u32 = 8;
+pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAMEDCOLOR {
@@ -1547,12 +1547,12 @@ impl Default for NAMED_PROFILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NORMAL_MODE: u32 = 2u32;
+pub const NORMAL_MODE: u32 = 2;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> windows_core::BOOL>;
-pub const PRESERVEBLACK: u32 = 1048576u32;
+pub const PRESERVEBLACK: u32 = 1048576;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILE {
@@ -1593,11 +1593,11 @@ impl Default for PROFILEHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROFILE_FILENAME: u32 = 1u32;
-pub const PROFILE_MEMBUFFER: u32 = 2u32;
-pub const PROFILE_READ: u32 = 1u32;
-pub const PROFILE_READWRITE: u32 = 2u32;
-pub const PROOF_MODE: u32 = 1u32;
+pub const PROFILE_FILENAME: u32 = 1;
+pub const PROFILE_MEMBUFFER: u32 = 2;
+pub const PROFILE_READ: u32 = 1;
+pub const PROFILE_READWRITE: u32 = 2;
+pub const PROOF_MODE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PrimaryJabColors {
@@ -1622,7 +1622,7 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
-pub const RESERVED: u32 = 2147483648u32;
+pub const RESERVED: u32 = 2147483648;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RGBCOLOR {
@@ -1630,11 +1630,11 @@ pub struct RGBCOLOR {
     pub green: u16,
     pub blue: u16,
 }
-pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
-pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
-pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
-pub const WCS_ALWAYS: u32 = 2097152u32;
-pub const WCS_DEFAULT: i32 = 0i32;
+pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256;
+pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072;
+pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1);
+pub const WCS_ALWAYS: u32 = 2097152;
+pub const WCS_DEFAULT: i32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
@@ -1653,12 +1653,12 @@ pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: windows_core::BOOL,
 }
-pub const WCS_ICCONLY: i32 = 65536i32;
+pub const WCS_ICCONLY: i32 = 65536;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1);
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XYZCOLOR {

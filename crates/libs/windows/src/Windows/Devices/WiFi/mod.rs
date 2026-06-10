@@ -197,10 +197,10 @@ pub struct IWiFiWpsConfigurationResult_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const DeniedBySystem: Self = Self(3);
 }
 impl windows_core::TypeKind for WiFiAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -431,9 +431,9 @@ unsafe impl Sync for WiFiAvailableNetwork {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
-    pub const Default: Self = Self(0i32);
-    pub const WpsPin: Self = Self(1i32);
-    pub const WpsPushButton: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const WpsPin: Self = Self(1);
+    pub const WpsPushButton: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiConnectionMethod {
     type TypeKind = windows_core::CopyType;
@@ -470,13 +470,13 @@ unsafe impl Sync for WiFiConnectionResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
-    pub const UnspecifiedFailure: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const AccessRevoked: Self = Self(2i32);
-    pub const InvalidCredential: Self = Self(3i32);
-    pub const NetworkNotAvailable: Self = Self(4i32);
-    pub const Timeout: Self = Self(5i32);
-    pub const UnsupportedAuthenticationProtocol: Self = Self(6i32);
+    pub const UnspecifiedFailure: Self = Self(0);
+    pub const Success: Self = Self(1);
+    pub const AccessRevoked: Self = Self(2);
+    pub const InvalidCredential: Self = Self(3);
+    pub const NetworkNotAvailable: Self = Self(4);
+    pub const Timeout: Self = Self(5);
+    pub const UnsupportedAuthenticationProtocol: Self = Self(6);
 }
 impl windows_core::TypeKind for WiFiConnectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -489,9 +489,9 @@ impl windows_core::RuntimeType for WiFiConnectionStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
-    pub const Any: Self = Self(0i32);
-    pub const Infrastructure: Self = Self(1i32);
-    pub const Adhoc: Self = Self(2i32);
+    pub const Any: Self = Self(0);
+    pub const Infrastructure: Self = Self(1);
+    pub const Adhoc: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiNetworkKind {
     type TypeKind = windows_core::CopyType;
@@ -534,8 +534,8 @@ unsafe impl Sync for WiFiNetworkReport {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotAvailability(pub i32);
 impl WiFiOnDemandHotspotAvailability {
-    pub const Available: Self = Self(0i32);
-    pub const Unavailable: Self = Self(1i32);
+    pub const Available: Self = Self(0);
+    pub const Unavailable: Self = Self(1);
 }
 impl windows_core::TypeKind for WiFiOnDemandHotspotAvailability {
     type TypeKind = windows_core::CopyType;
@@ -548,12 +548,12 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotAvailability {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotCellularBars(pub i32);
 impl WiFiOnDemandHotspotCellularBars {
-    pub const ZeroBars: Self = Self(0i32);
-    pub const OneBar: Self = Self(1i32);
-    pub const TwoBars: Self = Self(2i32);
-    pub const ThreeBars: Self = Self(3i32);
-    pub const FourBars: Self = Self(4i32);
-    pub const FiveBars: Self = Self(5i32);
+    pub const ZeroBars: Self = Self(0);
+    pub const OneBar: Self = Self(1);
+    pub const TwoBars: Self = Self(2);
+    pub const ThreeBars: Self = Self(3);
+    pub const FourBars: Self = Self(4);
+    pub const FiveBars: Self = Self(5);
 }
 impl windows_core::TypeKind for WiFiOnDemandHotspotCellularBars {
     type TypeKind = windows_core::CopyType;
@@ -566,25 +566,25 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotCellularBars {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotConnectStatus(pub i32);
 impl WiFiOnDemandHotspotConnectStatus {
-    pub const UnspecifiedFailure: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const AppTimedOut: Self = Self(2i32);
-    pub const InvalidCredential: Self = Self(3i32);
-    pub const NetworkNotAvailable: Self = Self(4i32);
-    pub const UnsupportedAuthenticationProtocol: Self = Self(5i32);
-    pub const BluetoothConnectFailed: Self = Self(6i32);
-    pub const BluetoothTransmissionError: Self = Self(7i32);
-    pub const OperationCanceledByUser: Self = Self(8i32);
-    pub const EntitlementCheckFailed: Self = Self(9i32);
-    pub const NoCellularSignal: Self = Self(10i32);
-    pub const CellularDataTurnedOff: Self = Self(11i32);
-    pub const WlanConnectFailed: Self = Self(12i32);
-    pub const WlanNotVisible: Self = Self(13i32);
-    pub const AccessPointCannotConnect: Self = Self(14i32);
-    pub const CellularConnectTimedOut: Self = Self(15i32);
-    pub const RoamingNotAllowed: Self = Self(16i32);
-    pub const PairingRequired: Self = Self(17i32);
-    pub const DataLimitReached: Self = Self(18i32);
+    pub const UnspecifiedFailure: Self = Self(0);
+    pub const Success: Self = Self(1);
+    pub const AppTimedOut: Self = Self(2);
+    pub const InvalidCredential: Self = Self(3);
+    pub const NetworkNotAvailable: Self = Self(4);
+    pub const UnsupportedAuthenticationProtocol: Self = Self(5);
+    pub const BluetoothConnectFailed: Self = Self(6);
+    pub const BluetoothTransmissionError: Self = Self(7);
+    pub const OperationCanceledByUser: Self = Self(8);
+    pub const EntitlementCheckFailed: Self = Self(9);
+    pub const NoCellularSignal: Self = Self(10);
+    pub const CellularDataTurnedOff: Self = Self(11);
+    pub const WlanConnectFailed: Self = Self(12);
+    pub const WlanNotVisible: Self = Self(13);
+    pub const AccessPointCannotConnect: Self = Self(14);
+    pub const CellularConnectTimedOut: Self = Self(15);
+    pub const RoamingNotAllowed: Self = Self(16);
+    pub const PairingRequired: Self = Self(17);
+    pub const DataLimitReached: Self = Self(18);
 }
 impl windows_core::TypeKind for WiFiOnDemandHotspotConnectStatus {
     type TypeKind = windows_core::CopyType;
@@ -794,18 +794,18 @@ unsafe impl Sync for WiFiOnDemandHotspotNetworkProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Fhss: Self = Self(1i32);
-    pub const Dsss: Self = Self(2i32);
-    pub const IRBaseband: Self = Self(3i32);
-    pub const Ofdm: Self = Self(4i32);
-    pub const Hrdsss: Self = Self(5i32);
-    pub const Erp: Self = Self(6i32);
-    pub const HT: Self = Self(7i32);
-    pub const Vht: Self = Self(8i32);
-    pub const Dmg: Self = Self(9i32);
-    pub const HE: Self = Self(10i32);
-    pub const Eht: Self = Self(11i32);
+    pub const Unknown: Self = Self(0);
+    pub const Fhss: Self = Self(1);
+    pub const Dsss: Self = Self(2);
+    pub const IRBaseband: Self = Self(3);
+    pub const Ofdm: Self = Self(4);
+    pub const Hrdsss: Self = Self(5);
+    pub const Erp: Self = Self(6);
+    pub const HT: Self = Self(7);
+    pub const Vht: Self = Self(8);
+    pub const Dmg: Self = Self(9);
+    pub const HE: Self = Self(10);
+    pub const Eht: Self = Self(11);
 }
 impl windows_core::TypeKind for WiFiPhyKind {
     type TypeKind = windows_core::CopyType;
@@ -818,8 +818,8 @@ impl windows_core::RuntimeType for WiFiPhyKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
-    pub const Automatic: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
+    pub const Automatic: Self = Self(0);
+    pub const Manual: Self = Self(1);
 }
 impl windows_core::TypeKind for WiFiReconnectionKind {
     type TypeKind = windows_core::CopyType;
@@ -862,9 +862,9 @@ unsafe impl Sync for WiFiWpsConfigurationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
-    pub const UnspecifiedFailure: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const Timeout: Self = Self(2i32);
+    pub const UnspecifiedFailure: Self = Self(0);
+    pub const Success: Self = Self(1);
+    pub const Timeout: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiWpsConfigurationStatus {
     type TypeKind = windows_core::CopyType;
@@ -877,12 +877,12 @@ impl windows_core::RuntimeType for WiFiWpsConfigurationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Pin: Self = Self(1i32);
-    pub const PushButton: Self = Self(2i32);
-    pub const Nfc: Self = Self(3i32);
-    pub const Ethernet: Self = Self(4i32);
-    pub const Usb: Self = Self(5i32);
+    pub const Unknown: Self = Self(0);
+    pub const Pin: Self = Self(1);
+    pub const PushButton: Self = Self(2);
+    pub const Nfc: Self = Self(3);
+    pub const Ethernet: Self = Self(4);
+    pub const Usb: Self = Self(5);
 }
 impl windows_core::TypeKind for WiFiWpsKind {
     type TypeKind = windows_core::CopyType;

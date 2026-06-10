@@ -1,6 +1,6 @@
 windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 pub type CLSCTX = u32;
-pub const CLSCTX_INPROC_SERVER: CLSCTX = 1u32;
+pub const CLSCTX_INPROC_SERVER: CLSCTX = 1;
 windows_core::imp::define_interface!(
     IDCompositionAnimation,
     IDCompositionAnimation_Vtbl,
@@ -8,7 +8,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IDCompositionAnimation, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDCompositionAnimation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     Reset: usize,
@@ -86,7 +85,6 @@ impl IUIAnimationManager2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUIAnimationManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     CreateAnimationVectorVariable: usize,
@@ -206,7 +204,6 @@ impl IUIAnimationStoryboard2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUIAnimationStoryboard2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTransition: unsafe extern "system" fn(
@@ -253,7 +250,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IUIAnimationTransition2, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUIAnimationTransition2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetDimension: usize,
@@ -324,7 +320,6 @@ impl IUIAnimationTransitionLibrary2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstantaneousTransition: unsafe extern "system" fn(
@@ -396,7 +391,6 @@ impl IUIAnimationVariable2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUIAnimationVariable2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetDimension: usize,

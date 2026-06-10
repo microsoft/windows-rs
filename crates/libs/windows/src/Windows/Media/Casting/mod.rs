@@ -118,13 +118,13 @@ unsafe impl Sync for CastingConnectionErrorOccurredEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CastingConnectionErrorStatus(pub i32);
 impl CastingConnectionErrorStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const DeviceDidNotRespond: Self = Self(1i32);
-    pub const DeviceError: Self = Self(2i32);
-    pub const DeviceLocked: Self = Self(3i32);
-    pub const ProtectedPlaybackFailed: Self = Self(4i32);
-    pub const InvalidCastingSource: Self = Self(5i32);
-    pub const Unknown: Self = Self(6i32);
+    pub const Succeeded: Self = Self(0);
+    pub const DeviceDidNotRespond: Self = Self(1);
+    pub const DeviceError: Self = Self(2);
+    pub const DeviceLocked: Self = Self(3);
+    pub const ProtectedPlaybackFailed: Self = Self(4);
+    pub const InvalidCastingSource: Self = Self(5);
+    pub const Unknown: Self = Self(6);
 }
 impl windows_core::TypeKind for CastingConnectionErrorStatus {
     type TypeKind = windows_core::CopyType;
@@ -137,11 +137,11 @@ impl windows_core::RuntimeType for CastingConnectionErrorStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CastingConnectionState(pub i32);
 impl CastingConnectionState {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Rendering: Self = Self(2i32);
-    pub const Disconnecting: Self = Self(3i32);
-    pub const Connecting: Self = Self(4i32);
+    pub const Disconnected: Self = Self(0);
+    pub const Connected: Self = Self(1);
+    pub const Rendering: Self = Self(2);
+    pub const Disconnecting: Self = Self(3);
+    pub const Connecting: Self = Self(4);
 }
 impl windows_core::TypeKind for CastingConnectionState {
     type TypeKind = windows_core::CopyType;
@@ -385,10 +385,10 @@ unsafe impl Sync for CastingDeviceSelectedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CastingPlaybackTypes(pub u32);
 impl CastingPlaybackTypes {
-    pub const None: Self = Self(0u32);
-    pub const Audio: Self = Self(1u32);
-    pub const Video: Self = Self(2u32);
-    pub const Picture: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const Audio: Self = Self(1);
+    pub const Video: Self = Self(2);
+    pub const Picture: Self = Self(4);
 }
 impl windows_core::TypeKind for CastingPlaybackTypes {
     type TypeKind = windows_core::CopyType;

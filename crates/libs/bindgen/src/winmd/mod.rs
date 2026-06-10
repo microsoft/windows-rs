@@ -54,7 +54,7 @@ pub trait GuidAttributeExt {
     fn guid_attribute(&self) -> Option<GUID>;
 }
 
-impl<T: windows_metadata::HasAttributes<'static>> GuidAttributeExt for T {
+impl<T: HasAttributes<'static>> GuidAttributeExt for T {
     fn guid_attribute(&self) -> Option<GUID> {
         self.find_attribute("GuidAttribute").map(|attribute| {
             fn unwrap_u32(value: &Value) -> u32 {

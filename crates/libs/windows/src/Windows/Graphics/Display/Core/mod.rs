@@ -2,10 +2,10 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
-    pub const RgbLimited: Self = Self(0i32);
-    pub const RgbFull: Self = Self(1i32);
-    pub const BT2020: Self = Self(2i32);
-    pub const BT709: Self = Self(3i32);
+    pub const RgbLimited: Self = Self(0);
+    pub const RgbFull: Self = Self(1);
+    pub const BT2020: Self = Self(2);
+    pub const BT709: Self = Self(3);
 }
 impl windows_core::TypeKind for HdmiDisplayColorSpace {
     type TypeKind = windows_core::CopyType;
@@ -41,10 +41,10 @@ impl windows_core::RuntimeType for HdmiDisplayHdr2086Metadata {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
-    pub const None: Self = Self(0i32);
-    pub const EotfSdr: Self = Self(1i32);
-    pub const Eotf2084: Self = Self(2i32);
-    pub const DolbyVisionLowLatency: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const EotfSdr: Self = Self(1);
+    pub const Eotf2084: Self = Self(2);
+    pub const DolbyVisionLowLatency: Self = Self(3);
 }
 impl windows_core::TypeKind for HdmiDisplayHdrOption {
     type TypeKind = windows_core::CopyType;
@@ -236,10 +236,10 @@ unsafe impl Sync for HdmiDisplayMode {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
-    pub const Rgb444: Self = Self(0i32);
-    pub const Ycc444: Self = Self(1i32);
-    pub const Ycc422: Self = Self(2i32);
-    pub const Ycc420: Self = Self(3i32);
+    pub const Rgb444: Self = Self(0);
+    pub const Ycc444: Self = Self(1);
+    pub const Ycc422: Self = Self(2);
+    pub const Ycc420: Self = Self(3);
 }
 impl windows_core::TypeKind for HdmiDisplayPixelEncoding {
     type TypeKind = windows_core::CopyType;

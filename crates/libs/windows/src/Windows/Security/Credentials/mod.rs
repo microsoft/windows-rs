@@ -59,7 +59,7 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChallengeResponseKind(pub i32);
 impl ChallengeResponseKind {
-    pub const VirtualizationBasedSecurityEnclave: Self = Self(0i32);
+    pub const VirtualizationBasedSecurityEnclave: Self = Self(0);
 }
 impl windows_core::TypeKind for ChallengeResponseKind {
     type TypeKind = windows_core::CopyType;
@@ -644,10 +644,10 @@ unsafe impl Sync for KeyCredentialAttestationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const TemporaryFailure: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const NotSupported: Self = Self(2);
+    pub const TemporaryFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for KeyCredentialAttestationStatus {
     type TypeKind = windows_core::CopyType;
@@ -707,8 +707,8 @@ unsafe impl Sync for KeyCredentialCacheConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialCacheOption(pub i32);
 impl KeyCredentialCacheOption {
-    pub const NoCache: Self = Self(0i32);
-    pub const CacheWhenUnlocked: Self = Self(1i32);
+    pub const NoCache: Self = Self(0);
+    pub const CacheWhenUnlocked: Self = Self(1);
 }
 impl windows_core::TypeKind for KeyCredentialCacheOption {
     type TypeKind = windows_core::CopyType;
@@ -721,8 +721,8 @@ impl windows_core::RuntimeType for KeyCredentialCacheOption {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
-    pub const ReplaceExisting: Self = Self(0i32);
-    pub const FailIfExists: Self = Self(1i32);
+    pub const ReplaceExisting: Self = Self(0);
+    pub const FailIfExists: Self = Self(1);
 }
 impl windows_core::TypeKind for KeyCredentialCreationOption {
     type TypeKind = windows_core::CopyType;
@@ -879,14 +879,14 @@ unsafe impl Sync for KeyCredentialRetrievalResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const UserCanceled: Self = Self(3i32);
-    pub const UserPrefersPassword: Self = Self(4i32);
-    pub const CredentialAlreadyExists: Self = Self(5i32);
-    pub const SecurityDeviceLocked: Self = Self(6i32);
-    pub const AlgorithmNotSupported: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const NotFound: Self = Self(2);
+    pub const UserCanceled: Self = Self(3);
+    pub const UserPrefersPassword: Self = Self(4);
+    pub const CredentialAlreadyExists: Self = Self(5);
+    pub const SecurityDeviceLocked: Self = Self(6);
+    pub const AlgorithmNotSupported: Self = Self(7);
 }
 impl windows_core::TypeKind for KeyCredentialStatus {
     type TypeKind = windows_core::CopyType;
@@ -1235,10 +1235,10 @@ unsafe impl Sync for WebAccount {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
-    pub const Size64x64: Self = Self(64i32);
-    pub const Size208x208: Self = Self(208i32);
-    pub const Size424x424: Self = Self(424i32);
-    pub const Size1080x1080: Self = Self(1080i32);
+    pub const Size64x64: Self = Self(64);
+    pub const Size208x208: Self = Self(208);
+    pub const Size424x424: Self = Self(424);
+    pub const Size1080x1080: Self = Self(1080);
 }
 impl windows_core::TypeKind for WebAccountPictureSize {
     type TypeKind = windows_core::CopyType;
@@ -1329,9 +1329,9 @@ unsafe impl Sync for WebAccountProvider {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {
-    pub const None: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Error: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Connected: Self = Self(1);
+    pub const Error: Self = Self(2);
 }
 impl windows_core::TypeKind for WebAccountState {
     type TypeKind = windows_core::CopyType;

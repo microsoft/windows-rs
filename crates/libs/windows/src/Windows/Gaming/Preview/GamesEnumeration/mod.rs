@@ -83,9 +83,9 @@ impl windows_core::RuntimeName for GameList {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
-    pub const Candidate: Self = Self(0i32);
-    pub const ConfirmedBySystem: Self = Self(1i32);
-    pub const ConfirmedByUser: Self = Self(2i32);
+    pub const Candidate: Self = Self(0);
+    pub const ConfirmedBySystem: Self = Self(1);
+    pub const ConfirmedByUser: Self = Self(2);
 }
 impl windows_core::TypeKind for GameListCategory {
     type TypeKind = windows_core::CopyType;
@@ -251,10 +251,10 @@ unsafe impl Sync for GameListEntry {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
-    pub const NotLaunchable: Self = Self(0i32);
-    pub const ByLastRunningFullPath: Self = Self(1i32);
-    pub const ByUserProvidedPath: Self = Self(2i32);
-    pub const ByTile: Self = Self(3i32);
+    pub const NotLaunchable: Self = Self(0);
+    pub const ByLastRunningFullPath: Self = Self(1);
+    pub const ByUserProvidedPath: Self = Self(2);
+    pub const ByTile: Self = Self(3);
 }
 impl windows_core::TypeKind for GameListEntryLaunchableState {
     type TypeKind = windows_core::CopyType;

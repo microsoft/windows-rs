@@ -2,10 +2,10 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoLoadedDisplayPropertyKind(pub i32);
 impl AutoLoadedDisplayPropertyKind {
-    pub const None: Self = Self(0i32);
-    pub const MusicOrVideo: Self = Self(1i32);
-    pub const Music: Self = Self(2i32);
-    pub const Video: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const MusicOrVideo: Self = Self(1);
+    pub const Music: Self = Self(2);
+    pub const Video: Self = Self(3);
 }
 impl windows_core::TypeKind for AutoLoadedDisplayPropertyKind {
     type TypeKind = windows_core::CopyType;
@@ -118,9 +118,9 @@ unsafe impl Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FailedMediaStreamKind(pub i32);
 impl FailedMediaStreamKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Audio: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Audio: Self = Self(1);
+    pub const Video: Self = Self(2);
 }
 impl windows_core::TypeKind for FailedMediaStreamKind {
     type TypeKind = windows_core::CopyType;
@@ -1440,8 +1440,8 @@ unsafe impl Sync for MediaBreakEndedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaBreakInsertionMethod(pub i32);
 impl MediaBreakInsertionMethod {
-    pub const Interrupt: Self = Self(0i32);
-    pub const Replace: Self = Self(1i32);
+    pub const Interrupt: Self = Self(0);
+    pub const Replace: Self = Self(1);
 }
 impl windows_core::TypeKind for MediaBreakInsertionMethod {
     type TypeKind = windows_core::CopyType;
@@ -1703,9 +1703,9 @@ unsafe impl Sync for MediaBreakStartedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCommandEnablingRule(pub i32);
 impl MediaCommandEnablingRule {
-    pub const Auto: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
+    pub const Auto: Self = Self(0);
+    pub const Always: Self = Self(1);
+    pub const Never: Self = Self(2);
 }
 impl windows_core::TypeKind for MediaCommandEnablingRule {
     type TypeKind = windows_core::CopyType;
@@ -2705,10 +2705,10 @@ unsafe impl Sync for MediaPlaybackItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackItemChangedReason(pub i32);
 impl MediaPlaybackItemChangedReason {
-    pub const InitialItem: Self = Self(0i32);
-    pub const EndOfStream: Self = Self(1i32);
-    pub const Error: Self = Self(2i32);
-    pub const AppRequested: Self = Self(3i32);
+    pub const InitialItem: Self = Self(0);
+    pub const EndOfStream: Self = Self(1);
+    pub const Error: Self = Self(2);
+    pub const AppRequested: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaPlaybackItemChangedReason {
     type TypeKind = windows_core::CopyType;
@@ -2751,12 +2751,12 @@ unsafe impl Sync for MediaPlaybackItemError {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackItemErrorCode(pub i32);
 impl MediaPlaybackItemErrorCode {
-    pub const None: Self = Self(0i32);
-    pub const Aborted: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const DecodeError: Self = Self(3i32);
-    pub const SourceNotSupportedError: Self = Self(4i32);
-    pub const EncryptionError: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const Aborted: Self = Self(1);
+    pub const NetworkError: Self = Self(2);
+    pub const DecodeError: Self = Self(3);
+    pub const SourceNotSupportedError: Self = Self(4);
+    pub const EncryptionError: Self = Self(5);
 }
 impl windows_core::TypeKind for MediaPlaybackItemErrorCode {
     type TypeKind = windows_core::CopyType;
@@ -3397,13 +3397,13 @@ unsafe impl Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
 impl MediaPlaybackSessionVideoConstrictionReason {
-    pub const None: Self = Self(0i32);
-    pub const VirtualMachine: Self = Self(1i32);
-    pub const UnsupportedDisplayAdapter: Self = Self(2i32);
-    pub const UnsignedDriver: Self = Self(3i32);
-    pub const FrameServerEnabled: Self = Self(4i32);
-    pub const OutputProtectionFailed: Self = Self(5i32);
-    pub const Unknown: Self = Self(6i32);
+    pub const None: Self = Self(0);
+    pub const VirtualMachine: Self = Self(1);
+    pub const UnsupportedDisplayAdapter: Self = Self(2);
+    pub const UnsignedDriver: Self = Self(3);
+    pub const FrameServerEnabled: Self = Self(4);
+    pub const OutputProtectionFailed: Self = Self(5);
+    pub const Unknown: Self = Self(6);
 }
 impl windows_core::TypeKind for MediaPlaybackSessionVideoConstrictionReason {
     type TypeKind = windows_core::CopyType;
@@ -3483,11 +3483,11 @@ unsafe impl Sync for MediaPlaybackSphericalVideoProjection {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackState(pub i32);
 impl MediaPlaybackState {
-    pub const None: Self = Self(0i32);
-    pub const Opening: Self = Self(1i32);
-    pub const Buffering: Self = Self(2i32);
-    pub const Playing: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Opening: Self = Self(1);
+    pub const Buffering: Self = Self(2);
+    pub const Playing: Self = Self(3);
+    pub const Paused: Self = Self(4);
 }
 impl windows_core::TypeKind for MediaPlaybackState {
     type TypeKind = windows_core::CopyType;
@@ -4315,16 +4315,16 @@ unsafe impl Sync for MediaPlayer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlayerAudioCategory(pub i32);
 impl MediaPlayerAudioCategory {
-    pub const Other: Self = Self(0i32);
-    pub const Communications: Self = Self(3i32);
-    pub const Alerts: Self = Self(4i32);
-    pub const SoundEffects: Self = Self(5i32);
-    pub const GameEffects: Self = Self(6i32);
-    pub const GameMedia: Self = Self(7i32);
-    pub const GameChat: Self = Self(8i32);
-    pub const Speech: Self = Self(9i32);
-    pub const Movie: Self = Self(10i32);
-    pub const Media: Self = Self(11i32);
+    pub const Other: Self = Self(0);
+    pub const Communications: Self = Self(3);
+    pub const Alerts: Self = Self(4);
+    pub const SoundEffects: Self = Self(5);
+    pub const GameEffects: Self = Self(6);
+    pub const GameMedia: Self = Self(7);
+    pub const GameChat: Self = Self(8);
+    pub const Speech: Self = Self(9);
+    pub const Movie: Self = Self(10);
+    pub const Media: Self = Self(11);
 }
 impl windows_core::TypeKind for MediaPlayerAudioCategory {
     type TypeKind = windows_core::CopyType;
@@ -4337,9 +4337,9 @@ impl windows_core::RuntimeType for MediaPlayerAudioCategory {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlayerAudioDeviceType(pub i32);
 impl MediaPlayerAudioDeviceType {
-    pub const Console: Self = Self(0i32);
-    pub const Multimedia: Self = Self(1i32);
-    pub const Communications: Self = Self(2i32);
+    pub const Console: Self = Self(0);
+    pub const Multimedia: Self = Self(1);
+    pub const Communications: Self = Self(2);
 }
 impl windows_core::TypeKind for MediaPlayerAudioDeviceType {
     type TypeKind = windows_core::CopyType;
@@ -4377,11 +4377,11 @@ unsafe impl Sync for MediaPlayerDataReceivedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlayerError(pub i32);
 impl MediaPlayerError {
-    pub const Unknown: Self = Self(0i32);
-    pub const Aborted: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const DecodingError: Self = Self(3i32);
-    pub const SourceNotSupported: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Aborted: Self = Self(1);
+    pub const NetworkError: Self = Self(2);
+    pub const DecodingError: Self = Self(3);
+    pub const SourceNotSupported: Self = Self(4);
 }
 impl windows_core::TypeKind for MediaPlayerError {
     type TypeKind = windows_core::CopyType;
@@ -4454,12 +4454,12 @@ unsafe impl Sync for MediaPlayerRateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlayerState(pub i32);
 impl MediaPlayerState {
-    pub const Closed: Self = Self(0i32);
-    pub const Opening: Self = Self(1i32);
-    pub const Buffering: Self = Self(2i32);
-    pub const Playing: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
-    pub const Stopped: Self = Self(5i32);
+    pub const Closed: Self = Self(0);
+    pub const Opening: Self = Self(1);
+    pub const Buffering: Self = Self(2);
+    pub const Playing: Self = Self(3);
+    pub const Paused: Self = Self(4);
+    pub const Stopped: Self = Self(5);
 }
 impl windows_core::TypeKind for MediaPlayerState {
     type TypeKind = windows_core::CopyType;
@@ -4646,8 +4646,8 @@ impl IntoIterator for &PlaybackMediaMarkerSequence {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SphericalVideoProjectionMode(pub i32);
 impl SphericalVideoProjectionMode {
-    pub const Spherical: Self = Self(0i32);
-    pub const Flat: Self = Self(1i32);
+    pub const Spherical: Self = Self(0);
+    pub const Flat: Self = Self(1);
 }
 impl windows_core::TypeKind for SphericalVideoProjectionMode {
     type TypeKind = windows_core::CopyType;
@@ -4660,8 +4660,8 @@ impl windows_core::RuntimeType for SphericalVideoProjectionMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StereoscopicVideoRenderMode(pub i32);
 impl StereoscopicVideoRenderMode {
-    pub const Mono: Self = Self(0i32);
-    pub const Stereo: Self = Self(1i32);
+    pub const Mono: Self = Self(0);
+    pub const Stereo: Self = Self(1);
 }
 impl windows_core::TypeKind for StereoscopicVideoRenderMode {
     type TypeKind = windows_core::CopyType;
@@ -4711,10 +4711,10 @@ unsafe impl Sync for TimedMetadataPresentationModeChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TimedMetadataTrackPresentationMode(pub i32);
 impl TimedMetadataTrackPresentationMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const Hidden: Self = Self(1i32);
-    pub const ApplicationPresented: Self = Self(2i32);
-    pub const PlatformPresented: Self = Self(3i32);
+    pub const Disabled: Self = Self(0);
+    pub const Hidden: Self = Self(1);
+    pub const ApplicationPresented: Self = Self(2);
+    pub const PlatformPresented: Self = Self(3);
 }
 impl windows_core::TypeKind for TimedMetadataTrackPresentationMode {
     type TypeKind = windows_core::CopyType;

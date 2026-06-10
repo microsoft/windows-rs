@@ -131,9 +131,9 @@ unsafe impl Sync for PlatformTelemetryRegistrationSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);
 impl PlatformTelemetryRegistrationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SettingsOutOfRange: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const SettingsOutOfRange: Self = Self(1);
+    pub const UnknownFailure: Self = Self(2);
 }
 impl windows_core::TypeKind for PlatformTelemetryRegistrationStatus {
     type TypeKind = windows_core::CopyType;

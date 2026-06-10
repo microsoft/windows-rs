@@ -39,10 +39,10 @@ unsafe impl Sync for FindAllAccountsResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotAllowedByProvider: Self = Self(1i32);
-    pub const NotSupportedByProvider: Self = Self(2i32);
-    pub const ProviderError: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const NotAllowedByProvider: Self = Self(1);
+    pub const NotSupportedByProvider: Self = Self(2);
+    pub const ProviderError: Self = Self(3);
 }
 impl windows_core::TypeKind for FindAllWebAccountsStatus {
     type TypeKind = windows_core::CopyType;
@@ -608,11 +608,11 @@ unsafe impl Sync for WebAuthenticationAddAccountResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAuthenticationAddAccountStatus(pub i32);
 impl WebAuthenticationAddAccountStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const NotSupportedByProvider: Self = Self(2i32);
-    pub const ServiceConnectionError: Self = Self(3i32);
-    pub const ProviderError: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const Error: Self = Self(1);
+    pub const NotSupportedByProvider: Self = Self(2);
+    pub const ServiceConnectionError: Self = Self(3);
+    pub const ProviderError: Self = Self(4);
 }
 impl windows_core::TypeKind for WebAuthenticationAddAccountStatus {
     type TypeKind = windows_core::CopyType;
@@ -1018,8 +1018,8 @@ unsafe impl Sync for WebTokenRequest {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
-    pub const Default: Self = Self(0i32);
-    pub const ForceAuthentication: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const ForceAuthentication: Self = Self(1);
 }
 impl windows_core::TypeKind for WebTokenRequestPromptType {
     type TypeKind = windows_core::CopyType;
@@ -1074,12 +1074,12 @@ unsafe impl Sync for WebTokenRequestResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UserCancel: Self = Self(1i32);
-    pub const AccountSwitch: Self = Self(2i32);
-    pub const UserInteractionRequired: Self = Self(3i32);
-    pub const AccountProviderNotAvailable: Self = Self(4i32);
-    pub const ProviderError: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const UserCancel: Self = Self(1);
+    pub const AccountSwitch: Self = Self(2);
+    pub const UserInteractionRequired: Self = Self(3);
+    pub const AccountProviderNotAvailable: Self = Self(4);
+    pub const ProviderError: Self = Self(5);
 }
 impl windows_core::TypeKind for WebTokenRequestStatus {
     type TypeKind = windows_core::CopyType;

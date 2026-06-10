@@ -2,29 +2,29 @@ pub const AdSyncTask: windows_core::GUID = windows_core::GUID::from_u128(0x2ae64
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdrClientDisplayFlags(pub i32);
-pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
-pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: AdrClientDisplayFlags = AdrClientDisplayFlags(2i32);
+pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1);
+pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: AdrClientDisplayFlags = AdrClientDisplayFlags(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdrClientErrorType(pub i32);
-pub const AdrClientErrorType_AccessDenied: AdrClientErrorType = AdrClientErrorType(1i32);
-pub const AdrClientErrorType_FileNotFound: AdrClientErrorType = AdrClientErrorType(2i32);
-pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0i32);
+pub const AdrClientErrorType_AccessDenied: AdrClientErrorType = AdrClientErrorType(1);
+pub const AdrClientErrorType_FileNotFound: AdrClientErrorType = AdrClientErrorType(2);
+pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdrClientFlags(pub i32);
-pub const AdrClientFlags_FailForLocalPaths: AdrClientFlags = AdrClientFlags(1i32);
-pub const AdrClientFlags_FailIfNotDomainJoined: AdrClientFlags = AdrClientFlags(4i32);
-pub const AdrClientFlags_FailIfNotSupportedByServer: AdrClientFlags = AdrClientFlags(2i32);
-pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0i32);
+pub const AdrClientFlags_FailForLocalPaths: AdrClientFlags = AdrClientFlags(1);
+pub const AdrClientFlags_FailIfNotDomainJoined: AdrClientFlags = AdrClientFlags(4);
+pub const AdrClientFlags_FailIfNotSupportedByServer: AdrClientFlags = AdrClientFlags(2);
+pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdrEmailFlags(pub i32);
-pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = AdrEmailFlags(16i32);
-pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = AdrEmailFlags(4i32);
-pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = AdrEmailFlags(8i32);
-pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = AdrEmailFlags(2i32);
-pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1i32);
+pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = AdrEmailFlags(16);
+pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = AdrEmailFlags(4);
+pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = AdrEmailFlags(8);
+pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = AdrEmailFlags(2);
+pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DIFsrmClassificationEvents, DIFsrmClassificationEvents_Vtbl, 0x26942db0_dabf_41d8_bbdd_b129a9f70424);
 #[cfg(feature = "Win32_System_Com")]
@@ -55,19 +55,19 @@ impl DIFsrmClassificationEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DIFsrmClassificationEvents {}
-pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
-pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
-pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
-pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240u32;
-pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296u32;
-pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432u32;
-pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864u32;
-pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640u32;
-pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040u32;
-pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440u32;
-pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840u32;
-pub const FSRM_DISPID_IS_PROPERTY: u32 = 128u32;
-pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127u32;
+pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080;
+pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648;
+pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216;
+pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240;
+pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296;
+pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432;
+pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864;
+pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640;
+pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040;
+pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440;
+pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840;
+pub const FSRM_DISPID_IS_PROPERTY: u32 = 128;
+pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127;
 pub const FSRM_E_ADR_MAX_EMAILS_SENT: windows_core::HRESULT = windows_core::HRESULT(0x8004537E_u32 as _);
 pub const FSRM_E_ADR_NOT_DOMAIN_JOINED: windows_core::HRESULT = windows_core::HRESULT(0x80045392_u32 as _);
 pub const FSRM_E_ADR_PATH_IS_LOCAL: windows_core::HRESULT = windows_core::HRESULT(0x80045391_u32 as _);
@@ -202,329 +202,329 @@ pub const FsrmAccessDeniedRemediationClient: windows_core::GUID = windows_core::
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmAccountType(pub i32);
-pub const FsrmAccountType_Automatic: FsrmAccountType = FsrmAccountType(500i32);
-pub const FsrmAccountType_External: FsrmAccountType = FsrmAccountType(5i32);
-pub const FsrmAccountType_InProc: FsrmAccountType = FsrmAccountType(4i32);
-pub const FsrmAccountType_LocalService: FsrmAccountType = FsrmAccountType(2i32);
-pub const FsrmAccountType_LocalSystem: FsrmAccountType = FsrmAccountType(3i32);
-pub const FsrmAccountType_NetworkService: FsrmAccountType = FsrmAccountType(1i32);
-pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0i32);
+pub const FsrmAccountType_Automatic: FsrmAccountType = FsrmAccountType(500);
+pub const FsrmAccountType_External: FsrmAccountType = FsrmAccountType(5);
+pub const FsrmAccountType_InProc: FsrmAccountType = FsrmAccountType(4);
+pub const FsrmAccountType_LocalService: FsrmAccountType = FsrmAccountType(2);
+pub const FsrmAccountType_LocalSystem: FsrmAccountType = FsrmAccountType(3);
+pub const FsrmAccountType_NetworkService: FsrmAccountType = FsrmAccountType(1);
+pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmActionType(pub i32);
-pub const FsrmActionType_Command: FsrmActionType = FsrmActionType(3i32);
-pub const FsrmActionType_Email: FsrmActionType = FsrmActionType(2i32);
-pub const FsrmActionType_EventLog: FsrmActionType = FsrmActionType(1i32);
-pub const FsrmActionType_Report: FsrmActionType = FsrmActionType(4i32);
-pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0i32);
+pub const FsrmActionType_Command: FsrmActionType = FsrmActionType(3);
+pub const FsrmActionType_Email: FsrmActionType = FsrmActionType(2);
+pub const FsrmActionType_EventLog: FsrmActionType = FsrmActionType(1);
+pub const FsrmActionType_Report: FsrmActionType = FsrmActionType(4);
+pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmClassificationLoggingFlags(pub i32);
-pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(1i32);
-pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(4i32);
-pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(2i32);
-pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(8i32);
-pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0i32);
+pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(1);
+pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(4);
+pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(2);
+pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(8);
+pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0);
 pub const FsrmClassificationManager: windows_core::GUID = windows_core::GUID::from_u128(0xb15c0e47_c391_45b9_95c8_eb596c853f3a);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmCollectionState(pub i32);
-pub const FsrmCollectionState_Cancelled: FsrmCollectionState = FsrmCollectionState(4i32);
-pub const FsrmCollectionState_Committing: FsrmCollectionState = FsrmCollectionState(2i32);
-pub const FsrmCollectionState_Complete: FsrmCollectionState = FsrmCollectionState(3i32);
-pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1i32);
+pub const FsrmCollectionState_Cancelled: FsrmCollectionState = FsrmCollectionState(4);
+pub const FsrmCollectionState_Committing: FsrmCollectionState = FsrmCollectionState(2);
+pub const FsrmCollectionState_Complete: FsrmCollectionState = FsrmCollectionState(3);
+pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmCommitOptions(pub i32);
-pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = FsrmCommitOptions(1i32);
-pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0i32);
-pub const FsrmDaysNotSpecified: i32 = -1i32;
+pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = FsrmCommitOptions(1);
+pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0);
+pub const FsrmDaysNotSpecified: i32 = -1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmEnumOptions(pub i32);
-pub const FsrmEnumOptions_Asynchronous: FsrmEnumOptions = FsrmEnumOptions(1i32);
-pub const FsrmEnumOptions_CheckRecycleBin: FsrmEnumOptions = FsrmEnumOptions(2i32);
-pub const FsrmEnumOptions_IncludeClusterNodes: FsrmEnumOptions = FsrmEnumOptions(4i32);
-pub const FsrmEnumOptions_IncludeDeprecatedObjects: FsrmEnumOptions = FsrmEnumOptions(8i32);
-pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0i32);
+pub const FsrmEnumOptions_Asynchronous: FsrmEnumOptions = FsrmEnumOptions(1);
+pub const FsrmEnumOptions_CheckRecycleBin: FsrmEnumOptions = FsrmEnumOptions(2);
+pub const FsrmEnumOptions_IncludeClusterNodes: FsrmEnumOptions = FsrmEnumOptions(4);
+pub const FsrmEnumOptions_IncludeDeprecatedObjects: FsrmEnumOptions = FsrmEnumOptions(8);
+pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmEventType(pub i32);
-pub const FsrmEventType_Error: FsrmEventType = FsrmEventType(3i32);
-pub const FsrmEventType_Information: FsrmEventType = FsrmEventType(1i32);
-pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0i32);
-pub const FsrmEventType_Warning: FsrmEventType = FsrmEventType(2i32);
+pub const FsrmEventType_Error: FsrmEventType = FsrmEventType(3);
+pub const FsrmEventType_Information: FsrmEventType = FsrmEventType(1);
+pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0);
+pub const FsrmEventType_Warning: FsrmEventType = FsrmEventType(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmExecutionOption(pub i32);
-pub const FsrmExecutionOption_EvaluateUnset: FsrmExecutionOption = FsrmExecutionOption(1i32);
-pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: FsrmExecutionOption = FsrmExecutionOption(2i32);
-pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: FsrmExecutionOption = FsrmExecutionOption(3i32);
-pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0i32);
+pub const FsrmExecutionOption_EvaluateUnset: FsrmExecutionOption = FsrmExecutionOption(1);
+pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: FsrmExecutionOption = FsrmExecutionOption(2);
+pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: FsrmExecutionOption = FsrmExecutionOption(3);
+pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0);
 pub const FsrmExportImport: windows_core::GUID = windows_core::GUID::from_u128(0x1482dc37_fae9_4787_9025_8ce4e024ab56);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileConditionType(pub i32);
-pub const FsrmFileConditionType_Property: FsrmFileConditionType = FsrmFileConditionType(1i32);
-pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
+pub const FsrmFileConditionType_Property: FsrmFileConditionType = FsrmFileConditionType(1);
+pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0);
 pub const FsrmFileGroupManager: windows_core::GUID = windows_core::GUID::from_u128(0x8f1363f6_656f_4496_9226_13aecbd7718f);
 pub const FsrmFileManagementJobManager: windows_core::GUID = windows_core::GUID::from_u128(0xeb18f9b2_4c3a_4321_b203_205120cff614);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileManagementLoggingFlags(pub i32);
-pub const FsrmFileManagementLoggingFlags_Audit: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(4i32);
-pub const FsrmFileManagementLoggingFlags_Error: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(1i32);
-pub const FsrmFileManagementLoggingFlags_Information: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(2i32);
-pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
+pub const FsrmFileManagementLoggingFlags_Audit: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(4);
+pub const FsrmFileManagementLoggingFlags_Error: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(1);
+pub const FsrmFileManagementLoggingFlags_Information: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(2);
+pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileManagementType(pub i32);
-pub const FsrmFileManagementType_Custom: FsrmFileManagementType = FsrmFileManagementType(2i32);
-pub const FsrmFileManagementType_Expiration: FsrmFileManagementType = FsrmFileManagementType(1i32);
-pub const FsrmFileManagementType_Rms: FsrmFileManagementType = FsrmFileManagementType(3i32);
-pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0i32);
+pub const FsrmFileManagementType_Custom: FsrmFileManagementType = FsrmFileManagementType(2);
+pub const FsrmFileManagementType_Expiration: FsrmFileManagementType = FsrmFileManagementType(1);
+pub const FsrmFileManagementType_Rms: FsrmFileManagementType = FsrmFileManagementType(3);
+pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileScreenFlags(pub i32);
-pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1i32);
+pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1);
 pub const FsrmFileScreenManager: windows_core::GUID = windows_core::GUID::from_u128(0x95941183_db53_4c5f_b37b_7d0921cf9dc7);
 pub const FsrmFileScreenTemplateManager: windows_core::GUID = windows_core::GUID::from_u128(0x243111df_e474_46aa_a054_eaa33edc292a);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileStreamingInterfaceType(pub i32);
-pub const FsrmFileStreamingInterfaceType_ILockBytes: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(1i32);
-pub const FsrmFileStreamingInterfaceType_IStream: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(2i32);
-pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
+pub const FsrmFileStreamingInterfaceType_ILockBytes: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(1);
+pub const FsrmFileStreamingInterfaceType_IStream: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(2);
+pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileStreamingMode(pub i32);
-pub const FsrmFileStreamingMode_Read: FsrmFileStreamingMode = FsrmFileStreamingMode(1i32);
-pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0i32);
-pub const FsrmFileStreamingMode_Write: FsrmFileStreamingMode = FsrmFileStreamingMode(2i32);
+pub const FsrmFileStreamingMode_Read: FsrmFileStreamingMode = FsrmFileStreamingMode(1);
+pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0);
+pub const FsrmFileStreamingMode_Write: FsrmFileStreamingMode = FsrmFileStreamingMode(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmFileSystemPropertyId(pub i32);
-pub const FsrmFileSystemPropertyId_DateCreated: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(2i32);
-pub const FsrmFileSystemPropertyId_DateLastAccessed: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(3i32);
-pub const FsrmFileSystemPropertyId_DateLastModified: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(4i32);
-pub const FsrmFileSystemPropertyId_DateNow: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(5i32);
-pub const FsrmFileSystemPropertyId_FileName: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(1i32);
-pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0i32);
+pub const FsrmFileSystemPropertyId_DateCreated: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(2);
+pub const FsrmFileSystemPropertyId_DateLastAccessed: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(3);
+pub const FsrmFileSystemPropertyId_DateLastModified: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(4);
+pub const FsrmFileSystemPropertyId_DateNow: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(5);
+pub const FsrmFileSystemPropertyId_FileName: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(1);
+pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmGetFilePropertyOptions(pub i32);
-pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(4i32);
-pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(1i32);
-pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0i32);
-pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(2i32);
-pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(8i32);
-pub const FsrmMaxExcludeFolders: u32 = 32u32;
-pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
-pub const FsrmMaxNumberThresholds: u32 = 16u32;
-pub const FsrmMaxThresholdValue: u32 = 250u32;
-pub const FsrmMinQuotaLimit: u32 = 1024u32;
-pub const FsrmMinThresholdValue: u32 = 1u32;
+pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(4);
+pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(1);
+pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0);
+pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(2);
+pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(8);
+pub const FsrmMaxExcludeFolders: u32 = 32;
+pub const FsrmMaxNumberPropertyDefinitions: u32 = 100;
+pub const FsrmMaxNumberThresholds: u32 = 16;
+pub const FsrmMaxThresholdValue: u32 = 250;
+pub const FsrmMinQuotaLimit: u32 = 1024;
+pub const FsrmMinThresholdValue: u32 = 1;
 pub const FsrmPathMapper: windows_core::GUID = windows_core::GUID::from_u128(0xf3be42bd_8ac2_409e_bbd8_faf9b6b41feb);
 pub const FsrmPipelineModuleConnector: windows_core::GUID = windows_core::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPipelineModuleType(pub i32);
-pub const FsrmPipelineModuleType_Classifier: FsrmPipelineModuleType = FsrmPipelineModuleType(2i32);
-pub const FsrmPipelineModuleType_Storage: FsrmPipelineModuleType = FsrmPipelineModuleType(1i32);
-pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
+pub const FsrmPipelineModuleType_Classifier: FsrmPipelineModuleType = FsrmPipelineModuleType(2);
+pub const FsrmPipelineModuleType_Storage: FsrmPipelineModuleType = FsrmPipelineModuleType(1);
+pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyBagField(pub i32);
-pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0i32);
-pub const FsrmPropertyBagField_VolumeGuidName: FsrmPropertyBagField = FsrmPropertyBagField(1i32);
+pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0);
+pub const FsrmPropertyBagField_VolumeGuidName: FsrmPropertyBagField = FsrmPropertyBagField(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyBagFlags(pub i32);
-pub const FsrmPropertyBagFlags_FailedClassifyingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(8i32);
-pub const FsrmPropertyBagFlags_FailedLoadingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(2i32);
-pub const FsrmPropertyBagFlags_FailedSavingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(4i32);
-pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1i32);
+pub const FsrmPropertyBagFlags_FailedClassifyingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(8);
+pub const FsrmPropertyBagFlags_FailedLoadingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(2);
+pub const FsrmPropertyBagFlags_FailedSavingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(4);
+pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyConditionType(pub i32);
-pub const FsrmPropertyConditionType_Contain: FsrmPropertyConditionType = FsrmPropertyConditionType(5i32);
-pub const FsrmPropertyConditionType_ContainedIn: FsrmPropertyConditionType = FsrmPropertyConditionType(10i32);
-pub const FsrmPropertyConditionType_EndWith: FsrmPropertyConditionType = FsrmPropertyConditionType(9i32);
-pub const FsrmPropertyConditionType_Equal: FsrmPropertyConditionType = FsrmPropertyConditionType(1i32);
-pub const FsrmPropertyConditionType_Exist: FsrmPropertyConditionType = FsrmPropertyConditionType(6i32);
-pub const FsrmPropertyConditionType_GreaterThan: FsrmPropertyConditionType = FsrmPropertyConditionType(3i32);
-pub const FsrmPropertyConditionType_LessThan: FsrmPropertyConditionType = FsrmPropertyConditionType(4i32);
-pub const FsrmPropertyConditionType_MatchesPattern: FsrmPropertyConditionType = FsrmPropertyConditionType(13i32);
-pub const FsrmPropertyConditionType_NotEqual: FsrmPropertyConditionType = FsrmPropertyConditionType(2i32);
-pub const FsrmPropertyConditionType_NotExist: FsrmPropertyConditionType = FsrmPropertyConditionType(7i32);
-pub const FsrmPropertyConditionType_PrefixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(11i32);
-pub const FsrmPropertyConditionType_StartWith: FsrmPropertyConditionType = FsrmPropertyConditionType(8i32);
-pub const FsrmPropertyConditionType_SuffixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(12i32);
-pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0i32);
+pub const FsrmPropertyConditionType_Contain: FsrmPropertyConditionType = FsrmPropertyConditionType(5);
+pub const FsrmPropertyConditionType_ContainedIn: FsrmPropertyConditionType = FsrmPropertyConditionType(10);
+pub const FsrmPropertyConditionType_EndWith: FsrmPropertyConditionType = FsrmPropertyConditionType(9);
+pub const FsrmPropertyConditionType_Equal: FsrmPropertyConditionType = FsrmPropertyConditionType(1);
+pub const FsrmPropertyConditionType_Exist: FsrmPropertyConditionType = FsrmPropertyConditionType(6);
+pub const FsrmPropertyConditionType_GreaterThan: FsrmPropertyConditionType = FsrmPropertyConditionType(3);
+pub const FsrmPropertyConditionType_LessThan: FsrmPropertyConditionType = FsrmPropertyConditionType(4);
+pub const FsrmPropertyConditionType_MatchesPattern: FsrmPropertyConditionType = FsrmPropertyConditionType(13);
+pub const FsrmPropertyConditionType_NotEqual: FsrmPropertyConditionType = FsrmPropertyConditionType(2);
+pub const FsrmPropertyConditionType_NotExist: FsrmPropertyConditionType = FsrmPropertyConditionType(7);
+pub const FsrmPropertyConditionType_PrefixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(11);
+pub const FsrmPropertyConditionType_StartWith: FsrmPropertyConditionType = FsrmPropertyConditionType(8);
+pub const FsrmPropertyConditionType_SuffixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(12);
+pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
-pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1i32);
-pub const FsrmPropertyDefinitionAppliesTo_Folders: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(2i32);
+pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1);
+pub const FsrmPropertyDefinitionAppliesTo_Folders: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyDefinitionFlags(pub i32);
-pub const FsrmPropertyDefinitionFlags_Deprecated: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(2i32);
-pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1i32);
-pub const FsrmPropertyDefinitionFlags_Secure: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(4i32);
+pub const FsrmPropertyDefinitionFlags_Deprecated: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(2);
+pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1);
+pub const FsrmPropertyDefinitionFlags_Secure: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyDefinitionType(pub i32);
-pub const FsrmPropertyDefinitionType_Bool: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(7i32);
-pub const FsrmPropertyDefinitionType_Date: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(8i32);
-pub const FsrmPropertyDefinitionType_Int: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(6i32);
-pub const FsrmPropertyDefinitionType_MultiChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(2i32);
-pub const FsrmPropertyDefinitionType_MultiString: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(5i32);
-pub const FsrmPropertyDefinitionType_OrderedList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(1i32);
-pub const FsrmPropertyDefinitionType_SingleChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(3i32);
-pub const FsrmPropertyDefinitionType_String: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(4i32);
-pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0i32);
+pub const FsrmPropertyDefinitionType_Bool: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(7);
+pub const FsrmPropertyDefinitionType_Date: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(8);
+pub const FsrmPropertyDefinitionType_Int: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(6);
+pub const FsrmPropertyDefinitionType_MultiChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(2);
+pub const FsrmPropertyDefinitionType_MultiString: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(5);
+pub const FsrmPropertyDefinitionType_OrderedList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(1);
+pub const FsrmPropertyDefinitionType_SingleChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(3);
+pub const FsrmPropertyDefinitionType_String: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(4);
+pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyFlags(pub i32);
-pub const FsrmPropertyFlags_AggregationFailed: FsrmPropertyFlags = FsrmPropertyFlags(64i32);
-pub const FsrmPropertyFlags_Deleted: FsrmPropertyFlags = FsrmPropertyFlags(16i32);
-pub const FsrmPropertyFlags_Existing: FsrmPropertyFlags = FsrmPropertyFlags(128i32);
-pub const FsrmPropertyFlags_ExplicitValueDeleted: FsrmPropertyFlags = FsrmPropertyFlags(32768i32);
-pub const FsrmPropertyFlags_FailedClassifyingProperties: FsrmPropertyFlags = FsrmPropertyFlags(512i32);
-pub const FsrmPropertyFlags_FailedLoadingProperties: FsrmPropertyFlags = FsrmPropertyFlags(256i32);
-pub const FsrmPropertyFlags_FailedSavingProperties: FsrmPropertyFlags = FsrmPropertyFlags(1024i32);
-pub const FsrmPropertyFlags_Inherited: FsrmPropertyFlags = FsrmPropertyFlags(8192i32);
-pub const FsrmPropertyFlags_Manual: FsrmPropertyFlags = FsrmPropertyFlags(16384i32);
-pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0i32);
-pub const FsrmPropertyFlags_Orphaned: FsrmPropertyFlags = FsrmPropertyFlags(1i32);
-pub const FsrmPropertyFlags_PersistentMask: FsrmPropertyFlags = FsrmPropertyFlags(20480i32);
-pub const FsrmPropertyFlags_PolicyDerived: FsrmPropertyFlags = FsrmPropertyFlags(4096i32);
-pub const FsrmPropertyFlags_PropertyDeletedFromClear: FsrmPropertyFlags = FsrmPropertyFlags(65536i32);
-pub const FsrmPropertyFlags_PropertySourceMask: FsrmPropertyFlags = FsrmPropertyFlags(14i32);
-pub const FsrmPropertyFlags_Reclassified: FsrmPropertyFlags = FsrmPropertyFlags(32i32);
-pub const FsrmPropertyFlags_RetrievedFromCache: FsrmPropertyFlags = FsrmPropertyFlags(2i32);
-pub const FsrmPropertyFlags_RetrievedFromStorage: FsrmPropertyFlags = FsrmPropertyFlags(4i32);
-pub const FsrmPropertyFlags_Secure: FsrmPropertyFlags = FsrmPropertyFlags(2048i32);
-pub const FsrmPropertyFlags_SetByClassifier: FsrmPropertyFlags = FsrmPropertyFlags(8i32);
+pub const FsrmPropertyFlags_AggregationFailed: FsrmPropertyFlags = FsrmPropertyFlags(64);
+pub const FsrmPropertyFlags_Deleted: FsrmPropertyFlags = FsrmPropertyFlags(16);
+pub const FsrmPropertyFlags_Existing: FsrmPropertyFlags = FsrmPropertyFlags(128);
+pub const FsrmPropertyFlags_ExplicitValueDeleted: FsrmPropertyFlags = FsrmPropertyFlags(32768);
+pub const FsrmPropertyFlags_FailedClassifyingProperties: FsrmPropertyFlags = FsrmPropertyFlags(512);
+pub const FsrmPropertyFlags_FailedLoadingProperties: FsrmPropertyFlags = FsrmPropertyFlags(256);
+pub const FsrmPropertyFlags_FailedSavingProperties: FsrmPropertyFlags = FsrmPropertyFlags(1024);
+pub const FsrmPropertyFlags_Inherited: FsrmPropertyFlags = FsrmPropertyFlags(8192);
+pub const FsrmPropertyFlags_Manual: FsrmPropertyFlags = FsrmPropertyFlags(16384);
+pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0);
+pub const FsrmPropertyFlags_Orphaned: FsrmPropertyFlags = FsrmPropertyFlags(1);
+pub const FsrmPropertyFlags_PersistentMask: FsrmPropertyFlags = FsrmPropertyFlags(20480);
+pub const FsrmPropertyFlags_PolicyDerived: FsrmPropertyFlags = FsrmPropertyFlags(4096);
+pub const FsrmPropertyFlags_PropertyDeletedFromClear: FsrmPropertyFlags = FsrmPropertyFlags(65536);
+pub const FsrmPropertyFlags_PropertySourceMask: FsrmPropertyFlags = FsrmPropertyFlags(14);
+pub const FsrmPropertyFlags_Reclassified: FsrmPropertyFlags = FsrmPropertyFlags(32);
+pub const FsrmPropertyFlags_RetrievedFromCache: FsrmPropertyFlags = FsrmPropertyFlags(2);
+pub const FsrmPropertyFlags_RetrievedFromStorage: FsrmPropertyFlags = FsrmPropertyFlags(4);
+pub const FsrmPropertyFlags_Secure: FsrmPropertyFlags = FsrmPropertyFlags(2048);
+pub const FsrmPropertyFlags_SetByClassifier: FsrmPropertyFlags = FsrmPropertyFlags(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmPropertyValueType(pub i32);
-pub const FsrmPropertyValueType_DateOffset: FsrmPropertyValueType = FsrmPropertyValueType(2i32);
-pub const FsrmPropertyValueType_Literal: FsrmPropertyValueType = FsrmPropertyValueType(1i32);
-pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0i32);
+pub const FsrmPropertyValueType_DateOffset: FsrmPropertyValueType = FsrmPropertyValueType(2);
+pub const FsrmPropertyValueType_Literal: FsrmPropertyValueType = FsrmPropertyValueType(1);
+pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmQuotaFlags(pub i32);
-pub const FsrmQuotaFlags_Disable: FsrmQuotaFlags = FsrmQuotaFlags(512i32);
-pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256i32);
-pub const FsrmQuotaFlags_StatusIncomplete: FsrmQuotaFlags = FsrmQuotaFlags(65536i32);
-pub const FsrmQuotaFlags_StatusRebuilding: FsrmQuotaFlags = FsrmQuotaFlags(131072i32);
+pub const FsrmQuotaFlags_Disable: FsrmQuotaFlags = FsrmQuotaFlags(512);
+pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256);
+pub const FsrmQuotaFlags_StatusIncomplete: FsrmQuotaFlags = FsrmQuotaFlags(65536);
+pub const FsrmQuotaFlags_StatusRebuilding: FsrmQuotaFlags = FsrmQuotaFlags(131072);
 pub const FsrmQuotaManager: windows_core::GUID = windows_core::GUID::from_u128(0x90dcab7f_347c_4bfc_b543_540326305fbe);
 pub const FsrmQuotaTemplateManager: windows_core::GUID = windows_core::GUID::from_u128(0x97d3d443_251c_4337_81e7_b32e8f4ee65e);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmReportFilter(pub i32);
-pub const FsrmReportFilter_FileGroups: FsrmReportFilter = FsrmReportFilter(5i32);
-pub const FsrmReportFilter_MaxAgeDays: FsrmReportFilter = FsrmReportFilter(3i32);
-pub const FsrmReportFilter_MinAgeDays: FsrmReportFilter = FsrmReportFilter(2i32);
-pub const FsrmReportFilter_MinQuotaUsage: FsrmReportFilter = FsrmReportFilter(4i32);
-pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
-pub const FsrmReportFilter_NamePattern: FsrmReportFilter = FsrmReportFilter(7i32);
-pub const FsrmReportFilter_Owners: FsrmReportFilter = FsrmReportFilter(6i32);
-pub const FsrmReportFilter_Property: FsrmReportFilter = FsrmReportFilter(8i32);
+pub const FsrmReportFilter_FileGroups: FsrmReportFilter = FsrmReportFilter(5);
+pub const FsrmReportFilter_MaxAgeDays: FsrmReportFilter = FsrmReportFilter(3);
+pub const FsrmReportFilter_MinAgeDays: FsrmReportFilter = FsrmReportFilter(2);
+pub const FsrmReportFilter_MinQuotaUsage: FsrmReportFilter = FsrmReportFilter(4);
+pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1);
+pub const FsrmReportFilter_NamePattern: FsrmReportFilter = FsrmReportFilter(7);
+pub const FsrmReportFilter_Owners: FsrmReportFilter = FsrmReportFilter(6);
+pub const FsrmReportFilter_Property: FsrmReportFilter = FsrmReportFilter(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmReportFormat(pub i32);
-pub const FsrmReportFormat_Csv: FsrmReportFormat = FsrmReportFormat(4i32);
-pub const FsrmReportFormat_DHtml: FsrmReportFormat = FsrmReportFormat(1i32);
-pub const FsrmReportFormat_Html: FsrmReportFormat = FsrmReportFormat(2i32);
-pub const FsrmReportFormat_Txt: FsrmReportFormat = FsrmReportFormat(3i32);
-pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0i32);
-pub const FsrmReportFormat_Xml: FsrmReportFormat = FsrmReportFormat(5i32);
+pub const FsrmReportFormat_Csv: FsrmReportFormat = FsrmReportFormat(4);
+pub const FsrmReportFormat_DHtml: FsrmReportFormat = FsrmReportFormat(1);
+pub const FsrmReportFormat_Html: FsrmReportFormat = FsrmReportFormat(2);
+pub const FsrmReportFormat_Txt: FsrmReportFormat = FsrmReportFormat(3);
+pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0);
+pub const FsrmReportFormat_Xml: FsrmReportFormat = FsrmReportFormat(5);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmReportGenerationContext(pub i32);
-pub const FsrmReportGenerationContext_IncidentReport: FsrmReportGenerationContext = FsrmReportGenerationContext(4i32);
-pub const FsrmReportGenerationContext_InteractiveReport: FsrmReportGenerationContext = FsrmReportGenerationContext(3i32);
-pub const FsrmReportGenerationContext_ScheduledReport: FsrmReportGenerationContext = FsrmReportGenerationContext(2i32);
-pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1i32);
+pub const FsrmReportGenerationContext_IncidentReport: FsrmReportGenerationContext = FsrmReportGenerationContext(4);
+pub const FsrmReportGenerationContext_InteractiveReport: FsrmReportGenerationContext = FsrmReportGenerationContext(3);
+pub const FsrmReportGenerationContext_ScheduledReport: FsrmReportGenerationContext = FsrmReportGenerationContext(2);
+pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmReportLimit(pub i32);
-pub const FsrmReportLimit_MaxDuplicateGroups: FsrmReportLimit = FsrmReportLimit(7i32);
-pub const FsrmReportLimit_MaxFileGroups: FsrmReportLimit = FsrmReportLimit(2i32);
-pub const FsrmReportLimit_MaxFileScreenEvents: FsrmReportLimit = FsrmReportLimit(9i32);
-pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1i32);
-pub const FsrmReportLimit_MaxFilesPerDuplGroup: FsrmReportLimit = FsrmReportLimit(6i32);
-pub const FsrmReportLimit_MaxFilesPerFileGroup: FsrmReportLimit = FsrmReportLimit(4i32);
-pub const FsrmReportLimit_MaxFilesPerOwner: FsrmReportLimit = FsrmReportLimit(5i32);
-pub const FsrmReportLimit_MaxFilesPerPropertyValue: FsrmReportLimit = FsrmReportLimit(11i32);
-pub const FsrmReportLimit_MaxFolders: FsrmReportLimit = FsrmReportLimit(12i32);
-pub const FsrmReportLimit_MaxOwners: FsrmReportLimit = FsrmReportLimit(3i32);
-pub const FsrmReportLimit_MaxPropertyValues: FsrmReportLimit = FsrmReportLimit(10i32);
-pub const FsrmReportLimit_MaxQuotas: FsrmReportLimit = FsrmReportLimit(8i32);
+pub const FsrmReportLimit_MaxDuplicateGroups: FsrmReportLimit = FsrmReportLimit(7);
+pub const FsrmReportLimit_MaxFileGroups: FsrmReportLimit = FsrmReportLimit(2);
+pub const FsrmReportLimit_MaxFileScreenEvents: FsrmReportLimit = FsrmReportLimit(9);
+pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1);
+pub const FsrmReportLimit_MaxFilesPerDuplGroup: FsrmReportLimit = FsrmReportLimit(6);
+pub const FsrmReportLimit_MaxFilesPerFileGroup: FsrmReportLimit = FsrmReportLimit(4);
+pub const FsrmReportLimit_MaxFilesPerOwner: FsrmReportLimit = FsrmReportLimit(5);
+pub const FsrmReportLimit_MaxFilesPerPropertyValue: FsrmReportLimit = FsrmReportLimit(11);
+pub const FsrmReportLimit_MaxFolders: FsrmReportLimit = FsrmReportLimit(12);
+pub const FsrmReportLimit_MaxOwners: FsrmReportLimit = FsrmReportLimit(3);
+pub const FsrmReportLimit_MaxPropertyValues: FsrmReportLimit = FsrmReportLimit(10);
+pub const FsrmReportLimit_MaxQuotas: FsrmReportLimit = FsrmReportLimit(8);
 pub const FsrmReportManager: windows_core::GUID = windows_core::GUID::from_u128(0x0058ef37_aa66_4c48_bd5b_2fce432ab0c8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmReportRunningStatus(pub i32);
-pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = FsrmReportRunningStatus(1i32);
-pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = FsrmReportRunningStatus(2i32);
-pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = FsrmReportRunningStatus(3i32);
-pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
+pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = FsrmReportRunningStatus(1);
+pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = FsrmReportRunningStatus(2);
+pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = FsrmReportRunningStatus(3);
+pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0);
 pub const FsrmReportScheduler: windows_core::GUID = windows_core::GUID::from_u128(0xea25f1b8_1b8d_4290_8ee8_e17c12c2fe20);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmReportType(pub i32);
-pub const FsrmReportType_AutomaticClassification: FsrmReportType = FsrmReportType(11i32);
-pub const FsrmReportType_DuplicateFiles: FsrmReportType = FsrmReportType(8i32);
-pub const FsrmReportType_Expiration: FsrmReportType = FsrmReportType(12i32);
-pub const FsrmReportType_ExportReport: FsrmReportType = FsrmReportType(7i32);
-pub const FsrmReportType_FileScreenAudit: FsrmReportType = FsrmReportType(9i32);
-pub const FsrmReportType_FilesByOwner: FsrmReportType = FsrmReportType(6i32);
-pub const FsrmReportType_FilesByProperty: FsrmReportType = FsrmReportType(10i32);
-pub const FsrmReportType_FilesByType: FsrmReportType = FsrmReportType(2i32);
-pub const FsrmReportType_FoldersByProperty: FsrmReportType = FsrmReportType(13i32);
-pub const FsrmReportType_LargeFiles: FsrmReportType = FsrmReportType(1i32);
-pub const FsrmReportType_LeastRecentlyAccessed: FsrmReportType = FsrmReportType(3i32);
-pub const FsrmReportType_MostRecentlyAccessed: FsrmReportType = FsrmReportType(4i32);
-pub const FsrmReportType_QuotaUsage: FsrmReportType = FsrmReportType(5i32);
-pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0i32);
+pub const FsrmReportType_AutomaticClassification: FsrmReportType = FsrmReportType(11);
+pub const FsrmReportType_DuplicateFiles: FsrmReportType = FsrmReportType(8);
+pub const FsrmReportType_Expiration: FsrmReportType = FsrmReportType(12);
+pub const FsrmReportType_ExportReport: FsrmReportType = FsrmReportType(7);
+pub const FsrmReportType_FileScreenAudit: FsrmReportType = FsrmReportType(9);
+pub const FsrmReportType_FilesByOwner: FsrmReportType = FsrmReportType(6);
+pub const FsrmReportType_FilesByProperty: FsrmReportType = FsrmReportType(10);
+pub const FsrmReportType_FilesByType: FsrmReportType = FsrmReportType(2);
+pub const FsrmReportType_FoldersByProperty: FsrmReportType = FsrmReportType(13);
+pub const FsrmReportType_LargeFiles: FsrmReportType = FsrmReportType(1);
+pub const FsrmReportType_LeastRecentlyAccessed: FsrmReportType = FsrmReportType(3);
+pub const FsrmReportType_MostRecentlyAccessed: FsrmReportType = FsrmReportType(4);
+pub const FsrmReportType_QuotaUsage: FsrmReportType = FsrmReportType(5);
+pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmRuleFlags(pub i32);
-pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(1024i32);
-pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(2048i32);
-pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256i32);
-pub const FsrmRuleFlags_Invalid: FsrmRuleFlags = FsrmRuleFlags(4096i32);
+pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(1024);
+pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(2048);
+pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256);
+pub const FsrmRuleFlags_Invalid: FsrmRuleFlags = FsrmRuleFlags(4096);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmRuleType(pub i32);
-pub const FsrmRuleType_Classification: FsrmRuleType = FsrmRuleType(1i32);
-pub const FsrmRuleType_Generic: FsrmRuleType = FsrmRuleType(2i32);
-pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0i32);
+pub const FsrmRuleType_Classification: FsrmRuleType = FsrmRuleType(1);
+pub const FsrmRuleType_Generic: FsrmRuleType = FsrmRuleType(2);
+pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0);
 pub const FsrmSetting: windows_core::GUID = windows_core::GUID::from_u128(0xf556d708_6d4d_4594_9c61_7dbb0dae2a46);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmStorageModuleCaps(pub i32);
-pub const FsrmStorageModuleCaps_CanGet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(1i32);
-pub const FsrmStorageModuleCaps_CanHandleDirectories: FsrmStorageModuleCaps = FsrmStorageModuleCaps(4i32);
-pub const FsrmStorageModuleCaps_CanHandleFiles: FsrmStorageModuleCaps = FsrmStorageModuleCaps(8i32);
-pub const FsrmStorageModuleCaps_CanSet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(2i32);
-pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);
+pub const FsrmStorageModuleCaps_CanGet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(1);
+pub const FsrmStorageModuleCaps_CanHandleDirectories: FsrmStorageModuleCaps = FsrmStorageModuleCaps(4);
+pub const FsrmStorageModuleCaps_CanHandleFiles: FsrmStorageModuleCaps = FsrmStorageModuleCaps(8);
+pub const FsrmStorageModuleCaps_CanSet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(2);
+pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmStorageModuleType(pub i32);
-pub const FsrmStorageModuleType_Cache: FsrmStorageModuleType = FsrmStorageModuleType(1i32);
-pub const FsrmStorageModuleType_Database: FsrmStorageModuleType = FsrmStorageModuleType(3i32);
-pub const FsrmStorageModuleType_InFile: FsrmStorageModuleType = FsrmStorageModuleType(2i32);
-pub const FsrmStorageModuleType_System: FsrmStorageModuleType = FsrmStorageModuleType(100i32);
-pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0i32);
+pub const FsrmStorageModuleType_Cache: FsrmStorageModuleType = FsrmStorageModuleType(1);
+pub const FsrmStorageModuleType_Database: FsrmStorageModuleType = FsrmStorageModuleType(3);
+pub const FsrmStorageModuleType_InFile: FsrmStorageModuleType = FsrmStorageModuleType(2);
+pub const FsrmStorageModuleType_System: FsrmStorageModuleType = FsrmStorageModuleType(100);
+pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsrmTemplateApplyOptions(pub i32);
-pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(2i32);
-pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);
+pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(2);
+pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmAccessDeniedRemediationClient, IFsrmAccessDeniedRemediationClient_Vtbl, 0x40002314_590b_45a5_8e1b_8c05da527e52);
 #[cfg(feature = "Win32_System_Com")]
@@ -10479,4 +10479,4 @@ impl IFsrmStorageModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleImplementation {}
-pub const MessageSizeLimit: u32 = 4096u32;
+pub const MessageSizeLimit: u32 = 4096;

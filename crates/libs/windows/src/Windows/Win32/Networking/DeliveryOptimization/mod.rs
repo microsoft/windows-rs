@@ -1,54 +1,54 @@
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DODownloadCostPolicy(pub i32);
-pub const DODownloadCostPolicy_Always: DODownloadCostPolicy = DODownloadCostPolicy(0i32);
-pub const DODownloadCostPolicy_NoCellular: DODownloadCostPolicy = DODownloadCostPolicy(5i32);
-pub const DODownloadCostPolicy_NoRoaming: DODownloadCostPolicy = DODownloadCostPolicy(3i32);
-pub const DODownloadCostPolicy_NoSurcharge: DODownloadCostPolicy = DODownloadCostPolicy(4i32);
-pub const DODownloadCostPolicy_Standard: DODownloadCostPolicy = DODownloadCostPolicy(2i32);
-pub const DODownloadCostPolicy_Unrestricted: DODownloadCostPolicy = DODownloadCostPolicy(1i32);
+pub const DODownloadCostPolicy_Always: DODownloadCostPolicy = DODownloadCostPolicy(0);
+pub const DODownloadCostPolicy_NoCellular: DODownloadCostPolicy = DODownloadCostPolicy(5);
+pub const DODownloadCostPolicy_NoRoaming: DODownloadCostPolicy = DODownloadCostPolicy(3);
+pub const DODownloadCostPolicy_NoSurcharge: DODownloadCostPolicy = DODownloadCostPolicy(4);
+pub const DODownloadCostPolicy_Standard: DODownloadCostPolicy = DODownloadCostPolicy(2);
+pub const DODownloadCostPolicy_Unrestricted: DODownloadCostPolicy = DODownloadCostPolicy(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DODownloadProperty(pub i32);
-pub const DODownloadProperty_BlockingMode: DODownloadProperty = DODownloadProperty(12i32);
-pub const DODownloadProperty_CallbackFreqPercent: DODownloadProperty = DODownloadProperty(8i32);
-pub const DODownloadProperty_CallbackFreqSeconds: DODownloadProperty = DODownloadProperty(9i32);
-pub const DODownloadProperty_CallbackInterface: DODownloadProperty = DODownloadProperty(13i32);
-pub const DODownloadProperty_ContentId: DODownloadProperty = DODownloadProperty(2i32);
-pub const DODownloadProperty_CorrelationVector: DODownloadProperty = DODownloadProperty(17i32);
-pub const DODownloadProperty_CostPolicy: DODownloadProperty = DODownloadProperty(6i32);
-pub const DODownloadProperty_DecryptionInfo: DODownloadProperty = DODownloadProperty(18i32);
-pub const DODownloadProperty_DisallowOnCellular: DODownloadProperty = DODownloadProperty(22i32);
-pub const DODownloadProperty_DisplayName: DODownloadProperty = DODownloadProperty(3i32);
-pub const DODownloadProperty_ForegroundPriority: DODownloadProperty = DODownloadProperty(11i32);
-pub const DODownloadProperty_HttpAllowSecureToNonSecureRedirect: DODownloadProperty = DODownloadProperty(24i32);
-pub const DODownloadProperty_HttpCustomAuthHeaders: DODownloadProperty = DODownloadProperty(23i32);
-pub const DODownloadProperty_HttpCustomHeaders: DODownloadProperty = DODownloadProperty(5i32);
-pub const DODownloadProperty_HttpRedirectionTarget: DODownloadProperty = DODownloadProperty(26i32);
-pub const DODownloadProperty_HttpResponseHeaders: DODownloadProperty = DODownloadProperty(27i32);
-pub const DODownloadProperty_HttpServerIPAddress: DODownloadProperty = DODownloadProperty(28i32);
-pub const DODownloadProperty_HttpStatusCode: DODownloadProperty = DODownloadProperty(29i32);
-pub const DODownloadProperty_Id: DODownloadProperty = DODownloadProperty(0i32);
-pub const DODownloadProperty_IntegrityCheckInfo: DODownloadProperty = DODownloadProperty(19i32);
-pub const DODownloadProperty_IntegrityCheckMandatory: DODownloadProperty = DODownloadProperty(20i32);
-pub const DODownloadProperty_LocalPath: DODownloadProperty = DODownloadProperty(4i32);
-pub const DODownloadProperty_NetworkToken: DODownloadProperty = DODownloadProperty(16i32);
-pub const DODownloadProperty_NoProgressTimeoutSeconds: DODownloadProperty = DODownloadProperty(10i32);
-pub const DODownloadProperty_NonVolatile: DODownloadProperty = DODownloadProperty(25i32);
-pub const DODownloadProperty_SecurityContext: DODownloadProperty = DODownloadProperty(15i32);
-pub const DODownloadProperty_SecurityFlags: DODownloadProperty = DODownloadProperty(7i32);
-pub const DODownloadProperty_StreamInterface: DODownloadProperty = DODownloadProperty(14i32);
-pub const DODownloadProperty_TotalSizeBytes: DODownloadProperty = DODownloadProperty(21i32);
-pub const DODownloadProperty_Uri: DODownloadProperty = DODownloadProperty(1i32);
+pub const DODownloadProperty_BlockingMode: DODownloadProperty = DODownloadProperty(12);
+pub const DODownloadProperty_CallbackFreqPercent: DODownloadProperty = DODownloadProperty(8);
+pub const DODownloadProperty_CallbackFreqSeconds: DODownloadProperty = DODownloadProperty(9);
+pub const DODownloadProperty_CallbackInterface: DODownloadProperty = DODownloadProperty(13);
+pub const DODownloadProperty_ContentId: DODownloadProperty = DODownloadProperty(2);
+pub const DODownloadProperty_CorrelationVector: DODownloadProperty = DODownloadProperty(17);
+pub const DODownloadProperty_CostPolicy: DODownloadProperty = DODownloadProperty(6);
+pub const DODownloadProperty_DecryptionInfo: DODownloadProperty = DODownloadProperty(18);
+pub const DODownloadProperty_DisallowOnCellular: DODownloadProperty = DODownloadProperty(22);
+pub const DODownloadProperty_DisplayName: DODownloadProperty = DODownloadProperty(3);
+pub const DODownloadProperty_ForegroundPriority: DODownloadProperty = DODownloadProperty(11);
+pub const DODownloadProperty_HttpAllowSecureToNonSecureRedirect: DODownloadProperty = DODownloadProperty(24);
+pub const DODownloadProperty_HttpCustomAuthHeaders: DODownloadProperty = DODownloadProperty(23);
+pub const DODownloadProperty_HttpCustomHeaders: DODownloadProperty = DODownloadProperty(5);
+pub const DODownloadProperty_HttpRedirectionTarget: DODownloadProperty = DODownloadProperty(26);
+pub const DODownloadProperty_HttpResponseHeaders: DODownloadProperty = DODownloadProperty(27);
+pub const DODownloadProperty_HttpServerIPAddress: DODownloadProperty = DODownloadProperty(28);
+pub const DODownloadProperty_HttpStatusCode: DODownloadProperty = DODownloadProperty(29);
+pub const DODownloadProperty_Id: DODownloadProperty = DODownloadProperty(0);
+pub const DODownloadProperty_IntegrityCheckInfo: DODownloadProperty = DODownloadProperty(19);
+pub const DODownloadProperty_IntegrityCheckMandatory: DODownloadProperty = DODownloadProperty(20);
+pub const DODownloadProperty_LocalPath: DODownloadProperty = DODownloadProperty(4);
+pub const DODownloadProperty_NetworkToken: DODownloadProperty = DODownloadProperty(16);
+pub const DODownloadProperty_NoProgressTimeoutSeconds: DODownloadProperty = DODownloadProperty(10);
+pub const DODownloadProperty_NonVolatile: DODownloadProperty = DODownloadProperty(25);
+pub const DODownloadProperty_SecurityContext: DODownloadProperty = DODownloadProperty(15);
+pub const DODownloadProperty_SecurityFlags: DODownloadProperty = DODownloadProperty(7);
+pub const DODownloadProperty_StreamInterface: DODownloadProperty = DODownloadProperty(14);
+pub const DODownloadProperty_TotalSizeBytes: DODownloadProperty = DODownloadProperty(21);
+pub const DODownloadProperty_Uri: DODownloadProperty = DODownloadProperty(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DODownloadState(pub i32);
-pub const DODownloadState_Aborted: DODownloadState = DODownloadState(4i32);
-pub const DODownloadState_Created: DODownloadState = DODownloadState(0i32);
-pub const DODownloadState_Finalized: DODownloadState = DODownloadState(3i32);
-pub const DODownloadState_Paused: DODownloadState = DODownloadState(5i32);
-pub const DODownloadState_Transferred: DODownloadState = DODownloadState(2i32);
-pub const DODownloadState_Transferring: DODownloadState = DODownloadState(1i32);
+pub const DODownloadState_Aborted: DODownloadState = DODownloadState(4);
+pub const DODownloadState_Created: DODownloadState = DODownloadState(0);
+pub const DODownloadState_Finalized: DODownloadState = DODownloadState(3);
+pub const DODownloadState_Paused: DODownloadState = DODownloadState(5);
+pub const DODownloadState_Transferred: DODownloadState = DODownloadState(2);
+pub const DODownloadState_Transferring: DODownloadState = DODownloadState(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DO_DOWNLOAD_ENUM_CATEGORY {

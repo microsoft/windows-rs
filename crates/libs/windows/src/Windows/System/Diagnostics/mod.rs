@@ -39,13 +39,13 @@ unsafe impl Sync for DiagnosticActionResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
-    pub const Initializing: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const VerifyingTrust: Self = Self(2i32);
-    pub const Detecting: Self = Self(3i32);
-    pub const Resolving: Self = Self(4i32);
-    pub const VerifyingResolution: Self = Self(5i32);
-    pub const Executing: Self = Self(6i32);
+    pub const Initializing: Self = Self(0);
+    pub const Downloading: Self = Self(1);
+    pub const VerifyingTrust: Self = Self(2);
+    pub const Detecting: Self = Self(3);
+    pub const Resolving: Self = Self(4);
+    pub const VerifyingResolution: Self = Self(5);
+    pub const Executing: Self = Self(6);
 }
 impl windows_core::TypeKind for DiagnosticActionState {
     type TypeKind = windows_core::CopyType;

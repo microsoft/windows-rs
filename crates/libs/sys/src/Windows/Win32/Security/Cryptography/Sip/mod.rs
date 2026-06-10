@@ -18,15 +18,15 @@ windows_link::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filena
 windows_link::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation::HANDLE, pgsubject : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 windows_link::link!("wintrust.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL);
-pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
-pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2u32;
-pub const MSSIP_ADDINFO_DETACHEDSIG: u32 = 4u32;
-pub const MSSIP_ADDINFO_FLAT: u32 = 1u32;
-pub const MSSIP_ADDINFO_NONE: u32 = 0u32;
-pub const MSSIP_ADDINFO_NONMSSIP: u32 = 500u32;
-pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144u32;
-pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536u32;
-pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072u32;
+pub const MSSIP_ADDINFO_BLOB: u32 = 3;
+pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2;
+pub const MSSIP_ADDINFO_DETACHEDSIG: u32 = 4;
+pub const MSSIP_ADDINFO_FLAT: u32 = 1;
+pub const MSSIP_ADDINFO_NONE: u32 = 0;
+pub const MSSIP_ADDINFO_NONMSSIP: u32 = 500;
+pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144;
+pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536;
+pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MS_ADDINFO_BLOB {
@@ -86,8 +86,8 @@ impl Default for SIP_ADD_NEWPROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
-pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
+pub const SIP_CAP_FLAG_SEALING: u32 = 1;
+pub const SIP_CAP_SET_CUR_VER: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SIP_CAP_SET_V2 {
@@ -120,8 +120,8 @@ impl Default for SIP_CAP_SET_V3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
-pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
+pub const SIP_CAP_SET_VERSION_2: u32 = 2;
+pub const SIP_CAP_SET_VERSION_3: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[derive(Clone, Copy)]
@@ -147,7 +147,7 @@ pub struct SIP_INDIRECT_DATA {
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::CRYPT_INTEGER_BLOB,
 }
-pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
+pub const SIP_MAX_MAGIC_NUMBER: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[derive(Clone, Copy)]
@@ -192,9 +192,9 @@ impl Default for SIP_SUBJECTINFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
-pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
-pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
+pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1;
+pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1;
+pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_sys::core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]

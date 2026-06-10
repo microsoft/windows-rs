@@ -751,7 +751,7 @@ fn matches_filter(file: &str, filter: &str) -> bool {
 ///
 /// Handles `const GUID`, `const IID`, `const struct _GUID`, elaborated types,
 /// and typedef aliases for `GUID`/`IID`.
-fn is_guid_type(ty: &cx::Type) -> bool {
+fn is_guid_type(ty: &Type) -> bool {
     // Peel off any top-level const qualifier by looking at the canonical type.
     let name = match ty.kind() {
         CXType_Elaborated => ty.underlying_type().ty().name(),

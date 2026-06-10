@@ -225,16 +225,16 @@ impl IntoIterator for &PnpObjectCollection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
-    pub const Unknown: Self = Self(0i32);
-    pub const DeviceInterface: Self = Self(1i32);
-    pub const DeviceContainer: Self = Self(2i32);
-    pub const Device: Self = Self(3i32);
-    pub const DeviceInterfaceClass: Self = Self(4i32);
-    pub const AssociationEndpoint: Self = Self(5i32);
-    pub const AssociationEndpointContainer: Self = Self(6i32);
-    pub const AssociationEndpointService: Self = Self(7i32);
-    pub const DevicePanel: Self = Self(8i32);
-    pub const AssociationEndpointProtocol: Self = Self(9i32);
+    pub const Unknown: Self = Self(0);
+    pub const DeviceInterface: Self = Self(1);
+    pub const DeviceContainer: Self = Self(2);
+    pub const Device: Self = Self(3);
+    pub const DeviceInterfaceClass: Self = Self(4);
+    pub const AssociationEndpoint: Self = Self(5);
+    pub const AssociationEndpointContainer: Self = Self(6);
+    pub const AssociationEndpointService: Self = Self(7);
+    pub const DevicePanel: Self = Self(8);
+    pub const AssociationEndpointProtocol: Self = Self(9);
 }
 impl windows_core::TypeKind for PnpObjectType {
     type TypeKind = windows_core::CopyType;

@@ -101,9 +101,9 @@ unsafe impl Sync for UserNotificationListener {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const Denied: Self = Self(2i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const Denied: Self = Self(2);
 }
 impl windows_core::TypeKind for UserNotificationListenerAccessStatus {
     type TypeKind = windows_core::CopyType;

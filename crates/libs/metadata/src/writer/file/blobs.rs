@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct Blobs {
-    map: HashMap<Vec<u8>, id::BlobId>,
+    map: HashMap<Vec<u8>, BlobId>,
     stream: Vec<u8>,
 }
 
@@ -15,16 +15,16 @@ impl Default for Blobs {
 }
 
 impl Blobs {
-    pub fn insert(&mut self, value: &[u8]) -> id::BlobId {
+    pub fn insert(&mut self, value: &[u8]) -> BlobId {
         if value.is_empty() {
-            return id::BlobId(0);
+            return BlobId(0);
         }
 
         if let Some(pos) = self.map.get(value) {
             return *pos;
         }
 
-        let pos = id::BlobId(self.stream.len().try_into().unwrap());
+        let pos = BlobId(self.stream.len().try_into().unwrap());
         self.map.insert(value.to_vec(), pos);
         let len = value.len();
 

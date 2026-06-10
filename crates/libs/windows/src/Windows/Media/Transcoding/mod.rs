@@ -200,8 +200,8 @@ unsafe impl Sync for MediaTranscoder {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
-    pub const Default: Self = Self(0i32);
-    pub const MrfCrf444: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const MrfCrf444: Self = Self(1);
 }
 impl windows_core::TypeKind for MediaVideoProcessingAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -250,10 +250,10 @@ unsafe impl Sync for PrepareTranscodeResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {
-    pub const None: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const InvalidProfile: Self = Self(2i32);
-    pub const CodecNotFound: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Unknown: Self = Self(1);
+    pub const InvalidProfile: Self = Self(2);
+    pub const CodecNotFound: Self = Self(3);
 }
 impl windows_core::TypeKind for TranscodeFailureReason {
     type TypeKind = windows_core::CopyType;

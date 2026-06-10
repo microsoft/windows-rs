@@ -396,7 +396,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl ApplicationInitializationCallbackParams {}
 impl windows_core::RuntimeType for ApplicationInitializationCallbackParams {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,

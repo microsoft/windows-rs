@@ -175,9 +175,9 @@ unsafe impl Sync for UserDataAccountProviderAddAccountOperation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
-    pub const AddAccount: Self = Self(0i32);
-    pub const Settings: Self = Self(1i32);
-    pub const ResolveErrors: Self = Self(2i32);
+    pub const AddAccount: Self = Self(0);
+    pub const Settings: Self = Self(1);
+    pub const ResolveErrors: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataAccountProviderOperationKind {
     type TypeKind = windows_core::CopyType;
@@ -190,8 +190,8 @@ impl windows_core::RuntimeType for UserDataAccountProviderOperationKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
-    pub const Exchange: Self = Self(0i32);
-    pub const PopOrImap: Self = Self(1i32);
+    pub const Exchange: Self = Self(0);
+    pub const PopOrImap: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataAccountProviderPartnerAccountKind {
     type TypeKind = windows_core::CopyType;

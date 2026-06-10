@@ -160,10 +160,10 @@ unsafe impl Sync for EmailAttachment {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
-    pub const NotDownloaded: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const Downloaded: Self = Self(2i32);
-    pub const Failed: Self = Self(3i32);
+    pub const NotDownloaded: Self = Self(0);
+    pub const Downloading: Self = Self(1);
+    pub const Downloaded: Self = Self(2);
+    pub const Failed: Self = Self(3);
 }
 impl windows_core::TypeKind for EmailAttachmentDownloadState {
     type TypeKind = windows_core::CopyType;
@@ -176,9 +176,9 @@ impl windows_core::RuntimeType for EmailAttachmentDownloadState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ServerSearchSyncManagerError: Self = Self(1i32);
-    pub const ServerSearchUnknownError: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const ServerSearchSyncManagerError: Self = Self(1);
+    pub const ServerSearchUnknownError: Self = Self(2);
 }
 impl windows_core::TypeKind for EmailBatchStatus {
     type TypeKind = windows_core::CopyType;
@@ -191,17 +191,17 @@ impl windows_core::RuntimeType for EmailBatchStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NoMatch: Self = Self(1i32);
-    pub const InvalidUsage: Self = Self(2i32);
-    pub const InvalidCertificate: Self = Self(3i32);
-    pub const Revoked: Self = Self(4i32);
-    pub const ChainRevoked: Self = Self(5i32);
-    pub const RevocationServerFailure: Self = Self(6i32);
-    pub const Expired: Self = Self(7i32);
-    pub const Untrusted: Self = Self(8i32);
-    pub const ServerError: Self = Self(9i32);
-    pub const UnknownFailure: Self = Self(10i32);
+    pub const Success: Self = Self(0);
+    pub const NoMatch: Self = Self(1);
+    pub const InvalidUsage: Self = Self(2);
+    pub const InvalidCertificate: Self = Self(3);
+    pub const Revoked: Self = Self(4);
+    pub const ChainRevoked: Self = Self(5);
+    pub const RevocationServerFailure: Self = Self(6);
+    pub const Expired: Self = Self(7);
+    pub const Untrusted: Self = Self(8);
+    pub const ServerError: Self = Self(9);
+    pub const UnknownFailure: Self = Self(10);
 }
 impl windows_core::TypeKind for EmailCertificateValidationStatus {
     type TypeKind = windows_core::CopyType;
@@ -376,10 +376,10 @@ unsafe impl Sync for EmailConversationReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
-    pub const Unflagged: Self = Self(0i32);
-    pub const Flagged: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-    pub const Cleared: Self = Self(3i32);
+    pub const Unflagged: Self = Self(0);
+    pub const Flagged: Self = Self(1);
+    pub const Completed: Self = Self(2);
+    pub const Cleared: Self = Self(3);
 }
 impl windows_core::TypeKind for EmailFlagState {
     type TypeKind = windows_core::CopyType;
@@ -563,9 +563,9 @@ unsafe impl Sync for EmailFolder {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
-    pub const Normal: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
+    pub const Normal: Self = Self(0);
+    pub const High: Self = Self(1);
+    pub const Low: Self = Self(2);
 }
 impl windows_core::TypeKind for EmailImportance {
     type TypeKind = windows_core::CopyType;
@@ -1272,17 +1272,17 @@ unsafe impl Sync for EmailMailboxAction {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
-    pub const MarkMessageAsSeen: Self = Self(0i32);
-    pub const MarkMessageRead: Self = Self(1i32);
-    pub const ChangeMessageFlagState: Self = Self(2i32);
-    pub const MoveMessage: Self = Self(3i32);
-    pub const SaveDraft: Self = Self(4i32);
-    pub const SendMessage: Self = Self(5i32);
-    pub const CreateResponseReplyMessage: Self = Self(6i32);
-    pub const CreateResponseReplyAllMessage: Self = Self(7i32);
-    pub const CreateResponseForwardMessage: Self = Self(8i32);
-    pub const MoveFolder: Self = Self(9i32);
-    pub const MarkFolderForSyncEnabled: Self = Self(10i32);
+    pub const MarkMessageAsSeen: Self = Self(0);
+    pub const MarkMessageRead: Self = Self(1);
+    pub const ChangeMessageFlagState: Self = Self(2);
+    pub const MoveMessage: Self = Self(3);
+    pub const SaveDraft: Self = Self(4);
+    pub const SendMessage: Self = Self(5);
+    pub const CreateResponseReplyMessage: Self = Self(6);
+    pub const CreateResponseReplyAllMessage: Self = Self(7);
+    pub const CreateResponseForwardMessage: Self = Self(8);
+    pub const MoveFolder: Self = Self(9);
+    pub const MarkFolderForSyncEnabled: Self = Self(10);
 }
 impl windows_core::TypeKind for EmailMailboxActionKind {
     type TypeKind = windows_core::CopyType;
@@ -1295,9 +1295,9 @@ impl windows_core::RuntimeType for EmailMailboxActionKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    pub const None: Self = Self(0i32);
-    pub const StrongAlgorithm: Self = Self(1i32);
-    pub const AnyAlgorithm: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const StrongAlgorithm: Self = Self(1);
+    pub const AnyAlgorithm: Self = Self(2);
 }
 impl windows_core::TypeKind for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type TypeKind = windows_core::CopyType;
@@ -1346,8 +1346,8 @@ unsafe impl Sync for EmailMailboxAutoReply {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
-    pub const Html: Self = Self(0i32);
-    pub const PlainText: Self = Self(1i32);
+    pub const Html: Self = Self(0);
+    pub const PlainText: Self = Self(1);
 }
 impl windows_core::TypeKind for EmailMailboxAutoReplyMessageResponseKind {
     type TypeKind = windows_core::CopyType;
@@ -1716,13 +1716,13 @@ unsafe impl Sync for EmailMailboxChangeTracker {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
-    pub const MessageCreated: Self = Self(0i32);
-    pub const MessageModified: Self = Self(1i32);
-    pub const MessageDeleted: Self = Self(2i32);
-    pub const FolderCreated: Self = Self(3i32);
-    pub const FolderModified: Self = Self(4i32);
-    pub const FolderDeleted: Self = Self(5i32);
-    pub const ChangeTrackingLost: Self = Self(6i32);
+    pub const MessageCreated: Self = Self(0);
+    pub const MessageModified: Self = Self(1);
+    pub const MessageDeleted: Self = Self(2);
+    pub const FolderCreated: Self = Self(3);
+    pub const FolderModified: Self = Self(4);
+    pub const FolderDeleted: Self = Self(5);
+    pub const ChangeTrackingLost: Self = Self(6);
 }
 impl windows_core::TypeKind for EmailMailboxChangeType {
     type TypeKind = windows_core::CopyType;
@@ -1810,13 +1810,13 @@ unsafe impl Sync for EmailMailboxCreateFolderResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NetworkError: Self = Self(1i32);
-    pub const PermissionsError: Self = Self(2i32);
-    pub const ServerError: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
-    pub const NameCollision: Self = Self(5i32);
-    pub const ServerRejected: Self = Self(6i32);
+    pub const Success: Self = Self(0);
+    pub const NetworkError: Self = Self(1);
+    pub const PermissionsError: Self = Self(2);
+    pub const ServerError: Self = Self(3);
+    pub const UnknownFailure: Self = Self(4);
+    pub const NameCollision: Self = Self(5);
+    pub const ServerRejected: Self = Self(6);
 }
 impl windows_core::TypeKind for EmailMailboxCreateFolderStatus {
     type TypeKind = windows_core::CopyType;
@@ -1829,12 +1829,12 @@ impl windows_core::RuntimeType for EmailMailboxCreateFolderStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NetworkError: Self = Self(1i32);
-    pub const PermissionsError: Self = Self(2i32);
-    pub const ServerError: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
-    pub const CouldNotDeleteEverything: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const NetworkError: Self = Self(1);
+    pub const PermissionsError: Self = Self(2);
+    pub const ServerError: Self = Self(3);
+    pub const UnknownFailure: Self = Self(4);
+    pub const CouldNotDeleteEverything: Self = Self(5);
 }
 impl windows_core::TypeKind for EmailMailboxDeleteFolderStatus {
     type TypeKind = windows_core::CopyType;
@@ -1847,12 +1847,12 @@ impl windows_core::RuntimeType for EmailMailboxDeleteFolderStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NetworkError: Self = Self(1i32);
-    pub const PermissionsError: Self = Self(2i32);
-    pub const ServerError: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
-    pub const CouldNotDeleteEverything: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const NetworkError: Self = Self(1);
+    pub const PermissionsError: Self = Self(2);
+    pub const ServerError: Self = Self(3);
+    pub const UnknownFailure: Self = Self(4);
+    pub const CouldNotDeleteEverything: Self = Self(5);
 }
 impl windows_core::TypeKind for EmailMailboxEmptyFolderStatus {
     type TypeKind = windows_core::CopyType;
@@ -1865,9 +1865,9 @@ impl windows_core::RuntimeType for EmailMailboxEmptyFolderStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
-    pub const SystemOnly: Self = Self(0i32);
-    pub const Full: Self = Self(1i32);
-    pub const None: Self = Self(2i32);
+    pub const SystemOnly: Self = Self(0);
+    pub const Full: Self = Self(1);
+    pub const None: Self = Self(2);
 }
 impl windows_core::TypeKind for EmailMailboxOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
@@ -1880,8 +1880,8 @@ impl windows_core::RuntimeType for EmailMailboxOtherAppReadAccess {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
-    pub const None: Self = Self(0i32);
-    pub const Limited: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const Limited: Self = Self(1);
 }
 impl windows_core::TypeKind for EmailMailboxOtherAppWriteAccess {
     type TypeKind = windows_core::CopyType;
@@ -1976,12 +1976,12 @@ unsafe impl Sync for EmailMailboxPolicies {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
-    pub const Any: Self = Self(0i32);
-    pub const TripleDes: Self = Self(1i32);
-    pub const Des: Self = Self(2i32);
-    pub const RC2128Bit: Self = Self(3i32);
-    pub const RC264Bit: Self = Self(4i32);
-    pub const RC240Bit: Self = Self(5i32);
+    pub const Any: Self = Self(0);
+    pub const TripleDes: Self = Self(1);
+    pub const Des: Self = Self(2);
+    pub const RC2128Bit: Self = Self(3);
+    pub const RC264Bit: Self = Self(4);
+    pub const RC240Bit: Self = Self(5);
 }
 impl windows_core::TypeKind for EmailMailboxSmimeEncryptionAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -1994,9 +1994,9 @@ impl windows_core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
-    pub const Any: Self = Self(0i32);
-    pub const Sha1: Self = Self(1i32);
-    pub const MD5: Self = Self(2i32);
+    pub const Any: Self = Self(0);
+    pub const Sha1: Self = Self(1);
+    pub const MD5: Self = Self(2);
 }
 impl windows_core::TypeKind for EmailMailboxSmimeSigningAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -2075,13 +2075,13 @@ unsafe impl Sync for EmailMailboxSyncManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
-    pub const Idle: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const UpToDate: Self = Self(2i32);
-    pub const AuthenticationError: Self = Self(3i32);
-    pub const PolicyError: Self = Self(4i32);
-    pub const UnknownError: Self = Self(5i32);
-    pub const ManualAccountRemovalRequired: Self = Self(6i32);
+    pub const Idle: Self = Self(0);
+    pub const Syncing: Self = Self(1);
+    pub const UpToDate: Self = Self(2);
+    pub const AuthenticationError: Self = Self(3);
+    pub const PolicyError: Self = Self(4);
+    pub const UnknownError: Self = Self(5);
+    pub const ManualAccountRemovalRequired: Self = Self(6);
 }
 impl windows_core::TypeKind for EmailMailboxSyncStatus {
     type TypeKind = windows_core::CopyType;
@@ -2335,9 +2335,9 @@ unsafe impl Sync for EmailMeetingInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
-    pub const Accept: Self = Self(0i32);
-    pub const Decline: Self = Self(1i32);
-    pub const Tentative: Self = Self(2i32);
+    pub const Accept: Self = Self(0);
+    pub const Decline: Self = Self(1);
+    pub const Tentative: Self = Self(2);
 }
 impl windows_core::TypeKind for EmailMeetingResponseType {
     type TypeKind = windows_core::CopyType;
@@ -2774,8 +2774,8 @@ unsafe impl Sync for EmailMessageBatch {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
-    pub const Html: Self = Self(0i32);
-    pub const PlainText: Self = Self(1i32);
+    pub const Html: Self = Self(0);
+    pub const PlainText: Self = Self(1);
 }
 impl windows_core::TypeKind for EmailMessageBodyKind {
     type TypeKind = windows_core::CopyType;
@@ -2788,10 +2788,10 @@ impl windows_core::RuntimeType for EmailMessageBodyKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
-    pub const PartiallyDownloaded: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const Downloaded: Self = Self(2i32);
-    pub const Failed: Self = Self(3i32);
+    pub const PartiallyDownloaded: Self = Self(0);
+    pub const Downloading: Self = Self(1);
+    pub const Downloaded: Self = Self(2);
+    pub const Failed: Self = Self(3);
 }
 impl windows_core::TypeKind for EmailMessageDownloadState {
     type TypeKind = windows_core::CopyType;
@@ -2828,10 +2828,10 @@ unsafe impl Sync for EmailMessageReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
-    pub const None: Self = Self(0i32);
-    pub const Reply: Self = Self(1i32);
-    pub const ReplyAll: Self = Self(2i32);
-    pub const Forward: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Reply: Self = Self(1);
+    pub const ReplyAll: Self = Self(2);
+    pub const Forward: Self = Self(3);
 }
 impl windows_core::TypeKind for EmailMessageResponseKind {
     type TypeKind = windows_core::CopyType;
@@ -2844,10 +2844,10 @@ impl windows_core::RuntimeType for EmailMessageResponseKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
-    pub const None: Self = Self(0i32);
-    pub const ClearSigned: Self = Self(1i32);
-    pub const OpaqueSigned: Self = Self(2i32);
-    pub const Encrypted: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const ClearSigned: Self = Self(1);
+    pub const OpaqueSigned: Self = Self(2);
+    pub const Encrypted: Self = Self(3);
 }
 impl windows_core::TypeKind for EmailMessageSmimeKind {
     type TypeKind = windows_core::CopyType;
@@ -2860,12 +2860,12 @@ impl windows_core::RuntimeType for EmailMessageSmimeKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
-    pub const All: Self = Self(0i32);
-    pub const Important: Self = Self(1i32);
-    pub const Flagged: Self = Self(2i32);
-    pub const Unread: Self = Self(3i32);
-    pub const Read: Self = Self(4i32);
-    pub const Unseen: Self = Self(5i32);
+    pub const All: Self = Self(0);
+    pub const Important: Self = Self(1);
+    pub const Flagged: Self = Self(2);
+    pub const Unread: Self = Self(3);
+    pub const Read: Self = Self(4);
+    pub const Unseen: Self = Self(5);
 }
 impl windows_core::TypeKind for EmailQueryKind {
     type TypeKind = windows_core::CopyType;
@@ -2958,12 +2958,12 @@ unsafe impl Sync for EmailQueryOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
-    pub const None: Self = Self(0u32);
-    pub const Subject: Self = Self(1u32);
-    pub const Sender: Self = Self(2u32);
-    pub const Preview: Self = Self(4u32);
-    pub const Recipients: Self = Self(8u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const Subject: Self = Self(1);
+    pub const Sender: Self = Self(2);
+    pub const Preview: Self = Self(4);
+    pub const Recipients: Self = Self(8);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for EmailQuerySearchFields {
     type TypeKind = windows_core::CopyType;
@@ -3009,8 +3009,8 @@ impl core::ops::Not for EmailQuerySearchFields {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
-    pub const Local: Self = Self(0i32);
-    pub const Server: Self = Self(1i32);
+    pub const Local: Self = Self(0);
+    pub const Server: Self = Self(1);
 }
 impl windows_core::TypeKind for EmailQuerySearchScope {
     type TypeKind = windows_core::CopyType;
@@ -3023,8 +3023,8 @@ impl windows_core::RuntimeType for EmailQuerySearchScope {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
-    pub const Descending: Self = Self(0i32);
-    pub const Ascending: Self = Self(1i32);
+    pub const Descending: Self = Self(0);
+    pub const Ascending: Self = Self(1);
 }
 impl windows_core::TypeKind for EmailQuerySortDirection {
     type TypeKind = windows_core::CopyType;
@@ -3037,7 +3037,7 @@ impl windows_core::RuntimeType for EmailQuerySortDirection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
-    pub const Date: Self = Self(0i32);
+    pub const Date: Self = Self(0);
 }
 impl windows_core::TypeKind for EmailQuerySortProperty {
     type TypeKind = windows_core::CopyType;
@@ -3204,14 +3204,14 @@ unsafe impl Sync for EmailRecipientResolutionResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
-    pub const Success: Self = Self(0i32);
-    pub const RecipientNotFound: Self = Self(1i32);
-    pub const AmbiguousRecipient: Self = Self(2i32);
-    pub const NoCertificate: Self = Self(3i32);
-    pub const CertificateRequestLimitReached: Self = Self(4i32);
-    pub const CannotResolveDistributionList: Self = Self(5i32);
-    pub const ServerError: Self = Self(6i32);
-    pub const UnknownFailure: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const RecipientNotFound: Self = Self(1);
+    pub const AmbiguousRecipient: Self = Self(2);
+    pub const NoCertificate: Self = Self(3);
+    pub const CertificateRequestLimitReached: Self = Self(4);
+    pub const CannotResolveDistributionList: Self = Self(5);
+    pub const ServerError: Self = Self(6);
+    pub const UnknownFailure: Self = Self(7);
 }
 impl windows_core::TypeKind for EmailRecipientResolutionStatus {
     type TypeKind = windows_core::CopyType;
@@ -3224,13 +3224,13 @@ impl windows_core::RuntimeType for EmailRecipientResolutionStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
-    pub const None: Self = Self(0i32);
-    pub const Root: Self = Self(1i32);
-    pub const Inbox: Self = Self(2i32);
-    pub const Outbox: Self = Self(3i32);
-    pub const Drafts: Self = Self(4i32);
-    pub const DeletedItems: Self = Self(5i32);
-    pub const Sent: Self = Self(6i32);
+    pub const None: Self = Self(0);
+    pub const Root: Self = Self(1);
+    pub const Inbox: Self = Self(2);
+    pub const Outbox: Self = Self(3);
+    pub const Drafts: Self = Self(4);
+    pub const DeletedItems: Self = Self(5);
+    pub const Sent: Self = Self(6);
 }
 impl windows_core::TypeKind for EmailSpecialFolderKind {
     type TypeKind = windows_core::CopyType;
@@ -3333,8 +3333,8 @@ unsafe impl Sync for EmailStore {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
-    pub const AppMailboxesReadWrite: Self = Self(0i32);
-    pub const AllMailboxesLimitedReadWrite: Self = Self(1i32);
+    pub const AppMailboxesReadWrite: Self = Self(0);
+    pub const AllMailboxesLimitedReadWrite: Self = Self(1);
 }
 impl windows_core::TypeKind for EmailStoreAccessType {
     type TypeKind = windows_core::CopyType;
@@ -3347,7 +3347,6 @@ impl windows_core::RuntimeType for EmailStoreAccessType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl EmailStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for EmailStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTriggerDetails>();
 }

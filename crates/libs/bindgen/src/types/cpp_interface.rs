@@ -125,7 +125,7 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.style.is_sys() {
+            let hide_vtbl = if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }

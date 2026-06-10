@@ -433,8 +433,8 @@ unsafe impl Sync for ApplicationView {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
-    pub const UseVisible: Self = Self(0i32);
-    pub const UseCoreWindow: Self = Self(1i32);
+    pub const UseVisible: Self = Self(0);
+    pub const UseCoreWindow: Self = Self(1);
 }
 impl windows_core::TypeKind for ApplicationViewBoundsMode {
     type TypeKind = windows_core::CopyType;
@@ -478,8 +478,8 @@ unsafe impl Sync for ApplicationViewConsolidatedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
-    pub const Default: Self = Self(0i32);
-    pub const CompactOverlay: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const CompactOverlay: Self = Self(1);
 }
 impl windows_core::TypeKind for ApplicationViewMode {
     type TypeKind = windows_core::CopyType;
@@ -492,8 +492,8 @@ impl windows_core::RuntimeType for ApplicationViewMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
-    pub const Landscape: Self = Self(0i32);
-    pub const Portrait: Self = Self(1i32);
+    pub const Landscape: Self = Self(0);
+    pub const Portrait: Self = Self(1);
 }
 impl windows_core::TypeKind for ApplicationViewOrientation {
     type TypeKind = windows_core::CopyType;
@@ -538,10 +538,10 @@ impl windows_core::RuntimeName for ApplicationViewScaling {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewState(pub i32);
 impl ApplicationViewState {
-    pub const FullScreenLandscape: Self = Self(0i32);
-    pub const Filled: Self = Self(1i32);
-    pub const Snapped: Self = Self(2i32);
-    pub const FullScreenPortrait: Self = Self(3i32);
+    pub const FullScreenLandscape: Self = Self(0);
+    pub const Filled: Self = Self(1);
+    pub const Snapped: Self = Self(2);
+    pub const FullScreenPortrait: Self = Self(3);
 }
 impl windows_core::TypeKind for ApplicationViewState {
     type TypeKind = windows_core::CopyType;
@@ -635,9 +635,9 @@ impl windows_core::RuntimeName for ApplicationViewSwitcher {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
-    pub const Default: Self = Self(0u32);
-    pub const SkipAnimation: Self = Self(1u32);
-    pub const ConsolidateViews: Self = Self(2u32);
+    pub const Default: Self = Self(0);
+    pub const SkipAnimation: Self = Self(1);
+    pub const ConsolidateViews: Self = Self(2);
 }
 impl windows_core::TypeKind for ApplicationViewSwitchingOptions {
     type TypeKind = windows_core::CopyType;
@@ -863,11 +863,11 @@ impl windows_core::RuntimeName for ApplicationViewTransferContext {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
-    pub const Auto: Self = Self(0i32);
-    pub const PreferredLaunchViewSize: Self = Self(1i32);
-    pub const FullScreen: Self = Self(2i32);
-    pub const CompactOverlay: Self = Self(3i32);
-    pub const Maximized: Self = Self(4i32);
+    pub const Auto: Self = Self(0);
+    pub const PreferredLaunchViewSize: Self = Self(1);
+    pub const FullScreen: Self = Self(2);
+    pub const CompactOverlay: Self = Self(3);
+    pub const Maximized: Self = Self(4);
 }
 impl windows_core::TypeKind for ApplicationViewWindowingMode {
     type TypeKind = windows_core::CopyType;
@@ -880,8 +880,8 @@ impl windows_core::RuntimeType for ApplicationViewWindowingMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
-    pub const Standard: Self = Self(0i32);
-    pub const Minimal: Self = Self(1i32);
+    pub const Standard: Self = Self(0);
+    pub const Minimal: Self = Self(1);
 }
 impl windows_core::TypeKind for FullScreenSystemOverlayMode {
     type TypeKind = windows_core::CopyType;
@@ -894,8 +894,8 @@ impl windows_core::RuntimeType for FullScreenSystemOverlayMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
-    pub const LeftHanded: Self = Self(0i32);
-    pub const RightHanded: Self = Self(1i32);
+    pub const LeftHanded: Self = Self(0);
+    pub const RightHanded: Self = Self(1);
 }
 impl windows_core::TypeKind for HandPreference {
     type TypeKind = windows_core::CopyType;
@@ -1760,8 +1760,8 @@ impl windows_core::RuntimeName for ProjectionManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScreenCaptureDisabledBehavior(pub i32);
 impl ScreenCaptureDisabledBehavior {
-    pub const DrawAsBlack: Self = Self(0i32);
-    pub const ExcludeFromCapture: Self = Self(1i32);
+    pub const DrawAsBlack: Self = Self(0);
+    pub const ExcludeFromCapture: Self = Self(1);
 }
 impl windows_core::TypeKind for ScreenCaptureDisabledBehavior {
     type TypeKind = windows_core::CopyType;
@@ -1774,16 +1774,16 @@ impl windows_core::RuntimeType for ScreenCaptureDisabledBehavior {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
-    pub const Background: Self = Self(0i32);
-    pub const Foreground: Self = Self(1i32);
-    pub const AccentDark3: Self = Self(2i32);
-    pub const AccentDark2: Self = Self(3i32);
-    pub const AccentDark1: Self = Self(4i32);
-    pub const Accent: Self = Self(5i32);
-    pub const AccentLight1: Self = Self(6i32);
-    pub const AccentLight2: Self = Self(7i32);
-    pub const AccentLight3: Self = Self(8i32);
-    pub const Complement: Self = Self(9i32);
+    pub const Background: Self = Self(0);
+    pub const Foreground: Self = Self(1);
+    pub const AccentDark3: Self = Self(2);
+    pub const AccentDark2: Self = Self(3);
+    pub const AccentDark1: Self = Self(4);
+    pub const Accent: Self = Self(5);
+    pub const AccentLight1: Self = Self(6);
+    pub const AccentLight2: Self = Self(7);
+    pub const AccentLight3: Self = Self(8);
+    pub const Complement: Self = Self(9);
 }
 impl windows_core::TypeKind for UIColorType {
     type TypeKind = windows_core::CopyType;
@@ -1796,32 +1796,32 @@ impl windows_core::RuntimeType for UIColorType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
-    pub const ActiveCaption: Self = Self(0i32);
-    pub const Background: Self = Self(1i32);
-    pub const ButtonFace: Self = Self(2i32);
-    pub const ButtonText: Self = Self(3i32);
-    pub const CaptionText: Self = Self(4i32);
-    pub const GrayText: Self = Self(5i32);
-    pub const Highlight: Self = Self(6i32);
-    pub const HighlightText: Self = Self(7i32);
-    pub const Hotlight: Self = Self(8i32);
-    pub const InactiveCaption: Self = Self(9i32);
-    pub const InactiveCaptionText: Self = Self(10i32);
-    pub const Window: Self = Self(11i32);
-    pub const WindowText: Self = Self(12i32);
-    pub const AccentColor: Self = Self(1000i32);
-    pub const TextHigh: Self = Self(1001i32);
-    pub const TextMedium: Self = Self(1002i32);
-    pub const TextLow: Self = Self(1003i32);
-    pub const TextContrastWithHigh: Self = Self(1004i32);
-    pub const NonTextHigh: Self = Self(1005i32);
-    pub const NonTextMediumHigh: Self = Self(1006i32);
-    pub const NonTextMedium: Self = Self(1007i32);
-    pub const NonTextMediumLow: Self = Self(1008i32);
-    pub const NonTextLow: Self = Self(1009i32);
-    pub const PageBackground: Self = Self(1010i32);
-    pub const PopupBackground: Self = Self(1011i32);
-    pub const OverlayOutsidePopup: Self = Self(1012i32);
+    pub const ActiveCaption: Self = Self(0);
+    pub const Background: Self = Self(1);
+    pub const ButtonFace: Self = Self(2);
+    pub const ButtonText: Self = Self(3);
+    pub const CaptionText: Self = Self(4);
+    pub const GrayText: Self = Self(5);
+    pub const Highlight: Self = Self(6);
+    pub const HighlightText: Self = Self(7);
+    pub const Hotlight: Self = Self(8);
+    pub const InactiveCaption: Self = Self(9);
+    pub const InactiveCaptionText: Self = Self(10);
+    pub const Window: Self = Self(11);
+    pub const WindowText: Self = Self(12);
+    pub const AccentColor: Self = Self(1000);
+    pub const TextHigh: Self = Self(1001);
+    pub const TextMedium: Self = Self(1002);
+    pub const TextLow: Self = Self(1003);
+    pub const TextContrastWithHigh: Self = Self(1004);
+    pub const NonTextHigh: Self = Self(1005);
+    pub const NonTextMediumHigh: Self = Self(1006);
+    pub const NonTextMedium: Self = Self(1007);
+    pub const NonTextMediumLow: Self = Self(1008);
+    pub const NonTextLow: Self = Self(1009);
+    pub const PageBackground: Self = Self(1010);
+    pub const PopupBackground: Self = Self(1011);
+    pub const OverlayOutsidePopup: Self = Self(1012);
 }
 impl windows_core::TypeKind for UIElementType {
     type TypeKind = windows_core::CopyType;
@@ -2049,7 +2049,6 @@ unsafe impl Sync for UISettings {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsAnimationsEnabledChangedEventArgs {}
 impl windows_core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAnimationsEnabledChangedEventArgs>();
 }
@@ -2066,7 +2065,6 @@ unsafe impl Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsAutoHideScrollBarsChangedEventArgs {}
 impl windows_core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAutoHideScrollBarsChangedEventArgs>();
 }
@@ -2083,7 +2081,6 @@ unsafe impl Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsMessageDurationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsMessageDurationChangedEventArgs {}
 impl windows_core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsMessageDurationChangedEventArgs>();
 }
@@ -2155,8 +2152,8 @@ unsafe impl Sync for UIViewSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
-    pub const Mouse: Self = Self(0i32);
-    pub const Touch: Self = Self(1i32);
+    pub const Mouse: Self = Self(0);
+    pub const Touch: Self = Self(1);
 }
 impl windows_core::TypeKind for UserInteractionMode {
     type TypeKind = windows_core::CopyType;
@@ -2213,13 +2210,13 @@ impl windows_core::RuntimeName for ViewModePreferences {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {
-    pub const Default: Self = Self(0i32);
-    pub const UseLess: Self = Self(1i32);
-    pub const UseHalf: Self = Self(2i32);
-    pub const UseMore: Self = Self(3i32);
-    pub const UseMinimum: Self = Self(4i32);
-    pub const UseNone: Self = Self(5i32);
-    pub const Custom: Self = Self(6i32);
+    pub const Default: Self = Self(0);
+    pub const UseLess: Self = Self(1);
+    pub const UseHalf: Self = Self(2);
+    pub const UseMore: Self = Self(3);
+    pub const UseMinimum: Self = Self(4);
+    pub const UseNone: Self = Self(5);
+    pub const Custom: Self = Self(6);
 }
 impl windows_core::TypeKind for ViewSizePreference {
     type TypeKind = windows_core::CopyType;

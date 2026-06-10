@@ -991,8 +991,8 @@ unsafe impl Sync for SmartCard {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
-    pub const Denied: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
+    pub const Denied: Self = Self(0);
+    pub const Allowed: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardActivationPolicyChangeResult {
     type TypeKind = windows_core::CopyType;
@@ -1143,9 +1143,9 @@ unsafe impl Sync for SmartCardAppletIdGroup {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
-    pub const Disabled: Self = Self(0i32);
-    pub const ForegroundOverride: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
+    pub const Disabled: Self = Self(0);
+    pub const ForegroundOverride: Self = Self(1);
+    pub const Enabled: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardAppletIdGroupActivationPolicy {
     type TypeKind = windows_core::CopyType;
@@ -1360,9 +1360,9 @@ unsafe impl Sync for SmartCardAutomaticResponseApdu {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
-    pub const None: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const UnknownError: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Success: Self = Self(1);
+    pub const UnknownError: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardAutomaticResponseStatus {
     type TypeKind = windows_core::CopyType;
@@ -1479,15 +1479,15 @@ unsafe impl Sync for SmartCardConnection {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
-    pub const None: Self = Self(0i32);
-    pub const CbcMac: Self = Self(1i32);
-    pub const Cvc3Umd: Self = Self(2i32);
-    pub const DecimalizedMsd: Self = Self(3i32);
-    pub const Cvc3MD: Self = Self(4i32);
-    pub const Sha1: Self = Self(5i32);
-    pub const SignedDynamicApplicationData: Self = Self(6i32);
-    pub const RsaPkcs1: Self = Self(7i32);
-    pub const Sha256Hmac: Self = Self(8i32);
+    pub const None: Self = Self(0);
+    pub const CbcMac: Self = Self(1);
+    pub const Cvc3Umd: Self = Self(2);
+    pub const DecimalizedMsd: Self = Self(3);
+    pub const Cvc3MD: Self = Self(4);
+    pub const Sha1: Self = Self(5);
+    pub const SignedDynamicApplicationData: Self = Self(6);
+    pub const RsaPkcs1: Self = Self(7);
+    pub const Sha256Hmac: Self = Self(8);
 }
 impl windows_core::TypeKind for SmartCardCryptogramAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -1659,20 +1659,20 @@ unsafe impl Sync for SmartCardCryptogramGenerator {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AuthorizationFailed: Self = Self(1i32);
-    pub const AuthorizationCanceled: Self = Self(2i32);
-    pub const AuthorizationRequired: Self = Self(3i32);
-    pub const CryptogramMaterialPackageStorageKeyExists: Self = Self(4i32);
-    pub const NoCryptogramMaterialPackageStorageKey: Self = Self(5i32);
-    pub const NoCryptogramMaterialPackage: Self = Self(6i32);
-    pub const UnsupportedCryptogramMaterialPackage: Self = Self(7i32);
-    pub const UnknownCryptogramMaterialName: Self = Self(8i32);
-    pub const InvalidCryptogramMaterialUsage: Self = Self(9i32);
-    pub const ApduResponseNotSent: Self = Self(10i32);
-    pub const OtherError: Self = Self(11i32);
-    pub const ValidationFailed: Self = Self(12i32);
-    pub const NotSupported: Self = Self(13i32);
+    pub const Success: Self = Self(0);
+    pub const AuthorizationFailed: Self = Self(1);
+    pub const AuthorizationCanceled: Self = Self(2);
+    pub const AuthorizationRequired: Self = Self(3);
+    pub const CryptogramMaterialPackageStorageKeyExists: Self = Self(4);
+    pub const NoCryptogramMaterialPackageStorageKey: Self = Self(5);
+    pub const NoCryptogramMaterialPackage: Self = Self(6);
+    pub const UnsupportedCryptogramMaterialPackage: Self = Self(7);
+    pub const UnknownCryptogramMaterialName: Self = Self(8);
+    pub const InvalidCryptogramMaterialUsage: Self = Self(9);
+    pub const ApduResponseNotSent: Self = Self(10);
+    pub const OtherError: Self = Self(11);
+    pub const ValidationFailed: Self = Self(12);
+    pub const NotSupported: Self = Self(13);
 }
 impl windows_core::TypeKind for SmartCardCryptogramGeneratorOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1918,8 +1918,8 @@ unsafe impl Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    pub const None: Self = Self(0i32);
-    pub const VisaHmac: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const VisaHmac: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type TypeKind = windows_core::CopyType;
@@ -1932,8 +1932,8 @@ impl windows_core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmatio
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
-    pub const None: Self = Self(0i32);
-    pub const JweRsaPki: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const JweRsaPki: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardCryptogramMaterialPackageFormat {
     type TypeKind = windows_core::CopyType;
@@ -1977,8 +1977,8 @@ unsafe impl Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
-    pub const None: Self = Self(0i32);
-    pub const WhiteBoxing: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const WhiteBoxing: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardCryptogramMaterialProtectionMethod {
     type TypeKind = windows_core::CopyType;
@@ -1991,11 +1991,11 @@ impl windows_core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
 impl SmartCardCryptogramMaterialType {
-    pub const None: Self = Self(0i32);
-    pub const StaticDataAuthentication: Self = Self(1i32);
-    pub const TripleDes112: Self = Self(2i32);
-    pub const Aes: Self = Self(3i32);
-    pub const RsaPkcs1: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const StaticDataAuthentication: Self = Self(1);
+    pub const TripleDes112: Self = Self(2);
+    pub const Aes: Self = Self(3);
+    pub const RsaPkcs1: Self = Self(4);
 }
 impl windows_core::TypeKind for SmartCardCryptogramMaterialType {
     type TypeKind = windows_core::CopyType;
@@ -2008,9 +2008,9 @@ impl windows_core::RuntimeType for SmartCardCryptogramMaterialType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
-    pub const None: Self = Self(0u32);
-    pub const UnitsAreInNibbles: Self = Self(1u32);
-    pub const ChainOutput: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const UnitsAreInNibbles: Self = Self(1);
+    pub const ChainOutput: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardCryptogramPlacementOptions {
     type TypeKind = windows_core::CopyType;
@@ -2170,8 +2170,8 @@ unsafe impl Sync for SmartCardCryptogramPlacementStep {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
-    pub const None: Self = Self(0i32);
-    pub const Rsa2048: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const Rsa2048: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardCryptogramStorageKeyAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -2184,9 +2184,9 @@ impl windows_core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
-    pub const None: Self = Self(0u32);
-    pub const HardwareProtection: Self = Self(1u32);
-    pub const UnlockPrompt: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const HardwareProtection: Self = Self(1);
+    pub const UnlockPrompt: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardCryptogramStorageKeyCapabilities {
     type TypeKind = windows_core::CopyType;
@@ -2352,14 +2352,14 @@ unsafe impl Sync for SmartCardCryptogramStorageKeyInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
-    pub const NoAttestation: Self = Self(0i32);
-    pub const SoftwareKeyWithoutTpm: Self = Self(1i32);
-    pub const SoftwareKeyWithTpm: Self = Self(2i32);
-    pub const TpmKeyUnknownAttestationStatus: Self = Self(3i32);
-    pub const TpmKeyWithoutAttestationCapability: Self = Self(4i32);
-    pub const TpmKeyWithTemporaryAttestationFailure: Self = Self(5i32);
-    pub const TpmKeyWithLongTermAttestationFailure: Self = Self(6i32);
-    pub const TpmKeyWithAttestation: Self = Self(7i32);
+    pub const NoAttestation: Self = Self(0);
+    pub const SoftwareKeyWithoutTpm: Self = Self(1);
+    pub const SoftwareKeyWithTpm: Self = Self(2);
+    pub const TpmKeyUnknownAttestationStatus: Self = Self(3);
+    pub const TpmKeyWithoutAttestationCapability: Self = Self(4);
+    pub const TpmKeyWithTemporaryAttestationFailure: Self = Self(5);
+    pub const TpmKeyWithLongTermAttestationFailure: Self = Self(6);
+    pub const TpmKeyWithAttestation: Self = Self(7);
 }
 impl windows_core::TypeKind for SmartCardCryptographicKeyAttestationStatus {
     type TypeKind = windows_core::CopyType;
@@ -2372,8 +2372,8 @@ impl windows_core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
-    pub const Other: Self = Self(0i32);
-    pub const Payment: Self = Self(1i32);
+    pub const Other: Self = Self(0);
+    pub const Payment: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardEmulationCategory {
     type TypeKind = windows_core::CopyType;
@@ -2386,9 +2386,9 @@ impl windows_core::RuntimeType for SmartCardEmulationCategory {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardEmulationType(pub i32);
 impl SmartCardEmulationType {
-    pub const Host: Self = Self(0i32);
-    pub const Uicc: Self = Self(1i32);
-    pub const EmbeddedSE: Self = Self(2i32);
+    pub const Host: Self = Self(0);
+    pub const Uicc: Self = Self(1);
+    pub const EmbeddedSE: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardEmulationType {
     type TypeKind = windows_core::CopyType;
@@ -2639,8 +2639,8 @@ unsafe impl Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
-    pub const ConnectionLost: Self = Self(0i32);
-    pub const ConnectionRedirected: Self = Self(1i32);
+    pub const ConnectionLost: Self = Self(0);
+    pub const ConnectionRedirected: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardEmulatorConnectionDeactivatedReason {
     type TypeKind = windows_core::CopyType;
@@ -2683,8 +2683,8 @@ unsafe impl Sync for SmartCardEmulatorConnectionProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
-    pub const Unknown: Self = Self(0i32);
-    pub const NfcReader: Self = Self(1i32);
+    pub const Unknown: Self = Self(0);
+    pub const NfcReader: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardEmulatorConnectionSource {
     type TypeKind = windows_core::CopyType;
@@ -2697,10 +2697,10 @@ impl windows_core::RuntimeType for SmartCardEmulatorConnectionSource {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
-    pub const Never: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-    pub const ScreenOn: Self = Self(2i32);
-    pub const ScreenUnlocked: Self = Self(3i32);
+    pub const Never: Self = Self(0);
+    pub const Always: Self = Self(1);
+    pub const ScreenOn: Self = Self(2);
+    pub const ScreenUnlocked: Self = Self(3);
 }
 impl windows_core::TypeKind for SmartCardEmulatorEnablementPolicy {
     type TypeKind = windows_core::CopyType;
@@ -2713,8 +2713,8 @@ impl windows_core::RuntimeType for SmartCardEmulatorEnablementPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const AboveLock: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const AboveLock: Self = Self(1);
 }
 impl windows_core::TypeKind for SmartCardLaunchBehavior {
     type TypeKind = windows_core::CopyType;
@@ -2727,9 +2727,9 @@ impl windows_core::RuntimeType for SmartCardLaunchBehavior {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
 impl SmartCardPinCharacterPolicyOption {
-    pub const Allow: Self = Self(0i32);
-    pub const RequireAtLeastOne: Self = Self(1i32);
-    pub const Disallow: Self = Self(2i32);
+    pub const Allow: Self = Self(0);
+    pub const RequireAtLeastOne: Self = Self(1);
+    pub const Disallow: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardPinCharacterPolicyOption {
     type TypeKind = windows_core::CopyType;
@@ -3154,12 +3154,12 @@ unsafe impl Sync for SmartCardReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
-    pub const Any: Self = Self(0i32);
-    pub const Generic: Self = Self(1i32);
-    pub const Tpm: Self = Self(2i32);
-    pub const Nfc: Self = Self(3i32);
-    pub const Uicc: Self = Self(4i32);
-    pub const EmbeddedSE: Self = Self(5i32);
+    pub const Any: Self = Self(0);
+    pub const Generic: Self = Self(1);
+    pub const Tpm: Self = Self(2);
+    pub const Nfc: Self = Self(3);
+    pub const Uicc: Self = Self(4);
+    pub const EmbeddedSE: Self = Self(5);
 }
 impl windows_core::TypeKind for SmartCardReaderKind {
     type TypeKind = windows_core::CopyType;
@@ -3172,9 +3172,9 @@ impl windows_core::RuntimeType for SmartCardReaderKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const Exclusive: Self = Self(2i32);
+    pub const Disconnected: Self = Self(0);
+    pub const Ready: Self = Self(1);
+    pub const Exclusive: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardReaderStatus {
     type TypeKind = windows_core::CopyType;
@@ -3187,11 +3187,11 @@ impl windows_core::RuntimeType for SmartCardReaderStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardStatus(pub i32);
 impl SmartCardStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const Shared: Self = Self(2i32);
-    pub const Exclusive: Self = Self(3i32);
-    pub const Unresponsive: Self = Self(4i32);
+    pub const Disconnected: Self = Self(0);
+    pub const Ready: Self = Self(1);
+    pub const Shared: Self = Self(2);
+    pub const Exclusive: Self = Self(3);
+    pub const Unresponsive: Self = Self(4);
 }
 impl windows_core::TypeKind for SmartCardStatus {
     type TypeKind = windows_core::CopyType;
@@ -3270,12 +3270,12 @@ unsafe impl Sync for SmartCardTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
-    pub const EmulatorTransaction: Self = Self(0i32);
-    pub const EmulatorNearFieldEntry: Self = Self(1i32);
-    pub const EmulatorNearFieldExit: Self = Self(2i32);
-    pub const EmulatorHostApplicationActivated: Self = Self(3i32);
-    pub const EmulatorAppletIdGroupRegistrationChanged: Self = Self(4i32);
-    pub const ReaderCardAdded: Self = Self(5i32);
+    pub const EmulatorTransaction: Self = Self(0);
+    pub const EmulatorNearFieldEntry: Self = Self(1);
+    pub const EmulatorNearFieldExit: Self = Self(2);
+    pub const EmulatorHostApplicationActivated: Self = Self(3);
+    pub const EmulatorAppletIdGroupRegistrationChanged: Self = Self(4);
+    pub const ReaderCardAdded: Self = Self(5);
 }
 impl windows_core::TypeKind for SmartCardTriggerType {
     type TypeKind = windows_core::CopyType;
@@ -3288,9 +3288,9 @@ impl windows_core::RuntimeType for SmartCardTriggerType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {
-    pub const AllowUnlockPrompt: Self = Self(0i32);
-    pub const RequireUnlockPrompt: Self = Self(1i32);
-    pub const PreventUnlockPrompt: Self = Self(2i32);
+    pub const AllowUnlockPrompt: Self = Self(0);
+    pub const RequireUnlockPrompt: Self = Self(1);
+    pub const PreventUnlockPrompt: Self = Self(2);
 }
 impl windows_core::TypeKind for SmartCardUnlockPromptingBehavior {
     type TypeKind = windows_core::CopyType;

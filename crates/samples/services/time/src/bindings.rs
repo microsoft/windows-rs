@@ -7,8 +7,8 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-pub const SERVICE_ACCEPT_TIMECHANGE: u32 = 512u32;
-pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
+pub const SERVICE_ACCEPT_TIMECHANGE: u32 = 512;
+pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SERVICE_TIMECHANGE_INFO {

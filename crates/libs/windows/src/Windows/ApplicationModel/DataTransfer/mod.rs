@@ -193,7 +193,6 @@ unsafe impl Sync for ClipboardContentOptions {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClipboardHistoryChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClipboardHistoryChangedEventArgs {}
 impl windows_core::RuntimeType for ClipboardHistoryChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClipboardHistoryChangedEventArgs>();
 }
@@ -276,9 +275,9 @@ unsafe impl Sync for ClipboardHistoryItemsResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const ClipboardHistoryDisabled: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const AccessDenied: Self = Self(1);
+    pub const ClipboardHistoryDisabled: Self = Self(2);
 }
 impl windows_core::TypeKind for ClipboardHistoryItemsResultStatus {
     type TypeKind = windows_core::CopyType;
@@ -458,10 +457,10 @@ unsafe impl Sync for DataPackage {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
-    pub const None: Self = Self(0u32);
-    pub const Copy: Self = Self(1u32);
-    pub const Move: Self = Self(2u32);
-    pub const Link: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const Copy: Self = Self(1);
+    pub const Move: Self = Self(2);
+    pub const Link: Self = Self(4);
 }
 impl windows_core::TypeKind for DataPackageOperation {
     type TypeKind = windows_core::CopyType;
@@ -2215,9 +2214,9 @@ unsafe impl Sync for OperationCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const ItemDeleted: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const AccessDenied: Self = Self(1);
+    pub const ItemDeleted: Self = Self(2);
 }
 impl windows_core::TypeKind for SetHistoryItemAsContentStatus {
     type TypeKind = windows_core::CopyType;
@@ -2501,9 +2500,9 @@ unsafe impl Sync for ShareUIOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
-    pub const Default: Self = Self(0i32);
-    pub const Light: Self = Self(1i32);
-    pub const Dark: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const Light: Self = Self(1);
+    pub const Dark: Self = Self(2);
 }
 impl windows_core::TypeKind for ShareUITheme {
     type TypeKind = windows_core::CopyType;

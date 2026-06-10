@@ -263,8 +263,8 @@ unsafe impl Sync for CallStateChangeEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
-    pub const Continuous: Self = Self(0i32);
-    pub const Burst: Self = Self(1i32);
+    pub const Continuous: Self = Self(0);
+    pub const Burst: Self = Self(1);
 }
 impl windows_core::TypeKind for CellularDtmfMode {
     type TypeKind = windows_core::CopyType;
@@ -277,18 +277,18 @@ impl windows_core::RuntimeType for CellularDtmfMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DtmfKey(pub i32);
 impl DtmfKey {
-    pub const D0: Self = Self(0i32);
-    pub const D1: Self = Self(1i32);
-    pub const D2: Self = Self(2i32);
-    pub const D3: Self = Self(3i32);
-    pub const D4: Self = Self(4i32);
-    pub const D5: Self = Self(5i32);
-    pub const D6: Self = Self(6i32);
-    pub const D7: Self = Self(7i32);
-    pub const D8: Self = Self(8i32);
-    pub const D9: Self = Self(9i32);
-    pub const Star: Self = Self(10i32);
-    pub const Pound: Self = Self(11i32);
+    pub const D0: Self = Self(0);
+    pub const D1: Self = Self(1);
+    pub const D2: Self = Self(2);
+    pub const D3: Self = Self(3);
+    pub const D4: Self = Self(4);
+    pub const D5: Self = Self(5);
+    pub const D6: Self = Self(6);
+    pub const D7: Self = Self(7);
+    pub const D8: Self = Self(8);
+    pub const D9: Self = Self(9);
+    pub const Star: Self = Self(10);
+    pub const Pound: Self = Self(11);
 }
 impl windows_core::TypeKind for DtmfKey {
     type TypeKind = windows_core::CopyType;
@@ -301,8 +301,8 @@ impl windows_core::RuntimeType for DtmfKey {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DtmfToneAudioPlayback(pub i32);
 impl DtmfToneAudioPlayback {
-    pub const Play: Self = Self(0i32);
-    pub const DoNotPlay: Self = Self(1i32);
+    pub const Play: Self = Self(0);
+    pub const DoNotPlay: Self = Self(1);
 }
 impl windows_core::TypeKind for DtmfToneAudioPlayback {
     type TypeKind = windows_core::CopyType;
@@ -1630,9 +1630,9 @@ unsafe impl Sync for OutgoingVoipPhoneCallOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
-    pub const Default: Self = Self(0i32);
-    pub const Bluetooth: Self = Self(1i32);
-    pub const Speakerphone: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const Bluetooth: Self = Self(1);
+    pub const Speakerphone: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneAudioRoutingEndpoint {
     type TypeKind = windows_core::CopyType;
@@ -1853,9 +1853,9 @@ unsafe impl Sync for PhoneCall {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
-    pub const Unknown: Self = Self(0i32);
-    pub const LocalDevice: Self = Self(1i32);
-    pub const RemoteDevice: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const LocalDevice: Self = Self(1);
+    pub const RemoteDevice: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneCallAudioDevice {
     type TypeKind = windows_core::CopyType;
@@ -1905,9 +1905,9 @@ impl windows_core::RuntimeName for PhoneCallBlocking {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
-    pub const Unknown: Self = Self(0i32);
-    pub const Incoming: Self = Self(1i32);
-    pub const Outgoing: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Incoming: Self = Self(1);
+    pub const Outgoing: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneCallDirection {
     type TypeKind = windows_core::CopyType;
@@ -2176,8 +2176,8 @@ unsafe impl Sync for PhoneCallHistoryEntryAddress {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
-    pub const Audio: Self = Self(0i32);
-    pub const Video: Self = Self(1i32);
+    pub const Audio: Self = Self(0);
+    pub const Video: Self = Self(1);
 }
 impl windows_core::TypeKind for PhoneCallHistoryEntryMedia {
     type TypeKind = windows_core::CopyType;
@@ -2190,8 +2190,8 @@ impl windows_core::RuntimeType for PhoneCallHistoryEntryMedia {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
 impl PhoneCallHistoryEntryOtherAppReadAccess {
-    pub const Full: Self = Self(0i32);
-    pub const SystemOnly: Self = Self(1i32);
+    pub const Full: Self = Self(0);
+    pub const SystemOnly: Self = Self(1);
 }
 impl windows_core::TypeKind for PhoneCallHistoryEntryOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
@@ -2204,10 +2204,10 @@ impl windows_core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
 impl PhoneCallHistoryEntryQueryDesiredMedia {
-    pub const None: Self = Self(0u32);
-    pub const Audio: Self = Self(1u32);
-    pub const Video: Self = Self(2u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const Audio: Self = Self(1);
+    pub const Video: Self = Self(2);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for PhoneCallHistoryEntryQueryDesiredMedia {
     type TypeKind = windows_core::CopyType;
@@ -2293,8 +2293,8 @@ unsafe impl Sync for PhoneCallHistoryEntryQueryOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
-    pub const PhoneNumber: Self = Self(0i32);
-    pub const Custom: Self = Self(1i32);
+    pub const PhoneNumber: Self = Self(0);
+    pub const Custom: Self = Self(1);
 }
 impl windows_core::TypeKind for PhoneCallHistoryEntryRawAddressKind {
     type TypeKind = windows_core::CopyType;
@@ -2392,8 +2392,8 @@ unsafe impl Sync for PhoneCallHistoryManagerForUser {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
-    pub const CellularPhoneLineId: Self = Self(0i32);
-    pub const PackageFamilyName: Self = Self(1i32);
+    pub const CellularPhoneLineId: Self = Self(0);
+    pub const PackageFamilyName: Self = Self(1);
 }
 impl windows_core::TypeKind for PhoneCallHistorySourceIdKind {
     type TypeKind = windows_core::CopyType;
@@ -2520,9 +2520,9 @@ unsafe impl Sync for PhoneCallHistoryStore {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
-    pub const AppEntriesReadWrite: Self = Self(0i32);
-    pub const AllEntriesLimitedReadWrite: Self = Self(1i32);
-    pub const AllEntriesReadWrite: Self = Self(2i32);
+    pub const AppEntriesReadWrite: Self = Self(0);
+    pub const AllEntriesLimitedReadWrite: Self = Self(1);
+    pub const AllEntriesReadWrite: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneCallHistoryStoreAccessType {
     type TypeKind = windows_core::CopyType;
@@ -2639,9 +2639,9 @@ impl windows_core::RuntimeName for PhoneCallManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
-    pub const Audio: Self = Self(0i32);
-    pub const AudioAndVideo: Self = Self(1i32);
-    pub const AudioAndRealTimeText: Self = Self(2i32);
+    pub const Audio: Self = Self(0);
+    pub const AudioAndVideo: Self = Self(1);
+    pub const AudioAndRealTimeText: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneCallMedia {
     type TypeKind = windows_core::CopyType;
@@ -2654,11 +2654,11 @@ impl windows_core::RuntimeType for PhoneCallMedia {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallOperationStatus(pub i32);
 impl PhoneCallOperationStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const OtherFailure: Self = Self(1i32);
-    pub const TimedOut: Self = Self(2i32);
-    pub const ConnectionLost: Self = Self(3i32);
-    pub const InvalidCallState: Self = Self(4i32);
+    pub const Succeeded: Self = Self(0);
+    pub const OtherFailure: Self = Self(1);
+    pub const TimedOut: Self = Self(2);
+    pub const ConnectionLost: Self = Self(3);
+    pub const InvalidCallState: Self = Self(4);
 }
 impl windows_core::TypeKind for PhoneCallOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -2671,12 +2671,12 @@ impl windows_core::RuntimeType for PhoneCallOperationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallStatus(pub i32);
 impl PhoneCallStatus {
-    pub const Lost: Self = Self(0i32);
-    pub const Incoming: Self = Self(1i32);
-    pub const Dialing: Self = Self(2i32);
-    pub const Talking: Self = Self(3i32);
-    pub const Held: Self = Self(4i32);
-    pub const Ended: Self = Self(5i32);
+    pub const Lost: Self = Self(0);
+    pub const Incoming: Self = Self(1);
+    pub const Dialing: Self = Self(2);
+    pub const Talking: Self = Self(3);
+    pub const Held: Self = Self(4);
+    pub const Ended: Self = Self(5);
 }
 impl windows_core::TypeKind for PhoneCallStatus {
     type TypeKind = windows_core::CopyType;
@@ -3159,10 +3159,10 @@ unsafe impl Sync for PhoneLineDialResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
-    pub const Default: Self = Self(0i32);
-    pub const Tile: Self = Self(1i32);
-    pub const Dialer: Self = Self(2i32);
-    pub const InCallUI: Self = Self(3i32);
+    pub const Default: Self = Self(0);
+    pub const Tile: Self = Self(1);
+    pub const Dialer: Self = Self(2);
+    pub const InCallUI: Self = Self(3);
 }
 impl windows_core::TypeKind for PhoneLineNetworkOperatorDisplayTextLocation {
     type TypeKind = windows_core::CopyType;
@@ -3175,11 +3175,11 @@ impl windows_core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineOperationStatus(pub i32);
 impl PhoneLineOperationStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const OtherFailure: Self = Self(1i32);
-    pub const TimedOut: Self = Self(2i32);
-    pub const ConnectionLost: Self = Self(3i32);
-    pub const InvalidCallState: Self = Self(4i32);
+    pub const Succeeded: Self = Self(0);
+    pub const OtherFailure: Self = Self(1);
+    pub const TimedOut: Self = Self(2);
+    pub const ConnectionLost: Self = Self(3);
+    pub const InvalidCallState: Self = Self(4);
 }
 impl windows_core::TypeKind for PhoneLineOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -3192,9 +3192,9 @@ impl windows_core::RuntimeType for PhoneLineOperationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineTransport(pub i32);
 impl PhoneLineTransport {
-    pub const Cellular: Self = Self(0i32);
-    pub const VoipApp: Self = Self(1i32);
-    pub const Bluetooth: Self = Self(2i32);
+    pub const Cellular: Self = Self(0);
+    pub const VoipApp: Self = Self(1);
+    pub const Bluetooth: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneLineTransport {
     type TypeKind = windows_core::CopyType;
@@ -3460,10 +3460,10 @@ unsafe impl Sync for PhoneLineWatcherEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopped: Self = Self(3);
 }
 impl windows_core::TypeKind for PhoneLineWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -3476,14 +3476,14 @@ impl windows_core::RuntimeType for PhoneLineWatcherStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNetworkState(pub i32);
 impl PhoneNetworkState {
-    pub const Unknown: Self = Self(0i32);
-    pub const NoSignal: Self = Self(1i32);
-    pub const Deregistered: Self = Self(2i32);
-    pub const Denied: Self = Self(3i32);
-    pub const Searching: Self = Self(4i32);
-    pub const Home: Self = Self(5i32);
-    pub const RoamingInternational: Self = Self(6i32);
-    pub const RoamingDomestic: Self = Self(7i32);
+    pub const Unknown: Self = Self(0);
+    pub const NoSignal: Self = Self(1);
+    pub const Deregistered: Self = Self(2);
+    pub const Denied: Self = Self(3);
+    pub const Searching: Self = Self(4);
+    pub const Home: Self = Self(5);
+    pub const RoamingInternational: Self = Self(6);
+    pub const RoamingDomestic: Self = Self(7);
 }
 impl windows_core::TypeKind for PhoneNetworkState {
     type TypeKind = windows_core::CopyType;
@@ -3496,14 +3496,14 @@ impl windows_core::RuntimeType for PhoneNetworkState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneSimState(pub i32);
 impl PhoneSimState {
-    pub const Unknown: Self = Self(0i32);
-    pub const PinNotRequired: Self = Self(1i32);
-    pub const PinUnlocked: Self = Self(2i32);
-    pub const PinLocked: Self = Self(3i32);
-    pub const PukLocked: Self = Self(4i32);
-    pub const NotInserted: Self = Self(5i32);
-    pub const Invalid: Self = Self(6i32);
-    pub const Disabled: Self = Self(7i32);
+    pub const Unknown: Self = Self(0);
+    pub const PinNotRequired: Self = Self(1);
+    pub const PinUnlocked: Self = Self(2);
+    pub const PinLocked: Self = Self(3);
+    pub const PukLocked: Self = Self(4);
+    pub const NotInserted: Self = Self(5);
+    pub const Invalid: Self = Self(6);
+    pub const Disabled: Self = Self(7);
 }
 impl windows_core::TypeKind for PhoneSimState {
     type TypeKind = windows_core::CopyType;
@@ -3558,9 +3558,9 @@ unsafe impl Sync for PhoneVoicemail {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
-    pub const None: Self = Self(0i32);
-    pub const Traditional: Self = Self(1i32);
-    pub const Visual: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Traditional: Self = Self(1);
+    pub const Visual: Self = Self(2);
 }
 impl windows_core::TypeKind for PhoneVoicemailType {
     type TypeKind = windows_core::CopyType;
@@ -3573,9 +3573,9 @@ impl windows_core::RuntimeType for PhoneVoicemailType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
 impl TransportDeviceAudioRoutingStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const CanRouteToLocalDevice: Self = Self(1i32);
-    pub const CannotRouteToLocalDevice: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const CanRouteToLocalDevice: Self = Self(1);
+    pub const CannotRouteToLocalDevice: Self = Self(2);
 }
 impl windows_core::TypeKind for TransportDeviceAudioRoutingStatus {
     type TypeKind = windows_core::CopyType;
@@ -3588,8 +3588,8 @@ impl windows_core::RuntimeType for TransportDeviceAudioRoutingStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoipCallControlDeviceKind(pub i32);
 impl VoipCallControlDeviceKind {
-    pub const Bluetooth: Self = Self(0i32);
-    pub const Usb: Self = Self(1i32);
+    pub const Bluetooth: Self = Self(0);
+    pub const Usb: Self = Self(1);
 }
 impl windows_core::TypeKind for VoipCallControlDeviceKind {
     type TypeKind = windows_core::CopyType;
@@ -3944,9 +3944,9 @@ unsafe impl Sync for VoipPhoneCall {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {
-    pub const None: Self = Self(0u32);
-    pub const Audio: Self = Self(1u32);
-    pub const Video: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Audio: Self = Self(1);
+    pub const Video: Self = Self(2);
 }
 impl windows_core::TypeKind for VoipPhoneCallMedia {
     type TypeKind = windows_core::CopyType;
@@ -3992,11 +3992,11 @@ impl core::ops::Not for VoipPhoneCallMedia {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoipPhoneCallRejectReason(pub i32);
 impl VoipPhoneCallRejectReason {
-    pub const UserIgnored: Self = Self(0i32);
-    pub const TimedOut: Self = Self(1i32);
-    pub const OtherIncomingCall: Self = Self(2i32);
-    pub const EmergencyCallExists: Self = Self(3i32);
-    pub const InvalidCallState: Self = Self(4i32);
+    pub const UserIgnored: Self = Self(0);
+    pub const TimedOut: Self = Self(1);
+    pub const OtherIncomingCall: Self = Self(2);
+    pub const EmergencyCallExists: Self = Self(3);
+    pub const InvalidCallState: Self = Self(4);
 }
 impl windows_core::TypeKind for VoipPhoneCallRejectReason {
     type TypeKind = windows_core::CopyType;
@@ -4009,8 +4009,8 @@ impl windows_core::RuntimeType for VoipPhoneCallRejectReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
 impl VoipPhoneCallResourceReservationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ResourcesNotAvailable: Self = Self(1i32);
+    pub const Success: Self = Self(0);
+    pub const ResourcesNotAvailable: Self = Self(1);
 }
 impl windows_core::TypeKind for VoipPhoneCallResourceReservationStatus {
     type TypeKind = windows_core::CopyType;
@@ -4023,11 +4023,11 @@ impl windows_core::RuntimeType for VoipPhoneCallResourceReservationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoipPhoneCallState(pub i32);
 impl VoipPhoneCallState {
-    pub const Ended: Self = Self(0i32);
-    pub const Held: Self = Self(1i32);
-    pub const Active: Self = Self(2i32);
-    pub const Incoming: Self = Self(3i32);
-    pub const Outgoing: Self = Self(4i32);
+    pub const Ended: Self = Self(0);
+    pub const Held: Self = Self(1);
+    pub const Active: Self = Self(2);
+    pub const Incoming: Self = Self(3);
+    pub const Outgoing: Self = Self(4);
 }
 impl windows_core::TypeKind for VoipPhoneCallState {
     type TypeKind = windows_core::CopyType;

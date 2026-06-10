@@ -137,12 +137,12 @@ unsafe impl Sync for DevicePortalConnectionClosedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const ResourceLimitsExceeded: Self = Self(1i32);
-    pub const ProtocolError: Self = Self(2i32);
-    pub const NotAuthorized: Self = Self(3i32);
-    pub const UserNotPresent: Self = Self(4i32);
-    pub const ServiceTerminated: Self = Self(5i32);
+    pub const Unknown: Self = Self(0);
+    pub const ResourceLimitsExceeded: Self = Self(1);
+    pub const ProtocolError: Self = Self(2);
+    pub const NotAuthorized: Self = Self(3);
+    pub const UserNotPresent: Self = Self(4);
+    pub const ServiceTerminated: Self = Self(5);
 }
 impl windows_core::TypeKind for DevicePortalConnectionClosedReason {
     type TypeKind = windows_core::CopyType;

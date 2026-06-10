@@ -1,3 +1,4 @@
+#![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 #![expect(
@@ -9,6 +10,7 @@
     clippy::type_complexity
 )]
 
+#[allow(unused_qualifications)]
 mod bindings;
 pub use bindings::*;
 

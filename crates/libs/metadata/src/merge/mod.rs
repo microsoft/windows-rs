@@ -320,7 +320,7 @@ fn write_type(
     }
 }
 
-fn write_attributes<'a, R: reader::HasAttributes<'a>>(
+fn write_attributes<'a, R: HasAttributes<'a>>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
     row: R,
@@ -335,7 +335,7 @@ fn write_attributes<'a, R: reader::HasAttributes<'a>>(
 ///   - If `arch_override` is `Some(bits)` with `bits != 0`, a new
 ///     `SupportedArchitectureAttribute(bits)` is written.
 ///   - If `arch_override` is `Some(0)`, no arch attribute is written (arch-neutral).
-fn write_attributes_with_arch<'a, R: reader::HasAttributes<'a>>(
+fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
     row: R,

@@ -1,4 +1,4 @@
-pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
+pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3);
 windows_core::imp::define_interface!(IItemEnumerator, IItemEnumerator_Vtbl, 0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
 windows_core::imp::interface_hierarchy!(IItemEnumerator, windows_core::IUnknown);
 impl IItemEnumerator {
@@ -1916,20 +1916,20 @@ impl ITargetInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITargetInfo {}
-pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
-pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
-pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
-pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
-pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
-pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
+pub const LIMITED_VALIDATION_MODE: u32 = 1;
+pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1;
+pub const OfflineMode: WcmTargetMode = WcmTargetMode(1);
+pub const OnlineMode: WcmTargetMode = WcmTargetMode(2);
+pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1);
+pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2);
 pub const SettingsEngine: windows_core::GUID = windows_core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
-pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
-pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
-pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
-pub const UserLoaded: WcmUserStatus = WcmUserStatus(3i32);
-pub const UserRegistered: WcmUserStatus = WcmUserStatus(1i32);
-pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4i32);
-pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2i32);
+pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1);
+pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0);
+pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2);
+pub const UserLoaded: WcmUserStatus = WcmUserStatus(3);
+pub const UserRegistered: WcmUserStatus = WcmUserStatus(1);
+pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4);
+pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2);
 pub const WCM_E_ABORTOPERATION: windows_core::HRESULT = windows_core::HRESULT(0x80220028_u32 as _);
 pub const WCM_E_ASSERTIONFAILED: windows_core::HRESULT = windows_core::HRESULT(0x8022001A_u32 as _);
 pub const WCM_E_ATTRIBUTENOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80220004_u32 as _);
@@ -1976,8 +1976,8 @@ pub const WCM_E_VALIDATIONFAILED: windows_core::HRESULT = windows_core::HRESULT(
 pub const WCM_E_VALUETOOBIG: windows_core::HRESULT = windows_core::HRESULT(0x80220026_u32 as _);
 pub const WCM_E_WRONGESCAPESTRING: windows_core::HRESULT = windows_core::HRESULT(0x8022000C_u32 as _);
 pub const WCM_SETTINGS_ID_ARCHITECTURE: windows_core::PCWSTR = windows_core::w!("architecture");
-pub const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1u32;
-pub const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0u32;
+pub const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1;
+pub const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0;
 pub const WCM_SETTINGS_ID_LANGUAGE: windows_core::PCWSTR = windows_core::w!("language");
 pub const WCM_SETTINGS_ID_NAME: windows_core::PCWSTR = windows_core::w!("name");
 pub const WCM_SETTINGS_ID_TOKEN: windows_core::PCWSTR = windows_core::w!("token");
@@ -2011,21 +2011,21 @@ pub struct WcmTargetMode(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmUserStatus(pub i32);
-pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
-pub const dataTypeByte: WcmDataType = WcmDataType(1i32);
-pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);
-pub const dataTypeInt16: WcmDataType = WcmDataType(4i32);
-pub const dataTypeInt32: WcmDataType = WcmDataType(6i32);
-pub const dataTypeInt64: WcmDataType = WcmDataType(8i32);
-pub const dataTypeSByte: WcmDataType = WcmDataType(2i32);
-pub const dataTypeString: WcmDataType = WcmDataType(12i32);
-pub const dataTypeUInt16: WcmDataType = WcmDataType(3i32);
-pub const dataTypeUInt32: WcmDataType = WcmDataType(5i32);
-pub const dataTypeUInt64: WcmDataType = WcmDataType(7i32);
-pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2i32);
-pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4i32);
-pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1i32);
-pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8i32);
-pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
-pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
-pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
+pub const dataTypeBoolean: WcmDataType = WcmDataType(11);
+pub const dataTypeByte: WcmDataType = WcmDataType(1);
+pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768);
+pub const dataTypeInt16: WcmDataType = WcmDataType(4);
+pub const dataTypeInt32: WcmDataType = WcmDataType(6);
+pub const dataTypeInt64: WcmDataType = WcmDataType(8);
+pub const dataTypeSByte: WcmDataType = WcmDataType(2);
+pub const dataTypeString: WcmDataType = WcmDataType(12);
+pub const dataTypeUInt16: WcmDataType = WcmDataType(3);
+pub const dataTypeUInt32: WcmDataType = WcmDataType(5);
+pub const dataTypeUInt64: WcmDataType = WcmDataType(7);
+pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2);
+pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4);
+pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1);
+pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8);
+pub const settingTypeComplex: WcmSettingType = WcmSettingType(2);
+pub const settingTypeList: WcmSettingType = WcmSettingType(3);
+pub const settingTypeScalar: WcmSettingType = WcmSettingType(1);

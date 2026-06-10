@@ -699,8 +699,8 @@ unsafe impl Sync for LampArrayCustomEffect {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
-    pub const ClearState: Self = Self(0i32);
-    pub const KeepState: Self = Self(1i32);
+    pub const ClearState: Self = Self(0);
+    pub const KeepState: Self = Self(1);
 }
 impl windows_core::TypeKind for LampArrayEffectCompletionBehavior {
     type TypeKind = windows_core::CopyType;
@@ -858,8 +858,8 @@ impl IntoIterator for &LampArrayEffectPlaylist {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
-    pub const Sequential: Self = Self(0i32);
-    pub const Simultaneous: Self = Self(1i32);
+    pub const Sequential: Self = Self(0);
+    pub const Simultaneous: Self = Self(1);
 }
 impl windows_core::TypeKind for LampArrayEffectStartMode {
     type TypeKind = windows_core::CopyType;
@@ -872,8 +872,8 @@ impl windows_core::RuntimeType for LampArrayEffectStartMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
-    pub const Occurrences: Self = Self(0i32);
-    pub const Forever: Self = Self(1i32);
+    pub const Occurrences: Self = Self(0);
+    pub const Forever: Self = Self(1);
 }
 impl windows_core::TypeKind for LampArrayRepetitionMode {
     type TypeKind = windows_core::CopyType;

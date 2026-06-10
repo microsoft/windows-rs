@@ -143,12 +143,18 @@ impl Delegate {
             }
         };
 
+        let hide_vtbl = if config.bindgen.style.is_minimal() {
+            quote! {}
+        } else {
+            quote! { #[doc(hidden)] }
+        };
+
         quote! {
             #definition
             #impl_block
             #cfg
             #[repr(C)]
-            #[doc(hidden)]
+            #hide_vtbl
             pub struct #vtbl_name<#generic_names> where #constraints {
                 base__: windows_core::IUnknown_Vtbl,
                 Invoke: unsafe extern "system" fn(#invoke_vtbl) -> windows_core::HRESULT,

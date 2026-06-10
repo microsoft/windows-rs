@@ -2,11 +2,11 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HapticDeviceType(pub i32);
 impl HapticDeviceType {
-    pub const None: Self = Self(0i32);
-    pub const Generic: Self = Self(1i32);
-    pub const Pen: Self = Self(2i32);
-    pub const Touchpad: Self = Self(3i32);
-    pub const Mouse: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Generic: Self = Self(1);
+    pub const Pen: Self = Self(2);
+    pub const Touchpad: Self = Self(3);
+    pub const Mouse: Self = Self(4);
 }
 impl windows_core::TypeKind for HapticDeviceType {
     type TypeKind = windows_core::CopyType;
@@ -481,10 +481,10 @@ unsafe impl Sync for SimpleHapticsControllerFeedback {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
-    pub const Allowed: Self = Self(0i32);
-    pub const DeniedByUser: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const DeniedByEnergySaver: Self = Self(3i32);
+    pub const Allowed: Self = Self(0);
+    pub const DeniedByUser: Self = Self(1);
+    pub const DeniedBySystem: Self = Self(2);
+    pub const DeniedByEnergySaver: Self = Self(3);
 }
 impl windows_core::TypeKind for VibrationAccessStatus {
     type TypeKind = windows_core::CopyType;

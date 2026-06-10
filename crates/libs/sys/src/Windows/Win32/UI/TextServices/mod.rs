@@ -6,9 +6,9 @@ pub const AccClientDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const AccDictionary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
 pub const AccServerDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
 pub const AccStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
-pub const CAND_CANCELED: TfCandidateResult = 2i32;
-pub const CAND_FINALIZED: TfCandidateResult = 0i32;
-pub const CAND_SELECTED: TfCandidateResult = 1i32;
+pub const CAND_CANCELED: TfCandidateResult = 2;
+pub const CAND_FINALIZED: TfCandidateResult = 0;
+pub const CAND_SELECTED: TfCandidateResult = 1;
 pub const CLSID_TF_CategoryMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
 pub const CLSID_TF_ClassicLangBar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
 pub const CLSID_TF_DisplayAttributeMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ce74de4_53d3_4d74_8b83_431b3828ba53);
@@ -18,16 +18,16 @@ pub const CLSID_TF_LangBarMgr: windows_sys::core::GUID = windows_sys::core::GUID
 pub const CLSID_TF_ThreadMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
 pub const CLSID_TF_TransitoryExtensionUIEntry: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
 pub const CLSID_TsfServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
-pub const DCM_FLAGS_CTFMON: u32 = 2u32;
-pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
-pub const DCM_FLAGS_TASKENG: u32 = 1u32;
+pub const DCM_FLAGS_CTFMON: u32 = 2;
+pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4;
+pub const DCM_FLAGS_TASKENG: u32 = 1;
 pub const DocWrap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
-pub const GETIF_DICTGRAM: TfSapiObject = 4i32;
-pub const GETIF_RECOCONTEXT: TfSapiObject = 1i32;
-pub const GETIF_RECOGNIZER: TfSapiObject = 2i32;
-pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = 5i32;
-pub const GETIF_RESMGR: TfSapiObject = 0i32;
-pub const GETIF_VOICE: TfSapiObject = 3i32;
+pub const GETIF_DICTGRAM: TfSapiObject = 4;
+pub const GETIF_RECOCONTEXT: TfSapiObject = 1;
+pub const GETIF_RECOGNIZER: TfSapiObject = 2;
+pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = 5;
+pub const GETIF_RESMGR: TfSapiObject = 0;
+pub const GETIF_VOICE: TfSapiObject = 3;
 pub type GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = u32;
 pub const GUID_APP_FUNCTIONPROVIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
@@ -100,130 +100,130 @@ pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: windows_sys::core::GUID = windows_sy
 pub const GUID_TS_SERVICE_ACCESSIBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
 pub const GUID_TS_SERVICE_ACTIVEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
 pub const GUID_TS_SERVICE_DATAOBJECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
-pub const GXFPF_NEAREST: u32 = 2u32;
-pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
-pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
-pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
+pub const GXFPF_NEAREST: u32 = 2;
+pub const GXFPF_ROUND_NEAREST: u32 = 1;
+pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1;
+pub const ILMCM_LANGUAGEBAROFF: u32 = 2;
 pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
-pub const IS_ADDRESS_CITY: InputScope = 17i32;
-pub const IS_ADDRESS_COUNTRYNAME: InputScope = 18i32;
-pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = 19i32;
-pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = 13i32;
-pub const IS_ADDRESS_POSTALCODE: InputScope = 14i32;
-pub const IS_ADDRESS_STATEORPROVINCE: InputScope = 16i32;
-pub const IS_ADDRESS_STREET: InputScope = 15i32;
-pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = 41i32;
-pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = 40i32;
-pub const IS_ALPHANUMERIC_PIN: InputScope = 65i32;
-pub const IS_ALPHANUMERIC_PIN_SET: InputScope = 66i32;
-pub const IS_BOPOMOFO: InputScope = 43i32;
-pub const IS_CHAT: InputScope = 58i32;
-pub const IS_CHAT_WITHOUT_EMOJI: InputScope = 68i32;
-pub const IS_CHINESE_FULLWIDTH: InputScope = 54i32;
-pub const IS_CHINESE_HALFWIDTH: InputScope = 53i32;
-pub const IS_CURRENCY_AMOUNT: InputScope = 21i32;
-pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = 20i32;
-pub const IS_CURRENCY_CHINESE: InputScope = 42i32;
-pub const IS_DATE_DAY: InputScope = 24i32;
-pub const IS_DATE_DAYNAME: InputScope = 27i32;
-pub const IS_DATE_FULLDATE: InputScope = 22i32;
-pub const IS_DATE_MONTH: InputScope = 23i32;
-pub const IS_DATE_MONTHNAME: InputScope = 26i32;
-pub const IS_DATE_YEAR: InputScope = 25i32;
-pub const IS_DEFAULT: InputScope = 0i32;
-pub const IS_DIGITS: InputScope = 28i32;
-pub const IS_EMAILNAME_OR_ADDRESS: InputScope = 60i32;
-pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = 5i32;
-pub const IS_EMAIL_USERNAME: InputScope = 4i32;
-pub const IS_ENUMSTRING: InputScope = -5i32;
-pub const IS_FILE_FILENAME: InputScope = 3i32;
-pub const IS_FILE_FULLFILEPATH: InputScope = 2i32;
-pub const IS_FORMULA: InputScope = 51i32;
-pub const IS_FORMULA_NUMBER: InputScope = 67i32;
-pub const IS_HANGUL_FULLWIDTH: InputScope = 49i32;
-pub const IS_HANGUL_HALFWIDTH: InputScope = 48i32;
-pub const IS_HANJA: InputScope = 47i32;
-pub const IS_HIRAGANA: InputScope = 44i32;
-pub const IS_KATAKANA_FULLWIDTH: InputScope = 46i32;
-pub const IS_KATAKANA_HALFWIDTH: InputScope = 45i32;
-pub const IS_LOGINNAME: InputScope = 6i32;
-pub const IS_MAPS: InputScope = 62i32;
-pub const IS_NAME_OR_PHONENUMBER: InputScope = 59i32;
-pub const IS_NATIVE_SCRIPT: InputScope = 55i32;
-pub const IS_NUMBER: InputScope = 29i32;
-pub const IS_NUMBER_FULLWIDTH: InputScope = 39i32;
-pub const IS_NUMERIC_PASSWORD: InputScope = 63i32;
-pub const IS_NUMERIC_PIN: InputScope = 64i32;
-pub const IS_ONECHAR: InputScope = 30i32;
-pub const IS_PASSWORD: InputScope = 31i32;
-pub const IS_PERSONALNAME_FULLNAME: InputScope = 7i32;
-pub const IS_PERSONALNAME_GIVENNAME: InputScope = 9i32;
-pub const IS_PERSONALNAME_MIDDLENAME: InputScope = 10i32;
-pub const IS_PERSONALNAME_PREFIX: InputScope = 8i32;
-pub const IS_PERSONALNAME_SUFFIX: InputScope = 12i32;
-pub const IS_PERSONALNAME_SURNAME: InputScope = 11i32;
-pub const IS_PHRASELIST: InputScope = -1i32;
-pub const IS_PRIVATE: InputScope = 61i32;
-pub const IS_REGULAREXPRESSION: InputScope = -2i32;
-pub const IS_SEARCH: InputScope = 50i32;
-pub const IS_SEARCH_INCREMENTAL: InputScope = 52i32;
-pub const IS_SRGS: InputScope = -3i32;
-pub const IS_TELEPHONE_AREACODE: InputScope = 34i32;
-pub const IS_TELEPHONE_COUNTRYCODE: InputScope = 33i32;
-pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = 32i32;
-pub const IS_TELEPHONE_LOCALNUMBER: InputScope = 35i32;
-pub const IS_TEXT: InputScope = 57i32;
-pub const IS_TIME_FULLTIME: InputScope = 36i32;
-pub const IS_TIME_HOUR: InputScope = 37i32;
-pub const IS_TIME_MINORSEC: InputScope = 38i32;
-pub const IS_URL: InputScope = 1i32;
-pub const IS_XML: InputScope = -4i32;
-pub const IS_YOMI: InputScope = 56i32;
+pub const IS_ADDRESS_CITY: InputScope = 17;
+pub const IS_ADDRESS_COUNTRYNAME: InputScope = 18;
+pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = 19;
+pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = 13;
+pub const IS_ADDRESS_POSTALCODE: InputScope = 14;
+pub const IS_ADDRESS_STATEORPROVINCE: InputScope = 16;
+pub const IS_ADDRESS_STREET: InputScope = 15;
+pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = 41;
+pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = 40;
+pub const IS_ALPHANUMERIC_PIN: InputScope = 65;
+pub const IS_ALPHANUMERIC_PIN_SET: InputScope = 66;
+pub const IS_BOPOMOFO: InputScope = 43;
+pub const IS_CHAT: InputScope = 58;
+pub const IS_CHAT_WITHOUT_EMOJI: InputScope = 68;
+pub const IS_CHINESE_FULLWIDTH: InputScope = 54;
+pub const IS_CHINESE_HALFWIDTH: InputScope = 53;
+pub const IS_CURRENCY_AMOUNT: InputScope = 21;
+pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = 20;
+pub const IS_CURRENCY_CHINESE: InputScope = 42;
+pub const IS_DATE_DAY: InputScope = 24;
+pub const IS_DATE_DAYNAME: InputScope = 27;
+pub const IS_DATE_FULLDATE: InputScope = 22;
+pub const IS_DATE_MONTH: InputScope = 23;
+pub const IS_DATE_MONTHNAME: InputScope = 26;
+pub const IS_DATE_YEAR: InputScope = 25;
+pub const IS_DEFAULT: InputScope = 0;
+pub const IS_DIGITS: InputScope = 28;
+pub const IS_EMAILNAME_OR_ADDRESS: InputScope = 60;
+pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = 5;
+pub const IS_EMAIL_USERNAME: InputScope = 4;
+pub const IS_ENUMSTRING: InputScope = -5;
+pub const IS_FILE_FILENAME: InputScope = 3;
+pub const IS_FILE_FULLFILEPATH: InputScope = 2;
+pub const IS_FORMULA: InputScope = 51;
+pub const IS_FORMULA_NUMBER: InputScope = 67;
+pub const IS_HANGUL_FULLWIDTH: InputScope = 49;
+pub const IS_HANGUL_HALFWIDTH: InputScope = 48;
+pub const IS_HANJA: InputScope = 47;
+pub const IS_HIRAGANA: InputScope = 44;
+pub const IS_KATAKANA_FULLWIDTH: InputScope = 46;
+pub const IS_KATAKANA_HALFWIDTH: InputScope = 45;
+pub const IS_LOGINNAME: InputScope = 6;
+pub const IS_MAPS: InputScope = 62;
+pub const IS_NAME_OR_PHONENUMBER: InputScope = 59;
+pub const IS_NATIVE_SCRIPT: InputScope = 55;
+pub const IS_NUMBER: InputScope = 29;
+pub const IS_NUMBER_FULLWIDTH: InputScope = 39;
+pub const IS_NUMERIC_PASSWORD: InputScope = 63;
+pub const IS_NUMERIC_PIN: InputScope = 64;
+pub const IS_ONECHAR: InputScope = 30;
+pub const IS_PASSWORD: InputScope = 31;
+pub const IS_PERSONALNAME_FULLNAME: InputScope = 7;
+pub const IS_PERSONALNAME_GIVENNAME: InputScope = 9;
+pub const IS_PERSONALNAME_MIDDLENAME: InputScope = 10;
+pub const IS_PERSONALNAME_PREFIX: InputScope = 8;
+pub const IS_PERSONALNAME_SUFFIX: InputScope = 12;
+pub const IS_PERSONALNAME_SURNAME: InputScope = 11;
+pub const IS_PHRASELIST: InputScope = -1;
+pub const IS_PRIVATE: InputScope = 61;
+pub const IS_REGULAREXPRESSION: InputScope = -2;
+pub const IS_SEARCH: InputScope = 50;
+pub const IS_SEARCH_INCREMENTAL: InputScope = 52;
+pub const IS_SRGS: InputScope = -3;
+pub const IS_TELEPHONE_AREACODE: InputScope = 34;
+pub const IS_TELEPHONE_COUNTRYCODE: InputScope = 33;
+pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = 32;
+pub const IS_TELEPHONE_LOCALNUMBER: InputScope = 35;
+pub const IS_TEXT: InputScope = 57;
+pub const IS_TIME_FULLTIME: InputScope = 36;
+pub const IS_TIME_HOUR: InputScope = 37;
+pub const IS_TIME_MINORSEC: InputScope = 38;
+pub const IS_URL: InputScope = 1;
+pub const IS_XML: InputScope = -4;
+pub const IS_YOMI: InputScope = 56;
 pub type InputScope = i32;
 pub type LANG_BAR_ITEM_ICON_MODE_FLAGS = u32;
 pub const LIBID_MSAATEXTLib: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
 pub const MSAAControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
-pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0i32;
-pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = 1i32;
+pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0;
+pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = 1;
 pub type TEXT_STORE_CHANGE_FLAGS = u32;
 pub type TEXT_STORE_LOCK_FLAGS = u32;
 pub type TEXT_STORE_TEXT_CHANGE_FLAGS = u32;
-pub const TF_AE_END: TfActiveSelEnd = 2i32;
-pub const TF_AE_NONE: TfActiveSelEnd = 0i32;
-pub const TF_AE_START: TfActiveSelEnd = 1i32;
-pub const TF_ANCHOR_END: TfAnchor = 1i32;
-pub const TF_ANCHOR_START: TfAnchor = 0i32;
-pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = 2i32;
-pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = 5i32;
-pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = 0i32;
-pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = 4i32;
-pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = -1i32;
-pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = 1i32;
-pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = 3i32;
-pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
-pub const TF_CLUIE_COUNT: u32 = 2u32;
-pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
-pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
-pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
-pub const TF_CLUIE_SELECTION: u32 = 4u32;
-pub const TF_CLUIE_STRING: u32 = 8u32;
-pub const TF_COMMANDING_ENABLED: u32 = 4u32;
-pub const TF_COMMANDING_ON: u32 = 8u32;
+pub const TF_AE_END: TfActiveSelEnd = 2;
+pub const TF_AE_NONE: TfActiveSelEnd = 0;
+pub const TF_AE_START: TfActiveSelEnd = 1;
+pub const TF_ANCHOR_END: TfAnchor = 1;
+pub const TF_ANCHOR_START: TfAnchor = 0;
+pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = 2;
+pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = 5;
+pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = 0;
+pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = 4;
+pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = -1;
+pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = 1;
+pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = 3;
+pub const TF_CHAR_EMBEDDED: u32 = 65532;
+pub const TF_CLUIE_COUNT: u32 = 2;
+pub const TF_CLUIE_CURRENTPAGE: u32 = 32;
+pub const TF_CLUIE_DOCUMENTMGR: u32 = 1;
+pub const TF_CLUIE_PAGEINDEX: u32 = 16;
+pub const TF_CLUIE_SELECTION: u32 = 4;
+pub const TF_CLUIE_STRING: u32 = 8;
+pub const TF_COMMANDING_ENABLED: u32 = 4;
+pub const TF_COMMANDING_ON: u32 = 8;
 pub type TF_CONTEXT_EDIT_CONTEXT_FLAGS = u32;
-pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
-pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
-pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
-pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
-pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
-pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
-pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
-pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
-pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
-pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
-pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
-pub const TF_CT_COLORREF: TF_DA_COLORTYPE = 2i32;
-pub const TF_CT_NONE: TF_DA_COLORTYPE = 0i32;
-pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1i32;
+pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0;
+pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32;
+pub const TF_CONVERSIONMODE_EUDC: u32 = 512;
+pub const TF_CONVERSIONMODE_FIXED: u32 = 2048;
+pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8;
+pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2;
+pub const TF_CONVERSIONMODE_NATIVE: u32 = 1;
+pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256;
+pub const TF_CONVERSIONMODE_ROMAN: u32 = 16;
+pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128;
+pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024;
+pub const TF_CT_COLORREF: TF_DA_COLORTYPE = 2;
+pub const TF_CT_NONE: TF_DA_COLORTYPE = 0;
+pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1;
 pub type TF_DA_ATTR_INFO = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -249,13 +249,13 @@ impl Default for TF_DA_COLOR_0 {
 }
 pub type TF_DA_COLORTYPE = i32;
 pub type TF_DA_LINESTYLE = i32;
-pub const TF_DEFAULT_SELECTION: u32 = 4294967295u32;
-pub const TF_DICTATION_ENABLED: u32 = 2u32;
-pub const TF_DICTATION_ON: u32 = 1u32;
-pub const TF_DISABLE_BALLOON: u32 = 2u32;
-pub const TF_DISABLE_COMMANDING: u32 = 4u32;
-pub const TF_DISABLE_DICTATION: u32 = 2u32;
-pub const TF_DISABLE_SPEECH: u32 = 1u32;
+pub const TF_DEFAULT_SELECTION: u32 = 4294967295;
+pub const TF_DICTATION_ENABLED: u32 = 2;
+pub const TF_DICTATION_ON: u32 = 1;
+pub const TF_DISABLE_BALLOON: u32 = 2;
+pub const TF_DISABLE_COMMANDING: u32 = 4;
+pub const TF_DISABLE_DICTATION: u32 = 2;
+pub const TF_DISABLE_SPEECH: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
@@ -271,14 +271,14 @@ impl Default for TF_DISPLAYATTRIBUTE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = 0u32;
-pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = 1u32;
+pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = 0;
+pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = 1;
 pub const TF_ENABLE_PROCESS_ATOM: windows_sys::core::PCWSTR = windows_sys::core::w!("_CTF_ENABLE_PROCESS_ATOM_");
-pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 8u32;
-pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 0u32;
-pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 2u32;
-pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 6u32;
-pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 1u32;
+pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 8;
+pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 0;
+pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 2;
+pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 6;
+pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 1;
 pub const TF_E_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80040506_u32 as _;
 pub const TF_E_COMPOSITION_REJECTED: windows_sys::core::HRESULT = 0x80040508_u32 as _;
 pub const TF_E_DISCONNECTED: windows_sys::core::HRESULT = 0x80040504_u32 as _;
@@ -304,10 +304,10 @@ pub const TF_E_SYNCHRONOUS: windows_sys::core::HRESULT = 0x80040208_u32 as _;
 pub const TF_FLOATINGLANGBAR_WNDTITLE: windows_sys::core::PCWSTR = windows_sys::core::w!("TF_FloatingLangBar_WndTitle");
 pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_sys::core::PCSTR = windows_sys::core::s!("TF_FloatingLangBar_WndTitle");
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_sys::core::PCWSTR = windows_sys::core::w!("TF_FloatingLangBar_WndTitle");
-pub const TF_GRAVITY_BACKWARD: TfGravity = 0i32;
-pub const TF_GRAVITY_FORWARD: TfGravity = 1i32;
-pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 1u32;
-pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 0u32;
+pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
+pub const TF_GRAVITY_FORWARD: TfGravity = 1;
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 1;
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_HALTCOND {
@@ -320,11 +320,11 @@ impl Default for TF_HALTCOND {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TF_HF_OBJECT: u32 = 1u32;
-pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1u32;
-pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648u32;
-pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2u32;
-pub const TF_IE_CORRECTION: u32 = 1u32;
+pub const TF_HF_OBJECT: u32 = 1;
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1;
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648;
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2;
+pub const TF_IE_CORRECTION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[derive(Clone, Copy)]
@@ -345,25 +345,25 @@ impl Default for TF_INPUTPROCESSORPROFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
-pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
-pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
-pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
-pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
-pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
-pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
-pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
-pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
-pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
-pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
-pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
-pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
-pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
-pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
-pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
-pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
-pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
-pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
+pub const TF_INVALID_COOKIE: u32 = 4294967295;
+pub const TF_INVALID_EDIT_COOKIE: u32 = 0;
+pub const TF_IPPMF_DISABLEPROFILE: u32 = 2;
+pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4;
+pub const TF_IPPMF_ENABLEPROFILE: u32 = 1;
+pub const TF_IPPMF_FORPROCESS: u32 = 268435456;
+pub const TF_IPPMF_FORSESSION: u32 = 536870912;
+pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824;
+pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8;
+pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1;
+pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536;
+pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2;
+pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072;
+pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4;
+pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16;
+pub const TF_IPP_FLAG_ACTIVE: u32 = 1;
+pub const TF_IPP_FLAG_ENABLED: u32 = 2;
+pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
+pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_LANGBARITEMINFO {
@@ -398,40 +398,40 @@ impl Default for TF_LBBALLOONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TF_LBI_BALLOON: u32 = 16u32;
-pub const TF_LBI_BITMAP: u32 = 8u32;
-pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
-pub const TF_LBI_CLK_LEFT: TfLBIClick = 2i32;
-pub const TF_LBI_CLK_RIGHT: TfLBIClick = 1i32;
-pub const TF_LBI_CUSTOMUI: u32 = 32u32;
-pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
-pub const TF_LBI_ICON: u32 = 1u32;
-pub const TF_LBI_STATUS: u32 = 65536u32;
-pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536u32;
-pub const TF_LBI_STATUS_DISABLED: u32 = 2u32;
-pub const TF_LBI_STATUS_HIDDEN: u32 = 1u32;
-pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536u32;
-pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072u32;
-pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144u32;
-pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16u32;
-pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1u32;
-pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4u32;
-pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2u32;
-pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8u32;
-pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32u32;
-pub const TF_LBI_TEXT: u32 = 2u32;
-pub const TF_LBI_TOOLTIP: u32 = 4u32;
-pub const TF_LBMENUF_CHECKED: u32 = 1u32;
-pub const TF_LBMENUF_GRAYED: u32 = 16u32;
-pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
-pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
-pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
-pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = 2i32;
-pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = 0i32;
-pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = 1i32;
-pub const TF_LC_CHANGE: TfLayoutCode = 1i32;
-pub const TF_LC_CREATE: TfLayoutCode = 0i32;
-pub const TF_LC_DESTROY: TfLayoutCode = 2i32;
+pub const TF_LBI_BALLOON: u32 = 16;
+pub const TF_LBI_BITMAP: u32 = 8;
+pub const TF_LBI_BMPF_VERTICAL: u32 = 1;
+pub const TF_LBI_CLK_LEFT: TfLBIClick = 2;
+pub const TF_LBI_CLK_RIGHT: TfLBIClick = 1;
+pub const TF_LBI_CUSTOMUI: u32 = 32;
+pub const TF_LBI_DESC_MAXLEN: u32 = 32;
+pub const TF_LBI_ICON: u32 = 1;
+pub const TF_LBI_STATUS: u32 = 65536;
+pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536;
+pub const TF_LBI_STATUS_DISABLED: u32 = 2;
+pub const TF_LBI_STATUS_HIDDEN: u32 = 1;
+pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536;
+pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072;
+pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144;
+pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16;
+pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1;
+pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4;
+pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2;
+pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8;
+pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32;
+pub const TF_LBI_TEXT: u32 = 2;
+pub const TF_LBI_TOOLTIP: u32 = 4;
+pub const TF_LBMENUF_CHECKED: u32 = 1;
+pub const TF_LBMENUF_GRAYED: u32 = 16;
+pub const TF_LBMENUF_RADIOCHECKED: u32 = 8;
+pub const TF_LBMENUF_SEPARATOR: u32 = 4;
+pub const TF_LBMENUF_SUBMENU: u32 = 2;
+pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = 2;
+pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = 0;
+pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = 1;
+pub const TF_LC_CHANGE: TfLayoutCode = 1;
+pub const TF_LC_CREATE: TfLayoutCode = 0;
+pub const TF_LC_DESTROY: TfLayoutCode = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_LMLATTELEMENT {
@@ -456,23 +456,23 @@ impl Default for TF_LMLATTELEMENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TF_LS_DASH: TF_DA_LINESTYLE = 3i32;
-pub const TF_LS_DOT: TF_DA_LINESTYLE = 2i32;
-pub const TF_LS_NONE: TF_DA_LINESTYLE = 0i32;
-pub const TF_LS_SOLID: TF_DA_LINESTYLE = 1i32;
-pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = 4i32;
-pub const TF_MENUREADY: u32 = 1u32;
-pub const TF_MOD_ALT: u32 = 1u32;
-pub const TF_MOD_CONTROL: u32 = 2u32;
-pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
-pub const TF_MOD_LALT: u32 = 64u32;
-pub const TF_MOD_LCONTROL: u32 = 128u32;
-pub const TF_MOD_LSHIFT: u32 = 256u32;
-pub const TF_MOD_ON_KEYUP: u32 = 512u32;
-pub const TF_MOD_RALT: u32 = 8u32;
-pub const TF_MOD_RCONTROL: u32 = 16u32;
-pub const TF_MOD_RSHIFT: u32 = 32u32;
-pub const TF_MOD_SHIFT: u32 = 4u32;
+pub const TF_LS_DASH: TF_DA_LINESTYLE = 3;
+pub const TF_LS_DOT: TF_DA_LINESTYLE = 2;
+pub const TF_LS_NONE: TF_DA_LINESTYLE = 0;
+pub const TF_LS_SOLID: TF_DA_LINESTYLE = 1;
+pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = 4;
+pub const TF_MENUREADY: u32 = 1;
+pub const TF_MOD_ALT: u32 = 1;
+pub const TF_MOD_CONTROL: u32 = 2;
+pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024;
+pub const TF_MOD_LALT: u32 = 64;
+pub const TF_MOD_LCONTROL: u32 = 128;
+pub const TF_MOD_LSHIFT: u32 = 256;
+pub const TF_MOD_ON_KEYUP: u32 = 512;
+pub const TF_MOD_RALT: u32 = 8;
+pub const TF_MOD_RCONTROL: u32 = 16;
+pub const TF_MOD_RSHIFT: u32 = 32;
+pub const TF_MOD_SHIFT: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
@@ -483,7 +483,7 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub dwPrivate: u32,
     pub clsidTIP: windows_sys::core::GUID,
 }
-pub const TF_POPF_ALL: u32 = 1u32;
+pub const TF_POPF_ALL: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TF_PRESERVEDKEY {
@@ -491,8 +491,8 @@ pub struct TF_PRESERVEDKEY {
     pub uModifiers: u32,
 }
 pub const TF_PROCESS_ATOM: windows_sys::core::PCWSTR = windows_sys::core::w!("_CTF_PROCESS_ATOM_");
-pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
-pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
+pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1;
+pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2;
 pub const TF_PROFILE_ARRAY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd38eff65_aa46_4fd5_91a7_67845fb02f5b);
 pub const TF_PROFILE_CANTONESE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0aec109c_7e96_11d4_b2ef_0080c882687e);
 pub const TF_PROFILE_CHANGJIE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bdf9f03_c7d3_11d4_b2ab_0080c882687e);
@@ -520,25 +520,25 @@ impl Default for TF_PROPERTYVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
-pub const TF_RCM_COMLESS: u32 = 1u32;
-pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
-pub const TF_RCM_HINT_READING_LENGTH: u32 = 4u32;
-pub const TF_RCM_VKEY: u32 = 2u32;
-pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1u32;
-pub const TF_RIUIE_CONTEXT: u32 = 1u32;
-pub const TF_RIUIE_ERRORINDEX: u32 = 8u32;
-pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4u32;
-pub const TF_RIUIE_STRING: u32 = 2u32;
-pub const TF_RIUIE_VERTICALORDER: u32 = 16u32;
-pub const TF_RP_HIDDENINSETTINGUI: u32 = 2u32;
-pub const TF_RP_LOCALPROCESS: u32 = 4u32;
-pub const TF_RP_LOCALTHREAD: u32 = 8u32;
-pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
-pub const TF_SD_BACKWARD: TfShiftDir = 0i32;
-pub const TF_SD_FORWARD: TfShiftDir = 1i32;
-pub const TF_SD_LOADING: u32 = 2u32;
-pub const TF_SD_READONLY: u32 = 1u32;
+pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1;
+pub const TF_RCM_COMLESS: u32 = 1;
+pub const TF_RCM_HINT_COLLISION: u32 = 8;
+pub const TF_RCM_HINT_READING_LENGTH: u32 = 4;
+pub const TF_RCM_VKEY: u32 = 2;
+pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1;
+pub const TF_RIUIE_CONTEXT: u32 = 1;
+pub const TF_RIUIE_ERRORINDEX: u32 = 8;
+pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4;
+pub const TF_RIUIE_STRING: u32 = 2;
+pub const TF_RIUIE_VERTICALORDER: u32 = 16;
+pub const TF_RP_HIDDENINSETTINGUI: u32 = 2;
+pub const TF_RP_LOCALPROCESS: u32 = 4;
+pub const TF_RP_LOCALTHREAD: u32 = 8;
+pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16;
+pub const TF_SD_BACKWARD: TfShiftDir = 0;
+pub const TF_SD_FORWARD: TfShiftDir = 1;
+pub const TF_SD_LOADING: u32 = 2;
+pub const TF_SD_READONLY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_SELECTION {
@@ -556,74 +556,74 @@ pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: windows_sys::core::BOOL,
 }
-pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
-pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
-pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
-pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8u32;
-pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1u32;
-pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2u32;
-pub const TF_SFT_DESKBAND: u32 = 2048u32;
-pub const TF_SFT_DOCK: u32 = 2u32;
-pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512u32;
-pub const TF_SFT_HIDDEN: u32 = 8u32;
-pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64u32;
-pub const TF_SFT_LABELS: u32 = 128u32;
-pub const TF_SFT_LOWTRANSPARENCY: u32 = 32u32;
-pub const TF_SFT_MINIMIZED: u32 = 4u32;
-pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024u32;
-pub const TF_SFT_NOLABELS: u32 = 256u32;
-pub const TF_SFT_NOTRANSPARENCY: u32 = 16u32;
-pub const TF_SFT_SHOWNORMAL: u32 = 1u32;
-pub const TF_SHOW_BALLOON: u32 = 1u32;
-pub const TF_SPEECHUI_SHOWN: u32 = 16u32;
-pub const TF_SS_DISJOINTSEL: u32 = 1u32;
-pub const TF_SS_REGIONS: u32 = 2u32;
-pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-pub const TF_SS_TRANSITORY: u32 = 4u32;
-pub const TF_ST_CORRECTION: u32 = 1u32;
+pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4;
+pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16;
+pub const TF_SENTENCEMODE_NONE: u32 = 0;
+pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8;
+pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1;
+pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2;
+pub const TF_SFT_DESKBAND: u32 = 2048;
+pub const TF_SFT_DOCK: u32 = 2;
+pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512;
+pub const TF_SFT_HIDDEN: u32 = 8;
+pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64;
+pub const TF_SFT_LABELS: u32 = 128;
+pub const TF_SFT_LOWTRANSPARENCY: u32 = 32;
+pub const TF_SFT_MINIMIZED: u32 = 4;
+pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024;
+pub const TF_SFT_NOLABELS: u32 = 256;
+pub const TF_SFT_NOTRANSPARENCY: u32 = 16;
+pub const TF_SFT_SHOWNORMAL: u32 = 1;
+pub const TF_SHOW_BALLOON: u32 = 1;
+pub const TF_SPEECHUI_SHOWN: u32 = 16;
+pub const TF_SS_DISJOINTSEL: u32 = 1;
+pub const TF_SS_REGIONS: u32 = 2;
+pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16;
+pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32;
+pub const TF_SS_TRANSITORY: u32 = 4;
+pub const TF_ST_CORRECTION: u32 = 1;
 pub const TF_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
-pub const TF_TF_IGNOREEND: u32 = 2u32;
-pub const TF_TF_MOVESTART: u32 = 1u32;
-pub const TF_TMAE_COMLESS: u32 = 8u32;
-pub const TF_TMAE_CONSOLE: u32 = 64u32;
-pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32u32;
-pub const TF_TMAE_NOACTIVATETIP: u32 = 1u32;
-pub const TF_TMAE_SECUREMODE: u32 = 2u32;
-pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4u32;
-pub const TF_TMAE_WOW16: u32 = 16u32;
-pub const TF_TMF_ACTIVATED: u32 = 2147483648u32;
-pub const TF_TMF_COMLESS: u32 = 8u32;
-pub const TF_TMF_CONSOLE: u32 = 64u32;
-pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824u32;
-pub const TF_TMF_NOACTIVATETIP: u32 = 1u32;
-pub const TF_TMF_SECUREMODE: u32 = 2u32;
-pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4u32;
-pub const TF_TMF_WOW16: u32 = 16u32;
-pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2u32;
-pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1u32;
-pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0u32;
-pub const TF_TU_CORRECTION: u32 = 1u32;
-pub const TF_URP_ALLPROFILES: u32 = 2u32;
-pub const TF_URP_LOCALPROCESS: u32 = 4u32;
-pub const TF_URP_LOCALTHREAD: u32 = 8u32;
-pub const TF_US_HIDETIPUI: u32 = 1u32;
-pub const TKBLT_CLASSIC: TKBLayoutType = 1i32;
-pub const TKBLT_OPTIMIZED: TKBLayoutType = 2i32;
-pub const TKBLT_UNDEFINED: TKBLayoutType = 0i32;
-pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
-pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507u32;
-pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
-pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041u32;
-pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
-pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
-pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
-pub const TKBL_UNDEFINED: u32 = 0u32;
+pub const TF_TF_IGNOREEND: u32 = 2;
+pub const TF_TF_MOVESTART: u32 = 1;
+pub const TF_TMAE_COMLESS: u32 = 8;
+pub const TF_TMAE_CONSOLE: u32 = 64;
+pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32;
+pub const TF_TMAE_NOACTIVATETIP: u32 = 1;
+pub const TF_TMAE_SECUREMODE: u32 = 2;
+pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4;
+pub const TF_TMAE_WOW16: u32 = 16;
+pub const TF_TMF_ACTIVATED: u32 = 2147483648;
+pub const TF_TMF_COMLESS: u32 = 8;
+pub const TF_TMF_CONSOLE: u32 = 64;
+pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824;
+pub const TF_TMF_NOACTIVATETIP: u32 = 1;
+pub const TF_TMF_SECUREMODE: u32 = 2;
+pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4;
+pub const TF_TMF_WOW16: u32 = 16;
+pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2;
+pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1;
+pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0;
+pub const TF_TU_CORRECTION: u32 = 1;
+pub const TF_URP_ALLPROFILES: u32 = 2;
+pub const TF_URP_LOCALPROCESS: u32 = 4;
+pub const TF_URP_LOCALTHREAD: u32 = 8;
+pub const TF_US_HIDETIPUI: u32 = 1;
+pub const TKBLT_CLASSIC: TKBLayoutType = 1;
+pub const TKBLT_OPTIMIZED: TKBLayoutType = 2;
+pub const TKBLT_UNDEFINED: TKBLayoutType = 0;
+pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506;
+pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507;
+pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028;
+pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041;
+pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042;
+pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052;
+pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028;
+pub const TKBL_UNDEFINED: u32 = 0;
 pub type TKBLayoutType = i32;
-pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
-pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
-pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
-pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
+pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4;
+pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2;
+pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3;
+pub const TKB_ALTERNATES_STANDARD: u32 = 1;
 pub const TSATTRID_App: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa80f77df_4237_40e5_849c_b5fa51c13ac7);
 pub const TSATTRID_App_IncorrectGrammar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd54e398_ad03_4b74_b6b3_5edb19996388);
 pub const TSATTRID_App_IncorrectSpelling: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf42de43c_ef12_430d_944c_9a08970a25d2);
@@ -708,14 +708,14 @@ pub const TSATTRID_Text_Para_SpaceBefore: windows_sys::core::GUID = windows_sys:
 pub const TSATTRID_Text_ReadOnly: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x85836617_de32_4afd_a50f_a2db110e6e4d);
 pub const TSATTRID_Text_RightToLeft: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca666e71_1b08_453d_bfdd_28e08c8aaf7a);
 pub const TSATTRID_Text_VerticalWriting: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6bba8195_046f_4ea9_b311_97fd66c4274b);
-pub const TS_AE_END: TsActiveSelEnd = 2i32;
-pub const TS_AE_NONE: TsActiveSelEnd = 0i32;
-pub const TS_AE_START: TsActiveSelEnd = 1i32;
-pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
-pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
-pub const TS_AS_SEL_CHANGE: u32 = 2u32;
-pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
-pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
+pub const TS_AE_END: TsActiveSelEnd = 2;
+pub const TS_AE_NONE: TsActiveSelEnd = 0;
+pub const TS_AE_START: TsActiveSelEnd = 1;
+pub const TS_AS_ATTR_CHANGE: u32 = 8;
+pub const TS_AS_LAYOUT_CHANGE: u32 = 4;
+pub const TS_AS_SEL_CHANGE: u32 = 2;
+pub const TS_AS_STATUS_CHANGE: u32 = 16;
+pub const TS_AS_TEXT_CHANGE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -730,18 +730,18 @@ impl Default for TS_ATTRVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
-pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
-pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
-pub const TS_ATTR_FIND_WANT_END: u32 = 16u32;
-pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2u32;
-pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
-pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
-pub const TS_CHAR_REGION: u32 = 0u32;
-pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
-pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 2u32;
-pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 1u32;
-pub const TS_DEFAULT_SELECTION: u32 = 4294967295u32;
+pub const TS_ATTR_FIND_BACKWARDS: u32 = 1;
+pub const TS_ATTR_FIND_HIDDEN: u32 = 32;
+pub const TS_ATTR_FIND_UPDATESTART: u32 = 4;
+pub const TS_ATTR_FIND_WANT_END: u32 = 16;
+pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2;
+pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8;
+pub const TS_CHAR_EMBEDDED: u32 = 65532;
+pub const TS_CHAR_REGION: u32 = 0;
+pub const TS_CHAR_REPLACEMENT: u32 = 65533;
+pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 2;
+pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 1;
+pub const TS_DEFAULT_SELECTION: u32 = 4294967295;
 pub const TS_E_FORMAT: windows_sys::core::HRESULT = 0x8004020A_u32 as _;
 pub const TS_E_INVALIDPOINT: windows_sys::core::HRESULT = 0x80040207_u32 as _;
 pub const TS_E_INVALIDPOS: windows_sys::core::HRESULT = 0x80040200_u32 as _;
@@ -753,40 +753,40 @@ pub const TS_E_NOSELECTION: windows_sys::core::HRESULT = 0x80040205_u32 as _;
 pub const TS_E_NOSERVICE: windows_sys::core::HRESULT = 0x80040203_u32 as _;
 pub const TS_E_READONLY: windows_sys::core::HRESULT = 0x80040209_u32 as _;
 pub const TS_E_SYNCHRONOUS: windows_sys::core::HRESULT = 0x80040208_u32 as _;
-pub const TS_GEA_HIDDEN: u32 = 1u32;
-pub const TS_GR_BACKWARD: TsGravity = 0i32;
-pub const TS_GR_FORWARD: TsGravity = 1i32;
-pub const TS_GTA_HIDDEN: u32 = 1u32;
-pub const TS_IAS_NOQUERY: u32 = 1u32;
-pub const TS_IAS_QUERYONLY: u32 = 2u32;
-pub const TS_IE_COMPOSITION: u32 = 2u32;
-pub const TS_IE_CORRECTION: u32 = 1u32;
-pub const TS_LC_CHANGE: TsLayoutCode = 1i32;
-pub const TS_LC_CREATE: TsLayoutCode = 0i32;
-pub const TS_LC_DESTROY: TsLayoutCode = 2i32;
-pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = 2u32;
-pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = 6u32;
-pub const TS_LF_SYNC: u32 = 1u32;
-pub const TS_RT_HIDDEN: TsRunType = 1i32;
-pub const TS_RT_OPAQUE: TsRunType = 2i32;
-pub const TS_RT_PLAIN: TsRunType = 0i32;
+pub const TS_GEA_HIDDEN: u32 = 1;
+pub const TS_GR_BACKWARD: TsGravity = 0;
+pub const TS_GR_FORWARD: TsGravity = 1;
+pub const TS_GTA_HIDDEN: u32 = 1;
+pub const TS_IAS_NOQUERY: u32 = 1;
+pub const TS_IAS_QUERYONLY: u32 = 2;
+pub const TS_IE_COMPOSITION: u32 = 2;
+pub const TS_IE_CORRECTION: u32 = 1;
+pub const TS_LC_CHANGE: TsLayoutCode = 1;
+pub const TS_LC_CREATE: TsLayoutCode = 0;
+pub const TS_LC_DESTROY: TsLayoutCode = 2;
+pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = 2;
+pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = 6;
+pub const TS_LF_SYNC: u32 = 1;
+pub const TS_RT_HIDDEN: TsRunType = 1;
+pub const TS_RT_OPAQUE: TsRunType = 2;
+pub const TS_RT_PLAIN: TsRunType = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
 }
-pub const TS_SD_BACKWARD: TsShiftDir = 0i32;
-pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
-pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
-pub const TS_SD_FORWARD: TsShiftDir = 1i32;
-pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
-pub const TS_SD_LOADING: u32 = 2u32;
-pub const TS_SD_READONLY: u32 = 1u32;
-pub const TS_SD_RESERVED: u32 = 4u32;
-pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
-pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
-pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
+pub const TS_SD_BACKWARD: TsShiftDir = 0;
+pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128;
+pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256;
+pub const TS_SD_FORWARD: TsShiftDir = 1;
+pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64;
+pub const TS_SD_LOADING: u32 = 2;
+pub const TS_SD_READONLY: u32 = 1;
+pub const TS_SD_RESERVED: u32 = 4;
+pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8;
+pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16;
+pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_SELECTIONSTYLE {
@@ -812,31 +812,31 @@ impl Default for TS_SELECTION_ANCHOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
-pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
-pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
-pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
-pub const TS_SS_DISJOINTSEL: u32 = 1u32;
-pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
-pub const TS_SS_REGIONS: u32 = 2u32;
-pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-pub const TS_SS_TRANSITORY: u32 = 4u32;
-pub const TS_SS_UWPCONTROL: u32 = 64u32;
+pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1;
+pub const TS_SHIFT_COUNT_ONLY: u32 = 8;
+pub const TS_SHIFT_HALT_HIDDEN: u32 = 2;
+pub const TS_SHIFT_HALT_VISIBLE: u32 = 4;
+pub const TS_SS_DISJOINTSEL: u32 = 1;
+pub const TS_SS_NOHIDDENTEXT: u32 = 8;
+pub const TS_SS_REGIONS: u32 = 2;
+pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16;
+pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32;
+pub const TS_SS_TRANSITORY: u32 = 4;
+pub const TS_SS_UWPCONTROL: u32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
 }
-pub const TS_STRF_END: u32 = 2u32;
-pub const TS_STRF_MID: u32 = 1u32;
-pub const TS_STRF_START: u32 = 0u32;
-pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1u32;
-pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0u32;
+pub const TS_STRF_END: u32 = 2;
+pub const TS_STRF_MID: u32 = 1;
+pub const TS_STRF_START: u32 = 0;
+pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1;
+pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0;
 pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
-pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1u32;
-pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0u32;
+pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1;
+pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_TEXTCHANGE {
@@ -844,7 +844,7 @@ pub struct TS_TEXTCHANGE {
     pub acpOldEnd: i32,
     pub acpNewEnd: i32,
 }
-pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
+pub const TS_VCOOKIE_NUL: u32 = 4294967295;
 pub type TfActiveSelEnd = i32;
 pub type TfAnchor = i32;
 pub type TfCandidateResult = i32;

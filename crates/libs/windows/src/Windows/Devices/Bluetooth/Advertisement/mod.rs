@@ -394,12 +394,12 @@ unsafe impl Sync for BluetoothLEAdvertisementFilter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
-    pub const None: Self = Self(0u32);
-    pub const LimitedDiscoverableMode: Self = Self(1u32);
-    pub const GeneralDiscoverableMode: Self = Self(2u32);
-    pub const ClassicNotSupported: Self = Self(4u32);
-    pub const DualModeControllerCapable: Self = Self(8u32);
-    pub const DualModeHostCapable: Self = Self(16u32);
+    pub const None: Self = Self(0);
+    pub const LimitedDiscoverableMode: Self = Self(1);
+    pub const GeneralDiscoverableMode: Self = Self(2);
+    pub const ClassicNotSupported: Self = Self(4);
+    pub const DualModeControllerCapable: Self = Self(8);
+    pub const DualModeHostCapable: Self = Self(16);
 }
 impl windows_core::TypeKind for BluetoothLEAdvertisementFlags {
     type TypeKind = windows_core::CopyType;
@@ -445,10 +445,10 @@ impl core::ops::Not for BluetoothLEAdvertisementFlags {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPhyType(pub i32);
 impl BluetoothLEAdvertisementPhyType {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Uncoded1MPhy: Self = Self(1i32);
-    pub const Uncoded2MPhy: Self = Self(2i32);
-    pub const CodedPhy: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Uncoded1MPhy: Self = Self(1);
+    pub const Uncoded2MPhy: Self = Self(2);
+    pub const CodedPhy: Self = Self(3);
 }
 impl windows_core::TypeKind for BluetoothLEAdvertisementPhyType {
     type TypeKind = windows_core::CopyType;
@@ -596,12 +596,12 @@ unsafe impl Sync for BluetoothLEAdvertisementPublisher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Waiting: Self = Self(1i32);
-    pub const Started: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Waiting: Self = Self(1);
+    pub const Started: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for BluetoothLEAdvertisementPublisherStatus {
     type TypeKind = windows_core::CopyType;
@@ -808,12 +808,12 @@ unsafe impl Sync for BluetoothLEAdvertisementScanParameters {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
-    pub const ConnectableUndirected: Self = Self(0i32);
-    pub const ConnectableDirected: Self = Self(1i32);
-    pub const ScannableUndirected: Self = Self(2i32);
-    pub const NonConnectableUndirected: Self = Self(3i32);
-    pub const ScanResponse: Self = Self(4i32);
-    pub const Extended: Self = Self(5i32);
+    pub const ConnectableUndirected: Self = Self(0);
+    pub const ConnectableDirected: Self = Self(1);
+    pub const ScannableUndirected: Self = Self(2);
+    pub const NonConnectableUndirected: Self = Self(3);
+    pub const ScanResponse: Self = Self(4);
+    pub const Extended: Self = Self(5);
 }
 impl windows_core::TypeKind for BluetoothLEAdvertisementType {
     type TypeKind = windows_core::CopyType;
@@ -1015,11 +1015,11 @@ unsafe impl Sync for BluetoothLEAdvertisementWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const Stopping: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
-    pub const Aborted: Self = Self(4i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const Stopping: Self = Self(2);
+    pub const Stopped: Self = Self(3);
+    pub const Aborted: Self = Self(4);
 }
 impl windows_core::TypeKind for BluetoothLEAdvertisementWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -1118,9 +1118,9 @@ unsafe impl Sync for BluetoothLEManufacturerData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {
-    pub const Passive: Self = Self(0i32);
-    pub const Active: Self = Self(1i32);
-    pub const None: Self = Self(2i32);
+    pub const Passive: Self = Self(0);
+    pub const Active: Self = Self(1);
+    pub const None: Self = Self(2);
 }
 impl windows_core::TypeKind for BluetoothLEScanningMode {
     type TypeKind = windows_core::CopyType;

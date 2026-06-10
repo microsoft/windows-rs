@@ -383,9 +383,9 @@ pub struct ISceneVisualStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
-    pub const Opaque: Self = Self(0i32);
-    pub const AlphaTest: Self = Self(1i32);
-    pub const Blend: Self = Self(2i32);
+    pub const Opaque: Self = Self(0);
+    pub const AlphaTest: Self = Self(1);
+    pub const Blend: Self = Self(2);
 }
 impl windows_core::TypeKind for SceneAlphaMode {
     type TypeKind = windows_core::CopyType;
@@ -398,13 +398,13 @@ impl windows_core::RuntimeType for SceneAlphaMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
-    pub const Index: Self = Self(0i32);
-    pub const Vertex: Self = Self(1i32);
-    pub const Normal: Self = Self(2i32);
-    pub const TexCoord0: Self = Self(3i32);
-    pub const TexCoord1: Self = Self(4i32);
-    pub const Color: Self = Self(5i32);
-    pub const Tangent: Self = Self(6i32);
+    pub const Index: Self = Self(0);
+    pub const Vertex: Self = Self(1);
+    pub const Normal: Self = Self(2);
+    pub const TexCoord0: Self = Self(3);
+    pub const TexCoord1: Self = Self(4);
+    pub const Color: Self = Self(5);
+    pub const Tangent: Self = Self(6);
 }
 impl windows_core::TypeKind for SceneAttributeSemantic {
     type TypeKind = windows_core::CopyType;
@@ -912,7 +912,7 @@ impl IntoIterator for &SceneComponentCollection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
-    pub const MeshRendererComponent: Self = Self(0i32);
+    pub const MeshRendererComponent: Self = Self(0);
 }
 impl windows_core::TypeKind for SceneComponentType {
     type TypeKind = windows_core::CopyType;
@@ -3608,9 +3608,9 @@ unsafe impl Sync for SceneVisual {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {
-    pub const ClampToEdge: Self = Self(0i32);
-    pub const MirroredRepeat: Self = Self(1i32);
-    pub const Repeat: Self = Self(2i32);
+    pub const ClampToEdge: Self = Self(0);
+    pub const MirroredRepeat: Self = Self(1);
+    pub const Repeat: Self = Self(2);
 }
 impl windows_core::TypeKind for SceneWrappingMode {
     type TypeKind = windows_core::CopyType;

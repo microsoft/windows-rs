@@ -236,8 +236,8 @@ unsafe impl Sync for AsymmetricKeyAlgorithmProvider {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
-    pub const NotAes: Self = Self(0i32);
-    pub const Aes: Self = Self(1i32);
+    pub const NotAes: Self = Self(0);
+    pub const Aes: Self = Self(1);
 }
 impl windows_core::TypeKind for Capi1KdfTargetAlgorithm {
     type TypeKind = windows_core::CopyType;
@@ -490,10 +490,10 @@ unsafe impl Sync for CryptographicKey {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
-    pub const None: Self = Self(0i32);
-    pub const RsaOaep: Self = Self(1i32);
-    pub const RsaPkcs1V15: Self = Self(2i32);
-    pub const RsaPss: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const RsaOaep: Self = Self(1);
+    pub const RsaPkcs1V15: Self = Self(2);
+    pub const RsaPss: Self = Self(3);
 }
 impl windows_core::TypeKind for CryptographicPadding {
     type TypeKind = windows_core::CopyType;
@@ -506,11 +506,11 @@ impl windows_core::RuntimeType for CryptographicPadding {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
-    pub const Pkcs8RawPrivateKeyInfo: Self = Self(0i32);
-    pub const Pkcs1RsaPrivateKey: Self = Self(1i32);
-    pub const BCryptPrivateKey: Self = Self(2i32);
-    pub const Capi1PrivateKey: Self = Self(3i32);
-    pub const BCryptEccFullPrivateKey: Self = Self(4i32);
+    pub const Pkcs8RawPrivateKeyInfo: Self = Self(0);
+    pub const Pkcs1RsaPrivateKey: Self = Self(1);
+    pub const BCryptPrivateKey: Self = Self(2);
+    pub const Capi1PrivateKey: Self = Self(3);
+    pub const BCryptEccFullPrivateKey: Self = Self(4);
 }
 impl windows_core::TypeKind for CryptographicPrivateKeyBlobType {
     type TypeKind = windows_core::CopyType;
@@ -523,11 +523,11 @@ impl windows_core::RuntimeType for CryptographicPrivateKeyBlobType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
-    pub const X509SubjectPublicKeyInfo: Self = Self(0i32);
-    pub const Pkcs1RsaPublicKey: Self = Self(1i32);
-    pub const BCryptPublicKey: Self = Self(2i32);
-    pub const Capi1PublicKey: Self = Self(3i32);
-    pub const BCryptEccFullPublicKey: Self = Self(4i32);
+    pub const X509SubjectPublicKeyInfo: Self = Self(0);
+    pub const Pkcs1RsaPublicKey: Self = Self(1);
+    pub const BCryptPublicKey: Self = Self(2);
+    pub const Capi1PublicKey: Self = Self(3);
+    pub const BCryptEccFullPublicKey: Self = Self(4);
 }
 impl windows_core::TypeKind for CryptographicPublicKeyBlobType {
     type TypeKind = windows_core::CopyType;

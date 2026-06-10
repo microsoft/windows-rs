@@ -6563,7 +6563,7 @@ where
     windows_core::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : windows_core::PCSTR, componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
     unsafe { vDbgPrintExWithPrefix(prefix.param().abi(), componentid, level, format.param().abi(), arglist) }
 }
-pub const ACPIBus: INTERFACE_TYPE = INTERFACE_TYPE(17i32);
+pub const ACPIBus: INTERFACE_TYPE = INTERFACE_TYPE(17);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACPI_DEBUGGING_DEVICE_IN_USE {
@@ -6619,8 +6619,8 @@ impl Default for ACPI_INTERFACE_STANDARD2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ADAPTER_INFO_API_BYPASS: u32 = 2u32;
-pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: u32 = 1u32;
+pub const ADAPTER_INFO_API_BYPASS: u32 = 2;
+pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
@@ -6640,8 +6640,8 @@ impl Default for AGP_TARGET_BUS_INTERFACE_STANDARD {
 }
 #[cfg(feature = "Wdk_Foundation")]
 pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;
-pub const ALLOC_DATA_PRAGMA: u32 = 1u32;
-pub const ALLOC_PRAGMA: u32 = 1u32;
+pub const ALLOC_DATA_PRAGMA: u32 = 1;
+pub const ALLOC_PRAGMA: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALTERNATIVE_ARCHITECTURE_TYPE(pub i32);
@@ -6700,8 +6700,8 @@ pub struct AMD_L3_CACHE_INFO_0 {
     pub _bitfield1: u8,
     pub _bitfield2: u16,
 }
-pub const ANY_SIZE: u32 = 1u32;
-pub const APC_LEVEL: u32 = 1u32;
+pub const ANY_SIZE: u32 = 1;
+pub const APC_LEVEL: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARBITER_ACTION(pub i32);
@@ -6743,9 +6743,9 @@ impl Default for ARBITER_CONFLICT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ARBITER_FLAG_BOOT_CONFIG: u32 = 1u32;
-pub const ARBITER_FLAG_OTHER_ENUM: u32 = 4u32;
-pub const ARBITER_FLAG_ROOT_ENUM: u32 = 2u32;
+pub const ARBITER_FLAG_BOOT_CONFIG: u32 = 1;
+pub const ARBITER_FLAG_OTHER_ENUM: u32 = 4;
+pub const ARBITER_FLAG_ROOT_ENUM: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug)]
@@ -6818,7 +6818,7 @@ impl Default for ARBITER_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ARBITER_PARTIAL: u32 = 1u32;
+pub const ARBITER_PARTIAL: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
@@ -6962,42 +6962,42 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
-pub const ARM64_PCR_RESERVED_MASK: u32 = 4095u32;
+pub const ARM64_PCR_RESERVED_MASK: u32 = 4095;
 pub const ARM_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe19e3d16_bc11_11e4_9caa_c2051d5d46b0);
-pub const ATS_DEVICE_SVM_OPTOUT: u32 = 1u32;
-pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(5i32);
-pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(1i32);
-pub const AgpControl: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(1i32);
-pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(6i32);
-pub const AperturePageSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(3i32);
-pub const ApertureSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(2i32);
-pub const ApicDestinationModeLogicalClustered: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(3i32);
-pub const ApicDestinationModeLogicalFlat: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(2i32);
-pub const ApicDestinationModePhysical: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(1i32);
-pub const ApicDestinationModeUnknown: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(4i32);
-pub const ArbiterActionAddReserved: ARBITER_ACTION = ARBITER_ACTION(8i32);
-pub const ArbiterActionBootAllocation: ARBITER_ACTION = ARBITER_ACTION(9i32);
-pub const ArbiterActionCommitAllocation: ARBITER_ACTION = ARBITER_ACTION(2i32);
-pub const ArbiterActionQueryAllocatedResources: ARBITER_ACTION = ARBITER_ACTION(4i32);
-pub const ArbiterActionQueryArbitrate: ARBITER_ACTION = ARBITER_ACTION(7i32);
-pub const ArbiterActionQueryConflict: ARBITER_ACTION = ARBITER_ACTION(6i32);
-pub const ArbiterActionRetestAllocation: ARBITER_ACTION = ARBITER_ACTION(1i32);
-pub const ArbiterActionRollbackAllocation: ARBITER_ACTION = ARBITER_ACTION(3i32);
-pub const ArbiterActionTestAllocation: ARBITER_ACTION = ARBITER_ACTION(0i32);
-pub const ArbiterActionWriteReservedResources: ARBITER_ACTION = ARBITER_ACTION(5i32);
-pub const ArbiterRequestHalReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(1i32);
-pub const ArbiterRequestLegacyAssigned: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(2i32);
-pub const ArbiterRequestLegacyReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(0i32);
-pub const ArbiterRequestPnpDetected: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(3i32);
-pub const ArbiterRequestPnpEnumerated: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(4i32);
-pub const ArbiterRequestUndefined: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(-1i32);
-pub const ArbiterResultExternalConflict: ARBITER_RESULT = ARBITER_RESULT(1i32);
-pub const ArbiterResultNullRequest: ARBITER_RESULT = ARBITER_RESULT(2i32);
-pub const ArbiterResultSuccess: ARBITER_RESULT = ARBITER_RESULT(0i32);
-pub const ArbiterResultUndefined: ARBITER_RESULT = ARBITER_RESULT(-1i32);
-pub const ArcSystem: CONFIGURATION_TYPE = CONFIGURATION_TYPE(0i32);
-pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(3i32);
-pub const AudioController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(23i32);
+pub const ATS_DEVICE_SVM_OPTOUT: u32 = 1;
+pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(5);
+pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(1);
+pub const AgpControl: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(1);
+pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(6);
+pub const AperturePageSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(3);
+pub const ApertureSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(2);
+pub const ApicDestinationModeLogicalClustered: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(3);
+pub const ApicDestinationModeLogicalFlat: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(2);
+pub const ApicDestinationModePhysical: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(1);
+pub const ApicDestinationModeUnknown: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(4);
+pub const ArbiterActionAddReserved: ARBITER_ACTION = ARBITER_ACTION(8);
+pub const ArbiterActionBootAllocation: ARBITER_ACTION = ARBITER_ACTION(9);
+pub const ArbiterActionCommitAllocation: ARBITER_ACTION = ARBITER_ACTION(2);
+pub const ArbiterActionQueryAllocatedResources: ARBITER_ACTION = ARBITER_ACTION(4);
+pub const ArbiterActionQueryArbitrate: ARBITER_ACTION = ARBITER_ACTION(7);
+pub const ArbiterActionQueryConflict: ARBITER_ACTION = ARBITER_ACTION(6);
+pub const ArbiterActionRetestAllocation: ARBITER_ACTION = ARBITER_ACTION(1);
+pub const ArbiterActionRollbackAllocation: ARBITER_ACTION = ARBITER_ACTION(3);
+pub const ArbiterActionTestAllocation: ARBITER_ACTION = ARBITER_ACTION(0);
+pub const ArbiterActionWriteReservedResources: ARBITER_ACTION = ARBITER_ACTION(5);
+pub const ArbiterRequestHalReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(1);
+pub const ArbiterRequestLegacyAssigned: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(2);
+pub const ArbiterRequestLegacyReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(0);
+pub const ArbiterRequestPnpDetected: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(3);
+pub const ArbiterRequestPnpEnumerated: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(4);
+pub const ArbiterRequestUndefined: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(-1);
+pub const ArbiterResultExternalConflict: ARBITER_RESULT = ARBITER_RESULT(1);
+pub const ArbiterResultNullRequest: ARBITER_RESULT = ARBITER_RESULT(2);
+pub const ArbiterResultSuccess: ARBITER_RESULT = ARBITER_RESULT(0);
+pub const ArbiterResultUndefined: ARBITER_RESULT = ARBITER_RESULT(-1);
+pub const ArcSystem: CONFIGURATION_TYPE = CONFIGURATION_TYPE(0);
+pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(3);
+pub const AudioController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(23);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDCB_CALLBACK_TYPE(pub i32);
@@ -7128,37 +7128,37 @@ impl Default for BUS_SPECIFIC_RESET_FLAGS {
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
 }
-pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(4i32);
-pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(4i32);
-pub const BdCbClassificationKnownBadImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(2i32);
-pub const BdCbClassificationKnownBadImageBootCritical: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(3i32);
-pub const BdCbClassificationKnownGoodImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(1i32);
-pub const BdCbClassificationUnknownImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(0i32);
-pub const BdCbInitializeImage: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(1i32);
-pub const BdCbStatusPrepareForDependencyLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(0i32);
-pub const BdCbStatusPrepareForDriverLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(1i32);
-pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(2i32);
-pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(0i32);
-pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(0i32);
-pub const BoundExceptionError: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(2i32);
-pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(1i32);
-pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(3i32);
-pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(0i32);
-pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(3i32);
-pub const BufferIncomplete: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(4i32);
-pub const BufferInserted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(1i32);
-pub const BufferStarted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(2i32);
-pub const BusQueryCompatibleIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(2i32);
-pub const BusQueryContainerID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(5i32);
-pub const BusQueryDeviceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(0i32);
-pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(4i32);
-pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(1i32);
-pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(3i32);
-pub const BusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(0i32);
-pub const BusWidth32Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(0i32);
-pub const BusWidth64Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(1i32);
-pub const CBus: INTERFACE_TYPE = INTERFACE_TYPE(9i32);
-pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
+pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(4);
+pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(4);
+pub const BdCbClassificationKnownBadImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(2);
+pub const BdCbClassificationKnownBadImageBootCritical: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(3);
+pub const BdCbClassificationKnownGoodImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(1);
+pub const BdCbClassificationUnknownImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(0);
+pub const BdCbInitializeImage: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(1);
+pub const BdCbStatusPrepareForDependencyLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(0);
+pub const BdCbStatusPrepareForDriverLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(1);
+pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(2);
+pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(0);
+pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(0);
+pub const BoundExceptionError: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(2);
+pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(1);
+pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(3);
+pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(0);
+pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(3);
+pub const BufferIncomplete: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(4);
+pub const BufferInserted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(1);
+pub const BufferStarted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(2);
+pub const BusQueryCompatibleIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(2);
+pub const BusQueryContainerID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(5);
+pub const BusQueryDeviceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(0);
+pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(4);
+pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(1);
+pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(3);
+pub const BusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(0);
+pub const BusWidth32Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(0);
+pub const BusWidth64Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(1);
+pub const CBus: INTERFACE_TYPE = INTERFACE_TYPE(9);
+pub const CLFS_MAX_CONTAINER_INFO: u32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug)]
@@ -7177,16 +7177,16 @@ impl Default for CLFS_MGMT_CLIENT_REGISTRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
-pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
-pub const CLFS_SCAN_CLOSE: u8 = 8u8;
-pub const CLFS_SCAN_FORWARD: u8 = 2u8;
-pub const CLFS_SCAN_INIT: u8 = 1u8;
-pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
-pub const CLOCK1_LEVEL: u32 = 28u32;
-pub const CLOCK2_LEVEL: u32 = 28u32;
-pub const CLOCK_LEVEL: u32 = 28u32;
-pub const CMCI_LEVEL: u32 = 5u32;
+pub const CLFS_SCAN_BACKWARD: u8 = 4;
+pub const CLFS_SCAN_BUFFERED: u8 = 32;
+pub const CLFS_SCAN_CLOSE: u8 = 8;
+pub const CLFS_SCAN_FORWARD: u8 = 2;
+pub const CLFS_SCAN_INIT: u8 = 1;
+pub const CLFS_SCAN_INITIALIZED: u8 = 16;
+pub const CLOCK1_LEVEL: u32 = 28;
+pub const CLOCK2_LEVEL: u32 = 28;
+pub const CLOCK_LEVEL: u32 = 28;
+pub const CMCI_LEVEL: u32 = 5;
 pub const CMCI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x919448b2_3739_4b7f_a8f1_e0062805c2a3);
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
@@ -7600,30 +7600,30 @@ impl Default for CM_POWER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CM_RESOURCE_CONNECTION_CLASS_FUNCTION_CONFIG: u32 = 3u32;
-pub const CM_RESOURCE_CONNECTION_CLASS_GPIO: u32 = 1u32;
-pub const CM_RESOURCE_CONNECTION_CLASS_SERIAL: u32 = 2u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_FUNCTION_CONFIG: u32 = 1u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_GPIO_IO: u32 = 2u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_I2C: u32 = 1u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_SPI: u32 = 2u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_UART: u32 = 3u32;
-pub const CM_RESOURCE_DMA_16: u32 = 1u32;
-pub const CM_RESOURCE_DMA_32: u32 = 2u32;
-pub const CM_RESOURCE_DMA_8: u32 = 0u32;
-pub const CM_RESOURCE_DMA_8_AND_16: u32 = 4u32;
-pub const CM_RESOURCE_DMA_BUS_MASTER: u32 = 8u32;
-pub const CM_RESOURCE_DMA_TYPE_A: u32 = 16u32;
-pub const CM_RESOURCE_DMA_TYPE_B: u32 = 32u32;
-pub const CM_RESOURCE_DMA_TYPE_F: u32 = 64u32;
-pub const CM_RESOURCE_DMA_V3: u32 = 128u32;
-pub const CM_RESOURCE_INTERRUPT_LATCHED: u32 = 1u32;
-pub const CM_RESOURCE_INTERRUPT_LEVEL_LATCHED_BITS: u32 = 1u32;
-pub const CM_RESOURCE_INTERRUPT_LEVEL_SENSITIVE: u32 = 0u32;
-pub const CM_RESOURCE_INTERRUPT_MESSAGE: u32 = 2u32;
-pub const CM_RESOURCE_INTERRUPT_POLICY_INCLUDED: u32 = 4u32;
-pub const CM_RESOURCE_INTERRUPT_SECONDARY_INTERRUPT: u32 = 16u32;
-pub const CM_RESOURCE_INTERRUPT_WAKE_HINT: u32 = 32u32;
+pub const CM_RESOURCE_CONNECTION_CLASS_FUNCTION_CONFIG: u32 = 3;
+pub const CM_RESOURCE_CONNECTION_CLASS_GPIO: u32 = 1;
+pub const CM_RESOURCE_CONNECTION_CLASS_SERIAL: u32 = 2;
+pub const CM_RESOURCE_CONNECTION_TYPE_FUNCTION_CONFIG: u32 = 1;
+pub const CM_RESOURCE_CONNECTION_TYPE_GPIO_IO: u32 = 2;
+pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_I2C: u32 = 1;
+pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_SPI: u32 = 2;
+pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_UART: u32 = 3;
+pub const CM_RESOURCE_DMA_16: u32 = 1;
+pub const CM_RESOURCE_DMA_32: u32 = 2;
+pub const CM_RESOURCE_DMA_8: u32 = 0;
+pub const CM_RESOURCE_DMA_8_AND_16: u32 = 4;
+pub const CM_RESOURCE_DMA_BUS_MASTER: u32 = 8;
+pub const CM_RESOURCE_DMA_TYPE_A: u32 = 16;
+pub const CM_RESOURCE_DMA_TYPE_B: u32 = 32;
+pub const CM_RESOURCE_DMA_TYPE_F: u32 = 64;
+pub const CM_RESOURCE_DMA_V3: u32 = 128;
+pub const CM_RESOURCE_INTERRUPT_LATCHED: u32 = 1;
+pub const CM_RESOURCE_INTERRUPT_LEVEL_LATCHED_BITS: u32 = 1;
+pub const CM_RESOURCE_INTERRUPT_LEVEL_SENSITIVE: u32 = 0;
+pub const CM_RESOURCE_INTERRUPT_MESSAGE: u32 = 2;
+pub const CM_RESOURCE_INTERRUPT_POLICY_INCLUDED: u32 = 4;
+pub const CM_RESOURCE_INTERRUPT_SECONDARY_INTERRUPT: u32 = 16;
+pub const CM_RESOURCE_INTERRUPT_WAKE_HINT: u32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_RESOURCE_LIST {
@@ -7635,33 +7635,33 @@ impl Default for CM_RESOURCE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CM_RESOURCE_MEMORY_24: u32 = 16u32;
-pub const CM_RESOURCE_MEMORY_BAR: u32 = 128u32;
-pub const CM_RESOURCE_MEMORY_CACHEABLE: u32 = 32u32;
-pub const CM_RESOURCE_MEMORY_COMBINEDWRITE: u32 = 8u32;
-pub const CM_RESOURCE_MEMORY_COMPAT_FOR_INACCESSIBLE_RANGE: u32 = 256u32;
-pub const CM_RESOURCE_MEMORY_LARGE: u32 = 3584u32;
-pub const CM_RESOURCE_MEMORY_LARGE_40: u32 = 512u32;
-pub const CM_RESOURCE_MEMORY_LARGE_40_MAXLEN: u64 = 1099511627520u64;
-pub const CM_RESOURCE_MEMORY_LARGE_48: u32 = 1024u32;
-pub const CM_RESOURCE_MEMORY_LARGE_48_MAXLEN: u64 = 281474976645120u64;
-pub const CM_RESOURCE_MEMORY_LARGE_64: u32 = 2048u32;
-pub const CM_RESOURCE_MEMORY_LARGE_64_MAXLEN: u64 = 18446744069414584320u64;
-pub const CM_RESOURCE_MEMORY_PREFETCHABLE: u32 = 4u32;
-pub const CM_RESOURCE_MEMORY_READ_ONLY: u32 = 1u32;
-pub const CM_RESOURCE_MEMORY_READ_WRITE: u32 = 0u32;
-pub const CM_RESOURCE_MEMORY_WINDOW_DECODE: u32 = 64u32;
-pub const CM_RESOURCE_MEMORY_WRITEABILITY_MASK: u32 = 3u32;
-pub const CM_RESOURCE_MEMORY_WRITE_ONLY: u32 = 2u32;
-pub const CM_RESOURCE_PORT_10_BIT_DECODE: u32 = 4u32;
-pub const CM_RESOURCE_PORT_12_BIT_DECODE: u32 = 8u32;
-pub const CM_RESOURCE_PORT_16_BIT_DECODE: u32 = 16u32;
-pub const CM_RESOURCE_PORT_BAR: u32 = 256u32;
-pub const CM_RESOURCE_PORT_IO: u32 = 1u32;
-pub const CM_RESOURCE_PORT_MEMORY: u32 = 0u32;
-pub const CM_RESOURCE_PORT_PASSIVE_DECODE: u32 = 64u32;
-pub const CM_RESOURCE_PORT_POSITIVE_DECODE: u32 = 32u32;
-pub const CM_RESOURCE_PORT_WINDOW_DECODE: u32 = 128u32;
+pub const CM_RESOURCE_MEMORY_24: u32 = 16;
+pub const CM_RESOURCE_MEMORY_BAR: u32 = 128;
+pub const CM_RESOURCE_MEMORY_CACHEABLE: u32 = 32;
+pub const CM_RESOURCE_MEMORY_COMBINEDWRITE: u32 = 8;
+pub const CM_RESOURCE_MEMORY_COMPAT_FOR_INACCESSIBLE_RANGE: u32 = 256;
+pub const CM_RESOURCE_MEMORY_LARGE: u32 = 3584;
+pub const CM_RESOURCE_MEMORY_LARGE_40: u32 = 512;
+pub const CM_RESOURCE_MEMORY_LARGE_40_MAXLEN: u64 = 1099511627520;
+pub const CM_RESOURCE_MEMORY_LARGE_48: u32 = 1024;
+pub const CM_RESOURCE_MEMORY_LARGE_48_MAXLEN: u64 = 281474976645120;
+pub const CM_RESOURCE_MEMORY_LARGE_64: u32 = 2048;
+pub const CM_RESOURCE_MEMORY_LARGE_64_MAXLEN: u64 = 18446744069414584320;
+pub const CM_RESOURCE_MEMORY_PREFETCHABLE: u32 = 4;
+pub const CM_RESOURCE_MEMORY_READ_ONLY: u32 = 1;
+pub const CM_RESOURCE_MEMORY_READ_WRITE: u32 = 0;
+pub const CM_RESOURCE_MEMORY_WINDOW_DECODE: u32 = 64;
+pub const CM_RESOURCE_MEMORY_WRITEABILITY_MASK: u32 = 3;
+pub const CM_RESOURCE_MEMORY_WRITE_ONLY: u32 = 2;
+pub const CM_RESOURCE_PORT_10_BIT_DECODE: u32 = 4;
+pub const CM_RESOURCE_PORT_12_BIT_DECODE: u32 = 8;
+pub const CM_RESOURCE_PORT_16_BIT_DECODE: u32 = 16;
+pub const CM_RESOURCE_PORT_BAR: u32 = 256;
+pub const CM_RESOURCE_PORT_IO: u32 = 1;
+pub const CM_RESOURCE_PORT_MEMORY: u32 = 0;
+pub const CM_RESOURCE_PORT_PASSIVE_DECODE: u32 = 64;
+pub const CM_RESOURCE_PORT_POSITIVE_DECODE: u32 = 32;
+pub const CM_RESOURCE_PORT_WINDOW_DECODE: u32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_ROM_BLOCK {
@@ -7682,7 +7682,7 @@ pub struct CM_SERIAL_DEVICE_DATA {
     pub Revision: u16,
     pub BaudClock: u32,
 }
-pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
+pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_SHARE_DISPOSITION(pub i32);
@@ -7724,12 +7724,12 @@ pub struct CONFIGURATION_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIGURATION_TYPE(pub i32);
-pub const CONNECT_CURRENT_VERSION: u32 = 5u32;
-pub const CONNECT_FULLY_SPECIFIED: u32 = 1u32;
-pub const CONNECT_FULLY_SPECIFIED_GROUP: u32 = 4u32;
-pub const CONNECT_LINE_BASED: u32 = 2u32;
-pub const CONNECT_MESSAGE_BASED: u32 = 3u32;
-pub const CONNECT_MESSAGE_BASED_PASSIVE: u32 = 5u32;
+pub const CONNECT_CURRENT_VERSION: u32 = 5;
+pub const CONNECT_FULLY_SPECIFIED: u32 = 1;
+pub const CONNECT_FULLY_SPECIFIED_GROUP: u32 = 4;
+pub const CONNECT_LINE_BASED: u32 = 2;
+pub const CONNECT_MESSAGE_BASED: u32 = 3;
+pub const CONNECT_MESSAGE_BASED_PASSIVE: u32 = 5;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7783,7 +7783,7 @@ impl Default for COUNTED_REASON_CONTEXT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CP15_PCR_RESERVED_MASK: u32 = 4095u32;
+pub const CP15_PCR_RESERVED_MASK: u32 = 4095;
 pub const CPER_EMPTY_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
@@ -7800,9 +7800,9 @@ impl Default for CPE_DRIVER_INFO {
     }
 }
 pub const CPE_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4e292f96_d843_4a55_a8c2_d481f27ebeee);
-pub const CP_GET_ERROR: u32 = 2u32;
-pub const CP_GET_NODATA: u32 = 1u32;
-pub const CP_GET_SUCCESS: u32 = 0u32;
+pub const CP_GET_ERROR: u32 = 2;
+pub const CP_GET_NODATA: u32 = 1;
+pub const CP_GET_SUCCESS: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
@@ -7833,62 +7833,62 @@ impl Default for CREATE_USER_PROCESS_ECP_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CardPresent: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(1i32);
-pub const CbusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(3i32);
-pub const CdromController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(15i32);
-pub const CentralProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(1i32);
-pub const ClfsClientRecord: u8 = 3u8;
-pub const ClfsContainerActive: u32 = 4u32;
-pub const ClfsContainerActivePendingDelete: u32 = 8u32;
-pub const ClfsContainerInactive: u32 = 2u32;
-pub const ClfsContainerInitializing: u32 = 1u32;
-pub const ClfsContainerPendingArchive: u32 = 16u32;
-pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
-pub const ClfsDataRecord: u8 = 1u8;
-pub const ClfsNullRecord: u8 = 0u8;
-pub const ClfsRestartRecord: u8 = 2u8;
-pub const ClsContainerActive: u32 = 4u32;
-pub const ClsContainerActivePendingDelete: u32 = 8u32;
-pub const ClsContainerInactive: u32 = 2u32;
-pub const ClsContainerInitializing: u32 = 1u32;
-pub const ClsContainerPendingArchive: u32 = 16u32;
-pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
-pub const CmResourceShareDeviceExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(1i32);
-pub const CmResourceShareDriverExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(2i32);
-pub const CmResourceShareShared: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(3i32);
-pub const CmResourceShareUndetermined: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(0i32);
-pub const CmResourceTypeBusNumber: u32 = 6u32;
-pub const CmResourceTypeConfigData: u32 = 128u32;
-pub const CmResourceTypeConnection: u32 = 132u32;
-pub const CmResourceTypeDevicePrivate: u32 = 129u32;
-pub const CmResourceTypeDeviceSpecific: u32 = 5u32;
-pub const CmResourceTypeDma: u32 = 4u32;
-pub const CmResourceTypeInterrupt: u32 = 2u32;
-pub const CmResourceTypeMaximum: u32 = 8u32;
-pub const CmResourceTypeMemory: u32 = 3u32;
-pub const CmResourceTypeMemoryLarge: u32 = 7u32;
-pub const CmResourceTypeMfCardConfig: u32 = 131u32;
-pub const CmResourceTypeNonArbitrated: u32 = 128u32;
-pub const CmResourceTypeNull: u32 = 0u32;
-pub const CmResourceTypePcCardConfig: u32 = 130u32;
-pub const CmResourceTypePort: u32 = 1u32;
-pub const Cmos: BUS_DATA_TYPE = BUS_DATA_TYPE(0i32);
-pub const CommonBufferConfigTypeHardwareAccessPermissions: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(2i32);
-pub const CommonBufferConfigTypeLogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(0i32);
-pub const CommonBufferConfigTypeMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(3i32);
-pub const CommonBufferConfigTypeSubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(1i32);
-pub const CommonBufferHardwareAccessMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(3i32);
-pub const CommonBufferHardwareAccessReadOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(0i32);
-pub const CommonBufferHardwareAccessReadWrite: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(2i32);
-pub const CommonBufferHardwareAccessWriteOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(1i32);
-pub const Compatible: DMA_SPEED = DMA_SPEED(0i32);
-pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = BUS_DATA_TYPE(-1i32);
-pub const ContinueCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(0i32);
-pub const CreateFileTypeMailslot: CREATE_FILE_TYPE = CREATE_FILE_TYPE(2i32);
-pub const CreateFileTypeNamedPipe: CREATE_FILE_TYPE = CREATE_FILE_TYPE(1i32);
-pub const CreateFileTypeNone: CREATE_FILE_TYPE = CREATE_FILE_TYPE(0i32);
-pub const CriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(0i32);
-pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(32i32);
+pub const CardPresent: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(1);
+pub const CbusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(3);
+pub const CdromController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(15);
+pub const CentralProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(1);
+pub const ClfsClientRecord: u8 = 3;
+pub const ClfsContainerActive: u32 = 4;
+pub const ClfsContainerActivePendingDelete: u32 = 8;
+pub const ClfsContainerInactive: u32 = 2;
+pub const ClfsContainerInitializing: u32 = 1;
+pub const ClfsContainerPendingArchive: u32 = 16;
+pub const ClfsContainerPendingArchiveAndDelete: u32 = 32;
+pub const ClfsDataRecord: u8 = 1;
+pub const ClfsNullRecord: u8 = 0;
+pub const ClfsRestartRecord: u8 = 2;
+pub const ClsContainerActive: u32 = 4;
+pub const ClsContainerActivePendingDelete: u32 = 8;
+pub const ClsContainerInactive: u32 = 2;
+pub const ClsContainerInitializing: u32 = 1;
+pub const ClsContainerPendingArchive: u32 = 16;
+pub const ClsContainerPendingArchiveAndDelete: u32 = 32;
+pub const CmResourceShareDeviceExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(1);
+pub const CmResourceShareDriverExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(2);
+pub const CmResourceShareShared: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(3);
+pub const CmResourceShareUndetermined: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(0);
+pub const CmResourceTypeBusNumber: u32 = 6;
+pub const CmResourceTypeConfigData: u32 = 128;
+pub const CmResourceTypeConnection: u32 = 132;
+pub const CmResourceTypeDevicePrivate: u32 = 129;
+pub const CmResourceTypeDeviceSpecific: u32 = 5;
+pub const CmResourceTypeDma: u32 = 4;
+pub const CmResourceTypeInterrupt: u32 = 2;
+pub const CmResourceTypeMaximum: u32 = 8;
+pub const CmResourceTypeMemory: u32 = 3;
+pub const CmResourceTypeMemoryLarge: u32 = 7;
+pub const CmResourceTypeMfCardConfig: u32 = 131;
+pub const CmResourceTypeNonArbitrated: u32 = 128;
+pub const CmResourceTypeNull: u32 = 0;
+pub const CmResourceTypePcCardConfig: u32 = 130;
+pub const CmResourceTypePort: u32 = 1;
+pub const Cmos: BUS_DATA_TYPE = BUS_DATA_TYPE(0);
+pub const CommonBufferConfigTypeHardwareAccessPermissions: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(2);
+pub const CommonBufferConfigTypeLogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(0);
+pub const CommonBufferConfigTypeMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(3);
+pub const CommonBufferConfigTypeSubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(1);
+pub const CommonBufferHardwareAccessMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(3);
+pub const CommonBufferHardwareAccessReadOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(0);
+pub const CommonBufferHardwareAccessReadWrite: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(2);
+pub const CommonBufferHardwareAccessWriteOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(1);
+pub const Compatible: DMA_SPEED = DMA_SPEED(0);
+pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = BUS_DATA_TYPE(-1);
+pub const ContinueCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(0);
+pub const CreateFileTypeMailslot: CREATE_FILE_TYPE = CREATE_FILE_TYPE(2);
+pub const CreateFileTypeNamedPipe: CREATE_FILE_TYPE = CREATE_FILE_TYPE(1);
+pub const CreateFileTypeNone: CREATE_FILE_TYPE = CREATE_FILE_TYPE(0);
+pub const CriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(0);
+pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
@@ -7931,20 +7931,20 @@ impl Default for D3COLD_SUPPORT_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const D3COLD_SUPPORT_INTERFACE_VERSION: u32 = 1u32;
-pub const DBG_DEVICE_FLAG_BARS_MAPPED: u32 = 2u32;
-pub const DBG_DEVICE_FLAG_HAL_SCRATCH_ALLOCATED: u32 = 1u32;
-pub const DBG_DEVICE_FLAG_HOST_VISIBLE_ALLOCATED: u32 = 32u32;
-pub const DBG_DEVICE_FLAG_SCRATCH_ALLOCATED: u32 = 4u32;
-pub const DBG_DEVICE_FLAG_SYNTHETIC: u32 = 16u32;
-pub const DBG_DEVICE_FLAG_UNCACHED_MEMORY: u32 = 8u32;
-pub const DBG_STATUS_BUGCHECK_FIRST: u32 = 3u32;
-pub const DBG_STATUS_BUGCHECK_SECOND: u32 = 4u32;
-pub const DBG_STATUS_CONTROL_C: u32 = 1u32;
-pub const DBG_STATUS_DEBUG_CONTROL: u32 = 6u32;
-pub const DBG_STATUS_FATAL: u32 = 5u32;
-pub const DBG_STATUS_SYSRQ: u32 = 2u32;
-pub const DBG_STATUS_WORKER: u32 = 7u32;
+pub const D3COLD_SUPPORT_INTERFACE_VERSION: u32 = 1;
+pub const DBG_DEVICE_FLAG_BARS_MAPPED: u32 = 2;
+pub const DBG_DEVICE_FLAG_HAL_SCRATCH_ALLOCATED: u32 = 1;
+pub const DBG_DEVICE_FLAG_HOST_VISIBLE_ALLOCATED: u32 = 32;
+pub const DBG_DEVICE_FLAG_SCRATCH_ALLOCATED: u32 = 4;
+pub const DBG_DEVICE_FLAG_SYNTHETIC: u32 = 16;
+pub const DBG_DEVICE_FLAG_UNCACHED_MEMORY: u32 = 8;
+pub const DBG_STATUS_BUGCHECK_FIRST: u32 = 3;
+pub const DBG_STATUS_BUGCHECK_SECOND: u32 = 4;
+pub const DBG_STATUS_CONTROL_C: u32 = 1;
+pub const DBG_STATUS_DEBUG_CONTROL: u32 = 6;
+pub const DBG_STATUS_FATAL: u32 = 5;
+pub const DBG_STATUS_SYSRQ: u32 = 2;
+pub const DBG_STATUS_WORKER: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE {
@@ -8176,10 +8176,10 @@ pub struct DEVICE_DESCRIPTION {
     pub DmaRequestLine: u32,
     pub DeviceAddress: i64,
 }
-pub const DEVICE_DESCRIPTION_VERSION: u32 = 0u32;
-pub const DEVICE_DESCRIPTION_VERSION1: u32 = 1u32;
-pub const DEVICE_DESCRIPTION_VERSION2: u32 = 2u32;
-pub const DEVICE_DESCRIPTION_VERSION3: u32 = 3u32;
+pub const DEVICE_DESCRIPTION_VERSION: u32 = 0;
+pub const DEVICE_DESCRIPTION_VERSION1: u32 = 1;
+pub const DEVICE_DESCRIPTION_VERSION2: u32 = 2;
+pub const DEVICE_DESCRIPTION_VERSION3: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DIRECTORY_TYPE(pub i32);
@@ -8217,7 +8217,7 @@ impl Default for DEVICE_INTERFACE_CHANGE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: u32 = 1u32;
+pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: u32 = 1;
 pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resetinfocount: *mut u32, resetinfosupported: *mut DEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8263,10 +8263,10 @@ impl Default for DEVICE_RESET_INTERFACE_STANDARD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DEVICE_RESET_INTERFACE_VERSION: u32 = 1u32;
-pub const DEVICE_RESET_INTERFACE_VERSION_1: u32 = 1u32;
-pub const DEVICE_RESET_INTERFACE_VERSION_2: u32 = 2u32;
-pub const DEVICE_RESET_INTERFACE_VERSION_3: u32 = 3u32;
+pub const DEVICE_RESET_INTERFACE_VERSION: u32 = 1;
+pub const DEVICE_RESET_INTERFACE_VERSION_1: u32 = 1;
+pub const DEVICE_RESET_INTERFACE_VERSION_2: u32 = 2;
+pub const DEVICE_RESET_INTERFACE_VERSION_3: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_RESET_STATUS_FLAGS {
@@ -8295,13 +8295,13 @@ pub struct DEVICE_USAGE_NOTIFICATION_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_WAKE_DEPTH(pub i32);
-pub const DIRECTORY_CREATE_OBJECT: u32 = 4u32;
-pub const DIRECTORY_CREATE_SUBDIRECTORY: u32 = 8u32;
+pub const DIRECTORY_CREATE_OBJECT: u32 = 4;
+pub const DIRECTORY_CREATE_SUBDIRECTORY: u32 = 8;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-pub const DIRECTORY_QUERY: u32 = 1u32;
-pub const DIRECTORY_TRAVERSE: u32 = 2u32;
+pub const DIRECTORY_QUERY: u32 = 1;
+pub const DIRECTORY_TRAVERSE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_SIGNATURE {
@@ -8335,13 +8335,13 @@ pub struct DISK_SIGNATURE_0_0 {
 pub struct DISK_SIGNATURE_0_1 {
     pub DiskId: windows_core::GUID,
 }
-pub const DISPATCH_LEVEL: u32 = 2u32;
-pub const DMAV3_TRANFER_WIDTH_128: u32 = 4u32;
-pub const DMAV3_TRANFER_WIDTH_16: u32 = 1u32;
-pub const DMAV3_TRANFER_WIDTH_256: u32 = 5u32;
-pub const DMAV3_TRANFER_WIDTH_32: u32 = 2u32;
-pub const DMAV3_TRANFER_WIDTH_64: u32 = 3u32;
-pub const DMAV3_TRANFER_WIDTH_8: u32 = 0u32;
+pub const DISPATCH_LEVEL: u32 = 2;
+pub const DMAV3_TRANFER_WIDTH_128: u32 = 4;
+pub const DMAV3_TRANFER_WIDTH_16: u32 = 1;
+pub const DMAV3_TRANFER_WIDTH_256: u32 = 5;
+pub const DMAV3_TRANFER_WIDTH_32: u32 = 2;
+pub const DMAV3_TRANFER_WIDTH_64: u32 = 3;
+pub const DMAV3_TRANFER_WIDTH_8: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8399,7 +8399,7 @@ pub struct DMA_ADAPTER_INFO_V1 {
     pub Flags: u32,
     pub MinimumTransferUnit: u32,
 }
-pub const DMA_ADAPTER_INFO_VERSION1: u32 = 1u32;
+pub const DMA_ADAPTER_INFO_VERSION1: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
@@ -8457,7 +8457,7 @@ pub struct DMA_CONFIGURATION_BYTE0 {
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
 }
-pub const DMA_FAIL_ON_BOUNCE: u32 = 4u32;
+pub const DMA_FAIL_ON_BOUNCE: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DMA_IOMMU_INTERFACE {
@@ -8499,11 +8499,11 @@ impl Default for DMA_IOMMU_INTERFACE_EX_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DMA_IOMMU_INTERFACE_EX_VERSION: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_1: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_2: u32 = 2u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 2u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1u32;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION: u32 = 1;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_1: u32 = 1;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_2: u32 = 2;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 2;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
@@ -8547,8 +8547,8 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDevice: PIOMMU_DEVICE_CREATE,
     pub DeleteDevice: PIOMMU_DEVICE_DELETE,
 }
-pub const DMA_IOMMU_INTERFACE_VERSION: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_VERSION_1: u32 = 1u32;
+pub const DMA_IOMMU_INTERFACE_VERSION: u32 = 1;
+pub const DMA_IOMMU_INTERFACE_VERSION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -8597,9 +8597,9 @@ pub struct DMA_OPERATIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_SPEED(pub i32);
-pub const DMA_SYNCHRONOUS_CALLBACK: u32 = 1u32;
-pub const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 128u32;
-pub const DMA_TRANSFER_CONTEXT_VERSION1: u32 = 1u32;
+pub const DMA_SYNCHRONOUS_CALLBACK: u32 = 1;
+pub const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 128;
+pub const DMA_TRANSFER_CONTEXT_VERSION1: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_TRANSFER_INFO {
@@ -8637,13 +8637,13 @@ pub struct DMA_TRANSFER_INFO_V2 {
     pub ScatterGatherListSize: u32,
     pub LogicalPageCount: u32,
 }
-pub const DMA_TRANSFER_INFO_VERSION1: u32 = 1u32;
-pub const DMA_TRANSFER_INFO_VERSION2: u32 = 2u32;
+pub const DMA_TRANSFER_INFO_VERSION1: u32 = 1;
+pub const DMA_TRANSFER_INFO_VERSION2: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_WIDTH(pub i32);
-pub const DMA_ZERO_BUFFERS: u32 = 2u32;
-pub const DOMAIN_COMMON_BUFFER_LARGE_PAGE: u32 = 1u32;
+pub const DMA_ZERO_BUFFERS: u32 = 2;
+pub const DOMAIN_COMMON_BUFFER_LARGE_PAGE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION {
@@ -8687,8 +8687,8 @@ pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: i64,
     pub TranslationEnabled: bool,
 }
-pub const DPC_NORMAL: u32 = 0u32;
-pub const DPC_THREADED: u32 = 1u32;
+pub const DPC_NORMAL: u32 = 0;
+pub const DPC_THREADED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
@@ -8698,8 +8698,8 @@ pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub DpcWatchdogProfileOffset: u16,
     pub DpcWatchdogProfileLength: u32,
 }
-pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_REVISION_1: u32 = 1u32;
-pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382u32;
+pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_REVISION_1: u32 = 1;
+pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_DIRECTORY_TYPE(pub i32);
@@ -8711,101 +8711,101 @@ pub struct DRIVER_REGKEY_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_RUNTIME_INIT_FLAGS(pub i32);
-pub const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: u32 = 2u32;
-pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: u32 = 4u32;
-pub const DRIVER_VERIFIER_IO_CHECKING: u32 = 16u32;
-pub const DRIVER_VERIFIER_SPECIAL_POOLING: u32 = 1u32;
+pub const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: u32 = 2;
+pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: u32 = 4;
+pub const DRIVER_VERIFIER_IO_CHECKING: u32 = 16;
+pub const DRIVER_VERIFIER_SPECIAL_POOLING: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DRIVER_VERIFIER_THUNK_PAIRS {
     pub PristineRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
     pub NewRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
 }
-pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: u32 = 8u32;
-pub const DRS_LEVEL: u32 = 14u32;
-pub const DRVO_BOOTREINIT_REGISTERED: u32 = 32u32;
-pub const DRVO_BUILTIN_DRIVER: u32 = 4u32;
-pub const DRVO_INITIALIZED: u32 = 16u32;
-pub const DRVO_LEGACY_DRIVER: u32 = 2u32;
-pub const DRVO_LEGACY_RESOURCES: u32 = 64u32;
-pub const DRVO_REINIT_REGISTERED: u32 = 8u32;
-pub const DRVO_UNLOAD_INVOKED: u32 = 1u32;
-pub const DUPLICATE_SAME_ATTRIBUTES: u32 = 4u32;
-pub const DeallocateObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(2i32);
-pub const DeallocateObjectKeepRegisters: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(3i32);
-pub const DelayExecution: KWAIT_REASON = KWAIT_REASON(4i32);
-pub const DelayedWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(1i32);
-pub const DeleteSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(2i32);
-pub const DeviceDirectoryData: DEVICE_DIRECTORY_TYPE = DEVICE_DIRECTORY_TYPE(0i32);
-pub const DevicePowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(1i32);
-pub const DevicePropertyAddress: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16i32);
-pub const DevicePropertyAllocatedResources: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(21i32);
-pub const DevicePropertyBootConfiguration: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(3i32);
-pub const DevicePropertyBootConfigurationTranslated: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4i32);
-pub const DevicePropertyBusNumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(14i32);
-pub const DevicePropertyBusTypeGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(8204i32);
-pub const DevicePropertyClassGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4102i32);
-pub const DevicePropertyClassName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4101i32);
-pub const DevicePropertyCompatibleIDs: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16386i32);
-pub const DevicePropertyContainerID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4118i32);
-pub const DevicePropertyDeviceDescription: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4096i32);
-pub const DevicePropertyDriverKeyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4103i32);
-pub const DevicePropertyEnumeratorName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4111i32);
-pub const DevicePropertyFriendlyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4105i32);
-pub const DevicePropertyHardwareID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16385i32);
-pub const DevicePropertyInstallState: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(18i32);
-pub const DevicePropertyLegacyBusType: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(13i32);
-pub const DevicePropertyLocationInformation: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4106i32);
-pub const DevicePropertyManufacturer: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4104i32);
-pub const DevicePropertyPhysicalDeviceObjectName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4107i32);
-pub const DevicePropertyRemovalPolicy: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(19i32);
-pub const DevicePropertyResourceRequirements: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(20i32);
-pub const DevicePropertyUINumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(17i32);
-pub const DeviceTextDescription: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(0i32);
-pub const DeviceTextLocationInformation: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(1i32);
-pub const DeviceUsageTypeBoot: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(4i32);
-pub const DeviceUsageTypeDumpFile: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(3i32);
-pub const DeviceUsageTypeGuestAssigned: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(6i32);
-pub const DeviceUsageTypeHibernation: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(2i32);
-pub const DeviceUsageTypePaging: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(1i32);
-pub const DeviceUsageTypePostDisplay: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(5i32);
-pub const DeviceUsageTypeUndefined: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(0i32);
-pub const DeviceWakeDepthD0: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(1i32);
-pub const DeviceWakeDepthD1: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(2i32);
-pub const DeviceWakeDepthD2: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(3i32);
-pub const DeviceWakeDepthD3cold: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(5i32);
-pub const DeviceWakeDepthD3hot: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(4i32);
-pub const DeviceWakeDepthMaximum: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(6i32);
-pub const DeviceWakeDepthNotWakeable: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(0i32);
-pub const DirectoryNotifyExtendedInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
-pub const DirectoryNotifyFullInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
-pub const DirectoryNotifyInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
-pub const DirectoryNotifyMaximumInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
-pub const DisabledControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(11i32);
-pub const DiskController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(13i32);
-pub const DiskIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(11i32);
-pub const DiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(25i32);
-pub const DisplayController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(19i32);
-pub const DmaAborted: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(1i32);
-pub const DmaCancelled: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(3i32);
-pub const DmaComplete: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(0i32);
-pub const DmaError: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(2i32);
-pub const DockingInformation: CONFIGURATION_TYPE = CONFIGURATION_TYPE(38i32);
-pub const DomainConfigurationArm64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(0i32);
-pub const DomainConfigurationInvalid: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(2i32);
-pub const DomainConfigurationX64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(1i32);
-pub const DomainTypeMax: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(3i32);
-pub const DomainTypePassThrough: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(1i32);
-pub const DomainTypeTranslate: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(0i32);
-pub const DomainTypeUnmanaged: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(2i32);
-pub const DriverDirectoryData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(1i32);
-pub const DriverDirectoryImage: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(0i32);
-pub const DriverDirectorySharedData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(2i32);
-pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(0i32);
-pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(1i32);
-pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(2i32);
-pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(1i32);
-pub const DtiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(11i32);
+pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: u32 = 8;
+pub const DRS_LEVEL: u32 = 14;
+pub const DRVO_BOOTREINIT_REGISTERED: u32 = 32;
+pub const DRVO_BUILTIN_DRIVER: u32 = 4;
+pub const DRVO_INITIALIZED: u32 = 16;
+pub const DRVO_LEGACY_DRIVER: u32 = 2;
+pub const DRVO_LEGACY_RESOURCES: u32 = 64;
+pub const DRVO_REINIT_REGISTERED: u32 = 8;
+pub const DRVO_UNLOAD_INVOKED: u32 = 1;
+pub const DUPLICATE_SAME_ATTRIBUTES: u32 = 4;
+pub const DeallocateObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(2);
+pub const DeallocateObjectKeepRegisters: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(3);
+pub const DelayExecution: KWAIT_REASON = KWAIT_REASON(4);
+pub const DelayedWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(1);
+pub const DeleteSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(2);
+pub const DeviceDirectoryData: DEVICE_DIRECTORY_TYPE = DEVICE_DIRECTORY_TYPE(0);
+pub const DevicePowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(1);
+pub const DevicePropertyAddress: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16);
+pub const DevicePropertyAllocatedResources: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(21);
+pub const DevicePropertyBootConfiguration: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(3);
+pub const DevicePropertyBootConfigurationTranslated: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4);
+pub const DevicePropertyBusNumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(14);
+pub const DevicePropertyBusTypeGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(8204);
+pub const DevicePropertyClassGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4102);
+pub const DevicePropertyClassName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4101);
+pub const DevicePropertyCompatibleIDs: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16386);
+pub const DevicePropertyContainerID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4118);
+pub const DevicePropertyDeviceDescription: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4096);
+pub const DevicePropertyDriverKeyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4103);
+pub const DevicePropertyEnumeratorName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4111);
+pub const DevicePropertyFriendlyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4105);
+pub const DevicePropertyHardwareID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16385);
+pub const DevicePropertyInstallState: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(18);
+pub const DevicePropertyLegacyBusType: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(13);
+pub const DevicePropertyLocationInformation: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4106);
+pub const DevicePropertyManufacturer: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4104);
+pub const DevicePropertyPhysicalDeviceObjectName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4107);
+pub const DevicePropertyRemovalPolicy: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(19);
+pub const DevicePropertyResourceRequirements: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(20);
+pub const DevicePropertyUINumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(17);
+pub const DeviceTextDescription: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(0);
+pub const DeviceTextLocationInformation: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(1);
+pub const DeviceUsageTypeBoot: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(4);
+pub const DeviceUsageTypeDumpFile: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(3);
+pub const DeviceUsageTypeGuestAssigned: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(6);
+pub const DeviceUsageTypeHibernation: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(2);
+pub const DeviceUsageTypePaging: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(1);
+pub const DeviceUsageTypePostDisplay: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(5);
+pub const DeviceUsageTypeUndefined: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(0);
+pub const DeviceWakeDepthD0: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(1);
+pub const DeviceWakeDepthD1: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(2);
+pub const DeviceWakeDepthD2: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(3);
+pub const DeviceWakeDepthD3cold: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(5);
+pub const DeviceWakeDepthD3hot: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(4);
+pub const DeviceWakeDepthMaximum: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(6);
+pub const DeviceWakeDepthNotWakeable: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(0);
+pub const DirectoryNotifyExtendedInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(2);
+pub const DirectoryNotifyFullInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(3);
+pub const DirectoryNotifyInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(1);
+pub const DirectoryNotifyMaximumInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(4);
+pub const DisabledControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(11);
+pub const DiskController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(13);
+pub const DiskIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(11);
+pub const DiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(25);
+pub const DisplayController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(19);
+pub const DmaAborted: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(1);
+pub const DmaCancelled: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(3);
+pub const DmaComplete: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(0);
+pub const DmaError: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(2);
+pub const DockingInformation: CONFIGURATION_TYPE = CONFIGURATION_TYPE(38);
+pub const DomainConfigurationArm64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(0);
+pub const DomainConfigurationInvalid: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(2);
+pub const DomainConfigurationX64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(1);
+pub const DomainTypeMax: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(3);
+pub const DomainTypePassThrough: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(1);
+pub const DomainTypeTranslate: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(0);
+pub const DomainTypeUnmanaged: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(2);
+pub const DriverDirectoryData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(1);
+pub const DriverDirectoryImage: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(0);
+pub const DriverDirectorySharedData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(2);
+pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(0);
+pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(1);
+pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(2);
+pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(1);
+pub const DtiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(11);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
@@ -8818,27 +8818,27 @@ impl Default for EFI_ACPI_RAS_SIGNAL_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EFLAG_SIGN: u32 = 32768u32;
-pub const EFLAG_ZERO: u32 = 16384u32;
+pub const EFLAG_SIGN: u32 = 32768;
+pub const EFLAG_ZERO: u32 = 16384;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
 }
-pub const EISA_EMPTY_SLOT: u32 = 131u32;
-pub const EISA_FREE_FORM_DATA: u32 = 64u32;
-pub const EISA_FUNCTION_ENABLED: u32 = 128u32;
-pub const EISA_HAS_DMA_ENTRY: u32 = 8u32;
-pub const EISA_HAS_IRQ_ENTRY: u32 = 4u32;
-pub const EISA_HAS_MEMORY_ENTRY: u32 = 2u32;
-pub const EISA_HAS_PORT_INIT_ENTRY: u32 = 32u32;
-pub const EISA_HAS_PORT_RANGE: u32 = 16u32;
-pub const EISA_HAS_TYPE_ENTRY: u32 = 1u32;
-pub const EISA_INVALID_BIOS_CALL: u32 = 134u32;
-pub const EISA_INVALID_CONFIGURATION: u32 = 130u32;
-pub const EISA_INVALID_FUNCTION: u32 = 129u32;
-pub const EISA_INVALID_SLOT: u32 = 128u32;
+pub const EISA_EMPTY_SLOT: u32 = 131;
+pub const EISA_FREE_FORM_DATA: u32 = 64;
+pub const EISA_FUNCTION_ENABLED: u32 = 128;
+pub const EISA_HAS_DMA_ENTRY: u32 = 8;
+pub const EISA_HAS_IRQ_ENTRY: u32 = 4;
+pub const EISA_HAS_MEMORY_ENTRY: u32 = 2;
+pub const EISA_HAS_PORT_INIT_ENTRY: u32 = 32;
+pub const EISA_HAS_PORT_RANGE: u32 = 16;
+pub const EISA_HAS_TYPE_ENTRY: u32 = 1;
+pub const EISA_INVALID_BIOS_CALL: u32 = 134;
+pub const EISA_INVALID_CONFIGURATION: u32 = 130;
+pub const EISA_INVALID_FUNCTION: u32 = 129;
+pub const EISA_INVALID_SLOT: u32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_IRQ_CONFIGURATION {
@@ -8864,8 +8864,8 @@ pub struct EISA_MEMORY_CONFIGURATION {
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
 }
-pub const EISA_MEMORY_TYPE_RAM: u32 = 1u32;
-pub const EISA_MORE_ENTRIES: u32 = 128u32;
+pub const EISA_MEMORY_TYPE_RAM: u32 = 1;
+pub const EISA_MORE_ENTRIES: u32 = 128;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EISA_PORT_CONFIGURATION {
@@ -8877,49 +8877,49 @@ pub struct EISA_PORT_CONFIGURATION {
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
 }
-pub const EISA_SYSTEM_MEMORY: u32 = 0u32;
+pub const EISA_SYSTEM_MEMORY: u32 = 0;
 pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: bool, enablemigrationinterrupt: bool, enablevirtualization: bool) -> windows_core::NTSTATUS>;
-pub const ERROR_LOG_LIMIT_SIZE: u32 = 240u32;
-pub const ERROR_MAJOR_REVISION_SAL_03_00: u32 = 0u32;
+pub const ERROR_LOG_LIMIT_SIZE: u32 = 240;
+pub const ERROR_MAJOR_REVISION_SAL_03_00: u32 = 0;
 pub const ERROR_MEMORY_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf2_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_MINOR_REVISION_SAL_03_00: u32 = 2u32;
+pub const ERROR_MINOR_REVISION_SAL_03_00: u32 = 2;
 pub const ERROR_PCI_BUS_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf4_3cb7_11d4_bca7_0080c73c8881);
 pub const ERROR_PCI_COMPONENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf6_3cb7_11d4_bca7_0080c73c8881);
 pub const ERROR_PLATFORM_BUS_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf9_3cb7_11d4_bca7_0080c73c8881);
 pub const ERROR_PLATFORM_HOST_CONTROLLER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf8_3cb7_11d4_bca7_0080c73c8881);
 pub const ERROR_PLATFORM_SPECIFIC_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf7_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_SHIFT: u32 = 61u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_SHIFT: u32 = 59u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_SHIFT: u32 = 63u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_SHIFT: u32 = 62u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_SHIFT: u32 = 60u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_SHIFT: u32 = 63u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_MASK: u32 = 1;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_SHIFT: u32 = 61;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_MASK: u32 = 1;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_SHIFT: u32 = 59;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_MASK: u32 = 1;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_SHIFT: u32 = 63;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_MASK: u32 = 1;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_SHIFT: u32 = 62;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_MASK: u32 = 1;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_SHIFT: u32 = 60;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_MASK: u32 = 1;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_SHIFT: u32 = 63;
 pub const ERROR_SMBIOS_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf5_3cb7_11d4_bca7_0080c73c8881);
 pub const ERROR_SYSTEM_EVENT_LOG_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf3_3cb7_11d4_bca7_0080c73c8881);
-pub const ERRTYP_BUS: u32 = 16u32;
-pub const ERRTYP_CACHE: u32 = 6u32;
-pub const ERRTYP_FLOW: u32 = 9u32;
-pub const ERRTYP_FUNCTION: u32 = 7u32;
-pub const ERRTYP_IMPROPER: u32 = 18u32;
-pub const ERRTYP_INTERNAL: u32 = 1u32;
-pub const ERRTYP_LOSSOFLOCKSTEP: u32 = 20u32;
-pub const ERRTYP_MAP: u32 = 17u32;
-pub const ERRTYP_MEM: u32 = 4u32;
-pub const ERRTYP_PARITY: u32 = 22u32;
-pub const ERRTYP_PATHERROR: u32 = 24u32;
-pub const ERRTYP_POISONED: u32 = 26u32;
-pub const ERRTYP_PROTOCOL: u32 = 23u32;
-pub const ERRTYP_RESPONSE: u32 = 21u32;
-pub const ERRTYP_SELFTEST: u32 = 8u32;
-pub const ERRTYP_TIMEOUT: u32 = 25u32;
-pub const ERRTYP_TLB: u32 = 5u32;
-pub const ERRTYP_UNIMPL: u32 = 19u32;
+pub const ERRTYP_BUS: u32 = 16;
+pub const ERRTYP_CACHE: u32 = 6;
+pub const ERRTYP_FLOW: u32 = 9;
+pub const ERRTYP_FUNCTION: u32 = 7;
+pub const ERRTYP_IMPROPER: u32 = 18;
+pub const ERRTYP_INTERNAL: u32 = 1;
+pub const ERRTYP_LOSSOFLOCKSTEP: u32 = 20;
+pub const ERRTYP_MAP: u32 = 17;
+pub const ERRTYP_MEM: u32 = 4;
+pub const ERRTYP_PARITY: u32 = 22;
+pub const ERRTYP_PATHERROR: u32 = 24;
+pub const ERRTYP_POISONED: u32 = 26;
+pub const ERRTYP_PROTOCOL: u32 = 23;
+pub const ERRTYP_RESPONSE: u32 = 21;
+pub const ERRTYP_SELFTEST: u32 = 8;
+pub const ERRTYP_TIMEOUT: u32 = 25;
+pub const ERRTYP_TLB: u32 = 5;
+pub const ERRTYP_UNIMPL: u32 = 19;
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
@@ -8934,27 +8934,27 @@ pub struct ETW_TRACE_SESSION_SETTINGS {
     pub FlushThreshold: u32,
     pub ClockType: u32,
 }
-pub const EVENT_QUERY_STATE: u32 = 1u32;
-pub const EXCEPTION_ALIGNMENT_CHECK: u32 = 17u32;
-pub const EXCEPTION_BOUND_CHECK: u32 = 5u32;
-pub const EXCEPTION_CP_FAULT: u32 = 21u32;
-pub const EXCEPTION_DEBUG: u32 = 1u32;
-pub const EXCEPTION_DIVIDED_BY_ZERO: u32 = 0u32;
-pub const EXCEPTION_DOUBLE_FAULT: u32 = 8u32;
-pub const EXCEPTION_GP_FAULT: u32 = 13u32;
-pub const EXCEPTION_INT3: u32 = 3u32;
-pub const EXCEPTION_INVALID_OPCODE: u32 = 6u32;
-pub const EXCEPTION_INVALID_TSS: u32 = 10u32;
-pub const EXCEPTION_NMI: u32 = 2u32;
-pub const EXCEPTION_NPX_ERROR: u32 = 16u32;
-pub const EXCEPTION_NPX_NOT_AVAILABLE: u32 = 7u32;
-pub const EXCEPTION_NPX_OVERRUN: u32 = 9u32;
-pub const EXCEPTION_RESERVED_TRAP: u32 = 15u32;
-pub const EXCEPTION_SEGMENT_NOT_PRESENT: u32 = 11u32;
-pub const EXCEPTION_SE_FAULT: u32 = 23u32;
-pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128u32;
-pub const EXCEPTION_STACK_FAULT: u32 = 12u32;
-pub const EXCEPTION_VIRTUALIZATION_FAULT: u32 = 32u32;
+pub const EVENT_QUERY_STATE: u32 = 1;
+pub const EXCEPTION_ALIGNMENT_CHECK: u32 = 17;
+pub const EXCEPTION_BOUND_CHECK: u32 = 5;
+pub const EXCEPTION_CP_FAULT: u32 = 21;
+pub const EXCEPTION_DEBUG: u32 = 1;
+pub const EXCEPTION_DIVIDED_BY_ZERO: u32 = 0;
+pub const EXCEPTION_DOUBLE_FAULT: u32 = 8;
+pub const EXCEPTION_GP_FAULT: u32 = 13;
+pub const EXCEPTION_INT3: u32 = 3;
+pub const EXCEPTION_INVALID_OPCODE: u32 = 6;
+pub const EXCEPTION_INVALID_TSS: u32 = 10;
+pub const EXCEPTION_NMI: u32 = 2;
+pub const EXCEPTION_NPX_ERROR: u32 = 16;
+pub const EXCEPTION_NPX_NOT_AVAILABLE: u32 = 7;
+pub const EXCEPTION_NPX_OVERRUN: u32 = 9;
+pub const EXCEPTION_RESERVED_TRAP: u32 = 15;
+pub const EXCEPTION_SEGMENT_NOT_PRESENT: u32 = 11;
+pub const EXCEPTION_SE_FAULT: u32 = 23;
+pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128;
+pub const EXCEPTION_STACK_FAULT: u32 = 12;
+pub const EXCEPTION_VIRTUALIZATION_FAULT: u32 = 32;
 pub type EXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9001,21 +9001,21 @@ impl Default for EXT_DELETE_PARAMETERS {
     }
 }
 pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const EX_CARR_ALLOCATE_NONPAGED_POOL: u32 = 1u32;
-pub const EX_CARR_ALLOCATE_PAGED_POOL: u32 = 0u32;
-pub const EX_CARR_DISABLE_EXPANSION: u32 = 2u32;
-pub const EX_CREATE_FLAG_FILE_DEST_OPEN_FOR_COPY: u32 = 2u32;
-pub const EX_CREATE_FLAG_FILE_SOURCE_OPEN_FOR_COPY: u32 = 1u32;
-pub const EX_DEFAULT_PUSH_LOCK_FLAGS: u32 = 0u32;
-pub const EX_LOOKASIDE_LIST_EX_FLAGS_FAIL_NO_RAISE: u32 = 2u32;
-pub const EX_LOOKASIDE_LIST_EX_FLAGS_RAISE_ON_FAIL: u32 = 1u32;
-pub const EX_MAXIMUM_LOOKASIDE_DEPTH_BASE: u32 = 256u32;
-pub const EX_MAXIMUM_LOOKASIDE_DEPTH_LIMIT: u32 = 1024u32;
+pub const EX_CARR_ALLOCATE_NONPAGED_POOL: u32 = 1;
+pub const EX_CARR_ALLOCATE_PAGED_POOL: u32 = 0;
+pub const EX_CARR_DISABLE_EXPANSION: u32 = 2;
+pub const EX_CREATE_FLAG_FILE_DEST_OPEN_FOR_COPY: u32 = 2;
+pub const EX_CREATE_FLAG_FILE_SOURCE_OPEN_FOR_COPY: u32 = 1;
+pub const EX_DEFAULT_PUSH_LOCK_FLAGS: u32 = 0;
+pub const EX_LOOKASIDE_LIST_EX_FLAGS_FAIL_NO_RAISE: u32 = 2;
+pub const EX_LOOKASIDE_LIST_EX_FLAGS_RAISE_ON_FAIL: u32 = 1;
+pub const EX_MAXIMUM_LOOKASIDE_DEPTH_BASE: u32 = 256;
+pub const EX_MAXIMUM_LOOKASIDE_DEPTH_LIMIT: u32 = 1024;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EX_POOL_PRIORITY(pub i32);
-pub const EX_RUNDOWN_ACTIVE: u32 = 1u32;
-pub const EX_RUNDOWN_COUNT_SHIFT: u32 = 1u32;
+pub const EX_RUNDOWN_ACTIVE: u32 = 1;
+pub const EX_RUNDOWN_COUNT_SHIFT: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EX_RUNDOWN_REF {
@@ -9037,21 +9037,21 @@ impl Default for EX_RUNDOWN_REF_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EX_TIMER_HIGH_RESOLUTION: u32 = 4u32;
-pub const EX_TIMER_NO_WAKE: u32 = 8u32;
-pub const Eisa: INTERFACE_TYPE = INTERFACE_TYPE(2i32);
-pub const EisaAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(8i32);
-pub const EisaConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(1i32);
-pub const EjectionRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(1i32);
-pub const EndAlternatives: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(2i32);
-pub const EventCategoryDeviceInterfaceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(2i32);
-pub const EventCategoryHardwareProfileChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(1i32);
-pub const EventCategoryKernelSoftRestart: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(4i32);
-pub const EventCategoryReserved: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(0i32);
-pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(3i32);
-pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(5i32);
-pub const Executive: KWAIT_REASON = KWAIT_REASON(0i32);
-pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(3i32);
+pub const EX_TIMER_HIGH_RESOLUTION: u32 = 4;
+pub const EX_TIMER_NO_WAKE: u32 = 8;
+pub const Eisa: INTERFACE_TYPE = INTERFACE_TYPE(2);
+pub const EisaAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(8);
+pub const EisaConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(1);
+pub const EjectionRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(1);
+pub const EndAlternatives: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(2);
+pub const EventCategoryDeviceInterfaceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(2);
+pub const EventCategoryHardwareProfileChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(1);
+pub const EventCategoryKernelSoftRestart: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(4);
+pub const EventCategoryReserved: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(0);
+pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(3);
+pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(5);
+pub const Executive: KWAIT_REASON = KWAIT_REASON(0);
+pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(3);
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -9128,45 +9128,45 @@ impl Default for FAULT_INFORMATION_X64 {
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
 }
-pub const FILE_128_BYTE_ALIGNMENT: u32 = 127u32;
-pub const FILE_256_BYTE_ALIGNMENT: u32 = 255u32;
-pub const FILE_32_BYTE_ALIGNMENT: u32 = 31u32;
-pub const FILE_512_BYTE_ALIGNMENT: u32 = 511u32;
-pub const FILE_64_BYTE_ALIGNMENT: u32 = 63u32;
+pub const FILE_128_BYTE_ALIGNMENT: u32 = 127;
+pub const FILE_256_BYTE_ALIGNMENT: u32 = 255;
+pub const FILE_32_BYTE_ALIGNMENT: u32 = 31;
+pub const FILE_512_BYTE_ALIGNMENT: u32 = 511;
+pub const FILE_64_BYTE_ALIGNMENT: u32 = 63;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ATTRIBUTE_TAG_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
 }
-pub const FILE_ATTRIBUTE_VALID_FLAGS: u32 = 32695u32;
-pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: u32 = 5910951u32;
-pub const FILE_ATTRIBUTE_VALID_SET_FLAGS: u32 = 12711u32;
-pub const FILE_AUTOGENERATED_DEVICE_NAME: u32 = 128u32;
-pub const FILE_BYTE_ALIGNMENT: u32 = 0u32;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL: u32 = 512u32;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_DEPRECATED: u32 = 512u32;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_EX: u32 = 16384u32;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_DEPRECATED: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_EX: u32 = 32768u32;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_DEPRECATED: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_EX: u32 = 768u32;
-pub const FILE_CHARACTERISTIC_CSV: u32 = 65536u32;
-pub const FILE_CHARACTERISTIC_PNP_DEVICE: u32 = 2048u32;
-pub const FILE_CHARACTERISTIC_TS_DEVICE: u32 = 4096u32;
-pub const FILE_CHARACTERISTIC_WEBDAV_DEVICE: u32 = 8192u32;
-pub const FILE_DEVICE_ALLOW_APPCONTAINER_TRAVERSAL: u32 = 131072u32;
-pub const FILE_DEVICE_IS_MOUNTED: u32 = 32u32;
-pub const FILE_DEVICE_REQUIRE_SECURITY_CHECK: u32 = 1048576u32;
-pub const FILE_DEVICE_SECURE_OPEN: u32 = 256u32;
+pub const FILE_ATTRIBUTE_VALID_FLAGS: u32 = 32695;
+pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: u32 = 5910951;
+pub const FILE_ATTRIBUTE_VALID_SET_FLAGS: u32 = 12711;
+pub const FILE_AUTOGENERATED_DEVICE_NAME: u32 = 128;
+pub const FILE_BYTE_ALIGNMENT: u32 = 0;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL: u32 = 512;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_DEPRECATED: u32 = 512;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_EX: u32 = 16384;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL: u32 = 768;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_DEPRECATED: u32 = 768;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_EX: u32 = 32768;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK: u32 = 768;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_DEPRECATED: u32 = 768;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_EX: u32 = 768;
+pub const FILE_CHARACTERISTIC_CSV: u32 = 65536;
+pub const FILE_CHARACTERISTIC_PNP_DEVICE: u32 = 2048;
+pub const FILE_CHARACTERISTIC_TS_DEVICE: u32 = 4096;
+pub const FILE_CHARACTERISTIC_WEBDAV_DEVICE: u32 = 8192;
+pub const FILE_DEVICE_ALLOW_APPCONTAINER_TRAVERSAL: u32 = 131072;
+pub const FILE_DEVICE_IS_MOUNTED: u32 = 32;
+pub const FILE_DEVICE_REQUIRE_SECURITY_CHECK: u32 = 1048576;
+pub const FILE_DEVICE_SECURE_OPEN: u32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION {
     pub EndOfFile: i64,
 }
-pub const FILE_FLOPPY_DISKETTE: u32 = 4u32;
+pub const FILE_FLOPPY_DISKETTE: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_DEVICE_INFORMATION {
@@ -9284,7 +9284,7 @@ pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
     pub IsRemote: bool,
 }
-pub const FILE_LONG_ALIGNMENT: u32 = 3u32;
+pub const FILE_LONG_ALIGNMENT: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION {
@@ -9323,8 +9323,8 @@ impl Default for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
 pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
 }
-pub const FILE_OCTA_ALIGNMENT: u32 = 15u32;
-pub const FILE_PORTABLE_DEVICE: u32 = 262144u32;
+pub const FILE_OCTA_ALIGNMENT: u32 = 15;
+pub const FILE_PORTABLE_DEVICE: u32 = 262144;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_PROCESS_IDS_USING_FILE_INFORMATION {
@@ -9336,16 +9336,16 @@ impl Default for FILE_PROCESS_IDS_USING_FILE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_QUAD_ALIGNMENT: u32 = 7u32;
-pub const FILE_QUERY_INDEX_SPECIFIED: u32 = 4u32;
-pub const FILE_QUERY_NO_CURSOR_UPDATE: u32 = 16u32;
-pub const FILE_QUERY_RESTART_SCAN: u32 = 1u32;
-pub const FILE_QUERY_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8u32;
-pub const FILE_QUERY_RETURN_SINGLE_ENTRY: u32 = 2u32;
-pub const FILE_READ_ONLY_DEVICE: u32 = 2u32;
-pub const FILE_REMOTE_DEVICE: u32 = 16u32;
-pub const FILE_REMOTE_DEVICE_VSMB: u32 = 524288u32;
-pub const FILE_REMOVABLE_MEDIA: u32 = 1u32;
+pub const FILE_QUAD_ALIGNMENT: u32 = 7;
+pub const FILE_QUERY_INDEX_SPECIFIED: u32 = 4;
+pub const FILE_QUERY_NO_CURSOR_UPDATE: u32 = 16;
+pub const FILE_QUERY_RESTART_SCAN: u32 = 1;
+pub const FILE_QUERY_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8;
+pub const FILE_QUERY_RETURN_SINGLE_ENTRY: u32 = 2;
+pub const FILE_READ_ONLY_DEVICE: u32 = 2;
+pub const FILE_REMOTE_DEVICE: u32 = 16;
+pub const FILE_REMOTE_DEVICE_VSMB: u32 = 524288;
+pub const FILE_REMOVABLE_MEDIA: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
@@ -9363,8 +9363,8 @@ pub struct FILE_SFIO_VOLUME_INFORMATION {
     pub MinimumPeriod: u32,
     pub MinimumTransferSize: u32,
 }
-pub const FILE_SHARE_VALID_FLAGS: u32 = 7u32;
-pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: u32 = 4u32;
+pub const FILE_SHARE_VALID_FLAGS: u32 = 7;
+pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION_EX {
@@ -9376,19 +9376,19 @@ pub struct FILE_STANDARD_INFORMATION_EX {
     pub AlternateStream: bool,
     pub MetadataAttribute: bool,
 }
-pub const FILE_USE_FILE_POINTER_POSITION: u32 = 4294967294u32;
+pub const FILE_USE_FILE_POINTER_POSITION: u32 = 4294967294;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_VALID_DATA_LENGTH_INFORMATION {
     pub ValidDataLength: i64,
 }
-pub const FILE_VALID_EXTENDED_OPTION_FLAGS: u32 = 268435456u32;
-pub const FILE_VIRTUAL_VOLUME: u32 = 64u32;
-pub const FILE_WORD_ALIGNMENT: u32 = 1u32;
-pub const FILE_WRITE_ONCE_MEDIA: u32 = 8u32;
-pub const FILE_WRITE_TO_END_OF_FILE: u32 = 4294967295u32;
+pub const FILE_VALID_EXTENDED_OPTION_FLAGS: u32 = 268435456;
+pub const FILE_VIRTUAL_VOLUME: u32 = 64;
+pub const FILE_WORD_ALIGNMENT: u32 = 1;
+pub const FILE_WRITE_ONCE_MEDIA: u32 = 8;
+pub const FILE_WRITE_TO_END_OF_FILE: u32 = 4294967295;
 pub const FIRMWARE_ERROR_RECORD_REFERENCE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x81212a96_09ed_4996_9471_8d729c8e69ed);
-pub const FLAG_OWNER_POINTER_IS_THREAD: u32 = 1u32;
+pub const FLAG_OWNER_POINTER_IS_THREAD: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
@@ -9407,69 +9407,69 @@ impl Default for FLOATING_SAVE_AREA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FLUSH_MULTIPLE_MAXIMUM: u32 = 32u32;
-pub const FM_LOCK_BIT: u32 = 1u32;
-pub const FM_LOCK_BIT_V: u32 = 0u32;
-pub const FO_ALERTABLE_IO: u32 = 4u32;
-pub const FO_BYPASS_IO_ENABLED: u32 = 8388608u32;
-pub const FO_CACHE_SUPPORTED: u32 = 64u32;
-pub const FO_CLEANUP_COMPLETE: u32 = 16384u32;
-pub const FO_DELETE_ON_CLOSE: u32 = 65536u32;
-pub const FO_DIRECT_DEVICE_OPEN: u32 = 2048u32;
-pub const FO_DISALLOW_EXCLUSIVE: u32 = 33554432u32;
-pub const FO_FILE_FAST_IO_READ: u32 = 524288u32;
-pub const FO_FILE_MODIFIED: u32 = 4096u32;
-pub const FO_FILE_OPEN: u32 = 1u32;
-pub const FO_FILE_OPEN_CANCELLED: u32 = 2097152u32;
-pub const FO_FILE_SIZE_CHANGED: u32 = 8192u32;
-pub const FO_FLAGS_VALID_ONLY_DURING_CREATE: u32 = 33554432u32;
-pub const FO_GENERATE_AUDIT_ON_CLOSE: u32 = 1024u32;
-pub const FO_HANDLE_CREATED: u32 = 262144u32;
-pub const FO_INDIRECT_WAIT_OBJECT: u32 = 268435456u32;
-pub const FO_MAILSLOT: u32 = 512u32;
-pub const FO_NAMED_PIPE: u32 = 128u32;
-pub const FO_NO_INTERMEDIATE_BUFFERING: u32 = 8u32;
-pub const FO_OPENED_CASE_SENSITIVE: u32 = 131072u32;
-pub const FO_QUEUE_IRP_TO_THREAD: u32 = 1024u32;
-pub const FO_RANDOM_ACCESS: u32 = 1048576u32;
-pub const FO_REMOTE_ORIGIN: u32 = 16777216u32;
-pub const FO_SECTION_MINSTORE_TREATMENT: u32 = 536870912u32;
-pub const FO_SEQUENTIAL_ONLY: u32 = 32u32;
-pub const FO_SKIP_COMPLETION_PORT: u32 = 33554432u32;
-pub const FO_SKIP_SET_EVENT: u32 = 67108864u32;
-pub const FO_SKIP_SET_FAST_IO: u32 = 134217728u32;
-pub const FO_STREAM_FILE: u32 = 256u32;
-pub const FO_SYNCHRONOUS_IO: u32 = 2u32;
-pub const FO_TEMPORARY_FILE: u32 = 32768u32;
-pub const FO_VOLUME_OPEN: u32 = 4194304u32;
-pub const FO_WRITE_THROUGH: u32 = 16u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: u32 = 6u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1GB: u32 = 2u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1MB: u32 = 9u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_256MB: u32 = 0u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_2GB: u32 = 3u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_32GB: u32 = 7u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_4GB: u32 = 4u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_512MB: u32 = 1u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_8GB: u32 = 5u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_16MB: u32 = 4u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_1MB: u32 = 0u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_2MB: u32 = 1u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_4MB: u32 = 2u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_8MB: u32 = 3u32;
-pub const FPB_MEM_VECTOR_GRANULARITY_1B: u32 = 8u32;
-pub const FPB_RID_VECTOR_GRANULARITY_256RIDS: u32 = 5u32;
-pub const FPB_RID_VECTOR_GRANULARITY_64RIDS: u32 = 3u32;
-pub const FPB_RID_VECTOR_GRANULARITY_8RIDS: u32 = 0u32;
-pub const FPB_VECTOR_SELECT_MEM_HIGH: u32 = 2u32;
-pub const FPB_VECTOR_SELECT_MEM_LOW: u32 = 1u32;
-pub const FPB_VECTOR_SELECT_RID: u32 = 0u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_1KBITS: u32 = 2u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_256BITS: u32 = 0u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_2KBITS: u32 = 3u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_4KBITS: u32 = 4u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: u32 = 1u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: u32 = 5u32;
+pub const FLUSH_MULTIPLE_MAXIMUM: u32 = 32;
+pub const FM_LOCK_BIT: u32 = 1;
+pub const FM_LOCK_BIT_V: u32 = 0;
+pub const FO_ALERTABLE_IO: u32 = 4;
+pub const FO_BYPASS_IO_ENABLED: u32 = 8388608;
+pub const FO_CACHE_SUPPORTED: u32 = 64;
+pub const FO_CLEANUP_COMPLETE: u32 = 16384;
+pub const FO_DELETE_ON_CLOSE: u32 = 65536;
+pub const FO_DIRECT_DEVICE_OPEN: u32 = 2048;
+pub const FO_DISALLOW_EXCLUSIVE: u32 = 33554432;
+pub const FO_FILE_FAST_IO_READ: u32 = 524288;
+pub const FO_FILE_MODIFIED: u32 = 4096;
+pub const FO_FILE_OPEN: u32 = 1;
+pub const FO_FILE_OPEN_CANCELLED: u32 = 2097152;
+pub const FO_FILE_SIZE_CHANGED: u32 = 8192;
+pub const FO_FLAGS_VALID_ONLY_DURING_CREATE: u32 = 33554432;
+pub const FO_GENERATE_AUDIT_ON_CLOSE: u32 = 1024;
+pub const FO_HANDLE_CREATED: u32 = 262144;
+pub const FO_INDIRECT_WAIT_OBJECT: u32 = 268435456;
+pub const FO_MAILSLOT: u32 = 512;
+pub const FO_NAMED_PIPE: u32 = 128;
+pub const FO_NO_INTERMEDIATE_BUFFERING: u32 = 8;
+pub const FO_OPENED_CASE_SENSITIVE: u32 = 131072;
+pub const FO_QUEUE_IRP_TO_THREAD: u32 = 1024;
+pub const FO_RANDOM_ACCESS: u32 = 1048576;
+pub const FO_REMOTE_ORIGIN: u32 = 16777216;
+pub const FO_SECTION_MINSTORE_TREATMENT: u32 = 536870912;
+pub const FO_SEQUENTIAL_ONLY: u32 = 32;
+pub const FO_SKIP_COMPLETION_PORT: u32 = 33554432;
+pub const FO_SKIP_SET_EVENT: u32 = 67108864;
+pub const FO_SKIP_SET_FAST_IO: u32 = 134217728;
+pub const FO_STREAM_FILE: u32 = 256;
+pub const FO_SYNCHRONOUS_IO: u32 = 2;
+pub const FO_TEMPORARY_FILE: u32 = 32768;
+pub const FO_VOLUME_OPEN: u32 = 4194304;
+pub const FO_WRITE_THROUGH: u32 = 16;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: u32 = 6;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1GB: u32 = 2;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1MB: u32 = 9;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_256MB: u32 = 0;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_2GB: u32 = 3;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_32GB: u32 = 7;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_4GB: u32 = 4;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_512MB: u32 = 1;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_8GB: u32 = 5;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_16MB: u32 = 4;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_1MB: u32 = 0;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_2MB: u32 = 1;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_4MB: u32 = 2;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_8MB: u32 = 3;
+pub const FPB_MEM_VECTOR_GRANULARITY_1B: u32 = 8;
+pub const FPB_RID_VECTOR_GRANULARITY_256RIDS: u32 = 5;
+pub const FPB_RID_VECTOR_GRANULARITY_64RIDS: u32 = 3;
+pub const FPB_RID_VECTOR_GRANULARITY_8RIDS: u32 = 0;
+pub const FPB_VECTOR_SELECT_MEM_HIGH: u32 = 2;
+pub const FPB_VECTOR_SELECT_MEM_LOW: u32 = 1;
+pub const FPB_VECTOR_SELECT_RID: u32 = 0;
+pub const FPB_VECTOR_SIZE_SUPPORTED_1KBITS: u32 = 2;
+pub const FPB_VECTOR_SIZE_SUPPORTED_256BITS: u32 = 0;
+pub const FPB_VECTOR_SIZE_SUPPORTED_2KBITS: u32 = 3;
+pub const FPB_VECTOR_SIZE_SUPPORTED_4KBITS: u32 = 4;
+pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: u32 = 1;
+pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: u32 = 5;
 pub type FPGA_BUS_SCAN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: bool) -> windows_core::NTSTATUS>;
 pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, uncorrectablemask: u32, correctablemask: u32, disableerrorreporting: bool) -> windows_core::NTSTATUS>;
@@ -9506,38 +9506,38 @@ impl Default for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     }
 }
 pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
-pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(4i32);
-pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(1i32);
-pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(0i32);
-pub const FaultInformationX64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(2i32);
-pub const FloatingPointProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(2i32);
-pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(26i32);
-pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(13i32);
-pub const FreePage: KWAIT_REASON = KWAIT_REASON(1i32);
-pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(0i32);
+pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(4);
+pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(1);
+pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(0);
+pub const FaultInformationX64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(2);
+pub const FloatingPointProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(2);
+pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(26);
+pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(13);
+pub const FreePage: KWAIT_REASON = KWAIT_REASON(1);
+pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(0);
 pub const GENERIC_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x3e62a467_ab40_409a_a698_f362d464b38f);
 pub const GENERIC_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe71254e8_c1b9_4940_ab76_909703a4320f);
-pub const GENPROC_FLAGS_CORRECTED: u32 = 8u32;
-pub const GENPROC_FLAGS_OVERFLOW: u32 = 4u32;
-pub const GENPROC_FLAGS_PRECISEIP: u32 = 2u32;
-pub const GENPROC_FLAGS_RESTARTABLE: u32 = 1u32;
-pub const GENPROC_OP_DATAREAD: u32 = 1u32;
-pub const GENPROC_OP_DATAWRITE: u32 = 2u32;
-pub const GENPROC_OP_GENERIC: u32 = 0u32;
-pub const GENPROC_OP_INSTRUCTIONEXE: u32 = 3u32;
-pub const GENPROC_PROCERRTYPE_BUS: u32 = 4u32;
-pub const GENPROC_PROCERRTYPE_CACHE: u32 = 1u32;
-pub const GENPROC_PROCERRTYPE_MAE: u32 = 8u32;
-pub const GENPROC_PROCERRTYPE_TLB: u32 = 2u32;
-pub const GENPROC_PROCERRTYPE_UNKNOWN: u32 = 0u32;
-pub const GENPROC_PROCISA_ARM32: u32 = 4u32;
-pub const GENPROC_PROCISA_ARM64: u32 = 8u32;
-pub const GENPROC_PROCISA_IPF: u32 = 1u32;
-pub const GENPROC_PROCISA_X64: u32 = 2u32;
-pub const GENPROC_PROCISA_X86: u32 = 0u32;
-pub const GENPROC_PROCTYPE_ARM: u32 = 2u32;
-pub const GENPROC_PROCTYPE_IPF: u32 = 1u32;
-pub const GENPROC_PROCTYPE_XPF: u32 = 0u32;
+pub const GENPROC_FLAGS_CORRECTED: u32 = 8;
+pub const GENPROC_FLAGS_OVERFLOW: u32 = 4;
+pub const GENPROC_FLAGS_PRECISEIP: u32 = 2;
+pub const GENPROC_FLAGS_RESTARTABLE: u32 = 1;
+pub const GENPROC_OP_DATAREAD: u32 = 1;
+pub const GENPROC_OP_DATAWRITE: u32 = 2;
+pub const GENPROC_OP_GENERIC: u32 = 0;
+pub const GENPROC_OP_INSTRUCTIONEXE: u32 = 3;
+pub const GENPROC_PROCERRTYPE_BUS: u32 = 4;
+pub const GENPROC_PROCERRTYPE_CACHE: u32 = 1;
+pub const GENPROC_PROCERRTYPE_MAE: u32 = 8;
+pub const GENPROC_PROCERRTYPE_TLB: u32 = 2;
+pub const GENPROC_PROCERRTYPE_UNKNOWN: u32 = 0;
+pub const GENPROC_PROCISA_ARM32: u32 = 4;
+pub const GENPROC_PROCISA_ARM64: u32 = 8;
+pub const GENPROC_PROCISA_IPF: u32 = 1;
+pub const GENPROC_PROCISA_X64: u32 = 2;
+pub const GENPROC_PROCISA_X86: u32 = 0;
+pub const GENPROC_PROCTYPE_ARM: u32 = 2;
+pub const GENPROC_PROCTYPE_IPF: u32 = 1;
+pub const GENPROC_PROCTYPE_XPF: u32 = 0;
 pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupported: *mut bool) -> windows_core::NTSTATUS>;
 pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, lasttransitionstatus: *mut D3COLD_LAST_TRANSITION_STATUS)>;
 pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, isresetting: *mut bool, resettypeselected: *mut DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *mut DEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
@@ -9553,14 +9553,14 @@ pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn(context:
 pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, capturedbusnumbers: *mut u8)>;
 pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, baseregistervalues: *mut u32) -> windows_core::NTSTATUS>;
 pub const GUID_ECP_CREATE_USER_PROCESS: windows_core::GUID = windows_core::GUID::from_u128(0xe0e429ff_6ddc_4e65_aab6_45d05a038a08);
-pub const GartHigh: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(5i32);
-pub const GartLow: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(4i32);
-pub const GenericEqual: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(2i32);
-pub const GenericGreaterThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(1i32);
-pub const GenericLessThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(0i32);
-pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(4i32);
-pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(0i32);
-pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(1i32);
+pub const GartHigh: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(5);
+pub const GartLow: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(4);
+pub const GenericEqual: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(2);
+pub const GenericGreaterThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(1);
+pub const GenericLessThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(0);
+pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(4);
+pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(0);
+pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct HAL_AMLI_BAD_IO_ADDRESS_LIST {
@@ -9616,11 +9616,11 @@ pub struct HAL_DISPATCH {
     pub HalSetPciErrorHandlerCallback: pHalSetPciErrorHandlerCallback,
     pub HalGetPrmCache: pHalGetPrmCache,
 }
-pub const HAL_DISPATCH_VERSION: u32 = 5u32;
+pub const HAL_DISPATCH_VERSION: u32 = 5;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_DISPLAY_BIOS_INFORMATION(pub i32);
-pub const HAL_DMA_ADAPTER_VERSION_1: u32 = 1u32;
+pub const HAL_DMA_ADAPTER_VERSION_1: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_DMA_CRASH_DUMP_REGISTER_TYPE(pub i32);
@@ -9660,9 +9660,9 @@ impl Default for HAL_ERROR_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0u32;
-pub const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2u32;
-pub const HAL_MASK_UNMASK_FLAGS_SERVICING_DEFERRED: u32 = 1u32;
+pub const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0;
+pub const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2;
+pub const HAL_MASK_UNMASK_FLAGS_SERVICING_DEFERRED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct HAL_MCA_INTERFACE {
@@ -9670,13 +9670,13 @@ pub struct HAL_MCA_INTERFACE {
     pub Unlock: PHALMCAINTERFACEUNLOCK,
     pub ReadRegister: PHALMCAINTERFACEREADREGISTER,
 }
-pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(1i32);
-pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(0i32);
-pub const HAL_PLATFORM_ACPI_TABLES_CACHED: i32 = 32i32;
-pub const HAL_PLATFORM_DISABLE_PTCG: i32 = 4i32;
-pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: i32 = 8i32;
-pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: i32 = 1i32;
-pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: i32 = 16i32;
+pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(1);
+pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(0);
+pub const HAL_PLATFORM_ACPI_TABLES_CACHED: i32 = 32;
+pub const HAL_PLATFORM_DISABLE_PTCG: i32 = 4;
+pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: i32 = 8;
+pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: i32 = 1;
+pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_PLATFORM_INFORMATION {
@@ -9713,11 +9713,11 @@ pub struct HARDWARE_COUNTER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
-pub const HASH_STRING_ALGORITHM_DEFAULT: u32 = 0u32;
-pub const HASH_STRING_ALGORITHM_INVALID: u32 = 4294967295u32;
-pub const HASH_STRING_ALGORITHM_X65599: u32 = 1u32;
-pub const HIGH_LEVEL: u32 = 31u32;
-pub const HIGH_PRIORITY: u32 = 31u32;
+pub const HASH_STRING_ALGORITHM_DEFAULT: u32 = 0;
+pub const HASH_STRING_ALGORITHM_INVALID: u32 = 4294967295;
+pub const HASH_STRING_ALGORITHM_X65599: u32 = 1;
+pub const HIGH_LEVEL: u32 = 31;
+pub const HIGH_PRIORITY: u32 = 31;
 pub type HVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn(recoverycontext: *const WHEA_RECOVERY_CONTEXT, platformdirected: bool, poisoned: bool) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -9726,97 +9726,97 @@ pub struct HWPROFILE_CHANGE_NOTIFICATION {
     pub Size: u16,
     pub Event: windows_core::GUID,
 }
-pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(26i32);
-pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(5i32);
-pub const HalChannelTopologyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(31i32);
-pub const HalCmcLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(7i32);
-pub const HalCmcLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(13i32);
-pub const HalCmcRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(4i32);
-pub const HalCpeLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(8i32);
-pub const HalCpeLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(14i32);
-pub const HalCpeRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(5i32);
-pub const HalDisplayBiosInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(9i32);
-pub const HalDisplayEmulatedBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(1i32);
-pub const HalDisplayInt10Bios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(0i32);
-pub const HalDisplayNoBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(2i32);
-pub const HalDmaCrashDumpRegisterSet1: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(0i32);
-pub const HalDmaCrashDumpRegisterSet2: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(1i32);
-pub const HalDmaCrashDumpRegisterSetMax: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(2i32);
-pub const HalDmaRemappingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(47i32);
-pub const HalEnlightenment: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(11i32);
-pub const HalErrorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(12i32);
-pub const HalExternalCacheInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(32i32);
-pub const HalFrameBufferCachingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(8i32);
-pub const HalFrequencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(22i32);
-pub const HalFwBootPerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(34i32);
-pub const HalFwS3PerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(35i32);
-pub const HalGenerateCmcInterrupt: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(9i32);
-pub const HalGetChannelPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(36i32);
-pub const HalHardwareWatchdogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(46i32);
-pub const HalHeterogeneousMemoryAttributesInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(49i32);
-pub const HalHypervisorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(24i32);
-pub const HalI386ExceptionChainTerminatorInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(15i32);
-pub const HalInformationClassUnused1: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(2i32);
-pub const HalInitLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(21i32);
-pub const HalInstalledBusInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(0i32);
-pub const HalInterruptControllerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(39i32);
-pub const HalIrtInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(27i32);
-pub const HalKernelErrorHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(3i32);
-pub const HalMapRegisterInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(6i32);
-pub const HalMcaLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(6i32);
-pub const HalMcaLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(7i32);
-pub const HalMcaRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(2i32);
-pub const HalNumaRangeTableInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(30i32);
-pub const HalNumaTopologyInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(11i32);
-pub const HalParkingPageInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(29i32);
-pub const HalPartitionIpiInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(18i32);
-pub const HalPlatformInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(19i32);
-pub const HalPlatformTimerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(25i32);
-pub const HalPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(3i32);
-pub const HalProcessorBrandString: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(23i32);
-pub const HalProcessorFeatureInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(10i32);
-pub const HalProcessorSpeedInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(4i32);
-pub const HalProfileDpgoSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(12i32);
-pub const HalProfileSourceAdd: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(20i32);
-pub const HalProfileSourceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(1i32);
-pub const HalProfileSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(1i32);
-pub const HalProfileSourceInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(0i32);
-pub const HalProfileSourceRemove: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(21i32);
-pub const HalProfileSourceTimerHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(10i32);
-pub const HalPsciInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(38i32);
-pub const HalQueryAMLIIllegalIOPortAddresses: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(16i32);
-pub const HalQueryAcpiWakeAlarmSystemPowerStateInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(43i32);
-pub const HalQueryArmErrataInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(41i32);
-pub const HalQueryDebuggerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(33i32);
-pub const HalQueryHyperlaunchEntrypoint: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(45i32);
-pub const HalQueryIommuReservedRegionInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(40i32);
-pub const HalQueryMaxHotPlugMemoryAddress: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(17i32);
-pub const HalQueryMcaInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(15i32);
-pub const HalQueryPerDeviceMsiLimitInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(50i32);
-pub const HalQueryProcessorEfficiencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(42i32);
-pub const HalQueryProfileCorruptionStatus: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(51i32);
-pub const HalQueryProfileCounterOwnership: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(52i32);
-pub const HalQueryProfileNumberOfCounters: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(44i32);
-pub const HalQueryProfileSourceList: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(20i32);
-pub const HalQueryStateElementInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(37i32);
-pub const HalQueryUnused0001: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(48i32);
-pub const HalRegisterSecondaryInterruptInterface: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(13i32);
-pub const HalSecondaryInterruptInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(28i32);
-pub const HalSetChannelPowerInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(14i32);
-pub const HalSetClockTimerMinimumInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(23i32);
-pub const HalSetHvciEnabled: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(18i32);
-pub const HalSetProcessorTraceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(19i32);
-pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(17i32);
-pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(16i32);
-pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(22i32);
-pub const HighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(2i32);
-pub const HighPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(32i32);
-pub const HighPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(32i32);
-pub const HighPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(40i32);
-pub const HighPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(41i32);
-pub const HotSpareControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(7i32);
-pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(2i32);
-pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3u32;
+pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(26);
+pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(5);
+pub const HalChannelTopologyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(31);
+pub const HalCmcLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(7);
+pub const HalCmcLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(13);
+pub const HalCmcRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(4);
+pub const HalCpeLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(8);
+pub const HalCpeLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(14);
+pub const HalCpeRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(5);
+pub const HalDisplayBiosInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(9);
+pub const HalDisplayEmulatedBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(1);
+pub const HalDisplayInt10Bios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(0);
+pub const HalDisplayNoBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(2);
+pub const HalDmaCrashDumpRegisterSet1: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(0);
+pub const HalDmaCrashDumpRegisterSet2: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(1);
+pub const HalDmaCrashDumpRegisterSetMax: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(2);
+pub const HalDmaRemappingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(47);
+pub const HalEnlightenment: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(11);
+pub const HalErrorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(12);
+pub const HalExternalCacheInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(32);
+pub const HalFrameBufferCachingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(8);
+pub const HalFrequencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(22);
+pub const HalFwBootPerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(34);
+pub const HalFwS3PerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(35);
+pub const HalGenerateCmcInterrupt: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(9);
+pub const HalGetChannelPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(36);
+pub const HalHardwareWatchdogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(46);
+pub const HalHeterogeneousMemoryAttributesInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(49);
+pub const HalHypervisorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(24);
+pub const HalI386ExceptionChainTerminatorInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(15);
+pub const HalInformationClassUnused1: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(2);
+pub const HalInitLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(21);
+pub const HalInstalledBusInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(0);
+pub const HalInterruptControllerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(39);
+pub const HalIrtInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(27);
+pub const HalKernelErrorHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(3);
+pub const HalMapRegisterInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(6);
+pub const HalMcaLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(6);
+pub const HalMcaLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(7);
+pub const HalMcaRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(2);
+pub const HalNumaRangeTableInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(30);
+pub const HalNumaTopologyInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(11);
+pub const HalParkingPageInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(29);
+pub const HalPartitionIpiInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(18);
+pub const HalPlatformInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(19);
+pub const HalPlatformTimerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(25);
+pub const HalPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(3);
+pub const HalProcessorBrandString: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(23);
+pub const HalProcessorFeatureInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(10);
+pub const HalProcessorSpeedInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(4);
+pub const HalProfileDpgoSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(12);
+pub const HalProfileSourceAdd: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(20);
+pub const HalProfileSourceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(1);
+pub const HalProfileSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(1);
+pub const HalProfileSourceInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(0);
+pub const HalProfileSourceRemove: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(21);
+pub const HalProfileSourceTimerHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(10);
+pub const HalPsciInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(38);
+pub const HalQueryAMLIIllegalIOPortAddresses: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(16);
+pub const HalQueryAcpiWakeAlarmSystemPowerStateInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(43);
+pub const HalQueryArmErrataInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(41);
+pub const HalQueryDebuggerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(33);
+pub const HalQueryHyperlaunchEntrypoint: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(45);
+pub const HalQueryIommuReservedRegionInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(40);
+pub const HalQueryMaxHotPlugMemoryAddress: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(17);
+pub const HalQueryMcaInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(15);
+pub const HalQueryPerDeviceMsiLimitInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(50);
+pub const HalQueryProcessorEfficiencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(42);
+pub const HalQueryProfileCorruptionStatus: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(51);
+pub const HalQueryProfileCounterOwnership: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(52);
+pub const HalQueryProfileNumberOfCounters: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(44);
+pub const HalQueryProfileSourceList: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(20);
+pub const HalQueryStateElementInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(37);
+pub const HalQueryUnused0001: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(48);
+pub const HalRegisterSecondaryInterruptInterface: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(13);
+pub const HalSecondaryInterruptInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(28);
+pub const HalSetChannelPowerInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(14);
+pub const HalSetClockTimerMinimumInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(23);
+pub const HalSetHvciEnabled: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(18);
+pub const HalSetProcessorTraceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(19);
+pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(17);
+pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(16);
+pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(22);
+pub const HighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(2);
+pub const HighPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(32);
+pub const HighPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(32);
+pub const HighPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(40);
+pub const HighPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(41);
+pub const HotSpareControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(7);
+pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(2);
+pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_INFO {
@@ -9861,7 +9861,7 @@ impl Default for IMAGE_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const INITIAL_PRIVILEGE_COUNT: u32 = 3u32;
+pub const INITIAL_PRIVILEGE_COUNT: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9877,18 +9877,18 @@ impl Default for INITIAL_PRIVILEGE_SET {
     }
 }
 pub const INIT_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc5263e8_9308_454a_89d0_340bd39bc98e);
-pub const INJECT_ERRTYPE_MEMORY_CORRECTABLE: u32 = 8u32;
-pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: u32 = 32u32;
-pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLENONFATAL: u32 = 16u32;
-pub const INJECT_ERRTYPE_PCIEXPRESS_CORRECTABLE: u32 = 64u32;
-pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLEFATAL: u32 = 256u32;
-pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLENONFATAL: u32 = 128u32;
-pub const INJECT_ERRTYPE_PLATFORM_CORRECTABLE: u32 = 512u32;
-pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLEFATAL: u32 = 2048u32;
-pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLENONFATAL: u32 = 1024u32;
-pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1u32;
-pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4u32;
-pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2u32;
+pub const INJECT_ERRTYPE_MEMORY_CORRECTABLE: u32 = 8;
+pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: u32 = 32;
+pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLENONFATAL: u32 = 16;
+pub const INJECT_ERRTYPE_PCIEXPRESS_CORRECTABLE: u32 = 64;
+pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLEFATAL: u32 = 256;
+pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLENONFATAL: u32 = 128;
+pub const INJECT_ERRTYPE_PLATFORM_CORRECTABLE: u32 = 512;
+pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLEFATAL: u32 = 2048;
+pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLENONFATAL: u32 = 1024;
+pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1;
+pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4;
+pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INPUT_MAPPING_ELEMENT {
@@ -9949,12 +9949,12 @@ pub struct INTERFACE_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERLOCKED_RESULT(pub i32);
-pub const IOCTL_CANCEL_DEVICE_WAKE: u32 = 2719752u32;
-pub const IOCTL_QUERY_DEVICE_POWER_STATE: u32 = 2703360u32;
-pub const IOCTL_SET_DEVICE_WAKE: u32 = 2719748u32;
-pub const IOMMU_ACCESS_NONE: u32 = 0u32;
-pub const IOMMU_ACCESS_READ: u32 = 1u32;
-pub const IOMMU_ACCESS_WRITE: u32 = 2u32;
+pub const IOCTL_CANCEL_DEVICE_WAKE: u32 = 2719752;
+pub const IOCTL_QUERY_DEVICE_POWER_STATE: u32 = 2703360;
+pub const IOCTL_SET_DEVICE_WAKE: u32 = 2719748;
+pub const IOMMU_ACCESS_NONE: u32 = 0;
+pub const IOMMU_ACCESS_READ: u32 = 1;
+pub const IOMMU_ACCESS_WRITE: u32 = 2;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, deviceconfig: *const IOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut *mut super::super::Foundation::IOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 #[repr(C)]
@@ -10227,7 +10227,7 @@ pub struct IO_ACCESS_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ALLOCATION_ACTION(pub i32);
-pub const IO_ATTACH_DEVICE: u32 = 1024u32;
+pub const IO_ATTACH_DEVICE: u32 = 1024;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_ATTRIBUTION_INFORMATION {
@@ -10258,15 +10258,15 @@ impl Default for IO_ATTRIBUTION_INFORMATION_0 {
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-pub const IO_ATTRIBUTION_INFO_V1: u32 = 1u32;
-pub const IO_CHECK_CREATE_PARAMETERS: u32 = 512u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_DELETE: u32 = 16u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_READ: u32 = 4u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_WRITE: u32 = 8u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_UPDATE_FILE_OBJECT: u32 = 2u32;
-pub const IO_CHECK_SHARE_ACCESS_FORCE_CHECK: u32 = 32u32;
-pub const IO_CHECK_SHARE_ACCESS_FORCE_USING_SCB: u32 = 64u32;
-pub const IO_CHECK_SHARE_ACCESS_UPDATE_SHARE_ACCESS: u32 = 1u32;
+pub const IO_ATTRIBUTION_INFO_V1: u32 = 1;
+pub const IO_CHECK_CREATE_PARAMETERS: u32 = 512;
+pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_DELETE: u32 = 16;
+pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_READ: u32 = 4;
+pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_WRITE: u32 = 8;
+pub const IO_CHECK_SHARE_ACCESS_DONT_UPDATE_FILE_OBJECT: u32 = 2;
+pub const IO_CHECK_SHARE_ACCESS_FORCE_CHECK: u32 = 32;
+pub const IO_CHECK_SHARE_ACCESS_FORCE_USING_SCB: u32 = 64;
+pub const IO_CHECK_SHARE_ACCESS_UPDATE_SHARE_ACCESS: u32 = 1;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(transparent)]
@@ -10550,8 +10550,8 @@ impl Default for IO_FOEXT_SILO_PARAMETERS_0 {
 pub struct IO_FOEXT_SILO_PARAMETERS_0_0 {
     pub _bitfield: u32,
 }
-pub const IO_FORCE_ACCESS_CHECK: u32 = 1u32;
-pub const IO_IGNORE_SHARE_ACCESS_CHECK: u32 = 2048u32;
+pub const IO_FORCE_ACCESS_CHECK: u32 = 1;
+pub const IO_IGNORE_SHARE_ACCESS_CHECK: u32 = 2048;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10579,22 +10579,22 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub Mode: KINTERRUPT_MODE,
     pub Polarity: KINTERRUPT_POLARITY,
 }
-pub const IO_KEYBOARD_INCREMENT: u32 = 6u32;
-pub const IO_MOUSE_INCREMENT: u32 = 6u32;
+pub const IO_KEYBOARD_INCREMENT: u32 = 6;
+pub const IO_MOUSE_INCREMENT: u32 = 6;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_NOTIFICATION_EVENT_CATEGORY(pub i32);
-pub const IO_NO_PARAMETER_CHECKING: u32 = 256u32;
+pub const IO_NO_PARAMETER_CHECKING: u32 = 256;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_PAGING_PRIORITY(pub i32);
-pub const IO_PARALLEL_INCREMENT: u32 = 1u32;
+pub const IO_PARALLEL_INCREMENT: u32 = 1;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, physicaldeviceid: *const super::super::super::Win32::Foundation::UNICODE_STRING, datatag: *const u16, dataversion: *const u32, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_QUERY_DEVICE_DATA_FORMAT(pub i32);
-pub const IO_REMOUNT: u32 = 1u32;
+pub const IO_REMOUNT: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -10643,8 +10643,8 @@ impl Default for IO_REMOVE_LOCK_DBG_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IO_REPARSE: u32 = 0u32;
-pub const IO_REPARSE_GLOBAL: u32 = 2u32;
+pub const IO_REPARSE: u32 = 0;
+pub const IO_REPARSE_GLOBAL: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -10672,8 +10672,8 @@ impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IO_RESOURCE_ALTERNATIVE: u32 = 8u32;
-pub const IO_RESOURCE_DEFAULT: u32 = 2u32;
+pub const IO_RESOURCE_ALTERNATIVE: u32 = 8;
+pub const IO_RESOURCE_DEFAULT: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR {
@@ -10831,7 +10831,7 @@ impl Default for IO_RESOURCE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IO_RESOURCE_PREFERRED: u32 = 1u32;
+pub const IO_RESOURCE_PREFERRED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_REQUIREMENTS_LIST {
@@ -10848,7 +10848,7 @@ impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IO_SERIAL_INCREMENT: u32 = 2u32;
+pub const IO_SERIAL_INCREMENT: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_SESSION_CONNECT_INFO {
@@ -10858,15 +10858,15 @@ pub struct IO_SESSION_CONNECT_INFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_EVENT(pub i32);
-pub const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256i32;
+pub const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256;
 pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn(sessionobject: *const core::ffi::c_void, ioobject: *const core::ffi::c_void, event: u32, context: *const core::ffi::c_void, notificationpayload: *const core::ffi::c_void, payloadlength: u32) -> windows_core::NTSTATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_STATE(pub i32);
-pub const IO_SESSION_STATE_ALL_EVENTS: u32 = 4294967295u32;
-pub const IO_SESSION_STATE_CONNECT_EVENT: u32 = 4u32;
-pub const IO_SESSION_STATE_CREATION_EVENT: u32 = 1u32;
-pub const IO_SESSION_STATE_DISCONNECT_EVENT: u32 = 8u32;
+pub const IO_SESSION_STATE_ALL_EVENTS: u32 = 4294967295;
+pub const IO_SESSION_STATE_CONNECT_EVENT: u32 = 4;
+pub const IO_SESSION_STATE_CREATION_EVENT: u32 = 1;
+pub const IO_SESSION_STATE_DISCONNECT_EVENT: u32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_SESSION_STATE_INFORMATION {
@@ -10874,8 +10874,8 @@ pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionState: IO_SESSION_STATE,
     pub LocalSession: bool,
 }
-pub const IO_SESSION_STATE_LOGOFF_EVENT: u32 = 32u32;
-pub const IO_SESSION_STATE_LOGON_EVENT: u32 = 16u32;
+pub const IO_SESSION_STATE_LOGOFF_EVENT: u32 = 32;
+pub const IO_SESSION_STATE_LOGON_EVENT: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_SESSION_STATE_NOTIFICATION {
@@ -10890,14 +10890,14 @@ impl Default for IO_SESSION_STATE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IO_SESSION_STATE_TERMINATION_EVENT: u32 = 2u32;
-pub const IO_SESSION_STATE_VALID_EVENT_MASK: u32 = 63u32;
-pub const IO_SET_IRP_IO_ATTRIBUTION_FLAGS_MASK: u32 = 3u32;
-pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_PROCESS: u32 = 2u32;
-pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_THREAD: u32 = 1u32;
-pub const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128u32;
-pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648u32;
-pub const IO_SOUND_INCREMENT: u32 = 8u32;
+pub const IO_SESSION_STATE_TERMINATION_EVENT: u32 = 2;
+pub const IO_SESSION_STATE_VALID_EVENT_MASK: u32 = 63;
+pub const IO_SET_IRP_IO_ATTRIBUTION_FLAGS_MASK: u32 = 3;
+pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_PROCESS: u32 = 2;
+pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_THREAD: u32 = 1;
+pub const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128;
+pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648;
+pub const IO_SOUND_INCREMENT: u32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STATUS_BLOCK32 {
@@ -10928,146 +10928,146 @@ impl Default for IO_STATUS_BLOCK64_0 {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type IO_TIMER_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const core::ffi::c_void)>;
-pub const IO_TYPE_ADAPTER: u32 = 1u32;
-pub const IO_TYPE_CONTROLLER: u32 = 2u32;
-pub const IO_TYPE_CSQ: u32 = 2u32;
-pub const IO_TYPE_CSQ_EX: u32 = 3u32;
-pub const IO_TYPE_CSQ_IRP_CONTEXT: u32 = 1u32;
-pub const IO_TYPE_DEVICE: u32 = 3u32;
-pub const IO_TYPE_DEVICE_OBJECT_EXTENSION: u32 = 13u32;
-pub const IO_TYPE_DRIVER: u32 = 4u32;
-pub const IO_TYPE_ERROR_LOG: u32 = 11u32;
-pub const IO_TYPE_ERROR_MESSAGE: u32 = 12u32;
-pub const IO_TYPE_FILE: u32 = 5u32;
-pub const IO_TYPE_IORING: u32 = 14u32;
-pub const IO_TYPE_IRP: u32 = 6u32;
-pub const IO_TYPE_MASTER_ADAPTER: u32 = 7u32;
-pub const IO_TYPE_OPEN_PACKET: u32 = 8u32;
-pub const IO_TYPE_TIMER: u32 = 9u32;
-pub const IO_TYPE_VPB: u32 = 10u32;
-pub const IO_VIDEO_INCREMENT: u32 = 1u32;
+pub const IO_TYPE_ADAPTER: u32 = 1;
+pub const IO_TYPE_CONTROLLER: u32 = 2;
+pub const IO_TYPE_CSQ: u32 = 2;
+pub const IO_TYPE_CSQ_EX: u32 = 3;
+pub const IO_TYPE_CSQ_IRP_CONTEXT: u32 = 1;
+pub const IO_TYPE_DEVICE: u32 = 3;
+pub const IO_TYPE_DEVICE_OBJECT_EXTENSION: u32 = 13;
+pub const IO_TYPE_DRIVER: u32 = 4;
+pub const IO_TYPE_ERROR_LOG: u32 = 11;
+pub const IO_TYPE_ERROR_MESSAGE: u32 = 12;
+pub const IO_TYPE_FILE: u32 = 5;
+pub const IO_TYPE_IORING: u32 = 14;
+pub const IO_TYPE_IRP: u32 = 6;
+pub const IO_TYPE_MASTER_ADAPTER: u32 = 7;
+pub const IO_TYPE_OPEN_PACKET: u32 = 8;
+pub const IO_TYPE_TIMER: u32 = 9;
+pub const IO_TYPE_VPB: u32 = 10;
+pub const IO_VIDEO_INCREMENT: u32 = 1;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const core::ffi::c_void)>;
 #[cfg(feature = "Wdk_Foundation")]
 pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: *const core::ffi::c_void, context: *const core::ffi::c_void, ioworkitem: super::super::Foundation::PIO_WORKITEM)>;
 pub const IPF_SAL_RECORD_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6f3380d1_6eb0_497f_a578_4d4c65a71617);
-pub const IPI_LEVEL: u32 = 29u32;
+pub const IPI_LEVEL: u32 = 29;
 pub const IPMI_MSR_DUMP_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1c15b445_9b06_4667_ac25_33c056b88803);
-pub const IRP_ALLOCATED_FIXED_SIZE: u32 = 4u32;
-pub const IRP_ALLOCATED_MUST_SUCCEED: u32 = 2u32;
-pub const IRP_ASSOCIATED_IRP: u32 = 8u32;
-pub const IRP_BUFFERED_IO: u32 = 16u32;
-pub const IRP_CLOSE_OPERATION: u32 = 1024u32;
-pub const IRP_CREATE_OPERATION: u32 = 128u32;
-pub const IRP_DEALLOCATE_BUFFER: u32 = 32u32;
-pub const IRP_DEFER_IO_COMPLETION: u32 = 2048u32;
-pub const IRP_HOLD_DEVICE_QUEUE: u32 = 8192u32;
-pub const IRP_INPUT_OPERATION: u32 = 64u32;
-pub const IRP_LOOKASIDE_ALLOCATION: u32 = 8u32;
-pub const IRP_MJ_CLEANUP: u32 = 18u32;
-pub const IRP_MJ_CLOSE: u32 = 2u32;
-pub const IRP_MJ_CREATE: u32 = 0u32;
-pub const IRP_MJ_CREATE_MAILSLOT: u32 = 19u32;
-pub const IRP_MJ_CREATE_NAMED_PIPE: u32 = 1u32;
-pub const IRP_MJ_DEVICE_CHANGE: u32 = 24u32;
-pub const IRP_MJ_DEVICE_CONTROL: u32 = 14u32;
-pub const IRP_MJ_DIRECTORY_CONTROL: u32 = 12u32;
-pub const IRP_MJ_FILE_SYSTEM_CONTROL: u32 = 13u32;
-pub const IRP_MJ_FLUSH_BUFFERS: u32 = 9u32;
-pub const IRP_MJ_INTERNAL_DEVICE_CONTROL: u32 = 15u32;
-pub const IRP_MJ_LOCK_CONTROL: u32 = 17u32;
-pub const IRP_MJ_MAXIMUM_FUNCTION: u32 = 27u32;
-pub const IRP_MJ_PNP: u32 = 27u32;
-pub const IRP_MJ_PNP_POWER: u32 = 27u32;
-pub const IRP_MJ_POWER: u32 = 22u32;
-pub const IRP_MJ_QUERY_EA: u32 = 7u32;
-pub const IRP_MJ_QUERY_INFORMATION: u32 = 5u32;
-pub const IRP_MJ_QUERY_QUOTA: u32 = 25u32;
-pub const IRP_MJ_QUERY_SECURITY: u32 = 20u32;
-pub const IRP_MJ_QUERY_VOLUME_INFORMATION: u32 = 10u32;
-pub const IRP_MJ_READ: u32 = 3u32;
-pub const IRP_MJ_SCSI: u32 = 15u32;
-pub const IRP_MJ_SET_EA: u32 = 8u32;
-pub const IRP_MJ_SET_INFORMATION: u32 = 6u32;
-pub const IRP_MJ_SET_QUOTA: u32 = 26u32;
-pub const IRP_MJ_SET_SECURITY: u32 = 21u32;
-pub const IRP_MJ_SET_VOLUME_INFORMATION: u32 = 11u32;
-pub const IRP_MJ_SHUTDOWN: u32 = 16u32;
-pub const IRP_MJ_SYSTEM_CONTROL: u32 = 23u32;
-pub const IRP_MJ_WRITE: u32 = 4u32;
-pub const IRP_MN_CANCEL_REMOVE_DEVICE: u32 = 3u32;
-pub const IRP_MN_CANCEL_STOP_DEVICE: u32 = 6u32;
-pub const IRP_MN_CHANGE_SINGLE_INSTANCE: u32 = 2u32;
-pub const IRP_MN_CHANGE_SINGLE_ITEM: u32 = 3u32;
-pub const IRP_MN_COMPLETE: u32 = 4u32;
-pub const IRP_MN_COMPRESSED: u32 = 8u32;
-pub const IRP_MN_DEVICE_ENUMERATED: u32 = 25u32;
-pub const IRP_MN_DEVICE_USAGE_NOTIFICATION: u32 = 22u32;
-pub const IRP_MN_DISABLE_COLLECTION: u32 = 7u32;
-pub const IRP_MN_DISABLE_EVENTS: u32 = 5u32;
-pub const IRP_MN_DPC: u32 = 1u32;
-pub const IRP_MN_EJECT: u32 = 17u32;
-pub const IRP_MN_ENABLE_COLLECTION: u32 = 6u32;
-pub const IRP_MN_ENABLE_EVENTS: u32 = 4u32;
-pub const IRP_MN_EXECUTE_METHOD: u32 = 9u32;
-pub const IRP_MN_FILTER_RESOURCE_REQUIREMENTS: u32 = 13u32;
-pub const IRP_MN_FLUSH_AND_PURGE: u32 = 1u32;
-pub const IRP_MN_FLUSH_DATA_ONLY: u32 = 2u32;
-pub const IRP_MN_FLUSH_DATA_SYNC_ONLY: u32 = 4u32;
-pub const IRP_MN_FLUSH_NO_SYNC: u32 = 3u32;
-pub const IRP_MN_KERNEL_CALL: u32 = 4u32;
-pub const IRP_MN_LOAD_FILE_SYSTEM: u32 = 3u32;
-pub const IRP_MN_LOCK: u32 = 1u32;
-pub const IRP_MN_MDL: u32 = 2u32;
-pub const IRP_MN_MOUNT_VOLUME: u32 = 1u32;
-pub const IRP_MN_NORMAL: u32 = 0u32;
-pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY: u32 = 2u32;
-pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY_EX: u32 = 3u32;
-pub const IRP_MN_POWER_SEQUENCE: u32 = 1u32;
-pub const IRP_MN_QUERY_ALL_DATA: u32 = 0u32;
-pub const IRP_MN_QUERY_BUS_INFORMATION: u32 = 21u32;
-pub const IRP_MN_QUERY_CAPABILITIES: u32 = 9u32;
-pub const IRP_MN_QUERY_DEVICE_RELATIONS: u32 = 7u32;
-pub const IRP_MN_QUERY_DEVICE_TEXT: u32 = 12u32;
-pub const IRP_MN_QUERY_DIRECTORY: u32 = 1u32;
-pub const IRP_MN_QUERY_ID: u32 = 19u32;
-pub const IRP_MN_QUERY_INTERFACE: u32 = 8u32;
-pub const IRP_MN_QUERY_LEGACY_BUS_INFORMATION: u32 = 24u32;
-pub const IRP_MN_QUERY_PNP_DEVICE_STATE: u32 = 20u32;
-pub const IRP_MN_QUERY_POWER: u32 = 3u32;
-pub const IRP_MN_QUERY_REMOVE_DEVICE: u32 = 1u32;
-pub const IRP_MN_QUERY_RESOURCES: u32 = 10u32;
-pub const IRP_MN_QUERY_RESOURCE_REQUIREMENTS: u32 = 11u32;
-pub const IRP_MN_QUERY_SINGLE_INSTANCE: u32 = 1u32;
-pub const IRP_MN_QUERY_STOP_DEVICE: u32 = 5u32;
-pub const IRP_MN_READ_CONFIG: u32 = 15u32;
-pub const IRP_MN_REGINFO: u32 = 8u32;
-pub const IRP_MN_REGINFO_EX: u32 = 11u32;
-pub const IRP_MN_REMOVE_DEVICE: u32 = 2u32;
-pub const IRP_MN_SCSI_CLASS: u32 = 1u32;
-pub const IRP_MN_SET_LOCK: u32 = 18u32;
-pub const IRP_MN_SET_POWER: u32 = 2u32;
-pub const IRP_MN_START_DEVICE: u32 = 0u32;
-pub const IRP_MN_STOP_DEVICE: u32 = 4u32;
-pub const IRP_MN_SURPRISE_REMOVAL: u32 = 23u32;
-pub const IRP_MN_TRACK_LINK: u32 = 4u32;
-pub const IRP_MN_UNLOCK_ALL: u32 = 3u32;
-pub const IRP_MN_UNLOCK_ALL_BY_KEY: u32 = 4u32;
-pub const IRP_MN_UNLOCK_SINGLE: u32 = 2u32;
-pub const IRP_MN_USER_FS_REQUEST: u32 = 0u32;
-pub const IRP_MN_VERIFY_VOLUME: u32 = 2u32;
-pub const IRP_MN_WAIT_WAKE: u32 = 0u32;
-pub const IRP_MN_WRITE_CONFIG: u32 = 16u32;
-pub const IRP_MOUNT_COMPLETION: u32 = 2u32;
-pub const IRP_NOCACHE: u32 = 1u32;
-pub const IRP_OB_QUERY_NAME: u32 = 4096u32;
-pub const IRP_PAGING_IO: u32 = 2u32;
-pub const IRP_QUOTA_CHARGED: u32 = 1u32;
-pub const IRP_READ_OPERATION: u32 = 256u32;
-pub const IRP_SYNCHRONOUS_API: u32 = 4u32;
-pub const IRP_SYNCHRONOUS_PAGING_IO: u32 = 64u32;
-pub const IRP_UM_DRIVER_INITIATED_IO: u32 = 4194304u32;
-pub const IRP_WRITE_OPERATION: u32 = 512u32;
+pub const IRP_ALLOCATED_FIXED_SIZE: u32 = 4;
+pub const IRP_ALLOCATED_MUST_SUCCEED: u32 = 2;
+pub const IRP_ASSOCIATED_IRP: u32 = 8;
+pub const IRP_BUFFERED_IO: u32 = 16;
+pub const IRP_CLOSE_OPERATION: u32 = 1024;
+pub const IRP_CREATE_OPERATION: u32 = 128;
+pub const IRP_DEALLOCATE_BUFFER: u32 = 32;
+pub const IRP_DEFER_IO_COMPLETION: u32 = 2048;
+pub const IRP_HOLD_DEVICE_QUEUE: u32 = 8192;
+pub const IRP_INPUT_OPERATION: u32 = 64;
+pub const IRP_LOOKASIDE_ALLOCATION: u32 = 8;
+pub const IRP_MJ_CLEANUP: u32 = 18;
+pub const IRP_MJ_CLOSE: u32 = 2;
+pub const IRP_MJ_CREATE: u32 = 0;
+pub const IRP_MJ_CREATE_MAILSLOT: u32 = 19;
+pub const IRP_MJ_CREATE_NAMED_PIPE: u32 = 1;
+pub const IRP_MJ_DEVICE_CHANGE: u32 = 24;
+pub const IRP_MJ_DEVICE_CONTROL: u32 = 14;
+pub const IRP_MJ_DIRECTORY_CONTROL: u32 = 12;
+pub const IRP_MJ_FILE_SYSTEM_CONTROL: u32 = 13;
+pub const IRP_MJ_FLUSH_BUFFERS: u32 = 9;
+pub const IRP_MJ_INTERNAL_DEVICE_CONTROL: u32 = 15;
+pub const IRP_MJ_LOCK_CONTROL: u32 = 17;
+pub const IRP_MJ_MAXIMUM_FUNCTION: u32 = 27;
+pub const IRP_MJ_PNP: u32 = 27;
+pub const IRP_MJ_PNP_POWER: u32 = 27;
+pub const IRP_MJ_POWER: u32 = 22;
+pub const IRP_MJ_QUERY_EA: u32 = 7;
+pub const IRP_MJ_QUERY_INFORMATION: u32 = 5;
+pub const IRP_MJ_QUERY_QUOTA: u32 = 25;
+pub const IRP_MJ_QUERY_SECURITY: u32 = 20;
+pub const IRP_MJ_QUERY_VOLUME_INFORMATION: u32 = 10;
+pub const IRP_MJ_READ: u32 = 3;
+pub const IRP_MJ_SCSI: u32 = 15;
+pub const IRP_MJ_SET_EA: u32 = 8;
+pub const IRP_MJ_SET_INFORMATION: u32 = 6;
+pub const IRP_MJ_SET_QUOTA: u32 = 26;
+pub const IRP_MJ_SET_SECURITY: u32 = 21;
+pub const IRP_MJ_SET_VOLUME_INFORMATION: u32 = 11;
+pub const IRP_MJ_SHUTDOWN: u32 = 16;
+pub const IRP_MJ_SYSTEM_CONTROL: u32 = 23;
+pub const IRP_MJ_WRITE: u32 = 4;
+pub const IRP_MN_CANCEL_REMOVE_DEVICE: u32 = 3;
+pub const IRP_MN_CANCEL_STOP_DEVICE: u32 = 6;
+pub const IRP_MN_CHANGE_SINGLE_INSTANCE: u32 = 2;
+pub const IRP_MN_CHANGE_SINGLE_ITEM: u32 = 3;
+pub const IRP_MN_COMPLETE: u32 = 4;
+pub const IRP_MN_COMPRESSED: u32 = 8;
+pub const IRP_MN_DEVICE_ENUMERATED: u32 = 25;
+pub const IRP_MN_DEVICE_USAGE_NOTIFICATION: u32 = 22;
+pub const IRP_MN_DISABLE_COLLECTION: u32 = 7;
+pub const IRP_MN_DISABLE_EVENTS: u32 = 5;
+pub const IRP_MN_DPC: u32 = 1;
+pub const IRP_MN_EJECT: u32 = 17;
+pub const IRP_MN_ENABLE_COLLECTION: u32 = 6;
+pub const IRP_MN_ENABLE_EVENTS: u32 = 4;
+pub const IRP_MN_EXECUTE_METHOD: u32 = 9;
+pub const IRP_MN_FILTER_RESOURCE_REQUIREMENTS: u32 = 13;
+pub const IRP_MN_FLUSH_AND_PURGE: u32 = 1;
+pub const IRP_MN_FLUSH_DATA_ONLY: u32 = 2;
+pub const IRP_MN_FLUSH_DATA_SYNC_ONLY: u32 = 4;
+pub const IRP_MN_FLUSH_NO_SYNC: u32 = 3;
+pub const IRP_MN_KERNEL_CALL: u32 = 4;
+pub const IRP_MN_LOAD_FILE_SYSTEM: u32 = 3;
+pub const IRP_MN_LOCK: u32 = 1;
+pub const IRP_MN_MDL: u32 = 2;
+pub const IRP_MN_MOUNT_VOLUME: u32 = 1;
+pub const IRP_MN_NORMAL: u32 = 0;
+pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY: u32 = 2;
+pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY_EX: u32 = 3;
+pub const IRP_MN_POWER_SEQUENCE: u32 = 1;
+pub const IRP_MN_QUERY_ALL_DATA: u32 = 0;
+pub const IRP_MN_QUERY_BUS_INFORMATION: u32 = 21;
+pub const IRP_MN_QUERY_CAPABILITIES: u32 = 9;
+pub const IRP_MN_QUERY_DEVICE_RELATIONS: u32 = 7;
+pub const IRP_MN_QUERY_DEVICE_TEXT: u32 = 12;
+pub const IRP_MN_QUERY_DIRECTORY: u32 = 1;
+pub const IRP_MN_QUERY_ID: u32 = 19;
+pub const IRP_MN_QUERY_INTERFACE: u32 = 8;
+pub const IRP_MN_QUERY_LEGACY_BUS_INFORMATION: u32 = 24;
+pub const IRP_MN_QUERY_PNP_DEVICE_STATE: u32 = 20;
+pub const IRP_MN_QUERY_POWER: u32 = 3;
+pub const IRP_MN_QUERY_REMOVE_DEVICE: u32 = 1;
+pub const IRP_MN_QUERY_RESOURCES: u32 = 10;
+pub const IRP_MN_QUERY_RESOURCE_REQUIREMENTS: u32 = 11;
+pub const IRP_MN_QUERY_SINGLE_INSTANCE: u32 = 1;
+pub const IRP_MN_QUERY_STOP_DEVICE: u32 = 5;
+pub const IRP_MN_READ_CONFIG: u32 = 15;
+pub const IRP_MN_REGINFO: u32 = 8;
+pub const IRP_MN_REGINFO_EX: u32 = 11;
+pub const IRP_MN_REMOVE_DEVICE: u32 = 2;
+pub const IRP_MN_SCSI_CLASS: u32 = 1;
+pub const IRP_MN_SET_LOCK: u32 = 18;
+pub const IRP_MN_SET_POWER: u32 = 2;
+pub const IRP_MN_START_DEVICE: u32 = 0;
+pub const IRP_MN_STOP_DEVICE: u32 = 4;
+pub const IRP_MN_SURPRISE_REMOVAL: u32 = 23;
+pub const IRP_MN_TRACK_LINK: u32 = 4;
+pub const IRP_MN_UNLOCK_ALL: u32 = 3;
+pub const IRP_MN_UNLOCK_ALL_BY_KEY: u32 = 4;
+pub const IRP_MN_UNLOCK_SINGLE: u32 = 2;
+pub const IRP_MN_USER_FS_REQUEST: u32 = 0;
+pub const IRP_MN_VERIFY_VOLUME: u32 = 2;
+pub const IRP_MN_WAIT_WAKE: u32 = 0;
+pub const IRP_MN_WRITE_CONFIG: u32 = 16;
+pub const IRP_MOUNT_COMPLETION: u32 = 2;
+pub const IRP_NOCACHE: u32 = 1;
+pub const IRP_OB_QUERY_NAME: u32 = 4096;
+pub const IRP_PAGING_IO: u32 = 2;
+pub const IRP_QUOTA_CHARGED: u32 = 1;
+pub const IRP_READ_OPERATION: u32 = 256;
+pub const IRP_SYNCHRONOUS_API: u32 = 4;
+pub const IRP_SYNCHRONOUS_PAGING_IO: u32 = 64;
+pub const IRP_UM_DRIVER_INITIATED_IO: u32 = 4194304;
+pub const IRP_WRITE_OPERATION: u32 = 512;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_DEVICE_POLICY(pub i32);
@@ -11077,89 +11077,89 @@ pub struct IRQ_GROUP_POLICY(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQ_PRIORITY(pub i32);
-pub const InACriticalArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(8i32);
-pub const InAFailedArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(9i32);
-pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(2i32);
-pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(3i32);
-pub const IndicatorOn: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(1i32);
-pub const InitiateReset: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(1i32);
-pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(2i32);
-pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(3i32);
-pub const InstallStateInstalled: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(0i32);
-pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(1i32);
-pub const IntelCacheData: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(1i32);
-pub const IntelCacheInstruction: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(2i32);
-pub const IntelCacheNull: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(0i32);
-pub const IntelCacheRam: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(4i32);
-pub const IntelCacheTrace: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(5i32);
-pub const IntelCacheUnified: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(3i32);
-pub const InterfaceTypeUndefined: INTERFACE_TYPE = INTERFACE_TYPE(-1i32);
-pub const Internal: INTERFACE_TYPE = INTERFACE_TYPE(0i32);
-pub const InternalPowerBus: INTERFACE_TYPE = INTERFACE_TYPE(13i32);
-pub const InterruptActiveBoth: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3i32);
-pub const InterruptActiveBothTriggerHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(4i32);
-pub const InterruptActiveBothTriggerLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3i32);
-pub const InterruptActiveHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1i32);
-pub const InterruptActiveLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2i32);
-pub const InterruptFallingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2i32);
-pub const InterruptPolarityUnknown: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(0i32);
-pub const InterruptRisingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1i32);
-pub const InvalidDeviceTypeControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(10i32);
-pub const IoMaxContainerInformationClass: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(1i32);
-pub const IoMaxContainerNotificationClass: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(1i32);
-pub const IoModifyAccess: LOCK_OPERATION = LOCK_OPERATION(2i32);
-pub const IoPagingPriorityHigh: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(2i32);
-pub const IoPagingPriorityInvalid: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(0i32);
-pub const IoPagingPriorityNormal: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(1i32);
-pub const IoPagingPriorityReserved1: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(3i32);
-pub const IoPagingPriorityReserved2: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(4i32);
-pub const IoQueryDeviceComponentInformation: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(2i32);
-pub const IoQueryDeviceConfigurationData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(1i32);
-pub const IoQueryDeviceIdentifier: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(0i32);
-pub const IoQueryDeviceMaxData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(3i32);
-pub const IoReadAccess: LOCK_OPERATION = LOCK_OPERATION(0i32);
-pub const IoSessionEventConnected: IO_SESSION_EVENT = IO_SESSION_EVENT(3i32);
-pub const IoSessionEventCreated: IO_SESSION_EVENT = IO_SESSION_EVENT(1i32);
-pub const IoSessionEventDisconnected: IO_SESSION_EVENT = IO_SESSION_EVENT(4i32);
-pub const IoSessionEventIgnore: IO_SESSION_EVENT = IO_SESSION_EVENT(0i32);
-pub const IoSessionEventLogoff: IO_SESSION_EVENT = IO_SESSION_EVENT(6i32);
-pub const IoSessionEventLogon: IO_SESSION_EVENT = IO_SESSION_EVENT(5i32);
-pub const IoSessionEventMax: IO_SESSION_EVENT = IO_SESSION_EVENT(7i32);
-pub const IoSessionEventTerminated: IO_SESSION_EVENT = IO_SESSION_EVENT(2i32);
-pub const IoSessionStateConnected: IO_SESSION_STATE = IO_SESSION_STATE(3i32);
-pub const IoSessionStateCreated: IO_SESSION_STATE = IO_SESSION_STATE(1i32);
-pub const IoSessionStateDisconnected: IO_SESSION_STATE = IO_SESSION_STATE(4i32);
-pub const IoSessionStateDisconnectedLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(5i32);
-pub const IoSessionStateInformation: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(0i32);
-pub const IoSessionStateInitialized: IO_SESSION_STATE = IO_SESSION_STATE(2i32);
-pub const IoSessionStateLoggedOff: IO_SESSION_STATE = IO_SESSION_STATE(7i32);
-pub const IoSessionStateLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(6i32);
-pub const IoSessionStateMax: IO_SESSION_STATE = IO_SESSION_STATE(9i32);
-pub const IoSessionStateNotification: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(0i32);
-pub const IoSessionStateTerminated: IO_SESSION_STATE = IO_SESSION_STATE(8i32);
-pub const IoWriteAccess: LOCK_OPERATION = LOCK_OPERATION(1i32);
-pub const IommuDeviceCreationConfigTypeAcpi: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(1i32);
-pub const IommuDeviceCreationConfigTypeDeviceId: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(2i32);
-pub const IommuDeviceCreationConfigTypeMax: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(3i32);
-pub const IommuDeviceCreationConfigTypeNone: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(0i32);
-pub const IommuDmaLogicalAllocatorBuddy: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(1i32);
-pub const IommuDmaLogicalAllocatorMax: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(2i32);
-pub const IommuDmaLogicalAllocatorNone: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(0i32);
-pub const IrqPolicyAllCloseProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(1i32);
-pub const IrqPolicyAllProcessorsInMachine: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(3i32);
-pub const IrqPolicyAllProcessorsInMachineWhenSteered: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(6i32);
-pub const IrqPolicyMachineDefault: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(0i32);
-pub const IrqPolicyOneCloseProcessor: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(2i32);
-pub const IrqPolicySpecifiedProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(4i32);
-pub const IrqPolicySpreadMessagesAcrossAllProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(5i32);
-pub const IrqPriorityHigh: IRQ_PRIORITY = IRQ_PRIORITY(3i32);
-pub const IrqPriorityLow: IRQ_PRIORITY = IRQ_PRIORITY(1i32);
-pub const IrqPriorityNormal: IRQ_PRIORITY = IRQ_PRIORITY(2i32);
-pub const IrqPriorityUndefined: IRQ_PRIORITY = IRQ_PRIORITY(0i32);
-pub const Isa: INTERFACE_TYPE = INTERFACE_TYPE(1i32);
-pub const IsochCommand: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(6i32);
-pub const IsochStatus: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(0i32);
-pub const KADDRESS_BASE: u32 = 0u32;
+pub const InACriticalArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(8);
+pub const InAFailedArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(9);
+pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(2);
+pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(3);
+pub const IndicatorOn: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(1);
+pub const InitiateReset: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(1);
+pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(2);
+pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(3);
+pub const InstallStateInstalled: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(0);
+pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(1);
+pub const IntelCacheData: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(1);
+pub const IntelCacheInstruction: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(2);
+pub const IntelCacheNull: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(0);
+pub const IntelCacheRam: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(4);
+pub const IntelCacheTrace: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(5);
+pub const IntelCacheUnified: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(3);
+pub const InterfaceTypeUndefined: INTERFACE_TYPE = INTERFACE_TYPE(-1);
+pub const Internal: INTERFACE_TYPE = INTERFACE_TYPE(0);
+pub const InternalPowerBus: INTERFACE_TYPE = INTERFACE_TYPE(13);
+pub const InterruptActiveBoth: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3);
+pub const InterruptActiveBothTriggerHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(4);
+pub const InterruptActiveBothTriggerLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3);
+pub const InterruptActiveHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1);
+pub const InterruptActiveLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2);
+pub const InterruptFallingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2);
+pub const InterruptPolarityUnknown: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(0);
+pub const InterruptRisingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1);
+pub const InvalidDeviceTypeControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(10);
+pub const IoMaxContainerInformationClass: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(1);
+pub const IoMaxContainerNotificationClass: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(1);
+pub const IoModifyAccess: LOCK_OPERATION = LOCK_OPERATION(2);
+pub const IoPagingPriorityHigh: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(2);
+pub const IoPagingPriorityInvalid: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(0);
+pub const IoPagingPriorityNormal: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(1);
+pub const IoPagingPriorityReserved1: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(3);
+pub const IoPagingPriorityReserved2: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(4);
+pub const IoQueryDeviceComponentInformation: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(2);
+pub const IoQueryDeviceConfigurationData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(1);
+pub const IoQueryDeviceIdentifier: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(0);
+pub const IoQueryDeviceMaxData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(3);
+pub const IoReadAccess: LOCK_OPERATION = LOCK_OPERATION(0);
+pub const IoSessionEventConnected: IO_SESSION_EVENT = IO_SESSION_EVENT(3);
+pub const IoSessionEventCreated: IO_SESSION_EVENT = IO_SESSION_EVENT(1);
+pub const IoSessionEventDisconnected: IO_SESSION_EVENT = IO_SESSION_EVENT(4);
+pub const IoSessionEventIgnore: IO_SESSION_EVENT = IO_SESSION_EVENT(0);
+pub const IoSessionEventLogoff: IO_SESSION_EVENT = IO_SESSION_EVENT(6);
+pub const IoSessionEventLogon: IO_SESSION_EVENT = IO_SESSION_EVENT(5);
+pub const IoSessionEventMax: IO_SESSION_EVENT = IO_SESSION_EVENT(7);
+pub const IoSessionEventTerminated: IO_SESSION_EVENT = IO_SESSION_EVENT(2);
+pub const IoSessionStateConnected: IO_SESSION_STATE = IO_SESSION_STATE(3);
+pub const IoSessionStateCreated: IO_SESSION_STATE = IO_SESSION_STATE(1);
+pub const IoSessionStateDisconnected: IO_SESSION_STATE = IO_SESSION_STATE(4);
+pub const IoSessionStateDisconnectedLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(5);
+pub const IoSessionStateInformation: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(0);
+pub const IoSessionStateInitialized: IO_SESSION_STATE = IO_SESSION_STATE(2);
+pub const IoSessionStateLoggedOff: IO_SESSION_STATE = IO_SESSION_STATE(7);
+pub const IoSessionStateLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(6);
+pub const IoSessionStateMax: IO_SESSION_STATE = IO_SESSION_STATE(9);
+pub const IoSessionStateNotification: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(0);
+pub const IoSessionStateTerminated: IO_SESSION_STATE = IO_SESSION_STATE(8);
+pub const IoWriteAccess: LOCK_OPERATION = LOCK_OPERATION(1);
+pub const IommuDeviceCreationConfigTypeAcpi: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(1);
+pub const IommuDeviceCreationConfigTypeDeviceId: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(2);
+pub const IommuDeviceCreationConfigTypeMax: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(3);
+pub const IommuDeviceCreationConfigTypeNone: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(0);
+pub const IommuDmaLogicalAllocatorBuddy: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(1);
+pub const IommuDmaLogicalAllocatorMax: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(2);
+pub const IommuDmaLogicalAllocatorNone: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(0);
+pub const IrqPolicyAllCloseProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(1);
+pub const IrqPolicyAllProcessorsInMachine: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(3);
+pub const IrqPolicyAllProcessorsInMachineWhenSteered: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(6);
+pub const IrqPolicyMachineDefault: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(0);
+pub const IrqPolicyOneCloseProcessor: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(2);
+pub const IrqPolicySpecifiedProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(4);
+pub const IrqPolicySpreadMessagesAcrossAllProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(5);
+pub const IrqPriorityHigh: IRQ_PRIORITY = IRQ_PRIORITY(3);
+pub const IrqPriorityLow: IRQ_PRIORITY = IRQ_PRIORITY(1);
+pub const IrqPriorityNormal: IRQ_PRIORITY = IRQ_PRIORITY(2);
+pub const IrqPriorityUndefined: IRQ_PRIORITY = IRQ_PRIORITY(0);
+pub const Isa: INTERFACE_TYPE = INTERFACE_TYPE(1);
+pub const IsochCommand: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(6);
+pub const IsochStatus: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(0);
+pub const KADDRESS_BASE: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KADDRESS_RANGE {
@@ -11352,15 +11352,15 @@ impl Default for KBUGCHECK_TRIAGE_DUMP_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const KB_ADD_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
-pub const KB_ADD_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2u32;
-pub const KB_ADD_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1u32;
-pub const KB_REMOVE_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
-pub const KB_REMOVE_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2u32;
-pub const KB_REMOVE_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1u32;
-pub const KB_SECONDARY_DATA_FLAG_ADDITIONAL_DATA: u32 = 1u32;
-pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: u32 = 2u32;
-pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1u32;
+pub const KB_ADD_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648;
+pub const KB_ADD_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2;
+pub const KB_ADD_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1;
+pub const KB_REMOVE_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648;
+pub const KB_REMOVE_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2;
+pub const KB_REMOVE_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1;
+pub const KB_SECONDARY_DATA_FLAG_ADDITIONAL_DATA: u32 = 1;
+pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: u32 = 2;
+pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
 #[repr(C)]
@@ -11392,11 +11392,11 @@ pub struct KD_NAMESPACE_ENUM(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KD_OPTION(pub i32);
-pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = KD_OPTION(0i32);
-pub const KENCODED_TIMER_PROCESSOR: u32 = 1u32;
-pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288u32;
-pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440u32;
-pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192u32;
+pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = KD_OPTION(0);
+pub const KENCODED_TIMER_PROCESSOR: u32 = 1;
+pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288;
+pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440;
+pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
@@ -11404,8 +11404,8 @@ pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
     pub Size: u16,
     pub Event: windows_core::GUID,
 }
-pub const KERNEL_SOFT_RESTART_NOTIFICATION_VERSION: u32 = 1u32;
-pub const KERNEL_STACK_SIZE: u32 = 12288u32;
+pub const KERNEL_SOFT_RESTART_NOTIFICATION_VERSION: u32 = 1;
+pub const KERNEL_STACK_SIZE: u32 = 12288;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERNEL_USER_TIMES {
@@ -11578,8 +11578,8 @@ pub struct KEY_WOW64_FLAGS_INFORMATION {
 pub struct KEY_WRITE_TIME_INFORMATION {
     pub LastWriteTime: i64,
 }
-pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: u32 = 33554432u32;
-pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1u32;
+pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: u32 = 33554432;
+pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -11623,7 +11623,7 @@ pub struct KINTERRUPT_MODE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KINTERRUPT_POLARITY(pub i32);
 pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: usize) -> usize>;
-pub const KI_USER_SHARED_DATA: u32 = 4292804608u32;
+pub const KI_USER_SHARED_DATA: u32 = 4292804608;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KLOCK_QUEUE_HANDLE {
@@ -11703,7 +11703,7 @@ impl Default for KTRIAGE_DUMP_DATA_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const KUMS_UCH_VOLATILE_BIT: u32 = 0u32;
+pub const KUMS_UCH_VOLATILE_BIT: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -11905,59 +11905,59 @@ impl Default for KWAIT_CHAIN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KWAIT_REASON(pub i32);
-pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(4i32);
-pub const KbCallbackDumpIo: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(3i32);
-pub const KbCallbackInvalid: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(0i32);
-pub const KbCallbackRemovePages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(6i32);
-pub const KbCallbackReserved1: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(1i32);
-pub const KbCallbackReserved2: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(8i32);
-pub const KbCallbackSecondaryDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(2i32);
-pub const KbCallbackSecondaryMultiPartDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(5i32);
-pub const KbCallbackTriageDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(7i32);
-pub const KbDumpIoBody: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(2i32);
-pub const KbDumpIoComplete: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(4i32);
-pub const KbDumpIoHeader: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(1i32);
-pub const KbDumpIoInvalid: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(0i32);
-pub const KbDumpIoSecondaryData: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(3i32);
-pub const KdConfigureDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(0i32);
-pub const KdConfigureDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(2i32);
-pub const KdNameSpaceACPI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(1i32);
-pub const KdNameSpaceAny: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(2i32);
-pub const KdNameSpaceMax: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(4i32);
-pub const KdNameSpaceNone: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(3i32);
-pub const KdNameSpacePCI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(0i32);
-pub const KdSkipDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(1i32);
-pub const KdSkipDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(3i32);
-pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(1i32);
-pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(2i32);
-pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(0i32);
-pub const KeepObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(1i32);
-pub const KernelMode: MODE = MODE(0i32);
-pub const KeyboardController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(22i32);
-pub const KeyboardPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(32i32);
-pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(0i32);
-pub const L0sAndL1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(3i32);
-pub const L0sAndL1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(3i32);
-pub const L0sEntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(1i32);
-pub const L0sEntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(1i32);
-pub const L0s_128ns_256ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(2i32);
-pub const L0s_1us_2us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(5i32);
-pub const L0s_256ns_512ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(3i32);
-pub const L0s_2us_4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(6i32);
-pub const L0s_512ns_1us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(4i32);
-pub const L0s_64ns_128ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(1i32);
-pub const L0s_Above4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(7i32);
-pub const L0s_Below64ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(0i32);
-pub const L1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(2i32);
-pub const L1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(2i32);
-pub const L1_16us_32us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(5i32);
-pub const L1_1us_2us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(1i32);
-pub const L1_2us_4us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(2i32);
-pub const L1_32us_64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(6i32);
-pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(3i32);
-pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(4i32);
-pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(7i32);
-pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(0i32);
+pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(4);
+pub const KbCallbackDumpIo: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(3);
+pub const KbCallbackInvalid: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(0);
+pub const KbCallbackRemovePages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(6);
+pub const KbCallbackReserved1: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(1);
+pub const KbCallbackReserved2: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(8);
+pub const KbCallbackSecondaryDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(2);
+pub const KbCallbackSecondaryMultiPartDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(5);
+pub const KbCallbackTriageDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(7);
+pub const KbDumpIoBody: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(2);
+pub const KbDumpIoComplete: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(4);
+pub const KbDumpIoHeader: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(1);
+pub const KbDumpIoInvalid: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(0);
+pub const KbDumpIoSecondaryData: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(3);
+pub const KdConfigureDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(0);
+pub const KdConfigureDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(2);
+pub const KdNameSpaceACPI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(1);
+pub const KdNameSpaceAny: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(2);
+pub const KdNameSpaceMax: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(4);
+pub const KdNameSpaceNone: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(3);
+pub const KdNameSpacePCI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(0);
+pub const KdSkipDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(1);
+pub const KdSkipDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(3);
+pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(1);
+pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(2);
+pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(0);
+pub const KeepObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(1);
+pub const KernelMode: MODE = MODE(0);
+pub const KeyboardController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(22);
+pub const KeyboardPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(32);
+pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(0);
+pub const L0sAndL1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(3);
+pub const L0sAndL1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(3);
+pub const L0sEntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(1);
+pub const L0sEntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(1);
+pub const L0s_128ns_256ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(2);
+pub const L0s_1us_2us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(5);
+pub const L0s_256ns_512ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(3);
+pub const L0s_2us_4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(6);
+pub const L0s_512ns_1us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(4);
+pub const L0s_64ns_128ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(1);
+pub const L0s_Above4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(7);
+pub const L0s_Below64ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(0);
+pub const L1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(2);
+pub const L1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(2);
+pub const L1_16us_32us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(5);
+pub const L1_1us_2us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(1);
+pub const L1_2us_4us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(2);
+pub const L1_32us_64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(6);
+pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(3);
+pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(4);
+pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(7);
+pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LEGACY_BUS_INFORMATION {
@@ -11999,38 +11999,38 @@ impl Default for LOADER_PARTITION_INFORMATION_EX_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCK_OPERATION(pub i32);
-pub const LOCK_QUEUE_HALTED: u32 = 4u32;
-pub const LOCK_QUEUE_HALTED_BIT: u32 = 2u32;
-pub const LOCK_QUEUE_OWNER: u32 = 2u32;
-pub const LOCK_QUEUE_OWNER_BIT: u32 = 1u32;
-pub const LOCK_QUEUE_WAIT: u32 = 1u32;
-pub const LOCK_QUEUE_WAIT_BIT: u32 = 0u32;
-pub const LONG_2ND_MOST_SIGNIFICANT_BIT: u32 = 2u32;
-pub const LONG_3RD_MOST_SIGNIFICANT_BIT: u32 = 1u32;
-pub const LONG_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
-pub const LONG_MOST_SIGNIFICANT_BIT: u32 = 3u32;
-pub const LOWBYTE_MASK: u32 = 255u32;
-pub const LOW_LEVEL: u32 = 0u32;
-pub const LOW_PRIORITY: u32 = 0u32;
-pub const LOW_REALTIME_PRIORITY: u32 = 16u32;
-pub const LastDStateTransitionD3cold: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(2i32);
-pub const LastDStateTransitionD3hot: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(1i32);
-pub const LastDStateTransitionStatusUnknown: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(0i32);
-pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(2i32);
-pub const Latched: KINTERRUPT_MODE = KINTERRUPT_MODE(1i32);
-pub const LevelSensitive: KINTERRUPT_MODE = KINTERRUPT_MODE(0i32);
-pub const LinePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(35i32);
-pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(3i32);
-pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(1i32);
-pub const LocationTypeMaximum: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(2i32);
-pub const LocationTypeRegistry: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(0i32);
-pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(10i32);
-pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(8i32);
-pub const LowImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(0i32);
-pub const LowPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(0i32);
-pub const LowPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(0i32);
-pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(8i32);
-pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(9i32);
+pub const LOCK_QUEUE_HALTED: u32 = 4;
+pub const LOCK_QUEUE_HALTED_BIT: u32 = 2;
+pub const LOCK_QUEUE_OWNER: u32 = 2;
+pub const LOCK_QUEUE_OWNER_BIT: u32 = 1;
+pub const LOCK_QUEUE_WAIT: u32 = 1;
+pub const LOCK_QUEUE_WAIT_BIT: u32 = 0;
+pub const LONG_2ND_MOST_SIGNIFICANT_BIT: u32 = 2;
+pub const LONG_3RD_MOST_SIGNIFICANT_BIT: u32 = 1;
+pub const LONG_LEAST_SIGNIFICANT_BIT: u32 = 0;
+pub const LONG_MOST_SIGNIFICANT_BIT: u32 = 3;
+pub const LOWBYTE_MASK: u32 = 255;
+pub const LOW_LEVEL: u32 = 0;
+pub const LOW_PRIORITY: u32 = 0;
+pub const LOW_REALTIME_PRIORITY: u32 = 16;
+pub const LastDStateTransitionD3cold: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(2);
+pub const LastDStateTransitionD3hot: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(1);
+pub const LastDStateTransitionStatusUnknown: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(0);
+pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(2);
+pub const Latched: KINTERRUPT_MODE = KINTERRUPT_MODE(1);
+pub const LevelSensitive: KINTERRUPT_MODE = KINTERRUPT_MODE(0);
+pub const LinePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(35);
+pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(3);
+pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(1);
+pub const LocationTypeMaximum: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(2);
+pub const LocationTypeRegistry: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(0);
+pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(10);
+pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(8);
+pub const LowImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(0);
+pub const LowPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(0);
+pub const LowPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(0);
+pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(8);
+pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(9);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
@@ -12050,10 +12050,10 @@ impl Default for MAP_REGISTER_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MAXIMUM_DEBUG_BARS: u32 = 6u32;
-pub const MAXIMUM_FILENAME_LENGTH: u32 = 256u32;
-pub const MAXIMUM_PRIORITY: u32 = 32u32;
-pub const MAX_EVENT_COUNTERS: u32 = 31u32;
+pub const MAXIMUM_DEBUG_BARS: u32 = 6;
+pub const MAXIMUM_FILENAME_LENGTH: u32 = 256;
+pub const MAXIMUM_PRIORITY: u32 = 32;
+pub const MAX_EVENT_COUNTERS: u32 = 31;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug)]
@@ -12120,7 +12120,7 @@ pub struct MCA_EXCEPTION_0_1 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCA_EXCEPTION_TYPE(pub i32);
-pub const MCA_EXTREG_V2MAX: u32 = 24u32;
+pub const MCA_EXTREG_V2MAX: u32 = 24;
 pub const MCE_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe8f56ffe_919c_4cc5_ba88_65abe14913bb);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -12218,12 +12218,12 @@ pub struct MCI_STATUS_BITS_COMMON {
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
 }
-pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8u32;
-pub const MDL_DESCRIBES_AWE: u32 = 1024u32;
-pub const MDL_FREE_EXTRA_PTES: u32 = 512u32;
-pub const MDL_INTERNAL: u32 = 32768u32;
-pub const MDL_LOCKED_PAGE_TABLES: u32 = 256u32;
-pub const MDL_PAGE_CONTENTS_INVARIANT: u32 = 16384u32;
+pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8;
+pub const MDL_DESCRIBES_AWE: u32 = 1024;
+pub const MDL_FREE_EXTRA_PTES: u32 = 512;
+pub const MDL_INTERNAL: u32 = 32768;
+pub const MDL_LOCKED_PAGE_TABLES: u32 = 256;
+pub const MDL_PAGE_CONTENTS_INVARIANT: u32 = 16384;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_CACHING_TYPE(pub i32);
@@ -12240,37 +12240,37 @@ pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DesiredAccess: u32,
     pub DedicatedMemoryPartitionHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-pub const MEM_COMMIT: u32 = 4096u32;
-pub const MEM_DECOMMIT: u32 = 16384u32;
+pub const MEM_COMMIT: u32 = 4096;
+pub const MEM_DECOMMIT: u32 = 16384;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
-pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
-pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
-pub const MEM_LARGE_PAGES: u32 = 536870912u32;
-pub const MEM_MAPPED: u32 = 262144u32;
-pub const MEM_PRIVATE: u32 = 131072u32;
-pub const MEM_RELEASE: u32 = 32768u32;
-pub const MEM_RESERVE: u32 = 8192u32;
-pub const MEM_RESET: u32 = 524288u32;
-pub const MEM_RESET_UNDO: u32 = 16777216u32;
+pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64;
+pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8;
+pub const MEM_LARGE_PAGES: u32 = 536870912;
+pub const MEM_MAPPED: u32 = 262144;
+pub const MEM_PRIVATE: u32 = 131072;
+pub const MEM_RELEASE: u32 = 32768;
+pub const MEM_RESERVE: u32 = 8192;
+pub const MEM_RESET: u32 = 524288;
+pub const MEM_RESET_UNDO: u32 = 16777216;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
-pub const MEM_TOP_DOWN: u32 = 1048576u32;
-pub const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: u32 = 1u32;
-pub const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: u32 = 4u32;
-pub const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: u32 = 2u32;
-pub const MM_ALLOCATE_AND_HOT_REMOVE: u32 = 256u32;
-pub const MM_ALLOCATE_CONTIGUOUS_MEMORY_FAST_ONLY: u32 = 1u32;
-pub const MM_ALLOCATE_FAST_LARGE_PAGES: u32 = 64u32;
-pub const MM_ALLOCATE_FROM_LOCAL_NODE_ONLY: u32 = 2u32;
-pub const MM_ALLOCATE_FULLY_REQUIRED: u32 = 4u32;
-pub const MM_ALLOCATE_NO_WAIT: u32 = 8u32;
-pub const MM_ALLOCATE_PREFER_CONTIGUOUS: u32 = 16u32;
-pub const MM_ALLOCATE_REQUIRE_CONTIGUOUS_CHUNKS: u32 = 32u32;
-pub const MM_ALLOCATE_TRIM_IF_NECESSARY: u32 = 128u32;
-pub const MM_ANY_NODE_OK: u32 = 2147483648u32;
+pub const MEM_TOP_DOWN: u32 = 1048576;
+pub const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: u32 = 1;
+pub const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: u32 = 4;
+pub const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: u32 = 2;
+pub const MM_ALLOCATE_AND_HOT_REMOVE: u32 = 256;
+pub const MM_ALLOCATE_CONTIGUOUS_MEMORY_FAST_ONLY: u32 = 1;
+pub const MM_ALLOCATE_FAST_LARGE_PAGES: u32 = 64;
+pub const MM_ALLOCATE_FROM_LOCAL_NODE_ONLY: u32 = 2;
+pub const MM_ALLOCATE_FULLY_REQUIRED: u32 = 4;
+pub const MM_ALLOCATE_NO_WAIT: u32 = 8;
+pub const MM_ALLOCATE_PREFER_CONTIGUOUS: u32 = 16;
+pub const MM_ALLOCATE_REQUIRE_CONTIGUOUS_CHUNKS: u32 = 32;
+pub const MM_ALLOCATE_TRIM_IF_NECESSARY: u32 = 128;
+pub const MM_ANY_NODE_OK: u32 = 2147483648;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MM_COPY_ADDRESS {
@@ -12292,17 +12292,17 @@ impl Default for MM_COPY_ADDRESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MM_COPY_MEMORY_PHYSICAL: u32 = 1u32;
-pub const MM_COPY_MEMORY_VIRTUAL: u32 = 2u32;
-pub const MM_DONT_ZERO_ALLOCATION: u32 = 1u32;
-pub const MM_DUMP_MAP_CACHED: u32 = 1u32;
-pub const MM_DUMP_MAP_INVALIDATE: u32 = 2u32;
-pub const MM_FREE_MDL_PAGES_ZERO: u32 = 1u32;
-pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: u32 = 1u32;
-pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: u32 = 2u32;
-pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: u32 = 1u32;
-pub const MM_MAPPING_ADDRESS_DIVISIBLE: u32 = 1u32;
-pub const MM_MAXIMUM_DISK_IO_SIZE: u32 = 65536u32;
+pub const MM_COPY_MEMORY_PHYSICAL: u32 = 1;
+pub const MM_COPY_MEMORY_VIRTUAL: u32 = 2;
+pub const MM_DONT_ZERO_ALLOCATION: u32 = 1;
+pub const MM_DUMP_MAP_CACHED: u32 = 1;
+pub const MM_DUMP_MAP_INVALIDATE: u32 = 2;
+pub const MM_FREE_MDL_PAGES_ZERO: u32 = 1;
+pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: u32 = 1;
+pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: u32 = 2;
+pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: u32 = 1;
+pub const MM_MAPPING_ADDRESS_DIVISIBLE: u32 = 1;
+pub const MM_MAXIMUM_DISK_IO_SIZE: u32 = 65536;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_MDL_PAGE_CONTENTS_STATE(pub i32);
@@ -12310,37 +12310,37 @@ pub type MM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: *const
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_PAGE_PRIORITY(pub i32);
-pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: u32 = 1u32;
+pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: i64,
     pub NumberOfBytes: usize,
 }
-pub const MM_PROTECT_DRIVER_SECTION_ALLOW_UNLOAD: u32 = 1u32;
-pub const MM_PROTECT_DRIVER_SECTION_VALID_FLAGS: u32 = 1u32;
-pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: u32 = 1u32;
+pub const MM_PROTECT_DRIVER_SECTION_ALLOW_UNLOAD: u32 = 1;
+pub const MM_PROTECT_DRIVER_SECTION_VALID_FLAGS: u32 = 1;
+pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_ROTATE_DIRECTION(pub i32);
-pub const MM_SECURE_EXCLUSIVE: u32 = 1u32;
-pub const MM_SECURE_NO_CHANGE: u32 = 2u32;
-pub const MM_SECURE_NO_INHERIT: u32 = 8u32;
-pub const MM_SECURE_USER_MODE_ONLY: u32 = 4u32;
+pub const MM_SECURE_EXCLUSIVE: u32 = 1;
+pub const MM_SECURE_NO_CHANGE: u32 = 2;
+pub const MM_SECURE_NO_INHERIT: u32 = 8;
+pub const MM_SECURE_USER_MODE_ONLY: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_SYSTEMSIZE(pub i32);
-pub const MM_SYSTEM_SPACE_END: u32 = 4294967295u32;
-pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1u32;
+pub const MM_SYSTEM_SPACE_END: u32 = 4294967295;
+pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODE(pub i32);
-pub const MPIBus: INTERFACE_TYPE = INTERFACE_TYPE(10i32);
-pub const MPIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(8i32);
-pub const MPSABus: INTERFACE_TYPE = INTERFACE_TYPE(11i32);
-pub const MPSAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(9i32);
-pub const MRLClosed: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(0i32);
-pub const MRLOpen: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(1i32);
+pub const MPIBus: INTERFACE_TYPE = INTERFACE_TYPE(10);
+pub const MPIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(8);
+pub const MPSABus: INTERFACE_TYPE = INTERFACE_TYPE(11);
+pub const MPSAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(9);
+pub const MRLClosed: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(0);
+pub const MRLOpen: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(1);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MU_TELEMETRY_SECTION {
@@ -12352,128 +12352,128 @@ pub struct MU_TELEMETRY_SECTION {
     pub AdditionalInfo2: u64,
 }
 pub const MU_TELEMETRY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x85183a8b_9c41_429c_939c_5c3c087ca280);
-pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(1i32);
-pub const MapPhysicalAddressTypeMax: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(3i32);
-pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(0i32);
-pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(2i32);
-pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(7i32);
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
-pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(3i32);
-pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(0i32);
-pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(4i32);
-pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(1i32);
-pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(5i32);
-pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(2i32);
-pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(51i32);
-pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(2i32);
-pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(16i32);
-pub const MaximumBusDataType: BUS_DATA_TYPE = BUS_DATA_TYPE(12i32);
-pub const MaximumDmaSpeed: DMA_SPEED = DMA_SPEED(5i32);
-pub const MaximumDmaWidth: DMA_WIDTH = DMA_WIDTH(5i32);
-pub const MaximumInterfaceType: INTERFACE_TYPE = INTERFACE_TYPE(18i32);
-pub const MaximumMode: MODE = MODE(2i32);
-pub const MaximumType: CONFIGURATION_TYPE = CONFIGURATION_TYPE(41i32);
-pub const MaximumWaitReason: KWAIT_REASON = KWAIT_REASON(42i32);
-pub const MaximumWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(7i32);
-pub const MdlMappingNoExecute: u32 = 1073741824u32;
-pub const MdlMappingNoWrite: u32 = 2147483648u32;
-pub const MdlMappingWithGuardPtes: u32 = 536870912u32;
-pub const MediumHighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(3i32);
-pub const MediumImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(1i32);
-pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
-pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
-pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
-pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
-pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
-pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
-pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
-pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
-pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
-pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
-pub const MicroChannel: INTERFACE_TYPE = INTERFACE_TYPE(3i32);
-pub const MmCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(1i32);
-pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = MEMORY_CACHING_TYPE_ORIG(2i32);
-pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(3i32);
-pub const MmLargeSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(2i32);
-pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(6i32);
-pub const MmMaximumRotateDirection: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(4i32);
-pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(0i32);
-pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(1i32);
-pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(2i32);
-pub const MmMediumSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(1i32);
-pub const MmNonCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(0i32);
-pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(4i32);
-pub const MmNotMapped: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(-1i32);
-pub const MmSmallSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(0i32);
-pub const MmToFrameBuffer: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(0i32);
-pub const MmToFrameBufferNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(1i32);
-pub const MmToRegularMemory: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(2i32);
-pub const MmToRegularMemoryNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(3i32);
-pub const MmUSWCCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(5i32);
-pub const MmWriteCombined: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(2i32);
-pub const ModemPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(28i32);
-pub const ModifyAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(2i32);
-pub const MonitorPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(29i32);
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
-pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
-pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
-pub const MultiFunctionAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(12i32);
+pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(1);
+pub const MapPhysicalAddressTypeMax: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(3);
+pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(0);
+pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(2);
+pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(7);
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1);
+pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(3);
+pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(0);
+pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(4);
+pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(1);
+pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(5);
+pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(2);
+pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(51);
+pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(2);
+pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(16);
+pub const MaximumBusDataType: BUS_DATA_TYPE = BUS_DATA_TYPE(12);
+pub const MaximumDmaSpeed: DMA_SPEED = DMA_SPEED(5);
+pub const MaximumDmaWidth: DMA_WIDTH = DMA_WIDTH(5);
+pub const MaximumInterfaceType: INTERFACE_TYPE = INTERFACE_TYPE(18);
+pub const MaximumMode: MODE = MODE(2);
+pub const MaximumType: CONFIGURATION_TYPE = CONFIGURATION_TYPE(41);
+pub const MaximumWaitReason: KWAIT_REASON = KWAIT_REASON(42);
+pub const MaximumWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(7);
+pub const MdlMappingNoExecute: u32 = 1073741824;
+pub const MdlMappingNoWrite: u32 = 2147483648;
+pub const MdlMappingWithGuardPtes: u32 = 536870912;
+pub const MediumHighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(3);
+pub const MediumImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(1);
+pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4);
+pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0);
+pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1);
+pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2);
+pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3);
+pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0);
+pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4);
+pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2);
+pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3);
+pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1);
+pub const MicroChannel: INTERFACE_TYPE = INTERFACE_TYPE(3);
+pub const MmCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(1);
+pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = MEMORY_CACHING_TYPE_ORIG(2);
+pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(3);
+pub const MmLargeSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(2);
+pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(6);
+pub const MmMaximumRotateDirection: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(4);
+pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(0);
+pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(1);
+pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(2);
+pub const MmMediumSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(1);
+pub const MmNonCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(0);
+pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(4);
+pub const MmNotMapped: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(-1);
+pub const MmSmallSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(0);
+pub const MmToFrameBuffer: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(0);
+pub const MmToFrameBufferNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(1);
+pub const MmToRegularMemory: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(2);
+pub const MmToRegularMemoryNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(3);
+pub const MmUSWCCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(5);
+pub const MmWriteCombined: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(2);
+pub const ModemPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(28);
+pub const ModifyAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(2);
+pub const MonitorPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(29);
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5);
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28);
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16);
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49);
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53);
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47);
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19);
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46);
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45);
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48);
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9);
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17);
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12);
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15);
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55);
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22);
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27);
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44);
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42);
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43);
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52);
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40);
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41);
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18);
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7);
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13);
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1);
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2);
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50);
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24);
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25);
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3);
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11);
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10);
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8);
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14);
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20);
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21);
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29);
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26);
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51);
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23);
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0);
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6);
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4);
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35);
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36);
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39);
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31);
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32);
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34);
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37);
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38);
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54);
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33);
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30);
+pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0);
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1);
+pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2);
+pub const MultiFunctionAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(12);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
@@ -12486,7 +12486,7 @@ pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub DefaultTimeout: i64,
     pub TimeoutSpecified: bool,
 }
-pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(1i32);
+pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(1);
 pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, handled: bool) -> bool>;
 pub const NMI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5bad89ff_b7e6_42c9_814a_cf2485d6e98a);
 pub const NMI_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe71254e7_c1b9_4940_ab76_909703a4320f);
@@ -12525,9 +12525,9 @@ impl Default for NPEM_CONTROL_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: u32 = 2u32;
-pub const NPEM_CONTROL_INTERFACE_VERSION1: u32 = 1u32;
-pub const NPEM_CONTROL_INTERFACE_VERSION2: u32 = 2u32;
+pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: u32 = 2;
+pub const NPEM_CONTROL_INTERFACE_VERSION1: u32 = 1;
+pub const NPEM_CONTROL_INTERFACE_VERSION2: u32 = 2;
 pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> u32>;
 pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcapabilities: *mut NPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
 pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: bool) -> windows_core::NTSTATUS>;
@@ -12536,7 +12536,7 @@ pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(co
 pub struct NPEM_CONTROL_STANDARD_CONTROL_BIT(pub i32);
 #[cfg(feature = "Win32_Security")]
 pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: *const core::ffi::c_void, securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR)>;
-pub const NT_PAGING_LEVELS: u32 = 2u32;
+pub const NT_PAGING_LEVELS: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NT_TIB32 {
@@ -12564,27 +12564,27 @@ impl Default for NT_TIB32_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NX_SUPPORT_POLICY_ALWAYSOFF: u32 = 0u32;
-pub const NX_SUPPORT_POLICY_ALWAYSON: u32 = 1u32;
-pub const NX_SUPPORT_POLICY_OPTIN: u32 = 2u32;
-pub const NX_SUPPORT_POLICY_OPTOUT: u32 = 3u32;
-pub const NetworkController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(18i32);
-pub const NetworkPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(36i32);
-pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(0i32);
-pub const NormalPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(16i32);
-pub const NormalPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(16i32);
-pub const NormalPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(24i32);
-pub const NormalPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(25i32);
-pub const NormalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(3i32);
-pub const NuBus: INTERFACE_TYPE = INTERFACE_TYPE(7i32);
-pub const NuBusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(6i32);
+pub const NX_SUPPORT_POLICY_ALWAYSOFF: u32 = 0;
+pub const NX_SUPPORT_POLICY_ALWAYSON: u32 = 1;
+pub const NX_SUPPORT_POLICY_OPTIN: u32 = 2;
+pub const NX_SUPPORT_POLICY_OPTOUT: u32 = 3;
+pub const NetworkController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(18);
+pub const NetworkPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(36);
+pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(0);
+pub const NormalPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(16);
+pub const NormalPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(16);
+pub const NormalPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(24);
+pub const NormalPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(25);
+pub const NormalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(3);
+pub const NuBus: INTERFACE_TYPE = INTERFACE_TYPE(7);
+pub const NuBusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(6);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub GrantedAccess: u32,
 }
-pub const OBJECT_TYPE_CREATE: u32 = 1u32;
+pub const OBJECT_TYPE_CREATE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12601,10 +12601,10 @@ impl Default for OB_CALLBACK_REGISTRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const OB_FLT_REGISTRATION_VERSION: u32 = 256u32;
-pub const OB_FLT_REGISTRATION_VERSION_0100: u32 = 256u32;
-pub const OB_OPERATION_HANDLE_CREATE: u32 = 1u32;
-pub const OB_OPERATION_HANDLE_DUPLICATE: u32 = 2u32;
+pub const OB_FLT_REGISTRATION_VERSION: u32 = 256;
+pub const OB_FLT_REGISTRATION_VERSION_0100: u32 = 256;
+pub const OB_OPERATION_HANDLE_CREATE: u32 = 1;
+pub const OB_OPERATION_HANDLE_DUPLICATE: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug)]
@@ -12681,7 +12681,7 @@ impl Default for OB_POST_OPERATION_PARAMETERS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_PREOP_CALLBACK_STATUS(pub i32);
-pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = OB_PREOP_CALLBACK_STATUS(0i32);
+pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = OB_PREOP_CALLBACK_STATUS(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
@@ -12748,49 +12748,49 @@ impl Default for OB_PRE_OPERATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const OPLOCK_KEY_FLAG_PARENT_KEY: u32 = 1u32;
-pub const OPLOCK_KEY_FLAG_TARGET_KEY: u32 = 2u32;
-pub const OPLOCK_KEY_VERSION_WIN7: u32 = 1u32;
-pub const OPLOCK_KEY_VERSION_WIN8: u32 = 2u32;
-pub const OSC_CAPABILITIES_MASKED: u32 = 16u32;
-pub const OSC_FIRMWARE_FAILURE: u32 = 2u32;
-pub const OSC_UNRECOGNIZED_REVISION: u32 = 8u32;
-pub const OSC_UNRECOGNIZED_UUID: u32 = 4u32;
-pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(2i32);
-pub const OtherController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(24i32);
-pub const OtherPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(34i32);
-pub const PAGE_ENCLAVE_NO_CHANGE: u32 = 536870912u32;
-pub const PAGE_ENCLAVE_THREAD_CONTROL: u32 = 2147483648u32;
-pub const PAGE_ENCLAVE_UNVALIDATED: u32 = 536870912u32;
-pub const PAGE_EXECUTE: u32 = 16u32;
-pub const PAGE_EXECUTE_READ: u32 = 32u32;
-pub const PAGE_EXECUTE_READWRITE: u32 = 64u32;
-pub const PAGE_EXECUTE_WRITECOPY: u32 = 128u32;
-pub const PAGE_GRAPHICS_COHERENT: u32 = 131072u32;
-pub const PAGE_GRAPHICS_EXECUTE: u32 = 16384u32;
-pub const PAGE_GRAPHICS_EXECUTE_READ: u32 = 32768u32;
-pub const PAGE_GRAPHICS_EXECUTE_READWRITE: u32 = 65536u32;
-pub const PAGE_GRAPHICS_NOACCESS: u32 = 2048u32;
-pub const PAGE_GRAPHICS_NOCACHE: u32 = 262144u32;
-pub const PAGE_GRAPHICS_READONLY: u32 = 4096u32;
-pub const PAGE_GRAPHICS_READWRITE: u32 = 8192u32;
-pub const PAGE_GUARD: u32 = 256u32;
-pub const PAGE_NOACCESS: u32 = 1u32;
-pub const PAGE_NOCACHE: u32 = 512u32;
+pub const OPLOCK_KEY_FLAG_PARENT_KEY: u32 = 1;
+pub const OPLOCK_KEY_FLAG_TARGET_KEY: u32 = 2;
+pub const OPLOCK_KEY_VERSION_WIN7: u32 = 1;
+pub const OPLOCK_KEY_VERSION_WIN8: u32 = 2;
+pub const OSC_CAPABILITIES_MASKED: u32 = 16;
+pub const OSC_FIRMWARE_FAILURE: u32 = 2;
+pub const OSC_UNRECOGNIZED_REVISION: u32 = 8;
+pub const OSC_UNRECOGNIZED_UUID: u32 = 4;
+pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(2);
+pub const OtherController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(24);
+pub const OtherPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(34);
+pub const PAGE_ENCLAVE_NO_CHANGE: u32 = 536870912;
+pub const PAGE_ENCLAVE_THREAD_CONTROL: u32 = 2147483648;
+pub const PAGE_ENCLAVE_UNVALIDATED: u32 = 536870912;
+pub const PAGE_EXECUTE: u32 = 16;
+pub const PAGE_EXECUTE_READ: u32 = 32;
+pub const PAGE_EXECUTE_READWRITE: u32 = 64;
+pub const PAGE_EXECUTE_WRITECOPY: u32 = 128;
+pub const PAGE_GRAPHICS_COHERENT: u32 = 131072;
+pub const PAGE_GRAPHICS_EXECUTE: u32 = 16384;
+pub const PAGE_GRAPHICS_EXECUTE_READ: u32 = 32768;
+pub const PAGE_GRAPHICS_EXECUTE_READWRITE: u32 = 65536;
+pub const PAGE_GRAPHICS_NOACCESS: u32 = 2048;
+pub const PAGE_GRAPHICS_NOCACHE: u32 = 262144;
+pub const PAGE_GRAPHICS_READONLY: u32 = 4096;
+pub const PAGE_GRAPHICS_READWRITE: u32 = 8192;
+pub const PAGE_GUARD: u32 = 256;
+pub const PAGE_NOACCESS: u32 = 1;
+pub const PAGE_NOCACHE: u32 = 512;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PAGE_PRIORITY_INFORMATION {
     pub PagePriority: u32,
 }
-pub const PAGE_READONLY: u32 = 2u32;
-pub const PAGE_READWRITE: u32 = 4u32;
-pub const PAGE_REVERT_TO_FILE_MAP: u32 = 2147483648u32;
-pub const PAGE_SHIFT: i32 = 12i32;
-pub const PAGE_SIZE: u32 = 4096u32;
-pub const PAGE_TARGETS_INVALID: u32 = 1073741824u32;
-pub const PAGE_TARGETS_NO_UPDATE: u32 = 1073741824u32;
-pub const PAGE_WRITECOMBINE: u32 = 1024u32;
-pub const PAGE_WRITECOPY: u32 = 8u32;
+pub const PAGE_READONLY: u32 = 2;
+pub const PAGE_READWRITE: u32 = 4;
+pub const PAGE_REVERT_TO_FILE_MAP: u32 = 2147483648;
+pub const PAGE_SHIFT: i32 = 12;
+pub const PAGE_SIZE: u32 = 4096;
+pub const PAGE_TARGETS_INVALID: u32 = 1073741824;
+pub const PAGE_TARGETS_NO_UPDATE: u32 = 1073741824;
+pub const PAGE_WRITECOMBINE: u32 = 1024;
+pub const PAGE_WRITECOPY: u32 = 8;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -12809,11 +12809,11 @@ pub type PALLOCATE_FUNCTION = Option<unsafe extern "system" fn() -> *mut core::f
 pub type PALLOCATE_FUNCTION_EX = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PARBITER_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, action: ARBITER_ACTION, parameters: *mut ARBITER_PARAMETERS) -> windows_core::NTSTATUS>;
-pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
+pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARTITION_INFORMATION_CLASS(pub i32);
-pub const PASSIVE_LEVEL: u32 = 0u32;
+pub const PASSIVE_LEVEL: u32 = 0;
 pub type PBOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
 pub type PBOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -12829,15 +12829,15 @@ pub type PCALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
 pub type PCANCEL_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void) -> bool>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PCANCEL_MAPPED_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const PCCARD_DEVICE_PCI: u32 = 16u32;
-pub const PCCARD_DUP_LEGACY_BASE: u32 = 6u32;
-pub const PCCARD_MAP_ERROR: u32 = 1u32;
-pub const PCCARD_MAP_ZERO: u32 = 2u32;
-pub const PCCARD_NO_CONTROLLERS: u32 = 7u32;
-pub const PCCARD_NO_LEGACY_BASE: u32 = 5u32;
-pub const PCCARD_NO_PIC: u32 = 4u32;
-pub const PCCARD_NO_TIMER: u32 = 3u32;
-pub const PCCARD_SCAN_DISABLED: u32 = 1u32;
+pub const PCCARD_DEVICE_PCI: u32 = 16;
+pub const PCCARD_DUP_LEGACY_BASE: u32 = 6;
+pub const PCCARD_MAP_ERROR: u32 = 1;
+pub const PCCARD_MAP_ZERO: u32 = 2;
+pub const PCCARD_NO_CONTROLLERS: u32 = 7;
+pub const PCCARD_NO_LEGACY_BASE: u32 = 5;
+pub const PCCARD_NO_PIC: u32 = 4;
+pub const PCCARD_NO_TIMER: u32 = 3;
+pub const PCCARD_SCAN_DISABLED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCIBUSDATA {
@@ -12855,19 +12855,19 @@ impl Default for PCIBUSDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCIBus: INTERFACE_TYPE = INTERFACE_TYPE(5i32);
-pub const PCIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(4i32);
+pub const PCIBus: INTERFACE_TYPE = INTERFACE_TYPE(5);
+pub const PCIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(4);
 pub const PCIEXPRESS_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xd995e954_bbc1_430f_ad91_b44dcb3c6f35);
 pub const PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe96eca99_53e2_4f52_9be7_d2dbe9508ed0);
 pub const PCIXBUS_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc5753963_3b84_4095_bf78_eddad3f9c9dd);
-pub const PCIXBUS_ERRTYPE_ADDRESSPARITY: u32 = 6u32;
-pub const PCIXBUS_ERRTYPE_BUSTIMEOUT: u32 = 4u32;
-pub const PCIXBUS_ERRTYPE_COMMANDPARITY: u32 = 7u32;
-pub const PCIXBUS_ERRTYPE_DATAPARITY: u32 = 1u32;
-pub const PCIXBUS_ERRTYPE_MASTERABORT: u32 = 3u32;
-pub const PCIXBUS_ERRTYPE_MASTERDATAPARITY: u32 = 5u32;
-pub const PCIXBUS_ERRTYPE_SYSTEM: u32 = 2u32;
-pub const PCIXBUS_ERRTYPE_UNKNOWN: u32 = 0u32;
+pub const PCIXBUS_ERRTYPE_ADDRESSPARITY: u32 = 6;
+pub const PCIXBUS_ERRTYPE_BUSTIMEOUT: u32 = 4;
+pub const PCIXBUS_ERRTYPE_COMMANDPARITY: u32 = 7;
+pub const PCIXBUS_ERRTYPE_DATAPARITY: u32 = 1;
+pub const PCIXBUS_ERRTYPE_MASTERABORT: u32 = 3;
+pub const PCIXBUS_ERRTYPE_MASTERDATAPARITY: u32 = 5;
+pub const PCIXBUS_ERRTYPE_SYSTEM: u32 = 2;
+pub const PCIXBUS_ERRTYPE_UNKNOWN: u32 = 0;
 pub const PCIXDEVICE_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xeb5e4685_ca66_4769_b6a2_26068b001326);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12937,31 +12937,31 @@ impl Default for PCIX_BRIDGE_CAPABILITY_2 {
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
     pub _bitfield: u32,
 }
-pub const PCIX_MODE1_100MHZ: u32 = 2u32;
-pub const PCIX_MODE1_133MHZ: u32 = 3u32;
-pub const PCIX_MODE1_66MHZ: u32 = 1u32;
-pub const PCIX_MODE2_266_100MHZ: u32 = 10u32;
-pub const PCIX_MODE2_266_133MHZ: u32 = 11u32;
-pub const PCIX_MODE2_266_66MHZ: u32 = 9u32;
-pub const PCIX_MODE2_533_100MHZ: u32 = 14u32;
-pub const PCIX_MODE2_533_133MHZ: u32 = 15u32;
-pub const PCIX_MODE2_533_66MHZ: u32 = 13u32;
-pub const PCIX_MODE_CONVENTIONAL_PCI: u32 = 0u32;
-pub const PCIX_VERSION_DUAL_MODE_ECC: u32 = 2u32;
-pub const PCIX_VERSION_MODE1_ONLY: u32 = 0u32;
-pub const PCIX_VERSION_MODE2_ECC: u32 = 1u32;
-pub const PCI_ACS_ALLOWED: u32 = 0u32;
+pub const PCIX_MODE1_100MHZ: u32 = 2;
+pub const PCIX_MODE1_133MHZ: u32 = 3;
+pub const PCIX_MODE1_66MHZ: u32 = 1;
+pub const PCIX_MODE2_266_100MHZ: u32 = 10;
+pub const PCIX_MODE2_266_133MHZ: u32 = 11;
+pub const PCIX_MODE2_266_66MHZ: u32 = 9;
+pub const PCIX_MODE2_533_100MHZ: u32 = 14;
+pub const PCIX_MODE2_533_133MHZ: u32 = 15;
+pub const PCIX_MODE2_533_66MHZ: u32 = 13;
+pub const PCIX_MODE_CONVENTIONAL_PCI: u32 = 0;
+pub const PCIX_VERSION_DUAL_MODE_ECC: u32 = 2;
+pub const PCIX_VERSION_MODE1_ONLY: u32 = 0;
+pub const PCIX_VERSION_MODE2_ECC: u32 = 1;
+pub const PCI_ACS_ALLOWED: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_ACS_BIT(pub i32);
-pub const PCI_ACS_BLOCKED: u32 = 1u32;
-pub const PCI_ACS_REDIRECTED: u32 = 2u32;
-pub const PCI_ADDRESS_IO_ADDRESS_MASK: u32 = 4294967292u32;
-pub const PCI_ADDRESS_IO_SPACE: u32 = 1u32;
-pub const PCI_ADDRESS_MEMORY_ADDRESS_MASK: u32 = 4294967280u32;
-pub const PCI_ADDRESS_MEMORY_PREFETCHABLE: u32 = 8u32;
-pub const PCI_ADDRESS_MEMORY_TYPE_MASK: u32 = 6u32;
-pub const PCI_ADDRESS_ROM_ADDRESS_MASK: u32 = 4294965248u32;
+pub const PCI_ACS_BLOCKED: u32 = 1;
+pub const PCI_ACS_REDIRECTED: u32 = 2;
+pub const PCI_ADDRESS_IO_ADDRESS_MASK: u32 = 4294967292;
+pub const PCI_ADDRESS_IO_SPACE: u32 = 1;
+pub const PCI_ADDRESS_MEMORY_ADDRESS_MASK: u32 = 4294967280;
+pub const PCI_ADDRESS_MEMORY_PREFETCHABLE: u32 = 8;
+pub const PCI_ADDRESS_MEMORY_TYPE_MASK: u32 = 6;
+pub const PCI_ADDRESS_ROM_ADDRESS_MASK: u32 = 4294965248;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY {
@@ -13073,9 +13073,9 @@ pub struct PCI_AGP_ISOCH_COMMAND {
 pub struct PCI_AGP_ISOCH_STATUS {
     pub _bitfield: u32,
 }
-pub const PCI_AGP_RATE_1X: u32 = 1u32;
-pub const PCI_AGP_RATE_2X: u32 = 2u32;
-pub const PCI_AGP_RATE_4X: u32 = 4u32;
+pub const PCI_AGP_RATE_1X: u32 = 1;
+pub const PCI_AGP_RATE_2X: u32 = 2;
+pub const PCI_AGP_RATE_4X: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PCI_ATS_INTERFACE {
@@ -13092,8 +13092,8 @@ impl Default for PCI_ATS_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_ATS_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_BRIDGE_TYPE: u32 = 1u32;
+pub const PCI_ATS_INTERFACE_VERSION: u32 = 1;
+pub const PCI_BRIDGE_TYPE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PCI_BUS_INTERFACE_STANDARD {
@@ -13115,7 +13115,7 @@ impl Default for PCI_BUS_INTERFACE_STANDARD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2u32;
+pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_BUS_WIDTH(pub i32);
@@ -13125,46 +13125,46 @@ pub struct PCI_CAPABILITIES_HEADER {
     pub CapabilityID: u8,
     pub Next: u8,
 }
-pub const PCI_CAPABILITY_ID_ADVANCED_FEATURES: u32 = 19u32;
-pub const PCI_CAPABILITY_ID_AGP: u32 = 2u32;
-pub const PCI_CAPABILITY_ID_AGP_TARGET: u32 = 14u32;
-pub const PCI_CAPABILITY_ID_CPCI_HOTSWAP: u32 = 6u32;
-pub const PCI_CAPABILITY_ID_CPCI_RES_CTRL: u32 = 11u32;
-pub const PCI_CAPABILITY_ID_DEBUG_PORT: u32 = 10u32;
-pub const PCI_CAPABILITY_ID_FPB: u32 = 21u32;
-pub const PCI_CAPABILITY_ID_HYPERTRANSPORT: u32 = 8u32;
-pub const PCI_CAPABILITY_ID_MSI: u32 = 5u32;
-pub const PCI_CAPABILITY_ID_MSIX: u32 = 17u32;
-pub const PCI_CAPABILITY_ID_P2P_SSID: u32 = 13u32;
-pub const PCI_CAPABILITY_ID_PCIX: u32 = 7u32;
-pub const PCI_CAPABILITY_ID_PCI_EXPRESS: u32 = 16u32;
-pub const PCI_CAPABILITY_ID_POWER_MANAGEMENT: u32 = 1u32;
-pub const PCI_CAPABILITY_ID_SATA_CONFIG: u32 = 18u32;
-pub const PCI_CAPABILITY_ID_SECURE: u32 = 15u32;
-pub const PCI_CAPABILITY_ID_SHPC: u32 = 12u32;
-pub const PCI_CAPABILITY_ID_SLOT_ID: u32 = 4u32;
-pub const PCI_CAPABILITY_ID_VENDOR_SPECIFIC: u32 = 9u32;
-pub const PCI_CAPABILITY_ID_VPD: u32 = 3u32;
-pub const PCI_CARDBUS_BRIDGE_TYPE: u32 = 2u32;
-pub const PCI_CLASS_BASE_SYSTEM_DEV: u32 = 8u32;
-pub const PCI_CLASS_BRIDGE_DEV: u32 = 6u32;
-pub const PCI_CLASS_DATA_ACQ_SIGNAL_PROC: u32 = 17u32;
-pub const PCI_CLASS_DISPLAY_CTLR: u32 = 3u32;
-pub const PCI_CLASS_DOCKING_STATION: u32 = 10u32;
-pub const PCI_CLASS_ENCRYPTION_DECRYPTION: u32 = 16u32;
-pub const PCI_CLASS_INPUT_DEV: u32 = 9u32;
-pub const PCI_CLASS_INTELLIGENT_IO_CTLR: u32 = 14u32;
-pub const PCI_CLASS_MASS_STORAGE_CTLR: u32 = 1u32;
-pub const PCI_CLASS_MEMORY_CTLR: u32 = 5u32;
-pub const PCI_CLASS_MULTIMEDIA_DEV: u32 = 4u32;
-pub const PCI_CLASS_NETWORK_CTLR: u32 = 2u32;
-pub const PCI_CLASS_NOT_DEFINED: u32 = 255u32;
-pub const PCI_CLASS_PRE_20: u32 = 0u32;
-pub const PCI_CLASS_PROCESSOR: u32 = 11u32;
-pub const PCI_CLASS_SATELLITE_COMMS_CTLR: u32 = 15u32;
-pub const PCI_CLASS_SERIAL_BUS_CTLR: u32 = 12u32;
-pub const PCI_CLASS_SIMPLE_COMMS_CTLR: u32 = 7u32;
-pub const PCI_CLASS_WIRELESS_CTLR: u32 = 13u32;
+pub const PCI_CAPABILITY_ID_ADVANCED_FEATURES: u32 = 19;
+pub const PCI_CAPABILITY_ID_AGP: u32 = 2;
+pub const PCI_CAPABILITY_ID_AGP_TARGET: u32 = 14;
+pub const PCI_CAPABILITY_ID_CPCI_HOTSWAP: u32 = 6;
+pub const PCI_CAPABILITY_ID_CPCI_RES_CTRL: u32 = 11;
+pub const PCI_CAPABILITY_ID_DEBUG_PORT: u32 = 10;
+pub const PCI_CAPABILITY_ID_FPB: u32 = 21;
+pub const PCI_CAPABILITY_ID_HYPERTRANSPORT: u32 = 8;
+pub const PCI_CAPABILITY_ID_MSI: u32 = 5;
+pub const PCI_CAPABILITY_ID_MSIX: u32 = 17;
+pub const PCI_CAPABILITY_ID_P2P_SSID: u32 = 13;
+pub const PCI_CAPABILITY_ID_PCIX: u32 = 7;
+pub const PCI_CAPABILITY_ID_PCI_EXPRESS: u32 = 16;
+pub const PCI_CAPABILITY_ID_POWER_MANAGEMENT: u32 = 1;
+pub const PCI_CAPABILITY_ID_SATA_CONFIG: u32 = 18;
+pub const PCI_CAPABILITY_ID_SECURE: u32 = 15;
+pub const PCI_CAPABILITY_ID_SHPC: u32 = 12;
+pub const PCI_CAPABILITY_ID_SLOT_ID: u32 = 4;
+pub const PCI_CAPABILITY_ID_VENDOR_SPECIFIC: u32 = 9;
+pub const PCI_CAPABILITY_ID_VPD: u32 = 3;
+pub const PCI_CARDBUS_BRIDGE_TYPE: u32 = 2;
+pub const PCI_CLASS_BASE_SYSTEM_DEV: u32 = 8;
+pub const PCI_CLASS_BRIDGE_DEV: u32 = 6;
+pub const PCI_CLASS_DATA_ACQ_SIGNAL_PROC: u32 = 17;
+pub const PCI_CLASS_DISPLAY_CTLR: u32 = 3;
+pub const PCI_CLASS_DOCKING_STATION: u32 = 10;
+pub const PCI_CLASS_ENCRYPTION_DECRYPTION: u32 = 16;
+pub const PCI_CLASS_INPUT_DEV: u32 = 9;
+pub const PCI_CLASS_INTELLIGENT_IO_CTLR: u32 = 14;
+pub const PCI_CLASS_MASS_STORAGE_CTLR: u32 = 1;
+pub const PCI_CLASS_MEMORY_CTLR: u32 = 5;
+pub const PCI_CLASS_MULTIMEDIA_DEV: u32 = 4;
+pub const PCI_CLASS_NETWORK_CTLR: u32 = 2;
+pub const PCI_CLASS_NOT_DEFINED: u32 = 255;
+pub const PCI_CLASS_PRE_20: u32 = 0;
+pub const PCI_CLASS_PROCESSOR: u32 = 11;
+pub const PCI_CLASS_SATELLITE_COMMS_CTLR: u32 = 15;
+pub const PCI_CLASS_SERIAL_BUS_CTLR: u32 = 12;
+pub const PCI_CLASS_SIMPLE_COMMS_CTLR: u32 = 7;
+pub const PCI_CLASS_WIRELESS_CTLR: u32 = 13;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_COMMON_CONFIG {
@@ -13289,7 +13289,7 @@ pub struct PCI_COMMON_HEADER_0_2_0 {
     pub Base: u32,
     pub Limit: u32,
 }
-pub const PCI_DATA_VERSION: u32 = 1u32;
+pub const PCI_DATA_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_DEBUGGING_DEVICE_IN_USE {
@@ -13330,21 +13330,21 @@ impl Default for PCI_DEVICE_PRESENT_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_DEVICE_PRESENT_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_DEVICE_TYPE: u32 = 0u32;
-pub const PCI_DISABLE_LEVEL_INTERRUPT: u32 = 1024u32;
-pub const PCI_ENABLE_BUS_MASTER: u32 = 4u32;
-pub const PCI_ENABLE_FAST_BACK_TO_BACK: u32 = 512u32;
-pub const PCI_ENABLE_IO_SPACE: u32 = 1u32;
-pub const PCI_ENABLE_MEMORY_SPACE: u32 = 2u32;
-pub const PCI_ENABLE_PARITY: u32 = 64u32;
-pub const PCI_ENABLE_SERR: u32 = 256u32;
-pub const PCI_ENABLE_SPECIAL_CYCLES: u32 = 8u32;
-pub const PCI_ENABLE_VGA_COMPATIBLE_PALETTE: u32 = 32u32;
-pub const PCI_ENABLE_WAIT_CYCLE: u32 = 128u32;
-pub const PCI_ENABLE_WRITE_AND_INVALIDATE: u32 = 16u32;
+pub const PCI_DEVICE_PRESENT_INTERFACE_VERSION: u32 = 1;
+pub const PCI_DEVICE_TYPE: u32 = 0;
+pub const PCI_DISABLE_LEVEL_INTERRUPT: u32 = 1024;
+pub const PCI_ENABLE_BUS_MASTER: u32 = 4;
+pub const PCI_ENABLE_FAST_BACK_TO_BACK: u32 = 512;
+pub const PCI_ENABLE_IO_SPACE: u32 = 1;
+pub const PCI_ENABLE_MEMORY_SPACE: u32 = 2;
+pub const PCI_ENABLE_PARITY: u32 = 64;
+pub const PCI_ENABLE_SERR: u32 = 256;
+pub const PCI_ENABLE_SPECIAL_CYCLES: u32 = 8;
+pub const PCI_ENABLE_VGA_COMPATIBLE_PALETTE: u32 = 32;
+pub const PCI_ENABLE_WAIT_CYCLE: u32 = 128;
+pub const PCI_ENABLE_WRITE_AND_INVALIDATE: u32 = 16;
 pub type PCI_ERROR_HANDLER_CALLBACK = Option<unsafe extern "system" fn()>;
-pub const PCI_EXPRESS_ACCESS_CONTROL_SERVICES_CAP_ID: u32 = 13u32;
+pub const PCI_EXPRESS_ACCESS_CONTROL_SERVICES_CAP_ID: u32 = 13;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY {
@@ -13390,7 +13390,7 @@ impl Default for PCI_EXPRESS_ACS_CONTROL {
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_ADVANCED_ERROR_REPORTING_CAP_ID: u32 = 1u32;
+pub const PCI_EXPRESS_ADVANCED_ERROR_REPORTING_CAP_ID: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_AER_CAPABILITIES {
@@ -13441,7 +13441,7 @@ pub struct PCI_EXPRESS_ARI_CAPABILITY {
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14u32;
+pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
@@ -13470,7 +13470,7 @@ impl Default for PCI_EXPRESS_ATS_CAPABILITY {
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_ATS_CAP_ID: u32 = 15u32;
+pub const PCI_EXPRESS_ATS_CAP_ID: u32 = 15;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ATS_CONTROL_REGISTER {
@@ -13557,7 +13557,7 @@ impl Default for PCI_EXPRESS_CAPABILITY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CARD_PRESENCE(pub i32);
-pub const PCI_EXPRESS_CONFIGURATION_ACCESS_CORRELATION_CAP_ID: u32 = 12u32;
+pub const PCI_EXPRESS_CONFIGURATION_ACCESS_CORRELATION_CAP_ID: u32 = 12;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
@@ -13749,7 +13749,7 @@ impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAP_ID: u32 = 35u32;
+pub const PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAP_ID: u32 = 35;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
@@ -13852,7 +13852,7 @@ pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_DEVICE_SERIAL_NUMBER_CAP_ID: u32 = 3u32;
+pub const PCI_EXPRESS_DEVICE_SERIAL_NUMBER_CAP_ID: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
@@ -13888,7 +13888,7 @@ pub struct PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_TYPE(pub i32);
-pub const PCI_EXPRESS_DPA_CAP_ID: u32 = 22u32;
+pub const PCI_EXPRESS_DPA_CAP_ID: u32 = 22;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_CAPABILITY {
@@ -13927,7 +13927,7 @@ impl Default for PCI_EXPRESS_DPC_CAPS_REGISTER {
 pub struct PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29u32;
+pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_CONTROL_REGISTER {
@@ -14117,7 +14117,7 @@ pub struct PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
     pub AssociationBitmap: u32,
 }
 pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33u32;
+pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_INDICATOR_STATE(pub i32);
@@ -14156,7 +14156,7 @@ impl Default for PCI_EXPRESS_L1_PM_SS_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: u32 = 30u32;
+pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: u32 = 30;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
@@ -14300,7 +14300,7 @@ impl Default for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_LINK_QUIESCENT_INTERFACE_VERSION: u32 = 1u32;
+pub const PCI_EXPRESS_LINK_QUIESCENT_INTERFACE_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_STATUS_2_REGISTER {
@@ -14336,7 +14336,7 @@ pub struct PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_SUBSTATE(pub i32);
-pub const PCI_EXPRESS_LN_REQUESTER_CAP_ID: u32 = 28u32;
+pub const PCI_EXPRESS_LN_REQUESTER_CAP_ID: u32 = 28;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LTR_CAPABILITY {
@@ -14348,7 +14348,7 @@ impl Default for PCI_EXPRESS_LTR_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_LTR_CAP_ID: u32 = 24u32;
+pub const PCI_EXPRESS_LTR_CAP_ID: u32 = 24;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
@@ -14368,13 +14368,13 @@ pub struct PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_MAX_PAYLOAD_SIZE(pub i32);
-pub const PCI_EXPRESS_MFVC_CAP_ID: u32 = 8u32;
-pub const PCI_EXPRESS_MPCIE_CAP_ID: u32 = 32u32;
+pub const PCI_EXPRESS_MFVC_CAP_ID: u32 = 8;
+pub const PCI_EXPRESS_MPCIE_CAP_ID: u32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_MRL_STATE(pub i32);
-pub const PCI_EXPRESS_MULTICAST_CAP_ID: u32 = 18u32;
-pub const PCI_EXPRESS_MULTI_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 17u32;
+pub const PCI_EXPRESS_MULTICAST_CAP_ID: u32 = 18;
+pub const PCI_EXPRESS_MULTI_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY {
@@ -14404,7 +14404,7 @@ impl Default for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_NPEM_CAP_ID: u32 = 41u32;
+pub const PCI_EXPRESS_NPEM_CAP_ID: u32 = 41;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_CONTROL_REGISTER {
@@ -14437,7 +14437,7 @@ impl Default for PCI_EXPRESS_NPEM_STATUS_REGISTER {
 pub struct PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_PAGE_REQUEST_CAP_ID: u32 = 19u32;
+pub const PCI_EXPRESS_PAGE_REQUEST_CAP_ID: u32 = 19;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY {
@@ -14466,7 +14466,7 @@ impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_PASID_CAP_ID: u32 = 27u32;
+pub const PCI_EXPRESS_PASID_CAP_ID: u32 = 27;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PASID_CONTROL_REGISTER {
@@ -14499,8 +14499,8 @@ impl Default for PCI_EXPRESS_PME_REQUESTOR_ID {
 pub struct PCI_EXPRESS_PME_REQUESTOR_ID_0 {
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_PMUX_CAP_ID: u32 = 26u32;
-pub const PCI_EXPRESS_POWER_BUDGETING_CAP_ID: u32 = 4u32;
+pub const PCI_EXPRESS_PMUX_CAP_ID: u32 = 26;
+pub const PCI_EXPRESS_POWER_BUDGETING_CAP_ID: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_POWER_STATE(pub i32);
@@ -14578,7 +14578,7 @@ impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_PTM_CAP_ID: u32 = 31u32;
+pub const PCI_EXPRESS_PTM_CAP_ID: u32 = 31;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PTM_CONTROL_REGISTER {
@@ -14598,12 +14598,12 @@ pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_RCB(pub i32);
-pub const PCI_EXPRESS_RCRB_HEADER_CAP_ID: u32 = 10u32;
-pub const PCI_EXPRESS_RC_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAP_ID: u32 = 7u32;
-pub const PCI_EXPRESS_RC_INTERNAL_LINK_CONTROL_CAP_ID: u32 = 6u32;
-pub const PCI_EXPRESS_RC_LINK_DECLARATION_CAP_ID: u32 = 5u32;
-pub const PCI_EXPRESS_READINESS_TIME_REPORTING_CAP_ID: u32 = 34u32;
-pub const PCI_EXPRESS_RESERVED_FOR_AMD_CAP_ID: u32 = 20u32;
+pub const PCI_EXPRESS_RCRB_HEADER_CAP_ID: u32 = 10;
+pub const PCI_EXPRESS_RC_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAP_ID: u32 = 7;
+pub const PCI_EXPRESS_RC_INTERNAL_LINK_CONTROL_CAP_ID: u32 = 6;
+pub const PCI_EXPRESS_RC_LINK_DECLARATION_CAP_ID: u32 = 5;
+pub const PCI_EXPRESS_READINESS_TIME_REPORTING_CAP_ID: u32 = 34;
+pub const PCI_EXPRESS_RESERVED_FOR_AMD_CAP_ID: u32 = 20;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
@@ -14631,7 +14631,7 @@ impl Default for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_RESIZABLE_BAR_CAP_ID: u32 = 21u32;
+pub const PCI_EXPRESS_RESIZABLE_BAR_CAP_ID: u32 = 21;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
@@ -14759,7 +14759,7 @@ impl Default for PCI_EXPRESS_ROOT_PORT_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_ROOT_PORT_INTERFACE_VERSION: u32 = 1u32;
+pub const PCI_EXPRESS_ROOT_PORT_INTERFACE_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_STATUS_REGISTER {
@@ -14788,7 +14788,7 @@ impl Default for PCI_EXPRESS_SECONDARY_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_SECONDARY_PCI_EXPRESS_CAP_ID: u32 = 25u32;
+pub const PCI_EXPRESS_SECONDARY_PCI_EXPRESS_CAP_ID: u32 = 25;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_AER_CAPABILITIES {
@@ -14860,7 +14860,7 @@ pub struct PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     pub LowSerialNumber: u32,
     pub HighSerialNumber: u32,
 }
-pub const PCI_EXPRESS_SINGLE_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 16u32;
+pub const PCI_EXPRESS_SINGLE_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
@@ -15027,7 +15027,7 @@ impl Default for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_TPH_REQUESTER_CAP_ID: u32 = 23u32;
+pub const PCI_EXPRESS_TPH_REQUESTER_CAP_ID: u32 = 23;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
@@ -15044,10 +15044,10 @@ impl Default for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
 pub struct PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: u32 = 2u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: u32 = 0u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: u32 = 3u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: u32 = 1u32;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: u32 = 2;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: u32 = 0;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: u32 = 3;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
@@ -15112,7 +15112,7 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9u32;
+pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
@@ -15120,7 +15120,7 @@ pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub VsecId: u16,
     pub _bitfield: u16,
 }
-pub const PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: u32 = 11u32;
+pub const PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: u32 = 11;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
@@ -15136,9 +15136,9 @@ impl Default for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: u32 = 2u32;
+pub const PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: u32 = 2;
 pub type PCI_EXPRESS_WAKE_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablewake: bool)>;
-pub const PCI_EXTENDED_CONFIG_LENGTH: u32 = 4096u32;
+pub const PCI_EXTENDED_CONFIG_LENGTH: u32 = 4096;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PCI_FIRMWARE_BUS_CAPS {
@@ -15302,15 +15302,15 @@ pub struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_HARDWARE_INTERFACE(pub i32);
-pub const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: u32 = 255u32;
-pub const PCI_INVALID_VENDORID: u32 = 65535u32;
+pub const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: u32 = 255;
+pub const PCI_INVALID_VENDORID: u32 = 65535;
 pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn(vendorid: u16, deviceid: u16, revisionid: u8, subvendorid: u16, subsystemid: u16, flags: u32) -> bool>;
 pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, parameters: *const PCI_DEVICE_PRESENCE_PARAMETERS) -> bool>;
 pub type PCI_LINE_TO_PIN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
-pub const PCI_MAX_BRIDGE_NUMBER: u32 = 255u32;
-pub const PCI_MAX_DEVICES: u32 = 32u32;
-pub const PCI_MAX_FUNCTION: u32 = 8u32;
-pub const PCI_MAX_SEGMENT_NUMBER: u32 = 65535u32;
+pub const PCI_MAX_BRIDGE_NUMBER: u32 = 255;
+pub const PCI_MAX_DEVICES: u32 = 32;
+pub const PCI_MAX_FUNCTION: u32 = 8;
+pub const PCI_MAX_SEGMENT_NUMBER: u32 = 65535;
 pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: *mut u32, masked: *mut bool) -> windows_core::NTSTATUS>;
 pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tablesize: *mut u32) -> windows_core::NTSTATUS>;
 pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32) -> windows_core::NTSTATUS>;
@@ -15334,8 +15334,8 @@ impl Default for PCI_MSIX_TABLE_CONFIG_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_MULTIFUNCTION: u32 = 128u32;
+pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1;
+pub const PCI_MULTIFUNCTION: u32 = 128;
 pub type PCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcidata: *const PCI_COMMON_CONFIG)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -15406,11 +15406,11 @@ impl Default for PCI_PM_CAPABILITY_2 {
     }
 }
 pub type PCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub const PCI_PROGRAMMING_INTERFACE_MSC_NVM_EXPRESS: u32 = 2u32;
-pub const PCI_PTM_TIME_SOURCE_AUX: u32 = 4294967295u32;
+pub const PCI_PROGRAMMING_INTERFACE_MSC_NVM_EXPRESS: u32 = 2;
+pub const PCI_PTM_TIME_SOURCE_AUX: u32 = 4294967295;
 pub type PCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busoffset: u32, slot: u32, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
 pub const PCI_RECOVERY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdd060800_f6e1_4204_ac27_c4bca9568402);
-pub const PCI_ROMADDRESS_ENABLED: u32 = 1u32;
+pub const PCI_ROMADDRESS_ENABLED: u32 = 1;
 pub type PCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, hardwarecapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15461,7 +15461,7 @@ impl Default for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
     pub _bitfield: u32,
 }
-pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1u32;
+pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
@@ -15488,10 +15488,10 @@ impl Default for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
     pub _bitfield: u32,
 }
-pub const PCI_SECURITY_DIRECT_TRANSLATED_P2P: u32 = 4u32;
-pub const PCI_SECURITY_ENHANCED: u32 = 2u32;
-pub const PCI_SECURITY_FULLY_SUPPORTED: u32 = 1u32;
-pub const PCI_SECURITY_GUEST_ASSIGNED: u32 = 1u32;
+pub const PCI_SECURITY_DIRECT_TRANSLATED_P2P: u32 = 4;
+pub const PCI_SECURITY_ENHANCED: u32 = 2;
+pub const PCI_SECURITY_FULLY_SUPPORTED: u32 = 1;
+pub const PCI_SECURITY_GUEST_ASSIGNED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PCI_SECURITY_INTERFACE {
@@ -15524,9 +15524,9 @@ impl Default for PCI_SECURITY_INTERFACE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_SECURITY_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_SECURITY_INTERFACE_VERSION2: u32 = 2u32;
-pub const PCI_SECURITY_SRIOV_DIRECT_TRANSLATED_P2P: u32 = 262144u32;
+pub const PCI_SECURITY_INTERFACE_VERSION: u32 = 1;
+pub const PCI_SECURITY_INTERFACE_VERSION2: u32 = 2;
+pub const PCI_SECURITY_SRIOV_DIRECT_TRANSLATED_P2P: u32 = 262144;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_SEGMENT_BUS_NUMBER {
@@ -15582,104 +15582,104 @@ impl Default for PCI_SLOT_NUMBER_0 {
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
-pub const PCI_STATUS_66MHZ_CAPABLE: u32 = 32u32;
-pub const PCI_STATUS_CAPABILITIES_LIST: u32 = 16u32;
-pub const PCI_STATUS_DATA_PARITY_DETECTED: u32 = 256u32;
-pub const PCI_STATUS_DETECTED_PARITY_ERROR: u32 = 32768u32;
-pub const PCI_STATUS_DEVSEL: u32 = 1536u32;
-pub const PCI_STATUS_FAST_BACK_TO_BACK: u32 = 128u32;
-pub const PCI_STATUS_IMMEDIATE_READINESS: u32 = 1u32;
-pub const PCI_STATUS_INTERRUPT_PENDING: u32 = 8u32;
-pub const PCI_STATUS_RECEIVED_MASTER_ABORT: u32 = 8192u32;
-pub const PCI_STATUS_RECEIVED_TARGET_ABORT: u32 = 4096u32;
-pub const PCI_STATUS_SIGNALED_SYSTEM_ERROR: u32 = 16384u32;
-pub const PCI_STATUS_SIGNALED_TARGET_ABORT: u32 = 2048u32;
-pub const PCI_STATUS_UDF_SUPPORTED: u32 = 64u32;
-pub const PCI_SUBCLASS_BR_CARDBUS: u32 = 7u32;
-pub const PCI_SUBCLASS_BR_EISA: u32 = 2u32;
-pub const PCI_SUBCLASS_BR_HOST: u32 = 0u32;
-pub const PCI_SUBCLASS_BR_ISA: u32 = 1u32;
-pub const PCI_SUBCLASS_BR_MCA: u32 = 3u32;
-pub const PCI_SUBCLASS_BR_NUBUS: u32 = 6u32;
-pub const PCI_SUBCLASS_BR_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_BR_PCI_TO_PCI: u32 = 4u32;
-pub const PCI_SUBCLASS_BR_PCMCIA: u32 = 5u32;
-pub const PCI_SUBCLASS_BR_RACEWAY: u32 = 8u32;
-pub const PCI_SUBCLASS_COM_MODEM: u32 = 3u32;
-pub const PCI_SUBCLASS_COM_MULTIPORT: u32 = 2u32;
-pub const PCI_SUBCLASS_COM_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_COM_PARALLEL: u32 = 1u32;
-pub const PCI_SUBCLASS_COM_SERIAL: u32 = 0u32;
-pub const PCI_SUBCLASS_CRYPTO_ENTERTAINMENT: u32 = 16u32;
-pub const PCI_SUBCLASS_CRYPTO_NET_COMP: u32 = 0u32;
-pub const PCI_SUBCLASS_CRYPTO_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_DASP_DPIO: u32 = 0u32;
-pub const PCI_SUBCLASS_DASP_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_DOC_GENERIC: u32 = 0u32;
-pub const PCI_SUBCLASS_DOC_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_INP_DIGITIZER: u32 = 1u32;
-pub const PCI_SUBCLASS_INP_GAMEPORT: u32 = 4u32;
-pub const PCI_SUBCLASS_INP_KEYBOARD: u32 = 0u32;
-pub const PCI_SUBCLASS_INP_MOUSE: u32 = 2u32;
-pub const PCI_SUBCLASS_INP_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_INP_SCANNER: u32 = 3u32;
-pub const PCI_SUBCLASS_INTIO_I2O: u32 = 0u32;
-pub const PCI_SUBCLASS_MEM_FLASH: u32 = 1u32;
-pub const PCI_SUBCLASS_MEM_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_MEM_RAM: u32 = 0u32;
-pub const PCI_SUBCLASS_MM_AUDIO_DEV: u32 = 1u32;
-pub const PCI_SUBCLASS_MM_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_MM_TELEPHONY_DEV: u32 = 2u32;
-pub const PCI_SUBCLASS_MM_VIDEO_DEV: u32 = 0u32;
-pub const PCI_SUBCLASS_MSC_AHCI_CTLR: u32 = 6u32;
-pub const PCI_SUBCLASS_MSC_FLOPPY_CTLR: u32 = 2u32;
-pub const PCI_SUBCLASS_MSC_IDE_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_MSC_IPI_CTLR: u32 = 3u32;
-pub const PCI_SUBCLASS_MSC_NVM_CTLR: u32 = 8u32;
-pub const PCI_SUBCLASS_MSC_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_MSC_RAID_CTLR: u32 = 4u32;
-pub const PCI_SUBCLASS_MSC_SCSI_BUS_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_NET_ATM_CTLR: u32 = 3u32;
-pub const PCI_SUBCLASS_NET_ETHERNET_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_NET_FDDI_CTLR: u32 = 2u32;
-pub const PCI_SUBCLASS_NET_ISDN_CTLR: u32 = 4u32;
-pub const PCI_SUBCLASS_NET_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_NET_TOKEN_RING_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_PRE_20_NON_VGA: u32 = 0u32;
-pub const PCI_SUBCLASS_PRE_20_VGA: u32 = 1u32;
-pub const PCI_SUBCLASS_PROC_386: u32 = 0u32;
-pub const PCI_SUBCLASS_PROC_486: u32 = 1u32;
-pub const PCI_SUBCLASS_PROC_ALPHA: u32 = 16u32;
-pub const PCI_SUBCLASS_PROC_COPROCESSOR: u32 = 64u32;
-pub const PCI_SUBCLASS_PROC_PENTIUM: u32 = 2u32;
-pub const PCI_SUBCLASS_PROC_POWERPC: u32 = 32u32;
-pub const PCI_SUBCLASS_SAT_AUDIO: u32 = 2u32;
-pub const PCI_SUBCLASS_SAT_DATA: u32 = 4u32;
-pub const PCI_SUBCLASS_SAT_TV: u32 = 1u32;
-pub const PCI_SUBCLASS_SAT_VOICE: u32 = 3u32;
-pub const PCI_SUBCLASS_SB_ACCESS: u32 = 1u32;
-pub const PCI_SUBCLASS_SB_FIBRE_CHANNEL: u32 = 4u32;
-pub const PCI_SUBCLASS_SB_IEEE1394: u32 = 0u32;
-pub const PCI_SUBCLASS_SB_SMBUS: u32 = 5u32;
-pub const PCI_SUBCLASS_SB_SSA: u32 = 2u32;
-pub const PCI_SUBCLASS_SB_THUNDERBOLT: u32 = 10u32;
-pub const PCI_SUBCLASS_SB_USB: u32 = 3u32;
-pub const PCI_SUBCLASS_SYS_DMA_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_SYS_GEN_HOTPLUG_CTLR: u32 = 4u32;
-pub const PCI_SUBCLASS_SYS_INTERRUPT_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_SYS_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_SYS_RCEC: u32 = 7u32;
-pub const PCI_SUBCLASS_SYS_REAL_TIME_CLOCK: u32 = 3u32;
-pub const PCI_SUBCLASS_SYS_SDIO_CTRL: u32 = 5u32;
-pub const PCI_SUBCLASS_SYS_SYSTEM_TIMER: u32 = 2u32;
-pub const PCI_SUBCLASS_VID_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_VID_VGA_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_VID_XGA_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_WIRELESS_CON_IR: u32 = 1u32;
-pub const PCI_SUBCLASS_WIRELESS_IRDA: u32 = 0u32;
-pub const PCI_SUBCLASS_WIRELESS_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_WIRELESS_RF: u32 = 16u32;
-pub const PCI_SUBLCASS_VID_3D_CTLR: u32 = 2u32;
+pub const PCI_STATUS_66MHZ_CAPABLE: u32 = 32;
+pub const PCI_STATUS_CAPABILITIES_LIST: u32 = 16;
+pub const PCI_STATUS_DATA_PARITY_DETECTED: u32 = 256;
+pub const PCI_STATUS_DETECTED_PARITY_ERROR: u32 = 32768;
+pub const PCI_STATUS_DEVSEL: u32 = 1536;
+pub const PCI_STATUS_FAST_BACK_TO_BACK: u32 = 128;
+pub const PCI_STATUS_IMMEDIATE_READINESS: u32 = 1;
+pub const PCI_STATUS_INTERRUPT_PENDING: u32 = 8;
+pub const PCI_STATUS_RECEIVED_MASTER_ABORT: u32 = 8192;
+pub const PCI_STATUS_RECEIVED_TARGET_ABORT: u32 = 4096;
+pub const PCI_STATUS_SIGNALED_SYSTEM_ERROR: u32 = 16384;
+pub const PCI_STATUS_SIGNALED_TARGET_ABORT: u32 = 2048;
+pub const PCI_STATUS_UDF_SUPPORTED: u32 = 64;
+pub const PCI_SUBCLASS_BR_CARDBUS: u32 = 7;
+pub const PCI_SUBCLASS_BR_EISA: u32 = 2;
+pub const PCI_SUBCLASS_BR_HOST: u32 = 0;
+pub const PCI_SUBCLASS_BR_ISA: u32 = 1;
+pub const PCI_SUBCLASS_BR_MCA: u32 = 3;
+pub const PCI_SUBCLASS_BR_NUBUS: u32 = 6;
+pub const PCI_SUBCLASS_BR_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_BR_PCI_TO_PCI: u32 = 4;
+pub const PCI_SUBCLASS_BR_PCMCIA: u32 = 5;
+pub const PCI_SUBCLASS_BR_RACEWAY: u32 = 8;
+pub const PCI_SUBCLASS_COM_MODEM: u32 = 3;
+pub const PCI_SUBCLASS_COM_MULTIPORT: u32 = 2;
+pub const PCI_SUBCLASS_COM_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_COM_PARALLEL: u32 = 1;
+pub const PCI_SUBCLASS_COM_SERIAL: u32 = 0;
+pub const PCI_SUBCLASS_CRYPTO_ENTERTAINMENT: u32 = 16;
+pub const PCI_SUBCLASS_CRYPTO_NET_COMP: u32 = 0;
+pub const PCI_SUBCLASS_CRYPTO_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_DASP_DPIO: u32 = 0;
+pub const PCI_SUBCLASS_DASP_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_DOC_GENERIC: u32 = 0;
+pub const PCI_SUBCLASS_DOC_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_INP_DIGITIZER: u32 = 1;
+pub const PCI_SUBCLASS_INP_GAMEPORT: u32 = 4;
+pub const PCI_SUBCLASS_INP_KEYBOARD: u32 = 0;
+pub const PCI_SUBCLASS_INP_MOUSE: u32 = 2;
+pub const PCI_SUBCLASS_INP_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_INP_SCANNER: u32 = 3;
+pub const PCI_SUBCLASS_INTIO_I2O: u32 = 0;
+pub const PCI_SUBCLASS_MEM_FLASH: u32 = 1;
+pub const PCI_SUBCLASS_MEM_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_MEM_RAM: u32 = 0;
+pub const PCI_SUBCLASS_MM_AUDIO_DEV: u32 = 1;
+pub const PCI_SUBCLASS_MM_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_MM_TELEPHONY_DEV: u32 = 2;
+pub const PCI_SUBCLASS_MM_VIDEO_DEV: u32 = 0;
+pub const PCI_SUBCLASS_MSC_AHCI_CTLR: u32 = 6;
+pub const PCI_SUBCLASS_MSC_FLOPPY_CTLR: u32 = 2;
+pub const PCI_SUBCLASS_MSC_IDE_CTLR: u32 = 1;
+pub const PCI_SUBCLASS_MSC_IPI_CTLR: u32 = 3;
+pub const PCI_SUBCLASS_MSC_NVM_CTLR: u32 = 8;
+pub const PCI_SUBCLASS_MSC_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_MSC_RAID_CTLR: u32 = 4;
+pub const PCI_SUBCLASS_MSC_SCSI_BUS_CTLR: u32 = 0;
+pub const PCI_SUBCLASS_NET_ATM_CTLR: u32 = 3;
+pub const PCI_SUBCLASS_NET_ETHERNET_CTLR: u32 = 0;
+pub const PCI_SUBCLASS_NET_FDDI_CTLR: u32 = 2;
+pub const PCI_SUBCLASS_NET_ISDN_CTLR: u32 = 4;
+pub const PCI_SUBCLASS_NET_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_NET_TOKEN_RING_CTLR: u32 = 1;
+pub const PCI_SUBCLASS_PRE_20_NON_VGA: u32 = 0;
+pub const PCI_SUBCLASS_PRE_20_VGA: u32 = 1;
+pub const PCI_SUBCLASS_PROC_386: u32 = 0;
+pub const PCI_SUBCLASS_PROC_486: u32 = 1;
+pub const PCI_SUBCLASS_PROC_ALPHA: u32 = 16;
+pub const PCI_SUBCLASS_PROC_COPROCESSOR: u32 = 64;
+pub const PCI_SUBCLASS_PROC_PENTIUM: u32 = 2;
+pub const PCI_SUBCLASS_PROC_POWERPC: u32 = 32;
+pub const PCI_SUBCLASS_SAT_AUDIO: u32 = 2;
+pub const PCI_SUBCLASS_SAT_DATA: u32 = 4;
+pub const PCI_SUBCLASS_SAT_TV: u32 = 1;
+pub const PCI_SUBCLASS_SAT_VOICE: u32 = 3;
+pub const PCI_SUBCLASS_SB_ACCESS: u32 = 1;
+pub const PCI_SUBCLASS_SB_FIBRE_CHANNEL: u32 = 4;
+pub const PCI_SUBCLASS_SB_IEEE1394: u32 = 0;
+pub const PCI_SUBCLASS_SB_SMBUS: u32 = 5;
+pub const PCI_SUBCLASS_SB_SSA: u32 = 2;
+pub const PCI_SUBCLASS_SB_THUNDERBOLT: u32 = 10;
+pub const PCI_SUBCLASS_SB_USB: u32 = 3;
+pub const PCI_SUBCLASS_SYS_DMA_CTLR: u32 = 1;
+pub const PCI_SUBCLASS_SYS_GEN_HOTPLUG_CTLR: u32 = 4;
+pub const PCI_SUBCLASS_SYS_INTERRUPT_CTLR: u32 = 0;
+pub const PCI_SUBCLASS_SYS_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_SYS_RCEC: u32 = 7;
+pub const PCI_SUBCLASS_SYS_REAL_TIME_CLOCK: u32 = 3;
+pub const PCI_SUBCLASS_SYS_SDIO_CTRL: u32 = 5;
+pub const PCI_SUBCLASS_SYS_SYSTEM_TIMER: u32 = 2;
+pub const PCI_SUBCLASS_VID_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_VID_VGA_CTLR: u32 = 0;
+pub const PCI_SUBCLASS_VID_XGA_CTLR: u32 = 1;
+pub const PCI_SUBCLASS_WIRELESS_CON_IR: u32 = 1;
+pub const PCI_SUBCLASS_WIRELESS_IRDA: u32 = 0;
+pub const PCI_SUBCLASS_WIRELESS_OTHER: u32 = 128;
+pub const PCI_SUBCLASS_WIRELESS_RF: u32 = 16;
+pub const PCI_SUBLCASS_VID_3D_CTLR: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
@@ -15688,19 +15688,19 @@ pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
     pub SubVendorID: u16,
     pub SubSystemID: u16,
 }
-pub const PCI_TYPE0_ADDRESSES: u32 = 6u32;
-pub const PCI_TYPE1_ADDRESSES: u32 = 2u32;
-pub const PCI_TYPE2_ADDRESSES: u32 = 5u32;
-pub const PCI_TYPE_20BIT: u32 = 2u32;
-pub const PCI_TYPE_32BIT: u32 = 0u32;
-pub const PCI_TYPE_64BIT: u32 = 4u32;
-pub const PCI_USE_CLASS_SUBCLASS: u32 = 8u32;
-pub const PCI_USE_LOCAL_BUS: u32 = 32u32;
-pub const PCI_USE_LOCAL_DEVICE: u32 = 64u32;
-pub const PCI_USE_PROGIF: u32 = 16u32;
-pub const PCI_USE_REVISION: u32 = 2u32;
-pub const PCI_USE_SUBSYSTEM_IDS: u32 = 1u32;
-pub const PCI_USE_VENDEV_IDS: u32 = 4u32;
+pub const PCI_TYPE0_ADDRESSES: u32 = 6;
+pub const PCI_TYPE1_ADDRESSES: u32 = 2;
+pub const PCI_TYPE2_ADDRESSES: u32 = 5;
+pub const PCI_TYPE_20BIT: u32 = 2;
+pub const PCI_TYPE_32BIT: u32 = 0;
+pub const PCI_TYPE_64BIT: u32 = 4;
+pub const PCI_USE_CLASS_SUBCLASS: u32 = 8;
+pub const PCI_USE_LOCAL_BUS: u32 = 32;
+pub const PCI_USE_LOCAL_DEVICE: u32 = 64;
+pub const PCI_USE_PROGIF: u32 = 16;
+pub const PCI_USE_REVISION: u32 = 2;
+pub const PCI_USE_SUBSYSTEM_IDS: u32 = 1;
+pub const PCI_USE_VENDEV_IDS: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_VENDOR_SPECIFIC_CAPABILITY {
@@ -15728,8 +15728,8 @@ impl Default for PCI_VIRTUALIZATION_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_WHICHSPACE_CONFIG: u32 = 0u32;
-pub const PCI_WHICHSPACE_ROM: u32 = 1382638416u32;
+pub const PCI_WHICHSPACE_CONFIG: u32 = 0;
+pub const PCI_WHICHSPACE_ROM: u32 = 1382638416;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_X_CAPABILITY {
@@ -15783,8 +15783,8 @@ pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "syst
 pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, clientdata: *const core::ffi::c_void)>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: windows_core::NTSTATUS, clientdata: *const core::ffi::c_void)>;
-pub const PCMCIABus: INTERFACE_TYPE = INTERFACE_TYPE(8i32);
-pub const PCMCIAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(7i32);
+pub const PCMCIABus: INTERFACE_TYPE = INTERFACE_TYPE(8);
+pub const PCMCIAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(7);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
@@ -15794,12 +15794,12 @@ pub type PCREATE_PROCESS_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(paren
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = Option<unsafe extern "system" fn(process: super::super::Foundation::PEPROCESS, processid: super::super::super::Win32::Foundation::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO)>;
 pub type PCREATE_THREAD_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(processid: super::super::super::Win32::Foundation::HANDLE, threadid: super::super::super::Win32::Foundation::HANDLE, create: bool)>;
-pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16u32;
-pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32u32;
-pub const PCR_BTI_MITIGATION_NONE: u32 = 0u32;
-pub const PCR_BTI_MITIGATION_VBAR_MASK: u32 = 15u32;
-pub const PCR_MAJOR_VERSION: u32 = 1u32;
-pub const PCR_MINOR_VERSION: u32 = 1u32;
+pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16;
+pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32;
+pub const PCR_BTI_MITIGATION_NONE: u32 = 0;
+pub const PCR_BTI_MITIGATION_VBAR_MASK: u32 = 15;
+pub const PCR_MAJOR_VERSION: u32 = 1;
+pub const PCR_MINOR_VERSION: u32 = 1;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
@@ -15839,7 +15839,7 @@ impl Default for PCW_COUNTER_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCW_CURRENT_VERSION: u32 = 512u32;
+pub const PCW_CURRENT_VERSION: u32 = 512;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PCW_DATA {
@@ -15887,8 +15887,8 @@ impl Default for PCW_REGISTRATION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCW_VERSION_1: u32 = 256u32;
-pub const PCW_VERSION_2: u32 = 512u32;
+pub const PCW_VERSION_1: u32 = 256;
+pub const PCW_VERSION_2: u32 = 512;
 pub type PD3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PD3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn()>;
 pub type PD3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
@@ -15902,10 +15902,10 @@ pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "system" fn(notificatio
 pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PDEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn()>;
 pub type PDEVICE_RESET_HANDLER = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-pub const PDE_BASE: u32 = 3224371200u32;
-pub const PDE_PER_PAGE: u32 = 512u32;
-pub const PDE_TOP: u32 = 3224375295u32;
-pub const PDI_SHIFT: u32 = 21u32;
+pub const PDE_BASE: u32 = 3224371200;
+pub const PDE_PER_PAGE: u32 = 512;
+pub const PDE_TOP: u32 = 3224375295;
+pub const PDI_SHIFT: u32 = 21;
 pub type PDMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn()>;
 pub type PDRIVER_CMC_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
 pub type PDRIVER_CPE_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
@@ -15918,7 +15918,7 @@ pub type PEXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn()>;
 pub type PEXT_CALLBACK = Option<unsafe extern "system" fn()>;
 pub type PEXT_DELETE_CALLBACK = Option<unsafe extern "system" fn()>;
 pub type PEX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(6i32);
+pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(6);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PFLUSH_ADAPTER_BUFFERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: bool) -> bool>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -16138,15 +16138,15 @@ pub struct PLUGPLAY_NOTIFICATION_HEADER {
     pub Size: u16,
     pub Event: windows_core::GUID,
 }
-pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1u32;
-pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4u32;
-pub const PLUGPLAY_REGKEY_DEVICE: u32 = 1u32;
-pub const PLUGPLAY_REGKEY_DRIVER: u32 = 2u32;
+pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1;
+pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4;
+pub const PLUGPLAY_REGKEY_DEVICE: u32 = 1;
+pub const PLUGPLAY_REGKEY_DRIVER: u32 = 2;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PMAP_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: bool) -> i64>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PMAP_TRANSFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, deviceoffset: u32, length: *mut u32, writetodevice: bool, scattergatherbuffer: *mut SCATTER_GATHER_LIST, scattergatherbufferlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0);
 pub const PMEM_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x81687003_dbfd_4728_9ffd_f0904f97597d);
 pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> windows_core::NTSTATUS>;
 pub type PMM_DLL_UNLOAD = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
@@ -16167,14 +16167,14 @@ impl Default for PM_DISPATCH_TABLE {
     }
 }
 pub type PNMI_CALLBACK = Option<unsafe extern "system" fn() -> bool>;
-pub const PNPBus: INTERFACE_TYPE = INTERFACE_TYPE(15i32);
+pub const PNPBus: INTERFACE_TYPE = INTERFACE_TYPE(15);
 pub type PNPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PNPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn() -> u32>;
 pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-pub const PNPISABus: INTERFACE_TYPE = INTERFACE_TYPE(14i32);
-pub const PNPISAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(10i32);
-pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1u32;
+pub const PNPISABus: INTERFACE_TYPE = INTERFACE_TYPE(14);
+pub const PNPISAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(10);
+pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PNP_BUS_INFORMATION {
@@ -16182,15 +16182,15 @@ pub struct PNP_BUS_INFORMATION {
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
 }
-pub const PNP_DEVICE_ASSIGNED_TO_GUEST: u32 = 256u32;
-pub const PNP_DEVICE_DISABLED: u32 = 1u32;
-pub const PNP_DEVICE_DISCONNECTED: u32 = 64u32;
-pub const PNP_DEVICE_DONT_DISPLAY_IN_UI: u32 = 2u32;
-pub const PNP_DEVICE_FAILED: u32 = 4u32;
-pub const PNP_DEVICE_NOT_DISABLEABLE: u32 = 32u32;
-pub const PNP_DEVICE_REMOVED: u32 = 8u32;
-pub const PNP_DEVICE_RESOURCE_REQUIREMENTS_CHANGED: u32 = 16u32;
-pub const PNP_DEVICE_RESOURCE_UPDATED: u32 = 128u32;
+pub const PNP_DEVICE_ASSIGNED_TO_GUEST: u32 = 256;
+pub const PNP_DEVICE_DISABLED: u32 = 1;
+pub const PNP_DEVICE_DISCONNECTED: u32 = 64;
+pub const PNP_DEVICE_DONT_DISPLAY_IN_UI: u32 = 2;
+pub const PNP_DEVICE_FAILED: u32 = 4;
+pub const PNP_DEVICE_NOT_DISABLEABLE: u32 = 32;
+pub const PNP_DEVICE_REMOVED: u32 = 8;
+pub const PNP_DEVICE_RESOURCE_REQUIREMENTS_CHANGED: u32 = 16;
+pub const PNP_DEVICE_RESOURCE_UPDATED: u32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
@@ -16206,7 +16206,7 @@ impl Default for PNP_EXTENDED_ADDRESS_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PNP_EXTENDED_ADDRESS_INTERFACE_VERSION: u32 = 1u32;
+pub const PNP_EXTENDED_ADDRESS_INTERFACE_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PNP_LOCATION_INTERFACE {
@@ -16239,10 +16239,10 @@ pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
     pub EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
 }
-pub const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
-pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4u32;
-pub const PNP_REPLACE_HARDWARE_PAGE_COPY: u32 = 8u32;
-pub const PNP_REPLACE_HARDWARE_QUIESCE: u32 = 16u32;
+pub const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1;
+pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4;
+pub const PNP_REPLACE_HARDWARE_PAGE_COPY: u32 = 8;
+pub const PNP_REPLACE_HARDWARE_QUIESCE: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PNP_REPLACE_MEMORY_LIST {
@@ -16262,7 +16262,7 @@ pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: i64,
     pub Length: u64,
 }
-pub const PNP_REPLACE_MEMORY_SUPPORTED: u32 = 1u32;
+pub const PNP_REPLACE_MEMORY_SUPPORTED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PNP_REPLACE_PARAMETERS {
@@ -16281,7 +16281,7 @@ impl Default for PNP_REPLACE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PNP_REPLACE_PARAMETERS_VERSION: u32 = 2u32;
+pub const PNP_REPLACE_PARAMETERS_VERSION: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PNP_REPLACE_PROCESSOR_LIST {
@@ -16309,7 +16309,7 @@ impl Default for PNP_REPLACE_PROCESSOR_LIST_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PNP_REPLACE_PROCESSOR_SUPPORTED: u32 = 2u32;
+pub const PNP_REPLACE_PROCESSOR_SUPPORTED: u32 = 2;
 pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn()>;
 #[cfg(feature = "Wdk_Foundation")]
 pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION)>;
@@ -16328,15 +16328,15 @@ pub struct POOLED_USAGE_AND_LIMITS {
     pub PagefileUsage: usize,
     pub PagefileLimit: usize,
 }
-pub const POOL_COLD_ALLOCATION: u32 = 256u32;
+pub const POOL_COLD_ALLOCATION: u32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
 }
-pub const POOL_CREATE_FLG_SECURE_POOL: u32 = 1u32;
-pub const POOL_CREATE_FLG_USE_GLOBAL_POOL: u32 = 2u32;
-pub const POOL_CREATE_PARAMS_VERSION: u32 = 1u32;
+pub const POOL_CREATE_FLG_SECURE_POOL: u32 = 1;
+pub const POOL_CREATE_FLG_USE_GLOBAL_POOL: u32 = 2;
+pub const POOL_CREATE_PARAMS_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMETER {
@@ -16367,11 +16367,11 @@ impl Default for POOL_EXTENDED_PARAMETER_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const POOL_EXTENDED_PARAMETER_REQUIRED_FIELD_BITS: u32 = 1u32;
+pub const POOL_EXTENDED_PARAMETER_REQUIRED_FIELD_BITS: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMETER_TYPE(pub i32);
-pub const POOL_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
+pub const POOL_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
@@ -16385,15 +16385,15 @@ impl Default for POOL_EXTENDED_PARAMS_SECURE_POOL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const POOL_NX_ALLOCATION: u32 = 512u32;
-pub const POOL_NX_OPTIN_AUTO: u32 = 1u32;
-pub const POOL_QUOTA_FAIL_INSTEAD_OF_RAISE: u32 = 8u32;
-pub const POOL_RAISE_IF_ALLOCATION_FAILURE: u32 = 16u32;
-pub const POOL_TAGGING: u32 = 1u32;
-pub const POOL_ZEROING_INFORMATION: u32 = 227u32;
-pub const POOL_ZERO_ALLOCATION: u32 = 1024u32;
-pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512u32;
-pub const POWER_LEVEL: u32 = 30u32;
+pub const POOL_NX_ALLOCATION: u32 = 512;
+pub const POOL_NX_OPTIN_AUTO: u32 = 1;
+pub const POOL_QUOTA_FAIL_INSTEAD_OF_RAISE: u32 = 8;
+pub const POOL_RAISE_IF_ALLOCATION_FAILURE: u32 = 16;
+pub const POOL_TAGGING: u32 = 1;
+pub const POOL_ZEROING_INFORMATION: u32 = 227;
+pub const POOL_ZERO_ALLOCATION: u32 = 1024;
+pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512;
+pub const POWER_LEVEL: u32 = 30;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
@@ -16414,9 +16414,9 @@ pub struct POWER_PLATFORM_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
-pub const POWER_PLATFORM_ROLE_V1: u32 = 1u32;
-pub const POWER_PLATFORM_ROLE_V2: u32 = 2u32;
-pub const POWER_PLATFORM_ROLE_VERSION: u32 = 2u32;
+pub const POWER_PLATFORM_ROLE_V1: u32 = 1;
+pub const POWER_PLATFORM_ROLE_V2: u32 = 2;
+pub const POWER_PLATFORM_ROLE_VERSION: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SEQUENCE {
@@ -16450,7 +16450,7 @@ pub struct POWER_SESSION_WINLOGON {
     pub Locked: bool,
 }
 pub type POWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: *const windows_core::GUID, value: *const core::ffi::c_void, valuelength: u32, context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
+pub const POWER_SETTING_VALUE_VERSION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
 #[derive(Clone, Copy)]
@@ -16467,10 +16467,10 @@ impl Default for POWER_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_STATE_TYPE(pub i32);
-pub const POWER_THROTTLING_PROCESS_CURRENT_VERSION: u32 = 1u32;
-pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: u32 = 2u32;
-pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: u32 = 1u32;
-pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
+pub const POWER_THROTTLING_PROCESS_CURRENT_VERSION: u32 = 1;
+pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: u32 = 2;
+pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: u32 = 1;
+pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_THROTTLING_PROCESS_STATE {
@@ -16478,8 +16478,8 @@ pub struct POWER_THROTTLING_PROCESS_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: u32 = 1u32;
-pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: u32 = 1u32;
+pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: u32 = 1;
+pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_THROTTLING_THREAD_STATE {
@@ -16487,14 +16487,14 @@ pub struct POWER_THROTTLING_THREAD_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-pub const POWER_THROTTLING_THREAD_VALID_FLAGS: u32 = 1u32;
+pub const POWER_THROTTLING_THREAD_VALID_FLAGS: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
 pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, active: bool)>;
-pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: u64 = 1u64;
-pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: u64 = 2u64;
+pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: u64 = 1;
+pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: u64 = 2;
 pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -16651,16 +16651,16 @@ impl Default for PO_FX_DEVICE_V3 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0u32;
+pub const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0;
 pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
 pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, uniqueid: u32)>;
-pub const PO_FX_FLAG_ASYNC_ONLY: u32 = 2u32;
-pub const PO_FX_FLAG_BLOCKING: u32 = 1u32;
-pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: u32 = 1u32;
-pub const PO_FX_FLAG_PERF_QUERY_ON_ALL_IDLE_STATES: u32 = 4u32;
-pub const PO_FX_FLAG_PERF_QUERY_ON_F0: u32 = 2u32;
+pub const PO_FX_FLAG_ASYNC_ONLY: u32 = 2;
+pub const PO_FX_FLAG_BLOCKING: u32 = 1;
+pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: u32 = 1;
+pub const PO_FX_FLAG_PERF_QUERY_ON_ALL_IDLE_STATES: u32 = 4;
+pub const PO_FX_FLAG_PERF_QUERY_ON_F0: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PO_FX_PERF_STATE {
@@ -16701,18 +16701,18 @@ pub struct PO_FX_PERF_STATE_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_PERF_STATE_UNIT(pub i32);
 pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, powercontrolcode: *const windows_core::GUID, inbuffer: *const core::ffi::c_void, inbuffersize: usize, outbuffer: *mut core::ffi::c_void, outbuffersize: usize, bytesreturned: *mut usize) -> windows_core::NTSTATUS>;
-pub const PO_FX_UNKNOWN_POWER: u32 = 4294967295u32;
-pub const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615u64;
-pub const PO_FX_VERSION: u32 = 1u32;
-pub const PO_FX_VERSION_V1: u32 = 1u32;
-pub const PO_FX_VERSION_V2: u32 = 2u32;
-pub const PO_FX_VERSION_V3: u32 = 3u32;
-pub const PO_MEM_BOOT_PHASE: u32 = 65536u32;
-pub const PO_MEM_CLONE: u32 = 2u32;
-pub const PO_MEM_CL_OR_NCHK: u32 = 4u32;
-pub const PO_MEM_DISCARD: u32 = 32768u32;
-pub const PO_MEM_PAGE_ADDRESS: u32 = 16384u32;
-pub const PO_MEM_PRESERVE: u32 = 1u32;
+pub const PO_FX_UNKNOWN_POWER: u32 = 4294967295;
+pub const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615;
+pub const PO_FX_VERSION: u32 = 1;
+pub const PO_FX_VERSION_V1: u32 = 1;
+pub const PO_FX_VERSION_V2: u32 = 2;
+pub const PO_FX_VERSION_V3: u32 = 3;
+pub const PO_MEM_BOOT_PHASE: u32 = 65536;
+pub const PO_MEM_CLONE: u32 = 2;
+pub const PO_MEM_CL_OR_NCHK: u32 = 4;
+pub const PO_MEM_DISCARD: u32 = 32768;
+pub const PO_MEM_PAGE_ADDRESS: u32 = 16384;
+pub const PO_MEM_PRESERVE: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_THERMAL_REQUEST_TYPE(pub i32);
@@ -16738,7 +16738,7 @@ pub type PPCI_SET_ATS = Option<unsafe extern "system" fn() -> windows_core::NTST
 pub type PPCW_CALLBACK = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(eventbuffer: *const core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
 pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
-pub const PPI_SHIFT: u32 = 30u32;
+pub const PPI_SHIFT: u32 = 30;
 pub type PPOWER_SETTING_CALLBACK = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn()>;
 pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn()>;
@@ -16781,10 +16781,10 @@ pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "system" fn(context: *
 pub type PREPLACE_SWAP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PREPLACE_UNLOAD = Option<unsafe extern "system" fn()>;
 pub type PREQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn()>;
-pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1u32;
+pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1;
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut i32)>;
-pub const PROCESSOR_FEATURE_MAX: u32 = 64u32;
+pub const PROCESSOR_FEATURE_MAX: u32 = 64;
 pub const PROCESSOR_GENERIC_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x9876ccad_47b4_4bdb_b65e_16f193c4f3db);
 pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
@@ -16874,7 +16874,7 @@ pub struct PROCESS_EXCEPTION_PORT {
     pub ExceptionPortHandle: super::super::super::Win32::Foundation::HANDLE,
     pub StateFlags: u32,
 }
-pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3u32;
+pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 #[derive(Clone, Copy)]
@@ -16908,9 +16908,9 @@ impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-pub const PROCESS_HANDLE_EXCEPTIONS_ENABLED: u32 = 1u32;
-pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_DISABLED: u32 = 0u32;
-pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_ENABLED: u32 = 1u32;
+pub const PROCESS_HANDLE_EXCEPTIONS_ENABLED: u32 = 1;
+pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_DISABLED: u32 = 0;
+pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_ENABLED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE {
@@ -16937,7 +16937,7 @@ impl Default for PROCESS_HANDLE_TRACING_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROCESS_HANDLE_TRACING_MAX_STACKS: u32 = 16u32;
+pub const PROCESS_HANDLE_TRACING_MAX_STACKS: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16958,7 +16958,7 @@ pub struct PROCESS_KEEPALIVE_COUNT_INFORMATION {
     pub WakeCount: u32,
     pub NoWakeCount: u32,
 }
-pub const PROCESS_LUID_DOSDEVICES_ONLY: u32 = 1u32;
+pub const PROCESS_LUID_DOSDEVICES_ONLY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_MEMBERSHIP_INFORMATION {
@@ -16991,8 +16991,8 @@ impl Default for PROCESS_WS_WATCH_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROFILE_LEVEL: u32 = 27u32;
-pub const PROTECTED_POOL: u32 = 0u32;
+pub const PROFILE_LEVEL: u32 = 27;
+pub const PROTECTED_POOL: u32 = 0;
 pub type PRTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
 pub type PRTL_AVL_COMPARE_ROUTINE = Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
 pub type PRTL_AVL_FREE_ROUTINE = Option<unsafe extern "system" fn()>;
@@ -17077,13 +17077,13 @@ impl Default for PS_CREATE_NOTIFY_INFO_0 {
 pub struct PS_CREATE_NOTIFY_INFO_0_0 {
     pub _bitfield: u32,
 }
-pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1u32;
-pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295u32;
-pub const PTE_BASE: u32 = 3221225472u32;
-pub const PTE_PER_PAGE: u32 = 512u32;
-pub const PTE_TOP: u32 = 3225419775u32;
+pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1;
+pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
+pub const PTE_BASE: u32 = 3221225472;
+pub const PTE_PER_PAGE: u32 = 512;
+pub const PTE_TOP: u32 = 3225419775;
 pub type PTIMER_APC_ROUTINE = Option<unsafe extern "system" fn(timercontext: *const core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32)>;
-pub const PTI_SHIFT: u32 = 12u32;
+pub const PTI_SHIFT: u32 = 12;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct PTM_CONTROL_INTERFACE {
@@ -17117,141 +17117,141 @@ pub type PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER = Option<unsafe extern "system
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
 pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub const PageIn: KWAIT_REASON = KWAIT_REASON(2i32);
-pub const ParallelController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(20i32);
-pub const PciAcsBitDisable: PCI_ACS_BIT = PCI_ACS_BIT(2i32);
-pub const PciAcsBitDontCare: PCI_ACS_BIT = PCI_ACS_BIT(3i32);
-pub const PciAcsBitEnable: PCI_ACS_BIT = PCI_ACS_BIT(1i32);
-pub const PciAcsReserved: PCI_ACS_BIT = PCI_ACS_BIT(0i32);
-pub const PciAddressParityError: u16 = 6u16;
-pub const PciBusDataParityError: u16 = 1u16;
-pub const PciBusMasterAbort: u16 = 3u16;
-pub const PciBusSystemError: u16 = 2u16;
-pub const PciBusTimeOut: u16 = 4u16;
-pub const PciBusUnknownError: u16 = 0u16;
-pub const PciCommandParityError: u16 = 7u16;
-pub const PciConventional: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(0i32);
-pub const PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(8i32);
-pub const PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(9i32);
-pub const PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(10i32);
-pub const PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(1i32);
-pub const PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(4i32);
-pub const PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(2i32);
-pub const PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(3i32);
-pub const PciExpress: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(3i32);
-pub const PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(2i32);
-pub const PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(3i32);
-pub const PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(6i32);
-pub const PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(0i32);
-pub const PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(1i32);
-pub const PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(0i32);
-pub const PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(1i32);
-pub const PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(10i32);
-pub const PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(9i32);
-pub const PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(4i32);
-pub const PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(7i32);
-pub const PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(5i32);
+pub const PageIn: KWAIT_REASON = KWAIT_REASON(2);
+pub const ParallelController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(20);
+pub const PciAcsBitDisable: PCI_ACS_BIT = PCI_ACS_BIT(2);
+pub const PciAcsBitDontCare: PCI_ACS_BIT = PCI_ACS_BIT(3);
+pub const PciAcsBitEnable: PCI_ACS_BIT = PCI_ACS_BIT(1);
+pub const PciAcsReserved: PCI_ACS_BIT = PCI_ACS_BIT(0);
+pub const PciAddressParityError: u16 = 6;
+pub const PciBusDataParityError: u16 = 1;
+pub const PciBusMasterAbort: u16 = 3;
+pub const PciBusSystemError: u16 = 2;
+pub const PciBusTimeOut: u16 = 4;
+pub const PciBusUnknownError: u16 = 0;
+pub const PciCommandParityError: u16 = 7;
+pub const PciConventional: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(0);
+pub const PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(8);
+pub const PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(9);
+pub const PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(10);
+pub const PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(1);
+pub const PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(4);
+pub const PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(2);
+pub const PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(3);
+pub const PciExpress: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(3);
+pub const PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(2);
+pub const PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(3);
+pub const PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(6);
+pub const PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(0);
+pub const PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(1);
+pub const PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(0);
+pub const PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(1);
+pub const PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(10);
+pub const PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(9);
+pub const PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(4);
+pub const PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(7);
+pub const PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(5);
 pub type PciLine2Pin = Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
-pub const PciMasterDataParityError: u16 = 5u16;
+pub const PciMasterDataParityError: u16 = 5;
 pub type PciPin2Line = Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcidata: *const PCI_COMMON_CONFIG)>;
 pub type PciReadWriteConfig = Option<unsafe extern "system" fn(bushandler: *const isize, slot: PCI_SLOT_NUMBER, buffer: *const core::ffi::c_void, offset: u32, length: u32)>;
-pub const PciXMode1: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(1i32);
-pub const PciXMode2: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(2i32);
-pub const PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(8i32);
-pub const PcwCallbackAddCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(0i32);
-pub const PcwCallbackCollectData: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(3i32);
-pub const PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(2i32);
-pub const PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(1i32);
-pub const PcwRegistrationNone: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(0i32);
-pub const PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(1i32);
-pub const PermissionFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(4i32);
-pub const PlatformLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(1i32);
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
-pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
-pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
-pub const PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(0i32);
-pub const PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(2i32);
-pub const PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(1i32);
-pub const PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(2i32);
-pub const PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(1i32);
-pub const PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(3i32);
-pub const PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(0i32);
-pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
-pub const PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(1i32);
-pub const PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(0i32);
-pub const PointerController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(21i32);
-pub const PointerPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(31i32);
-pub const PoolAllocation: KWAIT_REASON = KWAIT_REASON(3i32);
-pub const PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(0i32);
-pub const PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(4i32);
-pub const PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(3i32);
-pub const PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(1i32);
-pub const PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(2i32);
-pub const Pos: BUS_DATA_TYPE = BUS_DATA_TYPE(2i32);
-pub const PowerOff: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(1i32);
-pub const PowerOn: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(0i32);
-pub const PowerRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(2i32);
-pub const PrimaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(4i32);
-pub const PrimaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(3i32);
-pub const PrinterPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(30i32);
-pub const ProcessorInternal: INTERFACE_TYPE = INTERFACE_TYPE(12i32);
-pub const Profile2Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(15i32);
-pub const Profile3Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(16i32);
-pub const Profile4Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(17i32);
-pub const ProfileAlignmentFixup: KPROFILE_SOURCE = KPROFILE_SOURCE(1i32);
-pub const ProfileBranchInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(6i32);
-pub const ProfileBranchMispredictions: KPROFILE_SOURCE = KPROFILE_SOURCE(11i32);
-pub const ProfileCacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(10i32);
-pub const ProfileDcacheAccesses: KPROFILE_SOURCE = KPROFILE_SOURCE(21i32);
-pub const ProfileDcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(8i32);
-pub const ProfileFpInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(13i32);
-pub const ProfileIcacheIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(20i32);
-pub const ProfileIcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(9i32);
-pub const ProfileIntegerInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(14i32);
-pub const ProfileLoadInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(4i32);
-pub const ProfileLoadLinkedIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(23i32);
-pub const ProfileMaximum: KPROFILE_SOURCE = KPROFILE_SOURCE(24i32);
-pub const ProfileMemoryBarrierCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(22i32);
-pub const ProfilePipelineDry: KPROFILE_SOURCE = KPROFILE_SOURCE(3i32);
-pub const ProfilePipelineFrozen: KPROFILE_SOURCE = KPROFILE_SOURCE(5i32);
-pub const ProfileSpecialInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(18i32);
-pub const ProfileStoreInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(12i32);
-pub const ProfileTime: KPROFILE_SOURCE = KPROFILE_SOURCE(0i32);
-pub const ProfileTotalCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(19i32);
-pub const ProfileTotalIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(2i32);
-pub const ProfileTotalNonissues: KPROFILE_SOURCE = KPROFILE_SOURCE(7i32);
-pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = PSCREATEPROCESSNOTIFYTYPE(0i32);
-pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(0i32);
-pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(1i32);
-pub const PshedFADiscovery: u32 = 1u32;
-pub const PshedFAErrorInfoRetrieval: u32 = 8u32;
-pub const PshedFAErrorInjection: u32 = 32u32;
-pub const PshedFAErrorRecordPersistence: u32 = 4u32;
-pub const PshedFAErrorRecovery: u32 = 16u32;
-pub const PshedFAErrorSourceControl: u32 = 2u32;
-pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(1i32);
-pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(2i32);
-pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(3i32);
-pub const PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(4i32);
-pub const PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(3i32);
-pub const PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(5i32);
-pub const PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(0i32);
-pub const PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(1i32);
-pub const PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(6i32);
-pub const PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(2i32);
-pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(1i32);
-pub const RCB128Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(1i32);
-pub const RCB64Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(0i32);
+pub const PciXMode1: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(1);
+pub const PciXMode2: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(2);
+pub const PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(8);
+pub const PcwCallbackAddCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(0);
+pub const PcwCallbackCollectData: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(3);
+pub const PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(2);
+pub const PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(1);
+pub const PcwRegistrationNone: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(0);
+pub const PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(1);
+pub const PermissionFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(4);
+pub const PlatformLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(1);
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6);
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1);
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4);
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9);
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2);
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7);
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5);
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8);
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0);
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3);
+pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0);
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3);
+pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1);
+pub const PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(0);
+pub const PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(2);
+pub const PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(1);
+pub const PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(2);
+pub const PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(1);
+pub const PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(3);
+pub const PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(0);
+pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2);
+pub const PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(1);
+pub const PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(0);
+pub const PointerController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(21);
+pub const PointerPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(31);
+pub const PoolAllocation: KWAIT_REASON = KWAIT_REASON(3);
+pub const PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(0);
+pub const PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(4);
+pub const PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(3);
+pub const PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(1);
+pub const PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(2);
+pub const Pos: BUS_DATA_TYPE = BUS_DATA_TYPE(2);
+pub const PowerOff: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(1);
+pub const PowerOn: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(0);
+pub const PowerRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(2);
+pub const PrimaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(4);
+pub const PrimaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(3);
+pub const PrinterPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(30);
+pub const ProcessorInternal: INTERFACE_TYPE = INTERFACE_TYPE(12);
+pub const Profile2Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(15);
+pub const Profile3Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(16);
+pub const Profile4Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(17);
+pub const ProfileAlignmentFixup: KPROFILE_SOURCE = KPROFILE_SOURCE(1);
+pub const ProfileBranchInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(6);
+pub const ProfileBranchMispredictions: KPROFILE_SOURCE = KPROFILE_SOURCE(11);
+pub const ProfileCacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(10);
+pub const ProfileDcacheAccesses: KPROFILE_SOURCE = KPROFILE_SOURCE(21);
+pub const ProfileDcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(8);
+pub const ProfileFpInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(13);
+pub const ProfileIcacheIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(20);
+pub const ProfileIcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(9);
+pub const ProfileIntegerInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(14);
+pub const ProfileLoadInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(4);
+pub const ProfileLoadLinkedIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(23);
+pub const ProfileMaximum: KPROFILE_SOURCE = KPROFILE_SOURCE(24);
+pub const ProfileMemoryBarrierCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(22);
+pub const ProfilePipelineDry: KPROFILE_SOURCE = KPROFILE_SOURCE(3);
+pub const ProfilePipelineFrozen: KPROFILE_SOURCE = KPROFILE_SOURCE(5);
+pub const ProfileSpecialInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(18);
+pub const ProfileStoreInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(12);
+pub const ProfileTime: KPROFILE_SOURCE = KPROFILE_SOURCE(0);
+pub const ProfileTotalCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(19);
+pub const ProfileTotalIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(2);
+pub const ProfileTotalNonissues: KPROFILE_SOURCE = KPROFILE_SOURCE(7);
+pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = PSCREATEPROCESSNOTIFYTYPE(0);
+pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(0);
+pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(1);
+pub const PshedFADiscovery: u32 = 1;
+pub const PshedFAErrorInfoRetrieval: u32 = 8;
+pub const PshedFAErrorInjection: u32 = 32;
+pub const PshedFAErrorRecordPersistence: u32 = 4;
+pub const PshedFAErrorRecovery: u32 = 16;
+pub const PshedFAErrorSourceControl: u32 = 2;
+pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(1);
+pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(2);
+pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(3);
+pub const PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(4);
+pub const PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(3);
+pub const PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(5);
+pub const PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(0);
+pub const PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(1);
+pub const PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(6);
+pub const PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(2);
+pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(1);
+pub const RCB128Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(1);
+pub const RCB64Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(0);
 pub const RECOVERY_INFO_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc34832a1_02c3_4c52_a9f1_9f1d5d7723fc);
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
@@ -17631,7 +17631,7 @@ impl Default for RESOURCE_HASH_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RESOURCE_HASH_TABLE_SIZE: u32 = 64u32;
+pub const RESOURCE_HASH_TABLE_SIZE: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17657,12 +17657,12 @@ impl Default for RESOURCE_PERFORMANCE_DATA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_TRANSLATION_DIRECTION(pub i32);
-pub const RESULT_NEGATIVE: u32 = 1u32;
-pub const RESULT_POSITIVE: u32 = 2u32;
-pub const RESULT_ZERO: u32 = 0u32;
-pub const ROOT_CMD_ENABLE_CORRECTABLE_ERROR_REPORTING: u32 = 1u32;
-pub const ROOT_CMD_ENABLE_FATAL_ERROR_REPORTING: u32 = 4u32;
-pub const ROOT_CMD_ENABLE_NONFATAL_ERROR_REPORTING: u32 = 2u32;
+pub const RESULT_NEGATIVE: u32 = 1;
+pub const RESULT_POSITIVE: u32 = 2;
+pub const RESULT_ZERO: u32 = 0;
+pub const ROOT_CMD_ENABLE_CORRECTABLE_ERROR_REPORTING: u32 = 1;
+pub const ROOT_CMD_ENABLE_FATAL_ERROR_REPORTING: u32 = 4;
+pub const ROOT_CMD_ENABLE_NONFATAL_ERROR_REPORTING: u32 = 2;
 pub type RTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: u32) -> *mut core::ffi::c_void>;
 pub type RTL_AVL_COMPARE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, firststruct: *const core::ffi::c_void, secondstruct: *const core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
 pub type RTL_AVL_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, buffer: *const core::ffi::c_void)>;
@@ -17813,17 +17813,17 @@ impl Default for RTL_GENERIC_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_GUID_STRING_SIZE: u32 = 38u32;
-pub const RTL_HASH_ALLOCATED_HEADER: u32 = 1u32;
-pub const RTL_HASH_RESERVED_SIGNATURE: u32 = 0u32;
-pub const RTL_QUERY_REGISTRY_DELETE: u32 = 64u32;
-pub const RTL_QUERY_REGISTRY_DIRECT: u32 = 32u32;
-pub const RTL_QUERY_REGISTRY_NOEXPAND: u32 = 16u32;
-pub const RTL_QUERY_REGISTRY_NOSTRING: u32 = 128u32;
-pub const RTL_QUERY_REGISTRY_NOVALUE: u32 = 8u32;
-pub const RTL_QUERY_REGISTRY_REQUIRED: u32 = 4u32;
+pub const RTL_GUID_STRING_SIZE: u32 = 38;
+pub const RTL_HASH_ALLOCATED_HEADER: u32 = 1;
+pub const RTL_HASH_RESERVED_SIGNATURE: u32 = 0;
+pub const RTL_QUERY_REGISTRY_DELETE: u32 = 64;
+pub const RTL_QUERY_REGISTRY_DIRECT: u32 = 32;
+pub const RTL_QUERY_REGISTRY_NOEXPAND: u32 = 16;
+pub const RTL_QUERY_REGISTRY_NOSTRING: u32 = 128;
+pub const RTL_QUERY_REGISTRY_NOVALUE: u32 = 8;
+pub const RTL_QUERY_REGISTRY_REQUIRED: u32 = 4;
 pub type RTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn(valuename: windows_core::PCWSTR, valuetype: u32, valuedata: *const core::ffi::c_void, valuelength: u32, context: *const core::ffi::c_void, entrycontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const RTL_QUERY_REGISTRY_SUBKEY: u32 = 1u32;
+pub const RTL_QUERY_REGISTRY_SUBKEY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct RTL_QUERY_REGISTRY_TABLE {
@@ -17840,106 +17840,106 @@ impl Default for RTL_QUERY_REGISTRY_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_QUERY_REGISTRY_TOPKEY: u32 = 2u32;
-pub const RTL_QUERY_REGISTRY_TYPECHECK: u32 = 256u32;
-pub const RTL_QUERY_REGISTRY_TYPECHECK_SHIFT: u32 = 24u32;
-pub const RTL_REGISTRY_ABSOLUTE: u32 = 0u32;
-pub const RTL_REGISTRY_CONTROL: u32 = 2u32;
-pub const RTL_REGISTRY_DEVICEMAP: u32 = 4u32;
-pub const RTL_REGISTRY_HANDLE: u32 = 1073741824u32;
-pub const RTL_REGISTRY_MAXIMUM: u32 = 6u32;
-pub const RTL_REGISTRY_OPTIONAL: u32 = 2147483648u32;
-pub const RTL_REGISTRY_SERVICES: u32 = 1u32;
-pub const RTL_REGISTRY_USER: u32 = 5u32;
-pub const RTL_REGISTRY_WINDOWS_NT: u32 = 3u32;
+pub const RTL_QUERY_REGISTRY_TOPKEY: u32 = 2;
+pub const RTL_QUERY_REGISTRY_TYPECHECK: u32 = 256;
+pub const RTL_QUERY_REGISTRY_TYPECHECK_SHIFT: u32 = 24;
+pub const RTL_REGISTRY_ABSOLUTE: u32 = 0;
+pub const RTL_REGISTRY_CONTROL: u32 = 2;
+pub const RTL_REGISTRY_DEVICEMAP: u32 = 4;
+pub const RTL_REGISTRY_HANDLE: u32 = 1073741824;
+pub const RTL_REGISTRY_MAXIMUM: u32 = 6;
+pub const RTL_REGISTRY_OPTIONAL: u32 = 2147483648;
+pub const RTL_REGISTRY_SERVICES: u32 = 1;
+pub const RTL_REGISTRY_USER: u32 = 5;
+pub const RTL_REGISTRY_WINDOWS_NT: u32 = 3;
 #[cfg(feature = "Win32_System_Threading")]
 pub type RTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::super::super::Win32::System::Threading::INIT_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
-pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: u32 = 8u32;
-pub const RandomAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(1i32);
-pub const ReadAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(0i32);
-pub const RealModeIrqRoutingTable: CONFIGURATION_TYPE = CONFIGURATION_TYPE(39i32);
-pub const RealModePCIEnumeration: CONFIGURATION_TYPE = CONFIGURATION_TYPE(40i32);
-pub const RealTimeWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(5i32);
-pub const RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(5i32);
-pub const RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(40i32);
-pub const RegNtDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0i32);
-pub const RegNtDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2i32);
-pub const RegNtEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5i32);
-pub const RegNtEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6i32);
-pub const RegNtKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14i32);
-pub const RegNtPostCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(11i32);
-pub const RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(27i32);
-pub const RegNtPostDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(15i32);
-pub const RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(17i32);
-pub const RegNtPostEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(20i32);
-pub const RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(21i32);
-pub const RegNtPostFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(31i32);
-pub const RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(25i32);
-pub const RegNtPostLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(33i32);
-pub const RegNtPostOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(13i32);
-pub const RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(29i32);
-pub const RegNtPostQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(22i32);
-pub const RegNtPostQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(48i32);
-pub const RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(37i32);
-pub const RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(24i32);
-pub const RegNtPostQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(23i32);
-pub const RegNtPostRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(19i32);
-pub const RegNtPostReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(46i32);
-pub const RegNtPostRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(42i32);
-pub const RegNtPostSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(44i32);
-pub const RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(50i32);
-pub const RegNtPostSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(18i32);
-pub const RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(39i32);
-pub const RegNtPostSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(16i32);
-pub const RegNtPostUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(35i32);
-pub const RegNtPreCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(10i32);
-pub const RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(26i32);
-pub const RegNtPreDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0i32);
-pub const RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2i32);
-pub const RegNtPreEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5i32);
-pub const RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6i32);
-pub const RegNtPreFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(30i32);
-pub const RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14i32);
-pub const RegNtPreLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(32i32);
-pub const RegNtPreOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(12i32);
-pub const RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(28i32);
-pub const RegNtPreQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7i32);
-pub const RegNtPreQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(47i32);
-pub const RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(36i32);
-pub const RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9i32);
-pub const RegNtPreQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8i32);
-pub const RegNtPreRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4i32);
-pub const RegNtPreReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(45i32);
-pub const RegNtPreRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(41i32);
-pub const RegNtPreSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(43i32);
-pub const RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(49i32);
-pub const RegNtPreSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3i32);
-pub const RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(38i32);
-pub const RegNtPreSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1i32);
-pub const RegNtPreUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(34i32);
-pub const RegNtQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7i32);
-pub const RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9i32);
-pub const RegNtQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8i32);
-pub const RegNtRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4i32);
-pub const RegNtSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3i32);
-pub const RegNtSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1i32);
-pub const RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(1i32);
-pub const RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(2i32);
-pub const RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(3i32);
-pub const RemovalRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(3i32);
-pub const ResourceNeverExclusive: u32 = 16u32;
-pub const ResourceOwnedExclusive: u32 = 128u32;
-pub const ResourceReleaseByOtherThread: u32 = 32u32;
-pub const ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(4i32);
-pub const ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(2i32);
-pub const ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(5i32);
-pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(6i32);
-pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(3i32);
-pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(1i32);
-pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(0i32);
-pub const ResultNegative: INTERLOCKED_RESULT = INTERLOCKED_RESULT(32768i32);
-pub const ResultPositive: INTERLOCKED_RESULT = INTERLOCKED_RESULT(0i32);
-pub const ResultZero: INTERLOCKED_RESULT = INTERLOCKED_RESULT(16384i32);
+pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: u32 = 8;
+pub const RandomAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(1);
+pub const ReadAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(0);
+pub const RealModeIrqRoutingTable: CONFIGURATION_TYPE = CONFIGURATION_TYPE(39);
+pub const RealModePCIEnumeration: CONFIGURATION_TYPE = CONFIGURATION_TYPE(40);
+pub const RealTimeWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(5);
+pub const RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(5);
+pub const RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(40);
+pub const RegNtDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0);
+pub const RegNtDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2);
+pub const RegNtEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5);
+pub const RegNtEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6);
+pub const RegNtKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14);
+pub const RegNtPostCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(11);
+pub const RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(27);
+pub const RegNtPostDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(15);
+pub const RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(17);
+pub const RegNtPostEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(20);
+pub const RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(21);
+pub const RegNtPostFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(31);
+pub const RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(25);
+pub const RegNtPostLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(33);
+pub const RegNtPostOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(13);
+pub const RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(29);
+pub const RegNtPostQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(22);
+pub const RegNtPostQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(48);
+pub const RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(37);
+pub const RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(24);
+pub const RegNtPostQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(23);
+pub const RegNtPostRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(19);
+pub const RegNtPostReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(46);
+pub const RegNtPostRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(42);
+pub const RegNtPostSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(44);
+pub const RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(50);
+pub const RegNtPostSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(18);
+pub const RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(39);
+pub const RegNtPostSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(16);
+pub const RegNtPostUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(35);
+pub const RegNtPreCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(10);
+pub const RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(26);
+pub const RegNtPreDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0);
+pub const RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2);
+pub const RegNtPreEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5);
+pub const RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6);
+pub const RegNtPreFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(30);
+pub const RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14);
+pub const RegNtPreLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(32);
+pub const RegNtPreOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(12);
+pub const RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(28);
+pub const RegNtPreQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7);
+pub const RegNtPreQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(47);
+pub const RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(36);
+pub const RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9);
+pub const RegNtPreQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8);
+pub const RegNtPreRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4);
+pub const RegNtPreReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(45);
+pub const RegNtPreRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(41);
+pub const RegNtPreSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(43);
+pub const RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(49);
+pub const RegNtPreSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3);
+pub const RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(38);
+pub const RegNtPreSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1);
+pub const RegNtPreUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(34);
+pub const RegNtQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7);
+pub const RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9);
+pub const RegNtQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8);
+pub const RegNtRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4);
+pub const RegNtSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3);
+pub const RegNtSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1);
+pub const RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(1);
+pub const RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(2);
+pub const RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(3);
+pub const RemovalRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(3);
+pub const ResourceNeverExclusive: u32 = 16;
+pub const ResourceOwnedExclusive: u32 = 128;
+pub const ResourceReleaseByOtherThread: u32 = 32;
+pub const ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(4);
+pub const ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(2);
+pub const ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(5);
+pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(6);
+pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(3);
+pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(1);
+pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(0);
+pub const ResultNegative: INTERLOCKED_RESULT = INTERLOCKED_RESULT(32768);
+pub const ResultPositive: INTERLOCKED_RESULT = INTERLOCKED_RESULT(0);
+pub const ResultZero: INTERLOCKED_RESULT = INTERLOCKED_RESULT(16384);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCATTER_GATHER_ELEMENT {
@@ -17966,14 +17966,14 @@ pub struct SDEV_IDENTIFIER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub GetIdentifier: PGET_SDEV_IDENTIFIER,
 }
-pub const SDEV_IDENTIFIER_INTERFACE_VERSION: u32 = 1u32;
+pub const SDEV_IDENTIFIER_INTERFACE_VERSION: u32 = 1;
 pub const SEA_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x9a78788a_bbe8_11e4_809e_67611e5d46b0);
 pub const SEA_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xf5fe48a6_84ce_4c1e_aa64_20c9a53099f1);
-pub const SECTION_MAP_EXECUTE: u32 = 8u32;
-pub const SECTION_MAP_EXECUTE_EXPLICIT: u32 = 32u32;
-pub const SECTION_MAP_READ: u32 = 4u32;
-pub const SECTION_MAP_WRITE: u32 = 2u32;
-pub const SECTION_QUERY: u32 = 1u32;
+pub const SECTION_MAP_EXECUTE: u32 = 8;
+pub const SECTION_MAP_EXECUTE_EXPLICIT: u32 = 32;
+pub const SECTION_MAP_READ: u32 = 4;
+pub const SECTION_MAP_WRITE: u32 = 2;
+pub const SECTION_QUERY: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug, Default)]
@@ -17983,43 +17983,43 @@ pub struct SECURE_DRIVER_INTERFACE {
     pub ProcessDereference: PSECURE_DRIVER_PROCESS_DEREFERENCE,
     pub Reserved: u32,
 }
-pub const SECURE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
+pub const SECURE_DRIVER_INTERFACE_VERSION: u32 = 1;
 #[cfg(feature = "Wdk_Foundation")]
 pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, process: super::super::Foundation::PEPROCESS)>;
 #[cfg(feature = "Wdk_Foundation")]
 pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> super::super::Foundation::PEPROCESS>;
-pub const SECURE_POOL_FLAGS_FREEABLE: u32 = 1u32;
-pub const SECURE_POOL_FLAGS_MODIFIABLE: u32 = 2u32;
-pub const SECURE_POOL_FLAGS_NONE: u32 = 0u32;
-pub const SECURE_SECTION_ALLOW_PARTIAL_MDL: u32 = 1u32;
+pub const SECURE_POOL_FLAGS_FREEABLE: u32 = 1;
+pub const SECURE_POOL_FLAGS_MODIFIABLE: u32 = 2;
+pub const SECURE_POOL_FLAGS_NONE: u32 = 0;
+pub const SECURE_SECTION_ALLOW_PARTIAL_MDL: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SECURITY_CONTEXT_TRACKING_MODE(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_OPERATION_CODE(pub i32);
-pub const SEC_LARGE_PAGES: u32 = 2147483648u32;
-pub const SEH_VALIDATION_POLICY_DEFER: u32 = 3u32;
-pub const SEH_VALIDATION_POLICY_OFF: u32 = 1u32;
-pub const SEH_VALIDATION_POLICY_ON: u32 = 0u32;
-pub const SEH_VALIDATION_POLICY_TELEMETRY: u32 = 2u32;
+pub const SEC_LARGE_PAGES: u32 = 2147483648;
+pub const SEH_VALIDATION_POLICY_DEFER: u32 = 3;
+pub const SEH_VALIDATION_POLICY_OFF: u32 = 1;
+pub const SEH_VALIDATION_POLICY_ON: u32 = 0;
+pub const SEH_VALIDATION_POLICY_TELEMETRY: u32 = 2;
 pub const SEI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5c284c81_b0ae_4e87_a322_b04c85624323);
 pub const SEI_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xf2a4a152_9c6d_4020_aecf_7695b389251b);
-pub const SEMAPHORE_QUERY_STATE: u32 = 1u32;
+pub const SEMAPHORE_QUERY_STATE: u32 = 1;
 pub type SET_D3COLD_SUPPORT = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupport: bool)>;
 pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3i32;
-pub const SE_AUDIT_PRIVILEGE: i32 = 21i32;
-pub const SE_BACKUP_PRIVILEGE: i32 = 17i32;
-pub const SE_CHANGE_NOTIFY_PRIVILEGE: i32 = 23i32;
-pub const SE_CREATE_GLOBAL_PRIVILEGE: i32 = 30i32;
-pub const SE_CREATE_PAGEFILE_PRIVILEGE: i32 = 15i32;
-pub const SE_CREATE_PERMANENT_PRIVILEGE: i32 = 16i32;
-pub const SE_CREATE_SYMBOLIC_LINK_PRIVILEGE: i32 = 35i32;
-pub const SE_CREATE_TOKEN_PRIVILEGE: i32 = 2i32;
-pub const SE_DEBUG_PRIVILEGE: i32 = 20i32;
-pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36i32;
-pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27i32;
+pub const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3;
+pub const SE_AUDIT_PRIVILEGE: i32 = 21;
+pub const SE_BACKUP_PRIVILEGE: i32 = 17;
+pub const SE_CHANGE_NOTIFY_PRIVILEGE: i32 = 23;
+pub const SE_CREATE_GLOBAL_PRIVILEGE: i32 = 30;
+pub const SE_CREATE_PAGEFILE_PRIVILEGE: i32 = 15;
+pub const SE_CREATE_PERMANENT_PRIVILEGE: i32 = 16;
+pub const SE_CREATE_SYMBOLIC_LINK_PRIVILEGE: i32 = 35;
+pub const SE_CREATE_TOKEN_PRIVILEGE: i32 = 2;
+pub const SE_DEBUG_PRIVILEGE: i32 = 20;
+pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36;
+pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMAGE_TYPE(pub i32);
@@ -18027,52 +18027,52 @@ pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system"
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMAGE_VERIFICATION_CALLBACK_TYPE(pub i32);
-pub const SE_IMPERSONATE_PRIVILEGE: i32 = 29i32;
-pub const SE_INCREASE_QUOTA_PRIVILEGE: i32 = 5i32;
-pub const SE_INC_BASE_PRIORITY_PRIVILEGE: i32 = 14i32;
-pub const SE_INC_WORKING_SET_PRIVILEGE: i32 = 33i32;
-pub const SE_LOAD_DRIVER_PRIVILEGE: i32 = 10i32;
-pub const SE_LOCK_MEMORY_PRIVILEGE: i32 = 4i32;
-pub const SE_MACHINE_ACCOUNT_PRIVILEGE: i32 = 6i32;
-pub const SE_MANAGE_VOLUME_PRIVILEGE: i32 = 28i32;
-pub const SE_MAX_WELL_KNOWN_PRIVILEGE: i32 = 36i32;
-pub const SE_MIN_WELL_KNOWN_PRIVILEGE: i32 = 2i32;
-pub const SE_PROF_SINGLE_PROCESS_PRIVILEGE: i32 = 13i32;
-pub const SE_RELABEL_PRIVILEGE: i32 = 32i32;
-pub const SE_REMOTE_SHUTDOWN_PRIVILEGE: i32 = 24i32;
-pub const SE_RESTORE_PRIVILEGE: i32 = 18i32;
-pub const SE_SECURITY_PRIVILEGE: i32 = 8i32;
-pub const SE_SHUTDOWN_PRIVILEGE: i32 = 19i32;
-pub const SE_SYNC_AGENT_PRIVILEGE: i32 = 26i32;
-pub const SE_SYSTEMTIME_PRIVILEGE: i32 = 12i32;
-pub const SE_SYSTEM_ENVIRONMENT_PRIVILEGE: i32 = 22i32;
-pub const SE_SYSTEM_PROFILE_PRIVILEGE: i32 = 11i32;
-pub const SE_TAKE_OWNERSHIP_PRIVILEGE: i32 = 9i32;
-pub const SE_TCB_PRIVILEGE: i32 = 7i32;
-pub const SE_TIME_ZONE_PRIVILEGE: i32 = 34i32;
-pub const SE_TRUSTED_CREDMAN_ACCESS_PRIVILEGE: i32 = 31i32;
-pub const SE_UNDOCK_PRIVILEGE: i32 = 25i32;
-pub const SE_UNSOLICITED_INPUT_PRIVILEGE: i32 = 6i32;
-pub const SHARED_GLOBAL_FLAGS_CLEAR_GLOBAL_DATA_FLAG: u32 = 2147483648u32;
-pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED_V: u32 = 6u32;
-pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED_V: u32 = 5u32;
-pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED_V: u32 = 1u32;
-pub const SHARED_GLOBAL_FLAGS_ERROR_PORT_V: u32 = 0u32;
-pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED_V: u32 = 3u32;
-pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED_V: u32 = 4u32;
-pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU_V: u32 = 9u32;
-pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU_V: u32 = 8u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_A73_ERRATA: u32 = 64u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_DISABLE_32BIT: u32 = 4u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_ENABLED: u32 = 1u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_HV_PAGE: u32 = 2u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_LFENCE: u32 = 32u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_MFENCE: u32 = 16u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_RDTSCP: u32 = 128u32;
-pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED_V: u32 = 7u32;
-pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: u32 = 1073741824u32;
-pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: u32 = 10u32;
-pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: u32 = 2u32;
+pub const SE_IMPERSONATE_PRIVILEGE: i32 = 29;
+pub const SE_INCREASE_QUOTA_PRIVILEGE: i32 = 5;
+pub const SE_INC_BASE_PRIORITY_PRIVILEGE: i32 = 14;
+pub const SE_INC_WORKING_SET_PRIVILEGE: i32 = 33;
+pub const SE_LOAD_DRIVER_PRIVILEGE: i32 = 10;
+pub const SE_LOCK_MEMORY_PRIVILEGE: i32 = 4;
+pub const SE_MACHINE_ACCOUNT_PRIVILEGE: i32 = 6;
+pub const SE_MANAGE_VOLUME_PRIVILEGE: i32 = 28;
+pub const SE_MAX_WELL_KNOWN_PRIVILEGE: i32 = 36;
+pub const SE_MIN_WELL_KNOWN_PRIVILEGE: i32 = 2;
+pub const SE_PROF_SINGLE_PROCESS_PRIVILEGE: i32 = 13;
+pub const SE_RELABEL_PRIVILEGE: i32 = 32;
+pub const SE_REMOTE_SHUTDOWN_PRIVILEGE: i32 = 24;
+pub const SE_RESTORE_PRIVILEGE: i32 = 18;
+pub const SE_SECURITY_PRIVILEGE: i32 = 8;
+pub const SE_SHUTDOWN_PRIVILEGE: i32 = 19;
+pub const SE_SYNC_AGENT_PRIVILEGE: i32 = 26;
+pub const SE_SYSTEMTIME_PRIVILEGE: i32 = 12;
+pub const SE_SYSTEM_ENVIRONMENT_PRIVILEGE: i32 = 22;
+pub const SE_SYSTEM_PROFILE_PRIVILEGE: i32 = 11;
+pub const SE_TAKE_OWNERSHIP_PRIVILEGE: i32 = 9;
+pub const SE_TCB_PRIVILEGE: i32 = 7;
+pub const SE_TIME_ZONE_PRIVILEGE: i32 = 34;
+pub const SE_TRUSTED_CREDMAN_ACCESS_PRIVILEGE: i32 = 31;
+pub const SE_UNDOCK_PRIVILEGE: i32 = 25;
+pub const SE_UNSOLICITED_INPUT_PRIVILEGE: i32 = 6;
+pub const SHARED_GLOBAL_FLAGS_CLEAR_GLOBAL_DATA_FLAG: u32 = 2147483648;
+pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED_V: u32 = 6;
+pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED_V: u32 = 5;
+pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED_V: u32 = 1;
+pub const SHARED_GLOBAL_FLAGS_ERROR_PORT_V: u32 = 0;
+pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED_V: u32 = 3;
+pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED_V: u32 = 4;
+pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU_V: u32 = 9;
+pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU_V: u32 = 8;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_A73_ERRATA: u32 = 64;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_DISABLE_32BIT: u32 = 4;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_ENABLED: u32 = 1;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_HV_PAGE: u32 = 2;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_LFENCE: u32 = 32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_MFENCE: u32 = 16;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_RDTSCP: u32 = 128;
+pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED_V: u32 = 7;
+pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: u32 = 1073741824;
+pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: u32 = 10;
+pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHARE_ACCESS {
@@ -18084,8 +18084,8 @@ pub struct SHARE_ACCESS {
     pub SharedWrite: u32,
     pub SharedDelete: u32,
 }
-pub const SHORT_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
-pub const SHORT_MOST_SIGNIFICANT_BIT: u32 = 1u32;
+pub const SHORT_LEAST_SIGNIFICANT_BIT: u32 = 0;
+pub const SHORT_MOST_SIGNIFICANT_BIT: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SIGNAL_REG_VALUE {
@@ -18132,45 +18132,45 @@ impl Default for SILO_MONITOR_REGISTRATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SILO_MONITOR_REGISTRATION_VERSION: u32 = 1u32;
+pub const SILO_MONITOR_REGISTRATION_VERSION: u32 = 1;
 #[cfg(feature = "Wdk_Foundation")]
 pub type SILO_MONITOR_TERMINATE_CALLBACK = Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO)>;
-pub const SINGLE_GROUP_LEGACY_API: u32 = 1u32;
-pub const SL_ALLOW_RAW_MOUNT: u32 = 1u32;
-pub const SL_BYPASS_ACCESS_CHECK: u32 = 1u32;
-pub const SL_BYPASS_IO: u32 = 64u32;
-pub const SL_CASE_SENSITIVE: u32 = 128u32;
-pub const SL_ERROR_RETURNED: u32 = 2u32;
-pub const SL_EXCLUSIVE_LOCK: u32 = 2u32;
-pub const SL_FAIL_IMMEDIATELY: u32 = 1u32;
-pub const SL_FORCE_ACCESS_CHECK: u32 = 1u32;
-pub const SL_FORCE_ASYNCHRONOUS: u32 = 1u32;
-pub const SL_FORCE_DIRECT_WRITE: u32 = 16u32;
-pub const SL_FT_SEQUENTIAL_WRITE: u32 = 8u32;
-pub const SL_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
-pub const SL_INDEX_SPECIFIED: u32 = 4u32;
-pub const SL_INFO_FORCE_ACCESS_CHECK: u32 = 1u32;
-pub const SL_INFO_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
-pub const SL_INVOKE_ON_CANCEL: u32 = 32u32;
-pub const SL_INVOKE_ON_ERROR: u32 = 128u32;
-pub const SL_INVOKE_ON_SUCCESS: u32 = 64u32;
-pub const SL_KEY_SPECIFIED: u32 = 1u32;
-pub const SL_NO_CURSOR_UPDATE: u32 = 16u32;
-pub const SL_OPEN_PAGING_FILE: u32 = 2u32;
-pub const SL_OPEN_TARGET_DIRECTORY: u32 = 4u32;
-pub const SL_OVERRIDE_VERIFY_VOLUME: u32 = 2u32;
-pub const SL_PENDING_RETURNED: u32 = 1u32;
-pub const SL_PERSISTENT_MEMORY_FIXED_MAPPING: u32 = 32u32;
-pub const SL_QUERY_DIRECTORY_MASK: u32 = 27u32;
-pub const SL_READ_ACCESS_GRANTED: u32 = 1u32;
-pub const SL_REALTIME_STREAM: u32 = 32u32;
-pub const SL_RESTART_SCAN: u32 = 1u32;
-pub const SL_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8u32;
-pub const SL_RETURN_SINGLE_ENTRY: u32 = 2u32;
-pub const SL_STOP_ON_SYMLINK: u32 = 8u32;
-pub const SL_WATCH_TREE: u32 = 1u32;
-pub const SL_WRITE_ACCESS_GRANTED: u32 = 4u32;
-pub const SL_WRITE_THROUGH: u32 = 4u32;
+pub const SINGLE_GROUP_LEGACY_API: u32 = 1;
+pub const SL_ALLOW_RAW_MOUNT: u32 = 1;
+pub const SL_BYPASS_ACCESS_CHECK: u32 = 1;
+pub const SL_BYPASS_IO: u32 = 64;
+pub const SL_CASE_SENSITIVE: u32 = 128;
+pub const SL_ERROR_RETURNED: u32 = 2;
+pub const SL_EXCLUSIVE_LOCK: u32 = 2;
+pub const SL_FAIL_IMMEDIATELY: u32 = 1;
+pub const SL_FORCE_ACCESS_CHECK: u32 = 1;
+pub const SL_FORCE_ASYNCHRONOUS: u32 = 1;
+pub const SL_FORCE_DIRECT_WRITE: u32 = 16;
+pub const SL_FT_SEQUENTIAL_WRITE: u32 = 8;
+pub const SL_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+pub const SL_INDEX_SPECIFIED: u32 = 4;
+pub const SL_INFO_FORCE_ACCESS_CHECK: u32 = 1;
+pub const SL_INFO_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+pub const SL_INVOKE_ON_CANCEL: u32 = 32;
+pub const SL_INVOKE_ON_ERROR: u32 = 128;
+pub const SL_INVOKE_ON_SUCCESS: u32 = 64;
+pub const SL_KEY_SPECIFIED: u32 = 1;
+pub const SL_NO_CURSOR_UPDATE: u32 = 16;
+pub const SL_OPEN_PAGING_FILE: u32 = 2;
+pub const SL_OPEN_TARGET_DIRECTORY: u32 = 4;
+pub const SL_OVERRIDE_VERIFY_VOLUME: u32 = 2;
+pub const SL_PENDING_RETURNED: u32 = 1;
+pub const SL_PERSISTENT_MEMORY_FIXED_MAPPING: u32 = 32;
+pub const SL_QUERY_DIRECTORY_MASK: u32 = 27;
+pub const SL_READ_ACCESS_GRANTED: u32 = 1;
+pub const SL_REALTIME_STREAM: u32 = 32;
+pub const SL_RESTART_SCAN: u32 = 1;
+pub const SL_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8;
+pub const SL_RETURN_SINGLE_ENTRY: u32 = 2;
+pub const SL_STOP_ON_SYMLINK: u32 = 8;
+pub const SL_WATCH_TREE: u32 = 1;
+pub const SL_WRITE_ACCESS_GRANTED: u32 = 4;
+pub const SL_WRITE_THROUGH: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
@@ -18188,29 +18188,29 @@ impl Default for SOC_SUBSYSTEM_FAILURE_DETAILS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOC_SUBSYSTEM_TYPE(pub i32);
-pub const SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(1i32);
-pub const SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(4i32);
-pub const SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(5i32);
-pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(3i32);
-pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(65536i32);
-pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(0i32);
-pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(2i32);
-pub const SSINFO_FLAGS_ALIGNED_DEVICE: u32 = 1u32;
-pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: u32 = 16u32;
-pub const SSINFO_FLAGS_NO_SEEK_PENALTY: u32 = 4u32;
-pub const SSINFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2u32;
-pub const SSINFO_FLAGS_TRIM_ENABLED: u32 = 8u32;
-pub const SSINFO_OFFSET_UNKNOWN: u32 = 4294967295u32;
+pub const SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(1);
+pub const SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(4);
+pub const SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(5);
+pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(3);
+pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(65536);
+pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(0);
+pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(2);
+pub const SSINFO_FLAGS_ALIGNED_DEVICE: u32 = 1;
+pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: u32 = 16;
+pub const SSINFO_FLAGS_NO_SEEK_PENALTY: u32 = 4;
+pub const SSINFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2;
+pub const SSINFO_FLAGS_TRIM_ENABLED: u32 = 8;
+pub const SSINFO_OFFSET_UNKNOWN: u32 = 4294967295;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATE_LOCATION_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUBSYSTEM_INFORMATION_TYPE(pub i32);
-pub const SYMBOLIC_LINK_QUERY: u32 = 1u32;
-pub const SYMBOLIC_LINK_SET: u32 = 2u32;
-pub const SYSTEM_CALL_INT_2E: u32 = 1u32;
-pub const SYSTEM_CALL_SYSCALL: u32 = 0u32;
+pub const SYMBOLIC_LINK_QUERY: u32 = 1;
+pub const SYMBOLIC_LINK_SET: u32 = 2;
+pub const SYSTEM_CALL_INT_2E: u32 = 1;
+pub const SYSTEM_CALL_SYSCALL: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_FIRMWARE_TABLE_ACTION(pub i32);
@@ -18270,38 +18270,38 @@ impl Default for SYSTEM_POWER_STATE_CONTEXT_0 {
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
 }
-pub const ScsiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(10i32);
-pub const SeImageTypeDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(1i32);
-pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(3i32);
-pub const SeImageTypeElamDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(0i32);
-pub const SeImageTypeMax: SE_IMAGE_TYPE = SE_IMAGE_TYPE(4i32);
-pub const SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(2i32);
-pub const SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = SE_IMAGE_VERIFICATION_CALLBACK_TYPE(0i32);
-pub const SecondaryCache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(7i32);
-pub const SecondaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(6i32);
-pub const SecondaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(5i32);
-pub const SequentialAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(0i32);
-pub const SerialController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(17i32);
-pub const SetSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(0i32);
-pub const SgiInternalConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(11i32);
-pub const SharedInterruptTime: u32 = 4292804616u32;
-pub const SharedSystemTime: u32 = 4292804628u32;
-pub const SharedTickCount: u32 = 4292805408u32;
-pub const SingleBusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(5i32);
-pub const SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(0i32);
-pub const StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(0i32);
-pub const StopCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(-1073741802i32);
-pub const SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(1i32);
-pub const SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(0i32);
-pub const SuperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(6i32);
-pub const Suspended: KWAIT_REASON = KWAIT_REASON(5i32);
-pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(0i32);
-pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(1i32);
-pub const SystemMemory: CONFIGURATION_TYPE = CONFIGURATION_TYPE(37i32);
-pub const SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(9i32);
-pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(0i32);
-pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(10i32);
-pub const SystemPowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(0i32);
+pub const ScsiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(10);
+pub const SeImageTypeDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(1);
+pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(3);
+pub const SeImageTypeElamDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(0);
+pub const SeImageTypeMax: SE_IMAGE_TYPE = SE_IMAGE_TYPE(4);
+pub const SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(2);
+pub const SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = SE_IMAGE_VERIFICATION_CALLBACK_TYPE(0);
+pub const SecondaryCache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(7);
+pub const SecondaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(6);
+pub const SecondaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(5);
+pub const SequentialAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(0);
+pub const SerialController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(17);
+pub const SetSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(0);
+pub const SgiInternalConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(11);
+pub const SharedInterruptTime: u32 = 4292804616;
+pub const SharedSystemTime: u32 = 4292804628;
+pub const SharedTickCount: u32 = 4292805408;
+pub const SingleBusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(5);
+pub const SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(0);
+pub const StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(0);
+pub const StopCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(-1073741802);
+pub const SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(1);
+pub const SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(0);
+pub const SuperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(6);
+pub const Suspended: KWAIT_REASON = KWAIT_REASON(5);
+pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(0);
+pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(1);
+pub const SystemMemory: CONFIGURATION_TYPE = CONFIGURATION_TYPE(37);
+pub const SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(9);
+pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(0);
+pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(10);
+pub const SystemPowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABLE_SEARCH_RESULT(pub i32);
@@ -18320,13 +18320,13 @@ impl Default for TARGET_DEVICE_REMOVAL_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const THREAD_ALERT: u32 = 4u32;
-pub const THREAD_CSWITCH_PMU_DISABLE: u32 = 0u32;
-pub const THREAD_CSWITCH_PMU_ENABLE: u32 = 1u32;
-pub const THREAD_GET_CONTEXT: u32 = 8u32;
-pub const THREAD_WAIT_OBJECTS: u32 = 3u32;
-pub const TIMER_EXPIRED_INDEX_BITS: u32 = 6u32;
-pub const TIMER_PROCESSOR_INDEX_BITS: u32 = 5u32;
+pub const THREAD_ALERT: u32 = 4;
+pub const THREAD_CSWITCH_PMU_DISABLE: u32 = 0;
+pub const THREAD_CSWITCH_PMU_ENABLE: u32 = 1;
+pub const THREAD_GET_CONTEXT: u32 = 8;
+pub const THREAD_WAIT_OBJECTS: u32 = 3;
+pub const TIMER_EXPIRED_INDEX_BITS: u32 = 6;
+pub const TIMER_PROCESSOR_INDEX_BITS: u32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
@@ -18343,7 +18343,7 @@ impl Default for TIMER_SET_COALESCABLE_TIMER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TIMER_TOLERABLE_DELAY_BITS: u32 = 6u32;
+pub const TIMER_TOLERABLE_DELAY_BITS: u32 = 6;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIME_FIELDS {
@@ -18378,9 +18378,9 @@ impl Default for TRANSLATOR_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TREE_CONNECT_NO_CLIENT_BUFFERING: u32 = 8u32;
-pub const TREE_CONNECT_WRITE_THROUGH: u32 = 2u32;
-pub const TXF_MINIVERSION_DEFAULT_VIEW: u32 = 65534u32;
+pub const TREE_CONNECT_NO_CLIENT_BUFFERING: u32 = 8;
+pub const TREE_CONNECT_WRITE_THROUGH: u32 = 2;
+pub const TXF_MINIVERSION_DEFAULT_VIEW: u32 = 65534;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TXN_PARAMETER_BLOCK {
@@ -18393,40 +18393,40 @@ impl Default for TXN_PARAMETER_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TableEmptyTree: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(0i32);
-pub const TableFoundNode: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(1i32);
-pub const TableInsertAsLeft: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(2i32);
-pub const TableInsertAsRight: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(3i32);
-pub const TapeController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(14i32);
-pub const TapePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(27i32);
-pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(4i32);
-pub const TcAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(9i32);
-pub const TerminalPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(33i32);
-pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(2i32);
-pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(2i32);
-pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(3i32);
-pub const TraceHandleByNameClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(7i32);
-pub const TraceHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(1i32);
-pub const TraceIdClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(0i32);
-pub const TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(12i32);
-pub const TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(14i32);
-pub const TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(9i32);
-pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(0i32);
-pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(1i32);
-pub const TranslationFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(6i32);
-pub const TransportRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(6i32);
-pub const TurboChannel: INTERFACE_TYPE = INTERFACE_TYPE(4i32);
-pub const TypeA: DMA_SPEED = DMA_SPEED(1i32);
-pub const TypeB: DMA_SPEED = DMA_SPEED(2i32);
-pub const TypeC: DMA_SPEED = DMA_SPEED(3i32);
-pub const TypeF: DMA_SPEED = DMA_SPEED(4i32);
-pub const UADDRESS_BASE: u32 = 0u32;
-pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(0i32);
-pub const UserMode: MODE = MODE(1i32);
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
-pub const UserRequest: KWAIT_REASON = KWAIT_REASON(6i32);
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
+pub const TableEmptyTree: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(0);
+pub const TableFoundNode: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(1);
+pub const TableInsertAsLeft: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(2);
+pub const TableInsertAsRight: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(3);
+pub const TapeController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(14);
+pub const TapePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(27);
+pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(4);
+pub const TcAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(9);
+pub const TerminalPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(33);
+pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(2);
+pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(2);
+pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(3);
+pub const TraceHandleByNameClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(7);
+pub const TraceHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(1);
+pub const TraceIdClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(0);
+pub const TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(12);
+pub const TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(14);
+pub const TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(9);
+pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(0);
+pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(1);
+pub const TranslationFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(6);
+pub const TransportRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(6);
+pub const TurboChannel: INTERFACE_TYPE = INTERFACE_TYPE(4);
+pub const TypeA: DMA_SPEED = DMA_SPEED(1);
+pub const TypeB: DMA_SPEED = DMA_SPEED(2);
+pub const TypeC: DMA_SPEED = DMA_SPEED(3);
+pub const TypeF: DMA_SPEED = DMA_SPEED(4);
+pub const UADDRESS_BASE: u32 = 0;
+pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(0);
+pub const UserMode: MODE = MODE(1);
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0);
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1);
+pub const UserRequest: KWAIT_REASON = KWAIT_REASON(6);
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES1 {
@@ -18552,8 +18552,8 @@ impl Default for VIRTUAL_RESOURCE_STATUS {
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
 }
-pub const VMEBus: INTERFACE_TYPE = INTERFACE_TYPE(6i32);
-pub const VMEConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(5i32);
+pub const VMEBus: INTERFACE_TYPE = INTERFACE_TYPE(6);
+pub const VMEConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(5);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VM_COUNTERS {
@@ -18592,15 +18592,15 @@ pub struct VM_COUNTERS_EX2 {
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
-pub const VPB_DIRECT_WRITES_ALLOWED: u32 = 32u32;
-pub const VPB_DISMOUNTING: u32 = 128u32;
-pub const VPB_FLAGS_BYPASSIO_BLOCKED: u32 = 64u32;
-pub const VPB_LOCKED: u32 = 2u32;
-pub const VPB_MOUNTED: u32 = 1u32;
-pub const VPB_PERSISTENT: u32 = 4u32;
-pub const VPB_RAW_MOUNT: u32 = 16u32;
-pub const VPB_REMOVE_PENDING: u32 = 8u32;
-pub const Vmcs: INTERFACE_TYPE = INTERFACE_TYPE(16i32);
+pub const VPB_DIRECT_WRITES_ALLOWED: u32 = 32;
+pub const VPB_DISMOUNTING: u32 = 128;
+pub const VPB_FLAGS_BYPASSIO_BLOCKED: u32 = 64;
+pub const VPB_LOCKED: u32 = 2;
+pub const VPB_MOUNTED: u32 = 1;
+pub const VPB_PERSISTENT: u32 = 4;
+pub const VPB_RAW_MOUNT: u32 = 16;
+pub const VPB_REMOVE_PENDING: u32 = 8;
+pub const Vmcs: INTERFACE_TYPE = INTERFACE_TYPE(16);
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -18640,9 +18640,9 @@ pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
 }
-pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32u32;
-pub const WDM_MAJORVERSION: u32 = 6u32;
-pub const WDM_MINORVERSION: u32 = 0u32;
+pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32;
+pub const WDM_MAJORVERSION: u32 = 6;
+pub const WDM_MINORVERSION: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA128A {
@@ -19233,7 +19233,7 @@ impl Default for WHEA_AMD_EXTENDED_REGISTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_AMD_EXT_REG_NUM: u32 = 10u32;
+pub const WHEA_AMD_EXT_REG_NUM: u32 = 10;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
@@ -19670,7 +19670,7 @@ impl Default for WHEA_ERROR_INJECTION_CAPABILITIES {
 pub struct WHEA_ERROR_INJECTION_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
-pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1u32;
+pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_PACKET_DATA_FORMAT(pub i32);
@@ -19737,7 +19737,7 @@ impl Default for WHEA_ERROR_PACKET_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_PACKET_V1_VERSION: u32 = 2u32;
+pub const WHEA_ERROR_PACKET_V1_VERSION: u32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -19765,9 +19765,9 @@ impl Default for WHEA_ERROR_PACKET_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_PACKET_V2_VERSION: u32 = 3u32;
-pub const WHEA_ERROR_PACKET_VERSION: u32 = 3u32;
-pub const WHEA_ERROR_PKT_VERSION: u32 = 3u32;
+pub const WHEA_ERROR_PACKET_V2_VERSION: u32 = 3;
+pub const WHEA_ERROR_PACKET_VERSION: u32 = 3;
+pub const WHEA_ERROR_PKT_VERSION: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD {
@@ -19779,10 +19779,10 @@ impl Default for WHEA_ERROR_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: u32 = 8u32;
-pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: u32 = 2u32;
-pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: u32 = 1u32;
-pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: u32 = 4u32;
+pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: u32 = 8;
+pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: u32 = 2;
+pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: u32 = 1;
+pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: u32 = 4;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER {
@@ -19862,7 +19862,7 @@ impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
 }
-pub const WHEA_ERROR_RECORD_REVISION: u32 = 528u32;
+pub const WHEA_ERROR_RECORD_REVISION: u32 = 528;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
@@ -19898,7 +19898,7 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
 }
-pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
+pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
@@ -19915,10 +19915,10 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     pub _bitfield: u8,
 }
-pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295u32;
-pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4u32;
-pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: u32 = 1u32;
-pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: u32 = 2u32;
+pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295;
+pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4;
+pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: u32 = 1;
+pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: u32 = 2;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
@@ -19984,11 +19984,11 @@ impl Default for WHEA_ERROR_STATUS {
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
 }
-pub const WHEA_ERROR_TEXT_LEN: u32 = 32u32;
+pub const WHEA_ERROR_TEXT_LEN: u32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_TYPE(pub i32);
-pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1u32;
+pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ETW_OVERFLOW_EVENT {
@@ -20071,10 +20071,10 @@ impl Default for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: u32 = 0u32;
-pub const WHEA_GENERIC_ENTRY_TEXT_LEN: u32 = 20u32;
-pub const WHEA_GENERIC_ENTRY_V2_VERSION: u32 = 768u32;
-pub const WHEA_GENERIC_ENTRY_VERSION: u32 = 768u32;
+pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: u32 = 0;
+pub const WHEA_GENERIC_ENTRY_TEXT_LEN: u32 = 20;
+pub const WHEA_GENERIC_ENTRY_V2_VERSION: u32 = 768;
+pub const WHEA_GENERIC_ENTRY_VERSION: u32 = 768;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR {
@@ -20143,7 +20143,7 @@ impl Default for WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_INVALID_ERR_SRC_ID: u32 = 0u32;
+pub const WHEA_INVALID_ERR_SRC_ID: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
@@ -20160,23 +20160,23 @@ impl Default for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
 pub struct WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
     pub _bitfield: u8,
 }
-pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_NOTIFYALL: u32 = 64u32;
-pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PAGEOFFLINED: u32 = 128u32;
-pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PLATFORMDIRECTED: u32 = 1u32;
-pub const WHEA_MAX_LOG_DATA_LEN: u32 = 36u32;
-pub const WHEA_MEMERRTYPE_INVALIDADDRESS: u32 = 10u32;
-pub const WHEA_MEMERRTYPE_MASTERABORT: u32 = 6u32;
-pub const WHEA_MEMERRTYPE_MEMORYSPARING: u32 = 12u32;
-pub const WHEA_MEMERRTYPE_MIRRORBROKEN: u32 = 11u32;
-pub const WHEA_MEMERRTYPE_MULTIBITECC: u32 = 3u32;
-pub const WHEA_MEMERRTYPE_MULTISYMCHIPKILL: u32 = 5u32;
-pub const WHEA_MEMERRTYPE_NOERROR: u32 = 1u32;
-pub const WHEA_MEMERRTYPE_PARITYERROR: u32 = 8u32;
-pub const WHEA_MEMERRTYPE_SINGLEBITECC: u32 = 2u32;
-pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: u32 = 4u32;
-pub const WHEA_MEMERRTYPE_TARGETABORT: u32 = 7u32;
-pub const WHEA_MEMERRTYPE_UNKNOWN: u32 = 0u32;
-pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: u32 = 9u32;
+pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_NOTIFYALL: u32 = 64;
+pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PAGEOFFLINED: u32 = 128;
+pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PLATFORMDIRECTED: u32 = 1;
+pub const WHEA_MAX_LOG_DATA_LEN: u32 = 36;
+pub const WHEA_MEMERRTYPE_INVALIDADDRESS: u32 = 10;
+pub const WHEA_MEMERRTYPE_MASTERABORT: u32 = 6;
+pub const WHEA_MEMERRTYPE_MEMORYSPARING: u32 = 12;
+pub const WHEA_MEMERRTYPE_MIRRORBROKEN: u32 = 11;
+pub const WHEA_MEMERRTYPE_MULTIBITECC: u32 = 3;
+pub const WHEA_MEMERRTYPE_MULTISYMCHIPKILL: u32 = 5;
+pub const WHEA_MEMERRTYPE_NOERROR: u32 = 1;
+pub const WHEA_MEMERRTYPE_PARITYERROR: u32 = 8;
+pub const WHEA_MEMERRTYPE_SINGLEBITECC: u32 = 2;
+pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: u32 = 4;
+pub const WHEA_MEMERRTYPE_TARGETABORT: u32 = 7;
+pub const WHEA_MEMERRTYPE_UNKNOWN: u32 = 0;
+pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: u32 = 9;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
@@ -20495,7 +20495,7 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32u32;
+pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
@@ -20649,9 +20649,9 @@ pub struct WHEA_PERSISTENCE_INFO_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_PFA_REMOVE_TRIGGER(pub i32);
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: u32 = 65536u32;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: u32 = 131072u32;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: u32 = 131072u32;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: u32 = 65536;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: u32 = 131072;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: u32 = 131072;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION {
@@ -20667,8 +20667,8 @@ impl Default for WHEA_PMEM_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: u32 = 64u32;
-pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: u32 = 50u32;
+pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: u32 = 64;
+pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: u32 = 50;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
@@ -21042,15 +21042,15 @@ pub struct WHEA_SEA_SECTION {
     pub Par: u64,
     pub WasKernel: bool,
 }
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: u32 = 2u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: u32 = 128u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR: u32 = 32u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PRIMARY: u32 = 1u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED: u32 = 64u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: u32 = 4u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8u32;
-pub const WHEA_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: u32 = 2;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: u32 = 128;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR: u32 = 32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PRIMARY: u32 = 1;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED: u32 = 64;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: u32 = 4;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8;
+pub const WHEA_SECTION_DESCRIPTOR_REVISION: u32 = 768;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_SEI_SECTION {
@@ -21107,7 +21107,7 @@ impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: u32 = 1u32;
+pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
@@ -21270,7 +21270,7 @@ pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
 }
 pub const WHEA_TLBCHECK_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfc06b535_5e1f_4562_9f25_0a3b9adb63c3);
-pub const WHEA_WRITE_FLAG_DUMMY: u32 = 1u32;
+pub const WHEA_WRITE_FLAG_DUMMY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_X64_REGISTER_STATE {
@@ -21379,7 +21379,7 @@ pub struct WHEA_XPF_CONTEXT_INFO {
     pub MSRAddress: u32,
     pub MmRegisterAddress: u64,
 }
-pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24u32;
+pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCA_SECTION {
@@ -21415,9 +21415,9 @@ impl Default for WHEA_XPF_MCA_SECTION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_XPF_MCA_SECTION_VERSION: u32 = 3u32;
-pub const WHEA_XPF_MCA_SECTION_VERSION_2: u32 = 2u32;
-pub const WHEA_XPF_MCA_SECTION_VERSION_3: u32 = 3u32;
+pub const WHEA_XPF_MCA_SECTION_VERSION: u32 = 3;
+pub const WHEA_XPF_MCA_SECTION_VERSION_2: u32 = 2;
+pub const WHEA_XPF_MCA_SECTION_VERSION_3: u32 = 3;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_MS_CHECK {
@@ -21525,287 +21525,287 @@ impl Default for WHEA_XPF_TLB_CHECK {
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
 }
-pub const WMIREGISTER: u32 = 0u32;
-pub const WMIREG_ACTION_BLOCK_IRPS: u32 = 5u32;
-pub const WMIREG_ACTION_DEREGISTER: u32 = 2u32;
-pub const WMIREG_ACTION_REGISTER: u32 = 1u32;
-pub const WMIREG_ACTION_REREGISTER: u32 = 3u32;
-pub const WMIREG_ACTION_UPDATE_GUIDS: u32 = 4u32;
-pub const WMIUPDATE: u32 = 1u32;
+pub const WMIREGISTER: u32 = 0;
+pub const WMIREG_ACTION_BLOCK_IRPS: u32 = 5;
+pub const WMIREG_ACTION_DEREGISTER: u32 = 2;
+pub const WMIREG_ACTION_REGISTER: u32 = 1;
+pub const WMIREG_ACTION_REREGISTER: u32 = 3;
+pub const WMIREG_ACTION_UPDATE_GUIDS: u32 = 4;
+pub const WMIUPDATE: u32 = 1;
 pub type WMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn()>;
 pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORK_QUEUE_TYPE(pub i32);
-pub const WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(15i32);
-pub const WheaCpuVendorAmd: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(2i32);
-pub const WheaCpuVendorIntel: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(1i32);
-pub const WheaCpuVendorOther: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(0i32);
-pub const WheaDataFormatGeneric: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(7i32);
-pub const WheaDataFormatIPFSalRecord: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(0i32);
-pub const WheaDataFormatMax: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(8i32);
-pub const WheaDataFormatMemory: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(2i32);
-pub const WheaDataFormatNMIPort: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(4i32);
-pub const WheaDataFormatPCIExpress: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(3i32);
-pub const WheaDataFormatPCIXBus: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(5i32);
-pub const WheaDataFormatPCIXDevice: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(6i32);
-pub const WheaDataFormatXPFMCA: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(1i32);
-pub const WheaErrSevCorrected: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(2i32);
-pub const WheaErrSevFatal: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(1i32);
-pub const WheaErrSevInformational: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(3i32);
-pub const WheaErrSevRecoverable: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(0i32);
-pub const WheaErrTypeGeneric: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(6i32);
-pub const WheaErrTypeMemory: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(1i32);
-pub const WheaErrTypeNMI: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(3i32);
-pub const WheaErrTypePCIExpress: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(2i32);
-pub const WheaErrTypePCIXBus: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(4i32);
-pub const WheaErrTypePCIXDevice: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(5i32);
-pub const WheaErrTypePmem: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(7i32);
-pub const WheaErrTypeProcessor: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(0i32);
-pub const WheaEventBugCheckRecoveryEntry: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(0i32);
-pub const WheaEventBugCheckRecoveryMax: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(2i32);
-pub const WheaEventBugCheckRecoveryReturn: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(1i32);
-pub const WheaEventLogAzccRootBusList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483617i32);
-pub const WheaEventLogAzccRootBusPoisonSet: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483602i32);
-pub const WheaEventLogAzccRootBusSearchErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483618i32);
-pub const WheaEventLogCmciFinalRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483620i32);
-pub const WheaEventLogCmciRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483621i32);
-pub const WheaEventLogEntryEarlyError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483594i32);
-pub const WheaEventLogEntryEtwOverFlow: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483619i32);
-pub const WheaEventLogEntryIdAcpiTimeOut: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483622i32);
-pub const WheaEventLogEntryIdAddRemoveErrorSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483636i32);
-pub const WheaEventLogEntryIdAerNotGrantedToOs: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483624i32);
-pub const WheaEventLogEntryIdAttemptErrorRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483634i32);
-pub const WheaEventLogEntryIdBadHestNotifyData: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483565i32);
-pub const WheaEventLogEntryIdBadPageLimitReached: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483596i32);
-pub const WheaEventLogEntryIdClearedPoison: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483630i32);
-pub const WheaEventLogEntryIdCmcPollingTimeout: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483647i32);
-pub const WheaEventLogEntryIdCmcSwitchToPolling: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483645i32);
-pub const WheaEventLogEntryIdCmciImplPresent: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483608i32);
-pub const WheaEventLogEntryIdCmciInitError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483607i32);
-pub const WheaEventLogEntryIdCpuBusesInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483571i32);
-pub const WheaEventLogEntryIdCpusFrozen: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483552i32);
-pub const WheaEventLogEntryIdCpusFrozenNoCrashDump: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483551i32);
-pub const WheaEventLogEntryIdCreateGenericRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483627i32);
-pub const WheaEventLogEntryIdDefectListCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483566i32);
-pub const WheaEventLogEntryIdDefectListFull: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483568i32);
-pub const WheaEventLogEntryIdDefectListUEFIVarFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483567i32);
-pub const WheaEventLogEntryIdDeviceDriver: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483609i32);
-pub const WheaEventLogEntryIdDroppedCorrectedError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483644i32);
-pub const WheaEventLogEntryIdDrvErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483605i32);
-pub const WheaEventLogEntryIdDrvHandleBusy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483604i32);
-pub const WheaEventLogEntryIdEnableKeyNotifFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483580i32);
-pub const WheaEventLogEntryIdErrDimmInfoMismatch: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483600i32);
-pub const WheaEventLogEntryIdErrSrcArrayInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483623i32);
-pub const WheaEventLogEntryIdErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483616i32);
-pub const WheaEventLogEntryIdErrorRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483626i32);
-pub const WheaEventLogEntryIdErrorRecordLimit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483625i32);
-pub const WheaEventLogEntryIdFailedAddToDefectList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483569i32);
-pub const WheaEventLogEntryIdGenericErrMemMap: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483615i32);
-pub const WheaEventLogEntryIdKeyNotificationFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483579i32);
-pub const WheaEventLogEntryIdMcaErrorCleared: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483631i32);
-pub const WheaEventLogEntryIdMcaFoundErrorInBank: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483633i32);
-pub const WheaEventLogEntryIdMcaStuckErrorCheck: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483632i32);
-pub const WheaEventLogEntryIdMemoryAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483575i32);
-pub const WheaEventLogEntryIdMemoryRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483574i32);
-pub const WheaEventLogEntryIdMemorySummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483573i32);
-pub const WheaEventLogEntryIdOscCapabilities: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483638i32);
-pub const WheaEventLogEntryIdPFAMemoryOfflined: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483642i32);
-pub const WheaEventLogEntryIdPFAMemoryPolicy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483640i32);
-pub const WheaEventLogEntryIdPFAMemoryRemoveMonitor: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483641i32);
-pub const WheaEventLogEntryIdPcieAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483577i32);
-pub const WheaEventLogEntryIdPcieConfigInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483591i32);
-pub const WheaEventLogEntryIdPcieDpcError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483572i32);
-pub const WheaEventLogEntryIdPcieOverrideInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483593i32);
-pub const WheaEventLogEntryIdPcieRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483578i32);
-pub const WheaEventLogEntryIdPcieSpuriousErrSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483576i32);
-pub const WheaEventLogEntryIdPcieSummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483584i32);
-pub const WheaEventLogEntryIdProcessEINJ: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483629i32);
-pub const WheaEventLogEntryIdProcessHEST: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483628i32);
-pub const WheaEventLogEntryIdPshedCallbackCollision: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483614i32);
-pub const WheaEventLogEntryIdPshedInjectError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483639i32);
-pub const WheaEventLogEntryIdPshedPiTraceLog: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147221488i32);
-pub const WheaEventLogEntryIdPshedPluginInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483570i32);
-pub const WheaEventLogEntryIdPshedPluginLoad: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483612i32);
-pub const WheaEventLogEntryIdPshedPluginRegister: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483637i32);
-pub const WheaEventLogEntryIdPshedPluginSupported: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483610i32);
-pub const WheaEventLogEntryIdPshedPluginUnload: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483611i32);
-pub const WheaEventLogEntryIdReadPcieOverridesErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483592i32);
-pub const WheaEventLogEntryIdRowFailure: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483561i32);
-pub const WheaEventLogEntryIdSELBugCheckInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483601i32);
-pub const WheaEventLogEntryIdSELBugCheckProgress: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483613i32);
-pub const WheaEventLogEntryIdSELBugCheckRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483606i32);
-pub const WheaEventLogEntryIdSrasTableEntries: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483562i32);
-pub const WheaEventLogEntryIdSrasTableError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483563i32);
-pub const WheaEventLogEntryIdSrasTableNotFound: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483564i32);
-pub const WheaEventLogEntryIdStartedReportHwError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483643i32);
-pub const WheaEventLogEntryIdThrottleAddErrSrcFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483582i32);
-pub const WheaEventLogEntryIdThrottleRegCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483583i32);
-pub const WheaEventLogEntryIdThrottleRegDataIgnored: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483581i32);
-pub const WheaEventLogEntryIdWheaHeartbeat: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483603i32);
-pub const WheaEventLogEntryIdWheaInit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483646i32);
-pub const WheaEventLogEntryIdWorkQueueItem: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483635i32);
-pub const WheaEventLogEntryIdeDpcEnabled: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483599i32);
-pub const WheaEventLogEntryPageOfflineDone: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483598i32);
-pub const WheaEventLogEntryPageOfflinePendMax: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483597i32);
-pub const WheaEventLogEntrySrarDetail: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483595i32);
-pub const WheaEventLogEntryTypeError: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(2i32);
-pub const WheaEventLogEntryTypeInformational: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(0i32);
-pub const WheaEventLogEntryTypeWarning: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(1i32);
-pub const WheaMemoryThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(1i32);
-pub const WheaPciExpressDownstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(6i32);
-pub const WheaPciExpressEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(0i32);
-pub const WheaPciExpressLegacyEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(1i32);
-pub const WheaPciExpressRootComplexEventCollector: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(10i32);
-pub const WheaPciExpressRootComplexIntegratedEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(9i32);
-pub const WheaPciExpressRootPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(4i32);
-pub const WheaPciExpressToPciXBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(7i32);
-pub const WheaPciExpressUpstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(5i32);
-pub const WheaPciREcoveryStatusUnknown: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(0i32);
-pub const WheaPciRecoverySignalAer: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(1i32);
-pub const WheaPciRecoverySignalDpc: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(2i32);
-pub const WheaPciRecoverySignalUnknown: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(0i32);
-pub const WheaPciRecoveryStatusBusNotFound: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(6i32);
-pub const WheaPciRecoveryStatusComplexTree: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(5i32);
-pub const WheaPciRecoveryStatusLinkDisableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(2i32);
-pub const WheaPciRecoveryStatusLinkEnableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(3i32);
-pub const WheaPciRecoveryStatusNoError: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(1i32);
-pub const WheaPciRecoveryStatusRpBusyTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(4i32);
-pub const WheaPciXToExpressBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(8i32);
-pub const WheaPcieThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(0i32);
-pub const WheaPfaRemoveCapacity: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(3i32);
-pub const WheaPfaRemoveErrorThreshold: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(1i32);
-pub const WheaPfaRemoveTimeout: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(2i32);
-pub const WheaRawDataFormatAMD64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(3i32);
-pub const WheaRawDataFormatGeneric: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(9i32);
-pub const WheaRawDataFormatIA32MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(1i32);
-pub const WheaRawDataFormatIPFSalRecord: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(0i32);
-pub const WheaRawDataFormatIntel64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(2i32);
-pub const WheaRawDataFormatMax: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(10i32);
-pub const WheaRawDataFormatMemory: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(4i32);
-pub const WheaRawDataFormatNMIPort: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(6i32);
-pub const WheaRawDataFormatPCIExpress: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(5i32);
-pub const WheaRawDataFormatPCIXBus: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(7i32);
-pub const WheaRawDataFormatPCIXDevice: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(8i32);
-pub const WheaRecoveryContextErrorTypeMax: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(3i32);
-pub const WheaRecoveryContextErrorTypeMemory: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(1i32);
-pub const WheaRecoveryContextErrorTypePmem: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(2i32);
-pub const WheaRecoveryFailureReasonFarNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(17i32);
-pub const WheaRecoveryFailureReasonHighIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(10i32);
-pub const WheaRecoveryFailureReasonInsufficientAltContextWrappers: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(11i32);
-pub const WheaRecoveryFailureReasonInterruptsDisabled: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(12i32);
-pub const WheaRecoveryFailureReasonInvalidAddressMode: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(9i32);
-pub const WheaRecoveryFailureReasonKernelCouldNotMarkMemoryBad: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(1i32);
-pub const WheaRecoveryFailureReasonKernelMarkMemoryBadTimedOut: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(2i32);
-pub const WheaRecoveryFailureReasonKernelWillPageFaultBCAtCurrentIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(16i32);
-pub const WheaRecoveryFailureReasonMax: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(18i32);
-pub const WheaRecoveryFailureReasonMiscOrAddrNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(8i32);
-pub const WheaRecoveryFailureReasonNoRecoveryContext: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(3i32);
-pub const WheaRecoveryFailureReasonNotContinuable: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(4i32);
-pub const WheaRecoveryFailureReasonNotSupported: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(7i32);
-pub const WheaRecoveryFailureReasonOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(6i32);
-pub const WheaRecoveryFailureReasonPcc: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(5i32);
-pub const WheaRecoveryFailureReasonStackOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(14i32);
-pub const WheaRecoveryFailureReasonSwapBusy: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(13i32);
-pub const WheaRecoveryFailureReasonUnexpectedFailure: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(15i32);
-pub const WheaRecoveryTypeActionOptional: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(2i32);
-pub const WheaRecoveryTypeActionRequired: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(1i32);
-pub const WheaRecoveryTypeMax: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(3i32);
-pub const WheapDpcErrBusNotFound: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(1i32);
-pub const WheapDpcErrDeviceIdBad: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(3i32);
-pub const WheapDpcErrDpcedSubtree: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(2i32);
-pub const WheapDpcErrNoChildren: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(5i32);
-pub const WheapDpcErrNoErr: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(0i32);
-pub const WheapDpcErrResetFailed: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(4i32);
-pub const WheapPfaOfflinePredictiveFailure: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(1i32);
-pub const WheapPfaOfflineUncorrectedError: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(2i32);
-pub const Width16Bits: DMA_WIDTH = DMA_WIDTH(1i32);
-pub const Width32Bits: DMA_WIDTH = DMA_WIDTH(2i32);
-pub const Width64Bits: DMA_WIDTH = DMA_WIDTH(3i32);
-pub const Width8Bits: DMA_WIDTH = DMA_WIDTH(0i32);
-pub const WidthNoWrap: DMA_WIDTH = DMA_WIDTH(4i32);
-pub const WormController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(16i32);
-pub const WrAlertByThreadId: KWAIT_REASON = KWAIT_REASON(37i32);
-pub const WrCalloutStack: KWAIT_REASON = KWAIT_REASON(25i32);
-pub const WrCpuRateControl: KWAIT_REASON = KWAIT_REASON(24i32);
-pub const WrDeferredPreempt: KWAIT_REASON = KWAIT_REASON(38i32);
-pub const WrDelayExecution: KWAIT_REASON = KWAIT_REASON(11i32);
-pub const WrDispatchInt: KWAIT_REASON = KWAIT_REASON(31i32);
-pub const WrExecutive: KWAIT_REASON = KWAIT_REASON(7i32);
-pub const WrFastMutex: KWAIT_REASON = KWAIT_REASON(34i32);
-pub const WrFreePage: KWAIT_REASON = KWAIT_REASON(8i32);
-pub const WrGuardedMutex: KWAIT_REASON = KWAIT_REASON(35i32);
-pub const WrIoRing: KWAIT_REASON = KWAIT_REASON(40i32);
-pub const WrKernel: KWAIT_REASON = KWAIT_REASON(26i32);
-pub const WrKeyedEvent: KWAIT_REASON = KWAIT_REASON(21i32);
-pub const WrLpcReceive: KWAIT_REASON = KWAIT_REASON(16i32);
-pub const WrLpcReply: KWAIT_REASON = KWAIT_REASON(17i32);
-pub const WrMdlCache: KWAIT_REASON = KWAIT_REASON(41i32);
-pub const WrMutex: KWAIT_REASON = KWAIT_REASON(29i32);
-pub const WrPageIn: KWAIT_REASON = KWAIT_REASON(9i32);
-pub const WrPageOut: KWAIT_REASON = KWAIT_REASON(19i32);
-pub const WrPhysicalFault: KWAIT_REASON = KWAIT_REASON(39i32);
-pub const WrPoolAllocation: KWAIT_REASON = KWAIT_REASON(10i32);
-pub const WrPreempted: KWAIT_REASON = KWAIT_REASON(32i32);
-pub const WrProcessInSwap: KWAIT_REASON = KWAIT_REASON(23i32);
-pub const WrPushLock: KWAIT_REASON = KWAIT_REASON(28i32);
-pub const WrQuantumEnd: KWAIT_REASON = KWAIT_REASON(30i32);
-pub const WrQueue: KWAIT_REASON = KWAIT_REASON(15i32);
-pub const WrRendezvous: KWAIT_REASON = KWAIT_REASON(20i32);
-pub const WrResource: KWAIT_REASON = KWAIT_REASON(27i32);
-pub const WrRundown: KWAIT_REASON = KWAIT_REASON(36i32);
-pub const WrSpare0: KWAIT_REASON = KWAIT_REASON(14i32);
-pub const WrSuspended: KWAIT_REASON = KWAIT_REASON(12i32);
-pub const WrTerminated: KWAIT_REASON = KWAIT_REASON(22i32);
-pub const WrUserRequest: KWAIT_REASON = KWAIT_REASON(13i32);
-pub const WrVirtualMemory: KWAIT_REASON = KWAIT_REASON(18i32);
-pub const WrYieldExecution: KWAIT_REASON = KWAIT_REASON(33i32);
-pub const WriteAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(1i32);
-pub const XPF_BUS_CHECK_ADDRESS_IO: u32 = 2u32;
-pub const XPF_BUS_CHECK_ADDRESS_MEMORY: u32 = 0u32;
-pub const XPF_BUS_CHECK_ADDRESS_OTHER: u32 = 3u32;
-pub const XPF_BUS_CHECK_ADDRESS_RESERVED: u32 = 1u32;
-pub const XPF_BUS_CHECK_OPERATION_DATAREAD: u32 = 3u32;
-pub const XPF_BUS_CHECK_OPERATION_DATAWRITE: u32 = 4u32;
-pub const XPF_BUS_CHECK_OPERATION_GENERIC: u32 = 0u32;
-pub const XPF_BUS_CHECK_OPERATION_GENREAD: u32 = 1u32;
-pub const XPF_BUS_CHECK_OPERATION_GENWRITE: u32 = 2u32;
-pub const XPF_BUS_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5u32;
-pub const XPF_BUS_CHECK_OPERATION_PREFETCH: u32 = 6u32;
-pub const XPF_BUS_CHECK_PARTICIPATION_GENERIC: u32 = 3u32;
-pub const XPF_BUS_CHECK_PARTICIPATION_PROCOBSERVED: u32 = 2u32;
-pub const XPF_BUS_CHECK_PARTICIPATION_PROCORIGINATED: u32 = 0u32;
-pub const XPF_BUS_CHECK_PARTICIPATION_PROCRESPONDED: u32 = 1u32;
-pub const XPF_BUS_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1u32;
-pub const XPF_BUS_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2u32;
-pub const XPF_BUS_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0u32;
-pub const XPF_CACHE_CHECK_OPERATION_DATAREAD: u32 = 3u32;
-pub const XPF_CACHE_CHECK_OPERATION_DATAWRITE: u32 = 4u32;
-pub const XPF_CACHE_CHECK_OPERATION_EVICTION: u32 = 7u32;
-pub const XPF_CACHE_CHECK_OPERATION_GENERIC: u32 = 0u32;
-pub const XPF_CACHE_CHECK_OPERATION_GENREAD: u32 = 1u32;
-pub const XPF_CACHE_CHECK_OPERATION_GENWRITE: u32 = 2u32;
-pub const XPF_CACHE_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5u32;
-pub const XPF_CACHE_CHECK_OPERATION_PREFETCH: u32 = 6u32;
-pub const XPF_CACHE_CHECK_OPERATION_SNOOP: u32 = 8u32;
-pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1u32;
-pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2u32;
-pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0u32;
-pub const XPF_CONTEXT_INFO_32BITCONTEXT: u32 = 2u32;
-pub const XPF_CONTEXT_INFO_32BITDEBUGREGS: u32 = 5u32;
-pub const XPF_CONTEXT_INFO_64BITCONTEXT: u32 = 3u32;
-pub const XPF_CONTEXT_INFO_64BITDEBUGREGS: u32 = 6u32;
-pub const XPF_CONTEXT_INFO_FXSAVE: u32 = 4u32;
-pub const XPF_CONTEXT_INFO_MMREGISTERS: u32 = 7u32;
-pub const XPF_CONTEXT_INFO_MSRREGISTERS: u32 = 1u32;
-pub const XPF_CONTEXT_INFO_UNCLASSIFIEDDATA: u32 = 0u32;
+pub const WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(15);
+pub const WheaCpuVendorAmd: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(2);
+pub const WheaCpuVendorIntel: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(1);
+pub const WheaCpuVendorOther: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(0);
+pub const WheaDataFormatGeneric: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(7);
+pub const WheaDataFormatIPFSalRecord: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(0);
+pub const WheaDataFormatMax: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(8);
+pub const WheaDataFormatMemory: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(2);
+pub const WheaDataFormatNMIPort: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(4);
+pub const WheaDataFormatPCIExpress: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(3);
+pub const WheaDataFormatPCIXBus: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(5);
+pub const WheaDataFormatPCIXDevice: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(6);
+pub const WheaDataFormatXPFMCA: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(1);
+pub const WheaErrSevCorrected: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(2);
+pub const WheaErrSevFatal: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(1);
+pub const WheaErrSevInformational: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(3);
+pub const WheaErrSevRecoverable: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(0);
+pub const WheaErrTypeGeneric: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(6);
+pub const WheaErrTypeMemory: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(1);
+pub const WheaErrTypeNMI: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(3);
+pub const WheaErrTypePCIExpress: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(2);
+pub const WheaErrTypePCIXBus: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(4);
+pub const WheaErrTypePCIXDevice: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(5);
+pub const WheaErrTypePmem: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(7);
+pub const WheaErrTypeProcessor: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(0);
+pub const WheaEventBugCheckRecoveryEntry: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(0);
+pub const WheaEventBugCheckRecoveryMax: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(2);
+pub const WheaEventBugCheckRecoveryReturn: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(1);
+pub const WheaEventLogAzccRootBusList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483617);
+pub const WheaEventLogAzccRootBusPoisonSet: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483602);
+pub const WheaEventLogAzccRootBusSearchErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483618);
+pub const WheaEventLogCmciFinalRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483620);
+pub const WheaEventLogCmciRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483621);
+pub const WheaEventLogEntryEarlyError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483594);
+pub const WheaEventLogEntryEtwOverFlow: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483619);
+pub const WheaEventLogEntryIdAcpiTimeOut: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483622);
+pub const WheaEventLogEntryIdAddRemoveErrorSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483636);
+pub const WheaEventLogEntryIdAerNotGrantedToOs: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483624);
+pub const WheaEventLogEntryIdAttemptErrorRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483634);
+pub const WheaEventLogEntryIdBadHestNotifyData: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483565);
+pub const WheaEventLogEntryIdBadPageLimitReached: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483596);
+pub const WheaEventLogEntryIdClearedPoison: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483630);
+pub const WheaEventLogEntryIdCmcPollingTimeout: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483647);
+pub const WheaEventLogEntryIdCmcSwitchToPolling: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483645);
+pub const WheaEventLogEntryIdCmciImplPresent: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483608);
+pub const WheaEventLogEntryIdCmciInitError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483607);
+pub const WheaEventLogEntryIdCpuBusesInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483571);
+pub const WheaEventLogEntryIdCpusFrozen: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483552);
+pub const WheaEventLogEntryIdCpusFrozenNoCrashDump: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483551);
+pub const WheaEventLogEntryIdCreateGenericRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483627);
+pub const WheaEventLogEntryIdDefectListCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483566);
+pub const WheaEventLogEntryIdDefectListFull: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483568);
+pub const WheaEventLogEntryIdDefectListUEFIVarFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483567);
+pub const WheaEventLogEntryIdDeviceDriver: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483609);
+pub const WheaEventLogEntryIdDroppedCorrectedError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483644);
+pub const WheaEventLogEntryIdDrvErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483605);
+pub const WheaEventLogEntryIdDrvHandleBusy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483604);
+pub const WheaEventLogEntryIdEnableKeyNotifFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483580);
+pub const WheaEventLogEntryIdErrDimmInfoMismatch: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483600);
+pub const WheaEventLogEntryIdErrSrcArrayInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483623);
+pub const WheaEventLogEntryIdErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483616);
+pub const WheaEventLogEntryIdErrorRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483626);
+pub const WheaEventLogEntryIdErrorRecordLimit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483625);
+pub const WheaEventLogEntryIdFailedAddToDefectList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483569);
+pub const WheaEventLogEntryIdGenericErrMemMap: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483615);
+pub const WheaEventLogEntryIdKeyNotificationFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483579);
+pub const WheaEventLogEntryIdMcaErrorCleared: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483631);
+pub const WheaEventLogEntryIdMcaFoundErrorInBank: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483633);
+pub const WheaEventLogEntryIdMcaStuckErrorCheck: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483632);
+pub const WheaEventLogEntryIdMemoryAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483575);
+pub const WheaEventLogEntryIdMemoryRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483574);
+pub const WheaEventLogEntryIdMemorySummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483573);
+pub const WheaEventLogEntryIdOscCapabilities: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483638);
+pub const WheaEventLogEntryIdPFAMemoryOfflined: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483642);
+pub const WheaEventLogEntryIdPFAMemoryPolicy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483640);
+pub const WheaEventLogEntryIdPFAMemoryRemoveMonitor: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483641);
+pub const WheaEventLogEntryIdPcieAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483577);
+pub const WheaEventLogEntryIdPcieConfigInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483591);
+pub const WheaEventLogEntryIdPcieDpcError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483572);
+pub const WheaEventLogEntryIdPcieOverrideInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483593);
+pub const WheaEventLogEntryIdPcieRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483578);
+pub const WheaEventLogEntryIdPcieSpuriousErrSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483576);
+pub const WheaEventLogEntryIdPcieSummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483584);
+pub const WheaEventLogEntryIdProcessEINJ: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483629);
+pub const WheaEventLogEntryIdProcessHEST: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483628);
+pub const WheaEventLogEntryIdPshedCallbackCollision: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483614);
+pub const WheaEventLogEntryIdPshedInjectError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483639);
+pub const WheaEventLogEntryIdPshedPiTraceLog: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147221488);
+pub const WheaEventLogEntryIdPshedPluginInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483570);
+pub const WheaEventLogEntryIdPshedPluginLoad: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483612);
+pub const WheaEventLogEntryIdPshedPluginRegister: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483637);
+pub const WheaEventLogEntryIdPshedPluginSupported: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483610);
+pub const WheaEventLogEntryIdPshedPluginUnload: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483611);
+pub const WheaEventLogEntryIdReadPcieOverridesErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483592);
+pub const WheaEventLogEntryIdRowFailure: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483561);
+pub const WheaEventLogEntryIdSELBugCheckInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483601);
+pub const WheaEventLogEntryIdSELBugCheckProgress: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483613);
+pub const WheaEventLogEntryIdSELBugCheckRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483606);
+pub const WheaEventLogEntryIdSrasTableEntries: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483562);
+pub const WheaEventLogEntryIdSrasTableError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483563);
+pub const WheaEventLogEntryIdSrasTableNotFound: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483564);
+pub const WheaEventLogEntryIdStartedReportHwError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483643);
+pub const WheaEventLogEntryIdThrottleAddErrSrcFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483582);
+pub const WheaEventLogEntryIdThrottleRegCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483583);
+pub const WheaEventLogEntryIdThrottleRegDataIgnored: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483581);
+pub const WheaEventLogEntryIdWheaHeartbeat: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483603);
+pub const WheaEventLogEntryIdWheaInit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483646);
+pub const WheaEventLogEntryIdWorkQueueItem: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483635);
+pub const WheaEventLogEntryIdeDpcEnabled: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483599);
+pub const WheaEventLogEntryPageOfflineDone: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483598);
+pub const WheaEventLogEntryPageOfflinePendMax: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483597);
+pub const WheaEventLogEntrySrarDetail: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483595);
+pub const WheaEventLogEntryTypeError: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(2);
+pub const WheaEventLogEntryTypeInformational: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(0);
+pub const WheaEventLogEntryTypeWarning: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(1);
+pub const WheaMemoryThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(1);
+pub const WheaPciExpressDownstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(6);
+pub const WheaPciExpressEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(0);
+pub const WheaPciExpressLegacyEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(1);
+pub const WheaPciExpressRootComplexEventCollector: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(10);
+pub const WheaPciExpressRootComplexIntegratedEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(9);
+pub const WheaPciExpressRootPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(4);
+pub const WheaPciExpressToPciXBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(7);
+pub const WheaPciExpressUpstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(5);
+pub const WheaPciREcoveryStatusUnknown: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(0);
+pub const WheaPciRecoverySignalAer: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(1);
+pub const WheaPciRecoverySignalDpc: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(2);
+pub const WheaPciRecoverySignalUnknown: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(0);
+pub const WheaPciRecoveryStatusBusNotFound: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(6);
+pub const WheaPciRecoveryStatusComplexTree: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(5);
+pub const WheaPciRecoveryStatusLinkDisableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(2);
+pub const WheaPciRecoveryStatusLinkEnableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(3);
+pub const WheaPciRecoveryStatusNoError: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(1);
+pub const WheaPciRecoveryStatusRpBusyTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(4);
+pub const WheaPciXToExpressBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(8);
+pub const WheaPcieThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(0);
+pub const WheaPfaRemoveCapacity: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(3);
+pub const WheaPfaRemoveErrorThreshold: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(1);
+pub const WheaPfaRemoveTimeout: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(2);
+pub const WheaRawDataFormatAMD64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(3);
+pub const WheaRawDataFormatGeneric: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(9);
+pub const WheaRawDataFormatIA32MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(1);
+pub const WheaRawDataFormatIPFSalRecord: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(0);
+pub const WheaRawDataFormatIntel64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(2);
+pub const WheaRawDataFormatMax: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(10);
+pub const WheaRawDataFormatMemory: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(4);
+pub const WheaRawDataFormatNMIPort: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(6);
+pub const WheaRawDataFormatPCIExpress: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(5);
+pub const WheaRawDataFormatPCIXBus: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(7);
+pub const WheaRawDataFormatPCIXDevice: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(8);
+pub const WheaRecoveryContextErrorTypeMax: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(3);
+pub const WheaRecoveryContextErrorTypeMemory: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(1);
+pub const WheaRecoveryContextErrorTypePmem: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(2);
+pub const WheaRecoveryFailureReasonFarNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(17);
+pub const WheaRecoveryFailureReasonHighIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(10);
+pub const WheaRecoveryFailureReasonInsufficientAltContextWrappers: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(11);
+pub const WheaRecoveryFailureReasonInterruptsDisabled: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(12);
+pub const WheaRecoveryFailureReasonInvalidAddressMode: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(9);
+pub const WheaRecoveryFailureReasonKernelCouldNotMarkMemoryBad: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(1);
+pub const WheaRecoveryFailureReasonKernelMarkMemoryBadTimedOut: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(2);
+pub const WheaRecoveryFailureReasonKernelWillPageFaultBCAtCurrentIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(16);
+pub const WheaRecoveryFailureReasonMax: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(18);
+pub const WheaRecoveryFailureReasonMiscOrAddrNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(8);
+pub const WheaRecoveryFailureReasonNoRecoveryContext: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(3);
+pub const WheaRecoveryFailureReasonNotContinuable: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(4);
+pub const WheaRecoveryFailureReasonNotSupported: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(7);
+pub const WheaRecoveryFailureReasonOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(6);
+pub const WheaRecoveryFailureReasonPcc: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(5);
+pub const WheaRecoveryFailureReasonStackOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(14);
+pub const WheaRecoveryFailureReasonSwapBusy: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(13);
+pub const WheaRecoveryFailureReasonUnexpectedFailure: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(15);
+pub const WheaRecoveryTypeActionOptional: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(2);
+pub const WheaRecoveryTypeActionRequired: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(1);
+pub const WheaRecoveryTypeMax: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(3);
+pub const WheapDpcErrBusNotFound: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(1);
+pub const WheapDpcErrDeviceIdBad: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(3);
+pub const WheapDpcErrDpcedSubtree: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(2);
+pub const WheapDpcErrNoChildren: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(5);
+pub const WheapDpcErrNoErr: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(0);
+pub const WheapDpcErrResetFailed: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(4);
+pub const WheapPfaOfflinePredictiveFailure: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(1);
+pub const WheapPfaOfflineUncorrectedError: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(2);
+pub const Width16Bits: DMA_WIDTH = DMA_WIDTH(1);
+pub const Width32Bits: DMA_WIDTH = DMA_WIDTH(2);
+pub const Width64Bits: DMA_WIDTH = DMA_WIDTH(3);
+pub const Width8Bits: DMA_WIDTH = DMA_WIDTH(0);
+pub const WidthNoWrap: DMA_WIDTH = DMA_WIDTH(4);
+pub const WormController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(16);
+pub const WrAlertByThreadId: KWAIT_REASON = KWAIT_REASON(37);
+pub const WrCalloutStack: KWAIT_REASON = KWAIT_REASON(25);
+pub const WrCpuRateControl: KWAIT_REASON = KWAIT_REASON(24);
+pub const WrDeferredPreempt: KWAIT_REASON = KWAIT_REASON(38);
+pub const WrDelayExecution: KWAIT_REASON = KWAIT_REASON(11);
+pub const WrDispatchInt: KWAIT_REASON = KWAIT_REASON(31);
+pub const WrExecutive: KWAIT_REASON = KWAIT_REASON(7);
+pub const WrFastMutex: KWAIT_REASON = KWAIT_REASON(34);
+pub const WrFreePage: KWAIT_REASON = KWAIT_REASON(8);
+pub const WrGuardedMutex: KWAIT_REASON = KWAIT_REASON(35);
+pub const WrIoRing: KWAIT_REASON = KWAIT_REASON(40);
+pub const WrKernel: KWAIT_REASON = KWAIT_REASON(26);
+pub const WrKeyedEvent: KWAIT_REASON = KWAIT_REASON(21);
+pub const WrLpcReceive: KWAIT_REASON = KWAIT_REASON(16);
+pub const WrLpcReply: KWAIT_REASON = KWAIT_REASON(17);
+pub const WrMdlCache: KWAIT_REASON = KWAIT_REASON(41);
+pub const WrMutex: KWAIT_REASON = KWAIT_REASON(29);
+pub const WrPageIn: KWAIT_REASON = KWAIT_REASON(9);
+pub const WrPageOut: KWAIT_REASON = KWAIT_REASON(19);
+pub const WrPhysicalFault: KWAIT_REASON = KWAIT_REASON(39);
+pub const WrPoolAllocation: KWAIT_REASON = KWAIT_REASON(10);
+pub const WrPreempted: KWAIT_REASON = KWAIT_REASON(32);
+pub const WrProcessInSwap: KWAIT_REASON = KWAIT_REASON(23);
+pub const WrPushLock: KWAIT_REASON = KWAIT_REASON(28);
+pub const WrQuantumEnd: KWAIT_REASON = KWAIT_REASON(30);
+pub const WrQueue: KWAIT_REASON = KWAIT_REASON(15);
+pub const WrRendezvous: KWAIT_REASON = KWAIT_REASON(20);
+pub const WrResource: KWAIT_REASON = KWAIT_REASON(27);
+pub const WrRundown: KWAIT_REASON = KWAIT_REASON(36);
+pub const WrSpare0: KWAIT_REASON = KWAIT_REASON(14);
+pub const WrSuspended: KWAIT_REASON = KWAIT_REASON(12);
+pub const WrTerminated: KWAIT_REASON = KWAIT_REASON(22);
+pub const WrUserRequest: KWAIT_REASON = KWAIT_REASON(13);
+pub const WrVirtualMemory: KWAIT_REASON = KWAIT_REASON(18);
+pub const WrYieldExecution: KWAIT_REASON = KWAIT_REASON(33);
+pub const WriteAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(1);
+pub const XPF_BUS_CHECK_ADDRESS_IO: u32 = 2;
+pub const XPF_BUS_CHECK_ADDRESS_MEMORY: u32 = 0;
+pub const XPF_BUS_CHECK_ADDRESS_OTHER: u32 = 3;
+pub const XPF_BUS_CHECK_ADDRESS_RESERVED: u32 = 1;
+pub const XPF_BUS_CHECK_OPERATION_DATAREAD: u32 = 3;
+pub const XPF_BUS_CHECK_OPERATION_DATAWRITE: u32 = 4;
+pub const XPF_BUS_CHECK_OPERATION_GENERIC: u32 = 0;
+pub const XPF_BUS_CHECK_OPERATION_GENREAD: u32 = 1;
+pub const XPF_BUS_CHECK_OPERATION_GENWRITE: u32 = 2;
+pub const XPF_BUS_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5;
+pub const XPF_BUS_CHECK_OPERATION_PREFETCH: u32 = 6;
+pub const XPF_BUS_CHECK_PARTICIPATION_GENERIC: u32 = 3;
+pub const XPF_BUS_CHECK_PARTICIPATION_PROCOBSERVED: u32 = 2;
+pub const XPF_BUS_CHECK_PARTICIPATION_PROCORIGINATED: u32 = 0;
+pub const XPF_BUS_CHECK_PARTICIPATION_PROCRESPONDED: u32 = 1;
+pub const XPF_BUS_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1;
+pub const XPF_BUS_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2;
+pub const XPF_BUS_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
+pub const XPF_CACHE_CHECK_OPERATION_DATAREAD: u32 = 3;
+pub const XPF_CACHE_CHECK_OPERATION_DATAWRITE: u32 = 4;
+pub const XPF_CACHE_CHECK_OPERATION_EVICTION: u32 = 7;
+pub const XPF_CACHE_CHECK_OPERATION_GENERIC: u32 = 0;
+pub const XPF_CACHE_CHECK_OPERATION_GENREAD: u32 = 1;
+pub const XPF_CACHE_CHECK_OPERATION_GENWRITE: u32 = 2;
+pub const XPF_CACHE_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5;
+pub const XPF_CACHE_CHECK_OPERATION_PREFETCH: u32 = 6;
+pub const XPF_CACHE_CHECK_OPERATION_SNOOP: u32 = 8;
+pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1;
+pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2;
+pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
+pub const XPF_CONTEXT_INFO_32BITCONTEXT: u32 = 2;
+pub const XPF_CONTEXT_INFO_32BITDEBUGREGS: u32 = 5;
+pub const XPF_CONTEXT_INFO_64BITCONTEXT: u32 = 3;
+pub const XPF_CONTEXT_INFO_64BITDEBUGREGS: u32 = 6;
+pub const XPF_CONTEXT_INFO_FXSAVE: u32 = 4;
+pub const XPF_CONTEXT_INFO_MMREGISTERS: u32 = 7;
+pub const XPF_CONTEXT_INFO_MSRREGISTERS: u32 = 1;
+pub const XPF_CONTEXT_INFO_UNCLASSIFIEDDATA: u32 = 0;
 pub const XPF_MCA_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8a1e1d01_42f9_4557_9c33_565e5cc3f7e8);
-pub const XPF_MS_CHECK_ERRORTYPE_EXTERNAL: u32 = 3u32;
-pub const XPF_MS_CHECK_ERRORTYPE_FRC: u32 = 4u32;
-pub const XPF_MS_CHECK_ERRORTYPE_INTERNALUNCLASSIFIED: u32 = 5u32;
-pub const XPF_MS_CHECK_ERRORTYPE_MCROMPARITY: u32 = 2u32;
-pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: u32 = 0u32;
-pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: u32 = 1u32;
+pub const XPF_MS_CHECK_ERRORTYPE_EXTERNAL: u32 = 3;
+pub const XPF_MS_CHECK_ERRORTYPE_FRC: u32 = 4;
+pub const XPF_MS_CHECK_ERRORTYPE_INTERNALUNCLASSIFIED: u32 = 5;
+pub const XPF_MS_CHECK_ERRORTYPE_MCROMPARITY: u32 = 2;
+pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: u32 = 0;
+pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: u32 = 1;
 pub const XPF_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdc3ea0b0_a144_4797_b95b_53fa242b6e1d);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -21830,16 +21830,16 @@ pub struct XPF_RECOVERY_INFO_0 {
 pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
 }
-pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3u32;
-pub const XPF_TLB_CHECK_OPERATION_DATAWRITE: u32 = 4u32;
-pub const XPF_TLB_CHECK_OPERATION_GENERIC: u32 = 0u32;
-pub const XPF_TLB_CHECK_OPERATION_GENREAD: u32 = 1u32;
-pub const XPF_TLB_CHECK_OPERATION_GENWRITE: u32 = 2u32;
-pub const XPF_TLB_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5u32;
-pub const XPF_TLB_CHECK_OPERATION_PREFETCH: u32 = 6u32;
-pub const XPF_TLB_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1u32;
-pub const XPF_TLB_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2u32;
-pub const XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0u32;
+pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3;
+pub const XPF_TLB_CHECK_OPERATION_DATAWRITE: u32 = 4;
+pub const XPF_TLB_CHECK_OPERATION_GENERIC: u32 = 0;
+pub const XPF_TLB_CHECK_OPERATION_GENREAD: u32 = 1;
+pub const XPF_TLB_CHECK_OPERATION_GENWRITE: u32 = 2;
+pub const XPF_TLB_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5;
+pub const XPF_TLB_CHECK_OPERATION_PREFETCH: u32 = 6;
+pub const XPF_TLB_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1;
+pub const XPF_TLB_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2;
+pub const XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -21957,7 +21957,7 @@ pub struct _EXT_SET_PARAMETERS_V0 {
     pub Reserved: u32,
     pub NoWakeTolerance: i64,
 }
-pub const _STRSAFE_USE_SECURE_CRT: u32 = 0u32;
+pub const _STRSAFE_USE_SECURE_CRT: u32 = 0;
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type _WHEA_ERROR_SOURCE_CORRECT = Option<unsafe extern "system" fn(errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, maximumsectionlength: *mut u32) -> windows_core::NTSTATUS>;
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -21967,9 +21967,9 @@ pub type _WHEA_ERROR_SOURCE_INITIALIZE = Option<unsafe extern "system" fn(phase:
 pub type _WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn(recoverycontext: *mut core::ffi::c_void, severity: *mut WHEA_ERROR_SEVERITY) -> windows_core::NTSTATUS>;
 pub type _WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn(context: usize) -> bool>;
-pub const __guid_type: u32 = 8192u32;
-pub const __multiString_type: u32 = 16384u32;
-pub const __string_type: u32 = 4096u32;
+pub const __guid_type: u32 = 8192;
+pub const __multiString_type: u32 = 16384;
+pub const __string_type: u32 = 4096;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type pHalAssignSlotResources = Option<unsafe extern "system" fn(registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING, driverclassname: *const super::super::super::Win32::Foundation::UNICODE_STRING, driverobject: *const super::super::Foundation::DRIVER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, bustype: INTERFACE_TYPE, busnumber: u32, slotnumber: u32, allocatedresources: *mut *mut CM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
 pub type pHalEndMirroring = Option<unsafe extern "system" fn(passnumber: u32) -> windows_core::NTSTATUS>;

@@ -93,12 +93,12 @@ impl windows_core::RuntimeName for ComponentRenewal {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
-    pub const TrustNotRequired: Self = Self(0i32);
-    pub const TrustEstablished: Self = Self(1i32);
-    pub const EnvironmentNotSupported: Self = Self(2i32);
-    pub const DriverNotSupported: Self = Self(3i32);
-    pub const DriverSigningFailure: Self = Self(4i32);
-    pub const UnknownFailure: Self = Self(5i32);
+    pub const TrustNotRequired: Self = Self(0);
+    pub const TrustEstablished: Self = Self(1);
+    pub const EnvironmentNotSupported: Self = Self(2);
+    pub const DriverNotSupported: Self = Self(3);
+    pub const DriverSigningFailure: Self = Self(4);
+    pub const UnknownFailure: Self = Self(5);
 }
 impl windows_core::TypeKind for GraphicsTrustStatus {
     type TypeKind = windows_core::CopyType;
@@ -111,9 +111,9 @@ impl windows_core::RuntimeType for GraphicsTrustStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const OnWithTypeEnforcement: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const OnWithTypeEnforcement: Self = Self(2);
 }
 impl windows_core::TypeKind for HdcpProtection {
     type TypeKind = windows_core::CopyType;
@@ -186,10 +186,10 @@ unsafe impl Sync for HdcpSession {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
-    pub const Success: Self = Self(0i32);
-    pub const TimedOut: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const UnknownFailure: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const TimedOut: Self = Self(1);
+    pub const NotSupported: Self = Self(2);
+    pub const UnknownFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for HdcpSetProtectionResult {
     type TypeKind = windows_core::CopyType;
@@ -591,9 +591,9 @@ unsafe impl Sync for ProtectionCapabilities {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
-    pub const NotSupported: Self = Self(0i32);
-    pub const Maybe: Self = Self(1i32);
-    pub const Probably: Self = Self(2i32);
+    pub const NotSupported: Self = Self(0);
+    pub const Maybe: Self = Self(1);
+    pub const Probably: Self = Self(2);
 }
 impl windows_core::TypeKind for ProtectionCapabilityResult {
     type TypeKind = windows_core::CopyType;
@@ -645,11 +645,11 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
-    pub const NotStarted: Self = Self(0i32);
-    pub const UpdatesInProgress: Self = Self(1i32);
-    pub const UserCancelled: Self = Self(2i32);
-    pub const AppComponentsMayNeedUpdating: Self = Self(3i32);
-    pub const NoComponentsFound: Self = Self(4i32);
+    pub const NotStarted: Self = Self(0);
+    pub const UpdatesInProgress: Self = Self(1);
+    pub const UserCancelled: Self = Self(2);
+    pub const AppComponentsMayNeedUpdating: Self = Self(3);
+    pub const NoComponentsFound: Self = Self(4);
 }
 impl windows_core::TypeKind for RenewalStatus {
     type TypeKind = windows_core::CopyType;
@@ -734,21 +734,21 @@ unsafe impl Sync for RevocationAndRenewalItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
-    pub const UserModeComponentLoad: Self = Self(1u32);
-    pub const KernelModeComponentLoad: Self = Self(2u32);
-    pub const AppComponent: Self = Self(4u32);
-    pub const GlobalRevocationListLoadFailed: Self = Self(16u32);
-    pub const InvalidGlobalRevocationListSignature: Self = Self(32u32);
-    pub const GlobalRevocationListAbsent: Self = Self(4096u32);
-    pub const ComponentRevoked: Self = Self(8192u32);
-    pub const InvalidComponentCertificateExtendedKeyUse: Self = Self(16384u32);
-    pub const ComponentCertificateRevoked: Self = Self(32768u32);
-    pub const InvalidComponentCertificateRoot: Self = Self(65536u32);
-    pub const ComponentHighSecurityCertificateRevoked: Self = Self(131072u32);
-    pub const ComponentLowSecurityCertificateRevoked: Self = Self(262144u32);
-    pub const BootDriverVerificationFailed: Self = Self(1048576u32);
-    pub const ComponentSignedWithTestCertificate: Self = Self(16777216u32);
-    pub const EncryptionFailure: Self = Self(268435456u32);
+    pub const UserModeComponentLoad: Self = Self(1);
+    pub const KernelModeComponentLoad: Self = Self(2);
+    pub const AppComponent: Self = Self(4);
+    pub const GlobalRevocationListLoadFailed: Self = Self(16);
+    pub const InvalidGlobalRevocationListSignature: Self = Self(32);
+    pub const GlobalRevocationListAbsent: Self = Self(4096);
+    pub const ComponentRevoked: Self = Self(8192);
+    pub const InvalidComponentCertificateExtendedKeyUse: Self = Self(16384);
+    pub const ComponentCertificateRevoked: Self = Self(32768);
+    pub const InvalidComponentCertificateRoot: Self = Self(65536);
+    pub const ComponentHighSecurityCertificateRevoked: Self = Self(131072);
+    pub const ComponentLowSecurityCertificateRevoked: Self = Self(262144);
+    pub const BootDriverVerificationFailed: Self = Self(1048576);
+    pub const ComponentSignedWithTestCertificate: Self = Self(16777216);
+    pub const EncryptionFailure: Self = Self(268435456);
 }
 impl windows_core::TypeKind for RevocationAndRenewalReasons {
     type TypeKind = windows_core::CopyType;

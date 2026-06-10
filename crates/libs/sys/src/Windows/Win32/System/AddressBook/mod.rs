@@ -407,7 +407,7 @@ pub const E_IMAPI_RECORDER_NO_SUCH_MODE_PAGE: windows_sys::core::HRESULT = 0xC0A
 pub const E_IMAPI_RECORDER_REQUIRED: windows_sys::core::HRESULT = 0xC0AA0003_u32 as _;
 pub const E_IMAPI_REQUEST_CANCELLED: windows_sys::core::HRESULT = 0xC0AA0002_u32 as _;
 pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: windows_sys::core::HRESULT = 0xC0AA0301_u32 as _;
-pub const FACILITY_IMAPI2: u32 = 170u32;
+pub const FACILITY_IMAPI2: u32 = 170;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLATENTRY {
@@ -582,25 +582,25 @@ impl Default for MAPIUID {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MAPI_COMPOUND: u32 = 128u32;
-pub const MAPI_DIM: u32 = 1u32;
-pub const MAPI_ERROR_VERSION: i32 = 0i32;
-pub const MAPI_E_CALL_FAILED: i32 = -2147467259i32;
-pub const MAPI_E_INTERFACE_NOT_SUPPORTED: i32 = -2147467262i32;
-pub const MAPI_E_INVALID_PARAMETER: i32 = -2147024809i32;
-pub const MAPI_E_NOT_ENOUGH_MEMORY: i32 = -2147024882i32;
-pub const MAPI_E_NO_ACCESS: i32 = -2147024891i32;
-pub const MAPI_NOTRECIP: u32 = 64u32;
-pub const MAPI_NOTRESERVED: u32 = 8u32;
-pub const MAPI_NOW: u32 = 16u32;
-pub const MAPI_ONE_OFF_NO_RICH_INFO: u32 = 1u32;
-pub const MAPI_P1: u32 = 268435456u32;
-pub const MAPI_SHORTTERM: u32 = 128u32;
-pub const MAPI_SUBMITTED: u32 = 2147483648u32;
-pub const MAPI_THISSESSION: u32 = 32u32;
-pub const MAPI_USE_DEFAULT: u32 = 64u32;
-pub const MNID_ID: u32 = 0u32;
-pub const MNID_STRING: u32 = 1u32;
+pub const MAPI_COMPOUND: u32 = 128;
+pub const MAPI_DIM: u32 = 1;
+pub const MAPI_ERROR_VERSION: i32 = 0;
+pub const MAPI_E_CALL_FAILED: i32 = -2147467259;
+pub const MAPI_E_INTERFACE_NOT_SUPPORTED: i32 = -2147467262;
+pub const MAPI_E_INVALID_PARAMETER: i32 = -2147024809;
+pub const MAPI_E_NOT_ENOUGH_MEMORY: i32 = -2147024882;
+pub const MAPI_E_NO_ACCESS: i32 = -2147024891;
+pub const MAPI_NOTRECIP: u32 = 64;
+pub const MAPI_NOTRESERVED: u32 = 8;
+pub const MAPI_NOW: u32 = 16;
+pub const MAPI_ONE_OFF_NO_RICH_INFO: u32 = 1;
+pub const MAPI_P1: u32 = 268435456;
+pub const MAPI_SHORTTERM: u32 = 128;
+pub const MAPI_SUBMITTED: u32 = 2147483648;
+pub const MAPI_THISSESSION: u32 = 32;
+pub const MAPI_USE_DEFAULT: u32 = 64;
+pub const MNID_ID: u32 = 0;
+pub const MNID_STRING: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MTSID {
@@ -612,8 +612,8 @@ impl Default for MTSID {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MV_FLAG: u32 = 4096u32;
-pub const MV_INSTANCE: u32 = 8192u32;
+pub const MV_FLAG: u32 = 4096;
+pub const MV_INSTANCE: u32 = 8192;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NEWMAIL_NOTIFICATION {
@@ -693,13 +693,13 @@ impl Default for OBJECT_NOTIFICATION {
 }
 pub const OPENSTREAMONFILE: windows_sys::core::PCSTR = windows_sys::core::s!("OpenStreamOnFile");
 pub type PFNIDLE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub const PRIHIGHEST: u32 = 32767u32;
-pub const PRILOWEST: i32 = -32768i32;
-pub const PRIUSER: u32 = 0u32;
-pub const PROP_ID_INVALID: u32 = 65535u32;
-pub const PROP_ID_NULL: u32 = 0u32;
-pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
-pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
+pub const PRIHIGHEST: u32 = 32767;
+pub const PRILOWEST: i32 = -32768;
+pub const PRIUSER: u32 = 0;
+pub const PROP_ID_INVALID: u32 = 65535;
+pub const PROP_ID_NULL: u32 = 0;
+pub const PROP_ID_SECURE_MAX: u32 = 26623;
+pub const PROP_ID_SECURE_MIN: u32 = 26608;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -823,8 +823,8 @@ impl Default for SDoubleArray {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SERVICE_UI_ALLOWED: u32 = 16u32;
-pub const SERVICE_UI_ALWAYS: u32 = 2u32;
+pub const SERVICE_UI_ALLOWED: u32 = 16;
+pub const SERVICE_UI_ALWAYS: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SExistRestriction {
@@ -1114,8 +1114,8 @@ pub const S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS: windows_sys::core::HRESU
 pub const S_IMAPI_ROTATIONADJUSTED: windows_sys::core::HRESULT = 0xAA0005_u32 as _;
 pub const S_IMAPI_SPEEDADJUSTED: windows_sys::core::HRESULT = 0xAA0004_u32 as _;
 pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: windows_sys::core::HRESULT = 0xAA0302_u32 as _;
-pub const TABLE_CHANGED: u32 = 1u32;
-pub const TABLE_ERROR: u32 = 2u32;
+pub const TABLE_CHANGED: u32 = 1;
+pub const TABLE_ERROR: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -1133,16 +1133,16 @@ impl Default for TABLE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TABLE_RELOAD: u32 = 9u32;
-pub const TABLE_RESTRICT_DONE: u32 = 7u32;
-pub const TABLE_ROW_ADDED: u32 = 3u32;
-pub const TABLE_ROW_DELETED: u32 = 4u32;
-pub const TABLE_ROW_MODIFIED: u32 = 5u32;
-pub const TABLE_SETCOL_DONE: u32 = 8u32;
-pub const TABLE_SORT_DONE: u32 = 6u32;
-pub const TAD_ALL_ROWS: u32 = 1u32;
-pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
-pub const UI_SERVICE: u32 = 2u32;
+pub const TABLE_RELOAD: u32 = 9;
+pub const TABLE_RESTRICT_DONE: u32 = 7;
+pub const TABLE_ROW_ADDED: u32 = 3;
+pub const TABLE_ROW_DELETED: u32 = 4;
+pub const TABLE_ROW_MODIFIED: u32 = 5;
+pub const TABLE_SETCOL_DONE: u32 = 8;
+pub const TABLE_SORT_DONE: u32 = 6;
+pub const TAD_ALL_ROWS: u32 = 1;
+pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4;
+pub const UI_SERVICE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WABEXTDISPLAY {
@@ -1175,17 +1175,17 @@ impl Default for WABIMPORTPARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
-pub const WABOBJECT_ME_NEW: u32 = 1u32;
-pub const WABOBJECT_ME_NOCREATE: u32 = 2u32;
-pub const WAB_CONTEXT_ADRLIST: u32 = 2u32;
-pub const WAB_DISPLAY_ISNTDS: u32 = 4u32;
-pub const WAB_DISPLAY_LDAPURL: u32 = 1u32;
+pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1;
+pub const WABOBJECT_ME_NEW: u32 = 1;
+pub const WABOBJECT_ME_NOCREATE: u32 = 2;
+pub const WAB_CONTEXT_ADRLIST: u32 = 2;
+pub const WAB_DISPLAY_ISNTDS: u32 = 4;
+pub const WAB_DISPLAY_LDAPURL: u32 = 1;
 pub const WAB_DLL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("WAB32.DLL");
 pub const WAB_DLL_PATH_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\WAB\\DLLPath");
-pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
-pub const WAB_IGNORE_PROFILES: u32 = 8388608u32;
-pub const WAB_LOCAL_CONTAINERS: u32 = 1048576u32;
+pub const WAB_ENABLE_PROFILES: u32 = 4194304;
+pub const WAB_IGNORE_PROFILES: u32 = 8388608;
+pub const WAB_LOCAL_CONTAINERS: u32 = 1048576;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAB_PARAM {
@@ -1200,10 +1200,10 @@ impl Default for WAB_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
-pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
-pub const WAB_VCARD_FILE: u32 = 0u32;
-pub const WAB_VCARD_STREAM: u32 = 1u32;
+pub const WAB_PROFILE_CONTENTS: u32 = 2097152;
+pub const WAB_USE_OE_SENDMAIL: u32 = 1;
+pub const WAB_VCARD_FILE: u32 = 0;
+pub const WAB_VCARD_STREAM: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -1243,13 +1243,13 @@ impl Default for __UPV {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const cchProfileNameMax: u32 = 64u32;
-pub const cchProfilePassMax: u32 = 64u32;
-pub const fMapiUnicode: u32 = 0u32;
-pub const genderFemale: Gender = 1i32;
-pub const genderMale: Gender = 2i32;
-pub const genderUnspecified: Gender = 0i32;
-pub const hrSuccess: u32 = 0u32;
+pub const cchProfileNameMax: u32 = 64;
+pub const cchProfilePassMax: u32 = 64;
+pub const fMapiUnicode: u32 = 0;
+pub const genderFemale: Gender = 1;
+pub const genderMale: Gender = 2;
+pub const genderUnspecified: Gender = 0;
+pub const hrSuccess: u32 = 0;
 pub const szHrDispatchNotifications: windows_sys::core::PCSTR = windows_sys::core::s!("HrDispatchNotifications");
 pub const szMAPINotificationMsg: windows_sys::core::PCSTR = windows_sys::core::s!("MAPI Notify window message");
 pub const szScCreateConversationIndex: windows_sys::core::PCSTR = windows_sys::core::s!("ScCreateConversationIndex");

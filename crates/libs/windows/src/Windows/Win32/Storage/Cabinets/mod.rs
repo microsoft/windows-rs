@@ -59,11 +59,11 @@ where
     windows_core::link!("cabinet.dll" "C" fn FDITruncateCabinet(hfdi : *const core::ffi::c_void, pszcabinetname : windows_core::PCSTR, ifoldertodelete : u16) -> windows_core::BOOL);
     unsafe { FDITruncateCabinet(hfdi, pszcabinetname.param().abi(), ifoldertodelete) }
 }
-pub const CB_MAX_CABINET_NAME: u32 = 256u32;
-pub const CB_MAX_CAB_PATH: u32 = 256u32;
-pub const CB_MAX_DISK: i32 = 2147483647i32;
-pub const CB_MAX_DISK_NAME: u32 = 256u32;
-pub const CB_MAX_FILENAME: u32 = 256u32;
+pub const CB_MAX_CABINET_NAME: u32 = 256;
+pub const CB_MAX_CAB_PATH: u32 = 256;
+pub const CB_MAX_DISK: i32 = 2147483647;
+pub const CB_MAX_DISK_NAME: u32 = 256;
+pub const CB_MAX_FILENAME: u32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCAB {
@@ -95,16 +95,16 @@ pub struct ERF {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FCIERROR(pub i32);
-pub const FCIERR_ALLOC_FAIL: FCIERROR = FCIERROR(3i32);
-pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = FCIERROR(5i32);
-pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
-pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
-pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
-pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
-pub const FCIERR_OPEN_SRC: FCIERROR = FCIERROR(1i32);
-pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2i32);
-pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4i32);
-pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
+pub const FCIERR_ALLOC_FAIL: FCIERROR = FCIERROR(3);
+pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = FCIERROR(5);
+pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6);
+pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9);
+pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8);
+pub const FCIERR_NONE: FCIERROR = FCIERROR(0);
+pub const FCIERR_OPEN_SRC: FCIERROR = FCIERROR(1);
+pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2);
+pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4);
+pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FDICABINETINFO {
@@ -190,19 +190,19 @@ pub struct FDIDECRYPTTYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDIERROR(pub i32);
-pub const FDIERROR_ALLOC_FAIL: FDIERROR = FDIERROR(5i32);
-pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = FDIERROR(6i32);
-pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = FDIERROR(1i32);
-pub const FDIERROR_CORRUPT_CABINET: FDIERROR = FDIERROR(4i32);
-pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
-pub const FDIERROR_MDI_FAIL: FDIERROR = FDIERROR(7i32);
-pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
-pub const FDIERROR_NOT_A_CABINET: FDIERROR = FDIERROR(2i32);
-pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
-pub const FDIERROR_TARGET_FILE: FDIERROR = FDIERROR(8i32);
-pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = FDIERROR(3i32);
-pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
-pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
+pub const FDIERROR_ALLOC_FAIL: FDIERROR = FDIERROR(5);
+pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = FDIERROR(6);
+pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = FDIERROR(1);
+pub const FDIERROR_CORRUPT_CABINET: FDIERROR = FDIERROR(4);
+pub const FDIERROR_EOF: FDIERROR = FDIERROR(12);
+pub const FDIERROR_MDI_FAIL: FDIERROR = FDIERROR(7);
+pub const FDIERROR_NONE: FDIERROR = FDIERROR(0);
+pub const FDIERROR_NOT_A_CABINET: FDIERROR = FDIERROR(2);
+pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9);
+pub const FDIERROR_TARGET_FILE: FDIERROR = FDIERROR(8);
+pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = FDIERROR(3);
+pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11);
+pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDINOTIFICATION {
@@ -254,9 +254,9 @@ impl Default for FDISPILLFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const INCLUDED_FCI: u32 = 1u32;
-pub const INCLUDED_FDI: u32 = 1u32;
-pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
+pub const INCLUDED_FCI: u32 = 1;
+pub const INCLUDED_FDI: u32 = 1;
+pub const INCLUDED_TYPES_FCI_FDI: u32 = 1;
 pub type PFNALLOC = Option<unsafe extern "C" fn(cb: u32) -> *mut core::ffi::c_void>;
 pub type PFNCLOSE = Option<unsafe extern "C" fn(hf: isize) -> i32>;
 pub type PFNFCIALLOC = Option<unsafe extern "C" fn(cb: u32) -> *mut core::ffi::c_void>;
@@ -279,39 +279,39 @@ pub type PFNOPEN = Option<unsafe extern "C" fn(pszfile: windows_core::PCSTR, ofl
 pub type PFNREAD = Option<unsafe extern "C" fn(hf: isize, pv: *mut core::ffi::c_void, cb: u32) -> u32>;
 pub type PFNSEEK = Option<unsafe extern "C" fn(hf: isize, dist: i32, seektype: i32) -> i32>;
 pub type PFNWRITE = Option<unsafe extern "C" fn(hf: isize, pv: *const core::ffi::c_void, cb: u32) -> u32>;
-pub const _A_EXEC: u32 = 64u32;
-pub const _A_NAME_IS_UTF: u32 = 128u32;
-pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0i32);
-pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1i32);
-pub const cpuUNKNOWN: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(-1i32);
-pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2i32);
-pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
-pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1i32);
-pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);
-pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
-pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
-pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
-pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
-pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(1i32);
-pub const statusCabinet: u32 = 2u32;
-pub const statusFile: u32 = 0u32;
-pub const statusFolder: u32 = 1u32;
-pub const tcompBAD: u32 = 15u32;
-pub const tcompLZX_WINDOW_HI: u32 = 5376u32;
-pub const tcompLZX_WINDOW_LO: u32 = 3840u32;
-pub const tcompMASK_LZX_WINDOW: u32 = 7936u32;
-pub const tcompMASK_QUANTUM_LEVEL: u32 = 240u32;
-pub const tcompMASK_QUANTUM_MEM: u32 = 7936u32;
-pub const tcompMASK_RESERVED: u32 = 57344u32;
-pub const tcompMASK_TYPE: u32 = 15u32;
-pub const tcompQUANTUM_LEVEL_HI: u32 = 112u32;
-pub const tcompQUANTUM_LEVEL_LO: u32 = 16u32;
-pub const tcompQUANTUM_MEM_HI: u32 = 5376u32;
-pub const tcompQUANTUM_MEM_LO: u32 = 2560u32;
-pub const tcompSHIFT_LZX_WINDOW: u32 = 8u32;
-pub const tcompSHIFT_QUANTUM_LEVEL: u32 = 4u32;
-pub const tcompSHIFT_QUANTUM_MEM: u32 = 8u32;
-pub const tcompTYPE_LZX: u32 = 3u32;
-pub const tcompTYPE_MSZIP: u32 = 1u32;
-pub const tcompTYPE_NONE: u32 = 0u32;
-pub const tcompTYPE_QUANTUM: u32 = 2u32;
+pub const _A_EXEC: u32 = 64;
+pub const _A_NAME_IS_UTF: u32 = 128;
+pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0);
+pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1);
+pub const cpuUNKNOWN: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(-1);
+pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2);
+pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0);
+pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1);
+pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0);
+pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3);
+pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2);
+pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5);
+pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4);
+pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(1);
+pub const statusCabinet: u32 = 2;
+pub const statusFile: u32 = 0;
+pub const statusFolder: u32 = 1;
+pub const tcompBAD: u32 = 15;
+pub const tcompLZX_WINDOW_HI: u32 = 5376;
+pub const tcompLZX_WINDOW_LO: u32 = 3840;
+pub const tcompMASK_LZX_WINDOW: u32 = 7936;
+pub const tcompMASK_QUANTUM_LEVEL: u32 = 240;
+pub const tcompMASK_QUANTUM_MEM: u32 = 7936;
+pub const tcompMASK_RESERVED: u32 = 57344;
+pub const tcompMASK_TYPE: u32 = 15;
+pub const tcompQUANTUM_LEVEL_HI: u32 = 112;
+pub const tcompQUANTUM_LEVEL_LO: u32 = 16;
+pub const tcompQUANTUM_MEM_HI: u32 = 5376;
+pub const tcompQUANTUM_MEM_LO: u32 = 2560;
+pub const tcompSHIFT_LZX_WINDOW: u32 = 8;
+pub const tcompSHIFT_QUANTUM_LEVEL: u32 = 4;
+pub const tcompSHIFT_QUANTUM_MEM: u32 = 8;
+pub const tcompTYPE_LZX: u32 = 3;
+pub const tcompTYPE_MSZIP: u32 = 1;
+pub const tcompTYPE_NONE: u32 = 0;
+pub const tcompTYPE_QUANTUM: u32 = 2;

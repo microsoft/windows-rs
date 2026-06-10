@@ -74,11 +74,11 @@ unsafe impl Sync for AutomationRemoteOperationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationRemoteOperationStatus(pub i32);
 impl AutomationRemoteOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const MalformedBytecode: Self = Self(1i32);
-    pub const InstructionLimitExceeded: Self = Self(2i32);
-    pub const UnhandledException: Self = Self(3i32);
-    pub const ExecutionFailure: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const MalformedBytecode: Self = Self(1);
+    pub const InstructionLimitExceeded: Self = Self(2);
+    pub const UnhandledException: Self = Self(3);
+    pub const ExecutionFailure: Self = Self(4);
 }
 impl windows_core::TypeKind for AutomationRemoteOperationStatus {
     type TypeKind = windows_core::CopyType;

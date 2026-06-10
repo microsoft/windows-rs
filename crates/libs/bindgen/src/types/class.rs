@@ -116,7 +116,7 @@ impl Class {
             }
         );
 
-        let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
+        let factories: Vec<_> = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
                     None
@@ -151,7 +151,7 @@ impl Class {
                     }
                 }
                 _ => None,
-            });
+            }).collect();
 
         if let Some(default_interface) = self.default_interface(config.reader) {
             if default_interface.is_async() {
@@ -272,6 +272,19 @@ impl Class {
                 quote! {}
             };
 
+            let impl_block = if new.is_none() && methods.is_empty() && factories.is_empty() {
+                quote! {}
+            } else {
+                quote! {
+                    #cfg
+                    impl #name {
+                        #new
+                        #methods
+                        #(#factories)*
+                    }
+                }
+            };
+
             quote! {
                 #cfg
                 #[repr(transparent)]
@@ -280,12 +293,7 @@ impl Class {
                 #cfg
                 #interface_hierarchy
                 #required_hierarchy
-                #cfg
-                impl #name {
-                    #new
-                    #methods
-                    #(#factories)*
-                }
+                #impl_block
                 #cfg
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, #default_interface>();
@@ -301,14 +309,22 @@ impl Class {
                 #into_iterator
             }
         } else {
+            let impl_block = if methods.is_empty() && factories.is_empty() {
+                quote! {}
+            } else {
+                quote! {
+                    #cfg
+                    impl #name {
+                        #methods
+                        #(#factories)*
+                    }
+                }
+            };
+
             quote! {
                 #cfg
                 pub struct #name;
-                #cfg
-                impl #name {
-                    #methods
-                    #(#factories)*
-                }
+                #impl_block
                 #runtime_name
             }
         }

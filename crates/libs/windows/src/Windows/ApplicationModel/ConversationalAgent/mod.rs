@@ -248,14 +248,14 @@ unsafe impl Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SignalIdNotAvailable: Self = Self(1i32);
-    pub const ModelIdNotSupported: Self = Self(2i32);
-    pub const InvalidSignalId: Self = Self(3i32);
-    pub const InvalidModelId: Self = Self(4i32);
-    pub const InvalidDisplayName: Self = Self(5i32);
-    pub const ConfigurationAlreadyExists: Self = Self(6i32);
-    pub const CreationNotSupported: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const SignalIdNotAvailable: Self = Self(1);
+    pub const ModelIdNotSupported: Self = Self(2);
+    pub const InvalidSignalId: Self = Self(3);
+    pub const InvalidModelId: Self = Self(4);
+    pub const InvalidDisplayName: Self = Self(5);
+    pub const ConfigurationAlreadyExists: Self = Self(6);
+    pub const CreationNotSupported: Self = Self(7);
 }
 impl windows_core::TypeKind for ActivationSignalDetectionConfigurationCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -268,10 +268,10 @@ impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreatio
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
 impl ActivationSignalDetectionConfigurationRemovalResult {
-    pub const Success: Self = Self(0i32);
-    pub const NotFound: Self = Self(1i32);
-    pub const CurrentlyEnabled: Self = Self(2i32);
-    pub const RemovalNotSupported: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const NotFound: Self = Self(1);
+    pub const CurrentlyEnabled: Self = Self(2);
+    pub const RemovalNotSupported: Self = Self(3);
 }
 impl windows_core::TypeKind for ActivationSignalDetectionConfigurationRemovalResult {
     type TypeKind = windows_core::CopyType;
@@ -284,14 +284,14 @@ impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationRemoval
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
 impl ActivationSignalDetectionConfigurationSetModelDataResult {
-    pub const Success: Self = Self(0i32);
-    pub const EmptyModelData: Self = Self(1i32);
-    pub const UnsupportedFormat: Self = Self(2i32);
-    pub const ConfigurationCurrentlyEnabled: Self = Self(3i32);
-    pub const InvalidData: Self = Self(4i32);
-    pub const SetModelDataNotSupported: Self = Self(5i32);
-    pub const ConfigurationNotFound: Self = Self(6i32);
-    pub const UnknownError: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const EmptyModelData: Self = Self(1);
+    pub const UnsupportedFormat: Self = Self(2);
+    pub const ConfigurationCurrentlyEnabled: Self = Self(3);
+    pub const InvalidData: Self = Self(4);
+    pub const SetModelDataNotSupported: Self = Self(5);
+    pub const ConfigurationNotFound: Self = Self(6);
+    pub const UnknownError: Self = Self(7);
 }
 impl windows_core::TypeKind for ActivationSignalDetectionConfigurationSetModelDataResult {
     type TypeKind = windows_core::CopyType;
@@ -304,9 +304,9 @@ impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationSetMode
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
 impl ActivationSignalDetectionConfigurationStateChangeResult {
-    pub const Success: Self = Self(0i32);
-    pub const NoModelData: Self = Self(1i32);
-    pub const ConfigurationNotFound: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const NoModelData: Self = Self(1);
+    pub const ConfigurationNotFound: Self = Self(2);
 }
 impl windows_core::TypeKind for ActivationSignalDetectionConfigurationStateChangeResult {
     type TypeKind = windows_core::CopyType;
@@ -319,17 +319,17 @@ impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationStateCh
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
 impl ActivationSignalDetectionTrainingDataFormat {
-    pub const Voice8kHz8BitMono: Self = Self(0i32);
-    pub const Voice8kHz16BitMono: Self = Self(1i32);
-    pub const Voice16kHz8BitMono: Self = Self(2i32);
-    pub const Voice16kHz16BitMono: Self = Self(3i32);
-    pub const VoiceOEMDefined: Self = Self(4i32);
-    pub const Audio44kHz8BitMono: Self = Self(5i32);
-    pub const Audio44kHz16BitMono: Self = Self(6i32);
-    pub const Audio48kHz8BitMono: Self = Self(7i32);
-    pub const Audio48kHz16BitMono: Self = Self(8i32);
-    pub const AudioOEMDefined: Self = Self(9i32);
-    pub const OtherOEMDefined: Self = Self(10i32);
+    pub const Voice8kHz8BitMono: Self = Self(0);
+    pub const Voice8kHz16BitMono: Self = Self(1);
+    pub const Voice16kHz8BitMono: Self = Self(2);
+    pub const Voice16kHz16BitMono: Self = Self(3);
+    pub const VoiceOEMDefined: Self = Self(4);
+    pub const Audio44kHz8BitMono: Self = Self(5);
+    pub const Audio44kHz16BitMono: Self = Self(6);
+    pub const Audio48kHz8BitMono: Self = Self(7);
+    pub const Audio48kHz16BitMono: Self = Self(8);
+    pub const AudioOEMDefined: Self = Self(9);
+    pub const OtherOEMDefined: Self = Self(10);
 }
 impl windows_core::TypeKind for ActivationSignalDetectionTrainingDataFormat {
     type TypeKind = windows_core::CopyType;
@@ -499,9 +499,9 @@ unsafe impl Sync for ActivationSignalDetector {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
-    pub const AudioPattern: Self = Self(0i32);
-    pub const AudioImpulse: Self = Self(1i32);
-    pub const HardwareEvent: Self = Self(2i32);
+    pub const AudioPattern: Self = Self(0);
+    pub const AudioImpulse: Self = Self(1);
+    pub const HardwareEvent: Self = Self(2);
 }
 impl windows_core::TypeKind for ActivationSignalDetectorKind {
     type TypeKind = windows_core::CopyType;
@@ -514,9 +514,9 @@ impl windows_core::RuntimeType for ActivationSignalDetectorKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivationSignalDetectorPowerState(pub i32);
 impl ActivationSignalDetectorPowerState {
-    pub const HighPower: Self = Self(0i32);
-    pub const ConnectedLowPower: Self = Self(1i32);
-    pub const DisconnectedLowPower: Self = Self(2i32);
+    pub const HighPower: Self = Self(0);
+    pub const ConnectedLowPower: Self = Self(1);
+    pub const DisconnectedLowPower: Self = Self(2);
 }
 impl windows_core::TypeKind for ActivationSignalDetectorPowerState {
     type TypeKind = windows_core::CopyType;
@@ -529,8 +529,8 @@ impl windows_core::RuntimeType for ActivationSignalDetectorPowerState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConversationalAgentActivationKind(pub i32);
 impl ConversationalAgentActivationKind {
-    pub const VoiceActivationPreview: Self = Self(0i32);
-    pub const Foreground: Self = Self(1i32);
+    pub const VoiceActivationPreview: Self = Self(0);
+    pub const Foreground: Self = Self(1);
 }
 impl windows_core::TypeKind for ConversationalAgentActivationKind {
     type TypeKind = windows_core::CopyType;
@@ -543,10 +543,10 @@ impl windows_core::RuntimeType for ConversationalAgentActivationKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConversationalAgentActivationResult(pub i32);
 impl ConversationalAgentActivationResult {
-    pub const Success: Self = Self(0i32);
-    pub const AgentInactive: Self = Self(1i32);
-    pub const ScreenNotAvailable: Self = Self(2i32);
-    pub const AgentInterrupted: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const AgentInactive: Self = Self(1);
+    pub const ScreenNotAvailable: Self = Self(2);
+    pub const AgentInterrupted: Self = Self(3);
 }
 impl windows_core::TypeKind for ConversationalAgentActivationResult {
     type TypeKind = windows_core::CopyType;
@@ -915,7 +915,6 @@ unsafe impl Sync for ConversationalAgentSession {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ConversationalAgentSessionInterruptedEventArgs {}
 impl windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSessionInterruptedEventArgs>();
 }
@@ -932,8 +931,8 @@ unsafe impl Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
-    pub const Success: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
+    pub const Success: Self = Self(0);
+    pub const Failed: Self = Self(1);
 }
 impl windows_core::TypeKind for ConversationalAgentSessionUpdateResponse {
     type TypeKind = windows_core::CopyType;
@@ -1035,7 +1034,6 @@ unsafe impl Sync for ConversationalAgentSignal {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentSignalDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ConversationalAgentSignalDetectedEventArgs {}
 impl windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignalDetectedEventArgs>();
 }
@@ -1052,12 +1050,12 @@ unsafe impl Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
-    pub const Inactive: Self = Self(0i32);
-    pub const Detecting: Self = Self(1i32);
-    pub const Listening: Self = Self(2i32);
-    pub const Working: Self = Self(3i32);
-    pub const Speaking: Self = Self(4i32);
-    pub const ListeningAndSpeaking: Self = Self(5i32);
+    pub const Inactive: Self = Self(0);
+    pub const Detecting: Self = Self(1);
+    pub const Listening: Self = Self(2);
+    pub const Working: Self = Self(3);
+    pub const Speaking: Self = Self(4);
+    pub const ListeningAndSpeaking: Self = Self(5);
 }
 impl windows_core::TypeKind for ConversationalAgentState {
     type TypeKind = windows_core::CopyType;
@@ -1070,10 +1068,10 @@ impl windows_core::RuntimeType for ConversationalAgentState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConversationalAgentSystemStateChangeType(pub i32);
 impl ConversationalAgentSystemStateChangeType {
-    pub const UserAuthentication: Self = Self(0i32);
-    pub const ScreenAvailability: Self = Self(1i32);
-    pub const IndicatorLightAvailability: Self = Self(2i32);
-    pub const VoiceActivationAvailability: Self = Self(3i32);
+    pub const UserAuthentication: Self = Self(0);
+    pub const ScreenAvailability: Self = Self(1);
+    pub const IndicatorLightAvailability: Self = Self(2);
+    pub const VoiceActivationAvailability: Self = Self(3);
 }
 impl windows_core::TypeKind for ConversationalAgentSystemStateChangeType {
     type TypeKind = windows_core::CopyType;
@@ -1110,12 +1108,12 @@ unsafe impl Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
-    pub const MicrophonePermission: Self = Self(0i32);
-    pub const KnownAgents: Self = Self(1i32);
-    pub const AgentAllowed: Self = Self(2i32);
-    pub const AppCapability: Self = Self(3i32);
-    pub const BackgroundTaskRegistration: Self = Self(4i32);
-    pub const PolicyPermission: Self = Self(5i32);
+    pub const MicrophonePermission: Self = Self(0);
+    pub const KnownAgents: Self = Self(1);
+    pub const AgentAllowed: Self = Self(2);
+    pub const AppCapability: Self = Self(3);
+    pub const BackgroundTaskRegistration: Self = Self(4);
+    pub const PolicyPermission: Self = Self(5);
 }
 impl windows_core::TypeKind for ConversationalAgentVoiceActivationPrerequisiteKind {
     type TypeKind = windows_core::CopyType;
@@ -1128,9 +1126,9 @@ impl windows_core::RuntimeType for ConversationalAgentVoiceActivationPrerequisit
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
 impl DetectionConfigurationAvailabilityChangeKind {
-    pub const SystemResourceAccess: Self = Self(0i32);
-    pub const Permission: Self = Self(1i32);
-    pub const LockScreenPermission: Self = Self(2i32);
+    pub const SystemResourceAccess: Self = Self(0);
+    pub const Permission: Self = Self(1);
+    pub const LockScreenPermission: Self = Self(2);
 }
 impl windows_core::TypeKind for DetectionConfigurationAvailabilityChangeKind {
     type TypeKind = windows_core::CopyType;
@@ -1216,16 +1214,16 @@ unsafe impl Sync for DetectionConfigurationAvailabilityInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FormatNotSupported: Self = Self(1i32);
-    pub const VoiceTooQuiet: Self = Self(2i32);
-    pub const VoiceTooLoud: Self = Self(3i32);
-    pub const VoiceTooFast: Self = Self(4i32);
-    pub const VoiceTooSlow: Self = Self(5i32);
-    pub const VoiceQualityProblem: Self = Self(6i32);
-    pub const TrainingSystemInternalError: Self = Self(7i32);
-    pub const TrainingTimedOut: Self = Self(8i32);
-    pub const ConfigurationNotFound: Self = Self(9i32);
+    pub const Success: Self = Self(0);
+    pub const FormatNotSupported: Self = Self(1);
+    pub const VoiceTooQuiet: Self = Self(2);
+    pub const VoiceTooLoud: Self = Self(3);
+    pub const VoiceTooFast: Self = Self(4);
+    pub const VoiceTooSlow: Self = Self(5);
+    pub const VoiceQualityProblem: Self = Self(6);
+    pub const TrainingSystemInternalError: Self = Self(7);
+    pub const TrainingTimedOut: Self = Self(8);
+    pub const ConfigurationNotFound: Self = Self(9);
 }
 impl windows_core::TypeKind for DetectionConfigurationTrainingStatus {
     type TypeKind = windows_core::CopyType;
@@ -1582,20 +1580,20 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SignalDetectorResourceKind(pub i32);
 impl SignalDetectorResourceKind {
-    pub const ParallelModelSupport: Self = Self(0i32);
-    pub const ParallelModelSupportForAgent: Self = Self(1i32);
-    pub const ParallelSignalSupport: Self = Self(2i32);
-    pub const ParallelSignalSupportForAgent: Self = Self(3i32);
-    pub const DisplayOffSupport: Self = Self(4i32);
-    pub const PluggedInPower: Self = Self(5i32);
-    pub const Detector: Self = Self(6i32);
-    pub const SupportedSleepState: Self = Self(7i32);
-    pub const SupportedBatterySaverState: Self = Self(8i32);
-    pub const ScreenAvailability: Self = Self(9i32);
-    pub const InputHardware: Self = Self(10i32);
-    pub const AcousticEchoCancellation: Self = Self(11i32);
-    pub const ModelIdSupport: Self = Self(12i32);
-    pub const DataChannel: Self = Self(13i32);
+    pub const ParallelModelSupport: Self = Self(0);
+    pub const ParallelModelSupportForAgent: Self = Self(1);
+    pub const ParallelSignalSupport: Self = Self(2);
+    pub const ParallelSignalSupportForAgent: Self = Self(3);
+    pub const DisplayOffSupport: Self = Self(4);
+    pub const PluggedInPower: Self = Self(5);
+    pub const Detector: Self = Self(6);
+    pub const SupportedSleepState: Self = Self(7);
+    pub const SupportedBatterySaverState: Self = Self(8);
+    pub const ScreenAvailability: Self = Self(9);
+    pub const InputHardware: Self = Self(10);
+    pub const AcousticEchoCancellation: Self = Self(11);
+    pub const ModelIdSupport: Self = Self(12);
+    pub const DataChannel: Self = Self(13);
 }
 impl windows_core::TypeKind for SignalDetectorResourceKind {
     type TypeKind = windows_core::CopyType;

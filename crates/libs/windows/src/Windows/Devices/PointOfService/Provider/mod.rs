@@ -952,8 +952,8 @@ unsafe impl Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {
-    pub const Released: Self = Self(0i32);
-    pub const Pressed: Self = Self(1i32);
+    pub const Released: Self = Self(0);
+    pub const Pressed: Self = Self(1);
 }
 impl windows_core::TypeKind for BarcodeScannerTriggerState {
     type TypeKind = windows_core::CopyType;
