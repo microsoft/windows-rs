@@ -1024,6 +1024,8 @@ fn set_font_f64(handle: &Handle, v: f64) -> windows_core::Result<bool> {
         tb.put_FontSize(v)?;
     } else if let Ok(rtb) = handle.cast_inner::<Xaml::IRichTextBlock>() {
         rtb.put_FontSize(v)?;
+    } else {
+        diag::unhandled_modifier("set_prop", Prop::FontSize, handle);
     }
     Ok(true)
 }
@@ -1033,6 +1035,8 @@ fn set_font_weight(handle: &Handle, fw: WinFontWeight) -> windows_core::Result<b
         ctrl.put_FontWeight(fw)?;
     } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
         tb.put_FontWeight(fw)?;
+    } else {
+        diag::unhandled_modifier("set_prop", Prop::FontWeight, handle);
     }
     Ok(true)
 }
@@ -1044,6 +1048,8 @@ fn set_font_family(handle: &Handle, ff: &Xaml::FontFamily) -> windows_core::Resu
         tb.put_FontFamily(ff)?;
     } else if let Ok(rtb) = handle.cast_inner::<Xaml::IRichTextBlock>() {
         rtb.put_FontFamily(ff)?;
+    } else {
+        diag::unhandled_modifier("set_prop", Prop::FontFamily, handle);
     }
     Ok(true)
 }
