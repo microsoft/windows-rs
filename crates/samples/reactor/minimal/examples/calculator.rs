@@ -211,7 +211,7 @@ fn app(cx: &mut RenderCx) -> Element {
         .foreground(Color::rgb(255, 255, 255))
         .horizontal_alignment(HorizontalAlignment::Stretch)
         .vertical_alignment(VerticalAlignment::Stretch)
-        .background(ThemeRef::Accent)
+        .accent()
         .into();
 
     // Button grid matching Windows Calculator Standard layout:
