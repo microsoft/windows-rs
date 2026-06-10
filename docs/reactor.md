@@ -1,8 +1,12 @@
-# Windows Reactor — Getting Started
+# Windows Reactor
 
 Windows Reactor is a declarative UI library for Rust, backed by WinUI 3. It uses a React-like component model with hooks for state management and a builder-pattern DSL for composing UI elements.
 
-## Minimal App
+---
+
+## Getting Started
+
+### Minimal App
 
 ```rust
 use windows_reactor::*;
@@ -18,7 +22,7 @@ fn main() -> Result<()> {
 
 Every app follows this pattern: define a render function `fn(&mut RenderCx) -> Element` and pass it to `App::new().render(app)`. Widget builders convert to `Element` via `.into()`.
 
-## State with `use_state`
+### State with `use_state`
 
 ```rust
 fn app(cx: &mut RenderCx) -> Element {
@@ -35,7 +39,7 @@ fn app(cx: &mut RenderCx) -> Element {
 
 `use_state` returns the current value and a `SetState` handle. Calling `set_count.call(new_value)` triggers a rerender.
 
-## Layout
+### Layout
 
 Use `vstack(children)` and `hstack(children)` for vertical/horizontal stacking, and `grid(children)` for two-dimensional layout:
 
@@ -54,7 +58,7 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 ```
 
-## Components
+### Components
 
 Extract reusable UI into function components:
 
@@ -75,13 +79,15 @@ fn app(_cx: &mut RenderCx) -> Element {
 
 Components receive typed props and their own `RenderCx` with independent hook state.
 
+---
+
 ## Hooks
 
 | Hook | Purpose |
 |------|---------|
 | `cx.use_state(initial)` | Reactive state; returns `(T, SetState<T>)` — triggers rerender on change |
 | `cx.use_async_state(initial)` | Like `use_state` but returns `AsyncSetState<T>` that is `Send + Sync` |
-| `cx.use_reducer(initial)` | Returns `(T, Updater<T>)` for functional updates via `updater.call(|prev| next)` |
+| `cx.use_reducer(initial)` | Returns `(T, Updater<T>)` for functional updates via `updater.call(\|prev\| next)` |
 | `cx.use_reducer_fn(reducer, initial)` | Redux-style state with `Dispatch<A>` for dispatching typed actions |
 | `cx.use_ref(initial)` | Mutable `HookRef<T>` that never triggers a rerender |
 | `cx.use_effect(deps, closure)` | Side effect that runs when deps change |
@@ -95,6 +101,21 @@ Components receive typed props and their own `RenderCx` with independent hook st
 | `cx.use_inner_size()` | Track window inner dimensions (re-renders on resize) |
 | `cx.use_dpi()` | Track per-monitor DPI (re-renders on DPI change) |
 | `cx.use_ui_marshaller()` | Get a `UiMarshaller` for custom cross-thread dispatch |
+
+### State Management Guidelines
+
+1. **Default to `use_state`** for any value that affects the rendered UI.
+2. **Use `use_ref`** for high-frequency mutation that doesn't need to trigger
+   UI updates (frame counters, intermediate accumulators, cached GPU handles).
+3. **Bridge `use_state` → `use_ref`** when a persistent closure (like
+   `animated_canvas`) needs to observe state changes: keep `use_state` for
+   reactivity and copy into a `use_ref` each render so the closure reads it.
+4. **Use `use_memo`** for expensive derived values to avoid recomputation.
+5. **Use `use_effect`** for one-time setup or reactions to state changes.
+6. **Avoid `thread_local!`** in application components. Reserve it for
+   framework plumbing where no `RenderCx` is available.
+
+---
 
 ## Common Controls
 
@@ -164,7 +185,6 @@ fn app(cx: &mut RenderCx) -> Element {
 
 ```rust
 fn fetch_items(page: i32) -> std::result::Result<Vec<String>, String> {
-    // runs off the UI thread; deps value is passed as the argument
     Ok(vec![format!("Item on page {page}")])
 }
 
@@ -253,6 +273,8 @@ border(text_block("Hello"))
     })
 ```
 
+See [animation.md](animation.md) for the full animation guide.
+
 ## Error Boundaries
 
 Catch panics in subtrees and render fallback UI:
@@ -266,7 +288,7 @@ error_boundary(
 
 ## Custom Rendering (Direct3D / SwapChainPanel)
 
-Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI. The `on_mounted` callback provides a `SwapChainPanelHandle` for attaching your DXGI swap chain, and `on_resize` fires when the panel's layout size changes:
+Use `swap_chain_panel()` to host a Direct3D/Direct2D surface inside a reactor UI:
 
 ```rust
 fn app(cx: &mut RenderCx) -> Element {
@@ -282,22 +304,20 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 ```
 
-Use `on_rendering(|| { ... })` to drive per-frame presentation. See the full examples:
+See `crates/samples/reactor/swap_chain_panel/` and `crates/samples/reactor/direct2d/` for
+complete working examples.
 
-```sh
-cargo run -p minimal --example swap_chain_panel   # D3D11 animated clear
-cargo run -p minimal --example direct2d           # D2D circles + WinUI buttons
-```
+---
 
 ## Running Samples
 
 ```sh
-# Minimal examples (crates/samples/reactor/minimal/)
+# Minimal examples
 cargo run -p minimal --example button
 cargo run -p minimal --example counter
 cargo run -p minimal --example navigation
 
-# App examples (crates/samples/reactor/apps/)
+# App examples
 cargo run -p examples --example notepad
 cargo run -p examples --example tictactoe
 cargo run -p examples --example calculator
@@ -305,3 +325,98 @@ cargo run -p examples --example calculator
 # Gallery (comprehensive control showcase)
 cargo run -p gallery
 ```
+
+---
+
+## Diagnostics & Error Handling
+
+### Panic Behavior
+
+On Windows, panics in event handlers unwind through COM boundaries. Neither
+`abort()` nor `panic = "abort"` reliably terminates WinUI processes — the XAML
+runtime keeps the HWND alive, causing a "silent hang."
+
+The `diagnostics` feature's panic hook calls `std::process::exit(101)`
+after printing the backtrace and writing `%TEMP%/windows-reactor-crash-{pid}.log`.
+The `ExpectPanicGuard` skips this for panics caught by `ErrorBoundary`.
+
+### Error Categories
+
+| Category | Convention |
+|----------|-----------|
+| **Invariant violation** | `panic!` / `.unwrap()` → hook terminates process with backtrace |
+| **Coverage gap** | `diag::unhandled_*` → warn in debug, no-op in release |
+| **COM runtime error** | `if let Err(e)` → `diag::com_error(...)`, continue |
+
+### Rules
+
+1. **Never `panic!` for a missing feature.** Unhandled props/events warn and no-op.
+2. **Use `.unwrap()` not `.expect("...")`** — the panic hook provides full context.
+3. **`panic!` only for invariant violations** — corrupted state that will cascade.
+4. **Use `diag::` helpers, not bare `eprintln!`.** All output prefixed `windows-reactor:`.
+5. **Debug-only output.** Warnings gated behind `cfg!(debug_assertions)`.
+
+### Diagnostic Helpers (`winui/backend/diag.rs`)
+
+```rust
+diag::unhandled_prop(id, prop, value, handle)   // prop silently ignored
+diag::unhandled_modifier(site, prop, handle)    // modifier not applicable
+diag::com_error(site, id, err)                  // COM call failed
+```
+
+---
+
+## Testing
+
+### Unit Tests (`test_reactor`)
+
+The `test_reactor` crate (`crates/tests/libs/reactor`) contains fast,
+headless unit tests for the core hooks, reconciler, DSL, and element logic.
+These use `RenderCx::for_test()` and `RecordingBackend` — no WinUI window
+required.
+
+```sh
+cargo test -p test_reactor
+```
+
+### Integration Tests (`test_reactor_selftest`)
+
+The `test_reactor_selftest` crate (`crates/tests/libs/reactor_selftest`) is
+the live integration test suite. It launches a real WinUI 3 window, mounts
+reactor components through the full render pipeline, and asserts against the
+live visual tree. Output is [TAP 14](https://testanything.org/).
+
+```sh
+# Full run (opens a window, interactive mode)
+cargo run -p test_reactor_selftest
+
+# CI / headless (auto-exits with exit code)
+cargo run -p test_reactor_selftest -- --headless
+
+# Filter to a specific fixture
+cargo run -p test_reactor_selftest -- --filter Tooltip
+
+# Slow mode (400ms pause between fixtures for visual inspection)
+cargo run -p test_reactor_selftest -- --slow
+
+# List all fixture names (no WinUI launch)
+cargo run -p test_reactor_selftest -- --list-fixtures
+```
+
+### Adding a New Fixture
+
+1. Implement the fixture function under `src/fixtures/` (or create a new module).
+2. Add the entry to `registry.rs` — the `FIXTURES` array is the single
+   source of truth for execution order and `--list-fixtures` output.
+3. Use the `Harness` API:
+   - `h.mount(root)` — mount a component
+   - `h.render().await` — pump the dispatcher until idle
+   - `h.render_until("label", pred).await` — pump until predicate holds
+   - `h.check("name", condition)` — emit TAP ok/not-ok
+   - `h.check_eq("name", expected, actual)` — equality assertion with diag
+   - `h.find_text("...")`, `h.find_button("...")` — query visual tree
+   - `h.click_button("...")` — invoke via automation peer
+   - `h.dump_tree()` — textual snapshot of the visual tree
+4. Run locally with `--filter YourFixtureName` to iterate.
+
+CI requires the Windows App Runtime and an interactive desktop session.

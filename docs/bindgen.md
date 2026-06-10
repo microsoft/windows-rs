@@ -1,7 +1,82 @@
-# `windows-bindgen` implementation simplification
+# `windows-bindgen`
 
-The user-facing CLI surface, after the option-consolidation work (PRs #4441,
-#4443, #4444, #4445, and the `--deps`/`--extern` fold), is small and orthogonal:
+`windows-bindgen` generates Rust bindings from Windows metadata (.winmd files).
+It powers the `windows` and `windows-sys` crates and can generate standalone
+bindings for any Windows API.
+
+## Usage
+
+### In a build script
+
+```rust
+// build.rs
+fn main() {
+    windows_bindgen::bindgen([
+        "--out", "src/bindings.rs",
+        "--flat",
+        "--filter",
+            "Windows.Win32.Graphics.Direct2D.ID2D1Factory1",
+            "Windows.Win32.Graphics.Dxgi.IDXGIFactory2",
+    ]).unwrap();
+}
+```
+
+### With an args file
+
+```rust
+// build.rs
+fn main() {
+    windows_bindgen::bindgen(["--etc", "bindings.txt"]).unwrap();
+}
+```
+
+```
+// bindings.txt
+--out src/bindings.rs
+--flat
+
+--filter
+    Windows.Win32.UI.WindowsAndMessaging.CreateWindowExW
+    Windows.Win32.UI.WindowsAndMessaging.DefWindowProcW
+    Windows.Win32.UI.WindowsAndMessaging.RegisterClassW
+```
+
+### Key Options
+
+| Option | Description |
+|--------|-------------|
+| `--in <path>` | Input .winmd file(s) (default: bundled Windows metadata) |
+| `--out <path>` | Output file path |
+| `--filter <types>` | Which types/methods to include |
+| `--flat` | Emit all types in a single module (no namespace hierarchy) |
+| `--sys` | Generate raw C-style bindings (like `windows-sys`) |
+| `--minimal` | Emit only explicitly listed methods; others become `usize` vtable slots |
+| `--deps {core,specific,none}` | Dependency mode for shared types |
+| `--derive <traits>` | Additional derives on generated types |
+| `--rustfmt` | Format output with rustfmt |
+| `--implement <ifaces>` | Generate implementation traits for COM interfaces |
+| `--link` | Link macro source |
+| `--package` | Generate a complete crate with Cargo.toml |
+
+### Filter Syntax
+
+The `--filter` accepts fully-qualified type names from Windows metadata:
+
+| Form | Effect |
+|------|--------|
+| `Windows.Win32.Graphics.Direct2D.ID2D1Factory` | Include a type |
+| `Windows.Win32.Graphics.Direct2D.ID2D1Factory::{CreateDrawingStateBlock}` | Include specific methods only (with `--minimal`) |
+| `Windows.Foundation.TimeSpan` | Include a WinRT value type |
+
+With `--minimal`, unlisted methods become `usize` vtable slots — the layout is
+preserved but no code is generated for methods you don't call. Dependencies
+(parameter/return types) are pulled in automatically.
+
+---
+
+## Design Notes
+
+The user-facing CLI surface is small and orthogonal:
 
 | Axis | Options |
 |---|---|
@@ -12,51 +87,18 @@ The user-facing CLI surface, after the option-consolidation work (PRs #4441,
 | Dependencies | `--deps {core,specific,none}`, `--link` |
 | Misc | `--derive`, `--rustfmt`, `--reference`, `--etc` |
 
-The internal follow-up to match that surface landed `DepMode`,
-`Option<&Implements>`, and the `Layout` / `Style` enums with nested sub-flags
-(the "set X without Y, panic at write()" failure modes are now either
-unrepresentable or fail at the builder method that introduced them). Step A
-merged the derived-boolean state of `Bindgen` into `Config<'a>` and lifted
-validation to the top of `Bindgen::write`. Step B retired the `config/`
-sub-module by moving each emitter file to its natural home (`cpp_handle.rs`
-under `types/`, `format.rs` / `paths.rs` / `value.rs` at the top level, and
-the new `package_writer.rs` that owns `write_package`).
-
-This document is now mostly a record of design decisions so that they aren't
-re-proposed.
-
-## What inherently resists further simplification
+Key design decisions:
 
 - **`--sys` vs `--minimal`** are the same "lean mode" axis but produce
-  different ABI contracts — `--minimal` preserves
-  vtable/`_Impl`/`RuntimeType`, `--sys` does not. Two flags, one internal
-  enum (`Style`), is the right shape.
+  different ABI contracts — `--minimal` preserves vtable/`_Impl`/`RuntimeType`,
+  `--sys` does not. Two flags, one internal enum (`Style`), is the right shape.
+
 - **`--deps none` vs `--sys`** are orthogonal. `--deps none` is also
-  meaningful with `--minimal` (for the few `windows-*` crates that
-  bootstrap themselves). Cannot fold one into the other.
-- **`--reference` / `--link` / `--deps`** all touch dependencies but at
-  three different layers (per-type reroute / `link!` macro source / which
-  crate hosts shared types). Not foldable.
-- **`--filter` method-level grammar** (`?Ns.Type`, `Ns.Type::Method`,
-  etc., documented at lib.rs ~115–165): rich on purpose. A real DSL with
-  documented escape hatches is better than an expanding set of top-level
-  flags.
-- **`--minimal` + COM interfaces**: In minimal mode, the dependency check
-  for method emission is skipped. The type closure computed by
-  `MinimalTypeMap::build` is authoritative — if a method is explicitly in
-  the filter, its types are already in the map. The `dependencies.included()`
-  guard only applies in non-minimal mode where the full transitive closure
-  may not cover every method on every included interface.
+  meaningful with `--minimal` (for crates that bootstrap themselves).
+
+- **`--filter` method-level grammar** (`?Ns.Type`, `Ns.Type::Method`, etc.)
+  is a deliberate DSL with documented escape hatches — better than an expanding
+  set of top-level flags.
+
 - **`--package` vs `--flat` vs default modules** are three distinct output
-  topologies driving different writer code paths. Already modelled as a
-  `Layout` enum; collapsing further would force the writer to fork on
-  every emit.
-- **`Config<'a>` as a sidecar of run-state references next to `&'a Bindgen`**.
-  Folding `Config` into `Bindgen` (or a sibling `RunState` owned by `Bindgen`)
-  was considered (design 2 in the original Step A notes) and rejected: it
-  would flip every emitter call site from `&Config` to `&Bindgen`/`&RunState`
-  with no behavioural change, and `Bindgen` is a builder that exists before
-  the run-state references can be constructed. Likewise, the `with_namespace`
-  clone in `write_modules` / `write_package` copies a ~80-byte
-  ten-reference struct a handful of times per namespace and is not worth
-  threading `namespace` as a separate parameter through every emitter.
+  topologies driving different writer code paths, modelled as a `Layout` enum.

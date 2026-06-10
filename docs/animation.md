@@ -1,8 +1,6 @@
-# Animation in `windows-reactor` and `windows-canvas`
+# Animation
 
-## Overview
-
-Animation in the Windows Rust ecosystem spans two layers:
+Animation in the Windows Rust ecosystem spans three layers:
 
 1. **UI-level animation** (`windows-reactor`) — declarative property transitions on
    elements: opacity fades, scale pops, layout motion, enter/exit transitions. These
@@ -12,9 +10,80 @@ Animation in the Windows Rust ecosystem spans two layers:
    `animated_canvas()`. The closure runs every frame (~60 fps) and can animate
    anything by varying draw calls over time.
 
+3. **Variable interpolation** (`windows-animation`) — idiomatic Rust wrapper around
+   the Windows Animation Manager (`IUIAnimationManager`). Provides storyboards,
+   transitions, and variable interpolation for complex multi-variable animations.
+
 These are complementary, not competing. A typical app uses reactor animations for UI
-chrome (list reorder, button hover, page transitions) and canvas animation for
-custom 2D content (games, data visualizations, physics simulations).
+chrome, canvas animation for custom 2D content, and `windows-animation` when it needs
+storyboard sequencing or physics-based interpolation beyond simple easing.
+
+---
+
+## `windows-animation` Crate
+
+The `windows-animation` crate provides a safe Rust wrapper around the Win32
+UIAnimation Manager COM API. It handles arbitrary variable interpolation with
+multiple transition types — independent of both reactor and canvas.
+
+### Usage
+
+```rust
+use windows_animation::*;
+use std::time::Instant;
+
+let manager = Manager::new()?;
+let library = TransitionLibrary::new()?;
+let variable = manager.create_variable(0.0)?;
+
+// Create a transition and schedule it
+let transition = library.accelerate_decelerate(0.5, 1.0, 0.2, 0.8)?;
+manager.schedule_transition(&variable, &transition)?;
+
+// In a render loop, update the manager and read the interpolated value
+let start = Instant::now();
+loop {
+    manager.update(start.elapsed().as_secs_f64())?;
+    let value = variable.value()?; // smoothly interpolates 0.0 → 1.0
+    // use `value` to drive rendering...
+}
+```
+
+### Key Types
+
+| Type | Purpose |
+|------|---------|
+| `Manager` | Creates variables and storyboards, drives time updates |
+| `Variable` | A single interpolated value; read with `.value()` |
+| `Storyboard` | Sequences multiple transitions on multiple variables |
+| `Transition` | A single interpolation curve (created by `TransitionLibrary`) |
+| `TransitionLibrary` | Factory for built-in transitions |
+
+### Available Transitions
+
+| Method | Description |
+|--------|-------------|
+| `linear(duration, final_value)` | Constant-rate interpolation |
+| `accelerate_decelerate(duration, final, accel_ratio, decel_ratio)` | Smooth ease-in/ease-out |
+| `instantaneous(final_value)` | Jump to value immediately |
+
+### Storyboard Sequencing
+
+```rust
+let storyboard = manager.create_storyboard()?;
+storyboard.add_transition(&variable1, &transition1)?;
+storyboard.add_transition(&variable2, &transition2)?;
+storyboard.schedule()?;
+```
+
+Storyboards coordinate multiple variables transitioning simultaneously.
+
+### When to Use
+
+- **Arbitrary variable interpolation** (not just visual properties)
+- **Complex multi-variable choreography** via storyboards
+- **Physics-based motion** that needs more than simple easing
+- Works alongside both reactor and canvas — read values in any render loop
 
 ---
 
@@ -273,49 +342,53 @@ Win2D (C#) provides two distinct controls:
 
 ---
 
-## The Direct2D Sample and UIAnimation
+## The Direct2D Sample and `windows-animation`
 
-The `crates/samples/windows/direct2d/src/main.rs` sample demonstrates a third
-animation approach: the **Windows Animation Manager** (`IUIAnimationManager`).
+The `crates/samples/windows/direct2d/src/main.rs` sample demonstrates using the
+`windows-animation` crate for smooth startup animation on a D2D clock face.
 
 ### How It Works
 
-1. Creates an `IUIAnimationManager` and an `IUIAnimationVariable` (initial value 0.0)
+1. Creates a `Manager` and a `Variable` (initial value 0.0)
 2. Schedules an accelerate/decelerate transition (0→1 over time)
-3. Each frame: calls `manager.Update(time)` with performance-counter time
-4. Reads `variable.GetValue()` to get the current interpolated value (0.0→1.0)
+3. Each frame: calls `manager.update(time)` with elapsed time
+4. Reads `variable.value()` to get the current interpolated value (0.0→1.0)
 5. Uses that value to scale clock hand angles for a smooth startup animation
 
 ```rust
-// Simplified from the sample:
-let manager: IUIAnimationManager = CoCreateInstance(&UIAnimationManager, ...)?;
-let variable = manager.CreateAnimationVariable(0.0)?;
-manager.ScheduleTransition(&variable, &transition, now)?;
+use windows_animation::*;
+
+let manager = Manager::new()?;
+let variable = manager.create_variable(0.0)?;
+let library = TransitionLibrary::new()?;
+let transition = library.accelerate_decelerate(duration, 1.0, accel, decel)?;
+manager.schedule_transition(&variable, &transition)?;
 
 // In the render loop:
-manager.Update(get_time(frequency)?)?;
-let swing = variable.GetValue()?; // 0.0 → 1.0 over time
+manager.update(elapsed)?;
+let swing = variable.value()?; // 0.0 → 1.0 over time
 ```
 
 ### Relationship to Canvas
 
-The UIAnimation Manager is a **Win32 COM API** — it's lower-level than WinUI
-Composition animations and independent of both reactor and canvas. It provides:
+`windows-animation` is a general interpolation engine — independent of both
+reactor and canvas. It provides:
 
 - Arbitrary variable interpolation (not just visual properties)
 - Multiple transition types (linear, parabolic, cubic, accelerate/decelerate, etc.)
 - Storyboard sequencing (parallel/sequential transitions on multiple variables)
 - Priority comparison (conflict resolution between competing animations)
 
-### Should Canvas Support UIAnimation Natively?
+### Canvas and `windows-animation`
 
-**Current recommendation: No.** Here's why:
+`windows-animation` is a separate crate — canvas deliberately does not bundle
+interpolation logic. Here's why:
 
-1. **Scope mismatch** — UIAnimation is a general interpolation engine. Canvas is a
-   rendering surface. Bundling interpolation into the canvas crate conflates concerns.
+1. **Scope separation** — interpolation is a general concern. Canvas is a
+   rendering surface. Keeping them separate avoids conflating concerns.
 
-2. **Easy to use externally** — apps can create animation variables via the `windows`
-   crate and read values in the draw closure. No special integration needed.
+2. **Easy to combine** — apps can create animation variables and read values
+   in the draw closure. No special integration needed.
 
 3. **Reactor fills the gap** — for property animations on UI elements, reactor's
    `AnimationConfig` and `ImplicitTransitions` cover common cases via Composition.
@@ -444,9 +517,9 @@ Animation in the Rust Windows ecosystem is split by intent:
 - **Canvas** handles custom rendering imperatively — you own every pixel every
   frame. Animation is just math applied to draw calls.
 
-- **UIAnimation Manager** (Win32) provides industrial-strength interpolation for
-  apps that need storyboards, priority queues, or complex multi-variable
-  transitions. It works alongside both reactor and canvas but isn't bundled in.
+- **`windows-animation`** provides industrial-strength variable interpolation
+  for apps that need storyboards, sequencing, or complex multi-variable
+  transitions. It works alongside both reactor and canvas as a separate crate.
 
 The design intentionally avoids a monolithic animation framework. Each layer does
 one thing well, and they compose without conflict.
