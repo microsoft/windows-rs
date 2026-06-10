@@ -24,7 +24,7 @@ NuGet packaging, VS/VS Code extensions, hot reload) and features that depend on
 | State-dirty bypass | ✅ dirty flag on context | ✅ `is_component_state_dirty` | No |
 | Element pooling | ✅ Recycled by CLR type (max 32) | ❌ None (not needed) | No |
 | **Render coalescing** | ✅ Batches multiple setState into single render | ✅ Dispatcher batching (tested) | No |
-| **Rerender depth guard** | ✅ `MaxRerenderReentrancy = 50` | ❌ No recursion limit | **Yes** |
+| Rerender depth guard | ✅ `MaxRerenderReentrancy = 50` | ❌ Not needed (non-recursive) | No |
 | Debug counters | ✅ diffed/skipped/created/modified | ✅ diffed/skipped/created (no modified) | Minor |
 
 ### Element Pooling
@@ -57,10 +57,13 @@ pass. The Rust crate's `DispatcherQueue`-based batching is tested in
 
 ### Rerender Depth Guard
 
-The C# reconciler caps re-entrant rerenders at 50 and panics. The Rust crate
-has no such guard, so a render function that unconditionally calls `set_state`
-would recurse until stack overflow. Adding a simple counter + panic is trivial
-but important for debuggability.
+The C# reconciler caps re-entrant rerenders at 50 because its render loop can
+re-enter synchronously. The Rust render loop is non-recursive by design:
+`set_state` during a render sets a `RenderingDirty` flag, and `render_loop`
+enqueues the follow-up render via the dispatcher rather than calling it
+directly. This makes stack overflow impossible. The existing test
+`setstate_during_render_defers_to_low_priority_second_pass` confirms this
+produces exactly 2 renders with no recursion. A depth guard is unnecessary.
 
 ---
 
@@ -236,7 +239,7 @@ These findings significantly change the priority analysis:
 | **Element pooling** | ✅ 32/type | ❌ | Not needed. Elements Created = 0 at steady state; C# pools to mitigate GC pressure that Rust doesn't have. Pooling adds complexity and cleanup overhead for no measured benefit. | **Skip** |
 | **Render coalescing** | ✅ | ✅ | Rust already has dispatcher-based batching (tested: 100 setState → 1 render). | **Already done** |
 | **Modifier bucketing** | ✅ −11% bytes | ❌ | C# saw only +6% renders. Rust `Modifiers` is stack-allocated, no GC pressure. The clone cost is trivially small vs C#'s record-with-copy. | **Skip** |
-| **Rerender depth guard** | ✅ cap=50 | ❌ | Not a perf optimization — it's a correctness guard against infinite recursion. | **Add (trivial)** |
+| **Rerender depth guard** | ✅ cap=50 | ❌ | Not needed. Rust's render loop is non-recursive — `set_state` during render enqueues via dispatcher, not a synchronous re-entry. Stack overflow is impossible by design. | **Skip** |
 
 ### What Rust Has That C# Doesn't
 
@@ -328,23 +331,26 @@ core:
 
 ### High Priority (correctness / robustness)
 
-1. **Rerender depth guard** — trivial to add, prevents infinite recursion
-2. **Post-shutdown setter protection** — `AsyncSetState` should check dispatcher
+1. **Post-shutdown setter protection** — `AsyncSetState` should check dispatcher
    liveness before dispatching
-3. **Hook-order error messages** — name the component and expected/actual types
+2. **Hook-order error messages** — name the component and expected/actual types
 
 ### Medium Priority (minor improvements)
 
-4. **Style caching** — deduplicate WinUI Style objects for theme bindings
+3. **Style caching** — deduplicate WinUI Style objects for theme bindings
 
 ### Lower Priority (feature gaps)
 
-5. **Full accessibility surface** — add missing `AutomationProperties`
-6. **Modern ScrollView** — wrap `Microsoft.UI.Xaml.Controls.ScrollView`
-7. **Multi-window** — foundation for desktop app scenarios
+4. **Full accessibility surface** — add missing `AutomationProperties`
+5. **Modern ScrollView** — wrap `Microsoft.UI.Xaml.Controls.ScrollView`
+6. **Multi-window** — foundation for desktop app scenarios
 
 ### Not Recommended (based on C# data)
 
+- **Rerender depth guard** — Rust's render loop is non-recursive by design.
+  `set_state` during render sets a dirty flag; the follow-up render is enqueued
+  via the dispatcher, not called synchronously. Stack overflow is impossible.
+  The C# guard exists because C#'s reconciler can re-enter synchronously.
 - **Element pooling** — Elements Created = 0 at steady state, so the pool has
   nothing to recycle. C# pools to mitigate GC pressure (22 MB/tick allocations)
   that doesn't exist in Rust. The pool's cleanup overhead (clearing tags, events,
