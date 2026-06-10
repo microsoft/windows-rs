@@ -14,8 +14,8 @@ use windows::core::Result;
 use windows_reactor::*;
 
 const APP_NAME: &str = "StressPerf.Reactor";
-const COLUMNS: usize = 70;
-const ROWS: usize = 70;
+const COLUMNS: usize = 80;
+const ROWS: usize = 60;
 const TOTAL: usize = COLUMNS * ROWS;
 const CELL_WIDTH: f64 = 64.0;
 const CELL_HEIGHT: f64 = 18.0;
@@ -268,6 +268,14 @@ struct PerfTracker {
     tree_build_samples: Vec<f64>,
     diff_patch_samples: Vec<f64>,
     effects_samples: Vec<f64>,
+    /// Reconciler element counters (last render pass).
+    last_elements_diffed: u64,
+    last_elements_skipped: u64,
+    last_elements_created: u64,
+    /// Accumulated totals for averaging.
+    total_elements_diffed: u64,
+    total_elements_skipped: u64,
+    total_elements_created: u64,
     /// Cross-variant render counter. See `tests/stress_perf/METHODOLOGY.md`
     /// on the C# branch — Reactor increments this when the reconcile
     /// completes (via `record_phases`). Emitted as `Total Renders: N`.
@@ -290,6 +298,12 @@ impl PerfTracker {
             tree_build_samples: Vec::new(),
             diff_patch_samples: Vec::new(),
             effects_samples: Vec::new(),
+            last_elements_diffed: 0,
+            last_elements_skipped: 0,
+            last_elements_created: 0,
+            total_elements_diffed: 0,
+            total_elements_skipped: 0,
+            total_elements_created: 0,
             render_count: 0,
         }
     }
@@ -316,12 +330,26 @@ impl PerfTracker {
         self.update_time_samples.push(self.last_update_ms);
     }
 
-    fn record_phases(&mut self, tree_build_ms: f64, diff_patch_ms: f64, effects_ms: f64) {
+    fn record_phases(
+        &mut self,
+        tree_build_ms: f64,
+        diff_patch_ms: f64,
+        effects_ms: f64,
+        elements_diffed: u64,
+        elements_skipped: u64,
+        elements_created: u64,
+    ) {
         self.tree_build_samples.push(tree_build_ms);
         self.diff_patch_samples.push(diff_patch_ms);
         self.effects_samples.push(effects_ms);
         self.reconcile_time_samples
             .push(tree_build_ms + diff_patch_ms + effects_ms);
+        self.last_elements_diffed = elements_diffed;
+        self.last_elements_skipped = elements_skipped;
+        self.last_elements_created = elements_created;
+        self.total_elements_diffed += elements_diffed;
+        self.total_elements_skipped += elements_skipped;
+        self.total_elements_created += elements_created;
         // Reactor counts a render once the reconcile completes.
         self.render_count += 1;
     }
@@ -342,9 +370,16 @@ impl PerfTracker {
         let max = |v: &[f64]| v.iter().copied().fold(f64::NEG_INFINITY, f64::max);
         let min = |v: &[f64]| v.iter().copied().fold(f64::INFINITY, f64::min);
 
+        let elapsed = self.elapsed_seconds();
+        let renders_per_sec = if elapsed > 0.0 {
+            self.render_count as f64 / elapsed
+        } else {
+            0.0
+        };
+
         let mut s = String::new();
         s.push_str(&format!("=== {app_name} ===\n"));
-        s.push_str(&format!("Duration:    {:.1}s\n", self.elapsed_seconds()));
+        s.push_str(&format!("Duration:    {elapsed:.1}s\n"));
         s.push_str(&format!("Percent:     {percent:.0}%\n"));
         s.push_str(&format!("Avg FPS:     {:.1}\n", avg(&self.fps_samples)));
         s.push_str(&format!("Min FPS:     {:.1}\n", min(&self.fps_samples)));
@@ -360,6 +395,7 @@ impl PerfTracker {
             ));
         }
         s.push_str(&format!("Total Renders: {}\n", self.render_count));
+        s.push_str(&format!("Renders/sec: {renders_per_sec:.1}\n"));
         if !self.reconcile_time_samples.is_empty() {
             s.push_str(&format!(
                 "Avg Reconcile: {:.1} ms\n",
@@ -393,6 +429,14 @@ impl PerfTracker {
             s.push_str(&format!(
                 "Avg Combined:  {combined:.1} ms  (renders/tick: {renders_per_tick:.2})\n"
             ));
+        }
+        if self.render_count > 0 {
+            let avg_diffed = self.total_elements_diffed as f64 / self.render_count as f64;
+            let avg_skipped = self.total_elements_skipped as f64 / self.render_count as f64;
+            let avg_created = self.total_elements_created as f64 / self.render_count as f64;
+            s.push_str(&format!("Avg Elements Diffed:  {avg_diffed:.0}\n"));
+            s.push_str(&format!("Avg Elements Skipped: {avg_skipped:.0}\n"));
+            s.push_str(&format!("Avg Elements Created: {avg_created:.0}\n"));
         }
         let mem_avg = self.memory_samples.iter().copied().sum::<u64>() as f64
             / self.memory_samples.len() as f64;
@@ -428,6 +472,76 @@ impl PerfTracker {
         let csv_path = dir.join(format!("{app_name}.samples.csv"));
         if let Err(e) = fs::write(&csv_path, csv) {
             eprintln!("WARNING: failed to write {}: {e}", csv_path.display());
+        }
+
+        // Summary CSV — one row, machine-parseable, compatible with the C#
+        // stress_perf benchmark_results.csv format for cross-comparison.
+        let avg = |v: &[f64]| {
+            if v.is_empty() {
+                f64::NAN
+            } else {
+                v.iter().sum::<f64>() / v.len() as f64
+            }
+        };
+        let elapsed = self.elapsed_seconds();
+        let renders_per_sec = if elapsed > 0.0 {
+            self.render_count as f64 / elapsed
+        } else {
+            0.0
+        };
+        let mem_avg = if self.memory_samples.is_empty() {
+            0.0
+        } else {
+            self.memory_samples.iter().copied().sum::<u64>() as f64
+                / self.memory_samples.len() as f64
+                / (1024.0 * 1024.0)
+        };
+        let mem_peak = *self.memory_samples.iter().max().unwrap_or(&0) as f64 / (1024.0 * 1024.0);
+        let summary = format!(
+            "App,Percent,Duration_s,Avg_FPS,Min_FPS,Max_FPS,Avg_Update_ms,Max_Update_ms,\
+             Avg_Reconcile_ms,Renders,Renders_per_s,Avg_Elements_Diffed,Avg_Elements_Skipped,\
+             Avg_Elements_Created,Avg_Memory_MB,Peak_Memory_MB\n\
+             {app_name},{percent:.0},{elapsed:.1},{:.1},{:.1},{:.1},{:.1},{:.1},{:.1},{},{renders_per_sec:.1},\
+             {:.0},{:.0},{:.0},{mem_avg:.1},{mem_peak:.1}\n",
+            avg(&self.fps_samples),
+            self.fps_samples
+                .iter()
+                .copied()
+                .fold(f64::INFINITY, f64::min),
+            self.fps_samples
+                .iter()
+                .copied()
+                .fold(f64::NEG_INFINITY, f64::max),
+            avg(&self.update_time_samples),
+            if self.update_time_samples.is_empty() {
+                f64::NAN
+            } else {
+                self.update_time_samples
+                    .iter()
+                    .copied()
+                    .fold(f64::NEG_INFINITY, f64::max)
+            },
+            avg(&self.reconcile_time_samples),
+            self.render_count,
+            if self.render_count > 0 {
+                self.total_elements_diffed as f64 / self.render_count as f64
+            } else {
+                0.0
+            },
+            if self.render_count > 0 {
+                self.total_elements_skipped as f64 / self.render_count as f64
+            } else {
+                0.0
+            },
+            if self.render_count > 0 {
+                self.total_elements_created as f64 / self.render_count as f64
+            } else {
+                0.0
+            },
+        );
+        let summary_path = dir.join(format!("{app_name}.summary.csv"));
+        if let Err(e) = fs::write(&summary_path, summary) {
+            eprintln!("WARNING: failed to write {}: {e}", summary_path.display());
         }
     }
 }
@@ -591,11 +705,18 @@ impl Component for StockGridApp {
             phases_installed.set(true);
             let state_for_phases = state.clone();
             windows_reactor::with_active_host(|host| {
-                host.set_render_complete(move |tree_ms, reconcile_ms, effects_ms| {
+                host.set_render_complete(move |info: &windows_reactor::RenderCompleteInfo| {
                     let mut s = state_for_phases.borrow_mut();
                     if s.pending_phases.get() {
                         s.pending_phases.set(false);
-                        s.perf.record_phases(tree_ms, reconcile_ms, effects_ms);
+                        s.perf.record_phases(
+                            info.tree_build_ms,
+                            info.reconcile_ms,
+                            info.effects_ms,
+                            info.elements_diffed,
+                            info.elements_skipped,
+                            info.elements_created,
+                        );
                     }
                 });
             });

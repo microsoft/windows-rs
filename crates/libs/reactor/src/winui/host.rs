@@ -343,7 +343,7 @@ impl ReactorHost {
 
     pub fn set_render_complete<F>(&self, f: F)
     where
-        F: Fn(f64, f64, f64) + 'static,
+        F: Fn(&crate::core::render_host::RenderCompleteInfo) + 'static,
     {
         self.render_host.set_render_complete(f);
     }
