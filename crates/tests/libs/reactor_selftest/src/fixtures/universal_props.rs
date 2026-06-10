@@ -20,6 +20,7 @@ use windows_reactor::vstack;
 /// on. Verifies the COM calls succeed on a real FrameworkElement.
 pub fn min_max_sizing(h: Harness) -> FixtureFuture {
     Box::pin(async move {
+        let cap = h.capture_stderr();
         h.mount(cc(|cx| {
             let (constrained, set) = cx.use_state(true);
             let tb = if constrained {
@@ -39,7 +40,6 @@ pub fn min_max_sizing(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        let cap = h.capture_stderr();
         h.check(
             "UniversalProp_MinMax_MountConstrained",
             h.find_text("constrained").is_some(),
@@ -67,6 +67,7 @@ pub fn min_max_sizing(h: Harness) -> FixtureFuture {
 /// Canvas.SetZIndex COM call succeeds.
 pub fn canvas_z_index(h: Harness) -> FixtureFuture {
     Box::pin(async move {
+        let cap = h.capture_stderr();
         h.mount(cc(|_| {
             Canvas::new([
                 text_block("back").canvas_z_index(0),
@@ -76,7 +77,6 @@ pub fn canvas_z_index(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        let cap = h.capture_stderr();
         h.check(
             "UniversalProp_CanvasZIndex_BackPresent",
             h.find_text("back").is_some(),
@@ -93,6 +93,7 @@ pub fn canvas_z_index(h: Harness) -> FixtureFuture {
 /// Verifies the static RelativePanel.SetAlign*WithPanel COM calls succeed.
 pub fn relative_panel_alignment(h: Harness) -> FixtureFuture {
     Box::pin(async move {
+        let cap = h.capture_stderr();
         h.mount(cc(|_| {
             let left: Element = text_block("L").into();
             let right: Element = text_block("R").into();
@@ -112,7 +113,6 @@ pub fn relative_panel_alignment(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        let cap = h.capture_stderr();
         h.check(
             "UniversalProp_RelativeAlign_ChildrenPresent",
             h.find_text("L").is_some() && h.find_text("R").is_some(),
@@ -127,6 +127,7 @@ pub fn relative_panel_alignment(h: Harness) -> FixtureFuture {
 /// Background, Foreground, and Padding).
 pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
     Box::pin(async move {
+        let cap = h.capture_stderr();
         h.mount(cc(|cx| {
             let (styled, set) = cx.use_state(true);
             let btn = if styled {
@@ -151,7 +152,6 @@ pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        let cap = h.capture_stderr();
         h.check(
             "UniversalProp_BgFgPad_MountStyled",
             h.find_button("styled").is_some(),
@@ -179,6 +179,7 @@ pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
 /// call succeeds in both directions.
 pub fn opacity_transition(h: Harness) -> FixtureFuture {
     Box::pin(async move {
+        let cap = h.capture_stderr();
         h.mount(cc(|cx| {
             let (faded, set) = cx.use_state(true);
             let tb = if faded {
@@ -190,7 +191,6 @@ pub fn opacity_transition(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        let cap = h.capture_stderr();
         h.check(
             "UniversalProp_Opacity_MountFaded",
             h.find_text("faded").is_some(),

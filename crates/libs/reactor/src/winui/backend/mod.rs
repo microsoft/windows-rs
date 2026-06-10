@@ -995,8 +995,9 @@ fn set_background(
         ctl.put_Background(brush)?;
     } else if let Ok(border) = handle.cast_inner::<Xaml::IBorder>() {
         border.put_Background(brush)?;
+    } else {
+        diag::unhandled_modifier("set_prop", Prop::Background, handle);
     }
-    // TextBlock/RichTextBlock: no background property — silently ignored.
     Ok(true)
 }
 
