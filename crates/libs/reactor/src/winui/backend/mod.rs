@@ -306,46 +306,10 @@ impl WinUIBackend {
             .get(&child)
             .unwrap_or_else(|| panic!("WinUIBackend::visual_insert_at: unknown child {child}"));
         let child_ui = child_h.as_ui_element();
-        match parent_h {
-            Handle::StackPanel(_) | Handle::Grid(_) | Handle::Canvas(_) => {
-                let vec = panel_children_vec(parent_h).unwrap();
-                vec.InsertAt(v_index as u32, &child_ui).unwrap();
-            }
-            Handle::Border(b) => {
-                b.put_Child(&child_ui).unwrap();
-            }
-            Handle::Viewbox(v) => {
-                v.put_Child(&child_ui).unwrap();
-            }
-            Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {
-                let cc = content_control_for(parent_h).unwrap();
-                cc.put_Content(&child_ui).unwrap();
-            }
-            Handle::ScrollView(sv) => {
-                sv.put_Content(&child_ui).unwrap();
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                let insp: windows_core::IInspectable = child_ui.cast().unwrap();
-                items.InsertAt(v_index as u32, &insp).unwrap();
-            }
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                let insp: windows_core::IInspectable = child_ui.cast().unwrap();
-                items.InsertAt(v_index as u32, &insp).unwrap();
-            }
-            _ => panic!("WinUIBackend::visual_insert_at: {parent} is not a container"),
-        }
+        let cc = classify_container(parent_h).unwrap_or_else(|| {
+            panic!("WinUIBackend::visual_insert_at: {parent} is not a container")
+        });
+        container_insert(&cc, v_index, &child_ui);
     }
     /// Remove the child at visual index `v_index`. Logical mirror is NOT touched.
     fn visual_remove_at(&self, parent: ControlId, v_index: usize) {
@@ -353,50 +317,10 @@ impl WinUIBackend {
         let parent_h = map
             .get(&parent)
             .unwrap_or_else(|| panic!("WinUIBackend::visual_remove_at: unknown parent {parent}"));
-        match parent_h {
-            Handle::StackPanel(_) | Handle::Grid(_) | Handle::Canvas(_) => {
-                if let Some(vec) = panel_children_vec(parent_h) {
-                    vec.RemoveAt(v_index as u32).unwrap();
-                }
-            }
-            Handle::Border(b) => {
-                debug_assert_eq!(v_index, 0);
-                b.put_Child(None).unwrap();
-            }
-            Handle::Viewbox(v) => {
-                debug_assert_eq!(v_index, 0);
-                v.put_Child(None).unwrap();
-            }
-            Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {
-                debug_assert_eq!(v_index, 0);
-                if let Some(cc) = content_control_for(parent_h) {
-                    cc.put_Content(None).unwrap();
-                }
-            }
-            Handle::ScrollView(sv) => {
-                debug_assert_eq!(v_index, 0);
-                sv.put_Content(None).unwrap();
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                items.RemoveAt(v_index as u32).unwrap();
-            }
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                items.RemoveAt(v_index as u32).unwrap();
-            }
-            _ => panic!("WinUIBackend::visual_remove_at: {parent} is not a container"),
-        }
+        let cc = classify_container(parent_h).unwrap_or_else(|| {
+            panic!("WinUIBackend::visual_remove_at: {parent} is not a container")
+        });
+        container_remove(&cc, v_index);
     }
     /// In-place replace the child at visual index `v_index`. Caller
     /// must ensure `new` is non-phantom; logical mirror is NOT touched.
@@ -409,72 +333,184 @@ impl WinUIBackend {
             .get(&new)
             .unwrap_or_else(|| panic!("WinUIBackend::visual_set_at: unknown new {new}"));
         let new_ui = new_h.as_ui_element();
-        match parent_h {
-            Handle::StackPanel(_) | Handle::Grid(_) | Handle::Canvas(_) => {
-                let vec = panel_children_vec(parent_h).unwrap();
-                vec.SetAt(v_index as u32, &new_ui).unwrap();
-            }
-            Handle::Border(b) => {
-                b.put_Child(&new_ui).unwrap();
-            }
-            Handle::Viewbox(v) => {
-                v.put_Child(&new_ui).unwrap();
-            }
-            Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {
-                let cc = content_control_for(parent_h).unwrap();
-                cc.put_Content(&new_ui).unwrap();
-            }
-            Handle::ScrollView(sv) => {
-                sv.put_Content(&new_ui).unwrap();
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                let insp: windows_core::IInspectable = new_ui.cast().unwrap();
-                items.SetAt(v_index as u32, &insp).unwrap();
-            }
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                let insp: windows_core::IInspectable = new_ui.cast().unwrap();
-                items.SetAt(v_index as u32, &insp).unwrap();
-            }
-            _ => panic!("WinUIBackend::visual_set_at: {parent} is not a container"),
+        let cc = classify_container(parent_h)
+            .unwrap_or_else(|| panic!("WinUIBackend::visual_set_at: {parent} is not a container"));
+        container_set(&cc, v_index, &new_ui);
+    }
+}
+
+/// Classification of container handles for child-tree operations.
+/// Every container variant falls into one of these shapes, which
+/// determines how children are appended, removed, moved, etc.
+enum ContainerChildren<'a> {
+    /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
+    /// by `IPanel::Children` — a `UIElementCollection` (IVector<UIElement>).
+    Panel(windows_collections::IVector<Xaml::UIElement>),
+    /// Single-child container (Border, Viewbox) that uses `put_Child`.
+    SingleChild(&'a Handle),
+    /// Single-child `IContentControl` (ScrollViewer, Expander,
+    /// TabViewItem, NavigationView, PivotItem).
+    ContentControl(Xaml::IContentControl),
+    /// Single-child container that has a direct `put_Content` method but
+    /// does not implement `IContentControl` (ScrollView, SplitView).
+    DirectContent(&'a Handle),
+    /// IVector<IInspectable>-backed multi-child (TabView, Pivot).
+    InspectableVector(windows_collections::IVector<windows_core::IInspectable>),
+}
+
+/// Classify a `Handle` into its container shape. Returns `None` when the
+/// handle does not support children.
+fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
+    match h {
+        Handle::StackPanel(s) => Some(ContainerChildren::Panel(
+            s.cast::<Xaml::IPanel>()
+                .ok()?
+                .get_Children()
+                .ok()?
+                .cast()
+                .ok()?,
+        )),
+        Handle::Grid(g) => Some(ContainerChildren::Panel(
+            g.cast::<Xaml::IPanel>()
+                .ok()?
+                .get_Children()
+                .ok()?
+                .cast()
+                .ok()?,
+        )),
+        Handle::Canvas(c) => Some(ContainerChildren::Panel(
+            c.cast::<Xaml::IPanel>()
+                .ok()?
+                .get_Children()
+                .ok()?
+                .cast()
+                .ok()?,
+        )),
+        Handle::RelativePanel(r) => Some(ContainerChildren::Panel(
+            r.cast::<Xaml::IPanel>()
+                .ok()?
+                .get_Children()
+                .ok()?
+                .cast()
+                .ok()?,
+        )),
+        Handle::Border(_) | Handle::Viewbox(_) => Some(ContainerChildren::SingleChild(h)),
+        Handle::ScrollViewer(s) => Some(ContainerChildren::ContentControl(s.cast().ok()?)),
+        Handle::Expander(e) => Some(ContainerChildren::ContentControl(e.cast().ok()?)),
+        Handle::TabViewItem(ti) => Some(ContainerChildren::ContentControl(ti.cast().ok()?)),
+        Handle::NavigationView(nv) => Some(ContainerChildren::ContentControl(nv.cast().ok()?)),
+        Handle::PivotItem(pi) => Some(ContainerChildren::ContentControl(pi.cast().ok()?)),
+        Handle::ScrollView(_) | Handle::SplitView(_) => Some(ContainerChildren::DirectContent(h)),
+        Handle::TabView(tv) => Some(ContainerChildren::InspectableVector(
+            tv.get_TabItems().ok()?,
+        )),
+        Handle::Pivot(p) => Some(ContainerChildren::InspectableVector(
+            p.cast::<Xaml::IItemsControl>()
+                .ok()?
+                .get_Items()
+                .ok()?
+                .cast()
+                .ok()?,
+        )),
+        _ => None,
+    }
+}
+
+/// Append a child UIElement to a container.
+fn container_append(cc: &ContainerChildren<'_>, child: &Xaml::UIElement) {
+    match cc {
+        ContainerChildren::Panel(vec) => vec.Append(child).unwrap(),
+        ContainerChildren::SingleChild(h) => put_single_child(h, Some(child)),
+        ContainerChildren::ContentControl(c) => c.put_Content(child).unwrap(),
+        ContainerChildren::DirectContent(h) => put_direct_content(h, Some(child)),
+        ContainerChildren::InspectableVector(vec) => {
+            let insp: windows_core::IInspectable = child.cast().unwrap();
+            vec.Append(&insp).unwrap();
         }
     }
 }
 
-fn panel_children_vec(parent: &Handle) -> Option<windows_collections::IVector<Xaml::UIElement>> {
-    let panel = match parent {
-        Handle::StackPanel(s) => s.cast::<Xaml::IPanel>().ok()?,
-        Handle::Grid(g) => g.cast::<Xaml::IPanel>().ok()?,
-        Handle::Canvas(c) => c.cast::<Xaml::IPanel>().ok()?,
-        Handle::RelativePanel(r) => r.cast::<Xaml::IPanel>().ok()?,
-        _ => return None,
-    };
-    panel
-        .get_Children()
-        .ok()?
-        .cast::<windows_collections::IVector<Xaml::UIElement>>()
-        .ok()
+/// Insert a child UIElement at `index`.
+fn container_insert(cc: &ContainerChildren<'_>, index: usize, child: &Xaml::UIElement) {
+    match cc {
+        ContainerChildren::Panel(vec) => vec.InsertAt(index as u32, child).unwrap(),
+        ContainerChildren::SingleChild(h) => put_single_child(h, Some(child)),
+        ContainerChildren::ContentControl(c) => c.put_Content(child).unwrap(),
+        ContainerChildren::DirectContent(h) => put_direct_content(h, Some(child)),
+        ContainerChildren::InspectableVector(vec) => {
+            let insp: windows_core::IInspectable = child.cast().unwrap();
+            vec.InsertAt(index as u32, &insp).unwrap();
+        }
+    }
 }
 
-fn content_control_for(parent: &Handle) -> Option<Xaml::IContentControl> {
-    match parent {
-        Handle::ScrollViewer(s) => s.cast().ok(),
-        Handle::Expander(e) => e.cast().ok(),
-        Handle::TabViewItem(ti) => ti.cast().ok(),
-        Handle::NavigationView(nv) => nv.cast().ok(),
-        Handle::PivotItem(pi) => pi.cast().ok(),
-        _ => None,
+/// Replace the child at `index`.
+fn container_set(cc: &ContainerChildren<'_>, index: usize, child: &Xaml::UIElement) {
+    match cc {
+        ContainerChildren::Panel(vec) => vec.SetAt(index as u32, child).unwrap(),
+        ContainerChildren::SingleChild(h) => put_single_child(h, Some(child)),
+        ContainerChildren::ContentControl(c) => c.put_Content(child).unwrap(),
+        ContainerChildren::DirectContent(h) => put_direct_content(h, Some(child)),
+        ContainerChildren::InspectableVector(vec) => {
+            let insp: windows_core::IInspectable = child.cast().unwrap();
+            vec.SetAt(index as u32, &insp).unwrap();
+        }
+    }
+}
+
+/// Remove the child at `index`.
+fn container_remove(cc: &ContainerChildren<'_>, index: usize) {
+    match cc {
+        ContainerChildren::Panel(vec) => vec.RemoveAt(index as u32).unwrap(),
+        ContainerChildren::SingleChild(h) => {
+            debug_assert_eq!(index, 0);
+            put_single_child(h, None);
+        }
+        ContainerChildren::ContentControl(c) => {
+            debug_assert_eq!(index, 0);
+            c.put_Content(None::<&windows_core::IInspectable>).unwrap();
+        }
+        ContainerChildren::DirectContent(h) => {
+            debug_assert_eq!(index, 0);
+            put_direct_content(h, None);
+        }
+        ContainerChildren::InspectableVector(vec) => vec.RemoveAt(index as u32).unwrap(),
+    }
+}
+
+/// Move a child from `from` to `to` within a container. Single-child
+/// containers are no-ops.
+fn container_move(cc: &ContainerChildren<'_>, from: usize, to: usize) {
+    match cc {
+        ContainerChildren::Panel(vec) => {
+            let item = vec.GetAt(from as u32).unwrap();
+            vec.RemoveAt(from as u32).unwrap();
+            vec.InsertAt(to as u32, &item).unwrap();
+        }
+        ContainerChildren::SingleChild(_)
+        | ContainerChildren::ContentControl(_)
+        | ContainerChildren::DirectContent(_) => {}
+        ContainerChildren::InspectableVector(vec) => {
+            let item = vec.GetAt(from as u32).unwrap();
+            vec.RemoveAt(from as u32).unwrap();
+            vec.InsertAt(to as u32, &item).unwrap();
+        }
+    }
+}
+
+fn put_single_child(h: &Handle, child: Option<&Xaml::UIElement>) {
+    match h {
+        Handle::Border(b) => b.put_Child(child).unwrap(),
+        Handle::Viewbox(v) => v.put_Child(child).unwrap(),
+        _ => unreachable!(),
+    }
+}
+
+fn put_direct_content(h: &Handle, child: Option<&Xaml::UIElement>) {
+    match h {
+        Handle::ScrollView(sv) => sv.put_Content(child).unwrap(),
+        Handle::SplitView(sv) => sv.put_Content(child).unwrap(),
+        _ => unreachable!(),
     }
 }
 
@@ -704,6 +740,337 @@ fn run_property_animation_inner(
     Ok(())
 }
 
+/// Handle props that apply to any control via base-class interfaces
+/// (`IFrameworkElement`, `IUIElement`, `IControl`, `IPanel`, `IShape`, etc.).
+/// Each prop is dispatched by trying interface casts in priority order.
+/// Returns `Ok(true)` when handled, `Ok(false)` to fall through.
+fn try_universal_prop(
+    handle: &Handle,
+    prop: Prop,
+    value: &PropValue,
+) -> windows_core::Result<bool> {
+    match (prop, value) {
+        (Prop::FontSize, PropValue::F64(v)) => set_font_f64(handle, *v),
+        (Prop::FontSize, PropValue::Unset) => set_font_f64(handle, 14.0),
+        (Prop::FontWeight, PropValue::U16(w)) => {
+            set_font_weight(handle, WinFontWeight { Weight: *w })
+        }
+        (Prop::FontWeight, PropValue::Unset) => {
+            set_font_weight(handle, WinFontWeight { Weight: 400 })
+        }
+        (Prop::FontFamily, PropValue::Str(s)) => {
+            set_font_family(handle, &Xaml::FontFamily::CreateInstanceWithName(s)?)
+        }
+        (Prop::FontFamily, PropValue::Unset) => set_font_family(
+            handle,
+            &Xaml::FontFamily::CreateInstanceWithName("Segoe UI")?,
+        ),
+        (Prop::Margin, PropValue::Thickness(t)) => {
+            handle
+                .as_framework_element()
+                .put_Margin(to_xaml_thickness(*t))?;
+            Ok(true)
+        }
+        (Prop::Margin, PropValue::Unset) => {
+            handle
+                .as_framework_element()
+                .put_Margin(to_xaml_thickness(Thickness::default()))?;
+            Ok(true)
+        }
+        (Prop::Width, PropValue::F64(v)) => {
+            handle.as_framework_element().put_Width(*v)?;
+            Ok(true)
+        }
+        (Prop::Width, PropValue::Unset) => {
+            handle.as_framework_element().put_Width(f64::NAN)?;
+            Ok(true)
+        }
+        (Prop::Height, PropValue::F64(v)) => {
+            handle.as_framework_element().put_Height(*v)?;
+            Ok(true)
+        }
+        (Prop::Height, PropValue::Unset) => {
+            handle.as_framework_element().put_Height(f64::NAN)?;
+            Ok(true)
+        }
+        (Prop::MinWidth, PropValue::F64(v)) => {
+            handle.as_framework_element().put_MinWidth(*v)?;
+            Ok(true)
+        }
+        (Prop::MinWidth, PropValue::Unset) => {
+            handle.as_framework_element().put_MinWidth(0.0)?;
+            Ok(true)
+        }
+        (Prop::MaxWidth, PropValue::F64(v)) => {
+            handle.as_framework_element().put_MaxWidth(*v)?;
+            Ok(true)
+        }
+        (Prop::MaxWidth, PropValue::Unset) => {
+            handle.as_framework_element().put_MaxWidth(f64::INFINITY)?;
+            Ok(true)
+        }
+        (Prop::MinHeight, PropValue::F64(v)) => {
+            handle.as_framework_element().put_MinHeight(*v)?;
+            Ok(true)
+        }
+        (Prop::MinHeight, PropValue::Unset) => {
+            handle.as_framework_element().put_MinHeight(0.0)?;
+            Ok(true)
+        }
+        (Prop::MaxHeight, PropValue::F64(v)) => {
+            handle.as_framework_element().put_MaxHeight(*v)?;
+            Ok(true)
+        }
+        (Prop::MaxHeight, PropValue::Unset) => {
+            handle.as_framework_element().put_MaxHeight(f64::INFINITY)?;
+            Ok(true)
+        }
+        (Prop::HorizontalAlignment, PropValue::I32(v)) => {
+            handle
+                .as_framework_element()
+                .put_HorizontalAlignment(Xaml::HorizontalAlignment(*v))?;
+            Ok(true)
+        }
+        (Prop::HorizontalAlignment, PropValue::Unset) => {
+            handle
+                .as_framework_element()
+                .put_HorizontalAlignment(Xaml::HorizontalAlignment::Stretch)?;
+            Ok(true)
+        }
+        (Prop::VerticalAlignment, PropValue::I32(v)) => {
+            handle
+                .as_framework_element()
+                .put_VerticalAlignment(Xaml::VerticalAlignment(*v))?;
+            Ok(true)
+        }
+        (Prop::VerticalAlignment, PropValue::Unset) => {
+            handle
+                .as_framework_element()
+                .put_VerticalAlignment(Xaml::VerticalAlignment::Stretch)?;
+            Ok(true)
+        }
+        (Prop::Opacity, PropValue::F64(v)) => {
+            handle.as_ui_element().put_Opacity(*v)?;
+            Ok(true)
+        }
+        (Prop::Opacity, PropValue::Unset) => {
+            handle.as_ui_element().put_Opacity(1.0)?;
+            Ok(true)
+        }
+        (Prop::IsEnabled, PropValue::Unset) => {
+            handle
+                .as_ui_element()
+                .cast::<Xaml::IControl>()?
+                .put_IsEnabled(true)?;
+            Ok(true)
+        }
+        (Prop::Resources, PropValue::Resources(map)) => {
+            let rd = handle.as_framework_element().get_Resources()?;
+            let imap =
+                rd.cast::<windows_collections::IMap<
+                    windows_core::IInspectable,
+                    windows_core::IInspectable,
+                >>()?;
+            for (k, v) in map {
+                let key = windows_reference::IReference::from(k.as_str());
+                let val = windows_reference::IReference::from(v.as_str());
+                imap.Insert(&key, &val)?;
+            }
+            Ok(true)
+        }
+        (Prop::AttachedGridRow, PropValue::I32(v)) => {
+            Xaml::Grid::SetRow(&handle.as_framework_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AttachedGridColumn, PropValue::I32(v)) => {
+            Xaml::Grid::SetColumn(&handle.as_framework_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AttachedGridRowSpan, PropValue::I32(v)) => {
+            Xaml::Grid::SetRowSpan(&handle.as_framework_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AttachedGridColumnSpan, PropValue::I32(v)) => {
+            Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AttachedCanvasLeft, PropValue::F64(v)) => {
+            Xaml::Canvas::SetLeft(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AttachedCanvasTop, PropValue::F64(v)) => {
+            Xaml::Canvas::SetTop(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AttachedCanvasZIndex, PropValue::I32(v)) => {
+            Xaml::Canvas::SetZIndex(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AlignLeftWithPanel, PropValue::Bool(v)) => {
+            Xaml::RelativePanel::SetAlignLeftWithPanel(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AlignRightWithPanel, PropValue::Bool(v)) => {
+            Xaml::RelativePanel::SetAlignRightWithPanel(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AlignTopWithPanel, PropValue::Bool(v)) => {
+            Xaml::RelativePanel::SetAlignTopWithPanel(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AlignBottomWithPanel, PropValue::Bool(v)) => {
+            Xaml::RelativePanel::SetAlignBottomWithPanel(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AlignHCenterWithPanel, PropValue::Bool(v)) => {
+            Xaml::RelativePanel::SetAlignHorizontalCenterWithPanel(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::AlignVCenterWithPanel, PropValue::Bool(v)) => {
+            Xaml::RelativePanel::SetAlignVerticalCenterWithPanel(&handle.as_ui_element(), *v)?;
+            Ok(true)
+        }
+        (Prop::Padding, PropValue::Thickness(t)) => set_padding(handle, to_xaml_thickness(*t)),
+        (Prop::Padding, PropValue::Unset) => {
+            set_padding(handle, to_xaml_thickness(Thickness::default()))
+        }
+        (Prop::Background, PropValue::Brush(br)) => set_background(handle, &brush_of(br)?),
+        (Prop::Background, PropValue::Unset) => set_background(handle, None::<&Xaml::Brush>),
+        (Prop::Foreground, PropValue::Brush(br)) => set_foreground(handle, &brush_of(br)?),
+        (Prop::Foreground, PropValue::Unset) => set_foreground(handle, None::<&Xaml::Brush>),
+        (Prop::Fill, PropValue::Brush(b)) => {
+            handle
+                .cast_inner::<Xaml::IShape>()?
+                .put_Fill(&brush_of(b)?)?;
+            Ok(true)
+        }
+        (Prop::Fill, PropValue::Unset) => {
+            handle.cast_inner::<Xaml::IShape>()?.put_Fill(None)?;
+            Ok(true)
+        }
+        (Prop::Stroke, PropValue::Brush(b)) => {
+            handle
+                .cast_inner::<Xaml::IShape>()?
+                .put_Stroke(&brush_of(b)?)?;
+            Ok(true)
+        }
+        (Prop::Stroke, PropValue::Unset) => {
+            handle.cast_inner::<Xaml::IShape>()?.put_Stroke(None)?;
+            Ok(true)
+        }
+        (Prop::StrokeThickness, PropValue::F64(v)) => {
+            handle
+                .cast_inner::<Xaml::IShape>()?
+                .put_StrokeThickness(*v)?;
+            Ok(true)
+        }
+        (Prop::StrokeThickness, PropValue::Unset) => {
+            handle
+                .cast_inner::<Xaml::IShape>()?
+                .put_StrokeThickness(0.0)?;
+            Ok(true)
+        }
+        _ => Ok(false),
+    }
+}
+
+fn set_padding(handle: &Handle, thickness: Xaml::Thickness) -> windows_core::Result<bool> {
+    if let Ok(border) = handle.cast_inner::<Xaml::IBorder>() {
+        border.put_Padding(thickness)?;
+    } else if let Ok(ctl) = handle.cast_inner::<Xaml::IControl>() {
+        ctl.put_Padding(thickness)?;
+    } else {
+        diag::unhandled_modifier("set_prop", Prop::Padding, handle);
+    }
+    Ok(true)
+}
+
+fn set_background(
+    handle: &Handle,
+    brush: impl windows_core::Param<Xaml::Brush>,
+) -> windows_core::Result<bool> {
+    if let Ok(panel) = handle.cast_inner::<Xaml::IPanel>() {
+        panel.put_Background(brush)?;
+    } else if let Ok(ctl) = handle.cast_inner::<Xaml::IControl>() {
+        ctl.put_Background(brush)?;
+    } else if let Ok(border) = handle.cast_inner::<Xaml::IBorder>() {
+        border.put_Background(brush)?;
+    }
+    // TextBlock/RichTextBlock: no background property — silently ignored.
+    Ok(true)
+}
+
+fn set_foreground(
+    handle: &Handle,
+    brush: impl windows_core::Param<Xaml::Brush>,
+) -> windows_core::Result<bool> {
+    if let Ok(ctl) = handle.cast_inner::<Xaml::IControl>() {
+        ctl.put_Foreground(brush)?;
+    } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
+        tb.put_Foreground(brush)?;
+    } else if let Ok(rtb) = handle.cast_inner::<Xaml::IRichTextBlock>() {
+        rtb.put_Foreground(brush)?;
+    } else {
+        diag::unhandled_modifier("set_prop", Prop::Foreground, handle);
+    }
+    Ok(true)
+}
+
+fn set_font_f64(handle: &Handle, v: f64) -> windows_core::Result<bool> {
+    if let Ok(ctrl) = handle.cast_inner::<Xaml::IControl>() {
+        ctrl.put_FontSize(v)?;
+    } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
+        tb.put_FontSize(v)?;
+    } else if let Ok(rtb) = handle.cast_inner::<Xaml::IRichTextBlock>() {
+        rtb.put_FontSize(v)?;
+    }
+    Ok(true)
+}
+
+fn set_font_weight(handle: &Handle, fw: WinFontWeight) -> windows_core::Result<bool> {
+    if let Ok(ctrl) = handle.cast_inner::<Xaml::IControl>() {
+        ctrl.put_FontWeight(fw)?;
+    } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
+        tb.put_FontWeight(fw)?;
+    }
+    Ok(true)
+}
+
+fn set_font_family(handle: &Handle, ff: &Xaml::FontFamily) -> windows_core::Result<bool> {
+    if let Ok(ctrl) = handle.cast_inner::<Xaml::IControl>() {
+        ctrl.put_FontFamily(ff)?;
+    } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
+        tb.put_FontFamily(ff)?;
+    } else if let Ok(rtb) = handle.cast_inner::<Xaml::IRichTextBlock>() {
+        rtb.put_FontFamily(ff)?;
+    }
+    Ok(true)
+}
+
+/// Populate an existing `IVector<IInspectable>` with string items (clear + append).
+fn set_str_items(
+    vec: &windows_collections::IVector<windows_core::IInspectable>,
+    items: &[String],
+) -> windows_core::Result<()> {
+    vec.Clear()?;
+    for s in items {
+        let insp = windows_reference::IReference::from(s.as_str());
+        vec.Append(&insp)?;
+    }
+    Ok(())
+}
+
+/// Build an `IVector<IInspectable>` from a string list (for `put_ItemsSource`).
+fn str_list_as_ivector(
+    items: &[String],
+) -> windows_collections::IVector<windows_core::IInspectable> {
+    let vec: Vec<Option<windows_core::IInspectable>> = items
+        .iter()
+        .map(|s| Some(windows_reference::IReference::from(s.as_str()).into()))
+        .collect();
+    vec.into()
+}
+
 impl Backend for WinUIBackend {
     fn create(&mut self, kind: ControlKind) -> ControlId {
         let id = self.alloc_id();
@@ -718,77 +1085,13 @@ impl Backend for WinUIBackend {
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::set_prop: unknown control {id}"));
         let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
-            // Try generated dispatch first (handles method-based props automatically)
             if generated_set_prop::dispatch(handle, prop, value)? {
                 return Ok(());
             }
+            if try_universal_prop(handle, prop, value)? {
+                return Ok(());
+            }
             match (prop, value, handle) {
-                (Prop::FontSize, PropValue::F64(v), h) => {
-                    if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
-                        ctrl.put_FontSize(*v)
-                    } else if let Ok(tb) = h.cast_inner::<Xaml::ITextBlock>() {
-                        tb.put_FontSize(*v)
-                    } else if let Ok(rtb) = h.cast_inner::<Xaml::IRichTextBlock>() {
-                        rtb.put_FontSize(*v)
-                    } else {
-                        Ok(())
-                    }
-                }
-                (Prop::FontSize, PropValue::Unset, h) => {
-                    if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
-                        ctrl.put_FontSize(14.0)
-                    } else if let Ok(tb) = h.cast_inner::<Xaml::ITextBlock>() {
-                        tb.put_FontSize(14.0)
-                    } else if let Ok(rtb) = h.cast_inner::<Xaml::IRichTextBlock>() {
-                        rtb.put_FontSize(14.0)
-                    } else {
-                        Ok(())
-                    }
-                }
-                (Prop::FontWeight, PropValue::U16(w), h) => {
-                    let fw = WinFontWeight { Weight: *w };
-                    if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
-                        ctrl.put_FontWeight(fw)
-                    } else if let Ok(tb) = h.cast_inner::<Xaml::ITextBlock>() {
-                        tb.put_FontWeight(fw)
-                    } else {
-                        Ok(())
-                    }
-                }
-                (Prop::FontWeight, PropValue::Unset, h) => {
-                    let fw = WinFontWeight { Weight: 400 };
-                    if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
-                        ctrl.put_FontWeight(fw)
-                    } else if let Ok(tb) = h.cast_inner::<Xaml::ITextBlock>() {
-                        tb.put_FontWeight(fw)
-                    } else {
-                        Ok(())
-                    }
-                }
-                (Prop::FontFamily, PropValue::Str(s), h) => {
-                    let ff = Xaml::FontFamily::CreateInstanceWithName(s)?;
-                    if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
-                        ctrl.put_FontFamily(&ff)
-                    } else if let Ok(tb) = h.cast_inner::<Xaml::ITextBlock>() {
-                        tb.put_FontFamily(&ff)
-                    } else if let Ok(rtb) = h.cast_inner::<Xaml::IRichTextBlock>() {
-                        rtb.put_FontFamily(&ff)
-                    } else {
-                        Ok(())
-                    }
-                }
-                (Prop::FontFamily, PropValue::Unset, h) => {
-                    let ff = Xaml::FontFamily::CreateInstanceWithName("Segoe UI")?;
-                    if let Ok(ctrl) = h.cast_inner::<Xaml::IControl>() {
-                        ctrl.put_FontFamily(&ff)
-                    } else if let Ok(tb) = h.cast_inner::<Xaml::ITextBlock>() {
-                        tb.put_FontFamily(&ff)
-                    } else if let Ok(rtb) = h.cast_inner::<Xaml::IRichTextBlock>() {
-                        rtb.put_FontFamily(&ff)
-                    } else {
-                        Ok(())
-                    }
-                }
                 (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     tb.put_IsTextSelectionEnabled(*v)
                 }
@@ -885,10 +1188,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                (Prop::IsEnabled, PropValue::Unset, _) => handle
-                    .as_ui_element()
-                    .cast::<Xaml::IControl>()?
-                    .put_IsEnabled(true),
                 (Prop::Value, PropValue::Str(s), Handle::TextBox(t)) => {
                     if t.get_Text().ok().as_deref() == Some(s.as_str()) {
                         return Ok(());
@@ -921,198 +1220,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                (Prop::AttachedGridRow, PropValue::I32(v), _) => {
-                    Xaml::Grid::SetRow(&handle.as_framework_element(), *v)
-                }
-                (Prop::AttachedGridColumn, PropValue::I32(v), _) => {
-                    Xaml::Grid::SetColumn(&handle.as_framework_element(), *v)
-                }
-                (Prop::AttachedGridRowSpan, PropValue::I32(v), _) => {
-                    Xaml::Grid::SetRowSpan(&handle.as_framework_element(), *v)
-                }
-                (Prop::AttachedGridColumnSpan, PropValue::I32(v), _) => {
-                    Xaml::Grid::SetColumnSpan(&handle.as_framework_element(), *v)
-                }
-                (Prop::Margin, PropValue::Thickness(t), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_Margin(to_xaml_thickness(*t)),
-                (Prop::Margin, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_Margin(to_xaml_thickness(Thickness::default())),
-                (Prop::Width, PropValue::F64(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_Width(*v),
-                (Prop::Width, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_Width(f64::NAN),
-                (Prop::Height, PropValue::F64(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_Height(*v),
-                (Prop::Height, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_Height(f64::NAN),
-                (Prop::MinWidth, PropValue::F64(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MinWidth(*v),
-                (Prop::MinWidth, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MinWidth(0.0),
-                (Prop::MaxWidth, PropValue::F64(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MaxWidth(*v),
-                (Prop::MaxWidth, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MaxWidth(f64::INFINITY),
-                (Prop::MinHeight, PropValue::F64(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MinHeight(*v),
-                (Prop::MinHeight, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MinHeight(0.0),
-                (Prop::MaxHeight, PropValue::F64(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MaxHeight(*v),
-                (Prop::MaxHeight, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_MaxHeight(f64::INFINITY),
-                (Prop::HorizontalAlignment, PropValue::I32(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_HorizontalAlignment(Xaml::HorizontalAlignment(*v)),
-                (Prop::HorizontalAlignment, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_HorizontalAlignment(Xaml::HorizontalAlignment::Stretch),
-                (Prop::VerticalAlignment, PropValue::I32(v), _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_VerticalAlignment(Xaml::VerticalAlignment(*v)),
-                (Prop::VerticalAlignment, PropValue::Unset, _) => handle
-                    .as_framework_element()
-                    .cast::<Xaml::IFrameworkElement>()?
-                    .put_VerticalAlignment(Xaml::VerticalAlignment::Stretch),
-                (Prop::Opacity, PropValue::F64(v), _) => handle
-                    .as_ui_element()
-                    .cast::<Xaml::IUIElement>()?
-                    .put_Opacity(*v),
-                (Prop::Opacity, PropValue::Unset, _) => handle
-                    .as_ui_element()
-                    .cast::<Xaml::IUIElement>()?
-                    .put_Opacity(1.0),
-                (Prop::Resources, PropValue::Resources(map), _) => {
-                    let rd = handle
-                        .as_framework_element()
-                        .cast::<Xaml::IFrameworkElement>()?
-                        .get_Resources()?;
-                    let imap = rd.cast::<windows_collections::IMap<
-                        windows_core::IInspectable,
-                        windows_core::IInspectable,
-                    >>()?;
-                    for (k, v) in map {
-                        let key = windows_reference::IReference::from(k.as_str());
-                        let val = windows_reference::IReference::from(v.as_str());
-                        imap.Insert(&key, &val)?;
-                    }
-                    Ok(())
-                }
-                (Prop::Padding, PropValue::Thickness(t), Handle::Button(b)) => b
-                    .cast::<Xaml::IControl>()?
-                    .put_Padding(to_xaml_thickness(*t)),
-                (Prop::Padding, PropValue::Unset, Handle::Button(b)) => b
-                    .cast::<Xaml::IControl>()?
-                    .put_Padding(to_xaml_thickness(Thickness::default())),
-                (Prop::Padding, PropValue::Thickness(t), Handle::Border(br)) => {
-                    br.put_Padding(to_xaml_thickness(*t))
-                }
-                (Prop::Padding, PropValue::Unset, Handle::Border(br)) => {
-                    br.put_Padding(to_xaml_thickness(Thickness::default()))
-                }
-                (Prop::Padding, PropValue::Thickness(t), h) => {
-                    if let Ok(ctl) = h.as_framework_element().cast::<Xaml::Control>() {
-                        ctl.cast::<Xaml::IControl>()?
-                            .put_Padding(to_xaml_thickness(*t))
-                    } else {
-                        diag::unhandled_modifier("set_prop", Prop::Padding, h);
-                        Ok(())
-                    }
-                }
-                (Prop::Padding, PropValue::Unset, _) => {
-                    if let Ok(ctl) = handle.as_framework_element().cast::<Xaml::Control>() {
-                        ctl.cast::<Xaml::IControl>()?
-                            .put_Padding(to_xaml_thickness(Thickness::default()))
-                    } else {
-                        Ok(())
-                    }
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::StackPanel(s)) => {
-                    s.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Grid(g)) => {
-                    g.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Canvas(c)) => {
-                    c.cast::<Xaml::IPanel>()?.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_Background(&brush_of(br)?)
-                }
-                (Prop::Background, PropValue::Brush(br), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Background(&brush_of(br)?)
-                }
-                (
-                    Prop::Background,
-                    PropValue::Brush(_),
-                    Handle::TextBlock(_) | Handle::RichTextBlock(_),
-                ) => Ok(()),
-                (Prop::Background, PropValue::Unset, Handle::StackPanel(s)) => {
-                    s.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Grid(g)) => {
-                    g.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Canvas(c)) => {
-                    c.cast::<Xaml::IPanel>()?.put_Background(None)
-                }
-                (Prop::Background, PropValue::Unset, Handle::Border(b)) => b.put_Background(None),
-                (Prop::Background, PropValue::Unset, Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Background(None)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::TextBlock(tb)) => {
-                    tb.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::RichTextBlock(tb)) => {
-                    tb.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(br), Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Foreground(&brush_of(br)?)
-                }
-                (Prop::Foreground, PropValue::Brush(_), h) => {
-                    diag::unhandled_modifier("set_prop", Prop::Foreground, h);
-                    Ok(())
-                }
-                (Prop::Foreground, PropValue::Unset, Handle::TextBlock(tb)) => {
-                    tb.put_Foreground(None)
-                }
-                (Prop::Foreground, PropValue::Unset, Handle::RichTextBlock(tb)) => {
-                    tb.put_Foreground(None)
-                }
-                (Prop::Foreground, PropValue::Unset, Handle::Button(b)) => {
-                    b.cast::<Xaml::IControl>()?.put_Foreground(None)
-                }
                 (Prop::Step, PropValue::F64(v), Handle::Slider(s)) => {
                     s.put_StepFrequency(*v)?;
                     s.cast::<Xaml::IRangeBase>()?.put_SmallChange(*v)
@@ -1131,7 +1238,7 @@ impl Backend for WinUIBackend {
                 (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
                     ti.put_IsClosable(*v)
                 }
-                // ContentDialog (W6 — modal popup hosted via ShowAsync).
+                // ContentDialog — modal popup hosted via ShowAsync.
                 (Prop::IsOpen, PropValue::Bool(v), Handle::ContentDialog(d)) => {
                     if *v {
                         // ContentDialog needs a XamlRoot before ShowAsync; reuse
@@ -1190,30 +1297,6 @@ impl Backend for WinUIBackend {
                     p.put_DisplayName("")
                 }
                 (Prop::Initials, PropValue::Unset, Handle::PersonPicture(p)) => p.put_Initials(""),
-                (Prop::Fill, PropValue::Brush(b), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
-                }
-                (Prop::Fill, PropValue::Brush(b), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_Fill(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::Stroke, PropValue::Brush(b), Handle::Line(l)) => {
-                    l.cast::<Xaml::IShape>()?.put_Stroke(&brush_of(b)?)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Rectangle(r)) => {
-                    r.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Ellipse(e)) => {
-                    e.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
-                (Prop::StrokeThickness, PropValue::F64(v), Handle::Line(l)) => {
-                    l.cast::<Xaml::IShape>()?.put_StrokeThickness(*v)
-                }
                 (Prop::CornerRadius, PropValue::F64(v), Handle::Rectangle(r)) => {
                     r.put_RadiusX(*v).and_then(|_| r.put_RadiusY(*v))
                 }
@@ -1293,7 +1376,6 @@ impl Backend for WinUIBackend {
                     nv.put_SelectedItem(None)
                 }
                 (Prop::AutoSuggestBox, PropValue::Bool(true), Handle::NavigationView(nv)) => {
-                    // Create an AutoSuggestBox if one isn't already set.
                     let asb = Xaml::AutoSuggestBox::new()?;
                     nv.put_AutoSuggestBox(&asb)
                 }
@@ -1308,16 +1390,8 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::AutoSuggestItems, PropValue::StrList(items), Handle::NavigationView(nv)) => {
                     if let Ok(asb) = nv.get_AutoSuggestBox() {
-                        let vec: Vec<Option<windows_core::IInspectable>> = items
-                            .iter()
-                            .map(|s| {
-                                let r = windows_reference::IReference::from(s.as_str());
-                                Some(r.into())
-                            })
-                            .collect();
-                        let ivec: windows_collections::IVector<windows_core::IInspectable> =
-                            vec.into();
-                        asb.cast::<Xaml::IItemsControl>()?.put_ItemsSource(&ivec)?;
+                        asb.cast::<Xaml::IItemsControl>()?
+                            .put_ItemsSource(&str_list_as_ivector(items))?;
                     }
                     Ok(())
                 }
@@ -1339,17 +1413,8 @@ impl Backend for WinUIBackend {
                     pi.put_Header(&tb)
                 }
                 (Prop::Items, PropValue::StrList(items), Handle::BreadcrumbBar(bc)) => {
-                    let vec: Vec<Option<windows_core::IInspectable>> = items
-                        .iter()
-                        .map(|s| {
-                            let r = windows_reference::IReference::from(s.as_str());
-                            Some(r.into())
-                        })
-                        .collect();
-                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
-                    bc.put_ItemsSource(&ivec)
+                    bc.put_ItemsSource(&str_list_as_ivector(items))
                 }
-                // ── W2: PasswordBox ───────────────────────────────────────────
                 (Prop::Value, PropValue::Str(s), Handle::PasswordBox(p)) => {
                     if p.get_Password().ok().as_deref() == Some(s.as_str()) {
                         return Ok(());
@@ -1357,42 +1422,13 @@ impl Backend for WinUIBackend {
                     p.put_Password(s.as_str())
                 }
                 (Prop::Value, PropValue::Unset, Handle::PasswordBox(p)) => p.put_Password(""),
-                // ── W3: RadioButtons ──────────────────────────────────────────
                 (Prop::Items, PropValue::StrList(items), Handle::RadioButtons(r)) => {
-                    let vec = r.get_Items()?;
-                    vec.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        vec.Append(&insp)?;
-                    }
-                    Ok(())
+                    set_str_items(&r.get_Items()?.cast()?, items)
                 }
-                // ── W4: ComboBox ──────────────────────────────────────────────
-                (Prop::Items, PropValue::StrList(items), Handle::ComboBox(c)) => {
-                    let coll =
-                        c.cast::<Xaml::IItemsControl>()?
-                            .get_Items()?
-                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
-                    coll.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        coll.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                // ── W5: Canvas attached props ─────────────────────────────────
-                (Prop::AttachedCanvasLeft, PropValue::F64(v), _) => {
-                    Xaml::Canvas::SetLeft(&handle.as_ui_element(), *v)
-                }
-                (Prop::AttachedCanvasTop, PropValue::F64(v), _) => {
-                    Xaml::Canvas::SetTop(&handle.as_ui_element(), *v)
-                }
-                (Prop::AttachedCanvasZIndex, PropValue::I32(v), _) => {
-                    Xaml::Canvas::SetZIndex(&handle.as_ui_element(), *v)
-                }
-                // ── W6: RepeatButton ──────────────────────────────────────────
-                // ── W7: RatingControl ─────────────────────────────────────────
-                // ── W8: ColorPicker ───────────────────────────────────────────
+                (Prop::Items, PropValue::StrList(items), Handle::ComboBox(c)) => set_str_items(
+                    &c.cast::<Xaml::IItemsControl>()?.get_Items()?.cast()?,
+                    items,
+                ),
                 (Prop::ColorValue, PropValue::Color { a, r, g, b }, Handle::ColorPicker(cp)) => cp
                     .put_Color(Xaml::Color {
                         A: *a,
@@ -1400,26 +1436,10 @@ impl Backend for WinUIBackend {
                         G: *g,
                         B: *b,
                     }),
-                // ── W9: DatePicker ────────────────────────────────────────────
-                // ── W10: TimePicker ───────────────────────────────────────────
-                // ── W11: CalendarDatePicker ───────────────────────────────────
-                // ── W12: CalendarView ─────────────────────────────────────────
-                // ── W13: ListBox ──────────────────────────────────────────────
-                (Prop::Items, PropValue::StrList(items), Handle::ListBox(lb)) => {
-                    let coll =
-                        lb.cast::<Xaml::IItemsControl>()?
-                            .get_Items()?
-                            .cast::<windows_collections::IVector<windows_core::IInspectable>>()?;
-                    coll.Clear()?;
-                    for s in items {
-                        let insp = windows_reference::IReference::from(s.as_str());
-                        coll.Append(&insp)?;
-                    }
-                    Ok(())
-                }
-                // ── W14: DropDownButton ───────────────────────────────────────
-                // ── W15: SplitButton ──────────────────────────────────────────
-                // ── W16: AutoSuggestBox ───────────────────────────────────────
+                (Prop::Items, PropValue::StrList(items), Handle::ListBox(lb)) => set_str_items(
+                    &lb.cast::<Xaml::IItemsControl>()?.get_Items()?.cast()?,
+                    items,
+                ),
                 (Prop::Text, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
                     // Skip SetText when the control already has this value —
                     // calling SetText during a user-initiated TextChanged
@@ -1429,24 +1449,12 @@ impl Backend for WinUIBackend {
                     }
                     asb.put_Text(s)
                 }
-                (Prop::Items, PropValue::StrList(items), Handle::AutoSuggestBox(asb)) => {
-                    // Build a Rust Vec, wrap into IVector via the stock
-                    // implementation, then assign as ItemsSource.
-                    let vec: Vec<Option<windows_core::IInspectable>> = items
-                        .iter()
-                        .map(|s| {
-                            let r = windows_reference::IReference::from(s.as_str());
-                            Some(r.into())
-                        })
-                        .collect();
-                    let ivec: windows_collections::IVector<windows_core::IInspectable> = vec.into();
-                    asb.cast::<Xaml::IItemsControl>()?.put_ItemsSource(&ivec)
-                }
-                // ── W17: SplitView ───────────────────────────────────────
+                (Prop::Items, PropValue::StrList(items), Handle::AutoSuggestBox(asb)) => asb
+                    .cast::<Xaml::IItemsControl>()?
+                    .put_ItemsSource(&str_list_as_ivector(items)),
                 (Prop::DisplayMode, PropValue::I32(m), Handle::SplitView(sv)) => {
                     sv.put_DisplayMode(Xaml::SplitViewDisplayMode(*m))
                 }
-                // ── W18: MenuBar ─────────────────────────────────────────
                 (Prop::Items, PropValue::MenuBarItems(items), Handle::MenuBar(mb)) => {
                     let winui_items = mb.get_Items()?;
                     winui_items.Clear()?;
@@ -1460,7 +1468,6 @@ impl Backend for WinUIBackend {
                         }
                         winui_items.Append(&mbi)?;
                     }
-                    // Re-wire click handlers if a handler is already stored.
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_menu_bar_clicks(mb, handler);
@@ -1472,7 +1479,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // MenuFlyout on Button/DropDownButton
                 (
                     Prop::MenuFlyoutItems,
                     PropValue::MenuFlyoutItems(items),
@@ -1485,7 +1491,6 @@ impl Backend for WinUIBackend {
                         flyout_items.Append(&fi)?;
                     }
                     btn.cast::<Xaml::IButton>()?.put_Flyout(&flyout)?;
-                    // Wire click handlers if stored.
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_flyout_clicks(&flyout, handler);
@@ -1505,7 +1510,6 @@ impl Backend for WinUIBackend {
                         flyout_items.Append(&fi)?;
                     }
                     btn.put_Flyout(&flyout)?;
-                    // Wire click handlers if stored.
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_flyout_clicks(&flyout, handler);
@@ -1517,7 +1521,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // CommandBarFlyout on Button
                 (
                     Prop::CommandBarFlyoutCommands,
                     PropValue::CommandBarFlyoutDef { primary, secondary },
@@ -1535,7 +1538,6 @@ impl Backend for WinUIBackend {
                         secondary_cmds.Append(&el)?;
                     }
                     btn.put_Flyout(&flyout)?;
-                    // Wire click handlers if stored.
                     let handlers = self.command_bar_flyout_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let mut revs = Self::wire_command_bar_clicks(&primary_cmds, handler);
@@ -1548,8 +1550,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // ── W19: ScrollView ──────────────────────────────────────
-                // ── W20: TreeView ────────────────────────────────────────
                 (Prop::Nodes, PropValue::TreeViewNodes(nodes), Handle::TreeView(tv)) => {
                     let root = tv.get_RootNodes()?;
                     root.Clear()?;
@@ -1559,7 +1559,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // ── W21: CommandBar ──────────────────────────────────────
                 (
                     Prop::PrimaryCommands,
                     PropValue::CommandBarCommands(cmds),
@@ -1571,7 +1570,6 @@ impl Backend for WinUIBackend {
                         let el = build_command_bar_element(def)?;
                         primary.Append(&el)?;
                     }
-                    // Wire click handlers.
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_command_bar_clicks(&primary, handler);
@@ -1594,7 +1592,6 @@ impl Backend for WinUIBackend {
                         let el = build_command_bar_element(def)?;
                         secondary.Append(&el)?;
                     }
-                    // Wire click handlers for secondary too.
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_command_bar_clicks(&secondary, handler);
@@ -1605,7 +1602,6 @@ impl Backend for WinUIBackend {
                     }
                     Ok(())
                 }
-                // ── W22: TeachingTip ────────────────────────────────────
                 (Prop::ActionButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
                     let boxed: windows_core::IInspectable =
                         windows_reference::IReference::<windows_core::HSTRING>::from(
@@ -1622,7 +1618,6 @@ impl Backend for WinUIBackend {
                         .cast()?;
                     tt.put_CloseButtonContent(&boxed)
                 }
-                // ── W23: SelectorBar ────────────────────────────────────
                 (Prop::Items, PropValue::SelectorBarItems(items), Handle::SelectorBar(sb)) => {
                     let vec = sb.get_Items()?;
                     vec.Clear()?;
@@ -1651,7 +1646,6 @@ impl Backend for WinUIBackend {
                     reb.put_Header(&tb)
                 }
                 (Prop::Header, PropValue::Unset, Handle::RichEditBox(reb)) => reb.put_Header(None),
-                // ── Flyout on Button ──────────────────────────────────────────
                 (Prop::FlyoutContent, PropValue::Str(s), Handle::Button(b)) => {
                     let flyout = Xaml::Flyout::new()?;
                     let tb = string_as_textblock(s)?;
@@ -1667,31 +1661,6 @@ impl Backend for WinUIBackend {
                             .put_Placement(Xaml::FlyoutPlacementMode(*v));
                     }
                     Ok(())
-                }
-                // ── RelativePanel attached props ──────────────────────────────
-                (Prop::AlignLeftWithPanel, PropValue::Bool(v), _) => {
-                    Xaml::RelativePanel::SetAlignLeftWithPanel(&handle.as_ui_element(), *v)
-                }
-                (Prop::AlignRightWithPanel, PropValue::Bool(v), _) => {
-                    Xaml::RelativePanel::SetAlignRightWithPanel(&handle.as_ui_element(), *v)
-                }
-                (Prop::AlignTopWithPanel, PropValue::Bool(v), _) => {
-                    Xaml::RelativePanel::SetAlignTopWithPanel(&handle.as_ui_element(), *v)
-                }
-                (Prop::AlignBottomWithPanel, PropValue::Bool(v), _) => {
-                    Xaml::RelativePanel::SetAlignBottomWithPanel(&handle.as_ui_element(), *v)
-                }
-                (Prop::AlignHCenterWithPanel, PropValue::Bool(v), _) => {
-                    Xaml::RelativePanel::SetAlignHorizontalCenterWithPanel(
-                        &handle.as_ui_element(),
-                        *v,
-                    )
-                }
-                (Prop::AlignVCenterWithPanel, PropValue::Bool(v), _) => {
-                    Xaml::RelativePanel::SetAlignVerticalCenterWithPanel(
-                        &handle.as_ui_element(),
-                        *v,
-                    )
                 }
                 (_, PropValue::Unset, _) => Ok(()),
                 (p, v, h) => {
@@ -1721,55 +1690,13 @@ impl Backend for WinUIBackend {
             .get(&child)
             .unwrap_or_else(|| panic!("WinUIBackend::append_child: unknown child {child}"));
         let child_ui = child_h.as_ui_element();
-        match parent_h {
-            Handle::StackPanel(_)
-            | Handle::Grid(_)
-            | Handle::Canvas(_)
-            | Handle::RelativePanel(_) => {
-                let vec = panel_children_vec(parent_h).unwrap();
-                vec.Append(&child_ui).unwrap();
-            }
-            Handle::Border(b) => {
-                b.put_Child(&child_ui).unwrap();
-            }
-            Handle::Viewbox(v) => {
-                v.put_Child(&child_ui).unwrap();
-            }
-            Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {
-                let cc = content_control_for(parent_h).unwrap();
-                cc.put_Content(&child_ui).unwrap();
-            }
-            Handle::SplitView(sv) => {
-                sv.put_Content(&child_ui).unwrap();
-            }
-            Handle::ScrollView(sv) => {
-                sv.put_Content(&child_ui).unwrap();
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                let insp: windows_core::IInspectable = child_ui.cast().unwrap();
-                items.Append(&insp).unwrap();
-            }
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                let insp: windows_core::IInspectable = child_ui.cast().unwrap();
-                items.Append(&insp).unwrap();
-            }
-            other => {
-                let kind = describe_kind(other);
-                panic!("WinUIBackend::append_child: {kind} ({parent}) is not a container");
-            }
-        }
+        let cc = classify_container(parent_h).unwrap_or_else(|| {
+            panic!(
+                "WinUIBackend::append_child: {} ({parent}) is not a container",
+                parent_h.kind_name()
+            )
+        });
+        container_append(&cc, &child_ui);
     }
     fn remove_child(&mut self, parent: ControlId, index: usize) {
         // Phantom children (e.g. ContentDialog) are never in the parent's
@@ -1793,46 +1720,9 @@ impl Backend for WinUIBackend {
         let parent_h = map
             .get(&parent)
             .unwrap_or_else(|| panic!("WinUIBackend::remove_child: unknown parent {parent}"));
-        match parent_h {
-            Handle::StackPanel(_) | Handle::Grid(_) | Handle::Canvas(_) => {
-                if let Some(vec) = panel_children_vec(parent_h) {
-                    vec.RemoveAt(v_index as u32).unwrap();
-                }
-            }
-            Handle::Border(b) => {
-                debug_assert_eq!(v_index, 0);
-                b.put_Child(None).unwrap();
-            }
-            Handle::Viewbox(v) => {
-                debug_assert_eq!(v_index, 0);
-                v.put_Child(None).unwrap();
-            }
-            Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {
-                debug_assert_eq!(v_index, 0);
-                if let Some(cc) = content_control_for(parent_h) {
-                    cc.put_Content(None).unwrap();
-                }
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                items.RemoveAt(v_index as u32).unwrap();
-            }
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                items.RemoveAt(v_index as u32).unwrap();
-            }
-            _ => panic!("WinUIBackend::remove_child: {parent} is not a container"),
-        }
+        let cc = classify_container(parent_h)
+            .unwrap_or_else(|| panic!("WinUIBackend::remove_child: {parent} is not a container"));
+        container_remove(&cc, v_index);
     }
     fn replace_child(&mut self, parent: ControlId, index: usize, new: ControlId) {
         let old = self
@@ -1888,55 +1778,9 @@ impl Backend for WinUIBackend {
         let parent_h = map
             .get(&parent)
             .unwrap_or_else(|| panic!("WinUIBackend::move_child: unknown parent {parent}"));
-        match parent_h {
-            Handle::StackPanel(s) => {
-                ui_element_collection_move(
-                    &s.cast::<Xaml::IPanel>().unwrap().get_Children().unwrap(),
-                    v_from,
-                    v_to,
-                );
-            }
-            Handle::Grid(g) => {
-                ui_element_collection_move(
-                    &g.cast::<Xaml::IPanel>().unwrap().get_Children().unwrap(),
-                    v_from,
-                    v_to,
-                );
-            }
-            Handle::Canvas(c) => {
-                ui_element_collection_move(
-                    &c.cast::<Xaml::IPanel>().unwrap().get_Children().unwrap(),
-                    v_from,
-                    v_to,
-                );
-            }
-            Handle::Border(_)
-            | Handle::Viewbox(_)
-            | Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {}
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                let item = items.GetAt(v_from as u32).unwrap();
-                items.RemoveAt(v_from as u32).unwrap();
-                items.InsertAt(v_to as u32, &item).unwrap();
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                let item = items.GetAt(v_from as u32).unwrap();
-                items.RemoveAt(v_from as u32).unwrap();
-                items.InsertAt(v_to as u32, &item).unwrap();
-            }
-            _ => panic!("WinUIBackend::move_child: {parent} is not a container"),
-        }
+        let cc = classify_container(parent_h)
+            .unwrap_or_else(|| panic!("WinUIBackend::move_child: {parent} is not a container"));
+        container_move(&cc, v_from, v_to);
     }
     fn insert_child(&mut self, parent: ControlId, index: usize, child: ControlId) {
         let v_index = self.visual_index(parent, index);
@@ -1957,43 +1801,9 @@ impl Backend for WinUIBackend {
             .get(&child)
             .unwrap_or_else(|| panic!("WinUIBackend::insert_child: unknown child {child}"));
         let child_ui = child_h.as_ui_element();
-        match parent_h {
-            Handle::StackPanel(_) | Handle::Grid(_) | Handle::Canvas(_) => {
-                let vec = panel_children_vec(parent_h).unwrap();
-                vec.InsertAt(v_index as u32, &child_ui).unwrap();
-            }
-            Handle::Border(b) => {
-                b.put_Child(&child_ui).unwrap();
-            }
-            Handle::Viewbox(v) => {
-                v.put_Child(&child_ui).unwrap();
-            }
-            Handle::ScrollViewer(_)
-            | Handle::Expander(_)
-            | Handle::TabViewItem(_)
-            | Handle::NavigationView(_)
-            | Handle::PivotItem(_) => {
-                let cc = content_control_for(parent_h).unwrap();
-                cc.put_Content(&child_ui).unwrap();
-            }
-            Handle::TabView(tv) => {
-                let items = tv.get_TabItems().unwrap();
-                let insp: windows_core::IInspectable = child_ui.cast().unwrap();
-                items.InsertAt(v_index as u32, &insp).unwrap();
-            }
-            Handle::Pivot(p) => {
-                let items = p
-                    .cast::<Xaml::IItemsControl>()
-                    .unwrap()
-                    .get_Items()
-                    .unwrap()
-                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                    .unwrap();
-                let insp: windows_core::IInspectable = child_ui.cast().unwrap();
-                items.InsertAt(v_index as u32, &insp).unwrap();
-            }
-            _ => panic!("WinUIBackend::insert_child: {parent} is not a container"),
-        }
+        let cc = classify_container(parent_h)
+            .unwrap_or_else(|| panic!("WinUIBackend::insert_child: {parent} is not a container"));
+        container_insert(&cc, v_index, &child_ui);
     }
     fn set_templated_item_count(&mut self, _id: ControlId, _count: usize) {}
     fn set_templated_row_content(
@@ -2236,7 +2046,6 @@ impl Backend for WinUIBackend {
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::attach_event: unknown control {id}"));
 
-        // Try generated dispatch first
         if let Some(revs) = generated_attach_event::dispatch(handle, event, &handler) {
             if !revs.is_empty() {
                 self.event_revokers.borrow_mut().insert((id, event), revs);
@@ -2419,7 +2228,6 @@ impl Backend for WinUIBackend {
                         .unwrap(),
                 );
             }
-            // ── ColorPicker ColorChanged ──────────────────────────────────
             (Event::ColorChanged, Handle::ColorPicker(cp)) => {
                 revokers.push(
                     cp.add_ColorChanged(move |_sender, args| {
@@ -2436,7 +2244,6 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            // ── W9: DatePicker ────────────────────────────────────────────
             (Event::SelectedDateChanged, Handle::DatePicker(dp)) => {
                 revokers.push(
                     dp.add_SelectedDateChanged(move |_sender, args| {
@@ -2449,7 +2256,6 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            // ── W10: TimePicker ───────────────────────────────────────────
             (Event::SelectedTimeChanged, Handle::TimePicker(tp)) => {
                 revokers.push(
                     tp.add_SelectedTimeChanged(move |_sender, args| {
@@ -2463,7 +2269,6 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            // ── W11: CalendarDatePicker ───────────────────────────────────
             (Event::CalendarDateSelected, Handle::CalendarDatePicker(cdp)) => {
                 revokers.push(
                     cdp.add_DateChanged(move |_sender, args| {
@@ -2476,7 +2281,6 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            // ── W13: ListBox ──────────────────────────────────────────────
             (Event::SelectionChanged, Handle::ListBox(lb)) => {
                 revokers.push(
                     lb.cast::<Xaml::ISelector>()
@@ -2493,7 +2297,6 @@ impl Backend for WinUIBackend {
                         .unwrap(),
                 );
             }
-            // ── W16: AutoSuggestBox ───────────────────────────────────────
             (Event::TextChanged, Handle::AutoSuggestBox(asb)) => {
                 revokers.push(
                     asb.add_TextChanged(move |sender, args| {
@@ -2545,13 +2348,11 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            // ── W18: MenuBar ─────────────────────────────────────────
             (Event::ItemClicked, Handle::MenuBar(mb)) => {
                 // Store the handler so set_prop can re-wire on item rebuild.
                 self.menu_click_handlers
                     .borrow_mut()
                     .insert(id, handler.clone());
-                // Wire click on all existing items.
                 let revs = Self::wire_menu_bar_clicks(mb, &handler);
                 revokers.extend(revs);
             }
@@ -2565,7 +2366,6 @@ impl Backend for WinUIBackend {
                     .borrow_mut()
                     .insert(id, handler);
             }
-            // ── W20: TreeView ─────────────────────────────────────────
             (Event::ItemInvoked, Handle::TreeView(tv)) => {
                 revokers.push(
                     tv.add_ItemInvoked(move |_sender, args| {
@@ -2590,13 +2390,11 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            // ── W21: CommandBar ─────────────────────────────────────────
             (Event::Click, Handle::CommandBar(cb)) => {
                 // Store the handler so set_prop can re-wire on rebuild.
                 self.menu_click_handlers
                     .borrow_mut()
                     .insert(id, handler.clone());
-                // Wire click on all existing primary + secondary commands.
                 if let Ok(primary) = cb.get_PrimaryCommands() {
                     let revs = Self::wire_command_bar_clicks(&primary, &handler);
                     revokers.extend(revs);
@@ -2606,7 +2404,6 @@ impl Backend for WinUIBackend {
                     revokers.extend(revs);
                 }
             }
-            // ── W23: SelectorBar ─────────────────────────────────────────
             (Event::SelectionChanged, Handle::SelectorBar(sb)) => {
                 let sb2 = sb.clone();
                 revokers.push(
