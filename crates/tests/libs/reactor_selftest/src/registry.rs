@@ -2,7 +2,7 @@ use crate::fixtures::reconciler::FixtureFuture;
 use crate::fixtures::{
     all_layouts, backdrop, controls, controls_extended, dynamic, error_boundary, event_detachment,
     grid_attached, hooks, interactions, layout, prop_updates, reconciler, reconciler_stress,
-    tooltip,
+    tooltip, universal_props,
 };
 use crate::harness::Harness;
 
@@ -334,5 +334,26 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "KeyedStress_TypeMismatch",
         reconciler_stress::positional_type_mismatch,
+    ),
+    // ── Universal prop fixtures (try_universal_prop live coverage) ──────
+    (
+        "UniversalProp_MinMaxSizing",
+        universal_props::min_max_sizing,
+    ),
+    (
+        "UniversalProp_CanvasZIndex",
+        universal_props::canvas_z_index,
+    ),
+    (
+        "UniversalProp_RelativePanelAlignment",
+        universal_props::relative_panel_alignment,
+    ),
+    (
+        "UniversalProp_BgFgPadTransition",
+        universal_props::background_foreground_padding_transition,
+    ),
+    (
+        "UniversalProp_OpacityTransition",
+        universal_props::opacity_transition,
     ),
 ];
