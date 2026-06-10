@@ -148,9 +148,9 @@ unsafe impl Sync for IndexedResourceQualifier {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
-    pub const String: Self = Self(0i32);
-    pub const Path: Self = Self(1i32);
-    pub const EmbeddedData: Self = Self(2i32);
+    pub const String: Self = Self(0);
+    pub const Path: Self = Self(1);
+    pub const EmbeddedData: Self = Self(2);
 }
 impl windows_core::TypeKind for IndexedResourceType {
     type TypeKind = windows_core::CopyType;

@@ -260,8 +260,8 @@ pub struct IAdcProvider_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
-    pub const SingleEnded: Self = Self(0i32);
-    pub const Differential: Self = Self(1i32);
+    pub const SingleEnded: Self = Self(0);
+    pub const Differential: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderAdcChannelMode {
     type TypeKind = windows_core::CopyType;

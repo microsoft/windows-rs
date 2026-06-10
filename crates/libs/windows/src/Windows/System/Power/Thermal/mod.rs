@@ -119,8 +119,8 @@ pub struct IPowerThermalChannelFinderStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PowerThermalBackEndStatus(pub i32);
 impl PowerThermalBackEndStatus {
-    pub const Stopped: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
+    pub const Stopped: Self = Self(0);
+    pub const Started: Self = Self(1);
 }
 impl windows_core::TypeKind for PowerThermalBackEndStatus {
     type TypeKind = windows_core::CopyType;

@@ -618,8 +618,8 @@ impl windows_core::RuntimeName for SettingsCommand {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SettingsEdgeLocation(pub i32);
 impl SettingsEdgeLocation {
-    pub const Right: Self = Self(0i32);
-    pub const Left: Self = Self(1i32);
+    pub const Right: Self = Self(0);
+    pub const Left: Self = Self(1);
 }
 impl windows_core::TypeKind for SettingsEdgeLocation {
     type TypeKind = windows_core::CopyType;
@@ -724,12 +724,12 @@ impl windows_core::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
-    pub const None: Self = Self(0u32);
-    pub const Reconnect: Self = Self(1u32);
-    pub const Remove: Self = Self(2u32);
-    pub const ViewDetails: Self = Self(4u32);
-    pub const Manage: Self = Self(8u32);
-    pub const More: Self = Self(16u32);
+    pub const None: Self = Self(0);
+    pub const Reconnect: Self = Self(1);
+    pub const Remove: Self = Self(2);
+    pub const ViewDetails: Self = Self(4);
+    pub const Manage: Self = Self(8);
+    pub const More: Self = Self(16);
 }
 impl windows_core::TypeKind for SupportedWebAccountActions {
     type TypeKind = windows_core::CopyType;
@@ -775,11 +775,11 @@ impl core::ops::Not for SupportedWebAccountActions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
-    pub const Reconnect: Self = Self(0i32);
-    pub const Remove: Self = Self(1i32);
-    pub const ViewDetails: Self = Self(2i32);
-    pub const Manage: Self = Self(3i32);
-    pub const More: Self = Self(4i32);
+    pub const Reconnect: Self = Self(0);
+    pub const Remove: Self = Self(1);
+    pub const ViewDetails: Self = Self(2);
+    pub const Manage: Self = Self(3);
+    pub const More: Self = Self(4);
 }
 impl windows_core::TypeKind for WebAccountAction {
     type TypeKind = windows_core::CopyType;

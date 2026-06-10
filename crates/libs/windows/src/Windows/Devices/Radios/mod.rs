@@ -114,10 +114,10 @@ unsafe impl Sync for Radio {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const DeniedBySystem: Self = Self(3);
 }
 impl windows_core::TypeKind for RadioAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -130,11 +130,11 @@ impl windows_core::RuntimeType for RadioAccessStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
-    pub const Other: Self = Self(0i32);
-    pub const WiFi: Self = Self(1i32);
-    pub const MobileBroadband: Self = Self(2i32);
-    pub const Bluetooth: Self = Self(3i32);
-    pub const FM: Self = Self(4i32);
+    pub const Other: Self = Self(0);
+    pub const WiFi: Self = Self(1);
+    pub const MobileBroadband: Self = Self(2);
+    pub const Bluetooth: Self = Self(3);
+    pub const FM: Self = Self(4);
 }
 impl windows_core::TypeKind for RadioKind {
     type TypeKind = windows_core::CopyType;
@@ -147,10 +147,10 @@ impl windows_core::RuntimeType for RadioKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadioState(pub i32);
 impl RadioState {
-    pub const Unknown: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Off: Self = Self(2i32);
-    pub const Disabled: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Off: Self = Self(2);
+    pub const Disabled: Self = Self(3);
 }
 impl windows_core::TypeKind for RadioState {
     type TypeKind = windows_core::CopyType;

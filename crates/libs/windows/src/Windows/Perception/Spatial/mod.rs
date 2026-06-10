@@ -536,8 +536,8 @@ unsafe impl Sync for SpatialAnchor {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
-    pub const Relocalization: Self = Self(0i32);
-    pub const Sharing: Self = Self(1i32);
+    pub const Relocalization: Self = Self(0);
+    pub const Sharing: Self = Self(1);
 }
 impl windows_core::TypeKind for SpatialAnchorExportPurpose {
     type TypeKind = windows_core::CopyType;
@@ -1173,12 +1173,12 @@ unsafe impl Sync for SpatialEntityWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for SpatialEntityWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -1191,11 +1191,11 @@ impl windows_core::RuntimeType for SpatialEntityWatcherStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
-    pub const Unavailable: Self = Self(0i32);
-    pub const OrientationOnly: Self = Self(1i32);
-    pub const PositionalTrackingActivating: Self = Self(2i32);
-    pub const PositionalTrackingActive: Self = Self(3i32);
-    pub const PositionalTrackingInhibited: Self = Self(4i32);
+    pub const Unavailable: Self = Self(0);
+    pub const OrientationOnly: Self = Self(1);
+    pub const PositionalTrackingActivating: Self = Self(2);
+    pub const PositionalTrackingActive: Self = Self(3);
+    pub const PositionalTrackingInhibited: Self = Self(4);
 }
 impl windows_core::TypeKind for SpatialLocatability {
     type TypeKind = windows_core::CopyType;
@@ -1485,8 +1485,8 @@ unsafe impl Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
-    pub const ForwardOnly: Self = Self(0i32);
-    pub const Omnidirectional: Self = Self(1i32);
+    pub const ForwardOnly: Self = Self(0);
+    pub const Omnidirectional: Self = Self(1);
 }
 impl windows_core::TypeKind for SpatialLookDirectionRange {
     type TypeKind = windows_core::CopyType;
@@ -1499,8 +1499,8 @@ impl windows_core::RuntimeType for SpatialLookDirectionRange {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
-    pub const NoMovement: Self = Self(0i32);
-    pub const Bounded: Self = Self(1i32);
+    pub const NoMovement: Self = Self(0);
+    pub const Bounded: Self = Self(1);
 }
 impl windows_core::TypeKind for SpatialMovementRange {
     type TypeKind = windows_core::CopyType;
@@ -1513,10 +1513,10 @@ impl windows_core::RuntimeType for SpatialMovementRange {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
 impl SpatialPerceptionAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const DeniedBySystem: Self = Self(3);
 }
 impl windows_core::TypeKind for SpatialPerceptionAccessStatus {
     type TypeKind = windows_core::CopyType;

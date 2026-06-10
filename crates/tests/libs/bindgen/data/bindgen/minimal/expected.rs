@@ -43,7 +43,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
@@ -113,7 +112,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo2_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Bar:
@@ -129,11 +127,10 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFooStatics_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Stat:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
     }
-    pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
+    pub const INVALID_HANDLE_VALUE: HANDLE = -1 as _;
 }

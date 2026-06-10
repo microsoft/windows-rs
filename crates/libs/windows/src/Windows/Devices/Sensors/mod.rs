@@ -280,9 +280,9 @@ unsafe impl Sync for AccelerometerReadingChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
-    pub const Standard: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-    pub const Gravity: Self = Self(2i32);
+    pub const Standard: Self = Self(0);
+    pub const Linear: Self = Self(1);
+    pub const Gravity: Self = Self(2);
 }
 impl windows_core::TypeKind for AccelerometerReadingType {
     type TypeKind = windows_core::CopyType;
@@ -503,8 +503,8 @@ unsafe impl Sync for ActivitySensorReadingChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
-    pub const High: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
+    pub const High: Self = Self(0);
+    pub const Low: Self = Self(1);
 }
 impl windows_core::TypeKind for ActivitySensorReadingConfidence {
     type TypeKind = windows_core::CopyType;
@@ -541,14 +541,14 @@ unsafe impl Sync for ActivitySensorTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Idle: Self = Self(1i32);
-    pub const Stationary: Self = Self(2i32);
-    pub const Fidgeting: Self = Self(3i32);
-    pub const Walking: Self = Self(4i32);
-    pub const Running: Self = Self(5i32);
-    pub const InVehicle: Self = Self(6i32);
-    pub const Biking: Self = Self(7i32);
+    pub const Unknown: Self = Self(0);
+    pub const Idle: Self = Self(1);
+    pub const Stationary: Self = Self(2);
+    pub const Fidgeting: Self = Self(3);
+    pub const Walking: Self = Self(4);
+    pub const Running: Self = Self(5);
+    pub const InVehicle: Self = Self(6);
+    pub const Biking: Self = Self(7);
 }
 impl windows_core::TypeKind for ActivityType {
     type TypeKind = windows_core::CopyType;
@@ -1680,9 +1680,9 @@ unsafe impl Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HumanEngagement(pub i32);
 impl HumanEngagement {
-    pub const Unknown: Self = Self(0i32);
-    pub const Engaged: Self = Self(1i32);
-    pub const Unengaged: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Engaged: Self = Self(1);
+    pub const Unengaged: Self = Self(2);
 }
 impl windows_core::TypeKind for HumanEngagement {
     type TypeKind = windows_core::CopyType;
@@ -1695,9 +1695,9 @@ impl windows_core::RuntimeType for HumanEngagement {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HumanPresence(pub i32);
 impl HumanPresence {
-    pub const Unknown: Self = Self(0i32);
-    pub const Present: Self = Self(1i32);
-    pub const NotPresent: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Present: Self = Self(1);
+    pub const NotPresent: Self = Self(2);
 }
 impl windows_core::TypeKind for HumanPresence {
     type TypeKind = windows_core::CopyType;
@@ -5168,10 +5168,10 @@ unsafe impl Sync for Magnetometer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
-    pub const Unknown: Self = Self(0i32);
-    pub const Unreliable: Self = Self(1i32);
-    pub const Approximate: Self = Self(2i32);
-    pub const High: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Unreliable: Self = Self(1);
+    pub const Approximate: Self = Self(2);
+    pub const High: Self = Self(3);
 }
 impl windows_core::TypeKind for MagnetometerAccuracy {
     type TypeKind = windows_core::CopyType;
@@ -5315,9 +5315,9 @@ unsafe impl Sync for MagnetometerReadingChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OnlookerDetectionAction(pub i32);
 impl OnlookerDetectionAction {
-    pub const Dim: Self = Self(0i32);
-    pub const Notify: Self = Self(1i32);
-    pub const DimAndNotify: Self = Self(2i32);
+    pub const Dim: Self = Self(0);
+    pub const Notify: Self = Self(1);
+    pub const DimAndNotify: Self = Self(2);
 }
 impl windows_core::TypeKind for OnlookerDetectionAction {
     type TypeKind = windows_core::CopyType;
@@ -5330,10 +5330,10 @@ impl windows_core::RuntimeType for OnlookerDetectionAction {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OnlookerDetectionBackOnMode(pub i32);
 impl OnlookerDetectionBackOnMode {
-    pub const Manually: Self = Self(0i32);
-    pub const OneHour: Self = Self(1i32);
-    pub const FourHours: Self = Self(2i32);
-    pub const OneDay: Self = Self(3i32);
+    pub const Manually: Self = Self(0);
+    pub const OneHour: Self = Self(1);
+    pub const FourHours: Self = Self(2);
+    pub const OneDay: Self = Self(3);
 }
 impl windows_core::TypeKind for OnlookerDetectionBackOnMode {
     type TypeKind = windows_core::CopyType;
@@ -5825,9 +5825,9 @@ unsafe impl Sync for PedometerReadingChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Walking: Self = Self(1i32);
-    pub const Running: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Walking: Self = Self(1);
+    pub const Running: Self = Self(2);
 }
 impl windows_core::TypeKind for PedometerStepKind {
     type TypeKind = windows_core::CopyType;
@@ -6071,8 +6071,8 @@ unsafe impl Sync for SensorDataThresholdTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
-    pub const Precision: Self = Self(0i32);
-    pub const PowerEfficiency: Self = Self(1i32);
+    pub const Precision: Self = Self(0);
+    pub const PowerEfficiency: Self = Self(1);
 }
 impl windows_core::TypeKind for SensorOptimizationGoal {
     type TypeKind = windows_core::CopyType;
@@ -6127,8 +6127,8 @@ unsafe impl Sync for SensorQuaternion {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
-    pub const Absolute: Self = Self(0i32);
-    pub const Relative: Self = Self(1i32);
+    pub const Absolute: Self = Self(0);
+    pub const Relative: Self = Self(1);
 }
 impl windows_core::TypeKind for SensorReadingType {
     type TypeKind = windows_core::CopyType;
@@ -6213,20 +6213,20 @@ unsafe impl Sync for SensorRotationMatrix {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SensorType(pub i32);
 impl SensorType {
-    pub const Accelerometer: Self = Self(0i32);
-    pub const ActivitySensor: Self = Self(1i32);
-    pub const Barometer: Self = Self(2i32);
-    pub const Compass: Self = Self(3i32);
-    pub const CustomSensor: Self = Self(4i32);
-    pub const Gyroscope: Self = Self(5i32);
-    pub const ProximitySensor: Self = Self(6i32);
-    pub const Inclinometer: Self = Self(7i32);
-    pub const LightSensor: Self = Self(8i32);
-    pub const OrientationSensor: Self = Self(9i32);
-    pub const Pedometer: Self = Self(10i32);
-    pub const RelativeInclinometer: Self = Self(11i32);
-    pub const RelativeOrientationSensor: Self = Self(12i32);
-    pub const SimpleOrientationSensor: Self = Self(13i32);
+    pub const Accelerometer: Self = Self(0);
+    pub const ActivitySensor: Self = Self(1);
+    pub const Barometer: Self = Self(2);
+    pub const Compass: Self = Self(3);
+    pub const CustomSensor: Self = Self(4);
+    pub const Gyroscope: Self = Self(5);
+    pub const ProximitySensor: Self = Self(6);
+    pub const Inclinometer: Self = Self(7);
+    pub const LightSensor: Self = Self(8);
+    pub const OrientationSensor: Self = Self(9);
+    pub const Pedometer: Self = Self(10);
+    pub const RelativeInclinometer: Self = Self(11);
+    pub const RelativeOrientationSensor: Self = Self(12);
+    pub const SimpleOrientationSensor: Self = Self(13);
 }
 impl windows_core::TypeKind for SensorType {
     type TypeKind = windows_core::CopyType;
@@ -6239,12 +6239,12 @@ impl windows_core::RuntimeType for SensorType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {
-    pub const NotRotated: Self = Self(0i32);
-    pub const Rotated90DegreesCounterclockwise: Self = Self(1i32);
-    pub const Rotated180DegreesCounterclockwise: Self = Self(2i32);
-    pub const Rotated270DegreesCounterclockwise: Self = Self(3i32);
-    pub const Faceup: Self = Self(4i32);
-    pub const Facedown: Self = Self(5i32);
+    pub const NotRotated: Self = Self(0);
+    pub const Rotated90DegreesCounterclockwise: Self = Self(1);
+    pub const Rotated180DegreesCounterclockwise: Self = Self(2);
+    pub const Rotated270DegreesCounterclockwise: Self = Self(3);
+    pub const Faceup: Self = Self(4);
+    pub const Facedown: Self = Self(5);
 }
 impl windows_core::TypeKind for SimpleOrientation {
     type TypeKind = windows_core::CopyType;

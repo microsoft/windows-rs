@@ -27,11 +27,11 @@ windows_link::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szb
 windows_link::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : windows_sys::core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> windows_sys::core::HRESULT);
 windows_link::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation::HWND, hinst : super::super::Foundation::HINSTANCE, lpszcmdline : windows_sys::core::PCWSTR, ncmdshow : i32) -> windows_sys::core::HRESULT);
-pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = 8i32;
-pub const APPDOMAIN_SECURITY_DEFAULT: APPDOMAIN_SECURITY_FLAGS = 0i32;
+pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = 8;
+pub const APPDOMAIN_SECURITY_DEFAULT: APPDOMAIN_SECURITY_FLAGS = 0;
 pub type APPDOMAIN_SECURITY_FLAGS = i32;
-pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = 2i32;
-pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = 1i32;
+pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = 2;
+pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AssemblyBindInfo {
@@ -45,7 +45,7 @@ impl Default for AssemblyBindInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BucketParamLength: u32 = 255u32;
+pub const BucketParamLength: u32 = 255;
 pub type BucketParameterIndex = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -59,16 +59,16 @@ impl Default for BucketParameters {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BucketParamsCount: u32 = 10u32;
+pub const BucketParamsCount: u32 = 10;
 pub type CLRCreateInstanceFnPtr = Option<unsafe extern "system" fn(clsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const CLRRuntimeHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
-pub const CLR_ASSEMBLY_BUILD_VERSION: u32 = 0u32;
-pub const CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = 0i32;
-pub const CLR_ASSEMBLY_MAJOR_VERSION: u32 = 4u32;
-pub const CLR_ASSEMBLY_MINOR_VERSION: u32 = 0u32;
-pub const CLR_BUILD_VERSION: u32 = 22220u32;
-pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLAGS = 2i32;
-pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = 1i32;
+pub const CLR_ASSEMBLY_BUILD_VERSION: u32 = 0;
+pub const CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = 0;
+pub const CLR_ASSEMBLY_MAJOR_VERSION: u32 = 4;
+pub const CLR_ASSEMBLY_MINOR_VERSION: u32 = 0;
+pub const CLR_BUILD_VERSION: u32 = 22220;
+pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLAGS = 2;
+pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = 1;
 pub type CLR_DEBUGGING_PROCESS_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -79,19 +79,19 @@ pub struct CLR_DEBUGGING_VERSION {
     pub wBuild: u16,
     pub wRevision: u16,
 }
-pub const CLR_MAJOR_VERSION: u32 = 4u32;
-pub const CLR_MINOR_VERSION: u32 = 0u32;
+pub const CLR_MAJOR_VERSION: u32 = 4;
+pub const CLR_MINOR_VERSION: u32 = 0;
 pub const CLSID_CLRDebugging: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbacc578d_fbdd_48a4_969f_02d932b74634);
 pub const CLSID_CLRDebuggingLegacy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf8395b5_a4ba_450b_a77c_a9a47762c520);
 pub const CLSID_CLRMetaHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9280188d_0e8e_4867_b30c_7fa83884e8de);
 pub const CLSID_CLRMetaHostPolicy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ebcd49a_1b47_4a61_b13a_4a03701e594b);
 pub const CLSID_CLRProfiling: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd097ed8_733e_43fe_8ed7_a95ff9a8448c);
 pub const CLSID_CLRStrongName: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb79b0acd_f5cd_409b_b5a5_a16244610b92);
-pub const CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = 0i32;
+pub const CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = 0;
 pub type CLSID_RESOLUTION_FLAGS = i32;
-pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = 1i32;
-pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = 1i32;
-pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = 2i32;
+pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = 1;
+pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = 1;
+pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COR_GC_STATS {
@@ -113,7 +113,7 @@ impl Default for COR_GC_STATS {
     }
 }
 pub type COR_GC_STAT_TYPES = i32;
-pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = 1i32;
+pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct COR_GC_THREAD_STATS {
@@ -149,11 +149,11 @@ impl Default for CustomDumpItem_0 {
     }
 }
 pub const DEPRECATED_CLR_API_MESG: windows_sys::core::PCSTR = windows_sys::core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
-pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = 1i32;
-pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = 0i32;
-pub const DUMP_FLAVOR_Mini: ECustomDumpFlavor = 0i32;
-pub const DUMP_FLAVOR_NonHeapCLRState: ECustomDumpFlavor = 2i32;
-pub const DUMP_ITEM_None: ECustomDumpItemKind = 0i32;
+pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = 1;
+pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = 0;
+pub const DUMP_FLAVOR_Mini: ECustomDumpFlavor = 0;
+pub const DUMP_FLAVOR_NonHeapCLRState: ECustomDumpFlavor = 2;
+pub const DUMP_ITEM_None: ECustomDumpItemKind = 0;
 pub type EApiCategories = i32;
 pub type EBindPolicyLevels = i32;
 pub type ECLRAssemblyIdentityFlags = i32;
@@ -172,32 +172,32 @@ pub type EMemoryCriticalLevel = i32;
 pub type EPolicyAction = i32;
 pub type ESymbolReadingPolicy = i32;
 pub type ETaskType = i32;
-pub const Event_ClrDisabled: EClrEvent = 1i32;
-pub const Event_DomainUnload: EClrEvent = 0i32;
-pub const Event_MDAFired: EClrEvent = 2i32;
-pub const Event_StackOverflow: EClrEvent = 3i32;
-pub const FAIL_AccessViolation: EClrFailure = 5i32;
-pub const FAIL_CodeContract: EClrFailure = 6i32;
-pub const FAIL_CriticalResource: EClrFailure = 1i32;
-pub const FAIL_FatalRuntime: EClrFailure = 2i32;
-pub const FAIL_NonCriticalResource: EClrFailure = 0i32;
-pub const FAIL_OrphanedLock: EClrFailure = 3i32;
-pub const FAIL_StackOverflow: EClrFailure = 4i32;
+pub const Event_ClrDisabled: EClrEvent = 1;
+pub const Event_DomainUnload: EClrEvent = 0;
+pub const Event_MDAFired: EClrEvent = 2;
+pub const Event_StackOverflow: EClrEvent = 3;
+pub const FAIL_AccessViolation: EClrFailure = 5;
+pub const FAIL_CodeContract: EClrFailure = 6;
+pub const FAIL_CriticalResource: EClrFailure = 1;
+pub const FAIL_FatalRuntime: EClrFailure = 2;
+pub const FAIL_NonCriticalResource: EClrFailure = 0;
+pub const FAIL_OrphanedLock: EClrFailure = 3;
+pub const FAIL_StackOverflow: EClrFailure = 4;
 pub type FExecuteInAppDomainCallback = Option<unsafe extern "system" fn(cookie: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type FLockClrVersionCallback = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub const HOST_APPLICATION_BINDING_POLICY: EHostApplicationPolicy = 1i32;
-pub const HOST_BINDING_POLICY_MODIFY_CHAIN: EHostBindingPolicyModifyFlags = 1i32;
-pub const HOST_BINDING_POLICY_MODIFY_DEFAULT: EHostBindingPolicyModifyFlags = 0i32;
-pub const HOST_BINDING_POLICY_MODIFY_MAX: EHostBindingPolicyModifyFlags = 3i32;
-pub const HOST_BINDING_POLICY_MODIFY_REMOVE: EHostBindingPolicyModifyFlags = 2i32;
+pub const HOST_APPLICATION_BINDING_POLICY: EHostApplicationPolicy = 1;
+pub const HOST_BINDING_POLICY_MODIFY_CHAIN: EHostBindingPolicyModifyFlags = 1;
+pub const HOST_BINDING_POLICY_MODIFY_DEFAULT: EHostBindingPolicyModifyFlags = 0;
+pub const HOST_BINDING_POLICY_MODIFY_MAX: EHostBindingPolicyModifyFlags = 3;
+pub const HOST_BINDING_POLICY_MODIFY_REMOVE: EHostBindingPolicyModifyFlags = 2;
 pub type HOST_TYPE = i32;
-pub const HOST_TYPE_APPLAUNCH: HOST_TYPE = 1i32;
-pub const HOST_TYPE_CORFLAG: HOST_TYPE = 2i32;
-pub const HOST_TYPE_DEFAULT: HOST_TYPE = 0i32;
-pub const InvalidBucketParamIndex: BucketParameterIndex = 9i32;
+pub const HOST_TYPE_APPLAUNCH: HOST_TYPE = 1;
+pub const HOST_TYPE_CORFLAG: HOST_TYPE = 2;
+pub const HOST_TYPE_DEFAULT: HOST_TYPE = 0;
+pub const InvalidBucketParamIndex: BucketParameterIndex = 9;
 pub const LIBID_mscoree: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5477469e_83b1_11d2_8b49_00a0c9b7c9c4);
-pub const MALLOC_EXECUTABLE: MALLOC_TYPE = 2i32;
-pub const MALLOC_THREADSAFE: MALLOC_TYPE = 1i32;
+pub const MALLOC_EXECUTABLE: MALLOC_TYPE = 2;
+pub const MALLOC_THREADSAFE: MALLOC_TYPE = 1;
 pub type MALLOC_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -212,22 +212,22 @@ impl Default for MDAInfo {
     }
 }
 pub type METAHOST_CONFIG_FLAGS = i32;
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = 2i32;
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK: METAHOST_CONFIG_FLAGS = 3i32;
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_TRUE: METAHOST_CONFIG_FLAGS = 1i32;
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_UNSET: METAHOST_CONFIG_FLAGS = 0i32;
-pub const METAHOST_POLICY_APPLY_UPGRADE_POLICY: METAHOST_POLICY_FLAGS = 8i32;
-pub const METAHOST_POLICY_EMULATE_EXE_LAUNCH: METAHOST_POLICY_FLAGS = 16i32;
-pub const METAHOST_POLICY_ENSURE_SKU_SUPPORTED: METAHOST_POLICY_FLAGS = 128i32;
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = 2;
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK: METAHOST_CONFIG_FLAGS = 3;
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_TRUE: METAHOST_CONFIG_FLAGS = 1;
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_UNSET: METAHOST_CONFIG_FLAGS = 0;
+pub const METAHOST_POLICY_APPLY_UPGRADE_POLICY: METAHOST_POLICY_FLAGS = 8;
+pub const METAHOST_POLICY_EMULATE_EXE_LAUNCH: METAHOST_POLICY_FLAGS = 16;
+pub const METAHOST_POLICY_ENSURE_SKU_SUPPORTED: METAHOST_POLICY_FLAGS = 128;
 pub type METAHOST_POLICY_FLAGS = i32;
-pub const METAHOST_POLICY_HIGHCOMPAT: METAHOST_POLICY_FLAGS = 0i32;
-pub const METAHOST_POLICY_IGNORE_ERROR_MODE: METAHOST_POLICY_FLAGS = 4096i32;
-pub const METAHOST_POLICY_SHOW_ERROR_DIALOG: METAHOST_POLICY_FLAGS = 32i32;
-pub const METAHOST_POLICY_USE_PROCESS_IMAGE_PATH: METAHOST_POLICY_FLAGS = 64i32;
-pub const MaxClrEvent: EClrEvent = 4i32;
-pub const MaxClrFailure: EClrFailure = 7i32;
-pub const MaxClrOperation: EClrOperation = 7i32;
-pub const MaxPolicyAction: EPolicyAction = 10i32;
+pub const METAHOST_POLICY_HIGHCOMPAT: METAHOST_POLICY_FLAGS = 0;
+pub const METAHOST_POLICY_IGNORE_ERROR_MODE: METAHOST_POLICY_FLAGS = 4096;
+pub const METAHOST_POLICY_SHOW_ERROR_DIALOG: METAHOST_POLICY_FLAGS = 32;
+pub const METAHOST_POLICY_USE_PROCESS_IMAGE_PATH: METAHOST_POLICY_FLAGS = 64;
+pub const MaxClrEvent: EClrEvent = 4;
+pub const MaxClrFailure: EClrFailure = 7;
+pub const MaxClrOperation: EClrOperation = 7;
+pub const MaxPolicyAction: EPolicyAction = 10;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ModuleBindInfo {
@@ -240,54 +240,54 @@ impl Default for ModuleBindInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const OPR_AppDomainRudeUnload: EClrOperation = 4i32;
-pub const OPR_AppDomainUnload: EClrOperation = 3i32;
-pub const OPR_FinalizerRun: EClrOperation = 6i32;
-pub const OPR_ProcessExit: EClrOperation = 5i32;
-pub const OPR_ThreadAbort: EClrOperation = 0i32;
-pub const OPR_ThreadRudeAbortInCriticalRegion: EClrOperation = 2i32;
-pub const OPR_ThreadRudeAbortInNonCriticalRegion: EClrOperation = 1i32;
+pub const OPR_AppDomainRudeUnload: EClrOperation = 4;
+pub const OPR_AppDomainUnload: EClrOperation = 3;
+pub const OPR_FinalizerRun: EClrOperation = 6;
+pub const OPR_ProcessExit: EClrOperation = 5;
+pub const OPR_ThreadAbort: EClrOperation = 0;
+pub const OPR_ThreadRudeAbortInCriticalRegion: EClrOperation = 2;
+pub const OPR_ThreadRudeAbortInNonCriticalRegion: EClrOperation = 1;
 pub type PTLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(__midl____midl_itf_mscoree_0000_00040005: *mut core::ffi::c_void)>;
-pub const Parameter1: BucketParameterIndex = 0i32;
-pub const Parameter2: BucketParameterIndex = 1i32;
-pub const Parameter3: BucketParameterIndex = 2i32;
-pub const Parameter4: BucketParameterIndex = 3i32;
-pub const Parameter5: BucketParameterIndex = 4i32;
-pub const Parameter6: BucketParameterIndex = 5i32;
-pub const Parameter7: BucketParameterIndex = 6i32;
-pub const Parameter8: BucketParameterIndex = 7i32;
-pub const Parameter9: BucketParameterIndex = 8i32;
-pub const RUNTIME_INFO_DONT_RETURN_DIRECTORY: RUNTIME_INFO_FLAGS = 16i32;
-pub const RUNTIME_INFO_DONT_RETURN_VERSION: RUNTIME_INFO_FLAGS = 32i32;
-pub const RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG: RUNTIME_INFO_FLAGS = 64i32;
+pub const Parameter1: BucketParameterIndex = 0;
+pub const Parameter2: BucketParameterIndex = 1;
+pub const Parameter3: BucketParameterIndex = 2;
+pub const Parameter4: BucketParameterIndex = 3;
+pub const Parameter5: BucketParameterIndex = 4;
+pub const Parameter6: BucketParameterIndex = 5;
+pub const Parameter7: BucketParameterIndex = 6;
+pub const Parameter8: BucketParameterIndex = 7;
+pub const Parameter9: BucketParameterIndex = 8;
+pub const RUNTIME_INFO_DONT_RETURN_DIRECTORY: RUNTIME_INFO_FLAGS = 16;
+pub const RUNTIME_INFO_DONT_RETURN_VERSION: RUNTIME_INFO_FLAGS = 32;
+pub const RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG: RUNTIME_INFO_FLAGS = 64;
 pub type RUNTIME_INFO_FLAGS = i32;
-pub const RUNTIME_INFO_IGNORE_ERROR_MODE: RUNTIME_INFO_FLAGS = 4096i32;
-pub const RUNTIME_INFO_REQUEST_AMD64: RUNTIME_INFO_FLAGS = 4i32;
-pub const RUNTIME_INFO_REQUEST_ARM64: RUNTIME_INFO_FLAGS = 8192i32;
-pub const RUNTIME_INFO_REQUEST_IA64: RUNTIME_INFO_FLAGS = 2i32;
-pub const RUNTIME_INFO_REQUEST_X86: RUNTIME_INFO_FLAGS = 8i32;
-pub const RUNTIME_INFO_UPGRADE_VERSION: RUNTIME_INFO_FLAGS = 1i32;
+pub const RUNTIME_INFO_IGNORE_ERROR_MODE: RUNTIME_INFO_FLAGS = 4096;
+pub const RUNTIME_INFO_REQUEST_AMD64: RUNTIME_INFO_FLAGS = 4;
+pub const RUNTIME_INFO_REQUEST_ARM64: RUNTIME_INFO_FLAGS = 8192;
+pub const RUNTIME_INFO_REQUEST_IA64: RUNTIME_INFO_FLAGS = 2;
+pub const RUNTIME_INFO_REQUEST_X86: RUNTIME_INFO_FLAGS = 8;
+pub const RUNTIME_INFO_UPGRADE_VERSION: RUNTIME_INFO_FLAGS = 1;
 pub type RuntimeLoadedCallbackFnPtr = Option<unsafe extern "system" fn(pruntimeinfo: *mut core::ffi::c_void, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)>;
-pub const SO_ClrEngine: StackOverflowType = 1i32;
-pub const SO_Managed: StackOverflowType = 0i32;
-pub const SO_Other: StackOverflowType = 2i32;
-pub const STARTUP_ALWAYSFLOW_IMPERSONATION: STARTUP_FLAGS = 262144i32;
-pub const STARTUP_ARM: STARTUP_FLAGS = 4194304i32;
-pub const STARTUP_CONCURRENT_GC: STARTUP_FLAGS = 1i32;
-pub const STARTUP_DISABLE_COMMITTHREADSTACK: STARTUP_FLAGS = 131072i32;
-pub const STARTUP_ETW: STARTUP_FLAGS = 1048576i32;
+pub const SO_ClrEngine: StackOverflowType = 1;
+pub const SO_Managed: StackOverflowType = 0;
+pub const SO_Other: StackOverflowType = 2;
+pub const STARTUP_ALWAYSFLOW_IMPERSONATION: STARTUP_FLAGS = 262144;
+pub const STARTUP_ARM: STARTUP_FLAGS = 4194304;
+pub const STARTUP_CONCURRENT_GC: STARTUP_FLAGS = 1;
+pub const STARTUP_DISABLE_COMMITTHREADSTACK: STARTUP_FLAGS = 131072;
+pub const STARTUP_ETW: STARTUP_FLAGS = 1048576;
 pub type STARTUP_FLAGS = i32;
-pub const STARTUP_HOARD_GC_VM: STARTUP_FLAGS = 8192i32;
-pub const STARTUP_LEGACY_IMPERSONATION: STARTUP_FLAGS = 65536i32;
-pub const STARTUP_LOADER_OPTIMIZATION_MASK: STARTUP_FLAGS = 6i32;
-pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN: STARTUP_FLAGS = 4i32;
-pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN_HOST: STARTUP_FLAGS = 6i32;
-pub const STARTUP_LOADER_OPTIMIZATION_SINGLE_DOMAIN: STARTUP_FLAGS = 2i32;
-pub const STARTUP_LOADER_SAFEMODE: STARTUP_FLAGS = 16i32;
-pub const STARTUP_LOADER_SETPREFERENCE: STARTUP_FLAGS = 256i32;
-pub const STARTUP_SERVER_GC: STARTUP_FLAGS = 4096i32;
-pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = 16384i32;
-pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = 524288i32;
+pub const STARTUP_HOARD_GC_VM: STARTUP_FLAGS = 8192;
+pub const STARTUP_LEGACY_IMPERSONATION: STARTUP_FLAGS = 65536;
+pub const STARTUP_LOADER_OPTIMIZATION_MASK: STARTUP_FLAGS = 6;
+pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN: STARTUP_FLAGS = 4;
+pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN_HOST: STARTUP_FLAGS = 6;
+pub const STARTUP_LOADER_OPTIMIZATION_SINGLE_DOMAIN: STARTUP_FLAGS = 2;
+pub const STARTUP_LOADER_SAFEMODE: STARTUP_FLAGS = 16;
+pub const STARTUP_LOADER_SETPREFERENCE: STARTUP_FLAGS = 256;
+pub const STARTUP_SERVER_GC: STARTUP_FLAGS = 4096;
+pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = 16384;
+pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = 524288;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -302,63 +302,63 @@ impl Default for StackOverflowInfo {
     }
 }
 pub type StackOverflowType = i32;
-pub const TT_ADUNLOAD: ETaskType = 128i32;
-pub const TT_DEBUGGERHELPER: ETaskType = 1i32;
-pub const TT_FINALIZER: ETaskType = 4i32;
-pub const TT_GC: ETaskType = 2i32;
-pub const TT_THREADPOOL_GATE: ETaskType = 16i32;
-pub const TT_THREADPOOL_IOCOMPLETION: ETaskType = 64i32;
-pub const TT_THREADPOOL_TIMER: ETaskType = 8i32;
-pub const TT_THREADPOOL_WAIT: ETaskType = 512i32;
-pub const TT_THREADPOOL_WORKER: ETaskType = 32i32;
-pub const TT_UNKNOWN: ETaskType = -2147483648i32;
-pub const TT_USER: ETaskType = 256i32;
+pub const TT_ADUNLOAD: ETaskType = 128;
+pub const TT_DEBUGGERHELPER: ETaskType = 1;
+pub const TT_FINALIZER: ETaskType = 4;
+pub const TT_GC: ETaskType = 2;
+pub const TT_THREADPOOL_GATE: ETaskType = 16;
+pub const TT_THREADPOOL_IOCOMPLETION: ETaskType = 64;
+pub const TT_THREADPOOL_TIMER: ETaskType = 8;
+pub const TT_THREADPOOL_WAIT: ETaskType = 512;
+pub const TT_THREADPOOL_WORKER: ETaskType = 32;
+pub const TT_UNKNOWN: ETaskType = -2147483648;
+pub const TT_USER: ETaskType = 256;
 pub const TypeNameFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
-pub const WAIT_ALERTABLE: WAIT_OPTION = 2i32;
-pub const WAIT_MSGPUMP: WAIT_OPTION = 1i32;
-pub const WAIT_NOTINDEADLOCK: WAIT_OPTION = 4i32;
+pub const WAIT_ALERTABLE: WAIT_OPTION = 2;
+pub const WAIT_MSGPUMP: WAIT_OPTION = 1;
+pub const WAIT_NOTINDEADLOCK: WAIT_OPTION = 4;
 pub type WAIT_OPTION = i32;
-pub const eAbortThread: EPolicyAction = 2i32;
-pub const eAll: EApiCategories = 511i32;
-pub const eAppDomainCritical: EMemoryCriticalLevel = 1i32;
-pub const eCurrentContext: EContextType = 0i32;
-pub const eDisableRuntime: EPolicyAction = 9i32;
-pub const eExitProcess: EPolicyAction = 6i32;
-pub const eExternalProcessMgmt: EApiCategories = 4i32;
-pub const eExternalThreading: EApiCategories = 16i32;
-pub const eFastExitProcess: EPolicyAction = 7i32;
-pub const eHostDeterminedPolicy: EClrUnhandledException = 1i32;
-pub const eInitializeNewDomainFlags_NoSecurityChanges: EInitializeNewDomainFlags = 2i32;
-pub const eInitializeNewDomainFlags_None: EInitializeNewDomainFlags = 0i32;
-pub const eMayLeakOnAbort: EApiCategories = 256i32;
-pub const eMemoryAvailableHigh: EMemoryAvailable = 3i32;
-pub const eMemoryAvailableLow: EMemoryAvailable = 1i32;
-pub const eMemoryAvailableNeutral: EMemoryAvailable = 2i32;
-pub const eNoAction: EPolicyAction = 0i32;
-pub const eNoChecks: EApiCategories = 0i32;
-pub const ePolicyLevelAdmin: EBindPolicyLevels = 32i32;
-pub const ePolicyLevelApp: EBindPolicyLevels = 4i32;
-pub const ePolicyLevelHost: EBindPolicyLevels = 16i32;
-pub const ePolicyLevelNone: EBindPolicyLevels = 0i32;
-pub const ePolicyLevelPublisher: EBindPolicyLevels = 8i32;
-pub const ePolicyLevelRetargetable: EBindPolicyLevels = 1i32;
-pub const ePolicyPortability: EBindPolicyLevels = 64i32;
-pub const ePolicyUnifiedToCLR: EBindPolicyLevels = 2i32;
-pub const eProcessCritical: EMemoryCriticalLevel = 2i32;
-pub const eRestrictedContext: EContextType = 1i32;
-pub const eRudeAbortThread: EPolicyAction = 3i32;
-pub const eRudeExitProcess: EPolicyAction = 8i32;
-pub const eRudeUnloadAppDomain: EPolicyAction = 5i32;
-pub const eRuntimeDeterminedPolicy: EClrUnhandledException = 0i32;
-pub const eSecurityInfrastructure: EApiCategories = 64i32;
-pub const eSelfAffectingProcessMgmt: EApiCategories = 8i32;
-pub const eSelfAffectingThreading: EApiCategories = 32i32;
-pub const eSharedState: EApiCategories = 2i32;
-pub const eSymbolReadingAlways: ESymbolReadingPolicy = 1i32;
-pub const eSymbolReadingFullTrustOnly: ESymbolReadingPolicy = 2i32;
-pub const eSymbolReadingNever: ESymbolReadingPolicy = 0i32;
-pub const eSynchronization: EApiCategories = 1i32;
-pub const eTaskCritical: EMemoryCriticalLevel = 0i32;
-pub const eThrowException: EPolicyAction = 1i32;
-pub const eUI: EApiCategories = 128i32;
-pub const eUnloadAppDomain: EPolicyAction = 4i32;
+pub const eAbortThread: EPolicyAction = 2;
+pub const eAll: EApiCategories = 511;
+pub const eAppDomainCritical: EMemoryCriticalLevel = 1;
+pub const eCurrentContext: EContextType = 0;
+pub const eDisableRuntime: EPolicyAction = 9;
+pub const eExitProcess: EPolicyAction = 6;
+pub const eExternalProcessMgmt: EApiCategories = 4;
+pub const eExternalThreading: EApiCategories = 16;
+pub const eFastExitProcess: EPolicyAction = 7;
+pub const eHostDeterminedPolicy: EClrUnhandledException = 1;
+pub const eInitializeNewDomainFlags_NoSecurityChanges: EInitializeNewDomainFlags = 2;
+pub const eInitializeNewDomainFlags_None: EInitializeNewDomainFlags = 0;
+pub const eMayLeakOnAbort: EApiCategories = 256;
+pub const eMemoryAvailableHigh: EMemoryAvailable = 3;
+pub const eMemoryAvailableLow: EMemoryAvailable = 1;
+pub const eMemoryAvailableNeutral: EMemoryAvailable = 2;
+pub const eNoAction: EPolicyAction = 0;
+pub const eNoChecks: EApiCategories = 0;
+pub const ePolicyLevelAdmin: EBindPolicyLevels = 32;
+pub const ePolicyLevelApp: EBindPolicyLevels = 4;
+pub const ePolicyLevelHost: EBindPolicyLevels = 16;
+pub const ePolicyLevelNone: EBindPolicyLevels = 0;
+pub const ePolicyLevelPublisher: EBindPolicyLevels = 8;
+pub const ePolicyLevelRetargetable: EBindPolicyLevels = 1;
+pub const ePolicyPortability: EBindPolicyLevels = 64;
+pub const ePolicyUnifiedToCLR: EBindPolicyLevels = 2;
+pub const eProcessCritical: EMemoryCriticalLevel = 2;
+pub const eRestrictedContext: EContextType = 1;
+pub const eRudeAbortThread: EPolicyAction = 3;
+pub const eRudeExitProcess: EPolicyAction = 8;
+pub const eRudeUnloadAppDomain: EPolicyAction = 5;
+pub const eRuntimeDeterminedPolicy: EClrUnhandledException = 0;
+pub const eSecurityInfrastructure: EApiCategories = 64;
+pub const eSelfAffectingProcessMgmt: EApiCategories = 8;
+pub const eSelfAffectingThreading: EApiCategories = 32;
+pub const eSharedState: EApiCategories = 2;
+pub const eSymbolReadingAlways: ESymbolReadingPolicy = 1;
+pub const eSymbolReadingFullTrustOnly: ESymbolReadingPolicy = 2;
+pub const eSymbolReadingNever: ESymbolReadingPolicy = 0;
+pub const eSynchronization: EApiCategories = 1;
+pub const eTaskCritical: EMemoryCriticalLevel = 0;
+pub const eThrowException: EPolicyAction = 1;
+pub const eUI: EApiCategories = 128;
+pub const eUnloadAppDomain: EPolicyAction = 4;

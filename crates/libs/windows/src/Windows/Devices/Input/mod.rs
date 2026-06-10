@@ -612,7 +612,6 @@ unsafe impl Sync for PenDockListener {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PenDockedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenDockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenDockedEventArgs {}
 impl windows_core::RuntimeType for PenDockedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenDockedEventArgs>();
 }
@@ -629,7 +628,6 @@ unsafe impl Sync for PenDockedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PenTailButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenTailButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenTailButtonClickedEventArgs {}
 impl windows_core::RuntimeType for PenTailButtonClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenTailButtonClickedEventArgs>();
 }
@@ -646,7 +644,6 @@ unsafe impl Sync for PenTailButtonClickedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PenTailButtonDoubleClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenTailButtonDoubleClickedEventArgs {}
 impl windows_core::RuntimeType for PenTailButtonDoubleClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenTailButtonDoubleClickedEventArgs>();
 }
@@ -663,7 +660,6 @@ unsafe impl Sync for PenTailButtonDoubleClickedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PenTailButtonLongPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenTailButtonLongPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenTailButtonLongPressedEventArgs {}
 impl windows_core::RuntimeType for PenTailButtonLongPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenTailButtonLongPressedEventArgs>();
 }
@@ -680,7 +676,6 @@ unsafe impl Sync for PenTailButtonLongPressedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PenUndockedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenUndockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenUndockedEventArgs {}
 impl windows_core::RuntimeType for PenUndockedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenUndockedEventArgs>();
 }
@@ -772,10 +767,10 @@ impl windows_core::RuntimeName for PointerDevice {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
-    pub const Touch: Self = Self(0i32);
-    pub const Pen: Self = Self(1i32);
-    pub const Mouse: Self = Self(2i32);
-    pub const Touchpad: Self = Self(3i32);
+    pub const Touch: Self = Self(0);
+    pub const Pen: Self = Self(1);
+    pub const Mouse: Self = Self(2);
+    pub const Touchpad: Self = Self(3);
 }
 impl windows_core::TypeKind for PointerDeviceType {
     type TypeKind = windows_core::CopyType;

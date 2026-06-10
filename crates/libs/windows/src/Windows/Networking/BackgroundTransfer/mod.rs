@@ -288,8 +288,8 @@ unsafe impl Sync for BackgroundDownloader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
-    pub const Parallel: Self = Self(0i32);
-    pub const Serialized: Self = Self(1i32);
+    pub const Parallel: Self = Self(0);
+    pub const Serialized: Self = Self(1);
 }
 impl windows_core::TypeKind for BackgroundTransferBehavior {
     type TypeKind = windows_core::CopyType;
@@ -428,9 +428,9 @@ unsafe impl Sync for BackgroundTransferContentPart {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
-    pub const Default: Self = Self(0i32);
-    pub const UnrestrictedOnly: Self = Self(1i32);
-    pub const Always: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const UnrestrictedOnly: Self = Self(1);
+    pub const Always: Self = Self(2);
 }
 impl windows_core::TypeKind for BackgroundTransferCostPolicy {
     type TypeKind = windows_core::CopyType;
@@ -516,9 +516,9 @@ unsafe impl Sync for BackgroundTransferGroup {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
-    pub const Default: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const High: Self = Self(1);
+    pub const Low: Self = Self(2);
 }
 impl windows_core::TypeKind for BackgroundTransferPriority {
     type TypeKind = windows_core::CopyType;
@@ -567,16 +567,16 @@ unsafe impl Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
-    pub const Idle: Self = Self(0i32);
-    pub const Running: Self = Self(1i32);
-    pub const PausedByApplication: Self = Self(2i32);
-    pub const PausedCostedNetwork: Self = Self(3i32);
-    pub const PausedNoNetwork: Self = Self(4i32);
-    pub const Completed: Self = Self(5i32);
-    pub const Canceled: Self = Self(6i32);
-    pub const Error: Self = Self(7i32);
-    pub const PausedRecoverableWebErrorStatus: Self = Self(8i32);
-    pub const PausedSystemPolicy: Self = Self(32i32);
+    pub const Idle: Self = Self(0);
+    pub const Running: Self = Self(1);
+    pub const PausedByApplication: Self = Self(2);
+    pub const PausedCostedNetwork: Self = Self(3);
+    pub const PausedNoNetwork: Self = Self(4);
+    pub const Completed: Self = Self(5);
+    pub const Canceled: Self = Self(6);
+    pub const Error: Self = Self(7);
+    pub const PausedRecoverableWebErrorStatus: Self = Self(8);
+    pub const PausedSystemPolicy: Self = Self(32);
 }
 impl windows_core::TypeKind for BackgroundTransferStatus {
     type TypeKind = windows_core::CopyType;

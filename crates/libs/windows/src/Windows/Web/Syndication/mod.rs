@@ -1599,12 +1599,12 @@ impl windows_core::RuntimeName for SyndicationError {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const MissingRequiredElement: Self = Self(1i32);
-    pub const MissingRequiredAttribute: Self = Self(2i32);
-    pub const InvalidXml: Self = Self(3i32);
-    pub const UnexpectedContent: Self = Self(4i32);
-    pub const UnsupportedFormat: Self = Self(5i32);
+    pub const Unknown: Self = Self(0);
+    pub const MissingRequiredElement: Self = Self(1);
+    pub const MissingRequiredAttribute: Self = Self(2);
+    pub const InvalidXml: Self = Self(3);
+    pub const UnexpectedContent: Self = Self(4);
+    pub const UnsupportedFormat: Self = Self(5);
 }
 impl windows_core::TypeKind for SyndicationErrorStatus {
     type TypeKind = windows_core::CopyType;
@@ -1896,12 +1896,12 @@ unsafe impl Sync for SyndicationFeed {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
-    pub const Atom10: Self = Self(0i32);
-    pub const Rss20: Self = Self(1i32);
-    pub const Rss10: Self = Self(2i32);
-    pub const Rss092: Self = Self(3i32);
-    pub const Rss091: Self = Self(4i32);
-    pub const Atom03: Self = Self(5i32);
+    pub const Atom10: Self = Self(0);
+    pub const Rss20: Self = Self(1);
+    pub const Rss10: Self = Self(2);
+    pub const Rss092: Self = Self(3);
+    pub const Rss091: Self = Self(4);
+    pub const Atom03: Self = Self(5);
 }
 impl windows_core::TypeKind for SyndicationFormat {
     type TypeKind = windows_core::CopyType;
@@ -2933,9 +2933,9 @@ unsafe impl Sync for SyndicationText {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
-    pub const Text: Self = Self(0i32);
-    pub const Html: Self = Self(1i32);
-    pub const Xhtml: Self = Self(2i32);
+    pub const Text: Self = Self(0);
+    pub const Html: Self = Self(1);
+    pub const Xhtml: Self = Self(2);
 }
 impl windows_core::TypeKind for SyndicationTextType {
     type TypeKind = windows_core::CopyType;

@@ -618,42 +618,42 @@ unsafe impl Sync for ManeuverWarning {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
-    pub const None: Self = Self(0i32);
-    pub const Accident: Self = Self(1i32);
-    pub const AdministrativeDivisionChange: Self = Self(2i32);
-    pub const Alert: Self = Self(3i32);
-    pub const BlockedRoad: Self = Self(4i32);
-    pub const CheckTimetable: Self = Self(5i32);
-    pub const Congestion: Self = Self(6i32);
-    pub const Construction: Self = Self(7i32);
-    pub const CountryChange: Self = Self(8i32);
-    pub const DisabledVehicle: Self = Self(9i32);
-    pub const GateAccess: Self = Self(10i32);
-    pub const GetOffTransit: Self = Self(11i32);
-    pub const GetOnTransit: Self = Self(12i32);
-    pub const IllegalUTurn: Self = Self(13i32);
-    pub const MassTransit: Self = Self(14i32);
-    pub const Miscellaneous: Self = Self(15i32);
-    pub const NoIncident: Self = Self(16i32);
-    pub const Other: Self = Self(17i32);
-    pub const OtherNews: Self = Self(18i32);
-    pub const OtherTrafficIncidents: Self = Self(19i32);
-    pub const PlannedEvent: Self = Self(20i32);
-    pub const PrivateRoad: Self = Self(21i32);
-    pub const RestrictedTurn: Self = Self(22i32);
-    pub const RoadClosures: Self = Self(23i32);
-    pub const RoadHazard: Self = Self(24i32);
-    pub const ScheduledConstruction: Self = Self(25i32);
-    pub const SeasonalClosures: Self = Self(26i32);
-    pub const Tollbooth: Self = Self(27i32);
-    pub const TollRoad: Self = Self(28i32);
-    pub const TollZoneEnter: Self = Self(29i32);
-    pub const TollZoneExit: Self = Self(30i32);
-    pub const TrafficFlow: Self = Self(31i32);
-    pub const TransitLineChange: Self = Self(32i32);
-    pub const UnpavedRoad: Self = Self(33i32);
-    pub const UnscheduledConstruction: Self = Self(34i32);
-    pub const Weather: Self = Self(35i32);
+    pub const None: Self = Self(0);
+    pub const Accident: Self = Self(1);
+    pub const AdministrativeDivisionChange: Self = Self(2);
+    pub const Alert: Self = Self(3);
+    pub const BlockedRoad: Self = Self(4);
+    pub const CheckTimetable: Self = Self(5);
+    pub const Congestion: Self = Self(6);
+    pub const Construction: Self = Self(7);
+    pub const CountryChange: Self = Self(8);
+    pub const DisabledVehicle: Self = Self(9);
+    pub const GateAccess: Self = Self(10);
+    pub const GetOffTransit: Self = Self(11);
+    pub const GetOnTransit: Self = Self(12);
+    pub const IllegalUTurn: Self = Self(13);
+    pub const MassTransit: Self = Self(14);
+    pub const Miscellaneous: Self = Self(15);
+    pub const NoIncident: Self = Self(16);
+    pub const Other: Self = Self(17);
+    pub const OtherNews: Self = Self(18);
+    pub const OtherTrafficIncidents: Self = Self(19);
+    pub const PlannedEvent: Self = Self(20);
+    pub const PrivateRoad: Self = Self(21);
+    pub const RestrictedTurn: Self = Self(22);
+    pub const RoadClosures: Self = Self(23);
+    pub const RoadHazard: Self = Self(24);
+    pub const ScheduledConstruction: Self = Self(25);
+    pub const SeasonalClosures: Self = Self(26);
+    pub const Tollbooth: Self = Self(27);
+    pub const TollRoad: Self = Self(28);
+    pub const TollZoneEnter: Self = Self(29);
+    pub const TollZoneExit: Self = Self(30);
+    pub const TrafficFlow: Self = Self(31);
+    pub const TransitLineChange: Self = Self(32);
+    pub const UnpavedRoad: Self = Self(33);
+    pub const UnscheduledConstruction: Self = Self(34);
+    pub const Weather: Self = Self(35);
 }
 impl windows_core::TypeKind for ManeuverWarningKind {
     type TypeKind = windows_core::CopyType;
@@ -666,11 +666,11 @@ impl windows_core::RuntimeType for ManeuverWarningKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
-    pub const None: Self = Self(0i32);
-    pub const LowImpact: Self = Self(1i32);
-    pub const Minor: Self = Self(2i32);
-    pub const Moderate: Self = Self(3i32);
-    pub const Serious: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const LowImpact: Self = Self(1);
+    pub const Minor: Self = Self(2);
+    pub const Moderate: Self = Self(3);
+    pub const Serious: Self = Self(4);
 }
 impl windows_core::TypeKind for ManeuverWarningSeverity {
     type TypeKind = windows_core::CopyType;
@@ -841,8 +841,8 @@ unsafe impl Sync for MapLocation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
-    pub const High: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
+    pub const High: Self = Self(0);
+    pub const Low: Self = Self(1);
 }
 impl windows_core::TypeKind for MapLocationDesiredAccuracy {
     type TypeKind = windows_core::CopyType;
@@ -939,13 +939,13 @@ unsafe impl Sync for MapLocationFinderResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const BadLocation: Self = Self(3i32);
-    pub const IndexFailure: Self = Self(4i32);
-    pub const NetworkFailure: Self = Self(5i32);
-    pub const NotSupported: Self = Self(6i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const InvalidCredentials: Self = Self(2);
+    pub const BadLocation: Self = Self(3);
+    pub const IndexFailure: Self = Self(4);
+    pub const NetworkFailure: Self = Self(5);
+    pub const NotSupported: Self = Self(6);
 }
 impl windows_core::TypeKind for MapLocationFinderStatus {
     type TypeKind = windows_core::CopyType;
@@ -974,9 +974,9 @@ impl windows_core::RuntimeName for MapManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
-    pub const None: Self = Self(0u32);
-    pub const Toll: Self = Self(1u32);
-    pub const Unpaved: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Toll: Self = Self(1);
+    pub const Unpaved: Self = Self(2);
 }
 impl windows_core::TypeKind for MapManeuverNotices {
     type TypeKind = windows_core::CopyType;
@@ -1378,16 +1378,16 @@ unsafe impl Sync for MapRouteFinderResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const NoRouteFound: Self = Self(3i32);
-    pub const NoRouteFoundWithGivenOptions: Self = Self(4i32);
-    pub const StartPointNotFound: Self = Self(5i32);
-    pub const EndPointNotFound: Self = Self(6i32);
-    pub const NoPedestrianRouteFound: Self = Self(7i32);
-    pub const NetworkFailure: Self = Self(8i32);
-    pub const NotSupported: Self = Self(9i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const InvalidCredentials: Self = Self(2);
+    pub const NoRouteFound: Self = Self(3);
+    pub const NoRouteFoundWithGivenOptions: Self = Self(4);
+    pub const StartPointNotFound: Self = Self(5);
+    pub const EndPointNotFound: Self = Self(6);
+    pub const NoPedestrianRouteFound: Self = Self(7);
+    pub const NetworkFailure: Self = Self(8);
+    pub const NotSupported: Self = Self(9);
 }
 impl windows_core::TypeKind for MapRouteFinderStatus {
     type TypeKind = windows_core::CopyType;
@@ -1547,31 +1547,31 @@ unsafe impl Sync for MapRouteManeuver {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
-    pub const None: Self = Self(0i32);
-    pub const Start: Self = Self(1i32);
-    pub const Stopover: Self = Self(2i32);
-    pub const StopoverResume: Self = Self(3i32);
-    pub const End: Self = Self(4i32);
-    pub const GoStraight: Self = Self(5i32);
-    pub const UTurnLeft: Self = Self(6i32);
-    pub const UTurnRight: Self = Self(7i32);
-    pub const TurnKeepLeft: Self = Self(8i32);
-    pub const TurnKeepRight: Self = Self(9i32);
-    pub const TurnLightLeft: Self = Self(10i32);
-    pub const TurnLightRight: Self = Self(11i32);
-    pub const TurnLeft: Self = Self(12i32);
-    pub const TurnRight: Self = Self(13i32);
-    pub const TurnHardLeft: Self = Self(14i32);
-    pub const TurnHardRight: Self = Self(15i32);
-    pub const FreewayEnterLeft: Self = Self(16i32);
-    pub const FreewayEnterRight: Self = Self(17i32);
-    pub const FreewayLeaveLeft: Self = Self(18i32);
-    pub const FreewayLeaveRight: Self = Self(19i32);
-    pub const FreewayContinueLeft: Self = Self(20i32);
-    pub const FreewayContinueRight: Self = Self(21i32);
-    pub const TrafficCircleLeft: Self = Self(22i32);
-    pub const TrafficCircleRight: Self = Self(23i32);
-    pub const TakeFerry: Self = Self(24i32);
+    pub const None: Self = Self(0);
+    pub const Start: Self = Self(1);
+    pub const Stopover: Self = Self(2);
+    pub const StopoverResume: Self = Self(3);
+    pub const End: Self = Self(4);
+    pub const GoStraight: Self = Self(5);
+    pub const UTurnLeft: Self = Self(6);
+    pub const UTurnRight: Self = Self(7);
+    pub const TurnKeepLeft: Self = Self(8);
+    pub const TurnKeepRight: Self = Self(9);
+    pub const TurnLightLeft: Self = Self(10);
+    pub const TurnLightRight: Self = Self(11);
+    pub const TurnLeft: Self = Self(12);
+    pub const TurnRight: Self = Self(13);
+    pub const TurnHardLeft: Self = Self(14);
+    pub const TurnHardRight: Self = Self(15);
+    pub const FreewayEnterLeft: Self = Self(16);
+    pub const FreewayEnterRight: Self = Self(17);
+    pub const FreewayLeaveLeft: Self = Self(18);
+    pub const FreewayLeaveRight: Self = Self(19);
+    pub const FreewayContinueLeft: Self = Self(20);
+    pub const FreewayContinueRight: Self = Self(21);
+    pub const TrafficCircleLeft: Self = Self(22);
+    pub const TrafficCircleRight: Self = Self(23);
+    pub const TakeFerry: Self = Self(24);
 }
 impl windows_core::TypeKind for MapRouteManeuverKind {
     type TypeKind = windows_core::CopyType;
@@ -1584,10 +1584,10 @@ impl windows_core::RuntimeType for MapRouteManeuverKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
-    pub const Time: Self = Self(0i32);
-    pub const Distance: Self = Self(1i32);
-    pub const TimeWithTraffic: Self = Self(2i32);
-    pub const Scenic: Self = Self(3i32);
+    pub const Time: Self = Self(0);
+    pub const Distance: Self = Self(1);
+    pub const TimeWithTraffic: Self = Self(2);
+    pub const Scenic: Self = Self(3);
 }
 impl windows_core::TypeKind for MapRouteOptimization {
     type TypeKind = windows_core::CopyType;
@@ -1600,13 +1600,13 @@ impl windows_core::RuntimeType for MapRouteOptimization {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
-    pub const None: Self = Self(0u32);
-    pub const Highways: Self = Self(1u32);
-    pub const TollRoads: Self = Self(2u32);
-    pub const Ferries: Self = Self(4u32);
-    pub const Tunnels: Self = Self(8u32);
-    pub const DirtRoads: Self = Self(16u32);
-    pub const Motorail: Self = Self(32u32);
+    pub const None: Self = Self(0);
+    pub const Highways: Self = Self(1);
+    pub const TollRoads: Self = Self(2);
+    pub const Ferries: Self = Self(4);
+    pub const Tunnels: Self = Self(8);
+    pub const DirtRoads: Self = Self(16);
+    pub const Motorail: Self = Self(32);
 }
 impl windows_core::TypeKind for MapRouteRestrictions {
     type TypeKind = windows_core::CopyType;
@@ -1704,8 +1704,8 @@ impl windows_core::RuntimeName for MapService {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
-    pub const Default: Self = Self(0i32);
-    pub const OfflineMapDataOnly: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const OfflineMapDataOnly: Self = Self(1);
 }
 impl windows_core::TypeKind for MapServiceDataUsagePreference {
     type TypeKind = windows_core::CopyType;
@@ -1884,11 +1884,11 @@ unsafe impl Sync for PlaceInfoCreateOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
-    pub const Unknown: Self = Self(0i32);
-    pub const Light: Self = Self(1i32);
-    pub const Mild: Self = Self(2i32);
-    pub const Medium: Self = Self(3i32);
-    pub const Heavy: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Light: Self = Self(1);
+    pub const Mild: Self = Self(2);
+    pub const Medium: Self = Self(3);
+    pub const Heavy: Self = Self(4);
 }
 impl windows_core::TypeKind for TrafficCongestion {
     type TypeKind = windows_core::CopyType;
@@ -1901,8 +1901,8 @@ impl windows_core::RuntimeType for TrafficCongestion {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {
-    pub const Stop: Self = Self(0i32);
-    pub const Via: Self = Self(1i32);
+    pub const Stop: Self = Self(0);
+    pub const Via: Self = Self(1);
 }
 impl windows_core::TypeKind for WaypointKind {
     type TypeKind = windows_core::CopyType;

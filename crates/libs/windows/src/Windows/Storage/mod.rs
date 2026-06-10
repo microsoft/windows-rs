@@ -555,8 +555,8 @@ impl IntoIterator for &ApplicationDataContainerSettings {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
-    pub const Always: Self = Self(0i32);
-    pub const Existing: Self = Self(1i32);
+    pub const Always: Self = Self(0);
+    pub const Existing: Self = Self(1);
 }
 impl windows_core::TypeKind for ApplicationDataCreateDisposition {
     type TypeKind = windows_core::CopyType;
@@ -569,11 +569,11 @@ impl windows_core::RuntimeType for ApplicationDataCreateDisposition {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
-    pub const Local: Self = Self(0i32);
-    pub const Roaming: Self = Self(1i32);
-    pub const Temporary: Self = Self(2i32);
-    pub const LocalCache: Self = Self(3i32);
-    pub const SharedLocal: Self = Self(4i32);
+    pub const Local: Self = Self(0);
+    pub const Roaming: Self = Self(1);
+    pub const Temporary: Self = Self(2);
+    pub const LocalCache: Self = Self(3);
+    pub const SharedLocal: Self = Self(4);
 }
 impl windows_core::TypeKind for ApplicationDataLocality {
     type TypeKind = windows_core::CopyType;
@@ -652,10 +652,10 @@ impl windows_core::RuntimeName for CachedFileManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
-    pub const GenerateUniqueName: Self = Self(0i32);
-    pub const ReplaceExisting: Self = Self(1i32);
-    pub const FailIfExists: Self = Self(2i32);
-    pub const OpenIfExists: Self = Self(3i32);
+    pub const GenerateUniqueName: Self = Self(0);
+    pub const ReplaceExisting: Self = Self(1);
+    pub const FailIfExists: Self = Self(2);
+    pub const OpenIfExists: Self = Self(3);
 }
 impl windows_core::TypeKind for CreationCollisionOption {
     type TypeKind = windows_core::CopyType;
@@ -750,8 +750,8 @@ impl windows_core::RuntimeName for DownloadsFolder {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
-    pub const Read: Self = Self(0i32);
-    pub const ReadWrite: Self = Self(1i32);
+    pub const Read: Self = Self(0);
+    pub const ReadWrite: Self = Self(1);
 }
 impl windows_core::TypeKind for FileAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -764,12 +764,12 @@ impl windows_core::RuntimeType for FileAccessMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
-    pub const Normal: Self = Self(0u32);
-    pub const ReadOnly: Self = Self(1u32);
-    pub const Directory: Self = Self(16u32);
-    pub const Archive: Self = Self(32u32);
-    pub const Temporary: Self = Self(256u32);
-    pub const LocallyIncomplete: Self = Self(512u32);
+    pub const Normal: Self = Self(0);
+    pub const ReadOnly: Self = Self(1);
+    pub const Directory: Self = Self(16);
+    pub const Archive: Self = Self(32);
+    pub const Temporary: Self = Self(256);
+    pub const LocallyIncomplete: Self = Self(512);
 }
 impl windows_core::TypeKind for FileAttributes {
     type TypeKind = windows_core::CopyType;
@@ -3821,23 +3821,23 @@ pub struct IUserDataPathsStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
-    pub const AppCaptures: Self = Self(0i32);
-    pub const CameraRoll: Self = Self(1i32);
-    pub const DocumentsLibrary: Self = Self(2i32);
-    pub const HomeGroup: Self = Self(3i32);
-    pub const MediaServerDevices: Self = Self(4i32);
-    pub const MusicLibrary: Self = Self(5i32);
-    pub const Objects3D: Self = Self(6i32);
-    pub const PicturesLibrary: Self = Self(7i32);
-    pub const Playlists: Self = Self(8i32);
-    pub const RecordedCalls: Self = Self(9i32);
-    pub const RemovableDevices: Self = Self(10i32);
-    pub const SavedPictures: Self = Self(11i32);
-    pub const Screenshots: Self = Self(12i32);
-    pub const VideosLibrary: Self = Self(13i32);
-    pub const AllAppMods: Self = Self(14i32);
-    pub const CurrentAppMods: Self = Self(15i32);
-    pub const DownloadsFolder: Self = Self(16i32);
+    pub const AppCaptures: Self = Self(0);
+    pub const CameraRoll: Self = Self(1);
+    pub const DocumentsLibrary: Self = Self(2);
+    pub const HomeGroup: Self = Self(3);
+    pub const MediaServerDevices: Self = Self(4);
+    pub const MusicLibrary: Self = Self(5);
+    pub const Objects3D: Self = Self(6);
+    pub const PicturesLibrary: Self = Self(7);
+    pub const Playlists: Self = Self(8);
+    pub const RecordedCalls: Self = Self(9);
+    pub const RemovableDevices: Self = Self(10);
+    pub const SavedPictures: Self = Self(11);
+    pub const Screenshots: Self = Self(12);
+    pub const VideosLibrary: Self = Self(13);
+    pub const AllAppMods: Self = Self(14);
+    pub const CurrentAppMods: Self = Self(15);
+    pub const DownloadsFolder: Self = Self(16);
 }
 impl windows_core::TypeKind for KnownFolderId {
     type TypeKind = windows_core::CopyType;
@@ -4008,12 +4008,12 @@ impl windows_core::RuntimeName for KnownFolders {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
-    pub const DeniedBySystem: Self = Self(0i32);
-    pub const NotDeclaredByApp: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const UserPromptRequired: Self = Self(3i32);
-    pub const Allowed: Self = Self(4i32);
-    pub const AllowedPerAppFolder: Self = Self(5i32);
+    pub const DeniedBySystem: Self = Self(0);
+    pub const NotDeclaredByApp: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const UserPromptRequired: Self = Self(3);
+    pub const Allowed: Self = Self(4);
+    pub const AllowedPerAppFolder: Self = Self(5);
 }
 impl windows_core::TypeKind for KnownFoldersAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -4026,10 +4026,10 @@ impl windows_core::RuntimeType for KnownFoldersAccessStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
-    pub const Music: Self = Self(0i32);
-    pub const Pictures: Self = Self(1i32);
-    pub const Videos: Self = Self(2i32);
-    pub const Documents: Self = Self(3i32);
+    pub const Music: Self = Self(0);
+    pub const Pictures: Self = Self(1);
+    pub const Videos: Self = Self(2);
+    pub const Documents: Self = Self(3);
 }
 impl windows_core::TypeKind for KnownLibraryId {
     type TypeKind = windows_core::CopyType;
@@ -4042,9 +4042,9 @@ impl windows_core::RuntimeType for KnownLibraryId {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
-    pub const GenerateUniqueName: Self = Self(0i32);
-    pub const ReplaceExisting: Self = Self(1i32);
-    pub const FailIfExists: Self = Self(2i32);
+    pub const GenerateUniqueName: Self = Self(0);
+    pub const ReplaceExisting: Self = Self(1);
+    pub const FailIfExists: Self = Self(2);
 }
 impl windows_core::TypeKind for NameCollisionOption {
     type TypeKind = windows_core::CopyType;
@@ -4237,8 +4237,8 @@ unsafe impl Sync for SetVersionRequest {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
-    pub const Default: Self = Self(0i32);
-    pub const PermanentDelete: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const PermanentDelete: Self = Self(1);
 }
 impl windows_core::TypeKind for StorageDeleteOption {
     type TypeKind = windows_core::CopyType;
@@ -5085,9 +5085,9 @@ impl windows_core::RuntimeName for StorageFolder {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
-    pub const None: Self = Self(0u32);
-    pub const File: Self = Self(1u32);
-    pub const Folder: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const File: Self = Self(1);
+    pub const Folder: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageItemTypes {
     type TypeKind = windows_core::CopyType;
@@ -5390,16 +5390,16 @@ unsafe impl Sync for StorageLibraryChangeTrackerOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
-    pub const Created: Self = Self(0i32);
-    pub const Deleted: Self = Self(1i32);
-    pub const MovedOrRenamed: Self = Self(2i32);
-    pub const ContentsChanged: Self = Self(3i32);
-    pub const MovedOutOfLibrary: Self = Self(4i32);
-    pub const MovedIntoLibrary: Self = Self(5i32);
-    pub const ContentsReplaced: Self = Self(6i32);
-    pub const IndexingStatusChanged: Self = Self(7i32);
-    pub const EncryptionChanged: Self = Self(8i32);
-    pub const ChangeTrackingLost: Self = Self(9i32);
+    pub const Created: Self = Self(0);
+    pub const Deleted: Self = Self(1);
+    pub const MovedOrRenamed: Self = Self(2);
+    pub const ContentsChanged: Self = Self(3);
+    pub const MovedOutOfLibrary: Self = Self(4);
+    pub const MovedIntoLibrary: Self = Self(5);
+    pub const ContentsReplaced: Self = Self(6);
+    pub const IndexingStatusChanged: Self = Self(7);
+    pub const EncryptionChanged: Self = Self(8);
+    pub const ChangeTrackingLost: Self = Self(9);
 }
 impl windows_core::TypeKind for StorageLibraryChangeType {
     type TypeKind = windows_core::CopyType;
@@ -5440,9 +5440,9 @@ unsafe impl Sync for StorageLibraryLastChangeId {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
-    pub const None: Self = Self(0u32);
-    pub const AllowOnlyReaders: Self = Self(1u32);
-    pub const AllowReadersAndWriters: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const AllowOnlyReaders: Self = Self(1);
+    pub const AllowReadersAndWriters: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageOpenOptions {
     type TypeKind = windows_core::CopyType;
@@ -5649,9 +5649,9 @@ impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<(
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
-    pub const Failed: Self = Self(0i32);
-    pub const CurrentlyUnavailable: Self = Self(1i32);
-    pub const Incomplete: Self = Self(2i32);
+    pub const Failed: Self = Self(0);
+    pub const CurrentlyUnavailable: Self = Self(1);
+    pub const Incomplete: Self = Self(2);
 }
 impl windows_core::TypeKind for StreamedFileFailureMode {
     type TypeKind = windows_core::CopyType;

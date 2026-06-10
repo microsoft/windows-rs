@@ -405,13 +405,13 @@ unsafe impl Sync for AdaptiveMediaSourceCreationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ManifestDownloadFailure: Self = Self(1i32);
-    pub const ManifestParseFailure: Self = Self(2i32);
-    pub const UnsupportedManifestContentType: Self = Self(3i32);
-    pub const UnsupportedManifestVersion: Self = Self(4i32);
-    pub const UnsupportedManifestProfile: Self = Self(5i32);
-    pub const UnknownFailure: Self = Self(6i32);
+    pub const Success: Self = Self(0);
+    pub const ManifestDownloadFailure: Self = Self(1);
+    pub const ManifestParseFailure: Self = Self(2);
+    pub const UnsupportedManifestContentType: Self = Self(3);
+    pub const UnsupportedManifestVersion: Self = Self(4);
+    pub const UnsupportedManifestProfile: Self = Self(5);
+    pub const UnknownFailure: Self = Self(6);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -517,15 +517,15 @@ unsafe impl Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
-    pub const ManifestUnchangedUponReload: Self = Self(0i32);
-    pub const ManifestMismatchUponReload: Self = Self(1i32);
-    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2i32);
-    pub const MediaSegmentSkipped: Self = Self(3i32);
-    pub const ResourceNotFound: Self = Self(4i32);
-    pub const ResourceTimedOut: Self = Self(5i32);
-    pub const ResourceParsingError: Self = Self(6i32);
-    pub const BitrateDisabled: Self = Self(7i32);
-    pub const FatalMediaSourceError: Self = Self(8i32);
+    pub const ManifestUnchangedUponReload: Self = Self(0);
+    pub const ManifestMismatchUponReload: Self = Self(1);
+    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2);
+    pub const MediaSegmentSkipped: Self = Self(3);
+    pub const ResourceNotFound: Self = Self(4);
+    pub const ResourceTimedOut: Self = Self(5);
+    pub const ResourceParsingError: Self = Self(6);
+    pub const BitrateDisabled: Self = Self(7);
+    pub const FatalMediaSourceError: Self = Self(8);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceDiagnosticType {
     type TypeKind = windows_core::CopyType;
@@ -605,13 +605,13 @@ unsafe impl Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
-    pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
-    pub const InsufficientInboundBitsPerSecond: Self = Self(1i32);
-    pub const LowBufferLevel: Self = Self(2i32);
-    pub const PositionChanged: Self = Self(3i32);
-    pub const TrackSelectionChanged: Self = Self(4i32);
-    pub const DesiredBitratesChanged: Self = Self(5i32);
-    pub const ErrorInPreviousBitrate: Self = Self(6i32);
+    pub const SufficientInboundBitsPerSecond: Self = Self(0);
+    pub const InsufficientInboundBitsPerSecond: Self = Self(1);
+    pub const LowBufferLevel: Self = Self(2);
+    pub const PositionChanged: Self = Self(3);
+    pub const TrackSelectionChanged: Self = Self(4);
+    pub const DesiredBitratesChanged: Self = Self(5);
+    pub const ErrorInPreviousBitrate: Self = Self(6);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceDownloadBitrateChangedReason {
     type TypeKind = windows_core::CopyType;
@@ -1080,12 +1080,12 @@ unsafe impl Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {
-    pub const Manifest: Self = Self(0i32);
-    pub const InitializationSegment: Self = Self(1i32);
-    pub const MediaSegment: Self = Self(2i32);
-    pub const Key: Self = Self(3i32);
-    pub const InitializationVector: Self = Self(4i32);
-    pub const MediaSegmentIndex: Self = Self(5i32);
+    pub const Manifest: Self = Self(0);
+    pub const InitializationSegment: Self = Self(1);
+    pub const MediaSegment: Self = Self(2);
+    pub const Key: Self = Self(3);
+    pub const InitializationVector: Self = Self(4);
+    pub const MediaSegmentIndex: Self = Self(5);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceResourceType {
     type TypeKind = windows_core::CopyType;

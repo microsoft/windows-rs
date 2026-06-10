@@ -1183,11 +1183,11 @@ unsafe impl Sync for WindowsSoftwareUpdateActionProgress {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateActionResult(pub i32);
 impl WindowsSoftwareUpdateActionResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Continue: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Canceled: Self = Self(3i32);
-    pub const Removed: Self = Self(4i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Continue: Self = Self(1);
+    pub const Failed: Self = Self(2);
+    pub const Canceled: Self = Self(3);
+    pub const Removed: Self = Self(4);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateActionResult {
     type TypeKind = windows_core::CopyType;
@@ -1248,11 +1248,11 @@ unsafe impl Sync for WindowsSoftwareUpdateActionResultInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateActionType(pub i32);
 impl WindowsSoftwareUpdateActionType {
-    pub const Download: Self = Self(0i32);
-    pub const Install: Self = Self(1i32);
-    pub const Deploy: Self = Self(2i32);
-    pub const Reboot: Self = Self(3i32);
-    pub const AppRestart: Self = Self(4i32);
+    pub const Download: Self = Self(0);
+    pub const Install: Self = Self(1);
+    pub const Deploy: Self = Self(2);
+    pub const Reboot: Self = Self(3);
+    pub const AppRestart: Self = Self(4);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateActionType {
     type TypeKind = windows_core::CopyType;
@@ -1366,11 +1366,11 @@ unsafe impl Sync for WindowsSoftwareUpdateApprovalInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateArchitecture(pub i32);
 impl WindowsSoftwareUpdateArchitecture {
-    pub const Neutral: Self = Self(0i32);
-    pub const X86: Self = Self(1i32);
-    pub const X64: Self = Self(2i32);
-    pub const Arm: Self = Self(3i32);
-    pub const Arm64: Self = Self(4i32);
+    pub const Neutral: Self = Self(0);
+    pub const X86: Self = Self(1);
+    pub const X64: Self = Self(2);
+    pub const Arm: Self = Self(3);
+    pub const Arm64: Self = Self(4);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateArchitecture {
     type TypeKind = windows_core::CopyType;
@@ -1450,10 +1450,10 @@ unsafe impl Sync for WindowsSoftwareUpdateExecutionInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateInstallationType(pub i32);
 impl WindowsSoftwareUpdateInstallationType {
-    pub const WindowsUpdate: Self = Self(0i32);
-    pub const AppPackage: Self = Self(1i32);
-    pub const Executable: Self = Self(2i32);
-    pub const Powershell: Self = Self(3i32);
+    pub const WindowsUpdate: Self = Self(0);
+    pub const AppPackage: Self = Self(1);
+    pub const Executable: Self = Self(2);
+    pub const Powershell: Self = Self(3);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateInstallationType {
     type TypeKind = windows_core::CopyType;
@@ -1844,12 +1844,12 @@ unsafe impl Sync for WindowsSoftwareUpdateProviderPayloadFileInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateProviderRegistrationType(pub i32);
 impl WindowsSoftwareUpdateProviderRegistrationType {
-    pub const None: Self = Self(0i32);
-    pub const System: Self = Self(1i32);
-    pub const Windows: Self = Self(2i32);
-    pub const Pending: Self = Self(3i32);
-    pub const Registered: Self = Self(4i32);
-    pub const Unregistered: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const System: Self = Self(1);
+    pub const Windows: Self = Self(2);
+    pub const Pending: Self = Self(3);
+    pub const Registered: Self = Self(4);
+    pub const Unregistered: Self = Self(5);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateProviderRegistrationType {
     type TypeKind = windows_core::CopyType;
@@ -1926,9 +1926,9 @@ unsafe impl Sync for WindowsSoftwareUpdateProviderStatus {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateProviderTrustState(pub i32);
 impl WindowsSoftwareUpdateProviderTrustState {
-    pub const SignedTrusted: Self = Self(0i32);
-    pub const SignedUntrusted: Self = Self(1i32);
-    pub const Unsigned: Self = Self(2i32);
+    pub const SignedTrusted: Self = Self(0);
+    pub const SignedUntrusted: Self = Self(1);
+    pub const Unsigned: Self = Self(2);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateProviderTrustState {
     type TypeKind = windows_core::CopyType;
@@ -1941,9 +1941,9 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderTrustState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateProviderType(pub i32);
 impl WindowsSoftwareUpdateProviderType {
-    pub const WindowsUpdate: Self = Self(0i32);
-    pub const Executable: Self = Self(1i32);
-    pub const Powershell: Self = Self(2i32);
+    pub const WindowsUpdate: Self = Self(0);
+    pub const Executable: Self = Self(1);
+    pub const Powershell: Self = Self(2);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateProviderType {
     type TypeKind = windows_core::CopyType;
@@ -1956,10 +1956,10 @@ impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsSoftwareUpdateRestartReason(pub i32);
 impl WindowsSoftwareUpdateRestartReason {
-    pub const None: Self = Self(0i32);
-    pub const System: Self = Self(1i32);
-    pub const AppClose: Self = Self(2i32);
-    pub const AppRestart: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const System: Self = Self(1);
+    pub const AppClose: Self = Self(2);
+    pub const AppRestart: Self = Self(3);
 }
 impl windows_core::TypeKind for WindowsSoftwareUpdateRestartReason {
     type TypeKind = windows_core::CopyType;
@@ -2507,10 +2507,10 @@ unsafe impl Sync for WindowsUpdateAdministrator {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsUpdateAdministratorOptions(pub u32);
 impl WindowsUpdateAdministratorOptions {
-    pub const None: Self = Self(0u32);
-    pub const RequireAdministratorApprovalForScans: Self = Self(1u32);
-    pub const RequireAdministratorApprovalForUpdates: Self = Self(2u32);
-    pub const RequireAdministratorApprovalForActions: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const RequireAdministratorApprovalForScans: Self = Self(1);
+    pub const RequireAdministratorApprovalForUpdates: Self = Self(2);
+    pub const RequireAdministratorApprovalForActions: Self = Self(4);
 }
 impl windows_core::TypeKind for WindowsUpdateAdministratorOptions {
     type TypeKind = windows_core::CopyType;
@@ -2556,9 +2556,9 @@ impl core::ops::Not for WindowsUpdateAdministratorOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsUpdateAdministratorStatus(pub i32);
 impl WindowsUpdateAdministratorStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const NoAdministratorRegistered: Self = Self(1i32);
-    pub const OtherAdministratorIsRegistered: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const NoAdministratorRegistered: Self = Self(1);
+    pub const OtherAdministratorIsRegistered: Self = Self(2);
 }
 impl windows_core::TypeKind for WindowsUpdateAdministratorStatus {
     type TypeKind = windows_core::CopyType;
@@ -2676,42 +2676,42 @@ unsafe impl Sync for WindowsUpdateAttentionRequiredInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsUpdateAttentionRequiredReason(pub i32);
 impl WindowsUpdateAttentionRequiredReason {
-    pub const None: Self = Self(0i32);
-    pub const SeekerUpdate: Self = Self(1i32);
-    pub const ReadyToReboot: Self = Self(2i32);
-    pub const NeedNonMeteredNetwork: Self = Self(3i32);
-    pub const NeedUserAgreementForMeteredNetwork: Self = Self(4i32);
-    pub const NeedNetwork: Self = Self(5i32);
-    pub const NeedMoreSpace: Self = Self(6i32);
-    pub const BatterySaverEnabled: Self = Self(7i32);
-    pub const NeedUserInteraction: Self = Self(8i32);
-    pub const NeedUserAgreementForPolicy: Self = Self(9i32);
-    pub const CompatibilityError: Self = Self(10i32);
-    pub const NeedUserInteractionForEula: Self = Self(11i32);
-    pub const NeedUserInteractionForCta: Self = Self(12i32);
-    pub const Regulated: Self = Self(13i32);
-    pub const ExternalReboot: Self = Self(14i32);
-    pub const OtherUpdate: Self = Self(15i32);
-    pub const BlockedByProvider: Self = Self(16i32);
-    pub const BlockedByPostRebootFailure: Self = Self(17i32);
-    pub const UserEngaged: Self = Self(18i32);
-    pub const BlockedByBattery: Self = Self(19i32);
-    pub const Exclusivity: Self = Self(20i32);
-    pub const BlockedBySerialization: Self = Self(21i32);
-    pub const ConflictClass: Self = Self(22i32);
-    pub const BlockedByAdminApproval: Self = Self(23i32);
-    pub const BlockedByTooManyAttempts: Self = Self(24i32);
-    pub const BlockedByFailure: Self = Self(25i32);
-    pub const Demotion: Self = Self(26i32);
-    pub const BlockedByActiveHours: Self = Self(27i32);
-    pub const ScheduledForMaintenance: Self = Self(28i32);
-    pub const PolicyScheduledInstallTime: Self = Self(29i32);
-    pub const BlockedByOobe: Self = Self(30i32);
-    pub const DeferredDuringOobe: Self = Self(31i32);
-    pub const DeferredForSustainableTime: Self = Self(32i32);
-    pub const BlockedByAppClose: Self = Self(33i32);
-    pub const BlockedByAppRestart: Self = Self(34i32);
-    pub const OtherUpdateReverting: Self = Self(35i32);
+    pub const None: Self = Self(0);
+    pub const SeekerUpdate: Self = Self(1);
+    pub const ReadyToReboot: Self = Self(2);
+    pub const NeedNonMeteredNetwork: Self = Self(3);
+    pub const NeedUserAgreementForMeteredNetwork: Self = Self(4);
+    pub const NeedNetwork: Self = Self(5);
+    pub const NeedMoreSpace: Self = Self(6);
+    pub const BatterySaverEnabled: Self = Self(7);
+    pub const NeedUserInteraction: Self = Self(8);
+    pub const NeedUserAgreementForPolicy: Self = Self(9);
+    pub const CompatibilityError: Self = Self(10);
+    pub const NeedUserInteractionForEula: Self = Self(11);
+    pub const NeedUserInteractionForCta: Self = Self(12);
+    pub const Regulated: Self = Self(13);
+    pub const ExternalReboot: Self = Self(14);
+    pub const OtherUpdate: Self = Self(15);
+    pub const BlockedByProvider: Self = Self(16);
+    pub const BlockedByPostRebootFailure: Self = Self(17);
+    pub const UserEngaged: Self = Self(18);
+    pub const BlockedByBattery: Self = Self(19);
+    pub const Exclusivity: Self = Self(20);
+    pub const BlockedBySerialization: Self = Self(21);
+    pub const ConflictClass: Self = Self(22);
+    pub const BlockedByAdminApproval: Self = Self(23);
+    pub const BlockedByTooManyAttempts: Self = Self(24);
+    pub const BlockedByFailure: Self = Self(25);
+    pub const Demotion: Self = Self(26);
+    pub const BlockedByActiveHours: Self = Self(27);
+    pub const ScheduledForMaintenance: Self = Self(28);
+    pub const PolicyScheduledInstallTime: Self = Self(29);
+    pub const BlockedByOobe: Self = Self(30);
+    pub const DeferredDuringOobe: Self = Self(31);
+    pub const DeferredForSustainableTime: Self = Self(32);
+    pub const BlockedByAppClose: Self = Self(33);
+    pub const BlockedByAppRestart: Self = Self(34);
+    pub const OtherUpdateReverting: Self = Self(35);
 }
 impl windows_core::TypeKind for WindowsUpdateAttentionRequiredReason {
     type TypeKind = windows_core::CopyType;

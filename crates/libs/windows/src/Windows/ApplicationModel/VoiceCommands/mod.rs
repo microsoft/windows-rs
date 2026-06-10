@@ -255,13 +255,13 @@ unsafe impl Sync for VoiceCommandCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const CommunicationFailed: Self = Self(1i32);
-    pub const ResourceLimitsExceeded: Self = Self(2i32);
-    pub const Canceled: Self = Self(3i32);
-    pub const TimeoutExceeded: Self = Self(4i32);
-    pub const AppLaunched: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
+    pub const Unknown: Self = Self(0);
+    pub const CommunicationFailed: Self = Self(1);
+    pub const ResourceLimitsExceeded: Self = Self(2);
+    pub const Canceled: Self = Self(3);
+    pub const TimeoutExceeded: Self = Self(4);
+    pub const AppLaunched: Self = Self(5);
+    pub const Completed: Self = Self(6);
 }
 impl windows_core::TypeKind for VoiceCommandCompletionReason {
     type TypeKind = windows_core::CopyType;
@@ -403,14 +403,14 @@ unsafe impl Sync for VoiceCommandContentTile {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {
-    pub const TitleOnly: Self = Self(0i32);
-    pub const TitleWithText: Self = Self(1i32);
-    pub const TitleWith68x68Icon: Self = Self(2i32);
-    pub const TitleWith68x68IconAndText: Self = Self(3i32);
-    pub const TitleWith68x92Icon: Self = Self(4i32);
-    pub const TitleWith68x92IconAndText: Self = Self(5i32);
-    pub const TitleWith280x140Icon: Self = Self(6i32);
-    pub const TitleWith280x140IconAndText: Self = Self(7i32);
+    pub const TitleOnly: Self = Self(0);
+    pub const TitleWithText: Self = Self(1);
+    pub const TitleWith68x68Icon: Self = Self(2);
+    pub const TitleWith68x68IconAndText: Self = Self(3);
+    pub const TitleWith68x92Icon: Self = Self(4);
+    pub const TitleWith68x92IconAndText: Self = Self(5);
+    pub const TitleWith280x140Icon: Self = Self(6);
+    pub const TitleWith280x140IconAndText: Self = Self(7);
 }
 impl windows_core::TypeKind for VoiceCommandContentTileType {
     type TypeKind = windows_core::CopyType;

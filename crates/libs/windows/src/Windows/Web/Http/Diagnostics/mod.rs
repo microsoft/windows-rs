@@ -304,19 +304,19 @@ unsafe impl Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
-    pub const ParsedElement: Self = Self(0i32);
-    pub const Script: Self = Self(1i32);
-    pub const Image: Self = Self(2i32);
-    pub const Link: Self = Self(3i32);
-    pub const Style: Self = Self(4i32);
-    pub const XmlHttpRequest: Self = Self(5i32);
-    pub const Media: Self = Self(6i32);
-    pub const HtmlDownload: Self = Self(7i32);
-    pub const Prefetch: Self = Self(8i32);
-    pub const Other: Self = Self(9i32);
-    pub const CrossOriginPreFlight: Self = Self(10i32);
-    pub const Fetch: Self = Self(11i32);
-    pub const Beacon: Self = Self(12i32);
+    pub const ParsedElement: Self = Self(0);
+    pub const Script: Self = Self(1);
+    pub const Image: Self = Self(2);
+    pub const Link: Self = Self(3);
+    pub const Style: Self = Self(4);
+    pub const XmlHttpRequest: Self = Self(5);
+    pub const Media: Self = Self(6);
+    pub const HtmlDownload: Self = Self(7);
+    pub const Prefetch: Self = Self(8);
+    pub const Other: Self = Self(9);
+    pub const CrossOriginPreFlight: Self = Self(10);
+    pub const Fetch: Self = Self(11);
+    pub const Beacon: Self = Self(12);
 }
 impl windows_core::TypeKind for HttpDiagnosticRequestInitiator {
     type TypeKind = windows_core::CopyType;

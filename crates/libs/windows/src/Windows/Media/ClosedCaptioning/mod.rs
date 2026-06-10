@@ -2,15 +2,15 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
-    pub const Default: Self = Self(0i32);
-    pub const White: Self = Self(1i32);
-    pub const Black: Self = Self(2i32);
-    pub const Red: Self = Self(3i32);
-    pub const Green: Self = Self(4i32);
-    pub const Blue: Self = Self(5i32);
-    pub const Yellow: Self = Self(6i32);
-    pub const Magenta: Self = Self(7i32);
-    pub const Cyan: Self = Self(8i32);
+    pub const Default: Self = Self(0);
+    pub const White: Self = Self(1);
+    pub const Black: Self = Self(2);
+    pub const Red: Self = Self(3);
+    pub const Green: Self = Self(4);
+    pub const Blue: Self = Self(5);
+    pub const Yellow: Self = Self(6);
+    pub const Magenta: Self = Self(7);
+    pub const Cyan: Self = Self(8);
 }
 impl windows_core::TypeKind for ClosedCaptionColor {
     type TypeKind = windows_core::CopyType;
@@ -23,12 +23,12 @@ impl windows_core::RuntimeType for ClosedCaptionColor {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
-    pub const Default: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Raised: Self = Self(2i32);
-    pub const Depressed: Self = Self(3i32);
-    pub const Uniform: Self = Self(4i32);
-    pub const DropShadow: Self = Self(5i32);
+    pub const Default: Self = Self(0);
+    pub const None: Self = Self(1);
+    pub const Raised: Self = Self(2);
+    pub const Depressed: Self = Self(3);
+    pub const Uniform: Self = Self(4);
+    pub const DropShadow: Self = Self(5);
 }
 impl windows_core::TypeKind for ClosedCaptionEdgeEffect {
     type TypeKind = windows_core::CopyType;
@@ -41,11 +41,11 @@ impl windows_core::RuntimeType for ClosedCaptionEdgeEffect {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
-    pub const Default: Self = Self(0i32);
-    pub const OneHundredPercent: Self = Self(1i32);
-    pub const SeventyFivePercent: Self = Self(2i32);
-    pub const TwentyFivePercent: Self = Self(3i32);
-    pub const ZeroPercent: Self = Self(4i32);
+    pub const Default: Self = Self(0);
+    pub const OneHundredPercent: Self = Self(1);
+    pub const SeventyFivePercent: Self = Self(2);
+    pub const TwentyFivePercent: Self = Self(3);
+    pub const ZeroPercent: Self = Self(4);
 }
 impl windows_core::TypeKind for ClosedCaptionOpacity {
     type TypeKind = windows_core::CopyType;
@@ -159,11 +159,11 @@ impl windows_core::RuntimeName for ClosedCaptionProperties {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
-    pub const Default: Self = Self(0i32);
-    pub const FiftyPercent: Self = Self(1i32);
-    pub const OneHundredPercent: Self = Self(2i32);
-    pub const OneHundredFiftyPercent: Self = Self(3i32);
-    pub const TwoHundredPercent: Self = Self(4i32);
+    pub const Default: Self = Self(0);
+    pub const FiftyPercent: Self = Self(1);
+    pub const OneHundredPercent: Self = Self(2);
+    pub const OneHundredFiftyPercent: Self = Self(3);
+    pub const TwoHundredPercent: Self = Self(4);
 }
 impl windows_core::TypeKind for ClosedCaptionSize {
     type TypeKind = windows_core::CopyType;
@@ -176,14 +176,14 @@ impl windows_core::RuntimeType for ClosedCaptionSize {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {
-    pub const Default: Self = Self(0i32);
-    pub const MonospacedWithSerifs: Self = Self(1i32);
-    pub const ProportionalWithSerifs: Self = Self(2i32);
-    pub const MonospacedWithoutSerifs: Self = Self(3i32);
-    pub const ProportionalWithoutSerifs: Self = Self(4i32);
-    pub const Casual: Self = Self(5i32);
-    pub const Cursive: Self = Self(6i32);
-    pub const SmallCapitals: Self = Self(7i32);
+    pub const Default: Self = Self(0);
+    pub const MonospacedWithSerifs: Self = Self(1);
+    pub const ProportionalWithSerifs: Self = Self(2);
+    pub const MonospacedWithoutSerifs: Self = Self(3);
+    pub const ProportionalWithoutSerifs: Self = Self(4);
+    pub const Casual: Self = Self(5);
+    pub const Cursive: Self = Self(6);
+    pub const SmallCapitals: Self = Self(7);
 }
 impl windows_core::TypeKind for ClosedCaptionStyle {
     type TypeKind = windows_core::CopyType;

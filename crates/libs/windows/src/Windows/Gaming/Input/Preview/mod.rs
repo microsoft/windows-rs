@@ -2,7 +2,7 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceCommand(pub i32);
 impl DeviceCommand {
-    pub const Reset: Self = Self(0i32);
+    pub const Reset: Self = Self(0);
 }
 impl windows_core::TypeKind for DeviceCommand {
     type TypeKind = windows_core::CopyType;
@@ -15,10 +15,10 @@ impl windows_core::RuntimeType for DeviceCommand {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerBatteryChargingState(pub i32);
 impl GameControllerBatteryChargingState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Inactive: Self = Self(1i32);
-    pub const Active: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Inactive: Self = Self(1);
+    pub const Active: Self = Self(2);
+    pub const Error: Self = Self(3);
 }
 impl windows_core::TypeKind for GameControllerBatteryChargingState {
     type TypeKind = windows_core::CopyType;
@@ -31,10 +31,10 @@ impl windows_core::RuntimeType for GameControllerBatteryChargingState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerBatteryKind(pub i32);
 impl GameControllerBatteryKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Standard: Self = Self(2i32);
-    pub const Rechargeable: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const None: Self = Self(1);
+    pub const Standard: Self = Self(2);
+    pub const Rechargeable: Self = Self(3);
 }
 impl windows_core::TypeKind for GameControllerBatteryKind {
     type TypeKind = windows_core::CopyType;
@@ -47,11 +47,11 @@ impl windows_core::RuntimeType for GameControllerBatteryKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerBatteryLevel(pub i32);
 impl GameControllerBatteryLevel {
-    pub const Unknown: Self = Self(0i32);
-    pub const Critical: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
-    pub const Medium: Self = Self(3i32);
-    pub const Full: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Critical: Self = Self(1);
+    pub const Low: Self = Self(2);
+    pub const Medium: Self = Self(3);
+    pub const Full: Self = Self(4);
 }
 impl windows_core::TypeKind for GameControllerBatteryLevel {
     type TypeKind = windows_core::CopyType;
@@ -64,13 +64,13 @@ impl windows_core::RuntimeType for GameControllerBatteryLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerFirmwareCorruptReason(pub i32);
 impl GameControllerFirmwareCorruptReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const NotCorrupt: Self = Self(1i32);
-    pub const TwoUpCorrupt: Self = Self(2i32);
-    pub const AppCorrupt: Self = Self(3i32);
-    pub const RadioCorrupt: Self = Self(4i32);
-    pub const EepromCorrupt: Self = Self(5i32);
-    pub const SafeToUpdate: Self = Self(6i32);
+    pub const Unknown: Self = Self(0);
+    pub const NotCorrupt: Self = Self(1);
+    pub const TwoUpCorrupt: Self = Self(2);
+    pub const AppCorrupt: Self = Self(3);
+    pub const RadioCorrupt: Self = Self(4);
+    pub const EepromCorrupt: Self = Self(5);
+    pub const SafeToUpdate: Self = Self(6);
 }
 impl windows_core::TypeKind for GameControllerFirmwareCorruptReason {
     type TypeKind = windows_core::CopyType;
@@ -129,10 +129,10 @@ impl windows_core::RuntimeType for HeadsetGeqGains {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HeadsetLevel(pub i32);
 impl HeadsetLevel {
-    pub const Off: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
-    pub const Medium: Self = Self(2i32);
-    pub const High: Self = Self(3i32);
+    pub const Off: Self = Self(0);
+    pub const Low: Self = Self(1);
+    pub const Medium: Self = Self(2);
+    pub const High: Self = Self(3);
 }
 impl windows_core::TypeKind for HeadsetLevel {
     type TypeKind = windows_core::CopyType;
@@ -145,12 +145,12 @@ impl windows_core::RuntimeType for HeadsetLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HeadsetOperation(pub i32);
 impl HeadsetOperation {
-    pub const Geq: Self = Self(0i32);
-    pub const BassBoostGain: Self = Self(1i32);
-    pub const SmartMute: Self = Self(2i32);
-    pub const SideTone: Self = Self(3i32);
-    pub const MuteLedBrightness: Self = Self(4i32);
-    pub const SwapMixAndVolumeDials: Self = Self(5i32);
+    pub const Geq: Self = Self(0);
+    pub const BassBoostGain: Self = Self(1);
+    pub const SmartMute: Self = Self(2);
+    pub const SideTone: Self = Self(3);
+    pub const MuteLedBrightness: Self = Self(4);
+    pub const SwapMixAndVolumeDials: Self = Self(5);
 }
 impl windows_core::TypeKind for HeadsetOperation {
     type TypeKind = windows_core::CopyType;
@@ -412,18 +412,18 @@ unsafe impl Sync for LegacyGipGameControllerProvider {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemappingButtonCategory(pub i32);
 impl RemappingButtonCategory {
-    pub const ButtonSettings: Self = Self(0i32);
-    pub const AnalogSettings: Self = Self(1i32);
-    pub const VibrationSettings: Self = Self(2i32);
-    pub const ShareShortPress: Self = Self(3i32);
-    pub const ShareShortPressMetaData: Self = Self(4i32);
-    pub const ShareShortPressMetaDataDisplay: Self = Self(5i32);
-    pub const ShareLongPress: Self = Self(6i32);
-    pub const ShareLongPressMetaData: Self = Self(7i32);
-    pub const ShareLongPressMetaDataDisplay: Self = Self(8i32);
-    pub const ShareDoublePress: Self = Self(9i32);
-    pub const ShareDoublePressMetaData: Self = Self(10i32);
-    pub const ShareDoublePressMetaDataDisplay: Self = Self(11i32);
+    pub const ButtonSettings: Self = Self(0);
+    pub const AnalogSettings: Self = Self(1);
+    pub const VibrationSettings: Self = Self(2);
+    pub const ShareShortPress: Self = Self(3);
+    pub const ShareShortPressMetaData: Self = Self(4);
+    pub const ShareShortPressMetaDataDisplay: Self = Self(5);
+    pub const ShareLongPress: Self = Self(6);
+    pub const ShareLongPressMetaData: Self = Self(7);
+    pub const ShareLongPressMetaDataDisplay: Self = Self(8);
+    pub const ShareDoublePress: Self = Self(9);
+    pub const ShareDoublePressMetaData: Self = Self(10);
+    pub const ShareDoublePressMetaDataDisplay: Self = Self(11);
 }
 impl windows_core::TypeKind for RemappingButtonCategory {
     type TypeKind = windows_core::CopyType;

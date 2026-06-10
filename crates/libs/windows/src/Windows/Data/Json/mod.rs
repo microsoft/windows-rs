@@ -530,11 +530,11 @@ impl windows_core::RuntimeName for JsonError {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const InvalidJsonString: Self = Self(1i32);
-    pub const InvalidJsonNumber: Self = Self(2i32);
-    pub const JsonValueNotFound: Self = Self(3i32);
-    pub const ImplementationLimit: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const InvalidJsonString: Self = Self(1);
+    pub const InvalidJsonNumber: Self = Self(2);
+    pub const JsonValueNotFound: Self = Self(3);
+    pub const ImplementationLimit: Self = Self(4);
 }
 impl windows_core::TypeKind for JsonErrorStatus {
     type TypeKind = windows_core::CopyType;
@@ -917,12 +917,12 @@ unsafe impl Sync for JsonValue {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {
-    pub const Null: Self = Self(0i32);
-    pub const Boolean: Self = Self(1i32);
-    pub const Number: Self = Self(2i32);
-    pub const String: Self = Self(3i32);
-    pub const Array: Self = Self(4i32);
-    pub const Object: Self = Self(5i32);
+    pub const Null: Self = Self(0);
+    pub const Boolean: Self = Self(1);
+    pub const Number: Self = Self(2);
+    pub const String: Self = Self(3);
+    pub const Array: Self = Self(4);
+    pub const Object: Self = Self(5);
 }
 impl windows_core::TypeKind for JsonValueType {
     type TypeKind = windows_core::CopyType;

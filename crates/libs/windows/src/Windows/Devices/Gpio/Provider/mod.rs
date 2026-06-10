@@ -402,14 +402,14 @@ pub struct IGpioProvider_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
-    pub const Input: Self = Self(0i32);
-    pub const Output: Self = Self(1i32);
-    pub const InputPullUp: Self = Self(2i32);
-    pub const InputPullDown: Self = Self(3i32);
-    pub const OutputOpenDrain: Self = Self(4i32);
-    pub const OutputOpenDrainPullUp: Self = Self(5i32);
-    pub const OutputOpenSource: Self = Self(6i32);
-    pub const OutputOpenSourcePullDown: Self = Self(7i32);
+    pub const Input: Self = Self(0);
+    pub const Output: Self = Self(1);
+    pub const InputPullUp: Self = Self(2);
+    pub const InputPullDown: Self = Self(3);
+    pub const OutputOpenDrain: Self = Self(4);
+    pub const OutputOpenDrainPullUp: Self = Self(5);
+    pub const OutputOpenSource: Self = Self(6);
+    pub const OutputOpenSourcePullDown: Self = Self(7);
 }
 impl windows_core::TypeKind for ProviderGpioPinDriveMode {
     type TypeKind = windows_core::CopyType;
@@ -422,8 +422,8 @@ impl windows_core::RuntimeType for ProviderGpioPinDriveMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
-    pub const FallingEdge: Self = Self(0i32);
-    pub const RisingEdge: Self = Self(1i32);
+    pub const FallingEdge: Self = Self(0);
+    pub const RisingEdge: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderGpioPinEdge {
     type TypeKind = windows_core::CopyType;
@@ -436,8 +436,8 @@ impl windows_core::RuntimeType for ProviderGpioPinEdge {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
-    pub const Low: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
+    pub const Low: Self = Self(0);
+    pub const High: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderGpioPinValue {
     type TypeKind = windows_core::CopyType;
@@ -450,8 +450,8 @@ impl windows_core::RuntimeType for ProviderGpioPinValue {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const SharedReadOnly: Self = Self(1i32);
+    pub const Exclusive: Self = Self(0);
+    pub const SharedReadOnly: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderGpioSharingMode {
     type TypeKind = windows_core::CopyType;

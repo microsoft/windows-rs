@@ -10,16 +10,46 @@ impl ValueExt for Value {
     fn write(&self) -> TokenStream {
         match self {
             Self::Bool(value) => quote! { #value },
-            Self::U8(value) => quote! { #value },
-            Self::I8(value) => quote! { #value },
-            Self::U16(value) => quote! { #value },
-            Self::I16(value) => quote! { #value },
-            Self::U32(value) => quote! { #value },
-            Self::I32(value) => quote! { #value },
-            Self::U64(value) => quote! { #value },
-            Self::I64(value) => quote! { #value },
-            Self::F32(value) => quote! { #value },
-            Self::F64(value) => quote! { #value },
+            Self::U8(value) => {
+                let lit = Literal::u8_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I8(value) => {
+                let lit = Literal::i8_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::U16(value) => {
+                let lit = Literal::u16_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I16(value) => {
+                let lit = Literal::i16_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::U32(value) => {
+                let lit = Literal::u32_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I32(value) => {
+                let lit = Literal::i32_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::U64(value) => {
+                let lit = Literal::u64_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I64(value) => {
+                let lit = Literal::i64_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::F32(value) => {
+                let lit = Literal::f32_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::F64(value) => {
+                let lit = Literal::f64_unsuffixed(*value);
+                quote! { #lit }
+            }
             Self::Utf16(value) => {
                 let mut tokens = "\"".to_string();
 

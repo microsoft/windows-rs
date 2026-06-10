@@ -64,9 +64,9 @@ pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: Option<u3
     windows_core::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : windows_core::PWSTR) -> windows_core::WIN32_ERROR);
     unsafe { RmStartSession(psessionhandle as _, dwsessionflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(strsessionkey)) }
 }
-pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
-pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
-pub const CCH_RM_SESSION_KEY: u32 = 32u32;
+pub const CCH_RM_MAX_APP_NAME: u32 = 255;
+pub const CCH_RM_MAX_SVC_NAME: u32 = 63;
+pub const CCH_RM_SESSION_KEY: u32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_APP_STATUS(pub i32);
@@ -104,8 +104,8 @@ impl Default for RM_FILTER_INFO_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_FILTER_TRIGGER(pub i32);
-pub const RM_INVALID_PROCESS: i32 = -1i32;
-pub const RM_INVALID_TS_SESSION: i32 = -1i32;
+pub const RM_INVALID_PROCESS: i32 = -1;
+pub const RM_INVALID_TS_SESSION: i32 = -1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RM_PROCESS_INFO {
@@ -135,34 +135,34 @@ pub struct RM_UNIQUE_PROCESS {
     pub ProcessStartTime: super::super::Foundation::FILETIME,
 }
 pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;
-pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5i32);
-pub const RmCritical: RM_APP_TYPE = RM_APP_TYPE(1000i32);
-pub const RmExplorer: RM_APP_TYPE = RM_APP_TYPE(4i32);
-pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(1i32);
-pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(0i32);
-pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(2i32);
-pub const RmFilterTriggerService: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(3i32);
-pub const RmForceShutdown: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(1i32);
-pub const RmInvalidFilterAction: RM_FILTER_ACTION = RM_FILTER_ACTION(0i32);
-pub const RmMainWindow: RM_APP_TYPE = RM_APP_TYPE(1i32);
-pub const RmNoRestart: RM_FILTER_ACTION = RM_FILTER_ACTION(1i32);
-pub const RmNoShutdown: RM_FILTER_ACTION = RM_FILTER_ACTION(2i32);
-pub const RmOtherWindow: RM_APP_TYPE = RM_APP_TYPE(2i32);
-pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = RM_REBOOT_REASON(4i32);
-pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = RM_REBOOT_REASON(8i32);
-pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = RM_REBOOT_REASON(16i32);
-pub const RmRebootReasonNone: RM_REBOOT_REASON = RM_REBOOT_REASON(0i32);
-pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = RM_REBOOT_REASON(1i32);
-pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = RM_REBOOT_REASON(2i32);
-pub const RmService: RM_APP_TYPE = RM_APP_TYPE(3i32);
-pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(16i32);
-pub const RmStatusErrorOnRestart: RM_APP_STATUS = RM_APP_STATUS(32i32);
-pub const RmStatusErrorOnStop: RM_APP_STATUS = RM_APP_STATUS(16i32);
-pub const RmStatusRestartMasked: RM_APP_STATUS = RM_APP_STATUS(128i32);
-pub const RmStatusRestarted: RM_APP_STATUS = RM_APP_STATUS(8i32);
-pub const RmStatusRunning: RM_APP_STATUS = RM_APP_STATUS(1i32);
-pub const RmStatusShutdownMasked: RM_APP_STATUS = RM_APP_STATUS(64i32);
-pub const RmStatusStopped: RM_APP_STATUS = RM_APP_STATUS(2i32);
-pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4i32);
-pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
-pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
+pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5);
+pub const RmCritical: RM_APP_TYPE = RM_APP_TYPE(1000);
+pub const RmExplorer: RM_APP_TYPE = RM_APP_TYPE(4);
+pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(1);
+pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(0);
+pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(2);
+pub const RmFilterTriggerService: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(3);
+pub const RmForceShutdown: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(1);
+pub const RmInvalidFilterAction: RM_FILTER_ACTION = RM_FILTER_ACTION(0);
+pub const RmMainWindow: RM_APP_TYPE = RM_APP_TYPE(1);
+pub const RmNoRestart: RM_FILTER_ACTION = RM_FILTER_ACTION(1);
+pub const RmNoShutdown: RM_FILTER_ACTION = RM_FILTER_ACTION(2);
+pub const RmOtherWindow: RM_APP_TYPE = RM_APP_TYPE(2);
+pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = RM_REBOOT_REASON(4);
+pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = RM_REBOOT_REASON(8);
+pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = RM_REBOOT_REASON(16);
+pub const RmRebootReasonNone: RM_REBOOT_REASON = RM_REBOOT_REASON(0);
+pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = RM_REBOOT_REASON(1);
+pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = RM_REBOOT_REASON(2);
+pub const RmService: RM_APP_TYPE = RM_APP_TYPE(3);
+pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(16);
+pub const RmStatusErrorOnRestart: RM_APP_STATUS = RM_APP_STATUS(32);
+pub const RmStatusErrorOnStop: RM_APP_STATUS = RM_APP_STATUS(16);
+pub const RmStatusRestartMasked: RM_APP_STATUS = RM_APP_STATUS(128);
+pub const RmStatusRestarted: RM_APP_STATUS = RM_APP_STATUS(8);
+pub const RmStatusRunning: RM_APP_STATUS = RM_APP_STATUS(1);
+pub const RmStatusShutdownMasked: RM_APP_STATUS = RM_APP_STATUS(64);
+pub const RmStatusStopped: RM_APP_STATUS = RM_APP_STATUS(2);
+pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4);
+pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0);
+pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0);

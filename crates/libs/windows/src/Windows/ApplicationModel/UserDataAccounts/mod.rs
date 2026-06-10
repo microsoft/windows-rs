@@ -378,9 +378,9 @@ unsafe impl Sync for UserDataAccount {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
-    pub const Email: Self = Self(1u32);
-    pub const Contact: Self = Self(2u32);
-    pub const Appointment: Self = Self(4u32);
+    pub const Email: Self = Self(1);
+    pub const Contact: Self = Self(2);
+    pub const Appointment: Self = Self(4);
 }
 impl windows_core::TypeKind for UserDataAccountContentKinds {
     type TypeKind = windows_core::CopyType;
@@ -505,9 +505,9 @@ unsafe impl Sync for UserDataAccountManagerForUser {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
-    pub const SystemOnly: Self = Self(0i32);
-    pub const Full: Self = Self(1i32);
-    pub const None: Self = Self(2i32);
+    pub const SystemOnly: Self = Self(0);
+    pub const Full: Self = Self(1);
+    pub const None: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataAccountOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
@@ -584,8 +584,8 @@ unsafe impl Sync for UserDataAccountStore {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
-    pub const AllAccountsReadOnly: Self = Self(0i32);
-    pub const AppAccountsReadWrite: Self = Self(1i32);
+    pub const AllAccountsReadOnly: Self = Self(0);
+    pub const AppAccountsReadWrite: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataAccountStoreAccessType {
     type TypeKind = windows_core::CopyType;

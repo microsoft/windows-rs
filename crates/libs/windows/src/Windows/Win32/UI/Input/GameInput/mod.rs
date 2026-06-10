@@ -6,25 +6,25 @@ pub unsafe fn GameInputCreate() -> windows_core::Result<IGameInput> {
         GameInputCreate(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-pub const FACILITY_GAMEINPUT: u32 = 906u32;
+pub const FACILITY_GAMEINPUT: u32 = 906;
 pub const GAMEINPUT_E_DEVICE_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x838A0001_u32 as _);
 pub const GAMEINPUT_E_DEVICE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x838A0002_u32 as _);
 pub const GAMEINPUT_E_INSUFFICIENT_FORCE_FEEDBACK_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x838A0006_u32 as _);
 pub const GAMEINPUT_E_READING_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x838A0003_u32 as _);
 pub const GAMEINPUT_E_REFERENCE_READING_TOO_OLD: windows_core::HRESULT = windows_core::HRESULT(0x838A0004_u32 as _);
 pub const GAMEINPUT_E_TIMESTAMP_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x838A0005_u32 as _);
-pub const GameInput2WaySwitch: GameInputSwitchKind = GameInputSwitchKind(0i32);
-pub const GameInput4WaySwitch: GameInputSwitchKind = GameInputSwitchKind(1i32);
-pub const GameInput8WaySwitch: GameInputSwitchKind = GameInputSwitchKind(2i32);
-pub const GameInputAbntKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(3i32);
-pub const GameInputAnsiKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(0i32);
-pub const GameInputApplicationItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(1i32);
-pub const GameInputArcadeStickAction1: GameInputArcadeStickButtons = GameInputArcadeStickButtons(64i32);
-pub const GameInputArcadeStickAction2: GameInputArcadeStickButtons = GameInputArcadeStickButtons(128i32);
-pub const GameInputArcadeStickAction3: GameInputArcadeStickButtons = GameInputArcadeStickButtons(256i32);
-pub const GameInputArcadeStickAction4: GameInputArcadeStickButtons = GameInputArcadeStickButtons(512i32);
-pub const GameInputArcadeStickAction5: GameInputArcadeStickButtons = GameInputArcadeStickButtons(1024i32);
-pub const GameInputArcadeStickAction6: GameInputArcadeStickButtons = GameInputArcadeStickButtons(2048i32);
+pub const GameInput2WaySwitch: GameInputSwitchKind = GameInputSwitchKind(0);
+pub const GameInput4WaySwitch: GameInputSwitchKind = GameInputSwitchKind(1);
+pub const GameInput8WaySwitch: GameInputSwitchKind = GameInputSwitchKind(2);
+pub const GameInputAbntKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(3);
+pub const GameInputAnsiKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(0);
+pub const GameInputApplicationItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(1);
+pub const GameInputArcadeStickAction1: GameInputArcadeStickButtons = GameInputArcadeStickButtons(64);
+pub const GameInputArcadeStickAction2: GameInputArcadeStickButtons = GameInputArcadeStickButtons(128);
+pub const GameInputArcadeStickAction3: GameInputArcadeStickButtons = GameInputArcadeStickButtons(256);
+pub const GameInputArcadeStickAction4: GameInputArcadeStickButtons = GameInputArcadeStickButtons(512);
+pub const GameInputArcadeStickAction5: GameInputArcadeStickButtons = GameInputArcadeStickButtons(1024);
+pub const GameInputArcadeStickAction6: GameInputArcadeStickButtons = GameInputArcadeStickButtons(2048);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputArcadeStickButtons(pub i32);
@@ -61,7 +61,7 @@ impl core::ops::Not for GameInputArcadeStickButtons {
         Self(self.0.not())
     }
 }
-pub const GameInputArcadeStickDown: GameInputArcadeStickButtons = GameInputArcadeStickButtons(8i32);
+pub const GameInputArcadeStickDown: GameInputArcadeStickButtons = GameInputArcadeStickButtons(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputArcadeStickInfo {
@@ -80,25 +80,25 @@ pub struct GameInputArcadeStickInfo {
     pub specialButton1Label: GameInputLabel,
     pub specialButton2Label: GameInputLabel,
 }
-pub const GameInputArcadeStickLeft: GameInputArcadeStickButtons = GameInputArcadeStickButtons(16i32);
-pub const GameInputArcadeStickMenu: GameInputArcadeStickButtons = GameInputArcadeStickButtons(1i32);
-pub const GameInputArcadeStickNone: GameInputArcadeStickButtons = GameInputArcadeStickButtons(0i32);
-pub const GameInputArcadeStickRight: GameInputArcadeStickButtons = GameInputArcadeStickButtons(32i32);
-pub const GameInputArcadeStickSpecial1: GameInputArcadeStickButtons = GameInputArcadeStickButtons(4096i32);
-pub const GameInputArcadeStickSpecial2: GameInputArcadeStickButtons = GameInputArcadeStickButtons(8192i32);
+pub const GameInputArcadeStickLeft: GameInputArcadeStickButtons = GameInputArcadeStickButtons(16);
+pub const GameInputArcadeStickMenu: GameInputArcadeStickButtons = GameInputArcadeStickButtons(1);
+pub const GameInputArcadeStickNone: GameInputArcadeStickButtons = GameInputArcadeStickButtons(0);
+pub const GameInputArcadeStickRight: GameInputArcadeStickButtons = GameInputArcadeStickButtons(32);
+pub const GameInputArcadeStickSpecial1: GameInputArcadeStickButtons = GameInputArcadeStickButtons(4096);
+pub const GameInputArcadeStickSpecial2: GameInputArcadeStickButtons = GameInputArcadeStickButtons(8192);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputArcadeStickState {
     pub buttons: GameInputArcadeStickButtons,
 }
-pub const GameInputArcadeStickUp: GameInputArcadeStickButtons = GameInputArcadeStickButtons(4i32);
-pub const GameInputArcadeStickView: GameInputArcadeStickButtons = GameInputArcadeStickButtons(2i32);
-pub const GameInputArrayItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(2i32);
-pub const GameInputAsyncEnumeration: GameInputEnumerationKind = GameInputEnumerationKind(1i32);
-pub const GameInputBatteryCharging: GameInputBatteryStatus = GameInputBatteryStatus(3i32);
-pub const GameInputBatteryDischarging: GameInputBatteryStatus = GameInputBatteryStatus(1i32);
-pub const GameInputBatteryIdle: GameInputBatteryStatus = GameInputBatteryStatus(2i32);
-pub const GameInputBatteryNotPresent: GameInputBatteryStatus = GameInputBatteryStatus(0i32);
+pub const GameInputArcadeStickUp: GameInputArcadeStickButtons = GameInputArcadeStickButtons(4);
+pub const GameInputArcadeStickView: GameInputArcadeStickButtons = GameInputArcadeStickButtons(2);
+pub const GameInputArrayItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(2);
+pub const GameInputAsyncEnumeration: GameInputEnumerationKind = GameInputEnumerationKind(1);
+pub const GameInputBatteryCharging: GameInputBatteryStatus = GameInputBatteryStatus(3);
+pub const GameInputBatteryDischarging: GameInputBatteryStatus = GameInputBatteryStatus(1);
+pub const GameInputBatteryIdle: GameInputBatteryStatus = GameInputBatteryStatus(2);
+pub const GameInputBatteryNotPresent: GameInputBatteryStatus = GameInputBatteryStatus(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputBatteryState {
@@ -111,10 +111,10 @@ pub struct GameInputBatteryState {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputBatteryStatus(pub i32);
-pub const GameInputBatteryUnknown: GameInputBatteryStatus = GameInputBatteryStatus(-1i32);
-pub const GameInputBlockingEnumeration: GameInputEnumerationKind = GameInputEnumerationKind(2i32);
-pub const GameInputBufferedItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(256i32);
-pub const GameInputConstantItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(1i32);
+pub const GameInputBatteryUnknown: GameInputBatteryStatus = GameInputBatteryStatus(-1);
+pub const GameInputBlockingEnumeration: GameInputEnumerationKind = GameInputEnumerationKind(2);
+pub const GameInputBufferedItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(256);
+pub const GameInputConstantItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputControllerAxisInfo {
@@ -171,11 +171,11 @@ impl Default for GameInputControllerSwitchInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const GameInputDefaultFocusPolicy: GameInputFocusPolicy = GameInputFocusPolicy(0i32);
-pub const GameInputDefaultItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(0i32);
-pub const GameInputDeviceAnyStatus: GameInputDeviceStatus = GameInputDeviceStatus(16777215i32);
-pub const GameInputDeviceAudioCapture: GameInputDeviceStatus = GameInputDeviceStatus(16i32);
-pub const GameInputDeviceAudioRender: GameInputDeviceStatus = GameInputDeviceStatus(32i32);
+pub const GameInputDefaultFocusPolicy: GameInputFocusPolicy = GameInputFocusPolicy(0);
+pub const GameInputDefaultItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(0);
+pub const GameInputDeviceAnyStatus: GameInputDeviceStatus = GameInputDeviceStatus(16777215);
+pub const GameInputDeviceAudioCapture: GameInputDeviceStatus = GameInputDeviceStatus(16);
+pub const GameInputDeviceAudioRender: GameInputDeviceStatus = GameInputDeviceStatus(32);
 pub type GameInputDeviceCallback = Option<unsafe extern "system" fn(callbacktoken: u64, context: *const core::ffi::c_void, device: windows_core::Ref<IGameInputDevice>, timestamp: u64, currentstatus: GameInputDeviceStatus, previousstatus: GameInputDeviceStatus)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -213,13 +213,13 @@ impl core::ops::Not for GameInputDeviceCapabilities {
         Self(self.0.not())
     }
 }
-pub const GameInputDeviceCapabilityAudio: GameInputDeviceCapabilities = GameInputDeviceCapabilities(1i32);
-pub const GameInputDeviceCapabilityNone: GameInputDeviceCapabilities = GameInputDeviceCapabilities(0i32);
-pub const GameInputDeviceCapabilityPluginModule: GameInputDeviceCapabilities = GameInputDeviceCapabilities(2i32);
-pub const GameInputDeviceCapabilityPowerOff: GameInputDeviceCapabilities = GameInputDeviceCapabilities(4i32);
-pub const GameInputDeviceCapabilitySynchronization: GameInputDeviceCapabilities = GameInputDeviceCapabilities(8i32);
-pub const GameInputDeviceCapabilityWireless: GameInputDeviceCapabilities = GameInputDeviceCapabilities(16i32);
-pub const GameInputDeviceConnected: GameInputDeviceStatus = GameInputDeviceStatus(1i32);
+pub const GameInputDeviceCapabilityAudio: GameInputDeviceCapabilities = GameInputDeviceCapabilities(1);
+pub const GameInputDeviceCapabilityNone: GameInputDeviceCapabilities = GameInputDeviceCapabilities(0);
+pub const GameInputDeviceCapabilityPluginModule: GameInputDeviceCapabilities = GameInputDeviceCapabilities(2);
+pub const GameInputDeviceCapabilityPowerOff: GameInputDeviceCapabilities = GameInputDeviceCapabilities(4);
+pub const GameInputDeviceCapabilitySynchronization: GameInputDeviceCapabilities = GameInputDeviceCapabilities(8);
+pub const GameInputDeviceCapabilityWireless: GameInputDeviceCapabilities = GameInputDeviceCapabilities(16);
+pub const GameInputDeviceConnected: GameInputDeviceStatus = GameInputDeviceStatus(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputDeviceFamily(pub i32);
@@ -280,10 +280,10 @@ impl Default for GameInputDeviceInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const GameInputDeviceInputEnabled: GameInputDeviceStatus = GameInputDeviceStatus(2i32);
-pub const GameInputDeviceNoStatus: GameInputDeviceStatus = GameInputDeviceStatus(0i32);
-pub const GameInputDeviceOutputEnabled: GameInputDeviceStatus = GameInputDeviceStatus(4i32);
-pub const GameInputDeviceRawIoEnabled: GameInputDeviceStatus = GameInputDeviceStatus(8i32);
+pub const GameInputDeviceInputEnabled: GameInputDeviceStatus = GameInputDeviceStatus(2);
+pub const GameInputDeviceNoStatus: GameInputDeviceStatus = GameInputDeviceStatus(0);
+pub const GameInputDeviceOutputEnabled: GameInputDeviceStatus = GameInputDeviceStatus(4);
+pub const GameInputDeviceRawIoEnabled: GameInputDeviceStatus = GameInputDeviceStatus(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputDeviceStatus(pub i32);
@@ -320,24 +320,24 @@ impl core::ops::Not for GameInputDeviceStatus {
         Self(self.0.not())
     }
 }
-pub const GameInputDeviceSynchronized: GameInputDeviceStatus = GameInputDeviceStatus(64i32);
-pub const GameInputDeviceUserIdle: GameInputDeviceStatus = GameInputDeviceStatus(1048576i32);
-pub const GameInputDeviceWireless: GameInputDeviceStatus = GameInputDeviceStatus(128i32);
-pub const GameInputDisableBackgroundGuideButton: GameInputFocusPolicy = GameInputFocusPolicy(4i32);
-pub const GameInputDisableBackgroundInput: GameInputFocusPolicy = GameInputFocusPolicy(1i32);
-pub const GameInputDisableBackgroundShareButton: GameInputFocusPolicy = GameInputFocusPolicy(16i32);
+pub const GameInputDeviceSynchronized: GameInputDeviceStatus = GameInputDeviceStatus(64);
+pub const GameInputDeviceUserIdle: GameInputDeviceStatus = GameInputDeviceStatus(1048576);
+pub const GameInputDeviceWireless: GameInputDeviceStatus = GameInputDeviceStatus(128);
+pub const GameInputDisableBackgroundGuideButton: GameInputFocusPolicy = GameInputFocusPolicy(4);
+pub const GameInputDisableBackgroundInput: GameInputFocusPolicy = GameInputFocusPolicy(1);
+pub const GameInputDisableBackgroundShareButton: GameInputFocusPolicy = GameInputFocusPolicy(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputEnumerationKind(pub i32);
-pub const GameInputExclusiveForegroundGuideButton: GameInputFocusPolicy = GameInputFocusPolicy(8i32);
-pub const GameInputExclusiveForegroundInput: GameInputFocusPolicy = GameInputFocusPolicy(2i32);
-pub const GameInputExclusiveForegroundShareButton: GameInputFocusPolicy = GameInputFocusPolicy(32i32);
-pub const GameInputFamilyAggregate: GameInputDeviceFamily = GameInputDeviceFamily(0i32);
-pub const GameInputFamilyHid: GameInputDeviceFamily = GameInputDeviceFamily(3i32);
-pub const GameInputFamilyI8042: GameInputDeviceFamily = GameInputDeviceFamily(4i32);
-pub const GameInputFamilyVirtual: GameInputDeviceFamily = GameInputDeviceFamily(-1i32);
-pub const GameInputFamilyXbox360: GameInputDeviceFamily = GameInputDeviceFamily(2i32);
-pub const GameInputFamilyXboxOne: GameInputDeviceFamily = GameInputDeviceFamily(1i32);
+pub const GameInputExclusiveForegroundGuideButton: GameInputFocusPolicy = GameInputFocusPolicy(8);
+pub const GameInputExclusiveForegroundInput: GameInputFocusPolicy = GameInputFocusPolicy(2);
+pub const GameInputExclusiveForegroundShareButton: GameInputFocusPolicy = GameInputFocusPolicy(32);
+pub const GameInputFamilyAggregate: GameInputDeviceFamily = GameInputDeviceFamily(0);
+pub const GameInputFamilyHid: GameInputDeviceFamily = GameInputDeviceFamily(3);
+pub const GameInputFamilyI8042: GameInputDeviceFamily = GameInputDeviceFamily(4);
+pub const GameInputFamilyVirtual: GameInputDeviceFamily = GameInputDeviceFamily(-1);
+pub const GameInputFamilyXbox360: GameInputDeviceFamily = GameInputDeviceFamily(2);
+pub const GameInputFamilyXboxOne: GameInputDeviceFamily = GameInputDeviceFamily(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputFeedbackAxes(pub i32);
@@ -374,20 +374,20 @@ impl core::ops::Not for GameInputFeedbackAxes {
         Self(self.0.not())
     }
 }
-pub const GameInputFeedbackAxisAngularX: GameInputFeedbackAxes = GameInputFeedbackAxes(8i32);
-pub const GameInputFeedbackAxisAngularY: GameInputFeedbackAxes = GameInputFeedbackAxes(16i32);
-pub const GameInputFeedbackAxisAngularZ: GameInputFeedbackAxes = GameInputFeedbackAxes(32i32);
-pub const GameInputFeedbackAxisLinearX: GameInputFeedbackAxes = GameInputFeedbackAxes(1i32);
-pub const GameInputFeedbackAxisLinearY: GameInputFeedbackAxes = GameInputFeedbackAxes(2i32);
-pub const GameInputFeedbackAxisLinearZ: GameInputFeedbackAxes = GameInputFeedbackAxes(4i32);
-pub const GameInputFeedbackAxisNone: GameInputFeedbackAxes = GameInputFeedbackAxes(0i32);
-pub const GameInputFeedbackAxisNormal: GameInputFeedbackAxes = GameInputFeedbackAxes(64i32);
+pub const GameInputFeedbackAxisAngularX: GameInputFeedbackAxes = GameInputFeedbackAxes(8);
+pub const GameInputFeedbackAxisAngularY: GameInputFeedbackAxes = GameInputFeedbackAxes(16);
+pub const GameInputFeedbackAxisAngularZ: GameInputFeedbackAxes = GameInputFeedbackAxes(32);
+pub const GameInputFeedbackAxisLinearX: GameInputFeedbackAxes = GameInputFeedbackAxes(1);
+pub const GameInputFeedbackAxisLinearY: GameInputFeedbackAxes = GameInputFeedbackAxes(2);
+pub const GameInputFeedbackAxisLinearZ: GameInputFeedbackAxes = GameInputFeedbackAxes(4);
+pub const GameInputFeedbackAxisNone: GameInputFeedbackAxes = GameInputFeedbackAxes(0);
+pub const GameInputFeedbackAxisNormal: GameInputFeedbackAxes = GameInputFeedbackAxes(64);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputFeedbackEffectState(pub i32);
-pub const GameInputFeedbackPaused: GameInputFeedbackEffectState = GameInputFeedbackEffectState(2i32);
-pub const GameInputFeedbackRunning: GameInputFeedbackEffectState = GameInputFeedbackEffectState(1i32);
-pub const GameInputFeedbackStopped: GameInputFeedbackEffectState = GameInputFeedbackEffectState(0i32);
+pub const GameInputFeedbackPaused: GameInputFeedbackEffectState = GameInputFeedbackEffectState(2);
+pub const GameInputFeedbackRunning: GameInputFeedbackEffectState = GameInputFeedbackEffectState(1);
+pub const GameInputFeedbackStopped: GameInputFeedbackEffectState = GameInputFeedbackEffectState(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputFlightStickButtons(pub i32);
@@ -424,8 +424,8 @@ impl core::ops::Not for GameInputFlightStickButtons {
         Self(self.0.not())
     }
 }
-pub const GameInputFlightStickFirePrimary: GameInputFlightStickButtons = GameInputFlightStickButtons(4i32);
-pub const GameInputFlightStickFireSecondary: GameInputFlightStickButtons = GameInputFlightStickButtons(8i32);
+pub const GameInputFlightStickFirePrimary: GameInputFlightStickButtons = GameInputFlightStickButtons(4);
+pub const GameInputFlightStickFireSecondary: GameInputFlightStickButtons = GameInputFlightStickButtons(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputFlightStickInfo {
@@ -435,8 +435,8 @@ pub struct GameInputFlightStickInfo {
     pub fireSecondaryButtonLabel: GameInputLabel,
     pub hatSwitchKind: GameInputSwitchKind,
 }
-pub const GameInputFlightStickMenu: GameInputFlightStickButtons = GameInputFlightStickButtons(1i32);
-pub const GameInputFlightStickNone: GameInputFlightStickButtons = GameInputFlightStickButtons(0i32);
+pub const GameInputFlightStickMenu: GameInputFlightStickButtons = GameInputFlightStickButtons(1);
+pub const GameInputFlightStickNone: GameInputFlightStickButtons = GameInputFlightStickButtons(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputFlightStickState {
@@ -447,7 +447,7 @@ pub struct GameInputFlightStickState {
     pub yaw: f32,
     pub throttle: f32,
 }
-pub const GameInputFlightStickView: GameInputFlightStickButtons = GameInputFlightStickButtons(2i32);
+pub const GameInputFlightStickView: GameInputFlightStickButtons = GameInputFlightStickButtons(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputFocusPolicy(pub i32);
@@ -495,14 +495,14 @@ pub struct GameInputForceFeedbackConditionParams {
     pub deadZone: f32,
     pub bias: f32,
 }
-pub const GameInputForceFeedbackConstant: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(0i32);
+pub const GameInputForceFeedbackConstant: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackConstantParams {
     pub envelope: GameInputForceFeedbackEnvelope,
     pub magnitude: GameInputForceFeedbackMagnitude,
 }
-pub const GameInputForceFeedbackDamper: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(9i32);
+pub const GameInputForceFeedbackDamper: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(9);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputForceFeedbackEffectKind(pub i32);
@@ -518,8 +518,8 @@ pub struct GameInputForceFeedbackEnvelope {
     pub playCount: u32,
     pub repeatDelay: u64,
 }
-pub const GameInputForceFeedbackFriction: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(8i32);
-pub const GameInputForceFeedbackInertia: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(10i32);
+pub const GameInputForceFeedbackFriction: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(8);
+pub const GameInputForceFeedbackInertia: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(10);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackMagnitude {
@@ -590,7 +590,7 @@ pub struct GameInputForceFeedbackPeriodicParams {
     pub phase: f32,
     pub bias: f32,
 }
-pub const GameInputForceFeedbackRamp: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(1i32);
+pub const GameInputForceFeedbackRamp: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackRampParams {
@@ -598,14 +598,14 @@ pub struct GameInputForceFeedbackRampParams {
     pub startMagnitude: GameInputForceFeedbackMagnitude,
     pub endMagnitude: GameInputForceFeedbackMagnitude,
 }
-pub const GameInputForceFeedbackSawtoothDownWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(6i32);
-pub const GameInputForceFeedbackSawtoothUpWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(5i32);
-pub const GameInputForceFeedbackSineWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(2i32);
-pub const GameInputForceFeedbackSpring: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(7i32);
-pub const GameInputForceFeedbackSquareWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(3i32);
-pub const GameInputForceFeedbackTriangleWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(4i32);
-pub const GameInputGamepadA: GameInputGamepadButtons = GameInputGamepadButtons(4i32);
-pub const GameInputGamepadB: GameInputGamepadButtons = GameInputGamepadButtons(8i32);
+pub const GameInputForceFeedbackSawtoothDownWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(6);
+pub const GameInputForceFeedbackSawtoothUpWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(5);
+pub const GameInputForceFeedbackSineWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(2);
+pub const GameInputForceFeedbackSpring: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(7);
+pub const GameInputForceFeedbackSquareWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(3);
+pub const GameInputForceFeedbackTriangleWave: GameInputForceFeedbackEffectKind = GameInputForceFeedbackEffectKind(4);
+pub const GameInputGamepadA: GameInputGamepadButtons = GameInputGamepadButtons(4);
+pub const GameInputGamepadB: GameInputGamepadButtons = GameInputGamepadButtons(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputGamepadButtons(pub i32);
@@ -642,10 +642,10 @@ impl core::ops::Not for GameInputGamepadButtons {
         Self(self.0.not())
     }
 }
-pub const GameInputGamepadDPadDown: GameInputGamepadButtons = GameInputGamepadButtons(128i32);
-pub const GameInputGamepadDPadLeft: GameInputGamepadButtons = GameInputGamepadButtons(256i32);
-pub const GameInputGamepadDPadRight: GameInputGamepadButtons = GameInputGamepadButtons(512i32);
-pub const GameInputGamepadDPadUp: GameInputGamepadButtons = GameInputGamepadButtons(64i32);
+pub const GameInputGamepadDPadDown: GameInputGamepadButtons = GameInputGamepadButtons(128);
+pub const GameInputGamepadDPadLeft: GameInputGamepadButtons = GameInputGamepadButtons(256);
+pub const GameInputGamepadDPadRight: GameInputGamepadButtons = GameInputGamepadButtons(512);
+pub const GameInputGamepadDPadUp: GameInputGamepadButtons = GameInputGamepadButtons(64);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputGamepadInfo {
@@ -664,12 +664,12 @@ pub struct GameInputGamepadInfo {
     pub leftThumbstickButtonLabel: GameInputLabel,
     pub rightThumbstickButtonLabel: GameInputLabel,
 }
-pub const GameInputGamepadLeftShoulder: GameInputGamepadButtons = GameInputGamepadButtons(1024i32);
-pub const GameInputGamepadLeftThumbstick: GameInputGamepadButtons = GameInputGamepadButtons(4096i32);
-pub const GameInputGamepadMenu: GameInputGamepadButtons = GameInputGamepadButtons(1i32);
-pub const GameInputGamepadNone: GameInputGamepadButtons = GameInputGamepadButtons(0i32);
-pub const GameInputGamepadRightShoulder: GameInputGamepadButtons = GameInputGamepadButtons(2048i32);
-pub const GameInputGamepadRightThumbstick: GameInputGamepadButtons = GameInputGamepadButtons(8192i32);
+pub const GameInputGamepadLeftShoulder: GameInputGamepadButtons = GameInputGamepadButtons(1024);
+pub const GameInputGamepadLeftThumbstick: GameInputGamepadButtons = GameInputGamepadButtons(4096);
+pub const GameInputGamepadMenu: GameInputGamepadButtons = GameInputGamepadButtons(1);
+pub const GameInputGamepadNone: GameInputGamepadButtons = GameInputGamepadButtons(0);
+pub const GameInputGamepadRightShoulder: GameInputGamepadButtons = GameInputGamepadButtons(2048);
+pub const GameInputGamepadRightThumbstick: GameInputGamepadButtons = GameInputGamepadButtons(8192);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputGamepadState {
@@ -681,9 +681,9 @@ pub struct GameInputGamepadState {
     pub rightThumbstickX: f32,
     pub rightThumbstickY: f32,
 }
-pub const GameInputGamepadView: GameInputGamepadButtons = GameInputGamepadButtons(2i32);
-pub const GameInputGamepadX: GameInputGamepadButtons = GameInputGamepadButtons(16i32);
-pub const GameInputGamepadY: GameInputGamepadButtons = GameInputGamepadButtons(32i32);
+pub const GameInputGamepadView: GameInputGamepadButtons = GameInputGamepadButtons(2);
+pub const GameInputGamepadX: GameInputGamepadButtons = GameInputGamepadButtons(16);
+pub const GameInputGamepadY: GameInputGamepadButtons = GameInputGamepadButtons(32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputHapticFeedbackMotorInfo {
@@ -717,8 +717,8 @@ pub struct GameInputHapticWaveformInfo {
     pub isRepeatDelaySupported: u8,
     pub defaultDuration: u64,
 }
-pub const GameInputIsoKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(1i32);
-pub const GameInputJisKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(4i32);
+pub const GameInputIsoKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(1);
+pub const GameInputJisKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputKeyState {
@@ -784,168 +784,168 @@ impl core::ops::Not for GameInputKind {
         Self(self.0.not())
     }
 }
-pub const GameInputKindArcadeStick: GameInputKind = GameInputKind(65536i32);
-pub const GameInputKindController: GameInputKind = GameInputKind(14i32);
-pub const GameInputKindControllerAxis: GameInputKind = GameInputKind(2i32);
-pub const GameInputKindControllerButton: GameInputKind = GameInputKind(4i32);
-pub const GameInputKindControllerSwitch: GameInputKind = GameInputKind(8i32);
-pub const GameInputKindFlightStick: GameInputKind = GameInputKind(131072i32);
-pub const GameInputKindGamepad: GameInputKind = GameInputKind(262144i32);
-pub const GameInputKindKeyboard: GameInputKind = GameInputKind(16i32);
-pub const GameInputKindMotion: GameInputKind = GameInputKind(4096i32);
-pub const GameInputKindMouse: GameInputKind = GameInputKind(32i32);
-pub const GameInputKindRacingWheel: GameInputKind = GameInputKind(524288i32);
-pub const GameInputKindRawDeviceReport: GameInputKind = GameInputKind(1i32);
-pub const GameInputKindTouch: GameInputKind = GameInputKind(256i32);
-pub const GameInputKindUiNavigation: GameInputKind = GameInputKind(16777216i32);
-pub const GameInputKindUnknown: GameInputKind = GameInputKind(0i32);
-pub const GameInputKsKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(2i32);
+pub const GameInputKindArcadeStick: GameInputKind = GameInputKind(65536);
+pub const GameInputKindController: GameInputKind = GameInputKind(14);
+pub const GameInputKindControllerAxis: GameInputKind = GameInputKind(2);
+pub const GameInputKindControllerButton: GameInputKind = GameInputKind(4);
+pub const GameInputKindControllerSwitch: GameInputKind = GameInputKind(8);
+pub const GameInputKindFlightStick: GameInputKind = GameInputKind(131072);
+pub const GameInputKindGamepad: GameInputKind = GameInputKind(262144);
+pub const GameInputKindKeyboard: GameInputKind = GameInputKind(16);
+pub const GameInputKindMotion: GameInputKind = GameInputKind(4096);
+pub const GameInputKindMouse: GameInputKind = GameInputKind(32);
+pub const GameInputKindRacingWheel: GameInputKind = GameInputKind(524288);
+pub const GameInputKindRawDeviceReport: GameInputKind = GameInputKind(1);
+pub const GameInputKindTouch: GameInputKind = GameInputKind(256);
+pub const GameInputKindUiNavigation: GameInputKind = GameInputKind(16777216);
+pub const GameInputKindUnknown: GameInputKind = GameInputKind(0);
+pub const GameInputKsKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputLabel(pub i32);
-pub const GameInputLabelArrowClockwise: GameInputLabel = GameInputLabel(72i32);
-pub const GameInputLabelArrowCounterClockwise: GameInputLabel = GameInputLabel(73i32);
-pub const GameInputLabelArrowDown: GameInputLabel = GameInputLabel(65i32);
-pub const GameInputLabelArrowDownLLeft: GameInputLabel = GameInputLabel(66i32);
-pub const GameInputLabelArrowDownRight: GameInputLabel = GameInputLabel(64i32);
-pub const GameInputLabelArrowLeft: GameInputLabel = GameInputLabel(67i32);
-pub const GameInputLabelArrowLeftRight: GameInputLabel = GameInputLabel(70i32);
-pub const GameInputLabelArrowReturn: GameInputLabel = GameInputLabel(74i32);
-pub const GameInputLabelArrowRight: GameInputLabel = GameInputLabel(63i32);
-pub const GameInputLabelArrowUp: GameInputLabel = GameInputLabel(61i32);
-pub const GameInputLabelArrowUpDown: GameInputLabel = GameInputLabel(69i32);
-pub const GameInputLabelArrowUpDownLeftRight: GameInputLabel = GameInputLabel(71i32);
-pub const GameInputLabelArrowUpLeft: GameInputLabel = GameInputLabel(68i32);
-pub const GameInputLabelArrowUpRight: GameInputLabel = GameInputLabel(62i32);
-pub const GameInputLabelBack: GameInputLabel = GameInputLabel(101i32);
-pub const GameInputLabelDown: GameInputLabel = GameInputLabel(106i32);
-pub const GameInputLabelGuide: GameInputLabel = GameInputLabel(96i32);
-pub const GameInputLabelHome: GameInputLabel = GameInputLabel(95i32);
-pub const GameInputLabelIconBranding: GameInputLabel = GameInputLabel(75i32);
-pub const GameInputLabelIconCircle: GameInputLabel = GameInputLabel(79i32);
-pub const GameInputLabelIconCross: GameInputLabel = GameInputLabel(78i32);
-pub const GameInputLabelIconDPadDown: GameInputLabel = GameInputLabel(84i32);
-pub const GameInputLabelIconDPadLeft: GameInputLabel = GameInputLabel(85i32);
-pub const GameInputLabelIconDPadRight: GameInputLabel = GameInputLabel(86i32);
-pub const GameInputLabelIconDPadUp: GameInputLabel = GameInputLabel(83i32);
-pub const GameInputLabelIconDialClockwise: GameInputLabel = GameInputLabel(87i32);
-pub const GameInputLabelIconDialCounterClockwise: GameInputLabel = GameInputLabel(88i32);
-pub const GameInputLabelIconHome: GameInputLabel = GameInputLabel(76i32);
-pub const GameInputLabelIconMenu: GameInputLabel = GameInputLabel(77i32);
-pub const GameInputLabelIconMinus: GameInputLabel = GameInputLabel(93i32);
-pub const GameInputLabelIconPlus: GameInputLabel = GameInputLabel(92i32);
-pub const GameInputLabelIconSliderLeftRight: GameInputLabel = GameInputLabel(89i32);
-pub const GameInputLabelIconSliderUpDown: GameInputLabel = GameInputLabel(90i32);
-pub const GameInputLabelIconSquare: GameInputLabel = GameInputLabel(80i32);
-pub const GameInputLabelIconStar: GameInputLabel = GameInputLabel(82i32);
-pub const GameInputLabelIconSuspension: GameInputLabel = GameInputLabel(94i32);
-pub const GameInputLabelIconTriangle: GameInputLabel = GameInputLabel(81i32);
-pub const GameInputLabelIconWheelUpDown: GameInputLabel = GameInputLabel(91i32);
-pub const GameInputLabelL1: GameInputLabel = GameInputLabel(112i32);
-pub const GameInputLabelL2: GameInputLabel = GameInputLabel(113i32);
-pub const GameInputLabelL3: GameInputLabel = GameInputLabel(114i32);
-pub const GameInputLabelLB: GameInputLabel = GameInputLabel(109i32);
-pub const GameInputLabelLSB: GameInputLabel = GameInputLabel(111i32);
-pub const GameInputLabelLT: GameInputLabel = GameInputLabel(110i32);
-pub const GameInputLabelLeft: GameInputLabel = GameInputLabel(107i32);
-pub const GameInputLabelLetterA: GameInputLabel = GameInputLabel(25i32);
-pub const GameInputLabelLetterB: GameInputLabel = GameInputLabel(26i32);
-pub const GameInputLabelLetterC: GameInputLabel = GameInputLabel(27i32);
-pub const GameInputLabelLetterD: GameInputLabel = GameInputLabel(28i32);
-pub const GameInputLabelLetterE: GameInputLabel = GameInputLabel(29i32);
-pub const GameInputLabelLetterF: GameInputLabel = GameInputLabel(30i32);
-pub const GameInputLabelLetterG: GameInputLabel = GameInputLabel(31i32);
-pub const GameInputLabelLetterH: GameInputLabel = GameInputLabel(32i32);
-pub const GameInputLabelLetterI: GameInputLabel = GameInputLabel(33i32);
-pub const GameInputLabelLetterJ: GameInputLabel = GameInputLabel(34i32);
-pub const GameInputLabelLetterK: GameInputLabel = GameInputLabel(35i32);
-pub const GameInputLabelLetterL: GameInputLabel = GameInputLabel(36i32);
-pub const GameInputLabelLetterM: GameInputLabel = GameInputLabel(37i32);
-pub const GameInputLabelLetterN: GameInputLabel = GameInputLabel(38i32);
-pub const GameInputLabelLetterO: GameInputLabel = GameInputLabel(39i32);
-pub const GameInputLabelLetterP: GameInputLabel = GameInputLabel(40i32);
-pub const GameInputLabelLetterQ: GameInputLabel = GameInputLabel(41i32);
-pub const GameInputLabelLetterR: GameInputLabel = GameInputLabel(42i32);
-pub const GameInputLabelLetterS: GameInputLabel = GameInputLabel(43i32);
-pub const GameInputLabelLetterT: GameInputLabel = GameInputLabel(44i32);
-pub const GameInputLabelLetterU: GameInputLabel = GameInputLabel(45i32);
-pub const GameInputLabelLetterV: GameInputLabel = GameInputLabel(46i32);
-pub const GameInputLabelLetterW: GameInputLabel = GameInputLabel(47i32);
-pub const GameInputLabelLetterX: GameInputLabel = GameInputLabel(48i32);
-pub const GameInputLabelLetterY: GameInputLabel = GameInputLabel(49i32);
-pub const GameInputLabelLetterZ: GameInputLabel = GameInputLabel(50i32);
-pub const GameInputLabelMenu: GameInputLabel = GameInputLabel(99i32);
-pub const GameInputLabelMode: GameInputLabel = GameInputLabel(97i32);
-pub const GameInputLabelNone: GameInputLabel = GameInputLabel(0i32);
-pub const GameInputLabelNumber0: GameInputLabel = GameInputLabel(51i32);
-pub const GameInputLabelNumber1: GameInputLabel = GameInputLabel(52i32);
-pub const GameInputLabelNumber2: GameInputLabel = GameInputLabel(53i32);
-pub const GameInputLabelNumber3: GameInputLabel = GameInputLabel(54i32);
-pub const GameInputLabelNumber4: GameInputLabel = GameInputLabel(55i32);
-pub const GameInputLabelNumber5: GameInputLabel = GameInputLabel(56i32);
-pub const GameInputLabelNumber6: GameInputLabel = GameInputLabel(57i32);
-pub const GameInputLabelNumber7: GameInputLabel = GameInputLabel(58i32);
-pub const GameInputLabelNumber8: GameInputLabel = GameInputLabel(59i32);
-pub const GameInputLabelNumber9: GameInputLabel = GameInputLabel(60i32);
-pub const GameInputLabelOptions: GameInputLabel = GameInputLabel(103i32);
-pub const GameInputLabelP1: GameInputLabel = GameInputLabel(121i32);
-pub const GameInputLabelP2: GameInputLabel = GameInputLabel(122i32);
-pub const GameInputLabelP3: GameInputLabel = GameInputLabel(123i32);
-pub const GameInputLabelP4: GameInputLabel = GameInputLabel(124i32);
-pub const GameInputLabelR1: GameInputLabel = GameInputLabel(118i32);
-pub const GameInputLabelR2: GameInputLabel = GameInputLabel(119i32);
-pub const GameInputLabelR3: GameInputLabel = GameInputLabel(120i32);
-pub const GameInputLabelRB: GameInputLabel = GameInputLabel(115i32);
-pub const GameInputLabelRSB: GameInputLabel = GameInputLabel(117i32);
-pub const GameInputLabelRT: GameInputLabel = GameInputLabel(116i32);
-pub const GameInputLabelRight: GameInputLabel = GameInputLabel(108i32);
-pub const GameInputLabelSelect: GameInputLabel = GameInputLabel(98i32);
-pub const GameInputLabelShare: GameInputLabel = GameInputLabel(104i32);
-pub const GameInputLabelStart: GameInputLabel = GameInputLabel(102i32);
-pub const GameInputLabelUnknown: GameInputLabel = GameInputLabel(-1i32);
-pub const GameInputLabelUp: GameInputLabel = GameInputLabel(105i32);
-pub const GameInputLabelView: GameInputLabel = GameInputLabel(100i32);
-pub const GameInputLabelXboxA: GameInputLabel = GameInputLabel(7i32);
-pub const GameInputLabelXboxB: GameInputLabel = GameInputLabel(8i32);
-pub const GameInputLabelXboxBack: GameInputLabel = GameInputLabel(2i32);
-pub const GameInputLabelXboxDPadDown: GameInputLabel = GameInputLabel(12i32);
-pub const GameInputLabelXboxDPadLeft: GameInputLabel = GameInputLabel(13i32);
-pub const GameInputLabelXboxDPadRight: GameInputLabel = GameInputLabel(14i32);
-pub const GameInputLabelXboxDPadUp: GameInputLabel = GameInputLabel(11i32);
-pub const GameInputLabelXboxGuide: GameInputLabel = GameInputLabel(1i32);
-pub const GameInputLabelXboxLeftShoulder: GameInputLabel = GameInputLabel(15i32);
-pub const GameInputLabelXboxLeftStickButton: GameInputLabel = GameInputLabel(17i32);
-pub const GameInputLabelXboxLeftTrigger: GameInputLabel = GameInputLabel(16i32);
-pub const GameInputLabelXboxMenu: GameInputLabel = GameInputLabel(4i32);
-pub const GameInputLabelXboxPaddle1: GameInputLabel = GameInputLabel(21i32);
-pub const GameInputLabelXboxPaddle2: GameInputLabel = GameInputLabel(22i32);
-pub const GameInputLabelXboxPaddle3: GameInputLabel = GameInputLabel(23i32);
-pub const GameInputLabelXboxPaddle4: GameInputLabel = GameInputLabel(24i32);
-pub const GameInputLabelXboxRightShoulder: GameInputLabel = GameInputLabel(18i32);
-pub const GameInputLabelXboxRightStickButton: GameInputLabel = GameInputLabel(20i32);
-pub const GameInputLabelXboxRightTrigger: GameInputLabel = GameInputLabel(19i32);
-pub const GameInputLabelXboxStart: GameInputLabel = GameInputLabel(3i32);
-pub const GameInputLabelXboxView: GameInputLabel = GameInputLabel(5i32);
-pub const GameInputLabelXboxX: GameInputLabel = GameInputLabel(9i32);
-pub const GameInputLabelXboxY: GameInputLabel = GameInputLabel(10i32);
+pub const GameInputLabelArrowClockwise: GameInputLabel = GameInputLabel(72);
+pub const GameInputLabelArrowCounterClockwise: GameInputLabel = GameInputLabel(73);
+pub const GameInputLabelArrowDown: GameInputLabel = GameInputLabel(65);
+pub const GameInputLabelArrowDownLLeft: GameInputLabel = GameInputLabel(66);
+pub const GameInputLabelArrowDownRight: GameInputLabel = GameInputLabel(64);
+pub const GameInputLabelArrowLeft: GameInputLabel = GameInputLabel(67);
+pub const GameInputLabelArrowLeftRight: GameInputLabel = GameInputLabel(70);
+pub const GameInputLabelArrowReturn: GameInputLabel = GameInputLabel(74);
+pub const GameInputLabelArrowRight: GameInputLabel = GameInputLabel(63);
+pub const GameInputLabelArrowUp: GameInputLabel = GameInputLabel(61);
+pub const GameInputLabelArrowUpDown: GameInputLabel = GameInputLabel(69);
+pub const GameInputLabelArrowUpDownLeftRight: GameInputLabel = GameInputLabel(71);
+pub const GameInputLabelArrowUpLeft: GameInputLabel = GameInputLabel(68);
+pub const GameInputLabelArrowUpRight: GameInputLabel = GameInputLabel(62);
+pub const GameInputLabelBack: GameInputLabel = GameInputLabel(101);
+pub const GameInputLabelDown: GameInputLabel = GameInputLabel(106);
+pub const GameInputLabelGuide: GameInputLabel = GameInputLabel(96);
+pub const GameInputLabelHome: GameInputLabel = GameInputLabel(95);
+pub const GameInputLabelIconBranding: GameInputLabel = GameInputLabel(75);
+pub const GameInputLabelIconCircle: GameInputLabel = GameInputLabel(79);
+pub const GameInputLabelIconCross: GameInputLabel = GameInputLabel(78);
+pub const GameInputLabelIconDPadDown: GameInputLabel = GameInputLabel(84);
+pub const GameInputLabelIconDPadLeft: GameInputLabel = GameInputLabel(85);
+pub const GameInputLabelIconDPadRight: GameInputLabel = GameInputLabel(86);
+pub const GameInputLabelIconDPadUp: GameInputLabel = GameInputLabel(83);
+pub const GameInputLabelIconDialClockwise: GameInputLabel = GameInputLabel(87);
+pub const GameInputLabelIconDialCounterClockwise: GameInputLabel = GameInputLabel(88);
+pub const GameInputLabelIconHome: GameInputLabel = GameInputLabel(76);
+pub const GameInputLabelIconMenu: GameInputLabel = GameInputLabel(77);
+pub const GameInputLabelIconMinus: GameInputLabel = GameInputLabel(93);
+pub const GameInputLabelIconPlus: GameInputLabel = GameInputLabel(92);
+pub const GameInputLabelIconSliderLeftRight: GameInputLabel = GameInputLabel(89);
+pub const GameInputLabelIconSliderUpDown: GameInputLabel = GameInputLabel(90);
+pub const GameInputLabelIconSquare: GameInputLabel = GameInputLabel(80);
+pub const GameInputLabelIconStar: GameInputLabel = GameInputLabel(82);
+pub const GameInputLabelIconSuspension: GameInputLabel = GameInputLabel(94);
+pub const GameInputLabelIconTriangle: GameInputLabel = GameInputLabel(81);
+pub const GameInputLabelIconWheelUpDown: GameInputLabel = GameInputLabel(91);
+pub const GameInputLabelL1: GameInputLabel = GameInputLabel(112);
+pub const GameInputLabelL2: GameInputLabel = GameInputLabel(113);
+pub const GameInputLabelL3: GameInputLabel = GameInputLabel(114);
+pub const GameInputLabelLB: GameInputLabel = GameInputLabel(109);
+pub const GameInputLabelLSB: GameInputLabel = GameInputLabel(111);
+pub const GameInputLabelLT: GameInputLabel = GameInputLabel(110);
+pub const GameInputLabelLeft: GameInputLabel = GameInputLabel(107);
+pub const GameInputLabelLetterA: GameInputLabel = GameInputLabel(25);
+pub const GameInputLabelLetterB: GameInputLabel = GameInputLabel(26);
+pub const GameInputLabelLetterC: GameInputLabel = GameInputLabel(27);
+pub const GameInputLabelLetterD: GameInputLabel = GameInputLabel(28);
+pub const GameInputLabelLetterE: GameInputLabel = GameInputLabel(29);
+pub const GameInputLabelLetterF: GameInputLabel = GameInputLabel(30);
+pub const GameInputLabelLetterG: GameInputLabel = GameInputLabel(31);
+pub const GameInputLabelLetterH: GameInputLabel = GameInputLabel(32);
+pub const GameInputLabelLetterI: GameInputLabel = GameInputLabel(33);
+pub const GameInputLabelLetterJ: GameInputLabel = GameInputLabel(34);
+pub const GameInputLabelLetterK: GameInputLabel = GameInputLabel(35);
+pub const GameInputLabelLetterL: GameInputLabel = GameInputLabel(36);
+pub const GameInputLabelLetterM: GameInputLabel = GameInputLabel(37);
+pub const GameInputLabelLetterN: GameInputLabel = GameInputLabel(38);
+pub const GameInputLabelLetterO: GameInputLabel = GameInputLabel(39);
+pub const GameInputLabelLetterP: GameInputLabel = GameInputLabel(40);
+pub const GameInputLabelLetterQ: GameInputLabel = GameInputLabel(41);
+pub const GameInputLabelLetterR: GameInputLabel = GameInputLabel(42);
+pub const GameInputLabelLetterS: GameInputLabel = GameInputLabel(43);
+pub const GameInputLabelLetterT: GameInputLabel = GameInputLabel(44);
+pub const GameInputLabelLetterU: GameInputLabel = GameInputLabel(45);
+pub const GameInputLabelLetterV: GameInputLabel = GameInputLabel(46);
+pub const GameInputLabelLetterW: GameInputLabel = GameInputLabel(47);
+pub const GameInputLabelLetterX: GameInputLabel = GameInputLabel(48);
+pub const GameInputLabelLetterY: GameInputLabel = GameInputLabel(49);
+pub const GameInputLabelLetterZ: GameInputLabel = GameInputLabel(50);
+pub const GameInputLabelMenu: GameInputLabel = GameInputLabel(99);
+pub const GameInputLabelMode: GameInputLabel = GameInputLabel(97);
+pub const GameInputLabelNone: GameInputLabel = GameInputLabel(0);
+pub const GameInputLabelNumber0: GameInputLabel = GameInputLabel(51);
+pub const GameInputLabelNumber1: GameInputLabel = GameInputLabel(52);
+pub const GameInputLabelNumber2: GameInputLabel = GameInputLabel(53);
+pub const GameInputLabelNumber3: GameInputLabel = GameInputLabel(54);
+pub const GameInputLabelNumber4: GameInputLabel = GameInputLabel(55);
+pub const GameInputLabelNumber5: GameInputLabel = GameInputLabel(56);
+pub const GameInputLabelNumber6: GameInputLabel = GameInputLabel(57);
+pub const GameInputLabelNumber7: GameInputLabel = GameInputLabel(58);
+pub const GameInputLabelNumber8: GameInputLabel = GameInputLabel(59);
+pub const GameInputLabelNumber9: GameInputLabel = GameInputLabel(60);
+pub const GameInputLabelOptions: GameInputLabel = GameInputLabel(103);
+pub const GameInputLabelP1: GameInputLabel = GameInputLabel(121);
+pub const GameInputLabelP2: GameInputLabel = GameInputLabel(122);
+pub const GameInputLabelP3: GameInputLabel = GameInputLabel(123);
+pub const GameInputLabelP4: GameInputLabel = GameInputLabel(124);
+pub const GameInputLabelR1: GameInputLabel = GameInputLabel(118);
+pub const GameInputLabelR2: GameInputLabel = GameInputLabel(119);
+pub const GameInputLabelR3: GameInputLabel = GameInputLabel(120);
+pub const GameInputLabelRB: GameInputLabel = GameInputLabel(115);
+pub const GameInputLabelRSB: GameInputLabel = GameInputLabel(117);
+pub const GameInputLabelRT: GameInputLabel = GameInputLabel(116);
+pub const GameInputLabelRight: GameInputLabel = GameInputLabel(108);
+pub const GameInputLabelSelect: GameInputLabel = GameInputLabel(98);
+pub const GameInputLabelShare: GameInputLabel = GameInputLabel(104);
+pub const GameInputLabelStart: GameInputLabel = GameInputLabel(102);
+pub const GameInputLabelUnknown: GameInputLabel = GameInputLabel(-1);
+pub const GameInputLabelUp: GameInputLabel = GameInputLabel(105);
+pub const GameInputLabelView: GameInputLabel = GameInputLabel(100);
+pub const GameInputLabelXboxA: GameInputLabel = GameInputLabel(7);
+pub const GameInputLabelXboxB: GameInputLabel = GameInputLabel(8);
+pub const GameInputLabelXboxBack: GameInputLabel = GameInputLabel(2);
+pub const GameInputLabelXboxDPadDown: GameInputLabel = GameInputLabel(12);
+pub const GameInputLabelXboxDPadLeft: GameInputLabel = GameInputLabel(13);
+pub const GameInputLabelXboxDPadRight: GameInputLabel = GameInputLabel(14);
+pub const GameInputLabelXboxDPadUp: GameInputLabel = GameInputLabel(11);
+pub const GameInputLabelXboxGuide: GameInputLabel = GameInputLabel(1);
+pub const GameInputLabelXboxLeftShoulder: GameInputLabel = GameInputLabel(15);
+pub const GameInputLabelXboxLeftStickButton: GameInputLabel = GameInputLabel(17);
+pub const GameInputLabelXboxLeftTrigger: GameInputLabel = GameInputLabel(16);
+pub const GameInputLabelXboxMenu: GameInputLabel = GameInputLabel(4);
+pub const GameInputLabelXboxPaddle1: GameInputLabel = GameInputLabel(21);
+pub const GameInputLabelXboxPaddle2: GameInputLabel = GameInputLabel(22);
+pub const GameInputLabelXboxPaddle3: GameInputLabel = GameInputLabel(23);
+pub const GameInputLabelXboxPaddle4: GameInputLabel = GameInputLabel(24);
+pub const GameInputLabelXboxRightShoulder: GameInputLabel = GameInputLabel(18);
+pub const GameInputLabelXboxRightStickButton: GameInputLabel = GameInputLabel(20);
+pub const GameInputLabelXboxRightTrigger: GameInputLabel = GameInputLabel(19);
+pub const GameInputLabelXboxStart: GameInputLabel = GameInputLabel(3);
+pub const GameInputLabelXboxView: GameInputLabel = GameInputLabel(5);
+pub const GameInputLabelXboxX: GameInputLabel = GameInputLabel(9);
+pub const GameInputLabelXboxY: GameInputLabel = GameInputLabel(10);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputLocation(pub i32);
-pub const GameInputLocationAxis: GameInputLocation = GameInputLocation(2i32);
-pub const GameInputLocationButton: GameInputLocation = GameInputLocation(3i32);
-pub const GameInputLocationChassis: GameInputLocation = GameInputLocation(0i32);
-pub const GameInputLocationDisplay: GameInputLocation = GameInputLocation(1i32);
-pub const GameInputLocationKey: GameInputLocation = GameInputLocation(5i32);
-pub const GameInputLocationSwitch: GameInputLocation = GameInputLocation(4i32);
-pub const GameInputLocationTouchPad: GameInputLocation = GameInputLocation(6i32);
-pub const GameInputLocationUnknown: GameInputLocation = GameInputLocation(-1i32);
-pub const GameInputLogicalItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(2i32);
+pub const GameInputLocationAxis: GameInputLocation = GameInputLocation(2);
+pub const GameInputLocationButton: GameInputLocation = GameInputLocation(3);
+pub const GameInputLocationChassis: GameInputLocation = GameInputLocation(0);
+pub const GameInputLocationDisplay: GameInputLocation = GameInputLocation(1);
+pub const GameInputLocationKey: GameInputLocation = GameInputLocation(5);
+pub const GameInputLocationSwitch: GameInputLocation = GameInputLocation(4);
+pub const GameInputLocationTouchPad: GameInputLocation = GameInputLocation(6);
+pub const GameInputLocationUnknown: GameInputLocation = GameInputLocation(-1);
+pub const GameInputLogicalItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputMotionAccuracy(pub i32);
-pub const GameInputMotionAccuracyUnknown: GameInputMotionAccuracy = GameInputMotionAccuracy(-1i32);
-pub const GameInputMotionAccurate: GameInputMotionAccuracy = GameInputMotionAccuracy(3i32);
-pub const GameInputMotionApproximate: GameInputMotionAccuracy = GameInputMotionAccuracy(2i32);
+pub const GameInputMotionAccuracyUnknown: GameInputMotionAccuracy = GameInputMotionAccuracy(-1);
+pub const GameInputMotionAccurate: GameInputMotionAccuracy = GameInputMotionAccuracy(3);
+pub const GameInputMotionApproximate: GameInputMotionAccuracy = GameInputMotionAccuracy(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputMotionInfo {
@@ -974,10 +974,10 @@ pub struct GameInputMotionState {
     pub magnetometerAccuracy: GameInputMotionAccuracy,
     pub orientationAccuracy: GameInputMotionAccuracy,
 }
-pub const GameInputMotionUnavailable: GameInputMotionAccuracy = GameInputMotionAccuracy(0i32);
-pub const GameInputMotionUnreliable: GameInputMotionAccuracy = GameInputMotionAccuracy(1i32);
-pub const GameInputMouseButton4: GameInputMouseButtons = GameInputMouseButtons(8i32);
-pub const GameInputMouseButton5: GameInputMouseButtons = GameInputMouseButtons(16i32);
+pub const GameInputMotionUnavailable: GameInputMotionAccuracy = GameInputMotionAccuracy(0);
+pub const GameInputMotionUnreliable: GameInputMotionAccuracy = GameInputMotionAccuracy(1);
+pub const GameInputMouseButton4: GameInputMouseButtons = GameInputMouseButtons(8);
+pub const GameInputMouseButton5: GameInputMouseButtons = GameInputMouseButtons(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputMouseButtons(pub i32);
@@ -1023,10 +1023,10 @@ pub struct GameInputMouseInfo {
     pub hasWheelX: u8,
     pub hasWheelY: u8,
 }
-pub const GameInputMouseLeftButton: GameInputMouseButtons = GameInputMouseButtons(1i32);
-pub const GameInputMouseMiddleButton: GameInputMouseButtons = GameInputMouseButtons(4i32);
-pub const GameInputMouseNone: GameInputMouseButtons = GameInputMouseButtons(0i32);
-pub const GameInputMouseRightButton: GameInputMouseButtons = GameInputMouseButtons(2i32);
+pub const GameInputMouseLeftButton: GameInputMouseButtons = GameInputMouseButtons(1);
+pub const GameInputMouseMiddleButton: GameInputMouseButtons = GameInputMouseButtons(4);
+pub const GameInputMouseNone: GameInputMouseButtons = GameInputMouseButtons(0);
+pub const GameInputMouseRightButton: GameInputMouseButtons = GameInputMouseButtons(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputMouseState {
@@ -1036,39 +1036,39 @@ pub struct GameInputMouseState {
     pub wheelX: i64,
     pub wheelY: i64,
 }
-pub const GameInputMouseWheelTiltLeft: GameInputMouseButtons = GameInputMouseButtons(32i32);
-pub const GameInputMouseWheelTiltRight: GameInputMouseButtons = GameInputMouseButtons(64i32);
-pub const GameInputNamedArrayItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(4i32);
-pub const GameInputNoEnumeration: GameInputEnumerationKind = GameInputEnumerationKind(0i32);
-pub const GameInputNonlinearItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(16i32);
-pub const GameInputNullableItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(64i32);
-pub const GameInputPhysicalItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(0i32);
-pub const GameInputPhysicalUnitAcceleration: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(5i32);
-pub const GameInputPhysicalUnitAngle: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(10i32);
-pub const GameInputPhysicalUnitAngularAcceleration: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(12i32);
-pub const GameInputPhysicalUnitAngularMass: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(13i32);
-pub const GameInputPhysicalUnitAngularMomentum: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(14i32);
-pub const GameInputPhysicalUnitAngularTorque: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(15i32);
-pub const GameInputPhysicalUnitAngularVelocity: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(11i32);
-pub const GameInputPhysicalUnitElectricCharge: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(17i32);
-pub const GameInputPhysicalUnitElectricCurrent: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(16i32);
-pub const GameInputPhysicalUnitElectricPotential: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(18i32);
-pub const GameInputPhysicalUnitEnergy: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(19i32);
-pub const GameInputPhysicalUnitForce: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(8i32);
-pub const GameInputPhysicalUnitFrequency: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(2i32);
-pub const GameInputPhysicalUnitIlluminance: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(24i32);
-pub const GameInputPhysicalUnitLength: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(3i32);
-pub const GameInputPhysicalUnitLuminousFlux: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(23i32);
-pub const GameInputPhysicalUnitLuminousIntensity: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(22i32);
-pub const GameInputPhysicalUnitMass: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(6i32);
-pub const GameInputPhysicalUnitMomentum: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(7i32);
-pub const GameInputPhysicalUnitNone: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(0i32);
-pub const GameInputPhysicalUnitPower: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(20i32);
-pub const GameInputPhysicalUnitPressure: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(9i32);
-pub const GameInputPhysicalUnitTemperature: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(21i32);
-pub const GameInputPhysicalUnitTime: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(1i32);
-pub const GameInputPhysicalUnitUnknown: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(-1i32);
-pub const GameInputPhysicalUnitVelocity: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(4i32);
+pub const GameInputMouseWheelTiltLeft: GameInputMouseButtons = GameInputMouseButtons(32);
+pub const GameInputMouseWheelTiltRight: GameInputMouseButtons = GameInputMouseButtons(64);
+pub const GameInputNamedArrayItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(4);
+pub const GameInputNoEnumeration: GameInputEnumerationKind = GameInputEnumerationKind(0);
+pub const GameInputNonlinearItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(16);
+pub const GameInputNullableItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(64);
+pub const GameInputPhysicalItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(0);
+pub const GameInputPhysicalUnitAcceleration: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(5);
+pub const GameInputPhysicalUnitAngle: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(10);
+pub const GameInputPhysicalUnitAngularAcceleration: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(12);
+pub const GameInputPhysicalUnitAngularMass: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(13);
+pub const GameInputPhysicalUnitAngularMomentum: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(14);
+pub const GameInputPhysicalUnitAngularTorque: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(15);
+pub const GameInputPhysicalUnitAngularVelocity: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(11);
+pub const GameInputPhysicalUnitElectricCharge: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(17);
+pub const GameInputPhysicalUnitElectricCurrent: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(16);
+pub const GameInputPhysicalUnitElectricPotential: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(18);
+pub const GameInputPhysicalUnitEnergy: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(19);
+pub const GameInputPhysicalUnitForce: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(8);
+pub const GameInputPhysicalUnitFrequency: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(2);
+pub const GameInputPhysicalUnitIlluminance: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(24);
+pub const GameInputPhysicalUnitLength: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(3);
+pub const GameInputPhysicalUnitLuminousFlux: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(23);
+pub const GameInputPhysicalUnitLuminousIntensity: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(22);
+pub const GameInputPhysicalUnitMass: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(6);
+pub const GameInputPhysicalUnitMomentum: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(7);
+pub const GameInputPhysicalUnitNone: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(0);
+pub const GameInputPhysicalUnitPower: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(20);
+pub const GameInputPhysicalUnitPressure: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(9);
+pub const GameInputPhysicalUnitTemperature: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(21);
+pub const GameInputPhysicalUnitTime: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(1);
+pub const GameInputPhysicalUnitUnknown: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(-1);
+pub const GameInputPhysicalUnitVelocity: GameInputRawDevicePhysicalUnitKind = GameInputRawDevicePhysicalUnitKind(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputRacingWheelButtons(pub i32);
@@ -1105,10 +1105,10 @@ impl core::ops::Not for GameInputRacingWheelButtons {
         Self(self.0.not())
     }
 }
-pub const GameInputRacingWheelDpadDown: GameInputRacingWheelButtons = GameInputRacingWheelButtons(32i32);
-pub const GameInputRacingWheelDpadLeft: GameInputRacingWheelButtons = GameInputRacingWheelButtons(64i32);
-pub const GameInputRacingWheelDpadRight: GameInputRacingWheelButtons = GameInputRacingWheelButtons(128i32);
-pub const GameInputRacingWheelDpadUp: GameInputRacingWheelButtons = GameInputRacingWheelButtons(16i32);
+pub const GameInputRacingWheelDpadDown: GameInputRacingWheelButtons = GameInputRacingWheelButtons(32);
+pub const GameInputRacingWheelDpadLeft: GameInputRacingWheelButtons = GameInputRacingWheelButtons(64);
+pub const GameInputRacingWheelDpadRight: GameInputRacingWheelButtons = GameInputRacingWheelButtons(128);
+pub const GameInputRacingWheelDpadUp: GameInputRacingWheelButtons = GameInputRacingWheelButtons(16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputRacingWheelInfo {
@@ -1127,10 +1127,10 @@ pub struct GameInputRacingWheelInfo {
     pub maxPatternShifterGear: i32,
     pub maxWheelAngle: f32,
 }
-pub const GameInputRacingWheelMenu: GameInputRacingWheelButtons = GameInputRacingWheelButtons(1i32);
-pub const GameInputRacingWheelNextGear: GameInputRacingWheelButtons = GameInputRacingWheelButtons(8i32);
-pub const GameInputRacingWheelNone: GameInputRacingWheelButtons = GameInputRacingWheelButtons(0i32);
-pub const GameInputRacingWheelPreviousGear: GameInputRacingWheelButtons = GameInputRacingWheelButtons(4i32);
+pub const GameInputRacingWheelMenu: GameInputRacingWheelButtons = GameInputRacingWheelButtons(1);
+pub const GameInputRacingWheelNextGear: GameInputRacingWheelButtons = GameInputRacingWheelButtons(8);
+pub const GameInputRacingWheelNone: GameInputRacingWheelButtons = GameInputRacingWheelButtons(0);
+pub const GameInputRacingWheelPreviousGear: GameInputRacingWheelButtons = GameInputRacingWheelButtons(4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputRacingWheelState {
@@ -1142,7 +1142,7 @@ pub struct GameInputRacingWheelState {
     pub clutch: f32,
     pub handbrake: f32,
 }
-pub const GameInputRacingWheelView: GameInputRacingWheelButtons = GameInputRacingWheelButtons(2i32);
+pub const GameInputRacingWheelView: GameInputRacingWheelButtons = GameInputRacingWheelButtons(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputRawDeviceItemCollectionInfo {
@@ -1246,15 +1246,15 @@ impl Default for GameInputRawDeviceReportItemInfo {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputRawDeviceReportKind(pub i32);
-pub const GameInputRawFeatureReport: GameInputRawDeviceReportKind = GameInputRawDeviceReportKind(2i32);
-pub const GameInputRawInputReport: GameInputRawDeviceReportKind = GameInputRawDeviceReportKind(0i32);
-pub const GameInputRawOutputReport: GameInputRawDeviceReportKind = GameInputRawDeviceReportKind(1i32);
+pub const GameInputRawFeatureReport: GameInputRawDeviceReportKind = GameInputRawDeviceReportKind(2);
+pub const GameInputRawInputReport: GameInputRawDeviceReportKind = GameInputRawDeviceReportKind(0);
+pub const GameInputRawOutputReport: GameInputRawDeviceReportKind = GameInputRawDeviceReportKind(1);
 pub type GameInputReadingCallback = Option<unsafe extern "system" fn(callbacktoken: u64, context: *const core::ffi::c_void, reading: windows_core::Ref<IGameInputReading>, hasoverrunoccurred: bool)>;
-pub const GameInputRelativeItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(4i32);
-pub const GameInputReportItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(3i32);
-pub const GameInputRumbleHighFrequency: GameInputRumbleMotors = GameInputRumbleMotors(2i32);
-pub const GameInputRumbleLeftTrigger: GameInputRumbleMotors = GameInputRumbleMotors(4i32);
-pub const GameInputRumbleLowFrequency: GameInputRumbleMotors = GameInputRumbleMotors(1i32);
+pub const GameInputRelativeItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(4);
+pub const GameInputReportItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(3);
+pub const GameInputRumbleHighFrequency: GameInputRumbleMotors = GameInputRumbleMotors(2);
+pub const GameInputRumbleLeftTrigger: GameInputRumbleMotors = GameInputRumbleMotors(4);
+pub const GameInputRumbleLowFrequency: GameInputRumbleMotors = GameInputRumbleMotors(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputRumbleMotors(pub i32);
@@ -1291,7 +1291,7 @@ impl core::ops::Not for GameInputRumbleMotors {
         Self(self.0.not())
     }
 }
-pub const GameInputRumbleNone: GameInputRumbleMotors = GameInputRumbleMotors(0i32);
+pub const GameInputRumbleNone: GameInputRumbleMotors = GameInputRumbleMotors(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputRumbleParams {
@@ -1300,8 +1300,8 @@ pub struct GameInputRumbleParams {
     pub leftTrigger: f32,
     pub rightTrigger: f32,
 }
-pub const GameInputRumbleRightTrigger: GameInputRumbleMotors = GameInputRumbleMotors(8i32);
-pub const GameInputStableItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(32i32);
+pub const GameInputRumbleRightTrigger: GameInputRumbleMotors = GameInputRumbleMotors(8);
+pub const GameInputStableItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputString {
@@ -1309,25 +1309,25 @@ pub struct GameInputString {
     pub codePointCount: u32,
     pub data: windows_core::PCSTR,
 }
-pub const GameInputSwitchCenter: GameInputSwitchPosition = GameInputSwitchPosition(0i32);
-pub const GameInputSwitchDown: GameInputSwitchPosition = GameInputSwitchPosition(5i32);
-pub const GameInputSwitchDownLeft: GameInputSwitchPosition = GameInputSwitchPosition(6i32);
-pub const GameInputSwitchDownRight: GameInputSwitchPosition = GameInputSwitchPosition(4i32);
+pub const GameInputSwitchCenter: GameInputSwitchPosition = GameInputSwitchPosition(0);
+pub const GameInputSwitchDown: GameInputSwitchPosition = GameInputSwitchPosition(5);
+pub const GameInputSwitchDownLeft: GameInputSwitchPosition = GameInputSwitchPosition(6);
+pub const GameInputSwitchDownRight: GameInputSwitchPosition = GameInputSwitchPosition(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputSwitchKind(pub i32);
-pub const GameInputSwitchLeft: GameInputSwitchPosition = GameInputSwitchPosition(7i32);
+pub const GameInputSwitchLeft: GameInputSwitchPosition = GameInputSwitchPosition(7);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputSwitchPosition(pub i32);
-pub const GameInputSwitchRight: GameInputSwitchPosition = GameInputSwitchPosition(3i32);
-pub const GameInputSwitchUp: GameInputSwitchPosition = GameInputSwitchPosition(1i32);
-pub const GameInputSwitchUpLeft: GameInputSwitchPosition = GameInputSwitchPosition(8i32);
-pub const GameInputSwitchUpRight: GameInputSwitchPosition = GameInputSwitchPosition(2i32);
+pub const GameInputSwitchRight: GameInputSwitchPosition = GameInputSwitchPosition(3);
+pub const GameInputSwitchUp: GameInputSwitchPosition = GameInputSwitchPosition(1);
+pub const GameInputSwitchUpLeft: GameInputSwitchPosition = GameInputSwitchPosition(8);
+pub const GameInputSwitchUpRight: GameInputSwitchPosition = GameInputSwitchPosition(2);
 pub type GameInputSystemButtonCallback = Option<unsafe extern "system" fn(callbacktoken: u64, context: *const core::ffi::c_void, device: windows_core::Ref<IGameInputDevice>, timestamp: u64, currentbuttons: GameInputSystemButtons, previousbuttons: GameInputSystemButtons)>;
-pub const GameInputSystemButtonGuide: GameInputSystemButtons = GameInputSystemButtons(1i32);
-pub const GameInputSystemButtonNone: GameInputSystemButtons = GameInputSystemButtons(0i32);
-pub const GameInputSystemButtonShare: GameInputSystemButtons = GameInputSystemButtons(2i32);
+pub const GameInputSystemButtonGuide: GameInputSystemButtons = GameInputSystemButtons(1);
+pub const GameInputSystemButtonNone: GameInputSystemButtons = GameInputSystemButtons(0);
+pub const GameInputSystemButtonShare: GameInputSystemButtons = GameInputSystemButtons(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputSystemButtons(pub i32);
@@ -1385,14 +1385,14 @@ pub struct GameInputTouchSensorInfo {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputTouchShape(pub i32);
-pub const GameInputTouchShape1DIrregular: GameInputTouchShape = GameInputTouchShape(3i32);
-pub const GameInputTouchShape1DLinear: GameInputTouchShape = GameInputTouchShape(1i32);
-pub const GameInputTouchShape1DRadial: GameInputTouchShape = GameInputTouchShape(2i32);
-pub const GameInputTouchShape2DElliptical: GameInputTouchShape = GameInputTouchShape(5i32);
-pub const GameInputTouchShape2DIrregular: GameInputTouchShape = GameInputTouchShape(6i32);
-pub const GameInputTouchShape2DRectangular: GameInputTouchShape = GameInputTouchShape(4i32);
-pub const GameInputTouchShapePoint: GameInputTouchShape = GameInputTouchShape(0i32);
-pub const GameInputTouchShapeUnknown: GameInputTouchShape = GameInputTouchShape(-1i32);
+pub const GameInputTouchShape1DIrregular: GameInputTouchShape = GameInputTouchShape(3);
+pub const GameInputTouchShape1DLinear: GameInputTouchShape = GameInputTouchShape(1);
+pub const GameInputTouchShape1DRadial: GameInputTouchShape = GameInputTouchShape(2);
+pub const GameInputTouchShape2DElliptical: GameInputTouchShape = GameInputTouchShape(5);
+pub const GameInputTouchShape2DIrregular: GameInputTouchShape = GameInputTouchShape(6);
+pub const GameInputTouchShape2DRectangular: GameInputTouchShape = GameInputTouchShape(4);
+pub const GameInputTouchShapePoint: GameInputTouchShape = GameInputTouchShape(0);
+pub const GameInputTouchShapeUnknown: GameInputTouchShape = GameInputTouchShape(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputTouchState {
@@ -1407,7 +1407,7 @@ pub struct GameInputTouchState {
     pub contactRectRight: f32,
     pub contactRectBottom: f32,
 }
-pub const GameInputUiNavigationAccept: GameInputUiNavigationButtons = GameInputUiNavigationButtons(4i32);
+pub const GameInputUiNavigationAccept: GameInputUiNavigationButtons = GameInputUiNavigationButtons(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameInputUiNavigationButtons(pub i32);
@@ -1444,12 +1444,12 @@ impl core::ops::Not for GameInputUiNavigationButtons {
         Self(self.0.not())
     }
 }
-pub const GameInputUiNavigationCancel: GameInputUiNavigationButtons = GameInputUiNavigationButtons(8i32);
-pub const GameInputUiNavigationContext1: GameInputUiNavigationButtons = GameInputUiNavigationButtons(256i32);
-pub const GameInputUiNavigationContext2: GameInputUiNavigationButtons = GameInputUiNavigationButtons(512i32);
-pub const GameInputUiNavigationContext3: GameInputUiNavigationButtons = GameInputUiNavigationButtons(1024i32);
-pub const GameInputUiNavigationContext4: GameInputUiNavigationButtons = GameInputUiNavigationButtons(2048i32);
-pub const GameInputUiNavigationDown: GameInputUiNavigationButtons = GameInputUiNavigationButtons(32i32);
+pub const GameInputUiNavigationCancel: GameInputUiNavigationButtons = GameInputUiNavigationButtons(8);
+pub const GameInputUiNavigationContext1: GameInputUiNavigationButtons = GameInputUiNavigationButtons(256);
+pub const GameInputUiNavigationContext2: GameInputUiNavigationButtons = GameInputUiNavigationButtons(512);
+pub const GameInputUiNavigationContext3: GameInputUiNavigationButtons = GameInputUiNavigationButtons(1024);
+pub const GameInputUiNavigationContext4: GameInputUiNavigationButtons = GameInputUiNavigationButtons(2048);
+pub const GameInputUiNavigationDown: GameInputUiNavigationButtons = GameInputUiNavigationButtons(32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputUiNavigationInfo {
@@ -1475,36 +1475,36 @@ pub struct GameInputUiNavigationInfo {
     pub scrollRightButtonLabel: GameInputLabel,
     pub guideButtonLabel: GameInputLabel,
 }
-pub const GameInputUiNavigationLeft: GameInputUiNavigationButtons = GameInputUiNavigationButtons(64i32);
-pub const GameInputUiNavigationMenu: GameInputUiNavigationButtons = GameInputUiNavigationButtons(1i32);
-pub const GameInputUiNavigationNone: GameInputUiNavigationButtons = GameInputUiNavigationButtons(0i32);
-pub const GameInputUiNavigationPageDown: GameInputUiNavigationButtons = GameInputUiNavigationButtons(8192i32);
-pub const GameInputUiNavigationPageLeft: GameInputUiNavigationButtons = GameInputUiNavigationButtons(16384i32);
-pub const GameInputUiNavigationPageRight: GameInputUiNavigationButtons = GameInputUiNavigationButtons(32768i32);
-pub const GameInputUiNavigationPageUp: GameInputUiNavigationButtons = GameInputUiNavigationButtons(4096i32);
-pub const GameInputUiNavigationRight: GameInputUiNavigationButtons = GameInputUiNavigationButtons(128i32);
-pub const GameInputUiNavigationScrollDown: GameInputUiNavigationButtons = GameInputUiNavigationButtons(131072i32);
-pub const GameInputUiNavigationScrollLeft: GameInputUiNavigationButtons = GameInputUiNavigationButtons(262144i32);
-pub const GameInputUiNavigationScrollRight: GameInputUiNavigationButtons = GameInputUiNavigationButtons(524288i32);
-pub const GameInputUiNavigationScrollUp: GameInputUiNavigationButtons = GameInputUiNavigationButtons(65536i32);
+pub const GameInputUiNavigationLeft: GameInputUiNavigationButtons = GameInputUiNavigationButtons(64);
+pub const GameInputUiNavigationMenu: GameInputUiNavigationButtons = GameInputUiNavigationButtons(1);
+pub const GameInputUiNavigationNone: GameInputUiNavigationButtons = GameInputUiNavigationButtons(0);
+pub const GameInputUiNavigationPageDown: GameInputUiNavigationButtons = GameInputUiNavigationButtons(8192);
+pub const GameInputUiNavigationPageLeft: GameInputUiNavigationButtons = GameInputUiNavigationButtons(16384);
+pub const GameInputUiNavigationPageRight: GameInputUiNavigationButtons = GameInputUiNavigationButtons(32768);
+pub const GameInputUiNavigationPageUp: GameInputUiNavigationButtons = GameInputUiNavigationButtons(4096);
+pub const GameInputUiNavigationRight: GameInputUiNavigationButtons = GameInputUiNavigationButtons(128);
+pub const GameInputUiNavigationScrollDown: GameInputUiNavigationButtons = GameInputUiNavigationButtons(131072);
+pub const GameInputUiNavigationScrollLeft: GameInputUiNavigationButtons = GameInputUiNavigationButtons(262144);
+pub const GameInputUiNavigationScrollRight: GameInputUiNavigationButtons = GameInputUiNavigationButtons(524288);
+pub const GameInputUiNavigationScrollUp: GameInputUiNavigationButtons = GameInputUiNavigationButtons(65536);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputUiNavigationState {
     pub buttons: GameInputUiNavigationButtons,
 }
-pub const GameInputUiNavigationUp: GameInputUiNavigationButtons = GameInputUiNavigationButtons(16i32);
-pub const GameInputUiNavigationView: GameInputUiNavigationButtons = GameInputUiNavigationButtons(2i32);
-pub const GameInputUnknownItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(-1i32);
-pub const GameInputUnknownKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(-1i32);
-pub const GameInputUnknownSwitchKind: GameInputSwitchKind = GameInputSwitchKind(-1i32);
+pub const GameInputUiNavigationUp: GameInputUiNavigationButtons = GameInputUiNavigationButtons(16);
+pub const GameInputUiNavigationView: GameInputUiNavigationButtons = GameInputUiNavigationButtons(2);
+pub const GameInputUnknownItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(-1);
+pub const GameInputUnknownKeyboard: GameInputKeyboardKind = GameInputKeyboardKind(-1);
+pub const GameInputUnknownSwitchKind: GameInputSwitchKind = GameInputSwitchKind(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputUsage {
     pub page: u16,
     pub id: u16,
 }
-pub const GameInputUsageModifierItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(6i32);
-pub const GameInputUsageSwitchItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(5i32);
+pub const GameInputUsageModifierItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(6);
+pub const GameInputUsageSwitchItemCollection: GameInputRawDeviceItemCollectionKind = GameInputRawDeviceItemCollectionKind(5);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputVersion {
@@ -1513,8 +1513,8 @@ pub struct GameInputVersion {
     pub build: u16,
     pub revision: u16,
 }
-pub const GameInputVolatileItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(128i32);
-pub const GameInputWraparoundItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(8i32);
+pub const GameInputVolatileItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(128);
+pub const GameInputWraparoundItem: GameInputRawDeviceReportItemFlags = GameInputRawDeviceReportItemFlags(8);
 windows_core::imp::define_interface!(IGameInput, IGameInput_Vtbl, 0x11be2a7e_4254_445a_9c09_ffc40f006918);
 windows_core::imp::interface_hierarchy!(IGameInput, windows_core::IUnknown);
 impl IGameInput {

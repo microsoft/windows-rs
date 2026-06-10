@@ -231,10 +231,10 @@ unsafe impl Sync for CertificateChain {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
-    pub const Base: Self = Self(0i32);
-    pub const Ssl: Self = Self(1i32);
-    pub const NTAuthentication: Self = Self(2i32);
-    pub const MicrosoftRoot: Self = Self(3i32);
+    pub const Base: Self = Self(0);
+    pub const Ssl: Self = Self(1);
+    pub const NTAuthentication: Self = Self(2);
+    pub const MicrosoftRoot: Self = Self(3);
 }
 impl windows_core::TypeKind for CertificateChainPolicy {
     type TypeKind = windows_core::CopyType;
@@ -1000,20 +1000,20 @@ unsafe impl Sync for ChainValidationParameters {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
-    pub const Success: Self = Self(0i32);
-    pub const Untrusted: Self = Self(1i32);
-    pub const Revoked: Self = Self(2i32);
-    pub const Expired: Self = Self(3i32);
-    pub const IncompleteChain: Self = Self(4i32);
-    pub const InvalidSignature: Self = Self(5i32);
-    pub const WrongUsage: Self = Self(6i32);
-    pub const InvalidName: Self = Self(7i32);
-    pub const InvalidCertificateAuthorityPolicy: Self = Self(8i32);
-    pub const BasicConstraintsError: Self = Self(9i32);
-    pub const UnknownCriticalExtension: Self = Self(10i32);
-    pub const RevocationInformationMissing: Self = Self(11i32);
-    pub const RevocationFailure: Self = Self(12i32);
-    pub const OtherErrors: Self = Self(13i32);
+    pub const Success: Self = Self(0);
+    pub const Untrusted: Self = Self(1);
+    pub const Revoked: Self = Self(2);
+    pub const Expired: Self = Self(3);
+    pub const IncompleteChain: Self = Self(4);
+    pub const InvalidSignature: Self = Self(5);
+    pub const WrongUsage: Self = Self(6);
+    pub const InvalidName: Self = Self(7);
+    pub const InvalidCertificateAuthorityPolicy: Self = Self(8);
+    pub const BasicConstraintsError: Self = Self(9);
+    pub const UnknownCriticalExtension: Self = Self(10);
+    pub const RevocationInformationMissing: Self = Self(11);
+    pub const RevocationFailure: Self = Self(12);
+    pub const OtherErrors: Self = Self(13);
 }
 impl windows_core::TypeKind for ChainValidationResult {
     type TypeKind = windows_core::CopyType;
@@ -1256,11 +1256,11 @@ unsafe impl Sync for CmsTimestampInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
-    pub const None: Self = Self(0u32);
-    pub const Decryption: Self = Self(1u32);
-    pub const Signing: Self = Self(2u32);
-    pub const KeyAgreement: Self = Self(4u32);
-    pub const All: Self = Self(16777215u32);
+    pub const None: Self = Self(0);
+    pub const Decryption: Self = Self(1);
+    pub const Signing: Self = Self(2);
+    pub const KeyAgreement: Self = Self(4);
+    pub const All: Self = Self(16777215);
 }
 impl windows_core::TypeKind for EnrollKeyUsages {
     type TypeKind = windows_core::CopyType;
@@ -1306,8 +1306,8 @@ impl core::ops::Not for EnrollKeyUsages {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
-    pub const NotExportable: Self = Self(0i32);
-    pub const Exportable: Self = Self(1i32);
+    pub const NotExportable: Self = Self(0);
+    pub const Exportable: Self = Self(1);
 }
 impl windows_core::TypeKind for ExportOption {
     type TypeKind = windows_core::CopyType;
@@ -1985,8 +1985,8 @@ pub struct IUserCertificateStore_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InstallOptions(pub u32);
 impl InstallOptions {
-    pub const None: Self = Self(0u32);
-    pub const DeleteExpired: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const DeleteExpired: Self = Self(1);
 }
 impl windows_core::TypeKind for InstallOptions {
     type TypeKind = windows_core::CopyType;
@@ -2138,10 +2138,10 @@ impl windows_core::RuntimeName for KeyAttestationHelper {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
-    pub const NoConsent: Self = Self(0i32);
-    pub const ConsentOnly: Self = Self(1i32);
-    pub const ConsentWithPassword: Self = Self(2i32);
-    pub const ConsentWithFingerprint: Self = Self(3i32);
+    pub const NoConsent: Self = Self(0);
+    pub const ConsentOnly: Self = Self(1);
+    pub const ConsentWithPassword: Self = Self(2);
+    pub const ConsentWithFingerprint: Self = Self(3);
 }
 impl windows_core::TypeKind for KeyProtectionLevel {
     type TypeKind = windows_core::CopyType;
@@ -2154,9 +2154,9 @@ impl windows_core::RuntimeType for KeyProtectionLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeySize(pub i32);
 impl KeySize {
-    pub const Invalid: Self = Self(0i32);
-    pub const Rsa2048: Self = Self(2048i32);
-    pub const Rsa4096: Self = Self(4096i32);
+    pub const Invalid: Self = Self(0);
+    pub const Rsa2048: Self = Self(2048);
+    pub const Rsa4096: Self = Self(4096);
 }
 impl windows_core::TypeKind for KeySize {
     type TypeKind = windows_core::CopyType;
@@ -2295,11 +2295,11 @@ unsafe impl Sync for PfxImportParameters {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidParameter: Self = Self(1i32);
-    pub const BadMessage: Self = Self(2i32);
-    pub const InvalidSignature: Self = Self(3i32);
-    pub const OtherErrors: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const InvalidParameter: Self = Self(1);
+    pub const BadMessage: Self = Self(2);
+    pub const InvalidSignature: Self = Self(3);
+    pub const OtherErrors: Self = Self(4);
 }
 impl windows_core::TypeKind for SignatureValidationResult {
     type TypeKind = windows_core::CopyType;

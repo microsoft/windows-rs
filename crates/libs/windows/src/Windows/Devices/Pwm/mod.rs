@@ -235,8 +235,8 @@ unsafe impl Sync for PwmPin {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
-    pub const ActiveHigh: Self = Self(0i32);
-    pub const ActiveLow: Self = Self(1i32);
+    pub const ActiveHigh: Self = Self(0);
+    pub const ActiveLow: Self = Self(1);
 }
 impl windows_core::TypeKind for PwmPulsePolarity {
     type TypeKind = windows_core::CopyType;

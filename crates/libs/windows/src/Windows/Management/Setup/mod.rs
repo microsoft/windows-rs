@@ -85,13 +85,13 @@ impl windows_core::RuntimeName for AgentProvisioningProgressReport {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentAgentProgressState(pub i32);
 impl DeploymentAgentProgressState {
-    pub const NotStarted: Self = Self(0i32);
-    pub const Initializing: Self = Self(1i32);
-    pub const InProgress: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-    pub const ErrorOccurred: Self = Self(4i32);
-    pub const RebootRequired: Self = Self(5i32);
-    pub const Canceled: Self = Self(6i32);
+    pub const NotStarted: Self = Self(0);
+    pub const Initializing: Self = Self(1);
+    pub const InProgress: Self = Self(2);
+    pub const Completed: Self = Self(3);
+    pub const ErrorOccurred: Self = Self(4);
+    pub const RebootRequired: Self = Self(5);
+    pub const Canceled: Self = Self(6);
 }
 impl windows_core::TypeKind for DeploymentAgentProgressState {
     type TypeKind = windows_core::CopyType;
@@ -104,13 +104,13 @@ impl windows_core::RuntimeType for DeploymentAgentProgressState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentSessionConnectionChange(pub i32);
 impl DeploymentSessionConnectionChange {
-    pub const NoChange: Self = Self(0i32);
-    pub const HostConnectionLost: Self = Self(1i32);
-    pub const HostConnectionRestored: Self = Self(2i32);
-    pub const AgentConnectionLost: Self = Self(3i32);
-    pub const AgentConnectionRestored: Self = Self(4i32);
-    pub const InternetConnectionLost: Self = Self(5i32);
-    pub const InternetConnectionRestored: Self = Self(6i32);
+    pub const NoChange: Self = Self(0);
+    pub const HostConnectionLost: Self = Self(1);
+    pub const HostConnectionRestored: Self = Self(2);
+    pub const AgentConnectionLost: Self = Self(3);
+    pub const AgentConnectionRestored: Self = Self(4);
+    pub const InternetConnectionLost: Self = Self(5);
+    pub const InternetConnectionRestored: Self = Self(6);
 }
 impl windows_core::TypeKind for DeploymentSessionConnectionChange {
     type TypeKind = windows_core::CopyType;
@@ -215,9 +215,9 @@ impl windows_core::RuntimeName for DeploymentSessionHeartbeatRequestedEventArgs 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentSessionStateChange(pub i32);
 impl DeploymentSessionStateChange {
-    pub const NoChange: Self = Self(0i32);
-    pub const CancelRequestedByUser: Self = Self(1i32);
-    pub const RetryRequestedByUser: Self = Self(2i32);
+    pub const NoChange: Self = Self(0);
+    pub const CancelRequestedByUser: Self = Self(1);
+    pub const RetryRequestedByUser: Self = Self(2);
 }
 impl windows_core::TypeKind for DeploymentSessionStateChange {
     type TypeKind = windows_core::CopyType;
@@ -420,14 +420,14 @@ impl windows_core::RuntimeName for DeploymentWorkloadBatch {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentWorkloadState(pub i32);
 impl DeploymentWorkloadState {
-    pub const NotStarted: Self = Self(0i32);
-    pub const InProgress: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-    pub const Failed: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const Skipped: Self = Self(5i32);
-    pub const Uninstalled: Self = Self(6i32);
-    pub const RebootRequired: Self = Self(7i32);
+    pub const NotStarted: Self = Self(0);
+    pub const InProgress: Self = Self(1);
+    pub const Completed: Self = Self(2);
+    pub const Failed: Self = Self(3);
+    pub const Canceled: Self = Self(4);
+    pub const Skipped: Self = Self(5);
+    pub const Uninstalled: Self = Self(6);
+    pub const RebootRequired: Self = Self(7);
 }
 impl windows_core::TypeKind for DeploymentWorkloadState {
     type TypeKind = windows_core::CopyType;

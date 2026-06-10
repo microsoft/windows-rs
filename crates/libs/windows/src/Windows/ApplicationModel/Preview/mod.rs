@@ -45,11 +45,11 @@ pub struct IStartupAppsManagerPreviewStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StartupAppImpactPreview(pub i32);
 impl StartupAppImpactPreview {
-    pub const Unknown: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
-    pub const Medium: Self = Self(3i32);
-    pub const High: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const None: Self = Self(1);
+    pub const Low: Self = Self(2);
+    pub const Medium: Self = Self(3);
+    pub const High: Self = Self(4);
 }
 impl windows_core::TypeKind for StartupAppImpactPreview {
     type TypeKind = windows_core::CopyType;

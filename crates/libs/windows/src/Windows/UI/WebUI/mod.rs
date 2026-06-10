@@ -910,10 +910,10 @@ impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
-    pub const AllPages: Self = Self(0i32);
-    pub const CurrentPage: Self = Self(1i32);
-    pub const CustomPageRange: Self = Self(2i32);
-    pub const CurrentSelection: Self = Self(3i32);
+    pub const AllPages: Self = Self(0);
+    pub const CurrentPage: Self = Self(1);
+    pub const CustomPageRange: Self = Self(2);
+    pub const CurrentSelection: Self = Self(3);
 }
 impl windows_core::TypeKind for PrintContent {
     type TypeKind = windows_core::CopyType;

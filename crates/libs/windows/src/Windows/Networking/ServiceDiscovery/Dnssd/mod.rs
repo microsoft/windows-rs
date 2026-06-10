@@ -53,10 +53,10 @@ unsafe impl Sync for DnssdRegistrationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidServiceName: Self = Self(1i32);
-    pub const ServerError: Self = Self(2i32);
-    pub const SecurityError: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const InvalidServiceName: Self = Self(1);
+    pub const ServerError: Self = Self(2);
+    pub const SecurityError: Self = Self(3);
 }
 impl windows_core::TypeKind for DnssdRegistrationStatus {
     type TypeKind = windows_core::CopyType;
@@ -337,12 +337,12 @@ unsafe impl Sync for DnssdServiceWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for DnssdServiceWatcherStatus {
     type TypeKind = windows_core::CopyType;

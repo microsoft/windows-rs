@@ -24,9 +24,9 @@ pub struct CompositionFrameDisplayInstance {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionFrameInstanceKind(pub i32);
-pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
-pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
+pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0);
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2);
+pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1);
 windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 impl core::ops::Deref for ICompositionFramePresentStatistics {
     type Target = IPresentStatistics;
@@ -895,15 +895,15 @@ impl windows_core::RuntimeName for IPresentationSurface2 {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatisticsKind(pub i32);
-pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
-pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
-pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
+pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2);
+pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3);
+pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatus(pub i32);
-pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
-pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
-pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
+pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2);
+pub const PresentStatus_Queued: PresentStatus = PresentStatus(0);
+pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PresentationTransform {

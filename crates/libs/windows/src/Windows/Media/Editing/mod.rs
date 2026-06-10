@@ -889,8 +889,8 @@ unsafe impl Sync for MediaOverlayLayer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
-    pub const Fast: Self = Self(0i32);
-    pub const Precise: Self = Self(1i32);
+    pub const Fast: Self = Self(0);
+    pub const Precise: Self = Self(1);
 }
 impl windows_core::TypeKind for MediaTrimmingPreference {
     type TypeKind = windows_core::CopyType;
@@ -903,8 +903,8 @@ impl windows_core::RuntimeType for MediaTrimmingPreference {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {
-    pub const NearestFrame: Self = Self(0i32);
-    pub const NearestKeyFrame: Self = Self(1i32);
+    pub const NearestFrame: Self = Self(0);
+    pub const NearestKeyFrame: Self = Self(1);
 }
 impl windows_core::TypeKind for VideoFramePrecision {
     type TypeKind = windows_core::CopyType;

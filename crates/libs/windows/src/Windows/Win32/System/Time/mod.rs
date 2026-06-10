@@ -91,7 +91,7 @@ impl Default for DYNAMIC_TIME_ZONE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
+pub const TIME_ZONE_ID_INVALID: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIME_ZONE_INFORMATION {
@@ -108,10 +108,10 @@ impl Default for TIME_ZONE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TSF_Authenticated: u32 = 2u32;
-pub const TSF_Hardware: u32 = 1u32;
-pub const TSF_IPv6: u32 = 4u32;
-pub const TSF_SignatureAuthenticated: u32 = 8u32;
+pub const TSF_Authenticated: u32 = 2;
+pub const TSF_Hardware: u32 = 1;
+pub const TSF_IPv6: u32 = 4;
+pub const TSF_SignatureAuthenticated: u32 = 8;
 pub const wszW32TimeRegKeyPolicyTimeProviders: windows_core::PCWSTR = windows_core::w!("Software\\Policies\\Microsoft\\W32Time\\TimeProviders");
 pub const wszW32TimeRegKeyTimeProviders: windows_core::PCWSTR = windows_core::w!("System\\CurrentControlSet\\Services\\W32Time\\TimeProviders");
 pub const wszW32TimeRegValueDllName: windows_core::PCWSTR = windows_core::w!("DllName");

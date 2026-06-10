@@ -713,11 +713,11 @@ unsafe impl Sync for UsbConfigurationDescriptor {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
-    pub const Device: Self = Self(0i32);
-    pub const SpecifiedInterface: Self = Self(1i32);
-    pub const Endpoint: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
-    pub const DefaultInterface: Self = Self(4i32);
+    pub const Device: Self = Self(0);
+    pub const SpecifiedInterface: Self = Self(1);
+    pub const Endpoint: Self = Self(2);
+    pub const Other: Self = Self(3);
+    pub const DefaultInterface: Self = Self(4);
 }
 impl windows_core::TypeKind for UsbControlRecipient {
     type TypeKind = windows_core::CopyType;
@@ -791,9 +791,9 @@ unsafe impl Sync for UsbControlRequestType {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
-    pub const Standard: Self = Self(0i32);
-    pub const Class: Self = Self(1i32);
-    pub const Vendor: Self = Self(2i32);
+    pub const Standard: Self = Self(0);
+    pub const Class: Self = Self(1);
+    pub const Vendor: Self = Self(2);
 }
 impl windows_core::TypeKind for UsbControlTransferType {
     type TypeKind = windows_core::CopyType;
@@ -1228,10 +1228,10 @@ unsafe impl Sync for UsbEndpointDescriptor {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
-    pub const Control: Self = Self(0i32);
-    pub const Isochronous: Self = Self(1i32);
-    pub const Bulk: Self = Self(2i32);
-    pub const Interrupt: Self = Self(3i32);
+    pub const Control: Self = Self(0);
+    pub const Isochronous: Self = Self(1);
+    pub const Bulk: Self = Self(2);
+    pub const Interrupt: Self = Self(3);
 }
 impl windows_core::TypeKind for UsbEndpointType {
     type TypeKind = windows_core::CopyType;
@@ -1637,11 +1637,11 @@ unsafe impl Sync for UsbInterruptOutPipe {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
-    pub const None: Self = Self(0u32);
-    pub const AutoClearStall: Self = Self(1u32);
-    pub const OverrideAutomaticBufferManagement: Self = Self(2u32);
-    pub const IgnoreShortPacket: Self = Self(4u32);
-    pub const AllowPartialReads: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const AutoClearStall: Self = Self(1);
+    pub const OverrideAutomaticBufferManagement: Self = Self(2);
+    pub const IgnoreShortPacket: Self = Self(4);
+    pub const AllowPartialReads: Self = Self(8);
 }
 impl windows_core::TypeKind for UsbReadOptions {
     type TypeKind = windows_core::CopyType;
@@ -1774,8 +1774,8 @@ unsafe impl Sync for UsbSetupPacket {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {
-    pub const Out: Self = Self(0i32);
-    pub const In: Self = Self(1i32);
+    pub const Out: Self = Self(0);
+    pub const In: Self = Self(1);
 }
 impl windows_core::TypeKind for UsbTransferDirection {
     type TypeKind = windows_core::CopyType;
@@ -1788,9 +1788,9 @@ impl windows_core::RuntimeType for UsbTransferDirection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UsbWriteOptions(pub u32);
 impl UsbWriteOptions {
-    pub const None: Self = Self(0u32);
-    pub const AutoClearStall: Self = Self(1u32);
-    pub const ShortPacketTerminate: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const AutoClearStall: Self = Self(1);
+    pub const ShortPacketTerminate: Self = Self(2);
 }
 impl windows_core::TypeKind for UsbWriteOptions {
     type TypeKind = windows_core::CopyType;

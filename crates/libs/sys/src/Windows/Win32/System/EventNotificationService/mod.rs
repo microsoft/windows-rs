@@ -1,13 +1,13 @@
 windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_sys::core::PCSTR, lpqocinfo : *mut QOCINFO) -> windows_sys::core::BOOL);
 windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_sys::core::PCWSTR, lpqocinfo : *mut QOCINFO) -> windows_sys::core::BOOL);
 windows_link::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> windows_sys::core::BOOL);
-pub const CONNECTION_AOL: u32 = 4u32;
-pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0u32;
-pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = 1u32;
-pub const NETWORK_ALIVE_AOL: u32 = 4u32;
-pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
-pub const NETWORK_ALIVE_LAN: u32 = 1u32;
-pub const NETWORK_ALIVE_WAN: u32 = 2u32;
+pub const CONNECTION_AOL: u32 = 4;
+pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0;
+pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = 1;
+pub const NETWORK_ALIVE_AOL: u32 = 4;
+pub const NETWORK_ALIVE_INTERNET: u32 = 8;
+pub const NETWORK_ALIVE_LAN: u32 = 1;
+pub const NETWORK_ALIVE_WAN: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct QOCINFO {

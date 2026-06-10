@@ -218,8 +218,8 @@ unsafe impl Sync for DateTimeFormatter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
 }
 impl windows_core::TypeKind for DayFormat {
     type TypeKind = windows_core::CopyType;
@@ -232,10 +232,10 @@ impl windows_core::RuntimeType for DayFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
-    pub const Abbreviated: Self = Self(2i32);
-    pub const Full: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
+    pub const Abbreviated: Self = Self(2);
+    pub const Full: Self = Self(3);
 }
 impl windows_core::TypeKind for DayOfWeekFormat {
     type TypeKind = windows_core::CopyType;
@@ -248,8 +248,8 @@ impl windows_core::RuntimeType for DayOfWeekFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
 }
 impl windows_core::TypeKind for HourFormat {
     type TypeKind = windows_core::CopyType;
@@ -332,8 +332,8 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
 }
 impl windows_core::TypeKind for MinuteFormat {
     type TypeKind = windows_core::CopyType;
@@ -346,11 +346,11 @@ impl windows_core::RuntimeType for MinuteFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
-    pub const Abbreviated: Self = Self(2i32);
-    pub const Full: Self = Self(3i32);
-    pub const Numeric: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
+    pub const Abbreviated: Self = Self(2);
+    pub const Full: Self = Self(3);
+    pub const Numeric: Self = Self(4);
 }
 impl windows_core::TypeKind for MonthFormat {
     type TypeKind = windows_core::CopyType;
@@ -363,8 +363,8 @@ impl windows_core::RuntimeType for MonthFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
 }
 impl windows_core::TypeKind for SecondFormat {
     type TypeKind = windows_core::CopyType;
@@ -377,10 +377,10 @@ impl windows_core::RuntimeType for SecondFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct YearFormat(pub i32);
 impl YearFormat {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
-    pub const Abbreviated: Self = Self(2i32);
-    pub const Full: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
+    pub const Abbreviated: Self = Self(2);
+    pub const Full: Self = Self(3);
 }
 impl windows_core::TypeKind for YearFormat {
     type TypeKind = windows_core::CopyType;

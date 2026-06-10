@@ -358,8 +358,8 @@ unsafe impl Sync for AnimationController {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const IncludesDelayTime: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const IncludesDelayTime: Self = Self(1);
 }
 impl windows_core::TypeKind for AnimationControllerProgressBehavior {
     type TypeKind = windows_core::CopyType;
@@ -372,8 +372,8 @@ impl windows_core::RuntimeType for AnimationControllerProgressBehavior {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
-    pub const SetInitialValueAfterDelay: Self = Self(0i32);
-    pub const SetInitialValueBeforeDelay: Self = Self(1i32);
+    pub const SetInitialValueAfterDelay: Self = Self(0);
+    pub const SetInitialValueBeforeDelay: Self = Self(1);
 }
 impl windows_core::TypeKind for AnimationDelayBehavior {
     type TypeKind = windows_core::CopyType;
@@ -386,10 +386,10 @@ impl windows_core::RuntimeType for AnimationDelayBehavior {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
-    pub const Normal: Self = Self(0i32);
-    pub const Reverse: Self = Self(1i32);
-    pub const Alternate: Self = Self(2i32);
-    pub const AlternateReverse: Self = Self(3i32);
+    pub const Normal: Self = Self(0);
+    pub const Reverse: Self = Self(1);
+    pub const Alternate: Self = Self(2);
+    pub const AlternateReverse: Self = Self(3);
 }
 impl windows_core::TypeKind for AnimationDirection {
     type TypeKind = windows_core::CopyType;
@@ -402,8 +402,8 @@ impl windows_core::RuntimeType for AnimationDirection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
-    pub const Count: Self = Self(0i32);
-    pub const Forever: Self = Self(1i32);
+    pub const Count: Self = Self(0);
+    pub const Forever: Self = Self(1);
 }
 impl windows_core::TypeKind for AnimationIterationBehavior {
     type TypeKind = windows_core::CopyType;
@@ -416,10 +416,10 @@ impl windows_core::RuntimeType for AnimationIterationBehavior {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
-    pub const None: Self = Self(0i32);
-    pub const ReadOnly: Self = Self(1i32);
-    pub const WriteOnly: Self = Self(2i32);
-    pub const ReadWrite: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const ReadOnly: Self = Self(1);
+    pub const WriteOnly: Self = Self(2);
+    pub const ReadWrite: Self = Self(3);
 }
 impl windows_core::TypeKind for AnimationPropertyAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -580,9 +580,9 @@ unsafe impl Sync for AnimationPropertyInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
-    pub const LeaveCurrentValue: Self = Self(0i32);
-    pub const SetToInitialValue: Self = Self(1i32);
-    pub const SetToFinalValue: Self = Self(2i32);
+    pub const LeaveCurrentValue: Self = Self(0);
+    pub const SetToInitialValue: Self = Self(1);
+    pub const SetToFinalValue: Self = Self(2);
 }
 impl windows_core::TypeKind for AnimationStopBehavior {
     type TypeKind = windows_core::CopyType;
@@ -2968,9 +2968,9 @@ unsafe impl Sync for CompositionBackdropBrush {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
-    pub const Inherit: Self = Self(0i32);
-    pub const Visible: Self = Self(1i32);
-    pub const Hidden: Self = Self(2i32);
+    pub const Inherit: Self = Self(0);
+    pub const Visible: Self = Self(1);
+    pub const Hidden: Self = Self(2);
 }
 impl windows_core::TypeKind for CompositionBackfaceVisibility {
     type TypeKind = windows_core::CopyType;
@@ -3108,11 +3108,11 @@ unsafe impl Sync for CompositionBatchCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
-    pub const None: Self = Self(0u32);
-    pub const Animation: Self = Self(1u32);
-    pub const Effect: Self = Self(2u32);
-    pub const InfiniteAnimation: Self = Self(4u32);
-    pub const AllAnimations: Self = Self(5u32);
+    pub const None: Self = Self(0);
+    pub const Animation: Self = Self(1);
+    pub const Effect: Self = Self(2);
+    pub const InfiniteAnimation: Self = Self(4);
+    pub const AllAnimations: Self = Self(5);
 }
 impl windows_core::TypeKind for CompositionBatchTypes {
     type TypeKind = windows_core::CopyType;
@@ -3158,16 +3158,16 @@ impl core::ops::Not for CompositionBatchTypes {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
-    pub const NearestNeighbor: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-    pub const MagLinearMinLinearMipLinear: Self = Self(2i32);
-    pub const MagLinearMinLinearMipNearest: Self = Self(3i32);
-    pub const MagLinearMinNearestMipLinear: Self = Self(4i32);
-    pub const MagLinearMinNearestMipNearest: Self = Self(5i32);
-    pub const MagNearestMinLinearMipLinear: Self = Self(6i32);
-    pub const MagNearestMinLinearMipNearest: Self = Self(7i32);
-    pub const MagNearestMinNearestMipLinear: Self = Self(8i32);
-    pub const MagNearestMinNearestMipNearest: Self = Self(9i32);
+    pub const NearestNeighbor: Self = Self(0);
+    pub const Linear: Self = Self(1);
+    pub const MagLinearMinLinearMipLinear: Self = Self(2);
+    pub const MagLinearMinLinearMipNearest: Self = Self(3);
+    pub const MagLinearMinNearestMipLinear: Self = Self(4);
+    pub const MagLinearMinNearestMipNearest: Self = Self(5);
+    pub const MagNearestMinLinearMipLinear: Self = Self(6);
+    pub const MagNearestMinLinearMipNearest: Self = Self(7);
+    pub const MagNearestMinNearestMipLinear: Self = Self(8);
+    pub const MagNearestMinNearestMipNearest: Self = Self(9);
 }
 impl windows_core::TypeKind for CompositionBitmapInterpolationMode {
     type TypeKind = windows_core::CopyType;
@@ -3180,9 +3180,9 @@ impl windows_core::RuntimeType for CompositionBitmapInterpolationMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
-    pub const Inherit: Self = Self(0i32);
-    pub const Soft: Self = Self(1i32);
-    pub const Hard: Self = Self(2i32);
+    pub const Inherit: Self = Self(0);
+    pub const Soft: Self = Self(1);
+    pub const Hard: Self = Self(2);
 }
 impl windows_core::TypeKind for CompositionBorderMode {
     type TypeKind = windows_core::CopyType;
@@ -3966,11 +3966,11 @@ impl IntoIterator for &CompositionColorGradientStopCollection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
-    pub const Auto: Self = Self(0i32);
-    pub const Hsl: Self = Self(1i32);
-    pub const Rgb: Self = Self(2i32);
-    pub const HslLinear: Self = Self(3i32);
-    pub const RgbLinear: Self = Self(4i32);
+    pub const Auto: Self = Self(0);
+    pub const Hsl: Self = Self(1);
+    pub const Rgb: Self = Self(2);
+    pub const HslLinear: Self = Self(3);
+    pub const RgbLinear: Self = Self(4);
 }
 impl windows_core::TypeKind for CompositionColorSpace {
     type TypeKind = windows_core::CopyType;
@@ -4132,10 +4132,10 @@ unsafe impl Sync for CompositionCommitBatch {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
-    pub const Inherit: Self = Self(0i32);
-    pub const SourceOver: Self = Self(1i32);
-    pub const DestinationInvert: Self = Self(2i32);
-    pub const MinBlend: Self = Self(3i32);
+    pub const Inherit: Self = Self(0);
+    pub const SourceOver: Self = Self(1);
+    pub const DestinationInvert: Self = Self(2);
+    pub const MinBlend: Self = Self(3);
 }
 impl windows_core::TypeKind for CompositionCompositeMode {
     type TypeKind = windows_core::CopyType;
@@ -4523,8 +4523,8 @@ unsafe impl Sync for CompositionDrawingSurface {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
-    pub const Default: Self = Self(0i32);
-    pub const InheritFromVisualContent: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const InheritFromVisualContent: Self = Self(1);
 }
 impl windows_core::TypeKind for CompositionDropShadowSourcePolicy {
     type TypeKind = windows_core::CopyType;
@@ -4765,9 +4765,9 @@ unsafe impl Sync for CompositionEasingFunction {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
-    pub const In: Self = Self(0i32);
-    pub const Out: Self = Self(1i32);
-    pub const InOut: Self = Self(2i32);
+    pub const In: Self = Self(0);
+    pub const Out: Self = Self(1);
+    pub const InOut: Self = Self(2);
 }
 impl windows_core::TypeKind for CompositionEasingFunctionMode {
     type TypeKind = windows_core::CopyType;
@@ -5060,10 +5060,10 @@ unsafe impl Sync for CompositionEffectFactory {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
-    pub const Success: Self = Self(0i32);
-    pub const EffectTooComplex: Self = Self(1i32);
-    pub const Pending: Self = Self(2i32);
-    pub const Other: Self = Self(-1i32);
+    pub const Success: Self = Self(0);
+    pub const EffectTooComplex: Self = Self(1);
+    pub const Pending: Self = Self(2);
+    pub const Other: Self = Self(-1);
 }
 impl windows_core::TypeKind for CompositionEffectFactoryLoadStatus {
     type TypeKind = windows_core::CopyType;
@@ -5674,9 +5674,9 @@ unsafe impl Sync for CompositionGeometry {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const TypeMismatch: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const TypeMismatch: Self = Self(1);
+    pub const NotFound: Self = Self(2);
 }
 impl windows_core::TypeKind for CompositionGetValueStatus {
     type TypeKind = windows_core::CopyType;
@@ -5912,9 +5912,9 @@ unsafe impl Sync for CompositionGradientBrush {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
-    pub const Clamp: Self = Self(0i32);
-    pub const Wrap: Self = Self(1i32);
-    pub const Mirror: Self = Self(2i32);
+    pub const Clamp: Self = Self(0);
+    pub const Wrap: Self = Self(1);
+    pub const Mirror: Self = Self(2);
 }
 impl windows_core::TypeKind for CompositionGradientExtendMode {
     type TypeKind = windows_core::CopyType;
@@ -6695,8 +6695,8 @@ unsafe impl Sync for CompositionLinearGradientBrush {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
-    pub const Absolute: Self = Self(0i32);
-    pub const Relative: Self = Self(1i32);
+    pub const Absolute: Self = Self(0);
+    pub const Relative: Self = Self(1);
 }
 impl windows_core::TypeKind for CompositionMappingMode {
     type TypeKind = windows_core::CopyType;
@@ -10239,10 +10239,10 @@ unsafe impl Sync for CompositionSpriteShape {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
-    pub const None: Self = Self(0i32);
-    pub const Fill: Self = Self(1i32);
-    pub const Uniform: Self = Self(2i32);
-    pub const UniformToFill: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Fill: Self = Self(1);
+    pub const Uniform: Self = Self(2);
+    pub const UniformToFill: Self = Self(3);
 }
 impl windows_core::TypeKind for CompositionStretch {
     type TypeKind = windows_core::CopyType;
@@ -10255,10 +10255,10 @@ impl windows_core::RuntimeType for CompositionStretch {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
-    pub const Flat: Self = Self(0i32);
-    pub const Square: Self = Self(1i32);
-    pub const Round: Self = Self(2i32);
-    pub const Triangle: Self = Self(3i32);
+    pub const Flat: Self = Self(0);
+    pub const Square: Self = Self(1);
+    pub const Round: Self = Self(2);
+    pub const Triangle: Self = Self(3);
 }
 impl windows_core::TypeKind for CompositionStrokeCap {
     type TypeKind = windows_core::CopyType;
@@ -10468,10 +10468,10 @@ impl IntoIterator for &CompositionStrokeDashArray {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
-    pub const Miter: Self = Self(0i32);
-    pub const Bevel: Self = Self(1i32);
-    pub const Round: Self = Self(2i32);
-    pub const MiterOrBevel: Self = Self(3i32);
+    pub const Miter: Self = Self(0);
+    pub const Bevel: Self = Self(1);
+    pub const Round: Self = Self(2);
+    pub const MiterOrBevel: Self = Self(3);
 }
 impl windows_core::TypeKind for CompositionStrokeLineJoin {
     type TypeKind = windows_core::CopyType;

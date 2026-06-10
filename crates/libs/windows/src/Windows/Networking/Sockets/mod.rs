@@ -124,10 +124,10 @@ unsafe impl Sync for ControlChannelTrigger {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
-    pub const FastUserSwitched: Self = Self(0i32);
-    pub const LowPowerExit: Self = Self(1i32);
-    pub const QuietHoursExit: Self = Self(2i32);
-    pub const ApplicationRestart: Self = Self(3i32);
+    pub const FastUserSwitched: Self = Self(0);
+    pub const LowPowerExit: Self = Self(1);
+    pub const QuietHoursExit: Self = Self(2);
+    pub const ApplicationRestart: Self = Self(3);
 }
 impl windows_core::TypeKind for ControlChannelTriggerResetReason {
     type TypeKind = windows_core::CopyType;
@@ -140,8 +140,8 @@ impl windows_core::RuntimeType for ControlChannelTriggerResetReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
-    pub const RequestSoftwareSlot: Self = Self(0i32);
-    pub const RequestHardwareSlot: Self = Self(1i32);
+    pub const RequestSoftwareSlot: Self = Self(0);
+    pub const RequestHardwareSlot: Self = Self(1);
 }
 impl windows_core::TypeKind for ControlChannelTriggerResourceType {
     type TypeKind = windows_core::CopyType;
@@ -154,13 +154,13 @@ impl windows_core::RuntimeType for ControlChannelTriggerResourceType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
-    pub const HardwareSlotRequested: Self = Self(0i32);
-    pub const SoftwareSlotAllocated: Self = Self(1i32);
-    pub const HardwareSlotAllocated: Self = Self(2i32);
-    pub const PolicyError: Self = Self(3i32);
-    pub const SystemError: Self = Self(4i32);
-    pub const TransportDisconnected: Self = Self(5i32);
-    pub const ServiceUnavailable: Self = Self(6i32);
+    pub const HardwareSlotRequested: Self = Self(0);
+    pub const SoftwareSlotAllocated: Self = Self(1);
+    pub const HardwareSlotAllocated: Self = Self(2);
+    pub const PolicyError: Self = Self(3);
+    pub const SystemError: Self = Self(4);
+    pub const TransportDisconnected: Self = Self(5);
+    pub const ServiceUnavailable: Self = Self(6);
 }
 impl windows_core::TypeKind for ControlChannelTriggerStatus {
     type TypeKind = windows_core::CopyType;
@@ -2578,8 +2578,8 @@ unsafe impl Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
-    pub const FullMessage: Self = Self(0i32);
-    pub const PartialMessage: Self = Self(1i32);
+    pub const FullMessage: Self = Self(0);
+    pub const PartialMessage: Self = Self(1);
 }
 impl windows_core::TypeKind for MessageWebSocketReceiveMode {
     type TypeKind = windows_core::CopyType;
@@ -2833,8 +2833,8 @@ unsafe impl Sync for ServerStreamWebSocketInformation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
-    pub const DoNotWake: Self = Self(0i32);
-    pub const Wake: Self = Self(1i32);
+    pub const DoNotWake: Self = Self(0);
+    pub const Wake: Self = Self(1);
 }
 impl windows_core::TypeKind for SocketActivityConnectedStandbyAction {
     type TypeKind = windows_core::CopyType;
@@ -2956,10 +2956,10 @@ unsafe impl Sync for SocketActivityInformation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
-    pub const None: Self = Self(0i32);
-    pub const StreamSocketListener: Self = Self(1i32);
-    pub const DatagramSocket: Self = Self(2i32);
-    pub const StreamSocket: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const StreamSocketListener: Self = Self(1);
+    pub const DatagramSocket: Self = Self(2);
+    pub const StreamSocket: Self = Self(3);
 }
 impl windows_core::TypeKind for SocketActivityKind {
     type TypeKind = windows_core::CopyType;
@@ -3002,11 +3002,11 @@ unsafe impl Sync for SocketActivityTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
-    pub const None: Self = Self(0i32);
-    pub const SocketActivity: Self = Self(1i32);
-    pub const ConnectionAccepted: Self = Self(2i32);
-    pub const KeepAliveTimerExpired: Self = Self(3i32);
-    pub const SocketClosed: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const SocketActivity: Self = Self(1);
+    pub const ConnectionAccepted: Self = Self(2);
+    pub const KeepAliveTimerExpired: Self = Self(3);
+    pub const SocketClosed: Self = Self(4);
 }
 impl windows_core::TypeKind for SocketActivityTriggerReason {
     type TypeKind = windows_core::CopyType;
@@ -3035,37 +3035,37 @@ impl windows_core::RuntimeName for SocketError {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const OperationAborted: Self = Self(1i32);
-    pub const HttpInvalidServerResponse: Self = Self(2i32);
-    pub const ConnectionTimedOut: Self = Self(3i32);
-    pub const AddressFamilyNotSupported: Self = Self(4i32);
-    pub const SocketTypeNotSupported: Self = Self(5i32);
-    pub const HostNotFound: Self = Self(6i32);
-    pub const NoDataRecordOfRequestedType: Self = Self(7i32);
-    pub const NonAuthoritativeHostNotFound: Self = Self(8i32);
-    pub const ClassTypeNotFound: Self = Self(9i32);
-    pub const AddressAlreadyInUse: Self = Self(10i32);
-    pub const CannotAssignRequestedAddress: Self = Self(11i32);
-    pub const ConnectionRefused: Self = Self(12i32);
-    pub const NetworkIsUnreachable: Self = Self(13i32);
-    pub const UnreachableHost: Self = Self(14i32);
-    pub const NetworkIsDown: Self = Self(15i32);
-    pub const NetworkDroppedConnectionOnReset: Self = Self(16i32);
-    pub const SoftwareCausedConnectionAbort: Self = Self(17i32);
-    pub const ConnectionResetByPeer: Self = Self(18i32);
-    pub const HostIsDown: Self = Self(19i32);
-    pub const NoAddressesFound: Self = Self(20i32);
-    pub const TooManyOpenFiles: Self = Self(21i32);
-    pub const MessageTooLong: Self = Self(22i32);
-    pub const CertificateExpired: Self = Self(23i32);
-    pub const CertificateUntrustedRoot: Self = Self(24i32);
-    pub const CertificateCommonNameIsIncorrect: Self = Self(25i32);
-    pub const CertificateWrongUsage: Self = Self(26i32);
-    pub const CertificateRevoked: Self = Self(27i32);
-    pub const CertificateNoRevocationCheck: Self = Self(28i32);
-    pub const CertificateRevocationServerOffline: Self = Self(29i32);
-    pub const CertificateIsInvalid: Self = Self(30i32);
+    pub const Unknown: Self = Self(0);
+    pub const OperationAborted: Self = Self(1);
+    pub const HttpInvalidServerResponse: Self = Self(2);
+    pub const ConnectionTimedOut: Self = Self(3);
+    pub const AddressFamilyNotSupported: Self = Self(4);
+    pub const SocketTypeNotSupported: Self = Self(5);
+    pub const HostNotFound: Self = Self(6);
+    pub const NoDataRecordOfRequestedType: Self = Self(7);
+    pub const NonAuthoritativeHostNotFound: Self = Self(8);
+    pub const ClassTypeNotFound: Self = Self(9);
+    pub const AddressAlreadyInUse: Self = Self(10);
+    pub const CannotAssignRequestedAddress: Self = Self(11);
+    pub const ConnectionRefused: Self = Self(12);
+    pub const NetworkIsUnreachable: Self = Self(13);
+    pub const UnreachableHost: Self = Self(14);
+    pub const NetworkIsDown: Self = Self(15);
+    pub const NetworkDroppedConnectionOnReset: Self = Self(16);
+    pub const SoftwareCausedConnectionAbort: Self = Self(17);
+    pub const ConnectionResetByPeer: Self = Self(18);
+    pub const HostIsDown: Self = Self(19);
+    pub const NoAddressesFound: Self = Self(20);
+    pub const TooManyOpenFiles: Self = Self(21);
+    pub const MessageTooLong: Self = Self(22);
+    pub const CertificateExpired: Self = Self(23);
+    pub const CertificateUntrustedRoot: Self = Self(24);
+    pub const CertificateCommonNameIsIncorrect: Self = Self(25);
+    pub const CertificateWrongUsage: Self = Self(26);
+    pub const CertificateRevoked: Self = Self(27);
+    pub const CertificateNoRevocationCheck: Self = Self(28);
+    pub const CertificateRevocationServerOffline: Self = Self(29);
+    pub const CertificateIsInvalid: Self = Self(30);
 }
 impl windows_core::TypeKind for SocketErrorStatus {
     type TypeKind = windows_core::CopyType;
@@ -3078,8 +3078,8 @@ impl windows_core::RuntimeType for SocketErrorStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
-    pub const Binary: Self = Self(0i32);
-    pub const Utf8: Self = Self(1i32);
+    pub const Binary: Self = Self(0);
+    pub const Utf8: Self = Self(1);
 }
 impl windows_core::TypeKind for SocketMessageType {
     type TypeKind = windows_core::CopyType;
@@ -3092,17 +3092,17 @@ impl windows_core::RuntimeType for SocketMessageType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
-    pub const PlainSocket: Self = Self(0i32);
-    pub const Ssl: Self = Self(1i32);
-    pub const SslAllowNullEncryption: Self = Self(2i32);
-    pub const BluetoothEncryptionAllowNullAuthentication: Self = Self(3i32);
-    pub const BluetoothEncryptionWithAuthentication: Self = Self(4i32);
-    pub const Ssl3AllowWeakEncryption: Self = Self(5i32);
-    pub const Tls10: Self = Self(6i32);
-    pub const Tls11: Self = Self(7i32);
-    pub const Tls12: Self = Self(8i32);
-    pub const Unspecified: Self = Self(9i32);
-    pub const Tls13: Self = Self(10i32);
+    pub const PlainSocket: Self = Self(0);
+    pub const Ssl: Self = Self(1);
+    pub const SslAllowNullEncryption: Self = Self(2);
+    pub const BluetoothEncryptionAllowNullAuthentication: Self = Self(3);
+    pub const BluetoothEncryptionWithAuthentication: Self = Self(4);
+    pub const Ssl3AllowWeakEncryption: Self = Self(5);
+    pub const Tls10: Self = Self(6);
+    pub const Tls11: Self = Self(7);
+    pub const Tls12: Self = Self(8);
+    pub const Unspecified: Self = Self(9);
+    pub const Tls13: Self = Self(10);
 }
 impl windows_core::TypeKind for SocketProtectionLevel {
     type TypeKind = windows_core::CopyType;
@@ -3115,8 +3115,8 @@ impl windows_core::RuntimeType for SocketProtectionLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
-    pub const Normal: Self = Self(0i32);
-    pub const LowLatency: Self = Self(1i32);
+    pub const Normal: Self = Self(0);
+    pub const LowLatency: Self = Self(1);
 }
 impl windows_core::TypeKind for SocketQualityOfService {
     type TypeKind = windows_core::CopyType;
@@ -3129,9 +3129,9 @@ impl windows_core::RuntimeType for SocketQualityOfService {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {
-    pub const None: Self = Self(0i32);
-    pub const Ignorable: Self = Self(1i32);
-    pub const Fatal: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Ignorable: Self = Self(1);
+    pub const Fatal: Self = Self(2);
 }
 impl windows_core::TypeKind for SocketSslErrorSeverity {
     type TypeKind = windows_core::CopyType;

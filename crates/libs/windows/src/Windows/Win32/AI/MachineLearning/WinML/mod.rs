@@ -1410,13 +1410,13 @@ impl Default for MLOperatorAttributeNameValue_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
-    pub const Undefined: Self = Self(0u32);
-    pub const Float: Self = Self(2u32);
-    pub const Int: Self = Self(3u32);
-    pub const String: Self = Self(4u32);
-    pub const FloatArray: Self = Self(7u32);
-    pub const IntArray: Self = Self(8u32);
-    pub const StringArray: Self = Self(9u32);
+    pub const Undefined: Self = Self(0);
+    pub const Float: Self = Self(2);
+    pub const Int: Self = Self(3);
+    pub const String: Self = Self(4);
+    pub const FloatArray: Self = Self(7);
+    pub const IntArray: Self = Self(8);
+    pub const StringArray: Self = Self(9);
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1444,10 +1444,10 @@ impl Default for MLOperatorEdgeDescription_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
-    pub const Undefined: Self = Self(0u32);
-    pub const Tensor: Self = Self(1u32);
-    pub const SequenceTensor: Self = Self(2u32);
-    pub const Primitive: Self = Self(3u32);
+    pub const Undefined: Self = Self(0);
+    pub const Tensor: Self = Self(1);
+    pub const SequenceTensor: Self = Self(2);
+    pub const Primitive: Self = Self(3);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1465,9 +1465,9 @@ impl Default for MLOperatorEdgeTypeConstraint {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
-    pub const Undefined: Self = Self(0u32);
-    pub const Cpu: Self = Self(1u32);
-    pub const D3D12: Self = Self(2u32);
+    pub const Undefined: Self = Self(0);
+    pub const Cpu: Self = Self(1);
+    pub const D3D12: Self = Self(2);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1492,8 +1492,8 @@ impl Default for MLOperatorKernelDescription {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
-    pub const None: Self = Self(0u32);
-    pub const AllowDynamicInputShapes: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const AllowDynamicInputShapes: Self = Self(1);
 }
 impl MLOperatorKernelOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1532,9 +1532,9 @@ impl core::ops::Not for MLOperatorKernelOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
-    pub const Single: Self = Self(0u32);
-    pub const Optional: Self = Self(1u32);
-    pub const Variadic: Self = Self(2u32);
+    pub const Single: Self = Self(0);
+    pub const Optional: Self = Self(1);
+    pub const Variadic: Self = Self(2);
 }
 impl MLOperatorParameterOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1618,8 +1618,8 @@ impl Default for MLOperatorSchemaEdgeDescription_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
-    pub const EdgeDescription: Self = Self(0i32);
-    pub const Label: Self = Self(1i32);
+    pub const EdgeDescription: Self = Self(0);
+    pub const Label: Self = Self(1);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1631,22 +1631,22 @@ pub struct MLOperatorSetId {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
-    pub const Undefined: Self = Self(0u32);
-    pub const Float: Self = Self(1u32);
-    pub const UInt8: Self = Self(2u32);
-    pub const Int8: Self = Self(3u32);
-    pub const UInt16: Self = Self(4u32);
-    pub const Int16: Self = Self(5u32);
-    pub const Int32: Self = Self(6u32);
-    pub const Int64: Self = Self(7u32);
-    pub const String: Self = Self(8u32);
-    pub const Bool: Self = Self(9u32);
-    pub const Float16: Self = Self(10u32);
-    pub const Double: Self = Self(11u32);
-    pub const UInt32: Self = Self(12u32);
-    pub const UInt64: Self = Self(13u32);
-    pub const Complex64: Self = Self(14u32);
-    pub const Complex128: Self = Self(15u32);
+    pub const Undefined: Self = Self(0);
+    pub const Float: Self = Self(1);
+    pub const UInt8: Self = Self(2);
+    pub const Int8: Self = Self(3);
+    pub const UInt16: Self = Self(4);
+    pub const Int16: Self = Self(5);
+    pub const Int32: Self = Self(6);
+    pub const Int64: Self = Self(7);
+    pub const String: Self = Self(8);
+    pub const Bool: Self = Self(9);
+    pub const Float16: Self = Self(10);
+    pub const Double: Self = Self(11);
+    pub const UInt32: Self = Self(12);
+    pub const UInt64: Self = Self(13);
+    pub const Complex64: Self = Self(14);
+    pub const Complex128: Self = Self(15);
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1688,23 +1688,23 @@ impl Default for WINML_BINDING_DESC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
-pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
-pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5i32);
-pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2i32);
-pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1i32);
+pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4);
+pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3);
+pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5);
+pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2);
+pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_BINDING_TYPE(pub i32);
-pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
-pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
-pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
-pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
-pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1i32);
+pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0);
+pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4);
+pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3);
+pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2);
+pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_FEATURE_TYPE(pub i32);
-pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
+pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_IMAGE_BINDING_DESC {
@@ -1799,7 +1799,7 @@ impl Default for WINML_RESOURCE_BINDING_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
+pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
@@ -1847,26 +1847,26 @@ impl Default for WINML_TENSOR_BINDING_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
-pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
-pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14i32);
+pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9);
+pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15);
+pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
-pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
-pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11i32);
-pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1i32);
-pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10i32);
-pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5i32);
-pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6i32);
-pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7i32);
-pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3i32);
-pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8i32);
-pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4i32);
-pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12i32);
-pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13i32);
-pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
-pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
+pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4;
+pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11);
+pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1);
+pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10);
+pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5);
+pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6);
+pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7);
+pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3);
+pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8);
+pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4);
+pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12);
+pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13);
+pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2);
+pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_TENSOR_VARIABLE_DESC {

@@ -259,10 +259,10 @@ impl windows_core::RuntimeName for EasComplianceResults {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
 }
 impl windows_core::TypeKind for EasDisallowConvenienceLogonResult {
     type TypeKind = windows_core::CopyType;
@@ -275,9 +275,9 @@ impl windows_core::RuntimeType for EasDisallowConvenienceLogonResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasEncryptionProviderType(pub i32);
 impl EasEncryptionProviderType {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const WindowsEncryption: Self = Self(1i32);
-    pub const OtherEncryption: Self = Self(2i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const WindowsEncryption: Self = Self(1);
+    pub const OtherEncryption: Self = Self(2);
 }
 impl windows_core::TypeKind for EasEncryptionProviderType {
     type TypeKind = windows_core::CopyType;
@@ -290,11 +290,11 @@ impl windows_core::RuntimeType for EasEncryptionProviderType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
 impl EasMaxInactivityTimeLockResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
-    pub const InvalidParameter: Self = Self(4i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
+    pub const InvalidParameter: Self = Self(4);
 }
 impl windows_core::TypeKind for EasMaxInactivityTimeLockResult {
     type TypeKind = windows_core::CopyType;
@@ -307,11 +307,11 @@ impl windows_core::RuntimeType for EasMaxInactivityTimeLockResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
 impl EasMaxPasswordFailedAttemptsResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
-    pub const InvalidParameter: Self = Self(4i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
+    pub const InvalidParameter: Self = Self(4);
 }
 impl windows_core::TypeKind for EasMaxPasswordFailedAttemptsResult {
     type TypeKind = windows_core::CopyType;
@@ -324,21 +324,21 @@ impl windows_core::RuntimeType for EasMaxPasswordFailedAttemptsResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
 impl EasMinPasswordComplexCharactersResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
-    pub const RequestedPolicyNotEnforceable: Self = Self(4i32);
-    pub const InvalidParameter: Self = Self(5i32);
-    pub const CurrentUserHasBlankPassword: Self = Self(6i32);
-    pub const AdminsHaveBlankPassword: Self = Self(7i32);
-    pub const UserCannotChangePassword: Self = Self(8i32);
-    pub const AdminsCannotChangePassword: Self = Self(9i32);
-    pub const LocalControlledUsersCannotChangePassword: Self = Self(10i32);
-    pub const ConnectedAdminsProviderPolicyIsWeak: Self = Self(11i32);
-    pub const ConnectedUserProviderPolicyIsWeak: Self = Self(12i32);
-    pub const ChangeConnectedAdminsPassword: Self = Self(13i32);
-    pub const ChangeConnectedUserPassword: Self = Self(14i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
+    pub const RequestedPolicyNotEnforceable: Self = Self(4);
+    pub const InvalidParameter: Self = Self(5);
+    pub const CurrentUserHasBlankPassword: Self = Self(6);
+    pub const AdminsHaveBlankPassword: Self = Self(7);
+    pub const UserCannotChangePassword: Self = Self(8);
+    pub const AdminsCannotChangePassword: Self = Self(9);
+    pub const LocalControlledUsersCannotChangePassword: Self = Self(10);
+    pub const ConnectedAdminsProviderPolicyIsWeak: Self = Self(11);
+    pub const ConnectedUserProviderPolicyIsWeak: Self = Self(12);
+    pub const ChangeConnectedAdminsPassword: Self = Self(13);
+    pub const ChangeConnectedUserPassword: Self = Self(14);
 }
 impl windows_core::TypeKind for EasMinPasswordComplexCharactersResult {
     type TypeKind = windows_core::CopyType;
@@ -351,21 +351,21 @@ impl windows_core::RuntimeType for EasMinPasswordComplexCharactersResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasMinPasswordLengthResult(pub i32);
 impl EasMinPasswordLengthResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
-    pub const RequestedPolicyNotEnforceable: Self = Self(4i32);
-    pub const InvalidParameter: Self = Self(5i32);
-    pub const CurrentUserHasBlankPassword: Self = Self(6i32);
-    pub const AdminsHaveBlankPassword: Self = Self(7i32);
-    pub const UserCannotChangePassword: Self = Self(8i32);
-    pub const AdminsCannotChangePassword: Self = Self(9i32);
-    pub const LocalControlledUsersCannotChangePassword: Self = Self(10i32);
-    pub const ConnectedAdminsProviderPolicyIsWeak: Self = Self(11i32);
-    pub const ConnectedUserProviderPolicyIsWeak: Self = Self(12i32);
-    pub const ChangeConnectedAdminsPassword: Self = Self(13i32);
-    pub const ChangeConnectedUserPassword: Self = Self(14i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
+    pub const RequestedPolicyNotEnforceable: Self = Self(4);
+    pub const InvalidParameter: Self = Self(5);
+    pub const CurrentUserHasBlankPassword: Self = Self(6);
+    pub const AdminsHaveBlankPassword: Self = Self(7);
+    pub const UserCannotChangePassword: Self = Self(8);
+    pub const AdminsCannotChangePassword: Self = Self(9);
+    pub const LocalControlledUsersCannotChangePassword: Self = Self(10);
+    pub const ConnectedAdminsProviderPolicyIsWeak: Self = Self(11);
+    pub const ConnectedUserProviderPolicyIsWeak: Self = Self(12);
+    pub const ChangeConnectedAdminsPassword: Self = Self(13);
+    pub const ChangeConnectedUserPassword: Self = Self(14);
 }
 impl windows_core::TypeKind for EasMinPasswordLengthResult {
     type TypeKind = windows_core::CopyType;
@@ -378,15 +378,15 @@ impl windows_core::RuntimeType for EasMinPasswordLengthResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasPasswordExpirationResult(pub i32);
 impl EasPasswordExpirationResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
-    pub const RequestedExpirationIncompatible: Self = Self(4i32);
-    pub const InvalidParameter: Self = Self(5i32);
-    pub const UserCannotChangePassword: Self = Self(6i32);
-    pub const AdminsCannotChangePassword: Self = Self(7i32);
-    pub const LocalControlledUsersCannotChangePassword: Self = Self(8i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
+    pub const RequestedExpirationIncompatible: Self = Self(4);
+    pub const InvalidParameter: Self = Self(5);
+    pub const UserCannotChangePassword: Self = Self(6);
+    pub const AdminsCannotChangePassword: Self = Self(7);
+    pub const LocalControlledUsersCannotChangePassword: Self = Self(8);
 }
 impl windows_core::TypeKind for EasPasswordExpirationResult {
     type TypeKind = windows_core::CopyType;
@@ -399,11 +399,11 @@ impl windows_core::RuntimeType for EasPasswordExpirationResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasPasswordHistoryResult(pub i32);
 impl EasPasswordHistoryResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const RequestedPolicyIsStricter: Self = Self(3i32);
-    pub const InvalidParameter: Self = Self(4i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const RequestedPolicyIsStricter: Self = Self(3);
+    pub const InvalidParameter: Self = Self(4);
 }
 impl windows_core::TypeKind for EasPasswordHistoryResult {
     type TypeKind = windows_core::CopyType;
@@ -416,25 +416,25 @@ impl windows_core::RuntimeType for EasPasswordHistoryResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasRequireEncryptionResult(pub i32);
 impl EasRequireEncryptionResult {
-    pub const NotEvaluated: Self = Self(0i32);
-    pub const Compliant: Self = Self(1i32);
-    pub const CanBeCompliant: Self = Self(2i32);
-    pub const NotProvisionedOnAllVolumes: Self = Self(3i32);
-    pub const DeFixedDataNotSupported: Self = Self(4i32);
-    pub const FixedDataNotSupported: Self = Self(4i32);
-    pub const DeHardwareNotCompliant: Self = Self(5i32);
-    pub const HardwareNotCompliant: Self = Self(5i32);
-    pub const DeWinReNotConfigured: Self = Self(6i32);
-    pub const LockNotConfigured: Self = Self(6i32);
-    pub const DeProtectionSuspended: Self = Self(7i32);
-    pub const ProtectionSuspended: Self = Self(7i32);
-    pub const DeOsVolumeNotProtected: Self = Self(8i32);
-    pub const OsVolumeNotProtected: Self = Self(8i32);
-    pub const DeProtectionNotYetEnabled: Self = Self(9i32);
-    pub const ProtectionNotYetEnabled: Self = Self(9i32);
-    pub const NoFeatureLicense: Self = Self(10i32);
-    pub const OsNotProtected: Self = Self(11i32);
-    pub const UnexpectedFailure: Self = Self(12i32);
+    pub const NotEvaluated: Self = Self(0);
+    pub const Compliant: Self = Self(1);
+    pub const CanBeCompliant: Self = Self(2);
+    pub const NotProvisionedOnAllVolumes: Self = Self(3);
+    pub const DeFixedDataNotSupported: Self = Self(4);
+    pub const FixedDataNotSupported: Self = Self(4);
+    pub const DeHardwareNotCompliant: Self = Self(5);
+    pub const HardwareNotCompliant: Self = Self(5);
+    pub const DeWinReNotConfigured: Self = Self(6);
+    pub const LockNotConfigured: Self = Self(6);
+    pub const DeProtectionSuspended: Self = Self(7);
+    pub const ProtectionSuspended: Self = Self(7);
+    pub const DeOsVolumeNotProtected: Self = Self(8);
+    pub const OsVolumeNotProtected: Self = Self(8);
+    pub const DeProtectionNotYetEnabled: Self = Self(9);
+    pub const ProtectionNotYetEnabled: Self = Self(9);
+    pub const NoFeatureLicense: Self = Self(10);
+    pub const OsNotProtected: Self = Self(11);
+    pub const UnexpectedFailure: Self = Self(12);
 }
 impl windows_core::TypeKind for EasRequireEncryptionResult {
     type TypeKind = windows_core::CopyType;

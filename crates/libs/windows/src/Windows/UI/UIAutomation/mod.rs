@@ -104,7 +104,6 @@ unsafe impl Sync for AutomationElement {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AutomationTextRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationTextRange, windows_core::IUnknown, windows_core::IInspectable);
-impl AutomationTextRange {}
 impl windows_core::RuntimeType for AutomationTextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationTextRange>();
 }

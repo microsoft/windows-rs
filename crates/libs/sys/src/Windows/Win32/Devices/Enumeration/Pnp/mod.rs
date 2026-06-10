@@ -12,23 +12,23 @@ windows_link::link!("cfgmgr32.dll" "system" fn SwDevicePropertySet(hswdevice : H
 windows_link::link!("cfgmgr32.dll" "system" fn SwDeviceSetLifetime(hswdevice : HSWDEVICE, lifetime : SW_DEVICE_LIFETIME) -> windows_sys::core::HRESULT);
 windows_link::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const core::ffi::c_void));
 pub const ADDRESS_FAMILY_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("AddressFamily");
-pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
-pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
-pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501u32;
-pub const FAULT_INVALID_ACTION: u32 = 401u32;
-pub const FAULT_INVALID_ARG: u32 = 402u32;
-pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
-pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
+pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600;
+pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899;
+pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501;
+pub const FAULT_INVALID_ACTION: u32 = 401;
+pub const FAULT_INVALID_ARG: u32 = 402;
+pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403;
+pub const FAULT_INVALID_VARIABLE: u32 = 404;
 pub type HSWDEVICE = *mut core::ffi::c_void;
 pub const REMOTE_ADDRESS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteAddress");
-pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = 8i32;
-pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = 4i32;
-pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = 0i32;
-pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = 1i32;
-pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = 2i32;
-pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = 0i32;
-pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = 2i32;
-pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = 1i32;
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = 8;
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = 4;
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = 0;
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = 1;
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = 2;
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = 0;
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = 2;
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = 1;
 pub type SW_DEVICE_CAPABILITIES = i32;
 pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_sys::core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_sys::core::PCWSTR)>;
 #[repr(C)]
@@ -52,9 +52,9 @@ impl Default for SW_DEVICE_CREATE_INFO {
     }
 }
 pub type SW_DEVICE_LIFETIME = i32;
-pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
-pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
-pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;
+pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3;
+pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1;
+pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2;
 pub const UPNP_E_ACTION_REQUEST_FAILED: windows_sys::core::HRESULT = 0x80040210_u32 as _;
 pub const UPNP_E_ACTION_SPECIFIC_BASE: windows_sys::core::HRESULT = 0x80040300_u32 as _;
 pub const UPNP_E_DEVICE_ELEMENT_EXPECTED: windows_sys::core::HRESULT = 0x80040201_u32 as _;
@@ -89,7 +89,7 @@ pub const UPNP_E_TRANSPORT_ERROR: windows_sys::core::HRESULT = 0x80040211_u32 as
 pub const UPNP_E_URLBASE_PRESENT: windows_sys::core::HRESULT = 0x8004A029_u32 as _;
 pub const UPNP_E_VALUE_TOO_LONG: windows_sys::core::HRESULT = 0x8004A030_u32 as _;
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: windows_sys::core::HRESULT = 0x80040212_u32 as _;
-pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
+pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1;
 pub const UPnPDescriptionDocument: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
 pub const UPnPDescriptionDocumentEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
 pub const UPnPDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
