@@ -208,7 +208,6 @@ fn app(cx: &mut RenderCx) -> Element {
             let h = equals_handler.clone();
             move || h()
         })
-        .foreground(Color::rgb(255, 255, 255))
         .horizontal_alignment(HorizontalAlignment::Stretch)
         .vertical_alignment(VerticalAlignment::Stretch)
         .accent()
