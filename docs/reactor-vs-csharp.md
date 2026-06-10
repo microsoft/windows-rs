@@ -22,7 +22,7 @@ NuGet packaging, VS/VS Code extensions, hot reload) and features that depend on
 | Keyed diff (prefix/suffix/LIS) | ✅ 4-phase with LIS | ✅ Same algorithm | No |
 | Skip-unchanged optimization | ✅ `CanSkipUpdate` + `ShallowEquals` | ✅ `can_skip_update` + `kind_matches` | No |
 | State-dirty bypass | ✅ dirty flag on context | ✅ `is_component_state_dirty` | No |
-| **Element pooling** | ✅ Recycled by CLR type (max 32) | ❌ None | **Yes** |
+| Element pooling | ✅ Recycled by CLR type (max 32) | ❌ None (not needed) | No |
 | **Render coalescing** | ✅ Batches multiple setState into single render | ✅ Dispatcher batching (tested) | No |
 | **Rerender depth guard** | ✅ `MaxRerenderReentrancy = 50` | ❌ No recursion limit | **Yes** |
 | Debug counters | ✅ diffed/skipped/created/modified | ✅ diffed/skipped/created (no modified) | Minor |
@@ -30,14 +30,23 @@ NuGet packaging, VS/VS Code extensions, hot reload) and features that depend on
 ### Element Pooling
 
 The C# reconciler pools unmounted WinUI controls (up to 32 per CLR type) and
-reuses them on subsequent mounts. This avoids expensive COM object creation and
-GC pressure on high-frequency list updates. The pool clears tags, event
-handlers, accessibility props, flex props, and styles before reuse.
+reuses them on subsequent mounts to reduce GC pressure. However, benchmark data
+shows this is not beneficial — and may be counterproductive:
 
-In Rust, every unmount destroys the COM control and every mount creates a new
-one. For templated lists with frequent item churn, this is likely a measurable
-cost. A pool keyed by `ControlKind` with pre-recycle cleanup would be the
-direct analogue.
+- **Elements Created = 0 at steady state.** The skip-unchanged optimization
+  means the reconciler never creates or destroys controls during normal updates.
+  The pool has nothing to recycle.
+- **C# Reactor (with pooling) uses 67% more memory** than Rust (without): 296 MB
+  vs 177 MB. The pool itself, plus the GC overhead of managing recycled objects
+  and the cleanup logic (clearing tags, events, accessibility props, styles on
+  each recycle), adds overhead rather than saving it.
+- **C# Reactor is 16× slower on reconcile** despite having pooling. The real C#
+  bottleneck is GC allocation pressure (~22 MB/tick), which pooling does not
+  solve since element tree construction (not control creation) dominates.
+
+Rust doesn't need pooling. COM control creation is a fixed-cost FFI call with no
+GC implications, and the reconciler's kind-matching already avoids it at steady
+state.
 
 ### Render Coalescing
 
@@ -115,7 +124,7 @@ marshaller or silently leak.
 | ThemeRef tokens | ✅ Full set with subtree overrides | ✅ `ThemeRef` enum (30+ tokens) | No |
 | Color scheme tracking | ✅ | ✅ `current_color_scheme` / `set_current_color_scheme` | No |
 | **Style caching** | ✅ `ConcurrentDictionary` keyed by type + sorted bindings | ❌ | **Yes** |
-| **Theme bleed on recycled controls** | ✅ Fixed (clears synthesized Style on pool recycle) | N/A (no pooling) | Future |
+| Theme bleed on recycled controls | ✅ Fixed (clears synthesized Style on pool recycle) | N/A (no pooling, not needed) | No |
 | Per-control style overrides | ✅ | ❌ | Feature |
 
 ### Style Caching
@@ -123,9 +132,8 @@ marshaller or silently leak.
 The C# reconciler caches WinUI `Style` objects keyed by (target type, sorted
 binding set). When multiple elements of the same type share the same theme
 bindings, they reuse a single `Style` object. The Rust crate creates theme
-resources per-element every time. Once element pooling is added, style caching
-becomes important to avoid theme-binding bleed (a bug the C# project already
-found and fixed).
+resources per-element every time. This could reduce COM object count but has
+not been measured as a bottleneck.
 
 ---
 
@@ -225,7 +233,7 @@ These findings significantly change the priority analysis:
 |-------------|-----|------|-------------|----------|
 | Skip-unchanged | ✅ | ✅ | Core — both have it | Done |
 | **Cell memoization** | ✅ `UseMemoCells` | ✅ Already built-in | Largest measured win (+49%). Rust perf test already caches cells and only rebuilds dirty indices — this is the *default* Rust approach. | **Already done** |
-| **Element pooling** | ✅ 32/type | ❌ | Unclear benefit in Rust. C# pools to reduce GC pressure from COM object creation. Rust has no GC; COM creation cost is a fixed FFI call. Worth measuring but may not matter. | **Measure first** |
+| **Element pooling** | ✅ 32/type | ❌ | Not needed. Elements Created = 0 at steady state; C# pools to mitigate GC pressure that Rust doesn't have. Pooling adds complexity and cleanup overhead for no measured benefit. | **Skip** |
 | **Render coalescing** | ✅ | ✅ | Rust already has dispatcher-based batching (tested: 100 setState → 1 render). | **Already done** |
 | **Modifier bucketing** | ✅ −11% bytes | ❌ | C# saw only +6% renders. Rust `Modifiers` is stack-allocated, no GC pressure. The clone cost is trivially small vs C#'s record-with-copy. | **Skip** |
 | **Rerender depth guard** | ✅ cap=50 | ❌ | Not a perf optimization — it's a correctness guard against infinite recursion. | **Add (trivial)** |
@@ -325,24 +333,23 @@ core:
    liveness before dispatching
 3. **Hook-order error messages** — name the component and expected/actual types
 
-### Medium Priority (worth measuring)
+### Medium Priority (minor improvements)
 
-4. **Element pooling** — the C# project pools up to 32 controls per type, but
-   their motivation was GC pressure, which doesn't apply to Rust. Pooling may
-   still help by avoiding COM `CreateInstance` calls. **Measure COM creation cost
-   with the perf harness before investing** — if `Elements Created` is near zero
-   at steady-state (because skip-unchanged avoids new mounts), pooling has no
-   effect.
-5. **Style caching** — deduplicate WinUI Style objects for theme bindings
+4. **Style caching** — deduplicate WinUI Style objects for theme bindings
 
 ### Lower Priority (feature gaps)
 
-6. **Full accessibility surface** — add missing `AutomationProperties`
-7. **Modern ScrollView** — wrap `Microsoft.UI.Xaml.Controls.ScrollView`
-8. **Multi-window** — foundation for desktop app scenarios
+5. **Full accessibility surface** — add missing `AutomationProperties`
+6. **Modern ScrollView** — wrap `Microsoft.UI.Xaml.Controls.ScrollView`
+7. **Multi-window** — foundation for desktop app scenarios
 
 ### Not Recommended (based on C# data)
 
+- **Element pooling** — Elements Created = 0 at steady state, so the pool has
+  nothing to recycle. C# pools to mitigate GC pressure (22 MB/tick allocations)
+  that doesn't exist in Rust. The pool's cleanup overhead (clearing tags, events,
+  styles per recycle) adds cost, and C# Reactor with pooling is still 16× slower
+  and uses 67% more memory than Rust without it.
 - **Modifier struct bucketing** — C# saw only +6% renders / −11% bytes, and the
   Rust struct is stack-allocated (no GC pressure). Not worth the complexity.
 
