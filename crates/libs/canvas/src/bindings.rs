@@ -274,7 +274,6 @@ impl ID2D1Bitmap {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Bitmap_Vtbl {
     pub base__: ID2D1Image_Vtbl,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D_SIZE_F),
@@ -307,7 +306,6 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Bitmap
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Bitmap1_Vtbl {
     pub base__: ID2D1Bitmap_Vtbl,
     GetColorContext: usize,
@@ -332,7 +330,6 @@ impl core::ops::Deref for ID2D1Brush {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Brush, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Brush_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     SetOpacity: usize,
@@ -356,7 +353,6 @@ impl core::ops::Deref for ID2D1ColorContext {
 }
 windows_core::imp::interface_hierarchy!(ID2D1ColorContext, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1ColorContext_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     GetColorSpace: usize,
@@ -395,7 +391,6 @@ impl ID2D1Device {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Device_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub CreateDeviceContext: unsafe extern "system" fn(
@@ -568,7 +563,6 @@ impl ID2D1DeviceContext {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     pub CreateBitmap: unsafe extern "system" fn(
@@ -684,7 +678,6 @@ impl ID2D1Effect {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Effect_Vtbl {
     pub base__: ID2D1Properties_Vtbl,
     pub SetInput: unsafe extern "system" fn(
@@ -708,7 +701,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ID2D1Factory, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Factory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     ReloadSystemMetrics: usize,
@@ -785,7 +777,6 @@ impl ID2D1Factory1 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Factory1_Vtbl {
     pub base__: ID2D1Factory_Vtbl,
     pub CreateDevice: unsafe extern "system" fn(
@@ -828,7 +819,6 @@ impl core::ops::Deref for ID2D1Geometry {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Geometry, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Geometry_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     GetBounds: usize,
@@ -883,7 +873,6 @@ impl ID2D1GeometrySink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1GeometrySink_Vtbl {
     pub base__: ID2D1SimplifiedGeometrySink_Vtbl,
     pub AddLine: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2),
@@ -912,7 +901,6 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Resource
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1GradientStopCollection_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     GetGradientStopCount: usize,
@@ -936,7 +924,6 @@ impl core::ops::Deref for ID2D1Image {
 }
 windows_core::imp::interface_hierarchy!(ID2D1Image, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Image_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
 }
@@ -961,7 +948,6 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Brush
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1LinearGradientBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     SetStartPoint: usize,
@@ -1003,7 +989,6 @@ impl ID2D1PathGeometry {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1PathGeometry_Vtbl {
     pub base__: ID2D1Geometry_Vtbl,
     pub Open: unsafe extern "system" fn(
@@ -1036,7 +1021,6 @@ windows_core::imp::interface_hierarchy!(
     ID2D1PathGeometry
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1PathGeometry1_Vtbl {
     pub base__: ID2D1PathGeometry_Vtbl,
     ComputePointAndSegmentAtLength: usize,
@@ -1051,7 +1035,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ID2D1Properties, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Properties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetPropertyCount: usize,
@@ -1087,7 +1070,6 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Brush
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1RadialGradientBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     SetCenter: usize,
@@ -1447,7 +1429,6 @@ impl ID2D1RenderTarget {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1RenderTarget_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     CreateBitmap: usize,
@@ -1601,7 +1582,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ID2D1Resource, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1Resource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetFactory: usize,
@@ -1645,7 +1625,6 @@ impl ID2D1SimplifiedGeometrySink {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     SetFillMode: usize,
@@ -1691,7 +1670,6 @@ impl ID2D1SolidColorBrush {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1SolidColorBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_COLOR_F),
@@ -1713,7 +1691,6 @@ impl core::ops::Deref for ID2D1StrokeStyle {
 }
 windows_core::imp::interface_hierarchy!(ID2D1StrokeStyle, windows_core::IUnknown, ID2D1Resource);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1StrokeStyle_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     GetStartCap: usize,
@@ -1747,7 +1724,6 @@ windows_core::imp::interface_hierarchy!(
     ID2D1StrokeStyle
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2D1StrokeStyle1_Vtbl {
     pub base__: ID2D1StrokeStyle_Vtbl,
     GetStrokeTransformType: usize,
@@ -1762,7 +1738,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ID3D11Device, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11Device_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     CreateBuffer: usize,
@@ -1816,7 +1791,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ID3D11DeviceChild, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceChild_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetDevice: usize,
@@ -1844,7 +1818,6 @@ windows_core::imp::interface_hierarchy!(
     ID3D11DeviceChild
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D11DeviceContext_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     VSSetConstantBuffers: usize,
@@ -1999,7 +1972,6 @@ impl IDWriteFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDWriteFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetSystemFontCollection: usize,
@@ -2044,7 +2016,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDWriteFontCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetFontFamilyCount: usize,
@@ -2088,7 +2059,6 @@ impl IDWriteTextFormat {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDWriteTextFormat_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTextAlignment: unsafe extern "system" fn(
@@ -2139,7 +2109,6 @@ impl core::ops::Deref for IDXGIAdapter {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter, windows_core::IUnknown, IDXGIObject);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIAdapter_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     EnumOutputs: usize,
@@ -2174,7 +2143,6 @@ impl IDXGIDevice {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDevice_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(
@@ -2202,7 +2170,6 @@ impl core::ops::Deref for IDXGIDeviceSubObject {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDeviceSubObject, windows_core::IUnknown, IDXGIObject);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIDeviceSubObject_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     GetDevice: usize,
@@ -2223,7 +2190,6 @@ impl core::ops::Deref for IDXGIFactory {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory, windows_core::IUnknown, IDXGIObject);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     EnumAdapters: usize,
@@ -2253,7 +2219,6 @@ windows_core::imp::interface_hierarchy!(
     IDXGIFactory
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory1_Vtbl {
     pub base__: IDXGIFactory_Vtbl,
     EnumAdapters1: usize,
@@ -2331,7 +2296,6 @@ impl IDXGIFactory2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIFactory2_Vtbl {
     pub base__: IDXGIFactory1_Vtbl,
     IsWindowedStereoEnabled: usize,
@@ -2386,7 +2350,6 @@ impl IDXGIObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     SetPrivateData: usize,
@@ -2414,7 +2377,6 @@ impl core::ops::Deref for IDXGIOutput {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput, windows_core::IUnknown, IDXGIObject);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGIOutput_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     GetDesc: usize,
@@ -2451,7 +2413,6 @@ windows_core::imp::interface_hierarchy!(
     IDXGIDeviceSubObject
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISurface_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     GetDesc: usize,
@@ -2525,7 +2486,6 @@ impl IDXGISwapChain {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub Present: unsafe extern "system" fn(
@@ -2577,7 +2537,6 @@ windows_core::imp::interface_hierarchy!(
     IDXGISwapChain
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain1_Vtbl {
     pub base__: IDXGISwapChain_Vtbl,
     GetDesc1: usize,
@@ -2629,7 +2588,6 @@ impl IDXGISwapChain2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDXGISwapChain2_Vtbl {
     pub base__: IDXGISwapChain1_Vtbl,
     SetSourceSize: usize,
@@ -2666,7 +2624,6 @@ impl IWICBitmapDecoder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWICBitmapDecoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     QueryCapability: usize,
@@ -2703,7 +2660,6 @@ windows_core::imp::interface_hierarchy!(
     IWICBitmapSource
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWICBitmapFrameDecode_Vtbl {
     pub base__: IWICBitmapSource_Vtbl,
     GetMetadataQueryReader: usize,
@@ -2718,7 +2674,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IWICBitmapSource, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWICBitmapSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     GetSize: usize,
@@ -2773,7 +2728,6 @@ impl IWICFormatConverter {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWICFormatConverter_Vtbl {
     pub base__: IWICBitmapSource_Vtbl,
     pub Initialize: unsafe extern "system" fn(
@@ -2830,7 +2784,6 @@ impl IWICImagingFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWICImagingFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateDecoderFromFilename: unsafe extern "system" fn(
@@ -2877,7 +2830,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IWICPalette, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWICPalette_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     InitializePredefined: usize,

@@ -492,7 +492,6 @@ impl ApplicationInitializationCallback {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ApplicationInitializationCallback_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -3006,7 +3005,6 @@ impl DispatcherQueueHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct DispatcherQueueHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3290,7 +3288,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
         .push_slice(b")");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct EventHandler_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -4281,7 +4278,6 @@ impl windows_core::RuntimeType for IAppBar {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsOpen: usize,
@@ -4348,7 +4344,6 @@ impl IAppBarButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBarButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Label: unsafe extern "system" fn(
@@ -4380,7 +4375,6 @@ impl windows_core::RuntimeType for IAppBarButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBarButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -4400,7 +4394,6 @@ impl windows_core::RuntimeType for IAppBarSeparator {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBarSeparator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -4414,7 +4407,6 @@ impl windows_core::RuntimeType for IAppBarSeparatorFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBarSeparatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -4457,7 +4449,6 @@ impl IAppBarToggleButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBarToggleButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Label: usize,
@@ -4486,7 +4477,6 @@ impl windows_core::RuntimeType for IAppBarToggleButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppBarToggleButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -4550,7 +4540,6 @@ impl IAppWindow {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Id: usize,
@@ -4624,7 +4613,6 @@ impl IAppWindow2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppWindow2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_ClientSize:
@@ -4646,7 +4634,6 @@ impl windows_core::RuntimeType for IAppWindowPresenter {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppWindowPresenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Kind: usize,
@@ -4661,7 +4648,6 @@ impl windows_core::RuntimeType for IAppWindowTitleBar {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppWindowTitleBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_BackgroundColor: usize,
@@ -4722,7 +4708,6 @@ impl IAppWindowTitleBar2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppWindowTitleBar2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PreferredHeightOption: usize,
@@ -4752,7 +4737,6 @@ impl IAppWindowTitleBar3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAppWindowTitleBar3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PreferredTheme: usize,
@@ -4781,7 +4765,6 @@ impl IApplication {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplication_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Resources: unsafe extern "system" fn(
@@ -4810,7 +4793,6 @@ impl windows_core::RuntimeType for IApplicationFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -4830,7 +4812,6 @@ impl windows_core::RuntimeType for IApplicationInitializationCallbackParams {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationInitializationCallbackParams_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -4895,7 +4876,6 @@ impl IApplicationOverrides_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationOverrides_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OnLaunched: unsafe extern "system" fn(
@@ -4913,7 +4893,6 @@ impl windows_core::RuntimeType for IApplicationStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IApplicationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Current: unsafe extern "system" fn(
@@ -5077,7 +5056,6 @@ impl IAutoSuggestBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutoSuggestBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_MaxSuggestionListHeight: usize,
@@ -5163,7 +5141,6 @@ impl IAutoSuggestBoxQuerySubmittedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutoSuggestBoxQuerySubmittedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_QueryText: unsafe extern "system" fn(
@@ -5194,7 +5171,6 @@ impl IAutoSuggestBoxSuggestionChosenEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutoSuggestBoxSuggestionChosenEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_SelectedItem: unsafe extern "system" fn(
@@ -5224,7 +5200,6 @@ impl IAutoSuggestBoxTextChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutoSuggestBoxTextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Reason: unsafe extern "system" fn(
@@ -5244,7 +5219,6 @@ impl windows_core::RuntimeType for IAutomationPeer {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomationPeer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_EventsSource: usize,
@@ -5312,7 +5286,6 @@ impl windows_core::RuntimeType for IAutomationProperties {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomationProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -5326,7 +5299,6 @@ impl windows_core::RuntimeType for IAutomationPropertiesStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAutomationPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_AcceleratorKeyProperty: usize,
@@ -5453,7 +5425,6 @@ impl IBitmapImage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapImage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_CreateOptions: usize,
@@ -5492,7 +5463,6 @@ impl windows_core::RuntimeType for IBitmapSource {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBitmapSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PixelWidth: usize,
@@ -5506,7 +5476,6 @@ impl windows_core::RuntimeType for IBlock {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBlock_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_TextAlignment: usize,
@@ -5605,7 +5574,6 @@ impl IBorder {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBorder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_BorderBrush: usize,
@@ -5692,7 +5660,6 @@ impl IBreadcrumbBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBreadcrumbBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_ItemsSource: usize,
@@ -5720,7 +5687,6 @@ impl windows_core::RuntimeType for IBreadcrumbBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBreadcrumbBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -5752,7 +5718,6 @@ impl IBreadcrumbBarItemClickedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBreadcrumbBarItemClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Index:
@@ -5765,7 +5730,6 @@ impl windows_core::RuntimeType for IBrush {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Opacity: usize,
@@ -5809,7 +5773,6 @@ impl IButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Flyout: unsafe extern "system" fn(
@@ -5860,7 +5823,6 @@ impl IButtonBase {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IButtonBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_ClickMode: usize,
@@ -5889,7 +5851,6 @@ impl windows_core::RuntimeType for IButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -5986,7 +5947,6 @@ impl ICalendarDatePicker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarDatePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Date: usize,
@@ -6072,7 +6032,6 @@ impl ICalendarDatePickerDateChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarDatePickerDateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_NewDate: unsafe extern "system" fn(
@@ -6091,7 +6050,6 @@ impl windows_core::RuntimeType for ICalendarDatePickerFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarDatePickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -6171,7 +6129,6 @@ impl ICalendarView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_CalendarIdentifier: usize,
@@ -6346,7 +6303,6 @@ impl windows_core::RuntimeType for ICalendarViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -6392,7 +6348,6 @@ impl ICalendarViewSelectedDatesChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICalendarViewSelectedDatesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_AddedDates: unsafe extern "system" fn(
@@ -6414,7 +6369,6 @@ impl windows_core::RuntimeType for ICanvas {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICanvas_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -6428,7 +6382,6 @@ impl windows_core::RuntimeType for ICanvasFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICanvasFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -6448,7 +6401,6 @@ impl windows_core::RuntimeType for ICanvasStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICanvasStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_LeftProperty: usize,
@@ -6491,7 +6443,6 @@ impl windows_core::RuntimeType for ICheckBox {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICheckBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -6505,7 +6456,6 @@ impl windows_core::RuntimeType for ICheckBoxFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICheckBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -6537,7 +6487,6 @@ impl IColorChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IColorChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_OldColor: usize,
@@ -6633,7 +6582,6 @@ impl IColorPicker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IColorPicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Color: usize,
@@ -6697,7 +6645,6 @@ impl windows_core::RuntimeType for IColorPickerFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IColorPickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -6728,7 +6675,6 @@ impl IColumnDefinition {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IColumnDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Width: usize,
@@ -6782,7 +6728,6 @@ impl IComboBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComboBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsDropDownOpen: usize,
@@ -6839,7 +6784,6 @@ impl windows_core::RuntimeType for IComboBoxFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComboBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -6897,7 +6841,6 @@ impl ICommandBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_PrimaryCommands: unsafe extern "system" fn(
@@ -6938,7 +6881,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsCompact: usize,
@@ -6957,7 +6899,6 @@ impl windows_core::RuntimeType for ICommandBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -7003,7 +6944,6 @@ impl ICommandBarFlyout {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandBarFlyout_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_PrimaryCommands: unsafe extern "system" fn(
@@ -7025,7 +6965,6 @@ impl windows_core::RuntimeType for ICommandBarFlyoutFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICommandBarFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -7045,7 +6984,6 @@ impl windows_core::RuntimeType for ICompositionAnimation {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     ClearAllParameters: usize,
@@ -7081,7 +7019,6 @@ impl ICompositionAnimation2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     SetBooleanParameter: usize,
@@ -7106,7 +7043,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -7120,7 +7056,6 @@ impl windows_core::RuntimeType for ICompositionEasingFunction {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -7159,7 +7094,6 @@ impl ICompositionObject {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Compositor: unsafe extern "system" fn(
@@ -7198,7 +7132,6 @@ impl ICompositionObject2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionObject2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Comment: usize,
@@ -7221,7 +7154,6 @@ impl windows_core::RuntimeType for ICompositionTarget {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -7235,7 +7167,6 @@ impl windows_core::RuntimeType for ICompositionTargetStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositionTargetStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub add_Rendering: unsafe extern "system" fn(
@@ -7309,7 +7240,6 @@ impl ICompositor {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     CreateColorKeyFrameAnimation: usize,
@@ -7374,7 +7304,6 @@ impl ICompositor2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     CreateAmbientLight: usize,
@@ -7428,7 +7357,6 @@ impl IContentControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContentControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Content: unsafe extern "system" fn(
@@ -7577,7 +7505,6 @@ impl IContentDialog {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContentDialog_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Title: usize,
@@ -7680,7 +7607,6 @@ impl IContentDialogClosedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContentDialogClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Result: unsafe extern "system" fn(
@@ -7698,7 +7624,6 @@ impl windows_core::RuntimeType for IContentDialogFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContentDialogFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -7802,7 +7727,6 @@ impl IControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsFocusEngagementEnabled: usize,
@@ -7886,7 +7810,6 @@ impl windows_core::RuntimeType for ICubicBezierEasingFunction {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_ControlPoint1: usize,
@@ -7902,7 +7825,6 @@ impl windows_core::RuntimeType for IDataTemplate {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     LoadContent: usize,
@@ -7917,7 +7839,6 @@ impl windows_core::RuntimeType for IDataTemplateFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDataTemplateFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8007,7 +7928,6 @@ impl IDatePicker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Header: usize,
@@ -8066,7 +7986,6 @@ impl windows_core::RuntimeType for IDatePickerFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatePickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8099,7 +8018,6 @@ impl IDatePickerSelectedValueChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDatePickerSelectedValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_OldDate: usize,
@@ -8118,7 +8036,6 @@ impl windows_core::RuntimeType for IDependencyObject {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDependencyObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     GetValue: usize,
@@ -8141,7 +8058,6 @@ impl windows_core::RuntimeType for IDesktopAcrylicBackdrop {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDesktopAcrylicBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -8155,7 +8071,6 @@ impl windows_core::RuntimeType for IDesktopAcrylicBackdropFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDesktopAcrylicBackdropFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8220,7 +8135,6 @@ impl IDispatcherQueue {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTimer: unsafe extern "system" fn(
@@ -8253,7 +8167,6 @@ impl windows_core::RuntimeType for IDispatcherQueueStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentThread: unsafe extern "system" fn(
@@ -8328,7 +8241,6 @@ impl IDispatcherQueueTimer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatcherQueueTimer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Interval: usize,
@@ -8360,7 +8272,6 @@ impl windows_core::RuntimeType for IDropDownButton {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDropDownButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -8374,7 +8285,6 @@ impl windows_core::RuntimeType for IDropDownButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDropDownButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8394,7 +8304,6 @@ impl windows_core::RuntimeType for IElementCompositionPreview {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IElementCompositionPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -8408,7 +8317,6 @@ impl windows_core::RuntimeType for IElementCompositionPreviewStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IElementCompositionPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetElementVisual: unsafe extern "system" fn(
@@ -8434,7 +8342,6 @@ impl windows_core::RuntimeType for IEllipse {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IEllipse_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -8529,7 +8436,6 @@ impl IExpander {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExpander_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Header: usize,
@@ -8572,7 +8478,6 @@ impl windows_core::RuntimeType for IExpanderCollapsedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExpanderCollapsedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -8586,7 +8491,6 @@ impl windows_core::RuntimeType for IExpanderExpandingEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExpanderExpandingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -8600,7 +8504,6 @@ impl windows_core::RuntimeType for IExpanderFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IExpanderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8620,7 +8523,6 @@ impl windows_core::RuntimeType for IFlipView {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFlipView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_UseTouchAnimationsForAllNavigation: usize,
@@ -8636,7 +8538,6 @@ impl windows_core::RuntimeType for IFlipViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFlipViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8670,7 +8571,6 @@ impl IFlyout {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFlyout_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Content: usize,
@@ -8702,7 +8602,6 @@ impl IFlyoutBase {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFlyoutBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Placement: usize,
@@ -8755,7 +8654,6 @@ impl windows_core::RuntimeType for IFlyoutFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -8775,7 +8673,6 @@ impl windows_core::RuntimeType for IFontFamily {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFontFamily_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Source: usize,
@@ -8790,7 +8687,6 @@ impl windows_core::RuntimeType for IFontFamilyFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFontFamilyFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstanceWithName: unsafe extern "system" fn(
@@ -9039,7 +8935,6 @@ impl IFrameworkElement {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Triggers: usize,
@@ -9166,7 +9061,6 @@ impl windows_core::RuntimeType for IFrameworkElementAutomationPeer {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkElementAutomationPeer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Owner: usize,
@@ -9181,7 +9075,6 @@ impl windows_core::RuntimeType for IFrameworkElementAutomationPeerFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkElementAutomationPeerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstanceWithOwner: unsafe extern "system" fn(
@@ -9202,7 +9095,6 @@ impl windows_core::RuntimeType for IFrameworkElementAutomationPeerStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromElement: unsafe extern "system" fn(
@@ -9226,7 +9118,6 @@ impl windows_core::RuntimeType for IFrameworkTemplate {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFrameworkTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -9276,7 +9167,6 @@ impl IGrid {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGrid_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_RowDefinitions: unsafe extern "system" fn(
@@ -9314,7 +9204,6 @@ impl windows_core::RuntimeType for IGridFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGridFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -9334,7 +9223,6 @@ impl windows_core::RuntimeType for IGridStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGridStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_BackgroundSizingProperty: usize,
@@ -9387,7 +9275,6 @@ impl windows_core::RuntimeType for IGridView {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGridView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -9401,7 +9288,6 @@ impl windows_core::RuntimeType for IGridViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGridViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -9435,7 +9321,6 @@ impl IHyperlinkButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHyperlinkButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_NavigateUri: usize,
@@ -9454,7 +9339,6 @@ impl windows_core::RuntimeType for IHyperlinkButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IHyperlinkButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -9474,7 +9358,6 @@ impl windows_core::RuntimeType for IIconElement {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIconElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Foreground: usize,
@@ -9509,7 +9392,6 @@ impl IImage {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Source: usize,
@@ -9539,7 +9421,6 @@ impl windows_core::RuntimeType for IImageSource {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -9553,7 +9434,6 @@ impl windows_core::RuntimeType for IImplicitAnimationCollection {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IImplicitAnimationCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -9578,7 +9458,6 @@ impl IInfoBadge {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInfoBadge_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Value: usize,
@@ -9597,7 +9476,6 @@ impl windows_core::RuntimeType for IInfoBadgeFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInfoBadgeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -9693,7 +9571,6 @@ impl IInfoBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInfoBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsOpen: usize,
@@ -9754,7 +9631,6 @@ impl windows_core::RuntimeType for IInfoBarClosedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInfoBarClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Reason: usize,
@@ -9769,7 +9645,6 @@ impl windows_core::RuntimeType for IInfoBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInfoBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -9789,7 +9664,6 @@ impl windows_core::RuntimeType for IInline {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInline_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -9803,7 +9677,6 @@ impl windows_core::RuntimeType for IItemContainer {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IItemContainer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Child: usize,
@@ -9845,7 +9718,6 @@ impl IItemsControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IItemsControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_ItemsSource: usize,
@@ -9933,7 +9805,6 @@ impl IKeyFrameAnimation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_DelayTime: usize,
@@ -10030,7 +9901,6 @@ impl IKeyboardAccelerator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyboardAccelerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Key: usize,
@@ -10063,7 +9933,6 @@ impl windows_core::RuntimeType for IKeyboardAcceleratorFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyboardAcceleratorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10094,7 +9963,6 @@ impl IKeyboardAcceleratorInvokedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IKeyboardAcceleratorInvokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Handled: usize,
@@ -10113,7 +9981,6 @@ impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Arguments: usize,
@@ -10163,7 +10030,6 @@ impl ILine {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_X1: usize,
@@ -10185,7 +10051,6 @@ impl windows_core::RuntimeType for ILinearEasingFunction {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ILinearEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -10210,7 +10075,6 @@ impl IListBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IListBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_SelectedItems: usize,
@@ -10232,7 +10096,6 @@ impl windows_core::RuntimeType for IListBoxFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IListBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10252,7 +10115,6 @@ impl windows_core::RuntimeType for IListView {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IListView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -10306,7 +10168,6 @@ impl IListViewBase {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IListViewBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_SelectedItems: usize,
@@ -10390,7 +10251,6 @@ impl windows_core::RuntimeType for IListViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IListViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10410,7 +10270,6 @@ impl windows_core::RuntimeType for IListViewItem {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IListViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_TemplateSettings: usize,
@@ -10437,7 +10296,6 @@ impl IMenuBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Items: unsafe extern "system" fn(
@@ -10455,7 +10313,6 @@ impl windows_core::RuntimeType for IMenuBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10498,7 +10355,6 @@ impl IMenuBarItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuBarItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Title: usize,
@@ -10521,7 +10377,6 @@ impl windows_core::RuntimeType for IMenuBarItemFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuBarItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10555,7 +10410,6 @@ impl IMenuFlyout {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyout_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Items: unsafe extern "system" fn(
@@ -10576,7 +10430,6 @@ impl windows_core::RuntimeType for IMenuFlyoutFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10647,7 +10500,6 @@ impl IMenuFlyoutItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Text: unsafe extern "system" fn(
@@ -10685,7 +10537,6 @@ impl windows_core::RuntimeType for IMenuFlyoutItemBase {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutItemBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -10699,7 +10550,6 @@ impl windows_core::RuntimeType for IMenuFlyoutItemFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10719,7 +10569,6 @@ impl windows_core::RuntimeType for IMenuFlyoutSeparator {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutSeparator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -10733,7 +10582,6 @@ impl windows_core::RuntimeType for IMenuFlyoutSeparatorFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutSeparatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10776,7 +10624,6 @@ impl IMenuFlyoutSubItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMenuFlyoutSubItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Items: unsafe extern "system" fn(
@@ -10812,7 +10659,6 @@ impl IMicaBackdrop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicaBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Kind: usize,
@@ -10829,7 +10675,6 @@ impl windows_core::RuntimeType for IMicaBackdropFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMicaBackdropFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -10986,7 +10831,6 @@ impl INavigationView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsPaneOpen: usize,
@@ -11153,7 +10997,6 @@ impl INavigationView2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationView2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsBackButtonVisible: usize,
@@ -11221,7 +11064,6 @@ impl windows_core::RuntimeType for INavigationViewBackRequestedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewBackRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -11235,7 +11077,6 @@ impl windows_core::RuntimeType for INavigationViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -11269,7 +11110,6 @@ impl INavigationViewItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Icon: usize,
@@ -11303,7 +11143,6 @@ impl INavigationViewItem2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewItem2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_SelectsOnInvoked: usize,
@@ -11331,7 +11170,6 @@ impl windows_core::RuntimeType for INavigationViewItemBase {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewItemBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -11345,7 +11183,6 @@ impl windows_core::RuntimeType for INavigationViewItemFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -11365,7 +11202,6 @@ impl windows_core::RuntimeType for INavigationViewItemHeader {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewItemHeader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -11379,7 +11215,6 @@ impl windows_core::RuntimeType for INavigationViewItemHeaderFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewItemHeaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -11411,7 +11246,6 @@ impl INavigationViewSelectionChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INavigationViewSelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_SelectedItem: unsafe extern "system" fn(
@@ -11504,7 +11338,6 @@ impl INumberBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INumberBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Minimum: usize,
@@ -11568,7 +11401,6 @@ impl windows_core::RuntimeType for INumberBoxFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INumberBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -11600,7 +11432,6 @@ impl INumberBoxValueChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct INumberBoxValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_OldValue: usize,
@@ -11663,7 +11494,6 @@ impl IOverlappedPresenter3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IOverlappedPresenter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PreferredMinimumHeight: usize,
@@ -11717,7 +11547,6 @@ impl IPanel {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Children: unsafe extern "system" fn(
@@ -11757,7 +11586,6 @@ impl IParagraph {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IParagraph_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Inlines: unsafe extern "system" fn(
@@ -11870,7 +11698,6 @@ impl IPasswordBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPasswordBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Password: unsafe extern "system" fn(
@@ -11964,7 +11791,6 @@ impl IPersonPicture {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersonPicture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_BadgeNumber: usize,
@@ -12005,7 +11831,6 @@ impl windows_core::RuntimeType for IPersonPictureFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersonPictureFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12076,7 +11901,6 @@ impl IPivot {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPivot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Title: usize,
@@ -12133,7 +11957,6 @@ impl windows_core::RuntimeType for IPivotFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPivotFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12167,7 +11990,6 @@ impl IPivotItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPivotItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Header: usize,
@@ -12186,7 +12008,6 @@ impl windows_core::RuntimeType for IPivotItemFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPivotItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12218,7 +12039,6 @@ impl IPointerPoint {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_FrameId: usize,
@@ -12275,7 +12095,6 @@ impl IPointerPointProperties {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerPointProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_ContactRect: usize,
@@ -12329,7 +12148,6 @@ impl IPointerRoutedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPointerRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Pointer: usize,
@@ -12365,7 +12183,6 @@ impl IProgressBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProgressBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsIndeterminate: usize,
@@ -12387,7 +12204,6 @@ impl windows_core::RuntimeType for IProgressBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProgressBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12454,7 +12270,6 @@ impl IProgressRing {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProgressRing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsActive: usize,
@@ -12483,7 +12298,6 @@ impl windows_core::RuntimeType for IProgressRingFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IProgressRingFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12514,7 +12328,6 @@ impl IRadioButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadioButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_GroupName: usize,
@@ -12533,7 +12346,6 @@ impl windows_core::RuntimeType for IRadioButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadioButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12639,7 +12451,6 @@ impl IRadioButtons {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadioButtons_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_ItemsSource: usize,
@@ -12685,7 +12496,6 @@ impl windows_core::RuntimeType for IRadioButtonsFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRadioButtonsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -12785,7 +12595,6 @@ impl IRangeBase {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRangeBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Minimum: usize,
@@ -12832,7 +12641,6 @@ impl IRangeBaseValueChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRangeBaseValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_OldValue: usize,
@@ -12939,7 +12747,6 @@ impl IRatingControl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRatingControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Caption: usize,
@@ -12983,7 +12790,6 @@ impl windows_core::RuntimeType for IRatingControlFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRatingControlFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -13023,7 +12829,6 @@ impl IRectangle {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRectangle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_RadiusX: usize,
@@ -13043,7 +12848,6 @@ impl windows_core::RuntimeType for IRelativePanel {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRelativePanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_BackgroundSizing: usize,
@@ -13067,7 +12871,6 @@ impl windows_core::RuntimeType for IRelativePanelFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRelativePanelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -13087,7 +12890,6 @@ impl windows_core::RuntimeType for IRelativePanelStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRelativePanelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_BackgroundSizingProperty: usize,
@@ -13198,7 +13000,6 @@ impl IRepeatButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRepeatButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Delay: usize,
@@ -13231,7 +13032,6 @@ impl IResourceDictionary {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IResourceDictionary_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Source: usize,
@@ -13252,7 +13052,6 @@ impl windows_core::RuntimeType for IResourceDictionaryFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IResourceDictionaryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -13341,7 +13140,6 @@ impl IRichEditBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRichEditBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsReadOnly: usize,
@@ -13444,7 +13242,6 @@ impl windows_core::RuntimeType for IRichEditBoxFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRichEditBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -13527,7 +13324,6 @@ impl IRichTextBlock {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRichTextBlock_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_FontSize: usize,
@@ -13625,7 +13421,6 @@ impl windows_core::RuntimeType for IRightTappedRoutedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRightTappedRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PointerDeviceType: usize,
@@ -13643,7 +13438,6 @@ impl windows_core::RuntimeType for IRoutedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_OriginalSource: usize,
@@ -13669,7 +13463,6 @@ impl IRowDefinition {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRowDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Height: usize,
@@ -13698,7 +13491,6 @@ impl IRun {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRun_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Text: usize,
@@ -13754,7 +13546,6 @@ impl IScalarKeyFrameAnimation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScalarKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame:
@@ -13814,7 +13605,6 @@ impl IScrollView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScrollView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Content: usize,
@@ -13918,7 +13708,6 @@ impl windows_core::RuntimeType for IScrollViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScrollViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -13964,7 +13753,6 @@ impl IScrollViewer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IScrollViewer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_HorizontalScrollBarVisibility: usize,
@@ -14068,7 +13856,6 @@ impl windows_core::RuntimeType for ISelectionChangedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_AddedItems: usize,
@@ -14147,7 +13934,6 @@ impl ISelector {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_SelectedIndex:
@@ -14234,7 +14020,6 @@ impl ISelectorBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectorBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Items: unsafe extern "system" fn(
@@ -14264,7 +14049,6 @@ impl windows_core::RuntimeType for ISelectorBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectorBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -14320,7 +14104,6 @@ impl ISelectorBarItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectorBarItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Text: unsafe extern "system" fn(
@@ -14347,7 +14130,6 @@ impl windows_core::RuntimeType for ISelectorBarItemFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectorBarItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -14367,7 +14149,6 @@ impl windows_core::RuntimeType for ISelectorBarSelectionChangedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectorBarSelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14381,7 +14162,6 @@ impl windows_core::RuntimeType for ISelectorItem {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISelectorItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsSelected: usize,
@@ -14397,7 +14177,6 @@ impl windows_core::RuntimeType for ISetterBase {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISetterBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsSealed: usize,
@@ -14443,7 +14222,6 @@ impl IShape {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Fill: usize,
@@ -14500,7 +14278,6 @@ impl ISizeChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISizeChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PreviousSize: usize,
@@ -14549,7 +14326,6 @@ impl ISlider {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISlider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IntermediateValue: usize,
@@ -14590,7 +14366,6 @@ impl windows_core::RuntimeType for ISliderFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISliderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -14621,7 +14396,6 @@ impl ISolidColorBrush {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISolidColorBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Color: usize,
@@ -14670,7 +14444,6 @@ impl ISplitButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISplitButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Flyout: usize,
@@ -14697,7 +14470,6 @@ impl windows_core::RuntimeType for ISplitButtonClickEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISplitButtonClickEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -14711,7 +14483,6 @@ impl windows_core::RuntimeType for ISplitButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISplitButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -14823,7 +14594,6 @@ impl ISplitView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISplitView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Content: usize,
@@ -14881,7 +14651,6 @@ impl windows_core::RuntimeType for ISplitViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISplitViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -14921,7 +14690,6 @@ impl IStackPanel {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStackPanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_AreScrollSnapPointsRegular: usize,
@@ -14953,7 +14721,6 @@ impl windows_core::RuntimeType for IStackPanelFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStackPanelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -14969,7 +14736,6 @@ impl windows_core::RuntimeType for IStyle {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStyle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsSealed: usize,
@@ -14990,7 +14756,6 @@ impl windows_core::RuntimeType for ISurfaceImageSource {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISurfaceImageSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -15004,7 +14769,6 @@ impl windows_core::RuntimeType for ISurfaceImageSourceFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISurfaceImageSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstanceWithDimensions: unsafe extern "system" fn(
@@ -15075,7 +14839,6 @@ impl ISurfaceImageSourceNativeWithD2D {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDevice: unsafe extern "system" fn(
@@ -15158,7 +14921,6 @@ impl ISwapChainPanel {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISwapChainPanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_CompositionScaleX:
@@ -15184,7 +14946,6 @@ impl windows_core::RuntimeType for ISwapChainPanelFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISwapChainPanelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -15215,7 +14976,6 @@ impl ISwapChainPanelNative {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISwapChainPanelNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSwapChain: unsafe extern "system" fn(
@@ -15245,7 +15005,6 @@ impl ISymbolIcon {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISymbolIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Symbol:
@@ -15262,7 +15021,6 @@ impl windows_core::RuntimeType for ISymbolIconFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISymbolIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstanceWithSymbol: unsafe extern "system" fn(
@@ -15281,7 +15039,6 @@ impl windows_core::RuntimeType for ISystemBackdrop {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISystemBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     GetDefaultSystemBackdropConfiguration: usize,
@@ -15444,7 +15201,6 @@ impl ITabView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITabView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_TabWidthMode: usize,
@@ -15535,7 +15291,6 @@ impl windows_core::RuntimeType for ITabViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITabViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -15578,7 +15333,6 @@ impl ITabViewItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITabViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Header: usize,
@@ -15607,7 +15361,6 @@ impl windows_core::RuntimeType for ITabViewItemFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITabViewItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -15639,7 +15392,6 @@ impl ITabViewTabCloseRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITabViewTabCloseRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Item: usize,
@@ -15658,7 +15410,6 @@ impl windows_core::RuntimeType for ITappedRoutedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITappedRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PointerDeviceType: usize,
@@ -15813,7 +15564,6 @@ impl ITeachingTip {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITeachingTip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Title: usize,
@@ -15903,7 +15653,6 @@ impl windows_core::RuntimeType for ITeachingTipClosedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITeachingTipClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Reason: usize,
@@ -15918,7 +15667,6 @@ impl windows_core::RuntimeType for ITeachingTipFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITeachingTipFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -16022,7 +15770,6 @@ impl ITextBlock {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextBlock_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_FontSize: usize,
@@ -16213,7 +15960,6 @@ impl ITextBox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Text: unsafe extern "system" fn(
@@ -16338,7 +16084,6 @@ impl windows_core::RuntimeType for ITextBoxFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextBoxFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -16358,7 +16103,6 @@ impl windows_core::RuntimeType for ITextChangedEventArgs {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -16398,7 +16142,6 @@ impl ITextDocument {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_CaretType: usize,
@@ -16475,7 +16218,6 @@ impl ITextElement {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITextElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Name: usize,
@@ -16604,7 +16346,6 @@ impl ITimePicker {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Header: usize,
@@ -16648,7 +16389,6 @@ impl windows_core::RuntimeType for ITimePickerFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimePickerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -16681,7 +16421,6 @@ impl ITimePickerSelectedValueChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITimePickerSelectedValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_OldTime: usize,
@@ -16835,7 +16574,6 @@ impl ITitleBar {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITitleBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Title: usize,
@@ -16897,7 +16635,6 @@ impl windows_core::RuntimeType for ITitleBarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITitleBarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -16995,7 +16732,6 @@ impl IToggleButton {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToggleButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_IsChecked: unsafe extern "system" fn(
@@ -17035,7 +16771,6 @@ impl windows_core::RuntimeType for IToggleButtonFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToggleButtonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -17139,7 +16874,6 @@ impl IToggleSwitch {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToggleSwitch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_IsOn:
@@ -17185,7 +16919,6 @@ impl windows_core::RuntimeType for IToolTip {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToolTip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_HorizontalOffset: usize,
@@ -17216,7 +16949,6 @@ impl windows_core::RuntimeType for IToolTipFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToolTipFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -17236,7 +16968,6 @@ impl windows_core::RuntimeType for IToolTipService {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToolTipService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -17250,7 +16981,6 @@ impl windows_core::RuntimeType for IToolTipServiceStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IToolTipServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PlacementProperty: usize,
@@ -17342,7 +17072,6 @@ impl ITreeView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITreeView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_RootNodes: unsafe extern "system" fn(
@@ -17380,7 +17109,6 @@ impl windows_core::RuntimeType for ITreeViewFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITreeViewFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -17412,7 +17140,6 @@ impl ITreeViewItemInvokedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITreeViewItemInvokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_InvokedItem: unsafe extern "system" fn(
@@ -17475,7 +17202,6 @@ impl ITreeViewNode {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITreeViewNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Content: unsafe extern "system" fn(
@@ -17509,7 +17235,6 @@ impl windows_core::RuntimeType for ITreeViewNodeFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITreeViewNodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -17529,7 +17254,6 @@ impl windows_core::RuntimeType for ITriggerBase {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITriggerBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -17771,7 +17495,6 @@ impl IUIElement {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUIElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_DesiredSize: usize,
@@ -18048,7 +17771,6 @@ impl windows_core::RuntimeType for IUriRuntimeClass {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_AbsoluteUri: usize,
@@ -18079,7 +17801,6 @@ impl windows_core::RuntimeType for IUriRuntimeClassFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateUri: unsafe extern "system" fn(
@@ -18134,7 +17855,6 @@ impl IVector3KeyFrameAnimation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(
@@ -18182,7 +17902,6 @@ impl IViewbox {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IViewbox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Child: usize,
@@ -18227,7 +17946,6 @@ impl IVisual {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_AnchorPoint: usize,
@@ -18280,7 +17998,6 @@ impl windows_core::RuntimeType for IVisualTreeHelper {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualTreeHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -18294,7 +18011,6 @@ impl windows_core::RuntimeType for IVisualTreeHelperStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualTreeHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     FindElementsInHostCoordinatesPoint: usize,
@@ -18417,7 +18133,6 @@ impl IWindow {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Bounds: usize,
@@ -18496,7 +18211,6 @@ impl IWindow2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindow2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_SystemBackdrop: usize,
@@ -18530,7 +18244,6 @@ impl IWindowEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Handled: usize,
@@ -18547,7 +18260,6 @@ impl windows_core::RuntimeType for IWindowFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
@@ -18578,7 +18290,6 @@ impl IWindowNative {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWindowNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub get_WindowHandle: unsafe extern "system" fn(
@@ -18596,7 +18307,6 @@ impl windows_core::RuntimeType for IXamlControlsResources {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlControlsResources_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_UseCompactResources: usize,
@@ -18617,7 +18327,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlMember_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_IsAttachable: usize,
@@ -18778,7 +18487,6 @@ impl IXamlMetadataProvider_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlMetadataProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetXamlType: unsafe extern "system" fn(
@@ -18807,7 +18515,6 @@ impl windows_core::RuntimeType for IXamlReader {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -18821,7 +18528,6 @@ impl windows_core::RuntimeType for IXamlReaderStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlReaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Load: unsafe extern "system" fn(
@@ -18841,7 +18547,6 @@ impl windows_core::RuntimeType for IXamlRoot {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Content: usize,
@@ -19074,7 +18779,6 @@ impl IXamlType {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IXamlType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_BaseType: unsafe extern "system" fn(
@@ -21569,7 +21273,6 @@ impl windows_core::RuntimeType for PointerEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct PointerEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -22078,7 +21781,6 @@ impl windows_core::RuntimeType for RangeBaseValueChangedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct RangeBaseValueChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -22701,7 +22403,6 @@ impl windows_core::RuntimeType for RightTappedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct RightTappedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -22831,7 +22532,6 @@ impl windows_core::RuntimeType for RoutedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct RoutedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -23238,7 +22938,6 @@ impl windows_core::RuntimeType for SelectionChangedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct SelectionChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -23658,7 +23357,6 @@ impl windows_core::RuntimeType for SizeChangedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct SizeChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -24801,7 +24499,6 @@ impl windows_core::RuntimeType for TappedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct TappedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -25174,7 +24871,6 @@ impl windows_core::RuntimeType for TextChangedEventHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct TextChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -26153,7 +25849,6 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
         .push_slice(b")");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct TypedEventHandler_Vtbl<TSender, TResult>
 where
     TSender: windows_core::RuntimeType + 'static,
