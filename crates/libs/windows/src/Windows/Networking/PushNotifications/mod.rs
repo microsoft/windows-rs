@@ -353,7 +353,6 @@ unsafe impl Sync for PushNotificationChannelManagerForUser {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PushNotificationChannelsRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PushNotificationChannelsRevokedEventArgs {}
 impl windows_core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelsRevokedEventArgs>();
 }

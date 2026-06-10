@@ -1337,7 +1337,6 @@ unsafe impl Sync for WindowingEnvironmentAddedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WindowingEnvironmentChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl WindowingEnvironmentChangedEventArgs {}
 impl windows_core::RuntimeType for WindowingEnvironmentChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentChangedEventArgs>();
 }

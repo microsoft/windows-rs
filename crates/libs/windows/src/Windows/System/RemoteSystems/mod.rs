@@ -1447,7 +1447,6 @@ unsafe impl Sync for RemoteSystemDiscoveryTypeFilter {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteSystemEnumerationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl RemoteSystemEnumerationCompletedEventArgs {}
 impl windows_core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemEnumerationCompletedEventArgs>();
 }

@@ -1720,7 +1720,6 @@ unsafe impl Sync for DeviceUseTrigger {}
 pub struct DeviceWatcherTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceWatcherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceWatcherTrigger, IBackgroundTrigger);
-impl DeviceWatcherTrigger {}
 impl windows_core::RuntimeType for DeviceWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcherTrigger>();
 }

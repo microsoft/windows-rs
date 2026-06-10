@@ -2033,7 +2033,6 @@ unsafe impl Sync for AppointmentStoreChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl AppointmentStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreNotificationTriggerDetails>();
 }

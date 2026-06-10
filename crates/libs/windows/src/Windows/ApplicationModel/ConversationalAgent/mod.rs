@@ -915,7 +915,6 @@ unsafe impl Sync for ConversationalAgentSession {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ConversationalAgentSessionInterruptedEventArgs {}
 impl windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSessionInterruptedEventArgs>();
 }
@@ -1035,7 +1034,6 @@ unsafe impl Sync for ConversationalAgentSignal {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentSignalDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ConversationalAgentSignalDetectedEventArgs {}
 impl windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignalDetectedEventArgs>();
 }

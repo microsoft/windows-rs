@@ -2,7 +2,6 @@
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CurrentSessionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrentSessionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl CurrentSessionChangedEventArgs {}
 impl windows_core::RuntimeType for CurrentSessionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrentSessionChangedEventArgs>();
 }
@@ -756,7 +755,6 @@ pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPropertiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaPropertiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MediaPropertiesChangedEventArgs {}
 impl windows_core::RuntimeType for MediaPropertiesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPropertiesChangedEventArgs>();
 }
@@ -773,7 +771,6 @@ unsafe impl Sync for MediaPropertiesChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlaybackInfoChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaybackInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PlaybackInfoChangedEventArgs {}
 impl windows_core::RuntimeType for PlaybackInfoChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackInfoChangedEventArgs>();
 }
@@ -790,7 +787,6 @@ unsafe impl Sync for PlaybackInfoChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SessionsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SessionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl SessionsChangedEventArgs {}
 impl windows_core::RuntimeType for SessionsChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISessionsChangedEventArgs>();
 }
@@ -807,7 +803,6 @@ unsafe impl Sync for SessionsChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TimelinePropertiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TimelinePropertiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl TimelinePropertiesChangedEventArgs {}
 impl windows_core::RuntimeType for TimelinePropertiesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimelinePropertiesChangedEventArgs>();
 }

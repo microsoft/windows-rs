@@ -108,7 +108,6 @@ unsafe impl Sync for AppCapability {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl AppCapabilityAccessChangedEventArgs {}
 impl windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapabilityAccessChangedEventArgs>();
 }

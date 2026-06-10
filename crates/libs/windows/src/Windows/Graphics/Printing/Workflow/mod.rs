@@ -1470,7 +1470,6 @@ unsafe impl Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintWorkflowObjectModelTargetPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelTargetPackage, windows_core::IUnknown, windows_core::IInspectable);
-impl PrintWorkflowObjectModelTargetPackage {}
 impl windows_core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelTargetPackage>();
 }

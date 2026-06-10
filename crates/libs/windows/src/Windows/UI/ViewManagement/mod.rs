@@ -2049,7 +2049,6 @@ unsafe impl Sync for UISettings {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsAnimationsEnabledChangedEventArgs {}
 impl windows_core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAnimationsEnabledChangedEventArgs>();
 }
@@ -2066,7 +2065,6 @@ unsafe impl Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsAutoHideScrollBarsChangedEventArgs {}
 impl windows_core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAutoHideScrollBarsChangedEventArgs>();
 }
@@ -2083,7 +2081,6 @@ unsafe impl Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsMessageDurationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsMessageDurationChangedEventArgs {}
 impl windows_core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsMessageDurationChangedEventArgs>();
 }

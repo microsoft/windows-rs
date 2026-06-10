@@ -3347,7 +3347,6 @@ impl windows_core::RuntimeType for EmailStoreAccessType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl EmailStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for EmailStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTriggerDetails>();
 }

@@ -1580,7 +1580,6 @@ impl windows_core::RuntimeType for ContactFieldType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactGroup, windows_core::IUnknown, windows_core::IInspectable);
-impl ContactGroup {}
 impl windows_core::RuntimeType for ContactGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactGroup>();
 }
@@ -3774,7 +3773,6 @@ impl windows_core::RuntimeType for ContactStoreAccessType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl ContactStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for ContactStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTriggerDetails>();
 }

@@ -254,7 +254,6 @@ impl windows_core::RuntimeType for DisplayDeviceCapability {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayFence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayFence, windows_core::IUnknown, windows_core::IInspectable);
-impl DisplayFence {}
 impl windows_core::RuntimeType for DisplayFence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayFence>();
 }
@@ -1250,7 +1249,6 @@ impl windows_core::RuntimeType for DisplayRotation {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayScanout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
-impl DisplayScanout {}
 impl windows_core::RuntimeType for DisplayScanout {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayScanout>();
 }
@@ -1656,7 +1654,6 @@ impl windows_core::RuntimeType for DisplayStateOperationStatus {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplaySurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySurface, windows_core::IUnknown, windows_core::IInspectable);
-impl DisplaySurface {}
 impl windows_core::RuntimeType for DisplaySurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySurface>();
 }

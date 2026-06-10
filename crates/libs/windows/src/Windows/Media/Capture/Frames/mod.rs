@@ -633,7 +633,6 @@ unsafe impl Sync for InfraredMediaFrame {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaFrameArrivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MediaFrameArrivedEventArgs {}
 impl windows_core::RuntimeType for MediaFrameArrivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameArrivedEventArgs>();
 }
@@ -1254,7 +1253,6 @@ impl windows_core::RuntimeType for MediaFrameSourceSetPropertyStatus {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MultiSourceMediaFrameArrivedEventArgs {}
 impl windows_core::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameArrivedEventArgs>();
 }

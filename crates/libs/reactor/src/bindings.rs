@@ -19,7 +19,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl AppBar {}
 impl windows_core::RuntimeType for AppBar {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IAppBar>();
@@ -283,7 +282,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl AppWindow {}
 impl windows_core::RuntimeType for AppWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IAppWindow>();
@@ -311,7 +309,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl AppWindowPresenter {}
 impl windows_core::RuntimeType for AppWindowPresenter {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPresenter>();
@@ -356,7 +353,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl AppWindowTitleBar {}
 impl windows_core::RuntimeType for AppWindowTitleBar {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowTitleBar>();
@@ -539,7 +535,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl ApplicationInitializationCallbackParams {}
 impl windows_core::RuntimeType for ApplicationInitializationCallbackParams {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -818,7 +813,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(AutomationPeer, DependencyObject);
-impl AutomationPeer {}
 impl windows_core::RuntimeType for AutomationPeer {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IAutomationPeer>();
@@ -1001,7 +995,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(BitmapSource, ImageSource, DependencyObject);
-impl BitmapSource {}
 impl windows_core::RuntimeType for BitmapSource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IBitmapSource>();
@@ -1026,7 +1019,6 @@ unsafe impl Sync for BitmapSource {}
 pub struct Block(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Block, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Block, TextElement, DependencyObject);
-impl Block {}
 impl windows_core::RuntimeType for Block {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IBlock>();
@@ -1055,7 +1047,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<Block>
 );
-impl BlockCollection {}
 impl windows_core::RuntimeType for BlockCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<Block>>();
@@ -1196,7 +1187,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl BreadcrumbBarItemClickedEventArgs {}
 impl windows_core::RuntimeType for BreadcrumbBarItemClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IBreadcrumbBarItemClickedEventArgs>();
@@ -1222,7 +1212,6 @@ unsafe impl Sync for BreadcrumbBarItemClickedEventArgs {}
 pub struct Brush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Brush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Brush, DependencyObject);
-impl Brush {}
 impl windows_core::RuntimeType for Brush {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IBrush>();
@@ -1329,7 +1318,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl ButtonBase {}
 impl windows_core::RuntimeType for ButtonBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IButtonBase>();
@@ -1437,7 +1425,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl CalendarDatePickerDateChangedEventArgs {}
 impl windows_core::RuntimeType for CalendarDatePickerDateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICalendarDatePickerDateChangedEventArgs>(
@@ -1540,7 +1527,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl CalendarViewSelectedDatesChangedEventArgs {}
 impl windows_core::RuntimeType for CalendarViewSelectedDatesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -1806,7 +1792,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl ColorChangedEventArgs {}
 impl windows_core::RuntimeType for ColorChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IColorChangedEventArgs>();
@@ -1953,7 +1938,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<ColumnDefinition>
 );
-impl ColumnDefinitionCollection {}
 impl windows_core::RuntimeType for ColumnDefinitionCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -2226,7 +2210,6 @@ windows_core::imp::required_hierarchy!(
     ICompositionAnimationBase,
     CompositionObject
 );
-impl CompositionAnimation {}
 impl windows_core::RuntimeType for CompositionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimation>();
@@ -2255,7 +2238,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(CompositionEasingFunction, CompositionObject);
-impl CompositionEasingFunction {}
 impl windows_core::RuntimeType for CompositionEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEasingFunction>();
@@ -2283,7 +2265,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl CompositionObject {}
 impl windows_core::RuntimeType for CompositionObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionObject>();
@@ -2433,7 +2414,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl ContentControl {}
 impl windows_core::RuntimeType for ContentControl {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IContentControl>();
@@ -2535,7 +2515,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl ContentDialogClosedEventArgs {}
 impl windows_core::RuntimeType for ContentDialogClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IContentDialogClosedEventArgs>();
@@ -2595,7 +2574,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(Control, FrameworkElement, UIElement, DependencyObject);
-impl Control {}
 impl windows_core::RuntimeType for Control {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IControl>();
@@ -2644,7 +2622,6 @@ windows_core::imp::required_hierarchy!(
     CompositionEasingFunction,
     CompositionObject
 );
-impl CubicBezierEasingFunction {}
 impl windows_core::RuntimeType for CubicBezierEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICubicBezierEasingFunction>();
@@ -2814,7 +2791,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl DatePickerSelectedValueChangedEventArgs {}
 impl windows_core::RuntimeType for DatePickerSelectedValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -2845,7 +2821,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl DependencyObject {}
 impl windows_core::RuntimeType for DependencyObject {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IDependencyObject>();
@@ -3053,7 +3028,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl DispatcherQueueTimer {}
 impl windows_core::RuntimeType for DispatcherQueueTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueTimer>();
@@ -3418,7 +3392,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl ExpanderCollapsedEventArgs {}
 impl windows_core::RuntimeType for ExpanderCollapsedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IExpanderCollapsedEventArgs>();
@@ -3446,7 +3419,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl ExpanderExpandingEventArgs {}
 impl windows_core::RuntimeType for ExpanderExpandingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IExpanderExpandingEventArgs>();
@@ -3613,7 +3585,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(FlyoutBase, DependencyObject);
-impl FlyoutBase {}
 impl windows_core::RuntimeType for FlyoutBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IFlyoutBase>();
@@ -3752,7 +3723,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(FrameworkElement, UIElement, DependencyObject);
-impl FrameworkElement {}
 impl windows_core::RuntimeType for FrameworkElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IFrameworkElement>();
@@ -3909,7 +3879,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(FrameworkTemplate, DependencyObject);
-impl FrameworkTemplate {}
 impl windows_core::RuntimeType for FrameworkTemplate {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IFrameworkTemplate>();
@@ -18857,7 +18826,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(IconElement, FrameworkElement, UIElement, DependencyObject);
-impl IconElement {}
 impl windows_core::RuntimeType for IconElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IIconElement>();
@@ -18925,7 +18893,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(ImageSource, DependencyObject);
-impl ImageSource {}
 impl windows_core::RuntimeType for ImageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IImageSource>();
@@ -18954,7 +18921,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, CompositionObject);
-impl ImplicitAnimationCollection {}
 impl windows_core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
@@ -19128,7 +19094,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl InfoBarClosedEventArgs {}
 impl windows_core::RuntimeType for InfoBarClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IInfoBarClosedEventArgs>();
@@ -19170,7 +19135,6 @@ impl windows_core::RuntimeType for InfoBarSeverity {
 pub struct Inline(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Inline, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Inline, TextElement, DependencyObject);
-impl Inline {}
 impl windows_core::RuntimeType for Inline {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IInline>();
@@ -19199,7 +19163,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<Inline>
 );
-impl InlineCollection {}
 impl windows_core::RuntimeType for InlineCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<Inline>>();
@@ -19229,7 +19192,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IObservableVector<windows_core::IInspectable>
 );
-impl ItemCollection {}
 impl windows_core::RuntimeType for ItemCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -19268,7 +19230,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl ItemContainer {}
 impl windows_core::RuntimeType for ItemContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IItemContainer>();
@@ -19303,7 +19264,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl ItemsControl {}
 impl windows_core::RuntimeType for ItemsControl {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IItemsControl>();
@@ -19337,7 +19297,6 @@ windows_core::imp::required_hierarchy!(
     CompositionAnimation,
     CompositionObject
 );
-impl KeyFrameAnimation {}
 impl windows_core::RuntimeType for KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IKeyFrameAnimation>();
@@ -19437,7 +19396,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl KeyboardAcceleratorInvokedEventArgs {}
 impl windows_core::RuntimeType for KeyboardAcceleratorInvokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IKeyboardAcceleratorInvokedEventArgs>();
@@ -19482,7 +19440,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl LaunchActivatedEventArgs {}
 impl windows_core::RuntimeType for LaunchActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ILaunchActivatedEventArgs>();
@@ -19554,7 +19511,6 @@ windows_core::imp::required_hierarchy!(
     CompositionEasingFunction,
     CompositionObject
 );
-impl LinearEasingFunction {}
 impl windows_core::RuntimeType for LinearEasingFunction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ILinearEasingFunction>();
@@ -19742,7 +19698,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl ListViewBase {}
 impl windows_core::RuntimeType for ListViewBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IListViewBase>();
@@ -19779,7 +19734,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl ListViewItem {}
 impl windows_core::RuntimeType for ListViewItem {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IListViewItem>();
@@ -20143,7 +20097,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl MenuFlyoutItemBase {}
 impl windows_core::RuntimeType for MenuFlyoutItemBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IMenuFlyoutItemBase>();
@@ -20473,7 +20426,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl NavigationViewBackRequestedEventArgs {}
 impl windows_core::RuntimeType for NavigationViewBackRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, INavigationViewBackRequestedEventArgs>();
@@ -20590,7 +20542,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl NavigationViewItemBase {}
 impl windows_core::RuntimeType for NavigationViewItemBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, INavigationViewItemBase>();
@@ -20716,7 +20667,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl NavigationViewSelectionChangedEventArgs {}
 impl windows_core::RuntimeType for NavigationViewSelectionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -20820,7 +20770,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl NumberBoxValueChangedEventArgs {}
 impl windows_core::RuntimeType for NumberBoxValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, INumberBoxValueChangedEventArgs>();
@@ -20896,7 +20845,6 @@ pub struct POINT {
 pub struct Panel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Panel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Panel, FrameworkElement, UIElement, DependencyObject);
-impl Panel {}
 impl windows_core::RuntimeType for Panel {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IPanel>();
@@ -21323,7 +21271,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl PointerPoint {}
 impl windows_core::RuntimeType for PointerPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IPointerPoint>();
@@ -21351,7 +21298,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl PointerPointProperties {}
 impl windows_core::RuntimeType for PointerPointProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IPointerPointProperties>();
@@ -21380,7 +21326,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(PointerRoutedEventArgs, RoutedEventArgs);
-impl PointerRoutedEventArgs {}
 impl windows_core::RuntimeType for PointerRoutedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IPointerRoutedEventArgs>();
@@ -21720,7 +21665,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl RangeBase {}
 impl windows_core::RuntimeType for RangeBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IRangeBase>();
@@ -21749,7 +21693,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(RangeBaseValueChangedEventArgs, RoutedEventArgs);
-impl RangeBaseValueChangedEventArgs {}
 impl windows_core::RuntimeType for RangeBaseValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IRangeBaseValueChangedEventArgs>();
@@ -22323,7 +22266,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl RichEditTextDocument {}
 impl windows_core::RuntimeType for RichEditTextDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITextDocument>();
@@ -22502,7 +22444,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl RoutedEventArgs {}
 impl windows_core::RuntimeType for RoutedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IRoutedEventArgs>();
@@ -22625,7 +22566,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<RowDefinition>
 );
-impl RowDefinitionCollection {}
 impl windows_core::RuntimeType for RowDefinitionCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -22706,7 +22646,6 @@ windows_core::imp::required_hierarchy!(
     CompositionAnimation,
     CompositionObject
 );
-impl ScalarKeyFrameAnimation {}
 impl windows_core::RuntimeType for ScalarKeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IScalarKeyFrameAnimation>();
@@ -22908,7 +22847,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(SelectionChangedEventArgs, RoutedEventArgs);
-impl SelectionChangedEventArgs {}
 impl windows_core::RuntimeType for SelectionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISelectionChangedEventArgs>();
@@ -23016,7 +22954,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl Selector {}
 impl windows_core::RuntimeType for Selector {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISelector>();
@@ -23194,7 +23131,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl SelectorBarSelectionChangedEventArgs {}
 impl windows_core::RuntimeType for SelectorBarSelectionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISelectorBarSelectionChangedEventArgs>();
@@ -23231,7 +23167,6 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
-impl SelectorItem {}
 impl windows_core::RuntimeType for SelectorItem {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISelectorItem>();
@@ -23260,7 +23195,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(SetterBase, DependencyObject);
-impl SetterBase {}
 impl windows_core::RuntimeType for SetterBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISetterBase>();
@@ -23285,7 +23219,6 @@ unsafe impl Sync for SetterBase {}
 pub struct Shape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Shape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Shape, FrameworkElement, UIElement, DependencyObject);
-impl Shape {}
 impl windows_core::RuntimeType for Shape {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IShape>();
@@ -23327,7 +23260,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(SizeChangedEventArgs, RoutedEventArgs);
-impl SizeChangedEventArgs {}
 impl windows_core::RuntimeType for SizeChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISizeChangedEventArgs>();
@@ -23609,7 +23541,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl SplitButtonClickEventArgs {}
 impl windows_core::RuntimeType for SplitButtonClickEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISplitButtonClickEventArgs>();
@@ -24291,7 +24222,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(SystemBackdrop, DependencyObject);
-impl SystemBackdrop {}
 impl windows_core::RuntimeType for SystemBackdrop {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ISystemBackdrop>();
@@ -24468,7 +24398,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl TabViewTabCloseRequestedEventArgs {}
 impl windows_core::RuntimeType for TabViewTabCloseRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITabViewTabCloseRequestedEventArgs>();
@@ -24667,7 +24596,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl TeachingTipClosedEventArgs {}
 impl windows_core::RuntimeType for TeachingTipClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITeachingTipClosedEventArgs>();
@@ -24841,7 +24769,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(TextChangedEventArgs, RoutedEventArgs);
-impl TextChangedEventArgs {}
 impl windows_core::RuntimeType for TextChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITextChangedEventArgs>();
@@ -24922,7 +24849,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(TextElement, DependencyObject);
-impl TextElement {}
 impl windows_core::RuntimeType for TextElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITextElement>();
@@ -25160,7 +25086,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl TimePickerSelectedValueChangedEventArgs {}
 impl windows_core::RuntimeType for TimePickerSelectedValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
         Self,
@@ -25659,7 +25584,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl TreeViewItemInvokedEventArgs {}
 impl windows_core::RuntimeType for TreeViewItemInvokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITreeViewItemInvokedEventArgs>();
@@ -25771,7 +25695,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(TriggerBase, DependencyObject);
-impl TriggerBase {}
 impl windows_core::RuntimeType for TriggerBase {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ITriggerBase>();
@@ -25903,7 +25826,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(UIElement, DependencyObject);
-impl UIElement {}
 impl windows_core::RuntimeType for UIElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IUIElement>();
@@ -25932,7 +25854,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable,
     windows_collections::IVector<UIElement>
 );
-impl UIElementCollection {}
 impl windows_core::RuntimeType for UIElementCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, windows_collections::IVector<UIElement>>(
@@ -26015,7 +25936,6 @@ windows_core::imp::required_hierarchy!(
     CompositionAnimation,
     CompositionObject
 );
-impl Vector3KeyFrameAnimation {}
 impl windows_core::RuntimeType for Vector3KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVector3KeyFrameAnimation>();
@@ -26335,7 +26255,6 @@ impl core::ops::Not for VirtualKeyModifiers {
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Visual, CompositionObject);
-impl Visual {}
 impl windows_core::RuntimeType for Visual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVisual>();
@@ -26499,7 +26418,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl WindowEventArgs {}
 impl windows_core::RuntimeType for WindowEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IWindowEventArgs>();
@@ -26664,7 +26582,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl XamlRoot {}
 impl windows_core::RuntimeType for XamlRoot {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IXamlRoot>();

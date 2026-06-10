@@ -1702,7 +1702,6 @@ unsafe impl Sync for ClaimedBarcodeScanner {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedBarcodeScannerClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedBarcodeScannerClosedEventArgs>();
 }
@@ -1834,7 +1833,6 @@ unsafe impl Sync for ClaimedCashDrawer {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedCashDrawerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedCashDrawerClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedCashDrawerClosedEventArgs>();
 }
@@ -2253,7 +2251,6 @@ unsafe impl Sync for ClaimedLineDisplay {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedLineDisplayClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedLineDisplayClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedLineDisplayClosedEventArgs>();
 }
@@ -2491,7 +2488,6 @@ unsafe impl Sync for ClaimedMagneticStripeReader {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedMagneticStripeReaderClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedMagneticStripeReaderClosedEventArgs>();
 }
@@ -2656,7 +2652,6 @@ unsafe impl Sync for ClaimedPosPrinter {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedPosPrinterClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedPosPrinterClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedPosPrinterClosedEventArgs>();
 }
@@ -8807,7 +8802,6 @@ impl windows_core::RuntimeType for PosPrinterPrintSide {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PosPrinterReleaseDeviceRequestedEventArgs {}
 impl windows_core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterReleaseDeviceRequestedEventArgs>();
 }

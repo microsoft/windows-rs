@@ -193,7 +193,6 @@ unsafe impl Sync for ClipboardContentOptions {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClipboardHistoryChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClipboardHistoryChangedEventArgs {}
 impl windows_core::RuntimeType for ClipboardHistoryChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClipboardHistoryChangedEventArgs>();
 }

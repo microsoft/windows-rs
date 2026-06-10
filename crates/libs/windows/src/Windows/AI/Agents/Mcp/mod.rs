@@ -228,7 +228,6 @@ impl windows_core::RuntimeType for McpMessageDirection {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct McpMessageFilterResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(McpMessageFilterResponse, windows_core::IUnknown, windows_core::IInspectable);
-impl McpMessageFilterResponse {}
 impl windows_core::RuntimeType for McpMessageFilterResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMcpMessageFilterResponse>();
 }
