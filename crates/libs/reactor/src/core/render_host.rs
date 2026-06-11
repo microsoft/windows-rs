@@ -20,6 +20,19 @@ pub struct RenderStats {
     pub last_created: u64,
 }
 
+/// Information passed to the [`RenderHost::set_render_complete`] callback
+/// after each reconcile pass completes.
+#[doc(hidden)]
+#[derive(Copy, Clone, Debug)]
+pub struct RenderCompleteInfo {
+    pub tree_build_ms: f64,
+    pub reconcile_ms: f64,
+    pub effects_ms: f64,
+    pub elements_diffed: u64,
+    pub elements_skipped: u64,
+    pub elements_created: u64,
+}
+
 struct StatsAccumulator {
     window_start: Cell<Instant>,
     tree_build_sum_ms: Cell<f64>,
@@ -134,7 +147,7 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     render_count: Cell<u32>,
     stats: Cell<RenderStats>,
     post_render: RefCell<Option<Box<dyn Fn(Option<ControlId>)>>>,
-    render_complete: RefCell<Option<Box<dyn Fn(f64, f64, f64)>>>,
+    render_complete: RefCell<Option<Box<dyn Fn(&RenderCompleteInfo)>>>,
     stats_accum: StatsAccumulator,
     inner_size: Rc<Cell<Size>>,
     dpi: Rc<Cell<u32>>,
@@ -276,7 +289,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
 
     pub fn set_render_complete<F>(&self, f: F)
     where
-        F: Fn(f64, f64, f64) + 'static,
+        F: Fn(&RenderCompleteInfo) + 'static,
     {
         *self.inner.render_complete.borrow_mut() = Some(Box::new(f));
     }
@@ -435,7 +448,15 @@ fn render_once<B: Backend + 'static, D: Dispatcher + 'static>(inner: &Rc<RenderH
 
     let rc_taken = inner.render_complete.borrow_mut().take();
     if let Some(cb) = rc_taken {
-        cb(tree_build_ms, reconcile_ms, effects_ms);
+        let info = RenderCompleteInfo {
+            tree_build_ms,
+            reconcile_ms,
+            effects_ms,
+            elements_diffed: last_diffed,
+            elements_skipped: last_skipped,
+            elements_created: last_created,
+        };
+        cb(&info);
         let mut slot = inner.render_complete.borrow_mut();
         if slot.is_none() {
             *slot = Some(cb);

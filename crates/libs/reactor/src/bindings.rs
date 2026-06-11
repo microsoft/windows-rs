@@ -4249,23 +4249,6 @@ impl windows_core::RuntimeType for IAppBar {
 #[repr(C)]
 pub struct IAppBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_IsOpen: usize,
-    put_IsOpen: usize,
-    get_IsSticky: usize,
-    put_IsSticky: usize,
-    get_ClosedDisplayMode: usize,
-    put_ClosedDisplayMode: usize,
-    get_TemplateSettings: usize,
-    get_LightDismissOverlayMode: usize,
-    put_LightDismissOverlayMode: usize,
-    add_Opening: usize,
-    remove_Opening: usize,
-    add_Opened: usize,
-    remove_Opened: usize,
-    add_Closing: usize,
-    remove_Closing: usize,
-    add_Closed: usize,
-    remove_Closed: usize,
 }
 windows_core::imp::define_interface!(
     IAppBarButton,
@@ -4328,11 +4311,6 @@ pub struct IAppBarButton_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_LabelPosition: usize,
-    put_LabelPosition: usize,
-    get_KeyboardAcceleratorTextOverride: usize,
-    put_KeyboardAcceleratorTextOverride: usize,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IAppBarButtonFactory,
@@ -4430,11 +4408,6 @@ pub struct IAppBarToggleButton_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_LabelPosition: usize,
-    put_LabelPosition: usize,
-    get_KeyboardAcceleratorTextOverride: usize,
-    put_KeyboardAcceleratorTextOverride: usize,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IAppBarToggleButtonFactory,
@@ -4542,14 +4515,6 @@ pub struct IAppWindow_Vtbl {
         *mut core::ffi::c_void,
         AppWindowPresenterKind,
     ) -> windows_core::HRESULT,
-    Show: usize,
-    ShowWithActivation: usize,
-    add_Changed: usize,
-    remove_Changed: usize,
-    add_Closing: usize,
-    remove_Closing: usize,
-    add_Destroying: usize,
-    remove_Destroying: usize,
 }
 windows_core::imp::define_interface!(
     IAppWindow2,
@@ -4591,7 +4556,6 @@ pub struct IAppWindow2_Vtbl {
     MoveInZOrderBelow: usize,
     pub ResizeClient:
         unsafe extern "system" fn(*mut core::ffi::c_void, SizeInt32) -> windows_core::HRESULT,
-    ShowOnceWithRequestedStartupState: usize,
 }
 windows_core::imp::define_interface!(
     IAppWindowPresenter,
@@ -4605,7 +4569,6 @@ impl windows_core::RuntimeType for IAppWindowPresenter {
 #[repr(C)]
 pub struct IAppWindowPresenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Kind: usize,
 }
 windows_core::imp::define_interface!(
     IAppWindowTitleBar,
@@ -4619,39 +4582,6 @@ impl windows_core::RuntimeType for IAppWindowTitleBar {
 #[repr(C)]
 pub struct IAppWindowTitleBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_BackgroundColor: usize,
-    put_BackgroundColor: usize,
-    get_ButtonBackgroundColor: usize,
-    put_ButtonBackgroundColor: usize,
-    get_ButtonForegroundColor: usize,
-    put_ButtonForegroundColor: usize,
-    get_ButtonHoverBackgroundColor: usize,
-    put_ButtonHoverBackgroundColor: usize,
-    get_ButtonHoverForegroundColor: usize,
-    put_ButtonHoverForegroundColor: usize,
-    get_ButtonInactiveBackgroundColor: usize,
-    put_ButtonInactiveBackgroundColor: usize,
-    get_ButtonInactiveForegroundColor: usize,
-    put_ButtonInactiveForegroundColor: usize,
-    get_ButtonPressedBackgroundColor: usize,
-    put_ButtonPressedBackgroundColor: usize,
-    get_ButtonPressedForegroundColor: usize,
-    put_ButtonPressedForegroundColor: usize,
-    get_ExtendsContentIntoTitleBar: usize,
-    put_ExtendsContentIntoTitleBar: usize,
-    get_ForegroundColor: usize,
-    put_ForegroundColor: usize,
-    get_Height: usize,
-    get_IconShowOptions: usize,
-    put_IconShowOptions: usize,
-    get_InactiveBackgroundColor: usize,
-    put_InactiveBackgroundColor: usize,
-    get_InactiveForegroundColor: usize,
-    put_InactiveForegroundColor: usize,
-    get_LeftInset: usize,
-    get_RightInset: usize,
-    ResetToDefault: usize,
-    SetDragRectangles: usize,
 }
 windows_core::imp::define_interface!(
     IAppWindowTitleBar2,
@@ -4740,17 +4670,6 @@ pub struct IApplication_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    put_Resources: usize,
-    get_DebugSettings: usize,
-    get_RequestedTheme: usize,
-    put_RequestedTheme: usize,
-    get_FocusVisualKind: usize,
-    put_FocusVisualKind: usize,
-    get_HighContrastAdjustment: usize,
-    put_HighContrastAdjustment: usize,
-    add_UnhandledException: usize,
-    remove_UnhandledException: usize,
-    Exit: usize,
 }
 windows_core::imp::define_interface!(
     IApplicationFactory,
@@ -4872,8 +4791,6 @@ pub struct IApplicationStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    LoadComponent: usize,
-    LoadComponentWithResourceLocation: usize,
 }
 windows_core::imp::define_interface!(
     IAutoSuggestBox,
@@ -5116,7 +5033,6 @@ pub struct IAutoSuggestBoxQuerySubmittedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_ChosenSuggestion: usize,
 }
 windows_core::imp::define_interface!(
     IAutoSuggestBoxSuggestionChosenEventArgs,
@@ -5175,8 +5091,6 @@ pub struct IAutoSuggestBoxTextChangedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut AutoSuggestionBoxTextChangeReason,
     ) -> windows_core::HRESULT,
-    put_Reason: usize,
-    CheckCurrent: usize,
 }
 windows_core::imp::define_interface!(
     IAutomationPeer,
@@ -5190,60 +5104,6 @@ impl windows_core::RuntimeType for IAutomationPeer {
 #[repr(C)]
 pub struct IAutomationPeer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_EventsSource: usize,
-    put_EventsSource: usize,
-    GetPattern: usize,
-    RaiseAutomationEvent: usize,
-    RaisePropertyChangedEvent: usize,
-    GetAcceleratorKey: usize,
-    GetAccessKey: usize,
-    GetAutomationControlType: usize,
-    GetAutomationId: usize,
-    GetBoundingRectangle: usize,
-    GetChildren: usize,
-    Navigate: usize,
-    GetClassName: usize,
-    GetClickablePoint: usize,
-    GetHelpText: usize,
-    GetItemStatus: usize,
-    GetItemType: usize,
-    GetLabeledBy: usize,
-    GetLocalizedControlType: usize,
-    GetName: usize,
-    GetOrientation: usize,
-    HasKeyboardFocus: usize,
-    IsContentElement: usize,
-    IsControlElement: usize,
-    IsEnabled: usize,
-    IsKeyboardFocusable: usize,
-    IsOffscreen: usize,
-    IsPassword: usize,
-    IsRequiredForForm: usize,
-    SetFocus: usize,
-    GetParent: usize,
-    InvalidatePeer: usize,
-    GetPeerFromPoint: usize,
-    GetElementFromPoint: usize,
-    GetFocusedElement: usize,
-    GetLiveSetting: usize,
-    ShowContextMenu: usize,
-    GetControlledPeers: usize,
-    GetAnnotations: usize,
-    SetParent: usize,
-    RaiseTextEditTextChangedEvent: usize,
-    GetPositionInSet: usize,
-    GetSizeOfSet: usize,
-    GetLevel: usize,
-    RaiseStructureChangedEvent: usize,
-    GetLandmarkType: usize,
-    GetLocalizedLandmarkType: usize,
-    IsPeripheral: usize,
-    IsDataValidForForm: usize,
-    GetFullDescription: usize,
-    GetCulture: usize,
-    RaiseNotificationEvent: usize,
-    GetHeadingLevel: usize,
-    IsDialog: usize,
 }
 windows_core::imp::define_interface!(
     IAutomationProperties,
@@ -5366,9 +5226,6 @@ pub struct IAutomationPropertiesStatics_Vtbl {
         *mut core::ffi::c_void,
         AutomationHeadingLevel,
     ) -> windows_core::HRESULT,
-    get_IsDialogProperty: usize,
-    GetIsDialog: usize,
-    SetIsDialog: usize,
 }
 windows_core::imp::define_interface!(
     IBitmapImage,
@@ -5403,24 +5260,6 @@ pub struct IBitmapImage_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_DecodePixelWidth: usize,
-    put_DecodePixelWidth: usize,
-    get_DecodePixelHeight: usize,
-    put_DecodePixelHeight: usize,
-    get_DecodePixelType: usize,
-    put_DecodePixelType: usize,
-    get_IsAnimatedBitmap: usize,
-    get_IsPlaying: usize,
-    get_AutoPlay: usize,
-    put_AutoPlay: usize,
-    add_DownloadProgress: usize,
-    remove_DownloadProgress: usize,
-    add_ImageOpened: usize,
-    remove_ImageOpened: usize,
-    add_ImageFailed: usize,
-    remove_ImageFailed: usize,
-    Play: usize,
-    Stop: usize,
 }
 windows_core::imp::define_interface!(
     IBitmapSource,
@@ -5434,10 +5273,6 @@ impl windows_core::RuntimeType for IBitmapSource {
 #[repr(C)]
 pub struct IBitmapSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_PixelWidth: usize,
-    get_PixelHeight: usize,
-    SetSource: usize,
-    SetSourceAsync: usize,
 }
 windows_core::imp::define_interface!(IBlock, IBlock_Vtbl, 0x8149d507_672f_5fd5_a10a_351389ba9659);
 impl windows_core::RuntimeType for IBlock {
@@ -5447,16 +5282,6 @@ impl windows_core::RuntimeType for IBlock {
 #[repr(C)]
 pub struct IBlock_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_TextAlignment: usize,
-    put_TextAlignment: usize,
-    get_HorizontalTextAlignment: usize,
-    put_HorizontalTextAlignment: usize,
-    get_LineHeight: usize,
-    put_LineHeight: usize,
-    get_LineStackingStrategy: usize,
-    put_LineStackingStrategy: usize,
-    get_Margin: usize,
-    put_Margin: usize,
 }
 windows_core::imp::define_interface!(
     IBorder,
@@ -5574,10 +5399,6 @@ pub struct IBorder_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_ChildTransitions: usize,
-    put_ChildTransitions: usize,
-    get_BackgroundTransition: usize,
-    put_BackgroundTransition: usize,
 }
 windows_core::imp::define_interface!(
     IBreadcrumbBar,
@@ -5691,7 +5512,6 @@ pub struct IBreadcrumbBarItemClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Index:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    get_Item: usize,
 }
 windows_core::imp::define_interface!(IBrush, IBrush_Vtbl, 0x2de3cb83_1329_5679_88f8_c822bc5442cb);
 impl windows_core::RuntimeType for IBrush {
@@ -5701,12 +5521,6 @@ impl windows_core::RuntimeType for IBrush {
 #[repr(C)]
 pub struct IBrush_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Opacity: usize,
-    put_Opacity: usize,
-    get_Transform: usize,
-    put_Transform: usize,
-    get_RelativeTransform: usize,
-    put_RelativeTransform: usize,
 }
 windows_core::imp::define_interface!(
     IButton,
@@ -5971,12 +5785,6 @@ pub struct ICalendarDatePicker_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_DateChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_Opened: usize,
-    remove_Opened: usize,
-    add_Closed: usize,
-    remove_Closed: usize,
-    SetDisplayDate: usize,
-    SetYearDecadeDisplayDimensions: usize,
 }
 windows_core::imp::define_interface!(
     ICalendarDatePickerDateChangedEventArgs,
@@ -6007,7 +5815,6 @@ pub struct ICalendarDatePickerDateChangedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_OldDate: usize,
 }
 windows_core::imp::define_interface!(
     ICalendarDatePickerFactory,
@@ -6259,8 +6066,6 @@ pub struct ICalendarView_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_SelectedDatesChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    SetDisplayDate: usize,
-    SetYearDecadeDisplayDimensions: usize,
 }
 windows_core::imp::define_interface!(
     ICalendarViewFactory,
@@ -6649,11 +6454,6 @@ pub struct IColumnDefinition_Vtbl {
     get_Width: usize,
     pub put_Width:
         unsafe extern "system" fn(*mut core::ffi::c_void, GridLength) -> windows_core::HRESULT,
-    get_MaxWidth: usize,
-    put_MaxWidth: usize,
-    get_MinWidth: usize,
-    put_MinWidth: usize,
-    get_ActualWidth: usize,
 }
 windows_core::imp::define_interface!(
     IComboBox,
@@ -6722,26 +6522,6 @@ pub struct IComboBox_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_LightDismissOverlayMode: usize,
-    put_LightDismissOverlayMode: usize,
-    get_IsTextSearchEnabled: usize,
-    put_IsTextSearchEnabled: usize,
-    get_SelectionChangedTrigger: usize,
-    put_SelectionChangedTrigger: usize,
-    get_PlaceholderForeground: usize,
-    put_PlaceholderForeground: usize,
-    get_Text: usize,
-    put_Text: usize,
-    get_TextBoxStyle: usize,
-    put_TextBoxStyle: usize,
-    get_Description: usize,
-    put_Description: usize,
-    add_DropDownClosed: usize,
-    remove_DropDownClosed: usize,
-    add_DropDownOpened: usize,
-    remove_DropDownOpened: usize,
-    add_TextSubmitted: usize,
-    remove_TextSubmitted: usize,
 }
 windows_core::imp::define_interface!(
     IComboBoxFactory,
@@ -6828,12 +6608,6 @@ pub struct ICommandBar_Vtbl {
         *mut core::ffi::c_void,
         CommandBarDefaultLabelPosition,
     ) -> windows_core::HRESULT,
-    get_OverflowButtonVisibility: usize,
-    put_OverflowButtonVisibility: usize,
-    get_IsDynamicOverflowEnabled: usize,
-    put_IsDynamicOverflowEnabled: usize,
-    add_DynamicOverflowItemsChanging: usize,
-    remove_DynamicOverflowItemsChanging: usize,
 }
 windows_core::imp::define_interface!(
     ICommandBarElement,
@@ -6852,11 +6626,6 @@ windows_core::imp::interface_hierarchy!(
 #[repr(C)]
 pub struct ICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_IsCompact: usize,
-    put_IsCompact: usize,
-    get_IsInOverflow: usize,
-    get_DynamicOverflowOrder: usize,
-    put_DynamicOverflowOrder: usize,
 }
 windows_core::imp::define_interface!(
     ICommandBarFactory,
@@ -6955,17 +6724,6 @@ impl windows_core::RuntimeType for ICompositionAnimation {
 #[repr(C)]
 pub struct ICompositionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    ClearAllParameters: usize,
-    ClearParameter: usize,
-    SetColorParameter: usize,
-    SetMatrix3x2Parameter: usize,
-    SetMatrix4x4Parameter: usize,
-    SetQuaternionParameter: usize,
-    SetReferenceParameter: usize,
-    SetScalarParameter: usize,
-    SetVector2Parameter: usize,
-    SetVector3Parameter: usize,
-    SetVector4Parameter: usize,
 }
 windows_core::imp::define_interface!(
     ICompositionAnimation2,
@@ -7075,7 +6833,6 @@ pub struct ICompositionObject_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    StopAnimation: usize,
 }
 windows_core::imp::define_interface!(
     ICompositionObject2,
@@ -7110,8 +6867,6 @@ pub struct ICompositionObject2_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    StartAnimationGroup: usize,
-    StopAnimationGroup: usize,
 }
 windows_core::imp::define_interface!(
     ICompositionTarget,
@@ -7145,11 +6900,6 @@ pub struct ICompositionTargetStatics_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_Rendering:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_Rendered: usize,
-    remove_Rendered: usize,
-    add_SurfaceContentsLost: usize,
-    remove_SurfaceContentsLost: usize,
-    GetCompositorForCurrentThread: usize,
 }
 windows_core::imp::define_interface!(
     ICompositor,
@@ -7246,8 +6996,6 @@ pub struct ICompositor_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateVector4KeyFrameAnimation: usize,
-    GetCommitBatch: usize,
 }
 windows_core::imp::define_interface!(
     ICompositor2,
@@ -7284,13 +7032,6 @@ pub struct ICompositor2_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateLayerVisual: usize,
-    CreateMaskBrush: usize,
-    CreateNineGridBrush: usize,
-    CreatePointLight: usize,
-    CreateSpotLight: usize,
-    CreateStepEasingFunction: usize,
-    CreateStepEasingFunctionWithStepCount: usize,
 }
 windows_core::imp::define_interface!(
     IContentControl,
@@ -7336,13 +7077,6 @@ pub struct IContentControl_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_ContentTemplate: usize,
-    put_ContentTemplate: usize,
-    get_ContentTemplateSelector: usize,
-    put_ContentTemplateSelector: usize,
-    get_ContentTransitions: usize,
-    put_ContentTransitions: usize,
-    get_ContentTemplateRoot: usize,
 }
 windows_core::imp::define_interface!(
     IContentDialog,
@@ -7748,26 +7482,6 @@ pub struct IControl_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_BackgroundSizing: usize,
-    put_BackgroundSizing: usize,
-    get_BorderThickness: usize,
-    put_BorderThickness: usize,
-    get_BorderBrush: usize,
-    put_BorderBrush: usize,
-    get_DefaultStyleResourceUri: usize,
-    put_DefaultStyleResourceUri: usize,
-    get_ElementSoundMode: usize,
-    put_ElementSoundMode: usize,
-    get_CornerRadius: usize,
-    put_CornerRadius: usize,
-    add_FocusEngaged: usize,
-    remove_FocusEngaged: usize,
-    add_FocusDisengaged: usize,
-    remove_FocusDisengaged: usize,
-    add_IsEnabledChanged: usize,
-    remove_IsEnabledChanged: usize,
-    RemoveFocusEngagement: usize,
-    ApplyTemplate: usize,
 }
 windows_core::imp::define_interface!(
     ICubicBezierEasingFunction,
@@ -7781,8 +7495,6 @@ impl windows_core::RuntimeType for ICubicBezierEasingFunction {
 #[repr(C)]
 pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_ControlPoint1: usize,
-    get_ControlPoint2: usize,
 }
 windows_core::imp::define_interface!(
     IDataTemplate,
@@ -7796,7 +7508,6 @@ impl windows_core::RuntimeType for IDataTemplate {
 #[repr(C)]
 pub struct IDataTemplate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    LoadContent: usize,
 }
 windows_core::imp::define_interface!(
     IDataTemplateFactory,
@@ -8007,15 +7718,6 @@ impl windows_core::RuntimeType for IDependencyObject {
 #[repr(C)]
 pub struct IDependencyObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    GetValue: usize,
-    SetValue: usize,
-    ClearValue: usize,
-    ReadLocalValue: usize,
-    GetAnimationBaseValue: usize,
-    RegisterPropertyChangedCallback: usize,
-    UnregisterPropertyChangedCallback: usize,
-    get_Dispatcher: usize,
-    get_DispatcherQueue: usize,
 }
 windows_core::imp::define_interface!(
     IDesktopAcrylicBackdrop,
@@ -8121,10 +7823,6 @@ pub struct IDispatcherQueue_Vtbl {
         *mut core::ffi::c_void,
         *mut bool,
     ) -> windows_core::HRESULT,
-    add_ShutdownStarting: usize,
-    remove_ShutdownStarting: usize,
-    add_ShutdownCompleted: usize,
-    remove_ShutdownCompleted: usize,
 }
 windows_core::imp::define_interface!(
     IDispatcherQueueStatics,
@@ -8293,13 +7991,6 @@ pub struct IElementCompositionPreviewStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    GetElementChildVisual: usize,
-    SetElementChildVisual: usize,
-    GetScrollViewerManipulationPropertySet: usize,
-    SetImplicitShowAnimation: usize,
-    SetImplicitHideAnimation: usize,
-    SetIsTranslationEnabled: usize,
-    GetPointerPositionPropertySet: usize,
 }
 windows_core::imp::define_interface!(
     IEllipse,
@@ -8435,7 +8126,6 @@ pub struct IExpander_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_Collapsed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IExpanderCollapsedEventArgs,
@@ -8494,8 +8184,6 @@ impl windows_core::RuntimeType for IFlipView {
 #[repr(C)]
 pub struct IFlipView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_UseTouchAnimationsForAllNavigation: usize,
-    put_UseTouchAnimationsForAllNavigation: usize,
 }
 windows_core::imp::define_interface!(
     IFlipViewFactory,
@@ -8547,8 +8235,6 @@ pub struct IFlyout_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_FlyoutPresenterStyle: usize,
-    put_FlyoutPresenterStyle: usize,
 }
 windows_core::imp::define_interface!(
     IFlyoutBase,
@@ -8578,40 +8264,6 @@ pub struct IFlyoutBase_Vtbl {
         *mut core::ffi::c_void,
         FlyoutPlacementMode,
     ) -> windows_core::HRESULT,
-    get_Target: usize,
-    get_AllowFocusOnInteraction: usize,
-    put_AllowFocusOnInteraction: usize,
-    get_LightDismissOverlayMode: usize,
-    put_LightDismissOverlayMode: usize,
-    get_AllowFocusWhenDisabled: usize,
-    put_AllowFocusWhenDisabled: usize,
-    get_ShowMode: usize,
-    put_ShowMode: usize,
-    get_InputDevicePrefersPrimaryCommands: usize,
-    get_AreOpenCloseAnimationsEnabled: usize,
-    put_AreOpenCloseAnimationsEnabled: usize,
-    get_ShouldConstrainToRootBounds: usize,
-    put_ShouldConstrainToRootBounds: usize,
-    get_IsConstrainedToRootBounds: usize,
-    get_ElementSoundMode: usize,
-    put_ElementSoundMode: usize,
-    get_OverlayInputPassThroughElement: usize,
-    put_OverlayInputPassThroughElement: usize,
-    get_IsOpen: usize,
-    get_XamlRoot: usize,
-    put_XamlRoot: usize,
-    add_Opened: usize,
-    remove_Opened: usize,
-    add_Closed: usize,
-    remove_Closed: usize,
-    add_Opening: usize,
-    remove_Opening: usize,
-    add_Closing: usize,
-    remove_Closing: usize,
-    ShowAt: usize,
-    ShowAtWithOptions: usize,
-    Hide: usize,
-    TryInvokeKeyboardAccelerator: usize,
 }
 windows_core::imp::define_interface!(
     IFlyoutFactory,
@@ -8644,7 +8296,6 @@ impl windows_core::RuntimeType for IFontFamily {
 #[repr(C)]
 pub struct IFontFamily_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Source: usize,
 }
 windows_core::imp::define_interface!(
     IFontFamilyFactory,
@@ -9014,11 +8665,6 @@ pub struct IFrameworkElement_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_ActualThemeChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_EffectiveViewportChanged: usize,
-    remove_EffectiveViewportChanged: usize,
-    FindName: usize,
-    SetBinding: usize,
-    GetBindingExpression: usize,
 }
 windows_core::imp::define_interface!(
     IFrameworkElementAutomationPeer,
@@ -9032,7 +8678,6 @@ impl windows_core::RuntimeType for IFrameworkElementAutomationPeer {
 #[repr(C)]
 pub struct IFrameworkElementAutomationPeer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Owner: usize,
 }
 windows_core::imp::define_interface!(
     IFrameworkElementAutomationPeerFactory,
@@ -9329,8 +8974,6 @@ impl windows_core::RuntimeType for IIconElement {
 #[repr(C)]
 pub struct IIconElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Foreground: usize,
-    put_Foreground: usize,
 }
 windows_core::imp::define_interface!(IImage, IImage_Vtbl, 0x220d3d8d_66de_53a1_a215_ba9c165565ab);
 impl windows_core::RuntimeType for IImage {
@@ -9371,14 +9014,6 @@ pub struct IImage_Vtbl {
     get_Stretch: usize,
     pub put_Stretch:
         unsafe extern "system" fn(*mut core::ffi::c_void, Stretch) -> windows_core::HRESULT,
-    get_NineGrid: usize,
-    put_NineGrid: usize,
-    add_ImageFailed: usize,
-    remove_ImageFailed: usize,
-    add_ImageOpened: usize,
-    remove_ImageOpened: usize,
-    GetAsCastingSource: usize,
-    GetAlphaMask: usize,
 }
 windows_core::imp::define_interface!(
     IImageSource,
@@ -9431,9 +9066,6 @@ pub struct IInfoBadge_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Value: usize,
     pub put_Value: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    get_IconSource: usize,
-    put_IconSource: usize,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IInfoBadgeFactory,
@@ -9602,7 +9234,6 @@ impl windows_core::RuntimeType for IInfoBarClosedEventArgs {
 #[repr(C)]
 pub struct IInfoBarClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Reason: usize,
 }
 windows_core::imp::define_interface!(
     IInfoBarFactory,
@@ -9648,10 +9279,6 @@ impl windows_core::RuntimeType for IItemContainer {
 #[repr(C)]
 pub struct IItemContainer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Child: usize,
-    put_Child: usize,
-    get_IsSelected: usize,
-    put_IsSelected: usize,
 }
 windows_core::imp::define_interface!(
     IItemsControl,
@@ -9698,27 +9325,6 @@ pub struct IItemsControl_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_ItemTemplate: usize,
-    put_ItemTemplate: usize,
-    get_ItemTemplateSelector: usize,
-    put_ItemTemplateSelector: usize,
-    get_ItemsPanel: usize,
-    put_ItemsPanel: usize,
-    get_DisplayMemberPath: usize,
-    put_DisplayMemberPath: usize,
-    get_ItemsPanelRoot: usize,
-    get_ItemContainerStyle: usize,
-    put_ItemContainerStyle: usize,
-    get_ItemContainerStyleSelector: usize,
-    put_ItemContainerStyleSelector: usize,
-    get_ItemContainerGenerator: usize,
-    get_ItemContainerTransitions: usize,
-    put_ItemContainerTransitions: usize,
-    get_GroupStyle: usize,
-    get_GroupStyleSelector: usize,
-    put_GroupStyleSelector: usize,
-    get_IsGrouping: usize,
-    GroupHeaderContainerFromItemContainer: usize,
 }
 windows_core::imp::define_interface!(
     IKeyFrameAnimation,
@@ -9937,8 +9543,6 @@ pub struct IKeyboardAcceleratorInvokedEventArgs_Vtbl {
     get_Handled: usize,
     pub put_Handled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    get_Element: usize,
-    get_KeyboardAccelerator: usize,
 }
 windows_core::imp::define_interface!(
     ILaunchActivatedEventArgs,
@@ -9952,8 +9556,6 @@ impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
 #[repr(C)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Arguments: usize,
-    get_UWPLaunchActivatedEventArgs: usize,
 }
 windows_core::imp::define_interface!(ILine, ILine_Vtbl, 0x507b3858_af7e_559b_a87e_4cc6a5d8ba96);
 impl windows_core::RuntimeType for ILine {
@@ -10050,10 +9652,6 @@ pub struct IListBox_Vtbl {
     get_SelectionMode: usize,
     pub put_SelectionMode:
         unsafe extern "system" fn(*mut core::ffi::c_void, SelectionMode) -> windows_core::HRESULT,
-    get_SingleSelectionFollowsFocus: usize,
-    put_SingleSelectionFollowsFocus: usize,
-    ScrollIntoView: usize,
-    SelectAll: usize,
 }
 windows_core::imp::define_interface!(
     IListBoxFactory,
@@ -10211,24 +9809,6 @@ pub struct IListViewBase_Vtbl {
         *mut core::ffi::c_void,
         ScrollIntoViewAlignment,
     ) -> windows_core::HRESULT,
-    SetDesiredContainerUpdateDuration: usize,
-    SelectRange: usize,
-    DeselectRange: usize,
-    IsDragSource: usize,
-    TryStartConnectedAnimationAsync: usize,
-    PrepareConnectedAnimation: usize,
-    get_Header: usize,
-    put_Header: usize,
-    get_HeaderTemplate: usize,
-    put_HeaderTemplate: usize,
-    get_HeaderTransitions: usize,
-    put_HeaderTransitions: usize,
-    get_Footer: usize,
-    put_Footer: usize,
-    get_FooterTemplate: usize,
-    put_FooterTemplate: usize,
-    get_FooterTransitions: usize,
-    put_FooterTransitions: usize,
 }
 windows_core::imp::define_interface!(
     IListViewFactory,
@@ -10261,7 +9841,6 @@ impl windows_core::RuntimeType for IListViewItem {
 #[repr(C)]
 pub struct IListViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IMenuBar,
@@ -10405,9 +9984,6 @@ pub struct IMenuFlyout_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_MenuFlyoutPresenterStyle: usize,
-    put_MenuFlyoutPresenterStyle: usize,
-    ShowAt: usize,
 }
 windows_core::imp::define_interface!(
     IMenuFlyoutFactory,
@@ -10624,8 +10200,6 @@ pub struct IMenuFlyoutSubItem_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_Icon: usize,
-    put_Icon: usize,
 }
 windows_core::imp::define_interface!(
     IMicaBackdrop,
@@ -10896,12 +10470,6 @@ pub struct INavigationView_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_SelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_ItemInvoked: usize,
-    remove_ItemInvoked: usize,
-    add_DisplayModeChanged: usize,
-    remove_DisplayModeChanged: usize,
-    get_IsTitleBarAutoPaddingEnabled: usize,
-    put_IsTitleBarAutoPaddingEnabled: usize,
 }
 windows_core::imp::define_interface!(
     INavigationView2,
@@ -11021,27 +10589,6 @@ pub struct INavigationView2_Vtbl {
         *mut core::ffi::c_void,
         NavigationViewPaneDisplayMode,
     ) -> windows_core::HRESULT,
-    get_PaneHeader: usize,
-    put_PaneHeader: usize,
-    get_PaneCustomContent: usize,
-    put_PaneCustomContent: usize,
-    get_ContentOverlay: usize,
-    put_ContentOverlay: usize,
-    get_IsPaneVisible: usize,
-    put_IsPaneVisible: usize,
-    get_SelectionFollowsFocus: usize,
-    put_SelectionFollowsFocus: usize,
-    get_TemplateSettings: usize,
-    get_ShoulderNavigationEnabled: usize,
-    put_ShoulderNavigationEnabled: usize,
-    get_OverflowLabelMode: usize,
-    put_OverflowLabelMode: usize,
-    add_Expanding: usize,
-    remove_Expanding: usize,
-    add_Collapsed: usize,
-    remove_Collapsed: usize,
-    Expand: usize,
-    Collapse: usize,
 }
 windows_core::imp::define_interface!(
     INavigationViewBackRequestedEventArgs,
@@ -11106,7 +10653,6 @@ pub struct INavigationViewItem_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_CompactPaneLength: usize,
 }
 windows_core::imp::define_interface!(
     INavigationViewItem2,
@@ -11146,8 +10692,6 @@ pub struct INavigationViewItem2_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_MenuItemsSource: usize,
-    put_MenuItemsSource: usize,
 }
 windows_core::imp::define_interface!(
     INavigationViewItemBase,
@@ -11241,7 +10785,6 @@ pub struct INavigationViewSelectionChangedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_IsSettingsSelected: usize,
 }
 windows_core::imp::define_interface!(
     INumberBox,
@@ -11547,11 +11090,6 @@ pub struct IPanel_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_IsItemsHost: usize,
-    get_ChildrenTransitions: usize,
-    put_ChildrenTransitions: usize,
-    get_BackgroundTransition: usize,
-    put_BackgroundTransition: usize,
 }
 windows_core::imp::define_interface!(
     IParagraph,
@@ -11581,8 +11119,6 @@ pub struct IParagraph_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_TextIndent: usize,
-    put_TextIndent: usize,
 }
 windows_core::imp::define_interface!(
     IPasswordBox,
@@ -11741,14 +11277,6 @@ pub struct IPasswordBox_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_PasswordChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_ContextMenuOpening: usize,
-    remove_ContextMenuOpening: usize,
-    add_Paste: usize,
-    remove_Paste: usize,
-    add_PasswordChanging: usize,
-    remove_PasswordChanging: usize,
-    SelectAll: usize,
-    PasteFromClipboard: usize,
 }
 windows_core::imp::define_interface!(
     IPersonPicture,
@@ -11804,11 +11332,6 @@ pub struct IPersonPicture_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_PreferSmallImage: usize,
-    put_PreferSmallImage: usize,
-    get_ProfilePicture: usize,
-    put_ProfilePicture: usize,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IPersonPictureFactory,
@@ -11927,14 +11450,6 @@ pub struct IPivot_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_SelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_PivotItemLoading: usize,
-    remove_PivotItemLoading: usize,
-    add_PivotItemLoaded: usize,
-    remove_PivotItemLoaded: usize,
-    add_PivotItemUnloading: usize,
-    remove_PivotItemUnloading: usize,
-    add_PivotItemUnloaded: usize,
-    remove_PivotItemUnloaded: usize,
 }
 windows_core::imp::define_interface!(
     IPivotFactory,
@@ -12039,8 +11554,6 @@ pub struct IPointerPoint_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_Timestamp: usize,
-    GetTransformedPoint: usize,
 }
 windows_core::imp::define_interface!(
     IPointerPointProperties,
@@ -12100,16 +11613,6 @@ pub struct IPointerPointProperties_Vtbl {
     get_IsPrimary: usize,
     pub get_IsRightButtonPressed:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    get_IsXButton1Pressed: usize,
-    get_IsXButton2Pressed: usize,
-    get_MouseWheelDelta: usize,
-    get_Orientation: usize,
-    get_PointerUpdateKind: usize,
-    get_Pressure: usize,
-    get_TouchConfidence: usize,
-    get_Twist: usize,
-    get_XTilt: usize,
-    get_YTilt: usize,
 }
 windows_core::imp::define_interface!(
     IPointerRoutedEventArgs,
@@ -12149,7 +11652,6 @@ pub struct IPointerRoutedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    GetIntermediatePoints: usize,
 }
 windows_core::imp::define_interface!(
     IProgressBar,
@@ -12177,11 +11679,6 @@ pub struct IProgressBar_Vtbl {
     get_IsIndeterminate: usize,
     pub put_IsIndeterminate:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    get_ShowError: usize,
-    put_ShowError: usize,
-    get_ShowPaused: usize,
-    put_ShowPaused: usize,
-    get_TemplateSettings: usize,
 }
 windows_core::imp::define_interface!(
     IProgressBarFactory,
@@ -12472,8 +11969,6 @@ pub struct IRadioButtons_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_HeaderTemplate: usize,
-    put_HeaderTemplate: usize,
 }
 windows_core::imp::define_interface!(
     IRadioButtonsFactory,
@@ -12839,16 +12334,6 @@ impl windows_core::RuntimeType for IRelativePanel {
 #[repr(C)]
 pub struct IRelativePanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_BackgroundSizing: usize,
-    put_BackgroundSizing: usize,
-    get_BorderBrush: usize,
-    put_BorderBrush: usize,
-    get_BorderThickness: usize,
-    put_BorderThickness: usize,
-    get_CornerRadius: usize,
-    put_CornerRadius: usize,
-    get_Padding: usize,
-    put_Padding: usize,
 }
 windows_core::imp::define_interface!(
     IRelativePanelFactory,
@@ -12954,10 +12439,6 @@ pub struct IRelativePanelStatics_Vtbl {
         *mut core::ffi::c_void,
         bool,
     ) -> windows_core::HRESULT,
-    get_BorderBrushProperty: usize,
-    get_BorderThicknessProperty: usize,
-    get_CornerRadiusProperty: usize,
-    get_PaddingProperty: usize,
 }
 windows_core::imp::define_interface!(
     IRepeatButton,
@@ -13029,7 +12510,6 @@ pub struct IResourceDictionary_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_ThemeDictionaries: usize,
 }
 windows_core::imp::define_interface!(
     IResourceDictionaryFactory,
@@ -13191,35 +12671,6 @@ pub struct IRichEditBox_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_TextChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_SelectionChanged: usize,
-    remove_SelectionChanged: usize,
-    add_ContextMenuOpening: usize,
-    remove_ContextMenuOpening: usize,
-    add_Paste: usize,
-    remove_Paste: usize,
-    add_TextCompositionStarted: usize,
-    remove_TextCompositionStarted: usize,
-    add_TextCompositionChanged: usize,
-    remove_TextCompositionChanged: usize,
-    add_TextCompositionEnded: usize,
-    remove_TextCompositionEnded: usize,
-    add_CopyingToClipboard: usize,
-    remove_CopyingToClipboard: usize,
-    add_CuttingToClipboard: usize,
-    remove_CuttingToClipboard: usize,
-    add_SelectionChanging: usize,
-    remove_SelectionChanging: usize,
-    GetLinguisticAlternativesAsync: usize,
-    get_TextReadingOrder: usize,
-    put_TextReadingOrder: usize,
-    get_ClipboardCopyFormat: usize,
-    put_ClipboardCopyFormat: usize,
-    get_DesiredCandidateWindowAlignment: usize,
-    put_DesiredCandidateWindowAlignment: usize,
-    add_CandidateWindowBoundsChanged: usize,
-    remove_CandidateWindowBoundsChanged: usize,
-    add_TextChanging: usize,
-    remove_TextChanging: usize,
 }
 windows_core::imp::define_interface!(
     IRichEditBoxFactory,
@@ -13358,47 +12809,6 @@ pub struct IRichTextBlock_Vtbl {
     get_IsTextSelectionEnabled: usize,
     pub put_IsTextSelectionEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    get_HasOverflowContent: usize,
-    get_SelectedText: usize,
-    get_ContentStart: usize,
-    get_ContentEnd: usize,
-    get_SelectionStart: usize,
-    get_SelectionEnd: usize,
-    get_BaselineOffset: usize,
-    get_MaxLines: usize,
-    put_MaxLines: usize,
-    get_TextLineBounds: usize,
-    put_TextLineBounds: usize,
-    get_SelectionHighlightColor: usize,
-    put_SelectionHighlightColor: usize,
-    get_OpticalMarginAlignment: usize,
-    put_OpticalMarginAlignment: usize,
-    get_IsColorFontEnabled: usize,
-    put_IsColorFontEnabled: usize,
-    get_TextReadingOrder: usize,
-    put_TextReadingOrder: usize,
-    get_IsTextScaleFactorEnabled: usize,
-    put_IsTextScaleFactorEnabled: usize,
-    get_TextDecorations: usize,
-    put_TextDecorations: usize,
-    get_IsTextTrimmed: usize,
-    get_HorizontalTextAlignment: usize,
-    put_HorizontalTextAlignment: usize,
-    get_TextHighlighters: usize,
-    get_SelectionFlyout: usize,
-    put_SelectionFlyout: usize,
-    add_SelectionChanged: usize,
-    remove_SelectionChanged: usize,
-    add_ContextMenuOpening: usize,
-    remove_ContextMenuOpening: usize,
-    add_IsTextTrimmedChanged: usize,
-    remove_IsTextTrimmedChanged: usize,
-    SelectAll: usize,
-    Select: usize,
-    GetPositionFromPoint: usize,
-    CopySelectionToClipboard: usize,
-    get_TextIndent: usize,
-    put_TextIndent: usize,
 }
 windows_core::imp::define_interface!(
     IRightTappedRoutedEventArgs,
@@ -13412,10 +12822,6 @@ impl windows_core::RuntimeType for IRightTappedRoutedEventArgs {
 #[repr(C)]
 pub struct IRightTappedRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_PointerDeviceType: usize,
-    get_Handled: usize,
-    put_Handled: usize,
-    GetPosition: usize,
 }
 windows_core::imp::define_interface!(
     IRoutedEventArgs,
@@ -13429,7 +12835,6 @@ impl windows_core::RuntimeType for IRoutedEventArgs {
 #[repr(C)]
 pub struct IRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_OriginalSource: usize,
 }
 windows_core::imp::define_interface!(
     IRowDefinition,
@@ -13457,11 +12862,6 @@ pub struct IRowDefinition_Vtbl {
     get_Height: usize,
     pub put_Height:
         unsafe extern "system" fn(*mut core::ffi::c_void, GridLength) -> windows_core::HRESULT,
-    get_MaxHeight: usize,
-    put_MaxHeight: usize,
-    get_MinHeight: usize,
-    put_MinHeight: usize,
-    get_ActualHeight: usize,
 }
 windows_core::imp::define_interface!(IRun, IRun_Vtbl, 0x1f905239_37cb_590b_9132_3ffb7741906e);
 impl windows_core::RuntimeType for IRun {
@@ -13487,8 +12887,6 @@ pub struct IRun_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_FlowDirection: usize,
-    put_FlowDirection: usize,
 }
 windows_core::imp::define_interface!(
     IScalarKeyFrameAnimation,
@@ -13624,68 +13022,6 @@ pub struct IScrollView_Vtbl {
         *mut core::ffi::c_void,
         ScrollingScrollBarVisibility,
     ) -> windows_core::HRESULT,
-    get_ContentOrientation: usize,
-    put_ContentOrientation: usize,
-    get_HorizontalScrollChainMode: usize,
-    put_HorizontalScrollChainMode: usize,
-    get_VerticalScrollChainMode: usize,
-    put_VerticalScrollChainMode: usize,
-    get_HorizontalScrollRailMode: usize,
-    put_HorizontalScrollRailMode: usize,
-    get_VerticalScrollRailMode: usize,
-    put_VerticalScrollRailMode: usize,
-    get_HorizontalScrollMode: usize,
-    put_HorizontalScrollMode: usize,
-    get_VerticalScrollMode: usize,
-    put_VerticalScrollMode: usize,
-    get_ComputedHorizontalScrollBarVisibility: usize,
-    get_ComputedVerticalScrollBarVisibility: usize,
-    get_ComputedHorizontalScrollMode: usize,
-    get_ComputedVerticalScrollMode: usize,
-    get_ZoomChainMode: usize,
-    put_ZoomChainMode: usize,
-    get_ZoomMode: usize,
-    put_ZoomMode: usize,
-    get_IgnoredInputKinds: usize,
-    put_IgnoredInputKinds: usize,
-    get_MinZoomFactor: usize,
-    put_MinZoomFactor: usize,
-    get_MaxZoomFactor: usize,
-    put_MaxZoomFactor: usize,
-    get_HorizontalAnchorRatio: usize,
-    put_HorizontalAnchorRatio: usize,
-    get_VerticalAnchorRatio: usize,
-    put_VerticalAnchorRatio: usize,
-    RegisterAnchorCandidate: usize,
-    UnregisterAnchorCandidate: usize,
-    ScrollTo: usize,
-    ScrollToWithOptions: usize,
-    ScrollBy: usize,
-    ScrollByWithOptions: usize,
-    AddScrollVelocity: usize,
-    ZoomTo: usize,
-    ZoomToWithOptions: usize,
-    ZoomBy: usize,
-    ZoomByWithOptions: usize,
-    AddZoomVelocity: usize,
-    add_ExtentChanged: usize,
-    remove_ExtentChanged: usize,
-    add_StateChanged: usize,
-    remove_StateChanged: usize,
-    add_ViewChanged: usize,
-    remove_ViewChanged: usize,
-    add_ScrollAnimationStarting: usize,
-    remove_ScrollAnimationStarting: usize,
-    add_ZoomAnimationStarting: usize,
-    remove_ZoomAnimationStarting: usize,
-    add_ScrollCompleted: usize,
-    remove_ScrollCompleted: usize,
-    add_ZoomCompleted: usize,
-    remove_ZoomCompleted: usize,
-    add_BringingIntoView: usize,
-    remove_BringingIntoView: usize,
-    add_AnchorRequested: usize,
-    remove_AnchorRequested: usize,
 }
 windows_core::imp::define_interface!(
     IScrollViewFactory,
@@ -13754,86 +13090,6 @@ pub struct IScrollViewer_Vtbl {
         *mut core::ffi::c_void,
         ScrollBarVisibility,
     ) -> windows_core::HRESULT,
-    get_IsHorizontalRailEnabled: usize,
-    put_IsHorizontalRailEnabled: usize,
-    get_IsVerticalRailEnabled: usize,
-    put_IsVerticalRailEnabled: usize,
-    get_IsHorizontalScrollChainingEnabled: usize,
-    put_IsHorizontalScrollChainingEnabled: usize,
-    get_IsVerticalScrollChainingEnabled: usize,
-    put_IsVerticalScrollChainingEnabled: usize,
-    get_IsZoomChainingEnabled: usize,
-    put_IsZoomChainingEnabled: usize,
-    get_IsScrollInertiaEnabled: usize,
-    put_IsScrollInertiaEnabled: usize,
-    get_IsZoomInertiaEnabled: usize,
-    put_IsZoomInertiaEnabled: usize,
-    get_HorizontalScrollMode: usize,
-    put_HorizontalScrollMode: usize,
-    get_VerticalScrollMode: usize,
-    put_VerticalScrollMode: usize,
-    get_ZoomMode: usize,
-    put_ZoomMode: usize,
-    get_HorizontalSnapPointsAlignment: usize,
-    put_HorizontalSnapPointsAlignment: usize,
-    get_VerticalSnapPointsAlignment: usize,
-    put_VerticalSnapPointsAlignment: usize,
-    get_HorizontalSnapPointsType: usize,
-    put_HorizontalSnapPointsType: usize,
-    get_VerticalSnapPointsType: usize,
-    put_VerticalSnapPointsType: usize,
-    get_ZoomSnapPointsType: usize,
-    put_ZoomSnapPointsType: usize,
-    get_HorizontalOffset: usize,
-    get_ViewportWidth: usize,
-    get_ScrollableWidth: usize,
-    get_ComputedHorizontalScrollBarVisibility: usize,
-    get_ExtentWidth: usize,
-    get_VerticalOffset: usize,
-    get_ViewportHeight: usize,
-    get_ScrollableHeight: usize,
-    get_ComputedVerticalScrollBarVisibility: usize,
-    get_ExtentHeight: usize,
-    get_MinZoomFactor: usize,
-    put_MinZoomFactor: usize,
-    get_MaxZoomFactor: usize,
-    put_MaxZoomFactor: usize,
-    get_ZoomFactor: usize,
-    get_ZoomSnapPoints: usize,
-    get_TopLeftHeader: usize,
-    put_TopLeftHeader: usize,
-    get_LeftHeader: usize,
-    put_LeftHeader: usize,
-    get_TopHeader: usize,
-    put_TopHeader: usize,
-    get_ReduceViewportForCoreInputViewOcclusions: usize,
-    put_ReduceViewportForCoreInputViewOcclusions: usize,
-    get_HorizontalAnchorRatio: usize,
-    put_HorizontalAnchorRatio: usize,
-    get_VerticalAnchorRatio: usize,
-    put_VerticalAnchorRatio: usize,
-    get_CanContentRenderOutsideBounds: usize,
-    put_CanContentRenderOutsideBounds: usize,
-    add_AnchorRequested: usize,
-    remove_AnchorRequested: usize,
-    add_ViewChanging: usize,
-    remove_ViewChanging: usize,
-    add_ViewChanged: usize,
-    remove_ViewChanged: usize,
-    add_DirectManipulationStarted: usize,
-    remove_DirectManipulationStarted: usize,
-    add_DirectManipulationCompleted: usize,
-    remove_DirectManipulationCompleted: usize,
-    ScrollToHorizontalOffset: usize,
-    ScrollToVerticalOffset: usize,
-    ZoomToFactor: usize,
-    ChangeView: usize,
-    ChangeViewWithOptionalAnimation: usize,
-    InvalidateScrollInfo: usize,
-    get_IsDeferredScrollingEnabled: usize,
-    put_IsDeferredScrollingEnabled: usize,
-    get_BringIntoViewOnFocusChange: usize,
-    put_BringIntoViewOnFocusChange: usize,
 }
 windows_core::imp::define_interface!(
     ISelectionChangedEventArgs,
@@ -13847,8 +13103,6 @@ impl windows_core::RuntimeType for ISelectionChangedEventArgs {
 #[repr(C)]
 pub struct ISelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_AddedItems: usize,
-    get_RemovedItems: usize,
 }
 windows_core::imp::define_interface!(
     ISelector,
@@ -14153,8 +13407,6 @@ impl windows_core::RuntimeType for ISelectorItem {
 #[repr(C)]
 pub struct ISelectorItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_IsSelected: usize,
-    put_IsSelected: usize,
 }
 windows_core::imp::define_interface!(
     ISetterBase,
@@ -14168,7 +13420,6 @@ impl windows_core::RuntimeType for ISetterBase {
 #[repr(C)]
 pub struct ISetterBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_IsSealed: usize,
 }
 windows_core::imp::define_interface!(IShape, IShape_Vtbl, 0x9941aad3_6af2_5ba2_9085_8506d5f2485e);
 impl windows_core::RuntimeType for IShape {
@@ -14228,22 +13479,6 @@ pub struct IShape_Vtbl {
     get_StrokeThickness: usize,
     pub put_StrokeThickness:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    get_StrokeStartLineCap: usize,
-    put_StrokeStartLineCap: usize,
-    get_StrokeEndLineCap: usize,
-    put_StrokeEndLineCap: usize,
-    get_StrokeLineJoin: usize,
-    put_StrokeLineJoin: usize,
-    get_StrokeDashOffset: usize,
-    put_StrokeDashOffset: usize,
-    get_StrokeDashCap: usize,
-    put_StrokeDashCap: usize,
-    get_StrokeDashArray: usize,
-    put_StrokeDashArray: usize,
-    get_Stretch: usize,
-    put_Stretch: usize,
-    get_GeometryTransform: usize,
-    GetAlphaMask: usize,
 }
 windows_core::imp::define_interface!(
     ISizeChangedEventArgs,
@@ -14342,8 +13577,6 @@ pub struct ISlider_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    get_HeaderTemplate: usize,
-    put_HeaderTemplate: usize,
 }
 windows_core::imp::define_interface!(
     ISliderFactory,
@@ -14625,10 +13858,6 @@ pub struct ISplitView_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_PaneClosed:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_PaneOpening: usize,
-    remove_PaneOpening: usize,
-    add_PaneOpened: usize,
-    remove_PaneOpened: usize,
 }
 windows_core::imp::define_interface!(
     ISplitViewFactory,
@@ -14727,13 +13956,6 @@ impl windows_core::RuntimeType for IStyle {
 #[repr(C)]
 pub struct IStyle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_IsSealed: usize,
-    get_Setters: usize,
-    get_TargetType: usize,
-    put_TargetType: usize,
-    get_BasedOn: usize,
-    put_BasedOn: usize,
-    Seal: usize,
 }
 windows_core::imp::define_interface!(
     ISurfaceImageSource,
@@ -14768,7 +13990,6 @@ pub struct ISurfaceImageSourceFactory_Vtbl {
         *mut *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateInstanceWithDimensionsAndOpacity: usize,
 }
 windows_core::imp::define_interface!(
     ISurfaceImageSourceNativeWithD2D,
@@ -14923,7 +14144,6 @@ pub struct ISwapChainPanel_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_CompositionScaleChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    CreateCoreIndependentInputSource: usize,
 }
 windows_core::imp::define_interface!(
     ISwapChainPanelFactory,
@@ -14998,7 +14218,6 @@ pub struct ISymbolIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub get_Symbol:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Symbol) -> windows_core::HRESULT,
-    put_Symbol: usize,
 }
 windows_core::imp::define_interface!(
     ISymbolIconFactory,
@@ -15030,7 +14249,6 @@ impl windows_core::RuntimeType for ISystemBackdrop {
 #[repr(C)]
 pub struct ISystemBackdrop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    GetDefaultSystemBackdropConfiguration: usize,
 }
 windows_core::imp::define_interface!(
     ITabView,
@@ -15261,14 +14479,6 @@ pub struct ITabView_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_SelectionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_TabDragStarting: usize,
-    remove_TabDragStarting: usize,
-    add_TabDragCompleted: usize,
-    remove_TabDragCompleted: usize,
-    add_TabStripDragOver: usize,
-    remove_TabStripDragOver: usize,
-    add_TabStripDrop: usize,
-    remove_TabStripDrop: usize,
 }
 windows_core::imp::define_interface!(
     ITabViewFactory,
@@ -15336,9 +14546,6 @@ pub struct ITabViewItem_Vtbl {
     get_IsClosable: usize,
     pub put_IsClosable:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    get_TabViewTemplateSettings: usize,
-    add_CloseRequested: usize,
-    remove_CloseRequested: usize,
 }
 windows_core::imp::define_interface!(
     ITabViewItemFactory,
@@ -15401,10 +14608,6 @@ impl windows_core::RuntimeType for ITappedRoutedEventArgs {
 #[repr(C)]
 pub struct ITappedRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_PointerDeviceType: usize,
-    get_Handled: usize,
-    put_Handled: usize,
-    GetPosition: usize,
 }
 windows_core::imp::define_interface!(
     ITeachingTip,
@@ -15644,7 +14847,6 @@ impl windows_core::RuntimeType for ITeachingTipClosedEventArgs {
 #[repr(C)]
 pub struct ITeachingTipClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Reason: usize,
 }
 windows_core::imp::define_interface!(
     ITeachingTipFactory,
@@ -15808,44 +15010,6 @@ pub struct ITextBlock_Vtbl {
     get_IsTextSelectionEnabled: usize,
     pub put_IsTextSelectionEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    get_SelectedText: usize,
-    get_ContentStart: usize,
-    get_ContentEnd: usize,
-    get_SelectionStart: usize,
-    get_SelectionEnd: usize,
-    get_BaselineOffset: usize,
-    get_SelectionHighlightColor: usize,
-    put_SelectionHighlightColor: usize,
-    get_MaxLines: usize,
-    put_MaxLines: usize,
-    get_TextLineBounds: usize,
-    put_TextLineBounds: usize,
-    get_OpticalMarginAlignment: usize,
-    put_OpticalMarginAlignment: usize,
-    get_IsColorFontEnabled: usize,
-    put_IsColorFontEnabled: usize,
-    get_TextReadingOrder: usize,
-    put_TextReadingOrder: usize,
-    get_IsTextScaleFactorEnabled: usize,
-    put_IsTextScaleFactorEnabled: usize,
-    get_TextDecorations: usize,
-    put_TextDecorations: usize,
-    get_IsTextTrimmed: usize,
-    get_HorizontalTextAlignment: usize,
-    put_HorizontalTextAlignment: usize,
-    get_TextHighlighters: usize,
-    get_SelectionFlyout: usize,
-    put_SelectionFlyout: usize,
-    add_SelectionChanged: usize,
-    remove_SelectionChanged: usize,
-    add_ContextMenuOpening: usize,
-    remove_ContextMenuOpening: usize,
-    add_IsTextTrimmedChanged: usize,
-    remove_IsTextTrimmedChanged: usize,
-    SelectAll: usize,
-    Select: usize,
-    GetAlphaMask: usize,
-    CopySelectionToClipboard: usize,
 }
 windows_core::imp::define_interface!(
     ITextBox,
@@ -16024,44 +15188,6 @@ pub struct ITextBox_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_TextChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_SelectionChanged: usize,
-    remove_SelectionChanged: usize,
-    add_ContextMenuOpening: usize,
-    remove_ContextMenuOpening: usize,
-    add_Paste: usize,
-    remove_Paste: usize,
-    add_TextCompositionStarted: usize,
-    remove_TextCompositionStarted: usize,
-    add_TextCompositionChanged: usize,
-    remove_TextCompositionChanged: usize,
-    add_TextCompositionEnded: usize,
-    remove_TextCompositionEnded: usize,
-    add_CopyingToClipboard: usize,
-    remove_CopyingToClipboard: usize,
-    add_CuttingToClipboard: usize,
-    remove_CuttingToClipboard: usize,
-    add_BeforeTextChanging: usize,
-    remove_BeforeTextChanging: usize,
-    add_SelectionChanging: usize,
-    remove_SelectionChanging: usize,
-    Select: usize,
-    SelectAll: usize,
-    GetRectFromCharacterIndex: usize,
-    GetLinguisticAlternativesAsync: usize,
-    Undo: usize,
-    Redo: usize,
-    PasteFromClipboard: usize,
-    CopySelectionToClipboard: usize,
-    CutSelectionToClipboard: usize,
-    ClearUndoRedoHistory: usize,
-    get_TextReadingOrder: usize,
-    put_TextReadingOrder: usize,
-    get_DesiredCandidateWindowAlignment: usize,
-    put_DesiredCandidateWindowAlignment: usize,
-    add_CandidateWindowBoundsChanged: usize,
-    remove_CandidateWindowBoundsChanged: usize,
-    add_TextChanging: usize,
-    remove_TextChanging: usize,
 }
 windows_core::imp::define_interface!(
     ITextBoxFactory,
@@ -16167,12 +15293,6 @@ pub struct ITextDocument_Vtbl {
         TextSetOptions,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    Undo: usize,
-    get_AlignmentIncludesTrailingWhitespace: usize,
-    put_AlignmentIncludesTrailingWhitespace: usize,
-    get_IgnoreTrailingCharacterSpacing: usize,
-    put_IgnoreTrailingCharacterSpacing: usize,
-    ClearUndoRedoHistory: usize,
 }
 windows_core::imp::define_interface!(
     ITextElement,
@@ -16220,49 +15340,6 @@ pub struct ITextElement_Vtbl {
     get_FontWeight: usize,
     pub put_FontWeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, FontWeight) -> windows_core::HRESULT,
-    get_FontStyle: usize,
-    put_FontStyle: usize,
-    get_FontStretch: usize,
-    put_FontStretch: usize,
-    get_CharacterSpacing: usize,
-    put_CharacterSpacing: usize,
-    get_Foreground: usize,
-    put_Foreground: usize,
-    get_Language: usize,
-    put_Language: usize,
-    get_IsTextScaleFactorEnabled: usize,
-    put_IsTextScaleFactorEnabled: usize,
-    get_TextDecorations: usize,
-    put_TextDecorations: usize,
-    get_ContentStart: usize,
-    get_ContentEnd: usize,
-    get_ElementStart: usize,
-    get_ElementEnd: usize,
-    get_AllowFocusOnInteraction: usize,
-    put_AllowFocusOnInteraction: usize,
-    get_AccessKey: usize,
-    put_AccessKey: usize,
-    get_ExitDisplayModeOnAccessKeyInvoked: usize,
-    put_ExitDisplayModeOnAccessKeyInvoked: usize,
-    get_IsAccessKeyScope: usize,
-    put_IsAccessKeyScope: usize,
-    get_AccessKeyScopeOwner: usize,
-    put_AccessKeyScopeOwner: usize,
-    get_KeyTipPlacementMode: usize,
-    put_KeyTipPlacementMode: usize,
-    get_KeyTipHorizontalOffset: usize,
-    put_KeyTipHorizontalOffset: usize,
-    get_KeyTipVerticalOffset: usize,
-    put_KeyTipVerticalOffset: usize,
-    get_XamlRoot: usize,
-    put_XamlRoot: usize,
-    add_AccessKeyDisplayRequested: usize,
-    remove_AccessKeyDisplayRequested: usize,
-    add_AccessKeyDisplayDismissed: usize,
-    remove_AccessKeyDisplayDismissed: usize,
-    add_AccessKeyInvoked: usize,
-    remove_AccessKeyInvoked: usize,
-    FindName: usize,
 }
 windows_core::imp::define_interface!(
     ITimePicker,
@@ -16747,8 +15824,6 @@ pub struct IToggleButton_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_Unchecked:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_Indeterminate: usize,
-    remove_Indeterminate: usize,
 }
 windows_core::imp::define_interface!(
     IToggleButtonFactory,
@@ -16910,23 +15985,6 @@ impl windows_core::RuntimeType for IToolTip {
 #[repr(C)]
 pub struct IToolTip_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_HorizontalOffset: usize,
-    put_HorizontalOffset: usize,
-    get_IsOpen: usize,
-    put_IsOpen: usize,
-    get_Placement: usize,
-    put_Placement: usize,
-    get_PlacementTarget: usize,
-    put_PlacementTarget: usize,
-    get_PlacementRect: usize,
-    put_PlacementRect: usize,
-    get_VerticalOffset: usize,
-    put_VerticalOffset: usize,
-    get_TemplateSettings: usize,
-    add_Closed: usize,
-    remove_Closed: usize,
-    add_Opened: usize,
-    remove_Opened: usize,
 }
 windows_core::imp::define_interface!(
     IToolTipFactory,
@@ -17083,10 +16141,6 @@ pub struct ITreeView_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_ItemInvoked:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_Expanding: usize,
-    remove_Expanding: usize,
-    add_Collapsed: usize,
-    remove_Collapsed: usize,
 }
 windows_core::imp::define_interface!(
     ITreeViewFactory,
@@ -17135,8 +16189,6 @@ pub struct ITreeViewItemInvokedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    put_Handled: usize,
-    get_Handled: usize,
 }
 windows_core::imp::define_interface!(
     ITreeViewNode,
@@ -17751,14 +16803,6 @@ pub struct IUIElement_Vtbl {
     InvalidateMeasure: usize,
     InvalidateArrange: usize,
     pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    CancelDirectManipulations: usize,
-    StartDragAsync: usize,
-    StartBringIntoView: usize,
-    StartBringIntoViewWithOptions: usize,
-    TryInvokeKeyboardAccelerator: usize,
-    Focus: usize,
-    StartAnimation: usize,
-    StopAnimation: usize,
 }
 windows_core::imp::define_interface!(
     IUriRuntimeClass,
@@ -17772,23 +16816,6 @@ impl windows_core::RuntimeType for IUriRuntimeClass {
 #[repr(C)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_AbsoluteUri: usize,
-    get_DisplayUri: usize,
-    get_Domain: usize,
-    get_Extension: usize,
-    get_Fragment: usize,
-    get_Host: usize,
-    get_Password: usize,
-    get_Path: usize,
-    get_Query: usize,
-    get_QueryParsed: usize,
-    get_RawUri: usize,
-    get_SchemeName: usize,
-    get_UserName: usize,
-    get_Port: usize,
-    get_Suspicious: usize,
-    Equals: usize,
-    CombineUri: usize,
 }
 windows_core::imp::define_interface!(
     IUriRuntimeClassFactory,
@@ -17807,7 +16834,6 @@ pub struct IUriRuntimeClassFactory_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateWithRelativeUri: usize,
 }
 windows_core::imp::define_interface!(
     IVector3KeyFrameAnimation,
@@ -17911,8 +16937,6 @@ pub struct IViewbox_Vtbl {
     get_Stretch: usize,
     pub put_Stretch:
         unsafe extern "system" fn(*mut core::ffi::c_void, Stretch) -> windows_core::HRESULT,
-    get_StretchDirection: usize,
-    put_StretchDirection: usize,
 }
 windows_core::imp::define_interface!(
     IVisual,
@@ -17981,11 +17005,6 @@ pub struct IVisual_Vtbl {
         *mut core::ffi::c_void,
         *mut windows_numerics::Vector3,
     ) -> windows_core::HRESULT,
-    put_Scale: usize,
-    get_Size: usize,
-    put_Size: usize,
-    get_TransformMatrix: usize,
-    put_TransformMatrix: usize,
 }
 windows_core::imp::define_interface!(
     IVisualTreeHelper,
@@ -18027,10 +17046,6 @@ pub struct IVisualTreeHelperStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut i32,
     ) -> windows_core::HRESULT,
-    GetParent: usize,
-    DisconnectChildrenRecursive: usize,
-    GetOpenPopups: usize,
-    GetOpenPopupsForXamlRoot: usize,
 }
 windows_core::imp::define_interface!(
     IWindow,
@@ -18308,8 +17323,6 @@ impl windows_core::RuntimeType for IXamlControlsResources {
 #[repr(C)]
 pub struct IXamlControlsResources_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_UseCompactResources: usize,
-    put_UseCompactResources: usize,
 }
 windows_core::imp::define_interface!(
     IXamlMember,
@@ -18328,14 +17341,6 @@ windows_core::imp::interface_hierarchy!(
 #[repr(C)]
 pub struct IXamlMember_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_IsAttachable: usize,
-    get_IsDependencyProperty: usize,
-    get_IsReadOnly: usize,
-    get_Name: usize,
-    get_TargetType: usize,
-    get_Type: usize,
-    GetValue: usize,
-    SetValue: usize,
 }
 windows_core::imp::define_interface!(
     IXamlMetadataProvider,
@@ -18534,7 +17539,6 @@ pub struct IXamlReaderStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    LoadWithInitialTemplateValidation: usize,
 }
 windows_core::imp::define_interface!(
     IXamlRoot,
@@ -18548,12 +17552,6 @@ impl windows_core::RuntimeType for IXamlRoot {
 #[repr(C)]
 pub struct IXamlRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Content: usize,
-    get_Size: usize,
-    get_RasterizationScale: usize,
-    get_IsHostVisible: usize,
-    add_Changed: usize,
-    remove_Changed: usize,
 }
 windows_core::imp::define_interface!(
     IXamlType,

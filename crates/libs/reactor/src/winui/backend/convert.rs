@@ -2,8 +2,7 @@
 //! the underlying `Microsoft.UI.Xaml` types. These are free functions
 //! that touch neither `WinUIBackend` state nor the `Handle` enum — see
 //! `winui/backend/mod.rs` for the dispatch tables and `Handle`-aware
-//! helpers (`apply_theme_brush`, `panel_children_vec`,
-//! `content_control_for`).
+//! helpers.
 
 use windows_core::Interface;
 
@@ -143,15 +142,6 @@ pub(super) fn string_as_textblock(s: &str) -> windows_core::Result<Xaml::TextBlo
     let tb = Xaml::TextBlock::new()?;
     tb.put_Text(s)?;
     Ok(tb)
-}
-
-pub(super) fn ui_element_collection_move(coll: &Xaml::UIElementCollection, from: usize, to: usize) {
-    let v = coll
-        .cast::<windows_collections::IVector<Xaml::UIElement>>()
-        .unwrap();
-    let item = v.GetAt(from as u32).unwrap();
-    v.RemoveAt(from as u32).unwrap();
-    v.InsertAt(to as u32, &item).unwrap();
 }
 
 pub(super) fn build_nav_view_item(
