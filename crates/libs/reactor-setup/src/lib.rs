@@ -4,8 +4,6 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
-const INTERACTIVE_PKG: &str = "Microsoft.WindowsAppSDK.InteractiveExperiences";
-const INTERACTIVE_VER: &str = "2.0.13";
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
 const RUNTIME_VER: &str = "2.1.3";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
@@ -40,17 +38,11 @@ fn as_framework_dependent_impl(subdir: &str) {
         target_dir_from_out(&out_dir).join(subdir)
     };
     copy_bootstrap_to(&dest);
-    let temp_dir = temp_dir();
-    let arch = format!("win-{}", target_arch());
-    let interactive = stage_pkg(INTERACTIVE_PKG, INTERACTIVE_VER, &temp_dir);
-    copy_file(
-        &interactive
-            .join(&arch)
-            .join("native")
-            .join("Microsoft.UI.pri"),
-        &dest,
-        "resources.pri",
-    );
+    fs::write(
+        dest.join("resources.pri"),
+        include_bytes!("../assets/resources.pri"),
+    )
+    .unwrap_or_else(|e| panic!("failed to write resources.pri to {}: {e}", dest.display()));
 }
 
 /// Configures the app to run completely self-contained.
