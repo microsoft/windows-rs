@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -32,6 +34,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - uses: Swatinem/rust-cache@v2
       - name: Check
         run: cargo doc --no-deps -p windows
 
@@ -43,6 +46,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - uses: Swatinem/rust-cache@v2
       - name: Check
         run: cargo doc --no-deps -p windows-sys
 
@@ -54,6 +58,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - uses: Swatinem/rust-cache@v2
 
       - name: Check
         run: >
@@ -89,6 +94,7 @@ jobs:
           version: "20"
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
+      - uses: Swatinem/rust-cache@v2
       - name: Doc
         run: |
           set -euxo pipefail

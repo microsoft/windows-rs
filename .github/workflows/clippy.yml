@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -48,5 +50,6 @@ jobs:
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
         shell: bash
+      - uses: Swatinem/rust-cache@v2
       - name: Check
         run:  cargo clippy --all --tests -- -D warnings
