@@ -2894,7 +2894,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             &MapChangedEventHandlerBox::<K, V, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, event: P1) -> windows_core::Result<()>
     where
@@ -3014,7 +3014,7 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
             &VectorChangedEventHandlerBox::<T, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, event: P1) -> windows_core::Result<()>
     where
