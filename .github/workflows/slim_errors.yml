@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -42,7 +44,7 @@ jobs:
         uses: actions/checkout@v6
         
       - name: Update toolchain
-        run: rustup update --no-self-update nightly && rustup default nightly-${{ matrix.target }}
+        run: rustup update --no-self-update stable && rustup default stable-${{ matrix.target }}
         
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
@@ -51,6 +53,9 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
-          
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
       - name: Test
         run: cargo test -p test_result

@@ -343,7 +343,7 @@ fn request_render<B: Backend + 'static, D: Dispatcher + 'static>(
             inner.render_state.set(RenderState::Pending);
             let inner_c = Rc::clone(inner);
             if !inner.dispatcher.enqueue(
-                DispatchPriority::Normal,
+                DispatcherQueuePriority::Normal,
                 Box::new(move || render_loop(&inner_c)),
             ) {
                 inner.render_state.set(RenderState::Idle);
@@ -364,7 +364,7 @@ fn render_loop<B: Backend + 'static, D: Dispatcher + 'static>(inner: &Rc<RenderH
         inner.render_state.set(RenderState::Pending);
         let inner_c = Rc::clone(inner);
         if !inner.dispatcher.enqueue(
-            DispatchPriority::Low,
+            DispatcherQueuePriority::Low,
             Box::new(move || render_loop(&inner_c)),
         ) {
             inner.render_state.set(RenderState::Idle);

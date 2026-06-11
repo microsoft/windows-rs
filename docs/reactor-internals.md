@@ -1,44 +1,36 @@
 # Reactor Internals
 
-This document covers the code generation pipeline, metadata-driven TOML format,
-bindings workflow, and threading architecture for contributors working on
-`windows-reactor`.
+Code generation pipeline, TOML format, bindings workflow, and threading
+architecture for `windows-reactor` contributors.
 
 ---
 
 ## Code Generation (`tool_reactor`)
 
-### Overview
-
-`tool_reactor` reads `winui.toml` and WinUI `.winmd` metadata to
-generate type-safe Rust dispatch code for `windows-reactor` via `quote`/`proc-macro2`.
+`tool_reactor` reads `winui.toml` + WinUI `.winmd` metadata → generates
+type-safe Rust dispatch code via `quote`/`proc-macro2`.
 
 **Run:** `cargo run -p tool_reactor` (~7s, regenerates everything)
 
-### Architecture
+### Pipeline
 
 ```
-crates/tools/reactor/src/winui.toml   ← control declarations (metadata-driven)
-        │
-        ▼
-tool_reactor                          ← Reads TOML + loads winmd metadata
-        │
-        ├── generated_bindings.rs     (per-widget bindings() helpers)
-        ├── generated_set_prop.rs     (set_prop dispatch, 6 setter patterns)
-        ├── generated_attach_event.rs (event dispatch, 8 invoke patterns)
-        ├── generated.txt             (binding filter entries)
-        └── bindings.rs               (via windows-bindgen)
+winui.toml  ──▶  tool_reactor  ──▶  generated_bindings.rs   (per-widget bindings() helpers)
+                  (TOML + winmd)      generated_set_prop.rs   (set_prop dispatch, 6 setter patterns)
+                                      generated_attach_event.rs (event dispatch, 8 invoke patterns)
+                                      generated.txt           (binding filter entries)
+                                      bindings.rs             (via windows-bindgen)
 ```
 
 ### Tool Structure
 
 ```
 crates/tools/reactor/src/
-├── main.rs           Pipeline: TOML → resolve → codegen → bindgen
+├── main.rs           TOML → resolve → codegen → bindgen
 ├── schema.rs         Data types + resolve_defaults() inference
 ├── toml_parser.rs    TOML → Control structs (with metadata validation)
 ├── metadata.rs       winmd resolver (method → interface + param types)
-├── gen_bindings.rs   bindings() helpers (events before props for correct ordering)
+├── gen_bindings.rs   bindings() helpers
 ├── gen_set_prop.rs   set_prop dispatch (with arm collapsing)
 ├── gen_attach.rs     attach_event dispatch
 ├── gen_reactor_txt.rs  generated.txt filter
@@ -47,49 +39,41 @@ crates/tools/reactor/src/
 
 ### Design Choices
 
-- **Metadata-driven** — method, value type, copy semantics, setter pattern, and invoke
-  pattern are inferred from `.winmd`. Only non-standard mappings need explicit TOML overrides.
-- **Generated + hand-written coexist** — generated dispatch falls through to hand-written
-  code in `mod.rs` for complex cases.
-- **Deref-aware cast elimination** — generated code skips `.cast::<IFoo>()` when the
-  Handle variant's class Derefs to the target interface (the default interface).
-- **Filter file split** — `base.txt` contains hand-written filter entries (composition,
-  dispatching, native interop). `generated.txt` is auto-derived from the TOML — never
-  edit it by hand. Both are passed to `windows-bindgen` to produce `bindings.rs`.
-- **One tool, one run** — TOML → code → bindings.rs all in one `cargo run`.
+- **Metadata-driven** — setter pattern, value type, invoke pattern all inferred
+  from `.winmd`. Only non-standard mappings need TOML overrides.
+- **Generated + hand-written coexist** — generated dispatch falls through to
+  hand-written code in `mod.rs` for complex cases.
+- **Deref-aware cast elimination** — skips `.cast::<IFoo>()` when the Handle
+  variant's class Derefs to the target interface.
+- **Filter file split** — `base.txt` (hand-written) + `generated.txt`
+  (auto-derived) → `bindings.rs`. Never edit `generated.txt` by hand.
+- **One tool, one run** — TOML → code → bindings.rs in a single `cargo run`.
 
 ---
 
 ## TOML Format (`winui.toml`)
 
-### Design Principle
-
-TOML keys match WinUI metadata names. Given a type and member name, the tool
-resolves everything from `.winmd` files — only overrides for non-standard
-mappings are needed.
-
-### Format
+TOML keys match WinUI metadata names. The tool resolves everything from
+`.winmd` files — only overrides for non-standard mappings are needed.
 
 ```toml
 ["Microsoft.UI.Xaml.Controls.Slider"]
-Minimum = {}                                     # type "F64" inferred from metadata
+Minimum = {}                                # F64 inferred from metadata
 Maximum = {}
 Value = {}
-Header = {}                                      # Textblock setter, auto Option<T>
+Header = {}                                 # textblock setter, auto Option<T>
 IsEnabled = {}
-ValueChanged = { property = "NewValue" }          # get_NewValue on args → f64
+ValueChanged = { property = "NewValue" }    # get_NewValue on args → f64
 ```
 
 ### Inference Rules
 
-| Field | Default | Notes |
-|-------|---------|-------|
-| `type` | Inferred from metadata param type | `put_IsEnabled(bool)` → `Bool` |
-| method | `put_{Name}` | Setter kind auto-detected from metadata param type |
-| field | `snake_case(Name)` for props, `on_snake_case(Name)` for events | Derived automatically |
-| invoke | Inferred from metadata delegate signature | Matches arg types to invoke pattern |
-
-Only overrides need explicit declaration. Error messages include TOML line numbers.
+| Field | Default |
+|-------|---------|
+| `type` | From metadata param type (`put_IsEnabled(bool)` → `Bool`) |
+| method | `put_{Name}`, setter kind from metadata param type |
+| field | `snake_case(Name)` for props, `on_snake_case(Name)` for events |
+| invoke | From metadata delegate signature |
 
 ### Property Overrides
 
@@ -101,9 +85,9 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 
 | Override | Description |
 |----------|-------------|
-| `type = "Type"` | EventHandler payload type (`Unit`/`Bool`/`Str`/`F64`/`I32`/`Color`/`DateTime`/`TimeSpan`) |
-| `manual = true` | Skip codegen; hand-written `attach_event` in backend |
-| `property = "Name"` | Property on sender/args (e.g. `"IsOn"`); codegen calls `get_Name` |
+| `type = "Type"` | Payload type (`Unit`/`Bool`/`Str`/`F64`/`I32`/`Color`/`DateTime`/`TimeSpan`) |
+| `manual = true` | Skip codegen; hand-written in backend |
+| `property = "Name"` | Getter on sender/args; codegen calls `get_Name` |
 | `false_event = "Name"` | Complement event for bool-dual (e.g. `"Unchecked"`) |
 
 ### Setter Patterns
@@ -132,52 +116,44 @@ Only overrides need explicit declaration. Error messages include TOML line numbe
 
 ## Bindings
 
-The file `crates/libs/reactor/src/bindings.rs` is auto-generated by
-`windows-bindgen` from WinUI 3 metadata. **Never edit it by hand.**
+`crates/libs/reactor/src/bindings.rs` is generated by `windows-bindgen`.
+**Never edit it by hand.**
 
 ### Regenerating
 
 ```sh
-cargo run -p tool_bindings    # regenerate all bindings (reactor + test)
-cargo build -p windows-reactor    # verify reactor compiles
+cargo run -p tool_bindings && cargo build -p windows-reactor
 ```
 
 ### Minimal Filter Syntax
 
-The filter lives in `crates/tools/bindings/src/reactor.txt` (and
-`reactor_test.txt` for test-only types). It uses `--minimal` mode which
-is opt-in: you list exactly the methods you need, and bindgen computes the
-minimal type closure.
+Filter: `crates/tools/bindings/src/reactor.txt` (+ `reactor_test.txt`).
+Uses `--minimal` mode — list exactly the methods you need.
 
 | Syntax | Effect |
 |--------|--------|
 | `Ns.IFace::{m1, m2}` | Specific interface methods (preferred) |
-| `Ns.IFace::*` | All methods on an interface (only for `--implement` interfaces) |
-| `Ns.Class::{CreateInstance}` | Class instantiation only (no instance methods) |
+| `Ns.IFace::*` | All methods (only for `--implement` interfaces) |
+| `Ns.Class::{CreateInstance}` | Class instantiation only |
 | `Ns.Type` | Bare type (enum, struct, delegate, constant) |
 
-Methods must use raw metadata names: `get_PropertyName`, `put_PropertyName`,
+Raw metadata names: `get_PropertyName`, `put_PropertyName`,
 `add_EventName`, `remove_EventName`.
 
 ### Pruning Workflow
 
-1. Comment out or remove the entry from `reactor.txt`
+1. Remove entry from `reactor.txt`
 2. `cargo run -p tool_bindings && cargo build -p windows-reactor`
-3. Compiler errors show exactly which methods are missing
-4. Map Rust names → raw names: `SetX` → `put_X`, `X()` → `get_X`, etc.
-5. Add the interface entry with explicit methods: `Ns.IFoo::{put_X, get_Y}`
+3. Compiler errors reveal needed methods
+4. Map: `SetX` → `put_X`, `X()` → `get_X`
+5. Add interface entry: `Ns.IFoo::{put_X, get_Y}`
 6. Regenerate and verify
 
-### COM (Win32) Interfaces in Minimal Mode
+### COM (Win32) Interfaces
 
-The `--minimal` filter also works for Win32 COM interfaces (e.g. DXGI, D2D,
-DWrite). When a COM method is explicitly listed in the filter, bindgen emits the
-full method body and vtable function pointer. Methods NOT in the filter become
-`usize` slots (preserving vtable layout without generating code for them).
-
-The type closure is computed automatically: parameter and return types of
-requested methods are recursively pulled in. You do NOT need to explicitly list
-dependency types — just list the methods you call.
+Also works for Win32 COM (DXGI, D2D, DWrite). Listed methods get full
+vtable entries; unlisted methods become `usize` slots. Type closure is
+computed automatically.
 
 ---
 
@@ -189,7 +165,7 @@ dependency types — just list the methods you call.
 |----------|------|-------|------|
 | `app.rs` | `HOST_SLOT` | `ReactorHost` | Yes (STA) |
 | `app.rs` | `APP_SLOT` | `Application` | Yes (STA) |
-| `host.rs` | `ROOT_FRAMEWORK_ELEMENT` | `IFrameworkElement` | Yes (STA) |
+| `host.rs` | `ROOT_FRAMEWORK_ELEMENT` | `FrameworkElement` | Yes (STA) |
 | `host.rs` | `ROOT_WINDOW` | `Window` | Yes (STA) |
 | `host.rs` | `PENDING_THEME` | `Cell<Option<ElementTheme>>` | No |
 | `host.rs` | `PENDING_TALL` | `Cell<Option<bool>>` | No |
@@ -197,51 +173,35 @@ dependency types — just list the methods you call.
 | `template_cache.rs` | `SHARED_TEMPLATE` | `DataTemplate` | Yes (STA) |
 | `theme.rs` | `CURRENT_COLOR_SCHEME` | `Cell<ColorScheme>` | No |
 | `diagnostics.rs` | `EXPECT_PANIC` | `Cell<u32>` | No |
-| `modifiers.rs` | `OPS_REGISTRY` | `FxHashMap<TypeId, (CloneFn, EqFn)>` | No |
 
 ### Optimization Opportunities
 
-**Pure-Rust thread_locals that could become struct fields:**
+**Thread-locals that could become struct fields:**
 
-- `CURRENT_COLOR_SCHEME` — could be a field on `RenderHost` / passed through `RenderCx`
-- `UI_RERENDER` — may be a holdover; audit call sites for reconciler access
-- `PENDING_THEME` / `PENDING_TALL` — one-shot latches, could be `RenderHost` fields
-
-**`OPS_REGISTRY` — eliminate via compile-time dispatch:**
-
-Replace the `FxHashMap<TypeId, (CloneFn, EqFn)>` with a custom trait object that
-carries clone/eq in its vtable:
-
-```rust
-trait AttachedValue: Any {
-    fn clone_box(&self) -> Box<dyn AttachedValue>;
-    fn eq_box(&self, other: &dyn Any) -> bool;
-    fn as_any(&self) -> &dyn Any;
-}
-impl<T: Clone + PartialEq + 'static> AttachedValue for T { ... }
-
-struct AttachedProps(FxHashMap<TypeId, Box<dyn AttachedValue>>);
-```
+- `PENDING_THEME` / `PENDING_TALL` — one-shot latches only read in
+  `post_render`; natural fields on `ReactorHost`. Blocked by the public
+  free-function API (`set_requested_theme`, `set_tall_title_bar`) which
+  would need a host reference.
+- `CURRENT_COLOR_SCHEME` — per-UI-thread state; could live on `RenderHost`
+  or pass through `RenderCx`. Blocked by the same public API pattern.
 
 **What NOT to change:**
 
-- `EXPECT_PANIC` — legitimately thread-local (panic hook context)
-- `SHARED_TEMPLATE` — STA-affine COM cache, justified performance win
+- `EXPECT_PANIC` — thread-local by design (panic hook context).
+- `SHARED_TEMPLATE` — STA-affine COM cache; justified performance win.
 - `HOST_SLOT` / `APP_SLOT` / `ROOT_*` — STA-affine COM handles; the
-  free-function API ergonomics justify the TLS approach
+  free-function API ergonomics justify the TLS approach.
+- `UI_RERENDER` — used by `AsyncSetState` and UI callbacks to trigger
+  rerender without plumbing host refs; moving it would require threading
+  `RenderHost` through every callback.
 
 ---
 
-## COM Cast Pitfalls
-
-Unnecessary `QueryInterface` casts are a recurring source of overhead in
-backend code. These rules apply to all reactor backend code and generated
-bindings.
+## COM Cast Rules
 
 ### Deref to Default Interface
 
-Every WinRT class implements `Deref` to its default interface. Casting to the
-default interface triggers a runtime `QueryInterface` for no benefit:
+Every WinRT class `Deref`s to its default interface. Don't cast to it:
 
 ```rust
 // ❌ unnecessary QI
@@ -251,19 +211,12 @@ b.cast::<Xaml::IButton>()?.SetFlyout(&flyout)?;
 b.SetFlyout(&flyout)?;
 ```
 
-To check what a class derefs to, search `bindings.rs`:
-```
-impl core::ops::Deref for <ClassName> {
-    type Target = <IDefaultInterface>;
-```
-
 ### Param Trait Eliminates Parent-Class Casts
 
-Methods accepting `impl Param<ParentClass>` handle conversion automatically.
-Don't manually cast subclasses to parent types:
+Methods accepting `impl Param<ParentClass>` handle conversion automatically:
 
 ```rust
-// ❌ unnecessary QI — put_Background accepts Param<Brush>
+// ❌ unnecessary QI
 let brush: Brush = solid_brush.cast::<Brush>()?;
 control.put_Background(&brush)?;
 
@@ -271,34 +224,23 @@ control.put_Background(&brush)?;
 control.put_Background(&solid_brush)?;
 ```
 
-Check for `required_hierarchy!(<ClassName>, <ParentClass>, ...);` in bindings
-to verify which parent conversions are free.
-
 ### IInspectable Conversions
 
-All WinRT types derive from `IInspectable`. Use `From`, not `.cast()`:
+Use `From`, not `.cast()`. Use plain `None` for optional parameters:
 
 ```rust
 // ❌
 let insp = reference.cast::<IInspectable>()?;
-
-// ✅
-let insp: IInspectable = reference.into();
-```
-
-Methods with optional parameters infer the type — use plain `None`:
-
-```rust
-// ❌
 e.SetHeader(None::<&IInspectable>);
 
 // ✅
+let insp: IInspectable = reference.into();
 e.SetHeader(None);
 ```
 
 ### When a Cast IS Required
 
-A cast is needed for methods on a **non-default parent interface**:
+Cast to **non-default parent interfaces** only:
 
 ```
 Button → Deref → IButton        (free)
@@ -306,41 +248,29 @@ Button → cast  → IContentControl (QI needed)
 Button → cast  → IControl        (QI needed)
 ```
 
-The generated code uses deref-aware cast elimination — it skips `.cast()` for
-default interfaces and only emits casts for non-default interfaces like
-`INavigationView2`, `IButtonBase`, `IToggleButton`, `IRangeBase`, `IControl`,
-and `IContentControl`.
+The generated code handles this automatically — it skips `.cast()` for
+default interfaces and only emits casts for non-default interfaces.
 
 ---
 
 ## Naming Collisions Between Reactor and Canvas
 
-> **Status**: Partially resolved. `Color` → `ColorF` rename in canvas is done.
-> Other collisions remain.
+> **Status**: Partially resolved. `Color` → `ColorF` in canvas is done.
 
-### Problem
+| Name | `windows-reactor` | `windows-canvas` | Status |
+|------|-------------------|-------------------|--------|
+| `Color` | `u8` ARGB (XAML) | `f32` RGBA (D2D) | ✅ Canvas → `ColorF` |
+| `Brush` | `enum Brush { Solid(Color) }` | `struct Brush(ID2D1SolidColorBrush)` | ⚠️ Open |
+| `Ellipse` | XAML shape element | D2D geometry value | ⚠️ Open |
+| `FontWeight` | WinRT `{ Value: u16 }` | `FontWeight(pub i32)` | ⚠️ Open |
+| `Error`/`Result` | `windows_core::` | `windows_core::` | ✅ Identical |
 
-`windows-reactor` and `windows-canvas` are companion crates, but glob-importing
-both causes compiler errors because several type names collide:
-
-| Name | `windows-reactor` | `windows-canvas` | Resolution |
-|------|-------------------|-------------------|------------|
-| `Color` | `u8` ARGB (XAML colors) | `f32` RGBA (D2D colors) | ✅ Canvas renamed to `ColorF` |
-| `Brush` | `enum Brush { Solid(Color) }` (property value) | `struct Brush(ID2D1SolidColorBrush)` (GPU handle) | ⚠️ Open |
-| `Ellipse` | WinRT XAML shape element | Geometry value for D2D | ⚠️ Open |
-| `FontWeight` | WinRT struct `{ Value: u16 }` | Wrapper `FontWeight(pub i32)` | ⚠️ Open |
-| `Error`/`Result` | `windows_core::` re-exports | `windows_core::` re-exports | ✅ Identical — Rust unifies |
-
-### Design Decision
-
-Reactor's colliding types are internal/low-usage (property bindings, not hot
-draw loops). Canvas's types are user-facing in draw callbacks. When resolving
-collisions, canvas keeps the short unqualified name and reactor uses a
+**Rule:** Canvas keeps the short name (user-facing draw loops); reactor uses a
 domain-prefixed alternative (e.g., `UiBrush`).
 
-### COM API Gotchas (discovered during backend work)
+---
 
-These apply to any future backend or codegen changes:
+## COM API Gotchas
 
 - `put_IsChecked` on CheckBox takes `Option<bool>` (tri-state nullable boolean)
 - TextBox/PasswordBox need get-before-set to avoid cursor position reset
@@ -355,13 +285,10 @@ These apply to any future backend or codegen changes:
 
 ### `.padding()` silently ignored on `vstack` / `hstack`
 
-In WinUI, `Padding` is a property of `Control`, not `Panel`. Since `StackPanel`
-(the backing type for `vstack`/`hstack`) inherits from `Panel` rather than
-`Control`, calling `.padding(...)` on a stack compiles and runs but has no
-visual effect.
+`Padding` is a property of `Control`, not `Panel`. `StackPanel` inherits from
+`Panel`, so `.padding(...)` compiles but has no effect.
 
-**Workaround:** Use `.margin(...)` on the stack or on individual children.
+**Workaround:** Use `.margin(...)` on the stack or individual children.
 
-The `diagnostics` feature emits a debug-mode warning via
-`diag::unhandled_modifier` when `.padding()` is applied to an element that
-doesn't inherit from `Control`.
+The `diagnostics` feature warns via `diag::unhandled_modifier` when `.padding()`
+is applied to a non-`Control` element.

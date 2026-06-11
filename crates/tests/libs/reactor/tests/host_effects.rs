@@ -3,12 +3,12 @@ use std::rc::Rc;
 
 use windows_reactor::core::backend::{Op, RecordingBackend};
 use windows_reactor::core::component::Component;
-use windows_reactor::core::dispatcher::{DispatchPriority, Dispatcher};
+use windows_reactor::core::dispatcher::{Dispatcher, DispatcherQueuePriority};
 use windows_reactor::core::element::{Element, TextBlock};
 use windows_reactor::core::render_context::RenderCx;
 use windows_reactor::core::render_host::RenderHost;
 
-type QueuedJob = (DispatchPriority, Box<dyn FnOnce()>);
+type QueuedJob = (DispatcherQueuePriority, Box<dyn FnOnce()>);
 
 #[derive(Clone, Default)]
 struct TestDispatcher {
@@ -35,7 +35,7 @@ impl TestDispatcher {
 }
 
 impl Dispatcher for TestDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         self.queue.borrow_mut().push((priority, f));
         true
     }

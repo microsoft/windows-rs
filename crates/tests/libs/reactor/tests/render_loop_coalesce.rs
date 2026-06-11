@@ -4,7 +4,9 @@ use std::rc::Rc;
 use windows_reactor::core::backend::RecordingBackend;
 use windows_reactor::core::component::Component;
 use windows_reactor::core::component_element::component;
-use windows_reactor::core::dispatcher::{DispatchPriority, Dispatcher, RunOnDemandDispatcher};
+use windows_reactor::core::dispatcher::{
+    Dispatcher, DispatcherQueuePriority, RunOnDemandDispatcher,
+};
 use windows_reactor::core::element::{Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::core::render_context::{RenderCx, SetState};
 use windows_reactor::core::render_host::RenderHost;
@@ -38,7 +40,7 @@ fn hundred_setstate_calls_collapse_to_one_reconcile_pass() {
     assert_eq!(host.render_count(), 0);
 }
 
-type QueuedJob = (DispatchPriority, Box<dyn FnOnce()>);
+type QueuedJob = (DispatcherQueuePriority, Box<dyn FnOnce()>);
 
 #[derive(Clone, Default)]
 struct TestDispatcher {
@@ -78,7 +80,7 @@ impl TestDispatcher {
 }
 
 impl Dispatcher for TestDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         self.queue.borrow_mut().push((priority, f));
         true
     }
@@ -159,7 +161,7 @@ type PriorityQueue = Rc<RefCell<Vec<Box<dyn FnOnce()>>>>;
 
 #[derive(Default)]
 struct PriorityCapturingDispatcher {
-    priorities: Rc<RefCell<Vec<DispatchPriority>>>,
+    priorities: Rc<RefCell<Vec<DispatcherQueuePriority>>>,
     queue: PriorityQueue,
 }
 
@@ -168,7 +170,7 @@ impl PriorityCapturingDispatcher {
         Self::default()
     }
 
-    fn priorities(&self) -> Vec<DispatchPriority> {
+    fn priorities(&self) -> Vec<DispatcherQueuePriority> {
         self.priorities.borrow().clone()
     }
 
@@ -191,7 +193,7 @@ impl PriorityCapturingDispatcher {
 }
 
 impl Dispatcher for PriorityCapturingDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         self.priorities.borrow_mut().push(priority);
         self.queue.borrow_mut().push(f);
         true
@@ -288,8 +290,8 @@ fn setstate_during_render_enqueue_uses_low_priority() {
 
     let priorities = dispatcher.priorities();
     assert_eq!(priorities.len(), 2, "priorities: {priorities:?}");
-    assert_eq!(priorities[0], DispatchPriority::Normal);
-    assert_eq!(priorities[1], DispatchPriority::Low);
+    assert_eq!(priorities[0], DispatcherQueuePriority::Normal);
+    assert_eq!(priorities[1], DispatcherQueuePriority::Low);
     assert_eq!(host.render_count(), 2);
 }
 

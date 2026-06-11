@@ -28,6 +28,7 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
 
+      - uses: Swatinem/rust-cache@v2
       - name: Install Windows App Runtime
         shell: pwsh
         run: |
