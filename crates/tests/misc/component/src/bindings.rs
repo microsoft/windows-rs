@@ -11,7 +11,7 @@ impl Callback {
     pub fn new<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static>(invoke: F) -> Self {
         let com =
             windows_core::imp::DelegateBox::<Callback, F>::new(&CallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, a: i32) -> windows_core::Result<i32> {
         unsafe {

@@ -285,7 +285,7 @@ impl Interface {
                 impl #name {
                     fn new<'a, T: #trait_name>(this: &'a T) -> ::windows_core::ScopedInterface<'a, #name> {
                         let this = ::windows_core::ScopedHeap { vtable: &#implvtbl_name::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-                        let this = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
+                        let this = ::core::mem::ManuallyDrop::new(::windows_core::imp::box_new(this));
                         unsafe { ::windows_core::ScopedInterface::new(::core::mem::transmute(&this.vtable)) }
                     }
                 }

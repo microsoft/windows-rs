@@ -29,7 +29,7 @@ impl windows_core::RuntimeType for DeviceArrivedEventHandler {
 impl DeviceArrivedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DeviceArrivedEventHandler, F>::new(&DeviceArrivedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -68,7 +68,7 @@ impl windows_core::RuntimeType for DeviceDepartedEventHandler {
 impl DeviceDepartedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DeviceDepartedEventHandler, F>::new(&DeviceDepartedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -310,7 +310,7 @@ impl windows_core::RuntimeType for MessageReceivedHandler {
 impl MessageReceivedHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<MessageReceivedHandler, F>::new(&MessageReceivedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, message: P1) -> windows_core::Result<()>
     where
@@ -350,7 +350,7 @@ impl windows_core::RuntimeType for MessageTransmittedHandler {
 impl MessageTransmittedHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<MessageTransmittedHandler, F>::new(&MessageTransmittedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, messageid: i64) -> windows_core::Result<()>
     where

@@ -159,7 +159,7 @@ impl windows_core::RuntimeType for TimerDestroyedHandler {
 impl TimerDestroyedHandler {
     pub fn new<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<TimerDestroyedHandler, F>::new(&TimerDestroyedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, timer: P0) -> windows_core::Result<()>
     where
@@ -198,7 +198,7 @@ impl windows_core::RuntimeType for TimerElapsedHandler {
 impl TimerElapsedHandler {
     pub fn new<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<TimerElapsedHandler, F>::new(&TimerElapsedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, timer: P0) -> windows_core::Result<()>
     where
@@ -237,7 +237,7 @@ impl windows_core::RuntimeType for WorkItemHandler {
 impl WorkItemHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<WorkItemHandler, F>::new(&WorkItemHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>
     where

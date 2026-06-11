@@ -1,6 +1,8 @@
 #[cfg(windows)]
 include!("windows.rs");
 
+use alloc::boxed::Box;
+
 mod agile;
 mod bindings;
 mod can_into;
@@ -118,5 +120,26 @@ macro_rules! define_interface {
 #[doc(hidden)]
 pub use define_interface;
 
+// Box is not in the prelude for no_std crates. These helpers let generated code
+// avoid `windows_core::imp::Box` which triggers the unused_qualifications lint.
+
+#[allow(unused_qualifications)]
+#[inline(always)]
 #[doc(hidden)]
-pub use alloc::boxed::Box;
+pub fn box_new<T>(value: T) -> alloc::boxed::Box<T> {
+    alloc::boxed::Box::new(value)
+}
+
+#[allow(unused_qualifications)]
+#[inline(always)]
+#[doc(hidden)]
+pub unsafe fn box_from_raw<T>(raw: *mut T) -> alloc::boxed::Box<T> {
+    unsafe { alloc::boxed::Box::from_raw(raw) }
+}
+
+#[allow(unused_qualifications)]
+#[inline(always)]
+#[doc(hidden)]
+pub fn box_into_raw<T>(b: alloc::boxed::Box<T>) -> *mut T {
+    alloc::boxed::Box::into_raw(b)
+}

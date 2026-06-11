@@ -2042,7 +2042,7 @@ impl windows_core::RuntimeType for PrintTaskSourceRequestedHandler {
 impl PrintTaskSourceRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<PrintTaskSourceRequestedHandler, F>::new(&PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where

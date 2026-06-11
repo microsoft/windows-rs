@@ -328,7 +328,7 @@ impl ApplicationInitializationCallback {
             &ApplicationInitializationCallbackBox::<F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, p: P0) -> windows_core::Result<()>
     where
