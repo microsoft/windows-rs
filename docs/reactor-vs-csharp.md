@@ -366,3 +366,22 @@ investigated and found to be non-issues — Rust handles each correctly by desig
 
 *Last updated: June 2026. Based on C# preview.3 (commit 234364d) and local
 Rust crate (commit 1eccc01). All benchmarks measured on the same x64 machine.*
+
+---
+
+## Notes for Future Benchmark Runs
+
+The C# `tests/stress_perf/` directory contains **three** variants:
+
+- **`StressPerf.Reactor`** — base version; rebuilds all 4,800 cells every render
+  (tree build ~24 ms).
+- **`StressPerf.ReactorOptimized`** — caches cells and only rebuilds dirty
+  indices (tree build ~2 ms). This is the apples-to-apples comparison for Rust,
+  which uses the same caching strategy by default.
+- **`StressPerf.Direct`** — imperative WinUI property-set, no framework overhead.
+
+**Always compare Rust against `ReactorOptimized`, not base `Reactor`.** The
+numbers in the tables above were originally collected against the base variant,
+which overstated the Rust advantage (e.g. "16× faster reconcile" becomes ~6×
+against the optimized variant). The `run_spec034_bench.ps1` script in the C#
+repo runs all three variants side-by-side.
