@@ -3,15 +3,11 @@ use std::collections::VecDeque;
 use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum DispatchPriority {
-    Normal,
-    Low,
-}
+pub use crate::bindings::DispatcherQueuePriority;
 
 /// Schedules deferred work onto a render-aware queue.
 pub trait Dispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool;
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool;
 }
 
 /// Thread-safe variant of [`Dispatcher`] accepting `Send` closures.
@@ -19,7 +15,7 @@ pub trait Dispatcher {
 pub trait SendDispatcher: Send + Sync + 'static {
     fn enqueue_send(
         &self,
-        priority: DispatchPriority,
+        priority: DispatcherQueuePriority,
         f: Box<dyn FnOnce() + Send + 'static>,
     ) -> bool;
 }
@@ -91,7 +87,7 @@ impl UiMarshaller {
         F: FnOnce() + Send + 'static,
     {
         self.inner
-            .enqueue_send(DispatchPriority::Normal, Box::new(f))
+            .enqueue_send(DispatcherQueuePriority::Normal, Box::new(f))
     }
 
     /// Schedule `f` to run on the UI thread at low priority.
@@ -99,7 +95,8 @@ impl UiMarshaller {
     where
         F: FnOnce() + Send + 'static,
     {
-        self.inner.enqueue_send(DispatchPriority::Low, Box::new(f))
+        self.inner
+            .enqueue_send(DispatcherQueuePriority::Low, Box::new(f))
     }
 }
 
@@ -167,12 +164,12 @@ impl ChannelDispatcher {
 impl SendDispatcher for ChannelDispatcherInner {
     fn enqueue_send(
         &self,
-        priority: DispatchPriority,
+        priority: DispatcherQueuePriority,
         f: Box<dyn FnOnce() + Send + 'static>,
     ) -> bool {
         match priority {
-            DispatchPriority::Normal => self.normal.lock().unwrap().push_back(f),
-            DispatchPriority::Low => self.low.lock().unwrap().push_back(f),
+            DispatcherQueuePriority::Low => self.low.lock().unwrap().push_back(f),
+            _ => self.normal.lock().unwrap().push_back(f),
         }
         true
     }
@@ -226,10 +223,10 @@ impl RunOnDemandDispatcher {
 }
 
 impl Dispatcher for RunOnDemandDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         match priority {
-            DispatchPriority::Normal => self.inner.normal.borrow_mut().push_back(f),
-            DispatchPriority::Low => self.inner.low.borrow_mut().push_back(f),
+            DispatcherQueuePriority::Low => self.inner.low.borrow_mut().push_back(f),
+            _ => self.inner.normal.borrow_mut().push_back(f),
         }
         true
     }
@@ -266,8 +263,8 @@ mod tests {
                 .push_back(Box::new(move || log2.borrow_mut().push("n_followup")));
         });
 
-        dispatcher.enqueue(DispatchPriority::Low, lo1);
-        dispatcher.enqueue(DispatchPriority::Low, job(Rc::clone(&log), "lo2"));
+        dispatcher.enqueue(DispatcherQueuePriority::Low, lo1);
+        dispatcher.enqueue(DispatcherQueuePriority::Low, job(Rc::clone(&log), "lo2"));
 
         dispatcher.drain();
         assert_eq!(*log.borrow(), vec!["lo1", "n_followup", "lo2"]);
