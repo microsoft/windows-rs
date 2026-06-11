@@ -69,16 +69,7 @@ impl GpuDevice {
         let dxgi_adapter: IDXGIAdapter = unsafe { dxgi_device.GetAdapter()? };
         let dxgi_factory: IDXGIFactory2 = unsafe { dxgi_adapter.GetParent()? };
 
-        let mut dwrite_factory: Option<IDWriteFactory> = None;
-        unsafe {
-            DWriteCreateFactory(
-                DWRITE_FACTORY_TYPE_SHARED,
-                &IDWriteFactory::IID,
-                &mut dwrite_factory as *mut _ as *mut _,
-            )
-            .ok()?;
-        }
-        let dwrite_factory = dwrite_factory.unwrap();
+        let dwrite_factory = crate::text::dwrite_factory()?;
 
         Ok(Self {
             d3d_device,
