@@ -1,16 +1,14 @@
 #![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
-#![expect(
-    missing_docs,
+
+#[expect(
+    unused_qualifications,
     non_snake_case,
     non_camel_case_types,
     non_upper_case_globals,
-    clippy::missing_transmute_annotations,
-    clippy::type_complexity
+    clippy::missing_transmute_annotations
 )]
-
-#[allow(unused_qualifications)]
 mod bindings;
 pub use bindings::*;
 

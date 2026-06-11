@@ -3,7 +3,8 @@
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 mod r#async;
-#[expect(unused_qualifications, non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#[allow(unused_qualifications)]
+#[expect(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 mod bindings;
 #[cfg(windows)]
 #[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
