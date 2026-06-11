@@ -173,37 +173,17 @@ computed automatically.
 | `template_cache.rs` | `SHARED_TEMPLATE` | `DataTemplate` | Yes (STA) |
 | `theme.rs` | `CURRENT_COLOR_SCHEME` | `Cell<ColorScheme>` | No |
 | `diagnostics.rs` | `EXPECT_PANIC` | `Cell<u32>` | No |
-| `modifiers.rs` | `OPS_REGISTRY` | `FxHashMap<TypeId, AttachedOps>` | No |
 
 ### Optimization Opportunities
-
-**`OPS_REGISTRY` — eliminate via trait-object vtable:**
-
-Currently `AttachedProps` stores `Box<dyn Any>` values and looks up clone/eq
-function pointers from a separate `thread_local! { FxHashMap<TypeId, AttachedOps> }`.
-Replace with a custom trait object that carries clone/eq directly:
-
-```rust
-trait AttachedValue: Any {
-    fn clone_box(&self) -> Box<dyn AttachedValue>;
-    fn eq_box(&self, other: &dyn Any) -> bool;
-    fn as_any(&self) -> &dyn Any;
-}
-impl<T: Clone + PartialEq + 'static> AttachedValue for T { ... }
-
-// Before: FxHashMap<TypeId, Box<dyn Any>>  +  thread_local OPS_REGISTRY
-// After:  FxHashMap<TypeId, Box<dyn AttachedValue>>  (no thread_local)
-```
-
-This eliminates the `OPS_REGISTRY` thread-local, the `register_ops` call on
-every `set()`, and the `ops_for` lookup on every `clone()`/`eq()`.
 
 **Thread-locals that could become struct fields:**
 
 - `PENDING_THEME` / `PENDING_TALL` — one-shot latches only read in
-  `post_render`; natural fields on `ReactorHost`.
+  `post_render`; natural fields on `ReactorHost`. Blocked by the public
+  free-function API (`set_requested_theme`, `set_tall_title_bar`) which
+  would need a host reference.
 - `CURRENT_COLOR_SCHEME` — per-UI-thread state; could live on `RenderHost`
-  or pass through `RenderCx`.
+  or pass through `RenderCx`. Blocked by the same public API pattern.
 
 **What NOT to change:**
 
