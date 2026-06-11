@@ -42,25 +42,29 @@ fn main() {
     write_if_changed(
         "crates/libs/reactor/src/core/generated_bindings.rs",
         &bindings_code,
+        true,
     );
 
     let set_prop_code = gen_set_prop::generate(&controls, &resolver);
     write_if_changed(
         "crates/libs/reactor/src/winui/backend/generated_set_prop.rs",
         &set_prop_code,
+        true,
     );
 
     let attach_code = gen_attach::generate(&controls, &resolver);
     write_if_changed(
         "crates/libs/reactor/src/winui/backend/generated_attach_event.rs",
         &attach_code,
+        true,
     );
 
     let reactor_base_path = std::path::Path::new("crates/tools/reactor/src/base.txt");
     let reactor_txt_content = gen_reactor_txt::generate(&controls, &resolver, reactor_base_path);
-    write_plain_if_changed(
+    write_if_changed(
         "crates/tools/reactor/src/generated.txt",
         &reactor_txt_content,
+        false,
     );
 
     generate_reactor_bindings();
@@ -114,36 +118,25 @@ fn generate_reactor_bindings() {
     _ = windows_bindgen::bindgen(test_args);
 }
 
-/// Write plain text to `path` if changed (no rustfmt).
-fn write_plain_if_changed(path: &str, content: &str) {
+/// Write `content` to `path` if changed. Runs `rustfmt` when `format` is true.
+fn write_if_changed(path: &str, content: &str, format: bool) {
+    let content = if format {
+        std::borrow::Cow::Owned(rustfmt(content))
+    } else {
+        std::borrow::Cow::Borrowed(content)
+    };
     let path_buf = PathBuf::from(path);
     if let Ok(existing) = std::fs::read_to_string(&path_buf)
-        && existing == content
+        && *existing == *content
     {
         println!("  {path}: unchanged");
         return;
     }
-    std::fs::write(&path_buf, content).unwrap_or_else(|e| panic!("Failed to write {path}: {e}"));
-    println!("  {path}: written");
-}
-
-/// Write `content` to `path`, formatting it with rustfmt first.
-/// Only writes if the file content actually changed (avoids unnecessary rebuilds).
-fn write_if_changed(path: &str, content: &str) {
-    let formatted = rustfmt(content);
-    let path = PathBuf::from(path);
-    if let Ok(existing) = std::fs::read_to_string(&path)
-        && existing == formatted
-    {
-        println!("  {}: unchanged", path.display());
-        return;
-    }
-    if let Some(parent) = path.parent() {
+    if let Some(parent) = path_buf.parent() {
         std::fs::create_dir_all(parent).ok();
     }
-    std::fs::write(&path, &formatted)
-        .unwrap_or_else(|e| panic!("Failed to write {}: {e}", path.display()));
-    println!("  {}: written", path.display());
+    std::fs::write(&path_buf, &*content).unwrap_or_else(|e| panic!("Failed to write {path}: {e}"));
+    println!("  {path}: written");
 }
 
 /// Run `rustfmt` on a string of Rust code. Falls back to unformatted if
