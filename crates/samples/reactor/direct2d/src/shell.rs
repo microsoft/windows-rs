@@ -85,7 +85,7 @@ pub fn shell(cx: &mut RenderCx) -> Element {
     grid((
         nav_view.grid_row(0),
         button("Recreate Device")
-            .icon(SymbolGlyph::Refresh)
+            .icon(Symbol::Refresh)
             .on_click(recreate_device)
             .margin(Thickness::uniform(12.0))
             .grid_row(1),

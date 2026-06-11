@@ -14,7 +14,7 @@ const SIZE: i32 = 256;
 /// Create a `SurfaceImageSource`, attach the shared Direct2D device, and draw a
 /// single static frame into it. Runs on the UI thread, as required by
 /// `SurfaceImageSource`.
-fn build_surface(device: &Device) -> windows::core::Result<SurfaceImageSource> {
+fn build_surface(device: &Device) -> Result<SurfaceImageSource> {
     let surface = SurfaceImageSource::new(SIZE, SIZE)?;
     surface.set_device(device.d2d_device())?;
 

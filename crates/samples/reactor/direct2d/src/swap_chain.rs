@@ -329,17 +329,48 @@ mod render {
     }
 }
 
-/// Sample page: animated Direct2D circles presented through a `SwapChainPanel`,
-/// with buttons to add or remove circles.
-pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(5_u32);
-    let gpu = cx.use_context(&gpu_context());
+/// Hosts the Direct2D render worker behind a `SwapChainPanel`: (re)spawns it for
+/// the shared device, attaches the swap chain it produces, pushes circle-count
+/// changes, and routes device loss back to the root for recovery.
+#[derive(Clone)]
+struct RenderHost {
+    panel: HookRef<Option<SwapChainPanelHandle>>,
+    render_thread: HookRef<Option<RenderThread>>,
+    try_start: Rc<dyn Fn()>,
+}
+
+impl RenderHost {
+    /// Store the panel handle and start the worker once the panel mounts.
+    fn mount(&self, handle: SwapChainPanelHandle) {
+        self.panel.set(Some(handle));
+        (self.try_start)();
+    }
+
+    /// Stop and join the worker while the panel and its swap chain still exist,
+    /// so it never presents into a destroyed panel.
+    fn unmount(&self) {
+        // Release the borrow before the worker is dropped, so the join does not
+        // run while the ref is held.
+        let thread = self.render_thread.borrow_mut().take();
+        drop(thread);
+    }
+
+    fn resize(&self, width: u32, height: u32) {
+        if let Some(r) = self.render_thread.borrow().as_ref() {
+            r.resize(width, height);
+        }
+    }
+}
+
+/// Drive the render worker for the shared device, returning a [`RenderHost`] to
+/// wire into the `SwapChainPanel`'s lifecycle callbacks.
+fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHost {
     let device = gpu.as_ref().and_then(Gpu::device);
     let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
     let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
-    // Which device the live render thread was started with, so it respawns when
-    // the shared device appears or is swapped.
+    // Which device the live worker was started with, to avoid respawning it for
+    // the same device.
     let started_for = cx.use_ref::<Option<Device>>(None);
     // Token marshalled back from the worker on device loss. A fresh token per
     // worker means a new loss always changes the value, firing the recovery
@@ -347,9 +378,6 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
     let (lost_token, set_lost_token) = cx.use_async_state::<u64>(0);
     let next_token = cx.use_ref::<u64>(0);
 
-    // (Re)spawn the render thread once the panel and device are both available,
-    // and whenever the device changes. Storing the new thread drops (joins) any
-    // previous one.
     let try_start: Rc<dyn Fn()> = {
         let panel = panel.clone();
         let render_thread = render_thread.clone();
@@ -358,10 +386,7 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
             let Some(dev) = device.clone() else {
                 return;
             };
-            if panel.borrow().is_none() {
-                return;
-            }
-            if started_for.borrow().as_ref() == Some(&dev) {
+            if panel.borrow().is_none() || started_for.borrow().as_ref() == Some(&dev) {
                 return;
             }
 
@@ -383,7 +408,7 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
         })
     };
 
-    // Attach the swap chain to the panel once the worker thread reports it.
+    // Attach the swap chain to the panel once the worker reports it.
     cx.use_effect(swap_chain.clone(), {
         let panel = panel.clone();
         move || {
@@ -396,26 +421,23 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
         }
     });
 
-    // (Re)start the render thread when the shared device appears or changes.
+    // (Re)start the worker when the shared device appears or changes.
     cx.use_effect(device, {
         let try_start = try_start.clone();
         move || try_start()
     });
 
-    // The worker marshals a token here on device loss; ask the root to recreate
-    // the shared device. Token 0 means nothing was lost.
-    cx.use_effect(lost_token, {
-        move || {
-            if lost_token == 0 {
-                return;
-            }
-            if let Some(gpu) = gpu.as_ref() {
-                gpu.request_recovery();
-            }
+    // On device loss the worker marshals a token here; ask the root to recreate
+    // the device. Token 0 means nothing was lost.
+    cx.use_effect(lost_token, move || {
+        if lost_token != 0
+            && let Some(gpu) = gpu.as_ref()
+        {
+            gpu.request_recovery();
         }
     });
 
-    // Push the current circle count to the render thread whenever it changes.
+    // Push circle-count changes to the worker.
     cx.use_effect(count, {
         let render_thread = render_thread.clone();
         move || {
@@ -425,15 +447,27 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
         }
     });
 
+    RenderHost {
+        panel,
+        render_thread,
+        try_start,
+    }
+}
+
+/// Sample page: animated Direct2D circles presented through a `SwapChainPanel`,
+/// with buttons to add or remove circles.
+pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
+    let (count, set_count) = cx.use_state(5_u32);
+    let gpu = cx.use_context(&gpu_context());
+    let host = use_render_host(cx, gpu, count);
+
     let add = {
         let set_count = set_count.clone();
         move || set_count.call(count + 1)
     };
-    let remove = {
-        move || {
-            if count > 0 {
-                set_count.call(count - 1);
-            }
+    let remove = move || {
+        if count > 0 {
+            set_count.call(count - 1);
         }
     };
 
@@ -442,27 +476,14 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
         Element::from(
             swap_chain_panel()
                 .on_mounted({
-                    let try_start = try_start.clone();
-                    move |handle| {
-                        panel.set(Some(handle));
-                        try_start();
-                    }
+                    let host = host.clone();
+                    move |handle| host.mount(handle)
                 })
                 .on_unmounted({
-                    let render_thread = render_thread.clone();
-                    move |_handle| {
-                        // Stop and join the render worker while the panel and
-                        // its swap chain still exist, so the worker never
-                        // presents into a panel that has already been destroyed.
-                        let thread = render_thread.borrow_mut().take();
-                        drop(thread);
-                    }
+                    let host = host.clone();
+                    move |_handle| host.unmount()
                 })
-                .on_resize(move |w, h| {
-                    if let Some(r) = render_thread.borrow().as_ref() {
-                        r.resize(w as u32, h as u32);
-                    }
-                })
+                .on_resize(move |w, h| host.resize(w as u32, h as u32))
                 .margin(Thickness {
                     left: margin,
                     top: margin,
