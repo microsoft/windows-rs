@@ -1,7 +1,7 @@
 //! Demo of displaying a `SurfaceImageSource` with the reactor `Image` widget,
 //! drawing into it once with Direct2D using the app-wide shared device.
 
-use crate::device::{Device, device_context};
+use crate::device::{Device, Gpu, gpu_context, is_device_lost};
 use windows::Win32::Graphics::Direct2D::Common::*;
 use windows::Win32::Graphics::Direct2D::*;
 use windows_numerics::{Matrix3x2, Vector2};
@@ -64,29 +64,28 @@ fn build_surface(device: &Device) -> windows::core::Result<SurfaceImageSource> {
 /// Sample page: a static Direct2D drawing rendered into a `SurfaceImageSource`
 /// and displayed with the reactor `Image` widget.
 pub fn surface_image_source_sample(_: &(), cx: &mut RenderCx) -> Element {
-    let device = cx.use_context(&device_context());
-    let surface = cx.use_ref::<Option<SurfaceImageSource>>(None);
-    // The device the current surface was built with; rebuild when it changes
-    // (e.g. the shared device is recreated after a device-lost event).
-    let built_for = cx.use_ref::<Option<Device>>(None);
+    let gpu = cx.use_context(&gpu_context());
+    let device = gpu.as_ref().and_then(Gpu::device);
+    let (surface, set_surface) = cx.use_state::<Option<SurfaceImageSource>>(None);
 
-    let stale = built_for.borrow().as_ref() != device.as_ref();
-    if stale {
-        if let Some(dev) = device.as_ref() {
-            match build_surface(dev) {
-                Ok(sis) => {
-                    surface.set(Some(sis));
-                    built_for.set(Some(dev.clone()));
+    // (Re)build the surface whenever the shared device appears or changes (e.g.
+    // after recovery). On device loss, ask the root to recreate the device.
+    cx.use_effect(device.clone(), {
+        move || match device.as_ref() {
+            Some(dev) => match build_surface(dev) {
+                Ok(sis) => set_surface.call(Some(sis)),
+                Err(e) if is_device_lost(e.code()) => {
+                    if let Some(gpu) = gpu.as_ref() {
+                        gpu.request_recovery();
+                    }
                 }
                 Err(e) => eprintln!("failed to build surface: {e}"),
-            }
-        } else {
-            surface.set(None);
-            built_for.set(None);
+            },
+            None => set_surface.call(None),
         }
-    }
+    });
 
-    let image: Element = match surface.get_cloned() {
+    let image: Element = match surface {
         Some(sis) => Image::new(sis.into())
             .width(SIZE as f64)
             .height(SIZE as f64)

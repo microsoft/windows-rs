@@ -3,10 +3,10 @@
 //! dedicated worker thread that presents into a composition swap chain.
 //!
 //! The D3D/D2D device is not created here; it is the app-wide shared `Device`
-//! taken from the `DEVICE` context and handed to the worker thread as an owned
+//! taken from the `Gpu` context and handed to the worker thread as an owned
 //! `SharedDevice` snapshot.
 
-use crate::device::{Device, device_context};
+use crate::device::{Device, Gpu, gpu_context};
 use render::{RenderThread, SendSwap};
 use std::rc::Rc;
 use windows_reactor::*;
@@ -18,7 +18,7 @@ mod render {
     use std::thread::{self, JoinHandle};
     use std::time::Duration;
 
-    use crate::device::SharedDevice;
+    use crate::device::{SharedDevice, is_device_lost};
     use windows::Win32::Foundation::DXGI_STATUS_OCCLUDED;
     use windows::Win32::Graphics::Direct2D::Common::*;
     use windows::Win32::Graphics::Direct2D::*;
@@ -78,16 +78,21 @@ mod render {
         /// thread renders with. `initial_count` is the number of circles to draw
         /// before the first `set_circle_count`. `on_swap_chain` is invoked once,
         /// on the render thread, after the swap chain is created so the caller can
-        /// attach it to its presentation surface.
+        /// attach it to its presentation surface. `on_device_lost` is invoked, on
+        /// the render thread, if rendering fails because the GPU device was lost;
+        /// the worker then exits, leaving the caller to recreate the device.
         pub fn new(
             device: SharedDevice,
             initial_count: u32,
             on_swap_chain: impl FnOnce(SendSwap) + Send + 'static,
+            on_device_lost: impl FnOnce() + Send + 'static,
         ) -> Self {
             let (commands, rx) = channel();
             let worker = thread::spawn(move || {
-                if let Err(e) = render_loop(rx, device, initial_count, on_swap_chain) {
-                    eprintln!("render thread failed: {e}");
+                match render_loop(rx, device, initial_count, on_swap_chain) {
+                    Ok(()) => {}
+                    Err(e) if is_device_lost(e.code()) => on_device_lost(),
+                    Err(e) => eprintln!("render thread failed: {e}"),
                 }
             });
             Self {
@@ -342,17 +347,23 @@ mod render {
 /// with buttons to add or remove circles.
 pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
-    let device = cx.use_context(&device_context());
+    let gpu = cx.use_context(&gpu_context());
+    let device = gpu.as_ref().and_then(Gpu::device);
     let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
     let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
-    // Tracks which device the live render thread was started with, so the thread
-    // is (re)spawned when the shared device first appears or is later swapped.
+    // Which device the live render thread was started with, so it respawns when
+    // the shared device appears or is swapped.
     let started_for = cx.use_ref::<Option<Device>>(None);
+    // Token marshalled back from the worker on device loss. A fresh token per
+    // worker means a new loss always changes the value, firing the recovery
+    // effect below.
+    let (lost_token, set_lost_token) = cx.use_async_state::<u64>(0);
+    let next_token = cx.use_ref::<u64>(0);
 
-    // (Re)spawn the render thread once both the panel and the shared device are
-    // available, and whenever the device identity changes. Constructing the new
-    // thread and storing it drops any previous one (joining it).
+    // (Re)spawn the render thread once the panel and device are both available,
+    // and whenever the device changes. Storing the new thread drops (joins) any
+    // previous one.
     let try_start: Rc<dyn Fn()> = {
         let panel = panel.clone();
         let render_thread = render_thread.clone();
@@ -368,10 +379,19 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
                 return;
             }
 
+            let token = {
+                let mut t = next_token.borrow_mut();
+                *t += 1;
+                *t
+            };
             let set_swap_chain = set_swap_chain.clone();
-            let thread = RenderThread::new(dev.to_send(), count, move |swap| {
-                set_swap_chain.call(Some(swap));
-            });
+            let set_lost_token = set_lost_token.clone();
+            let thread = RenderThread::new(
+                dev.to_send(),
+                count,
+                move |swap| set_swap_chain.call(Some(swap)),
+                move || set_lost_token.call(token),
+            );
             render_thread.set(Some(thread));
             started_for.set(Some(dev));
         })
@@ -394,6 +414,19 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
     cx.use_effect(device, {
         let try_start = try_start.clone();
         move || try_start()
+    });
+
+    // The worker marshals a token here on device loss; ask the root to recreate
+    // the shared device. Token 0 means nothing was lost.
+    cx.use_effect(lost_token, {
+        move || {
+            if lost_token == 0 {
+                return;
+            }
+            if let Some(gpu) = gpu.as_ref() {
+                gpu.request_recovery();
+            }
+        }
     });
 
     // Push the current circle count to the render thread whenever it changes.
