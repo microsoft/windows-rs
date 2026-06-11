@@ -48,5 +48,6 @@ jobs:
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
         shell: bash
+      - uses: Swatinem/rust-cache@v2
       - name: Check
         run:  cargo clippy --all --tests -- -D warnings

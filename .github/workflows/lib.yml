@@ -37,6 +37,7 @@ jobs:
       - name: Fix environment
         uses: ./.github/actions/fix-environment
 
+      - uses: Swatinem/rust-cache@v2
       - name: Build gnu libs
         shell: cmd
         run: |
