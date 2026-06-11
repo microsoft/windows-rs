@@ -48,39 +48,33 @@ mod render {
         Idle,
     }
 
-    /// Wraps an `IDXGISwapChain1` so it can be handed back to the UI thread for
-    /// attachment via `SetSwapChain`. DXGI swap chains are agile (free-threaded),
-    /// and only the render thread ever presents/resizes this one, so moving the
-    /// reference across the thread boundary is sound.
+    /// Wraps `IDXGISwapChain1` so it can be handed back to the UI thread. Sound
+    /// because swap chains are agile and only the render thread presents/resizes
+    /// this one.
     #[derive(Clone, PartialEq)]
     pub struct SendSwap(IDXGISwapChain1);
 
     unsafe impl Send for SendSwap {}
 
     impl SendSwap {
-        /// The swap chain produced by the render thread, ready to be attached to a
-        /// presentation surface on the UI thread.
+        /// The swap chain, for attaching to the UI-thread presentation surface.
         pub fn swap_chain(&self) -> &IDXGISwapChain1 {
             &self.0
         }
     }
 
-    /// Owns the render thread and the channel used to talk to it. Created once the
-    /// panel is ready. Dropping it asks the thread to stop and waits for it to
-    /// finish, so a clean shutdown happens on any drop path.
+    /// Owns the render thread and the channel to it. Dropping it stops and joins
+    /// the thread.
     pub struct RenderThread {
         commands: Sender<RenderCommand>,
         worker: Option<JoinHandle<()>>,
     }
 
     impl RenderThread {
-        /// Spawn the render thread. `device` is the app-wide shared device the
-        /// thread renders with. `initial_count` is the number of circles to draw
-        /// before the first `set_circle_count`. `on_swap_chain` is invoked once,
-        /// on the render thread, after the swap chain is created so the caller can
-        /// attach it to its presentation surface. `on_device_lost` is invoked, on
-        /// the render thread, if rendering fails because the GPU device was lost;
-        /// the worker then exits, leaving the caller to recreate the device.
+        /// Spawn the render thread, rendering with the shared `device`.
+        /// `on_swap_chain` runs once the swap chain is created, so the caller can
+        /// attach it. `on_device_lost` runs if rendering fails from device loss,
+        /// after which the worker exits.
         pub fn new(
             device: SharedDevice,
             initial_count: u32,
@@ -118,15 +112,13 @@ mod render {
     }
 
     impl Drop for RenderThread {
-        /// Ask the render thread to stop and wait for it to finish, so the worker
-        /// has fully released its device and swap-chain references before we
-        /// return. Joining (rather than detaching) is what prevents an orphaned
-        /// worker from continuing to render on the shared device and racing a
-        /// newly spawned worker when the sample is switched away and back.
+        /// Stop and join the worker so it has released its device and swap-chain
+        /// references before we return. Joining prevents an orphaned worker from
+        /// racing a freshly spawned one when the sample is switched away and back.
         ///
-        /// This is safe to do on the UI thread: the worker only ever blocks in
-        /// `Present(1)`, which returns at the next vblank regardless of the UI
-        /// message pump, so it promptly observes `Shutdown` and exits.
+        /// Safe on the UI thread: the worker only blocks in `Present(1)`, which
+        /// returns at vblank regardless of the message pump, so it promptly sees
+        /// `Shutdown`.
         fn drop(&mut self) {
             self.send(RenderCommand::Shutdown);
             if let Some(worker) = self.worker.take() {
@@ -283,11 +275,8 @@ mod render {
 
             state.target.EndDraw(None, None)?;
 
-            // `Present(1)` blocks until vblank, pacing the loop at the display
-            // refresh rate.
-            //
-            // `DXGI_STATUS_OCCLUDED` is a success status, so it has to be
-            // inspected before `ok()` discards it. The caller throttles on it.
+            // `Present(1)` blocks until vblank to pace the loop. DXGI_STATUS_OCCLUDED
+            // is a success status, so check it before `ok()` discards it.
             let present = state.swap_chain.Present(1, DXGI_PRESENT(0));
             if present == DXGI_STATUS_OCCLUDED {
                 return Ok(FrameStatus::Idle);
@@ -298,12 +287,9 @@ mod render {
         Ok(FrameStatus::Presented)
     }
 
-    /// Entry point for the dedicated render thread. Drives the animation loop on
-    /// the shared `device`, draining commands from the caller. `Present(1)` paces
-    /// the loop at the display refresh rate while the surface is visible.
-    ///
-    /// `on_swap_chain` is invoked once, after the swap chain is created, so the
-    /// caller can attach it to its presentation surface.
+    /// Render-thread entry point: drives the animation loop on the shared
+    /// `device`, draining commands. `on_swap_chain` runs once after the swap
+    /// chain is created.
     fn render_loop(
         rx: Receiver<RenderCommand>,
         device: SharedDevice,
