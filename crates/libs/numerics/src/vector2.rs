@@ -1,8 +1,8 @@
 use super::*;
 
 impl Vector2 {
-    pub fn new(X: f32, Y: f32) -> Self {
-        Self { X, Y }
+    pub fn new(x: f32, y: f32) -> Self {
+        Self { X: x, Y: y }
     }
     pub fn zero() -> Self {
         Self { X: 0f32, Y: 0f32 }
