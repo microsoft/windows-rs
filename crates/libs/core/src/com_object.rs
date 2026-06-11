@@ -1,4 +1,3 @@
-use crate::imp::Box;
 use crate::{IUnknown, IUnknownImpl, Interface, InterfaceRef};
 use core::any::Any;
 use core::borrow::Borrow;

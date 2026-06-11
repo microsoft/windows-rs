@@ -118,5 +118,20 @@ macro_rules! define_interface {
 #[doc(hidden)]
 pub use define_interface;
 
+#[inline(always)]
 #[doc(hidden)]
-pub use alloc::boxed::Box;
+pub fn box_new<T>(value: T) -> Box<T> {
+    Box::new(value)
+}
+
+#[inline(always)]
+#[doc(hidden)]
+pub unsafe fn box_from_raw<T>(raw: *mut T) -> Box<T> {
+    unsafe { Box::from_raw(raw) }
+}
+
+#[inline(always)]
+#[doc(hidden)]
+pub fn box_into_raw<T>(b: Box<T>) -> *mut T {
+    Box::into_raw(b)
+}

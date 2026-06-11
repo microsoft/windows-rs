@@ -351,7 +351,7 @@ macro_rules! __implement_decl_struct {
                 unsafe {
                     let remaining = (*self_).count.release();
                     if remaining == 0 {
-                        _ = $crate::imp::Box::from_raw(self_);
+                        _ = $crate::imp::box_from_raw(self_);
                     }
                     remaining
                 }
@@ -445,9 +445,9 @@ macro_rules! __implement_decl_struct {
             type Outer = $impl_name;
 
             fn into_object(self) -> $crate::ComObject<Self> {
-                let boxed = $crate::imp::Box::<$impl_name>::new(self.into_outer());
+                let boxed = $crate::imp::box_new(self.into_outer());
                 unsafe {
-                    let ptr = $crate::imp::Box::into_raw(boxed);
+                    let ptr = $crate::imp::box_into_raw(boxed);
                     $crate::ComObject::from_raw(::core::ptr::NonNull::new_unchecked(ptr))
                 }
             }
@@ -956,7 +956,7 @@ macro_rules! __implement_decl_g_struct {
                 unsafe {
                     let remaining = (*self_).count.release();
                     if remaining == 0 {
-                        _ = $crate::imp::Box::from_raw(self_);
+                        _ = $crate::imp::box_from_raw(self_);
                     }
                     remaining
                 }
@@ -1050,9 +1050,9 @@ macro_rules! __implement_decl_g_struct {
             type Outer = $impl_name < $($gp),+ >;
 
             fn into_object(self) -> $crate::ComObject<Self> {
-                let boxed = $crate::imp::Box::<$impl_name < $($gp),+ >>::new(self.into_outer());
+                let boxed = $crate::imp::box_new(self.into_outer());
                 unsafe {
-                    let ptr = $crate::imp::Box::into_raw(boxed);
+                    let ptr = $crate::imp::box_into_raw(boxed);
                     $crate::ComObject::from_raw(::core::ptr::NonNull::new_unchecked(ptr))
                 }
             }
