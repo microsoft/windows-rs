@@ -14,7 +14,7 @@ pub mod Test {
                 &CompletedCallbackBox::<F>::VTABLE,
                 invoke,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         }
     }
     #[repr(C)]
@@ -121,7 +121,7 @@ pub mod Test {
                     &HandlerBox::<F>::VTABLE,
                     handler,
                 );
-                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+                unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
             };
             unsafe {
                 let mut result__ = core::mem::zeroed();

@@ -484,7 +484,7 @@ impl ApplicationInitializationCallback {
             &ApplicationInitializationCallbackBox::<F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
 #[repr(C)]
@@ -2722,7 +2722,7 @@ impl CompositionTarget {
                     &EventHandlerBox::<windows_core::IInspectable, F>::VTABLE,
                     handler,
                 );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         Self::ICompositionTargetStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3329,7 +3329,7 @@ impl DependencyPropertyChangedCallback {
             &DependencyPropertyChangedCallbackBox::<F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
 #[repr(C)]
@@ -3513,7 +3513,7 @@ impl DispatcherQueueHandler {
             &DispatcherQueueHandlerBox::<F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
 #[repr(C)]
@@ -5368,7 +5368,7 @@ impl IAutoSuggestBox {
                     >::VTABLE,
                     handler,
                 );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5394,7 +5394,7 @@ impl IAutoSuggestBox {
     {
         let handler: TypedEventHandler<AutoSuggestBox, AutoSuggestBoxTextChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < AutoSuggestBox , AutoSuggestBoxTextChangedEventArgs > , F >::new (& TypedEventHandlerBox::< AutoSuggestBox , AutoSuggestBoxTextChangedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5423,7 +5423,7 @@ impl IAutoSuggestBox {
     {
         let handler: TypedEventHandler<AutoSuggestBox, AutoSuggestBoxQuerySubmittedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < AutoSuggestBox , AutoSuggestBoxQuerySubmittedEventArgs > , F >::new (& TypedEventHandlerBox::< AutoSuggestBox , AutoSuggestBoxQuerySubmittedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7508,7 +7508,7 @@ impl IBreadcrumbBar {
     {
         let handler: TypedEventHandler<BreadcrumbBar, BreadcrumbBarItemClickedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < BreadcrumbBar , BreadcrumbBarItemClickedEventArgs > , F >::new (& TypedEventHandlerBox::< BreadcrumbBar , BreadcrumbBarItemClickedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7697,7 +7697,7 @@ impl IButtonBase {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7834,7 +7834,7 @@ impl ICalendarDatePicker {
                 >::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8009,7 +8009,7 @@ impl ICalendarView {
                     >::VTABLE,
                     handler,
                 );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8460,7 +8460,7 @@ impl IColorPicker {
                 &TypedEventHandlerBox::<ColorPicker, ColorChangedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9302,7 +9302,7 @@ impl IContentDialog {
                 &TypedEventHandlerBox::<ContentDialog, ContentDialogClosedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9746,7 +9746,7 @@ impl IDatePicker {
     {
         let handler: TypedEventHandler<DatePicker, DatePickerSelectedValueChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < DatePicker , DatePickerSelectedValueChangedEventArgs > , F >::new (& TypedEventHandlerBox::< DatePicker , DatePickerSelectedValueChangedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10232,7 +10232,7 @@ impl IDispatcherQueueTimer {
     {
         let handler: TypedEventHandler<DispatcherQueueTimer, windows_core::IInspectable> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < DispatcherQueueTimer , windows_core::IInspectable > , F >::new (& TypedEventHandlerBox::< DispatcherQueueTimer , windows_core::IInspectable , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10391,7 +10391,7 @@ impl IExpander {
                 &TypedEventHandlerBox::<Expander, ExpanderExpandingEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10420,7 +10420,7 @@ impl IExpander {
                 &TypedEventHandlerBox::<Expander, ExpanderCollapsedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10846,7 +10846,7 @@ impl IFrameworkElement {
                 &SizeChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10879,7 +10879,7 @@ impl IFrameworkElement {
                 &TypedEventHandlerBox::<FrameworkElement, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11525,7 +11525,7 @@ impl IInfoBar {
                 &TypedEventHandlerBox::<InfoBar, InfoBarClosedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11882,7 +11882,7 @@ impl IKeyboardAccelerator {
                     >::VTABLE,
                     handler,
                 );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12451,7 +12451,7 @@ impl IMenuFlyoutItem {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12780,7 +12780,7 @@ impl INavigationView {
                     >::VTABLE,
                     handler,
                 );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12928,7 +12928,7 @@ impl INavigationView2 {
     {
         let handler: TypedEventHandler<NavigationView, NavigationViewBackRequestedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < NavigationView , NavigationViewBackRequestedEventArgs > , F >::new (& TypedEventHandlerBox::< NavigationView , NavigationViewBackRequestedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13256,7 +13256,7 @@ impl INumberBox {
                 &TypedEventHandlerBox::<NumberBox, NumberBoxValueChangedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13609,7 +13609,7 @@ impl IPasswordBox {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13799,7 +13799,7 @@ impl IPivot {
                 &SelectionChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14302,7 +14302,7 @@ impl IRadioButtons {
                 &SelectionChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14465,7 +14465,7 @@ impl IRangeBase {
                 &RangeBaseValueChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14617,7 +14617,7 @@ impl IRatingControl {
                 &TypedEventHandlerBox::<RatingControl, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -15023,7 +15023,7 @@ impl IRichEditBox {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -15591,7 +15591,7 @@ impl ISelector {
                 &SelectionChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -15677,7 +15677,7 @@ impl ISelectorBar {
     {
         let handler: TypedEventHandler<SelectorBar, SelectorBarSelectionChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < SelectorBar , SelectorBarSelectionChangedEventArgs > , F >::new (& TypedEventHandlerBox::< SelectorBar , SelectorBarSelectionChangedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16080,7 +16080,7 @@ impl ISplitButton {
                 &TypedEventHandlerBox::<SplitButton, SplitButtonClickEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16230,7 +16230,7 @@ impl ISplitView {
                 &TypedEventHandlerBox::<SplitView, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16651,7 +16651,7 @@ impl ISwapChainPanel {
                 &TypedEventHandlerBox::<SwapChainPanel, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16856,7 +16856,7 @@ impl ITabView {
                 &TypedEventHandlerBox::<TabView, TabViewTabCloseRequestedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16888,7 +16888,7 @@ impl ITabView {
                 &TypedEventHandlerBox::<TabView, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16960,7 +16960,7 @@ impl ITabView {
                 &SelectionChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17278,7 +17278,7 @@ impl ITeachingTip {
                 &TypedEventHandlerBox::<TeachingTip, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17308,7 +17308,7 @@ impl ITeachingTip {
                 &TypedEventHandlerBox::<TeachingTip, TeachingTipClosedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17665,7 +17665,7 @@ impl ITextBox {
                 &TextChangedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17964,7 +17964,7 @@ impl ITimePicker {
     {
         let handler: TypedEventHandler<TimePicker, TimePickerSelectedValueChangedEventArgs> = {
             let com = windows_core::imp::DelegateBox::< TypedEventHandler < TimePicker , TimePickerSelectedValueChangedEventArgs > , F >::new (& TypedEventHandlerBox::< TimePicker , TimePickerSelectedValueChangedEventArgs , F >::VTABLE , handler) ;
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18160,7 +18160,7 @@ impl ITitleBar {
                 &TypedEventHandlerBox::<TitleBar, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18192,7 +18192,7 @@ impl ITitleBar {
                 &TypedEventHandlerBox::<TitleBar, windows_core::IInspectable, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18323,7 +18323,7 @@ impl IToggleButton {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18350,7 +18350,7 @@ impl IToggleButton {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18490,7 +18490,7 @@ impl IToggleSwitch {
                 &RoutedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18671,7 +18671,7 @@ impl ITreeView {
                 &TypedEventHandlerBox::<TreeView, TreeViewItemInvokedEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18958,7 +18958,7 @@ impl IUIElement {
                 &PointerEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -18990,7 +18990,7 @@ impl IUIElement {
                 &PointerEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19022,7 +19022,7 @@ impl IUIElement {
                 &PointerEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19051,7 +19051,7 @@ impl IUIElement {
                 &TappedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19080,7 +19080,7 @@ impl IUIElement {
                 &RightTappedEventHandlerBox::<F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19671,7 +19671,7 @@ impl IWindow {
                 &TypedEventHandlerBox::<windows_core::IInspectable, WindowEventArgs, F>::VTABLE,
                 handler,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         };
         unsafe {
             let mut result__ = core::mem::zeroed();
