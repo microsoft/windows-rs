@@ -118,6 +118,9 @@ macro_rules! define_interface {
 #[doc(hidden)]
 pub use define_interface;
 
+// Box is not in the prelude for no_std crates. These helpers let generated code
+// avoid `windows_core::imp::Box` which triggers the unused_qualifications lint.
+
 #[inline(always)]
 #[doc(hidden)]
 pub fn box_new<T>(value: T) -> Box<T> {
