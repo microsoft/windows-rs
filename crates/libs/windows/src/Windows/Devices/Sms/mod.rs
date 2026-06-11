@@ -1915,7 +1915,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::new(&SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -2237,7 +2237,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::new(&SmsMessageReceivedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where

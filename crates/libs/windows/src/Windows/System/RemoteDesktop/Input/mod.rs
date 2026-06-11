@@ -174,7 +174,7 @@ impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<RemoteTextConnectionDataHandler, F>::new(&RemoteTextConnectionDataHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[u8]) -> windows_core::Result<bool> {
         unsafe {

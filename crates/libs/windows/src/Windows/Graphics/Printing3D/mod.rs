@@ -879,7 +879,7 @@ impl windows_core::RuntimeType for Print3DTaskSourceRequestedHandler {
 impl Print3DTaskSourceRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Print3DTaskSourceRequestedHandler, F>::new(&Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where
