@@ -17,6 +17,7 @@ impl PartialOrd for TypeName {
     }
 }
 
+#[expect(non_upper_case_globals)]
 impl TypeName {
     pub const Object: Self = Self("System", "Object");
 
