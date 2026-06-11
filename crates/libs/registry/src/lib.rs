@@ -2,12 +2,6 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![no_std]
-#![expect(
-    dead_code,
-    non_snake_case,
-    non_camel_case_types,
-    clippy::upper_case_acronyms
-)]
 
 #[macro_use]
 extern crate alloc;
@@ -16,6 +10,12 @@ use alloc::{string::String, vec::Vec};
 use core::ops::Deref;
 use core::ptr::{null, null_mut};
 
+#[expect(
+    dead_code,
+    non_snake_case,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
 mod bindings;
 use bindings::*;
 
