@@ -67,16 +67,7 @@ impl TextFormat {
 
     /// Create a text format with a specific weight.
     pub fn with_weight(family: &str, size: f32, weight: FontWeight) -> crate::Result<Self> {
-        let mut factory: Option<IDWriteFactory> = None;
-        unsafe {
-            DWriteCreateFactory(
-                DWRITE_FACTORY_TYPE_SHARED,
-                &IDWriteFactory::IID,
-                &mut factory as *mut _ as *mut _,
-            )
-            .ok()?;
-        }
-        let factory = factory.unwrap();
+        let factory = dwrite_factory()?;
 
         let family_wide: Vec<u16> = family.encode_utf16().chain(std::iter::once(0)).collect();
         let locale_wide: Vec<u16> = "en-us\0".encode_utf16().collect();
@@ -122,4 +113,24 @@ impl TextFormat {
     pub fn raw(&self) -> &IDWriteTextFormat {
         &self.raw
     }
+}
+
+pub(crate) fn dwrite_factory() -> crate::Result<IDWriteFactory> {
+    static SHARED: std::sync::OnceLock<IDWriteFactory> = std::sync::OnceLock::new();
+
+    if let Some(factory) = SHARED.get() {
+        return Ok(factory.clone());
+    }
+
+    let mut factory: Option<IDWriteFactory> = None;
+    unsafe {
+        DWriteCreateFactory(
+            DWRITE_FACTORY_TYPE_SHARED,
+            &IDWriteFactory::IID,
+            &mut factory as *mut _ as *mut _,
+        )
+        .ok()?;
+    }
+    let factory = factory.ok_or_else(windows_core::Error::empty)?;
+    Ok(SHARED.get_or_init(|| factory).clone())
 }
