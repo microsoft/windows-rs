@@ -116,6 +116,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         controls::mount_reorderable_list_view,
     ),
     (
+        "Reconciler_Mount_ReorderableGridView",
+        controls::mount_reorderable_grid_view,
+    ),
+    (
         "Reconciler_Mount_TemplatedGridView",
         controls::mount_templated_grid_view,
     ),
