@@ -21,18 +21,6 @@ impl Path {
     }
 }
 
-// -- Typestate markers --
-
-pub struct Empty {
-    sink: ID2D1GeometrySink,
-    geometry: ID2D1PathGeometry1,
-}
-
-pub struct InFigure {
-    sink: ID2D1GeometrySink,
-    geometry: ID2D1PathGeometry1,
-}
-
 /// Type-safe path builder.
 ///
 /// ```ignore
@@ -43,57 +31,60 @@ pub struct InFigure {
 ///     .close()
 ///     .build()?;
 /// ```
-pub struct PathBuilder<S> {
-    state: S,
+pub struct PathBuilder {
+    sink: ID2D1GeometrySink,
+    geometry: ID2D1PathGeometry1,
 }
 
-impl PathBuilder<Empty> {
+impl PathBuilder {
     pub fn new(device: &GpuDevice) -> Result<Self> {
         let geometry = unsafe { device.d2d_factory().CreatePathGeometry()? };
         let sink = unsafe { geometry.Open()? };
-        Ok(Self {
-            state: Empty { sink, geometry },
-        })
+        Ok(Self { sink, geometry })
     }
 
     /// Begin a filled figure.
-    pub fn begin(self, start: Vector2) -> PathBuilder<InFigure> {
+    pub fn begin(self, start: Vector2) -> PathFigure {
         unsafe {
-            self.state.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED);
+            self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED);
         }
-        PathBuilder {
-            state: InFigure {
-                sink: self.state.sink,
-                geometry: self.state.geometry,
-            },
+        PathFigure {
+            sink: self.sink,
+            geometry: self.geometry,
         }
     }
 
     /// Begin a hollow (stroke-only) figure.
-    pub fn begin_hollow(self, start: Vector2) -> PathBuilder<InFigure> {
+    pub fn begin_hollow(self, start: Vector2) -> PathFigure {
         unsafe {
-            self.state.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW);
+            self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW);
         }
-        PathBuilder {
-            state: InFigure {
-                sink: self.state.sink,
-                geometry: self.state.geometry,
-            },
+        PathFigure {
+            sink: self.sink,
+            geometry: self.geometry,
         }
     }
 
     /// Finalize the path geometry.
     pub fn build(self) -> Result<Path> {
-        unsafe { self.state.sink.Close()? };
-        Ok(Path {
-            raw: self.state.geometry,
-        })
+        unsafe { self.sink.Close()? };
+        Ok(Path { raw: self.geometry })
     }
 }
 
-impl PathBuilder<InFigure> {
+/// A figure within a path being built.
+///
+/// Returned by [`PathBuilder::begin`]. Add segments with [`line_to`](Self::line_to)
+/// and [`bezier_to`](Self::bezier_to), then call [`close`](Self::close) or
+/// [`end_open`](Self::end_open) to return to `PathBuilder`.
+pub struct PathFigure {
+    sink: ID2D1GeometrySink,
+    geometry: ID2D1PathGeometry1,
+}
+
+impl PathFigure {
     pub fn line_to(self, point: Vector2) -> Self {
-        unsafe { self.state.sink.AddLine(point) };
+        unsafe { self.sink.AddLine(point) };
         self
     }
 
@@ -103,29 +94,25 @@ impl PathBuilder<InFigure> {
             point2: control2,
             point3: end,
         };
-        unsafe { self.state.sink.AddBezier(&segment) };
+        unsafe { self.sink.AddBezier(&segment) };
         self
     }
 
     /// Close the current figure and connect back to the start point.
-    pub fn close(self) -> PathBuilder<Empty> {
-        unsafe { self.state.sink.EndFigure(D2D1_FIGURE_END_CLOSED) };
+    pub fn close(self) -> PathBuilder {
+        unsafe { self.sink.EndFigure(D2D1_FIGURE_END_CLOSED) };
         PathBuilder {
-            state: Empty {
-                sink: self.state.sink,
-                geometry: self.state.geometry,
-            },
+            sink: self.sink,
+            geometry: self.geometry,
         }
     }
 
     /// End the current figure without closing.
-    pub fn end_open(self) -> PathBuilder<Empty> {
-        unsafe { self.state.sink.EndFigure(D2D1_FIGURE_END_OPEN) };
+    pub fn end_open(self) -> PathBuilder {
+        unsafe { self.sink.EndFigure(D2D1_FIGURE_END_OPEN) };
         PathBuilder {
-            state: Empty {
-                sink: self.state.sink,
-                geometry: self.state.geometry,
-            },
+            sink: self.sink,
+            geometry: self.geometry,
         }
     }
 }
