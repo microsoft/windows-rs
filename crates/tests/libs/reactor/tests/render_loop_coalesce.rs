@@ -4,7 +4,7 @@ use std::rc::Rc;
 use windows_reactor::Component;
 use windows_reactor::RecordingBackend;
 use windows_reactor::RenderHost;
-use windows_reactor::Size;
+use windows_reactor::WindowSize;
 use windows_reactor::component;
 use windows_reactor::{Dispatcher, DispatcherQueuePriority, RunOnDemandDispatcher};
 use windows_reactor::{Element, Orientation, StackPanel, TextBlock};
@@ -388,7 +388,7 @@ fn inner_size_change_rerenders_children_once_and_resets_force_flag() {
         "child should render on initial mount"
     );
 
-    host.set_inner_size(Size {
+    host.set_inner_size(WindowSize {
         width: 800.0,
         height: 600.0,
     });

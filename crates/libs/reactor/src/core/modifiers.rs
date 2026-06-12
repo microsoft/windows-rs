@@ -165,3 +165,136 @@ impl std::fmt::Debug for dyn AttachedValue {
         f.write_str("AttachedValue")
     }
 }
+
+// --- Pointer event handlers ---
+
+/// Bundle of per-element pointer / tap callbacks; each slot is
+/// individually optional.
+#[derive(Clone, Default, Debug, PartialEq)]
+pub struct PointerHandlers {
+    pub on_tapped: Option<Callback<()>>,
+    pub on_right_tapped: Option<Callback<()>>,
+    pub on_pointer_pressed: Option<Callback<PointerEventInfo>>,
+    pub on_pointer_released: Option<Callback<PointerEventInfo>>,
+    pub on_pointer_exited: Option<Callback<()>>,
+}
+
+impl PointerHandlers {
+    pub fn is_empty(&self) -> bool {
+        self.on_tapped.is_none()
+            && self.on_right_tapped.is_none()
+            && self.on_pointer_pressed.is_none()
+            && self.on_pointer_released.is_none()
+            && self.on_pointer_exited.is_none()
+    }
+}
+
+/// Button state captured at a `PointerPressed` / `PointerReleased`
+/// callback. Non-mouse pointer kinds report all three as `false`.
+#[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]
+pub struct PointerEventInfo {
+    pub is_left_button_pressed: bool,
+    pub is_right_button_pressed: bool,
+    pub is_middle_button_pressed: bool,
+}
+
+// --- Accessibility ---
+
+/// UI Automation properties applied to every widget kind via
+/// [`Modifiers::accessibility`].
+#[derive(Clone, Default, Debug, PartialEq, Eq)]
+pub struct AccessibilityModifiers {
+    pub automation_name: Option<String>,
+    pub automation_id: Option<String>,
+    pub help_text: Option<String>,
+    pub live_setting: Option<LiveSetting>,
+    pub heading_level: Option<HeadingLevel>,
+}
+
+impl AccessibilityModifiers {
+    pub fn is_empty(&self) -> bool {
+        self.automation_name.is_none()
+            && self.automation_id.is_none()
+            && self.help_text.is_none()
+            && self.live_setting.is_none()
+            && self.heading_level.is_none()
+    }
+}
+
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+pub enum LiveSetting {
+    Off,
+    Polite,
+    Assertive,
+}
+
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+pub enum HeadingLevel {
+    Level1,
+    Level2,
+    Level3,
+    Level4,
+    Level5,
+    Level6,
+    Level7,
+    Level8,
+    Level9,
+}
+
+// --- Tooltip ---
+
+/// Tooltip configuration applied via WinUI `ToolTipService`. Build from
+/// a plain string or `Tooltip::rich(element)` for templated content.
+#[derive(Clone, Debug, PartialEq)]
+pub struct Tooltip {
+    pub content: TooltipContent,
+    pub placement: Option<TooltipPlacement>,
+}
+
+impl Tooltip {
+    /// Plain-text tooltip; WinUI wraps the string in a default
+    /// `ToolTip` `TextBlock`.
+    pub fn text(s: impl Into<String>) -> Self {
+        Self {
+            content: TooltipContent::Text(s.into()),
+            placement: None,
+        }
+    }
+
+    /// Rich tooltip; `element` is mounted as the `Content` of a
+    /// `ToolTip` instance at apply time.
+    pub fn rich(element: impl Into<Element>) -> Self {
+        Self {
+            content: TooltipContent::Rich(Box::new(element.into())),
+            placement: None,
+        }
+    }
+
+    pub fn placement(mut self, p: TooltipPlacement) -> Self {
+        self.placement = Some(p);
+        self
+    }
+}
+
+impl<S: Into<String>> From<S> for Tooltip {
+    fn from(s: S) -> Self {
+        Tooltip::text(s)
+    }
+}
+
+/// Tooltip payload: a plain string or a templated child element.
+#[derive(Clone, Debug, PartialEq)]
+pub enum TooltipContent {
+    Text(String),
+    Rich(Box<Element>),
+}
+
+/// Rust mirror of `Microsoft.UI.Xaml.Controls.Primitives.PlacementMode`.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+pub enum TooltipPlacement {
+    Top,
+    Bottom,
+    Left,
+    Right,
+    Mouse,
+}

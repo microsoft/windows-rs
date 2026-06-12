@@ -190,12 +190,12 @@ pub use app::*;
 
 ## Proposed implementation plan
 
-### Phase 1: Structural cleanup (no API changes)
-- [x] Migrate consumer imports to root
-- [ ] Eliminate `dsl/` directory
-- [ ] Merge small modules
-- [ ] Flatten element.rs re-export chain
-- [ ] Delete dead code
+### Phase 1: Structural cleanup (no API changes) ✅
+- [x] Migrate consumer imports to root (75+ files)
+- [x] Eliminate `dsl/` directory (moved ElementExt → core/element_ext.rs)
+- [x] Flatten element.rs re-export chain (lib.rs re-exports from source modules)
+- [x] Delete dead code (template_cache.rs, ContextStack::depth())
+- [x] Merge small modules (window→geometry, pointer+accessibility+tooltip→modifiers)
 
 ### Phase 2: Visibility tightening
 - [ ] Replace macros with plain `pub(crate) mod` declarations

@@ -280,7 +280,7 @@ pub struct RenderCx {
     /// populated by the host for [`Self::use_ui_marshaller`] /
     /// [`Self::use_async_state`].
     marshaller: Option<UiMarshaller>,
-    inner_size: Rc<Cell<Size>>,
+    inner_size: Rc<Cell<WindowSize>>,
     /// Per-monitor DPI for the host window. Shared with the
     /// reconciler via [`Self::set_dpi_cell`]; updated by the host when the
     /// window moves across monitors.
@@ -309,7 +309,7 @@ impl RenderCx {
             context_stack: None,
             read_contexts: RefCell::new(FxHashSet::default()),
             marshaller: None,
-            inner_size: Rc::new(Cell::new(Size::default())),
+            inner_size: Rc::new(Cell::new(WindowSize::default())),
             dpi: Rc::new(Cell::new(96)),
         }
     }
@@ -690,7 +690,7 @@ impl RenderCx {
 
     /// Returns the host window's client-area size in DIPs. Re-renders
     /// the component whenever the window is resized.
-    pub fn use_inner_size(&self) -> Size {
+    pub fn use_inner_size(&self) -> WindowSize {
         self.read_contexts
             .borrow_mut()
             .insert(inner_size_context_id());
@@ -704,7 +704,7 @@ impl RenderCx {
         self.dpi.get()
     }
 
-    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<Size>>) {
+    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.inner_size = cell;
     }
 

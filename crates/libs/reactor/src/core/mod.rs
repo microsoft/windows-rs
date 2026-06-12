@@ -31,19 +31,15 @@ public_submodules! {
     rich_text,
     templated_list,
     theme,
-    window,
 }
 
 // Modules whose types are re-exported at the crate root but whose module
 // paths are not part of the public API.
 internal_submodules! {
-    accessibility,
     geometry,
     keyboard,
     modifiers,
-    pointer,
     resource,
-    tooltip,
     widgets,
 }
 
