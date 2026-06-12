@@ -1,4 +1,3 @@
-#![warn(unused_qualifications)]
 
 #[expect(
     non_snake_case,

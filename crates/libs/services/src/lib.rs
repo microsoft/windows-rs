@@ -1,4 +1,3 @@
-#![warn(unused_qualifications)]
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 
