@@ -47,7 +47,7 @@ impl DropDownButton {
 impl Widget for DropDownButton {
     widget_header!(ControlKind::DropDownButton);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::drop_down_button_bindings(self);
+        let mut out = generated_bindings::drop_down_button_bindings(self);
         if let Some(v) = &self.menu_flyout_items {
             out.push(Binding::Prop(
                 Prop::MenuFlyoutItems,

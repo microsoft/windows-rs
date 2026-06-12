@@ -2,7 +2,7 @@
 //! [`Modifiers::tooltip`](super::Modifiers::tooltip) and applied via
 //! WinUI `ToolTipService` (an attached property on `FrameworkElement`).
 
-use super::Element;
+use super::*;
 
 /// Tooltip configuration applied via WinUI `ToolTipService`. Build from
 /// a plain string or `Tooltip::rich(element)` for templated content.

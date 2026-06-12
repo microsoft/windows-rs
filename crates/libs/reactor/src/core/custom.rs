@@ -1,9 +1,9 @@
 //! Extension hatch for downstream widgets that aren't part of the core
 //! [`Element`](crate::core::element::Element) enum. Leaf-only in step 1a.
 
-use std::any::{Any, TypeId};
+use super::*;
 
-use crate::core::backend::{Backend, ControlId};
+use std::any::{Any, TypeId};
 
 /// Out-of-tree widget definition managed by the reconciler via
 /// [`Element::Custom`](crate::core::element::Element::Custom).

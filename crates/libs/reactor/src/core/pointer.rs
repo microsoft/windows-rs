@@ -4,7 +4,7 @@
 //! These mirror the universal `UIElement` pointer events (`Tapped`,
 //! `RightTapped`, `PointerPressed`, `PointerReleased`, `PointerExited`).
 
-use super::callback::Callback;
+use super::*;
 
 /// Bundle of per-element pointer / tap callbacks; each slot is
 /// individually optional.

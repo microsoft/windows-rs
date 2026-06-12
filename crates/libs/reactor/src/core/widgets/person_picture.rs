@@ -24,6 +24,6 @@ impl PersonPicture {
 impl Widget for PersonPicture {
     widget_header!(ControlKind::PersonPicture);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::person_picture_bindings(self)
+        generated_bindings::person_picture_bindings(self)
     }
 }

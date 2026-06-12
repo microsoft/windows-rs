@@ -86,7 +86,7 @@ impl TreeView {
 impl Widget for TreeView {
     widget_header!(ControlKind::TreeView);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::tree_view_bindings(self);
+        let mut out = generated_bindings::tree_view_bindings(self);
         out.push(Binding::Prop(
             Prop::Nodes,
             PropValue::TreeViewNodes(self.nodes.clone()),

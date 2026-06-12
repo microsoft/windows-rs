@@ -2,6 +2,7 @@ use std::panic::AssertUnwindSafe;
 use std::rc::Rc;
 
 use super::*;
+use rustc_hash::{FxHashMap, FxHashSet};
 
 impl<B: Backend + 'static> Reconciler<B> {
     pub(crate) fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
@@ -162,13 +163,13 @@ impl<B: Backend + 'static> Reconciler<B> {
         new: &ProviderElement,
         id: ControlId,
     ) -> Option<ControlId> {
-        let mut changed_ids: rustc_hash::FxHashSet<crate::core::context::ContextId> =
-            rustc_hash::FxHashSet::default();
+        let mut changed_ids: FxHashSet<ContextId> =
+            FxHashSet::default();
 
-        let mut old_by_id: rustc_hash::FxHashMap<
-            crate::core::context::ContextId,
-            &crate::core::context::ContextProvision,
-        > = rustc_hash::FxHashMap::default();
+        let mut old_by_id: FxHashMap<
+            ContextId,
+            &ContextProvision,
+        > = FxHashMap::default();
         for p in &old.provisions {
             old_by_id.insert(p.context_id, p);
         }
@@ -213,7 +214,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    fn push_provisions(&self, provisions: &[crate::core::context::ContextProvision]) -> usize {
+    fn push_provisions(&self, provisions: &[ContextProvision]) -> usize {
         for p in provisions {
             self.context_stack
                 .push_raw_retain(p.context_id, p.value_type_id, Rc::clone(&p.value));
@@ -229,7 +230,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub(crate) fn mount_custom(
         &mut self,
-        c: &crate::core::custom::CustomElementHandle,
+        c: &CustomElementHandle,
     ) -> ControlId {
         self.debug_ui_elements_created += 1;
         let id = c.0.mount(&mut self.backend);
@@ -239,13 +240,13 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub(crate) fn update_custom(
         &mut self,
-        old: &crate::core::custom::CustomElementHandle,
-        new: &crate::core::custom::CustomElementHandle,
+        old: &CustomElementHandle,
+        new: &CustomElementHandle,
         id: ControlId,
     ) -> ControlId {
         debug_assert_eq!(
-            crate::core::custom::CustomElement::type_id(&*old.0),
-            crate::core::custom::CustomElement::type_id(&*new.0),
+            CustomElement::type_id(&*old.0),
+            CustomElement::type_id(&*new.0),
             "update_custom invoked across different CustomElement types — \
              reconciler should have unmount+remount via kind_matches",
         );

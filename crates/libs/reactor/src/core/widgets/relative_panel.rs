@@ -37,7 +37,7 @@ impl RelativePanel {
 impl Widget for RelativePanel {
     widget_header!(ControlKind::RelativePanel);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::relative_panel_bindings(self)
+        generated_bindings::relative_panel_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)

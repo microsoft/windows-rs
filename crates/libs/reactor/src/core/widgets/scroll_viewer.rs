@@ -31,7 +31,7 @@ impl ScrollViewer {
 impl Widget for ScrollViewer {
     widget_header!(ControlKind::ScrollViewer);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::scroll_viewer_bindings(self)
+        generated_bindings::scroll_viewer_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)

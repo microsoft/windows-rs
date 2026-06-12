@@ -47,7 +47,7 @@ impl Button {
 impl Widget for Button {
     widget_header!(ControlKind::Button);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::button_bindings(self);
+        let mut out = generated_bindings::button_bindings(self);
         out.push(Binding::Prop(
             Prop::Content,
             PropValue::Str(self.content.clone()),
@@ -95,7 +95,7 @@ impl Widget for Button {
 
 impl Button {
     pub fn on_click<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_click = Some(crate::core::callback::Callback::new(move |()| f()));
+        self.on_click = Some(Callback::new(move |()| f()));
         self
     }
 

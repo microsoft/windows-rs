@@ -55,7 +55,7 @@ impl PivotItem {
 impl Widget for Pivot {
     widget_header!(ControlKind::Pivot);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::pivot_bindings(self)
+        generated_bindings::pivot_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PivotItems(&self.items)

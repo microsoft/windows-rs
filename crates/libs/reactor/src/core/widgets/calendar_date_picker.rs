@@ -55,7 +55,7 @@ impl CalendarDatePicker {
 impl Widget for CalendarDatePicker {
     widget_header!(ControlKind::CalendarDatePicker);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::calendar_date_picker_bindings(self)
+        generated_bindings::calendar_date_picker_bindings(self)
     }
 }
 

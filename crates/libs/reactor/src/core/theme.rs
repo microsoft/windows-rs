@@ -4,7 +4,7 @@ use std::cell::Cell;
 use super::*;
 
 /// Effective color scheme reported by
-/// [`crate::core::render_context::RenderCx::use_color_scheme`].
+/// [`crate::core::RenderCx::use_color_scheme`].
 #[derive(Copy, Clone, Debug, Default, Hash, PartialEq, Eq)]
 pub enum ColorScheme {
     #[default]

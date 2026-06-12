@@ -69,7 +69,7 @@ impl ScrollView {
 impl Widget for ScrollView {
     widget_header!(ControlKind::ScrollView);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::scroll_view_bindings(self)
+        generated_bindings::scroll_view_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.child)

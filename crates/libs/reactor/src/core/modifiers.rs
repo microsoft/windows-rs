@@ -27,13 +27,13 @@ pub struct Modifiers {
     pub foreground: Option<Brush>,
     pub font_family: Option<String>,
     pub font_size: Option<f64>,
-    pub theme_bindings: Option<Box<rustc_hash::FxHashMap<crate::core::backend::Prop, ThemeRef>>>,
-    pub animations: Option<Box<crate::core::animation::AnimationModifiers>>,
+    pub theme_bindings: Option<Box<FxHashMap<Prop, ThemeRef>>>,
+    pub animations: Option<Box<AnimationModifiers>>,
     pub attached: Option<AttachedProps>,
     pub accessibility: Option<Box<AccessibilityModifiers>>,
     pub keyboard_accelerators: Option<Box<Vec<KeyboardAccelerator>>>,
-    pub tooltip: Option<Box<crate::core::tooltip::Tooltip>>,
-    pub pointer_handlers: Option<Box<crate::core::pointer::PointerHandlers>>,
+    pub tooltip: Option<Box<Tooltip>>,
+    pub pointer_handlers: Option<Box<PointerHandlers>>,
     /// Fast-path for grid row/column placement — avoids the `AttachedProps`
     /// HashMap + Box + thread_local overhead for the most common attached prop.
     pub grid: Option<GridPlacement>,

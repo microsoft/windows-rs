@@ -34,7 +34,7 @@ pub struct Reconciler<B: Backend> {
     pub(crate) forced_components: rustc_hash::FxHashSet<ControlId>,
     pub(crate) error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
     pub(crate) templated_lists: FxHashMap<ControlId, TemplatedListState>,
-    pub(crate) custom_handles: FxHashMap<ControlId, Box<dyn crate::core::custom::CustomElement>>,
+    pub(crate) custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
     pub eager_templated_realization: bool,
     pub defer_templated_unmounts: bool,
     pub(crate) deferred_unmounts: Vec<ControlId>,
@@ -62,7 +62,7 @@ pub struct Reconciler<B: Backend> {
 pub(crate) struct ComponentInstance {
     pub(crate) render_cx: RenderCx,
     pub(crate) last_rendered: Element,
-    pub(crate) last_obj: Rc<dyn crate::core::component_element::ComponentObject>,
+    pub(crate) last_obj: Rc<dyn ComponentObject>,
     pub(crate) read_contexts: rustc_hash::FxHashSet<ContextId>,
 }
 
@@ -885,10 +885,10 @@ fn push_live<'a>(el: &'a Element, out: &mut Vec<&'a Element>) {
 #[cfg(test)]
 mod lifecycle_tests {
     use super::*;
-    use crate::core::backend::{
+    use backend::{
         Backend, ControlKind, Event, EventHandler, Op, Prop, PropValue, RecordingBackend,
     };
-    use crate::core::callback::Callback;
+    use Callback;
     use std::cell::RefCell;
 
     /// Each entry records a callback invocation as `(tag, native_present)`,

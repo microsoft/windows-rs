@@ -39,6 +39,6 @@ impl RadioButton {
 impl Widget for RadioButton {
     widget_header!(ControlKind::RadioButton);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::radio_button_bindings(self)
+        generated_bindings::radio_button_bindings(self)
     }
 }

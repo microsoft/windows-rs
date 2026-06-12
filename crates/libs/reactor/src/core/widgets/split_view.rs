@@ -87,7 +87,7 @@ impl SplitView {
 impl Widget for SplitView {
     widget_header!(ControlKind::SplitView);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::split_view_bindings(self)
+        generated_bindings::split_view_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.content)
