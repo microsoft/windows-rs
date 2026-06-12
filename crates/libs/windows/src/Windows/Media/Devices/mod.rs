@@ -467,7 +467,7 @@ impl windows_core::RuntimeType for CallControlEventHandler {
 impl CallControlEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<CallControlEventHandler, F>::new(&CallControlEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -779,7 +779,7 @@ impl windows_core::RuntimeType for DialRequestedEventHandler {
 impl DialRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DialRequestedEventHandler, F>::new(&DialRequestedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -1456,7 +1456,7 @@ impl FocusSettings {
         }
     }
     pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Distance(&self) -> windows_core::Result<ManualFocusDistance> {
@@ -1466,7 +1466,7 @@ impl FocusSettings {
         }
     }
     pub fn SetDistance(&self, value: Option<ManualFocusDistance>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<ManualFocusDistance> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<ManualFocusDistance> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDistance)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WaitForFocus(&self) -> windows_core::Result<bool> {
@@ -2978,7 +2978,7 @@ impl windows_core::RuntimeType for KeypadPressedEventHandler {
 impl KeypadPressedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<KeypadPressedEventHandler, F>::new(&KeypadPressedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -3598,7 +3598,7 @@ impl windows_core::RuntimeType for RedialRequestedEventHandler {
 impl RedialRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<RedialRequestedEventHandler, F>::new(&RedialRequestedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -4118,7 +4118,7 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyById(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: Option<u32>) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
-        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4136,7 +4136,7 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Option<u32>) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
-        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

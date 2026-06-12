@@ -73,7 +73,7 @@ pub(crate) fn dispatch(
             h.put_DayVisible(*v)?;
         }
         (Prop::DefaultLabelPosition, PropValue::I32(v), Handle::CommandBar(h)) => {
-            h.put_DefaultLabelPosition(Xaml::CommandBarDefaultLabelPosition(*v))?;
+            h.put_DefaultLabelPosition(CommandBarDefaultLabelPosition(*v))?;
         }
         (Prop::Delay, PropValue::I32(v), Handle::RepeatButton(h)) => {
             h.put_Delay(*v)?;
@@ -176,10 +176,10 @@ pub(crate) fn dispatch(
             h.put_Header(None)?;
         }
         (Prop::HorizontalScrollBarVisibility, PropValue::I32(v), Handle::ScrollView(h)) => {
-            h.put_HorizontalScrollBarVisibility(Xaml::ScrollingScrollBarVisibility(*v))?;
+            h.put_HorizontalScrollBarVisibility(ScrollingScrollBarVisibility(*v))?;
         }
         (Prop::HorizontalScrollBarVisibility, PropValue::I32(v), Handle::ScrollViewer(h)) => {
-            h.put_HorizontalScrollBarVisibility(Xaml::ScrollBarVisibility(*v))?;
+            h.put_HorizontalScrollBarVisibility(ScrollBarVisibility(*v))?;
         }
         (Prop::Initials, PropValue::Str(v), Handle::PersonPicture(h)) => {
             h.put_Initials(v.as_str())?;
@@ -381,21 +381,21 @@ pub(crate) fn dispatch(
             h.put_OpenPaneLength(*v)?;
         }
         (Prop::Orientation, PropValue::I32(v), Handle::Slider(h)) => {
-            h.put_Orientation(Xaml::Orientation(*v))?;
+            h.put_Orientation(Orientation(*v))?;
         }
         (Prop::Orientation, PropValue::I32(v), Handle::StackPanel(h)) => {
-            h.put_Orientation(Xaml::Orientation(*v))?;
+            h.put_Orientation(Orientation(*v))?;
         }
         (Prop::PaneDisplayMode, PropValue::I32(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?
-                .put_PaneDisplayMode(Xaml::NavigationViewPaneDisplayMode(*v))?;
+                .put_PaneDisplayMode(NavigationViewPaneDisplayMode(*v))?;
         }
         (Prop::PaneTitle, PropValue::Str(v), Handle::NavigationView(h)) => {
             h.cast::<Xaml::INavigationView2>()?
                 .put_PaneTitle(v.as_str())?;
         }
         (Prop::PasswordRevealMode, PropValue::I32(v), Handle::PasswordBox(h)) => {
-            h.put_PasswordRevealMode(Xaml::PasswordRevealMode(*v))?;
+            h.put_PasswordRevealMode(PasswordRevealMode(*v))?;
         }
         (Prop::PlaceholderText, PropValue::Str(v), Handle::AutoSuggestBox(h)) => {
             h.put_PlaceholderText(v.as_str())?;
@@ -419,7 +419,7 @@ pub(crate) fn dispatch(
             h.put_PlaceholderValue(*v)?;
         }
         (Prop::PreferredPlacement, PropValue::I32(v), Handle::TeachingTip(h)) => {
-            h.put_PreferredPlacement(Xaml::TeachingTipPlacementMode(*v))?;
+            h.put_PreferredPlacement(TeachingTipPlacementMode(*v))?;
         }
         (Prop::PrimaryButtonText, PropValue::Str(v), Handle::ContentDialog(h)) => {
             h.put_PrimaryButtonText(v.as_str())?;
@@ -445,19 +445,19 @@ pub(crate) fn dispatch(
             h.put_SelectedIndex(*v)?;
         }
         (Prop::SelectionMode, PropValue::I32(v), Handle::TreeView(h)) => {
-            h.put_SelectionMode(Xaml::TreeViewSelectionMode(*v))?;
+            h.put_SelectionMode(TreeViewSelectionMode(*v))?;
         }
         (Prop::Severity, PropValue::I32(v), Handle::InfoBar(h)) => {
-            h.put_Severity(Xaml::InfoBarSeverity(*v))?;
+            h.put_Severity(InfoBarSeverity(*v))?;
         }
         (Prop::Spacing, PropValue::F64(v), Handle::StackPanel(h)) => {
             h.put_Spacing(*v)?;
         }
         (Prop::Stretch, PropValue::I32(v), Handle::Image(h)) => {
-            h.put_Stretch(Xaml::Stretch(*v))?;
+            h.put_Stretch(Stretch(*v))?;
         }
         (Prop::Stretch, PropValue::I32(v), Handle::Viewbox(h)) => {
-            h.put_Stretch(Xaml::Stretch(*v))?;
+            h.put_Stretch(Stretch(*v))?;
         }
         (Prop::Subtitle, PropValue::Str(v), Handle::TeachingTip(h)) => {
             h.put_Subtitle(v.as_str())?;
@@ -469,10 +469,10 @@ pub(crate) fn dispatch(
             h.put_Text(v.as_str())?;
         }
         (Prop::TextWrapping, PropValue::I32(v), Handle::TextBlock(h)) => {
-            h.put_TextWrapping(Xaml::TextWrapping(*v))?;
+            h.put_TextWrapping(TextWrapping(*v))?;
         }
         (Prop::TextWrapping, PropValue::I32(v), Handle::TextBox(h)) => {
-            h.put_TextWrapping(Xaml::TextWrapping(*v))?;
+            h.put_TextWrapping(TextWrapping(*v))?;
         }
         (Prop::Title, PropValue::Str(v), Handle::InfoBar(h)) => {
             h.put_Title(v.as_str())?;
@@ -510,10 +510,10 @@ pub(crate) fn dispatch(
             h.put_Value(*v)?;
         }
         (Prop::VerticalScrollBarVisibility, PropValue::I32(v), Handle::ScrollView(h)) => {
-            h.put_VerticalScrollBarVisibility(Xaml::ScrollingScrollBarVisibility(*v))?;
+            h.put_VerticalScrollBarVisibility(ScrollingScrollBarVisibility(*v))?;
         }
         (Prop::VerticalScrollBarVisibility, PropValue::I32(v), Handle::ScrollViewer(h)) => {
-            h.put_VerticalScrollBarVisibility(Xaml::ScrollBarVisibility(*v))?;
+            h.put_VerticalScrollBarVisibility(ScrollBarVisibility(*v))?;
         }
         (Prop::YearVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
             h.put_YearVisible(*v)?;

@@ -1069,7 +1069,7 @@ impl windows_core::RuntimeType for DataProviderHandler {
 impl DataProviderHandler {
     pub fn new<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DataProviderHandler, F>::new(&DataProviderHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, request: P0) -> windows_core::Result<()>
     where
@@ -2321,7 +2321,7 @@ impl windows_core::RuntimeType for ShareProviderHandler {
 impl ShareProviderHandler {
     pub fn new<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<ShareProviderHandler, F>::new(&ShareProviderHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>
     where
@@ -2480,7 +2480,7 @@ impl ShareUIOptions {
         }
     }
     pub fn SetSelectionRect(&self, value: Option<super::super::Foundation::Rect>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::Rect> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::Rect> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

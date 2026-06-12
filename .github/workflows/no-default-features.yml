@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -36,6 +38,9 @@ jobs:
         uses: actions/checkout@v6
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: no-default-features-linux
       - name: Build
         run: |
           set -euxo pipefail
@@ -62,13 +67,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Update toolchain
-        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
+        run: rustup update --no-self-update stable && rustup default stable-x86_64-pc-windows-msvc
       - name: Add toolchain target
         run: rustup target add x86_64-pc-windows-msvc
       - name: Fix environment
         uses: ./.github/actions/fix-environment
         with:
           target: x86_64-pc-windows-msvc
+      - uses: Swatinem/rust-cache@v2
 # generated - run `cargo run -p tool_yml` to update
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --no-default-features

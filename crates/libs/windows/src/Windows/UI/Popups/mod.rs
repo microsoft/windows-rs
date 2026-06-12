@@ -489,7 +489,7 @@ impl windows_core::RuntimeType for UICommandInvokedHandler {
 impl UICommandInvokedHandler {
     pub fn new<F: Fn(windows_core::Ref<IUICommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<UICommandInvokedHandler, F>::new(&UICommandInvokedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, command: P0) -> windows_core::Result<()>
     where

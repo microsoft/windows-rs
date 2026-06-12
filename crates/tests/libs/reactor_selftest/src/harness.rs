@@ -113,7 +113,7 @@ impl Harness {
             let cd = ColumnDefinition::new()?;
             cd.cast::<crate::bindings::IColumnDefinition>()?
                 .put_Width(star_one)?;
-            cols.cast::<windows_collections::IVector<crate::bindings::ColumnDefinition>>()?
+            cols.cast::<windows_collections::IVector<ColumnDefinition>>()?
                 .Append(&cd)?;
             let seg = Border::new()?;
             seg.cast::<crate::bindings::IBorder>()?
@@ -123,7 +123,7 @@ impl Harness {
             segment_bar
                 .cast::<crate::bindings::IPanel>()?
                 .get_Children()?
-                .cast::<windows_collections::IVector<crate::bindings::UIElement>>()?
+                .cast::<windows_collections::IVector<UIElement>>()?
                 .Append(&seg_ui)?;
             inner.segments.borrow_mut().push(seg);
         }
@@ -172,12 +172,12 @@ impl Harness {
         titlebar_area
             .cast::<crate::bindings::IPanel>()?
             .get_Children()?
-            .cast::<windows_collections::IVector<crate::bindings::UIElement>>()?
+            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&bar_ui)?;
         titlebar_area
             .cast::<crate::bindings::IPanel>()?
             .get_Children()?
-            .cast::<windows_collections::IVector<crate::bindings::UIElement>>()?
+            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&pill_ui)?;
 
         let root = Grid::new()?;
@@ -191,26 +191,26 @@ impl Harness {
         let row0 = RowDefinition::new()?;
         row0.cast::<crate::bindings::IRowDefinition>()?
             .put_Height(auto)?;
-        rows.cast::<windows_collections::IVector<crate::bindings::RowDefinition>>()?
+        rows.cast::<windows_collections::IVector<RowDefinition>>()?
             .Append(&row0)?;
         let row1 = RowDefinition::new()?;
         row1.cast::<crate::bindings::IRowDefinition>()?
             .put_Height(star_one)?;
-        rows.cast::<windows_collections::IVector<crate::bindings::RowDefinition>>()?
+        rows.cast::<windows_collections::IVector<RowDefinition>>()?
             .Append(&row1)?;
 
         let titlebar_ui: UIElement = titlebar_area.cast()?;
         Grid::SetRow(&titlebar_ui.cast::<FrameworkElement>()?, 0)?;
         root.cast::<crate::bindings::IPanel>()?
             .get_Children()?
-            .cast::<windows_collections::IVector<crate::bindings::UIElement>>()?
+            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&titlebar_ui)?;
 
         let content_ui: UIElement = inner.content_area.cast()?;
         Grid::SetRow(&content_ui.cast::<FrameworkElement>()?, 1)?;
         root.cast::<crate::bindings::IPanel>()?
             .get_Children()?
-            .cast::<windows_collections::IVector<crate::bindings::UIElement>>()?
+            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&content_ui)?;
 
         let root_ui: UIElement = root.cast()?;
@@ -746,8 +746,8 @@ impl Harness {
         };
         let pattern = peer
             .cast::<crate::bindings::IAutomationPeer>()?
-            .GetPattern(crate::bindings::PatternInterface::Invoke)?;
-        let invoke: crate::bindings::IInvokeProvider = pattern.cast()?;
+            .GetPattern(PatternInterface::Invoke)?;
+        let invoke: IInvokeProvider = pattern.cast()?;
         invoke.Invoke()
     }
 
@@ -808,7 +808,7 @@ fn dump_node(node: &DependencyObject, depth: usize, out: &mut String) {
         out.push_str("  ");
     }
     let class_name = node
-        .cast::<windows_core::IInspectable>()
+        .cast::<IInspectable>()
         .ok()
         .and_then(|i| i.GetRuntimeClassName().ok())
         .map_or_else(|| "<unknown>".into(), |h| h.to_string_lossy());
@@ -874,8 +874,8 @@ fn solid_brush(a: u8, r: u8, g: u8, b: u8) -> Result<SolidColorBrush> {
     Ok(brush)
 }
 
-fn content_string(content: &windows_core::IInspectable) -> Option<String> {
-    let pv: windows_reference::IReference<windows_core::HSTRING> = content.cast().ok()?;
+fn content_string(content: &IInspectable) -> Option<String> {
+    let pv: windows_reference::IReference<HSTRING> = content.cast().ok()?;
     Some(pv.Value().ok()?.to_string_lossy())
 }
 

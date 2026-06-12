@@ -5,11 +5,9 @@
 #![expect(
     non_snake_case,
     non_camel_case_types,
-    dead_code,
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms
 )]
-#![warn(unused_qualifications)]
 
 #[cfg(windows)]
 include!("windows.rs");

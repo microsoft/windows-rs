@@ -70,7 +70,7 @@ impl TeachingTip {
 impl Widget for TeachingTip {
     widget_header!(ControlKind::TeachingTip);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::teaching_tip_bindings(self);
+        let mut out = generated_bindings::teaching_tip_bindings(self);
         if let Some(v) = &self.action_button_text {
             out.push(Binding::Prop(
                 Prop::ActionButtonText,

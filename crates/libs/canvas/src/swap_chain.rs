@@ -1,16 +1,6 @@
-use std::cell::Cell;
-use std::path::Path;
+use super::*;
 
-use crate::bindings::*;
-use crate::bitmap::Bitmap;
-use crate::color::ColorF;
-use crate::device::GpuDevice;
-use crate::device_lost;
-use crate::session::DrawingSession;
-use crate::types::Brush;
-use windows_core::Interface;
-
-/// Manages a DXGI swap chain with safe resize and present.
+/// Manages a DXGI swap chain.
 pub struct SwapChain {
     swap_chain: IDXGISwapChain1,
     d2d_context: ID2D1DeviceContext,
@@ -22,7 +12,7 @@ pub struct SwapChain {
 }
 
 impl SwapChain {
-    pub(crate) fn new(device: &GpuDevice, width: u32, height: u32) -> windows_core::Result<Self> {
+    pub(crate) fn new(device: &GpuDevice, width: u32, height: u32) -> Result<Self> {
         let desc = DXGI_SWAP_CHAIN_DESC1 {
             Width: width,
             Height: height,
@@ -52,7 +42,7 @@ impl SwapChain {
         hwnd: *mut core::ffi::c_void,
         width: u32,
         height: u32,
-    ) -> windows_core::Result<Self> {
+    ) -> Result<Self> {
         let desc = DXGI_SWAP_CHAIN_DESC1 {
             Width: width,
             Height: height,
@@ -85,7 +75,7 @@ impl SwapChain {
         swap_chain: IDXGISwapChain1,
         width: u32,
         height: u32,
-    ) -> windows_core::Result<Self> {
+    ) -> Result<Self> {
         let d2d_context = unsafe {
             device
                 .d2d_device()
@@ -105,8 +95,7 @@ impl SwapChain {
         Ok(result)
     }
 
-    /// Resize the swap chain buffers. Zero dimensions are ignored (no-op).
-    pub fn resize(&mut self, width: u32, height: u32) -> windows_core::Result<()> {
+    pub fn resize(&mut self, width: u32, height: u32) -> Result<()> {
         if width == 0 || height == 0 {
             return Ok(());
         }
@@ -120,64 +109,46 @@ impl SwapChain {
         self.set_target()
     }
 
-    /// Begin a drawing session targeting this swap chain's back buffer.
-    /// The session calls BeginDraw on creation and EndDraw on drop.
-    pub fn begin_draw(&mut self) -> windows_core::Result<DrawingSession<'_>> {
+    pub fn begin_draw(&mut self) -> Result<DrawingSession<'_>> {
         self.device_lost_flag.set(false);
         DrawingSession::new(&self.d2d_context, &self.device_lost_flag)
     }
 
-    /// Present the rendered frame. Call after dropping the `DrawingSession`.
-    ///
-    /// Returns `Ok(true)` on success, `Ok(false)` if the device was lost
-    /// (caller should recreate the device and swap chain), or `Err` for
-    /// other failures.
-    pub fn present(&self) -> windows_core::Result<bool> {
+    /// Returns `Ok(true)` on success or `Ok(false)` if the device was lost.
+    pub fn present(&self) -> Result<bool> {
         // If EndDraw detected device-lost, don't bother presenting.
         if self.device_lost_flag.get() {
             return Ok(false);
         }
         let result = unsafe { self.swap_chain.Present(1, 0).ok() };
-        if device_lost::check_device_lost(&result) {
+        if check_device_lost(&result) {
             return Ok(false);
         }
         result.map(|()| true)
     }
 
-    /// Create a solid color brush that can be reused across draw sessions.
-    pub fn create_solid_brush(&self, color: ColorF) -> windows_core::Result<Brush> {
+    pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
-    /// Load a bitmap from an image file (PNG, JPEG, BMP, etc.).
-    ///
-    /// Requires COM to be initialized (e.g. via `CoIncrementMTAUsage` or reactor).
-    /// The bitmap is device-dependent and should be reloaded after device loss.
-    pub fn load_bitmap(&self, path: impl AsRef<Path>) -> windows_core::Result<Bitmap> {
+    pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(&self.d2d_context, path.as_ref())
     }
 
-    /// Access the raw DXGI swap chain.
     pub fn raw_swap_chain(&self) -> &IDXGISwapChain1 {
         &self.swap_chain
     }
 
-    /// Current width in pixels.
     pub fn width(&self) -> u32 {
         self.width
     }
 
-    /// Current height in pixels.
     pub fn height(&self) -> u32 {
         self.height
     }
 
-    /// Set the DPI of the D2D render target.
-    ///
-    /// Call this with `96.0 * scale` (where `scale` is the composition scale factor)
-    /// so that Direct2D and DirectWrite render at the correct resolution.
-    /// Also refreshes the render target bitmap to match the new DPI.
+    /// Set the DPI so that Direct2D renders at the correct resolution.
     pub fn set_dpi(&mut self, dpi_x: f32, dpi_y: f32) {
         self.dpi_x = dpi_x;
         self.dpi_y = dpi_y;
@@ -186,11 +157,8 @@ impl SwapChain {
         let _ = self.set_target();
     }
 
-    /// Apply an inverse composition scale to the swap chain so that a
-    /// pixel-sized buffer is presented at the correct DIP size.
-    ///
-    /// Call with the `CompositionScaleX/Y` values from the `SwapChainPanel`.
-    /// This sets `IDXGISwapChain2::SetMatrixTransform` to `1/scale`.
+    /// Apply an inverse composition scale so that a pixel-sized buffer
+    /// is presented at the correct DIP size.
     pub fn set_composition_scale(&self, scale_x: f32, scale_y: f32) {
         if let Ok(sc2) = self.swap_chain.cast::<IDXGISwapChain2>() {
             let matrix = DXGI_MATRIX_3X2_F {
@@ -207,12 +175,11 @@ impl SwapChain {
         }
     }
 
-    /// Returns `true` if the device was lost during the last draw/present cycle.
     pub fn is_device_lost(&self) -> bool {
         self.device_lost_flag.get()
     }
 
-    fn set_target(&mut self) -> windows_core::Result<()> {
+    fn set_target(&mut self) -> Result<()> {
         unsafe {
             let surface: IDXGISurface = self.swap_chain.GetBuffer(0)?;
             let props = D2D1_BITMAP_PROPERTIES1 {

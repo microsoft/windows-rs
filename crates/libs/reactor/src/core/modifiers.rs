@@ -27,13 +27,13 @@ pub struct Modifiers {
     pub foreground: Option<Brush>,
     pub font_family: Option<String>,
     pub font_size: Option<f64>,
-    pub theme_bindings: Option<Box<rustc_hash::FxHashMap<crate::core::backend::Prop, ThemeRef>>>,
-    pub animations: Option<Box<crate::core::animation::AnimationModifiers>>,
+    pub theme_bindings: Option<Box<FxHashMap<Prop, ThemeRef>>>,
+    pub animations: Option<Box<AnimationModifiers>>,
     pub attached: Option<AttachedProps>,
     pub accessibility: Option<Box<AccessibilityModifiers>>,
     pub keyboard_accelerators: Option<Box<Vec<KeyboardAccelerator>>>,
-    pub tooltip: Option<Box<crate::core::tooltip::Tooltip>>,
-    pub pointer_handlers: Option<Box<crate::core::pointer::PointerHandlers>>,
+    pub tooltip: Option<Box<Tooltip>>,
+    pub pointer_handlers: Option<Box<PointerHandlers>>,
     /// Fast-path for grid row/column placement — avoids the `AttachedProps`
     /// HashMap + Box + thread_local overhead for the most common attached prop.
     pub grid: Option<GridPlacement>,
@@ -78,14 +78,13 @@ impl Modifiers {
 /// Type-erased bag of attached properties (e.g. [`GridPlacement`]) keyed
 /// by [`TypeId`]; values must be inserted via [`AttachedProps::set`].
 #[derive(Default, Debug)]
-pub struct AttachedProps(FxHashMap<TypeId, Box<dyn Any>>);
+pub struct AttachedProps(FxHashMap<TypeId, Box<dyn AttachedValue>>);
 
 impl Clone for AttachedProps {
     fn clone(&self) -> Self {
         let mut copy = FxHashMap::default();
         for (k, v) in &self.0 {
-            let (clone_fn, _) = ops_for(*k).unwrap();
-            copy.insert(*k, clone_fn(&**v));
+            copy.insert(*k, v.clone_box());
         }
         Self(copy)
     }
@@ -100,8 +99,7 @@ impl PartialEq for AttachedProps {
             let Some(ov) = other.0.get(k) else {
                 return false;
             };
-            let (_, eq_fn) = ops_for(*k).unwrap();
-            if !eq_fn(&**v, &**ov) {
+            if !v.eq_box(ov.as_any()) {
                 return false;
             }
         }
@@ -111,13 +109,12 @@ impl PartialEq for AttachedProps {
 
 impl AttachedProps {
     pub fn set<T: Clone + PartialEq + 'static>(&mut self, v: T) {
-        register_ops::<T>();
         self.0.insert(TypeId::of::<T>(), Box::new(v));
     }
     pub fn get<T: 'static>(&self) -> Option<&T> {
         self.0
             .get(&TypeId::of::<T>())
-            .and_then(|b| b.downcast_ref::<T>())
+            .and_then(|b| b.as_any().downcast_ref::<T>())
     }
     pub fn is_empty(&self) -> bool {
         self.0.is_empty()
@@ -143,33 +140,28 @@ impl Default for GridPlacement {
     }
 }
 
-type CloneFn = fn(&dyn Any) -> Box<dyn Any>;
-type EqFn = fn(&dyn Any, &dyn Any) -> bool;
-
-#[derive(Copy, Clone)]
-struct AttachedOps {
-    clone: CloneFn,
-    eq: EqFn,
+/// Trait object carrying clone/eq in its vtable so `AttachedProps` doesn't
+/// need a separate type-registry thread-local.
+trait AttachedValue: Any {
+    fn clone_box(&self) -> Box<dyn AttachedValue>;
+    fn eq_box(&self, other: &dyn Any) -> bool;
+    fn as_any(&self) -> &dyn Any;
 }
 
-thread_local! {
-    static OPS_REGISTRY: std::cell::RefCell<FxHashMap<TypeId, AttachedOps>> =
-        std::cell::RefCell::new(FxHashMap::default());
+impl<T: Clone + PartialEq + 'static> AttachedValue for T {
+    fn clone_box(&self) -> Box<dyn AttachedValue> {
+        Box::new(self.clone())
+    }
+    fn eq_box(&self, other: &dyn Any) -> bool {
+        other.downcast_ref::<T>().is_some_and(|o| self == o)
+    }
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
 }
 
-fn register_ops<T: Clone + PartialEq + 'static>() {
-    let tid = TypeId::of::<T>();
-    OPS_REGISTRY.with(|r| {
-        r.borrow_mut().entry(tid).or_insert_with(|| AttachedOps {
-            clone: |src| Box::new(src.downcast_ref::<T>().unwrap().clone()),
-            eq: |a, b| match (a.downcast_ref::<T>(), b.downcast_ref::<T>()) {
-                (Some(a), Some(b)) => a == b,
-                _ => false,
-            },
-        });
-    });
-}
-
-fn ops_for(tid: TypeId) -> Option<(CloneFn, EqFn)> {
-    OPS_REGISTRY.with(|r| r.borrow().get(&tid).map(|ops| (ops.clone, ops.eq)))
+impl std::fmt::Debug for dyn AttachedValue {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("AttachedValue")
+    }
 }

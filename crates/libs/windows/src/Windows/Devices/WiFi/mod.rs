@@ -732,7 +732,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         }
     }
     pub fn SetRemainingBatteryPercent(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn CellularBars(&self) -> windows_core::Result<WiFiOnDemandHotspotCellularBars> {
@@ -742,7 +742,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         }
     }
     pub fn SetCellularBars(&self, value: Option<WiFiOnDemandHotspotCellularBars>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<WiFiOnDemandHotspotCellularBars> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<WiFiOnDemandHotspotCellularBars> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetCellularBars)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsMetered(&self) -> windows_core::Result<bool> {

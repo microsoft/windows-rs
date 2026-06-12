@@ -28,8 +28,7 @@ pub mod Test {
             }
         }
         pub fn SetCount(&self, value: Option<i32>) -> windows_core::Result<()> {
-            let value__ =
-                value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+            let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
             unsafe {
                 (windows_core::Interface::vtable(self).SetCount)(
                     windows_core::Interface::as_raw(self),
@@ -54,11 +53,7 @@ pub mod Test {
             P0: core::convert::Into<windows_reference::IReference<windows_core::HSTRING>>,
         {
             let value__ =
-                value.map(
-                    <P0 as core::convert::Into<
-                        windows_reference::IReference<windows_core::HSTRING>,
-                    >>::into,
-                );
+                value.map(<P0 as Into<windows_reference::IReference<windows_core::HSTRING>>>::into);
             unsafe {
                 (windows_core::Interface::vtable(self).SetName)(
                     windows_core::Interface::as_raw(self),

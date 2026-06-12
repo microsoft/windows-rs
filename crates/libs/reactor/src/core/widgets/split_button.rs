@@ -34,7 +34,7 @@ impl SplitButton {
 impl Widget for SplitButton {
     widget_header!(ControlKind::SplitButton);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::split_button_bindings(self)
+        generated_bindings::split_button_bindings(self)
     }
 }
 

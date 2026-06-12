@@ -7,7 +7,7 @@
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
 
-use super::render_context::{Deps, RenderCx};
+use super::*;
 
 // ─── Resource enum ──────────────────────────────────────────────────────
 
@@ -65,10 +65,10 @@ impl<T> Resource<T> {
     ///         .into()
     /// })
     /// ```
-    pub fn view<F, R>(&self, ready: F) -> ResourceView<'_, T, impl FnOnce(&T) -> super::element::Element>
+    pub fn view<F, R>(&self, ready: F) -> ResourceView<'_, T, impl FnOnce(&T) -> Element>
     where
         F: FnOnce(&T) -> R,
-        R: Into<super::element::Element>,
+        R: Into<Element>,
     {
         ResourceView {
             resource: self,
@@ -83,20 +83,20 @@ impl<T> Resource<T> {
 /// to override defaults before converting to [`Element`](crate::Element) via `.into()`.
 pub struct ResourceView<'a, T, F>
 where
-    F: FnOnce(&T) -> super::element::Element,
+    F: FnOnce(&T) -> Element,
 {
     resource: &'a Resource<T>,
     ready: F,
-    loading: Option<super::element::Element>,
-    error: Option<Box<dyn FnOnce(&str) -> super::element::Element>>,
+    loading: Option<Element>,
+    error: Option<Box<dyn FnOnce(&str) -> Element>>,
 }
 
 impl<'a, T, F> ResourceView<'a, T, F>
 where
-    F: FnOnce(&T) -> super::element::Element,
+    F: FnOnce(&T) -> Element,
 {
     /// Override the loading state element (default: indeterminate ProgressRing).
-    pub fn loading(mut self, el: impl Into<super::element::Element>) -> Self {
+    pub fn loading(mut self, el: impl Into<Element>) -> Self {
         self.loading = Some(el.into());
         self
     }
@@ -104,16 +104,16 @@ where
     /// Override the error state renderer (default: text block showing the error).
     pub fn error<E>(mut self, f: E) -> Self
     where
-        E: FnOnce(&str) -> super::element::Element + 'static,
+        E: FnOnce(&str) -> Element + 'static,
     {
         self.error = Some(Box::new(f));
         self
     }
 }
 
-impl<T, F> From<ResourceView<'_, T, F>> for super::element::Element
+impl<T, F> From<ResourceView<'_, T, F>> for Element
 where
-    F: FnOnce(&T) -> super::element::Element,
+    F: FnOnce(&T) -> Element,
 {
     fn from(rv: ResourceView<'_, T, F>) -> Self {
         use super::element::ProgressRing;
@@ -123,7 +123,7 @@ where
                 .unwrap_or_else(|| ProgressRing::indeterminate().into()),
             Resource::Ready(data) | Resource::Reloading(data) => (rv.ready)(data),
             Resource::Error(e) => rv.error.map_or_else(
-                || super::element::text_block(format!("Error: {e}")).into(),
+                || text_block(format!("Error: {e}")).into(),
                 |f| f(e.as_str()),
             ),
         }
@@ -264,7 +264,7 @@ impl RenderCx {
 /// operations from event handlers.
 #[derive(Clone)]
 pub struct MutationTrigger<T: Send + Clone + PartialEq + 'static> {
-    set_state: super::render_context::AsyncSetState<MutationState<T>>,
+    set_state: AsyncSetState<MutationState<T>>,
 }
 
 impl<T: Send + Clone + PartialEq + 'static> MutationTrigger<T> {

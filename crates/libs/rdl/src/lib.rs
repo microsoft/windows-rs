@@ -1,5 +1,4 @@
 #![doc = include_str!("../readme.md")]
-#![warn(unused_qualifications)]
 
 mod clang;
 mod error;

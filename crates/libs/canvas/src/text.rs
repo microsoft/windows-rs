@@ -1,6 +1,4 @@
-use windows_core::{Interface, PCWSTR};
-
-use crate::bindings::*;
+use super::*;
 
 /// Horizontal text alignment.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -8,7 +6,6 @@ pub enum TextAlignment {
     /// Align to the leading edge (left in LTR).
     #[default]
     Leading,
-    /// Center horizontally.
     Center,
     /// Align to the trailing edge (right in LTR).
     Trailing,
@@ -17,12 +14,9 @@ pub enum TextAlignment {
 /// Vertical paragraph alignment.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum ParagraphAlignment {
-    /// Align to the top.
     #[default]
     Top,
-    /// Center vertically.
     Center,
-    /// Align to the bottom.
     Bottom,
 }
 
@@ -43,8 +37,6 @@ impl Default for FontWeight {
 
 /// A text format describing font family, size, weight, and alignment.
 ///
-/// Created independently of any device — DWrite factories are shared singletons.
-///
 /// ```ignore
 /// let format = TextFormat::new("Segoe UI", 24.0)?
 ///     .with_alignment(TextAlignment::Center);
@@ -55,28 +47,16 @@ pub struct TextFormat {
 }
 
 impl TextFormat {
-    /// Create a text format with the given font family and size (normal weight).
-    pub fn new(family: &str, size: f32) -> crate::Result<Self> {
+    pub fn new(family: &str, size: f32) -> Result<Self> {
         Self::with_weight(family, size, FontWeight::NORMAL)
     }
 
-    /// Create a bold text format.
-    pub fn new_bold(family: &str, size: f32) -> crate::Result<Self> {
+    pub fn new_bold(family: &str, size: f32) -> Result<Self> {
         Self::with_weight(family, size, FontWeight::BOLD)
     }
 
-    /// Create a text format with a specific weight.
-    pub fn with_weight(family: &str, size: f32, weight: FontWeight) -> crate::Result<Self> {
-        let mut factory: Option<IDWriteFactory> = None;
-        unsafe {
-            DWriteCreateFactory(
-                DWRITE_FACTORY_TYPE_SHARED,
-                &IDWriteFactory::IID,
-                &mut factory as *mut _ as *mut _,
-            )
-            .ok()?;
-        }
-        let factory = factory.unwrap();
+    pub fn with_weight(family: &str, size: f32, weight: FontWeight) -> Result<Self> {
+        let factory = dwrite_factory()?;
 
         let family_wide: Vec<u16> = family.encode_utf16().chain(std::iter::once(0)).collect();
         let locale_wide: Vec<u16> = "en-us\0".encode_utf16().collect();
@@ -96,7 +76,6 @@ impl TextFormat {
         Ok(Self { raw })
     }
 
-    /// Set horizontal text alignment. Returns `self` for chaining.
     pub fn with_alignment(self, alignment: TextAlignment) -> Self {
         let value = match alignment {
             TextAlignment::Leading => DWRITE_TEXT_ALIGNMENT_LEADING,
@@ -107,7 +86,6 @@ impl TextFormat {
         self
     }
 
-    /// Set vertical paragraph alignment. Returns `self` for chaining.
     pub fn with_paragraph_alignment(self, alignment: ParagraphAlignment) -> Self {
         let value = match alignment {
             ParagraphAlignment::Top => DWRITE_PARAGRAPH_ALIGNMENT_NEAR,
@@ -118,8 +96,27 @@ impl TextFormat {
         self
     }
 
-    /// Access the raw `IDWriteTextFormat` for advanced usage.
     pub fn raw(&self) -> &IDWriteTextFormat {
         &self.raw
     }
+}
+
+pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
+    static SHARED: std::sync::OnceLock<IDWriteFactory> = std::sync::OnceLock::new();
+
+    if let Some(factory) = SHARED.get() {
+        return Ok(factory.clone());
+    }
+
+    let mut factory: Option<IDWriteFactory> = None;
+    unsafe {
+        DWriteCreateFactory(
+            DWRITE_FACTORY_TYPE_SHARED,
+            &IDWriteFactory::IID,
+            &mut factory as *mut _ as *mut _,
+        )
+        .ok()?;
+    }
+    let factory = factory.ok_or_else(Error::empty)?;
+    Ok(SHARED.get_or_init(|| factory).clone())
 }

@@ -201,14 +201,14 @@ pub trait ElementExt: Sized {
     /// content or custom placement, use [`tooltip_with`](Self::tooltip_with).
     fn tooltip(mut self, text: impl Into<String>) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            m.tooltip = Some(Box::new(crate::core::tooltip::Tooltip::text(text)));
+            m.tooltip = Some(Box::new(Tooltip::text(text)));
         }
         self
     }
 
     /// Tooltip setter accepting anything convertible into
-    /// [`crate::core::tooltip::Tooltip`].
-    fn tooltip_with(mut self, t: impl Into<crate::core::tooltip::Tooltip>) -> Self {
+    /// [`Tooltip`].
+    fn tooltip_with(mut self, t: impl Into<Tooltip>) -> Self {
         if let Some(m) = self.modifiers_mut() {
             m.tooltip = Some(Box::new(t.into()));
         }
@@ -218,8 +218,7 @@ pub trait ElementExt: Sized {
     /// Register a `Tapped` (left-tap) handler.
     fn on_tapped<F: Fn() + 'static>(mut self, f: F) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_tapped =
-                Some(crate::core::callback::Callback::new(move |()| f()));
+            ensure_pointer_handlers(m).on_tapped = Some(Callback::new(move |()| f()));
         }
         self
     }
@@ -228,8 +227,7 @@ pub trait ElementExt: Sized {
     /// touch-and-hold).
     fn on_right_tapped<F: Fn() + 'static>(mut self, f: F) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_right_tapped =
-                Some(crate::core::callback::Callback::new(move |()| f()));
+            ensure_pointer_handlers(m).on_right_tapped = Some(Callback::new(move |()| f()));
         }
         self
     }
@@ -238,11 +236,10 @@ pub trait ElementExt: Sized {
     /// current button state.
     fn on_pointer_pressed<F>(mut self, f: F) -> Self
     where
-        F: Fn(crate::core::pointer::PointerEventInfo) + 'static,
+        F: Fn(PointerEventInfo) + 'static,
     {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_pressed =
-                Some(crate::core::callback::Callback::new(f));
+            ensure_pointer_handlers(m).on_pointer_pressed = Some(Callback::new(f));
         }
         self
     }
@@ -251,11 +248,10 @@ pub trait ElementExt: Sized {
     /// button state at release.
     fn on_pointer_released<F>(mut self, f: F) -> Self
     where
-        F: Fn(crate::core::pointer::PointerEventInfo) + 'static,
+        F: Fn(PointerEventInfo) + 'static,
     {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_released =
-                Some(crate::core::callback::Callback::new(f));
+            ensure_pointer_handlers(m).on_pointer_released = Some(Callback::new(f));
         }
         self
     }
@@ -263,8 +259,7 @@ pub trait ElementExt: Sized {
     /// Register a `PointerExited` handler (pointer leaves hit-test bounds).
     fn on_pointer_exited<F: Fn() + 'static>(mut self, f: F) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_exited =
-                Some(crate::core::callback::Callback::new(move |()| f()));
+            ensure_pointer_handlers(m).on_pointer_exited = Some(Callback::new(move |()| f()));
         }
         self
     }
@@ -410,17 +405,14 @@ pub trait ElementExt: Sized {
     }
 }
 
-fn ensure_pointer_handlers(m: &mut Modifiers) -> &mut crate::core::pointer::PointerHandlers {
+fn ensure_pointer_handlers(m: &mut Modifiers) -> &mut PointerHandlers {
     m.pointer_handlers
-        .get_or_insert_with(|| Box::new(crate::core::pointer::PointerHandlers::default()))
+        .get_or_insert_with(|| Box::new(PointerHandlers::default()))
 }
 
-fn ensure_accessibility(
-    m: &mut Modifiers,
-) -> &mut crate::core::accessibility::AccessibilityModifiers {
-    m.accessibility.get_or_insert_with(|| {
-        Box::new(crate::core::accessibility::AccessibilityModifiers::default())
-    })
+fn ensure_accessibility(m: &mut Modifiers) -> &mut AccessibilityModifiers {
+    m.accessibility
+        .get_or_insert_with(|| Box::new(AccessibilityModifiers::default()))
 }
 
 fn apply_brush_binding(m: &mut Modifiers, prop: Prop, binding: BrushBinding, is_background: bool) {
@@ -468,7 +460,7 @@ fn with_implicit_transition(m: &mut Modifiers, f: impl FnOnce(&mut ImplicitTrans
 macro_rules! impl_element_ext {
     ($($ty:ident),* $(,)?) => {
         $(
-            impl ElementExt for crate::core::widgets::$ty {
+            impl ElementExt for widgets::$ty {
                 fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
                     Some(&mut self.modifiers)
                 }
@@ -524,7 +516,7 @@ impl_element_ext!(
     SwapChainPanel,
 );
 
-impl ElementExt for crate::core::rich_text::RichTextBlock {
+impl ElementExt for RichTextBlock {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
         Some(&mut self.modifiers)
     }

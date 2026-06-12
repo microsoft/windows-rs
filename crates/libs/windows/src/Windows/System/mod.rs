@@ -1139,7 +1139,7 @@ impl windows_core::RuntimeType for DispatcherQueueHandler {
 impl DispatcherQueueHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::new(&DispatcherQueueHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
@@ -3179,7 +3179,7 @@ impl LauncherUIOptions {
         }
     }
     pub fn SetInvocationPoint(&self, value: Option<super::Foundation::Point>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Foundation::Point> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::Point> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetInvocationPoint)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SelectionRect(&self) -> windows_core::Result<super::Foundation::Rect> {
@@ -3189,7 +3189,7 @@ impl LauncherUIOptions {
         }
     }
     pub fn SetSelectionRect(&self, value: Option<super::Foundation::Rect>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Foundation::Rect> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::Rect> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]

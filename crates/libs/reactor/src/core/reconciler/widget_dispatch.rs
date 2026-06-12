@@ -49,7 +49,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
             Children::Keyed(list) => {
-                for child in crate::core::reconciler::collect_live(list) {
+                for child in collect_live(list) {
                     if let Some(child_id) = self.mount(child) {
                         self.append_child_tracked(id, child_id);
                     }
@@ -191,7 +191,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn mount_tab_item(&mut self, parent: ControlId, tab: &TabItem) {
-        let tab_id = self.acquire_control(crate::core::backend::ControlKind::TabViewItem);
+        let tab_id = self.acquire_control(ControlKind::TabViewItem);
         self.backend
             .set_prop(tab_id, Prop::Header, &PropValue::Str(tab.header.clone()));
         if let Some(key) = &tab.key {
@@ -209,7 +209,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn mount_pivot_item(&mut self, parent: ControlId, item: &PivotItem) {
-        let item_id = self.acquire_control(crate::core::backend::ControlKind::PivotItem);
+        let item_id = self.acquire_control(ControlKind::PivotItem);
         self.backend.set_prop(
             item_id, Prop::ItemHeader, &PropValue::Str(item.header.clone()),
         );
@@ -297,10 +297,10 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub(crate) fn apply_attached(&mut self, id: ControlId, attached: Option<&AttachedProps>) {
         let Some(att) = attached else { return };
         // GridPlacement is now on Modifiers::grid — handled by apply_modifiers.
-        if let Some(p) = att.get::<crate::core::widgets::CanvasPosition>() {
+        if let Some(p) = att.get::<CanvasPosition>() {
             self.apply_canvas_position(id, *p);
         }
-        if let Some(p) = att.get::<crate::core::widgets::RelativePanelAlignment>() {
+        if let Some(p) = att.get::<RelativePanelAlignment>() {
             self.apply_relative_panel_alignment(id, *p);
         }
     }
@@ -342,7 +342,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub(crate) fn apply_canvas_position(
         &mut self,
         id: ControlId,
-        p: crate::core::widgets::CanvasPosition,
+        p: CanvasPosition,
     ) {
         // Canvas defaults are 0.0 — only emit when non-zero on mount;
         // the diff path always emits to overwrite the previous value.
@@ -369,10 +369,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         // GridPlacement is now on Modifiers::grid — handled by diff_modifiers.
 
         let old_canvas = old
-            .and_then(|a| a.get::<crate::core::widgets::CanvasPosition>())
+            .and_then(|a| a.get::<CanvasPosition>())
             .copied();
         let new_canvas = new
-            .and_then(|a| a.get::<crate::core::widgets::CanvasPosition>())
+            .and_then(|a| a.get::<CanvasPosition>())
             .copied();
         if old_canvas != new_canvas {
             let p = new_canvas.unwrap_or_default();
@@ -385,10 +385,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         let old_rp = old
-            .and_then(|a| a.get::<crate::core::widgets::RelativePanelAlignment>())
+            .and_then(|a| a.get::<RelativePanelAlignment>())
             .copied();
         let new_rp = new
-            .and_then(|a| a.get::<crate::core::widgets::RelativePanelAlignment>())
+            .and_then(|a| a.get::<RelativePanelAlignment>())
             .copied();
         if old_rp != new_rp {
             let p = new_rp.unwrap_or_default();
@@ -399,7 +399,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub(crate) fn apply_relative_panel_alignment(
         &mut self,
         id: ControlId,
-        p: crate::core::widgets::RelativePanelAlignment,
+        p: RelativePanelAlignment,
     ) {
         if p.align_left_with_panel {
             self.backend.set_prop(
@@ -436,7 +436,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     fn apply_relative_panel_alignment_full(
         &mut self,
         id: ControlId,
-        p: crate::core::widgets::RelativePanelAlignment,
+        p: RelativePanelAlignment,
     ) {
         self.backend.set_prop(
             id, Prop::AlignLeftWithPanel, &PropValue::Bool(p.align_left_with_panel),

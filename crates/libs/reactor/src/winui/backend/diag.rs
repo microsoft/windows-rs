@@ -1,7 +1,4 @@
-use crate::core::Prop;
-use crate::core::backend::ControlId;
-
-use super::{Handle, PropValue};
+use super::*;
 
 pub(crate) fn unhandled_prop(id: ControlId, prop: Prop, value: &PropValue, handle: &Handle) {
     if cfg!(debug_assertions) {

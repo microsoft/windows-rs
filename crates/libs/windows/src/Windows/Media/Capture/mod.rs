@@ -6802,7 +6802,7 @@ impl windows_core::RuntimeType for MediaCaptureFailedEventHandler {
 impl MediaCaptureFailedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<MediaCaptureFailedEventHandler, F>::new(&MediaCaptureFailedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, erroreventargs: P1) -> windows_core::Result<()>
     where
@@ -7682,7 +7682,7 @@ impl windows_core::RuntimeType for RecordLimitationExceededEventHandler {
 impl RecordLimitationExceededEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<RecordLimitationExceededEventHandler, F>::new(&RecordLimitationExceededEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where

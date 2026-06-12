@@ -560,7 +560,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<BackgroundTaskCanceledEventHandler, F>::new(&BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> windows_core::Result<()>
     where
@@ -650,7 +650,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<BackgroundTaskCompletedEventHandler, F>::new(&BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -741,7 +741,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<BackgroundTaskProgressEventHandler, F>::new(&BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -1048,7 +1048,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
     pub fn SetPreferredTransmitPowerLevelInDBm(&self, value: Option<i16>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<i16> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i16> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn UseExtendedFormat(&self) -> windows_core::Result<bool> {

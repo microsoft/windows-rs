@@ -2632,7 +2632,7 @@ impl InkStroke {
     }
     pub fn SetStrokeStartedTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetStrokeStartedTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn StrokeDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -2644,7 +2644,7 @@ impl InkStroke {
     }
     pub fn SetStrokeDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetStrokeDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn PointerId(&self) -> windows_core::Result<u32> {
@@ -2733,8 +2733,8 @@ impl InkStrokeBuilder {
         P0: windows_core::Param<windows_collections::IIterable<InkPoint>>,
     {
         let this = &windows_core::Interface::cast::<IInkStrokeBuilder3>(self)?;
-        let strokestartedtime__ = strokestartedtime.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
-        let strokeduration__ = strokeduration.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let strokestartedtime__ = strokestartedtime.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
+        let strokeduration__ = strokeduration.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), inkpoints.param().abi(), transform, windows_core::Param::param(strokestartedtime__.as_ref()).abi(), windows_core::Param::param(strokeduration__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

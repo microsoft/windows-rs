@@ -47,8 +47,6 @@
 //!
 //! Both macros must agree on the vtable layout and the `_Impl` naming convention.
 
-#![warn(unused_qualifications)]
-
 use quote::{ToTokens, quote};
 
 mod r#gen;

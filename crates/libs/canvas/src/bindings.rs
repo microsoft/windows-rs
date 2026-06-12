@@ -135,6 +135,8 @@ pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
     pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
 }
 pub type D2D1_STROKE_TRANSFORM_TYPE = i32;
+pub const D2DERR_RECREATE_TARGET: windows_core::HRESULT =
+    windows_core::HRESULT(0x8899000C_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_RECT_F {
@@ -181,6 +183,14 @@ pub const DWRITE_TEXT_ALIGNMENT_LEADING: DWRITE_TEXT_ALIGNMENT = 0;
 pub const DWRITE_TEXT_ALIGNMENT_TRAILING: DWRITE_TEXT_ALIGNMENT = 1;
 pub type DXGI_ALPHA_MODE = i32;
 pub const DXGI_ALPHA_MODE_PREMULTIPLIED: DXGI_ALPHA_MODE = 1;
+pub const DXGI_ERROR_DEVICE_HUNG: windows_core::HRESULT =
+    windows_core::HRESULT(0x887A0006_u32 as _);
+pub const DXGI_ERROR_DEVICE_REMOVED: windows_core::HRESULT =
+    windows_core::HRESULT(0x887A0005_u32 as _);
+pub const DXGI_ERROR_DEVICE_RESET: windows_core::HRESULT =
+    windows_core::HRESULT(0x887A0007_u32 as _);
+pub const DXGI_ERROR_DRIVER_INTERNAL_ERROR: windows_core::HRESULT =
+    windows_core::HRESULT(0x887A0020_u32 as _);
 pub type DXGI_FORMAT = i32;
 pub const DXGI_FORMAT_B8G8R8A8_UNORM: DXGI_FORMAT = 87;
 pub const DXGI_FORMAT_UNKNOWN: DXGI_FORMAT = 0;

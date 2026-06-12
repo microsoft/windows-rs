@@ -2015,7 +2015,7 @@ impl HumanPresenceSensorReadingUpdate {
         }
     }
     pub fn SetTimestamp(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetTimestamp)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Presence(&self) -> windows_core::Result<HumanPresence> {
@@ -2025,7 +2025,7 @@ impl HumanPresenceSensorReadingUpdate {
         }
     }
     pub fn SetPresence(&self, value: Option<HumanPresence>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<HumanPresence> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<HumanPresence> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetPresence)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Engagement(&self) -> windows_core::Result<HumanEngagement> {
@@ -2035,7 +2035,7 @@ impl HumanPresenceSensorReadingUpdate {
         }
     }
     pub fn SetEngagement(&self, value: Option<HumanEngagement>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<HumanEngagement> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<HumanEngagement> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetEngagement)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn DistanceInMillimeters(&self) -> windows_core::Result<u32> {
@@ -2045,7 +2045,7 @@ impl HumanPresenceSensorReadingUpdate {
         }
     }
     pub fn SetDistanceInMillimeters(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDistanceInMillimeters)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn OnlookerPresence(&self) -> windows_core::Result<HumanPresence> {
@@ -2057,7 +2057,7 @@ impl HumanPresenceSensorReadingUpdate {
     }
     pub fn SetOnlookerPresence(&self, value: Option<HumanPresence>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<HumanPresence> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<HumanPresence> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetOnlookerPresence)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -2103,7 +2103,7 @@ impl HumanPresenceSettings {
         }
     }
     pub fn SetWakeOnApproachDistanceInMillimeters(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetWakeOnApproachDistanceInMillimeters)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsLockOnLeaveEnabled(&self) -> windows_core::Result<bool> {
@@ -2122,7 +2122,7 @@ impl HumanPresenceSettings {
         }
     }
     pub fn SetLockOnLeaveDistanceInMillimeters(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLockOnLeaveDistanceInMillimeters)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LockOnLeaveTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {

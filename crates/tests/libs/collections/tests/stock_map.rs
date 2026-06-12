@@ -196,8 +196,8 @@ fn hstring() -> Result<()> {
 
 fn compare_with<K, V>(pair: &Option<IKeyValuePair<K, V>>, key: &K, value: &V) -> Result<bool>
 where
-    K: RuntimeType + std::cmp::PartialEq,
-    V: RuntimeType + std::cmp::PartialEq,
+    K: RuntimeType + PartialEq,
+    V: RuntimeType + PartialEq,
 {
     match pair {
         None => Ok(false),

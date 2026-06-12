@@ -1055,7 +1055,7 @@ impl WindowsSoftwareUpdate {
         P13: windows_core::Param<WindowsSoftwareUpdateExecutionInfo>,
         P14: windows_core::Param<WindowsSoftwareUpdateOptionalInfo>,
     {
-        let productcode__ = productcode.map(<windows_reference::IReference<windows_core::GUID> as core::convert::From<_>>::from);
+        let productcode__ = productcode.map(<windows_reference::IReference<windows_core::GUID> as From<_>>::from);
         Self::IWindowsSoftwareUpdateFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance2)(
@@ -1592,8 +1592,8 @@ impl WindowsSoftwareUpdateOptionalInfo {
         }
     }
     pub fn CreateInstance(compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo> {
-        let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
-        let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as From<_>>::from);
+        let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as From<_>>::from);
         Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), windows_core::Param::param(compliancedeadlineindays__.as_ref()).abi(), windows_core::Param::param(compliancegraceperiodindays__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1603,8 +1603,8 @@ impl WindowsSoftwareUpdateOptionalInfo {
     where
         P0: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdateLocalizationInfo>>,
     {
-        let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
-        let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as From<_>>::from);
+        let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as From<_>>::from);
         Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), localizationinfo.param().abi(), windows_core::Param::param(compliancedeadlineindays__.as_ref()).abi(), windows_core::Param::param(compliancegraceperiodindays__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2586,7 +2586,7 @@ impl WindowsUpdateApprovalData {
         }
     }
     pub fn SetSeeker(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSeeker)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn AllowDownloadOnMetered(&self) -> windows_core::Result<bool> {
@@ -2596,7 +2596,7 @@ impl WindowsUpdateApprovalData {
         }
     }
     pub fn SetAllowDownloadOnMetered(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetAllowDownloadOnMetered)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<i32> {
@@ -2606,7 +2606,7 @@ impl WindowsUpdateApprovalData {
         }
     }
     pub fn SetComplianceDeadlineInDays(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<i32> {
@@ -2616,7 +2616,7 @@ impl WindowsUpdateApprovalData {
         }
     }
     pub fn SetComplianceGracePeriodInDays(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn OptOutOfAutoReboot(&self) -> windows_core::Result<bool> {
@@ -2626,7 +2626,7 @@ impl WindowsUpdateApprovalData {
         }
     }
     pub fn SetOptOutOfAutoReboot(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

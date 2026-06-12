@@ -534,9 +534,9 @@ impl Method {
                     let iref = param.ty.write_name(config);
                     if is_ireference_string(param) {
                         let pname: TokenStream = format!("P{position}").parse().unwrap();
-                        Some(quote! { let #local = #name.map(<#pname as core::convert::Into<#iref>>::into); })
+                        Some(quote! { let #local = #name.map(<#pname as Into<#iref>>::into); })
                     } else {
-                        Some(quote! { let #local = #name.map(<#iref as core::convert::From<_>>::from); })
+                        Some(quote! { let #local = #name.map(<#iref as From<_>>::from); })
                     }
                 })
                 .collect();
@@ -906,7 +906,7 @@ impl Method {
                             #prelude
                             let #pname: #delegate_name = {
                                 let com = windows_core::imp::DelegateBox::<#delegate_name, F>::new(&#boxed_name::<#generic_names F>::VTABLE, #pname);
-                                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+                                unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
                             };
                         }
                     } else {

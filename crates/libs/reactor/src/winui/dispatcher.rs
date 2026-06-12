@@ -35,20 +35,16 @@ impl WinUIDispatcher {
 }
 
 impl Dispatcher for WinUIDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         let slot = std::cell::RefCell::new(Some(f));
         let handler = DispatcherQueueHandler::new(move || {
             if let Some(f) = slot.borrow_mut().take() {
                 f();
             }
         });
-        match priority {
-            DispatchPriority::Normal => self.queue.TryEnqueue(&handler).unwrap_or(false),
-            DispatchPriority::Low => self
-                .queue
-                .TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)
-                .unwrap_or(false),
-        }
+        self.queue
+            .TryEnqueueWithPriority(priority, &handler)
+            .unwrap_or(false)
     }
 }
 
@@ -67,7 +63,7 @@ unsafe impl Sync for AgileDispatcherQueue {}
 impl SendDispatcher for AgileDispatcherQueue {
     fn enqueue_send(
         &self,
-        priority: DispatchPriority,
+        priority: DispatcherQueuePriority,
         f: Box<dyn FnOnce() + Send + 'static>,
     ) -> bool {
         let slot = std::sync::Mutex::new(Some(f));
@@ -76,12 +72,8 @@ impl SendDispatcher for AgileDispatcherQueue {
                 f();
             }
         });
-        match priority {
-            DispatchPriority::Normal => self.queue.TryEnqueue(&handler).unwrap_or(false),
-            DispatchPriority::Low => self
-                .queue
-                .TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)
-                .unwrap_or(false),
-        }
+        self.queue
+            .TryEnqueueWithPriority(priority, &handler)
+            .unwrap_or(false)
     }
 }

@@ -2444,7 +2444,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandle
 impl StorageProviderKnownFolderSyncRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<StorageProviderKnownFolderSyncRequestedHandler, F>::new(&StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where
@@ -2665,7 +2665,7 @@ impl StorageProviderQuotaUI {
     }
     #[cfg(feature = "UI")]
     pub fn SetQuotaUsedColor(&self, value: Option<super::super::UI::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
