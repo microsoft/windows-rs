@@ -1,10 +1,12 @@
+use super::*;
+
 /// A single keyboard shortcut bound to an element via
 /// [`Modifiers`](crate::Modifiers)`.keyboard_accelerators`.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct KeyboardAccelerator {
     pub key: KeyboardKey,
     pub modifiers: KeyModifiers,
-    pub on_invoked: crate::core::callback::Callback<()>,
+    pub on_invoked: Callback<()>,
 }
 
 impl KeyboardAccelerator {
@@ -16,7 +18,7 @@ impl KeyboardAccelerator {
         Self {
             key,
             modifiers,
-            on_invoked: crate::core::callback::Callback::new(move |()| on_invoked()),
+            on_invoked: Callback::new(move |()| on_invoked()),
         }
     }
 }

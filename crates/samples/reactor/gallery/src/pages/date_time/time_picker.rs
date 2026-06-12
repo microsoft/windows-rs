@@ -15,7 +15,7 @@ pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                         .header("Select time")
                         .on_selected_time_changed({
                             let set_selected_time = set_selected_time;
-                            move |time: windows_reactor::TimeSpan| {
+                            move |time: TimeSpan| {
                                 let hours = time.whole_hours();
                                 let minutes = time.whole_minutes() % 60;
                                 set_selected_time

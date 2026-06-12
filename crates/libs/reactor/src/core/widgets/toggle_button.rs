@@ -36,7 +36,7 @@ impl ToggleButton {
 impl Widget for ToggleButton {
     widget_header!(ControlKind::ToggleButton);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::toggle_button_bindings(self)
+        generated_bindings::toggle_button_bindings(self)
     }
 }
 

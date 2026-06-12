@@ -1,5 +1,4 @@
 #![doc = include_str!("../readme.md")]
-#![warn(unused_qualifications)]
 
 mod config;
 mod derive;

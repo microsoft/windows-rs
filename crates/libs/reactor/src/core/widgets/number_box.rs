@@ -54,6 +54,6 @@ impl NumberBox {
 impl Widget for NumberBox {
     widget_header!(ControlKind::NumberBox);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::number_box_bindings(self)
+        generated_bindings::number_box_bindings(self)
     }
 }

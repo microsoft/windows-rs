@@ -1445,7 +1445,7 @@ impl InteractionTracker {
         }
     }
     pub fn SetPositionInertiaDecayRate(&self, value: Option<windows_numerics::Vector3>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_numerics::Vector3> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_numerics::Vector3> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetPositionInertiaDecayRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<windows_numerics::Vector3> {
@@ -1467,7 +1467,7 @@ impl InteractionTracker {
         }
     }
     pub fn SetScaleInertiaDecayRate(&self, value: Option<f32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ScaleVelocityInPercentPerSecond(&self) -> windows_core::Result<f32> {

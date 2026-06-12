@@ -4,7 +4,7 @@
 //! where each tuple element can be a different type that implements
 //! `Into<Element>`.
 
-use super::element::Element;
+use super::*;
 
 /// Converts a collection of items into a `Vec<Element>`.
 ///

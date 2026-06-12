@@ -19,7 +19,7 @@ pub(crate) fn err_memory() -> Error {
     IVector<T>,
     IVectorView<T>,
 )]
-struct Vector<T>(std::sync::RwLock<Vec<T::Default>>)
+struct Vector<T>(RwLock<Vec<T::Default>>)
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone;

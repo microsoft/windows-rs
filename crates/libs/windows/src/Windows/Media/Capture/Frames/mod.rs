@@ -978,7 +978,7 @@ impl MediaFrameSourceController {
     }
     pub fn GetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Option<u32>) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceController2>(self)?;
-        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

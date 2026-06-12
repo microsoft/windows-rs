@@ -32,12 +32,7 @@ fn was_destroyed(r: &Reconciler<RecordingBackend>, id: ControlId) -> bool {
         .any(|op| matches!(op, Op::Destroy { id: did } if *did == id))
 }
 
-fn mount(
-    el: Element,
-) -> (
-    Reconciler<RecordingBackend>,
-    Option<windows_reactor::core::backend::ControlId>,
-) {
+fn mount(el: Element) -> (Reconciler<RecordingBackend>, Option<ControlId>) {
     let mut r = Reconciler::new(RecordingBackend::new());
     let id = r.reconcile(None, &el, None, noop_request_rerender());
     (r, id)

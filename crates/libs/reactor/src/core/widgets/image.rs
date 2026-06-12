@@ -56,7 +56,7 @@ impl Image {
 impl Widget for Image {
     widget_header!(ControlKind::Image);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::image_bindings(self);
+        let mut out = generated_bindings::image_bindings(self);
         // ImageSource is a compound type not expressible in TOML.
         match &self.source {
             ImageSource::Uri(uri) => {

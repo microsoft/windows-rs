@@ -86,7 +86,7 @@ impl ContentDialog {
 impl Widget for ContentDialog {
     widget_header!(ControlKind::ContentDialog);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::content_dialog_bindings(self);
+        let mut out = generated_bindings::content_dialog_bindings(self);
         // Closed event needs ContentDialogResult wrapping (i32 → enum).
         let closed_cb = self.on_closed.clone().map(|cb| {
             EventHandler::I32(Callback::new(move |i: i32| {

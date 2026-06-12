@@ -31,7 +31,7 @@ impl ReactorApplicationOverrides {
 }
 
 impl IApplicationOverrides_Impl for ReactorApplicationOverrides_Impl {
-    fn OnLaunched(&self, _args: windows_core::Ref<LaunchActivatedEventArgs>) -> Result<()> {
+    fn OnLaunched(&self, _args: Ref<LaunchActivatedEventArgs>) -> Result<()> {
         if let Some(cb) = self.on_launched.borrow_mut().take() {
             cb()?;
         }
@@ -45,13 +45,13 @@ impl IXamlMetadataProvider_Impl for ReactorApplicationOverrides_Impl {
         provider.GetXamlType(r#type)
     }
 
-    fn GetXamlTypeByFullName(&self, full_name: &windows_core::HSTRING) -> Result<IXamlType> {
+    fn GetXamlTypeByFullName(&self, full_name: &HSTRING) -> Result<IXamlType> {
         let provider: IXamlMetadataProvider = self.provider()?.cast()?;
         let full_name = full_name.to_string_lossy();
         provider.GetXamlTypeByFullName(&full_name)
     }
 
-    fn GetXmlnsDefinitions(&self) -> Result<windows_core::Array<XmlnsDefinition>> {
+    fn GetXmlnsDefinitions(&self) -> Result<Array<XmlnsDefinition>> {
         let provider: IXamlMetadataProvider = self.provider()?.cast()?;
         provider.GetXmlnsDefinitions()
     }

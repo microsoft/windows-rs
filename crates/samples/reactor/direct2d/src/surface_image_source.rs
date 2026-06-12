@@ -6,7 +6,7 @@ use windows::Win32::Graphics::Direct2D::*;
 use windows::Win32::Graphics::Direct3D::*;
 use windows::Win32::Graphics::Direct3D11::*;
 use windows::Win32::Graphics::Dxgi::*;
-use windows::core::Interface;
+use windows::core::{Interface, Result};
 use windows_numerics::{Matrix3x2, Vector2};
 use windows_reactor::*;
 
@@ -16,7 +16,7 @@ const SIZE: i32 = 256;
 
 /// Create a Direct2D device backed by a hardware D3D11 device, suitable for
 /// handing to a `SurfaceImageSource`.
-fn create_d2d_device() -> windows::core::Result<ID2D1Device> {
+fn create_d2d_device() -> Result<ID2D1Device> {
     let mut d3d_device: Option<ID3D11Device> = None;
     unsafe {
         D3D11CreateDevice(
@@ -42,7 +42,7 @@ fn create_d2d_device() -> windows::core::Result<ID2D1Device> {
 /// Create a `SurfaceImageSource`, attach a Direct2D device, and draw a single
 /// static frame into it. Runs on the UI thread, as required by
 /// `SurfaceImageSource`.
-fn build_surface() -> windows::core::Result<SurfaceImageSource> {
+fn build_surface() -> Result<SurfaceImageSource> {
     let surface = SurfaceImageSource::new(SIZE, SIZE)?;
 
     let device = create_d2d_device()?;

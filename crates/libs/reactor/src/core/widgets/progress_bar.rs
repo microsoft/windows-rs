@@ -44,6 +44,6 @@ impl ProgressBar {
 impl Widget for ProgressBar {
     widget_header!(ControlKind::ProgressBar);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::progress_bar_bindings(self)
+        generated_bindings::progress_bar_bindings(self)
     }
 }

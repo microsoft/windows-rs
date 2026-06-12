@@ -554,7 +554,7 @@ impl Geolocator {
         })
     }
     pub fn SetDefaultGeoposition(value: Option<BasicGeoposition>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<BasicGeoposition> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<BasicGeoposition> as From<_>>::from);
         Self::IGeolocatorStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultGeoposition)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() })
     }
     pub fn DefaultGeoposition() -> windows_core::Result<BasicGeoposition> {
@@ -572,7 +572,7 @@ impl Geolocator {
     }
     pub fn SetDesiredAccuracyInMeters(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

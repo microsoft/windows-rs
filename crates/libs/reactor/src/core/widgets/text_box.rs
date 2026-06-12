@@ -25,7 +25,7 @@ impl TextBox {
 impl Widget for TextBox {
     widget_header!(ControlKind::TextBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::text_box_bindings(self);
+        let mut out = generated_bindings::text_box_bindings(self);
         out.push(Binding::Prop(
             Prop::Value,
             PropValue::Str(self.value.clone()),

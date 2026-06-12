@@ -190,7 +190,7 @@ pub fn pool_churn_grow_shrink_grow(h: Harness) -> FixtureFuture {
                     button("Empty").on_click(zero),
                 ))
                 .spacing(8.0),
-                windows_reactor::dsl::vstack(items).spacing(2.0),
+                vstack(items).spacing(2.0),
             ))
             .spacing(8.0)
             .into()
@@ -236,7 +236,7 @@ pub fn password_box_changes_state(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|cx| {
             let (value, set) = cx.use_state(String::new());
-            windows_reactor::vstack((
+            vstack((
                 text_block(format!("pwd-len={}", value.len())),
                 PasswordBox::new()
                     .value(value)
@@ -263,7 +263,7 @@ pub fn radio_buttons_change_selection(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|cx| {
             let (idx, set) = cx.use_state(0i32);
-            windows_reactor::vstack((
+            vstack((
                 text_block(format!("radio-idx={idx}")),
                 RadioButtons::new(["Email", "SMS", "None"])
                     .selected_index(idx)
@@ -338,7 +338,7 @@ pub fn combo_box_changes_selection(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|cx| {
             let (idx, set) = cx.use_state(-1i32);
-            windows_reactor::vstack((
+            vstack((
                 text_block(format!("combo-idx={idx}")),
                 ComboBox::new(["Red", "Green", "Blue"])
                     .selected_index(idx)

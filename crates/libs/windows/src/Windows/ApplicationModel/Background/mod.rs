@@ -1048,7 +1048,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
     pub fn SetPreferredTransmitPowerLevelInDBm(&self, value: Option<i16>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<i16> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i16> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn UseExtendedFormat(&self) -> windows_core::Result<bool> {

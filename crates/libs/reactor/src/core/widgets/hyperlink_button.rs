@@ -34,7 +34,7 @@ impl HyperlinkButton {
 impl Widget for HyperlinkButton {
     widget_header!(ControlKind::HyperlinkButton);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::hyperlink_button_bindings(self);
+        let mut out = generated_bindings::hyperlink_button_bindings(self);
         if let Some(v) = &self.navigate_uri {
             out.push(Binding::Prop(
                 Prop::NavigateUri,

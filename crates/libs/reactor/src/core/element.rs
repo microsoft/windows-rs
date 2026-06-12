@@ -1,4 +1,5 @@
 use super::component_element::ComponentElement;
+
 // Re-exports for backward compatibility: the types below were previously
 // declared in this module and are now sourced from sibling modules
 // (`geometry`, `keyboard`, `modifiers`, `accessibility`, `widgets`). Both
@@ -67,11 +68,11 @@ macro_rules! define_element {
         pub enum Element {
             $( $variant($variant), )*
             Component(ComponentElement),
-            ErrorBoundary(crate::core::error_boundary::ErrorBoundaryElement),
-            Provider(crate::core::context::ProviderElement),
-            TemplatedList(crate::core::templated_list::TemplatedListElement),
+            ErrorBoundary(ErrorBoundaryElement),
+            Provider(ProviderElement),
+            TemplatedList(TemplatedListElement),
             Group(GroupElement),
-            Custom(crate::core::custom::CustomElementHandle),
+            Custom(CustomElementHandle),
             #[default]
             Empty,
         }
@@ -195,11 +196,11 @@ macro_rules! non_widget_from_table {
 
 non_widget_from_table! {
     Component:     ComponentElement,
-    ErrorBoundary: crate::core::error_boundary::ErrorBoundaryElement,
-    Provider:      crate::core::context::ProviderElement,
-    TemplatedList: crate::core::templated_list::TemplatedListElement,
+    ErrorBoundary: ErrorBoundaryElement,
+    Provider:      ProviderElement,
+    TemplatedList: TemplatedListElement,
     Group:         GroupElement,
-    Custom:        crate::core::custom::CustomElementHandle,
+    Custom:        CustomElementHandle,
 }
 
 impl Element {
@@ -420,8 +421,8 @@ impl Element {
             return a.kind == b.kind;
         }
         if let (Element::Custom(a), Element::Custom(b)) = (self, other) {
-            return crate::core::custom::CustomElement::type_id(&*a.0)
-                == crate::core::custom::CustomElement::type_id(&*b.0);
+            return CustomElement::type_id(&*a.0)
+                == CustomElement::type_id(&*b.0);
         }
         true
     }
@@ -436,8 +437,8 @@ impl Element {
                 a.obj.component_type_id() == b.obj.component_type_id()
             }
             (Element::Custom(a), Element::Custom(b)) => {
-                crate::core::custom::CustomElement::type_id(&*a.0)
-                    == crate::core::custom::CustomElement::type_id(&*b.0)
+                CustomElement::type_id(&*a.0)
+                    == CustomElement::type_id(&*b.0)
             }
             _ => true,
         }

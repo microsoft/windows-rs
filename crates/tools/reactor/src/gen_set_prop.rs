@@ -398,7 +398,7 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
             let m = ident(method);
             let wt = ident(winui_type);
             quote! {
-                #cast.#m(Xaml::#wt(*v))?;
+                #cast.#m(#wt(*v))?;
             }
         }
     }

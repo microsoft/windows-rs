@@ -64,7 +64,7 @@ impl RatingControl {
 impl Widget for RatingControl {
     widget_header!(ControlKind::RatingControl);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::rating_control_bindings(self)
+        generated_bindings::rating_control_bindings(self)
     }
 }
 

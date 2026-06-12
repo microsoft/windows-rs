@@ -8,7 +8,7 @@ fn test() {
         Win32::System::Environment::VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
     };
 
-    assert_eq!(1232, core::mem::size_of::<CONTEXT>());
+    assert_eq!(1232, size_of::<CONTEXT>());
 
     use windows_sys::Win32::System::Environment::VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
 
@@ -28,7 +28,7 @@ fn test() {
         Win32::System::Environment::VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
     };
 
-    assert_eq!(716, core::mem::size_of::<CONTEXT>());
+    assert_eq!(716, size_of::<CONTEXT>());
 
     use windows_sys::Win32::System::Environment::VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
 

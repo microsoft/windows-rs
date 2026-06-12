@@ -179,20 +179,20 @@ impl ReactorHost {
         configure: F,
     ) -> windows_core::Result<Self>
     where
-        F: FnOnce(&mut crate::core::reconciler::Reconciler<WinUIBackend>),
+        F: FnOnce(&mut Reconciler<WinUIBackend>),
     {
         Self::new_with_window_options(title, None, InnerConstraints::default(), root, configure)
     }
 
     pub fn new_with_window_options<F>(
         title: impl AsRef<str>,
-        size: Option<crate::core::Size>,
+        size: Option<window::Size>,
         constraints: InnerConstraints,
         root: Box<dyn Component>,
         configure: F,
     ) -> windows_core::Result<Self>
     where
-        F: FnOnce(&mut crate::core::reconciler::Reconciler<WinUIBackend>),
+        F: FnOnce(&mut Reconciler<WinUIBackend>),
     {
         let (window, resolved_dip_size, initial_dpi) = create_window(title, size, constraints)?;
         let dispatcher = WinUIDispatcher::for_current_thread()?;
@@ -343,18 +343,18 @@ impl ReactorHost {
 
     pub fn set_render_complete<F>(&self, f: F)
     where
-        F: Fn(&crate::core::render_host::RenderCompleteInfo) + 'static,
+        F: Fn(&RenderCompleteInfo) + 'static,
     {
         self.render_host.set_render_complete(f);
     }
 }
 
-fn get_default_display_size(hwnd: HWND, dpi: u32) -> crate::core::Size {
+fn get_default_display_size(hwnd: HWND, dpi: u32) -> window::Size {
     unsafe {
         let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
         let mut monitor_info_ex = MONITORINFOEXW {
             monitorInfo: MONITORINFO {
-                cbSize: core::mem::size_of::<MONITORINFOEXW>() as u32,
+                cbSize: size_of::<MONITORINFOEXW>() as u32,
                 ..MONITORINFO::default()
             },
             ..MONITORINFOEXW::default()
@@ -364,12 +364,12 @@ fn get_default_display_size(hwnd: HWND, dpi: u32) -> crate::core::Size {
             let work_width = work.right.saturating_sub(work.left);
             let work_height = work.bottom.saturating_sub(work.top);
             let scale = dpi as f64 / 96.0;
-            crate::core::Size {
+            window::Size {
                 width: work_width as f64 / scale / 2.0,
                 height: work_height as f64 / scale / 2.0,
             }
         } else {
-            crate::core::Size::default()
+            window::Size::default()
         }
     }
 }
@@ -385,7 +385,7 @@ fn center_window_on_display(
         let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
         let mut monitor_info_ex = MONITORINFOEXW {
             monitorInfo: MONITORINFO {
-                cbSize: core::mem::size_of::<MONITORINFOEXW>() as u32,
+                cbSize: size_of::<MONITORINFOEXW>() as u32,
                 ..MONITORINFO::default()
             },
             ..MONITORINFOEXW::default()
@@ -431,7 +431,7 @@ fn subscribe_size_and_dpi(
             if new_dpi > 0 {
                 render_host.set_dpi(new_dpi);
             }
-            render_host.set_inner_size(crate::core::Size {
+            render_host.set_inner_size(window::Size {
                 width: size.Width as f64,
                 height: size.Height as f64,
             });
@@ -443,9 +443,9 @@ fn subscribe_size_and_dpi(
 
 fn create_window(
     title: impl AsRef<str>,
-    size: Option<crate::core::Size>,
+    size: Option<window::Size>,
     constraints: InnerConstraints,
-) -> Result<(Window, crate::core::Size, u32), windows_core::Error> {
+) -> Result<(Window, window::Size, u32), windows_core::Error> {
     let window = Window::new()?;
 
     let mut hwnd = HWND::default();
@@ -501,7 +501,7 @@ fn create_window(
     }
 
     let actual_client_px = app_window_2.get_ClientSize()?;
-    let actual_dip_size = crate::core::Size {
+    let actual_dip_size = window::Size {
         width: actual_client_px.Width as f64 * 96.0 / dpi as f64,
         height: actual_client_px.Height as f64 * 96.0 / dpi as f64,
     };
@@ -584,10 +584,10 @@ fn subscribe_actual_theme_changed(
 fn update_color_scheme_from(fe: &FrameworkElement) {
     if let Ok(theme) = fe.get_ActualTheme() {
         let scheme = match theme {
-            ElementTheme::Dark => crate::core::theme::ColorScheme::Dark,
-            _ => crate::core::theme::ColorScheme::Light,
+            ElementTheme::Dark => ColorScheme::Dark,
+            _ => ColorScheme::Light,
         };
-        crate::core::theme::set_current_color_scheme(scheme);
+        set_current_color_scheme(scheme);
     }
 }
 

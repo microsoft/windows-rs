@@ -22,7 +22,7 @@ impl CheckBox {
 impl Widget for CheckBox {
     widget_header!(ControlKind::CheckBox);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::check_box_bindings(self)
+        generated_bindings::check_box_bindings(self)
     }
 }
 

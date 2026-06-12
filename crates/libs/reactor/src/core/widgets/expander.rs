@@ -59,7 +59,7 @@ impl Expander {
 impl Widget for Expander {
     widget_header!(ControlKind::Expander);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::expander_bindings(self);
+        let mut out = generated_bindings::expander_bindings(self);
         // Header text is a compound type not expressible in TOML.
         if let Some(ExpanderHeader::Text(s)) = &self.header {
             out.push(Binding::Prop(Prop::Header, PropValue::Str(s.clone())));

@@ -86,7 +86,7 @@ impl BadgeNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1514,7 +1514,7 @@ impl Notification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Visual(&self) -> windows_core::Result<NotificationVisual> {
@@ -1820,7 +1820,7 @@ impl ScheduledTileNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1977,7 +1977,7 @@ impl ScheduledToastNotification {
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -2093,7 +2093,7 @@ impl TileFlyoutNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -2236,7 +2236,7 @@ impl TileNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -2857,7 +2857,7 @@ impl ToastNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
