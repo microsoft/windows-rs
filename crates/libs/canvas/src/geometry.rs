@@ -23,12 +23,12 @@ impl Path {
 
 // -- Typestate markers --
 
-struct Empty {
+pub struct Empty {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
 }
 
-struct InFigure {
+pub struct InFigure {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
 }
