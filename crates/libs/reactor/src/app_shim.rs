@@ -1,7 +1,6 @@
+use super::bindings::*;
 use std::cell::RefCell;
 use windows_core::*;
-
-use super::bindings::*;
 
 implement_decl! {
     impl ReactorApplicationOverrides as pub ReactorApplicationOverrides_Impl: [IApplicationOverrides, IXamlMetadataProvider]

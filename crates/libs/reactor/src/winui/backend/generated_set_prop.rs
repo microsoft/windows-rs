@@ -5,11 +5,7 @@ use super::*;
 use crate::bindings as Xaml;
 #[doc = r" Try to handle a `set_prop` call via generated dispatch."]
 #[doc = r" Returns `Ok(true)` if handled, `Ok(false)` to fall through."]
-pub(crate) fn dispatch(
-    handle: &Handle,
-    prop: Prop,
-    value: &PropValue,
-) -> windows_core::Result<bool> {
+pub(crate) fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> {
     match (prop, value, handle) {
         (Prop::AcceptsReturn, PropValue::Bool(v), Handle::TextBox(h)) => {
             h.put_AcceptsReturn(*v)?;

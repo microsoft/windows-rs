@@ -247,7 +247,6 @@ pub enum Prop {
     YearVisible,
 }
 
-
 /// Tagged union of every value type that can appear in a [`Backend::set_prop`]
 /// call. `Unset` clears a previously-applied value.
 ///
@@ -451,12 +450,7 @@ pub trait Backend {
 
     fn set_templated_selected_index(&mut self, _id: ControlId, _index: i32) {}
 
-    fn set_templated_selection_mode(
-        &mut self,
-        _id: ControlId,
-        _mode: SelectionMode,
-    ) {
-    }
+    fn set_templated_selection_mode(&mut self, _id: ControlId, _mode: SelectionMode) {}
 
     /// Set a mounted element tree as the header content of a control (e.g.
     /// Expander). Pass `None` to clear a previously set element header.
@@ -495,12 +489,7 @@ pub trait Backend {
 
     fn run_property_animation(&mut self, _id: ControlId, _config: Option<AnimationConfig>) {}
 
-    fn set_rich_text_paragraphs(
-        &mut self,
-        _id: ControlId,
-        _paragraphs: &[RichTextParagraph],
-    ) {
-    }
+    fn set_rich_text_paragraphs(&mut self, _id: ControlId, _paragraphs: &[RichTextParagraph]) {}
 
     fn attach_templated_realization(
         &mut self,
@@ -510,18 +499,9 @@ pub trait Backend {
     ) {
     }
 
-    fn set_accessibility(
-        &mut self,
-        _id: ControlId,
-        _accessibility: &AccessibilityModifiers,
-    ) {
-    }
+    fn set_accessibility(&mut self, _id: ControlId, _accessibility: &AccessibilityModifiers) {}
 
-    fn set_keyboard_accelerators(
-        &mut self,
-        _id: ControlId,
-        _accelerators: &[KeyboardAccelerator],
-    ) {
+    fn set_keyboard_accelerators(&mut self, _id: ControlId, _accelerators: &[KeyboardAccelerator]) {
     }
 
     /// Apply (or clear) the WinUI `ToolTipService` attached-property
@@ -530,12 +510,7 @@ pub trait Backend {
 
     /// Attach (or clear) per-element pointer / tap callbacks for `id`.
     /// `None` removes any prior handlers; `Some(_)` replaces them.
-    fn set_pointer_handlers(
-        &mut self,
-        _id: ControlId,
-        _handlers: Option<&PointerHandlers>,
-    ) {
-    }
+    fn set_pointer_handlers(&mut self, _id: ControlId, _handlers: Option<&PointerHandlers>) {}
 
     /// Retrieve the underlying platform element as an `IInspectable` for interop.
     /// Returns `None` on non-WinUI backends or if `id` is invalid.
@@ -960,11 +935,7 @@ impl Backend for RecordingBackend {
         self.ops.push(Op::SetTemplatedSelectedIndex { id, index });
     }
 
-    fn set_templated_selection_mode(
-        &mut self,
-        id: ControlId,
-        mode: SelectionMode,
-    ) {
+    fn set_templated_selection_mode(&mut self, id: ControlId, mode: SelectionMode) {
         self.ops.push(Op::SetTemplatedSelectionMode { id, mode });
     }
 
@@ -1037,33 +1008,21 @@ impl Backend for RecordingBackend {
         self.ops.push(Op::RunPropertyAnimation { id, config });
     }
 
-    fn set_rich_text_paragraphs(
-        &mut self,
-        id: ControlId,
-        paragraphs: &[RichTextParagraph],
-    ) {
+    fn set_rich_text_paragraphs(&mut self, id: ControlId, paragraphs: &[RichTextParagraph]) {
         self.ops.push(Op::SetRichTextParagraphs {
             id,
             paragraphs: paragraphs.to_vec(),
         });
     }
 
-    fn set_accessibility(
-        &mut self,
-        id: ControlId,
-        accessibility: &AccessibilityModifiers,
-    ) {
+    fn set_accessibility(&mut self, id: ControlId, accessibility: &AccessibilityModifiers) {
         self.ops.push(Op::SetAccessibility {
             id,
             accessibility: accessibility.clone(),
         });
     }
 
-    fn set_keyboard_accelerators(
-        &mut self,
-        id: ControlId,
-        accelerators: &[KeyboardAccelerator],
-    ) {
+    fn set_keyboard_accelerators(&mut self, id: ControlId, accelerators: &[KeyboardAccelerator]) {
         self.ops.push(Op::SetKeyboardAccelerators {
             id,
             accelerators: accelerators.to_vec(),

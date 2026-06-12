@@ -1,8 +1,6 @@
-use std::cell::OnceCell;
-
-use windows_core::Interface;
-
+use super::*;
 use crate::bindings::*;
+use std::cell::OnceCell;
 
 const SHARED_TEMPLATE_XAML: &str = "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>\
     <ContentControl HorizontalContentAlignment='Stretch' VerticalContentAlignment='Stretch'/>\

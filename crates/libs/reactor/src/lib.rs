@@ -1,31 +1,27 @@
-#[allow(
+#[doc(hidden)]
+pub mod app;
+mod app_shim;
+#[expect(
     non_snake_case,
     non_upper_case_globals,
     non_camel_case_types,
     clippy::upper_case_acronyms,
     clippy::useless_transmute,
-    clippy::missing_transmute_annotations,
-    clippy::missing_safety_doc,
-    clippy::too_many_arguments
+    clippy::missing_transmute_annotations
 )]
 mod bindings;
-
+pub mod bootstrap;
 #[doc(hidden)]
 pub mod core;
+mod diagnostics;
 #[doc(hidden)]
 pub mod dsl;
-
 #[doc(hidden)]
 pub mod winui;
 
-#[doc(hidden)]
-pub mod app;
-pub(crate) mod diagnostics;
+use windows_core::{Error, HRESULT, Interface};
 
-mod app_shim;
-pub mod bootstrap;
-
-pub use windows_core::{Error, Interface, Result};
+pub use windows_core::Result;
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;

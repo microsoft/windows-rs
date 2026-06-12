@@ -1,9 +1,12 @@
+use super::*;
+use bindings::*;
+
 /// Returned by [`initialize`]; calls `MddBootstrapShutdown` on drop.
 pub struct BootstrapHandle;
 
 impl Drop for BootstrapHandle {
     fn drop(&mut self) {
-        unsafe { crate::bindings::MddBootstrapShutdown() };
+        unsafe { MddBootstrapShutdown() };
     }
 }
 
@@ -12,8 +15,7 @@ impl Drop for BootstrapHandle {
 ///
 /// Call once at the top of `main` and keep the returned handle alive for the
 /// duration of the process. Self-contained apps do not need to call this.
-pub fn initialize() -> windows_core::Result<BootstrapHandle> {
-    use crate::bindings::*;
+pub fn initialize() -> Result<BootstrapHandle> {
     unsafe {
         MddBootstrapInitialize2(
             WINDOWSAPPSDK_RELEASE_MAJORMINOR as u32,

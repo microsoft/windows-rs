@@ -1,7 +1,6 @@
+use super::*;
 use rustc_hash::{FxHashMap, FxHashSet};
 use std::borrow::Cow;
-
-use super::*;
 
 fn update_child_tracked<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
@@ -84,8 +83,7 @@ fn reconcile_positional_live<B: Backend + 'static>(
             // Even when elements are structurally identical, a child component
             // whose state was mutated via SetState must still be re-rendered.
             let child_id = reconciler.child_at(parent, i);
-            let state_dirty =
-                child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
+            let state_dirty = child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
             if !state_dirty {
                 reconciler.debug_elements_skipped += 1;
                 continue;
@@ -337,9 +335,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             // have been displaced into that slot — see the keyed-shuffle
             // regression test in this module.)
             let key = effective_key(old_el, old_start + old_rel);
-            let actual_pos = *key_to_panel
-                .get(key.as_ref())
-                .unwrap();
+            let actual_pos = *key_to_panel.get(key.as_ref()).unwrap();
             if reconciler.child_at(parent, actual_pos).is_some() {
                 if can_skip_update(old_el, new_el) {
                     let child_id = reconciler.child_at(parent, actual_pos);
@@ -358,9 +354,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             let old_rel = new_to_old[i] as usize;
             let old_el = old.get(old_start + old_rel).unwrap();
             let key = effective_key(old_el, old_start + old_rel);
-            let current_pos = *key_to_panel
-                .get(key.as_ref())
-                .unwrap();
+            let current_pos = *key_to_panel.get(key.as_ref()).unwrap();
             if current_pos != target_panel_idx {
                 reconciler.move_child_tracked(parent, current_pos, target_panel_idx);
 
@@ -387,13 +381,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
                     let state_dirty =
                         child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
                     if state_dirty {
-                        update_child_tracked(
-                            reconciler,
-                            parent,
-                            target_panel_idx,
-                            old_el,
-                            new_el,
-                        );
+                        update_child_tracked(reconciler, parent, target_panel_idx, old_el, new_el);
                     } else {
                         reconciler.debug_elements_skipped += 1;
                     }
@@ -584,8 +572,7 @@ mod tests {
             .unwrap();
 
         // Snapshot (id -> kind) from the mount-phase ops.
-        let mut kind_of: FxHashMap<ControlId, ControlKind> =
-            FxHashMap::default();
+        let mut kind_of: FxHashMap<ControlId, ControlKind> = FxHashMap::default();
         for op in &reconciler.backend.ops {
             if let Op::Create { id, kind } = op {
                 kind_of.insert(*id, *kind);
@@ -643,8 +630,7 @@ mod tests {
 
         // 2. After reconciliation, every button control still carries
         //    the label that matches its original key.
-        let mut latest_label: FxHashMap<ControlId, String> =
-            FxHashMap::default();
+        let mut latest_label: FxHashMap<ControlId, String> = FxHashMap::default();
         for op in &reconciler.backend.ops {
             if let Op::SetProp {
                 id,

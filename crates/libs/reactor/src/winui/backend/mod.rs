@@ -1,10 +1,9 @@
+use super::*;
+use crate::bindings as Xaml;
 use std::cell::RefCell;
 
 use rustc_hash::FxHashMap;
-use windows_core::Interface;
 
-use super::*;
-use crate::bindings as Xaml;
 use Xaml::FontWeight as WinFontWeight;
 
 mod convert;
@@ -575,14 +574,14 @@ fn style_target_for_handle(handle: &Handle) -> Option<(&'static str, Xaml::IFram
 // `run_property_animation` reach the element's Visual via
 // `ElementCompositionPreview::GetElementVisual`.
 
-fn anim_duration_to_timespan(d: std::time::Duration) -> windows_time::TimeSpan {
-    windows_time::TimeSpan::try_from(d).unwrap_or(windows_time::TimeSpan::MAX)
+fn anim_duration_to_timespan(d: std::time::Duration) -> TimeSpan {
+    TimeSpan::try_from(d).unwrap_or(TimeSpan::MAX)
 }
 
 fn easing_for(
     compositor: &Xaml::ICompositor,
     easing: Easing,
-) -> windows_core::Result<Xaml::CompositionEasingFunction> {
+) -> Result<Xaml::CompositionEasingFunction> {
     use Easing;
     // Control points match the CSS-standard ease-{out,in,in-out} curves.
     let (p1, p2) = match easing {
@@ -610,7 +609,7 @@ fn easing_for(
 fn apply_implicit_transitions(
     ui: &Xaml::UIElement,
     transitions: Option<ImplicitTransitions>,
-) -> windows_core::Result<()> {
+) -> Result<()> {
     use Easing;
     let visual = Xaml::ElementCompositionPreview::GetElementVisual(ui)?;
     let obj2 = visual.cast::<Xaml::ICompositionObject2>()?;
@@ -632,10 +631,7 @@ fn apply_implicit_transitions(
     // Animate from `this.StartingValue` to `this.FinalValue` over `duration`.
     // The DSL transition types only expose duration, so easing is fixed to
     // EaseOut — the standard XAML implicit-transition curve.
-    let insert = |target: &str,
-                  duration: std::time::Duration,
-                  is_scalar: bool|
-     -> windows_core::Result<()> {
+    let insert = |target: &str, duration: std::time::Duration, is_scalar: bool| -> Result<()> {
         let easing = easing_for(&icomp, Easing::EaseOut)?;
         let target_hs = windows_core::HSTRING::from(target);
         let final_expr = "this.FinalValue";
@@ -678,10 +674,7 @@ fn apply_implicit_transitions(
     Ok(())
 }
 
-fn run_property_animation_inner(
-    ui: &Xaml::UIElement,
-    cfg: AnimationConfig,
-) -> windows_core::Result<()> {
+fn run_property_animation_inner(ui: &Xaml::UIElement, cfg: AnimationConfig) -> Result<()> {
     let visual = Xaml::ElementCompositionPreview::GetElementVisual(ui)?;
     let visual_obj = visual.cast::<Xaml::ICompositionObject>()?;
     let compositor = visual_obj.get_Compositor()?;
@@ -744,11 +737,7 @@ fn run_property_animation_inner(
 /// (`IFrameworkElement`, `IUIElement`, `IControl`, `IPanel`, `IShape`, etc.).
 /// Each prop is dispatched by trying interface casts in priority order.
 /// Returns `Ok(true)` when handled, `Ok(false)` to fall through.
-fn try_universal_prop(
-    handle: &Handle,
-    prop: Prop,
-    value: &PropValue,
-) -> windows_core::Result<bool> {
+fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> {
     match (prop, value) {
         (Prop::FontSize, PropValue::F64(v)) => set_font_f64(handle, *v),
         (Prop::FontSize, PropValue::Unset) => set_font_f64(handle, 14.0),
@@ -974,7 +963,7 @@ fn try_universal_prop(
     }
 }
 
-fn set_padding(handle: &Handle, thickness: Xaml::Thickness) -> windows_core::Result<bool> {
+fn set_padding(handle: &Handle, thickness: Xaml::Thickness) -> Result<bool> {
     if let Ok(border) = handle.cast_inner::<Xaml::IBorder>() {
         border.put_Padding(thickness)?;
     } else if let Ok(ctl) = handle.cast_inner::<Xaml::IControl>() {
@@ -985,10 +974,7 @@ fn set_padding(handle: &Handle, thickness: Xaml::Thickness) -> windows_core::Res
     Ok(true)
 }
 
-fn set_background(
-    handle: &Handle,
-    brush: impl windows_core::Param<Xaml::Brush>,
-) -> windows_core::Result<bool> {
+fn set_background(handle: &Handle, brush: impl windows_core::Param<Xaml::Brush>) -> Result<bool> {
     if let Ok(panel) = handle.cast_inner::<Xaml::IPanel>() {
         panel.put_Background(brush)?;
     } else if let Ok(ctl) = handle.cast_inner::<Xaml::IControl>() {
@@ -1001,10 +987,7 @@ fn set_background(
     Ok(true)
 }
 
-fn set_foreground(
-    handle: &Handle,
-    brush: impl windows_core::Param<Xaml::Brush>,
-) -> windows_core::Result<bool> {
+fn set_foreground(handle: &Handle, brush: impl windows_core::Param<Xaml::Brush>) -> Result<bool> {
     if let Ok(ctl) = handle.cast_inner::<Xaml::IControl>() {
         ctl.put_Foreground(brush)?;
     } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
@@ -1017,7 +1000,7 @@ fn set_foreground(
     Ok(true)
 }
 
-fn set_font_f64(handle: &Handle, v: f64) -> windows_core::Result<bool> {
+fn set_font_f64(handle: &Handle, v: f64) -> Result<bool> {
     if let Ok(ctrl) = handle.cast_inner::<Xaml::IControl>() {
         ctrl.put_FontSize(v)?;
     } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
@@ -1030,7 +1013,7 @@ fn set_font_f64(handle: &Handle, v: f64) -> windows_core::Result<bool> {
     Ok(true)
 }
 
-fn set_font_weight(handle: &Handle, fw: WinFontWeight) -> windows_core::Result<bool> {
+fn set_font_weight(handle: &Handle, fw: WinFontWeight) -> Result<bool> {
     if let Ok(ctrl) = handle.cast_inner::<Xaml::IControl>() {
         ctrl.put_FontWeight(fw)?;
     } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
@@ -1041,7 +1024,7 @@ fn set_font_weight(handle: &Handle, fw: WinFontWeight) -> windows_core::Result<b
     Ok(true)
 }
 
-fn set_font_family(handle: &Handle, ff: &Xaml::FontFamily) -> windows_core::Result<bool> {
+fn set_font_family(handle: &Handle, ff: &Xaml::FontFamily) -> Result<bool> {
     if let Ok(ctrl) = handle.cast_inner::<Xaml::IControl>() {
         ctrl.put_FontFamily(ff)?;
     } else if let Ok(tb) = handle.cast_inner::<Xaml::ITextBlock>() {
@@ -1058,7 +1041,7 @@ fn set_font_family(handle: &Handle, ff: &Xaml::FontFamily) -> windows_core::Resu
 fn set_str_items(
     vec: &windows_collections::IVector<windows_core::IInspectable>,
     items: &[String],
-) -> windows_core::Result<()> {
+) -> Result<()> {
     vec.Clear()?;
     for s in items {
         let insp = windows_reference::IReference::from(s.as_str());
@@ -1091,7 +1074,7 @@ impl Backend for WinUIBackend {
         let handle = map
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::set_prop: unknown control {id}"));
-        let result: windows_core::Result<()> = (|| -> windows_core::Result<()> {
+        let result: Result<()> = (|| -> Result<()> {
             if generated_set_prop::dispatch(handle, prop, value)? {
                 return Ok(());
             }
@@ -2261,8 +2244,7 @@ impl Backend for WinUIBackend {
                         if let Some(a) = args.as_ref()
                             && let Ok(ts) = a.get_NewTime()
                         {
-                            handler
-                                .invoke_timespan(windows_time::TimeSpan::from_ticks(ts.Duration));
+                            handler.invoke_timespan(TimeSpan::from_ticks(ts.Duration));
                         }
                     })
                     .unwrap(),
@@ -2372,7 +2354,7 @@ impl Backend for WinUIBackend {
                             .as_ref()
                             .and_then(|a| a.get_InvokedItem().ok())
                             .and_then(|insp| {
-                                insp.cast::<super::super::bindings::ITreeViewNode>()
+                                insp.cast::<bindings::ITreeViewNode>()
                                     .ok()
                                     .and_then(|node| node.get_Content().ok())
                             })

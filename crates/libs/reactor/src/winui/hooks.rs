@@ -1,6 +1,5 @@
-use std::time::Duration;
-
 use crate::bindings::*;
+use std::time::Duration;
 
 /// RAII timer wrapper; stops and unhooks on drop.
 pub struct DispatcherTimer {

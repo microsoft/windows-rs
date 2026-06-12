@@ -1,7 +1,6 @@
-use std::sync::Arc;
-
 use super::*;
 use crate::bindings::*;
+use std::sync::Arc;
 
 /// [`Dispatcher`] backed by the WinUI thread's `DispatcherQueue`.
 pub struct WinUIDispatcher {
@@ -11,7 +10,7 @@ pub struct WinUIDispatcher {
 }
 
 impl WinUIDispatcher {
-    pub fn for_current_thread() -> windows_core::Result<Self> {
+    pub fn for_current_thread() -> Result<Self> {
         let queue = DispatcherQueue::GetForCurrentThread()?;
         let send_handle = Arc::new(AgileDispatcherQueue {
             queue: queue.clone(),

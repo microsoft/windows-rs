@@ -103,7 +103,8 @@ impl ContextStack {
     pub fn get<T: 'static + Clone>(&self, context_id: ContextId) -> Option<T> {
         let entries = self.entries.borrow();
         let entry = entries.get(&context_id)?.last()?;
-        assert!(entry.value_type_id == TypeId::of::<T>(), 
+        assert!(
+            entry.value_type_id == TypeId::of::<T>(),
             "context type mismatch for context {:?}: provided as {:?}, consumed as {:?}",
             context_id,
             entry.value_type_id,

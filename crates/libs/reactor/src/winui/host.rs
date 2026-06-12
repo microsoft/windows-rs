@@ -1,10 +1,7 @@
-use std::cell::{Cell, RefCell};
-use std::rc::Rc;
-
-use windows_core::Interface;
-
 use super::*;
 use crate::bindings::*;
+use std::cell::{Cell, RefCell};
+use std::rc::Rc;
 
 thread_local! {
     static ROOT_FRAMEWORK_ELEMENT: RefCell<Option<FrameworkElement>> = const { RefCell::new(None) };
@@ -143,7 +140,7 @@ impl Backdrop {
     ///
     /// This is useful for manual window setup in [`crate::app::App::run_custom`]
     /// or other custom hosts that do not go through [`ReactorHost`].
-    pub fn apply_to(self, window: &impl Interface) -> windows_core::Result<()> {
+    pub fn apply_to(self, window: &impl Interface) -> Result<()> {
         let system_backdrop: SystemBackdrop = match self {
             Backdrop::Mica => MicaBackdrop::new()?.cast()?,
             Backdrop::MicaAlt => {
@@ -169,7 +166,7 @@ pub struct ReactorHost {
 }
 
 impl ReactorHost {
-    pub fn new(title: impl AsRef<str>, root: Box<dyn Component>) -> windows_core::Result<Self> {
+    pub fn new(title: impl AsRef<str>, root: Box<dyn Component>) -> Result<Self> {
         Self::new_with(title, root, |_| {})
     }
 
@@ -177,7 +174,7 @@ impl ReactorHost {
         title: impl AsRef<str>,
         root: Box<dyn Component>,
         configure: F,
-    ) -> windows_core::Result<Self>
+    ) -> Result<Self>
     where
         F: FnOnce(&mut Reconciler<WinUIBackend>),
     {
@@ -190,7 +187,7 @@ impl ReactorHost {
         constraints: InnerConstraints,
         root: Box<dyn Component>,
         configure: F,
-    ) -> windows_core::Result<Self>
+    ) -> Result<Self>
     where
         F: FnOnce(&mut Reconciler<WinUIBackend>),
     {
@@ -292,12 +289,12 @@ impl ReactorHost {
         self.backdrop.set(Some(backdrop));
     }
 
-    pub fn activate(&self) -> windows_core::Result<()> {
+    pub fn activate(&self) -> Result<()> {
         let presenter = self.presenter.get();
         let backdrop = self.backdrop.get();
         let window = self.window.clone();
         let handler = DispatcherQueueHandler::new(move || {
-            let _ = (|| -> windows_core::Result<()> {
+            let _ = (|| -> Result<()> {
                 let mut hwnd: HWND = HWND::default();
                 if let Ok(native) = window.cast::<IWindowNative>() {
                     let _ = unsafe { native.get_WindowHandle(&mut hwnd) };
@@ -445,7 +442,7 @@ fn create_window(
     title: impl AsRef<str>,
     size: Option<window::Size>,
     constraints: InnerConstraints,
-) -> Result<(Window, window::Size, u32), windows_core::Error> {
+) -> Result<(Window, window::Size, u32)> {
     let window = Window::new()?;
 
     let mut hwnd = HWND::default();
@@ -523,7 +520,7 @@ fn apply_constraints_for_window(
     window: &Window,
     dpi: u32,
     constraints: &InnerConstraints,
-) -> windows_core::Result<()> {
+) -> Result<()> {
     let dip_scale = dpi as f64 / 96.0;
     let dip_to_px = |dips: f64| (dips * dip_scale).round() as i32;
 

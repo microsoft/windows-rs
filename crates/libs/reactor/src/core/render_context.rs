@@ -329,9 +329,10 @@ impl RenderCx {
         self.read_contexts.borrow_mut().insert(context.id);
 
         if let Some(stack) = &self.context_stack
-            && let Some(v) = stack.get::<T>(context.id) {
-                return v;
-            }
+            && let Some(v) = stack.get::<T>(context.id)
+        {
+            return v;
+        }
         context.default.clone()
     }
 
@@ -373,9 +374,9 @@ impl RenderCx {
 
     /// Returns the UI-thread marshaller installed by the host.
     pub fn use_ui_marshaller(&mut self) -> UiMarshaller {
-        self.marshaller.clone().expect(
-            "use_ui_marshaller requires a WinUI host",
-        )
+        self.marshaller
+            .clone()
+            .expect("use_ui_marshaller requires a WinUI host")
     }
 
     /// Like [`Self::use_state`], but returns an [`AsyncSetState<T>`]
@@ -424,9 +425,10 @@ impl RenderCx {
             }
         };
 
-        let marshaller = self.marshaller.clone().expect(
-            "use_async_state requires a WinUI host",
-        );
+        let marshaller = self
+            .marshaller
+            .clone()
+            .expect("use_async_state requires a WinUI host");
 
         let setter = AsyncSetState::<T> {
             cell,
@@ -652,19 +654,21 @@ impl RenderCx {
             if let HookSlot::Effect {
                 pending_cleanup, ..
             } = slot
-                && let Some(c) = pending_cleanup.take() {
-                    c();
-                }
+                && let Some(c) = pending_cleanup.take()
+            {
+                c();
+            }
         }
 
         for slot in hooks.iter_mut() {
             if let HookSlot::Effect {
                 pending, cleanup, ..
             } = slot
-                && let Some(effect) = pending.take() {
-                    let new_cleanup = effect();
-                    *cleanup = new_cleanup;
-                }
+                && let Some(effect) = pending.take()
+            {
+                let new_cleanup = effect();
+                *cleanup = new_cleanup;
+            }
         }
     }
 
@@ -781,9 +785,7 @@ impl RenderCx {
                     );
                 }
                 let mut slot = cell.borrow_mut();
-                let prev = slot
-                    .downcast_ref::<T>()
-                    .unwrap();
+                let prev = slot.downcast_ref::<T>().unwrap();
                 if *prev == value {
                     return;
                 }
@@ -814,9 +816,7 @@ impl RenderCx {
 
                 let prev = {
                     let slot = cell.borrow();
-                    slot.downcast_ref::<T>()
-                        .unwrap()
-                        .clone()
+                    slot.downcast_ref::<T>().unwrap().clone()
                 };
                 let next = reducer(prev.clone());
                 if prev == next {
@@ -855,9 +855,7 @@ impl RenderCx {
                 }
                 let prev = {
                     let slot = cell.borrow();
-                    slot.downcast_ref::<S>()
-                        .unwrap()
-                        .clone()
+                    slot.downcast_ref::<S>().unwrap().clone()
                 };
                 let next = reducer(prev.clone(), action);
                 if prev == next {

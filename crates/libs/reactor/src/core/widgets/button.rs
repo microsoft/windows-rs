@@ -1,6 +1,6 @@
+use super::*;
 use super::command_bar::CommandBarCommandDef;
 use super::menu_bar::MenuItemDef;
-use super::*;
 
 /// Visual style for a [`Button`]. Not a WinRT enum — maps to resource key strings.
 #[repr(transparent)]

@@ -6,6 +6,7 @@
 
 use super::*;
 use Xaml::Color as WinColor;
+use windows_core::IInspectable;
 
 pub(super) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {
     Xaml::Thickness {
@@ -100,7 +101,7 @@ pub(super) fn reactor_key_to_virtual_key(k: KeyboardKey) -> Xaml::VirtualKey {
     }
 }
 
-pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::GridLength> {
+pub(super) fn to_xaml_gridlength(v: GridLength) -> Result<Xaml::GridLength> {
     use Xaml::GridUnitType;
     match v {
         GridLength::Auto => Ok(Xaml::GridLength {
@@ -118,7 +119,7 @@ pub(super) fn to_xaml_gridlength(v: GridLength) -> windows_core::Result<Xaml::Gr
     }
 }
 
-pub(super) fn solid_brush(c: Color) -> windows_core::Result<Xaml::SolidColorBrush> {
+pub(super) fn solid_brush(c: Color) -> Result<Xaml::SolidColorBrush> {
     let brush = Xaml::SolidColorBrush::new()?;
     brush.put_Color(WinColor {
         A: c.a,
@@ -129,21 +130,19 @@ pub(super) fn solid_brush(c: Color) -> windows_core::Result<Xaml::SolidColorBrus
     Ok(brush)
 }
 
-pub(super) fn brush_of(v: &Brush) -> windows_core::Result<Xaml::SolidColorBrush> {
+pub(super) fn brush_of(v: &Brush) -> Result<Xaml::SolidColorBrush> {
     match v {
         Brush::Solid(c) => solid_brush(*c),
     }
 }
 
-pub(super) fn string_as_textblock(s: &str) -> windows_core::Result<Xaml::TextBlock> {
+pub(super) fn string_as_textblock(s: &str) -> Result<Xaml::TextBlock> {
     let tb = Xaml::TextBlock::new()?;
     tb.put_Text(s)?;
     Ok(tb)
 }
 
-pub(super) fn build_nav_view_item(
-    item: &NavViewItem,
-) -> windows_core::Result<windows_core::IInspectable> {
+pub(super) fn build_nav_view_item(item: &NavViewItem) -> Result<IInspectable> {
     if item.is_header {
         let h = Xaml::NavigationViewItemHeader::new()?;
         let tb = string_as_textblock(&item.content)?;
@@ -186,10 +185,7 @@ fn nav_item_tag(item: &Xaml::NavigationViewItem) -> Option<String> {
         .map(|s| s.to_string_lossy())
 }
 
-pub(super) fn select_nav_item_by_tag(
-    nv: &Xaml::NavigationView,
-    tag: &str,
-) -> windows_core::Result<()> {
+pub(super) fn select_nav_item_by_tag(nv: &Xaml::NavigationView, tag: &str) -> Result<()> {
     let menu = nv.get_MenuItems()?;
     let len = menu.Size()?;
 
@@ -199,7 +195,7 @@ pub(super) fn select_nav_item_by_tag(
             continue;
         };
         if nav_item_tag(&item).as_deref() == Some(tag) {
-            let inspectable: windows_core::IInspectable = item.cast()?;
+            let inspectable: IInspectable = item.cast()?;
             return nv.put_SelectedItem(&inspectable);
         }
         if let Ok(children) = item.cast::<Xaml::INavigationViewItem2>()?.get_MenuItems() {
@@ -212,7 +208,7 @@ pub(super) fn select_nav_item_by_tag(
                     continue;
                 };
                 if nav_item_tag(&child).as_deref() == Some(tag) {
-                    let inspectable: windows_core::IInspectable = child.cast()?;
+                    let inspectable: IInspectable = child.cast()?;
                     return nv.put_SelectedItem(&inspectable);
                 }
             }
@@ -222,9 +218,7 @@ pub(super) fn select_nav_item_by_tag(
 }
 
 /// Build a `MenuFlyoutItemBase` from a [`MenuItemDef`].
-pub(super) fn build_menu_flyout_item_base(
-    def: &MenuItemDef,
-) -> windows_core::Result<Xaml::MenuFlyoutItemBase> {
+pub(super) fn build_menu_flyout_item_base(def: &MenuItemDef) -> Result<Xaml::MenuFlyoutItemBase> {
     match def {
         MenuItemDef::Item { text } => {
             let item = Xaml::MenuFlyoutItem::new()?;
@@ -249,13 +243,12 @@ pub(super) fn build_menu_flyout_item_base(
 }
 
 /// Recursively build a `TreeViewNode` from a [`TreeNodeDef`].
-pub(super) fn build_tree_view_node(def: &TreeNodeDef) -> windows_core::Result<Xaml::TreeViewNode> {
+pub(super) fn build_tree_view_node(def: &TreeNodeDef) -> Result<Xaml::TreeViewNode> {
     let node = Xaml::TreeViewNode::new()?;
-    let content: windows_core::IInspectable =
-        windows_reference::IReference::<windows_core::HSTRING>::from(windows_core::HSTRING::from(
-            &def.text,
-        ))
-        .cast()?;
+    let content: IInspectable = windows_reference::IReference::<windows_core::HSTRING>::from(
+        windows_core::HSTRING::from(&def.text),
+    )
+    .cast()?;
     node.put_Content(&content)?;
     node.put_IsExpanded(def.is_expanded)?;
     if !def.children.is_empty() {
@@ -271,7 +264,7 @@ pub(super) fn build_tree_view_node(def: &TreeNodeDef) -> windows_core::Result<Xa
 /// Builds a WinUI `ICommandBarElement` from a [`CommandBarCommandDef`].
 pub(super) fn build_command_bar_element(
     def: &CommandBarCommandDef,
-) -> windows_core::Result<Xaml::ICommandBarElement> {
+) -> Result<Xaml::ICommandBarElement> {
     match def {
         CommandBarCommandDef::Button { label, icon } => {
             let btn = Xaml::AppBarButton::new()?;

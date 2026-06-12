@@ -18,7 +18,7 @@ pub(crate) fn unhandled_modifier(site: &str, prop: Prop, handle: &Handle) {
     }
 }
 
-pub(crate) fn com_error(site: &str, id: ControlId, err: &windows_core::Error) {
+pub(crate) fn com_error(site: &str, id: ControlId, err: &Error) {
     if cfg!(debug_assertions) {
         eprintln!("windows-reactor: {site} on {id}: {err:?}");
     }

@@ -4,8 +4,8 @@
 //! hooks to provide a batteries-included pattern for loading remote data
 //! and performing async writes.
 
-use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 use super::*;
 
