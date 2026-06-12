@@ -10,7 +10,7 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-default = []
+default = ["reactor"]
 reactor = ["windows-reactor"]
 
 [dependencies]

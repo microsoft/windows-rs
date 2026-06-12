@@ -7,7 +7,6 @@
     clippy::too_many_arguments
 )]
 mod bindings;
-
 mod bitmap;
 mod color;
 mod device;
@@ -21,20 +20,23 @@ mod swap_chain;
 mod text;
 mod types;
 
+use bindings::*;
+use device_lost::*;
+use std::cell::Cell;
+use std::os::windows::ffi::OsStrExt;
+use windows_core::*;
+
 pub use bitmap::Bitmap;
 pub use color::ColorF;
 pub use device::GpuDevice;
 pub use effect::Effect;
-pub use geometry::{Path, PathBuilder};
+pub use geometry::*;
 #[cfg(feature = "reactor")]
 pub use reactor::{DrawContext, animated_canvas};
 pub use session::DrawingSession;
 pub use swap_chain::SwapChain;
-pub use text::{FontWeight, ParagraphAlignment, TextAlignment, TextFormat};
-pub use types::{
-    Brush, CapStyle, DashStyle, Ellipse, GradientStop, LineJoin, LinearGradient, Paint,
-    RadialGradient, Rect, RoundedRect, StrokeStyle, StrokeStyleBuilder,
-};
+pub use text::*;
+pub use types::*;
 
-pub use windows_core::{Error, Result};
+pub use windows_core::Result;
 pub use windows_numerics::{Matrix3x2, Vector2};

@@ -1,9 +1,6 @@
-use crate::bindings::*;
-use windows_numerics::Vector2;
+use super::*;
 
-/// A completed path geometry, ready for drawing or filling.
-///
-/// Created via [`PathBuilder`] using the typestate pattern:
+/// A completed path geometry.
 ///
 /// ```ignore
 /// let path = PathBuilder::new(&device)?
@@ -12,8 +9,6 @@ use windows_numerics::Vector2;
 ///     .line_to(Vector2::new(50.0, 80.0))
 ///     .close()
 ///     .build()?;
-///
-/// session.fill_path(&path, &brush);
 /// ```
 #[derive(Clone)]
 pub struct Path {
@@ -21,7 +16,6 @@ pub struct Path {
 }
 
 impl Path {
-    /// Access the raw `ID2D1PathGeometry1`.
     pub fn raw(&self) -> &ID2D1PathGeometry1 {
         &self.raw
     }
@@ -29,40 +23,32 @@ impl Path {
 
 // -- Typestate markers --
 
-/// Builder state: no figure started yet. Can begin a new figure or build.
 pub struct Empty {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
 }
 
-/// Builder state: inside a figure. Must close or end before building.
 pub struct InFigure {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
 }
 
-/// Type-safe path builder using D2D geometry sinks.
-///
-/// The typestate pattern ensures:
-/// - You can't add segments without starting a figure
-/// - You can't build without closing all figures
-/// - You can't begin a figure while one is already open
+/// Type-safe path builder.
 ///
 /// ```ignore
 /// let path = PathBuilder::new(&device)?
-///     .begin(point)       // Empty → InFigure
-///     .line_to(point2)    // InFigure → InFigure
+///     .begin(point)
+///     .line_to(point2)
 ///     .bezier_to(c1, c2, end)
-///     .close()            // InFigure → Empty
-///     .build()?;          // Empty → Path
+///     .close()
+///     .build()?;
 /// ```
 pub struct PathBuilder<S> {
     state: S,
 }
 
 impl PathBuilder<Empty> {
-    /// Create a new path builder from a device's D2D factory.
-    pub fn new(device: &crate::GpuDevice) -> crate::Result<Self> {
+    pub fn new(device: &GpuDevice) -> Result<Self> {
         let geometry = unsafe { device.d2d_factory().CreatePathGeometry()? };
         let sink = unsafe { geometry.Open()? };
         Ok(Self {
@@ -70,7 +56,7 @@ impl PathBuilder<Empty> {
         })
     }
 
-    /// Begin a filled figure at the given start point.
+    /// Begin a filled figure.
     pub fn begin(self, start: Vector2) -> PathBuilder<InFigure> {
         unsafe {
             self.state.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED);
@@ -83,7 +69,7 @@ impl PathBuilder<Empty> {
         }
     }
 
-    /// Begin a hollow (stroke-only) figure at the given start point.
+    /// Begin a hollow (stroke-only) figure.
     pub fn begin_hollow(self, start: Vector2) -> PathBuilder<InFigure> {
         unsafe {
             self.state.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW);
@@ -96,8 +82,8 @@ impl PathBuilder<Empty> {
         }
     }
 
-    /// Finalize the path geometry. All figures must be closed before calling this.
-    pub fn build(self) -> crate::Result<Path> {
+    /// Finalize the path geometry.
+    pub fn build(self) -> Result<Path> {
         unsafe { self.state.sink.Close()? };
         Ok(Path {
             raw: self.state.geometry,
@@ -106,13 +92,11 @@ impl PathBuilder<Empty> {
 }
 
 impl PathBuilder<InFigure> {
-    /// Add a line segment to the given point.
     pub fn line_to(self, point: Vector2) -> Self {
         unsafe { self.state.sink.AddLine(point) };
         self
     }
 
-    /// Add a cubic bezier curve.
     pub fn bezier_to(self, control1: Vector2, control2: Vector2, end: Vector2) -> Self {
         let segment = D2D1_BEZIER_SEGMENT {
             point1: control1,
@@ -123,8 +107,7 @@ impl PathBuilder<InFigure> {
         self
     }
 
-    /// Close the current figure (connects back to start point) and return
-    /// to the `Empty` state for additional figures or building.
+    /// Close the current figure and connect back to the start point.
     pub fn close(self) -> PathBuilder<Empty> {
         unsafe { self.state.sink.EndFigure(D2D1_FIGURE_END_CLOSED) };
         PathBuilder {
@@ -135,7 +118,7 @@ impl PathBuilder<InFigure> {
         }
     }
 
-    /// End the current figure without closing (open-ended stroke).
+    /// End the current figure without closing.
     pub fn end_open(self) -> PathBuilder<Empty> {
         unsafe { self.state.sink.EndFigure(D2D1_FIGURE_END_OPEN) };
         PathBuilder {

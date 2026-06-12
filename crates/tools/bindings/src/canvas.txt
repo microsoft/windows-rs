@@ -86,3 +86,8 @@
     Windows.Win32.System.Com.CoCreateInstance
     Windows.Win32.System.Com.CLSCTX_INPROC_SERVER
     Windows.Win32.Foundation.GENERIC_READ
+    Windows.Win32.Foundation.D2DERR_RECREATE_TARGET
+    Windows.Win32.Graphics.Dxgi.DXGI_ERROR_DEVICE_REMOVED
+    Windows.Win32.Graphics.Dxgi.DXGI_ERROR_DEVICE_RESET
+    Windows.Win32.Graphics.Dxgi.DXGI_ERROR_DEVICE_HUNG
+    Windows.Win32.Graphics.Dxgi.DXGI_ERROR_DRIVER_INTERNAL_ERROR

@@ -344,7 +344,7 @@ impl WinUIBackend {
 /// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
     /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` — a `UIElementCollection` (IVector<UIElement>).
+    /// by `IPanel::Children` — a `UIElementCollection` (`IVector<UIElement>`).
     Panel(windows_collections::IVector<Xaml::UIElement>),
     /// Single-child container (Border, Viewbox) that uses `put_Child`.
     SingleChild(&'a Handle),
@@ -354,7 +354,7 @@ enum ContainerChildren<'a> {
     /// Single-child container that has a direct `put_Content` method but
     /// does not implement `IContentControl` (ScrollView, SplitView).
     DirectContent(&'a Handle),
-    /// IVector<IInspectable>-backed multi-child (TabView, Pivot).
+    /// `IVector<IInspectable>`-backed multi-child (TabView, Pivot).
     InspectableVector(windows_collections::IVector<windows_core::IInspectable>),
 }
 
