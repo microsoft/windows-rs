@@ -23,6 +23,7 @@ public_submodules! {
     custom,
     dispatcher,
     element,
+    element_ext,
     error_boundary,
     reconciler,
     render_context,

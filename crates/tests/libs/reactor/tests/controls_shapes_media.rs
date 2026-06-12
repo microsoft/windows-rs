@@ -1,11 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Brush, Color, Element};
-use windows_reactor::core::element::{
-    HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch,
-};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Brush, Color, Element};
+use windows_reactor::{ControlKind, Op, Prop, PropValue, RecordingBackend};
+use windows_reactor::{HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -289,9 +287,7 @@ fn hyperlink_mounts_with_label_and_uri() {
     assert!(saw_uri);
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()

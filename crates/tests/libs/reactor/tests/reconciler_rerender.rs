@@ -1,13 +1,13 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlId, Event, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::callback::Callback;
-use windows_reactor::core::element::ToggleSwitch;
-use windows_reactor::core::element::{
+use windows_reactor::Callback;
+use windows_reactor::Reconciler;
+use windows_reactor::ToggleSwitch;
+use windows_reactor::{
     Border, Button, CheckBox, Color, Element, Modifiers, Orientation, ScrollViewer, StackPanel,
     TextBlock, TextBox, Thickness,
 };
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::{ControlId, Event, Op, Prop, PropValue, RecordingBackend};
 
 fn noop_rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -63,7 +63,7 @@ fn kind_change_destroys_old_and_mounts_new() {
     assert!(matches!(
         ops[1],
         Op::Create {
-            kind: windows_reactor::core::backend::ControlKind::Button,
+            kind: windows_reactor::ControlKind::Button,
             ..
         }
     ));

@@ -1,22 +1,5 @@
+use super::*;
 use super::component_element::ComponentElement;
-
-// Re-exports for backward compatibility: the types below were previously
-// declared in this module and are now sourced from sibling modules
-// (`geometry`, `keyboard`, `modifiers`, `accessibility`, `widgets`). Both
-// `crate::core::element::X` and `crate::core::X` continue to resolve.
-pub use super::accessibility::{AccessibilityModifiers, HeadingLevel, LiveSetting};
-pub use super::geometry::{
-    Brush, Color, GridLength, HorizontalAlignment, ScrollBarVisibility, Thickness,
-    VerticalAlignment,
-};
-pub use super::keyboard::{KeyModifiers, KeyboardAccelerator, KeyboardKey};
-pub use super::modifiers::{AttachedProps, GridPlacement, Modifiers};
-pub use super::pointer::{PointerEventInfo, PointerHandlers};
-pub use super::tooltip::{Tooltip, TooltipContent, TooltipPlacement};
-// Widget structs and their support types now live under `core/widgets/`,
-// but the historical `crate::core::element::X` path is part of the
-// public API surface. Re-export them here.
-pub use super::widgets::*;
 
 /// Fragment-style element flattened into its parent's child list during
 /// reconciliation; only valid inside multi-child containers.

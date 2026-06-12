@@ -1,8 +1,8 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, Orientation, StackPanel, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock};
+use windows_reactor::{ControlKind, Op, Prop, PropValue, RecordingBackend};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -12,7 +12,7 @@ fn mount(
     el: Element,
 ) -> (
     Reconciler<RecordingBackend>,
-    Option<windows_reactor::core::backend::ControlId>,
+    Option<windows_reactor::ControlId>,
 ) {
     let mut r = Reconciler::new(RecordingBackend::new());
     let id = r.reconcile(None, &el, None, noop_request_rerender());
@@ -98,8 +98,7 @@ fn mounting_empty_returns_none_and_records_nothing() {
 
 #[test]
 fn mounting_border_appends_single_child() {
-    let border =
-        windows_reactor::core::element::Border::new(Element::TextBlock(TextBlock::new("inside")));
+    let border = windows_reactor::Border::new(Element::TextBlock(TextBlock::new("inside")));
     let (r, id) = mount(Element::Border(border));
     let id = id.unwrap();
 

@@ -1,13 +1,13 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::component::Component;
-use windows_reactor::core::dispatcher::{Dispatcher, DispatcherQueuePriority};
-use windows_reactor::core::element::{Element, StackPanel};
-use windows_reactor::core::render_context::{Dispatch, RenderCx};
-use windows_reactor::core::render_host::RenderHost;
-use windows_reactor::dsl::{ElementExt, button, check_box, text_block};
+use windows_reactor::Component;
+use windows_reactor::RenderHost;
+use windows_reactor::{Dispatch, RenderCx};
+use windows_reactor::{Dispatcher, DispatcherQueuePriority};
+use windows_reactor::{Element, StackPanel};
+use windows_reactor::{ElementExt, button, check_box, text_block};
+use windows_reactor::{Op, RecordingBackend};
 use windows_reactor::{hstack, vstack};
 
 #[derive(Clone, PartialEq, Debug)]
@@ -276,7 +276,7 @@ fn add_toggle_delete_via_host_preserves_keyed_identity() {
                 matches!(
                     o,
                     Op::Create {
-                        kind: windows_reactor::core::backend::ControlKind::CheckBox,
+                        kind: windows_reactor::ControlKind::CheckBox,
                         ..
                     }
                 )
@@ -293,7 +293,7 @@ fn add_toggle_delete_via_host_preserves_keyed_identity() {
                 .find_map(|o| match o {
                     Op::Create {
                         id,
-                        kind: windows_reactor::core::backend::ControlKind::CheckBox,
+                        kind: windows_reactor::ControlKind::CheckBox,
                     } => Some(*id),
                     _ => None,
                 })

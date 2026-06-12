@@ -1,7 +1,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{
+use windows_reactor::{
     Backend, ControlId, ControlKind, Event, EventHandler, Op, Prop, PropValue, RecordingBackend,
 };
 

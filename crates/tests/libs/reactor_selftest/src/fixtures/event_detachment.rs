@@ -5,9 +5,9 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::Slider;
-use windows_reactor::dsl::{button, check_box, text_block};
+use windows_reactor::Element;
+use windows_reactor::Slider;
+use windows_reactor::{button, check_box, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

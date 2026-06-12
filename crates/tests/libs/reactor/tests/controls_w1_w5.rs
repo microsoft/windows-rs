@@ -13,15 +13,13 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::ElementExt;
-use windows_reactor::core::backend::{
-    Backend, ControlKind, Event, Op, Prop, PropValue, RecordingBackend,
-};
-use windows_reactor::core::element::{
+use windows_reactor::Reconciler;
+use windows_reactor::{Backend, ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
+use windows_reactor::{
     Canvas, CanvasPosition, ComboBox, PasswordBox, PasswordRevealMode, RadioButtons,
 };
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::templated_list::{list_view, virtual_list};
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{list_view, virtual_list};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -29,9 +27,7 @@ fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     r
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()

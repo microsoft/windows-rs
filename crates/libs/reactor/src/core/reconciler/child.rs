@@ -540,7 +540,8 @@ mod tests {
     #[test]
     fn keyed_reorder_with_mixed_kinds_keeps_controls_aligned() {
         use crate::core::backend::{ControlKind, Op, PropValue, RecordingBackend};
-        use crate::core::element::{Button, Element, StackPanel, TextBlock};
+        use crate::core::element::Element;
+        use crate::core::widgets::{Button, StackPanel, TextBlock};
         use crate::core::reconciler::Reconciler;
         use std::rc::Rc;
 

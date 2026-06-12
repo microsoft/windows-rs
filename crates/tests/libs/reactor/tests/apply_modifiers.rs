@@ -1,10 +1,8 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{
-    Color, Element, HorizontalAlignment, Modifiers, TextBlock, Thickness,
-};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Color, Element, HorizontalAlignment, Modifiers, TextBlock, Thickness};
+use windows_reactor::{ControlKind, Op, Prop, PropValue, RecordingBackend};
 
 fn rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})

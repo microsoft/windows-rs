@@ -1,12 +1,12 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::{
+use windows_reactor::Element;
+use windows_reactor::Reconciler;
+use windows_reactor::{
     CheckBox, NumberBox, RadioButton, RatingControl, RepeatButton, RichEditBox, Slider, TextBox,
     ToggleButton, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -14,9 +14,7 @@ fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     r
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()
