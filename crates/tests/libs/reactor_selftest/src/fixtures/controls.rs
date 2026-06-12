@@ -13,6 +13,7 @@ use windows_reactor::dsl::{
 };
 
 use crate::bindings;
+use windows_core::Interface;
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -350,6 +351,45 @@ pub fn mount_templated_list_view(h: Harness) -> FixtureFuture {
     })
 }
 
+pub fn mount_reorderable_list_view(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_| {
+            list_view(vec![1i32, 2, 3], |n, _| text_block(format!("#{n}")))
+                .can_drag_items(true)
+                .can_reorder_items(true)
+                .allow_drop(true)
+                .height(120.0)
+                .build()
+        }));
+        h.render().await;
+        assert_present!(
+            h,
+            "Reconciler_Mount_ReorderableListView",
+            bindings::ListView
+        );
+
+        let lv = h.find_all::<bindings::ListView>(&|_| true);
+        let lv = lv.first().expect("ListView not found");
+        let lvb: bindings::IListViewBase = lv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_CanDragItems",
+            true,
+            lvb.get_CanDragItems().unwrap(),
+        );
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_CanReorderItems",
+            true,
+            lvb.get_CanReorderItems().unwrap(),
+        );
+        let ui: bindings::IUIElement = lv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_AllowDrop",
+            true,
+            ui.get_AllowDrop().unwrap(),
+        );
+    })
+}
+
 pub fn mount_templated_grid_view(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -359,6 +399,45 @@ pub fn mount_templated_grid_view(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
         assert_present!(h, "Reconciler_Mount_TemplatedGridView", bindings::GridView);
+    })
+}
+
+pub fn mount_reorderable_grid_view(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_| {
+            grid_view(vec![1i32, 2, 3], |n, _| text_block(format!("#{n}")))
+                .can_drag_items(true)
+                .can_reorder_items(true)
+                .allow_drop(true)
+                .height(120.0)
+                .build()
+        }));
+        h.render().await;
+        assert_present!(
+            h,
+            "Reconciler_Mount_ReorderableGridView",
+            bindings::GridView
+        );
+
+        let gv = h.find_all::<bindings::GridView>(&|_| true);
+        let gv = gv.first().expect("GridView not found");
+        let lvb: bindings::IListViewBase = gv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableGridView_CanDragItems",
+            true,
+            lvb.get_CanDragItems().unwrap(),
+        );
+        h.check_eq(
+            "Reconciler_Mount_ReorderableGridView_CanReorderItems",
+            true,
+            lvb.get_CanReorderItems().unwrap(),
+        );
+        let ui: bindings::IUIElement = gv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableGridView_AllowDrop",
+            true,
+            ui.get_AllowDrop().unwrap(),
+        );
     })
 }
 
