@@ -8,6 +8,5 @@ pub use backend::*;
 pub use dispatcher::*;
 pub use hooks::*;
 pub use host::*;
-pub(crate) use template_cache::*;
 
 use super::*;

@@ -21,6 +21,12 @@ pub(crate) mod templated_list;
 pub(crate) mod theme;
 pub(crate) mod widgets;
 
+pub(crate) mod generated_bindings;
+pub(crate) mod into_elements;
+pub(crate) mod prop_binding;
+pub(crate) mod rc_fn;
+pub(crate) mod widget;
+
 pub use animation::*;
 pub use backend::*;
 pub use callback::*;
@@ -33,7 +39,7 @@ pub use element::*;
 pub use element_ext::*;
 pub use error_boundary::*;
 pub use geometry::*;
-pub use into_elements::IntoElements;
+pub use into_elements::*;
 pub use keyboard::*;
 pub use modifiers::*;
 pub use reconciler::*;
@@ -44,12 +50,6 @@ pub use rich_text::*;
 pub use templated_list::*;
 pub use theme::*;
 pub use widgets::*;
-
-pub(crate) mod generated_bindings;
-pub(crate) mod into_elements;
-pub(crate) mod prop_binding;
-pub(crate) mod rc_fn;
-pub(crate) mod widget;
 
 pub(crate) use prop_binding::*;
 pub(crate) use widget::*;

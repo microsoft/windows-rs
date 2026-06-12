@@ -1,7 +1,7 @@
 use windows_reactor::Component;
 use windows_reactor::Element;
-use windows_reactor::error_boundary;
 use windows_reactor::RenderCx;
+use windows_reactor::error_boundary;
 use windows_reactor::{button, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
@@ -29,16 +29,13 @@ impl Component<ShouldThrow> for ConditionalThrow {
 pub fn catches_render_error(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
-            error_boundary(
-                windows_reactor::component(ThrowingComponent, ()),
-                |msg| {
-                    vstack((
-                        text_block("Error caught!"),
-                        text_block(format!("Message: {msg}")),
-                    ))
-                    .into()
-                },
-            )
+            error_boundary(windows_reactor::component(ThrowingComponent, ()), |msg| {
+                vstack((
+                    text_block("Error caught!"),
+                    text_block(format!("Message: {msg}")),
+                ))
+                .into()
+            })
         }));
         h.render().await;
 
@@ -59,10 +56,7 @@ pub fn recovery(h: Harness) -> FixtureFuture {
             let (should_throw, set) = cx.use_state(true);
             vstack((
                 error_boundary(
-                    windows_reactor::component(
-                        ConditionalThrow,
-                        ShouldThrow(should_throw),
-                    ),
+                    windows_reactor::component(ConditionalThrow, ShouldThrow(should_throw)),
                     |_msg| text_block("In error state").into(),
                 ),
                 button("Recover").on_click(move || set.call(false)),

@@ -88,10 +88,9 @@ where
 }
 
 /// Erased [`Component`]+props pair carried inside [`Element::Component`].
-#[doc(hidden)]
 pub struct ComponentElement {
     pub key: Option<String>,
-    pub memoised: bool,
+    pub(crate) memoised: bool,
     pub(crate) obj: Rc<dyn ComponentObject>,
 }
 
@@ -142,7 +141,7 @@ where
     })
 }
 
-/// Like [`component()`](crate::core::component_element::component()), but treat the component as memoised: the host
+/// Like [`component()`](crate::imp::component_element::component()), but treat the component as memoised: the host
 /// reuses the previous render output when props compare equal.
 pub fn memo<C, P>(component: C, props: P) -> Element
 where

@@ -1,12 +1,12 @@
 //! Extension hatch for downstream widgets that aren't part of the core
-//! [`Element`](crate::core::element::Element) enum. Leaf-only in step 1a.
+//! [`Element`](crate::imp::element::Element) enum. Leaf-only in step 1a.
 
 use super::*;
 
 use std::any::{Any, TypeId};
 
 /// Out-of-tree widget definition managed by the reconciler via
-/// [`Element::Custom`](crate::core::element::Element::Custom).
+/// [`Element::Custom`](crate::imp::element::Element::Custom).
 pub trait CustomElement: 'static {
     /// Standard `Any` accessor; the implementor's body is almost always `self`.
     fn as_any(&self) -> &dyn Any;
@@ -29,7 +29,7 @@ pub trait CustomElement: 'static {
     /// returning `false` is always safe but skips an `update` short-circuit.
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool;
 
-    /// Boxed clone so [`Element`](crate::core::element::Element) stays `Clone`.
+    /// Boxed clone so [`Element`](crate::imp::element::Element) stays `Clone`.
     fn clone_dyn(&self) -> Box<dyn CustomElement>;
 
     /// Create the underlying control via `backend` and return its id.

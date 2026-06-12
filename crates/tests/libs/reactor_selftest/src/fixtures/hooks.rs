@@ -9,8 +9,8 @@ use windows_reactor::Component;
 use windows_reactor::Context;
 use windows_reactor::Element;
 use windows_reactor::RenderCx;
-use windows_reactor::{ElementExt, button, text_block};
 use windows_reactor::vstack;
+use windows_reactor::{ElementExt, button, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -321,8 +321,7 @@ pub fn use_context_reads_provided(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             // Provide "dark" — consumer should see it
-            windows_reactor::component(ContextConsumer, ())
-                .provide(&THEME_CTX, "dark".to_string())
+            windows_reactor::component(ContextConsumer, ()).provide(&THEME_CTX, "dark".to_string())
         }));
         h.render().await;
         h.check(

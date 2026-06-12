@@ -1,12 +1,12 @@
 //! Mount fixtures for widgets not covered in `controls.rs`.
 
+use windows_reactor::text_block;
 use windows_reactor::{
     AutoSuggestBox, CalendarDatePicker, CalendarView, ColorArgb, ColorPicker, CommandBar,
     ContentDialog, DatePicker, DropDownButton, ListBox, MenuBar, MenuBarItemDef, RatingControl,
     RelativePanel, RepeatButton, RichEditBox, ScrollView, SelectorBar, SelectorBarItemDef,
     SplitButton, SplitView, TeachingTip, TimePicker, ToggleButton, TreeNodeDef, TreeView,
 };
-use windows_reactor::text_block;
 
 // Free-function constructors for enum variants
 use windows_reactor::{app_bar_button, menu_item};

@@ -4,8 +4,8 @@ use std::pin::Pin;
 use windows_core::Interface;
 
 use windows_reactor::Component;
-use windows_reactor::{Element, GridLength};
 use windows_reactor::RenderCx;
+use windows_reactor::{Element, GridLength};
 use windows_reactor::{ElementExt, button, grid, text_block};
 
 use crate::bindings::{Grid as XamlGrid, TextBlock};

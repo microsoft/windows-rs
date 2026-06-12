@@ -6,11 +6,11 @@ use windows_reactor::{
     TitleBar, ToggleSwitch, Viewbox,
 };
 use windows_reactor::{Color, GridLength};
-use windows_reactor::{RichText, RichTextInline, RichTextRun};
-use windows_reactor::{flip_view, grid_view, list_view, virtual_list};
 use windows_reactor::{
     ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
+use windows_reactor::{RichText, RichTextInline, RichTextRun};
+use windows_reactor::{flip_view, grid_view, list_view, virtual_list};
 
 use crate::bindings;
 use windows_core::Interface;

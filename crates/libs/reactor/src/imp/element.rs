@@ -7,7 +7,6 @@ use super::widgets::*;
 
 /// Fragment-style element flattened into its parent's child list during
 /// reconciliation; only valid inside multi-child containers.
-#[doc(hidden)]
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct GroupElement {
     pub key: Option<String>,
@@ -73,7 +72,7 @@ macro_rules! define_element {
         )*
 
         impl Element {
-            pub(crate) fn as_widget(&self) -> Option<&dyn crate::core::widget::Widget> {
+            pub(crate) fn as_widget(&self) -> Option<&dyn crate::imp::widget::Widget> {
                 Some(match self {
                     $( Element::$variant(v) => v, )*
                     Element::Component(_)

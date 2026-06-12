@@ -4,7 +4,6 @@ use std::rc::Rc;
 use std::time::Instant;
 
 /// Per-render telemetry exposed by [`RenderHost::stats`].
-#[doc(hidden)]
 #[derive(Copy, Clone, Debug, Default)]
 pub struct RenderStats {
     pub fps: f64,
@@ -20,7 +19,6 @@ pub struct RenderStats {
 
 /// Information passed to the [`RenderHost::set_render_complete`] callback
 /// after each reconcile pass completes.
-#[doc(hidden)]
 #[derive(Copy, Clone, Debug)]
 pub struct RenderCompleteInfo {
     pub tree_build_ms: f64,
@@ -117,7 +115,6 @@ impl StatsAccumulator {
 
 /// Owns a [`Reconciler`] and a root [`Component`], coalescing render
 /// requests onto the supplied [`Dispatcher`] (typically the UI thread).
-#[doc(hidden)]
 pub struct RenderHost<B: Backend, D: Dispatcher> {
     inner: Rc<RenderHostInner<B, D>>,
 }

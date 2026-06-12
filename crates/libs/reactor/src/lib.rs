@@ -10,8 +10,9 @@ mod app_shim;
 )]
 mod bindings;
 pub mod bootstrap;
-mod core;
 mod diagnostics;
+#[doc(hidden)]
+pub mod imp;
 mod winui;
 
 use windows_core::{Error, HRESULT, Interface};
@@ -20,5 +21,5 @@ pub use windows_core::Result;
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;
-pub use core::*;
+pub use imp::*;
 pub use winui::*;

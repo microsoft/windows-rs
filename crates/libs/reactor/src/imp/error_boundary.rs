@@ -15,12 +15,11 @@ impl Fallback {
 
 /// Subtree wrapper that catches panics from descendants and renders the
 /// `fallback` element instead. Carried by [`Element::ErrorBoundary`].
-#[doc(hidden)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct ErrorBoundaryElement {
-    pub key: Option<String>,
-    pub child: Box<Element>,
-    pub fallback: Fallback,
+    pub(crate) key: Option<String>,
+    pub(crate) child: Box<Element>,
+    pub(crate) fallback: Fallback,
 }
 
 /// Wrap `child` in an [`ErrorBoundaryElement`] using `fallback` for recovery.

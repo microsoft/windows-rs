@@ -310,8 +310,7 @@ impl Harness {
 
         let host_for_post = host.clone_inner();
         let content = inner.content_area.clone();
-        let last_attached: Rc<Cell<Option<windows_reactor::ControlId>>> =
-            Rc::new(Cell::new(None));
+        let last_attached: Rc<Cell<Option<windows_reactor::ControlId>>> = Rc::new(Cell::new(None));
         host.set_post_render(move |new_id| {
             if last_attached.get() == new_id {
                 return;

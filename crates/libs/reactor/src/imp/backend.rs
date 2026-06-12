@@ -526,7 +526,6 @@ pub trait Backend {
 }
 
 /// Recorded backend operation, used by [`RecordingBackend`] for tests.
-#[doc(hidden)]
 #[derive(Clone, Debug)]
 pub enum Op {
     Create {
@@ -664,7 +663,6 @@ pub enum Op {
 /// In-memory [`Backend`] that records every operation as an [`Op`] and
 /// can replay events back into the recorded handlers; used by the test
 /// suite as the deterministic counterpart to `WinUIBackend`.
-#[doc(hidden)]
 #[derive(Default)]
 pub struct RecordingBackend {
     pub ops: Vec<Op>,

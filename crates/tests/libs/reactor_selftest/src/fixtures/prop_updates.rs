@@ -4,8 +4,8 @@
 
 use windows_core::Interface;
 
-use windows_reactor::{ProgressBar, Slider};
 use windows_reactor::{ElementExt, button, text_block};
+use windows_reactor::{ProgressBar, Slider};
 
 use crate::bindings::{ProgressBar as XamlProgressBar, Slider as XamlSlider};
 
