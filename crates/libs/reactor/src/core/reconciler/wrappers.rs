@@ -163,13 +163,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         new: &ProviderElement,
         id: ControlId,
     ) -> Option<ControlId> {
-        let mut changed_ids: FxHashSet<ContextId> =
-            FxHashSet::default();
+        let mut changed_ids: FxHashSet<ContextId> = FxHashSet::default();
 
-        let mut old_by_id: FxHashMap<
-            ContextId,
-            &ContextProvision,
-        > = FxHashMap::default();
+        let mut old_by_id: FxHashMap<ContextId, &ContextProvision> = FxHashMap::default();
         for p in &old.provisions {
             old_by_id.insert(p.context_id, p);
         }
@@ -228,10 +224,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn mount_custom(
-        &mut self,
-        c: &CustomElementHandle,
-    ) -> ControlId {
+    pub(crate) fn mount_custom(&mut self, c: &CustomElementHandle) -> ControlId {
         self.debug_ui_elements_created += 1;
         let id = c.0.mount(&mut self.backend);
         self.custom_handles.insert(id, c.0.clone_dyn());

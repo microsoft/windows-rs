@@ -1,7 +1,13 @@
 # windows-reactor module simplification
 
-Plan for separating public API from internals. Working tree is on clean
-master — apply changes fresh from here.
+## End goal
+
+- `use windows_reactor::*` — all public API (DSL, hooks, widgets, types)
+- `use windows_reactor::imp::*` — test infrastructure only (Reconciler,
+  RecordingBackend, Op, RenderHost, test dispatchers)
+- Everything else is `pub(crate)` or private — no `#[doc(hidden)]` hacks
+- Module structure is flat and obvious: public items at root, internals
+  behind one `imp` module
 
 ## C# Reactor reference model
 
@@ -131,6 +137,12 @@ never by samples or gallery. Should move behind `imp`.
 - `winui/template_cache.rs` — entirely unused
 - `ContextStack::depth()` — only used in same-file tests
 
+### Future cleanup: `Option<Box<Vec/HashMap>>` anti-pattern
+Several fields in `Modifiers` and elsewhere use `Option<Box<Vec<T>>>` or
+`Option<Box<HashMap<K,V>>>` — the outer Box is unnecessary since Vec and
+HashMap are already heap-allocated. Review and simplify after the module
+restructure is complete.
+
 ## Nightly rustc MIR bug (constraint)
 
 Named re-exports from **private** top-level modules fail:
@@ -139,13 +151,20 @@ mod x;
 pub use x::SomeItem;     // ❌ missing optimized MIR downstream
 ```
 
-Glob re-exports work:
+Glob re-exports from private top-level modules ALSO fail:
 ```rust
 mod x;
+pub use x::*;            // ❌ also triggers MIR bug (discovered during refactor)
+```
+
+Workaround — `#[doc(hidden)] pub mod` avoids the bug entirely:
+```rust
+#[doc(hidden)]
+pub mod x;
 pub use x::*;            // ✅ works correctly
 ```
 
-`#[doc(hidden)] pub mod` avoids it entirely. Sub-modules unaffected.
+Sub-modules (`pub(crate) mod` inside a parent) are unaffected.
 See: https://github.com/rust-lang/rust/issues/135007
 
 ## Validated changes from exploratory session
@@ -197,10 +216,12 @@ pub use app::*;
 - [x] Delete dead code (template_cache.rs, ContextStack::depth())
 - [x] Merge small modules (window→geometry, pointer+accessibility+tooltip→modifiers)
 
-### Phase 2: Visibility tightening
-- [ ] Replace macros with plain `pub(crate) mod` declarations
-- [ ] Tighten internal types to `pub(crate)`
-- [ ] Make top-level modules private with glob re-exports
+### Phase 2: Visibility tightening ✅
+- [x] Replace macros with plain `pub(crate) mod` declarations
+- [x] All sub-modules in core/ and winui/ are `pub(crate) mod`
+- [x] core/mod.rs uses `pub use X::*` (for lib.rs glob), `pub(crate) use` for internal-only
+- [x] Top-level modules: `#[doc(hidden)] pub mod core/winui` (MIR bug prevents `mod`)
+- [x] lib.rs simplified to 3 glob re-exports: `pub use app/core/winui::*`
 
 ### Phase 3: Public/internal separation
 - [ ] Create `imp/` module for test infrastructure

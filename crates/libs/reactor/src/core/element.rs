@@ -1,5 +1,5 @@
-use super::*;
 use super::component_element::ComponentElement;
+use super::*;
 
 /// Fragment-style element flattened into its parent's child list during
 /// reconciliation; only valid inside multi-child containers.
@@ -404,8 +404,7 @@ impl Element {
             return a.kind == b.kind;
         }
         if let (Element::Custom(a), Element::Custom(b)) = (self, other) {
-            return CustomElement::type_id(&*a.0)
-                == CustomElement::type_id(&*b.0);
+            return CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0);
         }
         true
     }
@@ -420,8 +419,7 @@ impl Element {
                 a.obj.component_type_id() == b.obj.component_type_id()
             }
             (Element::Custom(a), Element::Custom(b)) => {
-                CustomElement::type_id(&*a.0)
-                    == CustomElement::type_id(&*b.0)
+                CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0)
             }
             _ => true,
         }

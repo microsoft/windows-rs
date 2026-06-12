@@ -1,57 +1,59 @@
-macro_rules! public_submodules {
-    ($($mod:ident),* $(,)?) => {
-        $( pub mod $mod; )*
-        $( #[allow(unused_imports)] pub use $mod::*; )*
-    };
-}
+#![allow(unused_imports)]
 
-macro_rules! internal_submodules {
-    ($($mod:ident),* $(,)?) => {
-        $( pub(crate) mod $mod; )*
-        $( #[allow(unused_imports)] pub(crate) use $mod::*; )*
-    };
-}
-
-// Modules exposed as `windows_reactor::core::X` for downstream use.
-public_submodules! {
-    animation,
-    backend,
-    callback,
-    component,
-    component_element,
-    context,
-    custom,
-    dispatcher,
-    element,
-    element_ext,
-    error_boundary,
-    reconciler,
-    render_context,
-    render_host,
-    rich_text,
-    templated_list,
-    theme,
-}
-
-// Modules whose types are re-exported at the crate root but whose module
-// paths are not part of the public API.
-internal_submodules! {
-    geometry,
-    keyboard,
-    modifiers,
-    resource,
-    widgets,
-}
-
-pub(crate) mod prop_binding;
-pub(crate) mod widget;
-#[allow(unused_imports)]
-pub(crate) use prop_binding::*;
-#[allow(unused_imports)]
-pub(crate) use widget::*;
-
+pub(crate) mod animation;
+pub(crate) mod backend;
+pub(crate) mod callback;
+pub(crate) mod component;
+pub(crate) mod component_element;
+pub(crate) mod context;
+pub(crate) mod custom;
+pub(crate) mod dispatcher;
+pub(crate) mod element;
+pub(crate) mod element_ext;
+pub(crate) mod error_boundary;
 pub(crate) mod generated_bindings;
-
+pub(crate) mod geometry;
 pub(crate) mod into_elements;
+pub(crate) mod keyboard;
+pub(crate) mod modifiers;
+pub(crate) mod prop_binding;
 pub(crate) mod rc_fn;
+pub(crate) mod reconciler;
+pub(crate) mod render_context;
+pub(crate) mod render_host;
+pub(crate) mod resource;
+pub(crate) mod rich_text;
+pub(crate) mod templated_list;
+pub(crate) mod theme;
+pub(crate) mod widget;
+pub(crate) mod widgets;
+
+// Make all pub items from sub-modules available within the crate as
+// `crate::core::X` — this is what `use super::*` resolves to inside
+// each sub-module. Uses `pub use` (not `pub(crate) use`) so that
+// `pub use core::*` in lib.rs can re-export them.
+pub use animation::*;
+pub use backend::*;
+pub use callback::*;
+pub use component::*;
+pub use component_element::*;
+pub use context::*;
+pub use custom::*;
+pub use dispatcher::*;
+pub use element::*;
+pub use element_ext::*;
+pub use error_boundary::*;
+pub use geometry::*;
 pub use into_elements::IntoElements;
+pub use keyboard::*;
+pub use modifiers::*;
+pub(crate) use prop_binding::*;
+pub use reconciler::*;
+pub use render_context::*;
+pub use render_host::*;
+pub use resource::*;
+pub use rich_text::*;
+pub use templated_list::*;
+pub use theme::*;
+pub(crate) use widget::*;
+pub use widgets::*;

@@ -141,8 +141,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         if old.allow_drop != new.allow_drop {
-            self.backend
-                .set_templated_allow_drop(id, new.allow_drop);
+            self.backend.set_templated_allow_drop(id, new.allow_drop);
         }
 
         let old_count = old.item_count();
@@ -175,10 +174,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn refresh_realized_rows(&mut self, id: ControlId, new: &TemplatedListElement) {
         let realized_indices: Vec<usize> = {
-            let state = self
-                .templated_lists
-                .get(&id)
-                .unwrap();
+            let state = self.templated_lists.get(&id).unwrap();
             state
                 .rows
                 .iter()
@@ -193,9 +189,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
             let (old_el, content_id) = {
                 let state = self.templated_lists.get(&id).unwrap();
-                let row = state.rows[row_idx]
-                    .as_ref()
-                    .unwrap();
+                let row = state.rows[row_idx].as_ref().unwrap();
                 (row.rendered.clone(), row.content_id)
             };
             let new_el = new.build_item_view(row_idx);
@@ -203,30 +197,33 @@ impl<B: Backend + 'static> Reconciler<B> {
             if can_skip_update(&old_el, &new_el) {
                 self.debug_elements_skipped += 1;
                 if let Some(state) = self.templated_lists.get_mut(&id)
-                    && let Some(Some(row)) = state.rows.get_mut(row_idx) {
-                        row.rendered = new_el;
-                    }
+                    && let Some(Some(row)) = state.rows.get_mut(row_idx)
+                {
+                    row.rendered = new_el;
+                }
                 continue;
             }
 
             let new_id = self.update(&old_el, &new_el, content_id);
             if let Some(nid) = new_id {
                 if let Some(state) = self.templated_lists.get_mut(&id)
-                    && let Some(slot) = state.rows.get_mut(row_idx) {
-                        *slot = Some(RealizedRow {
-                            rendered: new_el,
-                            content_id: nid,
-                        });
-                    }
+                    && let Some(slot) = state.rows.get_mut(row_idx)
+                {
+                    *slot = Some(RealizedRow {
+                        rendered: new_el,
+                        content_id: nid,
+                    });
+                }
                 if nid != content_id {
                     self.backend
                         .set_templated_row_content(id, row_idx, Some(nid));
                 }
             } else {
                 if let Some(state) = self.templated_lists.get_mut(&id)
-                    && let Some(slot) = state.rows.get_mut(row_idx) {
-                        *slot = None;
-                    }
+                    && let Some(slot) = state.rows.get_mut(row_idx)
+                {
+                    *slot = None;
+                }
                 self.backend.set_templated_row_content(id, row_idx, None);
             }
         }
