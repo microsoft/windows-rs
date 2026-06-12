@@ -42,7 +42,6 @@
 //! - The vtable `new::<Identity, OFFSET>()` constructor signature.
 //! - The `matches(iid)` helper used during `QueryInterface`.
 
-
 use syn::spanned::Spanned;
 
 mod generation;
