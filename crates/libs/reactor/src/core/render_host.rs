@@ -1,9 +1,7 @@
+use super::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::Instant;
-
-use super::dispatcher::set_ui_rerender;
-use super::*;
 
 /// Per-render telemetry exposed by [`RenderHost::stats`].
 #[doc(hidden)]

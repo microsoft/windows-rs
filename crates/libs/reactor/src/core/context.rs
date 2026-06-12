@@ -1,10 +1,9 @@
+use super::*;
 use std::any::{Any, TypeId};
 use std::rc::Rc;
 use std::sync::atomic::{AtomicU32, Ordering};
 
 use rustc_hash::FxHashMap;
-
-use super::element::Element;
 
 /// Process-wide unique identifier for a [`Context`] of any value type.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]

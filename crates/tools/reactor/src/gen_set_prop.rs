@@ -126,7 +126,6 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
 
     format_generated(quote! {
         use super::*;
-        use super::convert::string_as_textblock;
         use crate::bindings as Xaml;
 
         /// Try to handle a `set_prop` call via generated dispatch.
@@ -135,7 +134,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
             handle: &Handle,
             prop: Prop,
             value: &PropValue,
-        ) -> windows_core::Result<bool> {
+        ) -> Result<bool> {
             match (prop, value, handle) {
                 #(#all_arms)*
                 _ => return Ok(false),
