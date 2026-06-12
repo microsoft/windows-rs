@@ -72,14 +72,11 @@ impl bindings::IClass_Impl for Class_Impl {
         Ok(counter)
     }
 
-    fn Event(
-        &self,
-        handler: Ref<TypedEventHandler<bindings::Class, i32>>,
-    ) -> windows_core::Result<i64> {
+    fn Event(&self, handler: Ref<TypedEventHandler<bindings::Class, i32>>) -> Result<i64> {
         self.0.add(handler.unwrap())
     }
 
-    fn RemoveEvent(&self, token: i64) -> windows_core::Result<()> {
+    fn RemoveEvent(&self, token: i64) -> Result<()> {
         self.0.remove(token);
         Ok(())
     }
