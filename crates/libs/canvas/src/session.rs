@@ -343,7 +343,7 @@ impl Drop for DrawingSession<'_> {
         unsafe {
             let result = self.context.EndDraw(None, None);
             if let Err(e) = &result
-                && device_lost::is_device_lost(e.code())
+                && is_device_lost(e.code())
             {
                 self.device_lost_flag.set(true);
             }

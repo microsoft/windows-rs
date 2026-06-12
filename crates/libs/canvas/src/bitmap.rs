@@ -75,7 +75,7 @@ fn wic_factory() -> Result<IWICImagingFactory> {
             .ok()?;
             Type::from_abi(ptr)?
         };
-        
+
         Ok(cell.get_or_init(|| factory).clone())
     })
 }

@@ -1,6 +1,6 @@
 use super::*;
 
-pub(crate) fn is_device_lost(hr: HRESULT) -> bool {
+pub fn is_device_lost(hr: HRESULT) -> bool {
     matches!(
         hr,
         DXGI_ERROR_DEVICE_REMOVED
@@ -11,7 +11,7 @@ pub(crate) fn is_device_lost(hr: HRESULT) -> bool {
     )
 }
 
-pub(crate) fn check_device_lost<T>(result: &Result<T>) -> bool {
+pub fn check_device_lost<T>(result: &Result<T>) -> bool {
     match result {
         Ok(_) => false,
         Err(e) => is_device_lost(e.code()),

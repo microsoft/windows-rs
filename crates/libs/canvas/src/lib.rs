@@ -21,6 +21,7 @@ mod text;
 mod types;
 
 use bindings::*;
+use device_lost::*;
 use std::cell::Cell;
 use std::os::windows::ffi::OsStrExt;
 use windows_core::*;

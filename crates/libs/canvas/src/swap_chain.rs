@@ -121,7 +121,7 @@ impl SwapChain {
             return Ok(false);
         }
         let result = unsafe { self.swap_chain.Present(1, 0).ok() };
-        if device_lost::check_device_lost(&result) {
+        if check_device_lost(&result) {
             return Ok(false);
         }
         result.map(|()| true)
