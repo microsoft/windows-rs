@@ -1,21 +1,6 @@
-use std::cell::Cell;
-
-use crate::bindings::*;
-use crate::bitmap::Bitmap;
-use crate::color::ColorF;
-use crate::device_lost;
-use crate::effect::Effect;
-use crate::geometry::Path;
-use crate::text::TextFormat;
-use crate::types::{
-    Brush, Ellipse, GradientStop, LinearGradient, Paint, RadialGradient, Rect, RoundedRect,
-    StrokeStyle,
-};
-use windows_numerics::Vector2;
+use super::*;
 
 /// Safe wrapper over `ID2D1DeviceContext`.
-///
-/// Calls `BeginDraw` on creation and `EndDraw` on drop.
 pub struct DrawingSession<'a> {
     context: &'a ID2D1DeviceContext,
     device_lost_flag: &'a Cell<bool>,
@@ -25,7 +10,7 @@ impl<'a> DrawingSession<'a> {
     pub(crate) fn new(
         context: &'a ID2D1DeviceContext,
         device_lost_flag: &'a Cell<bool>,
-    ) -> windows_core::Result<Self> {
+    ) -> Result<Self> {
         unsafe { context.BeginDraw() };
         Ok(Self {
             context,
@@ -33,13 +18,11 @@ impl<'a> DrawingSession<'a> {
         })
     }
 
-    /// Clear the render target to the specified color.
     pub fn clear(&self, color: ColorF) {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
-    /// Draw a line between two points.
     pub fn draw_line(&self, p0: Vector2, p1: Vector2, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -47,7 +30,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a line with a stroke style.
     pub fn draw_line_styled(
         &self,
         p0: Vector2,
@@ -62,7 +44,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a rectangle outline.
     pub fn draw_rect(&self, rect: &Rect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -70,7 +51,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a rectangle outline with a stroke style.
     pub fn draw_rect_styled(
         &self,
         rect: &Rect,
@@ -84,7 +64,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fill a rectangle.
     pub fn fill_rect(&self, rect: &Rect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -92,7 +71,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a rounded rectangle outline.
     pub fn draw_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -100,7 +78,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a rounded rectangle outline with a stroke style.
     pub fn draw_rounded_rect_styled(
         &self,
         rect: &RoundedRect,
@@ -118,7 +95,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fill a rounded rectangle.
     pub fn fill_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -126,7 +102,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw an ellipse outline.
     pub fn draw_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -134,7 +109,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw an ellipse outline with a stroke style.
     pub fn draw_ellipse_styled(
         &self,
         ellipse: &Ellipse,
@@ -148,7 +122,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fill an ellipse.
     pub fn fill_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint) {
         unsafe {
             self.context
@@ -156,22 +129,18 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Create a solid color brush.
-    pub fn create_solid_brush(&self, color: ColorF) -> windows_core::Result<Brush> {
+    pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
-    /// Create a linear gradient brush.
-    ///
-    /// `start` and `end` define the gradient axis in local coordinates.
-    /// `stops` defines colors at positions 0.0–1.0 along the axis.
+    /// Stops define colors at positions 0.0–1.0 along the axis from `start` to `end`.
     pub fn create_linear_gradient(
         &self,
         start: Vector2,
         end: Vector2,
         stops: &[GradientStop],
-    ) -> windows_core::Result<LinearGradient> {
+    ) -> Result<LinearGradient> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
             let collection = self.context.CreateGradientStopCollection(
@@ -189,17 +158,14 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Create a radial gradient brush.
-    ///
-    /// `center` is the gradient center. `radius_x`/`radius_y` define the ellipse.
-    /// `stops` defines colors at positions 0.0 (center) to 1.0 (edge).
+    /// Stops define colors at positions 0.0 (center) to 1.0 (edge).
     pub fn create_radial_gradient(
         &self,
         center: Vector2,
         radius_x: f32,
         radius_y: f32,
         stops: &[GradientStop],
-    ) -> windows_core::Result<RadialGradient> {
+    ) -> Result<RadialGradient> {
         let abi_stops: Vec<D2D1_GRADIENT_STOP> = stops.iter().map(|s| s.to_abi()).collect();
         unsafe {
             let collection = self.context.CreateGradientStopCollection(
@@ -219,7 +185,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw text within a layout rectangle.
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
@@ -234,7 +199,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a path geometry outline.
     pub fn draw_path(&self, path: &Path, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -242,7 +206,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a path geometry outline with a stroke style.
     pub fn draw_path_styled(
         &self,
         path: &Path,
@@ -256,7 +219,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fill a path geometry.
     pub fn fill_path(&self, path: &Path, brush: &impl Paint) {
         unsafe {
             self.context
@@ -264,9 +226,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a bitmap at the specified destination rectangle.
-    ///
-    /// The bitmap is scaled to fill `dest`. Use `opacity` (0.0–1.0) to blend.
     pub fn draw_bitmap(&self, bitmap: &Bitmap, dest: &Rect, opacity: f32) {
         unsafe {
             self.context.DrawBitmap(
@@ -280,41 +239,33 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Load a bitmap from an image file (PNG, JPEG, BMP, etc.).
-    ///
-    /// Requires COM to be initialized. For best performance, load once
-    /// and reuse across frames.
-    pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> windows_core::Result<Bitmap> {
+    pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
 
-    /// Set the current transform matrix.
-    pub fn set_transform(&self, transform: &windows_numerics::Matrix3x2) {
+    pub fn set_transform(&self, transform: &Matrix3x2) {
         unsafe { self.context.SetTransform(transform) };
     }
 
-    /// Get the current transform matrix.
-    pub fn get_transform(&self) -> windows_numerics::Matrix3x2 {
-        let mut transform = windows_numerics::Matrix3x2::default();
+    pub fn get_transform(&self) -> Matrix3x2 {
+        let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
         transform
     }
 
-    /// Execute a closure with a temporary transform, then restore the previous one.
-    pub fn with_transform(&self, transform: &windows_numerics::Matrix3x2, f: impl FnOnce()) {
+    /// Apply a transform for the duration of the closure, then restore the previous one.
+    pub fn with_transform(&self, transform: &Matrix3x2, f: impl FnOnce()) {
         let prev = self.get_transform();
         self.set_transform(transform);
         f();
         self.set_transform(&prev);
     }
 
-    /// Access the raw D2D1 device context for advanced usage.
     pub fn raw(&self) -> &ID2D1DeviceContext {
         self.context
     }
 
-    /// Create a BGRA8 premultiplied bitmap render target matching the current target's size and DPI.
-    pub fn create_bitmap_target(&self) -> windows_core::Result<Bitmap> {
+    pub fn create_bitmap_target(&self) -> Result<Bitmap> {
         unsafe {
             let mut dpi_x = 0.0f32;
             let mut dpi_y = 0.0f32;
@@ -338,8 +289,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Create a drop shadow effect for a bitmap render target.
-    pub fn create_shadow(&self, source: &Bitmap) -> windows_core::Result<Effect> {
+    pub fn create_shadow(&self, source: &Bitmap) -> Result<Effect> {
         unsafe {
             let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
             effect.SetInput(0, &source.0, true);
@@ -347,9 +297,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Temporarily redirect drawing to a bitmap render target.
-    ///
-    /// Restores the previous target when the closure returns.
+    /// Redirect drawing to a bitmap target for the duration of the closure.
     pub fn with_target(&self, bitmap: &Bitmap, f: impl FnOnce()) {
         unsafe {
             let previous = self.context.GetTarget();
@@ -363,8 +311,6 @@ impl<'a> DrawingSession<'a> {
     }
 
     /// Draw a bitmap at its natural size at the current transform.
-    ///
-    /// Unlike [`draw_bitmap`](Self::draw_bitmap) which scales to a destination rect.
     pub fn draw_image(&self, bitmap: &Bitmap) {
         unsafe {
             self.context.DrawImage(
@@ -377,7 +323,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw an effect's output at the current transform.
     pub fn draw_effect(&self, effect: &Effect) {
         if let Ok(output) = unsafe { effect.0.GetOutput() } {
             unsafe {
