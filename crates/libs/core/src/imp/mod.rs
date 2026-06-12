@@ -4,6 +4,7 @@ include!("windows.rs");
 use alloc::boxed::Box;
 
 mod agile;
+#[allow(dead_code)]
 mod bindings;
 mod can_into;
 mod com_bindings;
