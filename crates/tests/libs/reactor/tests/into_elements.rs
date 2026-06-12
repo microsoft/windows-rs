@@ -78,9 +78,6 @@ fn macro_form_matches_function_form_with_explicit_into() {
     assert_eq!(by_macro.children.len(), by_hand.children.len());
 
     // And matches the explicit `Element::from` style the codebase uses today.
-    let by_hand_explicit =
-        windows_reactor::dsl::factories::vstack(
-            [text_block("a").into(), button("b").into()] as [Element; 2]
-        );
+    let by_hand_explicit = vstack([text_block("a").into(), button("b").into()] as [Element; 2]);
     assert_eq!(by_macro.children, by_hand_explicit.children);
 }

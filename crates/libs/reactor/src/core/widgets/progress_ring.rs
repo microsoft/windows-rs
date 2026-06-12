@@ -39,6 +39,6 @@ impl ProgressRing {
 impl Widget for ProgressRing {
     widget_header!(ControlKind::ProgressRing);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::progress_ring_bindings(self)
+        generated_bindings::progress_ring_bindings(self)
     }
 }

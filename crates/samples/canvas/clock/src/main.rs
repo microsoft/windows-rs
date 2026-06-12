@@ -6,13 +6,14 @@
 
 use std::time::Instant;
 use windows_animation::*;
+use windows_canvas::Brush;
 use windows_canvas::*;
 use windows_reactor::*;
 use windows_time::DateTime;
 
 struct Resources {
     style: StrokeStyle,
-    brush: windows_canvas::Brush,
+    brush: Brush,
     target: Bitmap,
     shadow: Effect,
 }
@@ -104,7 +105,7 @@ fn app(cx: &mut RenderCx) -> Element {
 
 fn draw_clock(
     ctx: &DrawContext,
-    brush: &windows_canvas::Brush,
+    brush: &Brush,
     style: &StrokeStyle,
     swing: f32,
     startup: &Startup,

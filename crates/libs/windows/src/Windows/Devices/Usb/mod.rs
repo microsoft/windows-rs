@@ -986,7 +986,7 @@ impl UsbDeviceClass {
         }
     }
     pub fn SetSubclassCode(&self, value: Option<u8>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u8> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u8> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSubclassCode)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ProtocolCode(&self) -> windows_core::Result<u8> {
@@ -996,7 +996,7 @@ impl UsbDeviceClass {
         }
     }
     pub fn SetProtocolCode(&self, value: Option<u8>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u8> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u8> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetProtocolCode)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

@@ -28,7 +28,7 @@ impl StackPanel {
 impl Widget for StackPanel {
     widget_header!(ControlKind::StackPanel);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::stack_panel_bindings(self)
+        generated_bindings::stack_panel_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Keyed(&self.children)
@@ -42,13 +42,13 @@ impl StackPanel {
     }
 }
 
-pub fn vstack(children: impl crate::core::into_elements::IntoElements) -> StackPanel {
+pub fn vstack(children: impl IntoElements) -> StackPanel {
     let mut s = StackPanel::vertical();
     s.children = children.into_elements();
     s
 }
 
-pub fn hstack(children: impl crate::core::into_elements::IntoElements) -> StackPanel {
+pub fn hstack(children: impl IntoElements) -> StackPanel {
     let mut s = StackPanel::horizontal();
     s.children = children.into_elements();
     s

@@ -50,7 +50,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             let trampoline = self.selection_callbacks.entry(id).or_default().clone();
             *trampoline.borrow_mut() = tl.raw_selection_callback();
             let trampoline_c = Rc::clone(&trampoline);
-            let cb = crate::core::callback::Callback::new(move |idx: i32| {
+            let cb = Callback::new(move |idx: i32| {
                 if let Some(inner) = trampoline_c.borrow().as_ref() {
                     inner.invoke(idx);
                 }

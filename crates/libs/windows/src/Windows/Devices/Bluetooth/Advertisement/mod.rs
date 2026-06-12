@@ -17,7 +17,7 @@ impl BluetoothLEAdvertisement {
         }
     }
     pub fn SetFlags(&self, value: Option<BluetoothLEAdvertisementFlags>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<BluetoothLEAdvertisementFlags> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<BluetoothLEAdvertisementFlags> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LocalName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -508,7 +508,7 @@ impl BluetoothLEAdvertisementPublisher {
     }
     pub fn SetPreferredTransmitPowerLevelInDBm(&self, value: Option<i16>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<i16> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i16> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn UseExtendedAdvertisement(&self) -> windows_core::Result<bool> {

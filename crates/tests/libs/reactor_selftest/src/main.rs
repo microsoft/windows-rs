@@ -25,8 +25,10 @@ mod fixtures;
 mod harness;
 mod registry;
 
+use crate::bindings::DispatcherQueue;
+
 fn main() -> Result<()> {
-    let _bootstrap = windows_reactor::bootstrap::initialize()?;
+    let _bootstrap = bootstrap::initialize()?;
     let args: Vec<String> = std::env::args().collect();
 
     if args.iter().any(|a| a == "--list-fixtures") {
@@ -72,7 +74,7 @@ fn run_self_test(filter: Option<String>, slow: bool, interactive: bool) -> Resul
             harness.setup_titlebar(fixtures.len())?;
             harness.activate()?;
 
-            let dispatcher = crate::bindings::DispatcherQueue::GetForCurrentThread()?;
+            let dispatcher = DispatcherQueue::GetForCurrentThread()?;
             exec::spawn_root(run_all(harness, fixtures, slow, interactive), dispatcher);
             Ok(())
         })

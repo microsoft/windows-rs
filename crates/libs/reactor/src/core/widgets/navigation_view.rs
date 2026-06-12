@@ -169,7 +169,7 @@ impl NavigationView {
 impl Widget for NavigationView {
     widget_header!(ControlKind::NavigationView);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::navigation_view_bindings(self);
+        let mut out = generated_bindings::navigation_view_bindings(self);
         out.push(Binding::Prop(
             Prop::MenuItems,
             PropValue::NavMenuItems(self.menu_items.clone()),

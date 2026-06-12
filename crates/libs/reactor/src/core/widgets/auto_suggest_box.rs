@@ -68,7 +68,7 @@ impl AutoSuggestBox {
 impl Widget for AutoSuggestBox {
     widget_header!(ControlKind::AutoSuggestBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::auto_suggest_box_bindings(self);
+        let mut out = generated_bindings::auto_suggest_box_bindings(self);
         out.push(Binding::Prop(Prop::Text, PropValue::Str(self.text.clone())));
         out.push(Binding::Prop(
             Prop::Items,

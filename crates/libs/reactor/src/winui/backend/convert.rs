@@ -4,10 +4,7 @@
 //! `winui/backend/mod.rs` for the dispatch tables and `Handle`-aware
 //! helpers.
 
-use windows_core::Interface;
-
-use crate::bindings as Xaml;
-use crate::core::*;
+use super::*;
 use Xaml::Color as WinColor;
 
 pub(super) fn to_xaml_thickness(t: Thickness) -> Xaml::Thickness {

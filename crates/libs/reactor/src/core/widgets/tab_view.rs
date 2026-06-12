@@ -82,7 +82,7 @@ impl TabItem {
 impl Widget for TabView {
     widget_header!(ControlKind::TabView);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::tab_view_bindings(self)
+        generated_bindings::tab_view_bindings(self)
     }
     fn children(&self) -> Children<'_> {
         Children::Tabs(&self.tabs)

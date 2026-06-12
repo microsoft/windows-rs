@@ -13428,8 +13428,7 @@ impl windows_core::RuntimeType for IOverlappedPresenter3 {
 }
 impl IOverlappedPresenter3 {
     pub fn put_PreferredMinimumHeight(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ =
-            value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe {
             (windows_core::Interface::vtable(self).put_PreferredMinimumHeight)(
                 windows_core::Interface::as_raw(self),
@@ -13439,8 +13438,7 @@ impl IOverlappedPresenter3 {
         }
     }
     pub fn put_PreferredMinimumWidth(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ =
-            value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe {
             (windows_core::Interface::vtable(self).put_PreferredMinimumWidth)(
                 windows_core::Interface::as_raw(self),
@@ -13450,8 +13448,7 @@ impl IOverlappedPresenter3 {
         }
     }
     pub fn put_PreferredMaximumWidth(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ =
-            value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe {
             (windows_core::Interface::vtable(self).put_PreferredMaximumWidth)(
                 windows_core::Interface::as_raw(self),
@@ -13461,8 +13458,7 @@ impl IOverlappedPresenter3 {
         }
     }
     pub fn put_PreferredMaximumHeight(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ =
-            value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe {
             (windows_core::Interface::vtable(self).put_PreferredMaximumHeight)(
                 windows_core::Interface::as_raw(self),
@@ -18345,8 +18341,7 @@ impl IToggleButton {
         }
     }
     pub fn put_IsChecked(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ =
-            value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe {
             (windows_core::Interface::vtable(self).put_IsChecked)(
                 windows_core::Interface::as_raw(self),

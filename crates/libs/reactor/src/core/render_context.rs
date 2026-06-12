@@ -93,7 +93,7 @@ impl<T> SetState<T> {
     }
 }
 
-impl<T: 'static> From<SetState<T>> for super::callback::Callback<T> {
+impl<T: 'static> From<SetState<T>> for Callback<T> {
     fn from(s: SetState<T>) -> Self {
         Self::from_rc(s.inner)
     }
@@ -127,7 +127,7 @@ impl<A> Dispatch<A> {
     }
 }
 
-impl<A: 'static> From<Dispatch<A>> for super::callback::Callback<A> {
+impl<A: 'static> From<Dispatch<A>> for Callback<A> {
     fn from(d: Dispatch<A>) -> Self {
         Self::from_rc(d.inner)
     }
@@ -509,8 +509,8 @@ impl RenderCx {
     /// Read the host's effective [`ColorScheme`] (Light / Dark) for the
     /// current render. Re-rendering on theme switches is driven by the
     /// host via `FrameworkElement::ActualThemeChanged`.
-    pub fn use_color_scheme(&self) -> super::theme::ColorScheme {
-        super::theme::current_color_scheme()
+    pub fn use_color_scheme(&self) -> ColorScheme {
+        current_color_scheme()
     }
 
     pub fn use_memo<T, D, F>(&mut self, deps: D, factory: F) -> T

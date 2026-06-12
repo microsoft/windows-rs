@@ -57,7 +57,7 @@ impl DatePicker {
 impl Widget for DatePicker {
     widget_header!(ControlKind::DatePicker);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::date_picker_bindings(self)
+        generated_bindings::date_picker_bindings(self)
     }
 }
 

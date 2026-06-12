@@ -1,11 +1,11 @@
-use std::cell::RefCell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use windows_reactor::core::backend::{Op, RecordingBackend};
 use windows_reactor::core::component::Component;
 use windows_reactor::core::dispatcher::{Dispatcher, DispatcherQueuePriority};
 use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::render_context::RenderCx;
+use windows_reactor::core::render_context::{RenderCx, SetState};
 use windows_reactor::core::render_host::RenderHost;
 
 type QueuedJob = (DispatcherQueuePriority, Box<dyn FnOnce()>);
@@ -42,7 +42,7 @@ impl Dispatcher for TestDispatcher {
 }
 
 struct EffectsAfterReconcile {
-    observed_ops: Rc<std::cell::Cell<usize>>,
+    observed_ops: Rc<Cell<usize>>,
 }
 
 impl Component for EffectsAfterReconcile {
@@ -62,7 +62,7 @@ impl Component for EffectsAfterReconcile {
 #[test]
 fn effect_runs_after_reconcile_ops_are_emitted() {
     let dispatcher = TestDispatcher::default();
-    let observed = Rc::new(std::cell::Cell::new(0_usize));
+    let observed = Rc::new(Cell::new(0_usize));
     let root: Box<dyn Component> = Box::new(EffectsAfterReconcile {
         observed_ops: Rc::clone(&observed),
     });
@@ -95,8 +95,8 @@ fn effect_runs_after_reconcile_ops_are_emitted() {
 }
 
 struct EffectWithStateDep {
-    log: Rc<std::cell::RefCell<Vec<i32>>>,
-    setter_out: Rc<RefCell<Option<windows_reactor::core::render_context::SetState<i32>>>>,
+    log: Rc<RefCell<Vec<i32>>>,
+    setter_out: Rc<RefCell<Option<SetState<i32>>>>,
 }
 
 impl Component for EffectWithStateDep {
@@ -117,7 +117,7 @@ impl Component for EffectWithStateDep {
 #[test]
 fn effect_deps_on_use_state_reruns_on_setter_change() {
     let dispatcher = TestDispatcher::default();
-    let log: Rc<std::cell::RefCell<Vec<i32>>> = Rc::new(std::cell::RefCell::new(Vec::new()));
+    let log: Rc<RefCell<Vec<i32>>> = Rc::new(RefCell::new(Vec::new()));
     let setter_out = Rc::new(RefCell::new(None));
     let root: Box<dyn Component> = Box::new(EffectWithStateDep {
         log: Rc::clone(&log),

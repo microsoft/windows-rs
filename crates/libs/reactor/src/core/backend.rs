@@ -454,7 +454,7 @@ pub trait Backend {
     fn set_templated_selection_mode(
         &mut self,
         _id: ControlId,
-        _mode: crate::core::templated_list::SelectionMode,
+        _mode: SelectionMode,
     ) {
     }
 
@@ -504,7 +504,7 @@ pub trait Backend {
     fn set_rich_text_paragraphs(
         &mut self,
         _id: ControlId,
-        _paragraphs: &[crate::core::rich_text::RichTextParagraph],
+        _paragraphs: &[RichTextParagraph],
     ) {
     }
 
@@ -539,7 +539,7 @@ pub trait Backend {
     fn set_pointer_handlers(
         &mut self,
         _id: ControlId,
-        _handlers: Option<&crate::core::pointer::PointerHandlers>,
+        _handlers: Option<&PointerHandlers>,
     ) {
     }
 
@@ -617,7 +617,7 @@ pub enum Op {
     },
     SetTemplatedSelectionMode {
         id: ControlId,
-        mode: crate::core::templated_list::SelectionMode,
+        mode: SelectionMode,
     },
     SetTemplatedCanDragItems {
         id: ControlId,
@@ -981,7 +981,7 @@ impl Backend for RecordingBackend {
     fn set_templated_selection_mode(
         &mut self,
         id: ControlId,
-        mode: crate::core::templated_list::SelectionMode,
+        mode: SelectionMode,
     ) {
         self.ops.push(Op::SetTemplatedSelectionMode { id, mode });
     }
@@ -1072,7 +1072,7 @@ impl Backend for RecordingBackend {
     fn set_rich_text_paragraphs(
         &mut self,
         id: ControlId,
-        paragraphs: &[crate::core::rich_text::RichTextParagraph],
+        paragraphs: &[RichTextParagraph],
     ) {
         self.ops.push(Op::SetRichTextParagraphs {
             id,
@@ -1102,7 +1102,7 @@ impl Backend for RecordingBackend {
         });
     }
 
-    fn set_tooltip(&mut self, id: ControlId, tooltip: Option<&crate::core::tooltip::Tooltip>) {
+    fn set_tooltip(&mut self, id: ControlId, tooltip: Option<&Tooltip>) {
         self.ops.push(Op::SetTooltip {
             id,
             tooltip: tooltip.cloned(),

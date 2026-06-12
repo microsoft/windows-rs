@@ -942,7 +942,7 @@ impl DisplayPath {
     }
     #[cfg(feature = "Graphics")]
     pub fn SetSourceResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSourceResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
@@ -974,7 +974,7 @@ impl DisplayPath {
     }
     #[cfg(feature = "Graphics")]
     pub fn SetTargetResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetTargetResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -986,7 +986,7 @@ impl DisplayPath {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPresentationRate(&self, value: Option<DisplayPresentationRate>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetPresentationRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsInterlaced(&self) -> windows_core::Result<bool> {
@@ -996,7 +996,7 @@ impl DisplayPath {
         }
     }
     pub fn SetIsInterlaced(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetIsInterlaced)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WireFormat(&self) -> windows_core::Result<DisplayWireFormat> {
@@ -1058,7 +1058,7 @@ impl DisplayPath {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPhysicalPresentationRate(&self, value: Option<DisplayPresentationRate>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -1937,7 +1937,7 @@ impl DisplayView {
     }
     #[cfg(feature = "Graphics")]
     pub fn SetContentResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetContentResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SetPrimaryPath<P0>(&self, path: P0) -> windows_core::Result<()>

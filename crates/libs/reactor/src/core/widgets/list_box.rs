@@ -55,7 +55,7 @@ impl ListBox {
 impl Widget for ListBox {
     widget_header!(ControlKind::ListBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::list_box_bindings(self);
+        let mut out = generated_bindings::list_box_bindings(self);
         out.push(Binding::Prop(
             Prop::Items,
             PropValue::StrList(self.items.clone()),

@@ -1,6 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
+use std::sync::RwLock;
 use windows::{Win32::Foundation::*, Win32::System::Com::*, core::*};
 
 /// A custom declaration of implementation of `IUri`
@@ -29,7 +30,7 @@ unsafe trait ICustomUri: IUnknown {
 
 /// A custom declaration of implementation of `IPersist`
 #[interface("0000010c-0000-0000-C000-000000000046")]
-unsafe trait ICustomPersist: windows::core::IUnknown {
+unsafe trait ICustomPersist: IUnknown {
     unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT;
 }
 
@@ -46,11 +47,11 @@ unsafe trait ICustomPersistMemory: ICustomPersist {
 /// A custom in-memory store
 #[implement(ICustomPersistMemory, ICustomPersist)]
 #[derive(Default)]
-struct Persist(std::sync::RwLock<PersistState>);
+struct Persist(RwLock<PersistState>);
 
 impl Persist {
     fn new() -> Self {
-        Self(std::sync::RwLock::new(PersistState::default()))
+        Self(RwLock::new(PersistState::default()))
     }
 }
 
@@ -120,7 +121,7 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
 }
 
 #[test]
-fn test_custom_interface() -> windows::core::Result<()> {
+fn test_custom_interface() -> Result<()> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
         let a: IUri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;

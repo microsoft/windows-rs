@@ -53,17 +53,17 @@ fn test() {
 #[test]
 #[cfg(target_arch = "aarch64")]
 fn test_arch() {
-    assert_eq!(core::mem::size_of::<OVERLAPPED>(), 32);
+    assert_eq!(size_of::<OVERLAPPED>(), 32);
 }
 
 #[test]
 #[cfg(target_arch = "x86_64")]
 fn test_arch() {
-    assert_eq!(core::mem::size_of::<OVERLAPPED>(), 32);
+    assert_eq!(size_of::<OVERLAPPED>(), 32);
 }
 
 #[test]
 #[cfg(target_arch = "x86")]
 fn test_arch() {
-    assert_eq!(core::mem::size_of::<OVERLAPPED>(), 20);
+    assert_eq!(size_of::<OVERLAPPED>(), 20);
 }

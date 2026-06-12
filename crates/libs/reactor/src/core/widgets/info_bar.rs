@@ -76,6 +76,6 @@ impl InfoBar {
 impl Widget for InfoBar {
     widget_header!(ControlKind::InfoBar);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::info_bar_bindings(self)
+        generated_bindings::info_bar_bindings(self)
     }
 }

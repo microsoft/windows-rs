@@ -72,7 +72,7 @@ impl ColorPicker {
 impl Widget for ColorPicker {
     widget_header!(ControlKind::ColorPicker);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::color_picker_bindings(self);
+        let mut out = generated_bindings::color_picker_bindings(self);
         // ColorValue is a compound ARGB type not expressible in TOML.
         out.push(Binding::Prop(
             Prop::ColorValue,

@@ -1302,7 +1302,7 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetInputState(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn OutputState(&self) -> windows_core::Result<u32> {
@@ -1314,7 +1314,7 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetOutputState(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetOutputState)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn AllowWhenCryptogramGeneratorNotPrepared(&self) -> windows_core::Result<bool> {
@@ -2561,7 +2561,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
-        let nextstate__ = nextstate.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let nextstate__ = nextstate.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRespondWithStateAsync)(windows_core::Interface::as_raw(this), responseapdu.param().abi(), windows_core::Param::param(nextstate__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2586,7 +2586,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
-        let nextstate__ = nextstate.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let nextstate__ = nextstate.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(windows_core::Interface::as_raw(this), responsetemplate.param().abi(), cryptogramplacementsteps.param().abi(), windows_core::Param::param(nextstate__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

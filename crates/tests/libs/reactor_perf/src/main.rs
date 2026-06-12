@@ -549,7 +549,7 @@ impl PerfTracker {
 fn working_set_bytes() -> u64 {
     unsafe {
         let mut counters = PROCESS_MEMORY_COUNTERS::default();
-        let size = std::mem::size_of::<PROCESS_MEMORY_COUNTERS>() as u32;
+        let size = size_of::<PROCESS_MEMORY_COUNTERS>() as u32;
         if GetProcessMemoryInfo(GetCurrentProcess(), &mut counters, size).is_ok() {
             counters.WorkingSetSize as u64
         } else {
@@ -704,8 +704,8 @@ impl Component for StockGridApp {
         if !*phases_installed.borrow() {
             phases_installed.set(true);
             let state_for_phases = state.clone();
-            windows_reactor::with_active_host(|host| {
-                host.set_render_complete(move |info: &windows_reactor::RenderCompleteInfo| {
+            with_active_host(|host| {
+                host.set_render_complete(move |info: &RenderCompleteInfo| {
                     let mut s = state_for_phases.borrow_mut();
                     if s.pending_phases.get() {
                         s.pending_phases.set(false);
@@ -776,20 +776,19 @@ impl Component for StockGridApp {
 
         let header = hstack((
             button(if running { "Stop" } else { "Start" }).on_click(toggle_running),
-            text_block("Update %:")
-                .vertical_alignment(windows_reactor::core::element::VerticalAlignment::Center),
+            text_block("Update %:").vertical_alignment(VerticalAlignment::Center),
             Slider::new(percent)
                 .range(0.0, 100.0)
                 .on_value_changed(move |v| set_percent.call(v))
                 .width(200.0),
             text_block(fps_lbl)
-                .vertical_alignment(windows_reactor::core::element::VerticalAlignment::Center)
+                .vertical_alignment(VerticalAlignment::Center)
                 .width(100.0),
             text_block(upd_lbl)
-                .vertical_alignment(windows_reactor::core::element::VerticalAlignment::Center)
+                .vertical_alignment(VerticalAlignment::Center)
                 .width(120.0),
             text_block(mem_lbl)
-                .vertical_alignment(windows_reactor::core::element::VerticalAlignment::Center)
+                .vertical_alignment(VerticalAlignment::Center)
                 .width(120.0),
         ))
         .spacing(12.0)
@@ -831,7 +830,7 @@ fn build_all_cells(data: &[StockItem]) -> Vec<Element> {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap = windows_reactor::bootstrap::initialize()?;
+    let _bootstrap = bootstrap::initialize()?;
     let cli = parse_cli();
     let _ = CLI.set(cli);
     App::new()

@@ -68,9 +68,9 @@ fn border_wraps_child() {
 
 #[test]
 fn nested_stacks_compose() {
-    let tree = windows_reactor::vstack((
+    let tree = vstack((
         text_block("Hello").bold().font_size(28.0),
-        windows_reactor::hstack((button("-"), button("+"))).spacing(8.0),
+        hstack((button("-"), button("+"))).spacing(8.0),
     ));
     assert_eq!(tree.children.len(), 2);
     match &tree.children[1] {

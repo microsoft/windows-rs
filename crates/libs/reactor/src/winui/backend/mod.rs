@@ -146,7 +146,7 @@ pub struct WinUIBackend {
     command_bar_flyout_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     /// Registry of theme brush bindings per control, so they can be
     /// re-resolved when the app theme changes (dark ↔ light).
-    theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, crate::core::theme::ThemeRef)>>>,
+    theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>>,
     next_id: RefCell<u32>,
 }
 
@@ -344,7 +344,7 @@ impl WinUIBackend {
 /// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
     /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` — a `UIElementCollection` (IVector<UIElement>).
+    /// by `IPanel::Children` — a `UIElementCollection` (`IVector<UIElement>`).
     Panel(windows_collections::IVector<Xaml::UIElement>),
     /// Single-child container (Border, Viewbox) that uses `put_Child`.
     SingleChild(&'a Handle),
@@ -354,7 +354,7 @@ enum ContainerChildren<'a> {
     /// Single-child container that has a direct `put_Content` method but
     /// does not implement `IContentControl` (ScrollView, SplitView).
     DirectContent(&'a Handle),
-    /// IVector<IInspectable>-backed multi-child (TabView, Pivot).
+    /// `IVector<IInspectable>`-backed multi-child (TabView, Pivot).
     InspectableVector(windows_collections::IVector<windows_core::IInspectable>),
 }
 
@@ -516,7 +516,7 @@ fn put_direct_content(h: &Handle, child: Option<&Xaml::UIElement>) {
 
 /// Build and apply a XAML Style with {ThemeResource} setters to an element.
 /// WinUI handles theme-reactive resolution natively (Light ↔ Dark).
-fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, crate::core::theme::ThemeRef)]) {
+fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     let Some((target_type, fe)) = style_target_for_handle(handle) else {
         return;
     };
@@ -581,9 +581,9 @@ fn anim_duration_to_timespan(d: std::time::Duration) -> windows_time::TimeSpan {
 
 fn easing_for(
     compositor: &Xaml::ICompositor,
-    easing: crate::core::animation::Easing,
+    easing: Easing,
 ) -> windows_core::Result<Xaml::CompositionEasingFunction> {
-    use crate::core::animation::Easing;
+    use Easing;
     // Control points match the CSS-standard ease-{out,in,in-out} curves.
     let (p1, p2) = match easing {
         Easing::Linear => {
@@ -609,9 +609,9 @@ fn easing_for(
 
 fn apply_implicit_transitions(
     ui: &Xaml::UIElement,
-    transitions: Option<crate::core::animation::ImplicitTransitions>,
+    transitions: Option<ImplicitTransitions>,
 ) -> windows_core::Result<()> {
-    use crate::core::animation::Easing;
+    use Easing;
     let visual = Xaml::ElementCompositionPreview::GetElementVisual(ui)?;
     let obj2 = visual.cast::<Xaml::ICompositionObject2>()?;
     // No transitions, or every slot empty: clear the implicit-animation collection.
@@ -680,7 +680,7 @@ fn apply_implicit_transitions(
 
 fn run_property_animation_inner(
     ui: &Xaml::UIElement,
-    cfg: crate::core::animation::AnimationConfig,
+    cfg: AnimationConfig,
 ) -> windows_core::Result<()> {
     let visual = Xaml::ElementCompositionPreview::GetElementVisual(ui)?;
     let visual_obj = visual.cast::<Xaml::ICompositionObject>()?;
@@ -828,25 +828,25 @@ fn try_universal_prop(
         (Prop::HorizontalAlignment, PropValue::I32(v)) => {
             handle
                 .as_framework_element()
-                .put_HorizontalAlignment(Xaml::HorizontalAlignment(*v))?;
+                .put_HorizontalAlignment(HorizontalAlignment(*v))?;
             Ok(true)
         }
         (Prop::HorizontalAlignment, PropValue::Unset) => {
             handle
                 .as_framework_element()
-                .put_HorizontalAlignment(Xaml::HorizontalAlignment::Stretch)?;
+                .put_HorizontalAlignment(HorizontalAlignment::Stretch)?;
             Ok(true)
         }
         (Prop::VerticalAlignment, PropValue::I32(v)) => {
             handle
                 .as_framework_element()
-                .put_VerticalAlignment(Xaml::VerticalAlignment(*v))?;
+                .put_VerticalAlignment(VerticalAlignment(*v))?;
             Ok(true)
         }
         (Prop::VerticalAlignment, PropValue::Unset) => {
             handle
                 .as_framework_element()
-                .put_VerticalAlignment(Xaml::VerticalAlignment::Stretch)?;
+                .put_VerticalAlignment(VerticalAlignment::Stretch)?;
             Ok(true)
         }
         (Prop::Opacity, PropValue::F64(v)) => {
@@ -1106,7 +1106,7 @@ impl Backend for WinUIBackend {
                     tb.put_IsTextSelectionEnabled(false)
                 }
                 (Prop::TextWrappingWrap, PropValue::I32(v), Handle::RichTextBlock(tb)) => {
-                    tb.put_TextWrapping(Xaml::TextWrapping(*v))
+                    tb.put_TextWrapping(TextWrapping(*v))
                 }
                 (Prop::Content, PropValue::Str(s), Handle::Button(b)) => {
                     let cc = b.cast::<Xaml::IContentControl>()?;
@@ -1127,7 +1127,7 @@ impl Backend for WinUIBackend {
                     cc.put_Content(&tb)
                 }
                 (Prop::Icon, PropValue::I32(v), Handle::Button(b)) => {
-                    let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(Xaml::Symbol(*v))?;
+                    let icon_elem = Xaml::SymbolIcon::CreateInstanceWithSymbol(Symbol(*v))?;
                     let cc = b.cast::<Xaml::IContentControl>()?;
                     // If the button already has an icon+text StackPanel layout,
                     // replace just the icon child (index 0) to preserve the text.
@@ -1155,7 +1155,7 @@ impl Backend for WinUIBackend {
                         cc.put_Content(&icon_elem)
                     } else {
                         let panel = Xaml::StackPanel::new()?;
-                        panel.put_Orientation(Xaml::Orientation::Horizontal)?;
+                        panel.put_Orientation(Orientation::Horizontal)?;
                         panel.put_Spacing(8.0)?;
                         let children = panel.cast::<Xaml::IPanel>()?.get_Children()?;
                         children.Append(&icon_elem.cast::<Xaml::UIElement>()?)?;
@@ -1403,7 +1403,7 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 (Prop::Tall, PropValue::Bool(v), Handle::TitleBar(_)) => {
-                    super::host::set_titlebar_height(*v);
+                    set_titlebar_height(*v);
                     Ok(())
                 }
                 (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::NavigationView(nv)) => {
@@ -1665,7 +1665,7 @@ impl Backend for WinUIBackend {
                     if let Ok(fb) = b.get_Flyout() {
                         let _ = fb
                             .cast::<Xaml::IFlyoutBase>()?
-                            .put_Placement(Xaml::FlyoutPlacementMode(*v));
+                            .put_Placement(FlyoutPlacementMode(*v));
                     }
                     Ok(())
                 }
@@ -1873,11 +1873,7 @@ impl Backend for WinUIBackend {
         let _ = selector.put_SelectedIndex(index);
     }
 
-    fn set_templated_selection_mode(
-        &mut self,
-        id: ControlId,
-        mode: crate::core::templated_list::SelectionMode,
-    ) {
+    fn set_templated_selection_mode(&mut self, id: ControlId, mode: SelectionMode) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else { return };
         let lvb: Xaml::IListViewBase = match handle {
@@ -1886,7 +1882,7 @@ impl Backend for WinUIBackend {
             // FlipView doesn't support SelectionMode.
             _ => return,
         };
-        use crate::core::templated_list::SelectionMode;
+        use SelectionMode;
         let winui_mode = match mode {
             SelectionMode::None => Xaml::ListViewSelectionMode::None,
             SelectionMode::Single => Xaml::ListViewSelectionMode::Single,
@@ -2017,11 +2013,7 @@ impl Backend for WinUIBackend {
             }
         }
     }
-    fn attach_templated_selection_changed(
-        &mut self,
-        id: ControlId,
-        handler: crate::core::callback::Callback<i32>,
-    ) {
+    fn attach_templated_selection_changed(&mut self, id: ControlId, handler: Callback<i32>) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else { return };
 
@@ -2499,7 +2491,7 @@ impl Backend for WinUIBackend {
         &mut self,
         id: ControlId,
         kind: ControlKind,
-        bindings: &[(Prop, crate::core::theme::ThemeRef)],
+        bindings: &[(Prop, ThemeRef)],
     ) {
         let _ = kind;
         // Store bindings for theme-change re-resolution.
@@ -2625,7 +2617,7 @@ impl Backend for WinUIBackend {
     fn set_implicit_transitions(
         &mut self,
         id: ControlId,
-        transitions: Option<crate::core::animation::ImplicitTransitions>,
+        transitions: Option<ImplicitTransitions>,
     ) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else {
@@ -2638,19 +2630,11 @@ impl Backend for WinUIBackend {
             eprintln!("windows-reactor: set_implicit_transitions failed: {e:?}");
         }
     }
-    fn set_layout_animation(
-        &mut self,
-        _id: ControlId,
-        _config: Option<crate::core::animation::LayoutAnimationConfig>,
-    ) {
+    fn set_layout_animation(&mut self, _id: ControlId, _config: Option<LayoutAnimationConfig>) {
         // Layout-driven size/offset animations are not yet wired up
         // (requires SetIsTranslationEnabled + Translation channel).
     }
-    fn run_property_animation(
-        &mut self,
-        id: ControlId,
-        config: Option<crate::core::animation::AnimationConfig>,
-    ) {
+    fn run_property_animation(&mut self, id: ControlId, config: Option<AnimationConfig>) {
         let Some(cfg) = config else {
             return;
         };
@@ -2665,11 +2649,7 @@ impl Backend for WinUIBackend {
             eprintln!("windows-reactor: run_property_animation failed: {e:?}");
         }
     }
-    fn set_rich_text_paragraphs(
-        &mut self,
-        id: ControlId,
-        paragraphs: &[crate::core::rich_text::RichTextParagraph],
-    ) {
+    fn set_rich_text_paragraphs(&mut self, id: ControlId, paragraphs: &[RichTextParagraph]) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else {
             return;
@@ -2688,7 +2668,7 @@ impl Backend for WinUIBackend {
             };
             for inline in &para_def.inlines {
                 match inline {
-                    crate::core::rich_text::RichTextInline::Run(r) => {
+                    RichTextInline::Run(r) => {
                         let Ok(run) = Xaml::Run::new() else { continue };
                         let _ = run.put_Text(&r.text);
                         if r.is_bold {
@@ -2698,13 +2678,13 @@ impl Backend for WinUIBackend {
                         }
                         let _ = run.cast::<Xaml::Inline>().and_then(|i| inlines.Append(&i));
                     }
-                    crate::core::rich_text::RichTextInline::LineBreak => {
+                    RichTextInline::LineBreak => {
                         // LineBreak inline — use a Run with newline.
                         let Ok(run) = Xaml::Run::new() else { continue };
                         let _ = run.put_Text("\n");
                         let _ = run.cast::<Xaml::Inline>().and_then(|i| inlines.Append(&i));
                     }
-                    crate::core::rich_text::RichTextInline::Hyperlink(h) => {
+                    RichTextInline::Hyperlink(h) => {
                         // Hyperlink rendered as plain text (no navigation support yet).
                         let Ok(run) = Xaml::Run::new() else { continue };
                         let _ = run.put_Text(&h.text);
@@ -2716,7 +2696,7 @@ impl Backend for WinUIBackend {
         }
     }
 
-    fn set_tooltip(&mut self, id: ControlId, tooltip: Option<&crate::core::tooltip::Tooltip>) {
+    fn set_tooltip(&mut self, id: ControlId, tooltip: Option<&Tooltip>) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else {
             return;
@@ -2732,11 +2712,11 @@ impl Backend for WinUIBackend {
         let inspectable: Option<windows_core::IInspectable> = match tooltip {
             None => None,
             Some(t) => match &t.content {
-                crate::core::tooltip::TooltipContent::Text(s) => {
+                TooltipContent::Text(s) => {
                     let reference = windows_reference::IReference::from(s.as_str());
                     Some(reference.into())
                 }
-                crate::core::tooltip::TooltipContent::Rich(elem) => {
+                TooltipContent::Rich(elem) => {
                     let tt = match Xaml::ToolTip::new() {
                         Ok(t) => t,
                         Err(e) => {
@@ -2764,11 +2744,7 @@ impl Backend for WinUIBackend {
         let _ = Xaml::ToolTipService::SetPlacement(&dep, placement);
     }
 
-    fn set_pointer_handlers(
-        &mut self,
-        id: ControlId,
-        handlers: Option<&crate::core::pointer::PointerHandlers>,
-    ) {
+    fn set_pointer_handlers(&mut self, id: ControlId, handlers: Option<&PointerHandlers>) {
         // Tear down any previous handlers before reattaching, so a
         // per-render conditional doesn't leak event tokens.
         let prev = self.pointer_revokers.borrow_mut().remove(&id);
@@ -2843,8 +2819,8 @@ impl Backend for WinUIBackend {
 fn pointer_event_info(
     sender: windows_core::InRef<'_, windows_core::IInspectable>,
     args: windows_core::InRef<'_, Xaml::PointerRoutedEventArgs>,
-) -> crate::core::pointer::PointerEventInfo {
-    let mut info = crate::core::pointer::PointerEventInfo::default();
+) -> PointerEventInfo {
+    let mut info = PointerEventInfo::default();
     let Some(args) = args.as_ref() else {
         return info;
     };
@@ -2876,8 +2852,8 @@ fn pointer_event_info(
     info
 }
 
-fn map_placement(p: crate::core::tooltip::TooltipPlacement) -> Xaml::PlacementMode {
-    use crate::core::tooltip::TooltipPlacement;
+fn map_placement(p: TooltipPlacement) -> Xaml::PlacementMode {
+    use TooltipPlacement;
     match p {
         TooltipPlacement::Top => Xaml::PlacementMode::Top,
         TooltipPlacement::Bottom => Xaml::PlacementMode::Bottom,

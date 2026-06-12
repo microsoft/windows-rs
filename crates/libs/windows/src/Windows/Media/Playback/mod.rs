@@ -2931,7 +2931,7 @@ impl MediaPlaybackList {
     }
     pub fn SetMaxPrefetchTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetMaxPrefetchTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn StartingItem(&self) -> windows_core::Result<MediaPlaybackItem> {
@@ -2971,7 +2971,7 @@ impl MediaPlaybackList {
     }
     pub fn SetMaxPlayedItemsToKeepOpen(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

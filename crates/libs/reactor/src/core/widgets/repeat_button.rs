@@ -60,7 +60,7 @@ impl RepeatButton {
 impl Widget for RepeatButton {
     widget_header!(ControlKind::RepeatButton);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::repeat_button_bindings(self)
+        generated_bindings::repeat_button_bindings(self)
     }
 }
 

@@ -405,7 +405,7 @@ fn format_result(value: f64) -> String {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
+    let _bootstrap_handle = bootstrap::initialize()?;
     App::new()
         .title("Calculator")
         .backdrop(Backdrop::Mica)

@@ -14,7 +14,7 @@ pub struct Grid {
 impl Widget for Grid {
     widget_header!(ControlKind::Grid);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::grid_bindings(self);
+        let mut out = generated_bindings::grid_bindings(self);
         if !self.rows.is_empty() {
             out.push(Binding::Prop(
                 Prop::GridRows,
@@ -56,7 +56,7 @@ impl Grid {
     }
 }
 
-pub fn grid(children: impl crate::core::into_elements::IntoElements) -> Grid {
+pub fn grid(children: impl IntoElements) -> Grid {
     Grid {
         children: children.into_elements(),
         ..Grid::default()

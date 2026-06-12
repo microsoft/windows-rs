@@ -547,7 +547,7 @@ mod tests {
         fn tile(key: &'static str) -> Element {
             let mut b = Button::new(key);
             b.key = Some(key.to_string());
-            b.on_click = Some(crate::core::callback::Callback::new(|()| {}));
+            b.on_click = Some(Callback::new(|()| {}));
             Element::Button(b)
         }
         fn empty() -> Element {
@@ -584,8 +584,8 @@ mod tests {
             .unwrap();
 
         // Snapshot (id -> kind) from the mount-phase ops.
-        let mut kind_of: rustc_hash::FxHashMap<crate::core::backend::ControlId, ControlKind> =
-            rustc_hash::FxHashMap::default();
+        let mut kind_of: FxHashMap<ControlId, ControlKind> =
+            FxHashMap::default();
         for op in &reconciler.backend.ops {
             if let Op::Create { id, kind } = op {
                 kind_of.insert(*id, *kind);
@@ -593,7 +593,7 @@ mod tests {
         }
         // Map mount-order button ids to their key labels for the
         // post-reorder label check.
-        let mount_button_ids: Vec<crate::core::backend::ControlId> = reconciler
+        let mount_button_ids: Vec<ControlId> = reconciler
             .backend
             .ops
             .iter()
@@ -626,7 +626,7 @@ mod tests {
         for op in &reconciler.backend.ops {
             if let Op::AttachEvent {
                 id,
-                event: crate::core::backend::Event::Click,
+                event: Event::Click,
                 ..
             } = op
             {
@@ -643,12 +643,12 @@ mod tests {
 
         // 2. After reconciliation, every button control still carries
         //    the label that matches its original key.
-        let mut latest_label: rustc_hash::FxHashMap<crate::core::backend::ControlId, String> =
-            rustc_hash::FxHashMap::default();
+        let mut latest_label: FxHashMap<ControlId, String> =
+            FxHashMap::default();
         for op in &reconciler.backend.ops {
             if let Op::SetProp {
                 id,
-                prop: crate::core::backend::Prop::Content,
+                prop: Prop::Content,
                 value: PropValue::Str(s),
             } = op
             {

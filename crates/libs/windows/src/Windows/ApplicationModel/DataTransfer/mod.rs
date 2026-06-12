@@ -2480,7 +2480,7 @@ impl ShareUIOptions {
         }
     }
     pub fn SetSelectionRect(&self, value: Option<super::super::Foundation::Rect>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::Rect> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::Rect> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

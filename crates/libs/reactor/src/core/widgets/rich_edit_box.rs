@@ -45,7 +45,7 @@ impl RichEditBox {
 impl Widget for RichEditBox {
     widget_header!(ControlKind::RichEditBox);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::rich_edit_box_bindings(self);
+        let mut out = generated_bindings::rich_edit_box_bindings(self);
         out.push(Binding::Prop(Prop::Text, PropValue::Str(self.text.clone())));
         out
     }

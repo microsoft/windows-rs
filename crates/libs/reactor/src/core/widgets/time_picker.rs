@@ -63,7 +63,7 @@ impl TimePicker {
 impl Widget for TimePicker {
     widget_header!(ControlKind::TimePicker);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::time_picker_bindings(self)
+        generated_bindings::time_picker_bindings(self)
     }
 }
 

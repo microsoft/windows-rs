@@ -94,7 +94,7 @@ impl CommandBar {
 impl Widget for CommandBar {
     widget_header!(ControlKind::CommandBar);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::command_bar_bindings(self);
+        let mut out = generated_bindings::command_bar_bindings(self);
         out.push(Binding::Prop(
             Prop::PrimaryCommands,
             PropValue::CommandBarCommands(self.primary_commands.clone()),

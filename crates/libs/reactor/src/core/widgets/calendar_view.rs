@@ -44,7 +44,7 @@ impl CalendarView {
 impl Widget for CalendarView {
     widget_header!(ControlKind::CalendarView);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::calendar_view_bindings(self)
+        generated_bindings::calendar_view_bindings(self)
     }
 }
 

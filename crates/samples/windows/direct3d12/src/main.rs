@@ -727,7 +727,7 @@ mod imp {
                     D3D12_HEAP_FLAG_NONE,
                     &D3D12_RESOURCE_DESC {
                         Dimension: D3D12_RESOURCE_DIMENSION_BUFFER,
-                        Width: std::mem::size_of_val(&vertices) as u64,
+                        Width: size_of_val(&vertices) as u64,
                         Height: 1,
                         DepthOrArraySize: 1,
                         MipLevels: 1,
@@ -760,7 +760,7 @@ mod imp {
             let vbv = D3D12_VERTEX_BUFFER_VIEW {
                 BufferLocation: unsafe { vertex_buffer.GetGPUVirtualAddress() },
                 StrideInBytes: size_of::<Vertex>() as u32,
-                SizeInBytes: std::mem::size_of_val(&vertices) as u32,
+                SizeInBytes: size_of_val(&vertices) as u32,
             };
 
             Ok((vertex_buffer, vbv))

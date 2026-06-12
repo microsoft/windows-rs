@@ -229,7 +229,7 @@ fn make_click_handler(set: SetState<Game>, current: Game) -> impl Fn(usize) + Cl
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = windows_reactor::bootstrap::initialize()?;
+    let _bootstrap_handle = bootstrap::initialize()?;
     App::new().title("windows_reactor — tictactoe").render(app)
 }
 

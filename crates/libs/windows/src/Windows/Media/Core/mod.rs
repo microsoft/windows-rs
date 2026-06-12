@@ -46,7 +46,7 @@ impl AudioStreamDescriptor {
     }
     pub fn SetLeadingEncoderPadding(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetLeadingEncoderPadding)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LeadingEncoderPadding(&self) -> windows_core::Result<u32> {
@@ -58,7 +58,7 @@ impl AudioStreamDescriptor {
     }
     pub fn SetTrailingEncoderPadding(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetTrailingEncoderPadding)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn TrailingEncoderPadding(&self) -> windows_core::Result<u32> {
@@ -1061,7 +1061,7 @@ impl FaceDetectionEffectFrame {
     }
     pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -1073,7 +1073,7 @@ impl FaceDetectionEffectFrame {
     }
     pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -1085,7 +1085,7 @@ impl FaceDetectionEffectFrame {
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -4738,7 +4738,7 @@ impl MediaStreamSource {
     }
     pub fn SetMaxSupportedPlaybackRate(&self, value: Option<f64>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaStreamSource3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetMaxSupportedPlaybackRate)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxSupportedPlaybackRate(&self) -> windows_core::Result<f64> {
@@ -5326,7 +5326,7 @@ impl MseSourceBuffer {
         }
     }
     pub fn SetAppendWindowEnd(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetAppendWindowEnd)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -5354,7 +5354,7 @@ impl MseSourceBuffer {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub fn Remove(&self, start: windows_time::TimeSpan, end: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let end__ = end.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let end__ = end.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), start, windows_core::Param::param(end__.as_ref()).abi()).ok() }
     }
 }
@@ -5492,7 +5492,7 @@ impl MseStreamSource {
         }
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn AddSourceBuffer(&self, mimetype: &windows_core::HSTRING) -> windows_core::Result<MseSourceBuffer> {
@@ -5519,7 +5519,7 @@ impl MseStreamSource {
     }
     pub fn SetLiveSeekableRange(&self, value: Option<MseTimeRange>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMseStreamSource2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<MseTimeRange> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<MseTimeRange> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetLiveSeekableRange)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsContentTypeSupported(contenttype: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -5684,7 +5684,7 @@ impl SceneAnalysisEffectFrame {
     }
     pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -5696,7 +5696,7 @@ impl SceneAnalysisEffectFrame {
     }
     pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -5708,7 +5708,7 @@ impl SceneAnalysisEffectFrame {
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -5871,7 +5871,7 @@ impl SpeechCue {
         }
     }
     pub fn SetStartPositionInInput(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartPositionInInput)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn EndPositionInInput(&self) -> windows_core::Result<i32> {
@@ -5881,7 +5881,7 @@ impl SpeechCue {
         }
     }
     pub fn SetEndPositionInInput(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetEndPositionInInput)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

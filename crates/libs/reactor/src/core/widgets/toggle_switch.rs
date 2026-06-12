@@ -44,6 +44,6 @@ impl ToggleSwitch {
 impl Widget for ToggleSwitch {
     widget_header!(ControlKind::ToggleSwitch);
     fn bindings(&self) -> PropBindings {
-        crate::core::generated_bindings::toggle_switch_bindings(self)
+        generated_bindings::toggle_switch_bindings(self)
     }
 }

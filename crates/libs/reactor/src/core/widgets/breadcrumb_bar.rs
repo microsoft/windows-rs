@@ -27,7 +27,7 @@ impl BreadcrumbBar {
 impl Widget for BreadcrumbBar {
     widget_header!(ControlKind::BreadcrumbBar);
     fn bindings(&self) -> PropBindings {
-        let mut out = crate::core::generated_bindings::breadcrumb_bar_bindings(self);
+        let mut out = generated_bindings::breadcrumb_bar_bindings(self);
         out.push(Binding::Prop(
             Prop::Items,
             PropValue::StrList(self.items.clone()),

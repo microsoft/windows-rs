@@ -14,7 +14,7 @@ thread_local! {
 
     static HOST_SLOT: RefCell<Option<ReactorHost>> = const { RefCell::new(None) };
 
-    static APP_SLOT: RefCell<Option<crate::bindings::Application>> =
+    static APP_SLOT: RefCell<Option<Application>> =
         const { RefCell::new(None) };
 }
 
@@ -29,7 +29,7 @@ where
 /// Top-level reactor application; hosts a single root [`Component`].
 pub struct App {
     title: Option<String>,
-    inner_size: Option<crate::core::Size>,
+    inner_size: Option<window::Size>,
     inner_constraints: InnerConstraints,
     eager_templated_realization: bool,
     presenter: PresenterKind,
@@ -60,7 +60,7 @@ impl App {
     }
 
     pub fn inner_size(mut self, width: f64, height: f64) -> Self {
-        self.inner_size = Some(crate::core::Size { width, height });
+        self.inner_size = Some(window::Size { width, height });
         self
     }
 
@@ -224,9 +224,7 @@ impl App {
     /// ```
     pub fn render<F>(self, f: F) -> Result<()>
     where
-        F: Fn(&mut crate::core::render_context::RenderCx) -> crate::core::element::Element
-            + Send
-            + 'static,
+        F: Fn(&mut RenderCx) -> Element + Send + 'static,
     {
         self.run(move || RenderFn(f))
     }
@@ -236,15 +234,11 @@ impl App {
 /// so it can be used with the existing host machinery.
 struct RenderFn<F>(F);
 
-impl<F> crate::core::component::Component for RenderFn<F>
+impl<F> Component for RenderFn<F>
 where
-    F: Fn(&mut crate::core::render_context::RenderCx) -> crate::core::element::Element + 'static,
+    F: Fn(&mut RenderCx) -> Element + 'static,
 {
-    fn render(
-        &self,
-        _props: &(),
-        cx: &mut crate::core::render_context::RenderCx,
-    ) -> crate::core::element::Element {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
         (self.0)(cx)
     }
 }

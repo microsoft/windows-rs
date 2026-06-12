@@ -1,11 +1,6 @@
-use crate::bindings::*;
-use crate::swap_chain::SwapChain;
-use windows_core::Interface;
+use super::*;
 
-/// Shared GPU device with automatic device-lost recovery.
-///
-/// Encapsulates D3D11 device + D2D1 factory + D2D1 device creation.
-/// Provides the foundation for all canvas rendering operations.
+/// Shared GPU device.
 pub struct GpuDevice {
     d3d_device: ID3D11Device,
     d2d_factory: ID2D1Factory1,
@@ -15,17 +10,16 @@ pub struct GpuDevice {
 }
 
 impl GpuDevice {
-    /// Create a GPU device with default settings (hardware, BGRA support).
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self> {
         unsafe { Self::create(false) }
     }
 
-    /// Create a software (WARP) device — useful for testing or headless rendering.
-    pub fn new_warp() -> windows_core::Result<Self> {
+    /// Create a software (WARP) device for testing or headless rendering.
+    pub fn new_warp() -> Result<Self> {
         unsafe { Self::create(true) }
     }
 
-    unsafe fn create(software: bool) -> windows_core::Result<Self> {
+    unsafe fn create(software: bool) -> Result<Self> {
         let driver_type = if software {
             D3D_DRIVER_TYPE_WARP
         } else {
@@ -69,7 +63,7 @@ impl GpuDevice {
         let dxgi_adapter: IDXGIAdapter = unsafe { dxgi_device.GetAdapter()? };
         let dxgi_factory: IDXGIFactory2 = unsafe { dxgi_adapter.GetParent()? };
 
-        let dwrite_factory = crate::text::dwrite_factory()?;
+        let dwrite_factory = dwrite_factory()?;
 
         Ok(Self {
             d3d_device,
@@ -80,12 +74,11 @@ impl GpuDevice {
         })
     }
 
-    /// Create a composition swap chain for the given dimensions.
-    pub fn create_swap_chain(&self, width: u32, height: u32) -> windows_core::Result<SwapChain> {
+    pub fn create_swap_chain(&self, width: u32, height: u32) -> Result<SwapChain> {
         SwapChain::new(self, width, height)
     }
 
-    /// Create an HWND-targeting swap chain for standalone (non-reactor) windowed rendering.
+    /// Create an HWND swap chain for standalone windowed rendering.
     ///
     /// # Safety
     ///
@@ -95,46 +88,35 @@ impl GpuDevice {
         hwnd: *mut core::ffi::c_void,
         width: u32,
         height: u32,
-    ) -> windows_core::Result<SwapChain> {
+    ) -> Result<SwapChain> {
         SwapChain::new_for_hwnd(self, hwnd, width, height)
     }
 
-    /// Access the raw D3D11 device.
     pub fn d3d_device(&self) -> &ID3D11Device {
         &self.d3d_device
     }
 
-    /// Access the raw D2D1 device.
     pub fn d2d_device(&self) -> &ID2D1Device {
         &self.d2d_device
     }
 
-    /// Access the raw D2D1 factory.
     pub fn d2d_factory(&self) -> &ID2D1Factory1 {
         &self.d2d_factory
     }
 
-    /// Create a stroke style from a builder.
-    ///
-    /// Stroke styles are device-independent and can be reused across frames.
-    pub fn create_stroke_style(
-        &self,
-        builder: &crate::types::StrokeStyleBuilder,
-    ) -> windows_core::Result<crate::types::StrokeStyle> {
+    pub fn create_stroke_style(&self, builder: &StrokeStyleBuilder) -> Result<StrokeStyle> {
         let props = builder.to_abi();
         unsafe {
             self.d2d_factory
                 .CreateStrokeStyle(&props, None)
-                .map(crate::types::StrokeStyle)
+                .map(StrokeStyle)
         }
     }
 
-    /// Access the raw DXGI factory.
     pub fn dxgi_factory(&self) -> &IDXGIFactory2 {
         &self.dxgi_factory
     }
 
-    /// Access the raw DWrite factory.
     pub fn dwrite_factory(&self) -> &IDWriteFactory {
         &self.dwrite_factory
     }

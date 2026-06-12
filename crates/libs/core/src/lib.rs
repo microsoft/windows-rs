@@ -8,7 +8,6 @@
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms
 )]
-#![warn(unused_qualifications)]
 
 #[cfg(windows)]
 include!("windows.rs");

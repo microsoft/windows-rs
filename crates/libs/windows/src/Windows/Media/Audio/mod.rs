@@ -366,7 +366,7 @@ impl AudioFileInputNode {
         }
     }
     pub fn SetStartTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -376,7 +376,7 @@ impl AudioFileInputNode {
         }
     }
     pub fn SetEndTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetEndTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LoopCount(&self) -> windows_core::Result<i32> {
@@ -386,7 +386,7 @@ impl AudioFileInputNode {
         }
     }
     pub fn SetLoopCount(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLoopCount)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -4645,7 +4645,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     pub fn SetStartTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -4655,7 +4655,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     pub fn SetEndTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetEndTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LoopCount(&self) -> windows_core::Result<i32> {
@@ -4665,7 +4665,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     pub fn SetLoopCount(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLoopCount)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {

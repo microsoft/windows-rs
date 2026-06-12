@@ -57,24 +57,24 @@ fn test() {
 #[test]
 #[cfg(target_arch = "aarch64")]
 fn test_arch() {
-    assert_eq!(core::mem::size_of::<OVERLAPPED>(), 32);
+    assert_eq!(size_of::<OVERLAPPED>(), 32);
 }
 
 #[test]
 #[cfg(target_arch = "x86_64")]
 fn test_arch() {
-    assert_eq!(core::mem::size_of::<OVERLAPPED>(), 32);
+    assert_eq!(size_of::<OVERLAPPED>(), 32);
 }
 
 #[test]
 #[cfg(target_arch = "x86")]
 fn test_arch() {
-    assert_eq!(core::mem::size_of::<OVERLAPPED>(), 20);
+    assert_eq!(size_of::<OVERLAPPED>(), 20);
 }
 
 #[test]
 fn d3d() {
-    assert_eq!(core::mem::size_of::<D3D12_INDIRECT_ARGUMENT_DESC>(), 16);
+    assert_eq!(size_of::<D3D12_INDIRECT_ARGUMENT_DESC>(), 16);
 
     assert_eq!(D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW.0, 3);
 
