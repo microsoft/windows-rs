@@ -1,6 +1,4 @@
 use super::*;
-use super::command_bar::CommandBarCommandDef;
-use super::menu_bar::MenuItemDef;
 
 /// Visual style for a [`Button`]. Not a WinRT enum — maps to resource key strings.
 #[repr(transparent)]
@@ -62,7 +60,10 @@ impl Widget for Button {
             ));
         }
         if self.style != ButtonStyle::Default {
-            out.push(Binding::Prop(Prop::StyleVariant, PropValue::I32(self.style.0)));
+            out.push(Binding::Prop(
+                Prop::StyleVariant,
+                PropValue::I32(self.style.0),
+            ));
         }
         // Flyout and CommandBarFlyout are compound types not in TOML.
         if let Some(ref fly) = self.flyout {

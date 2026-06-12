@@ -48,7 +48,10 @@ impl DatePicker {
         self
     }
 
-    pub fn on_selected_date_changed(mut self, f: impl IntoCallback<windows_time::DateTime>) -> Self {
+    pub fn on_selected_date_changed(
+        mut self,
+        f: impl IntoCallback<windows_time::DateTime>,
+    ) -> Self {
         self.on_selected_date_changed = Some(f.into_callback());
         self
     }

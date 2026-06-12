@@ -1,4 +1,3 @@
-use super::menu_bar::MenuItemDef;
 use super::*;
 
 #[derive(Clone, Default, Debug, PartialEq)]

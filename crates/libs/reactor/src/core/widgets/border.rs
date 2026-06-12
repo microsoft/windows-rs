@@ -41,9 +41,7 @@ impl Border {
                 self.border_brush = None;
                 self.modifiers
                     .theme_bindings
-                    .get_or_insert_with(|| {
-                        Box::new(rustc_hash::FxHashMap::default())
-                    })
+                    .get_or_insert_with(|| Box::new(rustc_hash::FxHashMap::default()))
                     .insert(Prop::BorderBrush, t);
             }
         }

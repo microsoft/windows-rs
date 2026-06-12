@@ -110,35 +110,37 @@ impl SwapChainPanel {
     pub fn on_resize(mut self, f: impl Fn(f64, f64) + 'static) -> Self {
         let f = Rc::new(f);
         let prev = self.mounted.take();
-        self.mounted = Some(Callback::new(move |native: Option<windows_core::IInspectable>| {
-            if let Some(ref cb) = prev {
-                cb.invoke(native.clone());
-            }
-            let Some(native) = native else {
-                return;
-            };
-            // Subscribe to SizeChanged on the FrameworkElement.
-            if let Ok(fe) = native.cast::<crate::bindings::IFrameworkElement>() {
-                let f = f.clone();
-                // Store the revoker so the subscription lives as long as the control.
-                let revoker: Rc<RefCell<Option<windows_core::EventRevoker>>> =
-                    Rc::new(RefCell::new(None));
-                let r = fe.add_SizeChanged(move |_sender, args| {
-                    if let Some(args) = args.as_ref()
-                        && let Ok(s) = args.get_NewSize()
-                    {
-                        f(s.Width as f64, s.Height as f64);
-                    }
-                });
-                if let Ok(revoker_val) = r {
-                    *revoker.borrow_mut() = Some(revoker_val);
-                    // Leak the Rc so the subscription outlives this scope.
-                    // The revoker prevent leaks — it revokes on Drop when
-                    // the control is destroyed.
-                    std::mem::forget(revoker);
+        self.mounted = Some(Callback::new(
+            move |native: Option<windows_core::IInspectable>| {
+                if let Some(ref cb) = prev {
+                    cb.invoke(native.clone());
                 }
-            }
-        }));
+                let Some(native) = native else {
+                    return;
+                };
+                // Subscribe to SizeChanged on the FrameworkElement.
+                if let Ok(fe) = native.cast::<crate::bindings::IFrameworkElement>() {
+                    let f = f.clone();
+                    // Store the revoker so the subscription lives as long as the control.
+                    let revoker: Rc<RefCell<Option<windows_core::EventRevoker>>> =
+                        Rc::new(RefCell::new(None));
+                    let r = fe.add_SizeChanged(move |_sender, args| {
+                        if let Some(args) = args.as_ref()
+                            && let Ok(s) = args.get_NewSize()
+                        {
+                            f(s.Width as f64, s.Height as f64);
+                        }
+                    });
+                    if let Ok(revoker_val) = r {
+                        *revoker.borrow_mut() = Some(revoker_val);
+                        // Leak the Rc so the subscription outlives this scope.
+                        // The revoker prevent leaks — it revokes on Drop when
+                        // the control is destroyed.
+                        std::mem::forget(revoker);
+                    }
+                }
+            },
+        ));
         self
     }
 }

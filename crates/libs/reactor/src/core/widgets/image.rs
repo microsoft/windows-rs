@@ -60,7 +60,10 @@ impl Widget for Image {
         // ImageSource is a compound type not expressible in TOML.
         match &self.source {
             ImageSource::Uri(uri) => {
-                out.push(Binding::Prop(Prop::ImageSource, PropValue::Str(uri.clone())));
+                out.push(Binding::Prop(
+                    Prop::ImageSource,
+                    PropValue::Str(uri.clone()),
+                ));
             }
             ImageSource::Surface(s) => {
                 out.push(Binding::Prop(
@@ -100,9 +103,11 @@ mod tests {
         // Stretch is always emitted (it's a non-optional enum field).
         let image = Image::default();
         assert_eq!(image_source(&image), None);
-        assert!(!image
-            .bindings()
-            .iter()
-            .any(|b| matches!(b, Binding::Prop(Prop::ImageSource, ..))));
+        assert!(
+            !image
+                .bindings()
+                .iter()
+                .any(|b| matches!(b, Binding::Prop(Prop::ImageSource, ..)))
+        );
     }
 }

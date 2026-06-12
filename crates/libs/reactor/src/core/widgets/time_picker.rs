@@ -54,7 +54,10 @@ impl TimePicker {
         self
     }
 
-    pub fn on_selected_time_changed(mut self, f: impl IntoCallback<windows_time::TimeSpan>) -> Self {
+    pub fn on_selected_time_changed(
+        mut self,
+        f: impl IntoCallback<windows_time::TimeSpan>,
+    ) -> Self {
         self.on_selected_time_changed = Some(f.into_callback());
         self
     }

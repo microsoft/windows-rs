@@ -109,9 +109,10 @@ impl Widget for Shape {
             out.push(Binding::Prop(Prop::StrokeThickness, PropValue::F64(th)));
         }
         if let Some(cr) = self.corner_radius
-            && matches!(self.kind, ShapeKind::Rectangle) {
-                out.push(Binding::Prop(Prop::CornerRadius, PropValue::F64(cr)));
-            }
+            && matches!(self.kind, ShapeKind::Rectangle)
+        {
+            out.push(Binding::Prop(Prop::CornerRadius, PropValue::F64(cr)));
+        }
         if matches!(self.kind, ShapeKind::Line) {
             out.push(Binding::Prop(
                 Prop::LineEndpoints,
