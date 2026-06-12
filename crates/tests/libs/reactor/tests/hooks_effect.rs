@@ -1,7 +1,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::render_context::RenderCx;
+use windows_reactor::RenderCx;
 
 #[test]
 fn effect_runs_once_on_first_flush() {

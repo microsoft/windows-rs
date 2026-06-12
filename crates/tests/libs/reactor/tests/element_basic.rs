@@ -1,4 +1,4 @@
-use windows_reactor::core::element::{
+use windows_reactor::{
     Button, Canvas, ComboBox, Element, Modifiers, PasswordBox, PasswordRevealMode, PersonPicture,
     RadioButtons, StackPanel, TextBlock, Thickness,
 };

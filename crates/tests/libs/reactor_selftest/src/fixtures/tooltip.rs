@@ -7,8 +7,8 @@
 //! these fixtures use the regular `Harness::check` (no SKIPs needed).
 
 use crate::bindings;
-use windows_reactor::core::element::{Element, Tooltip, TooltipPlacement};
-use windows_reactor::dsl::{ElementExt, button};
+use windows_reactor::{Element, Tooltip, TooltipPlacement};
+use windows_reactor::{ElementExt, button};
 use windows_reactor::vstack;
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};

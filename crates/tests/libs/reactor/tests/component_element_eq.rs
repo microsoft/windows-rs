@@ -1,7 +1,7 @@
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::{component, memo};
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::render_context::RenderCx;
+use windows_reactor::Component;
+use windows_reactor::RenderCx;
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{component, memo};
 
 #[derive(Clone, PartialEq, Debug)]
 struct Greeting {

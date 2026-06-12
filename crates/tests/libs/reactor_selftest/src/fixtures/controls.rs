@@ -1,14 +1,14 @@
-use windows_reactor::core::element::BreadcrumbBar;
-use windows_reactor::core::element::{
+use windows_reactor::BreadcrumbBar;
+use windows_reactor::{
     Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar, NavViewItem,
     NavigationView, NumberBox, PasswordBox, PasswordRevealMode, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch, Viewbox,
 };
-use windows_reactor::core::element::{Color, GridLength};
-use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextRun};
-use windows_reactor::core::templated_list::{flip_view, grid_view, list_view, virtual_list};
-use windows_reactor::dsl::{
+use windows_reactor::{Color, GridLength};
+use windows_reactor::{RichText, RichTextInline, RichTextRun};
+use windows_reactor::{flip_view, grid_view, list_view, virtual_list};
+use windows_reactor::{
     ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
 

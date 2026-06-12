@@ -1,8 +1,8 @@
-use windows_reactor::core::component::Component;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::error_boundary::error_boundary;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{button, text_block};
+use windows_reactor::Component;
+use windows_reactor::Element;
+use windows_reactor::error_boundary;
+use windows_reactor::RenderCx;
+use windows_reactor::{button, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -30,7 +30,7 @@ pub fn catches_render_error(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             error_boundary(
-                windows_reactor::core::component_element::component(ThrowingComponent, ()),
+                windows_reactor::component(ThrowingComponent, ()),
                 |msg| {
                     vstack((
                         text_block("Error caught!"),
@@ -59,7 +59,7 @@ pub fn recovery(h: Harness) -> FixtureFuture {
             let (should_throw, set) = cx.use_state(true);
             vstack((
                 error_boundary(
-                    windows_reactor::core::component_element::component(
+                    windows_reactor::component(
                         ConditionalThrow,
                         ShouldThrow(should_throw),
                     ),

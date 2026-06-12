@@ -27,7 +27,7 @@ where
 /// Top-level reactor application; hosts a single root [`Component`].
 pub struct App {
     title: Option<String>,
-    inner_size: Option<window::Size>,
+    inner_size: Option<WindowSize>,
     inner_constraints: InnerConstraints,
     eager_templated_realization: bool,
     presenter: PresenterKind,
@@ -58,7 +58,7 @@ impl App {
     }
 
     pub fn inner_size(mut self, width: f64, height: f64) -> Self {
-        self.inner_size = Some(window::Size { width, height });
+        self.inner_size = Some(WindowSize { width, height });
         self
     }
 

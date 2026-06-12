@@ -183,7 +183,7 @@ impl ReactorHost {
 
     pub fn new_with_window_options<F>(
         title: impl AsRef<str>,
-        size: Option<window::Size>,
+        size: Option<WindowSize>,
         constraints: InnerConstraints,
         root: Box<dyn Component>,
         configure: F,
@@ -346,7 +346,7 @@ impl ReactorHost {
     }
 }
 
-fn get_default_display_size(hwnd: HWND, dpi: u32) -> window::Size {
+fn get_default_display_size(hwnd: HWND, dpi: u32) -> WindowSize {
     unsafe {
         let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
         let mut monitor_info_ex = MONITORINFOEXW {
@@ -361,12 +361,12 @@ fn get_default_display_size(hwnd: HWND, dpi: u32) -> window::Size {
             let work_width = work.right.saturating_sub(work.left);
             let work_height = work.bottom.saturating_sub(work.top);
             let scale = dpi as f64 / 96.0;
-            window::Size {
+            WindowSize {
                 width: work_width as f64 / scale / 2.0,
                 height: work_height as f64 / scale / 2.0,
             }
         } else {
-            window::Size::default()
+            WindowSize::default()
         }
     }
 }
@@ -428,7 +428,7 @@ fn subscribe_size_and_dpi(
             if new_dpi > 0 {
                 render_host.set_dpi(new_dpi);
             }
-            render_host.set_inner_size(window::Size {
+            render_host.set_inner_size(WindowSize {
                 width: size.Width as f64,
                 height: size.Height as f64,
             });
@@ -440,9 +440,9 @@ fn subscribe_size_and_dpi(
 
 fn create_window(
     title: impl AsRef<str>,
-    size: Option<window::Size>,
+    size: Option<WindowSize>,
     constraints: InnerConstraints,
-) -> Result<(Window, window::Size, u32)> {
+) -> Result<(Window, WindowSize, u32)> {
     let window = Window::new()?;
 
     let mut hwnd = HWND::default();
@@ -498,7 +498,7 @@ fn create_window(
     }
 
     let actual_client_px = app_window_2.get_ClientSize()?;
-    let actual_dip_size = window::Size {
+    let actual_dip_size = WindowSize {
         width: actual_client_px.Width as f64 * 96.0 / dpi as f64,
         height: actual_client_px.Height as f64 * 96.0 / dpi as f64,
     };

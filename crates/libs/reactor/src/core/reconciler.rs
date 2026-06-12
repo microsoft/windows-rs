@@ -52,7 +52,7 @@ pub struct Reconciler<B: Backend> {
     /// UI marshaller propagated into every nested component's
     /// [`RenderCx`] for [`RenderCx::use_async_state`].
     pub(crate) marshaller: Option<UiMarshaller>,
-    pub(crate) inner_size: Rc<Cell<Size>>,
+    pub(crate) inner_size: Rc<Cell<WindowSize>>,
     pub(crate) dpi: Rc<Cell<u32>>,
     /// Rerender hook propagated from the render host; child components
     /// clone this into their `RenderCx` so `SetState` triggers re-render.
@@ -93,7 +93,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             defer_templated_unmounts: false,
             deferred_unmounts: Vec::new(),
             marshaller: None,
-            inner_size: Rc::new(Cell::new(Size::default())),
+            inner_size: Rc::new(Cell::new(WindowSize::default())),
             dpi: Rc::new(Cell::new(96_u32)),
             request_rerender: Rc::new(|| {}),
         }
@@ -784,7 +784,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         child::reconcile(self, parent, old_live.as_ref(), new_live.as_ref());
     }
 
-    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<Size>>) {
+    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.inner_size = cell;
     }
 

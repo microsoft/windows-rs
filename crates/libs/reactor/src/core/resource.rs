@@ -116,7 +116,7 @@ where
     F: FnOnce(&T) -> Element,
 {
     fn from(rv: ResourceView<'_, T, F>) -> Self {
-        use super::element::ProgressRing;
+        use super::widgets::progress_ring::ProgressRing;
         match rv.resource {
             Resource::Loading | Resource::Idle => rv
                 .loading

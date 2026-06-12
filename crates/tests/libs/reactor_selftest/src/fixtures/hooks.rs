@@ -5,11 +5,11 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use windows_reactor::core::component::Component;
-use windows_reactor::core::context::Context;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{ElementExt, button, text_block};
+use windows_reactor::Component;
+use windows_reactor::Context;
+use windows_reactor::Element;
+use windows_reactor::RenderCx;
+use windows_reactor::{ElementExt, button, text_block};
 use windows_reactor::vstack;
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
@@ -307,7 +307,7 @@ pub fn use_context_reads_default(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             // No provider — should get the default value "light"
-            windows_reactor::core::component_element::component(ContextConsumer, ())
+            windows_reactor::component(ContextConsumer, ())
         }));
         h.render().await;
         h.check(
@@ -321,7 +321,7 @@ pub fn use_context_reads_provided(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             // Provide "dark" — consumer should see it
-            windows_reactor::core::component_element::component(ContextConsumer, ())
+            windows_reactor::component(ContextConsumer, ())
                 .provide(&THEME_CTX, "dark".to_string())
         }));
         h.render().await;

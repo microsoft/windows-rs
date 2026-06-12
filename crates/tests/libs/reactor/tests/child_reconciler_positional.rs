@@ -1,8 +1,8 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlId, Op, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, Orientation, StackPanel, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock};
+use windows_reactor::{ControlId, Op, RecordingBackend};
 
 fn rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -94,7 +94,7 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
     assert!(matches!(
         r.backend.ops[0],
         Op::SetProp {
-            prop: windows_reactor::core::backend::Prop::Spacing,
+            prop: windows_reactor::Prop::Spacing,
             ..
         }
     ));
@@ -194,7 +194,7 @@ fn replacing_middle_child_with_different_variant_destroys_and_creates() {
     assert!(matches!(
         ops[1],
         Op::Create {
-            kind: windows_reactor::core::backend::ControlKind::Button,
+            kind: windows_reactor::ControlKind::Button,
             ..
         }
     ));

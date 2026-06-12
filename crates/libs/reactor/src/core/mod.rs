@@ -1,20 +1,20 @@
-pub mod animation;
-pub mod backend;
-pub mod callback;
-pub mod component;
-pub mod component_element;
-pub mod context;
-pub mod custom;
-pub mod dispatcher;
-pub mod element;
-pub mod error_boundary;
-pub mod reconciler;
-pub mod render_context;
-pub mod render_host;
-pub mod rich_text;
-pub mod templated_list;
-pub mod theme;
-pub mod window;
+pub(crate) mod animation;
+pub(crate) mod backend;
+pub(crate) mod callback;
+pub(crate) mod component;
+pub(crate) mod component_element;
+pub(crate) mod context;
+pub(crate) mod custom;
+pub(crate) mod dispatcher;
+pub(crate) mod element;
+pub(crate) mod element_ext;
+pub(crate) mod error_boundary;
+pub(crate) mod reconciler;
+pub(crate) mod render_context;
+pub(crate) mod render_host;
+pub(crate) mod rich_text;
+pub(crate) mod templated_list;
+pub(crate) mod theme;
 
 pub use animation::*;
 pub use backend::*;
@@ -25,6 +25,7 @@ pub use context::*;
 pub use custom::*;
 pub use dispatcher::*;
 pub use element::*;
+pub use element_ext::*;
 pub use error_boundary::*;
 pub use reconciler::*;
 pub use render_context::*;
@@ -32,26 +33,18 @@ pub use render_host::*;
 pub use rich_text::*;
 pub use templated_list::*;
 pub use theme::*;
-pub use window::*;
 
-pub(crate) mod accessibility;
 pub(crate) mod geometry;
 pub(crate) mod keyboard;
 pub(crate) mod modifiers;
-pub(crate) mod pointer;
 pub(crate) mod resource;
-pub(crate) mod tooltip;
 pub(crate) mod widgets;
 
-pub(crate) use accessibility::*;
 pub(crate) use geometry::*;
 pub(crate) use keyboard::*;
 pub(crate) use modifiers::*;
-pub(crate) use pointer::*;
 #[expect(unused_imports)]
 pub(crate) use resource::*;
-pub(crate) use tooltip::*;
-#[expect(unused_imports)]
 pub(crate) use widgets::*;
 
 pub(crate) mod prop_binding;

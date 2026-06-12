@@ -140,8 +140,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         if old.allow_drop != new.allow_drop {
-            self.backend
-                .set_templated_allow_drop(id, new.allow_drop);
+            self.backend.set_templated_allow_drop(id, new.allow_drop);
         }
 
         let old_count = old.item_count();

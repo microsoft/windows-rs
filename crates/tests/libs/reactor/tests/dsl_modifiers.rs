@@ -1,6 +1,6 @@
 use windows_reactor::ElementExt;
-use windows_reactor::core::element::{Element, HorizontalAlignment, Thickness};
-use windows_reactor::dsl::factories::{button, text_block, vstack};
+use windows_reactor::{Element, HorizontalAlignment, Thickness};
+use windows_reactor::{button, text_block, vstack};
 
 #[test]
 fn margin_chains_on_concrete_builder() {

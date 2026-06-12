@@ -1,7 +1,7 @@
 use windows_core::Interface;
 
 use crate::bindings::IWindow2;
-use windows_reactor::winui::host::Backdrop;
+use windows_reactor::Backdrop;
 
 use crate::fixtures::reconciler::FixtureFuture;
 use crate::harness::Harness;

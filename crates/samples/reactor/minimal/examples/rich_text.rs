@@ -1,6 +1,6 @@
 //! Sample for the `RichTextBlock` element.
 
-use windows_reactor::core::rich_text::{
+use windows_reactor::{
     RichTextBlock, RichTextHyperlink, RichTextInline, RichTextParagraph, RichTextRun,
 };
 use windows_reactor::*;

@@ -958,13 +958,11 @@ impl Backend for RecordingBackend {
     }
 
     fn set_templated_can_drag_items(&mut self, id: ControlId, value: bool) {
-        self.ops
-            .push(Op::SetTemplatedCanDragItems { id, value });
+        self.ops.push(Op::SetTemplatedCanDragItems { id, value });
     }
 
     fn set_templated_can_reorder_items(&mut self, id: ControlId, value: bool) {
-        self.ops
-            .push(Op::SetTemplatedCanReorderItems { id, value });
+        self.ops.push(Op::SetTemplatedCanReorderItems { id, value });
     }
 
     fn set_templated_allow_drop(&mut self, id: ControlId, value: bool) {
