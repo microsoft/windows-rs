@@ -23,11 +23,13 @@ impl Path {
 
 // -- Typestate markers --
 
+#[doc(hidden)]
 pub struct Empty {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
 }
 
+#[doc(hidden)]
 pub struct InFigure {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
