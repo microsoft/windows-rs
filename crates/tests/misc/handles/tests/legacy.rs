@@ -12,7 +12,7 @@ fn handle() {
     assert!(HANDLE(0 as _).is_invalid());
     assert!(HANDLE(-1 as _).is_invalid());
 
-    assert!(core::mem::size_of::<HANDLE>() == core::mem::size_of::<usize>());
+    assert!(size_of::<HANDLE>() == size_of::<usize>());
 }
 
 #[test]
