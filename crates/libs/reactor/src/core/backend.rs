@@ -452,6 +452,12 @@ pub trait Backend {
 
     fn set_templated_selection_mode(&mut self, _id: ControlId, _mode: SelectionMode) {}
 
+    fn set_templated_can_drag_items(&mut self, _id: ControlId, _value: bool) {}
+
+    fn set_templated_can_reorder_items(&mut self, _id: ControlId, _value: bool) {}
+
+    fn set_templated_allow_drop(&mut self, _id: ControlId, _value: bool) {}
+
     /// Set a mounted element tree as the header content of a control (e.g.
     /// Expander). Pass `None` to clear a previously set element header.
     fn set_header_element(&mut self, _id: ControlId, _header_id: Option<ControlId>) {}
@@ -587,6 +593,18 @@ pub enum Op {
     SetTemplatedSelectionMode {
         id: ControlId,
         mode: SelectionMode,
+    },
+    SetTemplatedCanDragItems {
+        id: ControlId,
+        value: bool,
+    },
+    SetTemplatedCanReorderItems {
+        id: ControlId,
+        value: bool,
+    },
+    SetTemplatedAllowDrop {
+        id: ControlId,
+        value: bool,
     },
     SetHeaderElement {
         id: ControlId,
@@ -937,6 +955,20 @@ impl Backend for RecordingBackend {
 
     fn set_templated_selection_mode(&mut self, id: ControlId, mode: SelectionMode) {
         self.ops.push(Op::SetTemplatedSelectionMode { id, mode });
+    }
+
+    fn set_templated_can_drag_items(&mut self, id: ControlId, value: bool) {
+        self.ops
+            .push(Op::SetTemplatedCanDragItems { id, value });
+    }
+
+    fn set_templated_can_reorder_items(&mut self, id: ControlId, value: bool) {
+        self.ops
+            .push(Op::SetTemplatedCanReorderItems { id, value });
+    }
+
+    fn set_templated_allow_drop(&mut self, id: ControlId, value: bool) {
+        self.ops.push(Op::SetTemplatedAllowDrop { id, value });
     }
 
     fn set_header_element(&mut self, id: ControlId, header_id: Option<ControlId>) {

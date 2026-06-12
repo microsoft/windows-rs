@@ -9704,6 +9704,24 @@ impl IListViewBase {
             .ok()
         }
     }
+    pub fn put_CanDragItems(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_CanDragItems)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub fn put_CanReorderItems(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_CanReorderItems)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub fn ScrollIntoView<P0>(&self, item: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -9746,9 +9764,11 @@ pub struct IListViewBase_Vtbl {
     get_IsSwipeEnabled: usize,
     put_IsSwipeEnabled: usize,
     get_CanDragItems: usize,
-    put_CanDragItems: usize,
+    pub put_CanDragItems:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_CanReorderItems: usize,
-    put_CanReorderItems: usize,
+    pub put_CanReorderItems:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_IsItemClickEnabled: usize,
     put_IsItemClickEnabled: usize,
     get_DataFetchSize: usize,
@@ -16283,6 +16303,15 @@ impl windows_core::RuntimeType for IUIElement {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IUIElement {
+    pub fn put_AllowDrop(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_AllowDrop)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub fn put_Opacity(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_Opacity)(
@@ -16515,7 +16544,8 @@ pub struct IUIElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_DesiredSize: usize,
     get_AllowDrop: usize,
-    put_AllowDrop: usize,
+    pub put_AllowDrop:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_Opacity: usize,
     pub put_Opacity:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,

@@ -1,4 +1,4 @@
-//! Sample for the `grid_view` templated list.
+//! Sample for the `grid_view` templated list with drag-and-drop reordering.
 
 use windows_reactor::*;
 
@@ -16,6 +16,9 @@ fn app(_cx: &mut RenderCx) -> Element {
             .height(70.0)
     })
     .with_key_selector(|s| s.clone())
+    .can_drag_items(true)
+    .can_reorder_items(true)
+    .allow_drop(true)
     .height(220.0)
     .into()
 }

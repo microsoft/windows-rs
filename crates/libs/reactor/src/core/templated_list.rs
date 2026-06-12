@@ -103,6 +103,9 @@ pub struct TemplatedListElement {
     pub key: Option<String>,
     pub kind: TemplatedKind,
     pub selection_mode: SelectionMode,
+    pub can_drag_items: bool,
+    pub can_reorder_items: bool,
+    pub allow_drop: bool,
     pub modifiers: Modifiers,
     pub(crate) items_impl: Rc<dyn TemplatedListImpl>,
 }
@@ -113,6 +116,9 @@ impl Clone for TemplatedListElement {
             key: self.key.clone(),
             kind: self.kind,
             selection_mode: self.selection_mode,
+            can_drag_items: self.can_drag_items,
+            can_reorder_items: self.can_reorder_items,
+            allow_drop: self.allow_drop,
             modifiers: self.modifiers.clone(),
             items_impl: Rc::clone(&self.items_impl),
         }
@@ -134,6 +140,9 @@ impl PartialEq for TemplatedListElement {
         self.key == other.key
             && self.kind == other.kind
             && self.selection_mode == other.selection_mode
+            && self.can_drag_items == other.can_drag_items
+            && self.can_reorder_items == other.can_reorder_items
+            && self.allow_drop == other.allow_drop
             && self.modifiers == other.modifiers
             && Rc::ptr_eq(&self.items_impl, &other.items_impl)
     }
@@ -198,6 +207,9 @@ pub struct TemplatedListBuilder<T: 'static> {
     on_selection_changed: Option<Callback<i32>>,
     selected_index: i32,
     selection_mode: SelectionMode,
+    can_drag_items: bool,
+    can_reorder_items: bool,
+    allow_drop: bool,
     modifiers: Modifiers,
     element_key: Option<String>,
 }
@@ -216,6 +228,9 @@ impl<T: 'static> TemplatedListBuilder<T> {
             on_selection_changed: None,
             selected_index: -1,
             selection_mode: SelectionMode::Single,
+            can_drag_items: false,
+            can_reorder_items: false,
+            allow_drop: false,
             modifiers: Modifiers::default(),
             element_key: None,
         }
@@ -238,6 +253,21 @@ impl<T: 'static> TemplatedListBuilder<T> {
 
     pub fn selection_mode(mut self, mode: SelectionMode) -> Self {
         self.selection_mode = mode;
+        self
+    }
+
+    pub fn can_drag_items(mut self, v: bool) -> Self {
+        self.can_drag_items = v;
+        self
+    }
+
+    pub fn can_reorder_items(mut self, v: bool) -> Self {
+        self.can_reorder_items = v;
+        self
+    }
+
+    pub fn allow_drop(mut self, v: bool) -> Self {
+        self.allow_drop = v;
         self
     }
 
@@ -268,6 +298,9 @@ impl<T: 'static> TemplatedListBuilder<T> {
             key: self.element_key,
             kind: self.kind,
             selection_mode: self.selection_mode,
+            can_drag_items: self.can_drag_items,
+            can_reorder_items: self.can_reorder_items,
+            allow_drop: self.allow_drop,
             modifiers: self.modifiers,
             items_impl: Rc::new(cell),
         })

@@ -124,7 +124,7 @@ Microsoft.UI.Xaml.Controls.IImage::{put_Source}
 Microsoft.UI.Xaml.Controls.IInfoBar::{add_Closed}
 Microsoft.UI.Xaml.Controls.IItemsControl::{get_Items, put_ItemsSource}
 Microsoft.UI.Xaml.Controls.IListBox::{put_SelectionMode}
-Microsoft.UI.Xaml.Controls.IListViewBase::{put_SelectionMode, ScrollIntoView}
+Microsoft.UI.Xaml.Controls.IListViewBase::{put_SelectionMode, put_CanDragItems, put_CanReorderItems, ScrollIntoView}
 Microsoft.UI.Xaml.Controls.IMenuBar::{get_Items}
 Microsoft.UI.Xaml.Controls.IMenuBarItem::{get_Items, put_Title}
 Microsoft.UI.Xaml.Controls.IMenuFlyout::{get_Items}
@@ -262,7 +262,7 @@ Microsoft.UI.Xaml.Input.TappedEventHandler
 Microsoft.UI.Xaml.Input.TappedRoutedEventArgs
 Microsoft.UI.Xaml.IResourceDictionary::{get_MergedDictionaries}
 Microsoft.UI.Xaml.ISizeChangedEventArgs::{get_NewSize}
-Microsoft.UI.Xaml.IUIElement::{put_IsHitTestVisible, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, add_PointerPressed, add_PointerReleased, add_PointerExited, add_Tapped, add_RightTapped, UpdateLayout}
+Microsoft.UI.Xaml.IUIElement::{put_AllowDrop, put_IsHitTestVisible, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, add_PointerPressed, add_PointerReleased, add_PointerExited, add_Tapped, add_RightTapped, UpdateLayout}
 Microsoft.UI.Xaml.IWindow::{put_Title, get_Content, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, add_Closed}
 Microsoft.UI.Xaml.IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft.UI.Xaml.IWindowEventArgs::{put_Handled}
