@@ -895,7 +895,6 @@ fn push_live<'a>(el: &'a Element, out: &mut Vec<&'a Element>) {
 #[cfg(test)]
 mod lifecycle_tests {
     use super::*;
-    use Callback;
     use backend::{
         Backend, ControlKind, Event, EventHandler, Op, Prop, PropValue, RecordingBackend,
     };

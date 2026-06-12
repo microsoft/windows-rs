@@ -54,13 +54,13 @@ struct ContextEntry {
 }
 
 #[derive(Default)]
-pub struct ContextStack {
+pub(crate) struct ContextStack {
     entries: std::cell::RefCell<FxHashMap<ContextId, Vec<ContextEntry>>>,
     push_order: std::cell::RefCell<Vec<ContextId>>,
 }
 
 impl ContextStack {
-    pub fn new() -> Self {
+    pub(crate) fn new() -> Self {
         Self::default()
     }
 

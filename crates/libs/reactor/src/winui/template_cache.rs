@@ -11,7 +11,7 @@ thread_local! {
     static SHARED_TEMPLATE: OnceCell<DataTemplate> = const { OnceCell::new() };
 }
 
-pub fn shared_content_control_template() -> DataTemplate {
+pub(crate) fn shared_content_control_template() -> DataTemplate {
     SHARED_TEMPLATE.with(|cell| cell.get_or_init(parse_template).clone())
 }
 

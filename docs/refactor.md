@@ -1,57 +1,49 @@
-# windows-reactor module simplification plan
+# windows-reactor module simplification
 
 ## Summary of changes
 
-### What was done
-
-1. **All 75 consumer files migrated** from deep paths (`windows_reactor::core::*`,
+1. **All consumer files migrated** from deep paths (`windows_reactor::core::*`,
    `dsl::*`, `winui::*`) to root imports (`windows_reactor::*`).
 
-2. **lib.rs re-exports expanded** — all public items are available through
-   `use windows_reactor::*` with explicit named re-exports per module.
+2. **lib.rs dramatically simplified** — from 60 lines of explicit re-exports to
+   3 lines: `pub use app::*`, `pub use core::*`, `pub use winui::*`.
 
-3. **element.rs re-export chain flattened** — backward-compat `pub use super::*`
-   re-exports removed. lib.rs now re-exports directly from source modules.
+3. **All top-level modules made private** — `app`, `core`, `winui` are now
+   `mod` (private), not `pub mod`. Deep paths like
+   `windows_reactor::core::reconciler::*` no longer compile.
 
-4. **All sub-modules tightened** — every sub-module in core/, winui/ changed
-   from `pub mod` to `pub(crate) mod`. Deep paths like
-   `windows_reactor::core::reconciler::*` no longer compile for consumers.
+4. **element.rs re-export chain flattened** — backward-compat `pub use super::*`
+   re-exports removed. core/mod.rs now handles all public re-exports.
 
-5. **`dsl/` directory eliminated** — `dsl/modifiers.rs` moved to
-   `core/element_ext.rs`, `dsl/factories.rs` was a single re-export line
-   (now handled by lib.rs).
+5. **All sub-modules tightened** — every sub-module in core/ and winui/ is
+   `pub(crate) mod`. Public items reach consumers only through the `pub use`
+   chain in core/mod.rs → lib.rs.
 
-6. **Small modules merged**:
+6. **`dsl/` directory eliminated** — `dsl/modifiers.rs` moved to
+   `core/element_ext.rs`, `dsl/factories.rs` was a single re-export line.
+
+7. **Small modules merged**:
    - `window.rs` (Size, InnerConstraints) → `geometry.rs`
    - `pointer.rs` (PointerHandlers, PointerEventInfo) → `modifiers.rs`
    - `accessibility.rs` (AccessibilityModifiers, LiveSetting, HeadingLevel) → `modifiers.rs`
    - `tooltip.rs` (Tooltip, TooltipContent, TooltipPlacement) → `modifiers.rs`
    - `Size` renamed to `WindowSize` to avoid collision with `bindings::Size`
 
-7. **Redundant imports cleaned up** — duplicate `use windows_reactor::X` +
-   glob patterns consolidated.
+8. **Internal types tightened** — `ContextStack`, `TemplatedListImpl`,
+   `RenderCx::set_context_stack`, `RenderCx::take_read_contexts` downgraded
+   to `pub(crate)` since they're never used by consumers.
 
-### What's blocked
+### MIR bug note
 
-**Making top-level modules private** (`pub mod core` → `mod core`) is blocked
-by a nightly rustc MIR generation bug: the compiler skips MIR for items in
-private top-level modules even when `pub use`-re-exported. `pub(crate) use`
-re-exports in core/mod.rs also trigger MIR failures — `pub use` is required.
+Explicit named re-exports from private modules (`mod X; pub use X::Y;`)
+trigger a nightly rustc bug where MIR is not generated for the re-exported
+items. Glob re-exports (`pub use X::*`) do not trigger this bug — the
+compiler correctly generates MIR even when `X` is private.
 
-The modules remain `#[doc(hidden)] pub mod` with a comment explaining why.
-This is a one-line change once the rustc bug is fixed.
-
-Last checked: nightly 1.98.0 (2026-06-11).
-
-### Module count reduction
-
-Before: 4 directories (core/, dsl/, winui/, widgets/) with 35+ modules
-After: 3 directories (core/, winui/, widgets/) with 27 modules in core/
+### Stats
 
 Files deleted: 7 (dsl/mod.rs, dsl/factories.rs, dsl/modifiers.rs,
 accessibility.rs, pointer.rs, tooltip.rs, window.rs)
-
-Net line reduction: ~670 lines
 
 ## Verification
 

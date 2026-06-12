@@ -314,11 +314,11 @@ impl RenderCx {
         }
     }
 
-    pub fn take_read_contexts(&mut self) -> FxHashSet<ContextId> {
+    pub(crate) fn take_read_contexts(&mut self) -> FxHashSet<ContextId> {
         std::mem::take(&mut *self.read_contexts.borrow_mut())
     }
 
-    pub fn set_context_stack(&mut self, stack: Rc<ContextStack>) {
+    pub(crate) fn set_context_stack(&mut self, stack: Rc<ContextStack>) {
         self.context_stack = Some(stack);
     }
 

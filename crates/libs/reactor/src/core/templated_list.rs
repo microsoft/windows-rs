@@ -26,7 +26,7 @@ pub enum SelectionMode {
 
 /// Erased adapter exposing the items of a [`TemplatedListElement`] to the
 /// reconciler without leaking the concrete item type.
-pub trait TemplatedListImpl: 'static {
+pub(crate) trait TemplatedListImpl: 'static {
     fn item_count(&self) -> usize;
 
     fn build_item_view(&self, index: usize) -> Element;

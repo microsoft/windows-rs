@@ -9,12 +9,17 @@ pub(crate) mod dispatcher;
 pub(crate) mod element;
 pub(crate) mod element_ext;
 pub(crate) mod error_boundary;
+pub(crate) mod geometry;
+pub(crate) mod keyboard;
+pub(crate) mod modifiers;
 pub(crate) mod reconciler;
 pub(crate) mod render_context;
 pub(crate) mod render_host;
+pub(crate) mod resource;
 pub(crate) mod rich_text;
 pub(crate) mod templated_list;
 pub(crate) mod theme;
+pub(crate) mod widgets;
 
 pub use animation::*;
 pub use backend::*;
@@ -27,33 +32,24 @@ pub use dispatcher::*;
 pub use element::*;
 pub use element_ext::*;
 pub use error_boundary::*;
+pub use geometry::*;
+pub use into_elements::IntoElements;
+pub use keyboard::*;
+pub use modifiers::*;
 pub use reconciler::*;
 pub use render_context::*;
 pub use render_host::*;
+pub use resource::*;
 pub use rich_text::*;
 pub use templated_list::*;
 pub use theme::*;
-
-pub(crate) mod geometry;
-pub(crate) mod keyboard;
-pub(crate) mod modifiers;
-pub(crate) mod resource;
-pub(crate) mod widgets;
-
-pub(crate) use geometry::*;
-pub(crate) use keyboard::*;
-pub(crate) use modifiers::*;
-#[expect(unused_imports)]
-pub(crate) use resource::*;
-pub(crate) use widgets::*;
-
-pub(crate) mod prop_binding;
-pub(crate) mod widget;
-pub(crate) use prop_binding::*;
-pub(crate) use widget::*;
+pub use widgets::*;
 
 pub(crate) mod generated_bindings;
-
 pub(crate) mod into_elements;
+pub(crate) mod prop_binding;
 pub(crate) mod rc_fn;
-pub use into_elements::IntoElements;
+pub(crate) mod widget;
+
+pub(crate) use prop_binding::*;
+pub(crate) use widget::*;
