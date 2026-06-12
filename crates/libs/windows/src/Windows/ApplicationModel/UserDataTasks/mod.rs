@@ -263,7 +263,7 @@ impl UserDataTask {
         }
     }
     pub fn SetCompletedDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetCompletedDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Details(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -291,7 +291,7 @@ impl UserDataTask {
         }
     }
     pub fn SetDueDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDueDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<UserDataTaskKind> {
@@ -340,7 +340,7 @@ impl UserDataTask {
         }
     }
     pub fn SetReminder(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetReminder)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Sensitivity(&self) -> windows_core::Result<UserDataTaskSensitivity> {
@@ -368,7 +368,7 @@ impl UserDataTask {
         }
     }
     pub fn SetStartDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -963,7 +963,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetOccurrences(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOccurrences)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Until(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -973,7 +973,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetUntil(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetUntil)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Interval(&self) -> windows_core::Result<i32> {
@@ -992,7 +992,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetDaysOfWeek(&self, value: Option<UserDataTaskDaysOfWeek>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<UserDataTaskDaysOfWeek> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<UserDataTaskDaysOfWeek> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDaysOfWeek)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WeekOfMonth(&self) -> windows_core::Result<UserDataTaskWeekOfMonth> {
@@ -1002,7 +1002,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetWeekOfMonth(&self, value: Option<UserDataTaskWeekOfMonth>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<UserDataTaskWeekOfMonth> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<UserDataTaskWeekOfMonth> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetWeekOfMonth)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Month(&self) -> windows_core::Result<i32> {
@@ -1012,7 +1012,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetMonth(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMonth)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Day(&self) -> windows_core::Result<i32> {
@@ -1022,7 +1022,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetDay(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDay)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -1084,7 +1084,7 @@ impl UserDataTaskRegenerationProperties {
         }
     }
     pub fn SetOccurrences(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOccurrences)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Until(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1094,7 +1094,7 @@ impl UserDataTaskRegenerationProperties {
         }
     }
     pub fn SetUntil(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetUntil)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Interval(&self) -> windows_core::Result<i32> {

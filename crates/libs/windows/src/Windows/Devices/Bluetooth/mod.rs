@@ -1627,7 +1627,7 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     pub fn SetInRangeThresholdInDBm(&self, value: Option<i16>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i16> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i16> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetInRangeThresholdInDBm)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn OutOfRangeThresholdInDBm(&self) -> windows_core::Result<i16> {
@@ -1637,7 +1637,7 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     pub fn SetOutOfRangeThresholdInDBm(&self, value: Option<i16>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i16> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i16> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOutOfRangeThresholdInDBm)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn OutOfRangeTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -1647,7 +1647,7 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     pub fn SetOutOfRangeTimeout(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOutOfRangeTimeout)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SamplingInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -1657,7 +1657,7 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     pub fn SetSamplingInterval(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSamplingInterval)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

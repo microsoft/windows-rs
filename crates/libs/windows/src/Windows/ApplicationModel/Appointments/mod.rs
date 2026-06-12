@@ -66,7 +66,7 @@ impl Appointment {
         }
     }
     pub fn SetReminder(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetReminder)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Organizer(&self) -> windows_core::Result<AppointmentOrganizer> {
@@ -212,7 +212,7 @@ impl Appointment {
     }
     pub fn SetReplyTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetReplyTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn UserResponse(&self) -> windows_core::Result<AppointmentParticipantResponse> {
@@ -1516,7 +1516,7 @@ impl AppointmentRecurrence {
         }
     }
     pub fn SetOccurrences(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOccurrences)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Until(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1526,7 +1526,7 @@ impl AppointmentRecurrence {
         }
     }
     pub fn SetUntil(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetUntil)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Interval(&self) -> windows_core::Result<u32> {

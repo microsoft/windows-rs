@@ -437,7 +437,7 @@ impl ConnectionProfileFilter {
         }
     }
     pub fn SetServiceProviderGuid(&self, value: Option<windows_core::GUID>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_core::GUID> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_core::GUID> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetServiceProviderGuid)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_core::GUID> {
@@ -448,7 +448,7 @@ impl ConnectionProfileFilter {
     }
     pub fn SetIsRoaming(&self, value: Option<bool>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetIsRoaming)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsRoaming(&self) -> windows_core::Result<bool> {
@@ -460,7 +460,7 @@ impl ConnectionProfileFilter {
     }
     pub fn SetIsOverDataLimit(&self, value: Option<bool>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetIsOverDataLimit)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsOverDataLimit(&self) -> windows_core::Result<bool> {
@@ -472,7 +472,7 @@ impl ConnectionProfileFilter {
     }
     pub fn SetIsBackgroundDataUsageRestricted(&self, value: Option<bool>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsBackgroundDataUsageRestricted(&self) -> windows_core::Result<bool> {
@@ -492,7 +492,7 @@ impl ConnectionProfileFilter {
     }
     pub fn SetPurposeGuid(&self, value: Option<windows_core::GUID>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_core::GUID> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_core::GUID> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetPurposeGuid)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn PurposeGuid(&self) -> windows_core::Result<windows_core::GUID> {

@@ -1953,7 +1953,7 @@ impl PhoneCallHistoryEntry {
         }
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsCallerIdBlocked(&self) -> windows_core::Result<bool> {
