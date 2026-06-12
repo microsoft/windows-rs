@@ -10,7 +10,7 @@ impl windows_core::RuntimeType for AttestationChallengeHandler {
 impl AttestationChallengeHandler {
     pub fn new<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<AttestationChallengeHandler, F>::new(&AttestationChallengeHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, challenge: P0) -> windows_core::Result<super::super::Storage::Streams::IBuffer>
     where

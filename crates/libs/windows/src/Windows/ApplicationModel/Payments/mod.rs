@@ -1331,7 +1331,7 @@ impl windows_core::RuntimeType for PaymentRequestChangedHandler {
 impl PaymentRequestChangedHandler {
     pub fn new<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<PaymentRequestChangedHandler, F>::new(&PaymentRequestChangedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, paymentrequest: P0, args: P1) -> windows_core::Result<()>
     where

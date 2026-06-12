@@ -27,7 +27,7 @@ impl windows_core::RuntimeType for ActivatedEventHandler {
 impl ActivatedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<ActivatedEventHandler, F>::new(&ActivatedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
     where
@@ -128,7 +128,7 @@ impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
 impl BackgroundActivatedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<BackgroundActivatedEventHandler, F>::new(&BackgroundActivatedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
     where
@@ -206,7 +206,7 @@ impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
 impl EnteredBackgroundEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<EnteredBackgroundEventHandler, F>::new(&EnteredBackgroundEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -788,7 +788,7 @@ impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
 impl LeavingBackgroundEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<LeavingBackgroundEventHandler, F>::new(&LeavingBackgroundEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -831,7 +831,7 @@ impl windows_core::RuntimeType for NavigatedEventHandler {
 impl NavigatedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<NavigatedEventHandler, F>::new(&NavigatedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -929,7 +929,7 @@ impl windows_core::RuntimeType for ResumingEventHandler {
 impl ResumingEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<ResumingEventHandler, F>::new(&ResumingEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -1024,7 +1024,7 @@ impl windows_core::RuntimeType for SuspendingEventHandler {
 impl SuspendingEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SuspendingEventHandler, F>::new(&SuspendingEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where

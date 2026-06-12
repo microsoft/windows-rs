@@ -18,7 +18,7 @@ pub mod Test {
         ) -> Self {
             let com =
                 windows_core::imp::DelegateBox::<Handler, F>::new(&HandlerBox::<F>::VTABLE, invoke);
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         }
         pub fn Invoke<P0>(&self, sender: P0) -> windows_result::Result<()>
         where

@@ -29,6 +29,7 @@ pub use interface::*;
 pub use method::*;
 pub use r#struct::*;
 
+#[expect(clippy::upper_case_acronyms, clippy::enum_variant_names)]
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),

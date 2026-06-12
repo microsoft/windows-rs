@@ -19,7 +19,7 @@ impl AsyncActionCompletedHandler {
             &AsyncActionCompletedHandlerBox::<F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
@@ -112,7 +112,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
             &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
     where
@@ -240,7 +240,7 @@ impl<TProgress: windows_core::RuntimeType + 'static>
             &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
@@ -361,7 +361,7 @@ impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandle
             &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
@@ -488,7 +488,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
             &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
     where
@@ -634,7 +634,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
             &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where

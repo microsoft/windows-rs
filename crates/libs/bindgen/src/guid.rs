@@ -1,3 +1,4 @@
+#[expect(clippy::upper_case_acronyms)]
 pub struct GUID(
     pub u32,
     pub u16,

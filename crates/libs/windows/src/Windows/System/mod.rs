@@ -1139,7 +1139,7 @@ impl windows_core::RuntimeType for DispatcherQueueHandler {
 impl DispatcherQueueHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::new(&DispatcherQueueHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }

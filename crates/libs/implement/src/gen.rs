@@ -210,7 +210,7 @@ fn gen_iunknown_impl(inputs: &ImplementInputs) -> syn::Item {
             unsafe fn Release(self_: *mut Self) -> u32 {
                 let remaining = (*self_).count.release();
                 if remaining == 0 {
-                    _ = ::windows_core::imp::Box::from_raw(self_);
+                    _ = ::windows_core::imp::box_from_raw(self_);
                 }
                 remaining
             }
@@ -263,9 +263,9 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
             // adjustments it performs.
 
             fn into_object(self) -> ::windows_core::ComObject<Self> {
-                let boxed = ::windows_core::imp::Box::<#impl_ident::#generics_idents>::new(self.into_outer());
+                let boxed = ::windows_core::imp::box_new(self.into_outer());
                 unsafe {
-                    let ptr = ::windows_core::imp::Box::into_raw(boxed);
+                    let ptr = ::windows_core::imp::box_into_raw(boxed);
                     ::windows_core::ComObject::from_raw(
                         ::core::ptr::NonNull::new_unchecked(ptr)
                     )

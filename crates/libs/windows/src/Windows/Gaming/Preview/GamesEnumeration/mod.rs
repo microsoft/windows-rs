@@ -101,7 +101,7 @@ impl windows_core::RuntimeType for GameListChangedEventHandler {
 impl GameListChangedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<GameListChangedEventHandler, F>::new(&GameListChangedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, game: P0) -> windows_core::Result<()>
     where
@@ -270,7 +270,7 @@ impl windows_core::RuntimeType for GameListRemovedEventHandler {
 impl GameListRemovedEventHandler {
     pub fn new<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<GameListRemovedEventHandler, F>::new(&GameListRemovedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, identifier: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier)).ok() }

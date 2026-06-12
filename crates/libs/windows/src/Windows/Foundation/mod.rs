@@ -52,7 +52,7 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
 impl DeferralCompletedHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DeferralCompletedHandler, F>::new(&DeferralCompletedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
@@ -96,7 +96,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<EventHandler<T>, F>::new(&EventHandlerBox::<T, F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -2053,7 +2053,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
     pub fn new<F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<TypedEventHandler<TSender, TResult>, F>::new(&TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where

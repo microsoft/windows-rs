@@ -2845,7 +2845,7 @@ impl windows_core::RuntimeType for SmartCardPinResetHandler {
 impl SmartCardPinResetHandler {
     pub fn new<F: Fn(windows_core::Ref<SmartCardProvisioning>, windows_core::Ref<SmartCardPinResetRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SmartCardPinResetHandler, F>::new(&SmartCardPinResetHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, request: P1) -> windows_core::Result<()>
     where

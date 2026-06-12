@@ -906,7 +906,7 @@ impl Method {
                             #prelude
                             let #pname: #delegate_name = {
                                 let com = windows_core::imp::DelegateBox::<#delegate_name, F>::new(&#boxed_name::<#generic_names F>::VTABLE, #pname);
-                                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+                                unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
                             };
                         }
                     } else {

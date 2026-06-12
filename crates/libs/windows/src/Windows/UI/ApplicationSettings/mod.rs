@@ -223,7 +223,7 @@ impl windows_core::RuntimeType for CredentialCommandCredentialDeletedHandler {
 impl CredentialCommandCredentialDeletedHandler {
     pub fn new<F: Fn(windows_core::Ref<CredentialCommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<CredentialCommandCredentialDeletedHandler, F>::new(&CredentialCommandCredentialDeletedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, command: P0) -> windows_core::Result<()>
     where
@@ -845,7 +845,7 @@ impl windows_core::RuntimeType for WebAccountCommandInvokedHandler {
 impl WebAccountCommandInvokedHandler {
     pub fn new<F: Fn(windows_core::Ref<WebAccountCommand>, windows_core::Ref<WebAccountInvokedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<WebAccountCommandInvokedHandler, F>::new(&WebAccountCommandInvokedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, command: P0, args: P1) -> windows_core::Result<()>
     where
@@ -951,7 +951,7 @@ impl windows_core::RuntimeType for WebAccountProviderCommandInvokedHandler {
 impl WebAccountProviderCommandInvokedHandler {
     pub fn new<F: Fn(windows_core::Ref<WebAccountProviderCommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<WebAccountProviderCommandInvokedHandler, F>::new(&WebAccountProviderCommandInvokedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, command: P0) -> windows_core::Result<()>
     where

@@ -931,7 +931,7 @@ impl windows_core::RuntimeType for DisplayPropertiesEventHandler {
 impl DisplayPropertiesEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DisplayPropertiesEventHandler, F>::new(&DisplayPropertiesEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where

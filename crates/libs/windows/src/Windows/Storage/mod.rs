@@ -589,7 +589,7 @@ impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
 impl ApplicationDataSetVersionHandler {
     pub fn new<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<ApplicationDataSetVersionHandler, F>::new(&ApplicationDataSetVersionHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, setversionrequest: P0) -> windows_core::Result<()>
     where
@@ -5610,7 +5610,7 @@ impl windows_core::RuntimeType for StreamedFileDataRequestedHandler {
 impl StreamedFileDataRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<StreamedFileDataRequestedHandler, F>::new(&StreamedFileDataRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, stream: P0) -> windows_core::Result<()>
     where

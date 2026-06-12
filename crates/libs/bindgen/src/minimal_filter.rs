@@ -199,7 +199,6 @@ impl MinimalFilter {
 
     /// Returns true if the given method on the given type should be emitted as
     /// a live vtable slot (not demoted to `Slot: usize`).
-    #[allow(dead_code)]
     pub fn includes_method(&self, type_name: TypeName, method_name: &str) -> bool {
         let key = (type_name.namespace(), type_name.name());
         match self.interfaces.get(&key) {
@@ -218,13 +217,6 @@ impl MinimalFilter {
             }
             None => false,
         }
-    }
-
-    /// Returns true if the given interface was explicitly requested (has any
-    /// method entries or ::*).
-    #[allow(dead_code)]
-    pub fn has_interface(&self, namespace: &str, name: &str) -> bool {
-        self.interfaces.contains_key(&(namespace, name))
     }
 
     /// Returns the variant filter for a given enum, if one was specified.

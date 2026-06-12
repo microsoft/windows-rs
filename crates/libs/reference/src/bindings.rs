@@ -1036,18 +1036,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropert
 {
     const QUERY: bool = true;
 }
-impl<T: windows_core::RuntimeType + 'static> IReference<T> {
-    pub fn Value(&self) -> windows_core::Result<T> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
     const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
