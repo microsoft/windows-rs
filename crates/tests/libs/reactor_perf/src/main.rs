@@ -11,7 +11,6 @@ use windows::Win32::System::ProcessStatus::{GetProcessMemoryInfo, PROCESS_MEMORY
 use windows::Win32::System::Threading::GetCurrentProcess;
 use windows::core::Result;
 
-use windows_reactor::imp::*;
 use windows_reactor::*;
 
 const APP_NAME: &str = "StressPerf.Reactor";

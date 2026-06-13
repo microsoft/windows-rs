@@ -1,11 +1,11 @@
 use std::rc::Rc;
 
-use windows_reactor::imp::Reconciler;
-use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::Reconciler;
 use windows_reactor::vstack;
 use windows_reactor::{ControlId, Prop};
 use windows_reactor::{Element, StackPanel};
 use windows_reactor::{ElementExt, text_block};
+use windows_reactor::{Op, RecordingBackend};
 
 fn keyed_stack(items: impl IntoIterator<Item = &'static str>) -> StackPanel {
     let children: Vec<Element> = items

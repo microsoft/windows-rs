@@ -2,8 +2,8 @@ use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use windows_reactor::Component;
-use windows_reactor::imp::RecordingBackend;
-use windows_reactor::imp::RenderHost;
+use windows_reactor::RecordingBackend;
+use windows_reactor::RenderHost;
 use windows_reactor::{Dispatcher, DispatcherQueuePriority};
 use windows_reactor::{Element, TextBlock};
 use windows_reactor::{RenderCx, SetState};
