@@ -5,9 +5,10 @@
 
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, Modifiers, StackPanel, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::{Button, Element, Modifiers, StackPanel, TextBlock};
+use windows_reactor::{Prop, PropValue};
 
 fn rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -123,7 +124,7 @@ fn min_max_unset_on_diff() {
 
 #[test]
 fn canvas_z_index_emits_set_prop() {
-    use windows_reactor::core::element::Canvas;
+    use windows_reactor::Canvas;
 
     let child: Element = TextBlock::new("hi").into();
     let child = child.canvas_z_index(5);

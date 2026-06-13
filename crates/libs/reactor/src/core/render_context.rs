@@ -280,7 +280,7 @@ pub struct RenderCx {
     /// populated by the host for [`Self::use_ui_marshaller`] /
     /// [`Self::use_async_state`].
     marshaller: Option<UiMarshaller>,
-    inner_size: Rc<Cell<Size>>,
+    inner_size: Rc<Cell<WindowSize>>,
     /// Per-monitor DPI for the host window. Shared with the
     /// reconciler via [`Self::set_dpi_cell`]; updated by the host when the
     /// window moves across monitors.
@@ -309,7 +309,7 @@ impl RenderCx {
             context_stack: None,
             read_contexts: RefCell::new(FxHashSet::default()),
             marshaller: None,
-            inner_size: Rc::new(Cell::new(Size::default())),
+            inner_size: Rc::new(Cell::new(WindowSize::default())),
             dpi: Rc::new(Cell::new(96)),
         }
     }
@@ -329,9 +329,10 @@ impl RenderCx {
         self.read_contexts.borrow_mut().insert(context.id);
 
         if let Some(stack) = &self.context_stack
-            && let Some(v) = stack.get::<T>(context.id) {
-                return v;
-            }
+            && let Some(v) = stack.get::<T>(context.id)
+        {
+            return v;
+        }
         context.default.clone()
     }
 
@@ -373,9 +374,9 @@ impl RenderCx {
 
     /// Returns the UI-thread marshaller installed by the host.
     pub fn use_ui_marshaller(&mut self) -> UiMarshaller {
-        self.marshaller.clone().expect(
-            "use_ui_marshaller requires a WinUI host",
-        )
+        self.marshaller
+            .clone()
+            .expect("use_ui_marshaller requires a WinUI host")
     }
 
     /// Like [`Self::use_state`], but returns an [`AsyncSetState<T>`]
@@ -424,9 +425,10 @@ impl RenderCx {
             }
         };
 
-        let marshaller = self.marshaller.clone().expect(
-            "use_async_state requires a WinUI host",
-        );
+        let marshaller = self
+            .marshaller
+            .clone()
+            .expect("use_async_state requires a WinUI host");
 
         let setter = AsyncSetState::<T> {
             cell,
@@ -652,19 +654,21 @@ impl RenderCx {
             if let HookSlot::Effect {
                 pending_cleanup, ..
             } = slot
-                && let Some(c) = pending_cleanup.take() {
-                    c();
-                }
+                && let Some(c) = pending_cleanup.take()
+            {
+                c();
+            }
         }
 
         for slot in hooks.iter_mut() {
             if let HookSlot::Effect {
                 pending, cleanup, ..
             } = slot
-                && let Some(effect) = pending.take() {
-                    let new_cleanup = effect();
-                    *cleanup = new_cleanup;
-                }
+                && let Some(effect) = pending.take()
+            {
+                let new_cleanup = effect();
+                *cleanup = new_cleanup;
+            }
         }
     }
 
@@ -690,7 +694,7 @@ impl RenderCx {
 
     /// Returns the host window's client-area size in DIPs. Re-renders
     /// the component whenever the window is resized.
-    pub fn use_inner_size(&self) -> Size {
+    pub fn use_inner_size(&self) -> WindowSize {
         self.read_contexts
             .borrow_mut()
             .insert(inner_size_context_id());
@@ -704,7 +708,7 @@ impl RenderCx {
         self.dpi.get()
     }
 
-    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<Size>>) {
+    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.inner_size = cell;
     }
 
@@ -781,9 +785,7 @@ impl RenderCx {
                     );
                 }
                 let mut slot = cell.borrow_mut();
-                let prev = slot
-                    .downcast_ref::<T>()
-                    .unwrap();
+                let prev = slot.downcast_ref::<T>().unwrap();
                 if *prev == value {
                     return;
                 }
@@ -814,9 +816,7 @@ impl RenderCx {
 
                 let prev = {
                     let slot = cell.borrow();
-                    slot.downcast_ref::<T>()
-                        .unwrap()
-                        .clone()
+                    slot.downcast_ref::<T>().unwrap().clone()
                 };
                 let next = reducer(prev.clone());
                 if prev == next {
@@ -855,9 +855,7 @@ impl RenderCx {
                 }
                 let prev = {
                     let slot = cell.borrow();
-                    slot.downcast_ref::<S>()
-                        .unwrap()
-                        .clone()
+                    slot.downcast_ref::<S>().unwrap().clone()
                 };
                 let next = reducer(prev.clone(), action);
                 if prev == next {

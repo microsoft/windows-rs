@@ -6,7 +6,6 @@ use super::dispatcher::set_ui_rerender;
 use super::*;
 
 /// Per-render telemetry exposed by [`RenderHost::stats`].
-#[doc(hidden)]
 #[derive(Copy, Clone, Debug, Default)]
 pub struct RenderStats {
     pub fps: f64,
@@ -22,7 +21,6 @@ pub struct RenderStats {
 
 /// Information passed to the [`RenderHost::set_render_complete`] callback
 /// after each reconcile pass completes.
-#[doc(hidden)]
 #[derive(Copy, Clone, Debug)]
 pub struct RenderCompleteInfo {
     pub tree_build_ms: f64,
@@ -119,7 +117,6 @@ impl StatsAccumulator {
 
 /// Owns a [`Reconciler`] and a root [`Component`], coalescing render
 /// requests onto the supplied [`Dispatcher`] (typically the UI thread).
-#[doc(hidden)]
 pub struct RenderHost<B: Backend, D: Dispatcher> {
     inner: Rc<RenderHostInner<B, D>>,
 }
@@ -149,7 +146,7 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     post_render: RefCell<Option<Box<dyn Fn(Option<ControlId>)>>>,
     render_complete: RefCell<Option<Box<dyn Fn(&RenderCompleteInfo)>>>,
     stats_accum: StatsAccumulator,
-    inner_size: Rc<Cell<Size>>,
+    inner_size: Rc<Cell<WindowSize>>,
     dpi: Rc<Cell<u32>>,
 }
 
@@ -158,7 +155,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         let mut reconciler = Reconciler::new(backend);
         let mut render_cx = RenderCx::new(Rc::new(|| {}));
 
-        let inner_size = Rc::new(Cell::new(Size::default()));
+        let inner_size = Rc::new(Cell::new(WindowSize::default()));
         let dpi = Rc::new(Cell::new(96_u32));
         render_cx.set_inner_size_cell(Rc::clone(&inner_size));
         render_cx.set_dpi_cell(Rc::clone(&dpi));
@@ -294,11 +291,11 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         *self.inner.render_complete.borrow_mut() = Some(Box::new(f));
     }
 
-    pub fn inner_size(&self) -> Size {
+    pub fn inner_size(&self) -> WindowSize {
         self.inner.inner_size.get()
     }
 
-    pub fn set_inner_size(&self, size: Size) {
+    pub fn set_inner_size(&self, size: WindowSize) {
         if self.inner.inner_size.get() == size {
             return;
         }

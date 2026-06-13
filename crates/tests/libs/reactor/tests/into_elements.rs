@@ -1,7 +1,7 @@
 //! Tests for the `IntoElements` tuple trait used by `vstack`/`hstack`/`grid`.
 
-use windows_reactor::core::element::{Element, Orientation};
-use windows_reactor::dsl::factories::{button, text_block};
+use windows_reactor::{Element, Orientation};
+use windows_reactor::{button, text_block};
 use windows_reactor::{grid, hstack, vstack};
 
 #[test]

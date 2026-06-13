@@ -1,6 +1,6 @@
-use windows_reactor::core::component::Component;
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::render_context::RenderCx;
+use windows_reactor::Component;
+use windows_reactor::RenderCx;
+use windows_reactor::{Element, TextBlock};
 
 struct Noop;
 impl Component for Noop {

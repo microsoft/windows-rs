@@ -1,26 +1,8 @@
 use super::component_element::ComponentElement;
-
-// Re-exports for backward compatibility: the types below were previously
-// declared in this module and are now sourced from sibling modules
-// (`geometry`, `keyboard`, `modifiers`, `accessibility`, `widgets`). Both
-// `crate::core::element::X` and `crate::core::X` continue to resolve.
-pub use super::accessibility::{AccessibilityModifiers, HeadingLevel, LiveSetting};
-pub use super::geometry::{
-    Brush, Color, GridLength, HorizontalAlignment, ScrollBarVisibility, Thickness,
-    VerticalAlignment,
-};
-pub use super::keyboard::{KeyModifiers, KeyboardAccelerator, KeyboardKey};
-pub use super::modifiers::{AttachedProps, GridPlacement, Modifiers};
-pub use super::pointer::{PointerEventInfo, PointerHandlers};
-pub use super::tooltip::{Tooltip, TooltipContent, TooltipPlacement};
-// Widget structs and their support types now live under `core/widgets/`,
-// but the historical `crate::core::element::X` path is part of the
-// public API surface. Re-export them here.
-pub use super::widgets::*;
+use super::*;
 
 /// Fragment-style element flattened into its parent's child list during
 /// reconciliation; only valid inside multi-child containers.
-#[doc(hidden)]
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct GroupElement {
     pub key: Option<String>,
@@ -405,9 +387,7 @@ impl Element {
     }
     pub fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            m.keyboard_accelerators
-                .get_or_insert_with(|| Box::new(Vec::new()))
-                .push(accel);
+            m.keyboard_accelerators.push(accel);
         }
         self
     }
@@ -421,8 +401,7 @@ impl Element {
             return a.kind == b.kind;
         }
         if let (Element::Custom(a), Element::Custom(b)) = (self, other) {
-            return CustomElement::type_id(&*a.0)
-                == CustomElement::type_id(&*b.0);
+            return CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0);
         }
         true
     }
@@ -437,8 +416,7 @@ impl Element {
                 a.obj.component_type_id() == b.obj.component_type_id()
             }
             (Element::Custom(a), Element::Custom(b)) => {
-                CustomElement::type_id(&*a.0)
-                    == CustomElement::type_id(&*b.0)
+                CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0)
             }
             _ => true,
         }

@@ -13,14 +13,14 @@ mod bindings;
 #[doc(hidden)]
 pub mod core;
 #[doc(hidden)]
-pub mod dsl;
-
-#[doc(hidden)]
 pub mod winui;
 
+mod app;
+mod diagnostics;
+
+/// Test infrastructure — not part of the public API.
 #[doc(hidden)]
-pub mod app;
-pub(crate) mod diagnostics;
+pub mod imp;
 
 mod app_shim;
 pub mod bootstrap;
@@ -29,36 +29,5 @@ pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;
-pub use core::animation::*;
-pub use core::backend::{Backend, ControlId};
-pub use core::callback::*;
-pub use core::component::*;
-pub use core::component_element::*;
-pub use core::context::Context;
-pub use core::custom::*;
-pub use core::dispatcher::*;
-pub use core::element::*;
-// Nightly Rust 2024 edition does not propagate `pub use` items through glob
-// re-exports. Explicitly re-export types that element.rs sources from sibling
-// modules so that downstream crates can rely on `windows_reactor::X`.
-pub use core::element::{
-    AccessibilityModifiers, AttachedProps, Brush, Color, CommandBarDefaultLabelPosition,
-    FlyoutPlacementMode, GridLength, GridPlacement, HeadingLevel, HorizontalAlignment,
-    InfoBarSeverity, KeyModifiers, KeyboardAccelerator, KeyboardKey, LiveSetting, Modifiers,
-    NavigationViewPaneDisplayMode, Orientation, PasswordRevealMode, PointerEventInfo,
-    PointerHandlers, ScrollBarVisibility, ScrollingScrollBarVisibility, Stretch, Symbol,
-    TeachingTipPlacementMode, TextWrapping, Thickness, Tooltip, TooltipContent, TooltipPlacement,
-    TreeViewSelectionMode, VerticalAlignment,
-};
-pub use core::error_boundary::*;
-pub use core::into_elements::IntoElements;
-pub use core::render_context::*;
-pub use core::render_host::*;
-pub use core::resource::*;
-pub use core::templated_list::{SelectionMode, flip_view, grid_view, list_view, virtual_list};
-pub use core::theme::*;
-pub use core::window::*;
-pub use dsl::*;
-pub use winui::dispatcher::WinUIDispatcher;
-pub use winui::host::{Backdrop, RequestedTheme, set_backdrop, set_requested_theme};
-pub use winui::{DispatcherTimer, Rendering, on_rendering};
+pub use core::*;
+pub use winui::*;

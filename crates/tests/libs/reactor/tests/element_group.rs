@@ -5,11 +5,11 @@
 
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{
-    Button, Element, GroupElement, Orientation, StackPanel, TextBlock, group,
-};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::imp::GroupElement;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock, group};
+use windows_reactor::{Prop, PropValue};
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -43,7 +43,7 @@ fn appends_for(ops: &[Op]) -> Vec<(usize, usize)> {
 
 fn child_text_contents(
     r: &Reconciler<RecordingBackend>,
-    parent: windows_reactor::core::backend::ControlId,
+    parent: windows_reactor::ControlId,
 ) -> Vec<String> {
     // Walk children_of(parent) in order; for each child, find the most
     // recent SetProp(TextBlock) on that id and return its string value.
@@ -251,7 +251,7 @@ fn group_as_border_child_panics() {
     use std::panic::AssertUnwindSafe;
     // Border has a single-child slot, which is not a "child list" the
     // group can flatten into. Must panic with the same diagnostic.
-    use windows_reactor::core::element::Border;
+    use windows_reactor::Border;
     let border = Border::new(group(vec![label("a"), label("b")]));
     let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
         let mut r = Reconciler::new(RecordingBackend::new());

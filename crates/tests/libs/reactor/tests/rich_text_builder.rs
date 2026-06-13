@@ -1,4 +1,4 @@
-use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextParagraph, RichTextRun};
+use windows_reactor::{RichText, RichTextInline, RichTextParagraph, RichTextRun};
 
 #[test]
 fn run_plain_creates_default_styled_run() {

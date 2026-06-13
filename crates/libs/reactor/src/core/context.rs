@@ -103,17 +103,14 @@ impl ContextStack {
     pub fn get<T: 'static + Clone>(&self, context_id: ContextId) -> Option<T> {
         let entries = self.entries.borrow();
         let entry = entries.get(&context_id)?.last()?;
-        assert!(entry.value_type_id == TypeId::of::<T>(), 
+        assert!(
+            entry.value_type_id == TypeId::of::<T>(),
             "context type mismatch for context {:?}: provided as {:?}, consumed as {:?}",
             context_id,
             entry.value_type_id,
             TypeId::of::<T>()
         );
         entry.value.downcast_ref::<T>().cloned()
-    }
-
-    pub fn depth(&self) -> usize {
-        self.push_order.borrow().len()
     }
 
     #[cfg(test)]
@@ -222,10 +219,8 @@ mod tests {
         assert!(s.get::<i32>(id).is_none());
         {
             let _g = s.push(id, 42_i32);
-            assert_eq!(s.depth(), 1);
             assert_eq!(s.get::<i32>(id), Some(42));
         }
-        assert_eq!(s.depth(), 0);
         assert!(s.get::<i32>(id).is_none());
     }
 

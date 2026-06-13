@@ -8,15 +8,17 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.apply_attached(id, w.attached());
         self.mount_widget_children(id, w.children());
         if let Some(hdr) = w.header_element()
-            && let Some(hdr_id) = self.mount(hdr) {
-                self.backend.set_header_element(id, Some(hdr_id));
-                self.header_elements.insert(id, hdr_id);
-            }
+            && let Some(hdr_id) = self.mount(hdr)
+        {
+            self.backend.set_header_element(id, Some(hdr_id));
+            self.header_elements.insert(id, hdr_id);
+        }
         if let Some(pane) = w.pane_element()
-            && let Some(pane_id) = self.mount(pane) {
-                self.backend.set_pane_element(id, Some(pane_id));
-                self.pane_elements.insert(id, pane_id);
-            }
+            && let Some(pane_id) = self.mount(pane)
+        {
+            self.backend.set_pane_element(id, Some(pane_id));
+            self.pane_elements.insert(id, pane_id);
+        }
         if let Some(cb) = w.on_mounted_callback() {
             cb.invoke(self.backend.get_native_element(id));
         }
@@ -171,8 +173,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                                 self.pane_elements.insert(id, nid);
                             }
                             None => {
-                                self.backend
-                                    .set_pane_element(id, Option::<ControlId>::None);
+                                self.backend.set_pane_element(id, Option::<ControlId>::None);
                                 self.pane_elements.remove(&id);
                             }
                             _ => {}
@@ -211,7 +212,9 @@ impl<B: Backend + 'static> Reconciler<B> {
     fn mount_pivot_item(&mut self, parent: ControlId, item: &PivotItem) {
         let item_id = self.acquire_control(ControlKind::PivotItem);
         self.backend.set_prop(
-            item_id, Prop::ItemHeader, &PropValue::Str(item.header.clone()),
+            item_id,
+            Prop::ItemHeader,
+            &PropValue::Str(item.header.clone()),
         );
         if let Some(content_id) = self.mount(&item.content) {
             self.append_child_tracked(item_id, content_id);
@@ -233,10 +236,11 @@ impl<B: Backend + 'static> Reconciler<B> {
                     .set_prop(tab_id, Prop::Header, &PropValue::Str(n.header.clone()));
             }
             if o.key != n.key
-                && let Some(key) = &n.key {
-                    self.backend
-                        .set_prop(tab_id, Prop::ItemKey, &PropValue::Str(key.clone()));
-                }
+                && let Some(key) = &n.key
+            {
+                self.backend
+                    .set_prop(tab_id, Prop::ItemKey, &PropValue::Str(key.clone()));
+            }
             if o.is_closable != n.is_closable {
                 // Either explicit value (set new), or transition to default
                 // (re-enable platform default = true).
@@ -272,9 +276,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             let o = &old[i];
             let n = &new[i];
             if o.header != n.header {
-                self.backend.set_prop(
-                    item_id, Prop::ItemHeader, &PropValue::Str(n.header.clone()),
-                );
+                self.backend
+                    .set_prop(item_id, Prop::ItemHeader, &PropValue::Str(n.header.clone()));
             }
             let oc = std::slice::from_ref(&o.content);
             let nc = std::slice::from_ref(&n.content);
@@ -320,7 +323,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         if p.column_span > 1 {
             self.backend.set_prop(
-                id, Prop::AttachedGridColumnSpan, &PropValue::I32(p.column_span),
+                id,
+                Prop::AttachedGridColumnSpan,
+                &PropValue::I32(p.column_span),
             );
         }
     }
@@ -335,15 +340,13 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend
             .set_prop(id, Prop::AttachedGridRowSpan, &PropValue::I32(p.row_span));
         self.backend.set_prop(
-            id, Prop::AttachedGridColumnSpan, &PropValue::I32(p.column_span),
+            id,
+            Prop::AttachedGridColumnSpan,
+            &PropValue::I32(p.column_span),
         );
     }
 
-    pub(crate) fn apply_canvas_position(
-        &mut self,
-        id: ControlId,
-        p: CanvasPosition,
-    ) {
+    pub(crate) fn apply_canvas_position(&mut self, id: ControlId, p: CanvasPosition) {
         // Canvas defaults are 0.0 — only emit when non-zero on mount;
         // the diff path always emits to overwrite the previous value.
         if p.left != 0.0 {
@@ -368,12 +371,8 @@ impl<B: Backend + 'static> Reconciler<B> {
     ) {
         // GridPlacement is now on Modifiers::grid — handled by diff_modifiers.
 
-        let old_canvas = old
-            .and_then(|a| a.get::<CanvasPosition>())
-            .copied();
-        let new_canvas = new
-            .and_then(|a| a.get::<CanvasPosition>())
-            .copied();
+        let old_canvas = old.and_then(|a| a.get::<CanvasPosition>()).copied();
+        let new_canvas = new.and_then(|a| a.get::<CanvasPosition>()).copied();
         if old_canvas != new_canvas {
             let p = new_canvas.unwrap_or_default();
             self.backend
@@ -384,12 +383,8 @@ impl<B: Backend + 'static> Reconciler<B> {
                 .set_prop(id, Prop::AttachedCanvasZIndex, &PropValue::I32(p.z_index));
         }
 
-        let old_rp = old
-            .and_then(|a| a.get::<RelativePanelAlignment>())
-            .copied();
-        let new_rp = new
-            .and_then(|a| a.get::<RelativePanelAlignment>())
-            .copied();
+        let old_rp = old.and_then(|a| a.get::<RelativePanelAlignment>()).copied();
+        let new_rp = new.and_then(|a| a.get::<RelativePanelAlignment>()).copied();
         if old_rp != new_rp {
             let p = new_rp.unwrap_or_default();
             self.apply_relative_panel_alignment_full(id, p);
@@ -402,59 +397,61 @@ impl<B: Backend + 'static> Reconciler<B> {
         p: RelativePanelAlignment,
     ) {
         if p.align_left_with_panel {
-            self.backend.set_prop(
-                id, Prop::AlignLeftWithPanel, &PropValue::Bool(true),
-            );
+            self.backend
+                .set_prop(id, Prop::AlignLeftWithPanel, &PropValue::Bool(true));
         }
         if p.align_right_with_panel {
-            self.backend.set_prop(
-                id, Prop::AlignRightWithPanel, &PropValue::Bool(true),
-            );
+            self.backend
+                .set_prop(id, Prop::AlignRightWithPanel, &PropValue::Bool(true));
         }
         if p.align_top_with_panel {
-            self.backend.set_prop(
-                id, Prop::AlignTopWithPanel, &PropValue::Bool(true),
-            );
+            self.backend
+                .set_prop(id, Prop::AlignTopWithPanel, &PropValue::Bool(true));
         }
         if p.align_bottom_with_panel {
-            self.backend.set_prop(
-                id, Prop::AlignBottomWithPanel, &PropValue::Bool(true),
-            );
+            self.backend
+                .set_prop(id, Prop::AlignBottomWithPanel, &PropValue::Bool(true));
         }
         if p.align_h_center_with_panel {
-            self.backend.set_prop(
-                id, Prop::AlignHCenterWithPanel, &PropValue::Bool(true),
-            );
+            self.backend
+                .set_prop(id, Prop::AlignHCenterWithPanel, &PropValue::Bool(true));
         }
         if p.align_v_center_with_panel {
-            self.backend.set_prop(
-                id, Prop::AlignVCenterWithPanel, &PropValue::Bool(true),
-            );
+            self.backend
+                .set_prop(id, Prop::AlignVCenterWithPanel, &PropValue::Bool(true));
         }
     }
 
-    fn apply_relative_panel_alignment_full(
-        &mut self,
-        id: ControlId,
-        p: RelativePanelAlignment,
-    ) {
+    fn apply_relative_panel_alignment_full(&mut self, id: ControlId, p: RelativePanelAlignment) {
         self.backend.set_prop(
-            id, Prop::AlignLeftWithPanel, &PropValue::Bool(p.align_left_with_panel),
+            id,
+            Prop::AlignLeftWithPanel,
+            &PropValue::Bool(p.align_left_with_panel),
         );
         self.backend.set_prop(
-            id, Prop::AlignRightWithPanel, &PropValue::Bool(p.align_right_with_panel),
+            id,
+            Prop::AlignRightWithPanel,
+            &PropValue::Bool(p.align_right_with_panel),
         );
         self.backend.set_prop(
-            id, Prop::AlignTopWithPanel, &PropValue::Bool(p.align_top_with_panel),
+            id,
+            Prop::AlignTopWithPanel,
+            &PropValue::Bool(p.align_top_with_panel),
         );
         self.backend.set_prop(
-            id, Prop::AlignBottomWithPanel, &PropValue::Bool(p.align_bottom_with_panel),
+            id,
+            Prop::AlignBottomWithPanel,
+            &PropValue::Bool(p.align_bottom_with_panel),
         );
         self.backend.set_prop(
-            id, Prop::AlignHCenterWithPanel, &PropValue::Bool(p.align_h_center_with_panel),
+            id,
+            Prop::AlignHCenterWithPanel,
+            &PropValue::Bool(p.align_h_center_with_panel),
         );
         self.backend.set_prop(
-            id, Prop::AlignVCenterWithPanel, &PropValue::Bool(p.align_v_center_with_panel),
+            id,
+            Prop::AlignVCenterWithPanel,
+            &PropValue::Bool(p.align_v_center_with_panel),
         );
     }
 }

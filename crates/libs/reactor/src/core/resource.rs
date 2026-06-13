@@ -4,8 +4,8 @@
 //! hooks to provide a batteries-included pattern for loading remote data
 //! and performing async writes.
 
-use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 use super::*;
 
@@ -116,7 +116,7 @@ where
     F: FnOnce(&T) -> Element,
 {
     fn from(rv: ResourceView<'_, T, F>) -> Self {
-        use super::element::ProgressRing;
+        use super::widgets::progress_ring::ProgressRing;
         match rv.resource {
             Resource::Loading | Resource::Idle => rv
                 .loading

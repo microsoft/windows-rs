@@ -1,5 +1,5 @@
-use windows_reactor::core::element::{Element, Orientation};
-use windows_reactor::dsl::factories::{border, button, hstack, text_block, vstack};
+use windows_reactor::{Element, Orientation};
+use windows_reactor::{border, button, hstack, text_block, vstack};
 
 #[test]
 fn text_block_is_bare() {

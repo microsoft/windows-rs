@@ -18,17 +18,15 @@
 //! assertion.
 
 use crate::bindings;
-use windows_reactor::core::element::{
+use windows_reactor::grid;
+use windows_reactor::{
     BreadcrumbBar, Expander, HyperlinkButton, Image, InfoBadge, InfoBar, NavViewItem,
     NavigationView, NumberBox, PersonPicture, Pivot, PivotItem, ProgressBar, ProgressRing,
     RadioButton, Shape, Slider, TabItem, TabView, ToggleSwitch,
 };
-use windows_reactor::core::element::{Color, Element, GridLength};
-use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextRun};
-use windows_reactor::dsl::{
-    ElementExt, border, button, check_box, scroll_viewer, text_block, text_box,
-};
-use windows_reactor::grid;
+use windows_reactor::{Color, Element, GridLength};
+use windows_reactor::{ElementExt, border, button, check_box, scroll_viewer, text_block, text_box};
+use windows_reactor::{RichText, RichTextInline, RichTextRun};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

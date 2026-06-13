@@ -1,11 +1,12 @@
 use std::rc::Rc;
 
 use windows_reactor::ElementExt;
-use windows_reactor::core::backend::{ControlKind, Op, Prop, RecordingBackend};
-use windows_reactor::core::element::{Color, Element};
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::theme::{BrushBinding, ThemeRef, tokens};
-use windows_reactor::dsl::factories::{button, text_block};
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::{BrushBinding, ThemeRef, tokens};
+use windows_reactor::{Color, Element};
+use windows_reactor::{ControlKind, Prop};
+use windows_reactor::{button, text_block};
 
 use windows_reactor::vstack;
 fn fresh() -> Reconciler<RecordingBackend> {

@@ -1,7 +1,7 @@
 use windows_core::Interface as _;
 
-use windows_reactor::core::element::{Element, GridLength};
-use windows_reactor::dsl::{grid, text_block};
+use windows_reactor::{Element, GridLength};
+use windows_reactor::{grid, text_block};
 
 use crate::bindings::Grid as XamlGrid;
 

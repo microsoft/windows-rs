@@ -1,16 +1,15 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
-use windows_reactor::core::backend::RecordingBackend;
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::component;
-use windows_reactor::core::dispatcher::{
-    Dispatcher, DispatcherQueuePriority, RunOnDemandDispatcher,
-};
-use windows_reactor::core::element::{Element, Orientation, StackPanel, TextBlock};
-use windows_reactor::core::render_context::{RenderCx, SetState};
-use windows_reactor::core::render_host::RenderHost;
-use windows_reactor::core::window::Size;
+use windows_reactor::Component;
+use windows_reactor::WindowSize;
+use windows_reactor::component;
+use windows_reactor::imp::RecordingBackend;
+use windows_reactor::imp::RenderHost;
+use windows_reactor::imp::RunOnDemandDispatcher;
+use windows_reactor::{Dispatcher, DispatcherQueuePriority};
+use windows_reactor::{Element, Orientation, StackPanel, TextBlock};
+use windows_reactor::{RenderCx, SetState};
 
 struct Counter {
     setter_slot: Rc<RefCell<Option<SetState<i32>>>>,
@@ -224,7 +223,7 @@ impl Component for ToggleRoot {
                 ..TextBlock::default()
             })
         } else {
-            use windows_reactor::core::element::StackPanel;
+            use windows_reactor::StackPanel;
             Element::StackPanel(StackPanel {
                 orientation: Orientation::Vertical,
                 ..StackPanel::default()
@@ -243,7 +242,7 @@ fn post_render_hook_fires_after_each_render_with_current_root_id() {
     });
     let host = RenderHost::new(RecordingBackend::new(), root, dispatcher.clone());
 
-    let observations: Rc<RefCell<Vec<Option<windows_reactor::core::backend::ControlId>>>> =
+    let observations: Rc<RefCell<Vec<Option<windows_reactor::ControlId>>>> =
         Rc::new(RefCell::new(Vec::new()));
     let observations_for_hook = Rc::clone(&observations);
     host.set_post_render(move |new_id| {
@@ -390,7 +389,7 @@ fn inner_size_change_rerenders_children_once_and_resets_force_flag() {
         "child should render on initial mount"
     );
 
-    host.set_inner_size(Size {
+    host.set_inner_size(WindowSize {
         width: 800.0,
         height: 600.0,
     });

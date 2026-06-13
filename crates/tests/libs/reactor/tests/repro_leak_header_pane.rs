@@ -28,11 +28,11 @@
 
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::element::{Element, Expander};
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::dsl::text_block;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::text_block;
 use windows_reactor::vstack;
+use windows_reactor::{Element, Expander};
 
 fn noop_rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})

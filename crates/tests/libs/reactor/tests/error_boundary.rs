@@ -1,14 +1,14 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::component;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::error_boundary::error_boundary;
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::text_block;
+use windows_reactor::Component;
+use windows_reactor::Element;
+use windows_reactor::RenderCx;
+use windows_reactor::component;
+use windows_reactor::error_boundary;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::text_block;
 
 struct Boom {
     boom: Rc<Cell<bool>>,
@@ -24,8 +24,8 @@ fn reconcile(
     r: &mut Reconciler<RecordingBackend>,
     old: Option<&Element>,
     new: &Element,
-    existing: Option<windows_reactor::core::backend::ControlId>,
-) -> Option<windows_reactor::core::backend::ControlId> {
+    existing: Option<windows_reactor::ControlId>,
+) -> Option<windows_reactor::ControlId> {
     r.reconcile(old, new, existing, Rc::new(|| {}))
 }
 
@@ -52,7 +52,7 @@ fn panicking_child_on_mount_substitutes_fallback() {
             matches!(
                 op,
                 Op::SetProp {
-                    prop: windows_reactor::core::backend::Prop::Text,
+                    prop: windows_reactor::Prop::Text,
                     ..
                 }
             )
@@ -62,7 +62,7 @@ fn panicking_child_on_mount_substitutes_fallback() {
         set_texts.iter().any(|op| matches!(
             op,
             Op::SetProp {
-                value: windows_reactor::core::backend::PropValue::Str(s),
+                value: windows_reactor::PropValue::Str(s),
                 ..
             } if s.contains("fallback: simulated render failure")
         )),
@@ -98,8 +98,8 @@ fn recovery_after_fix_mounts_healthy_child() {
         matches!(
             op,
             Op::SetProp {
-                prop: windows_reactor::core::backend::Prop::Text,
-                value: windows_reactor::core::backend::PropValue::Str(s),
+                prop: windows_reactor::Prop::Text,
+                value: windows_reactor::PropValue::Str(s),
                 ..
             } if s == "healthy"
         )
@@ -127,8 +127,8 @@ fn nested_boundaries_catch_at_the_nearest_one() {
         matches!(
             op,
             Op::SetProp {
-                prop: windows_reactor::core::backend::Prop::Text,
-                value: windows_reactor::core::backend::PropValue::Str(s),
+                prop: windows_reactor::Prop::Text,
+                value: windows_reactor::PropValue::Str(s),
                 ..
             } if s == "inner-fallback"
         )
@@ -137,8 +137,8 @@ fn nested_boundaries_catch_at_the_nearest_one() {
         matches!(
             op,
             Op::SetProp {
-                prop: windows_reactor::core::backend::Prop::Text,
-                value: windows_reactor::core::backend::PropValue::Str(s),
+                prop: windows_reactor::Prop::Text,
+                value: windows_reactor::PropValue::Str(s),
                 ..
             } if s == "outer-fallback"
         )

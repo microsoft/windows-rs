@@ -12,13 +12,12 @@ mod widget_dispatch;
 mod wrappers;
 
 pub(crate) use self::templated::TemplatedListState;
-pub use self::templated::{new_realization_queue, RealizationQueue, RealizationRequest};
+pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_queue};
 
 /// Diff/apply engine that drives a [`Backend`] from successive
 /// [`Element`] trees. Owns the bookkeeping needed to reuse controls
 /// across renders (children mirror, component instances, custom
 /// handles, templated-list state, …).
-#[doc(hidden)]
 pub struct Reconciler<B: Backend> {
     pub backend: B,
     pub debug_elements_skipped: u64,
@@ -52,7 +51,7 @@ pub struct Reconciler<B: Backend> {
     /// UI marshaller propagated into every nested component's
     /// [`RenderCx`] for [`RenderCx::use_async_state`].
     pub(crate) marshaller: Option<UiMarshaller>,
-    pub(crate) inner_size: Rc<Cell<Size>>,
+    pub(crate) inner_size: Rc<Cell<WindowSize>>,
     pub(crate) dpi: Rc<Cell<u32>>,
     /// Rerender hook propagated from the render host; child components
     /// clone this into their `RenderCx` so `SetState` triggers re-render.
@@ -93,7 +92,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             defer_templated_unmounts: false,
             deferred_unmounts: Vec::new(),
             marshaller: None,
-            inner_size: Rc::new(Cell::new(Size::default())),
+            inner_size: Rc::new(Cell::new(WindowSize::default())),
             dpi: Rc::new(Cell::new(96_u32)),
             request_rerender: Rc::new(|| {}),
         }
@@ -132,7 +131,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.debug_ui_elements_created = 0;
     }
 
-    #[doc(hidden)]
     pub fn debug_forced_components_len(&self) -> usize {
         self.forced_components.len()
     }
@@ -194,12 +192,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    #[doc(hidden)]
     pub fn debug_appeared_listener_count(&self) -> usize {
         self.appeared_listener_count
     }
 
-    #[doc(hidden)]
     pub fn debug_disappeared_listener_count(&self) -> usize {
         self.disappeared_listener_count
     }
@@ -238,14 +234,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             Element::Empty => return None,
             _ => {}
         }
-        let widget = el
-            .as_widget()
-            .unwrap();
+        let widget = el.as_widget().unwrap();
         let id = self.mount_widget(widget);
         if let Element::RichTextBlock(rt) = el
-            && !rt.paragraphs.is_empty() {
-                self.backend.set_rich_text_paragraphs(id, &rt.paragraphs);
-            }
+            && !rt.paragraphs.is_empty()
+        {
+            self.backend.set_rich_text_paragraphs(id, &rt.paragraphs);
+        }
         Some(id)
     }
 
@@ -272,10 +267,10 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         match (old, new) {
             (Element::Component(o), Element::Component(n)) => {
-                return self.update_component(o, n, id)
+                return self.update_component(o, n, id);
             }
             (Element::ErrorBoundary(o), Element::ErrorBoundary(n)) => {
-                return self.update_error_boundary(o, n, id)
+                return self.update_error_boundary(o, n, id);
             }
             (Element::Provider(o), Element::Provider(n)) => return self.update_provider(o, n, id),
             (Element::TemplatedList(o), Element::TemplatedList(n)) => {
@@ -302,9 +297,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         };
         self.update_widget(ow, nw, id);
         if let (Element::RichTextBlock(o), Element::RichTextBlock(n)) = (old, new)
-            && o.paragraphs != n.paragraphs {
-                self.backend.set_rich_text_paragraphs(id, &n.paragraphs);
-            }
+            && o.paragraphs != n.paragraphs
+        {
+            self.backend.set_rich_text_paragraphs(id, &n.paragraphs);
+        }
         Some(id)
     }
 
@@ -372,9 +368,10 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub(crate) fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
         if let Some(list) = self.children_mirror.get_mut(&parent)
-            && index < list.len() {
-                list.remove(index);
-            }
+            && index < list.len()
+        {
+            list.remove(index);
+        }
         self.backend.remove_child(parent, index);
     }
 
@@ -385,9 +382,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         new: ControlId,
     ) {
         if let Some(list) = self.children_mirror.get_mut(&parent)
-            && index < list.len() {
-                list[index] = new;
-            }
+            && index < list.len()
+        {
+            list[index] = new;
+        }
         self.backend.replace_child(parent, index, new);
     }
 
@@ -396,10 +394,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             return;
         }
         if let Some(list) = self.children_mirror.get_mut(&parent)
-            && from < list.len() && to < list.len() {
-                let item = list.remove(from);
-                list.insert(to, item);
-            }
+            && from < list.len()
+            && to < list.len()
+        {
+            let item = list.remove(from);
+            list.insert(to, item);
+        }
         self.backend.move_child(parent, from, to);
     }
 
@@ -440,10 +440,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_prop(id, Prop::Height, &PropValue::F64(v));
         }
         if let Some(v) = mods.min_width {
-            self.backend.set_prop(id, Prop::MinWidth, &PropValue::F64(v));
+            self.backend
+                .set_prop(id, Prop::MinWidth, &PropValue::F64(v));
         }
         if let Some(v) = mods.max_width {
-            self.backend.set_prop(id, Prop::MaxWidth, &PropValue::F64(v));
+            self.backend
+                .set_prop(id, Prop::MaxWidth, &PropValue::F64(v));
         }
         if let Some(v) = mods.min_height {
             self.backend
@@ -492,11 +494,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement(id, p);
         }
 
-        if let Some(res) = &mods.resources
-            && !res.is_empty() {
-                self.backend
-                    .set_prop(id, Prop::Resources, &PropValue::Resources((**res).clone()));
-            }
+        if !mods.resources.is_empty() {
+            self.backend.set_prop(
+                id,
+                Prop::Resources,
+                &PropValue::Resources(mods.resources.clone()),
+            );
+        }
     }
 
     pub(crate) fn apply_tooltip_for(&mut self, id: ControlId, mods: &Modifiers) {
@@ -527,13 +531,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub(crate) fn apply_keyboard_accelerators_for(&mut self, id: ControlId, mods: &Modifiers) {
-        let Some(list) = mods.keyboard_accelerators.as_deref() else {
-            return;
-        };
-        if list.is_empty() {
+        if mods.keyboard_accelerators.is_empty() {
             return;
         }
-        self.backend.set_keyboard_accelerators(id, list);
+        self.backend
+            .set_keyboard_accelerators(id, &mods.keyboard_accelerators);
     }
 
     pub(crate) fn apply_animations_for(&mut self, id: ControlId, mods: &Modifiers) {
@@ -544,9 +546,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             return;
         }
         if let Some(it) = anim.implicit_transitions
-            && !it.is_empty() {
-                self.backend.set_implicit_transitions(id, Some(it));
-            }
+            && !it.is_empty()
+        {
+            self.backend.set_implicit_transitions(id, Some(it));
+        }
         if let Some(la) = anim.layout_animation {
             self.backend.set_layout_animation(id, Some(la));
         }
@@ -689,10 +692,9 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_accessibility(id, new_acc);
         }
 
-        let old_ka = old.keyboard_accelerators.as_deref();
-        let new_ka = new.keyboard_accelerators.as_deref();
+        let old_ka = &old.keyboard_accelerators;
+        let new_ka = &new.keyboard_accelerators;
         if old_ka != new_ka {
-            let new_ka = new_ka.map_or(&[][..], |v| v.as_slice());
             self.backend.set_keyboard_accelerators(id, new_ka);
         }
 
@@ -719,12 +721,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement_full(id, new.grid.unwrap_or_default());
         }
 
-        if old.resources != new.resources
-            && let Some(res) = &new.resources
-                && !res.is_empty() {
-                    self.backend
-                        .set_prop(id, Prop::Resources, &PropValue::Resources((**res).clone()));
-                }
+        if old.resources != new.resources && !new.resources.is_empty() {
+            self.backend.set_prop(
+                id,
+                Prop::Resources,
+                &PropValue::Resources(new.resources.clone()),
+            );
+        }
     }
 
     pub(crate) fn collect_affected_components(
@@ -736,9 +739,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
             if let Some(inst) = self.component_instances.get(&id)
-                && inst.read_contexts.iter().any(|c| changed.contains(c)) {
-                    result.push(id);
-                }
+                && inst.read_contexts.iter().any(|c| changed.contains(c))
+            {
+                result.push(id);
+            }
             if let Some(kids) = self.children_mirror.get(&id) {
                 for k in kids {
                     stack.push(*k);
@@ -774,7 +778,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         child::reconcile(self, parent, old_live.as_ref(), new_live.as_ref());
     }
 
-    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<Size>>) {
+    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.inner_size = cell;
     }
 
@@ -885,10 +889,10 @@ fn push_live<'a>(el: &'a Element, out: &mut Vec<&'a Element>) {
 #[cfg(test)]
 mod lifecycle_tests {
     use super::*;
+    use Callback;
     use backend::{
         Backend, ControlKind, Event, EventHandler, Op, Prop, PropValue, RecordingBackend,
     };
-    use Callback;
     use std::cell::RefCell;
 
     /// Each entry records a callback invocation as `(tag, native_present)`,

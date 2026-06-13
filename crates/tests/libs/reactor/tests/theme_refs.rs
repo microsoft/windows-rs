@@ -1,5 +1,5 @@
-use windows_reactor::core::element::Color;
-use windows_reactor::core::theme::{BrushBinding, ThemeRef, tokens};
+use windows_reactor::Color;
+use windows_reactor::{BrushBinding, ThemeRef, tokens};
 
 #[test]
 fn resource_key_matches_winui_resource_name() {

@@ -69,8 +69,7 @@ impl<B: Backend> Reconciler<B> {
                     _ => self.backend.set_prop(id, *p, v),
                 },
                 Binding::Event(e, new_h) => {
-                    let old_inner: Option<&_> =
-                        find_event(old, *e).and_then(|o| o.as_ref());
+                    let old_inner: Option<&_> = find_event(old, *e).and_then(|o| o.as_ref());
                     if old_inner == new_h.as_ref() {
                         continue;
                     }

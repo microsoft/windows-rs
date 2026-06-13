@@ -1,9 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::element::TextBlock;
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::templated_list::list_view;
+use windows_reactor::TextBlock;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::list_view;
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})

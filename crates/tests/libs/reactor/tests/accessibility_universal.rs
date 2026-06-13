@@ -12,19 +12,19 @@
 use std::rc::Rc;
 
 use windows_reactor::ElementExt;
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::element::{
+use windows_reactor::RichText;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::{
     AccessibilityModifiers, Border, Button, CheckBox, Color, Element, Grid, GridLength,
     HeadingLevel, LiveSetting, ScrollViewer, StackPanel, TextBlock, TextBox,
 };
-use windows_reactor::core::element::{
+use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
     NavViewItem, NavigationView, NumberBox, PasswordBox, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::rich_text::RichText;
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![

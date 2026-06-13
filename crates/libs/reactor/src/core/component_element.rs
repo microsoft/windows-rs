@@ -88,7 +88,6 @@ where
 }
 
 /// Erased [`Component`]+props pair carried inside [`Element::Component`].
-#[doc(hidden)]
 pub struct ComponentElement {
     pub key: Option<String>,
     pub memoised: bool,

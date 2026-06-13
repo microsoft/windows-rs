@@ -5,11 +5,11 @@
 
 use windows_core::Interface as _;
 
+use windows_reactor::Element;
 use windows_reactor::SymbolGlyph;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
-use windows_reactor::dsl::{ElementExt, button, check_box, text_block, text_box};
 use windows_reactor::vstack;
+use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
+use windows_reactor::{ElementExt, button, check_box, text_block, text_box};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
