@@ -1,7 +1,7 @@
 use super::*;
 
 /// How a widget exposes its children to the child reconciler.
-pub(crate) enum Children<'a> {
+pub enum Children<'a> {
     None,
     PositionalSingle(&'a Element),
     Keyed(&'a [Element]),
@@ -11,7 +11,7 @@ pub(crate) enum Children<'a> {
 
 /// Adapter implemented by every built-in [`Element`] widget variant; lets
 /// the reconciler drive backend prop / child operations uniformly.
-pub(crate) trait Widget {
+pub trait Widget {
     fn kind(&self) -> ControlKind;
     fn key(&self) -> Option<&str>;
     fn modifiers(&self) -> &Modifiers;

@@ -14,12 +14,12 @@ impl<T> Callback<T> {
 
     /// Construct a `Callback` from a raw `Rc<dyn Fn(T)>`. Used internally
     /// to bridge `SetState` / `Dispatch` into `Callback` without cloning.
-    pub(crate) fn from_rc(inner: Rc<dyn Fn(T)>) -> Self {
+    pub fn from_rc(inner: Rc<dyn Fn(T)>) -> Self {
         Self { inner }
     }
 
     #[cfg(test)]
-    pub(crate) fn strong_count(&self) -> usize {
+    pub fn strong_count(&self) -> usize {
         Rc::strong_count(&self.inner)
     }
 }

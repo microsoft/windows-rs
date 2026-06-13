@@ -59,8 +59,8 @@ impl SwapChainPanelHandle {
 pub struct SwapChainPanel {
     pub key: Option<String>,
     pub modifiers: Modifiers,
-    pub(crate) mounted: Option<Callback<Option<windows_core::IInspectable>>>,
-    pub(crate) unmounted: Option<Callback<Option<windows_core::IInspectable>>>,
+    pub mounted: Option<Callback<Option<windows_core::IInspectable>>>,
+    pub unmounted: Option<Callback<Option<windows_core::IInspectable>>>,
 }
 
 impl Default for SwapChainPanel {

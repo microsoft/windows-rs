@@ -107,7 +107,7 @@ pub struct TemplatedListElement {
     pub can_reorder_items: bool,
     pub allow_drop: bool,
     pub modifiers: Modifiers,
-    pub(crate) items_impl: Rc<dyn TemplatedListImpl>,
+    pub items_impl: Rc<dyn TemplatedListImpl>,
 }
 
 impl Clone for TemplatedListElement {

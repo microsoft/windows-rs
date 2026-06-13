@@ -2,6 +2,7 @@ use std::cell::RefCell;
 use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
+use crate::winui::host::{Backdrop, PresenterKind, ReactorHost};
 use windows_core::{Error, HRESULT, Result};
 
 use super::app_shim::*;

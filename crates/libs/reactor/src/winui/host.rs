@@ -71,7 +71,7 @@ fn update_titlebar_theme() {
     });
 }
 
-pub(crate) fn set_titlebar_height(tall: bool) {
+pub fn set_titlebar_height(tall: bool) {
     let applied = ROOT_WINDOW.with(|wcell| -> Option<()> {
         let window = wcell.borrow();
         let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;

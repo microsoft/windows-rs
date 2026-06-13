@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 use rustc_hash::FxHashMap;
 
-pub(crate) use super::*;
+pub use super::*;
 
 mod child;
 mod diff_helpers;
@@ -11,7 +11,7 @@ mod templated;
 mod widget_dispatch;
 mod wrappers;
 
-pub(crate) use self::templated::TemplatedListState;
+pub use self::templated::TemplatedListState;
 pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_queue};
 
 /// Diff/apply engine that drives a [`Backend`] from successive
@@ -23,46 +23,45 @@ pub struct Reconciler<B: Backend> {
     pub debug_elements_skipped: u64,
     pub debug_elements_diffed: u64,
     pub debug_ui_elements_created: u64,
-    pub(crate) children_mirror: FxHashMap<ControlId, Vec<ControlId>>,
-    pub(crate) id_kinds: FxHashMap<ControlId, ControlKind>,
-    pub(crate) context_stack: Rc<ContextStack>,
-    pub(crate) component_instances: FxHashMap<ControlId, ComponentInstance>,
-    pub(crate) appeared_listener_count: usize,
-    pub(crate) disappeared_listener_count: usize,
-    pub(crate) force_component_rerender: bool,
-    pub(crate) forced_components: rustc_hash::FxHashSet<ControlId>,
-    pub(crate) error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
-    pub(crate) templated_lists: FxHashMap<ControlId, TemplatedListState>,
-    pub(crate) custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
+    pub children_mirror: FxHashMap<ControlId, Vec<ControlId>>,
+    pub id_kinds: FxHashMap<ControlId, ControlKind>,
+    pub context_stack: Rc<ContextStack>,
+    pub component_instances: FxHashMap<ControlId, ComponentInstance>,
+    pub appeared_listener_count: usize,
+    pub disappeared_listener_count: usize,
+    pub force_component_rerender: bool,
+    pub forced_components: rustc_hash::FxHashSet<ControlId>,
+    pub error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
+    pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
+    pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
     pub eager_templated_realization: bool,
     pub defer_templated_unmounts: bool,
-    pub(crate) deferred_unmounts: Vec<ControlId>,
+    pub deferred_unmounts: Vec<ControlId>,
     pub realization_queue: RealizationQueue,
-    pub(crate) selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
+    pub selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
     /// Pre-unmount callbacks keyed by control id, invoked with the native
     /// element (or `None`) just before the control is destroyed (see
     /// [`Widget::on_unmounted_callback`]).
-    pub(crate) unmount_callbacks:
-        FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
+    pub unmount_callbacks: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
     /// Tracks header element control IDs for widgets that use header_element().
-    pub(crate) header_elements: FxHashMap<ControlId, ControlId>,
+    pub header_elements: FxHashMap<ControlId, ControlId>,
     /// Tracks pane element control IDs for widgets that use pane_element().
-    pub(crate) pane_elements: FxHashMap<ControlId, ControlId>,
+    pub pane_elements: FxHashMap<ControlId, ControlId>,
     /// UI marshaller propagated into every nested component's
     /// [`RenderCx`] for [`RenderCx::use_async_state`].
-    pub(crate) marshaller: Option<UiMarshaller>,
-    pub(crate) inner_size: Rc<Cell<WindowSize>>,
-    pub(crate) dpi: Rc<Cell<u32>>,
+    pub marshaller: Option<UiMarshaller>,
+    pub inner_size: Rc<Cell<WindowSize>>,
+    pub dpi: Rc<Cell<u32>>,
     /// Rerender hook propagated from the render host; child components
     /// clone this into their `RenderCx` so `SetState` triggers re-render.
-    pub(crate) request_rerender: Rc<dyn Fn()>,
+    pub request_rerender: Rc<dyn Fn()>,
 }
 
-pub(crate) struct ComponentInstance {
-    pub(crate) render_cx: RenderCx,
-    pub(crate) last_rendered: Element,
-    pub(crate) last_obj: Rc<dyn ComponentObject>,
-    pub(crate) read_contexts: rustc_hash::FxHashSet<ContextId>,
+pub struct ComponentInstance {
+    pub render_cx: RenderCx,
+    pub last_rendered: Element,
+    pub last_obj: Rc<dyn ComponentObject>,
+    pub read_contexts: rustc_hash::FxHashSet<ContextId>,
 }
 
 impl<B: Backend + 'static> Reconciler<B> {
@@ -100,7 +99,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     /// Install the [`UiMarshaller`] propagated into nested
     /// [`RenderCx`] instances.
-    pub(crate) fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
+    pub fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
         self.marshaller = marshaller;
     }
 
@@ -111,7 +110,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn context_stack_handle(&self) -> Rc<ContextStack> {
+    pub fn context_stack_handle(&self) -> Rc<ContextStack> {
         Rc::clone(&self.context_stack)
     }
 
@@ -119,7 +118,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     /// modified since its last render (i.e. a `SetState`/`Updater`/`Dispatch`
     /// fired). Used by child reconciliation to bypass `can_skip_update`.
     /// Does NOT clear the flag — `update_component` consumes it.
-    pub(crate) fn is_component_state_dirty(&self, id: ControlId) -> bool {
+    pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
         self.component_instances
             .get(&id)
             .is_some_and(|inst| inst.render_cx.peek_state_dirty())
@@ -135,7 +134,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.forced_components.len()
     }
 
-    pub(crate) fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
+    pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
         self.debug_ui_elements_created += 1;
         let id = self.backend.create(kind);
 
@@ -151,7 +150,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         id
     }
 
-    pub(crate) fn register_component_instance(
+    pub fn register_component_instance(
         &mut self,
         id: ControlId,
         inst: ComponentInstance,
@@ -169,7 +168,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         displaced
     }
 
-    pub(crate) fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
+    pub fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
         let inst = self.component_instances.remove(&id)?;
         self.unregister_component_listeners(&inst);
         Some(inst)
@@ -215,7 +214,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn mount(&mut self, el: &Element) -> Option<ControlId> {
+    pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
         match el {
             Element::Component(ce) => return self.mount_component(ce),
             Element::ErrorBoundary(eb) => return self.mount_error_boundary(eb),
@@ -244,12 +243,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         Some(id)
     }
 
-    pub(crate) fn update(
-        &mut self,
-        old: &Element,
-        new: &Element,
-        id: ControlId,
-    ) -> Option<ControlId> {
+    pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
         if !self.force_component_rerender && can_skip_update(old, new) {
             // A component with dirty internal state must still be re-rendered
             // even when its element is structurally identical.
@@ -304,7 +298,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         Some(id)
     }
 
-    pub(crate) fn unmount(&mut self, id: ControlId) {
+    pub fn unmount(&mut self, id: ControlId) {
         let mut to_release = Vec::new();
         self.collect_subtree(id, &mut to_release);
         for node in to_release.into_iter().rev() {
@@ -361,12 +355,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
+    pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
         self.children_mirror.entry(parent).or_default().push(child);
         self.backend.append_child(parent, child);
     }
 
-    pub(crate) fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
+    pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
         if let Some(list) = self.children_mirror.get_mut(&parent)
             && index < list.len()
         {
@@ -375,12 +369,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.remove_child(parent, index);
     }
 
-    pub(crate) fn replace_child_tracked(
-        &mut self,
-        parent: ControlId,
-        index: usize,
-        new: ControlId,
-    ) {
+    pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
         if let Some(list) = self.children_mirror.get_mut(&parent)
             && index < list.len()
         {
@@ -389,7 +378,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.replace_child(parent, index, new);
     }
 
-    pub(crate) fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
+    pub fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
         if from == to {
             return;
         }
@@ -403,25 +392,20 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.move_child(parent, from, to);
     }
 
-    pub(crate) fn insert_child_tracked(
-        &mut self,
-        parent: ControlId,
-        index: usize,
-        child: ControlId,
-    ) {
+    pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
         let list = self.children_mirror.entry(parent).or_default();
         let clamped = index.min(list.len());
         list.insert(clamped, child);
         self.backend.insert_child(parent, clamped, child);
     }
 
-    pub(crate) fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
+    pub fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
         self.children_mirror
             .get(&parent)
             .and_then(|v| v.get(i).copied())
     }
 
-    pub(crate) fn apply_modifiers(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_modifiers(&mut self, id: ControlId, mods: &Modifiers) {
         if mods.is_empty() {
             return;
         }
@@ -503,14 +487,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn apply_tooltip_for(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_tooltip_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(tt) = mods.tooltip.as_deref() else {
             return;
         };
         self.backend.set_tooltip(id, Some(tt));
     }
 
-    pub(crate) fn apply_pointer_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_pointer_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(ph) = mods.pointer_handlers.as_deref() else {
             return;
         };
@@ -520,7 +504,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_pointer_handlers(id, Some(ph));
     }
 
-    pub(crate) fn apply_accessibility_for(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_accessibility_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(acc) = mods.accessibility.as_deref() else {
             return;
         };
@@ -530,7 +514,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_accessibility(id, acc);
     }
 
-    pub(crate) fn apply_keyboard_accelerators_for(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_keyboard_accelerators_for(&mut self, id: ControlId, mods: &Modifiers) {
         if mods.keyboard_accelerators.is_empty() {
             return;
         }
@@ -538,7 +522,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             .set_keyboard_accelerators(id, &mods.keyboard_accelerators);
     }
 
-    pub(crate) fn apply_animations_for(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_animations_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(anim) = mods.animations.as_deref() else {
             return;
         };
@@ -561,7 +545,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn diff_animations_for(
+    pub fn diff_animations_for(
         &mut self,
         id: ControlId,
         old: Option<&AnimationModifiers>,
@@ -586,7 +570,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn apply_theme_bindings_for(&mut self, id: ControlId, mods: &Modifiers) {
+    pub fn apply_theme_bindings_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(map) = mods.theme_bindings.as_deref() else {
             return;
         };
@@ -601,7 +585,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_theme_bindings(id, kind, &bindings);
     }
 
-    pub(crate) fn diff_modifiers(&mut self, id: ControlId, old: &Modifiers, new: &Modifiers) {
+    pub fn diff_modifiers(&mut self, id: ControlId, old: &Modifiers, new: &Modifiers) {
         self.diff_opt_copy(
             id,
             Prop::Margin,
@@ -730,7 +714,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn collect_affected_components(
+    pub fn collect_affected_components(
         &self,
         root_id: ControlId,
         changed: &rustc_hash::FxHashSet<ContextId>,
@@ -756,7 +740,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.on_theme_changed();
     }
 
-    pub(crate) fn reconcile_children_positional(
+    pub fn reconcile_children_positional(
         &mut self,
         parent: ControlId,
         old: &[Element],
@@ -767,26 +751,21 @@ impl<B: Backend + 'static> Reconciler<B> {
         child::reconcile_positional(self, parent, old_live.as_ref(), new_live.as_ref());
     }
 
-    pub(crate) fn reconcile_children(
-        &mut self,
-        parent: ControlId,
-        old: &[Element],
-        new: &[Element],
-    ) {
+    pub fn reconcile_children(&mut self, parent: ControlId, old: &[Element], new: &[Element]) {
         let old_live = LiveChildren::from_slice(old);
         let new_live = LiveChildren::from_slice(new);
         child::reconcile(self, parent, old_live.as_ref(), new_live.as_ref());
     }
 
-    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
+    pub fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.inner_size = cell;
     }
 
-    pub(crate) fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
+    pub fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
         self.dpi = cell;
     }
 
-    pub(crate) fn force_context_subscribers(
+    pub fn force_context_subscribers(
         &mut self,
         root_id: ControlId,
         context_ids: &rustc_hash::FxHashSet<ContextId>,
@@ -798,7 +777,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn clear_forced_component_rerender(&mut self) {
+    pub fn clear_forced_component_rerender(&mut self) {
         self.force_component_rerender = false;
         self.forced_components.clear();
     }
@@ -836,27 +815,31 @@ impl<'a> LiveChildren<'a> {
 
 /// Borrowable view into either flat or filtered children, providing
 /// slice-like access via `len`, `get`, and `iter`.
-pub(crate) enum LiveChildrenRef<'a> {
+pub enum LiveChildrenRef<'a> {
     Flat(&'a [Element]),
     Filtered(&'a [&'a Element]),
 }
 
 impl<'a> LiveChildrenRef<'a> {
-    pub(crate) fn len(&self) -> usize {
+    pub fn len(&self) -> usize {
         match self {
             LiveChildrenRef::Flat(s) => s.len(),
             LiveChildrenRef::Filtered(v) => v.len(),
         }
     }
 
-    pub(crate) fn get(&self, i: usize) -> Option<&'a Element> {
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
+    pub fn get(&self, i: usize) -> Option<&'a Element> {
         match self {
             LiveChildrenRef::Flat(s) => s.get(i),
             LiveChildrenRef::Filtered(v) => v.get(i).copied(),
         }
     }
 
-    pub(crate) fn any_has_key(&self) -> bool {
+    pub fn any_has_key(&self) -> bool {
         match self {
             LiveChildrenRef::Flat(s) => s.iter().any(|e| e.key().is_some()),
             LiveChildrenRef::Filtered(v) => v.iter().any(|e| e.key().is_some()),
@@ -866,7 +849,7 @@ impl<'a> LiveChildrenRef<'a> {
 
 /// Flatten a child slice for reconciliation: drops `Element::Empty` and
 /// recursively splices `Element::Group` children into the output.
-pub(crate) fn collect_live(slice: &[Element]) -> Vec<&Element> {
+pub fn collect_live(slice: &[Element]) -> Vec<&Element> {
     let mut out = Vec::with_capacity(slice.len());
     for el in slice {
         push_live(el, &mut out);

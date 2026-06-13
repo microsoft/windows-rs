@@ -1,7 +1,7 @@
 use super::*;
 
 impl<B: Backend + 'static> Reconciler<B> {
-    pub(crate) fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
+    pub fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
         let id = self.acquire_control(w.kind());
         self.apply_props(id, &w.bindings());
         self.apply_modifiers(id, w.modifiers());
@@ -28,7 +28,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         id
     }
 
-    pub(crate) fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
+    pub fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
         self.diff_props(id, &old.bindings(), &new.bindings());
         self.diff_modifiers(id, old.modifiers(), new.modifiers());
         self.diff_attached(id, old.attached(), new.attached());
@@ -297,7 +297,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn apply_attached(&mut self, id: ControlId, attached: Option<&AttachedProps>) {
+    pub fn apply_attached(&mut self, id: ControlId, attached: Option<&AttachedProps>) {
         let Some(att) = attached else { return };
         // GridPlacement is now on Modifiers::grid — handled by apply_modifiers.
         if let Some(p) = att.get::<CanvasPosition>() {
@@ -308,7 +308,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn apply_grid_placement(&mut self, id: ControlId, p: GridPlacement) {
+    pub fn apply_grid_placement(&mut self, id: ControlId, p: GridPlacement) {
         if p.row != 0 {
             self.backend
                 .set_prop(id, Prop::AttachedGridRow, &PropValue::I32(p.row));
@@ -332,7 +332,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     /// Unconditionally emits all four grid attached props — used in the diff
     /// path to clear stale values when placement changes or is removed.
-    pub(crate) fn apply_grid_placement_full(&mut self, id: ControlId, p: GridPlacement) {
+    pub fn apply_grid_placement_full(&mut self, id: ControlId, p: GridPlacement) {
         self.backend
             .set_prop(id, Prop::AttachedGridRow, &PropValue::I32(p.row));
         self.backend
@@ -346,7 +346,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         );
     }
 
-    pub(crate) fn apply_canvas_position(&mut self, id: ControlId, p: CanvasPosition) {
+    pub fn apply_canvas_position(&mut self, id: ControlId, p: CanvasPosition) {
         // Canvas defaults are 0.0 — only emit when non-zero on mount;
         // the diff path always emits to overwrite the previous value.
         if p.left != 0.0 {
@@ -363,7 +363,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn diff_attached(
+    pub fn diff_attached(
         &mut self,
         id: ControlId,
         old: Option<&AttachedProps>,
@@ -391,11 +391,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn apply_relative_panel_alignment(
-        &mut self,
-        id: ControlId,
-        p: RelativePanelAlignment,
-    ) {
+    pub fn apply_relative_panel_alignment(&mut self, id: ControlId, p: RelativePanelAlignment) {
         if p.align_left_with_panel {
             self.backend
                 .set_prop(id, Prop::AlignLeftWithPanel, &PropValue::Bool(true));

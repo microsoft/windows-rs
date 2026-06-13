@@ -66,12 +66,12 @@ impl ContextStack {
     }
 
     #[cfg(test)]
-    pub(crate) fn push<T: 'static>(&self, context_id: ContextId, value: T) -> ContextScope<'_> {
+    pub fn push<T: 'static>(&self, context_id: ContextId, value: T) -> ContextScope<'_> {
         self.push_raw_retain(context_id, TypeId::of::<T>(), Rc::new(value));
         ContextScope { stack: self }
     }
 
-    pub(crate) fn push_raw_retain(
+    pub fn push_raw_retain(
         &self,
         context_id: ContextId,
         value_type_id: TypeId,
@@ -88,7 +88,7 @@ impl ContextStack {
         self.push_order.borrow_mut().push(context_id);
     }
 
-    pub(crate) fn pop_raw(&self) {
+    pub fn pop_raw(&self) {
         if let Some(id) = self.push_order.borrow_mut().pop() {
             let mut entries = self.entries.borrow_mut();
             if let Some(stack) = entries.get_mut(&id) {
@@ -120,7 +120,7 @@ impl ContextStack {
 }
 
 #[cfg(test)]
-pub(crate) struct ContextScope<'a> {
+pub struct ContextScope<'a> {
     stack: &'a ContextStack,
 }
 
@@ -133,9 +133,9 @@ impl Drop for ContextScope<'_> {
 
 #[derive(Clone)]
 pub struct ContextProvision {
-    pub(crate) context_id: ContextId,
-    pub(crate) value_type_id: TypeId,
-    pub(crate) value: Rc<dyn Any>,
+    pub context_id: ContextId,
+    pub value_type_id: TypeId,
+    pub value: Rc<dyn Any>,
     eq_fn: fn(&dyn Any, &dyn Any) -> bool,
 }
 

@@ -5,7 +5,7 @@ use super::*;
 use rustc_hash::{FxHashMap, FxHashSet};
 
 impl<B: Backend + 'static> Reconciler<B> {
-    pub(crate) fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
+    pub fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
         let mut cx = RenderCx::new(Rc::clone(&self.request_rerender));
         cx.set_context_stack(self.context_stack_handle());
         cx.set_marshaller(self.marshaller.clone());
@@ -29,7 +29,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         Some(rendered_id)
     }
 
-    pub(crate) fn update_component(
+    pub fn update_component(
         &mut self,
         old: &ComponentElement,
         new: &ComponentElement,
@@ -88,7 +88,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn mount_error_boundary(&mut self, eb: &ErrorBoundaryElement) -> Option<ControlId> {
+    pub fn mount_error_boundary(&mut self, eb: &ErrorBoundaryElement) -> Option<ControlId> {
         let _expect = crate::diagnostics::ExpectPanicGuard::new();
         let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&eb.child)));
         match result {
@@ -105,7 +105,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn update_error_boundary(
+    pub fn update_error_boundary(
         &mut self,
         old: &ErrorBoundaryElement,
         new: &ErrorBoundaryElement,
@@ -147,7 +147,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn mount_provider(&mut self, p: &ProviderElement) -> Option<ControlId> {
+    pub fn mount_provider(&mut self, p: &ProviderElement) -> Option<ControlId> {
         let pushed = self.push_provisions(&p.provisions);
         let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&p.child)));
         self.pop_provisions(pushed);
@@ -157,7 +157,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn update_provider(
+    pub fn update_provider(
         &mut self,
         old: &ProviderElement,
         new: &ProviderElement,
@@ -224,14 +224,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn mount_custom(&mut self, c: &CustomElementHandle) -> ControlId {
+    pub fn mount_custom(&mut self, c: &CustomElementHandle) -> ControlId {
         self.debug_ui_elements_created += 1;
         let id = c.0.mount(&mut self.backend);
         self.custom_handles.insert(id, c.0.clone_dyn());
         id
     }
 
-    pub(crate) fn update_custom(
+    pub fn update_custom(
         &mut self,
         old: &CustomElementHandle,
         new: &CustomElementHandle,

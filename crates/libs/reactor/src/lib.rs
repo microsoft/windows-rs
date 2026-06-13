@@ -10,10 +10,8 @@
 )]
 mod bindings;
 
-#[doc(hidden)]
-pub mod core;
-#[doc(hidden)]
-pub mod winui;
+mod core;
+mod winui;
 
 mod app;
 mod diagnostics;
@@ -30,4 +28,5 @@ pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;
 pub use core::*;
-pub use winui::*;
+pub use winui::hooks::*;
+pub use winui::host::*;

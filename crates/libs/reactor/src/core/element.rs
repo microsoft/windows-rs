@@ -68,7 +68,7 @@ macro_rules! define_element {
         )*
 
         impl Element {
-            pub(crate) fn as_widget(&self) -> Option<&dyn crate::core::widget::Widget> {
+            pub fn as_widget(&self) -> Option<&dyn crate::core::widget::Widget> {
                 Some(match self {
                     $( Element::$variant(v) => v, )*
                     Element::Component(_)
