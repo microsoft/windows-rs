@@ -1,4 +1,4 @@
-/// Returned by [`initialize`]; calls `MddBootstrapShutdown` on drop.
+/// Returned by [`bootstrap`]; calls `MddBootstrapShutdown` on drop.
 pub struct BootstrapHandle;
 
 impl Drop for BootstrapHandle {
