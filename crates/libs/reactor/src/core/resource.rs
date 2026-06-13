@@ -1,6 +1,6 @@
-//! Async data primitives: [`Resource`], [`use_resource`], and [`use_mutation`].
+//! Async data primitives: `Resource`, `use_resource`, and `use_mutation`.
 //!
-//! These compose over the lower-level [`use_async_state`] and [`use_effect`]
+//! These compose over the lower-level `use_async_state` and `use_effect`
 //! hooks to provide a batteries-included pattern for loading remote data
 //! and performing async writes.
 

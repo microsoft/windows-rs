@@ -764,7 +764,7 @@ fn empty_slot(label: &str, key: String, fg: Color, on_click: impl Fn() + 'static
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = bootstrap::initialize()?;
+    let _bootstrap_handle = bootstrap()?;
     App::new()
         .title("Solitaire")
         .inner_size(800.0, 600.0)

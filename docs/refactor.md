@@ -145,29 +145,17 @@ Empty collections already convey "not set" with zero heap allocation. The remain
 pointer_handlers) are intentionally boxed — they contain large structs where the Box
 keeps `Modifiers` small in the common case (8 bytes vs 48-100+ bytes inline).
 
-## Nightly rustc MIR bug (constraint)
+## Nightly rustc dead_code false-positive (constraint)
 
-Named re-exports from **private** top-level modules fail:
-```rust
-mod x;
-pub use x::SomeItem;     // ❌ missing optimized MIR downstream
-```
+With Rust 2024 on nightly, `pub(crate) mod` sub-modules inside a private
+parent module trigger false dead_code warnings at scale (98 warnings when
+core has 5+ `pub(crate) mod` children). Related to
+https://github.com/rust-lang/rust/issues/135007.
 
-Glob re-exports from private top-level modules ALSO fail:
-```rust
-mod x;
-pub use x::*;            // ❌ also triggers MIR bug (discovered during refactor)
-```
-
-Workaround — `#[doc(hidden)] pub mod` avoids the bug entirely:
-```rust
-#[doc(hidden)]
-pub mod x;
-pub use x::*;            // ✅ works correctly
-```
-
-Sub-modules (`pub(crate) mod` inside a parent) are unaffected.
-See: https://github.com/rust-lang/rust/issues/135007
+**Solution**: Follow the windows-rs convention — never use `pub(crate)`.
+All items are `pub`, visibility is controlled by module privacy in lib.rs.
+Private modules (`mod core; mod winui;`) contain `pub mod` sub-modules
+with `pub use X::*;` re-exports. This avoids the bug entirely.
 
 ## Validated changes from exploratory session
 
@@ -241,26 +229,52 @@ pub use app::*;
 
 ## Current state
 
-All phases complete. The crate has a clean separation:
+All phases complete. The crate uses the standard windows-rs visibility convention:
+- No `pub(crate)` anywhere (one exception: `widget_header` macro re-export)
+- No `#[doc(hidden)]` on `core` or `winui` — they are plain `mod` (private)
+- `#[doc(hidden)] pub mod imp` for test infrastructure (intentional)
+- All items inside modules are `pub`; visibility controlled by module privacy
+
+```rust
+// lib.rs structure
+mod core;           // private — all internals
+mod winui;          // private — WinUI backend, hooks, host
+mod app;            // private
+mod diagnostics;    // private
+mod app_shim;       // private
+mod bindings;       // private (generated FFI)
+
+pub mod bootstrap;  // public module (used as path: bootstrap::initialize())
+
+#[doc(hidden)]
+pub mod imp;        // test infrastructure
+
+pub use app::*;
+pub use core::*;
+pub use winui::hooks::*;
+pub use winui::host::*;
+```
+
+### API surface
 - **Public API** (`windows_reactor::*`): ~50 widget factories, hooks, DSL, app lifecycle
 - **Test infrastructure** (`windows_reactor::imp::*`): Reconciler, RecordingBackend, Op, RenderHost, test dispatchers
-- **Internal** (`pub(crate)`): backend plumbing, reconciler internals, WinUI backend
+- **Internal** (private modules): backend plumbing, reconciler internals, WinUI backend
 
-### Remaining `#[doc(hidden)]` (necessary — MIR bug workaround)
-- `lib.rs`: `#[doc(hidden)] pub mod core;` and `#[doc(hidden)] pub mod winui;`
-- `lib.rs`: `#[doc(hidden)] pub mod imp;` (intentional — test-only)
-- These can become plain `mod` once https://github.com/rust-lang/rust/issues/135007 is fixed
+### Remaining `#[doc(hidden)]` (intentional)
+- `lib.rs`: `#[doc(hidden)] pub mod imp;` — test-only, should not appear in docs
 
 ## Future improvements (not blocking)
 
 1. ~~**`Option<Box<Vec/HashMap>>` anti-pattern**~~ — Done (Phase 4).
 
-2. **Remove `#[doc(hidden)]` when MIR bug is fixed** — Convert `core`/`winui` to
-   plain `mod` (private) and rely on `pub use` re-exports.
+2. ~~**Remove `#[doc(hidden)]` when MIR bug is fixed**~~ — Done. Switched to
+   windows-rs convention (no `pub(crate)`, module privacy controls visibility).
+   `core` and `winui` are now plain `mod` (private) with zero false warnings.
 
-3. **Further `pub(crate)` tightening** — Some items in core sub-modules are still
-   `pub` when they could be `pub(crate)` (fields, methods used only internally).
-   Low priority since they're already behind private modules.
+3. ~~**Further `pub(crate)` tightening**~~ — Replaced by convention change.
+   All items are `pub`, visibility controlled by module privacy. Only one
+   exception: `pub(crate) use widget_header` macro in `core/widgets/mod.rs`
+   (macros can't be re-exported from private modules).
 
 ## Verification commands
 

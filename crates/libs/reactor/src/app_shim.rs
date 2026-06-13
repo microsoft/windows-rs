@@ -57,13 +57,13 @@ impl IXamlMetadataProvider_Impl for ReactorApplicationOverrides_Impl {
     }
 }
 
-pub(crate) fn create_reactor_application(
+pub fn create_reactor_application(
     on_launched: Box<dyn FnOnce() -> Result<()>>,
 ) -> Result<Application> {
     Application::compose(ReactorApplicationOverrides::new(on_launched))
 }
 
-pub(crate) fn install_xaml_controls_resources(app: &Application) -> Result<()> {
+pub fn install_xaml_controls_resources(app: &Application) -> Result<()> {
     let controls = XamlControlsResources::new()?;
     let as_rd: ResourceDictionary = controls.cast()?;
     let resources = app.get_Resources()?;

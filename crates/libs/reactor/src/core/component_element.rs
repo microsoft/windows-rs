@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 use super::*;
 
-pub(crate) trait ComponentObject: 'static {
+pub trait ComponentObject: 'static {
     fn render(&self, cx: &mut RenderCx) -> Element;
 
     fn props_as_any(&self) -> &dyn Any;
@@ -91,7 +91,7 @@ where
 pub struct ComponentElement {
     pub key: Option<String>,
     pub memoised: bool,
-    pub(crate) obj: Rc<dyn ComponentObject>,
+    pub obj: Rc<dyn ComponentObject>,
 }
 
 impl Clone for ComponentElement {

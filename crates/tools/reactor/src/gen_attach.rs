@@ -33,7 +33,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
 
         /// Try to handle an `attach_event` call via generated dispatch.
         /// Returns `Some(revokers)` if handled, `None` to fall through.
-        pub(crate) fn dispatch(
+        pub fn dispatch(
             handle: &Handle,
             event: Event,
             handler: &EventHandler,

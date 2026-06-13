@@ -24,7 +24,7 @@ fn update_child_tracked<B: Backend + 'static>(
     }
 }
 
-pub(crate) fn reconcile<B: Backend + 'static>(
+pub fn reconcile<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
     parent: ControlId,
     old_live: LiveChildrenRef<'_>,
@@ -39,7 +39,7 @@ pub(crate) fn reconcile<B: Backend + 'static>(
     }
 }
 
-pub(crate) fn reconcile_positional<B: Backend + 'static>(
+pub fn reconcile_positional<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
     parent: ControlId,
     old_live: LiveChildrenRef<'_>,
@@ -394,7 +394,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
     }
 }
 
-pub(crate) fn compute_lis(arr: &[i32]) -> FxHashSet<usize> {
+pub fn compute_lis(arr: &[i32]) -> FxHashSet<usize> {
     let n = arr.len();
     if n == 0 {
         return FxHashSet::default();

@@ -61,7 +61,7 @@ fn create_arrows() -> Vec<Element> {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = bootstrap::initialize()?;
+    let _bootstrap_handle = bootstrap()?;
     App::new()
         .title("Sample")
         .backdrop(Backdrop::Mica)

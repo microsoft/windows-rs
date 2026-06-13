@@ -28,14 +28,14 @@ thread_local! {
 }
 
 /// Install (or clear) the UI thread's rerender hook.
-pub(crate) fn set_ui_rerender(rerender: Option<Rc<dyn Fn()>>) {
+pub fn set_ui_rerender(rerender: Option<Rc<dyn Fn()>>) {
     UI_RERENDER.with(|r| {
         *r.borrow_mut() = rerender;
     });
 }
 
 /// Request a rerender on the UI thread the marshaller targets.
-pub(crate) fn request_ui_rerender_on_ui_thread() {
+pub fn request_ui_rerender_on_ui_thread() {
     UI_RERENDER.with(|r| {
         if let Some(rr) = r.borrow().as_ref() {
             rr();

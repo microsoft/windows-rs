@@ -11,7 +11,7 @@ use windows_core::Interface;
 #[derive(Clone, PartialEq, Debug)]
 pub struct SurfaceImageSource {
     // Cast to `ImageSource` and applied as the native `Image.Source`.
-    pub(crate) source: crate::bindings::SurfaceImageSource,
+    pub source: crate::bindings::SurfaceImageSource,
     native: crate::bindings::ISurfaceImageSourceNativeWithD2D,
 }
 
@@ -77,7 +77,7 @@ impl SurfaceImageSource {
 
     /// Cast the underlying source to the `ImageSource` the backend assigns to
     /// `Image.Source`.
-    pub(crate) fn image_source(&self) -> windows_core::Result<crate::bindings::ImageSource> {
+    pub fn image_source(&self) -> windows_core::Result<crate::bindings::ImageSource> {
         self.source.cast()
     }
 }

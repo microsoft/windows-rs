@@ -1,9 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::imp::Reconciler;
-use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::Reconciler;
 use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock};
 use windows_reactor::{ControlKind, Prop, PropValue};
+use windows_reactor::{Op, RecordingBackend};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})

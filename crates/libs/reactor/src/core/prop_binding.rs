@@ -16,7 +16,7 @@ pub type PropBindings = Vec<Binding>;
 /// and IReference setters. The trait lets the same generated code work
 /// whether the field is `String` (always `Some`) or `Option<String>`
 /// (mirrors the Option).
-pub(crate) trait ToPropStr {
+pub trait ToPropStr {
     fn to_prop_str(&self) -> Option<PropValue>;
 }
 
@@ -32,14 +32,14 @@ impl ToPropStr for Option<String> {
     }
 }
 
-pub(crate) fn find_prop(bindings: &[Binding], prop: Prop) -> Option<&PropValue> {
+pub fn find_prop(bindings: &[Binding], prop: Prop) -> Option<&PropValue> {
     bindings.iter().find_map(|b| match b {
         Binding::Prop(p, v) if *p == prop => Some(v),
         _ => None,
     })
 }
 
-pub(crate) fn find_event(bindings: &[Binding], event: Event) -> Option<&Option<EventHandler>> {
+pub fn find_event(bindings: &[Binding], event: Event) -> Option<&Option<EventHandler>> {
     bindings.iter().find_map(|b| match b {
         Binding::Event(e, h) if *e == event => Some(h),
         _ => None,

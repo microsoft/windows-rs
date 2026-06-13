@@ -20,9 +20,8 @@ use std::rc::Rc;
 
 use windows_reactor::Callback;
 use windows_reactor::ElementExt;
+use windows_reactor::Reconciler;
 use windows_reactor::RichText;
-use windows_reactor::imp::Reconciler;
-use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::{
     Border, Button, CheckBox, Color, Element, Grid, GridLength, KeyModifiers, KeyboardAccelerator,
     KeyboardKey, ScrollViewer, StackPanel, TextBlock, TextBox,
@@ -33,6 +32,7 @@ use windows_reactor::{
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
+use windows_reactor::{Op, RecordingBackend};
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![

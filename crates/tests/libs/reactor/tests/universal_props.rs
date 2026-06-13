@@ -5,9 +5,9 @@
 
 use std::rc::Rc;
 
-use windows_reactor::imp::Reconciler;
-use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::Reconciler;
 use windows_reactor::{Button, Element, Modifiers, StackPanel, TextBlock};
+use windows_reactor::{Op, RecordingBackend};
 use windows_reactor::{Prop, PropValue};
 
 fn rr() -> Rc<dyn Fn()> {

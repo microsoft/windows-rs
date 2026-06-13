@@ -2,12 +2,12 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use windows_reactor::Component;
-use windows_reactor::imp::RenderHost;
-use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::RenderHost;
 use windows_reactor::{Dispatch, RenderCx};
 use windows_reactor::{Dispatcher, DispatcherQueuePriority};
 use windows_reactor::{Element, StackPanel};
 use windows_reactor::{ElementExt, button, check_box, text_block};
+use windows_reactor::{Op, RecordingBackend};
 use windows_reactor::{hstack, vstack};
 
 #[derive(Clone, PartialEq, Debug)]

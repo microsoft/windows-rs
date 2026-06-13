@@ -1,13 +1,7 @@
 use super::*;
 
 impl<B: Backend> Reconciler<B> {
-    pub(crate) fn diff_opt_f64(
-        &mut self,
-        id: ControlId,
-        prop: Prop,
-        old: Option<f64>,
-        new: Option<f64>,
-    ) {
+    pub fn diff_opt_f64(&mut self, id: ControlId, prop: Prop, old: Option<f64>, new: Option<f64>) {
         if old == new {
             return;
         }
@@ -17,7 +11,7 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
-    pub(crate) fn diff_opt_copy<T: Copy + PartialEq>(
+    pub fn diff_opt_copy<T: Copy + PartialEq>(
         &mut self,
         id: ControlId,
         prop: Prop,
@@ -34,7 +28,7 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
-    pub(crate) fn diff_opt_clone<T: Clone + PartialEq>(
+    pub fn diff_opt_clone<T: Clone + PartialEq>(
         &mut self,
         id: ControlId,
         prop: Prop,
@@ -51,7 +45,7 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
-    pub(crate) fn apply_props(&mut self, id: ControlId, bindings: &[Binding]) {
+    pub fn apply_props(&mut self, id: ControlId, bindings: &[Binding]) {
         for b in bindings {
             match b {
                 Binding::Prop(p, v) => self.backend.set_prop(id, *p, v),
@@ -61,7 +55,7 @@ impl<B: Backend> Reconciler<B> {
         }
     }
 
-    pub(crate) fn diff_props(&mut self, id: ControlId, old: &[Binding], new: &[Binding]) {
+    pub fn diff_props(&mut self, id: ControlId, old: &[Binding], new: &[Binding]) {
         for b in new {
             match b {
                 Binding::Prop(p, v) => match find_prop(old, *p) {

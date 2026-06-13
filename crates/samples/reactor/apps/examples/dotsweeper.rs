@@ -929,7 +929,7 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = bootstrap::initialize()?;
+    let _bootstrap_handle = bootstrap()?;
     App::new().title("windows_reactor — dotsweeper").render(app)
 }
 

@@ -2,8 +2,7 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::Element;
-use windows_reactor::imp::Reconciler;
-use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::Reconciler;
 use windows_reactor::text_block;
 use windows_reactor::{
     BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarDefaultLabelPosition, ContentDialog,
@@ -13,6 +12,7 @@ use windows_reactor::{
     TreeViewSelectionMode,
 };
 use windows_reactor::{ControlKind, Event, Prop, PropValue};
+use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

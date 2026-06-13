@@ -41,7 +41,7 @@ type Cleanup = Box<dyn FnOnce()>;
 
 type PendingEffect = Box<dyn FnOnce() -> Option<Cleanup>>;
 
-pub(crate) enum HookSlot {
+pub enum HookSlot {
     State {
         cell: Rc<RefCell<Box<dyn Any>>>,
         type_name: &'static str,
@@ -244,14 +244,14 @@ impl<T: fmt::Debug> fmt::Debug for HookRef<T> {
 
 /// Stable `ContextId` used to track which components subscribed to
 /// [`RenderCx::use_inner_size`].
-pub(crate) fn inner_size_context_id() -> ContextId {
+pub fn inner_size_context_id() -> ContextId {
     static ID: OnceLock<ContextId> = OnceLock::new();
     *ID.get_or_init(ContextId::new)
 }
 
 /// Stable `ContextId` used to track which components subscribed to
 /// [`RenderCx::use_dpi`].
-pub(crate) fn dpi_context_id() -> ContextId {
+pub fn dpi_context_id() -> ContextId {
     static ID: OnceLock<ContextId> = OnceLock::new();
     *ID.get_or_init(ContextId::new)
 }
@@ -708,11 +708,11 @@ impl RenderCx {
         self.dpi.get()
     }
 
-    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
+    pub fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.inner_size = cell;
     }
 
-    pub(crate) fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
+    pub fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
         self.dpi = cell;
     }
 

@@ -1,6 +1,6 @@
 use super::*;
 
-pub(crate) fn unhandled_prop(id: ControlId, prop: Prop, value: &PropValue, handle: &Handle) {
+pub fn unhandled_prop(id: ControlId, prop: Prop, value: &PropValue, handle: &Handle) {
     if cfg!(debug_assertions) {
         eprintln!(
             "windows-reactor: unhandled prop ({prop:?}, {value:?}) for {} {id}",
@@ -9,7 +9,7 @@ pub(crate) fn unhandled_prop(id: ControlId, prop: Prop, value: &PropValue, handl
     }
 }
 
-pub(crate) fn unhandled_modifier(site: &str, prop: Prop, handle: &Handle) {
+pub fn unhandled_modifier(site: &str, prop: Prop, handle: &Handle) {
     if cfg!(debug_assertions) {
         eprintln!(
             "windows-reactor: {site}: ignoring {prop:?} for {}",
@@ -18,7 +18,7 @@ pub(crate) fn unhandled_modifier(site: &str, prop: Prop, handle: &Handle) {
     }
 }
 
-pub(crate) fn com_error(site: &str, id: ControlId, err: &windows_core::Error) {
+pub fn com_error(site: &str, id: ControlId, err: &windows_core::Error) {
     if cfg!(debug_assertions) {
         eprintln!("windows-reactor: {site} on {id}: {err:?}");
     }

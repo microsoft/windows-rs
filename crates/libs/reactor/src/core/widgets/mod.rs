@@ -4,7 +4,7 @@
 
 // Make the core types each widget module depends on visible via
 // `use super::*;` inside the per-widget files.
-pub(crate) use super::*;
+pub use super::*;
 
 /// Emit the boilerplate `kind`/`key`/`modifiers` accessors shared by
 /// every `impl Widget for X`; `attached` falls through to the default
@@ -27,7 +27,7 @@ pub(crate) use widget_header;
 /// Declare a widget submodule and re-export its public items.
 macro_rules! widget_modules {
     ($($mod:ident),* $(,)?) => {
-        $( pub(crate) mod $mod; )*
+        $( pub mod $mod; )*
         $( pub use $mod::*; )*
     };
 }

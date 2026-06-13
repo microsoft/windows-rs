@@ -1,10 +1,10 @@
 use std::rc::Rc;
 
-use windows_reactor::imp::Reconciler;
-use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::Reconciler;
 use windows_reactor::{Brush, Color, Element};
 use windows_reactor::{ControlKind, Prop, PropValue};
 use windows_reactor::{HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch};
+use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

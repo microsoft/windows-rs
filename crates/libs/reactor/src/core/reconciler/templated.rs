@@ -3,14 +3,14 @@ use std::rc::Rc;
 
 use super::*;
 
-pub(crate) struct TemplatedListState {
-    pub(crate) element: TemplatedListElement,
-    pub(crate) rows: Vec<Option<RealizedRow>>,
+pub struct TemplatedListState {
+    pub element: TemplatedListElement,
+    pub rows: Vec<Option<RealizedRow>>,
 }
 
-pub(crate) struct RealizedRow {
-    pub(crate) rendered: Element,
-    pub(crate) content_id: ControlId,
+pub struct RealizedRow {
+    pub rendered: Element,
+    pub content_id: ControlId,
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
@@ -26,7 +26,7 @@ pub fn new_realization_queue() -> RealizationQueue {
 }
 
 impl<B: Backend + 'static> Reconciler<B> {
-    pub(crate) fn mount_templated_list(&mut self, tl: &TemplatedListElement) -> ControlId {
+    pub fn mount_templated_list(&mut self, tl: &TemplatedListElement) -> ControlId {
         let kind = match tl.kind {
             TemplatedKind::ListView => ControlKind::ListView,
             TemplatedKind::GridView => ControlKind::GridView,
@@ -104,7 +104,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         id
     }
 
-    pub(crate) fn update_templated_list(
+    pub fn update_templated_list(
         &mut self,
         old: &TemplatedListElement,
         new: &TemplatedListElement,
