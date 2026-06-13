@@ -3,8 +3,7 @@ use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
 use super::*;
-use crate::host::{Backdrop, PresenterKind, ReactorHost};
-use windows_core::{Error, HRESULT};
+use windows_core::HRESULT;
 
 use super::app_shim::*;
 use super::bindings::*;

@@ -1,7 +1,5 @@
 use super::*;
 
-pub use crate::bindings::Orientation;
-
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct StackPanel {
     pub key: Option<String>,

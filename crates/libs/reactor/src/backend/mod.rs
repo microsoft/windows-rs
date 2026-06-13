@@ -9,7 +9,6 @@ use super::*;
 
 mod winui;
 
-pub use crate::bindings::DispatcherQueuePriority;
 pub use winui::WinUIBackend;
 
 /// Opaque, non-zero handle the backend assigns to every live control.

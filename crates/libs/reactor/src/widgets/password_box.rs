@@ -14,7 +14,6 @@ pub struct PasswordBox {
     pub password_reveal_mode: PasswordRevealMode,
     pub on_password_changed: Option<Callback<String>>,
 }
-pub use crate::bindings::PasswordRevealMode;
 impl Default for PasswordBox {
     fn default() -> Self {
         Self {

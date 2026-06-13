@@ -25,7 +25,6 @@ impl Default for InfoBar {
         }
     }
 }
-pub use crate::bindings::InfoBarSeverity;
 impl InfoBar {
     pub fn new(title: impl Into<String>) -> Self {
         Self {

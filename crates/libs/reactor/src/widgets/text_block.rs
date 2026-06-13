@@ -1,7 +1,5 @@
 use super::*;
 
-pub use crate::bindings::TextWrapping;
-
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct TextBlock {
     pub key: Option<String>,

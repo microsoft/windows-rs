@@ -54,8 +54,6 @@ pub fn app_bar_separator() -> CommandBarCommandDef {
     CommandBarCommandDef::Separator
 }
 
-pub use crate::bindings::CommandBarDefaultLabelPosition;
-
 /// `Microsoft.UI.Xaml.Controls.CommandBar`. A toolbar with primary and secondary commands.
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct CommandBar {

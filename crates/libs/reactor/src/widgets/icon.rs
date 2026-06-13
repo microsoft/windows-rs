@@ -1,3 +1,4 @@
-pub use crate::bindings::Symbol;
+use super::*;
+
 /// Compatibility alias for `Symbol`.
 pub type SymbolGlyph = Symbol;

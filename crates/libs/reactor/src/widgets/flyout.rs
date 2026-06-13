@@ -1,4 +1,5 @@
-pub use crate::bindings::FlyoutPlacementMode;
+use super::*;
+
 /// Compatibility alias for `FlyoutPlacementMode`.
 pub type FlyoutPlacement = FlyoutPlacementMode;
 

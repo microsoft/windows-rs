@@ -1,7 +1,5 @@
 use super::*;
 
-pub use crate::bindings::TeachingTipPlacementMode;
-
 /// `Microsoft.UI.Xaml.Controls.TeachingTip`. A contextual teaching popup.
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct TeachingTip {

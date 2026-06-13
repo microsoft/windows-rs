@@ -1,7 +1,6 @@
 use std::cell::RefCell;
 
 use rustc_hash::FxHashMap;
-use windows_core::Interface;
 
 use super::*;
 use crate::bindings as Xaml;

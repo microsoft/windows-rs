@@ -1,7 +1,5 @@
 use super::*;
 
-pub use crate::bindings::ScrollingScrollBarVisibility;
-
 /// Content orientation for [`ScrollView`].
 /// Maps to `ScrollingContentOrientation` in WinUI.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]

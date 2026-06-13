@@ -1,8 +1,6 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
-use windows_core::Interface;
-
 use super::*;
 use crate::bindings::*;
 

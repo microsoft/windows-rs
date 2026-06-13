@@ -35,7 +35,6 @@ impl NavViewItem {
         self
     }
 }
-pub use crate::bindings::NavigationViewPaneDisplayMode;
 #[derive(Clone, Debug, PartialEq)]
 pub struct NavigationView {
     pub key: Option<String>,

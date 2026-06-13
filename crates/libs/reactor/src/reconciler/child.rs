@@ -528,10 +528,6 @@ mod tests {
     /// get attached to the TextBlock — that's the crash.
     #[test]
     fn keyed_reorder_with_mixed_kinds_keeps_controls_aligned() {
-        use crate::backend::{ControlKind, Op, PropValue, RecordingBackend};
-        use crate::element::Element;
-        use crate::reconciler::Reconciler;
-        use crate::widgets::{Button, StackPanel, TextBlock};
         use std::rc::Rc;
 
         fn tile(key: &'static str) -> Element {

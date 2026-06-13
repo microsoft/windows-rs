@@ -9,7 +9,6 @@ use std::time::Instant;
 
 use rustc_hash::FxHashSet;
 
-use super::set_ui_rerender;
 use super::*;
 
 /// Stateless render unit parameterised by props `P`. Implementors return

@@ -34,7 +34,6 @@ impl From<Option<SurfaceImageSource>> for ImageSource {
         source.map_or(ImageSource::None, ImageSource::Surface)
     }
 }
-pub use crate::bindings::Stretch;
 impl Image {
     pub fn new(source: ImageSource) -> Self {
         Self {

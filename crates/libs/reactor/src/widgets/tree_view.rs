@@ -41,8 +41,6 @@ pub fn tree_node(text: impl Into<String>) -> TreeNodeDef {
     TreeNodeDef::new(text)
 }
 
-pub use crate::bindings::TreeViewSelectionMode;
-
 /// `Microsoft.UI.Xaml.Controls.TreeView`. A hierarchical list view.
 #[derive(Clone, Debug, PartialEq)]
 pub struct TreeView {

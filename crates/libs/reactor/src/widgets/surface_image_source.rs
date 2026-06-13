@@ -1,4 +1,4 @@
-use windows_core::Interface;
+use super::*;
 
 /// A `SurfaceImageSource` you create and draw into with Direct2D, then display
 /// by handing it to [`Image::new`](crate::Image::new). Create it on the UI
@@ -11,15 +11,15 @@ use windows_core::Interface;
 #[derive(Clone, PartialEq, Debug)]
 pub struct SurfaceImageSource {
     // Cast to `ImageSource` and applied as the native `Image.Source`.
-    pub source: crate::bindings::SurfaceImageSource,
-    native: crate::bindings::ISurfaceImageSourceNativeWithD2D,
+    pub source: bindings::SurfaceImageSource,
+    native: bindings::ISurfaceImageSourceNativeWithD2D,
 }
 
 impl SurfaceImageSource {
     /// Create a `SurfaceImageSource` of the given pixel size. The size is fixed
     /// for the lifetime of the source; create a new one to resize.
-    pub fn new(pixel_width: i32, pixel_height: i32) -> windows_core::Result<Self> {
-        let source = crate::bindings::SurfaceImageSource::CreateInstanceWithDimensions(
+    pub fn new(pixel_width: i32, pixel_height: i32) -> Result<Self> {
+        let source = bindings::SurfaceImageSource::CreateInstanceWithDimensions(
             pixel_width,
             pixel_height,
         )?;
@@ -29,7 +29,7 @@ impl SurfaceImageSource {
 
     /// Associate the Direct2D device used for drawing. Pass an `ID2D1Device`
     /// (or `IDXGIDevice`). Must be called before [`begin_draw`](Self::begin_draw).
-    pub fn set_device(&self, device: &impl Interface) -> windows_core::Result<()> {
+    pub fn set_device(&self, device: &impl Interface) -> Result<()> {
         unsafe { self.native.SetDevice(device.as_raw()) }
     }
 
@@ -44,14 +44,14 @@ impl SurfaceImageSource {
         update_y: i32,
         update_width: i32,
         update_height: i32,
-    ) -> windows_core::Result<(T, (i32, i32))> {
-        let update_rect = crate::bindings::RECT {
+    ) -> Result<(T, (i32, i32))> {
+        let update_rect = bindings::RECT {
             left: update_x,
             top: update_y,
             right: update_x + update_width,
             bottom: update_y + update_height,
         };
-        let mut offset = crate::bindings::POINT::default();
+        let mut offset = bindings::POINT::default();
         let mut object = core::ptr::null_mut();
         unsafe {
             self.native
@@ -61,23 +61,23 @@ impl SurfaceImageSource {
     }
 
     /// Finish drawing and present the surface contents.
-    pub fn end_draw(&self) -> windows_core::Result<()> {
+    pub fn end_draw(&self) -> Result<()> {
         unsafe { self.native.EndDraw() }
     }
 
     /// Suspend drawing, allowing GPU resources to be reclaimed.
-    pub fn suspend_draw(&self) -> windows_core::Result<()> {
+    pub fn suspend_draw(&self) -> Result<()> {
         unsafe { self.native.SuspendDraw() }
     }
 
     /// Resume drawing after a [`suspend_draw`](Self::suspend_draw).
-    pub fn resume_draw(&self) -> windows_core::Result<()> {
+    pub fn resume_draw(&self) -> Result<()> {
         unsafe { self.native.ResumeDraw() }
     }
 
     /// Cast the underlying source to the `ImageSource` the backend assigns to
     /// `Image.Source`.
-    pub fn image_source(&self) -> windows_core::Result<crate::bindings::ImageSource> {
+    pub fn image_source(&self) -> Result<bindings::ImageSource> {
         self.source.cast()
     }
 }

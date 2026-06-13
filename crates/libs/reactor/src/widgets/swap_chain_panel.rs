@@ -1,7 +1,6 @@
 use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_core::Interface;
 
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
