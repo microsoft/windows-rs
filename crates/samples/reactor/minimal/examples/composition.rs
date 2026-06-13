@@ -4,8 +4,8 @@
 
 use std::any::Any;
 
-use windows_reactor::{Backend, ControlId, ControlKind, Prop, PropValue};
 use windows_reactor::*;
+use windows_reactor::{Backend, ControlId, ControlKind, Prop, PropValue};
 
 fn labeled_row(label: &str, value: Element) -> Element {
     group(vec![

@@ -16,7 +16,7 @@ pub mod core;
 pub mod winui;
 
 mod app;
-pub(crate) mod diagnostics;
+mod diagnostics;
 
 /// Test infrastructure — not part of the public API.
 #[doc(hidden)]

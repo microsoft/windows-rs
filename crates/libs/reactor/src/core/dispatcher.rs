@@ -43,7 +43,7 @@ pub(crate) fn request_ui_rerender_on_ui_thread() {
     });
 }
 
-/// RAII guard around [`set_ui_rerender`]; clears the thread-local on drop.
+/// RAII guard around `set_ui_rerender`; clears the thread-local on drop.
 #[must_use = "the guard restores UI_RERENDER on drop; binding it to `_` drops it immediately"]
 pub struct UiRerenderGuard {
     _not_send: std::marker::PhantomData<*const ()>,

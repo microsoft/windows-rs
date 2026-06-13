@@ -22,7 +22,7 @@ pub struct ErrorBoundaryElement {
     pub fallback: Fallback,
 }
 
-/// Wrap `child` in an [`ErrorBoundaryElement`] using `fallback` for recovery.
+/// Wrap `child` in an error-boundary element using `fallback` for recovery.
 pub fn error_boundary<F>(child: impl Into<Element>, fallback: F) -> Element
 where
     F: Fn(&str) -> Element + 'static,

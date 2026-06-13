@@ -1,9 +1,9 @@
 //! Sample for the `RichTextBlock` element.
 
+use windows_reactor::*;
 use windows_reactor::{
     RichTextBlock, RichTextHyperlink, RichTextInline, RichTextParagraph, RichTextRun,
 };
-use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {
     let mixed = RichTextBlock::single_paragraph(vec![

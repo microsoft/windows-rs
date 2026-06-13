@@ -1,32 +1,32 @@
 #![allow(unused_imports)]
 
-pub(crate) mod animation;
+mod animation;
 pub(crate) mod backend;
-pub(crate) mod callback;
-pub(crate) mod component;
-pub(crate) mod component_element;
-pub(crate) mod context;
-pub(crate) mod custom;
+mod callback;
+mod component;
+mod component_element;
+mod context;
+mod custom;
 pub(crate) mod dispatcher;
 pub(crate) mod element;
-pub(crate) mod element_ext;
-pub(crate) mod error_boundary;
-pub(crate) mod generated_bindings;
-pub(crate) mod geometry;
-pub(crate) mod into_elements;
-pub(crate) mod keyboard;
-pub(crate) mod modifiers;
-pub(crate) mod prop_binding;
-pub(crate) mod rc_fn;
+mod element_ext;
+mod error_boundary;
+mod generated_bindings;
+mod geometry;
+mod into_elements;
+mod keyboard;
+mod modifiers;
+mod prop_binding;
+mod rc_fn;
 pub(crate) mod reconciler;
-pub(crate) mod render_context;
+mod render_context;
 pub(crate) mod render_host;
-pub(crate) mod resource;
-pub(crate) mod rich_text;
-pub(crate) mod templated_list;
-pub(crate) mod theme;
-pub(crate) mod widget;
-pub(crate) mod widgets;
+mod resource;
+mod rich_text;
+mod templated_list;
+mod theme;
+mod widget;
+mod widgets;
 
 // Public API re-exports — flow through `pub use core::*` in lib.rs
 pub use animation::*;

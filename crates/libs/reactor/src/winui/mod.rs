@@ -1,7 +1,7 @@
 pub(crate) mod backend;
 pub(crate) mod dispatcher;
-pub(crate) mod hooks;
-pub(crate) mod host;
+mod hooks;
+mod host;
 
 pub use backend::*;
 pub use dispatcher::*;
