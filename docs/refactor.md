@@ -229,14 +229,50 @@ pub use app::*;
 - [x] Updated test crates to `use windows_reactor::imp::*`
 - [x] `#[doc(hidden)]` only on core/winui (MIR workaround) and imp (by design)
 
+### Phase 4: Final visibility tightening ✅
+- [x] Removed all `#[doc(hidden)]` from items already behind `imp`
+- [x] Split core/mod.rs into `pub use` (public API) and `pub(crate) use` (internal)
+- [x] `ComponentElement`, `ComponentObject`, `ErrorBoundaryElement` → `pub(crate)` re-exports
+- [x] `panic_message`, `set_ui_rerender`, `request_ui_rerender_on_ui_thread` → `pub(crate)`
+- [x] Added `imp` import to `test_reactor_perf` (missed in Phase 3)
+- [x] Full `cargo test --all` passes — zero regressions
+
+## Current state
+
+All phases complete. The crate has a clean separation:
+- **Public API** (`windows_reactor::*`): ~50 widget factories, hooks, DSL, app lifecycle
+- **Test infrastructure** (`windows_reactor::imp::*`): Reconciler, RecordingBackend, Op, RenderHost, test dispatchers
+- **Internal** (`pub(crate)`): backend plumbing, reconciler internals, WinUI backend
+
+### Remaining `#[doc(hidden)]` (necessary — MIR bug workaround)
+- `lib.rs`: `#[doc(hidden)] pub mod core;` and `#[doc(hidden)] pub mod winui;`
+- `lib.rs`: `#[doc(hidden)] pub mod imp;` (intentional — test-only)
+- These can become plain `mod` once https://github.com/rust-lang/rust/issues/135007 is fixed
+
+## Future improvements (not blocking)
+
+1. **`Option<Box<Vec/HashMap>>` anti-pattern** — Several fields in `Modifiers` and
+   elsewhere use `Option<Box<Vec<T>>>` or `Option<Box<HashMap<K,V>>>`. The outer Box
+   is unnecessary since Vec/HashMap are already heap-allocated. Simplify after this
+   refactor is merged.
+
+2. **Remove `#[doc(hidden)]` when MIR bug is fixed** — Convert `core`/`winui` to
+   plain `mod` (private) and rely on `pub use` re-exports.
+
+3. **Further `pub(crate)` tightening** — Some items in core sub-modules are still
+   `pub` when they could be `pub(crate)` (fields, methods used only internally).
+   Low priority since they're already behind private modules.
+
 ## Verification commands
 
 ```sh
-cargo fmt -p windows-reactor
+cargo fmt -p windows-reactor -p test_reactor -p test_reactor_selftest
 cargo clippy -p windows-reactor --all-targets
 cargo check -p windows-reactor --quiet
 cargo check -p gallery --quiet
 cargo check -p test_reactor --quiet
-cargo test -p test_reactor --quiet
 cargo check -p test_reactor_selftest --quiet
+cargo check -p test_reactor_perf --quiet
+cargo test -p test_reactor --quiet
+cargo test --all   # full regression check
 ```
