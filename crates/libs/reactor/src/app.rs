@@ -2,12 +2,12 @@ use std::cell::RefCell;
 use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
-use crate::winui::host::{Backdrop, PresenterKind, ReactorHost};
-use windows_core::{Error, HRESULT, Result};
+use super::*;
+use crate::host::{Backdrop, PresenterKind, ReactorHost};
+use windows_core::{Error, HRESULT};
 
 use super::app_shim::*;
 use super::bindings::*;
-use super::winui::*;
 
 const E_FAIL: HRESULT = HRESULT(0x80004005u32 as i32);
 
@@ -251,14 +251,14 @@ where
     match std::panic::catch_unwind(AssertUnwindSafe(f)) {
         Ok(Ok(())) => Ok(()),
         Ok(Err(err)) => {
-            crate::diagnostics::emit(&format!(
+            diagnostics::emit(&format!(
                 "windows_reactor: {label} callback returned error: {err:?}"
             ));
             Err(err)
         }
         Err(payload) => {
-            let msg = crate::diagnostics::format_panic_payload(&payload);
-            crate::diagnostics::emit(&format!(
+            let msg = diagnostics::format_panic_payload(&payload);
+            diagnostics::emit(&format!(
                 "windows_reactor: {label} callback panicked: {msg}"
             ));
             Err(Error::new(E_FAIL, format!("{label} panicked: {msg}")))
@@ -268,7 +268,7 @@ where
 
 fn report_app_start_result(result: Result<()>) -> Result<()> {
     if let Err(err) = &result {
-        crate::diagnostics::emit(&format!(
+        diagnostics::emit(&format!(
             "windows_reactor: Application::Start failed: {err:?}"
         ));
     }
@@ -276,7 +276,7 @@ fn report_app_start_result(result: Result<()>) -> Result<()> {
 }
 
 fn init_app_platform() -> Result<()> {
-    crate::diagnostics::install();
+    diagnostics::install();
 
     // SAFETY: FFI call into user32; returns HRESULT and has no aliasing requirements.
     unsafe { SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2).ok()? };

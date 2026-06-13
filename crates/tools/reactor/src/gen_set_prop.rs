@@ -135,7 +135,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
             handle: &Handle,
             prop: Prop,
             value: &PropValue,
-        ) -> windows_core::Result<bool> {
+        ) -> Result<bool> {
             match (prop, value, handle) {
                 #(#all_arms)*
                 _ => return Ok(false),
