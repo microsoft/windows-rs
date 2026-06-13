@@ -31,13 +31,13 @@ pub struct Modifiers {
     pub animations: Option<Box<AnimationModifiers>>,
     pub attached: Option<AttachedProps>,
     pub accessibility: Option<Box<AccessibilityModifiers>>,
-    pub keyboard_accelerators: Option<Box<Vec<KeyboardAccelerator>>>,
+    pub keyboard_accelerators: Vec<KeyboardAccelerator>,
     pub tooltip: Option<Box<Tooltip>>,
     pub pointer_handlers: Option<Box<PointerHandlers>>,
     /// Fast-path for grid row/column placement — avoids the `AttachedProps`
     /// HashMap + Box + thread_local overhead for the most common attached prop.
     pub grid: Option<GridPlacement>,
-    pub resources: Option<Box<HashMap<String, String>>>,
+    pub resources: HashMap<String, String>,
 }
 
 impl Modifiers {
@@ -61,17 +61,14 @@ impl Modifiers {
             && self.animations.as_ref().is_none_or(|a| a.is_empty())
             && self.attached.as_ref().is_none_or(|a| a.is_empty())
             && self.accessibility.as_deref().is_none_or(|a| a.is_empty())
-            && self
-                .keyboard_accelerators
-                .as_deref()
-                .is_none_or(|a| a.is_empty())
+            && self.keyboard_accelerators.is_empty()
             && self.tooltip.is_none()
             && self
                 .pointer_handlers
                 .as_deref()
                 .is_none_or(|p| p.is_empty())
             && self.grid.is_none()
-            && self.resources.as_deref().is_none_or(|r| r.is_empty())
+            && self.resources.is_empty()
     }
 }
 

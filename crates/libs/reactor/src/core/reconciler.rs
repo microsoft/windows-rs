@@ -494,11 +494,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement(id, p);
         }
 
-        if let Some(res) = &mods.resources
-            && !res.is_empty()
-        {
-            self.backend
-                .set_prop(id, Prop::Resources, &PropValue::Resources((**res).clone()));
+        if !mods.resources.is_empty() {
+            self.backend.set_prop(
+                id,
+                Prop::Resources,
+                &PropValue::Resources(mods.resources.clone()),
+            );
         }
     }
 
@@ -530,13 +531,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub(crate) fn apply_keyboard_accelerators_for(&mut self, id: ControlId, mods: &Modifiers) {
-        let Some(list) = mods.keyboard_accelerators.as_deref() else {
-            return;
-        };
-        if list.is_empty() {
+        if mods.keyboard_accelerators.is_empty() {
             return;
         }
-        self.backend.set_keyboard_accelerators(id, list);
+        self.backend
+            .set_keyboard_accelerators(id, &mods.keyboard_accelerators);
     }
 
     pub(crate) fn apply_animations_for(&mut self, id: ControlId, mods: &Modifiers) {
@@ -693,10 +692,9 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_accessibility(id, new_acc);
         }
 
-        let old_ka = old.keyboard_accelerators.as_deref();
-        let new_ka = new.keyboard_accelerators.as_deref();
+        let old_ka = &old.keyboard_accelerators;
+        let new_ka = &new.keyboard_accelerators;
         if old_ka != new_ka {
-            let new_ka = new_ka.map_or(&[][..], |v| v.as_slice());
             self.backend.set_keyboard_accelerators(id, new_ka);
         }
 
@@ -723,12 +721,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement_full(id, new.grid.unwrap_or_default());
         }
 
-        if old.resources != new.resources
-            && let Some(res) = &new.resources
-            && !res.is_empty()
-        {
-            self.backend
-                .set_prop(id, Prop::Resources, &PropValue::Resources((**res).clone()));
+        if old.resources != new.resources && !new.resources.is_empty() {
+            self.backend.set_prop(
+                id,
+                Prop::Resources,
+                &PropValue::Resources(new.resources.clone()),
+            );
         }
     }
 

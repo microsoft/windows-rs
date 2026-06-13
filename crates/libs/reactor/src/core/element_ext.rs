@@ -303,9 +303,7 @@ pub trait ElementExt: Sized {
 
     fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            m.keyboard_accelerators
-                .get_or_insert_with(|| Box::new(Vec::new()))
-                .push(accel);
+            m.keyboard_accelerators.push(accel);
         }
         self
     }
@@ -395,11 +393,10 @@ pub trait ElementExt: Sized {
         entries: impl IntoIterator<Item = (impl Into<String>, impl Into<String>)>,
     ) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            let map = entries
+            m.resources = entries
                 .into_iter()
                 .map(|(k, v)| (k.into(), v.into()))
                 .collect();
-            m.resources = Some(Box::new(map));
         }
         self
     }

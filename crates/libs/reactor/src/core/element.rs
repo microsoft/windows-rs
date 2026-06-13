@@ -387,9 +387,7 @@ impl Element {
     }
     pub fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            m.keyboard_accelerators
-                .get_or_insert_with(|| Box::new(Vec::new()))
-                .push(accel);
+            m.keyboard_accelerators.push(accel);
         }
         self
     }

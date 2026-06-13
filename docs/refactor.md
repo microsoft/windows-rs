@@ -137,11 +137,13 @@ never by samples or gallery. Should move behind `imp`.
 - `winui/template_cache.rs` — entirely unused
 - `ContextStack::depth()` — only used in same-file tests
 
-### Future cleanup: `Option<Box<Vec/HashMap>>` anti-pattern
-Several fields in `Modifiers` and elsewhere use `Option<Box<Vec<T>>>` or
-`Option<Box<HashMap<K,V>>>` — the outer Box is unnecessary since Vec and
-HashMap are already heap-allocated. Review and simplify after the module
-restructure is complete.
+### Future cleanup: `Option<Box<Vec/HashMap>>` anti-pattern ✅ DONE
+`keyboard_accelerators` was `Option<Box<Vec<KeyboardAccelerator>>>` → now `Vec<KeyboardAccelerator>`.
+`resources` was `Option<Box<HashMap<String, String>>>` → now `HashMap<String, String>`.
+Empty collections already convey "not set" with zero heap allocation. The remaining
+`Option<Box<Struct>>` fields (theme_bindings, animations, accessibility, tooltip,
+pointer_handlers) are intentionally boxed — they contain large structs where the Box
+keeps `Modifiers` small in the common case (8 bytes vs 48-100+ bytes inline).
 
 ## Nightly rustc MIR bug (constraint)
 
@@ -251,10 +253,7 @@ All phases complete. The crate has a clean separation:
 
 ## Future improvements (not blocking)
 
-1. **`Option<Box<Vec/HashMap>>` anti-pattern** — Several fields in `Modifiers` and
-   elsewhere use `Option<Box<Vec<T>>>` or `Option<Box<HashMap<K,V>>>`. The outer Box
-   is unnecessary since Vec/HashMap are already heap-allocated. Simplify after this
-   refactor is merged.
+1. ~~**`Option<Box<Vec/HashMap>>` anti-pattern**~~ — Done (Phase 4).
 
 2. **Remove `#[doc(hidden)]` when MIR bug is fixed** — Convert `core`/`winui` to
    plain `mod` (private) and rely on `pub use` re-exports.

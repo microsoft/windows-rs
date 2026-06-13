@@ -102,9 +102,11 @@ fn every_widget_variant_round_trips_keyboard_accelerators() {
         let mods = labelled.modifiers().unwrap_or_else(|| {
             panic!("{name}: widget has no modifiers? — keyboard_accelerator should have recorded")
         });
-        let list = mods.keyboard_accelerators.as_deref().unwrap_or_else(|| {
-            panic!("{name}: keyboard_accelerator did not record into modifiers")
-        });
+        let list = &mods.keyboard_accelerators;
+        assert!(
+            !list.is_empty(),
+            "{name}: keyboard_accelerator did not record into modifiers"
+        );
         assert_eq!(list.len(), 1, "{name}: expected one accelerator");
         assert_eq!(list[0].key, KeyboardKey::S, "{name}: key");
         assert_eq!(
