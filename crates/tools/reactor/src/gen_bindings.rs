@@ -27,7 +27,7 @@ fn generate_one(ctrl: &Control) -> TokenStream {
 
     if cap == 0 {
         quote! {
-            pub(crate) fn #fn_name(_w: &#widget_type) -> PropBindings {
+            pub fn #fn_name(_w: &#widget_type) -> PropBindings {
                 Vec::new()
             }
         }
@@ -36,13 +36,13 @@ fn generate_one(ctrl: &Control) -> TokenStream {
         let prop_items: Vec<TokenStream> = ctrl.prop.iter().map(gen_prop_item).collect();
         let event_items: Vec<TokenStream> = ctrl.event.iter().map(gen_event_item).collect();
         quote! {
-            pub(crate) fn #fn_name(w: &#widget_type) -> PropBindings {
+            pub fn #fn_name(w: &#widget_type) -> PropBindings {
                 vec![#(#event_items,)* #(#prop_items,)*]
             }
         }
     } else {
         quote! {
-            pub(crate) fn #fn_name(w: &#widget_type) -> PropBindings {
+            pub fn #fn_name(w: &#widget_type) -> PropBindings {
                 let mut out = Vec::with_capacity(#cap);
                 #(#event_stmts)*
                 #(#prop_stmts)*

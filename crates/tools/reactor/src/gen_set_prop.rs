@@ -131,7 +131,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
 
         /// Try to handle a `set_prop` call via generated dispatch.
         /// Returns `Ok(true)` if handled, `Ok(false)` to fall through.
-        pub(crate) fn dispatch(
+        pub fn dispatch(
             handle: &Handle,
             prop: Prop,
             value: &PropValue,
