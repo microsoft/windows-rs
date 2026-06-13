@@ -1,6 +1,5 @@
 use crate::controls::*;
 use windows_reactor::*;
-use windows_reactor::{RichTextBlock, RichTextInline, RichTextParagraph, RichTextRun};
 
 pub fn rich_text_block_page(_: &(), cx: &mut RenderCx) -> Element {
     let (font_size, set_font_size) = cx.use_state(14.0);
