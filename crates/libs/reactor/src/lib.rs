@@ -10,23 +10,23 @@
 )]
 mod bindings;
 
-mod core;
-mod winui;
-
 mod app;
+mod bootstrap;
+mod core;
 mod diagnostics;
+mod winui;
 
 /// Test infrastructure — not part of the public API.
 #[doc(hidden)]
 pub mod imp;
 
 mod app_shim;
-pub mod bootstrap;
 
 pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
 
 pub use app::*;
+pub use bootstrap::*;
 pub use core::*;
 pub use winui::hooks::*;
 pub use winui::host::*;

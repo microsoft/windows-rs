@@ -12,7 +12,7 @@ impl Drop for BootstrapHandle {
 ///
 /// Call once at the top of `main` and keep the returned handle alive for the
 /// duration of the process. Self-contained apps do not need to call this.
-pub fn initialize() -> windows_core::Result<BootstrapHandle> {
+pub fn bootstrap() -> windows_core::Result<BootstrapHandle> {
     use crate::bindings::*;
     unsafe {
         MddBootstrapInitialize2(
