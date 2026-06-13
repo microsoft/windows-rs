@@ -3,7 +3,6 @@ use super::*;
 
 /// Fragment-style element flattened into its parent's child list during
 /// reconciliation; only valid inside multi-child containers.
-#[doc(hidden)]
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct GroupElement {
     pub key: Option<String>,

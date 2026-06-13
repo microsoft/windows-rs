@@ -18,7 +18,6 @@ pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_
 /// [`Element`] trees. Owns the bookkeeping needed to reuse controls
 /// across renders (children mirror, component instances, custom
 /// handles, templated-list state, …).
-#[doc(hidden)]
 pub struct Reconciler<B: Backend> {
     pub backend: B,
     pub debug_elements_skipped: u64,
@@ -132,7 +131,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.debug_ui_elements_created = 0;
     }
 
-    #[doc(hidden)]
     pub fn debug_forced_components_len(&self) -> usize {
         self.forced_components.len()
     }
@@ -194,12 +192,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    #[doc(hidden)]
     pub fn debug_appeared_listener_count(&self) -> usize {
         self.appeared_listener_count
     }
 
-    #[doc(hidden)]
     pub fn debug_disappeared_listener_count(&self) -> usize {
         self.disappeared_listener_count
     }

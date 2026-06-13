@@ -28,16 +28,14 @@ thread_local! {
 }
 
 /// Install (or clear) the UI thread's rerender hook.
-#[doc(hidden)]
-pub fn set_ui_rerender(rerender: Option<Rc<dyn Fn()>>) {
+pub(crate) fn set_ui_rerender(rerender: Option<Rc<dyn Fn()>>) {
     UI_RERENDER.with(|r| {
         *r.borrow_mut() = rerender;
     });
 }
 
 /// Request a rerender on the UI thread the marshaller targets.
-#[doc(hidden)]
-pub fn request_ui_rerender_on_ui_thread() {
+pub(crate) fn request_ui_rerender_on_ui_thread() {
     UI_RERENDER.with(|r| {
         if let Some(rr) = r.borrow().as_ref() {
             rr();
@@ -46,7 +44,6 @@ pub fn request_ui_rerender_on_ui_thread() {
 }
 
 /// RAII guard around [`set_ui_rerender`]; clears the thread-local on drop.
-#[doc(hidden)]
 #[must_use = "the guard restores UI_RERENDER on drop; binding it to `_` drops it immediately"]
 pub struct UiRerenderGuard {
     _not_send: std::marker::PhantomData<*const ()>,
@@ -70,7 +67,6 @@ impl Drop for UiRerenderGuard {
 /// Thread-safe, clonable handle to the UI thread's render-aware
 /// dispatcher. Used by `AsyncSetState` to marshal state writes back
 /// onto the UI thread.
-#[doc(hidden)]
 #[derive(Clone)]
 pub struct UiMarshaller {
     inner: Arc<dyn SendDispatcher>,
@@ -108,7 +104,6 @@ impl std::fmt::Debug for UiMarshaller {
 
 /// In-memory [`SendDispatcher`] used by tests. Closures are queued in a
 /// mutex-guarded `VecDeque`; call [`Self::drain`] to run them.
-#[doc(hidden)]
 #[derive(Default)]
 pub struct ChannelDispatcher {
     inner: Arc<ChannelDispatcherInner>,
@@ -177,7 +172,6 @@ impl SendDispatcher for ChannelDispatcherInner {
 
 /// In-process [`Dispatcher`] that buffers work until [`drain`](Self::drain)
 /// is called. Used by tests and by `Application::run_once`.
-#[doc(hidden)]
 #[derive(Default)]
 pub struct RunOnDemandDispatcher {
     inner: Rc<DispatcherQueue>,
