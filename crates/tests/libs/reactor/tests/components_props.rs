@@ -2,10 +2,11 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::Component;
+use windows_reactor::ControlKind;
 use windows_reactor::Element;
-use windows_reactor::Reconciler;
 use windows_reactor::RenderCx;
-use windows_reactor::{ControlKind, Op, RecordingBackend};
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::{ElementExt, text_block};
 use windows_reactor::{component, memo};
 
@@ -204,7 +205,8 @@ fn component_type_swap_does_not_reuse_old_render_cx() {
 
 #[test]
 fn parent_children_mirror_syncs_when_component_swap_changes_inner_id() {
-    use windows_reactor::{ControlId, ControlKind, Op};
+    use windows_reactor::imp::Op;
+    use windows_reactor::{ControlId, ControlKind};
     use windows_reactor::{Orientation, StackPanel};
 
     let stack_a = Element::StackPanel(StackPanel {

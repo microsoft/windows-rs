@@ -3,14 +3,15 @@ use std::rc::Rc;
 use std::cell::Cell;
 
 use windows_reactor::Element;
-use windows_reactor::Reconciler;
 use windows_reactor::Thickness;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::text_block;
 use windows_reactor::{
     Border, Expander, Grid, GridLength, ScrollBarVisibility, ScrollView, ScrollViewer,
     ScrollingScrollBarVisibility, SplitView, Stretch, Viewbox,
 };
-use windows_reactor::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
+use windows_reactor::{ControlKind, Event, Prop, PropValue};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

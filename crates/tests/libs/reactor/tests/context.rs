@@ -5,10 +5,10 @@ use std::sync::LazyLock;
 use windows_reactor::Component;
 use windows_reactor::Context;
 use windows_reactor::Element;
-use windows_reactor::Reconciler;
-use windows_reactor::RecordingBackend;
 use windows_reactor::RenderCx;
 use windows_reactor::component;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::RecordingBackend;
 use windows_reactor::{ElementExt, border, text_block};
 
 use windows_reactor::vstack;

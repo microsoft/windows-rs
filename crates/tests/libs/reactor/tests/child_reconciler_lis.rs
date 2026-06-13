@@ -1,8 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::Reconciler;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::vstack;
-use windows_reactor::{ControlId, Op, Prop, RecordingBackend};
+use windows_reactor::{ControlId, Prop};
 use windows_reactor::{Element, StackPanel};
 use windows_reactor::{ElementExt, text_block};
 

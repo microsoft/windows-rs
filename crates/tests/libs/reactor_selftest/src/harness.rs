@@ -24,9 +24,9 @@ use crate::bindings::{
 use crate::bindings::{SolidColorBrush, VisualTreeHelper};
 
 use windows_reactor::Component;
-use windows_reactor::RenderHost;
-use windows_reactor::WinUIBackend;
-use windows_reactor::WinUIDispatcher;
+use windows_reactor::imp::RenderHost;
+use windows_reactor::imp::WinUIBackend;
+use windows_reactor::imp::WinUIDispatcher;
 
 use crate::exec::YieldLow;
 

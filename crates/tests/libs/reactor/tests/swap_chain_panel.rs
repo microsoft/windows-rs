@@ -2,8 +2,9 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::Element;
-use windows_reactor::Reconciler;
-use windows_reactor::{Backend, ControlId, ControlKind, Op, RecordingBackend};
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::{Backend, ControlId, ControlKind};
 use windows_reactor::{ElementExt, swap_chain_panel, text_block};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {

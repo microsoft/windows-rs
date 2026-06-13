@@ -18,6 +18,10 @@ pub mod winui;
 mod app;
 pub(crate) mod diagnostics;
 
+/// Test infrastructure — not part of the public API.
+#[doc(hidden)]
+pub mod imp;
+
 mod app_shim;
 pub mod bootstrap;
 

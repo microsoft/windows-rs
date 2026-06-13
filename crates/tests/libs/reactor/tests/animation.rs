@@ -3,14 +3,14 @@ use std::time::Duration;
 
 use windows_reactor::Element;
 use windows_reactor::ElementExt;
-use windows_reactor::Reconciler;
 use windows_reactor::button;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::vstack;
 use windows_reactor::{
     AnimationConfig, Easing, ImplicitTransitions, LayoutAnimationConfig, ScalarTransition,
     Vector3Axes, Vector3Transition,
 };
-use windows_reactor::{Op, RecordingBackend};
 
 fn fresh() -> Reconciler<RecordingBackend> {
     Reconciler::new(RecordingBackend::new())

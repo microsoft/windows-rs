@@ -15,8 +15,9 @@ use std::any::Any;
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::Reconciler;
-use windows_reactor::{Backend, ControlId, ControlKind, Op, Prop, PropValue, RecordingBackend};
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
+use windows_reactor::{Backend, ControlId, ControlKind, Prop, PropValue};
 use windows_reactor::{CustomElement, CustomElementHandle};
 use windows_reactor::{Element, Orientation, StackPanel, TextBlock};
 

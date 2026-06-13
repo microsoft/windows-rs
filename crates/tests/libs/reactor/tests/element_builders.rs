@@ -143,8 +143,9 @@ fn min_max_width_and_height_chain_through_element_ext() {
 mod mount {
     use super::*;
     use std::rc::Rc;
-    use windows_reactor::Reconciler;
-    use windows_reactor::{Op, Prop, PropValue, RecordingBackend};
+    use windows_reactor::imp::Reconciler;
+    use windows_reactor::imp::{Op, RecordingBackend};
+    use windows_reactor::{Prop, PropValue};
 
     fn mount_one(el: Element) -> Reconciler<RecordingBackend> {
         let mut r = Reconciler::new(RecordingBackend::new());
@@ -248,8 +249,9 @@ mod mount {
 mod update {
     use super::*;
     use std::rc::Rc;
-    use windows_reactor::Reconciler;
-    use windows_reactor::{Op, Prop, PropValue, RecordingBackend};
+    use windows_reactor::imp::Reconciler;
+    use windows_reactor::imp::{Op, RecordingBackend};
+    use windows_reactor::{Prop, PropValue};
 
     fn reconcile(
         r: &mut Reconciler<RecordingBackend>,

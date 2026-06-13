@@ -2,12 +2,13 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::Element;
-use windows_reactor::Reconciler;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::{
     AutoSuggestBox, CalendarDatePicker, CalendarView, ColorArgb, ColorPicker, DatePicker,
     DropDownButton, ListBox, PersonPicture, SplitButton, TimePicker,
 };
-use windows_reactor::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
+use windows_reactor::{ControlKind, Event, Prop, PropValue};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

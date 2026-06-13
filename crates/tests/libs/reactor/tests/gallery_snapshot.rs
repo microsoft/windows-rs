@@ -3,12 +3,13 @@ use std::sync::LazyLock;
 
 use windows_reactor::Component;
 use windows_reactor::Context;
+use windows_reactor::ControlKind;
 use windows_reactor::Element;
-use windows_reactor::Reconciler;
 use windows_reactor::RenderCx;
 use windows_reactor::component;
+use windows_reactor::imp::Reconciler;
+use windows_reactor::imp::{Op, RecordingBackend};
 use windows_reactor::vstack;
-use windows_reactor::{ControlKind, Op, RecordingBackend};
 use windows_reactor::{ElementExt, text_block};
 use windows_reactor::{
     Expander, HyperlinkButton, InfoBar, ProgressBar, ProgressRing, RadioButton, Shape, Slider,

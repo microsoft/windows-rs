@@ -6,7 +6,7 @@ use std::rc::Rc;
 use std::thread;
 
 use windows_reactor::RenderCx;
-use windows_reactor::{ChannelDispatcher, UiMarshaller, UiRerenderGuard};
+use windows_reactor::imp::{ChannelDispatcher, UiMarshaller, UiRerenderGuard};
 
 #[test]
 fn async_state_initial_value_returned_to_caller() {

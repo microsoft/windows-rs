@@ -223,11 +223,11 @@ pub use app::*;
 - [x] Top-level modules: `#[doc(hidden)] pub mod core/winui` (MIR bug prevents `mod`)
 - [x] lib.rs simplified to 3 glob re-exports: `pub use app/core/winui::*`
 
-### Phase 3: Public/internal separation
-- [ ] Create `imp/` module for test infrastructure
-- [ ] Move test-only items behind `imp`
-- [ ] Update test crates to `use windows_reactor::imp::*`
-- [ ] Remove remaining `#[doc(hidden)]` from public items
+### Phase 3: Public/internal separation ✅
+- [x] Created `imp/` module with re-exports of test infrastructure
+- [x] Excluded test items from root namespace (named re-exports in core/mod.rs)
+- [x] Updated test crates to `use windows_reactor::imp::*`
+- [x] `#[doc(hidden)]` only on core/winui (MIR workaround) and imp (by design)
 
 ## Verification commands
 
