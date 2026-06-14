@@ -211,7 +211,7 @@ fn modifier_some_to_none_emits_unset() {
     let old = Element::TextBlock(TextBlock {
         text: "x".into(),
         modifiers: Modifiers {
-            background: Some(Color::rgb(255, 0, 0).into()),
+            background: Some(Color::rgb(255, 0, 0)),
             ..Modifiers::default()
         },
         ..TextBlock::default()

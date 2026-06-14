@@ -130,7 +130,7 @@ fn diff_modifiers_identical_emits_no_ops() {
 fn mount_emits_modifiers_after_create() {
     let mods = Modifiers {
         opacity: Some(0.5),
-        background: Some(Color::rgb(255, 0, 0).into()),
+        background: Some(Color::rgb(255, 0, 0)),
         horizontal_alignment: Some(HorizontalAlignment::Center),
         ..Modifiers::default()
     };

@@ -12,7 +12,7 @@ use windows_reactor::*;
 /// The `draw` closure is called every frame with a `DrawContext` that provides
 /// the drawing session, device, and dimensions.
 pub fn run(title: &'static str, draw: fn(&DrawContext)) -> Result<()> {
-    let _bootstrap = bootstrap()?;
+    bootstrap()?;
     let app_fn = move |_cx: &mut RenderCx| -> Element { animated_canvas(draw).into() };
 
     App::new()

@@ -39,18 +39,16 @@ pub fn tool_tip_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Multiple Controls with Tooltips",
                 hstack((
-                    button("Save")
-                        .icon(SymbolGlyph::Save)
-                        .tooltip("Save the file"),
+                    button("Save").icon(Symbol::Save).tooltip("Save the file"),
                     button("Copy")
-                        .icon(SymbolGlyph::Copy)
+                        .icon(Symbol::Copy)
                         .tooltip("Copy to clipboard"),
                     button("Delete")
-                        .icon(SymbolGlyph::Delete)
+                        .icon(Symbol::Delete)
                         .tooltip("Delete selected item"),
                 ))
                 .spacing(8.0),
-                r#"button("Save").icon(SymbolGlyph::Save).tooltip("Save the file")"#,
+                r#"button("Save").icon(Symbol::Save).tooltip("Save the file")"#,
             ),
         ],
     )

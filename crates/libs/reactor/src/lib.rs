@@ -4,25 +4,59 @@
     non_camel_case_types,
     clippy::upper_case_acronyms,
     clippy::useless_transmute,
-    clippy::missing_transmute_annotations,
-    clippy::missing_safety_doc,
-    clippy::too_many_arguments
+    clippy::missing_transmute_annotations
 )]
 mod bindings;
 
 mod app;
 mod app_shim;
+mod backend;
 mod bootstrap;
-mod core;
 mod diagnostics;
-mod winui;
+mod element;
+mod engine;
+mod generated;
+mod hooks;
+mod host;
+mod interaction;
+mod reconciler;
+mod style;
+mod widget;
+mod widgets;
 
 pub use app::*;
+pub use backend::*;
+pub use bindings::AutomationHeadingLevel;
+pub use bindings::AutomationLiveSetting;
+pub use bindings::Color;
+pub use bindings::CommandBarDefaultLabelPosition;
+pub use bindings::DispatcherQueuePriority;
+pub use bindings::FlyoutPlacementMode;
+pub use bindings::HorizontalAlignment;
+pub use bindings::InfoBarSeverity;
+pub use bindings::NavigationViewPaneDisplayMode;
+pub use bindings::Orientation;
+pub use bindings::PasswordRevealMode;
+pub use bindings::ScrollBarVisibility;
+pub use bindings::ScrollingScrollBarVisibility;
+pub use bindings::Stretch;
+pub use bindings::Symbol;
+pub use bindings::TeachingTipPlacementMode;
+pub use bindings::TextWrapping;
+pub use bindings::Thickness;
+pub use bindings::TreeViewSelectionMode;
+pub use bindings::VerticalAlignment;
+pub use bindings::VirtualKey;
+pub use bindings::VirtualKeyModifiers;
 pub use bootstrap::*;
-pub use core::*;
+pub use element::*;
+pub use engine::*;
+pub use hooks::*;
+pub use host::*;
+pub use interaction::*;
+pub use reconciler::*;
+pub use style::*;
+pub use widget::*;
+pub use widgets::*;
 pub use windows_core::{Error, Interface, Result};
 pub use windows_time::{DateTime, TimeSpan};
-pub use winui::backend::WinUIBackend;
-pub use winui::dispatcher::WinUIDispatcher;
-pub use winui::hooks::*;
-pub use winui::host::*;

@@ -318,6 +318,7 @@ Windows.System.VirtualKeyModifiers
 Windows.UI.Color
 Windows.UI.Text.FontWeight
 Windows.UI.Xaml.Interop.TypeName
+Windows.Win32.Foundation.E_FAIL
 Windows.Win32.Foundation.HWND
 Windows.Win32.Foundation.LPARAM
 Windows.Win32.Foundation.RPC_E_CHANGED_MODE

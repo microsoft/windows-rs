@@ -10,12 +10,12 @@ use crate::helpers::*;
 use crate::metadata::MetadataResolver;
 use crate::schema::*;
 
-/// Returns `h` (via Deref) if iface is the default for the handle, else `h.cast::<Xaml::I...>().unwrap()`.
+/// Returns `h` (via Deref) if iface is the default for the handle, else `h.cast::<bindings::I...>().unwrap()`.
 fn event_receiver(iface: &proc_macro2::Ident, handle_name: &str) -> TokenStream {
     if iface == &format!("I{handle_name}") {
         quote! { h }
     } else {
-        quote! { h.cast::<Xaml::#iface>().unwrap() }
+        quote! { h.cast::<bindings::#iface>().unwrap() }
     }
 }
 
@@ -29,7 +29,6 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
 
     format_generated(quote! {
         use super::*;
-        use crate::bindings as Xaml;
 
         /// Try to handle an `attach_event` call via generated dispatch.
         /// Returns `Some(revokers)` if handled, `None` to fall through.
@@ -77,7 +76,7 @@ fn gen_sender_getter(
             #receiver
                 .#add_ident(move |sender, _args| {
                     let v = sender.as_ref()
-                        .and_then(|s| s.cast::<Xaml::#handle_ident>().ok())
+                        .and_then(|s| s.cast::<bindings::#handle_ident>().ok())
                         .and_then(|s| s.#getter_ident().ok())
                         .unwrap_or(#default);
                     handler.#invoke_call;

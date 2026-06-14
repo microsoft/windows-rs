@@ -653,6 +653,19 @@ impl Type {
         }
     }
 
+    /// Returns `true` when the type implements `Eq` (no floating-point fields).
+    pub fn is_eq(&self, reader: &Reader) -> bool {
+        !matches!(self, Self::F32 | Self::F64)
+            && match self {
+                Self::Struct(ty) => ty
+                    .def
+                    .fields()
+                    .all(|field| field.field_type(None, reader).is_eq(reader)),
+                Self::ArrayFixed(ty, _) => ty.is_eq(reader),
+                _ => true,
+            }
+    }
+
     pub fn is_dropped(&self, reader: &Reader) -> bool {
         match self {
             Self::Struct(ty) => !ty.is_copyable(reader),

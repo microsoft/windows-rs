@@ -1,6 +1,6 @@
 //! Coverage for the W1–W5 widgets added per `docs/gaps.md`:
 //!
-//! * **W1**: `virtual_list` constructor and `scroll_templated_to_index`
+//! * **W1**: `list_view` constructor and `scroll_templated_to_index`
 //! * **W2**: `PasswordBox`
 //! * **W3**: `RadioButtons`
 //! * **W4**: `ComboBox`
@@ -14,13 +14,13 @@ use std::rc::Rc;
 
 use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
+use windows_reactor::list_view;
 use windows_reactor::{Backend, ControlKind, Event, Prop, PropValue};
 use windows_reactor::{
     Canvas, CanvasPosition, ComboBox, PasswordBox, PasswordRevealMode, RadioButtons,
 };
 use windows_reactor::{Element, TextBlock};
 use windows_reactor::{Op, RecordingBackend};
-use windows_reactor::{list_view, virtual_list};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -289,15 +289,12 @@ fn canvas_position_emits_attached_set_props_on_mount() {
     assert!(top_ok, "missing AttachedCanvasTop=80.0");
 }
 
-// ── W1: virtual_list alias + scroll_to_index plumbing ──────────────────
+// ── W1: list_view + scroll_to_index plumbing ──────────────────
 
 #[test]
-fn virtual_list_alias_produces_templated_list() {
-    let e = virtual_list(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
-    matches!(&e, Element::TemplatedList(_));
-    // Same shape as list_view so consumers can swap freely.
-    let e2 = list_view(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
-    assert_eq!(std::mem::discriminant(&e), std::mem::discriminant(&e2));
+fn list_view_produces_templated_list() {
+    let e = list_view(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
+    assert!(matches!(&e, Element::TemplatedList(_)));
 }
 
 #[test]

@@ -8,8 +8,8 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         selector_bar(vec![
             selector_bar_item("Recent"),
-            selector_bar_item("Shared").icon(SymbolGlyph::People),
-            selector_bar_item("Favorites").icon(SymbolGlyph::Favorite),
+            selector_bar_item("Shared").icon(Symbol::People),
+            selector_bar_item("Favorites").icon(Symbol::Favorite),
         ])
         .on_selection_changed(move |text| set_selected.call(text)),
         text_block(format!("Selected: {selected}")),

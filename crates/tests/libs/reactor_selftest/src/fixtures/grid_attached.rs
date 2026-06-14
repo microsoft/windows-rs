@@ -26,7 +26,7 @@ use windows_reactor::{
 };
 use windows_reactor::{Color, Element, GridLength};
 use windows_reactor::{ElementExt, border, button, check_box, scroll_viewer, text_block, text_box};
-use windows_reactor::{RichText, RichTextInline, RichTextRun};
+use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -158,10 +158,12 @@ pub fn grid_attached_props_all_widget_kinds(h: Harness) -> FixtureFuture {
                     .grid_row(25)
                     .grid_column(0)
                     .into(),
-                RichText::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain("rich"))])
-                    .grid_row(26)
-                    .grid_column(0)
-                    .into(),
+                RichTextBlock::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain(
+                    "rich",
+                ))])
+                .grid_row(26)
+                .grid_column(0)
+                .into(),
                 grid((text_block("nested"),))
                     .rows([GridLength::STAR])
                     .columns([GridLength::STAR])
