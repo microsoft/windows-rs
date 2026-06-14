@@ -143,7 +143,7 @@ fn foreground_brush_change_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
         text: "x".into(),
         modifiers: Modifiers {
-            foreground: Some(Color::rgb(255, 0, 0).into()),
+            foreground: Some(Color::rgb(255, 0, 0)),
             ..Modifiers::default()
         },
         ..TextBlock::default()
@@ -151,7 +151,7 @@ fn foreground_brush_change_prevents_skip() {
     let b = Element::TextBlock(TextBlock {
         text: "x".into(),
         modifiers: Modifiers {
-            foreground: Some(Color::rgb(0, 0, 255).into()),
+            foreground: Some(Color::rgb(0, 0, 255)),
             ..Modifiers::default()
         },
         ..TextBlock::default()
