@@ -20,7 +20,9 @@ fn app(cx: &mut RenderCx) -> Element {
 
     let reset_accel = {
         let s = set_count;
-        KeyboardAccelerator::new(VirtualKey::R, VirtualKeyModifiers::Control, move || s.call(0))
+        KeyboardAccelerator::new(VirtualKey::R, VirtualKeyModifiers::Control, move || {
+            s.call(0)
+        })
     };
 
     vstack((

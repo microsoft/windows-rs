@@ -2284,7 +2284,7 @@ impl Backend for WinUIBackend {
                         if let Some(a) = args.as_ref()
                             && let Ok(ts) = a.get_NewTime()
                         {
-                            handler.invoke_timespan(TimeSpan::from_ticks(ts.Duration));
+                            handler.invoke_timespan(TimeSpan::from_ticks(ts.duration));
                         }
                     })
                     .unwrap(),
