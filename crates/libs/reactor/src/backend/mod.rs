@@ -1299,7 +1299,7 @@ impl Dispatcher for RunOnDemandDispatcher {
 
 // -- WinUI Dispatcher -----------------------------------------------------------
 
-use crate::bindings::{DispatcherQueue, DispatcherQueueHandler};
+use bindings::{DispatcherQueue, DispatcherQueueHandler};
 
 /// [`Dispatcher`] backed by the WinUI thread's `DispatcherQueue`.
 pub struct WinUIDispatcher {
