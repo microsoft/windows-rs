@@ -34,6 +34,12 @@ impl Struct {
 
         if !config.bindgen.style.is_sys() {
             derive.extend(["Default", "Debug", "PartialEq"]);
+
+            if config.bindgen.style.is_minimal()
+                && fields.iter().all(|(_, ty)| ty.is_eq(config.reader))
+            {
+                derive.extend(["Eq"]);
+            }
         }
 
         let fields = fields.iter().map(|(name, ty)| {

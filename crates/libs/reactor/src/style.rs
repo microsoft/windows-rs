@@ -35,8 +35,6 @@ impl From<f64> for Thickness {
     }
 }
 
-impl Eq for Color {}
-
 impl Color {
     pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
         Self { a: 255, r, g, b }

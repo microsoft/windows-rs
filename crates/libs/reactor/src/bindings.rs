@@ -1770,7 +1770,7 @@ impl windows_core::RuntimeName for CheckBox {
 unsafe impl Send for CheckBox {}
 unsafe impl Sync for CheckBox {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Color {
     pub a: u8,
     pub r: u8,
@@ -3704,7 +3704,7 @@ impl windows_core::RuntimeName for FontFamily {
 unsafe impl Send for FontFamily {}
 unsafe impl Sync for FontFamily {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FontWeight {
     pub weight: u16,
 }
@@ -22355,7 +22355,7 @@ impl<
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SizeInt32 {
     pub width: i32,
     pub height: i32,
@@ -24753,7 +24753,7 @@ impl windows_core::RuntimeType for TypeKind {
         windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Interop.TypeKind;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TypeName {
     pub name: windows_core::HSTRING,
     pub kind: TypeKind,
@@ -25625,7 +25625,7 @@ impl windows_core::RuntimeName for XamlRoot {
 unsafe impl Send for XamlRoot {}
 unsafe impl Sync for XamlRoot {}
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct XmlnsDefinition {
     pub xml_namespace: windows_core::HSTRING,
     pub namespace: windows_core::HSTRING,

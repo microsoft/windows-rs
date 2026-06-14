@@ -221,8 +221,6 @@ impl DateTime {
     }
 }
 
-impl Eq for DateTime {}
-
 impl PartialOrd for DateTime {
     fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
         Some(self.cmp(other))
