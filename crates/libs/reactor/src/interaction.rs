@@ -64,6 +64,61 @@ macro_rules! impl_rc_fn_wrapper {
     };
 }
 
+/// Like [`impl_rc_fn_wrapper!`] but Arc-based; the closure must be
+/// `Send + Sync`, allowing the wrapper itself to be sent across threads.
+#[macro_export]
+#[doc(hidden)]
+macro_rules! impl_arc_fn_wrapper {
+    (
+        $(#[$attr:meta])*
+        $vis:vis struct $name:ident $(< $param:ident >)? (
+            dyn Fn ( $($args:tt)* ) $(-> $ret:ty)?
+        );
+    ) => {
+        $(#[$attr])*
+        $vis struct $name $(< $param >)? {
+            inner: ::std::sync::Arc<dyn Fn($($args)*) $(-> $ret)? + Send + Sync>,
+        }
+
+        impl $(< $param >)? $name $(< $param >)? {
+            pub fn new<__F>(f: __F) -> Self
+            where
+                __F: Fn($($args)*) $(-> $ret)? + Send + Sync + 'static,
+            {
+                Self { inner: ::std::sync::Arc::new(f) }
+            }
+        }
+
+        impl $(< $param >)? ::std::clone::Clone for $name $(< $param >)? {
+            fn clone(&self) -> Self {
+                Self { inner: ::std::sync::Arc::clone(&self.inner) }
+            }
+        }
+
+        impl $(< $param >)? ::std::fmt::Debug for $name $(< $param >)? {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                f.debug_tuple(stringify!($name))
+                    .field(&::std::format_args!(
+                        "{:p}",
+                        ::std::sync::Arc::as_ptr(&self.inner)
+                    ))
+                    .finish()
+            }
+        }
+
+        impl $(< $param >)? ::std::cmp::PartialEq for $name $(< $param >)? {
+            fn eq(&self, other: &Self) -> bool {
+                ::std::sync::Arc::ptr_eq(&self.inner, &other.inner)
+            }
+        }
+
+        impl $(< $param >)? ::std::cmp::Eq for $name $(< $param >)? {}
+
+        unsafe impl $(< $param >)? Send for $name $(< $param >)? {}
+        unsafe impl $(< $param >)? Sync for $name $(< $param >)? {}
+    };
+}
+
 // ─── Callback ───────────────────────────────────────────────────────────
 
 impl_rc_fn_wrapper! {

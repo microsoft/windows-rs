@@ -467,12 +467,18 @@ impl<B: Backend + 'static> Reconciler<B> {
                 .set_prop(id, Prop::FontSize, &PropValue::F64(v));
         }
 
+        if let Some(v) = mods.allow_drop {
+            self.backend
+                .set_prop(id, Prop::AllowDrop, &PropValue::Bool(v));
+        }
+
         self.apply_theme_bindings_for(id, mods);
         self.apply_animations_for(id, mods);
         self.apply_accessibility_for(id, mods);
         self.apply_keyboard_accelerators_for(id, mods);
         self.apply_tooltip_for(id, mods);
         self.apply_pointer_handlers_for(id, mods);
+        self.apply_drag_handlers_for(id, mods);
 
         if let Some(p) = mods.grid {
             self.apply_grid_placement(id, p);
@@ -502,6 +508,16 @@ impl<B: Backend + 'static> Reconciler<B> {
             return;
         }
         self.backend.set_pointer_handlers(id, Some(ph));
+    }
+
+    pub fn apply_drag_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
+        let Some(dh) = mods.drag_handlers.as_deref() else {
+            return;
+        };
+        if dh.is_empty() {
+            return;
+        }
+        self.backend.set_drag_handlers(id, Some(dh));
     }
 
     pub fn apply_accessibility_for(&mut self, id: ControlId, mods: &Modifiers) {
@@ -697,6 +713,21 @@ impl<B: Backend + 'static> Reconciler<B> {
         if old_ph != new_ph {
             let new_ph = new_ph.filter(|p| !p.is_empty());
             self.backend.set_pointer_handlers(id, new_ph);
+        }
+
+        if old.allow_drop != new.allow_drop {
+            self.backend.set_prop(
+                id,
+                Prop::AllowDrop,
+                &PropValue::Bool(new.allow_drop.unwrap_or(false)),
+            );
+        }
+
+        let old_dh = old.drag_handlers.as_deref();
+        let new_dh = new.drag_handlers.as_deref();
+        if old_dh != new_dh {
+            let new_dh = new_dh.filter(|d| !d.is_empty());
+            self.backend.set_drag_handlers(id, new_dh);
         }
 
         // Grid placement — fast path (avoids AttachedProps dynamic dispatch).

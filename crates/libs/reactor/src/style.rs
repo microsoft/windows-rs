@@ -474,6 +474,8 @@ pub struct Modifiers {
     pub keyboard_accelerators: Vec<KeyboardAccelerator>,
     pub tooltip: Option<Box<Tooltip>>,
     pub pointer_handlers: Option<Box<PointerHandlers>>,
+    pub allow_drop: Option<bool>,
+    pub drag_handlers: Option<Box<DragHandlers>>,
     /// Fast-path for grid row/column placement — avoids the `AttachedProps`
     /// HashMap + Box + thread_local overhead for the most common attached prop.
     pub grid: Option<GridPlacement>,
@@ -507,6 +509,8 @@ impl Modifiers {
                 .pointer_handlers
                 .as_deref()
                 .is_none_or(|p| p.is_empty())
+            && self.allow_drop.is_none()
+            && self.drag_handlers.as_deref().is_none_or(|d| d.is_empty())
             && self.grid.is_none()
             && self.resources.is_empty()
     }

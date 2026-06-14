@@ -133,6 +133,7 @@ pub struct WinUIBackend {
     /// Pointer-handler revokers (separate from `event_revokers` because
     /// pointer events use the universal `IUIElement` event surface).
     pointer_revokers: RefCell<FxHashMap<ControlId, PointerRevokerSet>>,
+    drag_revokers: RefCell<FxHashMap<ControlId, DragRevokerSet>>,
     /// Logical children per parent, mirroring the reconciler. Used to
     /// translate logical indices into visual-tree indices when phantom
     /// children (e.g. `ContentDialog`) are tracked but not attached.
@@ -156,6 +157,14 @@ struct PointerRevokerSet {
     exited: Option<windows_core::EventRevoker>,
 }
 
+#[derive(Default)]
+struct DragRevokerSet {
+    enter: Option<windows_core::EventRevoker>,
+    leave: Option<windows_core::EventRevoker>,
+    over: Option<windows_core::EventRevoker>,
+    drop: Option<windows_core::EventRevoker>,
+}
+
 impl Default for WinUIBackend {
     fn default() -> Self {
         Self::new()
@@ -169,6 +178,7 @@ impl WinUIBackend {
             event_revokers: RefCell::new(FxHashMap::default()),
             templated_selection_revokers: RefCell::new(FxHashMap::default()),
             pointer_revokers: RefCell::new(FxHashMap::default()),
+            drag_revokers: RefCell::new(FxHashMap::default()),
             parent_children: RefCell::new(FxHashMap::default()),
             menu_click_handlers: RefCell::new(FxHashMap::default()),
             command_bar_flyout_handlers: RefCell::new(FxHashMap::default()),
@@ -2040,6 +2050,7 @@ impl Backend for WinUIBackend {
         // Drop per-control revokers for templated selection and pointer/tap handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
         self.pointer_revokers.borrow_mut().remove(&id);
+        self.drag_revokers.borrow_mut().remove(&id);
         self.controls.borrow_mut().remove(&id);
         self.event_revokers
             .borrow_mut()
@@ -2797,8 +2808,412 @@ impl Backend for WinUIBackend {
         self.pointer_revokers.borrow_mut().insert(id, tokens);
     }
 
+    fn set_drag_handlers(&mut self, id: ControlId, handlers: Option<&DragHandlers>) {
+        let prev = self.drag_revokers.borrow_mut().remove(&id);
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else {
+            return;
+        };
+        let ui = handle.as_ui_element();
+        let ui_element: bindings::IUIElement = match ui.cast() {
+            Ok(i) => i,
+            Err(_) => return,
+        };
+        drop(prev);
+
+        let Some(handlers) = handlers else {
+            return;
+        };
+        let mut tokens = DragRevokerSet::default();
+
+        if let Some(callback) = handlers.on_drag_enter.clone() {
+            let marshaller = WinUIDispatcher::for_current_thread()
+                .map(|dispatcher| dispatcher.marshaller())
+                .ok();
+
+            tokens.enter = ui_element
+                .add_DragEnter(move |_sender, args| {
+                    let Some(args) = args.as_ref() else { return };
+                    let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
+                        return;
+                    };
+
+                    let formats = drag_event_args
+                        .get_DataView()
+                        .ok()
+                        .and_then(|dv| dv.cast::<bindings::IDataPackageView>().ok())
+                        .map(|data_package_view| read_available_formats(&data_package_view))
+                        .unwrap_or_default();
+
+                    let agile_deferral = drag_event_args
+                        .GetDeferral()
+                        .ok()
+                        .and_then(|deferral| {
+                            deferral.cast::<bindings::IDragOperationDeferral>().ok()
+                        })
+                        .and_then(|deferral| windows_core::AgileReference::new(&deferral).ok());
+
+                    let agile_args = windows_core::AgileReference::new(&drag_event_args).ok();
+
+                    let callback = callback.clone();
+                    let marshaller = marshaller.clone();
+                    std::thread::spawn(move || {
+                        let Some(marshaller) = marshaller else {
+                            if let Some(deferral) =
+                                agile_deferral.and_then(|agile_ref| agile_ref.resolve().ok())
+                            {
+                                let _ = deferral.Complete();
+                            }
+                            return;
+                        };
+                        dispatch_accept(
+                            marshaller,
+                            callback,
+                            formats,
+                            agile_args,
+                            agile_deferral,
+                            vec![],
+                        );
+                    });
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_drag_leave.clone() {
+            tokens.leave = ui_element
+                .add_DragLeave(move |_sender, args| {
+                    let ctx = build_drag_context(args.as_ref());
+                    cb.call(&ctx);
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_drag_over.clone() {
+            tokens.over = ui_element
+                .add_DragOver(move |_sender, args| {
+                    accept_or_reject(&cb, args.as_ref());
+                })
+                .ok();
+        }
+
+        if let Some(callback) = handlers.on_drag_drop.clone() {
+            let marshaller = WinUIDispatcher::for_current_thread()
+                .map(|dispatcher| dispatcher.marshaller())
+                .ok();
+
+            tokens.drop = ui_element
+                .add_Drop(move |_sender, args| {
+                    let Some(args) = args.as_ref() else { return };
+                    let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
+                        return;
+                    };
+
+                    let data_view =
+                        drag_event_args
+                            .get_DataView()
+                            .ok()
+                            .and_then(|data_package_view| {
+                                data_package_view.cast::<bindings::IDataPackageView>().ok()
+                            });
+
+                    let formats = data_view
+                        .as_ref()
+                        .map(read_available_formats)
+                        .unwrap_or_default();
+
+                    let agile_deferral = drag_event_args
+                        .GetDeferral()
+                        .ok()
+                        .and_then(|deferral| {
+                            deferral.cast::<bindings::IDragOperationDeferral>().ok()
+                        })
+                        .and_then(|deferral| windows_core::AgileReference::new(&deferral).ok());
+
+                    let agile_data_view = data_view.and_then(|data_package_view| {
+                        windows_core::AgileReference::new(&data_package_view).ok()
+                    });
+
+                    let agile_args = windows_core::AgileReference::new(&drag_event_args).ok();
+
+                    let callback = callback.clone();
+                    let marshaller = marshaller.clone();
+
+                    std::thread::spawn(move || {
+                        use crate::drag::DroppedItem;
+
+                        let items: Vec<DroppedItem> = if formats.storage_items {
+                            agile_data_view
+                                .and_then(|agile_reference| agile_reference.resolve().ok())
+                                .and_then(|data_package_view| {
+                                    data_package_view.GetStorageItemsAsync().ok()
+                                })
+                                .and_then(|async_operation| async_operation.join().ok())
+                                .map(|v| {
+                                    let size = v.Size().unwrap_or(0);
+                                    (0..size)
+                                        .filter_map(|i| v.GetAt(i).ok())
+                                        .map(|item| DroppedItem {
+                                            path: item.get_Path().unwrap_or_default(),
+                                            name: item.get_Name().unwrap_or_default(),
+                                            is_folder: item.get_Attributes().is_ok_and(|attrs| {
+                                                attrs.contains(bindings::FileAttributes::Directory)
+                                            }),
+                                        })
+                                        .collect()
+                                })
+                                .unwrap_or_default()
+                        } else {
+                            vec![]
+                        };
+
+                        let Some(marshaller) = marshaller else {
+                            if let Some(deferral) =
+                                agile_deferral.and_then(|agile_ref| agile_ref.resolve().ok())
+                            {
+                                let _ = deferral.Complete();
+                            }
+                            return;
+                        };
+                        dispatch_accept(
+                            marshaller,
+                            callback,
+                            formats,
+                            agile_args,
+                            agile_deferral,
+                            items,
+                        );
+                    });
+                })
+                .ok();
+        }
+
+        self.drag_revokers.borrow_mut().insert(id, tokens);
+    }
+
     fn get_native_element(&self, id: ControlId) -> Option<windows_core::IInspectable> {
         self.get_ui_element(id)
+    }
+}
+
+const FORMAT_TEXT: &str = "Text";
+const FORMAT_HTML: &str = "HTML Format";
+const FORMAT_RTF: &str = "Rich Text Format";
+const FORMAT_BITMAP: &str = "Bitmap";
+const FORMAT_STORAGE_ITEMS: &str = "Shell IDList Array";
+const FORMAT_URI_AND_WEB_LINK: &str = "UniformResourceLocatorW";
+const FORMAT_APPLICATION_LINK: &str = "ApplicationLink";
+
+#[derive(Copy, Clone, Default)]
+struct AvailableFormats {
+    text: bool,
+    html: bool,
+    rtf: bool,
+    bitmap: bool,
+    storage_items: bool,
+    uri: bool,
+    web_link: bool,
+    application_link: bool,
+}
+
+fn read_available_formats(data_package_view: &bindings::IDataPackageView) -> AvailableFormats {
+    let mut available_formats = AvailableFormats::default();
+    let Ok(formats) = data_package_view.get_AvailableFormats() else {
+        return available_formats;
+    };
+
+    let size = formats.Size().unwrap_or(0);
+    for i in 0..size {
+        if let Ok(s) = formats.GetAt(i) {
+            match s.to_string_lossy().as_str() {
+                FORMAT_TEXT => available_formats.text = true,
+                FORMAT_HTML => available_formats.html = true,
+                FORMAT_RTF => available_formats.rtf = true,
+                FORMAT_BITMAP => available_formats.bitmap = true,
+                FORMAT_STORAGE_ITEMS => available_formats.storage_items = true,
+                FORMAT_URI_AND_WEB_LINK => {
+                    available_formats.uri = true;
+                    available_formats.web_link = true;
+                }
+                FORMAT_APPLICATION_LINK => available_formats.application_link = true,
+                _ => {}
+            }
+        }
+    }
+    available_formats
+}
+
+fn build_drag_context(args: Option<&bindings::DragEventArgs>) -> DragContext {
+    use crate::drag::{DragContext, DroppedItem};
+    let mut ctx = DragContext {
+        has_text: false,
+        has_html: false,
+        has_rtf: false,
+        has_bitmap: false,
+        has_storage_items: false,
+        has_uri: false,
+        has_web_link: false,
+        has_application_link: false,
+        caption: None,
+        glyph_visible: None,
+        content_visible: None,
+        get_text_fn: None,
+        get_storage_items_fn: None,
+    };
+    let Some(a) = args else { return ctx };
+    let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
+        return ctx;
+    };
+    let Ok(dv) = iargs.get_DataView() else {
+        return ctx;
+    };
+    let Ok(idv) = dv.cast::<bindings::IDataPackageView>() else {
+        return ctx;
+    };
+
+    let formats = read_available_formats(&idv);
+    ctx.has_text = formats.text;
+    ctx.has_html = formats.html;
+    ctx.has_rtf = formats.rtf;
+    ctx.has_bitmap = formats.bitmap;
+    ctx.has_storage_items = formats.storage_items;
+    ctx.has_uri = formats.uri;
+    ctx.has_web_link = formats.web_link;
+    ctx.has_application_link = formats.application_link;
+
+    let dv_text = dv.clone();
+    ctx.get_text_fn = Some(Box::new(move || {
+        let h = dv_text.GetTextAsync().ok()?.join().ok()?;
+        String::try_from(&h).ok()
+    }));
+
+    ctx.get_storage_items_fn = Some(Box::new(move || {
+        let items = dv.GetStorageItemsAsync().ok().and_then(|op| op.join().ok());
+        let Some(items) = items else {
+            return Vec::new();
+        };
+        let size = items.Size().unwrap_or(0);
+        (0..size)
+            .filter_map(|i| items.GetAt(i).ok())
+            .map(|item| DroppedItem {
+                path: item.get_Path().unwrap_or_default(),
+                name: item.get_Name().unwrap_or_default(),
+                is_folder: item
+                    .get_Attributes()
+                    .is_ok_and(|a| a.contains(bindings::FileAttributes::Directory)),
+            })
+            .collect()
+    }));
+
+    ctx
+}
+
+fn dispatch_accept(
+    m: UiMarshaller,
+    cb: DragAsyncCallback,
+    formats: AvailableFormats,
+    iargs_agile: Option<windows_core::AgileReference<bindings::IDragEventArgs>>,
+    deferral_agile: Option<windows_core::AgileReference<bindings::IDragOperationDeferral>>,
+    items: Vec<DroppedItem>,
+) {
+    use crate::drag::{DragContext, DragOperation};
+    m.dispatch(move || {
+        let get_storage_items_fn = if items.is_empty() {
+            None
+        } else {
+            let v = items.clone();
+            Some(Box::new(move || v.clone()) as Box<dyn Fn() -> Vec<DroppedItem>>)
+        };
+        let mut ctx = DragContext {
+            has_text: formats.text,
+            has_html: formats.html,
+            has_rtf: formats.rtf,
+            has_bitmap: formats.bitmap,
+            has_storage_items: formats.storage_items,
+            has_uri: formats.uri,
+            has_web_link: formats.web_link,
+            has_application_link: formats.application_link,
+            caption: None,
+            glyph_visible: None,
+            content_visible: None,
+            get_text_fn: None,
+            get_storage_items_fn,
+        };
+        let op = cb.call(&mut ctx);
+        if let Some(iargs) = iargs_agile.and_then(|a| a.resolve().ok()) {
+            let accepted = match op {
+                DragOperation::None => bindings::DataPackageOperation::None,
+                DragOperation::Copy => bindings::DataPackageOperation::Copy,
+                DragOperation::Move => bindings::DataPackageOperation::Move,
+                DragOperation::Link => bindings::DataPackageOperation::Link,
+            };
+            let _ = iargs.put_AcceptedOperation(accepted);
+            if (ctx.caption.is_some()
+                || ctx.glyph_visible.is_some()
+                || ctx.content_visible.is_some())
+                && let Ok(ui) = iargs.get_DragUIOverride()
+            {
+                if let Some(v) = ctx.caption {
+                    let _ = ui.put_Caption(&v);
+                }
+                if let Some(v) = ctx.glyph_visible {
+                    let _ = ui.put_IsGlyphVisible(v);
+                }
+                if let Some(v) = ctx.content_visible {
+                    let _ = ui.put_IsContentVisible(v);
+                }
+            }
+        }
+        if let Some(d) = deferral_agile.and_then(|a| a.resolve().ok()) {
+            let _ = d.Complete();
+        }
+    });
+}
+
+trait CallAccept {
+    fn call(&self, ctx: &mut DragContext) -> DragOperation;
+}
+impl CallAccept for DragCallback {
+    fn call(&self, ctx: &mut DragContext) -> DragOperation {
+        self.call(ctx)
+    }
+}
+impl CallAccept for DragAsyncCallback {
+    fn call(&self, ctx: &mut DragContext) -> DragOperation {
+        self.call(ctx)
+    }
+}
+
+fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs>) {
+    use crate::drag::DragOperation;
+    let Some(a) = args else { return };
+    let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
+        return;
+    };
+
+    let mut ctx = build_drag_context(Some(a));
+
+    let result = cb.call(&mut ctx);
+
+    let accepted = match result {
+        DragOperation::None => bindings::DataPackageOperation::None,
+        DragOperation::Copy => bindings::DataPackageOperation::Copy,
+        DragOperation::Move => bindings::DataPackageOperation::Move,
+        DragOperation::Link => bindings::DataPackageOperation::Link,
+    };
+    let _ = iargs.put_AcceptedOperation(accepted);
+
+    if (ctx.caption.is_some() || ctx.glyph_visible.is_some() || ctx.content_visible.is_some())
+        && let Ok(ui) = iargs.get_DragUIOverride()
+    {
+        if let Some(v) = ctx.caption {
+            let _ = ui.put_Caption(&v);
+        }
+        if let Some(v) = ctx.glyph_visible {
+            let _ = ui.put_IsGlyphVisible(v);
+        }
+        if let Some(v) = ctx.content_visible {
+            let _ = ui.put_IsContentVisible(v);
+        }
     }
 }
 

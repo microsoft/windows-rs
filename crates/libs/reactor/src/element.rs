@@ -1058,6 +1058,56 @@ pub trait ElementExt: Sized {
         }
         self
     }
+
+    fn allow_drop(mut self, v: bool) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            m.allow_drop = Some(v);
+        }
+        self
+    }
+
+    fn drag_enter<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
+        mut self,
+        f: F,
+    ) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_drag_handlers(m).on_drag_enter = Some(DragAsyncCallback::new(f));
+        }
+        self
+    }
+
+    fn drag_leave<F: Fn(&DragContext) + 'static>(mut self, f: F) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_drag_handlers(m).on_drag_leave = Some(DragNotifyCallback::new(f));
+        }
+        self
+    }
+
+    fn drag_over<F: Fn(&mut DragContext) -> DragOperation + 'static>(mut self, f: F) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_drag_handlers(m).on_drag_over = Some(DragCallback::new(f));
+        }
+        self
+    }
+
+    fn drag_drop<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
+        mut self,
+        f: F,
+    ) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_drag_handlers(m).on_drag_drop = Some(DragAsyncCallback::new(f));
+        }
+        self
+    }
+}
+
+fn ensure_drag_handlers(m: &mut Modifiers) -> &mut DragHandlers {
+    if m.allow_drop.is_none() {
+        m.allow_drop = Some(true);
+    }
+
+    m.drag_handlers
+        .get_or_insert_with(|| Box::new(DragHandlers::default()))
 }
 
 fn ensure_pointer_handlers(m: &mut Modifiers) -> &mut PointerHandlers {

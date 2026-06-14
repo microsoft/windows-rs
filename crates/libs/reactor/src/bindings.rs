@@ -2644,6 +2644,83 @@ unsafe impl Sync for CubicBezierEasingFunction {}
 pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataPackageOperation(pub u32);
+impl DataPackageOperation {
+    pub const None: Self = Self(0);
+    pub const Copy: Self = Self(1);
+    pub const Move: Self = Self(2);
+    pub const Link: Self = Self(4);
+}
+impl windows_core::TypeKind for DataPackageOperation {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DataPackageOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)",
+    );
+}
+impl DataPackageOperation {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DataPackageOperation {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DataPackageOperation {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DataPackageOperation {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0);
+    }
+}
+impl core::ops::BitAndAssign for DataPackageOperation {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0);
+    }
+}
+impl core::ops::Not for DataPackageOperation {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DataPackageView(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DataPackageView,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for DataPackageView {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDataPackageView>();
+}
+unsafe impl windows_core::Interface for DataPackageView {
+    type Vtable = <IDataPackageView as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDataPackageView as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DataPackageView {
+    type Target = IDataPackageView;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DataPackageView {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackageView";
+}
+unsafe impl Send for DataPackageView {}
+unsafe impl Sync for DataPackageView {}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataTemplate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -3049,6 +3126,137 @@ unsafe impl Send for DispatcherQueueTimer {}
 unsafe impl Sync for DispatcherQueueTimer {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DragEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DragEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(DragEventArgs, RoutedEventArgs);
+impl windows_core::RuntimeType for DragEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDragEventArgs>();
+}
+unsafe impl windows_core::Interface for DragEventArgs {
+    type Vtable = <IDragEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDragEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DragEventArgs {
+    type Target = IDragEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DragEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.DragEventArgs";
+}
+unsafe impl Send for DragEventArgs {}
+unsafe impl Sync for DragEventArgs {}
+windows_core::imp::define_interface!(
+    DragEventHandler,
+    DragEventHandler_Vtbl,
+    0x277afc83_cb67_56c8_b601_1b9c0f1c3d32
+);
+impl windows_core::RuntimeType for DragEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct DragEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        e: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+struct DragEventHandlerBox<
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>) + 'static,
+>(core::marker::PhantomData<(fn() -> F,)>);
+impl<
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>) + 'static,
+> DragEventHandlerBox<F>
+{
+    const VTABLE: DragEventHandler_Vtbl = DragEventHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<DragEventHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<DragEventHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<DragEventHandler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        e: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<DragEventHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&e),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DragOperationDeferral(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DragOperationDeferral,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for DragOperationDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDragOperationDeferral>();
+}
+unsafe impl windows_core::Interface for DragOperationDeferral {
+    type Vtable = <IDragOperationDeferral as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDragOperationDeferral as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DragOperationDeferral {
+    type Target = IDragOperationDeferral;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DragOperationDeferral {
+    const NAME: &'static str = "Microsoft.UI.Xaml.DragOperationDeferral";
+}
+unsafe impl Send for DragOperationDeferral {}
+unsafe impl Sync for DragOperationDeferral {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DragUIOverride(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DragUIOverride,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for DragUIOverride {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDragUIOverride>();
+}
+unsafe impl windows_core::Interface for DragUIOverride {
+    type Vtable = <IDragUIOverride as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDragUIOverride as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DragUIOverride {
+    type Target = IDragUIOverride;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DragUIOverride {
+    const NAME: &'static str = "Microsoft.UI.Xaml.DragUIOverride";
+}
+unsafe impl Send for DragUIOverride {}
+unsafe impl Sync for DragUIOverride {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DropDownButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     DropDownButton,
@@ -3439,6 +3647,57 @@ impl windows_core::RuntimeName for ExpanderExpandingEventArgs {
 }
 unsafe impl Send for ExpanderExpandingEventArgs {}
 unsafe impl Sync for ExpanderExpandingEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FileAttributes(pub u32);
+impl FileAttributes {
+    pub const Normal: Self = Self(0);
+    pub const ReadOnly: Self = Self(1);
+    pub const Directory: Self = Self(16);
+    pub const Archive: Self = Self(32);
+    pub const Temporary: Self = Self(256);
+    pub const LocallyIncomplete: Self = Self(512);
+}
+impl windows_core::TypeKind for FileAttributes {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FileAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
+}
+impl FileAttributes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FileAttributes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FileAttributes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FileAttributes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0);
+    }
+}
+impl core::ops::BitAndAssign for FileAttributes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0);
+    }
+}
+impl core::ops::Not for FileAttributes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FlipView(windows_core::IUnknown);
@@ -7498,6 +7757,100 @@ pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    IDataPackageView,
+    IDataPackageView_Vtbl,
+    0x7b840471_5900_4d85_a90b_10cb85fe3552
+);
+impl windows_core::RuntimeType for IDataPackageView {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IDataPackageView {
+    pub fn get_AvailableFormats(
+        &self,
+    ) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_AvailableFormats)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetTextAsync(
+        &self,
+    ) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTextAsync)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetCustomTextAsync(
+        &self,
+        formatid: &str,
+    ) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCustomTextAsync)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(formatid)),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetStorageItemsAsync(
+        &self,
+    ) -> windows_core::Result<
+        windows_future::IAsyncOperation<windows_collections::IVectorView<IStorageItem>>,
+    > {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetStorageItemsAsync)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IDataPackageView_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    get_Properties: usize,
+    get_RequestedOperation: usize,
+    ReportOperationCompleted: usize,
+    pub get_AvailableFormats: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    Contains: usize,
+    GetDataAsync: usize,
+    pub GetTextAsync: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetCustomTextAsync: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetUriAsync: usize,
+    GetHtmlFormatAsync: usize,
+    GetResourceMapAsync: usize,
+    GetRtfAsync: usize,
+    GetBitmapAsync: usize,
+    pub GetStorageItemsAsync: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IDataTemplate,
     IDataTemplate_Vtbl,
     0x08fa70fa_ee75_5e92_a101_f52d0e1e9fab
@@ -7929,6 +8282,173 @@ pub struct IDispatcherQueueTimer_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_Tick:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDragEventArgs,
+    IDragEventArgs_Vtbl,
+    0x47ac5757_e4bc_52ba_8ab9_1bf81aad7900
+);
+impl windows_core::RuntimeType for IDragEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IDragEventArgs {
+    pub fn get_DataView(&self) -> windows_core::Result<DataPackageView> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_DataView)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn get_DragUIOverride(&self) -> windows_core::Result<DragUIOverride> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_DragUIOverride)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn put_AcceptedOperation(&self, value: DataPackageOperation) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_AcceptedOperation)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub fn get_AllowedOperations(&self) -> windows_core::Result<DataPackageOperation> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_AllowedOperations)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn GetDeferral(&self) -> windows_core::Result<DragOperationDeferral> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDeferral)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IDragEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    get_Handled: usize,
+    put_Handled: usize,
+    get_Data: usize,
+    put_Data: usize,
+    pub get_DataView: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_DragUIOverride: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_Modifiers: usize,
+    get_AcceptedOperation: usize,
+    pub put_AcceptedOperation: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DataPackageOperation,
+    ) -> windows_core::HRESULT,
+    pub get_AllowedOperations: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut DataPackageOperation,
+    ) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDragOperationDeferral,
+    IDragOperationDeferral_Vtbl,
+    0x462c1880_fc6a_5035_8abf_564bacb78158
+);
+impl windows_core::RuntimeType for IDragOperationDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IDragOperationDeferral {
+    pub fn Complete(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Complete)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IDragOperationDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDragUIOverride,
+    IDragUIOverride_Vtbl,
+    0x3260b18b_70df_5df2_b98a_56beb0601f79
+);
+impl windows_core::RuntimeType for IDragUIOverride {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IDragUIOverride {
+    pub fn put_Caption(&self, value: &str) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_Caption)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        }
+    }
+    pub fn put_IsContentVisible(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_IsContentVisible)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub fn put_IsGlyphVisible(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).put_IsGlyphVisible)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IDragUIOverride_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    get_Caption: usize,
+    pub put_Caption: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    get_IsContentVisible: usize,
+    pub put_IsContentVisible:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    get_IsCaptionVisible: usize,
+    put_IsCaptionVisible: usize,
+    get_IsGlyphVisible: usize,
+    pub put_IsGlyphVisible:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDropDownButton,
@@ -13945,6 +14465,79 @@ pub struct IStackPanelFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(
+    IStorageItem,
+    IStorageItem_Vtbl,
+    0x4207a996_ca2f_42f7_bde8_8b10457a7f30
+);
+impl windows_core::RuntimeType for IStorageItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(
+    IStorageItem,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl IStorageItem {
+    pub fn get_Name(&self) -> windows_core::Result<String> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_Name)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| {
+                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                hstring.to_string_lossy()
+            })
+        }
+    }
+    pub fn get_Path(&self) -> windows_core::Result<String> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_Path)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| {
+                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                hstring.to_string_lossy()
+            })
+        }
+    }
+    pub fn get_Attributes(&self) -> windows_core::Result<FileAttributes> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_Attributes)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct IStorageItem_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    RenameAsyncOverloadDefaultOptions: usize,
+    RenameAsync: usize,
+    DeleteAsyncOverloadDefaultOptions: usize,
+    DeleteAsync: usize,
+    GetBasicPropertiesAsync: usize,
+    pub get_Name: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_Path: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub get_Attributes: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut FileAttributes,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IStyle, IStyle_Vtbl, 0x65e1d164_572f_5b0e_a80f_9c02441fac49);
 impl windows_core::RuntimeType for IStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -16377,6 +16970,114 @@ impl IUIElement {
             .ok()
         }
     }
+    pub fn add_DragEnter<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + 'static,
+    {
+        let handler: DragEventHandler = {
+            let com = windows_core::imp::DelegateBox::<DragEventHandler, F>::new(
+                &DragEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_DragEnter)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_DragEnter,
+            ))
+        }
+    }
+    pub fn add_DragLeave<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + 'static,
+    {
+        let handler: DragEventHandler = {
+            let com = windows_core::imp::DelegateBox::<DragEventHandler, F>::new(
+                &DragEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_DragLeave)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_DragLeave,
+            ))
+        }
+    }
+    pub fn add_DragOver<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + 'static,
+    {
+        let handler: DragEventHandler = {
+            let com = windows_core::imp::DelegateBox::<DragEventHandler, F>::new(
+                &DragEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_DragOver)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_DragOver,
+            ))
+        }
+    }
+    pub fn add_Drop<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
+            + 'static,
+    {
+        let handler: DragEventHandler = {
+            let com = windows_core::imp::DelegateBox::<DragEventHandler, F>::new(
+                &DragEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_Drop)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_Drop,
+            ))
+        }
+    }
     pub fn add_PointerPressed<F>(
         &self,
         handler: F,
@@ -16697,14 +17398,34 @@ pub struct IUIElement_Vtbl {
     remove_DropCompleted: usize,
     add_CharacterReceived: usize,
     remove_CharacterReceived: usize,
-    add_DragEnter: usize,
-    remove_DragEnter: usize,
-    add_DragLeave: usize,
-    remove_DragLeave: usize,
-    add_DragOver: usize,
-    remove_DragOver: usize,
-    add_Drop: usize,
-    remove_Drop: usize,
+    pub add_DragEnter: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_DragEnter:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_DragLeave: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_DragLeave:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_DragOver: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_DragOver:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_Drop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_Drop:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub add_PointerPressed: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
