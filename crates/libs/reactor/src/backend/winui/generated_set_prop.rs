@@ -2,7 +2,6 @@
 
 use super::convert::string_as_textblock;
 use super::*;
-use crate::bindings as Xaml;
 #[doc = r" Try to handle a `set_prop` call via generated dispatch."]
 #[doc = r" Returns `Ok(true)` if handled, `Ok(false)` to fall through."]
 pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> {
@@ -31,7 +30,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
         (Prop::Content, PropValue::Str(v), Handle::DropDownButton(_) | Handle::SplitButton(_)) => {
             let insp = windows_reference::IReference::from(v.as_str());
             handle
-                .cast_inner::<Xaml::IContentControl>()?
+                .cast_inner::<bindings::IContentControl>()?
                 .put_Content(&insp)?;
         }
         (
@@ -46,7 +45,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
         ) => {
             let tb = string_as_textblock(v.as_str())?;
             handle
-                .cast_inner::<Xaml::IContentControl>()?
+                .cast_inner::<bindings::IContentControl>()?
                 .put_Content(&tb)?;
         }
         (
@@ -62,7 +61,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             | Handle::ToggleButton(_),
         ) => {
             handle
-                .cast_inner::<Xaml::IContentControl>()?
+                .cast_inner::<bindings::IContentControl>()?
                 .put_Content(None)?;
         }
         (Prop::DayVisible, PropValue::Bool(v), Handle::DatePicker(h)) => {
@@ -199,7 +198,8 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             h.put_IsBackButtonVisible(*v)?;
         }
         (Prop::IsBackEnabled, PropValue::Bool(v), Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView2>()?.put_IsBackEnabled(*v)?;
+            h.cast::<bindings::INavigationView2>()?
+                .put_IsBackEnabled(*v)?;
         }
         (Prop::IsCalendarOpen, PropValue::Bool(v), Handle::CalendarDatePicker(h)) => {
             h.put_IsCalendarOpen(*v)?;
@@ -210,7 +210,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             Handle::CheckBox(_) | Handle::RadioButton(_) | Handle::ToggleButton(_),
         ) => {
             handle
-                .cast_inner::<Xaml::IToggleButton>()?
+                .cast_inner::<bindings::IToggleButton>()?
                 .put_IsChecked(Some(*v))?;
         }
         (
@@ -219,7 +219,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             Handle::CheckBox(_) | Handle::RadioButton(_) | Handle::ToggleButton(_),
         ) => {
             handle
-                .cast_inner::<Xaml::IToggleButton>()?
+                .cast_inner::<bindings::IToggleButton>()?
                 .put_IsChecked(None)?;
         }
         (Prop::IsClosable, PropValue::Bool(v), Handle::InfoBar(h)) => {
@@ -258,7 +258,9 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             | Handle::ToggleButton(_)
             | Handle::ToggleSwitch(_),
         ) => {
-            handle.cast_inner::<Xaml::IControl>()?.put_IsEnabled(*v)?;
+            handle
+                .cast_inner::<bindings::IControl>()?
+                .put_IsEnabled(*v)?;
         }
         (Prop::IsExpanded, PropValue::Bool(v), Handle::Expander(h)) => {
             h.put_IsExpanded(*v)?;
@@ -339,7 +341,9 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             h.put_Maximum(*v)?;
         }
         (Prop::Maximum, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
-            handle.cast_inner::<Xaml::IRangeBase>()?.put_Maximum(*v)?;
+            handle
+                .cast_inner::<bindings::IRangeBase>()?
+                .put_Maximum(*v)?;
         }
         (Prop::Message, PropValue::Str(v), Handle::InfoBar(h)) => {
             h.put_Message(v.as_str())?;
@@ -351,7 +355,9 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             h.put_Minimum(*v)?;
         }
         (Prop::Minimum, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
-            handle.cast_inner::<Xaml::IRangeBase>()?.put_Minimum(*v)?;
+            handle
+                .cast_inner::<bindings::IRangeBase>()?
+                .put_Minimum(*v)?;
         }
         (Prop::MinuteIncrement, PropValue::I32(v), Handle::TimePicker(h)) => {
             h.put_MinuteIncrement(*v)?;
@@ -383,11 +389,11 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             h.put_Orientation(Orientation(*v))?;
         }
         (Prop::PaneDisplayMode, PropValue::I32(v), Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView2>()?
+            h.cast::<bindings::INavigationView2>()?
                 .put_PaneDisplayMode(NavigationViewPaneDisplayMode(*v))?;
         }
         (Prop::PaneTitle, PropValue::Str(v), Handle::NavigationView(h)) => {
-            h.cast::<Xaml::INavigationView2>()?
+            h.cast::<bindings::INavigationView2>()?
                 .put_PaneTitle(v.as_str())?;
         }
         (Prop::PasswordRevealMode, PropValue::I32(v), Handle::PasswordBox(h)) => {
@@ -434,7 +440,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
         }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::ComboBox(_) | Handle::ListBox(_)) => {
             handle
-                .cast_inner::<Xaml::ISelector>()?
+                .cast_inner::<bindings::ISelector>()?
                 .put_SelectedIndex(*v)?;
         }
         (Prop::SelectedIndex, PropValue::I32(v), Handle::TabView(h)) => {
@@ -500,7 +506,7 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
             h.put_Value(*v)?;
         }
         (Prop::Value, PropValue::F64(v), Handle::ProgressBar(_) | Handle::Slider(_)) => {
-            handle.cast_inner::<Xaml::IRangeBase>()?.put_Value(*v)?;
+            handle.cast_inner::<bindings::IRangeBase>()?.put_Value(*v)?;
         }
         (Prop::Value, PropValue::F64(v), Handle::RatingControl(h)) => {
             h.put_Value(*v)?;
