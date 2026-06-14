@@ -67,7 +67,13 @@ pub fn button_bindings(w: &Button) -> PropBindings {
     ]
 }
 pub fn calendar_date_picker_bindings(w: &CalendarDatePicker) -> PropBindings {
-    let mut out = Vec::with_capacity(5usize);
+    let mut out = Vec::with_capacity(6usize);
+    out.push(Binding::Event(
+        Event::DateChanged,
+        w.on_date_changed
+            .as_ref()
+            .map(|cb| EventHandler::DateTime(cb.clone())),
+    ));
     if let Some(v) = w.header.to_prop_str() {
         out.push(Binding::Prop(Prop::Header, v));
     }

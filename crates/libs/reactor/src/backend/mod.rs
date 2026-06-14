@@ -292,7 +292,7 @@ pub enum Event {
     ActionButtonClick,
     AddTabButtonClick,
     BackRequested,
-    CalendarDateSelected,
+    DateChanged,
     Checked,
     Click,
     Closed,

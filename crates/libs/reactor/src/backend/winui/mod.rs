@@ -2286,7 +2286,7 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            (Event::CalendarDateSelected, Handle::CalendarDatePicker(cdp)) => {
+            (Event::DateChanged, Handle::CalendarDatePicker(cdp)) => {
                 revokers.push(
                     cdp.add_DateChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()

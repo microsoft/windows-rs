@@ -9,7 +9,7 @@ pub struct CalendarDatePicker {
     pub is_today_highlighted: bool,
     pub is_calendar_open: bool,
     pub is_enabled: bool,
-    pub on_changed: Option<Callback<Option<DateTime>>>,
+    pub on_date_changed: Option<Callback<DateTime>>,
 }
 
 impl CalendarDatePicker {
@@ -46,8 +46,8 @@ impl CalendarDatePicker {
         self
     }
 
-    pub fn on_changed(mut self, f: impl IntoCallback<Option<DateTime>>) -> Self {
-        self.on_changed = Some(f.into_callback());
+    pub fn on_date_changed(mut self, f: impl IntoCallback<DateTime>) -> Self {
+        self.on_date_changed = Some(f.into_callback());
         self
     }
 }
