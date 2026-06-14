@@ -1,6 +1,6 @@
 use super::bindings::*;
 
-    /// Initializes the Windows App Runtime bootstrap for apps that rely on
+/// Initializes the Windows App Runtime bootstrap for apps that rely on
 /// framework-dependent deployment.
 ///
 /// Call once at the top of `main` and keep the returned handle alive for the
