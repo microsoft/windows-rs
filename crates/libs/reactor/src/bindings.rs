@@ -1772,10 +1772,10 @@ unsafe impl Sync for CheckBox {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Color {
-    pub A: u8,
-    pub R: u8,
-    pub G: u8,
-    pub B: u8,
+    pub a: u8,
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
 }
 impl windows_core::TypeKind for Color {
     type TypeKind = windows_core::CopyType;
@@ -2596,10 +2596,10 @@ unsafe impl Sync for Control {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CornerRadius {
-    pub TopLeft: f64,
-    pub TopRight: f64,
-    pub BottomRight: f64,
-    pub BottomLeft: f64,
+    pub top_left: f64,
+    pub top_right: f64,
+    pub bottom_right: f64,
+    pub bottom_left: f64,
 }
 impl windows_core::TypeKind for CornerRadius {
     type TypeKind = windows_core::CopyType;
@@ -3706,7 +3706,7 @@ unsafe impl Sync for FontFamily {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FontWeight {
-    pub Weight: u16,
+    pub weight: u16,
 }
 impl windows_core::TypeKind for FontWeight {
     type TypeKind = windows_core::CopyType;
@@ -4038,8 +4038,8 @@ unsafe impl Sync for Grid {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GridLength {
-    pub Value: f64,
-    pub GridUnitType: GridUnitType,
+    pub value: f64,
+    pub grid_unit_type: GridUnitType,
 }
 impl windows_core::TypeKind for GridLength {
     type TypeKind = windows_core::CopyType;
@@ -22264,8 +22264,8 @@ unsafe impl Sync for Shape {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Size {
-    pub Width: f32,
-    pub Height: f32,
+    pub width: f32,
+    pub height: f32,
 }
 impl windows_core::TypeKind for Size {
     type TypeKind = windows_core::CopyType;
@@ -22357,8 +22357,8 @@ impl<
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SizeInt32 {
-    pub Width: i32,
-    pub Height: i32,
+    pub width: i32,
+    pub height: i32,
 }
 impl windows_core::TypeKind for SizeInt32 {
     type TypeKind = windows_core::CopyType;
@@ -24015,10 +24015,10 @@ impl windows_core::RuntimeType for TextWrapping {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Thickness {
-    pub Left: f64,
-    pub Top: f64,
-    pub Right: f64,
-    pub Bottom: f64,
+    pub left: f64,
+    pub top: f64,
+    pub right: f64,
+    pub bottom: f64,
 }
 impl windows_core::TypeKind for Thickness {
     type TypeKind = windows_core::CopyType;
@@ -24755,8 +24755,8 @@ impl windows_core::RuntimeType for TypeKind {
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct TypeName {
-    pub Name: windows_core::HSTRING,
-    pub Kind: TypeKind,
+    pub name: windows_core::HSTRING,
+    pub kind: TypeKind,
 }
 impl windows_core::TypeKind for TypeName {
     type TypeKind = windows_core::CloneType;
@@ -25627,8 +25627,8 @@ unsafe impl Sync for XamlRoot {}
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct XmlnsDefinition {
-    pub XmlNamespace: windows_core::HSTRING,
-    pub Namespace: windows_core::HSTRING,
+    pub xml_namespace: windows_core::HSTRING,
+    pub namespace: windows_core::HSTRING,
 }
 impl windows_core::TypeKind for XmlnsDefinition {
     type TypeKind = windows_core::CloneType;

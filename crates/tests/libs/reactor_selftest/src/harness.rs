@@ -106,8 +106,8 @@ impl Harness {
             .cast::<crate::bindings::IGrid>()?
             .get_ColumnDefinitions()?;
         let star_one = GridLength {
-            Value: 1.0,
-            GridUnitType: GridUnitType::Star,
+            value: 1.0,
+            grid_unit_type: GridUnitType::Star,
         };
         for i in 0..total {
             let cd = ColumnDefinition::new()?;
@@ -133,18 +133,18 @@ impl Harness {
             .put_Background(&solid_brush(180, 0, 0, 0)?)?;
         pill.cast::<crate::bindings::IBorder>()?.put_CornerRadius(
             crate::bindings::CornerRadius {
-                TopLeft: 4.0,
-                TopRight: 4.0,
-                BottomRight: 4.0,
-                BottomLeft: 4.0,
+                top_left: 4.0,
+                top_right: 4.0,
+                bottom_right: 4.0,
+                bottom_left: 4.0,
             },
         )?;
         pill.cast::<crate::bindings::IBorder>()?
             .put_Padding(Thickness {
-                Left: 8.0,
-                Top: 2.0,
-                Right: 8.0,
-                Bottom: 2.0,
+                left: 8.0,
+                top: 2.0,
+                right: 8.0,
+                bottom: 2.0,
             })?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
             .put_HorizontalAlignment(HorizontalAlignment::Left)?;
@@ -152,10 +152,10 @@ impl Harness {
             .put_VerticalAlignment(VerticalAlignment::Center)?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
             .put_Margin(Thickness {
-                Left: 12.0,
-                Top: 0.0,
-                Right: 0.0,
-                Bottom: 0.0,
+                left: 12.0,
+                top: 0.0,
+                right: 0.0,
+                bottom: 0.0,
             })?;
         pill.cast::<crate::bindings::IUIElement>()?
             .put_IsHitTestVisible(false)?;
@@ -185,8 +185,8 @@ impl Harness {
             .cast::<crate::bindings::IGrid>()?
             .get_RowDefinitions()?;
         let auto = GridLength {
-            Value: 0.0,
-            GridUnitType: GridUnitType::Auto,
+            value: 0.0,
+            grid_unit_type: GridUnitType::Auto,
         };
         let row0 = RowDefinition::new()?;
         row0.cast::<crate::bindings::IRowDefinition>()?
@@ -865,10 +865,10 @@ fn solid_brush(a: u8, r: u8, g: u8, b: u8) -> Result<SolidColorBrush> {
     brush
         .cast::<crate::bindings::ISolidColorBrush>()?
         .put_Color(Color {
-            A: a,
-            R: r,
-            G: g,
-            B: b,
+            a: a,
+            r: r,
+            g: g,
+            b: b,
         })?;
     Ok(brush)
 }

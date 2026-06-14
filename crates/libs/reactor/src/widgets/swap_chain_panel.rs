@@ -126,7 +126,7 @@ impl SwapChainPanel {
                     if let Some(args) = args.as_ref()
                         && let Ok(s) = args.get_NewSize()
                     {
-                        f(s.Width as f64, s.Height as f64);
+                        f(s.width as f64, s.height as f64);
                     }
                 });
                 if let Ok(revoker_val) = r {

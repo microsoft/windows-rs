@@ -37,7 +37,11 @@ impl Struct {
         }
 
         let fields = fields.iter().map(|(name, ty)| {
-            let name = to_ident(name);
+            let name = if config.bindgen.style.is_minimal() {
+                to_ident(&to_snake_case(name))
+            } else {
+                to_ident(name)
+            };
             let ty = ty.write_default(config);
             quote! { pub #name: #ty, }
         });

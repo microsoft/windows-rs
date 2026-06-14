@@ -740,10 +740,10 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
         (Prop::FontSize, PropValue::F64(v)) => set_font_f64(handle, *v),
         (Prop::FontSize, PropValue::Unset) => set_font_f64(handle, 14.0),
         (Prop::FontWeight, PropValue::U16(w)) => {
-            set_font_weight(handle, bindings::FontWeight { Weight: *w })
+            set_font_weight(handle, bindings::FontWeight { weight: *w })
         }
         (Prop::FontWeight, PropValue::Unset) => {
-            set_font_weight(handle, bindings::FontWeight { Weight: 400 })
+            set_font_weight(handle, bindings::FontWeight { weight: 400 })
         }
         (Prop::FontFamily, PropValue::Str(s)) => {
             set_font_family(handle, &bindings::FontFamily::CreateInstanceWithName(s)?)
@@ -753,15 +753,13 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
             &bindings::FontFamily::CreateInstanceWithName("Segoe UI")?,
         ),
         (Prop::Margin, PropValue::Thickness(t)) => {
-            handle
-                .as_framework_element()
-                .put_Margin(to_xaml_thickness(*t))?;
+            handle.as_framework_element().put_Margin(*t)?;
             Ok(true)
         }
         (Prop::Margin, PropValue::Unset) => {
             handle
                 .as_framework_element()
-                .put_Margin(to_xaml_thickness(Thickness::default()))?;
+                .put_Margin(Thickness::default())?;
             Ok(true)
         }
         (Prop::Width, PropValue::F64(v)) => {
@@ -920,10 +918,8 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
             bindings::RelativePanel::SetAlignVerticalCenterWithPanel(&handle.as_ui_element(), *v)?;
             Ok(true)
         }
-        (Prop::Padding, PropValue::Thickness(t)) => set_padding(handle, to_xaml_thickness(*t)),
-        (Prop::Padding, PropValue::Unset) => {
-            set_padding(handle, to_xaml_thickness(Thickness::default()))
-        }
+        (Prop::Padding, PropValue::Thickness(t)) => set_padding(handle, *t),
+        (Prop::Padding, PropValue::Unset) => set_padding(handle, Thickness::default()),
         (Prop::Background, PropValue::Brush(br)) => set_background(handle, &brush_of(br)?),
         (Prop::Background, PropValue::Unset) => set_background(handle, None::<&bindings::Brush>),
         (Prop::Foreground, PropValue::Brush(br)) => set_foreground(handle, &brush_of(br)?),
@@ -964,7 +960,7 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
     }
 }
 
-fn set_padding(handle: &Handle, thickness: bindings::Thickness) -> Result<bool> {
+fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
     if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
         border.put_Padding(thickness)?;
     } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
@@ -1303,10 +1299,10 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::CornerRadius, PropValue::F64(v), Handle::Border(b)) => {
                     b.put_CornerRadius(bindings::CornerRadius {
-                        TopLeft: *v,
-                        TopRight: *v,
-                        BottomRight: *v,
-                        BottomLeft: *v,
+                        top_left: *v,
+                        top_right: *v,
+                        bottom_right: *v,
+                        bottom_left: *v,
                     })
                 }
                 (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
@@ -1321,10 +1317,10 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(*t))
+                    b.put_BorderThickness(*t)
                 }
                 (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_BorderThickness(to_xaml_thickness(Thickness::default()))
+                    b.put_BorderThickness(Thickness::default())
                 }
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
@@ -1428,11 +1424,11 @@ impl Backend for WinUIBackend {
                     items,
                 ),
                 (Prop::ColorValue, PropValue::Color { a, r, g, b }, Handle::ColorPicker(cp)) => cp
-                    .put_Color(bindings::Color {
-                        A: *a,
-                        R: *r,
-                        G: *g,
-                        B: *b,
+                    .put_Color(Color {
+                        a: *a,
+                        r: *r,
+                        g: *g,
+                        b: *b,
                     }),
                 (Prop::Items, PropValue::StrList(items), Handle::ListBox(lb)) => set_str_items(
                     &lb.cast::<bindings::IItemsControl>()?.get_Items()?.cast()?,
@@ -2256,15 +2252,16 @@ impl Backend for WinUIBackend {
             (Event::ColorChanged, Handle::ColorPicker(cp)) => {
                 revokers.push(
                     cp.add_ColorChanged(move |_sender, args| {
-                        let color = args.as_ref().and_then(|a| a.get_NewColor().ok()).unwrap_or(
-                            bindings::Color {
-                                A: 255,
-                                R: 0,
-                                G: 0,
-                                B: 0,
-                            },
-                        );
-                        handler.invoke_color((color.A, color.R, color.G, color.B));
+                        let color =
+                            args.as_ref()
+                                .and_then(|a| a.get_NewColor().ok())
+                                .unwrap_or(Color {
+                                    a: 255,
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                });
+                        handler.invoke_color((color.a, color.r, color.g, color.b));
                     })
                     .unwrap(),
                 );
@@ -2656,7 +2653,7 @@ impl Backend for WinUIBackend {
                         let _ = run.put_Text(&r.text);
                         if r.is_bold {
                             let _ = run.cast::<bindings::ITextElement>().and_then(|te| {
-                                te.put_FontWeight(bindings::FontWeight { Weight: 700 })
+                                te.put_FontWeight(bindings::FontWeight { weight: 700 })
                             });
                         }
                         let _ = run

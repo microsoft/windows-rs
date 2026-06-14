@@ -6,41 +6,27 @@
 
 use super::*;
 
-pub(super) fn to_xaml_thickness(t: Thickness) -> bindings::Thickness {
-    bindings::Thickness {
-        Left: t.left,
-        Top: t.top,
-        Right: t.right,
-        Bottom: t.bottom,
-    }
-}
-
 pub(super) fn to_xaml_gridlength(v: GridLength) -> Result<bindings::GridLength> {
     use bindings::GridUnitType;
     match v {
         GridLength::Auto => Ok(bindings::GridLength {
-            Value: 0.0,
-            GridUnitType: GridUnitType::Auto,
+            value: 0.0,
+            grid_unit_type: GridUnitType::Auto,
         }),
         GridLength::Pixel(v) => Ok(bindings::GridLength {
-            Value: v,
-            GridUnitType: GridUnitType::Pixel,
+            value: v,
+            grid_unit_type: GridUnitType::Pixel,
         }),
         GridLength::Star(v) => Ok(bindings::GridLength {
-            Value: v,
-            GridUnitType: GridUnitType::Star,
+            value: v,
+            grid_unit_type: GridUnitType::Star,
         }),
     }
 }
 
 pub(super) fn solid_brush(c: Color) -> Result<bindings::SolidColorBrush> {
     let brush = bindings::SolidColorBrush::new()?;
-    brush.put_Color(bindings::Color {
-        A: c.a,
-        R: c.r,
-        G: c.g,
-        B: c.b,
-    })?;
+    brush.put_Color(c)?;
     Ok(brush)
 }
 

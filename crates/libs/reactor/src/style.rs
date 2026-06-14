@@ -10,15 +10,6 @@ use rustc_hash::FxHashMap;
 
 use super::*;
 
-/// Cross-axis spacing (margins, padding, etc.) — `f64` per side.
-#[derive(Copy, Clone, Debug, PartialEq, Default)]
-pub struct Thickness {
-    pub left: f64,
-    pub top: f64,
-    pub right: f64,
-    pub bottom: f64,
-}
-
 impl Thickness {
     pub const fn uniform(v: f64) -> Self {
         Self {
@@ -44,13 +35,7 @@ impl From<f64> for Thickness {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub struct Color {
-    pub a: u8,
-    pub r: u8,
-    pub g: u8,
-    pub b: u8,
-}
+impl Eq for Color {}
 
 impl Color {
     pub const fn rgb(r: u8, g: u8, b: u8) -> Self {

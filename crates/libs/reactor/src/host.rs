@@ -430,8 +430,8 @@ fn subscribe_size_and_dpi(
                 render_host.set_dpi(new_dpi);
             }
             render_host.set_inner_size(WindowSize {
-                width: size.Width as f64,
-                height: size.Height as f64,
+                width: size.width as f64,
+                height: size.height as f64,
             });
             let _ = apply_constraints_for_window(&window, render_host.dpi(), &constraints);
         })
@@ -468,8 +468,8 @@ fn create_window(
     let app_window = window_2.get_AppWindow()?;
     let app_window_2 = app_window.cast::<IAppWindow2>()?;
     app_window_2.ResizeClient(SizeInt32 {
-        Width: dip_to_px(dip_size.width),
-        Height: dip_to_px(dip_size.height),
+        width: dip_to_px(dip_size.width),
+        height: dip_to_px(dip_size.height),
     })?;
 
     app_window.SetPresenterByKind(AppWindowPresenterKind::Overlapped)?;
@@ -477,8 +477,8 @@ fn create_window(
 
     let outer_size = app_window.get_Size()?;
     let inner_size = app_window_2.get_ClientSize()?;
-    let nc_width_px = outer_size.Width.saturating_sub(inner_size.Width);
-    let nc_height_px = outer_size.Height.saturating_sub(inner_size.Height);
+    let nc_width_px = outer_size.width.saturating_sub(inner_size.width);
+    let nc_height_px = outer_size.height.saturating_sub(inner_size.height);
 
     let overlapped = app_window
         .get_Presenter()?
@@ -500,14 +500,14 @@ fn create_window(
 
     let actual_client_px = app_window_2.get_ClientSize()?;
     let actual_dip_size = WindowSize {
-        width: actual_client_px.Width as f64 * 96.0 / dpi as f64,
-        height: actual_client_px.Height as f64 * 96.0 / dpi as f64,
+        width: actual_client_px.width as f64 * 96.0 / dpi as f64,
+        height: actual_client_px.height as f64 * 96.0 / dpi as f64,
     };
 
     center_window_on_display(
         hwnd,
-        actual_client_px.Width,
-        actual_client_px.Height,
+        actual_client_px.width,
+        actual_client_px.height,
         nc_width_px,
         nc_height_px,
     );
@@ -530,8 +530,8 @@ fn apply_constraints_for_window(
 
     let outer_size = app_window.get_Size()?;
     let inner_size = app_window_2.get_ClientSize()?;
-    let nc_width_px = outer_size.Width.saturating_sub(inner_size.Width);
-    let nc_height_px = outer_size.Height.saturating_sub(inner_size.Height);
+    let nc_width_px = outer_size.width.saturating_sub(inner_size.width);
+    let nc_height_px = outer_size.height.saturating_sub(inner_size.height);
 
     let presenter = app_window
         .get_Presenter()?
