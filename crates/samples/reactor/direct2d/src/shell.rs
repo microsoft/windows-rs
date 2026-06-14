@@ -24,7 +24,6 @@ pub fn shell(cx: &mut RenderCx) -> Element {
 
     // Create the device on mount and recreate it on every recovery request.
     cx.use_effect(recover_gen, {
-        let update_device = update_device.clone();
         move || {
             update_device.call(|current| match Device::new() {
                 Ok(d) => Some(d),
@@ -55,18 +54,10 @@ pub fn shell(cx: &mut RenderCx) -> Element {
         _ => component(swap_chain_sample, ()),
     };
 
-    // Test aid: recreate the shared device on demand, without a real GPU
-    // device-removal event.
+    // Test aid: exercise the same recovery path as a real device-lost event.
     let recreate_device = {
-        move || {
-            update_device.call(|current| match Device::new() {
-                Ok(d) => Some(d),
-                Err(e) => {
-                    eprintln!("failed to recreate shared device: {e}");
-                    current
-                }
-            });
-        }
+        let gpu = gpu.clone();
+        move || gpu.request_recovery()
     };
 
     let nav_view = NavigationView::new(nav_items, content)

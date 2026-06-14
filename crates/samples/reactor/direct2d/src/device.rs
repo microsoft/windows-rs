@@ -33,9 +33,6 @@ pub struct SharedDevice {
     dxgi_factory: IDXGIFactory2,
 }
 
-// SAFETY: every interface held here is an agile (free-threaded) COM object.
-unsafe impl Send for SharedDevice {}
-
 impl SharedDevice {
     /// Create a hardware-backed shared device.
     fn new() -> Result<Self> {
@@ -124,7 +121,7 @@ impl PartialEq for Device {
 }
 
 /// What every sample needs from the root: the shared [`Device`] (`None` until
-/// created, and briefly during recreation) and a way to request recovery.
+/// first created) and a way to request recovery.
 #[derive(Clone, PartialEq)]
 pub struct Gpu {
     device: Option<Device>,
@@ -136,7 +133,7 @@ impl Gpu {
         Self { device, recover }
     }
 
-    /// The shared device, or `None` while it is being (re)created.
+    /// The shared device, or `None` before the first successful creation.
     pub fn device(&self) -> Option<Device> {
         self.device.clone()
     }

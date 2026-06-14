@@ -54,8 +54,6 @@ mod render {
     #[derive(Clone, PartialEq)]
     pub struct SendSwap(IDXGISwapChain1);
 
-    unsafe impl Send for SendSwap {}
-
     impl SendSwap {
         /// The swap chain, for attaching to the UI-thread presentation surface.
         pub fn swap_chain(&self) -> &IDXGISwapChain1 {
