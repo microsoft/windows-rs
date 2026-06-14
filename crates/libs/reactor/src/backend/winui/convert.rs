@@ -5,7 +5,6 @@
 //! helpers.
 
 use super::*;
-use bindings::Color as WinColor;
 
 pub(super) fn to_xaml_thickness(t: Thickness) -> bindings::Thickness {
     bindings::Thickness {
@@ -13,90 +12,6 @@ pub(super) fn to_xaml_thickness(t: Thickness) -> bindings::Thickness {
         Top: t.top,
         Right: t.right,
         Bottom: t.bottom,
-    }
-}
-
-pub(super) fn reactor_key_to_virtual_key(k: KeyboardKey) -> bindings::VirtualKey {
-    use KeyboardKey as K;
-    match k {
-        K::A => bindings::VirtualKey::A,
-        K::B => bindings::VirtualKey::B,
-        K::C => bindings::VirtualKey::C,
-        K::D => bindings::VirtualKey::D,
-        K::E => bindings::VirtualKey::E,
-        K::F => bindings::VirtualKey::F,
-        K::G => bindings::VirtualKey::G,
-        K::H => bindings::VirtualKey::H,
-        K::I => bindings::VirtualKey::I,
-        K::J => bindings::VirtualKey::J,
-        K::K => bindings::VirtualKey::K,
-        K::L => bindings::VirtualKey::L,
-        K::M => bindings::VirtualKey::M,
-        K::N => bindings::VirtualKey::N,
-        K::O => bindings::VirtualKey::O,
-        K::P => bindings::VirtualKey::P,
-        K::Q => bindings::VirtualKey::Q,
-        K::R => bindings::VirtualKey::R,
-        K::S => bindings::VirtualKey::S,
-        K::T => bindings::VirtualKey::T,
-        K::U => bindings::VirtualKey::U,
-        K::V => bindings::VirtualKey::V,
-        K::W => bindings::VirtualKey::W,
-        K::X => bindings::VirtualKey::X,
-        K::Y => bindings::VirtualKey::Y,
-        K::Z => bindings::VirtualKey::Z,
-        K::Num0 => bindings::VirtualKey::Number0,
-        K::Num1 => bindings::VirtualKey::Number1,
-        K::Num2 => bindings::VirtualKey::Number2,
-        K::Num3 => bindings::VirtualKey::Number3,
-        K::Num4 => bindings::VirtualKey::Number4,
-        K::Num5 => bindings::VirtualKey::Number5,
-        K::Num6 => bindings::VirtualKey::Number6,
-        K::Num7 => bindings::VirtualKey::Number7,
-        K::Num8 => bindings::VirtualKey::Number8,
-        K::Num9 => bindings::VirtualKey::Number9,
-        K::NumPad0 => bindings::VirtualKey::NumberPad0,
-        K::NumPad1 => bindings::VirtualKey::NumberPad1,
-        K::NumPad2 => bindings::VirtualKey::NumberPad2,
-        K::NumPad3 => bindings::VirtualKey::NumberPad3,
-        K::NumPad4 => bindings::VirtualKey::NumberPad4,
-        K::NumPad5 => bindings::VirtualKey::NumberPad5,
-        K::NumPad6 => bindings::VirtualKey::NumberPad6,
-        K::NumPad7 => bindings::VirtualKey::NumberPad7,
-        K::NumPad8 => bindings::VirtualKey::NumberPad8,
-        K::NumPad9 => bindings::VirtualKey::NumberPad9,
-        K::NumPadAdd => bindings::VirtualKey::Add,
-        K::NumPadSubtract => bindings::VirtualKey::Subtract,
-        K::NumPadMultiply => bindings::VirtualKey::Multiply,
-        K::NumPadDivide => bindings::VirtualKey::Divide,
-        K::NumPadDecimal => bindings::VirtualKey::Decimal,
-        K::F1 => bindings::VirtualKey::F1,
-        K::F2 => bindings::VirtualKey::F2,
-        K::F3 => bindings::VirtualKey::F3,
-        K::F4 => bindings::VirtualKey::F4,
-        K::F5 => bindings::VirtualKey::F5,
-        K::F6 => bindings::VirtualKey::F6,
-        K::F7 => bindings::VirtualKey::F7,
-        K::F8 => bindings::VirtualKey::F8,
-        K::F9 => bindings::VirtualKey::F9,
-        K::F10 => bindings::VirtualKey::F10,
-        K::F11 => bindings::VirtualKey::F11,
-        K::F12 => bindings::VirtualKey::F12,
-        K::Enter => bindings::VirtualKey::Enter,
-        K::Escape => bindings::VirtualKey::Escape,
-        K::Tab => bindings::VirtualKey::Tab,
-        K::Space => bindings::VirtualKey::Space,
-        K::Backspace => bindings::VirtualKey::Back,
-        K::Delete => bindings::VirtualKey::Delete,
-        K::Insert => bindings::VirtualKey::Insert,
-        K::Home => bindings::VirtualKey::Home,
-        K::End => bindings::VirtualKey::End,
-        K::PageUp => bindings::VirtualKey::PageUp,
-        K::PageDown => bindings::VirtualKey::PageDown,
-        K::Left => bindings::VirtualKey::Left,
-        K::Right => bindings::VirtualKey::Right,
-        K::Up => bindings::VirtualKey::Up,
-        K::Down => bindings::VirtualKey::Down,
     }
 }
 
@@ -120,7 +35,7 @@ pub(super) fn to_xaml_gridlength(v: GridLength) -> Result<bindings::GridLength> 
 
 pub(super) fn solid_brush(c: Color) -> Result<bindings::SolidColorBrush> {
     let brush = bindings::SolidColorBrush::new()?;
-    brush.put_Color(WinColor {
+    brush.put_Color(bindings::Color {
         A: c.a,
         R: c.r,
         G: c.g,

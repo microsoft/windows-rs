@@ -28,6 +28,8 @@ mod widgets;
 
 pub use app::*;
 pub use backend::*;
+pub use bindings::AutomationHeadingLevel;
+pub use bindings::AutomationLiveSetting;
 pub use bindings::CommandBarDefaultLabelPosition;
 pub use bindings::DispatcherQueuePriority;
 pub use bindings::FlyoutPlacementMode;
@@ -44,6 +46,8 @@ pub use bindings::TeachingTipPlacementMode;
 pub use bindings::TextWrapping;
 pub use bindings::TreeViewSelectionMode;
 pub use bindings::VerticalAlignment;
+pub use bindings::VirtualKey;
+pub use bindings::VirtualKeyModifiers;
 pub use bootstrap::*;
 pub use element::*;
 pub use engine::*;

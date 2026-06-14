@@ -20,7 +20,7 @@ fn app(cx: &mut RenderCx) -> Element {
 
     let reset_accel = {
         let s = set_count;
-        KeyboardAccelerator::new(KeyboardKey::R, KeyModifiers::CONTROL, move || s.call(0))
+        KeyboardAccelerator::new(VirtualKey::R, VirtualKeyModifiers::Control, move || s.call(0))
     };
 
     vstack((
@@ -28,7 +28,7 @@ fn app(cx: &mut RenderCx) -> Element {
         text_block(format!("Count: {count}"))
             .bold()
             .font_size(28.0)
-            .heading_level(HeadingLevel::Level1)
+            .heading_level(AutomationHeadingLevel::Level1)
             .automation_id("count-label"),
         hstack((
             button("-")

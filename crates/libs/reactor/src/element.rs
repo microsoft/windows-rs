@@ -598,13 +598,13 @@ impl Element {
         }
         self
     }
-    pub fn accessibility_live_setting(mut self, ls: LiveSetting) -> Self {
+    pub fn accessibility_live_setting(mut self, ls: AutomationLiveSetting) -> Self {
         if let Some(a) = self.accessibility_mut() {
             a.live_setting = Some(ls);
         }
         self
     }
-    pub fn heading_level(mut self, level: HeadingLevel) -> Self {
+    pub fn heading_level(mut self, level: AutomationHeadingLevel) -> Self {
         if let Some(a) = self.accessibility_mut() {
             a.heading_level = Some(level);
         }
@@ -945,14 +945,14 @@ pub trait ElementExt: Sized {
         self
     }
 
-    fn heading_level(mut self, level: HeadingLevel) -> Self {
+    fn heading_level(mut self, level: AutomationHeadingLevel) -> Self {
         if let Some(m) = self.modifiers_mut() {
             ensure_accessibility(m).heading_level = Some(level);
         }
         self
     }
 
-    fn accessibility_live_setting(mut self, ls: LiveSetting) -> Self {
+    fn accessibility_live_setting(mut self, ls: AutomationLiveSetting) -> Self {
         if let Some(m) = self.modifiers_mut() {
             ensure_accessibility(m).live_setting = Some(ls);
         }

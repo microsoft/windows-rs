@@ -2540,24 +2540,13 @@ impl Backend for WinUIBackend {
             &dep,
             accessibility.help_text.as_deref().unwrap_or(""),
         );
-        let live = match accessibility.live_setting {
-            Some(LiveSetting::Off) | None => bindings::AutomationLiveSetting::Off,
-            Some(LiveSetting::Polite) => bindings::AutomationLiveSetting::Polite,
-            Some(LiveSetting::Assertive) => bindings::AutomationLiveSetting::Assertive,
-        };
+        let live = accessibility
+            .live_setting
+            .unwrap_or(AutomationLiveSetting::Off);
         let _ = bindings::AutomationProperties::SetLiveSetting(&dep, live);
-        let heading = match accessibility.heading_level {
-            None => bindings::AutomationHeadingLevel::None,
-            Some(HeadingLevel::Level1) => bindings::AutomationHeadingLevel::Level1,
-            Some(HeadingLevel::Level2) => bindings::AutomationHeadingLevel::Level2,
-            Some(HeadingLevel::Level3) => bindings::AutomationHeadingLevel::Level3,
-            Some(HeadingLevel::Level4) => bindings::AutomationHeadingLevel::Level4,
-            Some(HeadingLevel::Level5) => bindings::AutomationHeadingLevel::Level5,
-            Some(HeadingLevel::Level6) => bindings::AutomationHeadingLevel::Level6,
-            Some(HeadingLevel::Level7) => bindings::AutomationHeadingLevel::Level7,
-            Some(HeadingLevel::Level8) => bindings::AutomationHeadingLevel::Level8,
-            Some(HeadingLevel::Level9) => bindings::AutomationHeadingLevel::Level9,
-        };
+        let heading = accessibility
+            .heading_level
+            .unwrap_or(AutomationHeadingLevel::None);
         let _ = bindings::AutomationProperties::SetHeadingLevel(&dep, heading);
     }
     fn set_keyboard_accelerators(&mut self, id: ControlId, accelerators: &[KeyboardAccelerator]) {
@@ -2589,8 +2578,8 @@ impl Backend for WinUIBackend {
             let Ok(ika) = ka.cast::<bindings::IKeyboardAccelerator>() else {
                 continue;
             };
-            let _ = ika.put_Key(reactor_key_to_virtual_key(accel.key));
-            let _ = ika.put_Modifiers(bindings::VirtualKeyModifiers(accel.modifiers.0));
+            let _ = ika.put_Key(accel.key);
+            let _ = ika.put_Modifiers(accel.modifiers);
             let cb = accel.on_invoked.clone();
             let _ = ika
                 .add_Invoked(move |_sender, args| {

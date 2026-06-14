@@ -260,17 +260,17 @@ fn app(cx: &mut RenderCx) -> Element {
     });
 
     // Numpad keyboard accelerators
-    let numpad_digits: [(KeyboardKey, &str); 10] = [
-        (KeyboardKey::NumPad0, "0"),
-        (KeyboardKey::NumPad1, "1"),
-        (KeyboardKey::NumPad2, "2"),
-        (KeyboardKey::NumPad3, "3"),
-        (KeyboardKey::NumPad4, "4"),
-        (KeyboardKey::NumPad5, "5"),
-        (KeyboardKey::NumPad6, "6"),
-        (KeyboardKey::NumPad7, "7"),
-        (KeyboardKey::NumPad8, "8"),
-        (KeyboardKey::NumPad9, "9"),
+    let numpad_digits: [(VirtualKey, &str); 10] = [
+        (VirtualKey::NumberPad0, "0"),
+        (VirtualKey::NumberPad1, "1"),
+        (VirtualKey::NumberPad2, "2"),
+        (VirtualKey::NumberPad3, "3"),
+        (VirtualKey::NumberPad4, "4"),
+        (VirtualKey::NumberPad5, "5"),
+        (VirtualKey::NumberPad6, "6"),
+        (VirtualKey::NumberPad7, "7"),
+        (VirtualKey::NumberPad8, "8"),
+        (VirtualKey::NumberPad9, "9"),
     ];
 
     let mut root: Element = grid((
@@ -291,7 +291,7 @@ fn app(cx: &mut RenderCx) -> Element {
         let pd = press_digit.clone();
         root = root.keyboard_accelerator(KeyboardAccelerator::new(
             key,
-            KeyModifiers::NONE,
+            VirtualKeyModifiers::None,
             move || pd(digit),
         ));
     }
@@ -299,37 +299,37 @@ fn app(cx: &mut RenderCx) -> Element {
     let po = press_op.clone();
     root = root
         .keyboard_accelerator(KeyboardAccelerator::new(
-            KeyboardKey::NumPadDivide,
-            KeyModifiers::NONE,
+            VirtualKey::Divide,
+            VirtualKeyModifiers::None,
             {
                 let po = po.clone();
                 move || po("/")
             },
         ))
         .keyboard_accelerator(KeyboardAccelerator::new(
-            KeyboardKey::NumPadMultiply,
-            KeyModifiers::NONE,
+            VirtualKey::Multiply,
+            VirtualKeyModifiers::None,
             {
                 let po = po.clone();
                 move || po("*")
             },
         ))
         .keyboard_accelerator(KeyboardAccelerator::new(
-            KeyboardKey::NumPadSubtract,
-            KeyModifiers::NONE,
+            VirtualKey::Subtract,
+            VirtualKeyModifiers::None,
             {
                 let po = po.clone();
                 move || po("-")
             },
         ))
         .keyboard_accelerator(KeyboardAccelerator::new(
-            KeyboardKey::NumPadAdd,
-            KeyModifiers::NONE,
+            VirtualKey::Add,
+            VirtualKeyModifiers::None,
             move || po("+"),
         ))
         .keyboard_accelerator(KeyboardAccelerator::new(
-            KeyboardKey::NumPadDecimal,
-            KeyModifiers::NONE,
+            VirtualKey::Decimal,
+            VirtualKeyModifiers::None,
             {
                 move || {
                     if reset_next {
@@ -342,8 +342,8 @@ fn app(cx: &mut RenderCx) -> Element {
             },
         ))
         .keyboard_accelerator(KeyboardAccelerator::new(
-            KeyboardKey::Enter,
-            KeyModifiers::NONE,
+            VirtualKey::Enter,
+            VirtualKeyModifiers::None,
             move || equals_handler(),
         ));
 

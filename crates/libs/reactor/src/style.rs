@@ -678,8 +678,8 @@ pub struct AccessibilityModifiers {
     pub automation_name: Option<String>,
     pub automation_id: Option<String>,
     pub help_text: Option<String>,
-    pub live_setting: Option<LiveSetting>,
-    pub heading_level: Option<HeadingLevel>,
+    pub live_setting: Option<AutomationLiveSetting>,
+    pub heading_level: Option<AutomationHeadingLevel>,
 }
 
 impl AccessibilityModifiers {
@@ -690,26 +690,6 @@ impl AccessibilityModifiers {
             && self.live_setting.is_none()
             && self.heading_level.is_none()
     }
-}
-
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum LiveSetting {
-    Off,
-    Polite,
-    Assertive,
-}
-
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum HeadingLevel {
-    Level1,
-    Level2,
-    Level3,
-    Level4,
-    Level5,
-    Level6,
-    Level7,
-    Level8,
-    Level9,
 }
 
 // --- Tooltip ---
