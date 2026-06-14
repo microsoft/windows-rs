@@ -76,12 +76,12 @@ impl Widget for ColorPicker {
         // ColorValue is a compound ARGB type not expressible in TOML.
         out.push(Binding::Prop(
             Prop::ColorValue,
-            PropValue::Color {
+            PropValue::Color(Color {
                 a: self.color.a,
                 r: self.color.r,
                 g: self.color.g,
                 b: self.color.b,
-            },
+            }),
         ));
         out
     }

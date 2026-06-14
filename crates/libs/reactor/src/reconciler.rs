@@ -452,11 +452,11 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         if let Some(v) = &mods.background {
             self.backend
-                .set_prop(id, Prop::Background, &PropValue::Brush(v.clone()));
+                .set_prop(id, Prop::Background, &PropValue::Color(*v));
         }
         if let Some(v) = &mods.foreground {
             self.backend
-                .set_prop(id, Prop::Foreground, &PropValue::Brush(v.clone()));
+                .set_prop(id, Prop::Foreground, &PropValue::Color(*v));
         }
         if let Some(v) = &mods.font_family {
             self.backend
@@ -626,14 +626,14 @@ impl<B: Backend + 'static> Reconciler<B> {
             Prop::Background,
             &old.background,
             &new.background,
-            PropValue::Brush,
+            PropValue::Color,
         );
         self.diff_opt_clone(
             id,
             Prop::Foreground,
             &old.foreground,
             &new.foreground,
-            PropValue::Brush,
+            PropValue::Color,
         );
         self.diff_opt_clone(
             id,

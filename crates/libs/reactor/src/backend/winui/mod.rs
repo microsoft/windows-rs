@@ -920,24 +920,24 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
         }
         (Prop::Padding, PropValue::Thickness(t)) => set_padding(handle, *t),
         (Prop::Padding, PropValue::Unset) => set_padding(handle, Thickness::default()),
-        (Prop::Background, PropValue::Brush(br)) => set_background(handle, &brush_of(br)?),
+        (Prop::Background, PropValue::Color(br)) => set_background(handle, &solid_brush(*br)?),
         (Prop::Background, PropValue::Unset) => set_background(handle, None::<&bindings::Brush>),
-        (Prop::Foreground, PropValue::Brush(br)) => set_foreground(handle, &brush_of(br)?),
+        (Prop::Foreground, PropValue::Color(br)) => set_foreground(handle, &solid_brush(*br)?),
         (Prop::Foreground, PropValue::Unset) => set_foreground(handle, None::<&bindings::Brush>),
-        (Prop::Fill, PropValue::Brush(b)) => {
+        (Prop::Fill, PropValue::Color(b)) => {
             handle
                 .cast_inner::<bindings::IShape>()?
-                .put_Fill(&brush_of(b)?)?;
+                .put_Fill(&solid_brush(*b)?)?;
             Ok(true)
         }
         (Prop::Fill, PropValue::Unset) => {
             handle.cast_inner::<bindings::IShape>()?.put_Fill(None)?;
             Ok(true)
         }
-        (Prop::Stroke, PropValue::Brush(b)) => {
+        (Prop::Stroke, PropValue::Color(b)) => {
             handle
                 .cast_inner::<bindings::IShape>()?
-                .put_Stroke(&brush_of(b)?)?;
+                .put_Stroke(&solid_brush(*b)?)?;
             Ok(true)
         }
         (Prop::Stroke, PropValue::Unset) => {
@@ -1308,8 +1308,8 @@ impl Backend for WinUIBackend {
                 (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
                     b.put_CornerRadius(bindings::CornerRadius::default())
                 }
-                (Prop::BorderBrush, PropValue::Brush(br), Handle::Border(b)) => {
-                    b.put_BorderBrush(&brush_of(br)?)
+                (Prop::BorderBrush, PropValue::Color(br), Handle::Border(b)) => {
+                    b.put_BorderBrush(&solid_brush(*br)?)
                 }
                 (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.put_BorderBrush(None),
                 (Prop::BorderBrush, _, h) => {
@@ -1423,13 +1423,9 @@ impl Backend for WinUIBackend {
                     &c.cast::<bindings::IItemsControl>()?.get_Items()?.cast()?,
                     items,
                 ),
-                (Prop::ColorValue, PropValue::Color { a, r, g, b }, Handle::ColorPicker(cp)) => cp
-                    .put_Color(Color {
-                        a: *a,
-                        r: *r,
-                        g: *g,
-                        b: *b,
-                    }),
+                (Prop::ColorValue, PropValue::Color(c), Handle::ColorPicker(cp)) => {
+                    cp.put_Color(*c)
+                }
                 (Prop::Items, PropValue::StrList(items), Handle::ListBox(lb)) => set_str_items(
                     &lb.cast::<bindings::IItemsControl>()?.get_Items()?.cast()?,
                     items,

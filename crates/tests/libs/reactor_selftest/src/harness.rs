@@ -864,12 +864,7 @@ fn solid_brush(a: u8, r: u8, g: u8, b: u8) -> Result<SolidColorBrush> {
     let brush = SolidColorBrush::new()?;
     brush
         .cast::<crate::bindings::ISolidColorBrush>()?
-        .put_Color(Color {
-            a,
-            r,
-            g,
-            b,
-        })?;
+        .put_Color(Color { a, r, g, b })?;
     Ok(brush)
 }
 

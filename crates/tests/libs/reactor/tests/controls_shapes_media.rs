@@ -1,7 +1,7 @@
 use std::rc::Rc;
 
 use windows_reactor::Reconciler;
-use windows_reactor::{Brush, Color, Element};
+use windows_reactor::{Color, Element};
 use windows_reactor::{ControlKind, Prop, PropValue};
 use windows_reactor::{HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch};
 use windows_reactor::{Op, RecordingBackend};
@@ -28,7 +28,7 @@ fn rectangle_mounts_with_fill_and_corner_radius() {
             op,
             Op::SetProp {
                 prop: Prop::Fill,
-                value: PropValue::Brush(Brush::Solid(_)),
+                value: PropValue::Color(_),
                 ..
             }
         )

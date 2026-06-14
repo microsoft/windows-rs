@@ -30,7 +30,7 @@ impl Border {
 
     /// Brush used to paint the border stroke. Maps to WinUI
     /// `Border.BorderBrush`. Pair with [`Border::border_thickness`] for
-    /// the stroke to actually render. Accepts a direct [`Brush`] or a
+    /// the stroke to actually render. Accepts a direct [`Color`] or a
     /// [`ThemeRef`] for theme-aware strokes.
     pub fn border_brush(mut self, v: impl Into<BrushBinding>) -> Self {
         match v.into() {
@@ -77,7 +77,7 @@ impl Widget for Border {
         if let Some(BrushBinding::Direct(br)) = &self.border_brush {
             out.push(Binding::Prop(
                 Prop::BorderBrush,
-                PropValue::Brush(br.clone()),
+                PropValue::Color(*br),
             ));
         }
         if let Some(v) = self.border_thickness {

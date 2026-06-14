@@ -41,17 +41,6 @@ impl Color {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub enum Brush {
-    Solid(Color),
-}
-
-impl From<Color> for Brush {
-    fn from(c: Color) -> Self {
-        Self::Solid(c)
-    }
-}
-
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum GridLength {
     Auto,
@@ -373,23 +362,17 @@ impl ThemeRef {
     }
 }
 
-/// Brush slot that can be either a literal [`Brush`]
+/// Brush slot that can be either a literal [`Color`]
 /// or a [`ThemeRef`]; used for `background` / `foreground` modifiers.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum BrushBinding {
-    Direct(Brush),
+    Direct(Color),
     Theme(ThemeRef),
-}
-
-impl From<Brush> for BrushBinding {
-    fn from(v: Brush) -> Self {
-        BrushBinding::Direct(v)
-    }
 }
 
 impl From<Color> for BrushBinding {
     fn from(c: Color) -> Self {
-        BrushBinding::Direct(Brush::Solid(c))
+        BrushBinding::Direct(c)
     }
 }
 
@@ -480,8 +463,8 @@ pub struct Modifiers {
     pub horizontal_alignment: Option<HorizontalAlignment>,
     pub vertical_alignment: Option<VerticalAlignment>,
     pub opacity: Option<f64>,
-    pub background: Option<Brush>,
-    pub foreground: Option<Brush>,
+    pub background: Option<Color>,
+    pub foreground: Option<Color>,
     pub font_family: Option<String>,
     pub font_size: Option<f64>,
     pub theme_bindings: Option<Box<FxHashMap<Prop, ThemeRef>>>,

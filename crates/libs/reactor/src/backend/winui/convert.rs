@@ -30,12 +30,6 @@ pub(super) fn solid_brush(c: Color) -> Result<bindings::SolidColorBrush> {
     Ok(brush)
 }
 
-pub(super) fn brush_of(v: &Brush) -> Result<bindings::SolidColorBrush> {
-    match v {
-        Brush::Solid(c) => solid_brush(*c),
-    }
-}
-
 pub(super) fn string_as_textblock(s: &str) -> Result<bindings::TextBlock> {
     let tb = bindings::TextBlock::new()?;
     tb.put_Text(s)?;

@@ -11,8 +11,8 @@ pub struct Shape {
     pub key: Option<String>,
     pub modifiers: Modifiers,
     pub kind: ShapeKind,
-    pub fill: Option<Brush>,
-    pub stroke: Option<Brush>,
+    pub fill: Option<Color>,
+    pub stroke: Option<Color>,
     pub stroke_thickness: Option<f64>,
     pub corner_radius: Option<f64>,
     pub line: LineEndpoints,
@@ -58,16 +58,16 @@ impl Shape {
             ..Default::default()
         }
     }
-    pub fn fill(mut self, v: impl Into<Brush>) -> Self {
-        self.fill = Some(v.into());
+    pub fn fill(mut self, v: Color) -> Self {
+        self.fill = Some(v);
         self
     }
     pub fn fill_rgb(mut self, r: u8, g: u8, b: u8) -> Self {
-        self.fill = Some(Brush::Solid(Color::rgb(r, g, b)));
+        self.fill = Some(Color::rgb(r, g, b));
         self
     }
-    pub fn stroke(mut self, v: impl Into<Brush>) -> Self {
-        self.stroke = Some(v.into());
+    pub fn stroke(mut self, v: Color) -> Self {
+        self.stroke = Some(v);
         self
     }
     pub fn stroke_thickness(mut self, v: f64) -> Self {
@@ -97,12 +97,12 @@ impl Widget for Shape {
     fn bindings(&self) -> PropBindings {
         let mut out = Vec::with_capacity(5);
         if let Some(fill) = &self.fill {
-            out.push(Binding::Prop(Prop::Fill, PropValue::Brush(fill.clone())));
+            out.push(Binding::Prop(Prop::Fill, PropValue::Color(*fill)));
         }
         if let Some(stroke) = &self.stroke {
             out.push(Binding::Prop(
                 Prop::Stroke,
-                PropValue::Brush(stroke.clone()),
+                PropValue::Color(*stroke),
             ));
         }
         if let Some(th) = self.stroke_thickness {
