@@ -46,6 +46,7 @@ PlaceholderText = {}
 IsTodayHighlighted = {}
 IsCalendarOpen = {}
 IsEnabled = {}
+DateChanged = { manual = true, type = "DateTime" }
 
 ["Microsoft.UI.Xaml.Controls.CalendarView"]
 IsTodayHighlighted = {}
