@@ -100,13 +100,13 @@ fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(Page::Home);
 
     let menu_items = [
-        NavViewItem::new("Home").tag("home").icon(SymbolGlyph::Home),
+        NavViewItem::new("Home").tag("home").icon(Symbol::Home),
         NavViewItem::new("Dashboard")
             .tag("dashboard")
-            .icon(SymbolGlyph::World),
+            .icon(Symbol::World),
         NavViewItem::new("Settings")
             .tag("settings")
-            .icon(SymbolGlyph::Setting),
+            .icon(Symbol::Setting),
     ];
 
     let body: Element = match &page {

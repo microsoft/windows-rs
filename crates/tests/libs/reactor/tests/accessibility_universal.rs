@@ -13,7 +13,7 @@ use std::rc::Rc;
 
 use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
-use windows_reactor::RichText;
+use windows_reactor::RichTextBlock;
 use windows_reactor::{
     AccessibilityModifiers, Border, Button, CheckBox, Color, Element, Grid, GridLength,
     HeadingLevel, LiveSetting, ScrollViewer, StackPanel, TextBlock, TextBox,
@@ -78,7 +78,10 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
         ("ComboBox", ComboBox::new(["A", "B"]).into()),
         ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
-        ("RichText", RichText::single_paragraph(Vec::new()).into()),
+        (
+            "RichText",
+            RichTextBlock::single_paragraph(Vec::new()).into(),
+        ),
     ]
 }
 

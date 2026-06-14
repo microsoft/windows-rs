@@ -7,12 +7,12 @@ fn app(cx: &mut RenderCx) -> Element {
     let label = format!("Clicked {count} times");
 
     vstack((
-        Button::new(&*label).icon(SymbolGlyph::Favorite).on_click({
+        Button::new(&*label).icon(Symbol::Favorite).on_click({
             let set_count = set_count.clone();
             move || set_count.call(count + 1)
         }),
         Button::new(if count == 0 { "Save" } else { "Saved!" })
-            .icon(SymbolGlyph::Save)
+            .icon(Symbol::Save)
             .accent()
             .on_click({
                 let set_count = set_count;

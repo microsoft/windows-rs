@@ -3,7 +3,7 @@
 //! `Element::attached()` and the reconciler.
 //!
 //! Background: prior to this test, only `TextBlock`, `Button`, `CheckBox`,
-//! `TextBox`, `Grid`, `ScrollViewer`, and `RichText` carried an
+//! `TextBox`, `Grid`, `ScrollViewer`, and `RichTextBlock` carried an
 //! `attached: Option<AttachedProps>` field. The other 20 widget kinds
 //! silently dropped `grid_row`/`grid_column` — `Element::attached_mut`
 //! returned `None` and the chained setters were no-ops. PR #79 patched
@@ -14,7 +14,7 @@
 use std::rc::Rc;
 
 use windows_reactor::Reconciler;
-use windows_reactor::RichText;
+use windows_reactor::RichTextBlock;
 use windows_reactor::{
     Border, Button, CheckBox, Color, Element, Grid, GridLength, ScrollViewer, StackPanel,
     TextBlock, TextBox,
@@ -82,7 +82,10 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
         ("ComboBox", ComboBox::new(["A", "B"]).into()),
         ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
-        ("RichText", RichText::single_paragraph(Vec::new()).into()),
+        (
+            "RichText",
+            RichTextBlock::single_paragraph(Vec::new()).into(),
+        ),
     ]
 }
 

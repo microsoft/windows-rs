@@ -9,8 +9,8 @@ use windows_reactor::{Color, GridLength};
 use windows_reactor::{
     ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
-use windows_reactor::{RichText, RichTextInline, RichTextRun};
-use windows_reactor::{flip_view, grid_view, list_view, virtual_list};
+use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
+use windows_reactor::{flip_view, grid_view, list_view};
 
 use crate::bindings;
 use windows_core::Interface;
@@ -318,7 +318,7 @@ pub fn mount_line(h: Harness) -> FixtureFuture {
 pub fn mount_rich_text(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
-            RichText::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain(
+            RichTextBlock::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain(
                 "rich content",
             ))])
             .into()
@@ -459,15 +459,14 @@ pub fn mount_templated_flip_view(h: Harness) -> FixtureFuture {
 pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
-            virtual_list(vec![1i32, 2, 3, 4, 5], |n, _| {
+            list_view(vec![1i32, 2, 3, 4, 5], |n, _| {
                 text_block(format!("row #{n}"))
             })
             .height(120.0)
             .build()
         }));
         h.render().await;
-        // `virtual_list` is an alias for `list_view` — the WinUI control
-        // backing it is still ListView. Item containers are realized
+        // list_view creates a WinUI ListView. Item containers are realized
         // lazily via ContainerContentChanging (same as mount_tab_view
         // above), so we don't assert on row TextBlocks here — the
         // presence of the ListView is sufficient to confirm mount.

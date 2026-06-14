@@ -16,12 +16,12 @@ pub fn stack_panel_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Dynamic Items",
                 vstack((
                     hstack((
-                        button("Add").icon(SymbolGlyph::Add).on_click({
+                        button("Add").icon(Symbol::Add).on_click({
                             let set_count = set_count.clone();
                             move || set_count.call(item_count + 1)
                         }),
                         button("Remove")
-                            .icon(SymbolGlyph::Delete)
+                            .icon(Symbol::Delete)
                             .enabled(item_count > 0)
                             .on_click({
                                 let set_count = set_count;

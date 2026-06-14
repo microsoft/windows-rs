@@ -5,9 +5,9 @@ use windows_reactor::*;
 fn app(cx: &mut RenderCx) -> Element {
     let (toggled, set_toggled) = cx.use_state(false);
     let icon = if toggled {
-        SymbolGlyph::Save
+        Symbol::Save
     } else {
-        SymbolGlyph::Favorite
+        Symbol::Favorite
     };
     let status = if toggled { "Save" } else { "Favorite" };
 

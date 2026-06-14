@@ -10,7 +10,7 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         button("Show Flyout").flyout("Hello from the flyout!"),
         button("Bottom Flyout")
-            .flyout_with_placement(format!("Clicked {count} times"), FlyoutPlacement::Bottom),
+            .flyout_with_placement(format!("Clicked {count} times"), FlyoutPlacementMode::Bottom),
         button("Increment").on_click(bump),
     ))
     .spacing(8.0)

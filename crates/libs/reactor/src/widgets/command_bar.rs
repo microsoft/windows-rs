@@ -6,12 +6,12 @@ pub enum CommandBarCommandDef {
     /// A clickable button with optional icon and label.
     Button {
         label: String,
-        icon: Option<SymbolGlyph>,
+        icon: Option<Symbol>,
     },
     /// A toggle button with optional icon and label.
     Toggle {
         label: String,
-        icon: Option<SymbolGlyph>,
+        icon: Option<Symbol>,
     },
     /// A visual separator.
     Separator,
@@ -26,7 +26,7 @@ pub fn app_bar_button(label: impl Into<String>) -> CommandBarCommandDef {
 }
 
 /// Builder for a command bar button with icon.
-pub fn app_bar_button_icon(label: impl Into<String>, icon: SymbolGlyph) -> CommandBarCommandDef {
+pub fn app_bar_button_icon(label: impl Into<String>, icon: Symbol) -> CommandBarCommandDef {
     CommandBarCommandDef::Button {
         label: label.into(),
         icon: Some(icon),
@@ -42,7 +42,7 @@ pub fn app_bar_toggle(label: impl Into<String>) -> CommandBarCommandDef {
 }
 
 /// Builder for a command bar toggle button with icon.
-pub fn app_bar_toggle_icon(label: impl Into<String>, icon: SymbolGlyph) -> CommandBarCommandDef {
+pub fn app_bar_toggle_icon(label: impl Into<String>, icon: Symbol) -> CommandBarCommandDef {
     CommandBarCommandDef::Toggle {
         label: label.into(),
         icon: Some(icon),

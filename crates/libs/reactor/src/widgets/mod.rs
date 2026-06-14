@@ -33,7 +33,6 @@ macro_rules! widget_modules {
 }
 
 widget_modules! {
-    icon,
     auto_suggest_box,
     border,
     breadcrumb_bar,

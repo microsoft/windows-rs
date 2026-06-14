@@ -137,9 +137,6 @@ pub struct RichTextBlock {
     pub text_wrapping: TextWrapping,
 }
 
-/// Backward-compat alias.
-pub type RichText = RichTextBlock;
-
 impl RichTextBlock {
     pub fn new() -> Self {
         Self::default()
@@ -568,15 +565,4 @@ pub fn flip_view<T: 'static, R: Into<Element>>(
     view: impl Fn(&T, usize) -> R + 'static,
 ) -> TemplatedListBuilder<T> {
     TemplatedListBuilder::new(TemplatedKind::FlipView, items, view)
-}
-
-/// Alias for [`list_view`] — exposes the same virtualised
-/// `Microsoft.UI.Xaml.Controls.ListView` adapter under the name used in
-/// the public roadmap (W1). Convert / route the result the same way as
-/// any other [`Element`].
-pub fn virtual_list<T: 'static, R: Into<Element>>(
-    items: Vec<T>,
-    view: impl Fn(&T, usize) -> R + 'static,
-) -> TemplatedListBuilder<T> {
-    list_view(items, view)
 }

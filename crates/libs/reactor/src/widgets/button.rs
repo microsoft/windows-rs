@@ -25,7 +25,7 @@ pub struct Button {
     pub content: String,
     pub is_enabled: bool,
     pub style: ButtonStyle,
-    pub icon: Option<SymbolGlyph>,
+    pub icon: Option<Symbol>,
     pub on_click: Option<Callback<()>>,
     pub flyout: Option<FlyoutDef>,
     pub menu_flyout_items: Option<Vec<MenuItemDef>>,
@@ -70,7 +70,7 @@ impl Widget for Button {
                 Prop::FlyoutContent,
                 PropValue::Str(fly.text.clone()),
             ));
-            if fly.placement != FlyoutPlacement::default() {
+            if fly.placement != FlyoutPlacementMode::default() {
                 out.push(Binding::Prop(
                     Prop::FlyoutPlacement,
                     PropValue::I32(fly.placement.0),
@@ -119,7 +119,7 @@ impl Button {
         self
     }
 
-    pub fn icon(mut self, sym: SymbolGlyph) -> Self {
+    pub fn icon(mut self, sym: Symbol) -> Self {
         self.icon = Some(sym);
         self
     }
@@ -127,7 +127,7 @@ impl Button {
     pub fn flyout(mut self, text: impl Into<String>) -> Self {
         self.flyout = Some(FlyoutDef {
             text: text.into(),
-            placement: FlyoutPlacement::default(),
+            placement: FlyoutPlacementMode::default(),
         });
         self
     }
@@ -135,7 +135,7 @@ impl Button {
     pub fn flyout_with_placement(
         mut self,
         text: impl Into<String>,
-        placement: FlyoutPlacement,
+        placement: FlyoutPlacementMode,
     ) -> Self {
         self.flyout = Some(FlyoutDef {
             text: text.into(),

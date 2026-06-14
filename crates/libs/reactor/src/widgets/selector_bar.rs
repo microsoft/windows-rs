@@ -6,7 +6,7 @@ pub struct SelectorBarItemDef {
     /// Display text.
     pub text: String,
     /// Optional symbol icon.
-    pub icon: Option<SymbolGlyph>,
+    pub icon: Option<Symbol>,
 }
 
 impl SelectorBarItemDef {
@@ -17,7 +17,7 @@ impl SelectorBarItemDef {
         }
     }
 
-    pub fn icon(mut self, icon: SymbolGlyph) -> Self {
+    pub fn icon(mut self, icon: Symbol) -> Self {
         self.icon = Some(icon);
         self
     }

@@ -12,10 +12,10 @@ pub fn shell(cx: &mut RenderCx) -> Element {
     let nav_items = vec![
         NavViewItem::new("Swap Chain Panel")
             .tag("swap-chain")
-            .icon(SymbolGlyph::Play),
+            .icon(Symbol::Play),
         NavViewItem::new("Surface Image Source")
             .tag("surface-image-source")
-            .icon(SymbolGlyph::Camera),
+            .icon(Symbol::Camera),
     ];
 
     let content: Element = match selected_tag.as_str() {

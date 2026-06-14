@@ -15,14 +15,14 @@ fn app(cx: &mut RenderCx) -> Element {
 
     NavigationView::new(
         [
-            NavViewItem::new("Home").tag("home").icon(SymbolGlyph::Home),
-            NavViewItem::new("Mail").tag("mail").icon(SymbolGlyph::Mail),
+            NavViewItem::new("Home").tag("home").icon(Symbol::Home),
+            NavViewItem::new("Mail").tag("mail").icon(Symbol::Mail),
             NavViewItem::new("People")
                 .tag("people")
-                .icon(SymbolGlyph::People),
+                .icon(Symbol::People),
             NavViewItem::new("Settings")
                 .tag("settings")
-                .icon(SymbolGlyph::Setting),
+                .icon(Symbol::Setting),
         ],
         content,
     )
