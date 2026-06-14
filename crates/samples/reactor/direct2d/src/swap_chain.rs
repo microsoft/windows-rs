@@ -76,12 +76,13 @@ mod render {
         pub fn new(
             device: SharedDevice,
             initial_count: u32,
+            initial_size: (u32, u32),
             on_swap_chain: impl FnOnce(SendSwap) + Send + 'static,
             on_device_lost: impl FnOnce() + Send + 'static,
         ) -> Self {
             let (commands, rx) = channel();
             let worker = thread::spawn(move || {
-                match render_loop(rx, device, initial_count, on_swap_chain) {
+                match render_loop(rx, device, initial_count, initial_size, on_swap_chain) {
                     Ok(()) => {}
                     Err(e) if is_device_lost(e.code()) => on_device_lost(),
                     Err(e) => eprintln!("render thread failed: {e}"),
@@ -292,9 +293,10 @@ mod render {
         rx: Receiver<RenderCommand>,
         device: SharedDevice,
         initial_count: u32,
+        initial_size: (u32, u32),
         on_swap_chain: impl FnOnce(SendSwap),
     ) -> Result<()> {
-        let mut size = (400_u32, 300_u32);
+        let mut size = initial_size;
         let mut count = initial_count;
         let mut state = create_d2d_state(&device, size.0, size.1)?;
 
@@ -333,6 +335,7 @@ mod render {
 #[derive(Clone)]
 struct RenderHost {
     panel: HookRef<Option<SwapChainPanelHandle>>,
+    panel_size: HookRef<(u32, u32)>,
     render_thread: HookRef<Option<RenderThread>>,
     try_start: Rc<dyn Fn()>,
 }
@@ -354,6 +357,7 @@ impl RenderHost {
     }
 
     fn resize(&self, width: u32, height: u32) {
+        self.panel_size.set((width, height));
         if let Some(r) = self.render_thread.borrow().as_ref() {
             r.resize(width, height);
         }
@@ -365,6 +369,7 @@ impl RenderHost {
 fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHost {
     let device = gpu.as_ref().and_then(Gpu::device);
     let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
+    let panel_size = cx.use_ref::<(u32, u32)>((400, 300));
     let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
     // Which device the live worker was started with, to avoid respawning it for
@@ -378,6 +383,7 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
 
     let try_start: Rc<dyn Fn()> = {
         let panel = panel.clone();
+        let panel_size = panel_size.clone();
         let render_thread = render_thread.clone();
         let device = device.clone();
         Rc::new(move || {
@@ -395,9 +401,11 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
             };
             let set_swap_chain = set_swap_chain.clone();
             let set_lost_token = set_lost_token.clone();
+            let size = *panel_size.borrow();
             let thread = RenderThread::new(
                 dev.to_send(),
                 count,
+                size,
                 move |swap| set_swap_chain.call(Some(swap)),
                 move || set_lost_token.call(token),
             );
@@ -447,6 +455,7 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
 
     RenderHost {
         panel,
+        panel_size,
         render_thread,
         try_start,
     }
