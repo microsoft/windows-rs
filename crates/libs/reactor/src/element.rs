@@ -3,10 +3,10 @@ use std::any::{Any, TypeId};
 use std::time::Duration;
 
 // Extension hatch for downstream widgets that aren't part of the core
-// [`Element`](crate::element::Element) enum. Leaf-only in step 1a.
+// [`Element`] enum. Leaf-only in step 1a.
 
 /// Out-of-tree widget definition managed by the reconciler via
-/// [`Element::Custom`](crate::element::Element::Custom).
+/// [`Element::Custom`].
 pub trait CustomElement: 'static {
     /// Standard `Any` accessor; the implementor's body is almost always `self`.
     fn as_any(&self) -> &dyn Any;
@@ -29,7 +29,7 @@ pub trait CustomElement: 'static {
     /// returning `false` is always safe but skips an `update` short-circuit.
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool;
 
-    /// Boxed clone so [`Element`](crate::element::Element) stays `Clone`.
+    /// Boxed clone so [`Element`] stays `Clone`.
     fn clone_dyn(&self) -> Box<dyn CustomElement>;
 
     /// Create the underlying control via `backend` and return its id.
@@ -83,7 +83,7 @@ impl PartialEq for CustomElementHandle {
     }
 }
 
-crate::impl_rc_fn_wrapper! {
+impl_rc_fn_wrapper! {
     /// Renders a fallback subtree given a panic message string.
     pub struct Fallback(dyn Fn(&str) -> Element);
 }
@@ -293,7 +293,7 @@ macro_rules! define_element {
         )*
 
         impl Element {
-            pub fn as_widget(&self) -> Option<&dyn crate::widget::Widget> {
+            pub fn as_widget(&self) -> Option<&dyn Widget> {
                 Some(match self {
                     $( Element::$variant(v) => v, )*
                     Element::Component(_)

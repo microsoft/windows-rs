@@ -246,7 +246,7 @@ pub enum Easing {
     EaseInOut,
 }
 
-/// Combined animation block stored on [`Modifiers`](crate::Modifiers)`.animations`. All
+/// Combined animation block stored on [`Modifiers`]`.animations`. All
 /// fields are optional and applied independently by the backend.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct AnimationModifiers {
@@ -270,7 +270,7 @@ impl AnimationModifiers {
 }
 
 /// Effective color scheme reported by
-/// [`crate::RenderCx::use_color_scheme`].
+/// [`RenderCx::use_color_scheme`].
 #[derive(Copy, Clone, Debug, Default, Hash, PartialEq, Eq)]
 pub enum ColorScheme {
     #[default]

@@ -139,7 +139,7 @@ pub enum Backdrop {
 impl Backdrop {
     /// Apply this backdrop material to an existing WinUI window.
     ///
-    /// This is useful for manual window setup in [`crate::app::App::run_custom`]
+    /// This is useful for manual window setup in [`App::run_custom`]
     /// or other custom hosts that do not go through [`ReactorHost`].
     pub fn apply_to(self, window: &impl Interface) -> Result<()> {
         let system_backdrop: SystemBackdrop = match self {

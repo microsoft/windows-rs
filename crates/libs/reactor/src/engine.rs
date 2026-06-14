@@ -280,7 +280,7 @@ impl fmt::Debug for HookSlot {
     }
 }
 
-crate::impl_rc_fn_wrapper! {
+impl_rc_fn_wrapper! {
     /// Setter returned by `use_state`; replaces the slot value and
     /// requests a rerender.
     pub struct SetState<T>(dyn Fn(T));
@@ -300,7 +300,7 @@ impl<T: 'static> From<SetState<T>> for Callback<T> {
 
 type ReducerClosure<T> = Box<dyn FnOnce(T) -> T>;
 
-crate::impl_rc_fn_wrapper! {
+impl_rc_fn_wrapper! {
     /// Functional updater returned by `use_state`; mutates the slot value
     /// via `f(prev) -> next` and requests a rerender.
     pub struct Updater<T>(dyn Fn(ReducerClosure<T>));
@@ -315,7 +315,7 @@ impl<T: 'static> Updater<T> {
     }
 }
 
-crate::impl_rc_fn_wrapper! {
+impl_rc_fn_wrapper! {
     /// Action dispatcher returned by `use_reducer`.
     pub struct Dispatch<A>(dyn Fn(A));
 }

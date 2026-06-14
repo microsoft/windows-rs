@@ -66,7 +66,7 @@ macro_rules! impl_rc_fn_wrapper {
 
 // ─── Callback ───────────────────────────────────────────────────────────
 
-crate::impl_rc_fn_wrapper! {
+impl_rc_fn_wrapper! {
     /// Cheap-to-clone reference-counted callback. Two clones of the same
     /// `Callback` compare equal (`Rc` pointer equality), letting the
     /// reconciler skip rebinding when the same handler is re-rendered.
@@ -138,7 +138,7 @@ impl<T: 'static> IntoCallback<T> for Dispatch<T> {
 // ─── Keyboard ───────────────────────────────────────────────────────────
 
 /// A single keyboard shortcut bound to an element via
-/// [`Modifiers`](crate::Modifiers)`.keyboard_accelerators`.
+/// [`Modifiers`]`.keyboard_accelerators`.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct KeyboardAccelerator {
     pub key: KeyboardKey,
@@ -296,7 +296,7 @@ impl Default for ContextId {
 }
 
 /// Typed lookup key + default for a value made available to descendants
-/// via [`ProviderElement`] and [`RenderCx::use_context()`](crate::RenderCx::use_context).
+/// via [`ProviderElement`] and [`RenderCx::use_context()`].
 pub struct Context<T> {
     pub default: T,
     pub id: ContextId,
@@ -529,7 +529,7 @@ impl<T> Resource<T> {
 }
 
 /// Builder returned by [`Resource::view()`] — call `.loading()` or `.error()`
-/// to override defaults before converting to [`Element`](crate::Element) via `.into()`.
+/// to override defaults before converting to [`Element`] via `.into()`.
 pub struct ResourceView<'a, T, F>
 where
     F: FnOnce(&T) -> Element,
