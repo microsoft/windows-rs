@@ -66,7 +66,8 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = bootstrap::initialize()?;
+    bootstrap()?;
+
     App::new()
         .title("Drag & Drop")
         .inner_size(800.0, 600.0)
