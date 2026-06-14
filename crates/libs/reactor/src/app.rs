@@ -3,12 +3,9 @@ use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
 use super::*;
-use windows_core::HRESULT;
 
 use super::app_shim::*;
 use super::bindings::*;
-
-const E_FAIL: HRESULT = HRESULT(0x80004005u32 as i32);
 
 thread_local! {
 

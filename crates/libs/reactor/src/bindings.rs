@@ -3123,6 +3123,7 @@ impl windows_core::RuntimeName for DropDownButton {
 }
 unsafe impl Send for DropDownButton {}
 unsafe impl Sync for DropDownButton {}
+pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ElementCompositionPreview(windows_core::IUnknown);
