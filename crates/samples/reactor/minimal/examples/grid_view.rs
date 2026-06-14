@@ -24,7 +24,7 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = bootstrap()?;
+    bootstrap()?;
     App::new()
         .title("Sample")
         .eager_templated_realization(true)

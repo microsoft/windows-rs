@@ -8,11 +8,8 @@ use super::app_shim::*;
 use super::bindings::*;
 
 thread_local! {
-
     static HOST_SLOT: RefCell<Option<ReactorHost>> = const { RefCell::new(None) };
-
-    static APP_SLOT: RefCell<Option<Application>> =
-        const { RefCell::new(None) };
+    static APP_SLOT: RefCell<Option<Application>> = const { RefCell::new(None) };
 }
 
 /// Run `f` with the [`ReactorHost`] for the current thread, if any.
