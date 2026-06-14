@@ -830,7 +830,7 @@ fn build_all_cells(data: &[StockItem]) -> Vec<Element> {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap = bootstrap::initialize()?;
+    bootstrap()?;
     let cli = parse_cli();
     let _ = CLI.set(cli);
     App::new()

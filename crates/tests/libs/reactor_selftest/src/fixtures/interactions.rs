@@ -5,11 +5,11 @@
 
 use windows_core::Interface as _;
 
-use windows_reactor::SymbolGlyph;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
-use windows_reactor::dsl::{ElementExt, button, check_box, text_block, text_box};
+use windows_reactor::Element;
+use windows_reactor::Symbol;
 use windows_reactor::vstack;
+use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
+use windows_reactor::{ElementExt, button, check_box, text_block, text_box};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -370,7 +370,7 @@ pub fn button_icon_label_preserved(h: Harness) -> FixtureFuture {
             let (count, set) = cx.use_state(0u32);
             vstack((
                 button(format!("Clicked {count}"))
-                    .icon(SymbolGlyph::Favorite)
+                    .icon(Symbol::Favorite)
                     .on_click(move || set.call(count + 1)),
                 text_block(format!("count={count}")),
             ))
@@ -425,9 +425,9 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
         h.mount(cc(|cx| {
             let (toggled, set) = cx.use_state(false);
             let icon = if toggled {
-                SymbolGlyph::Save
+                Symbol::Save
             } else {
-                SymbolGlyph::Favorite
+                Symbol::Favorite
             };
             vstack((
                 button("Action")

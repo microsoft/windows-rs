@@ -71,7 +71,7 @@ cargo run -p tool_clippy_all    # runs clippy across all crates
 **Never hand-edit generated files.** The pipeline is:
 
 1. **`tool_reactor`** — reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd`
-   metadata → generates `generated_bindings.rs`, `generated_set_prop.rs`,
+   metadata → generates `generated.rs`, `generated_set_prop.rs`,
    `generated_attach_event.rs`, and `generated.txt` filter entries.
 
 2. **`tool_bindings`** — reads filter `.txt` files from `crates/tools/bindings/src/`
@@ -96,7 +96,7 @@ cargo run -p tool_clippy_all    # runs clippy across all crates
 
 ### Reactor architecture
 
-- WinUI backend is in `crates/libs/reactor/src/winui/backend/`.
+- WinUI backend is in `crates/libs/reactor/src/backend/winui/`.
 - The TOML config (`winui.toml`) declares ~52 WinUI controls. Keys are WinUI
   metadata names; the tool infers types, setter patterns, and event handlers
   from `.winmd` files.

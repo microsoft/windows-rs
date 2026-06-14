@@ -1,12 +1,12 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::component::Component;
-use windows_reactor::core::dispatcher::{Dispatcher, DispatcherQueuePriority};
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::render_context::{RenderCx, SetState};
-use windows_reactor::core::render_host::RenderHost;
+use windows_reactor::Component;
+use windows_reactor::RenderHost;
+use windows_reactor::{Dispatcher, DispatcherQueuePriority};
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{Op, RecordingBackend};
+use windows_reactor::{RenderCx, SetState};
 
 type QueuedJob = (DispatcherQueuePriority, Box<dyn FnOnce()>);
 

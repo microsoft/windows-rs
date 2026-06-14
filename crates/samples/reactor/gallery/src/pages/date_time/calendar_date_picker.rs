@@ -14,13 +14,10 @@ pub fn calendar_date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                     calendar_date_picker()
                         .header("Appointment Date")
                         .placeholder_text("Select a date")
-                        .on_changed({
+                        .on_date_changed({
                             let set_selected_date = set_selected_date;
-                            move |value| {
-                                set_selected_date.call(match value {
-                                    Some(date) => format!("Selected: {date}"),
-                                    None => String::from("Selection cleared"),
-                                });
+                            move |date| {
+                                set_selected_date.call(format!("Selected: {date}"));
                             }
                         }),
                     text_block(selected_date).opacity(0.6),
@@ -28,7 +25,7 @@ pub fn calendar_date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                 .spacing(8.0),
                 r#"calendar_date_picker()
     .header(\"Appointment Date\")
-    .on_changed(|value| set_selected_date.call(...))"#,
+    .on_date_changed(|date| set_selected_date.call(...))"#,
             ),
             sample_card(
                 "Disabled CalendarDatePicker",

@@ -1,5 +1,4 @@
 use crate::controls::*;
-use windows_reactor::core::{RichTextBlock, RichTextInline, RichTextParagraph, RichTextRun};
 use windows_reactor::*;
 
 pub fn rich_text_block_page(_: &(), cx: &mut RenderCx) -> Element {

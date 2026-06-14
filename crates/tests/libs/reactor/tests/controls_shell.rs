@@ -1,17 +1,18 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::{
+use windows_reactor::Element;
+use windows_reactor::Reconciler;
+use windows_reactor::text_block;
+use windows_reactor::{
     BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarDefaultLabelPosition, ContentDialog,
     InfoBadge, InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, NavViewItem, NavigationView,
     NavigationViewPaneDisplayMode, Pivot, PivotItem, SelectorBar, SelectorBarItemDef, TabItem,
     TabView, TeachingTip, TeachingTipPlacementMode, TitleBar, TreeNodeDef, TreeView,
     TreeViewSelectionMode,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::dsl::text_block;
+use windows_reactor::{ControlKind, Event, Prop, PropValue};
+use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -25,9 +26,7 @@ fn count_create_ops(ops: &[Op], k: ControlKind) -> usize {
         .count()
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()
@@ -828,7 +827,7 @@ fn teaching_tip_closed_event_fires() {
 fn menu_bar_mounts_with_menu_items() {
     let items = vec![MenuBarItemDef::new(
         "File",
-        vec![windows_reactor::core::element::menu_item("Open")],
+        vec![windows_reactor::menu_item("Open")],
     )];
     let el: Element = MenuBar::new(items.clone()).into();
     let r = mount(&el);

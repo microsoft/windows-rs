@@ -1,9 +1,8 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use windows_reactor::core::dispatcher::{
-    Dispatcher, DispatcherQueuePriority, RunOnDemandDispatcher,
-};
+use windows_reactor::RunOnDemandDispatcher;
+use windows_reactor::{Dispatcher, DispatcherQueuePriority};
 
 fn job(log: Rc<RefCell<Vec<&'static str>>>, tag: &'static str) -> Box<dyn FnOnce()> {
     Box::new(move || log.borrow_mut().push(tag))

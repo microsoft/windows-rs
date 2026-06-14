@@ -12,20 +12,20 @@
 
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::element::{
+use windows_reactor::ElementExt;
+use windows_reactor::Reconciler;
+use windows_reactor::RichTextBlock;
+use windows_reactor::{
     Border, Button, CheckBox, Color, Element, Grid, GridLength, ScrollViewer, StackPanel,
     TextBlock, TextBox, Tooltip, TooltipContent, TooltipPlacement,
 };
-use windows_reactor::core::element::{
+use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
     NavViewItem, NavigationView, NumberBox, PasswordBox, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::rich_text::RichText;
-use windows_reactor::dsl::ElementExt;
+use windows_reactor::{Op, RecordingBackend};
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![
@@ -79,7 +79,10 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
         ("ComboBox", ComboBox::new(["A", "B"]).into()),
         ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
-        ("RichText", RichText::single_paragraph(Vec::new()).into()),
+        (
+            "RichText",
+            RichTextBlock::single_paragraph(Vec::new()).into(),
+        ),
     ]
 }
 

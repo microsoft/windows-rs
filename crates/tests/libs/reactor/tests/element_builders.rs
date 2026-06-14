@@ -1,6 +1,6 @@
-use windows_reactor::core::element::{Element, GridLength, ScrollBarVisibility, Thickness};
-use windows_reactor::dsl::{ElementExt, check_box, scroll_viewer, text_block, text_box};
 use windows_reactor::grid;
+use windows_reactor::{Element, GridLength, ScrollBarVisibility, Thickness};
+use windows_reactor::{ElementExt, check_box, scroll_viewer, text_block, text_box};
 
 #[test]
 fn check_box_default_state() {
@@ -143,8 +143,9 @@ fn min_max_width_and_height_chain_through_element_ext() {
 mod mount {
     use super::*;
     use std::rc::Rc;
-    use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-    use windows_reactor::core::reconciler::Reconciler;
+    use windows_reactor::Reconciler;
+    use windows_reactor::{Op, RecordingBackend};
+    use windows_reactor::{Prop, PropValue};
 
     fn mount_one(el: Element) -> Reconciler<RecordingBackend> {
         let mut r = Reconciler::new(RecordingBackend::new());
@@ -248,14 +249,15 @@ mod mount {
 mod update {
     use super::*;
     use std::rc::Rc;
-    use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-    use windows_reactor::core::reconciler::Reconciler;
+    use windows_reactor::Reconciler;
+    use windows_reactor::{Op, RecordingBackend};
+    use windows_reactor::{Prop, PropValue};
 
     fn reconcile(
         r: &mut Reconciler<RecordingBackend>,
         old: &Element,
         new: &Element,
-        existing: Option<windows_reactor::core::backend::ControlId>,
+        existing: Option<windows_reactor::ControlId>,
     ) {
         r.reconcile(Some(old), new, existing, Rc::new(|| {}));
     }

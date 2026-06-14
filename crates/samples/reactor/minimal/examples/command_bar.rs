@@ -7,11 +7,11 @@ fn app(cx: &mut RenderCx) -> Element {
 
     vstack((
         command_bar(vec![
-            app_bar_button_icon("Add", SymbolGlyph::Add),
-            app_bar_button_icon("Edit", SymbolGlyph::Edit),
+            app_bar_button_icon("Add", Symbol::Add),
+            app_bar_button_icon("Edit", Symbol::Edit),
             app_bar_separator(),
-            app_bar_button_icon("Save", SymbolGlyph::Save),
-            app_bar_button_icon("Delete", SymbolGlyph::Delete),
+            app_bar_button_icon("Save", Symbol::Save),
+            app_bar_button_icon("Delete", Symbol::Delete),
         ])
         .secondary_commands(vec![app_bar_button("Select All"), app_bar_button("Share")])
         .on_click(move |label| set_last_click.call(label)),

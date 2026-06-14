@@ -2,23 +2,23 @@ use crate::controls::page_content;
 use windows_reactor::*;
 
 pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> Element {
-    let icons: Vec<(&str, SymbolGlyph)> = vec![
-        ("Home", SymbolGlyph::Home),
-        ("Setting", SymbolGlyph::Setting),
-        ("Find", SymbolGlyph::Find),
-        ("Mail", SymbolGlyph::Mail),
-        ("Camera", SymbolGlyph::Camera),
-        ("Edit", SymbolGlyph::Edit),
-        ("Favorite", SymbolGlyph::Favorite),
-        ("Flag", SymbolGlyph::Flag),
-        ("World", SymbolGlyph::World),
-        ("Help", SymbolGlyph::Help),
-        ("More", SymbolGlyph::More),
-        ("People", SymbolGlyph::People),
-        ("Add", SymbolGlyph::Add),
-        ("Delete", SymbolGlyph::Delete),
-        ("Save", SymbolGlyph::Save),
-        ("Back", SymbolGlyph::Back),
+    let icons: Vec<(&str, Symbol)> = vec![
+        ("Home", Symbol::Home),
+        ("Setting", Symbol::Setting),
+        ("Find", Symbol::Find),
+        ("Mail", Symbol::Mail),
+        ("Camera", Symbol::Camera),
+        ("Edit", Symbol::Edit),
+        ("Favorite", Symbol::Favorite),
+        ("Flag", Symbol::Flag),
+        ("World", Symbol::World),
+        ("Help", Symbol::Help),
+        ("More", Symbol::More),
+        ("People", Symbol::People),
+        ("Add", Symbol::Add),
+        ("Delete", Symbol::Delete),
+        ("Save", Symbol::Save),
+        ("Back", Symbol::Back),
     ];
 
     let mut cards: Vec<Element> = Vec::new();
@@ -55,7 +55,7 @@ pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> Element {
 
     page_content(
         "Iconography",
-        "Segoe MDL2 Assets icons available through the SymbolGlyph enum.",
+        "Segoe MDL2 Assets icons available through the Symbol enum.",
         vec![icons_grid.into()],
     )
 }

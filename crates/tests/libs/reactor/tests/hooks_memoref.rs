@@ -1,8 +1,8 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::callback::Callback;
-use windows_reactor::core::render_context::RenderCx;
+use windows_reactor::Callback;
+use windows_reactor::RenderCx;
 
 #[test]
 fn memo_first_render_runs_factory() {

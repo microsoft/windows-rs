@@ -32,6 +32,6 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    let _bootstrap_handle = bootstrap::initialize()?;
+    bootstrap()?;
     App::new().title("Diagnostics Demo").render(app)
 }

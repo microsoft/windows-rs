@@ -2,15 +2,16 @@ use std::rc::Rc;
 
 use std::cell::Cell;
 
-use windows_reactor::core::Thickness;
-use windows_reactor::core::backend::{ControlKind, Event, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::{
+use windows_reactor::Element;
+use windows_reactor::Reconciler;
+use windows_reactor::Thickness;
+use windows_reactor::text_block;
+use windows_reactor::{
     Border, Expander, Grid, GridLength, ScrollBarVisibility, ScrollView, ScrollViewer,
     ScrollingScrollBarVisibility, SplitView, Stretch, Viewbox,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::dsl::text_block;
+use windows_reactor::{ControlKind, Event, Prop, PropValue};
+use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -18,9 +19,7 @@ fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     r
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()

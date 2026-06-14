@@ -1,5 +1,5 @@
-use windows_reactor::core::element::Element;
-use windows_reactor::dsl::{ElementExt, button, text_block};
+use windows_reactor::Element;
+use windows_reactor::{ElementExt, button, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

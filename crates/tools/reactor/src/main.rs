@@ -39,22 +39,18 @@ fn main() {
     }
 
     let bindings_code = gen_bindings::generate(&controls);
-    write_if_changed(
-        "crates/libs/reactor/src/core/generated_bindings.rs",
-        &bindings_code,
-        true,
-    );
+    write_if_changed("crates/libs/reactor/src/generated.rs", &bindings_code, true);
 
     let set_prop_code = gen_set_prop::generate(&controls, &resolver);
     write_if_changed(
-        "crates/libs/reactor/src/winui/backend/generated_set_prop.rs",
+        "crates/libs/reactor/src/backend/winui/generated_set_prop.rs",
         &set_prop_code,
         true,
     );
 
     let attach_code = gen_attach::generate(&controls, &resolver);
     write_if_changed(
-        "crates/libs/reactor/src/winui/backend/generated_attach_event.rs",
+        "crates/libs/reactor/src/backend/winui/generated_attach_event.rs",
         &attach_code,
         true,
     );

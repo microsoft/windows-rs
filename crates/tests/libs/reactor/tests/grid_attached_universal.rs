@@ -3,7 +3,7 @@
 //! `Element::attached()` and the reconciler.
 //!
 //! Background: prior to this test, only `TextBlock`, `Button`, `CheckBox`,
-//! `TextBox`, `Grid`, `ScrollViewer`, and `RichText` carried an
+//! `TextBox`, `Grid`, `ScrollViewer`, and `RichTextBlock` carried an
 //! `attached: Option<AttachedProps>` field. The other 20 widget kinds
 //! silently dropped `grid_row`/`grid_column` — `Element::attached_mut`
 //! returned `None` and the chained setters were no-ops. PR #79 patched
@@ -13,19 +13,20 @@
 
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{
+use windows_reactor::Reconciler;
+use windows_reactor::RichTextBlock;
+use windows_reactor::{
     Border, Button, CheckBox, Color, Element, Grid, GridLength, ScrollViewer, StackPanel,
     TextBlock, TextBox,
 };
-use windows_reactor::core::element::{
+use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
     NavViewItem, NavigationView, NumberBox, PasswordBox, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::rich_text::RichText;
+use windows_reactor::{Op, RecordingBackend};
+use windows_reactor::{Prop, PropValue};
 
 /// One `Element` per widget variant. Use real, mountable instances so the
 /// reconciler test below also exercises a successful mount.
@@ -81,7 +82,10 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
         ("ComboBox", ComboBox::new(["A", "B"]).into()),
         ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
-        ("RichText", RichText::single_paragraph(Vec::new()).into()),
+        (
+            "RichText",
+            RichTextBlock::single_paragraph(Vec::new()).into(),
+        ),
     ]
 }
 

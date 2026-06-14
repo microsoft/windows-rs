@@ -87,7 +87,7 @@ fn install_inner() {
     }));
 }
 
-pub(crate) fn emit(msg: &str) {
+pub fn emit(msg: &str) {
     let mut stderr = std::io::stderr().lock();
     let _ = stderr.write_all(msg.as_bytes());
     if !msg.ends_with('\n') {

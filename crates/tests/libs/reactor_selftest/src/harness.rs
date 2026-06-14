@@ -23,10 +23,10 @@ use crate::bindings::{
 };
 use crate::bindings::{SolidColorBrush, VisualTreeHelper};
 
-use windows_reactor::core::component::Component;
-use windows_reactor::core::render_host::RenderHost;
-use windows_reactor::winui::WinUIBackend;
-use windows_reactor::winui::dispatcher::WinUIDispatcher;
+use windows_reactor::Component;
+use windows_reactor::RenderHost;
+use windows_reactor::WinUIBackend;
+use windows_reactor::WinUIDispatcher;
 
 use crate::exec::YieldLow;
 
@@ -106,8 +106,8 @@ impl Harness {
             .cast::<crate::bindings::IGrid>()?
             .get_ColumnDefinitions()?;
         let star_one = GridLength {
-            Value: 1.0,
-            GridUnitType: GridUnitType::Star,
+            value: 1.0,
+            grid_unit_type: GridUnitType::Star,
         };
         for i in 0..total {
             let cd = ColumnDefinition::new()?;
@@ -133,18 +133,18 @@ impl Harness {
             .put_Background(&solid_brush(180, 0, 0, 0)?)?;
         pill.cast::<crate::bindings::IBorder>()?.put_CornerRadius(
             crate::bindings::CornerRadius {
-                TopLeft: 4.0,
-                TopRight: 4.0,
-                BottomRight: 4.0,
-                BottomLeft: 4.0,
+                top_left: 4.0,
+                top_right: 4.0,
+                bottom_right: 4.0,
+                bottom_left: 4.0,
             },
         )?;
         pill.cast::<crate::bindings::IBorder>()?
             .put_Padding(Thickness {
-                Left: 8.0,
-                Top: 2.0,
-                Right: 8.0,
-                Bottom: 2.0,
+                left: 8.0,
+                top: 2.0,
+                right: 8.0,
+                bottom: 2.0,
             })?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
             .put_HorizontalAlignment(HorizontalAlignment::Left)?;
@@ -152,10 +152,10 @@ impl Harness {
             .put_VerticalAlignment(VerticalAlignment::Center)?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
             .put_Margin(Thickness {
-                Left: 12.0,
-                Top: 0.0,
-                Right: 0.0,
-                Bottom: 0.0,
+                left: 12.0,
+                top: 0.0,
+                right: 0.0,
+                bottom: 0.0,
             })?;
         pill.cast::<crate::bindings::IUIElement>()?
             .put_IsHitTestVisible(false)?;
@@ -185,8 +185,8 @@ impl Harness {
             .cast::<crate::bindings::IGrid>()?
             .get_RowDefinitions()?;
         let auto = GridLength {
-            Value: 0.0,
-            GridUnitType: GridUnitType::Auto,
+            value: 0.0,
+            grid_unit_type: GridUnitType::Auto,
         };
         let row0 = RowDefinition::new()?;
         row0.cast::<crate::bindings::IRowDefinition>()?
@@ -310,8 +310,7 @@ impl Harness {
 
         let host_for_post = host.clone_inner();
         let content = inner.content_area.clone();
-        let last_attached: Rc<Cell<Option<windows_reactor::core::backend::ControlId>>> =
-            Rc::new(Cell::new(None));
+        let last_attached: Rc<Cell<Option<windows_reactor::ControlId>>> = Rc::new(Cell::new(None));
         host.set_post_render(move |new_id| {
             if last_attached.get() == new_id {
                 return;
@@ -865,12 +864,7 @@ fn solid_brush(a: u8, r: u8, g: u8, b: u8) -> Result<SolidColorBrush> {
     let brush = SolidColorBrush::new()?;
     brush
         .cast::<crate::bindings::ISolidColorBrush>()?
-        .put_Color(Color {
-            A: a,
-            R: r,
-            G: g,
-            B: b,
-        })?;
+        .put_Color(Color { a, r, g, b })?;
     Ok(brush)
 }
 

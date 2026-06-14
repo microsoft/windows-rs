@@ -1,19 +1,11 @@
-/// Returned by [`initialize`]; calls `MddBootstrapShutdown` on drop.
-pub struct BootstrapHandle;
-
-impl Drop for BootstrapHandle {
-    fn drop(&mut self) {
-        unsafe { crate::bindings::MddBootstrapShutdown() };
-    }
-}
+use super::bindings::*;
 
 /// Initializes the Windows App Runtime bootstrap for apps that rely on
 /// framework-dependent deployment.
 ///
 /// Call once at the top of `main` and keep the returned handle alive for the
 /// duration of the process. Self-contained apps do not need to call this.
-pub fn initialize() -> windows_core::Result<BootstrapHandle> {
-    use crate::bindings::*;
+pub fn bootstrap() -> windows_core::Result<()> {
     unsafe {
         MddBootstrapInitialize2(
             WINDOWSAPPSDK_RELEASE_MAJORMINOR as u32,
@@ -26,7 +18,6 @@ pub fn initialize() -> windows_core::Result<BootstrapHandle> {
             MddBootstrapInitializeOptions_OnNoMatch_ShowUI
                 | MddBootstrapInitializeOptions_OnPackageIdentity_NOOP,
         )
-        .ok()?;
+        .ok()
     }
-    Ok(BootstrapHandle)
 }

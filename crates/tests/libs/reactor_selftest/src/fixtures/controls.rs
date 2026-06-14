@@ -1,18 +1,19 @@
-use windows_reactor::core::element::BreadcrumbBar;
-use windows_reactor::core::element::{
+use windows_reactor::BreadcrumbBar;
+use windows_reactor::{
     Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar, NavViewItem,
     NavigationView, NumberBox, PasswordBox, PasswordRevealMode, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch, Viewbox,
 };
-use windows_reactor::core::element::{Color, GridLength};
-use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextRun};
-use windows_reactor::core::templated_list::{flip_view, grid_view, list_view, virtual_list};
-use windows_reactor::dsl::{
+use windows_reactor::{Color, GridLength};
+use windows_reactor::{
     ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
+use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
+use windows_reactor::{flip_view, grid_view, list_view};
 
 use crate::bindings;
+use windows_core::Interface;
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -317,7 +318,7 @@ pub fn mount_line(h: Harness) -> FixtureFuture {
 pub fn mount_rich_text(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
-            RichText::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain(
+            RichTextBlock::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain(
                 "rich content",
             ))])
             .into()
@@ -350,6 +351,45 @@ pub fn mount_templated_list_view(h: Harness) -> FixtureFuture {
     })
 }
 
+pub fn mount_reorderable_list_view(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_| {
+            list_view(vec![1i32, 2, 3], |n, _| text_block(format!("#{n}")))
+                .can_drag_items(true)
+                .can_reorder_items(true)
+                .allow_drop(true)
+                .height(120.0)
+                .build()
+        }));
+        h.render().await;
+        assert_present!(
+            h,
+            "Reconciler_Mount_ReorderableListView",
+            bindings::ListView
+        );
+
+        let lv = h.find_all::<bindings::ListView>(&|_| true);
+        let lv = lv.first().expect("ListView not found");
+        let lvb: bindings::IListViewBase = lv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_CanDragItems",
+            true,
+            lvb.get_CanDragItems().unwrap(),
+        );
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_CanReorderItems",
+            true,
+            lvb.get_CanReorderItems().unwrap(),
+        );
+        let ui: bindings::IUIElement = lv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableListView_AllowDrop",
+            true,
+            ui.get_AllowDrop().unwrap(),
+        );
+    })
+}
+
 pub fn mount_templated_grid_view(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -359,6 +399,45 @@ pub fn mount_templated_grid_view(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
         assert_present!(h, "Reconciler_Mount_TemplatedGridView", bindings::GridView);
+    })
+}
+
+pub fn mount_reorderable_grid_view(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_| {
+            grid_view(vec![1i32, 2, 3], |n, _| text_block(format!("#{n}")))
+                .can_drag_items(true)
+                .can_reorder_items(true)
+                .allow_drop(true)
+                .height(120.0)
+                .build()
+        }));
+        h.render().await;
+        assert_present!(
+            h,
+            "Reconciler_Mount_ReorderableGridView",
+            bindings::GridView
+        );
+
+        let gv = h.find_all::<bindings::GridView>(&|_| true);
+        let gv = gv.first().expect("GridView not found");
+        let lvb: bindings::IListViewBase = gv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableGridView_CanDragItems",
+            true,
+            lvb.get_CanDragItems().unwrap(),
+        );
+        h.check_eq(
+            "Reconciler_Mount_ReorderableGridView_CanReorderItems",
+            true,
+            lvb.get_CanReorderItems().unwrap(),
+        );
+        let ui: bindings::IUIElement = gv.cast().unwrap();
+        h.check_eq(
+            "Reconciler_Mount_ReorderableGridView_AllowDrop",
+            true,
+            ui.get_AllowDrop().unwrap(),
+        );
     })
 }
 
@@ -380,15 +459,14 @@ pub fn mount_templated_flip_view(h: Harness) -> FixtureFuture {
 pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
-            virtual_list(vec![1i32, 2, 3, 4, 5], |n, _| {
+            list_view(vec![1i32, 2, 3, 4, 5], |n, _| {
                 text_block(format!("row #{n}"))
             })
             .height(120.0)
             .build()
         }));
         h.render().await;
-        // `virtual_list` is an alias for `list_view` — the WinUI control
-        // backing it is still ListView. Item containers are realized
+        // list_view creates a WinUI ListView. Item containers are realized
         // lazily via ContainerContentChanging (same as mount_tab_view
         // above), so we don't assert on row TextBlocks here — the
         // presence of the ListView is sufficient to confirm mount.

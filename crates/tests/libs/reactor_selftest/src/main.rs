@@ -28,7 +28,7 @@ mod registry;
 use crate::bindings::DispatcherQueue;
 
 fn main() -> Result<()> {
-    let _bootstrap = bootstrap::initialize()?;
+    bootstrap()?;
     let args: Vec<String> = std::env::args().collect();
 
     if args.iter().any(|a| a == "--list-fixtures") {

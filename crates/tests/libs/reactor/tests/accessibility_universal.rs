@@ -12,19 +12,19 @@
 use std::rc::Rc;
 
 use windows_reactor::ElementExt;
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::element::{
-    AccessibilityModifiers, Border, Button, CheckBox, Color, Element, Grid, GridLength,
-    HeadingLevel, LiveSetting, ScrollViewer, StackPanel, TextBlock, TextBox,
+use windows_reactor::Reconciler;
+use windows_reactor::RichTextBlock;
+use windows_reactor::{
+    AccessibilityModifiers, AutomationHeadingLevel, AutomationLiveSetting, Border, Button,
+    CheckBox, Color, Element, Grid, GridLength, ScrollViewer, StackPanel, TextBlock, TextBox,
 };
-use windows_reactor::core::element::{
+use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
     NavViewItem, NavigationView, NumberBox, PasswordBox, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::rich_text::RichText;
+use windows_reactor::{Op, RecordingBackend};
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![
@@ -78,7 +78,10 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
         ("ComboBox", ComboBox::new(["A", "B"]).into()),
         ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
-        ("RichText", RichText::single_paragraph(Vec::new()).into()),
+        (
+            "RichText",
+            RichTextBlock::single_paragraph(Vec::new()).into(),
+        ),
     ]
 }
 
@@ -87,8 +90,8 @@ fn populated() -> AccessibilityModifiers {
         automation_name: Some("the name".into()),
         automation_id: Some("the-id".into()),
         help_text: Some("help".into()),
-        live_setting: Some(LiveSetting::Polite),
-        heading_level: Some(HeadingLevel::Level2),
+        live_setting: Some(AutomationLiveSetting::Polite),
+        heading_level: Some(AutomationHeadingLevel::Level2),
     }
 }
 
@@ -99,8 +102,8 @@ fn every_widget_variant_round_trips_accessibility_modifiers() {
             .automation_name("the name")
             .automation_id("the-id")
             .help_text("help")
-            .accessibility_live_setting(LiveSetting::Polite)
-            .heading_level(HeadingLevel::Level2);
+            .accessibility_live_setting(AutomationLiveSetting::Polite)
+            .heading_level(AutomationHeadingLevel::Level2);
         let acc = labelled.accessibility().unwrap_or_else(|| {
             panic!("{name}: accessibility builders did not record any modifiers")
         });
@@ -115,8 +118,8 @@ fn every_widget_variant_emits_set_accessibility_on_mount() {
             .automation_name("the name")
             .automation_id("the-id")
             .help_text("help")
-            .accessibility_live_setting(LiveSetting::Polite)
-            .heading_level(HeadingLevel::Level2);
+            .accessibility_live_setting(AutomationLiveSetting::Polite)
+            .heading_level(AutomationHeadingLevel::Level2);
         let mut r = Reconciler::new(RecordingBackend::new());
         let id = r
             .reconcile(None, &labelled, None, Rc::new(|| {}))

@@ -1,7 +1,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::render_context::RenderCx;
+use windows_reactor::RenderCx;
 
 #[test]
 fn use_state_returns_initial_on_first_render() {

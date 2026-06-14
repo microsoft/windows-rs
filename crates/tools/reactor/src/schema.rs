@@ -90,14 +90,14 @@ pub struct PropDecl {
 }
 
 /// Enum-typed setter: maps a `#[repr(i32)]` reactor enum to a WinRT enum.
-/// The `I32` transport means the backend constructs `Xaml::WinUIType(v)` directly.
+/// The `I32` transport means the backend constructs `bindings::WinUIType(v)` directly.
 #[derive(Deserialize, Clone, Debug)]
 pub struct EnumMapSetter {
     /// COM method name (e.g. `"put_Severity"`).
     /// Defaults to `put_{meta_name}`.
     #[serde(default)]
     pub method: Option<String>,
-    /// WinUI enum type relative to `Xaml::` (e.g. `"InfoBarSeverity"`).
+    /// WinUI enum type relative to `bindings::` (e.g. `"InfoBarSeverity"`).
     pub winui_type: String,
 }
 
@@ -109,7 +109,7 @@ impl EnumMapSetter {
 
 /// Resolved setter kind — computed from the TOML fields.
 pub enum SetterKind<'a> {
-    /// Auto-resolved via metadata: `h.cast::<Xaml::{interface}>()?.{method}({arg})?`
+    /// Auto-resolved via metadata: `h.cast::<bindings::{interface}>()?.{method}({arg})?`
     Method {
         method: &'a str,
     },

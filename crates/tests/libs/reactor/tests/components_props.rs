@@ -1,13 +1,14 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, RecordingBackend};
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::{component, memo};
-use windows_reactor::core::element::Element;
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{ElementExt, text_block};
+use windows_reactor::Component;
+use windows_reactor::ControlKind;
+use windows_reactor::Element;
+use windows_reactor::Reconciler;
+use windows_reactor::RenderCx;
+use windows_reactor::{ElementExt, text_block};
+use windows_reactor::{Op, RecordingBackend};
+use windows_reactor::{component, memo};
 
 #[derive(Clone, PartialEq, Debug)]
 struct Greeting {
@@ -29,8 +30,8 @@ fn reconcile(
     r: &mut Reconciler<RecordingBackend>,
     old: Option<&Element>,
     new: &Element,
-    existing: Option<windows_reactor::core::backend::ControlId>,
-) -> Option<windows_reactor::core::backend::ControlId> {
+    existing: Option<windows_reactor::ControlId>,
+) -> Option<windows_reactor::ControlId> {
     r.reconcile(old, new, existing, Rc::new(|| {}))
 }
 
@@ -181,7 +182,7 @@ impl Component<EmptyProps> for UsesStringState {
     fn render(&self, _props: &EmptyProps, cx: &mut RenderCx) -> Element {
         let (s, _set) = cx.use_state("hi".to_string());
 
-        use windows_reactor::core::element::Button;
+        use windows_reactor::Button;
         Element::Button(Button {
             content: format!("str:{s}"),
             ..Button::default()
@@ -204,8 +205,9 @@ fn component_type_swap_does_not_reuse_old_render_cx() {
 
 #[test]
 fn parent_children_mirror_syncs_when_component_swap_changes_inner_id() {
-    use windows_reactor::core::backend::{ControlId, ControlKind, Op};
-    use windows_reactor::core::element::{Orientation, StackPanel};
+    use windows_reactor::Op;
+    use windows_reactor::{ControlId, ControlKind};
+    use windows_reactor::{Orientation, StackPanel};
 
     let stack_a = Element::StackPanel(StackPanel {
         orientation: Orientation::Vertical,
@@ -271,7 +273,7 @@ fn parent_children_mirror_syncs_when_component_swap_changes_inner_id() {
 
 #[test]
 fn unmounted_component_runs_effect_cleanup() {
-    use windows_reactor::core::element::{Orientation, StackPanel};
+    use windows_reactor::{Orientation, StackPanel};
 
     let cleaned = Rc::new(Cell::new(0));
     let inner = component(

@@ -18,21 +18,21 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use windows_reactor::Callback;
 use windows_reactor::ElementExt;
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::callback::Callback;
-use windows_reactor::core::element::{
-    Border, Button, CheckBox, Color, Element, Grid, GridLength, KeyModifiers, KeyboardAccelerator,
-    KeyboardKey, ScrollViewer, StackPanel, TextBlock, TextBox,
+use windows_reactor::Reconciler;
+use windows_reactor::RichTextBlock;
+use windows_reactor::{
+    Border, Button, CheckBox, Color, Element, Grid, GridLength, KeyboardAccelerator, ScrollViewer,
+    StackPanel, TextBlock, TextBox, VirtualKey, VirtualKeyModifiers,
 };
-use windows_reactor::core::element::{
+use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
     NavViewItem, NavigationView, NumberBox, PasswordBox, PersonPicture, Pivot, PivotItem,
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::rich_text::RichText;
+use windows_reactor::{Op, RecordingBackend};
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![
@@ -86,12 +86,15 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
         ("ComboBox", ComboBox::new(["A", "B"]).into()),
         ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
-        ("RichText", RichText::single_paragraph(Vec::new()).into()),
+        (
+            "RichText",
+            RichTextBlock::single_paragraph(Vec::new()).into(),
+        ),
     ]
 }
 
 fn save_accel() -> KeyboardAccelerator {
-    KeyboardAccelerator::new(KeyboardKey::S, KeyModifiers::CONTROL, || {})
+    KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, || {})
 }
 
 #[test]
@@ -102,14 +105,16 @@ fn every_widget_variant_round_trips_keyboard_accelerators() {
         let mods = labelled.modifiers().unwrap_or_else(|| {
             panic!("{name}: widget has no modifiers? — keyboard_accelerator should have recorded")
         });
-        let list = mods.keyboard_accelerators.as_deref().unwrap_or_else(|| {
-            panic!("{name}: keyboard_accelerator did not record into modifiers")
-        });
+        let list = &mods.keyboard_accelerators;
+        assert!(
+            !list.is_empty(),
+            "{name}: keyboard_accelerator did not record into modifiers"
+        );
         assert_eq!(list.len(), 1, "{name}: expected one accelerator");
-        assert_eq!(list[0].key, KeyboardKey::S, "{name}: key");
+        assert_eq!(list[0].key, VirtualKey::S, "{name}: key");
         assert_eq!(
             list[0].modifiers,
-            KeyModifiers::CONTROL,
+            VirtualKeyModifiers::Control,
             "{name}: modifiers"
         );
         // Cloned `Callback` is `Rc`-pointer-equal to its source, which
@@ -140,8 +145,8 @@ fn every_widget_variant_emits_set_keyboard_accelerators_on_mount() {
                     continue;
                 }
                 assert_eq!(accelerators.len(), 1, "{name}: list length");
-                assert_eq!(accelerators[0].key, KeyboardKey::S);
-                assert_eq!(accelerators[0].modifiers, KeyModifiers::CONTROL);
+                assert_eq!(accelerators[0].key, VirtualKey::S);
+                assert_eq!(accelerators[0].modifiers, VirtualKeyModifiers::Control);
                 found = true;
             }
         }
@@ -151,11 +156,11 @@ fn every_widget_variant_emits_set_keyboard_accelerators_on_mount() {
 
 #[test]
 fn multiple_accelerators_preserve_insertion_order() {
-    let a = KeyboardAccelerator::new(KeyboardKey::S, KeyModifiers::CONTROL, || {});
-    let b = KeyboardAccelerator::new(KeyboardKey::Escape, KeyModifiers::NONE, || {});
+    let a = KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, || {});
+    let b = KeyboardAccelerator::new(VirtualKey::Escape, VirtualKeyModifiers::None, || {});
     let c = KeyboardAccelerator::new(
-        KeyboardKey::F,
-        KeyModifiers::CONTROL | KeyModifiers::SHIFT,
+        VirtualKey::F,
+        VirtualKeyModifiers::Control | VirtualKeyModifiers::Shift,
         || {},
     );
     let el: Element = Button::new("b").into();
@@ -177,12 +182,12 @@ fn multiple_accelerators_preserve_insertion_order() {
         .collect();
     assert_eq!(ops.len(), 1);
     assert_eq!(ops[0].len(), 3);
-    assert_eq!(ops[0][0].key, KeyboardKey::S);
-    assert_eq!(ops[0][1].key, KeyboardKey::Escape);
-    assert_eq!(ops[0][2].key, KeyboardKey::F);
+    assert_eq!(ops[0][0].key, VirtualKey::S);
+    assert_eq!(ops[0][1].key, VirtualKey::Escape);
+    assert_eq!(ops[0][2].key, VirtualKey::F);
     assert_eq!(
         ops[0][2].modifiers,
-        KeyModifiers::CONTROL | KeyModifiers::SHIFT
+        VirtualKeyModifiers::Control | VirtualKeyModifiers::Shift
     );
 }
 
@@ -210,8 +215,8 @@ fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
     // empty list when cleared, so the WinUI backend can clear the
     // `UIElement.KeyboardAccelerators` collection).
     let plain: Element = Button::new("b").into();
-    let accel_a = KeyboardAccelerator::new(KeyboardKey::S, KeyModifiers::CONTROL, || {});
-    let accel_b = KeyboardAccelerator::new(KeyboardKey::Escape, KeyModifiers::NONE, || {});
+    let accel_a = KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, || {});
+    let accel_b = KeyboardAccelerator::new(VirtualKey::Escape, VirtualKeyModifiers::None, || {});
     let labelled: Element = Button::new("b")
         .keyboard_accelerator(accel_a.clone())
         .into();
@@ -246,7 +251,7 @@ fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
         .collect();
     assert_eq!(ops.len(), 1, "expected one SetKeyboardAccelerators on add");
     assert_eq!(ops[0].len(), 1);
-    assert_eq!(ops[0][0].key, KeyboardKey::S);
+    assert_eq!(ops[0][0].key, VirtualKey::S);
 
     // Append a second accelerator — update path should re-set the
     // full list.
@@ -263,7 +268,7 @@ fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
         .collect();
     assert_eq!(ops.len(), 1, "expected one op on append");
     assert_eq!(ops[0].len(), 2);
-    assert_eq!(ops[0][1].key, KeyboardKey::Escape);
+    assert_eq!(ops[0][1].key, VirtualKey::Escape);
 
     // Clear all accelerators — update path should emit an empty
     // list so the backend can clear the WinUI collection.
@@ -291,8 +296,8 @@ fn stable_callback_identity_does_not_redundantly_emit_op() {
     let cb = Callback::<()>::new(|()| {});
     let mk = || {
         Button::new("b").keyboard_accelerator(KeyboardAccelerator {
-            key: KeyboardKey::S,
-            modifiers: KeyModifiers::CONTROL,
+            key: VirtualKey::S,
+            modifiers: VirtualKeyModifiers::Control,
             on_invoked: cb.clone(),
         })
     };
@@ -325,7 +330,7 @@ fn callback_is_the_one_invoked_on_accelerator_fire() {
     // RecordingBackend to "the user pressed Ctrl+S".
     let fired = Rc::new(Cell::new(0_i32));
     let fired_c = Rc::clone(&fired);
-    let accel = KeyboardAccelerator::new(KeyboardKey::S, KeyModifiers::CONTROL, move || {
+    let accel = KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, move || {
         fired_c.set(fired_c.get() + 1);
     });
     let el: Element = Button::new("b").keyboard_accelerator(accel).into();

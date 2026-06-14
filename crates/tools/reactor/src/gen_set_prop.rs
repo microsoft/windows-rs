@@ -47,7 +47,7 @@ enum Body {
     IReference { iface: String, method: String },
     /// `let tb = string_as_textblock(v.as_str())?; {cast}.{method}(&tb)?`
     Textblock { iface: String, method: String },
-    /// `{cast}.{method}(Xaml::{winui_type}(*v))?`
+    /// `{cast}.{method}(bindings::{winui_type}(*v))?`
     EnumMap {
         iface: String,
         method: String,
@@ -127,15 +127,14 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver) -> String {
     format_generated(quote! {
         use super::*;
         use super::convert::string_as_textblock;
-        use crate::bindings as Xaml;
 
         /// Try to handle a `set_prop` call via generated dispatch.
         /// Returns `Ok(true)` if handled, `Ok(false)` to fall through.
-        pub(crate) fn dispatch(
+        pub fn dispatch(
             handle: &Handle,
             prop: Prop,
             value: &PropValue,
-        ) -> windows_core::Result<bool> {
+        ) -> Result<bool> {
             match (prop, value, handle) {
                 #(#all_arms)*
                 _ => return Ok(false),
@@ -339,9 +338,9 @@ fn cast_tokens(iface: &str, wildcard: bool, handle_name: Option<&str>) -> TokenS
     }
     let i = ident(iface);
     if wildcard {
-        quote! { handle.cast_inner::<Xaml::#i>()? }
+        quote! { handle.cast_inner::<bindings::#i>()? }
     } else {
-        quote! { h.cast::<Xaml::#i>()? }
+        quote! { h.cast::<bindings::#i>()? }
     }
 }
 

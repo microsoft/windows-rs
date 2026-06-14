@@ -4,7 +4,6 @@
 
 use std::any::Any;
 
-use windows_reactor::core::backend::{Backend, ControlId, ControlKind, Prop, PropValue};
 use windows_reactor::*;
 
 fn labeled_row(label: &str, value: Element) -> Element {

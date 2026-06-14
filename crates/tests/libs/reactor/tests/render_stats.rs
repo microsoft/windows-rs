@@ -1,12 +1,12 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
-use windows_reactor::core::backend::RecordingBackend;
-use windows_reactor::core::component::Component;
-use windows_reactor::core::dispatcher::{Dispatcher, DispatcherQueuePriority};
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::render_context::{RenderCx, SetState};
-use windows_reactor::core::render_host::RenderHost;
+use windows_reactor::Component;
+use windows_reactor::RecordingBackend;
+use windows_reactor::RenderHost;
+use windows_reactor::{Dispatcher, DispatcherQueuePriority};
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{RenderCx, SetState};
 
 type Job = Box<dyn FnOnce()>;
 
@@ -53,7 +53,7 @@ impl Component for StableTree {
         let children: Vec<Element> = (0..self.children)
             .map(|i| Element::TextBlock(TextBlock::new(format!("row-{i}"))))
             .collect();
-        let mut s = windows_reactor::dsl::vstack(children);
+        let mut s = windows_reactor::vstack(children);
         s.spacing = 4.0;
         Element::StackPanel(s)
     }
