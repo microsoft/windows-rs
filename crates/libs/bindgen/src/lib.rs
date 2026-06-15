@@ -50,10 +50,8 @@ use value::*;
 pub use warnings::*;
 use winmd::*;
 mod method_names;
-mod minimal_filter;
 mod minimal_type_map;
 use method_names::*;
-use minimal_filter::*;
 use minimal_type_map::*;
 
 pub fn builder() -> Bindgen {
@@ -957,26 +955,24 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        // In lean+COM mode, use the method-centric filter and automatic type
-        // closure instead of the traditional type-level include/exclude filter.
-        let minimal_filter = if self.style.has_com() {
-            Some(MinimalFilter::new(&reader, &include))
-        } else {
-            None
-        };
+        // Single filter for all modes. In lean+COM mode the filter parses
+        // method-centric entries (::Method, ::*, ::{a,b}) and the minimal
+        // type closure walks only the requested API surface.
+        let filter = Filter::new(&reader, &include, &exclude);
 
-        let (filter, types) = if let Some(minimal) = &minimal_filter {
-            let (types, filter) = MinimalTypeMap::build(&reader, minimal, &references);
-            (filter, types)
+        let types = if self.style.has_com() {
+            MinimalTypeMap::build(&reader, &filter, &references)
         } else {
-            let filter = Filter::new(&reader, &include, &exclude);
-            let types = TypeMap::filter(&reader, &filter, &references);
-            (filter, types)
+            TypeMap::filter(&reader, &filter, &references)
         };
 
         let derive = Derive::new(&reader, &types, &derive_str);
-        if let Some(implements) = &implements {
-            filter.validate_implements(implements);
+        // In lean+COM mode method entries drive the type closure, not method
+        // demotion, so the validate_implements check is not applicable.
+        if !self.style.has_com() {
+            if let Some(implements) = &implements {
+                filter.validate_implements(implements);
+            }
         }
         let warnings = WarningBuilder::default();
         for message in filter.warnings() {
@@ -1001,7 +997,6 @@ impl Bindgen {
             warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
-            minimal_filter: minimal_filter.as_ref(),
         };
 
         let tree = TypeTree::new(&types);

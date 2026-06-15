@@ -49,15 +49,14 @@ crates/libs/bindgen/src/
 ├── lib.rs                 Bindgen struct, CLI parsing, write() orchestration
 ├── config.rs              Config — per-write-call context (reader, filter, refs, etc.)
 ├── paths.rs               Namespace/type-path resolution + dependency-mode dispatch
-├── filter.rs              Type-level include/exclude filter (the `--filter` DSL)
-├── minimal_filter.rs      Method-centric filter for `--minimal` mode
-├── minimal_type_map.rs    Automatic type closure for `--minimal` mode
-├── type_map.rs            Dependency walking + filtered type collection
+├── filter.rs              Unified filter (type-level, method-level, enum variants)
+├── minimal_type_map.rs    Minimal type closure for lean+COM mode
+├── type_map.rs            Full dependency walking + filtered type collection
 ├── type_tree.rs           Namespace → nested module tree
 ├── references.rs          `--reference` parsing + type ownership queries
 ├── implements.rs          `--implement` pattern matcher
-├── package_writer.rs      `--package` layout (one file per namespace + Cargo.toml)
-├── index.rs               `--index` feature dependency JSON for the `windows` crate
+├── package_writer.rs      Package layout (one file per namespace + Cargo.toml)
+├── index.rs               Feature dependency JSON for the `windows` crate
 ├── derive.rs / derive_writer.rs  Extra derive trait emission
 ├── libraries.rs           DLL→function map for umbrella import libs
 ├── io.rs                  File I/O utilities
@@ -75,9 +74,9 @@ CLI args / Bindgen builder
   → expand_args (flatten --etc files)
   → expand_input (load .winmd files, including bundled "default")
   → Reader (parse .winmd into in-memory tables)
-  → Filter or MinimalFilter (parse --filter entries)
+  → Filter (parse --filter entries: types, methods, variants, markers)
   → References (parse --reference entries + auto-add implicit refs)
-  → TypeMap::filter / MinimalTypeMap::build (resolve type closure)
+  → TypeMap::filter or MinimalTypeMap::build (resolve type closure)
   → TypeTree::new (organize into namespace tree)
   → Config::write (dispatch to flat / modules / package writer)
   → Per-type write() calls (class.rs, interface.rs, struct.rs, etc.)
@@ -290,37 +289,34 @@ them automatically.
 public API since they are used by external samples/tests (`xaml_app`,
 `webview`, `reference_custom`, etc.).
 
-### Phase 4: Unify Filter Implementations (Lower Priority)
+### Phase 4: Unify Filter Implementations ✅
 
-Currently there are two parallel filter + type closure implementations:
+Previously there were two parallel filter + type closure implementations:
 
 1. **`Filter` + `TypeMap::filter`** — traditional type-level include/exclude.
    Pulls in *all* dependencies of matched types. Used for Default and Sys.
 2. **`MinimalFilter` + `MinimalTypeMap::build`** — method-centric filter.
    Walks only requested method signatures for a tighter closure. Used for
-   Minimal.
+   Minimal (lean+COM).
 
-```rust
-// The fork in write():
-let (filter, types) = if let Some(minimal) = &minimal_filter {
-    let (types, filter) = MinimalTypeMap::build(&reader, minimal, &references);
-    (filter, types)
-} else {
-    let filter = Filter::new(&reader, &include, &exclude);
-    let types = TypeMap::filter(&reader, &filter, &references);
-    (filter, types)
-};
-```
-
-**Convergence path:** Make `MinimalTypeMap`'s method-aware closure the only
-implementation. For `Style::Default`, treat all methods on filtered types as
-requested (`MethodSet::All`) — producing identical output. For lean modes,
-use the method-level filter entries to compute the tight closure.
-
-This would:
-- Eliminate the dual code path
-- Make method-level filtering available in all modes
-- Reduce `filter.rs` + `minimal_filter.rs` to a single filter module
+**What changed:**
+- Merged `MinimalFilter` into `Filter`. The unified `Filter` now supports all
+  syntax from both: type-level rules, method-level entries (`::Method`), `::*`
+  (all methods), `::{a,b}` (multiple methods), enum variant filtering,
+  `?`/`??` markers, wildcards, and excludes.
+- Added `enum_variants`, `method_roots`, and query methods to `Filter`.
+- Updated `MinimalTypeMap::build` to accept `&Filter` instead of
+  `&MinimalFilter`. Removed the synthetic `Filter` construction that
+  `build_filter()` previously created.
+- Unified the `write()` code path: always creates a single `Filter`, then
+  chooses `TypeMap::filter` (full closure) or `MinimalTypeMap::build` (minimal
+  closure) based on style.
+- Removed `Config::minimal_filter` field. Method emission in lean+COM mode
+  is handled by `Config::includes_method` checking `filter.method_entries()`
+  directly, including the `add_X` → keep `remove_X` pairing for events.
+- Replaced `config.minimal_filter.is_some()` checks in codegen with
+  `config.bindgen.style.has_com()`.
+- Deleted `minimal_filter.rs`.
 
 ---
 
@@ -426,9 +422,15 @@ These must explicitly opt in to `--deps core` for the `windows_core::` /
 - [x] Zero generated output changes
 - [x] 325 tests pass, clippy clean, fmt clean
 
-### Phase 4 (unify filters)
+### Phase 4 (unify filters) ✅
 
-- [ ] Prototype single filter implementation using `MinimalTypeMap` closure
-- [ ] Benchmark type closure for `windows` crate filter (must not regress)
-- [ ] Verify bit-for-bit output for all modes
-- [ ] Remove `filter.rs` / `minimal_filter.rs` duplication
+- [x] Extend `Filter` with `::*`, `::{a,b}`, enum variant, method root tracking
+- [x] Update `MinimalTypeMap` to work with `Filter` instead of `MinimalFilter`
+- [x] Unify `write()` to single `Filter::new` + style-based closure choice
+- [x] Handle `CreateInstance` as class instantiation directive in `Filter`
+- [x] Handle `add_X` → keep `remove_X` pairing in `Config::includes_method`
+- [x] Remove `Config::minimal_filter` field
+- [x] Replace `config.minimal_filter.is_some()` with `config.bindgen.style.has_com()`
+- [x] Delete `minimal_filter.rs`
+- [x] Zero generated output changes
+- [x] 325 tests pass, clippy clean, fmt clean

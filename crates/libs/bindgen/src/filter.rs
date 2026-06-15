@@ -1,6 +1,15 @@
 use super::*;
 use std::collections::{BTreeSet, HashMap};
 
+/// Returns true if `method_name` matches either the raw metadata name or the
+/// overload-disambiguated name of `m`.
+fn method_matches(m: MethodDef, method_name: &str) -> bool {
+    if m.name() == method_name {
+        return true;
+    }
+    method_overload_name(m).as_deref() == Some(method_name)
+}
+
 #[derive(Debug, Default)]
 pub struct Filter {
     rules: Vec<(String, bool)>,
@@ -30,6 +39,30 @@ pub struct Filter {
     /// than one `MethodDef` row (i.e. real CLR overloads), so consumers
     /// don't silently lose methods they didn't intend to filter out.
     warnings: Vec<String>,
+    /// Enums with specific variants requested (lean+COM mode).
+    /// Key: (namespace, type_name), Value: which variants to emit.
+    enum_variants: HashMap<(String, String), VariantFilter>,
+    /// Types explicitly mentioned in `::Method` filter entries. Used by the
+    /// minimal type closure to know which classes/interfaces to start from.
+    method_roots: BTreeSet<(String, String)>,
+}
+
+/// Which enum variants are requested.
+#[derive(Debug, Clone)]
+pub enum VariantFilter {
+    /// All variants.
+    All,
+    /// Specific variants by name.
+    Names(BTreeSet<String>),
+}
+
+impl VariantFilter {
+    pub fn includes(&self, name: &str) -> bool {
+        match self {
+            VariantFilter::All => true,
+            VariantFilter::Names(set) => set.contains(name),
+        }
+    }
 }
 
 /// Per-type method filter. Entries are recorded as two parallel sets:
@@ -61,6 +94,19 @@ pub struct MethodFilter {
     drop: BTreeSet<String>,
 }
 
+impl MethodFilter {
+    /// Returns true if the given method name should be included.
+    /// In minimal closure mode: empty keep set means "all methods", non-empty
+    /// means only listed methods.
+    pub fn includes_for_closure(&self, method_name: &str) -> bool {
+        if self.keep.is_empty() {
+            // Empty keep = no method-level filter or ::* = all methods
+            return true;
+        }
+        self.keep.contains(method_name)
+    }
+}
+
 impl Filter {
     #[track_caller]
     pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
@@ -69,6 +115,8 @@ impl Filter {
         let mut trait_only: BTreeSet<(String, String)> = BTreeSet::new();
         let mut full_demote: BTreeSet<(String, String)> = BTreeSet::new();
         let mut warnings: Vec<String> = Vec::new();
+        let mut enum_variants: HashMap<(String, String), VariantFilter> = HashMap::new();
+        let mut method_roots: BTreeSet<(String, String)> = BTreeSet::new();
 
         for filter in include {
             push_filter(
@@ -78,6 +126,8 @@ impl Filter {
                 &mut trait_only,
                 &mut full_demote,
                 &mut warnings,
+                &mut enum_variants,
+                &mut method_roots,
                 filter,
                 true,
             );
@@ -91,6 +141,8 @@ impl Filter {
                 &mut trait_only,
                 &mut full_demote,
                 &mut warnings,
+                &mut enum_variants,
+                &mut method_roots,
                 filter,
                 false,
             );
@@ -110,6 +162,8 @@ impl Filter {
             trait_only,
             full_demote,
             warnings,
+            enum_variants,
+            method_roots,
         }
     }
 
@@ -241,6 +295,30 @@ impl Filter {
         let key = (name.namespace().to_string(), name.name().to_string());
         self.trait_only.contains(&key) || self.full_demote.contains(&key)
     }
+
+    /// Returns the variant filter for a given enum, if one was specified.
+    /// Returns `None` if the enum was included as a plain type (all variants).
+    pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&VariantFilter> {
+        self.enum_variants
+            .get(&(namespace.to_string(), name.to_string()))
+    }
+
+    /// Returns the method filter entries for use by the minimal type closure.
+    /// Each entry is (namespace, type_name, keep_set) where keep_set is empty
+    /// for "all methods" and non-empty for specific methods.
+    pub fn method_entries(&self) -> &HashMap<(String, String), MethodFilter> {
+        &self.methods
+    }
+
+    /// Returns types explicitly mentioned in `::Method` filter entries.
+    pub fn method_roots(&self) -> &BTreeSet<(String, String)> {
+        &self.method_roots
+    }
+
+    /// Returns the include/exclude rules.
+    pub fn rules(&self) -> &[(String, bool)] {
+        &self.rules
+    }
 }
 
 #[track_caller]
@@ -252,6 +330,8 @@ fn push_filter(
     trait_only: &mut BTreeSet<(String, String)>,
     full_demote: &mut BTreeSet<(String, String)>,
     warnings: &mut Vec<String>,
+    enum_variants: &mut HashMap<(String, String), VariantFilter>,
+    method_roots: &mut BTreeSet<(String, String)>,
     filter: &str,
     include: bool,
 ) {
@@ -291,15 +371,32 @@ fn push_filter(
     };
 
     if let Some((type_part, method_part)) = filter.split_once("::") {
-        push_method_filter(
-            reader,
-            methods,
-            warnings,
-            type_part,
-            method_part,
-            include,
-            filter,
-        );
+        // Handle ::* and ::{a,b,c} syntax — expand to individual method entries.
+        let method_parts: Vec<&str> = if method_part == "*" {
+            vec!["*"]
+        } else if method_part.starts_with('{') && method_part.ends_with('}') {
+            method_part[1..method_part.len() - 1]
+                .split(',')
+                .map(|s| s.trim())
+                .filter(|s| !s.is_empty())
+                .collect()
+        } else {
+            vec![method_part]
+        };
+
+        for mp in method_parts {
+            push_method_filter(
+                reader,
+                methods,
+                warnings,
+                enum_variants,
+                method_roots,
+                type_part,
+                mp,
+                include,
+                filter,
+            );
+        }
         return;
     }
 
@@ -408,16 +505,22 @@ fn push_filter(
 }
 
 /// Parse and record a `Ns.Type::Method` (or `!Ns.Type::Method`) entry,
-/// expanding property/event sugar against `reader`. `method_part` may also
-/// be an overload-disambiguated Rust name produced by `[overload("…")]`
-/// (e.g. `InsertKeyFrameWithEasingFunction`), in which case it resolves to
-/// the single `MethodDef` row carrying that attribute value rather than
-/// every row that happens to share the metadata name.
+/// expanding property/event sugar against `reader`. `method_part` may be:
+/// - `*` — all methods on the type
+/// - A single method name (raw or overload-disambiguated)
+///
+/// For `::*` on classes, all non-static required interface methods are
+/// included. For `::*` on enums, all variants are included. The `{a,b}`
+/// multi-method syntax is handled by the caller (split into individual
+/// calls to this function).
 #[track_caller]
+#[allow(clippy::too_many_arguments)]
 fn push_method_filter(
     reader: &Reader,
     methods: &mut HashMap<(String, String), MethodFilter>,
     warnings: &mut Vec<String>,
+    enum_variants: &mut HashMap<(String, String), VariantFilter>,
+    method_roots: &mut BTreeSet<(String, String)>,
     type_part: &str,
     method_part: &str,
     include: bool,
@@ -436,21 +539,106 @@ fn push_method_filter(
         .rsplit_once('.')
         .unwrap_or_else(|| panic!("invalid method filter `{raw}`: expected `Namespace.Type::Method` (the type part must be fully qualified, e.g. `Windows.Foundation.IStringable::ToString`)"));
 
-    // Resolve the type. We need access to its `MethodDef` rows so we can
-    // validate the entry and expand property/event sugar.
+    // Resolve the type.
     let ty = reader
         .with_full_name(namespace, type_name)
         .next()
         .unwrap_or_else(|| panic!("type not found: `{type_part}` (in method filter `{raw}`)"));
 
-    // Class-level method filter: WinRT runtime classes don't carry their own
-    // `MethodDef` rows — the methods exposed via `impl Class { … }` are
-    // forwarders generated from each required interface (instance default,
-    // static factory, activation/composable factory, base interfaces).
-    // Cascade the entry to every required interface that actually exposes
-    // the named method so the existing per-interface demotion + class
-    // forwarder drop in `class.rs` kicks in for free.
+    // Record as a method root for minimal closure tracking.
+    if include {
+        method_roots.insert((namespace.to_string(), type_name.to_string()));
+    }
+
+    // Handle ::* (all methods/variants)
+    if method_part == "*" {
+        match &ty {
+            Type::Class(class) => {
+                let required = class.required_interfaces(reader);
+                for iface in &required {
+                    if matches!(iface.kind, InterfaceKind::Static) {
+                        continue;
+                    }
+                    let key = (
+                        iface.def.namespace().to_string(),
+                        iface.def.name().to_string(),
+                    );
+                    methods.entry(key).or_default();
+                }
+            }
+            Type::Enum(_) | Type::CppEnum(_) => {
+                let key = (namespace.to_string(), type_name.to_string());
+                enum_variants.insert(key, VariantFilter::All);
+            }
+            _ => {
+                let key = (namespace.to_string(), type_name.to_string());
+                methods.entry(key).or_default();
+            }
+        }
+        return;
+    }
+
+    // Handle enum variant entries
+    match &ty {
+        Type::Enum(e) => {
+            assert!(
+                e.def.fields().any(
+                    |f| f.flags().contains(FieldAttributes::Literal) && f.name() == method_part
+                ),
+                "variant `{method_part}` not found on enum `{type_part}` \
+                 (in filter entry `{raw}`)"
+            );
+            let key = (namespace.to_string(), type_name.to_string());
+            let set = enum_variants
+                .entry(key)
+                .or_insert_with(|| VariantFilter::Names(BTreeSet::new()));
+            if let VariantFilter::Names(names) = set {
+                names.insert(method_part.to_string());
+            }
+            return;
+        }
+        Type::CppEnum(e) => {
+            assert!(
+                e.def.fields().any(
+                    |f| f.flags().contains(FieldAttributes::Literal) && f.name() == method_part
+                ),
+                "variant `{method_part}` not found on enum `{type_part}` \
+                 (in filter entry `{raw}`)"
+            );
+            let key = (namespace.to_string(), type_name.to_string());
+            let set = enum_variants
+                .entry(key)
+                .or_insert_with(|| VariantFilter::Names(BTreeSet::new()));
+            if let VariantFilter::Names(names) = set {
+                names.insert(method_part.to_string());
+            }
+            return;
+        }
+        _ => {}
+    }
+
+    // Class-level method filter: cascade to required interfaces.
     if let Type::Class(class) = &ty {
+        // Special case: `CreateInstance` means "include the class for
+        // instantiation". This isn't a real method on any interface — it's
+        // a filter-level directive that triggers class emission.
+        if method_part == "CreateInstance" {
+            // method_roots already recorded above; the class is included
+            // in the closure via method_roots. Also include composable
+            // factory interfaces so new()/compose() work.
+            let required = class.required_interfaces(reader);
+            for iface in &required {
+                if matches!(iface.kind, InterfaceKind::Composable) {
+                    let key = (
+                        iface.def.namespace().to_string(),
+                        iface.def.name().to_string(),
+                    );
+                    methods.entry(key).or_default();
+                }
+            }
+            return;
+        }
+
         let required = class.required_interfaces(reader);
         let mut any_match = false;
         let mut searched: Vec<String> = Vec::new();
@@ -464,6 +652,7 @@ fn push_method_filter(
                 continue;
             }
             any_match = true;
+
             maybe_warn_ambiguous_overload(
                 warnings,
                 method_part,
@@ -482,6 +671,31 @@ fn push_method_filter(
             );
         }
 
+        // Also search composable factory interfaces for the method.
+        if !any_match {
+            for iface in &required {
+                if matches!(iface.kind, InterfaceKind::Composable)
+                    && iface.def.methods().any(|m| method_matches(m, method_part))
+                {
+                    any_match = true;
+                    break;
+                }
+            }
+        }
+
+        // Include composable factory interfaces so new()/compose() work.
+        if any_match {
+            for iface in &required {
+                if matches!(iface.kind, InterfaceKind::Composable) {
+                    let key = (
+                        iface.def.namespace().to_string(),
+                        iface.def.name().to_string(),
+                    );
+                    methods.entry(key).or_default();
+                }
+            }
+        }
+
         assert!(
             any_match,
             "method `{method_part}` not found on `{type_part}` or any of its \
@@ -495,7 +709,10 @@ fn push_method_filter(
         Type::Interface(t) => t.def,
         Type::CppInterface(t) => t.def,
         Type::Delegate(t) => t.def,
-        _ => panic!("type not found: `{type_part}` (in method filter `{raw}`)"),
+        _ => panic!(
+            "type `{type_part}` is not an interface, delegate, \
+             enum, or class (in filter entry `{raw}`)"
+        ),
     };
     let defs: Vec<MethodDef> = def.methods().collect();
 

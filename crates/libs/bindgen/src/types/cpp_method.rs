@@ -667,10 +667,10 @@ impl CppMethod {
                             } else {
                                 quote! { #name.as_ptr() }
                             };
-                            // In minimal mode, when the param type is a raw pointer
+                            // In lean+COM mode, when the param type is a raw pointer
                             // (not PCWSTR/PCSTR wrapper), the element type matches the
                             // vtable signature — no transmute needed.
-                            if config.minimal_filter.is_some()
+                            if config.bindgen.style.has_com()
                                 && matches!(param.ty, Type::PtrConst(..) | Type::PtrMut(..))
                             {
                                 quote! { #map, }
@@ -713,13 +713,13 @@ impl CppMethod {
                         }
                         ParamHint::Blittable => {
                             if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
-                                if config.minimal_filter.is_some() {
+                                if config.bindgen.style.has_com() {
                                     quote! { #name as _, }
                                 } else {
                                     quote! { #name.0 as _, }
                                 }
-                            } else if config.minimal_filter.is_some() {
-                                // In minimal mode, blittable types ARE their ABI
+                            } else if config.bindgen.style.has_com() {
+                                // In lean+COM mode, blittable types ARE their ABI
                                 // representation — no transmute needed.
                                 quote! { #name, }
                             } else {

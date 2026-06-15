@@ -1,28 +1,23 @@
 use super::*;
 
-/// Computes the minimal type closure for `--minimal` mode.
+/// Computes the minimal type closure for lean+COM mode.
 ///
-/// Starting from the methods and types listed in a [`MinimalFilter`], this
+/// Starting from the methods and types listed in a [`Filter`], this
 /// walks method signatures recursively to discover only the types that are
 /// actually needed by the requested API surface.
 pub struct MinimalTypeMap;
 
 impl MinimalTypeMap {
     /// Build a `TypeMap` containing only the types required by the methods and
-    /// types listed in `filter`. Also returns a `Filter` compatible with the
-    /// existing codegen pipeline (for method demotion queries).
+    /// types listed in `filter`.
     #[track_caller]
-    pub fn build(
-        reader: &Reader,
-        minimal_filter: &MinimalFilter,
-        references: &References,
-    ) -> (TypeMap, Filter) {
+    pub fn build(reader: &Reader, filter: &Filter, references: &References) -> TypeMap {
         let mut types = TypeMap::new();
 
         // 1. Process interface method entries — for each requested interface,
         //    include the interface itself and walk the signatures of requested
         //    methods to pull in their dependent types.
-        for ((namespace, name), method_set) in &minimal_filter.interfaces {
+        for ((namespace, name), method_filter) in filter.method_entries() {
             // Include the interface type itself.
             for ty in reader.with_full_name(namespace, name) {
                 types.insert(ty.clone());
@@ -39,14 +34,12 @@ impl MinimalTypeMap {
                             continue;
                         }
                         types.insert(Type::Interface(required.clone()));
-                        // Also pull in the required interface's type dependencies
-                        // (IUnknown, Object, etc.) minimally.
                         Type::Object.combine_minimal(&mut types, reader, references);
                     }
 
                     // Walk method signatures for the requested methods.
                     for method in iface.def.methods() {
-                        if method_set.includes(method.name()) {
+                        if method_filter.includes_for_closure(method.name()) {
                             let sig = method.method_signature(
                                 iface.def.namespace(),
                                 &iface.generics,
@@ -65,7 +58,7 @@ impl MinimalTypeMap {
                     }
                     // Walk requested method signatures.
                     for method in iface.def.methods() {
-                        if method_set.includes(method.name()) {
+                        if method_filter.includes_for_closure(method.name()) {
                             let sig = method.method_signature(iface.def.namespace(), &[], reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_minimal(&mut types, reader, references);
@@ -76,48 +69,47 @@ impl MinimalTypeMap {
             }
         }
 
-        // 2. Process directly-included types (functions, structs, enums, etc.)
+        // 2. Process directly-included types: classes from method_roots that
+        //    aren't interfaces (resolved to methods map), plus types from
+        //    filter rules that are fully-qualified type entries.
         //    Walk dependencies first via combine_minimal, then force-insert the
         //    type even if it belongs to a reference crate — the filter explicitly
-        //    requests it (e.g. `windows-time` generating its own `DateTime`/
-        //    `TimeSpan` bindings).  The insert must come AFTER combine_minimal so
-        //    that combine_minimal's early-return-if-present guard doesn't skip
-        //    dependency walking for non-reference types.
-        for (namespace, name) in &minimal_filter.types {
+        //    requests it.
+        let method_keys = filter.method_entries();
+
+        // Classes from method entries (in method_roots but not in methods map)
+        for (namespace, name) in filter.method_roots() {
+            if method_keys.contains_key(&(namespace.clone(), name.clone())) {
+                continue;
+            }
             for ty in reader.with_full_name(namespace, name) {
                 ty.combine_minimal(&mut types, reader, references);
                 types.insert(ty.clone());
             }
         }
 
-        // 3. Build a Filter that the existing codegen can query for method
-        //    demotion. We construct include rules for every type in `types`,
-        //    and configure method filters based on the MinimalFilter.
-        let filter = Self::build_filter(reader, minimal_filter, &types);
-
-        (types, filter)
-    }
-
-    /// Build a `Filter` compatible with the existing codegen.
-    ///
-    /// For minimal mode, every type in the type map is "included", and method
-    /// filters demote all methods not explicitly requested.
-    fn build_filter(reader: &Reader, _minimal_filter: &MinimalFilter, types: &TypeMap) -> Filter {
-        // In minimal mode the Filter only needs type-level includes.
-        // Method-level emission is handled directly by Config::includes_method
-        // querying the MinimalFilter with raw names.
-        let mut include: Vec<&str> = Vec::new();
-
-        for type_name in types.keys() {
-            if type_name.namespace().is_empty() {
+        // Plain type entries from filter rules
+        for (rule, include) in filter.rules() {
+            if !include {
                 continue;
             }
-            let full = format!("{}.{}", type_name.namespace(), type_name.name());
-            include.push(full.leak());
+            if let Some((namespace, name)) = rule.rsplit_once('.') {
+                // Skip namespace-level rules (where the "name" is itself a namespace)
+                if reader.with_full_name(namespace, name).next().is_some() {
+                    // Skip types that are already handled via method entries
+                    let key = (namespace.to_string(), name.to_string());
+                    if method_keys.contains_key(&key) || filter.method_roots().contains(&key) {
+                        continue;
+                    }
+                    for ty in reader.with_full_name(namespace, name) {
+                        ty.combine_minimal(&mut types, reader, references);
+                        types.insert(ty.clone());
+                    }
+                }
+            }
         }
 
-        let exclude: Vec<&str> = Vec::new();
-        Filter::new(reader, &include, &exclude)
+        types
     }
 }
 
