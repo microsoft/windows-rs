@@ -59,19 +59,55 @@ impl CppConst {
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
-                    let crate_name = config.write_strings();
-                    let value = constant.value().write();
-
-                    // TODO: if config.no_core then write these literals out as byte strings?
-                    if is_ansi_encoding(self.field) {
-                        quote! {
-                            #cfg
-                            pub const #name: #crate_name PCSTR = #crate_name s!(#value);
+                    if config.bindgen.resolved_deps() == DepMode::None
+                        && config.bindgen.style.is_sys()
+                    {
+                        // With --deps none, the w!/s! macros and PCWSTR/PCSTR
+                        // types are unavailable. Emit an inline null-terminated
+                        // array instead.
+                        let (Value::Utf16(value_str) | Value::Utf8(value_str)) = constant.value()
+                        else {
+                            panic!("expected string constant")
+                        };
+                        if is_ansi_encoding(self.field) {
+                            let bytes: Vec<u8> =
+                                value_str.bytes().chain(std::iter::once(0)).collect();
+                            let len = bytes.len();
+                            let lit_bytes = bytes.iter().map(|b| Literal::u8_unsuffixed(*b));
+                            quote! {
+                                #cfg
+                                pub const #name: PCSTR = {
+                                    const VALUE: [u8; #len] = [#(#lit_bytes),*];
+                                    VALUE.as_ptr()
+                                };
+                            }
+                        } else {
+                            let units: Vec<u16> =
+                                value_str.encode_utf16().chain(std::iter::once(0)).collect();
+                            let len = units.len();
+                            let lit_units = units.iter().map(|u| Literal::u16_unsuffixed(*u));
+                            quote! {
+                                #cfg
+                                pub const #name: PCWSTR = {
+                                    const VALUE: [u16; #len] = [#(#lit_units),*];
+                                    VALUE.as_ptr()
+                                };
+                            }
                         }
                     } else {
-                        quote! {
-                            #cfg
-                            pub const #name: #crate_name PCWSTR = #crate_name w!(#value);
+                        let crate_name = config.write_strings();
+                        let value = constant.value().write();
+
+                        if is_ansi_encoding(self.field) {
+                            quote! {
+                                #cfg
+                                pub const #name: #crate_name PCSTR = #crate_name s!(#value);
+                            }
+                        } else {
+                            quote! {
+                                #cfg
+                                pub const #name: #crate_name PCWSTR = #crate_name w!(#value);
+                            }
                         }
                     }
                 } else {
@@ -167,10 +203,19 @@ impl Dependencies for CppConst {
             }
         }
 
-        self.field
-            .field_type(None, reader)
-            .to_const_type()
-            .combine(dependencies, reader);
+        let ty = self.field.field_type(None, reader).to_const_type();
+
+        // String constants emit PCWSTR/PCSTR in the generated code, so we
+        // need those types in the dependency closure (not Type::String).
+        if ty == Type::String {
+            if is_ansi_encoding(self.field) {
+                Type::PCSTR.combine(dependencies, reader);
+            } else {
+                Type::PCWSTR.combine(dependencies, reader);
+            }
+        } else {
+            ty.combine(dependencies, reader);
+        }
     }
 }
 

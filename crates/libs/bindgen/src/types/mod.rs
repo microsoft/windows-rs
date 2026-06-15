@@ -826,7 +826,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if config.bindgen.deps != DepMode::None || !config.bindgen.style.is_sys() {
+        if config.bindgen.resolved_deps() != DepMode::None || !config.bindgen.style.is_sys() {
             return quote! {};
         }
 

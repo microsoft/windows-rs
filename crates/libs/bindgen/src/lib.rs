@@ -83,7 +83,7 @@ pub fn builder() -> Bindgen {
 /// | `--rustfmt` | Overrides the default Rust formatting. |
 /// | `--derive` | Extra traits for types to derive. |
 /// | `--flat` | Avoids the default namespace-to-module conversion. |
-/// | `--deps` | Selects how generated bindings depend on the `windows-*` crates: `core` (default, uses `windows-core`), `specific` (uses `windows-result`, `windows-strings`, and `windows-link` directly), or `none` (no `windows-*` dependencies). |
+/// | `--deps` | Selects how generated bindings depend on the `windows-*` crates: `core` (uses `windows-core`, default for non-`--sys`), `specific` (uses `windows-result`, `windows-strings`, and `windows-link` directly), or `none` (no `windows-*` dependencies, default for `--sys`). |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. Only valid with `--sys`. |
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
@@ -312,20 +312,44 @@ pub fn builder() -> Bindgen {
 ///
 /// # `--deps`
 ///
-/// By default, `windows-bindgen` uses `windows-core` uniformly for most dependencies to provide
-/// consistency and convenience. The `--deps` option selects an alternative dependency strategy:
+/// The `--deps` option selects how generated bindings depend on the `windows-*` crates.
+/// The default is inferred from the binding style:
 ///
-/// - `--deps core` (default): bindings depend on `windows-core` and use its re-exports for
-///   shared types as well as the `windows_core::link!` macro.
-/// - `--deps specific`: bindings target specific - and much smaller - crates directly
+/// - `--deps core` (default for non-`--sys`): bindings depend on `windows-core` and use its
+///   re-exports for shared types as well as the `windows_core::link!` macro.
+/// - `--deps specific`: bindings target specific — and much smaller — crates directly
 ///   (`windows-result`, `windows-strings`, `windows-link`) instead of going through
 ///   `windows-core`. This can significantly reduce your dependency tree when you don't need
 ///   the full `windows-core` functionality.
-/// - `--deps none`: bindings avoid pulling in any of the `windows-*` crates. This is mostly
-///   useful when generating internal `--sys` bindings inside a crate that cannot itself
-///   depend on the rest of the family.
+/// - `--deps none` (default for `--sys`): bindings avoid pulling in any of the `windows-*`
+///   crates. Shared types like `PCWSTR` and `HRESULT` are emitted as local type aliases
+///   (e.g., `pub type PCWSTR = *const u16`). The only external dependency is `windows-link`.
 ///
-/// Consider the following example using the `WindowsStringHasEmbeddedNull` function:
+/// ## `--sys` bindings
+///
+/// When using `--sys`, the default dependency mode is `none`. This means `--sys` bindings
+/// are standalone by default — you only need a dependency on the tiny `windows-link` crate:
+///
+/// ```rust,no_run
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--flat",
+///     "--sys",
+///     "--filter",
+///     "LoadCursorW",
+/// ];
+///
+/// windows_bindgen::bindgen(args).unwrap();
+/// ```
+///
+/// The generated bindings will use local type aliases and `windows_link::link!` macros
+/// with no other external dependencies.
+///
+/// ## Non-`--sys` bindings
+///
+/// Without `--sys`, the default dependency mode is `core`, which provides rich COM/WinRT
+/// type support through `windows-core`:
 ///
 /// ```rust,no_run
 /// let args = [
@@ -338,9 +362,6 @@ pub fn builder() -> Bindgen {
 ///
 /// windows_bindgen::bindgen(args).unwrap();
 /// ```
-///
-/// By default, the generated bindings will reference `windows_core` types and use the
-/// `windows_core::link!` macro for convenience and consistent dependency management.
 ///
 /// With `--deps specific`:
 ///
@@ -362,10 +383,6 @@ pub fn builder() -> Bindgen {
 /// `windows_result::Result`, and `windows_link::link!` instead of `windows_core`. This allows
 /// for fine-grained dependency management and can significantly reduce your dependency tree if
 /// you don't need the full `windows-core` functionality.
-///
-/// This is not the default because this level of control is not for everyone, but if you
-/// need fine-grained dependency management and want to minimize your dependency tree, this
-/// provides that flexibility.
 ///
 #[track_caller]
 #[must_use]
@@ -491,7 +508,7 @@ pub struct Bindgen {
     link: Option<String>,
     layout: Layout,
     style: Style,
-    deps: DepMode,
+    deps: Option<DepMode>,
     index: bool,
 }
 
@@ -669,14 +686,30 @@ impl Bindgen {
 
     /// Select how generated bindings depend on the `windows-*` crates.
     ///
-    /// - [`DepMode::Core`] (default): bindings depend on `windows-core` and use its
+    /// - [`DepMode::Core`]: bindings depend on `windows-core` and use its
     ///   re-exports for shared types as well as the `windows_core::link!` macro.
+    ///   This is the default for non-`--sys` bindings.
     /// - [`DepMode::Specific`]: bindings depend on `windows-result`, `windows-strings`,
     ///   and `windows-link` directly instead of going through `windows-core`.
     /// - [`DepMode::None`]: bindings avoid pulling in any of the `windows-*` crates.
+    ///   This is the default for `--sys` bindings.
+    ///
+    /// When not explicitly set, the default is inferred from the style:
+    /// `--sys` defaults to `None` (standalone, only `windows-link`), all other
+    /// styles default to `Core`.
     pub fn deps(&mut self, mode: DepMode) -> &mut Self {
-        self.deps = mode;
+        self.deps = Some(mode);
         self
+    }
+
+    /// Returns the effective dependency mode, resolving the default based on
+    /// the current style when `--deps` was not explicitly set.
+    pub(crate) fn resolved_deps(&self) -> DepMode {
+        self.deps.unwrap_or(if self.style.is_sys() {
+            DepMode::None
+        } else {
+            DepMode::Core
+        })
     }
 
     /// Avoid generating the Cargo.toml features when using `package` mode.
@@ -828,7 +861,7 @@ impl Bindgen {
 
         let link = if let Some(link) = self.link.as_deref() {
             link
-        } else if sys || self.deps == DepMode::Specific {
+        } else if sys || self.resolved_deps() == DepMode::Specific {
             "windows_link"
         } else {
             "windows_core"
@@ -849,7 +882,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !sys && self.deps != DepMode::None {
+        if !sys && self.resolved_deps() != DepMode::None {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -857,7 +890,7 @@ impl Bindgen {
             // `prepend_default_refs` so they take precedence over any
             // user-supplied `--reference` entries (matching the historical
             // `references.insert(0, …)` ordering).
-            let win32_foundation_crate = if self.deps == DepMode::Specific {
+            let win32_foundation_crate = if self.resolved_deps() == DepMode::Specific {
                 "windows_result"
             } else {
                 "windows_core"
@@ -1024,15 +1057,14 @@ enum ArgKind {
 /// Selects how generated bindings depend on the `windows-*` crates.
 ///
 /// Used with [`Bindgen::deps`].
-#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DepMode {
-    /// Depend on `windows-core` (the default).
-    #[default]
+    /// Depend on `windows-core`. Default for non-`--sys` styles.
     Core,
     /// Depend on `windows-result`, `windows-strings`, and `windows-link` directly
     /// instead of going through `windows-core`.
     Specific,
-    /// Do not depend on any of the `windows-*` crates.
+    /// Do not depend on any of the `windows-*` crates. Default for `--sys`.
     None,
 }
 

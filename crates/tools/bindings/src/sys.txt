@@ -1,5 +1,5 @@
 --out crates/libs/sys
---package --sys
+--package --sys --deps core
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
