@@ -753,34 +753,6 @@ impl windows_core::RuntimeType for AutomationLiveSetting {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AutomationPeer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    AutomationPeer,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(AutomationPeer, DependencyObject);
-impl windows_core::RuntimeType for AutomationPeer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IAutomationPeer>();
-}
-unsafe impl windows_core::Interface for AutomationPeer {
-    type Vtable = <IAutomationPeer as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IAutomationPeer as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for AutomationPeer {
-    type Target = IAutomationPeer;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for AutomationPeer {
-    const NAME: &'static str = "Microsoft.UI.Xaml.Automation.Peers.AutomationPeer";
-}
-unsafe impl Send for AutomationPeer {}
-unsafe impl Sync for AutomationPeer {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AutomationProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     AutomationProperties,
@@ -1452,20 +1424,6 @@ impl Canvas {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn GetLeft<P0>(element: P0) -> windows_core::Result<f64>
-    where
-        P0: windows_core::Param<UIElement>,
-    {
-        Self::ICanvasStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLeft)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
-        })
-    }
     pub(crate) fn SetLeft<P0>(element: P0, length: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -1477,20 +1435,6 @@ impl Canvas {
                 length,
             )
             .ok()
-        })
-    }
-    pub(crate) fn GetTop<P0>(element: P0) -> windows_core::Result<f64>
-    where
-        P0: windows_core::Param<UIElement>,
-    {
-        Self::ICanvasStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTop)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
         })
     }
     pub(crate) fn SetTop<P0>(element: P0, length: f64) -> windows_core::Result<()>
@@ -2397,55 +2341,6 @@ pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DataTemplate(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    DataTemplate,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(DataTemplate, FrameworkTemplate, DependencyObject);
-impl DataTemplate {
-    pub(crate) fn new() -> windows_core::Result<DataTemplate> {
-        Self::IDataTemplateFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::ptr::null_mut(),
-                core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IDataTemplateFactory<R, F: FnOnce(&IDataTemplateFactory) -> windows_core::Result<R>>(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<DataTemplate, IDataTemplateFactory> =
-            windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for DataTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IDataTemplate>();
-}
-unsafe impl windows_core::Interface for DataTemplate {
-    type Vtable = <IDataTemplate as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IDataTemplate as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for DataTemplate {
-    type Target = IDataTemplate;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for DataTemplate {
-    const NAME: &'static str = "Microsoft.UI.Xaml.DataTemplate";
-}
-unsafe impl Send for DataTemplate {}
-unsafe impl Sync for DataTemplate {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DatePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     DatePicker,
@@ -3347,139 +3242,6 @@ impl windows_core::RuntimeName for FrameworkElement {
 }
 unsafe impl Send for FrameworkElement {}
 unsafe impl Sync for FrameworkElement {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct FrameworkElementAutomationPeer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    FrameworkElementAutomationPeer,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(
-    FrameworkElementAutomationPeer,
-    AutomationPeer,
-    DependencyObject
-);
-impl FrameworkElementAutomationPeer {
-    pub(crate) fn CreateInstanceWithOwner<P0>(
-        owner: P0,
-    ) -> windows_core::Result<FrameworkElementAutomationPeer>
-    where
-        P0: windows_core::Param<FrameworkElement>,
-    {
-        Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceWithOwner)(
-                windows_core::Interface::as_raw(this),
-                owner.param().abi(),
-                core::ptr::null_mut(),
-                core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn FromElement<P0>(element: P0) -> windows_core::Result<AutomationPeer>
-    where
-        P0: windows_core::Param<UIElement>,
-    {
-        Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromElement)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn CreatePeerForElement<P0>(element: P0) -> windows_core::Result<AutomationPeer>
-    where
-        P0: windows_core::Param<UIElement>,
-    {
-        Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePeerForElement)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IFrameworkElementAutomationPeerFactory<
-        R,
-        F: FnOnce(&IFrameworkElementAutomationPeerFactory) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<
-            FrameworkElementAutomationPeer,
-            IFrameworkElementAutomationPeerFactory,
-        > = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IFrameworkElementAutomationPeerStatics<
-        R,
-        F: FnOnce(&IFrameworkElementAutomationPeerStatics) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<
-            FrameworkElementAutomationPeer,
-            IFrameworkElementAutomationPeerStatics,
-        > = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for FrameworkElementAutomationPeer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IFrameworkElementAutomationPeer>();
-}
-unsafe impl windows_core::Interface for FrameworkElementAutomationPeer {
-    type Vtable = <IFrameworkElementAutomationPeer as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID =
-        <IFrameworkElementAutomationPeer as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for FrameworkElementAutomationPeer {
-    type Target = IFrameworkElementAutomationPeer;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for FrameworkElementAutomationPeer {
-    const NAME: &'static str = "Microsoft.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer";
-}
-unsafe impl Send for FrameworkElementAutomationPeer {}
-unsafe impl Sync for FrameworkElementAutomationPeer {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct FrameworkTemplate(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    FrameworkTemplate,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(FrameworkTemplate, DependencyObject);
-impl windows_core::RuntimeType for FrameworkTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IFrameworkTemplate>();
-}
-unsafe impl windows_core::Interface for FrameworkTemplate {
-    type Vtable = <IFrameworkTemplate as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IFrameworkTemplate as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for FrameworkTemplate {
-    type Target = IFrameworkTemplate;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for FrameworkTemplate {
-    const NAME: &'static str = "Microsoft.UI.Xaml.FrameworkTemplate";
-}
-unsafe impl Send for FrameworkTemplate {}
-unsafe impl Sync for FrameworkTemplate {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Grid(windows_core::IUnknown);
@@ -4610,19 +4372,6 @@ pub struct IAutoSuggestBoxTextChangedEventArgs_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
-    IAutomationPeer,
-    IAutomationPeer_Vtbl,
-    0xe51d3e4e_34f0_568c_999f_6277e2afe6d7
-);
-impl windows_core::RuntimeType for IAutomationPeer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IAutomationPeer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
     IAutomationProperties,
     IAutomationProperties_Vtbl,
     0x525c6a71_dd8a_52a0_977b_db1b02f8e896
@@ -5657,22 +5406,14 @@ impl windows_core::RuntimeType for ICanvasStatics {
 pub struct ICanvasStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_LeftProperty: usize,
-    pub GetLeft: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut f64,
-    ) -> windows_core::HRESULT,
+    GetLeft: usize,
     pub SetLeft: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         f64,
     ) -> windows_core::HRESULT,
     get_TopProperty: usize,
-    pub GetTop: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut f64,
-    ) -> windows_core::HRESULT,
+    GetTop: usize,
     pub SetTop: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -6960,38 +6701,6 @@ pub struct ICubicBezierEasingFunction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
-    IDataTemplate,
-    IDataTemplate_Vtbl,
-    0x08fa70fa_ee75_5e92_a101_f52d0e1e9fab
-);
-impl windows_core::RuntimeType for IDataTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDataTemplate_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
-    IDataTemplateFactory,
-    IDataTemplateFactory_Vtbl,
-    0xd8e8249d_305b_5ca5_acf8_3e1beffd0219
-);
-impl windows_core::RuntimeType for IDataTemplateFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDataTemplateFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
     IDatePicker,
     IDatePicker_Vtbl,
     0xca1dc351_3ae3_5247_8263_16bd516c6e72
@@ -8125,75 +7834,6 @@ pub struct IFrameworkElement_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_ActualThemeChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IFrameworkElementAutomationPeer,
-    IFrameworkElementAutomationPeer_Vtbl,
-    0x7dab4f24_605c_51cb_87db_3eed1b9fb37b
-);
-impl windows_core::RuntimeType for IFrameworkElementAutomationPeer {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IFrameworkElementAutomationPeer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
-    IFrameworkElementAutomationPeerFactory,
-    IFrameworkElementAutomationPeerFactory_Vtbl,
-    0x1682c3f8_238d_5c7e_a5a5_08cc3c10ac7c
-);
-impl windows_core::RuntimeType for IFrameworkElementAutomationPeerFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IFrameworkElementAutomationPeerFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstanceWithOwner: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IFrameworkElementAutomationPeerStatics,
-    IFrameworkElementAutomationPeerStatics_Vtbl,
-    0x081f6fbe_6500_528a_a506_f5a4d41ddf6c
-);
-impl windows_core::RuntimeType for IFrameworkElementAutomationPeerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FromElement: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub CreatePeerForElement: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IFrameworkTemplate,
-    IFrameworkTemplate_Vtbl,
-    0x0084c7c2_de48_5b0b_8a5a_e4fb76b7f7d1
-);
-impl windows_core::RuntimeType for IFrameworkTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IFrameworkTemplate_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IGrid, IGrid_Vtbl, 0xc4496219_9014_58a1_b4ad_c5044913a5bb);
 impl windows_core::RuntimeType for IGrid {
@@ -11909,25 +11549,6 @@ pub struct IResourceDictionary_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
-    IResourceDictionaryFactory,
-    IResourceDictionaryFactory_Vtbl,
-    0xea22a48f_ab71_56f6_a392_d82310c8aa7b
-);
-impl windows_core::RuntimeType for IResourceDictionaryFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceDictionaryFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
     IRichEditBox,
     IRichEditBox_Vtbl,
     0x699163db_723d_5514_a8c9_2c64d99e1ea6
@@ -15382,11 +15003,7 @@ impl windows_core::RuntimeType for IToolTipServiceStatics {
 pub struct IToolTipServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_PlacementProperty: usize,
-    pub GetPlacement: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut PlacementMode,
-    ) -> windows_core::HRESULT,
+    GetPlacement: usize,
     pub SetPlacement: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -15396,11 +15013,7 @@ pub struct IToolTipServiceStatics_Vtbl {
     GetPlacementTarget: usize,
     SetPlacementTarget: usize,
     get_ToolTipProperty: usize,
-    pub GetToolTip: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    GetToolTip: usize,
     pub SetToolTip: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -16295,47 +15908,6 @@ pub struct IVisual_Vtbl {
     pub get_Scale: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut windows_numerics::Vector3,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IVisualTreeHelper,
-    IVisualTreeHelper_Vtbl,
-    0x5f69ac1e_6504_5e3f_a11c_87684c1db814
-);
-impl windows_core::RuntimeType for IVisualTreeHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVisualTreeHelper_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
-    IVisualTreeHelperStatics,
-    IVisualTreeHelperStatics_Vtbl,
-    0x5aece43c_7651_5bb5_855c_2198496e455e
-);
-impl windows_core::RuntimeType for IVisualTreeHelperStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVisualTreeHelperStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    FindElementsInHostCoordinatesPoint: usize,
-    FindElementsInHostCoordinatesRect: usize,
-    FindAllElementsInHostCoordinatesPoint: usize,
-    FindAllElementsInHostCoordinatesRect: usize,
-    pub GetChild: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        i32,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub GetChildrenCount: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut i32,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -19695,32 +19267,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 windows_core::imp::required_hierarchy!(ResourceDictionary, DependencyObject);
-impl ResourceDictionary {
-    pub(crate) fn new() -> windows_core::Result<ResourceDictionary> {
-        Self::IResourceDictionaryFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::ptr::null_mut(),
-                core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IResourceDictionaryFactory<
-        R,
-        F: FnOnce(&IResourceDictionaryFactory) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<
-            ResourceDictionary,
-            IResourceDictionaryFactory,
-        > = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
 impl windows_core::RuntimeType for ResourceDictionary {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IResourceDictionary>();
@@ -22630,20 +22176,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl ToolTipService {
-    pub(crate) fn GetPlacement<P0>(element: P0) -> windows_core::Result<PlacementMode>
-    where
-        P0: windows_core::Param<DependencyObject>,
-    {
-        Self::IToolTipServiceStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPlacement)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
-        })
-    }
     pub(crate) fn SetPlacement<P0>(element: P0, value: PlacementMode) -> windows_core::Result<()>
     where
         P0: windows_core::Param<DependencyObject>,
@@ -22655,20 +22187,6 @@ impl ToolTipService {
                 value,
             )
             .ok()
-        })
-    }
-    pub(crate) fn GetToolTip<P0>(element: P0) -> windows_core::Result<windows_core::IInspectable>
-    where
-        P0: windows_core::Param<DependencyObject>,
-    {
-        Self::IToolTipServiceStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetToolTip)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetToolTip<P0, P1>(element: P0, value: P1) -> windows_core::Result<()>
@@ -23447,77 +22965,6 @@ impl windows_core::RuntimeName for Visual {
 }
 unsafe impl Send for Visual {}
 unsafe impl Sync for Visual {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VisualTreeHelper(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    VisualTreeHelper,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl VisualTreeHelper {
-    pub(crate) fn GetChild<P0>(
-        reference: P0,
-        childindex: i32,
-    ) -> windows_core::Result<DependencyObject>
-    where
-        P0: windows_core::Param<DependencyObject>,
-    {
-        Self::IVisualTreeHelperStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetChild)(
-                windows_core::Interface::as_raw(this),
-                reference.param().abi(),
-                childindex,
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn GetChildrenCount<P0>(reference: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<DependencyObject>,
-    {
-        Self::IVisualTreeHelperStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetChildrenCount)(
-                windows_core::Interface::as_raw(this),
-                reference.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
-        })
-    }
-    fn IVisualTreeHelperStatics<
-        R,
-        F: FnOnce(&IVisualTreeHelperStatics) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VisualTreeHelper, IVisualTreeHelperStatics> =
-            windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VisualTreeHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IVisualTreeHelper>();
-}
-unsafe impl windows_core::Interface for VisualTreeHelper {
-    type Vtable = <IVisualTreeHelper as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVisualTreeHelper as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for VisualTreeHelper {
-    type Target = IVisualTreeHelper;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for VisualTreeHelper {
-    const NAME: &'static str = "Microsoft.UI.Xaml.Media.VisualTreeHelper";
-}
-unsafe impl Send for VisualTreeHelper {}
-unsafe impl Sync for VisualTreeHelper {}
 pub const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 131072;
 pub const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: windows_core::PCWSTR = windows_core::w!("");
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562949953486848;
