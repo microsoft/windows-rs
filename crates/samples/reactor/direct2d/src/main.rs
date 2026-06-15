@@ -5,6 +5,7 @@
 
 use windows_reactor::*;
 
+mod device;
 mod shell;
 mod surface_image_source;
 mod swap_chain;
