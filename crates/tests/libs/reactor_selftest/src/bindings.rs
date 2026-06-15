@@ -69,24 +69,6 @@ impl AppBarButton {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<AppBarButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IAppBarButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IAppBarButtonFactory<R, F: FnOnce(&IAppBarButtonFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -141,24 +123,6 @@ impl AppBarSeparator {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<AppBarSeparator>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IAppBarSeparatorFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IAppBarSeparatorFactory<
@@ -221,24 +185,6 @@ impl AppBarToggleButton {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<AppBarToggleButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IAppBarToggleButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IAppBarToggleButtonFactory<
@@ -390,24 +336,6 @@ impl Application {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Application>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IApplicationFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     pub(crate) fn get_Current() -> windows_core::Result<Application> {
@@ -1433,24 +1361,6 @@ impl BreadcrumbBar {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<BreadcrumbBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IBreadcrumbBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IBreadcrumbBarFactory<R, F: FnOnce(&IBreadcrumbBarFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -1556,24 +1466,6 @@ impl Button {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Button>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IButtonFactory<R, F: FnOnce(&IButtonFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -1634,29 +1526,6 @@ impl ButtonAutomationPeer {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn CreateInstanceWithOwner_compose<P0, T>(
-        owner: P0,
-        compose: T,
-    ) -> windows_core::Result<ButtonAutomationPeer>
-    where
-        P0: windows_core::Param<Button>,
-        T: windows_core::Compose,
-    {
-        Self::IButtonAutomationPeerFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceWithOwner)(
-                windows_core::Interface::as_raw(this),
-                owner.param().abi(),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IButtonAutomationPeerFactory<
@@ -1789,24 +1658,6 @@ impl CalendarDatePicker {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<CalendarDatePicker>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ICalendarDatePickerFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ICalendarDatePickerFactory<
         R,
         F: FnOnce(&ICalendarDatePickerFactory) -> windows_core::Result<R>,
@@ -1896,24 +1747,6 @@ impl CalendarView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<CalendarView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ICalendarViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ICalendarViewFactory<R, F: FnOnce(&ICalendarViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -1994,24 +1827,6 @@ impl Canvas {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Canvas>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ICanvasFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     pub(crate) fn GetLeft<P0>(element: P0) -> windows_core::Result<f64>
@@ -2146,24 +1961,6 @@ impl CheckBox {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<CheckBox>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ICheckBoxFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ICheckBoxFactory<R, F: FnOnce(&ICheckBoxFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -2259,24 +2056,6 @@ impl ColorPicker {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ColorPicker>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IColorPickerFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IColorPickerFactory<R, F: FnOnce(&IColorPickerFactory) -> windows_core::Result<R>>(
@@ -2413,24 +2192,6 @@ impl ComboBox {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ComboBox>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IComboBoxFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IComboBoxFactory<R, F: FnOnce(&IComboBoxFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -2486,24 +2247,6 @@ impl CommandBar {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<CommandBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ICommandBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ICommandBarFactory<R, F: FnOnce(&ICommandBarFactory) -> windows_core::Result<R>>(
@@ -2569,24 +2312,6 @@ impl CommandBarFlyout {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<CommandBarFlyout>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ICommandBarFlyoutFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ICommandBarFlyoutFactory<
@@ -2884,24 +2609,6 @@ impl ContentDialog {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ContentDialog>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IContentDialogFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IContentDialogFactory<R, F: FnOnce(&IContentDialogFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -3114,24 +2821,6 @@ impl DataTemplate {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<DataTemplate>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IDataTemplateFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IDataTemplateFactory<R, F: FnOnce(&IDataTemplateFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -3185,24 +2874,6 @@ impl DatePicker {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<DatePicker>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IDatePickerFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IDatePickerFactory<R, F: FnOnce(&IDatePickerFactory) -> windows_core::Result<R>>(
@@ -3405,24 +3076,6 @@ impl DesktopAcrylicBackdrop {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<DesktopAcrylicBackdrop>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IDesktopAcrylicBackdropFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IDesktopAcrylicBackdropFactory<
         R,
         F: FnOnce(&IDesktopAcrylicBackdropFactory) -> windows_core::Result<R>,
@@ -3619,24 +3272,6 @@ impl DropDownButton {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<DropDownButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IDropDownButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IDropDownButtonFactory<R, F: FnOnce(&IDropDownButtonFactory) -> windows_core::Result<R>>(
@@ -3883,24 +3518,6 @@ impl Expander {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Expander>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IExpanderFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IExpanderFactory<R, F: FnOnce(&IExpanderFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -4012,24 +3629,6 @@ impl FlipView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<FlipView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IFlipViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IFlipViewFactory<R, F: FnOnce(&IFlipViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -4073,24 +3672,6 @@ impl Flyout {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Flyout>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IFlyoutFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IFlyoutFactory<R, F: FnOnce(&IFlyoutFactory) -> windows_core::Result<R>>(
@@ -4197,28 +3778,6 @@ impl FontFamily {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn CreateInstanceWithName_compose<T>(
-        familyname: &str,
-        compose: T,
-    ) -> windows_core::Result<FontFamily>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IFontFamilyFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceWithName)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&windows_core::HSTRING::from(familyname)),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IFontFamilyFactory<R, F: FnOnce(&IFontFamilyFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -4316,29 +3875,6 @@ impl FrameworkElementAutomationPeer {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn CreateInstanceWithOwner_compose<P0, T>(
-        owner: P0,
-        compose: T,
-    ) -> windows_core::Result<FrameworkElementAutomationPeer>
-    where
-        P0: windows_core::Param<FrameworkElement>,
-        T: windows_core::Compose,
-    {
-        Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceWithOwner)(
-                windows_core::Interface::as_raw(this),
-                owner.param().abi(),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     pub(crate) fn FromElement<P0>(element: P0) -> windows_core::Result<AutomationPeer>
@@ -4458,38 +3994,6 @@ impl Grid {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Grid>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IGridFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
-    pub(crate) fn GetRow<P0>(element: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<FrameworkElement>,
-    {
-        Self::IGridStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRow)(
-                windows_core::Interface::as_raw(this),
-                element.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
         })
     }
     pub(crate) fn SetRow<P0>(element: P0, value: i32) -> windows_core::Result<()>
@@ -4638,24 +4142,6 @@ impl GridView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<GridView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IGridViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IGridViewFactory<R, F: FnOnce(&IGridViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -4731,24 +4217,6 @@ impl HyperlinkButton {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<HyperlinkButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IHyperlinkButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IHyperlinkButtonFactory<
@@ -11179,11 +10647,7 @@ pub struct IGridStatics_Vtbl {
     get_RowSpacingProperty: usize,
     get_ColumnSpacingProperty: usize,
     get_RowProperty: usize,
-    pub GetRow: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut i32,
-    ) -> windows_core::HRESULT,
+    GetRow: usize,
     pub SetRow: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -20227,24 +19691,6 @@ impl InfoBadge {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<InfoBadge>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IInfoBadgeFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IInfoBadgeFactory<R, F: FnOnce(&IInfoBadgeFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -20298,24 +19744,6 @@ impl InfoBar {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<InfoBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IInfoBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IInfoBarFactory<R, F: FnOnce(&IInfoBarFactory) -> windows_core::Result<R>>(
@@ -20597,24 +20025,6 @@ impl KeyboardAccelerator {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<KeyboardAccelerator>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IKeyboardAcceleratorFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IKeyboardAcceleratorFactory<
         R,
         F: FnOnce(&IKeyboardAcceleratorFactory) -> windows_core::Result<R>,
@@ -20819,24 +20229,6 @@ impl ListBox {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ListBox>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IListBoxFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IListBoxFactory<R, F: FnOnce(&IListBoxFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -20893,24 +20285,6 @@ impl ListView {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ListView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IListViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IListViewFactory<R, F: FnOnce(&IListViewFactory) -> windows_core::Result<R>>(
@@ -21081,24 +20455,6 @@ impl MenuBar {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<MenuBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IMenuBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IMenuBarFactory<R, F: FnOnce(&IMenuBarFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -21154,24 +20510,6 @@ impl MenuBarItem {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<MenuBarItem>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IMenuBarItemFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IMenuBarItemFactory<R, F: FnOnce(&IMenuBarItemFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -21219,24 +20557,6 @@ impl MenuFlyout {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<MenuFlyout>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IMenuFlyoutFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IMenuFlyoutFactory<R, F: FnOnce(&IMenuFlyoutFactory) -> windows_core::Result<R>>(
@@ -21293,24 +20613,6 @@ impl MenuFlyoutItem {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<MenuFlyoutItem>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IMenuFlyoutItemFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IMenuFlyoutItemFactory<R, F: FnOnce(&IMenuFlyoutItemFactory) -> windows_core::Result<R>>(
@@ -21401,24 +20703,6 @@ impl MenuFlyoutSeparator {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<MenuFlyoutSeparator>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IMenuFlyoutSeparatorFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IMenuFlyoutSeparatorFactory<
@@ -21527,24 +20811,6 @@ impl MicaBackdrop {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<MicaBackdrop>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IMicaBackdropFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IMicaBackdropFactory<R, F: FnOnce(&IMicaBackdropFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -21614,24 +20880,6 @@ impl NavigationView {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<NavigationView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::INavigationViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn INavigationViewFactory<R, F: FnOnce(&INavigationViewFactory) -> windows_core::Result<R>>(
@@ -21734,24 +20982,6 @@ impl NavigationViewItem {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<NavigationViewItem>
-    where
-        T: windows_core::Compose,
-    {
-        Self::INavigationViewItemFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn INavigationViewItemFactory<
         R,
         F: FnOnce(&INavigationViewItemFactory) -> windows_core::Result<R>,
@@ -21847,24 +21077,6 @@ impl NavigationViewItemHeader {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<NavigationViewItemHeader>
-    where
-        T: windows_core::Compose,
-    {
-        Self::INavigationViewItemHeaderFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn INavigationViewItemHeaderFactory<
@@ -21973,24 +21185,6 @@ impl NumberBox {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<NumberBox>
-    where
-        T: windows_core::Compose,
-    {
-        Self::INumberBoxFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn INumberBoxFactory<R, F: FnOnce(&INumberBoxFactory) -> windows_core::Result<R>>(
@@ -22309,24 +21503,6 @@ impl PersonPicture {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<PersonPicture>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IPersonPictureFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IPersonPictureFactory<R, F: FnOnce(&IPersonPictureFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -22377,24 +21553,6 @@ impl Pivot {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Pivot>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IPivotFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IPivotFactory<R, F: FnOnce(&IPivotFactory) -> windows_core::Result<R>>(
@@ -22451,24 +21609,6 @@ impl PivotItem {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<PivotItem>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IPivotItemFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IPivotItemFactory<R, F: FnOnce(&IPivotItemFactory) -> windows_core::Result<R>>(
@@ -22692,24 +21832,6 @@ impl ProgressBar {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ProgressBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IProgressBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IProgressBarFactory<R, F: FnOnce(&IProgressBarFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -22763,24 +21885,6 @@ impl ProgressRing {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ProgressRing>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IProgressRingFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IProgressRingFactory<R, F: FnOnce(&IProgressRingFactory) -> windows_core::Result<R>>(
@@ -22850,24 +21954,6 @@ impl RadioButton {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<RadioButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IRadioButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IRadioButtonFactory<R, F: FnOnce(&IRadioButtonFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -22921,24 +22007,6 @@ impl RadioButtons {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<RadioButtons>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IRadioButtonsFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IRadioButtonsFactory<R, F: FnOnce(&IRadioButtonsFactory) -> windows_core::Result<R>>(
@@ -23121,24 +22189,6 @@ impl RatingControl {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<RatingControl>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IRatingControlFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IRatingControlFactory<R, F: FnOnce(&IRatingControlFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -23258,24 +22308,6 @@ impl RelativePanel {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<RelativePanel>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IRelativePanelFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     pub(crate) fn SetAlignLeftWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
@@ -23471,24 +22503,6 @@ impl ResourceDictionary {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ResourceDictionary>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IResourceDictionaryFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IResourceDictionaryFactory<
         R,
         F: FnOnce(&IResourceDictionaryFactory) -> windows_core::Result<R>,
@@ -23547,24 +22561,6 @@ impl RichEditBox {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<RichEditBox>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IRichEditBoxFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IRichEditBoxFactory<R, F: FnOnce(&IRichEditBoxFactory) -> windows_core::Result<R>>(
@@ -24061,24 +23057,6 @@ impl ScrollView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ScrollView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IScrollViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn IScrollViewFactory<R, F: FnOnce(&IScrollViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -24321,24 +23299,6 @@ impl SelectorBar {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<SelectorBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISelectorBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ISelectorBarFactory<R, F: FnOnce(&ISelectorBarFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -24393,24 +23353,6 @@ impl SelectorBarItem {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<SelectorBarItem>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISelectorBarItemFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ISelectorBarItemFactory<
@@ -24689,24 +23631,6 @@ impl Slider {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Slider>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISliderFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ISliderFactory<R, F: FnOnce(&ISliderFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -24808,24 +23732,6 @@ impl SplitButton {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<SplitButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISplitButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ISplitButtonFactory<R, F: FnOnce(&ISplitButtonFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -24908,24 +23814,6 @@ impl SplitView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<SplitView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISplitViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ISplitViewFactory<R, F: FnOnce(&ISplitViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -24996,24 +23884,6 @@ impl StackPanel {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<StackPanel>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IStackPanelFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IStackPanelFactory<R, F: FnOnce(&IStackPanelFactory) -> windows_core::Result<R>>(
@@ -25125,30 +23995,6 @@ impl SurfaceImageSource {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn CreateInstanceWithDimensions_compose<T>(
-        pixelwidth: i32,
-        pixelheight: i32,
-        compose: T,
-    ) -> windows_core::Result<SurfaceImageSource>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISurfaceImageSourceFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceWithDimensions)(
-                windows_core::Interface::as_raw(this),
-                pixelwidth,
-                pixelheight,
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ISurfaceImageSourceFactory<
         R,
         F: FnOnce(&ISurfaceImageSourceFactory) -> windows_core::Result<R>,
@@ -25208,24 +24054,6 @@ impl SwapChainPanel {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<SwapChainPanel>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ISwapChainPanelFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ISwapChainPanelFactory<R, F: FnOnce(&ISwapChainPanelFactory) -> windows_core::Result<R>>(
@@ -25589,24 +24417,6 @@ impl TabView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TabView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITabViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ITabViewFactory<R, F: FnOnce(&ITabViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -25663,24 +24473,6 @@ impl TabViewItem {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TabViewItem>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITabViewItemFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ITabViewItemFactory<R, F: FnOnce(&ITabViewItemFactory) -> windows_core::Result<R>>(
@@ -25863,24 +24655,6 @@ impl TeachingTip {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TeachingTip>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITeachingTipFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ITeachingTipFactory<R, F: FnOnce(&ITeachingTipFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -26033,24 +24807,6 @@ impl TextBox {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TextBox>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITextBoxFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ITextBoxFactory<R, F: FnOnce(&ITextBoxFactory) -> windows_core::Result<R>>(
@@ -26353,24 +25109,6 @@ impl TimePicker {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TimePicker>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITimePickerFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ITimePickerFactory<R, F: FnOnce(&ITimePickerFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -26454,24 +25192,6 @@ impl TitleBar {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TitleBar>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITitleBarFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ITitleBarFactory<R, F: FnOnce(&ITitleBarFactory) -> windows_core::Result<R>>(
@@ -26560,24 +25280,6 @@ impl ToggleButton {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ToggleButton>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IToggleButtonFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IToggleButtonFactory<R, F: FnOnce(&IToggleButtonFactory) -> windows_core::Result<R>>(
@@ -26685,24 +25387,6 @@ impl ToolTip {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<ToolTip>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IToolTipFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IToolTipFactory<R, F: FnOnce(&IToolTipFactory) -> windows_core::Result<R>>(
@@ -26851,24 +25535,6 @@ impl TreeView {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TreeView>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITreeViewFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
-        })
-    }
     fn ITreeViewFactory<R, F: FnOnce(&ITreeViewFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
@@ -26943,24 +25609,6 @@ impl TreeViewNode {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<TreeViewNode>
-    where
-        T: windows_core::Compose,
-    {
-        Self::ITreeViewNodeFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn ITreeViewNodeFactory<R, F: FnOnce(&ITreeViewNodeFactory) -> windows_core::Result<R>>(
@@ -27686,24 +26334,6 @@ impl Window {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Window>
-    where
-        T: windows_core::Compose,
-    {
-        Self::IWindowFactory(|this| unsafe {
-            let (derived__, base__) = windows_core::Compose::compose(compose);
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(&derived__),
-                base__ as *mut _ as _,
-                &mut result__,
-            )
-            .ok()?;
-            let _ = &derived__;
-            windows_core::Type::from_abi(result__)
         })
     }
     fn IWindowFactory<R, F: FnOnce(&IWindowFactory) -> windows_core::Result<R>>(

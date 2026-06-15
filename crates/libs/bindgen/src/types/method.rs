@@ -353,6 +353,7 @@ impl Method {
         kind: InterfaceKind,
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
+        emit_compose: bool,
     ) -> TokenStream {
         let params = if kind == InterfaceKind::Composable {
             &self.signature.params[..self.signature.params.len() - 2]
@@ -1061,23 +1062,31 @@ impl Method {
                 // AddRef/Release on the returned value keeps the outer alive.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
+                let compose = if emit_compose {
+                    quote! {
+                        #vis fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                            #prelude
+                            Self::#interface_name(|this| unsafe {
+                                let (derived__, base__) = windows_core::Compose::compose(compose);
+                                let mut result__ = core::mem::zeroed();
+                                (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
+                                // Keep `derived__` alive until the factory returns; its owning
+                                // ref is replaced by the delegating ref in `result__`.
+                                let _ = &derived__;
+                                windows_core::Type::from_abi(result__)
+                            })
+                        }
+                    }
+                } else {
+                    quote! {}
+                };
+
                 quote! {
                     #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
-                    #vis fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
-                        #prelude
-                        Self::#interface_name(|this| unsafe {
-                            let (derived__, base__) = windows_core::Compose::compose(compose);
-                            let mut result__ = core::mem::zeroed();
-                            (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
-                            // Keep `derived__` alive until the factory returns; its owning
-                            // ref is replaced by the delegating ref in `result__`.
-                            let _ = &derived__;
-                            windows_core::Type::from_abi(result__)
-                        })
-                    }
+                    #compose
                 }
             }
         }

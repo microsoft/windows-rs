@@ -53,6 +53,7 @@ impl Class {
                         interface.kind,
                         &mut method_names,
                         &mut virtual_names,
+                        true,
                     );
 
                     methods.combine(quote! {
@@ -65,6 +66,29 @@ impl Class {
             // In minimal mode, only flatten static/factory methods onto the class
             // (needed for static caching). Instance methods live on their interfaces.
             let mut method_names = MethodNames::for_style(&config.bindgen.style);
+
+            // In minimal mode, compose() is only needed when the class is being
+            // subclassed (aggregated), which requires --implement on one of its
+            // interfaces — including overridable interfaces declared via
+            // OverridableAttribute (e.g. IApplicationOverrides).
+            let needs_compose = config.implement.map_or(false, |imp| {
+                required_interfaces
+                    .iter()
+                    .any(|i| imp.matches(i.def.type_name()))
+                    || self
+                        .def
+                        .attributes()
+                        .filter(|a| a.name() == "OverridableAttribute")
+                        .any(|a| {
+                            a.value().iter().any(|(_, arg)| {
+                                if let Value::TypeName(tn) = arg {
+                                    imp.matches_str(&tn.namespace, &tn.name)
+                                } else {
+                                    false
+                                }
+                            })
+                        })
+            });
 
             for interface in required_interfaces
                 .iter()
@@ -89,6 +113,7 @@ impl Class {
                         interface.kind,
                         &mut method_names,
                         &mut virtual_names,
+                        needs_compose,
                     );
 
                     methods.combine(quote! {

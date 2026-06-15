@@ -343,7 +343,9 @@ impl MinimalFilter {
                     "method `{method_name}` not found on \
                      class `{type_part}` (in filter entry `{entry}`)"
                 );
-                // Include composable factory interfaces so new()/compose() work.
+                // Include composable factory interfaces so new() works.
+                // The compose() variant is controlled separately by emit_compose
+                // in class.rs based on the --implement option.
                 for iface in &required {
                     if matches!(iface.kind, InterfaceKind::Composable) {
                         let iface_ns = iface.def.namespace();

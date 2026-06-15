@@ -85,7 +85,7 @@ Microsoft.UI.Xaml.Controls.ExpanderCollapsedEventArgs
 Microsoft.UI.Xaml.Controls.ExpanderExpandingEventArgs
 Microsoft.UI.Xaml.Controls.FlipView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.Flyout::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Grid::{SetColumn, SetColumnSpan, SetRow, SetRowSpan, GetRow}
+Microsoft.UI.Xaml.Controls.Grid::{SetColumn, SetColumnSpan, SetRow, SetRowSpan}
 Microsoft.UI.Xaml.Controls.GridView::{CreateInstance}
 Microsoft.UI.Xaml.Controls.IAppBarButton::{put_Label, get_Label, put_Icon}
 Microsoft.UI.Xaml.Controls.IAppBarToggleButton::{put_Label, put_Icon}

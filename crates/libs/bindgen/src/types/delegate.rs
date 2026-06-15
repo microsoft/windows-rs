@@ -37,6 +37,7 @@ impl Delegate {
             InterfaceKind::Default,
             &mut MethodNames::for_style(&config.bindgen.style),
             &mut MethodNames::for_style(&config.bindgen.style),
+            true,
         );
 
         // In minimal mode, delegates are invoked by the API, not by user code.

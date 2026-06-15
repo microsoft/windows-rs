@@ -347,6 +347,7 @@ impl Interface {
                             InterfaceKind::Default,
                             method_names,
                             virtual_names,
+                            true,
                         );
 
                         method_tokens.combine(quote! {
@@ -378,6 +379,7 @@ impl Interface {
                                 interface.kind,
                                 method_names,
                                 virtual_names,
+                                true,
                             );
 
                             method_tokens.combine(quote! {
