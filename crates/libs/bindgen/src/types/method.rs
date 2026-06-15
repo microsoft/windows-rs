@@ -55,12 +55,20 @@ impl Method {
                     }
                 }
             }
-            _ if self.signature.return_type.is_winrt_array() => {
+            Type::Array(element_type) => {
+                // For copyable element types the Rust and ABI types are identical,
+                // so the transmute would be from a type to itself.
+                let write_result = if element_type.is_copyable(reader) {
+                    quote! { result__.write(ok_data__); }
+                } else {
+                    quote! { result__.write(core::mem::transmute(ok_data__)); }
+                };
+
                 if noexcept {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        #write_result
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -69,7 +77,7 @@ impl Method {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
                                 let (ok_data__, ok_data_len__) = ok__.into_abi();
-                                result__.write(ok_data__);
+                                #write_result
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
                             }
