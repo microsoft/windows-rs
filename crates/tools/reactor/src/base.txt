@@ -19,10 +19,10 @@ Microsoft.UI.Composition.ICompositionObject::{get_Compositor, StartAnimation}
 Microsoft.UI.Composition.ICompositionObject2::{put_ImplicitAnimations}
 Microsoft.UI.Composition.ICompositor::{CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
 Microsoft.UI.Composition.ICompositor2::{CreateImplicitAnimationCollection}
-Microsoft.UI.Composition.IKeyFrameAnimation::{put_Duration, InsertExpressionKeyFrame}
+Microsoft.UI.Composition.IKeyFrameAnimation::{put_Duration, InsertExpressionKeyFrameWithEasingFunction}
 Microsoft.UI.Composition.ImplicitAnimationCollection
-Microsoft.UI.Composition.IScalarKeyFrameAnimation::{InsertKeyFrame}
-Microsoft.UI.Composition.IVector3KeyFrameAnimation::{InsertKeyFrame}
+Microsoft.UI.Composition.IScalarKeyFrameAnimation::{InsertKeyFrameWithEasingFunction}
+Microsoft.UI.Composition.IVector3KeyFrameAnimation::{InsertKeyFrameWithEasingFunction}
 Microsoft.UI.Composition.IVisual::{put_CenterPoint, get_Scale}
 Microsoft.UI.Composition.KeyFrameAnimation
 Microsoft.UI.Composition.LinearEasingFunction
@@ -34,7 +34,7 @@ Microsoft.UI.Dispatching.DispatcherQueue::{GetForCurrentThread}
 Microsoft.UI.Dispatching.DispatcherQueueHandler
 Microsoft.UI.Dispatching.DispatcherQueuePriority
 Microsoft.UI.Dispatching.DispatcherQueueTimer
-Microsoft.UI.Dispatching.IDispatcherQueue::{CreateTimer, TryEnqueue}
+Microsoft.UI.Dispatching.IDispatcherQueue::{CreateTimer, TryEnqueueWithPriority}
 Microsoft.UI.Dispatching.IDispatcherQueueTimer::{put_Interval, put_IsRepeating, add_Tick, Start, Stop}
 Microsoft.UI.Input.IPointerPoint::{get_Properties}
 Microsoft.UI.Input.IPointerPointProperties::{get_IsLeftButtonPressed, get_IsRightButtonPressed, get_IsMiddleButtonPressed}

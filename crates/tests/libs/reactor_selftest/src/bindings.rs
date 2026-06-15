@@ -9328,20 +9328,6 @@ impl IContentDialog {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub(crate) fn ShowAsyncWithPlacement(
-        &self,
-        placement: ContentDialogPlacement,
-    ) -> windows_core::Result<windows_future::IAsyncOperation<ContentDialogResult>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShowAsyncWithPlacement)(
-                windows_core::Interface::as_raw(self),
-                placement,
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
 }
 #[repr(C)]
 pub struct IContentDialog_Vtbl {
@@ -9416,11 +9402,6 @@ pub struct IContentDialog_Vtbl {
     pub Hide: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowAsync: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub ShowAsyncWithPlacement: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        ContentDialogPlacement,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
@@ -10109,20 +10090,6 @@ impl IDispatcherQueue {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub(crate) fn TryEnqueue<P0>(&self, callback: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<DispatcherQueueHandler>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryEnqueue)(
-                windows_core::Interface::as_raw(self),
-                callback.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn TryEnqueueWithPriority<P1>(
         &self,
         priority: DispatcherQueuePriority,
@@ -10150,11 +10117,7 @@ pub struct IDispatcherQueue_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub TryEnqueue: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut bool,
-    ) -> windows_core::HRESULT,
+    TryEnqueue: usize,
     pub TryEnqueueWithPriority: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         DispatcherQueuePriority,
@@ -11783,20 +11746,6 @@ impl IKeyFrameAnimation {
             .ok()
         }
     }
-    pub(crate) fn InsertExpressionKeyFrame(
-        &self,
-        normalizedprogresskey: f32,
-        value: &str,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).InsertExpressionKeyFrame)(
-                windows_core::Interface::as_raw(self),
-                normalizedprogresskey,
-                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
-            )
-            .ok()
-        }
-    }
     pub(crate) fn InsertExpressionKeyFrameWithEasingFunction<P2>(
         &self,
         normalizedprogresskey: f32,
@@ -11834,11 +11783,7 @@ pub struct IKeyFrameAnimation_Vtbl {
     get_KeyFrameCount: usize,
     get_StopBehavior: usize,
     put_StopBehavior: usize,
-    pub InsertExpressionKeyFrame: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        f32,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    InsertExpressionKeyFrame: usize,
     pub InsertExpressionKeyFrameWithEasingFunction:
         unsafe extern "system" fn(
             *mut core::ffi::c_void,
@@ -12183,23 +12128,6 @@ impl IListViewBase {
             .ok()
         }
     }
-    pub(crate) fn ScrollIntoViewWithAlignment<P0>(
-        &self,
-        item: P0,
-        alignment: ScrollIntoViewAlignment,
-    ) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).ScrollIntoViewWithAlignment)(
-                windows_core::Interface::as_raw(self),
-                item.param().abi(),
-                alignment,
-            )
-            .ok()
-        }
-    }
 }
 #[repr(C)]
 pub struct IListViewBase_Vtbl {
@@ -12252,13 +12180,6 @@ pub struct IListViewBase_Vtbl {
     pub ScrollIntoView: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    SelectAll: usize,
-    LoadMoreItemsAsync: usize,
-    pub ScrollIntoViewWithAlignment: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        ScrollIntoViewAlignment,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -15369,20 +15290,6 @@ impl windows_core::RuntimeType for IScalarKeyFrameAnimation {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IScalarKeyFrameAnimation {
-    pub(crate) fn InsertKeyFrame(
-        &self,
-        normalizedprogresskey: f32,
-        value: f32,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).InsertKeyFrame)(
-                windows_core::Interface::as_raw(self),
-                normalizedprogresskey,
-                value,
-            )
-            .ok()
-        }
-    }
     pub(crate) fn InsertKeyFrameWithEasingFunction<P2>(
         &self,
         normalizedprogresskey: f32,
@@ -15406,8 +15313,7 @@ impl IScalarKeyFrameAnimation {
 #[repr(C)]
 pub struct IScalarKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub InsertKeyFrame:
-        unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
+    InsertKeyFrame: usize,
     pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         f32,
@@ -19473,20 +19379,6 @@ impl windows_core::RuntimeType for IVector3KeyFrameAnimation {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IVector3KeyFrameAnimation {
-    pub(crate) fn InsertKeyFrame(
-        &self,
-        normalizedprogresskey: f32,
-        value: windows_numerics::Vector3,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).InsertKeyFrame)(
-                windows_core::Interface::as_raw(self),
-                normalizedprogresskey,
-                value,
-            )
-            .ok()
-        }
-    }
     pub(crate) fn InsertKeyFrameWithEasingFunction<P2>(
         &self,
         normalizedprogresskey: f32,
@@ -19510,11 +19402,7 @@ impl IVector3KeyFrameAnimation {
 #[repr(C)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub InsertKeyFrame: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        f32,
-        windows_numerics::Vector3,
-    ) -> windows_core::HRESULT,
+    InsertKeyFrame: usize,
     pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         f32,
