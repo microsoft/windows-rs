@@ -56,12 +56,14 @@ impl Method {
                 }
             }
             Type::Array(element_type) => {
-                // For copyable element types the Rust and ABI types are identical,
-                // so the transmute would be from a type to itself.
-                let write_result = if element_type.is_copyable(reader) {
-                    quote! { result__.write(ok_data__); }
-                } else {
+                // When the element's ABI representation is `*mut c_void` (interfaces,
+                // strings, delegates, etc.) it differs from the Rust pointer type
+                // returned by `into_abi`, so `transmute` is needed. For structs,
+                // primitives, and enums the ABI type matches and transmute is a no-op.
+                let write_result = if element_type.has_pointer_abi() {
                     quote! { result__.write(core::mem::transmute(ok_data__)); }
+                } else {
+                    quote! { result__.write(ok_data__); }
                 };
 
                 if noexcept {
