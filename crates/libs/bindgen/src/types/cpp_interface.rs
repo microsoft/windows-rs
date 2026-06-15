@@ -243,7 +243,7 @@ impl CppInterface {
             if config.should_implement(self.def.type_name(), true) {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
 
-                let cfg = if config.bindgen.layout.is_package() {
+                let cfg = {
                     fn combine(
                         interface: &CppInterface,
                         dependencies: &mut TypeMap,
@@ -266,8 +266,6 @@ impl CppInterface {
                     });
 
                     Cfg::new(&dependencies, config).write(config, false)
-                } else {
-                    quote! {}
                 };
 
                 let mut names = MethodNames::for_style(&config.bindgen.style);

@@ -21,10 +21,6 @@ impl Method {
     }
 
     pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.bindgen.layout.is_package() {
-            return quote! {};
-        }
-
         parent
             .difference(&self.dependencies, config)
             .write(config, not)

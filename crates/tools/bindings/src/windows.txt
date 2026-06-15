@@ -1,5 +1,4 @@
 --out crates/libs/windows
---package --index
 --rustfmt max_width=800,newline_style=Unix
 
 --filter

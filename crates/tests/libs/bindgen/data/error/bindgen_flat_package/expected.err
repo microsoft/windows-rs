@@ -1,2 +1,2 @@
 
-error: cannot combine `--package` and `--flat`
+error: invalid option `--package`

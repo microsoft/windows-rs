@@ -458,7 +458,7 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                let cfg = if config.bindgen.layout.is_package() {
+                let cfg = {
                     fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
                         for method in &interface.get_methods(config) {
                             if let MethodOrName::Method(method) = method {
@@ -475,8 +475,6 @@ impl Interface {
                         .for_each(|interface| combine(interface, &mut dependencies, config));
 
                     Cfg::new(&dependencies, config).write(config, false)
-                } else {
-                    quote! {}
                 };
 
                 result.combine(if self.generics.is_empty() {

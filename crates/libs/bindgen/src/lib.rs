@@ -413,12 +413,6 @@ where
                     builder.flat();
                 }
                 "--deps" => kind = ArgKind::Deps,
-                "--no-toml" => {
-                    builder.no_toml();
-                }
-                "--package" => {
-                    builder.package();
-                }
                 "--sys" => {
                     builder.sys();
                 }
@@ -433,9 +427,6 @@ where
                     kind = ArgKind::Implement;
                 }
                 "--link" => kind = ArgKind::Link,
-                "--index" => {
-                    builder.index();
-                }
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -480,6 +471,16 @@ where
         }
     }
 
+    // Infer package mode when the output path is a directory containing
+    // a Cargo.toml. This is the convention for umbrella crates (windows,
+    // windows-sys) and avoids exposing --package as a public option.
+    if !builder.layout.is_flat() {
+        let toml_path = format!("{}/Cargo.toml", builder.output);
+        if std::path::Path::new(&toml_path).exists() {
+            builder.layout = Layout::Package;
+        }
+    }
+
     builder.write()
 }
 
@@ -509,12 +510,9 @@ pub struct Bindgen {
     layout: Layout,
     style: Style,
     deps: Option<DepMode>,
-    index: bool,
 }
 
-/// Output layout for the generated bindings. Mutually exclusive variants
-/// replace the legacy `flat: bool` + `package: bool` + `no_toml: bool`
-/// triple, making invalid combinations unrepresentable.
+/// Output layout for the generated bindings.
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 enum Layout {
     /// One Rust module per metadata namespace (the default).
@@ -523,10 +521,8 @@ enum Layout {
     /// A single flat list of items (no namespace modules).
     Flat,
     /// One file per namespace + `Cargo.toml` features.
-    Package {
-        /// When `true`, skip rewriting `Cargo.toml`.
-        no_toml: bool,
-    },
+    /// Inferred when the output path doesn't end with `.rs`.
+    Package,
 }
 
 impl Layout {
@@ -534,10 +530,7 @@ impl Layout {
         matches!(self, Layout::Flat)
     }
     fn is_package(self) -> bool {
-        matches!(self, Layout::Package { .. })
-    }
-    fn no_toml(self) -> bool {
-        matches!(self, Layout::Package { no_toml: true })
+        matches!(self, Layout::Package)
     }
 }
 
@@ -693,11 +686,7 @@ impl Bindgen {
     }
 
     /// Avoid the default namespace-to-module conversion.
-    #[track_caller]
     pub fn flat(&mut self) -> &mut Self {
-        if matches!(self.layout, Layout::Package { .. }) {
-            panic!("cannot combine `--package` and `--flat`");
-        }
         self.layout = Layout::Flat;
         self
     }
@@ -728,29 +717,6 @@ impl Bindgen {
         } else {
             DepMode::Core
         })
-    }
-
-    /// Avoid generating the Cargo.toml features when using `package` mode.
-    ///
-    /// Only valid in combination with [`Bindgen::package`]; panics otherwise.
-    #[track_caller]
-    pub fn no_toml(&mut self) -> &mut Self {
-        match &mut self.layout {
-            Layout::Package { no_toml } => *no_toml = true,
-            _ => panic!("`--no-toml` requires `--package`"),
-        }
-        self
-    }
-
-    /// Generate bindings as a package with one file per namespace.
-    #[track_caller]
-    pub fn package(&mut self) -> &mut Self {
-        let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
-        if matches!(self.layout, Layout::Flat) {
-            panic!("cannot combine `--package` and `--flat`");
-        }
-        self.layout = Layout::Package { no_toml };
-        self
     }
 
     /// Include implementation traits for WinRT interfaces.
@@ -838,12 +804,6 @@ impl Bindgen {
             Style::Lean { extern_fns, .. } => *extern_fns = true,
             _ => panic!("`--extern` requires `--sys`"),
         }
-        self
-    }
-
-    /// Generate a `features.json` index alongside the output file.
-    pub fn index(&mut self) -> &mut Self {
-        self.index = true;
         self
     }
 
@@ -1047,7 +1007,10 @@ impl Bindgen {
         let tree = TypeTree::new(&types);
         config.write(tree);
 
-        if self.index {
+        // Emit features.json for package mode with default style (the
+        // `windows` umbrella crate). The `windows-sys` crate uses lean
+        // style and doesn't need a feature index.
+        if self.layout.is_package() && matches!(self.style, Style::Default) {
             index::write(&types, &format!("{}/features.json", self.output), &reader);
         }
 

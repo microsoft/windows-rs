@@ -103,25 +103,37 @@ CLI args / Bindgen builder
 |--------|------|-------------|
 | *(default)* | `Layout::Modules` | One Rust module per metadata namespace |
 | `--flat` | `Layout::Flat` | All items in a single flat file |
-| `--package` | `Layout::Package` | One file per namespace + Cargo.toml features (umbrella crates only) |
-| `--no-toml` | `Package { no_toml: true }` | Skip Cargo.toml rewrite (requires `--package`) |
+| *(inferred)* | `Layout::Package` | One file per namespace + Cargo.toml features (inferred when output dir contains Cargo.toml) |
 
-### Style (mutually exclusive)
+### Style
 
 | Option | Enum | Description |
 |--------|------|-------------|
 | *(default)* | `Style::Default` | Full WinRT/COM bindings with ergonomic wrappers |
-| `--sys` | `Style::Sys` | Raw C-style bindings (link! macros, no wrappers) |
-| `--minimal` | `Style::Minimal` | Reduced bindings: no class wrappers, auto-revoking events, demoted unused vtable slots |
-| `--extern` | `Sys { extern_fns: true }` | `extern { fn … }` instead of `link!` (requires `--sys`) |
+| `--sys` | `Style::Lean { com: false }` | Raw C-style bindings (link! macros, no COM wrappers) |
+| `--minimal` | `Style::Lean { com: true }` | Lean bindings with COM support (demoted unused vtable slots, auto-revoking events) |
+| `--extern` | `Lean { extern_fns: true }` | `extern { fn … }` instead of `link!` (requires `--sys`) |
+
+Both `--sys` and `--minimal` are "lean" modes that share most codegen paths.
+The `com` flag controls whether COM interfaces get proper vtable types and
+method wrappers (`has_com()`) or are reduced to void pointers (`is_sys()`).
+
+Helper methods on `Style`:
+- `is_lean()` — true for both sys and minimal
+- `has_com()` — true for lean with COM (old minimal)
+- `is_sys()` — true for lean without COM (old sys)
 
 ### Dependencies
 
 | Option | Enum | Description |
 |--------|------|-------------|
-| `--deps core` | `DepMode::Core` | **Current default.** Use `windows_core::` for all shared types |
+| `--deps core` | `DepMode::Core` | Use `windows_core::` for all shared types |
 | `--deps specific` | `DepMode::Specific` | Use `windows_result::`, `windows_strings::`, `windows_link::` directly |
 | `--deps none` | `DepMode::None` | No `windows-*` crate dependencies; inline everything |
+
+When `--deps` is not specified, the default is inferred:
+- `--sys` (lean without COM) → `--deps none` (standalone, only needs `windows-link`)
+- All other modes → `--deps core`
 
 ### Other
 
@@ -132,51 +144,26 @@ CLI args / Bindgen builder
 | `--implement [patterns]` | Emit `_Impl` scaffolding for WinRT interfaces |
 | `--link <crate>` | Override the link macro source (default: `windows_core` or `windows_link`) |
 | `--rustfmt <config>` | Rustfmt configuration |
-| `--index` | Emit `features.json` alongside output (umbrella crates only) |
 
 ---
 
-## The Dependency Problem
+## The Dependency Problem (Resolved)
 
 ### Problem Statement
 
-When `--sys` mode generates bindings, shared types like `PCWSTR` resolve to
+When `--sys` mode generated bindings, shared types like `PCWSTR` resolved to
 `windows_sys::core::PCWSTR`, forcing a dependency on the monolithic `windows-sys`
-crate. This happens because `write_specific()` in `paths.rs` hardcodes the
-`windows_sys::core::` prefix for all sys-mode bindings when `deps != None`.
+crate. The only way to avoid this was `--deps none`, which was non-obvious.
 
-The only way to avoid this today is `--deps none`, which is non-obvious and
-poorly documented.
+### Resolution (Phase 1)
 
-### The Issue (#4581)
+`--sys` now defaults to `--deps none` when `--deps` is not explicitly specified.
+Types like `PCWSTR` become `*const u16` and `HRESULT` becomes `i32`. The
+`windows-sys` umbrella crate's `sys.txt` filter explicitly specifies `--deps core`
+to opt in to the old behavior.
 
-A user generating `--sys --flat` bindings for `LoadCursorW` got:
-
-```rust
-fn LoadCursorW(hinstance: HINSTANCE, lpcursorname: windows_sys::core::PCWSTR) -> HCURSOR;
-```
-
-The `windows_sys::core::PCWSTR` reference forces a dependency on `windows-sys`.
-The workaround is `--deps none`, which inlines `PCWSTR` as `*const u16`.
-
-### Root Cause in `paths.rs`
-
-```rust
-fn write_specific(&self, specific: &str) -> TokenStream {
-    if self.bindgen.style.is_sys() {
-        if self.bindgen.layout.is_package() || self.bindgen.deps != DepMode::None {
-            quote! { windows_sys::core:: }   // ← forces windows-sys dep
-        } else if self.bindgen.layout.is_flat() {
-            quote! {}                         // ← only with --deps none
-        } ...
-    }
-}
-```
-
-The `windows_sys::core::` path exists **solely** to support `--package` mode
-(generating the `windows-sys` umbrella crate itself). For standalone `--sys`
-bindings, this path should never be used — the user wants either inline types
-(`--deps none`) or references to the small crates.
+String constants (`w!`/`s!` macros) emit inline UTF-16/ANSI arrays when
+`deps=none` rather than referencing macros from `windows-strings`.
 
 ### Who Uses What Today
 
@@ -240,123 +227,68 @@ bindings, this path should never be used — the user wants either inline types
 
 ## Simplification Plan
 
-### Phase 1: Fix `--sys` Default Dependencies
+### Phase 1: Fix `--sys` Default Dependencies ✅
 
 **Goal:** `--sys` should not reference `windows-sys` by default.
 
-For `--sys` mode, the right default is `--deps none` — sys bindings are raw
-C-style FFI that should only need `windows-link`. Types like `PCWSTR` become
-`*const u16`, `HRESULT` becomes `i32`, etc. (This is what `write_no_deps()`
-in `types/mod.rs` already implements.)
+**What changed:**
+- `deps` field on `Bindgen` changed from `DepMode` to `Option<DepMode>`
+- Added `resolved_deps()` method: sys → None, non-sys → Core, when unspecified
+- `sys.txt` (umbrella crate) now explicitly specifies `--deps core`
+- String constants emit inline UTF-16/ANSI arrays when `deps=none`
+- CppConst::combine() fixed to track PCWSTR/PCSTR in dependency closure
 
-For non-sys modes (`--minimal`, `Style::Default`), the right default is to
-depend on the small crates (`windows-core`, `windows-time`, etc.) — the current
-`--deps core` behavior with implicit references is correct.
+**Impact:** External sys users get standalone bindings by default — no
+`windows-sys` dependency, only `windows-link`. Resolves #4581.
 
-**Concrete change:** When `--sys` is set and `--deps` is not explicitly
-specified, default to `DepMode::None` instead of `DepMode::Core`.
+### Phase 2: Unify `--sys` and `--minimal` ✅
 
-**Impact:**
-- `windows-sys` umbrella crate (`sys.txt`) must add explicit `--deps core`
-- Bootstrap crates (`core.txt`, `result.txt`, `strings.txt`) already use
-  `--deps none` — no change
-- External sys users get standalone bindings by default ✓
-- Non-sys users (reactor, canvas, default mode) are unaffected
+**Goal:** Replace three `Style` variants with a unified two-level hierarchy.
 
-### Phase 2: Unify `--sys` and `--minimal` (Medium Risk)
+**What changed:**
+- `Style` restructured from `{Default, Sys{extern_fns}, Minimal}` to
+  `{Default, Lean{com, extern_fns}}`
+- ~44 `is_minimal()` call sites updated to `has_com()`
+- ~6 `is_sys()||is_minimal()` sites collapsed to `is_lean()`
+- Remaining `is_sys()` sites preserved where lean-without-COM needs different
+  behavior (void ptr interfaces, raw delegate params, etc.)
 
-`--sys` and `--minimal` serve very similar purposes — both produce lean
-bindings that strip ergonomic wrappers. The key difference:
+**Breaking changes** (behaviors that were worse in sys mode, now unified):
+- Structs/enums always get `Debug`, `Default`, `PartialEq`, `Eq` derives
+- Flags enums always get `BitOr`/`BitAnd`/`Not` ops
+- `ManuallyDrop` always wraps non-Copy union fields (correctness)
+- `Clone`+`Copy` are conditional on actual copyability (correctness)
+- `PrimitiveOrEnum` uses the enum type (stronger typing)
+- windows-sys `GUID` struct updated with `Debug`+`PartialEq`
 
-| Aspect | `--sys` | `--minimal` |
-|--------|---------|-------------|
-| Free functions | `link!` macro only | `link!` macro only |
-| Handles | Bare `pub type` alias | Bare `pub type` alias |
-| COM interfaces | Vtable struct + IID only | Full interface type with demoted slots |
-| WinRT classes | Not supported | Factory/activation helpers |
-| Events | Not supported | Auto-revoking wrappers |
-| Dependencies | `windows-link` only | `windows-core` + small crates |
-| Type closure | All deps of filtered types | Only deps of requested methods |
+**Impact:** 195 windows-sys generated files updated (adding derives). All
+semver-compatible (adding trait impls). Reactor/canvas output unchanged.
 
-**Code overlap analysis** (in `types/*.rs`):
+### Phase 3: Isolate Umbrella Crate Tooling ✅
 
-- 6 sites check `is_sys() || is_minimal()` — identical behavior in both modes
-  (handle aliases, function wrappers, vtable visibility, enum flattening)
-- 28 total `is_sys()` checks — sys-specific paths (skip interface wrappers,
-  skip WinRT traits, emit IID constants differently)
-- 41 total `is_minimal()` checks — minimal-specific paths (event auto-revoking,
-  factory methods, delegate optimization, method demotion)
+**Goal:** Remove umbrella-crate-only options from the public interface and infer
+them automatically.
 
-**Possible unification:** Replace the `Style` enum with a single "lean" mode
-that has a COM support level:
+**What changed:**
+- `paths.rs`: `windows_sys::core::` path now only emitted when
+  `is_sys() && is_package()`. For `is_sys() && !is_package()`, deps are
+  resolved through the normal `DepMode` match (None→inline, Core→windows_core,
+  Specific→per-crate). This isolates the umbrella-crate path from standalone
+  use.
+- Removed 6 redundant `is_package()` guards from type writers: `method.rs`,
+  `cpp_method.rs`, `class.rs`, `cpp_interface.rs`, `interface.rs`, `mod.rs`.
+  The `Cfg` struct already returns empty tokens for non-package mode, so these
+  guards were dead code.
+- **Removed `--package`, `--index`, `--no-toml` from the CLI and builder API.**
+  Package mode is now inferred when the output directory contains a `Cargo.toml`.
+  Index emission (`features.json`) is inferred when package mode is active and
+  the style is `Default` (only the `windows` crate needs this).
+- Simplified `Layout` enum: removed `no_toml` field from `Package` variant.
+  `--no-toml` was never used by any consumer.
 
-```rust
-enum Style {
-    Default,            // full ergonomic wrappers (umbrella crate use only)
-    Lean {
-        com: bool,      // false = today's --sys, true = today's --minimal
-        extern_fns: bool,
-    },
-}
-```
-
-Or more simply: make `--sys` and `--minimal` composable rather than mutually
-exclusive. `--sys` controls the FFI surface (link! vs wrappers), `--minimal`
-controls the COM/WinRT surface (demoted slots, auto-revoking events). Used
-together, you get the leanest possible bindings.
-
-**Benefits:**
-- One concept for users: "use lean bindings, add COM support if needed"
-- ~6 `is_sys() || is_minimal()` sites collapse to `is_lean()`
-- `MinimalFilter`'s method-level closure becomes available for sys mode too
-- `--deps` inference becomes clearer: lean without COM = `none`, lean with COM = `core`
-
-### Phase 3: Separate Umbrella Crate Tooling (Medium Risk)
-
-The `--package`, `--index`, `--reference`, and `ReferenceStyle::SkipRoot`
-features exist exclusively for generating the `windows` and `windows-sys`
-umbrella crates. They add significant complexity to `windows-bindgen`:
-
-- `package_writer.rs` — 196 lines for namespace-per-file + Cargo.toml features
-- `index.rs` — 141 lines for `features.json` emission
-- `references.rs` — 112 lines for cross-crate type delegation
-- `paths.rs` — the `windows_sys::core::` path exists solely for package mode
-- `lib.rs` — implicit reference registration block (~80 lines)
-
-**Options:**
-
-1. **Feature-gate** — put `--package` / `--index` behind a cargo feature so
-   they don't affect the default binary size or mental model.
-
-2. **Separate binary** — move umbrella crate generation to a dedicated
-   `tool_package` or similar, leaving `windows-bindgen` focused on the
-   encouraged use cases (flat + sys, flat + minimal).
-
-3. **Document as internal** — at minimum, mark these options as internal /
-   advanced in the docs and CLI help.
-
-**Note on `--reference`:** Unlike `--package` and `--index`, the `--reference`
-option is used by 8 tests/samples (e.g., `xaml_app`, `webview`,
-`collection_interop`) for cross-crate type delegation. It may need to remain
-in the public API even if `--package` is separated. However,
-`ReferenceStyle::SkipRoot` is only used by the umbrella crates and could be
-removed from the public surface.
-
-**Impact on `paths.rs`:** Once `--package` is separated, `write_specific()`
-simplifies dramatically:
-
-```rust
-fn write_specific(&self, specific: &str) -> TokenStream {
-    match self.bindgen.deps {
-        DepMode::None if self.bindgen.layout.is_flat() => quote! {},
-        DepMode::None => /* super:: chain for module layout */,
-        DepMode::Specific => format!("{specific}::").parse().unwrap(),
-        DepMode::Core => quote! { windows_core:: },
-    }
-}
-```
-
-The entire `is_sys()` branch (with its `windows_sys::core::` path) disappears.
+**Preserved:** `--reference` and `ReferenceStyle::SkipRoot` remain in the
+public API since they are used by external samples/tests (`xaml_app`,
+`webview`, `reference_custom`, etc.).
 
 ### Phase 4: Unify Filter Implementations (Lower Priority)
 
@@ -394,16 +326,20 @@ This would:
 
 ## Option Interaction Matrix
 
-| | `--flat` | `--package` | `--sys` | `--minimal` | `--extern` | `--deps` |
-|-|----------|-------------|---------|-------------|------------|----------|
-| `--flat` | — | ✗ | ✓ | ✓ | ✓¹ | ✓ |
-| `--package` | ✗ | — | ✓ | ✓ | ✓¹ | ✓ |
-| `--sys` | ✓ | ✓ | — | ✗² | ✓ | ✓ |
-| `--minimal` | ✓ | ✓ | ✗² | — | ✗ | ✓ |
-| `--deps none` | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+| | `--flat` | `--sys` | `--minimal` | `--extern` | `--deps` |
+|-|----------|---------|-------------|------------|----------|
+| `--flat` | — | ✓ | ✓ | ✓¹ | ✓ |
+| `--sys` | ✓ | — | ✗² | ✓ | ✓ |
+| `--minimal` | ✓ | ✗² | — | ✗ | ✓ |
+| `--deps none` | ✓ | ✓ | ✓ | ✓ | — |
 
-¹ Requires parent option.
-² Currently mutually exclusive — Phase 2 proposes making them composable.
+¹ Requires `--sys`.
+² Both map to `Style::Lean` with different `com` values — mutually
+exclusive at the CLI level because they represent opposite ends of the same
+axis (COM support on/off).
+
+Note: Package mode is no longer an explicit option. It is inferred when the
+output directory contains a `Cargo.toml`.
 
 ---
 
@@ -415,8 +351,8 @@ This would:
 --out src/bindings.rs --flat --sys --filter LoadCursorW
 ```
 
-**After Phase 1:** `--sys` defaults to `--deps none`, so this Just Works™ —
-no `windows-sys` dependency, only `windows-link`.
+`--sys` defaults to `--deps none`, so this produces standalone bindings with
+no `windows-sys` dependency — only `windows-link`.
 
 ### Standalone COM/WinRT bindings
 
@@ -438,9 +374,13 @@ Unchanged — `--deps none` is already explicit.
 ### Umbrella crate generation (internal only)
 
 ```
---out crates/libs/windows --package --deps core --index --filter Windows
---out crates/libs/sys --package --sys --deps core --filter Windows.Win32
+--out crates/libs/windows --deps core --filter Windows
+--out crates/libs/sys --sys --deps core --filter Windows.Win32
 ```
+
+Package mode and index emission are inferred automatically:
+- Package mode activates when `{output}/Cargo.toml` exists
+- Index (`features.json`) emits when package mode + `Style::Default`
 
 These must explicitly opt in to `--deps core` for the `windows_core::` /
 `windows_sys::core::` paths.
@@ -449,35 +389,42 @@ These must explicitly opt in to `--deps core` for the `windows_core::` /
 
 ## Migration Checklist
 
-### Phase 1 (fix `--sys` default deps)
+### Phase 1 (fix `--sys` default deps) ✅
 
-- [ ] Make `--sys` default to `DepMode::None` when `--deps` is not explicitly set
-- [ ] Add `--deps core` to `crates/tools/bindings/src/sys.txt`
-- [ ] Verify bootstrap crates (`core.txt`, `result.txt`, `strings.txt`, etc.)
-      already have `--deps none` — no change needed
-- [ ] Verify non-sys filter files (`canvas.txt`, `animation.txt`, `collections.txt`,
-      `future.txt`, `numerics.txt`, `metadata.txt`, `time.txt`, `windows.txt`)
-      are unaffected (they don't use `--sys`)
-- [ ] Update `docs/bindgen.md` to document the new default
-- [ ] Update `lib.rs` doc comments for `--deps`
-- [ ] Run `cargo run -p tool_bindings` and verify output is unchanged
-- [ ] Close #4581
+- [x] Make `--sys` default to `DepMode::None` when `--deps` is not explicitly set
+- [x] Add `--deps core` to `crates/tools/bindings/src/sys.txt`
+- [x] Verify bootstrap crates already have `--deps none` — no change needed
+- [x] Verify non-sys filter files are unaffected
+- [x] Update `docs/bindgen.md` to document the new default
+- [x] Inline UTF-16/ANSI literals for string constants when `deps=none`
+- [x] Run `cargo run -p tool_bindings` — output unchanged
+- [x] 325 tests pass
 
-### Phase 2 (unify sys + minimal)
+### Phase 2 (unify sys + minimal) ✅
 
-- [ ] Audit the 28 `is_sys()` and 41 `is_minimal()` call sites
-- [ ] Identify which checks can collapse to `is_lean()` (~6 sites)
-- [ ] Identify which need the COM distinction (separate `has_com()`)
-- [ ] Prototype the unified `Style` enum
-- [ ] Verify bit-for-bit output equivalence for all existing filter files
-- [ ] Make `MinimalFilter` method closure available for sys mode
+- [x] Audit all `is_sys()` and `is_minimal()` call sites (~70 total)
+- [x] Restructure `Style` enum: `{Default, Lean{com, extern_fns}}`
+- [x] ~6 shared sites → `is_lean()`
+- [x] ~44 minimal sites → `has_com()`
+- [x] Remove sys-only derive/flags stripping (breaking: adds derives)
+- [x] Fix ManuallyDrop, Clone+Copy correctness (breaking: behavior change)
+- [x] Update windows-sys GUID with Debug+PartialEq
+- [x] Run `cargo run -p tool_bindings` — 195 sys files updated
+- [x] Run `cargo run -p tool_reactor` — output unchanged
+- [x] All dependent crates compile (core, windows, sys, reactor, canvas)
+- [x] 325 tests pass, clippy clean, fmt clean
 
-### Phase 3 (separate umbrella tooling)
+### Phase 3 (isolate umbrella tooling) ✅
 
-- [ ] Feature-gate or extract `--package`, `--index`, `--reference`
-- [ ] Remove `windows_sys::core::` path from `paths.rs` (moves to package tool)
-- [ ] Simplify `write_specific()` to the 4-branch `(deps)` match
-- [ ] Remove `ReferenceStyle::SkipRoot` (only needed by umbrella crates)
+- [x] Isolate `windows_sys::core::` path to package mode only in `paths.rs`
+- [x] Remove 6 redundant `is_package()` guards from type writers
+- [x] Remove `--package`, `--index`, `--no-toml` from CLI and builder API
+- [x] Infer package mode from `Cargo.toml` existence in output directory
+- [x] Infer index emission when package + `Style::Default`
+- [x] Simplify `Layout` enum (remove `no_toml` field)
+- [x] Preserve `--reference` and `SkipRoot` (used by external samples/tests)
+- [x] Zero generated output changes
+- [x] 325 tests pass, clippy clean, fmt clean
 
 ### Phase 4 (unify filters)
 

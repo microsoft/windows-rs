@@ -15,18 +15,23 @@ impl Config<'_> {
 
     fn write_specific(&self, specific: &str) -> TokenStream {
         if self.bindgen.style.is_sys() {
-            if self.bindgen.layout.is_package() || self.bindgen.resolved_deps() != DepMode::None {
+            if self.bindgen.layout.is_package() {
+                // Umbrella crate: types live under windows_sys::core::
                 quote! { windows_sys::core:: }
-            } else if self.bindgen.layout.is_flat() {
-                quote! {}
-            } else {
-                let mut path = String::new();
-
-                for _ in 0..self.namespace.split('.').count() {
-                    path.push_str("super::");
+            } else if self.bindgen.resolved_deps() == DepMode::None {
+                if self.bindgen.layout.is_flat() {
+                    quote! {}
+                } else {
+                    let mut path = String::new();
+                    for _ in 0..self.namespace.split('.').count() {
+                        path.push_str("super::");
+                    }
+                    path.parse().unwrap()
                 }
-
-                path.parse().unwrap()
+            } else if self.bindgen.resolved_deps() == DepMode::Specific {
+                format!("{specific}::").parse().unwrap()
+            } else {
+                quote! { windows_core:: }
             }
         } else if self.bindgen.resolved_deps() != DepMode::Specific {
             quote! { windows_core:: }

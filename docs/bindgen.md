@@ -89,12 +89,15 @@ The user-facing CLI surface is small and orthogonal:
 
 Key design decisions:
 
-- **`--sys` vs `--minimal`** are the same "lean mode" axis but produce
-  different ABI contracts — `--minimal` preserves vtable/`_Impl`/`RuntimeType`,
-  `--sys` does not. Two flags, one internal enum (`Style`), is the right shape.
+- **`--sys` and `--minimal`** are both "lean" modes internally (`Style::Lean`),
+  differing only in COM support. `--sys` produces void-pointer interfaces with
+  no COM wrappers; `--minimal` preserves vtable types, auto-revoking events,
+  and method filtering. The shared `is_lean()` check unifies their common
+  codegen paths.
 
-- **`--deps none` vs `--sys`** are orthogonal. `--deps none` is also
-  meaningful with `--minimal` (for crates that bootstrap themselves).
+- **`--deps` defaults** are inferred from style when not specified:
+  `--sys` defaults to `--deps none` (standalone, only needs `windows-link`);
+  all other modes default to `--deps core`.
 
 - **`--filter` method-level grammar** (`?Ns.Type`, `Ns.Type::Method`, etc.)
   is a deliberate DSL with documented escape hatches — better than an expanding

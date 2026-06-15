@@ -132,11 +132,7 @@ impl Class {
                         let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);
 
-                        let cfg = if config.bindgen.layout.is_package() {
-                            class_cfg.difference(&interface.dependencies(config.reader), config).write(config, false)
-                        } else {
-                            quote! {}
-                        };
+                        let cfg = class_cfg.difference(&interface.dependencies(config.reader), config).write(config, false);
 
                         Some(quote! {
                             #cfg
