@@ -1,5 +1,5 @@
 windows_link::link!("wldap32.dll" "C" fn LdapGetLastError() -> u32);
-windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> super::super::Foundation::WIN32_ERROR);
+windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : LDAP_RETCODE) -> super::super::Foundation::WIN32_ERROR);
 windows_link::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn ber_alloc_t(options : i32) -> *mut BerElement);
@@ -242,7 +242,7 @@ windows_link::link!("wldap32.dll" "C" fn ldap_value_freeA(vals : *const windows_
 windows_link::link!("wldap32.dll" "C" fn ldap_value_freeW(vals : *const windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_value_free_len(vals : *mut *mut LDAP_BERVAL) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BerElement {
     pub opaque: windows_sys::core::PSTR,
 }
@@ -261,7 +261,7 @@ pub const LBER_TRANSLATE_STRINGS: u32 = 4;
 pub const LBER_USE_DER: u32 = 1;
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: windows_sys::core::PSTR,
@@ -287,7 +287,7 @@ impl Default for LDAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
@@ -300,7 +300,7 @@ impl Default for LDAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PSTR,
@@ -312,7 +312,7 @@ impl Default for LDAPAPIFeatureInfoA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PWSTR,
@@ -324,7 +324,7 @@ impl Default for LDAPAPIFeatureInfoW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -339,7 +339,7 @@ impl Default for LDAPAPIInfoA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -354,7 +354,7 @@ impl Default for LDAPAPIInfoW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: windows_sys::core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
@@ -366,7 +366,7 @@ impl Default for LDAPControlA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: windows_sys::core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
@@ -378,7 +378,7 @@ impl Default for LDAPControlW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -446,7 +446,7 @@ impl Default for LDAPModW_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_sys::core::PSTR,
     pub sk_matchruleoid: windows_sys::core::PSTR,
@@ -458,7 +458,7 @@ impl Default for LDAPSortKeyA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_sys::core::PWSTR,
     pub sk_matchruleoid: windows_sys::core::PWSTR,
@@ -470,7 +470,7 @@ impl Default for LDAPSortKeyW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -503,7 +503,7 @@ pub const LDAP_AUTH_SASL: i32 = 131;
 pub const LDAP_AUTH_SIMPLE: i32 = 128;
 pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = 86;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: windows_sys::core::PSTR,
@@ -738,7 +738,7 @@ pub const LDAP_PORT: u32 = 389;
 pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = 2;
 pub const LDAP_REFERRAL: LDAP_RETCODE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,
@@ -862,7 +862,7 @@ pub const LDAP_SUCCESS: LDAP_RETCODE = 0;
 pub const LDAP_TIMELIMIT_EXCEEDED: LDAP_RETCODE = 3;
 pub const LDAP_TIMEOUT: LDAP_RETCODE = 85;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
@@ -888,7 +888,7 @@ pub const LDAP_VERSION1: u32 = 1;
 pub const LDAP_VERSION2: u32 = 2;
 pub const LDAP_VERSION3: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,

@@ -5,7 +5,7 @@ pub struct POINT {
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,

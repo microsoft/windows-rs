@@ -20,7 +20,7 @@ pub const COMPRESS_ALGORITHM_NULL: u32 = 1;
 pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = 3;
 pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,

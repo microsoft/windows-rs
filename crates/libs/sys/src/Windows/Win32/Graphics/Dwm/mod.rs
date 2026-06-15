@@ -14,7 +14,7 @@ windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex :
 windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamTransformHint(uindex : u32, ptransform : *mut MilMatrix3x2D) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_sys::core::BOOL, pfisconnected : *mut windows_sys::core::BOOL, pdwgeneration : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::super::Foundation::HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::super::Foundation::HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::super::Foundation::HWND, dwattribute : DWMWINDOWATTRIBUTE, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmInvalidateIconicBitmaps(hwnd : super::super::Foundation::HWND) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::super::Foundation::HWND, crefreshes : i32, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
@@ -27,7 +27,7 @@ windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd 
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::super::Foundation::HWND, hbmp : super::Gdi::HBITMAP, dwsitflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::super::Foundation::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation::HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation::HWND, dwattribute : DWMWINDOWATTRIBUTE, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_sys::core::BOOL, pttether : super::super::Foundation::POINT) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::super::Foundation::HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_sys::core::HRESULT);

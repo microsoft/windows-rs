@@ -20,7 +20,7 @@ windows_link::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd :
 windows_link::link!("magnification.dll" "system" fn MagShowSystemCursor(fshowcursor : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagUninitialize() -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
@@ -30,7 +30,7 @@ impl Default for MAGCOLOREFFECT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -40,7 +40,7 @@ pub struct MAGIMAGEHEADER {
     pub cbSize: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }

@@ -28,7 +28,7 @@ pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144;
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536;
 pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -42,7 +42,7 @@ impl Default for MS_ADDINFO_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MS_ADDINFO_DETACHEDSIG {
     pub cbStruct: u32,
     pub hSignatureFile: super::super::super::Foundation::HANDLE,
@@ -55,7 +55,7 @@ impl Default for MS_ADDINFO_DETACHEDSIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
@@ -66,7 +66,7 @@ impl Default for MS_ADDINFO_FLAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut windows_sys::core::GUID,
@@ -89,7 +89,7 @@ impl Default for SIP_ADD_NEWPROVIDER {
 pub const SIP_CAP_FLAG_SEALING: u32 = 1;
 pub const SIP_CAP_SET_CUR_VER: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -124,7 +124,7 @@ pub const SIP_CAP_SET_VERSION_2: u32 = 2;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -141,7 +141,7 @@ impl Default for SIP_DISPATCH_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,

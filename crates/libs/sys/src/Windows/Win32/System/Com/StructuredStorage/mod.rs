@@ -213,7 +213,7 @@ windows_link::link!("ole32.dll" "system" fn WriteClassStg(pstg : *mut core::ffi:
 windows_link::link!("ole32.dll" "system" fn WriteClassStm(pstm : *mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : *mut core::ffi::c_void, cf : u16, lpszusertype : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
@@ -224,7 +224,7 @@ impl Default for BSTRBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
@@ -235,7 +235,7 @@ impl Default for CABOOL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::BSTR,
@@ -246,7 +246,7 @@ impl Default for CABSTR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
@@ -257,7 +257,7 @@ impl Default for CABSTRBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_sys::core::PSTR,
@@ -268,7 +268,7 @@ impl Default for CAC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
@@ -279,7 +279,7 @@ impl Default for CACLIPDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
@@ -290,7 +290,7 @@ impl Default for CACLSID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
@@ -301,7 +301,7 @@ impl Default for CACY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -312,7 +312,7 @@ impl Default for CADATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -323,7 +323,7 @@ impl Default for CADBL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::FILETIME,
@@ -334,7 +334,7 @@ impl Default for CAFILETIME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
@@ -345,7 +345,7 @@ impl Default for CAFLT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
@@ -356,7 +356,7 @@ impl Default for CAH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -367,7 +367,7 @@ impl Default for CAI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -378,7 +378,7 @@ impl Default for CAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PSTR,
@@ -389,7 +389,7 @@ impl Default for CALPSTR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
@@ -401,7 +401,7 @@ impl Default for CALPWSTR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
@@ -413,7 +413,7 @@ impl Default for CAPROPVARIANT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -424,7 +424,7 @@ impl Default for CASCODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
@@ -435,7 +435,7 @@ impl Default for CAUB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
@@ -446,7 +446,7 @@ impl Default for CAUH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
@@ -457,7 +457,7 @@ impl Default for CAUI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -469,7 +469,7 @@ impl Default for CAUL {
 }
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
@@ -482,7 +482,7 @@ impl Default for CLIPDATA {
 }
 pub const CWCSTORAGENAME: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
 }
@@ -492,7 +492,7 @@ impl Default for OLESTREAM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
@@ -565,7 +565,7 @@ pub const PID_MODIFY_TIME: u32 = 2147483649;
 pub const PID_SECURITY: u32 = 2147483650;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::super::Variant::VARENUM,
@@ -612,7 +612,6 @@ impl Default for PROPSPEC_0 {
 pub type PROPSPEC_KIND = u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
@@ -624,10 +623,15 @@ impl Default for PROPVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
 pub union PROPVARIANT_0 {
-    pub Anonymous: PROPVARIANT_0_0,
+    pub Anonymous: core::mem::ManuallyDrop<PROPVARIANT_0_0>,
     pub decVal: super::super::super::Foundation::DECIMAL,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for PROPVARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0 {
@@ -637,13 +641,18 @@ impl Default for PROPVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::super::Variant::VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: PROPVARIANT_0_0_0,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for PROPVARIANT_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0_0 {
@@ -653,7 +662,6 @@ impl Default for PROPVARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: i8,
     pub bVal: u8,
@@ -675,15 +683,15 @@ pub union PROPVARIANT_0_0_0 {
     pub filetime: super::super::super::Foundation::FILETIME,
     pub puuid: *mut windows_sys::core::GUID,
     pub pclipdata: *mut CLIPDATA,
-    pub bstrVal: windows_sys::core::BSTR,
+    pub bstrVal: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub bstrblobVal: BSTRBLOB,
     pub blob: super::BLOB,
     pub pszVal: windows_sys::core::PSTR,
     pub pwszVal: windows_sys::core::PWSTR,
-    pub punkVal: *mut core::ffi::c_void,
-    pub pdispVal: *mut core::ffi::c_void,
-    pub pStream: *mut core::ffi::c_void,
-    pub pStorage: *mut core::ffi::c_void,
+    pub punkVal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pdispVal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pStream: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pStorage: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub pVersionedStream: *mut VERSIONEDSTREAM,
     pub parray: *mut super::SAFEARRAY,
     pub cac: CAC,
@@ -730,6 +738,12 @@ pub union PROPVARIANT_0_0_0 {
     pub pvarVal: *mut PROPVARIANT,
 }
 #[cfg(feature = "Win32_System_Variant")]
+impl Clone for PROPVARIANT_0_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -762,7 +776,7 @@ pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = 5;
 pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = 1;
 pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = 6;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
@@ -774,7 +788,7 @@ impl Default for RemSNB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
@@ -785,7 +799,7 @@ impl Default for SERIALIZEDPROPERTYVALUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_sys::core::GUID,
     pub clsid: windows_sys::core::GUID,
@@ -797,7 +811,7 @@ pub struct STATPROPSETSTG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_sys::core::PWSTR,
     pub propid: u32,
@@ -821,7 +835,7 @@ pub const STGMOVE_COPY: STGMOVE = 1;
 pub const STGMOVE_MOVE: STGMOVE = 0;
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,
@@ -835,10 +849,10 @@ impl Default for STGOPTIONS {
 }
 pub const STGOPTIONS_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_sys::core::GUID,
-    pub pStream: *mut core::ffi::c_void,
+    pub pStream: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for VERSIONEDSTREAM {
     fn default() -> Self {

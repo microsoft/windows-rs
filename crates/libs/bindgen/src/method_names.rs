@@ -56,7 +56,7 @@ impl MethodNames {
 
     /// Creates a MethodNames that uses raw metadata names when `minimal` is true.
     pub(crate) fn for_style(style: &Style) -> Self {
-        if style.is_minimal() {
+        if style.has_com() {
             Self::new_raw()
         } else {
             Self::new()

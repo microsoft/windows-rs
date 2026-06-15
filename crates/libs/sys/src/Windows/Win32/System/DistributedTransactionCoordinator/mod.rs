@@ -5,7 +5,7 @@ windows_link::link!("xolehlp.dll" "C" fn DtcGetTransactionManagerExW(i_pwszhost 
 pub type APPLICATIONTYPE = i32;
 pub type AUTHENTICATION_LEVEL = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BOID {
     pub rgb: [u8; 16],
 }
@@ -103,13 +103,13 @@ pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40;
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2;
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -124,7 +124,7 @@ pub const OLE_TM_FLAG_NODEMANDSTART: u32 = 1;
 pub const OLE_TM_FLAG_NONE: u32 = 0;
 pub const OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
 }
@@ -160,7 +160,7 @@ pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2;
 pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3;
 pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
@@ -175,7 +175,7 @@ pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2;
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1;
 pub type XACTSTAT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -217,7 +217,7 @@ pub const XACTTC_SYNC: XACTTC = 2;
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -290,7 +290,7 @@ pub type XA_ROLLBACK_EPT = Option<unsafe extern "C" fn(param0: *mut XID, param1:
 pub type XA_START_EPT = Option<unsafe extern "C" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 pub const XA_SWITCH_F_DTC: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XID {
     pub formatID: i32,
     pub gtrid_length: i32,
@@ -305,7 +305,7 @@ impl Default for XID {
 pub const XIDDATASIZE: u32 = 128;
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct xa_switch_t {
     pub name: [i8; 32],
     pub flags: i32,

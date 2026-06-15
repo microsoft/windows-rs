@@ -179,7 +179,6 @@ pub type PSTIME_FLAGS = i32;
 pub type VARENUM = u16;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone, Copy)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
@@ -191,10 +190,15 @@ impl Default for VARIANT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone, Copy)]
 pub union VARIANT_0 {
-    pub Anonymous: VARIANT_0_0,
+    pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0>,
     pub decVal: super::super::Foundation::DECIMAL,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Clone for VARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0 {
@@ -204,13 +208,18 @@ impl Default for VARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone, Copy)]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Clone for VARIANT_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0 {
@@ -220,7 +229,6 @@ impl Default for VARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone, Copy)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -233,9 +241,9 @@ pub union VARIANT_0_0_0 {
     pub scode: i32,
     pub cyVal: super::Com::CY,
     pub date: f64,
-    pub bstrVal: windows_sys::core::BSTR,
-    pub punkVal: *mut core::ffi::c_void,
-    pub pdispVal: *mut core::ffi::c_void,
+    pub bstrVal: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub punkVal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pdispVal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub parray: *mut super::Com::SAFEARRAY,
     pub pbVal: *mut u8,
     pub piVal: *mut i16,
@@ -267,7 +275,13 @@ pub union VARIANT_0_0_0 {
     pub pullVal: *mut u64,
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
-    pub Anonymous: VARIANT_0_0_0_0,
+    pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0_0_0>,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Clone for VARIANT_0_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0_0 {
@@ -277,10 +291,10 @@ impl Default for VARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
-    pub pRecInfo: *mut core::ffi::c_void,
+    pub pRecInfo: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0_0_0 {

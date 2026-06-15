@@ -297,7 +297,7 @@ pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = 5;
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
     pub szDistUnit: windows_sys::core::PWSTR,
@@ -312,10 +312,10 @@ impl Default for CODEBASEHOLD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwFlags: u32,
 }
 impl Default for CONFIRMSAFETY {
@@ -325,7 +325,7 @@ impl Default for CONFIRMSAFETY {
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DATAINFO {
     pub ulTotalSize: u32,
     pub ulavrPacketSize: u32,
@@ -384,7 +384,7 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: windows_sys::core::PSTR,
@@ -516,7 +516,7 @@ pub const PI_SYNCHRONOUS: PI_FLAGS = 128;
 pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTOCOLDATA {
     pub grfFlags: u32,
     pub dwState: u32,
@@ -529,12 +529,12 @@ impl Default for PROTOCOLDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
-    pub pProtocolSink: *mut core::ffi::c_void,
-    pub pProtocol: *mut core::ffi::c_void,
-    pub pUnk: *mut core::ffi::c_void,
+    pub pProtocolSink: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pProtocol: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwFilterFlags: u32,
 }
 impl Default for PROTOCOLFILTERDATA {
@@ -544,7 +544,7 @@ impl Default for PROTOCOLFILTERDATA {
 }
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_sys::core::PCWSTR,
     pub szTargetUrl: windows_sys::core::PCWSTR,
@@ -600,14 +600,14 @@ pub const QUERY_USES_CACHE: QUERYOPTION = 12;
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
     pub bInheritHandle: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -620,7 +620,7 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwReserved: u32,
 }
 impl Default for RemBINDINFO {
@@ -629,7 +629,7 @@ impl Default for RemBINDINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RemFORMATETC {
     pub cfFormat: u32,
     pub ptd: u32,
@@ -648,7 +648,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -682,11 +682,11 @@ pub const SZM_DELETE: SZM_FLAGS = 1;
 pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: i32 = 262632;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct StartParam {
     pub iid: windows_sys::core::GUID,
-    pub pIBindCtx: *mut core::ffi::c_void,
-    pub pItf: *mut core::ffi::c_void,
+    pub pIBindCtx: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pItf: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for StartParam {
     fn default() -> Self {
@@ -937,7 +937,7 @@ pub const ZAFLAGS_UNC_AS_INTRANET: ZAFLAGS = 128;
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ZONEATTRIBUTES {
     pub cbSize: u32,
     pub szDisplayName: [u16; 260],

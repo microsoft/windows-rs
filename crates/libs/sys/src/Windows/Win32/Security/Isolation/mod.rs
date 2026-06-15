@@ -12,7 +12,7 @@ windows_link::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsProcessI
 windows_link::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 pub const IsolatedAppLauncher: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: windows_sys::core::BOOL,
     pub CorrelationGUID: windows_sys::core::GUID,

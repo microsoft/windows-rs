@@ -32,18 +32,14 @@ impl Struct {
             derive.extend(["Copy"]);
         }
 
-        if !config.bindgen.style.is_sys() {
-            derive.extend(["Default", "Debug", "PartialEq"]);
+        derive.extend(["Default", "Debug", "PartialEq"]);
 
-            if config.bindgen.style.is_minimal()
-                && fields.iter().all(|(_, ty)| ty.is_eq(config.reader))
-            {
-                derive.extend(["Eq"]);
-            }
+        if config.bindgen.style.has_com() && fields.iter().all(|(_, ty)| ty.is_eq(config.reader)) {
+            derive.extend(["Eq"]);
         }
 
         let fields = fields.iter().map(|(name, ty)| {
-            let name = if config.bindgen.style.is_minimal() {
+            let name = if config.bindgen.style.has_com() {
                 to_ident(&to_snake_case(name))
             } else {
                 to_ident(name)
@@ -67,7 +63,7 @@ impl Struct {
             // useful when the struct appears as a generic type argument in an
             // implemented parameterized interface. In minimal mode we skip it
             // unconditionally — the trait default (empty) is sufficient.
-            let name_const = if config.bindgen.style.is_minimal() {
+            let name_const = if config.bindgen.style.has_com() {
                 quote! {}
             } else {
                 let type_name_bytes =

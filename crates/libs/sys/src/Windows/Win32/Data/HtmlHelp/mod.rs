@@ -1,5 +1,5 @@
-windows_link::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation::HWND, pszfile : windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation::HWND);
-windows_link::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation::HWND, pszfile : windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation::HWND);
+windows_link::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation::HWND, pszfile : windows_sys::core::PCSTR, ucommand : HTML_HELP_COMMAND, dwdata : usize) -> super::super::Foundation::HWND);
+windows_link::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation::HWND, pszfile : windows_sys::core::PCWSTR, ucommand : HTML_HELP_COMMAND, dwdata : usize) -> super::super::Foundation::HWND);
 pub const CLSID_IITCmdInt: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
 pub const CLSID_IITDatabase: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
 pub const CLSID_IITDatabaseLocal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4662daa9_d393_11d0_9a56_00c04fb68bf7);
@@ -15,7 +15,7 @@ pub const CLSID_IITWordWheelUpdate: windows_sys::core::GUID = windows_sys::core:
 pub const CLSID_ITEngStemmer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7);
 pub const CLSID_ITStdBreaker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4662daaf_d393_11d0_9a56_00c04fb68bf7);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
@@ -134,7 +134,7 @@ pub const HHACT_TOC_PREV: i32 = 21;
 pub const HHACT_ZOOM: i32 = 19;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszCurUrl: windows_sys::core::PCSTR,
@@ -152,7 +152,7 @@ pub const HHN_LAST: u32 = 4294966417;
 pub const HHN_NAVCOMPLETE: u32 = 4294966436;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: windows_sys::core::PCSTR,
@@ -240,7 +240,7 @@ pub const HHWIN_PROP_TRI_PANE: u32 = 32;
 pub const HHWIN_PROP_USER_POS: u32 = 262144;
 pub const HHWIN_TB_MARGIN: u32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
     pub fReserved: windows_sys::core::BOOL,
@@ -264,7 +264,7 @@ pub const HH_DISPLAY_TEXT_POPUP: HTML_HELP_COMMAND = 14;
 pub const HH_DISPLAY_TOC: HTML_HELP_COMMAND = 1;
 pub const HH_DISPLAY_TOPIC: HTML_HELP_COMMAND = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
     pub pszCatName: windows_sys::core::PCSTR,
@@ -279,7 +279,7 @@ pub const HH_ENUM_CATEGORY: HTML_HELP_COMMAND = 21;
 pub const HH_ENUM_CATEGORY_IT: HTML_HELP_COMMAND = 22;
 pub const HH_ENUM_INFO_TYPE: HTML_HELP_COMMAND = 7;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
@@ -294,7 +294,7 @@ impl Default for HH_ENUM_IT {
 }
 pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = -1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
     pub fUniCodeStrings: windows_sys::core::BOOL,
@@ -315,10 +315,15 @@ pub const HH_GET_WIN_HANDLE: HTML_HELP_COMMAND = 6;
 pub const HH_GET_WIN_TYPE: HTML_HELP_COMMAND = 5;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for HH_GLOBAL_PROPERTY {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for HH_GLOBAL_PROPERTY {
@@ -339,7 +344,7 @@ pub const HH_KEYWORD_LOOKUP: HTML_HELP_COMMAND = 13;
 pub const HH_MAX_TABS: HTML_HELP_COMMAND = 19;
 pub const HH_MAX_TABS_CUSTOM: HTML_HELP_COMMAND = 9;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_POPUP {
     pub cbStruct: i32,
     pub hinst: super::super::Foundation::HINSTANCE,
@@ -366,7 +371,7 @@ pub const HH_SET_EXCLUSIVE_FILTER: HTML_HELP_COMMAND = 25;
 pub const HH_SET_GLOBAL_PROPERTY: HTML_HELP_COMMAND = 252;
 pub const HH_SET_INCLUSIVE_FILTER: HTML_HELP_COMMAND = 24;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: windows_sys::core::PCSTR,
@@ -393,7 +398,7 @@ pub const HH_TP_HELP_CONTEXTMENU: HTML_HELP_COMMAND = 16;
 pub const HH_TP_HELP_WM_HELP: HTML_HELP_COMMAND = 17;
 pub const HH_UNINITIALIZE: HTML_HELP_COMMAND = 29;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
     pub fUniCodeStrings: windows_sys::core::BOOL,
@@ -479,7 +484,7 @@ pub const PROP_ADD: u32 = 0;
 pub const PROP_DELETE: u32 = 1;
 pub const PROP_UPDATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,

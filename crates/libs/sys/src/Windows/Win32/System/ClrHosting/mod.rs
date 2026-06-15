@@ -33,7 +33,7 @@ pub type APPDOMAIN_SECURITY_FLAGS = i32;
 pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = 2;
 pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
     pub lpReferencedIdentity: windows_sys::core::PCWSTR,
@@ -48,7 +48,7 @@ impl Default for AssemblyBindInfo {
 pub const BucketParamLength: u32 = 255;
 pub type BucketParameterIndex = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BucketParameters {
     pub fInited: windows_sys::core::BOOL,
     pub pszEventTypeName: [u16; 255],
@@ -71,7 +71,7 @@ pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLA
 pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = 1;
 pub type CLR_DEBUGGING_PROCESS_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
@@ -93,7 +93,7 @@ pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = 1;
 pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = 1;
 pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_GC_STATS {
     pub Flags: u32,
     pub ExplicitGCCount: usize,
@@ -115,7 +115,7 @@ impl Default for COR_GC_STATS {
 pub type COR_GC_STAT_TYPES = i32;
 pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
@@ -200,7 +200,7 @@ pub const MALLOC_EXECUTABLE: MALLOC_TYPE = 2;
 pub const MALLOC_THREADSAFE: MALLOC_TYPE = 1;
 pub type MALLOC_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDAInfo {
     pub lpMDACaption: windows_sys::core::PCWSTR,
     pub lpMDAMessage: windows_sys::core::PCWSTR,
@@ -229,7 +229,7 @@ pub const MaxClrFailure: EClrFailure = 7;
 pub const MaxClrOperation: EClrOperation = 7;
 pub const MaxPolicyAction: EPolicyAction = 10;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: windows_sys::core::PCWSTR,
@@ -290,7 +290,7 @@ pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = 16384;
 pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = 524288;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,

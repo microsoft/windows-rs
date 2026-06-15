@@ -26,7 +26,7 @@ pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648;
 pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200;
 pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
 }
@@ -53,7 +53,7 @@ impl Default for TBS_CONTEXT_PARAMS2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
@@ -73,7 +73,7 @@ pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2;
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0;
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
@@ -93,7 +93,7 @@ pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],

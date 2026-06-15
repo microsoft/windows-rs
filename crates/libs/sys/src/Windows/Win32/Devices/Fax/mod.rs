@@ -92,7 +92,7 @@ pub type FAX_ACCESS_RIGHTS_ENUM = i32;
 pub type FAX_ACCESS_RIGHTS_ENUM_2 = i32;
 pub type FAX_ACCOUNT_EVENTS_TYPE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_CONFIGURATIONA {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -114,7 +114,7 @@ impl Default for FAX_CONFIGURATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_CONFIGURATIONW {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -139,7 +139,7 @@ pub const FAX_CONFIG_QUERY: u32 = 4;
 pub const FAX_CONFIG_SET: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
@@ -153,7 +153,7 @@ impl Default for FAX_CONTEXT_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_CONTEXT_INFOW {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
@@ -166,7 +166,7 @@ impl Default for FAX_CONTEXT_INFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_COVERPAGE_INFOA {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_sys::core::PCSTR,
@@ -204,7 +204,7 @@ impl Default for FAX_COVERPAGE_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_COVERPAGE_INFOW {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_sys::core::PCWSTR,
@@ -244,7 +244,7 @@ impl Default for FAX_COVERPAGE_INFOW {
 pub type FAX_COVERPAGE_TYPE_ENUM = i32;
 pub type FAX_DEVICE_RECEIVE_MODE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_DEVICE_STATUSA {
     pub SizeOfStruct: u32,
     pub CallerId: windows_sys::core::PCSTR,
@@ -273,7 +273,7 @@ impl Default for FAX_DEVICE_STATUSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_DEVICE_STATUSW {
     pub SizeOfStruct: u32,
     pub CallerId: windows_sys::core::PCWSTR,
@@ -302,7 +302,7 @@ impl Default for FAX_DEVICE_STATUSW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_DEV_STATUS {
     pub SizeOfStruct: u32,
     pub StatusId: u32,
@@ -342,7 +342,7 @@ pub const FAX_ERR_SRV_OUTOFMEMORY: i32 = 7001;
 pub const FAX_ERR_START: i32 = 7001;
 pub const FAX_ERR_VERSION_MISMATCH: i32 = 7012;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FAX_EVENTA {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -351,7 +351,7 @@ pub struct FAX_EVENTA {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FAX_EVENTW {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -373,7 +373,7 @@ pub const FAX_E_RULE_NOT_FOUND: windows_sys::core::HRESULT = 0x80041B5D_u32 as _
 pub const FAX_E_SRV_OUTOFMEMORY: windows_sys::core::HRESULT = 0x80041B59_u32 as _;
 pub const FAX_E_VERSION_MISMATCH: windows_sys::core::HRESULT = 0x80041B64_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -389,7 +389,7 @@ impl Default for FAX_GLOBAL_ROUTING_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -406,7 +406,7 @@ impl Default for FAX_GLOBAL_ROUTING_INFOW {
 }
 pub type FAX_GROUP_STATUS_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_JOB_ENTRYA {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -435,7 +435,7 @@ impl Default for FAX_JOB_ENTRYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_JOB_ENTRYW {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -467,7 +467,7 @@ pub type FAX_JOB_EXTENDED_STATUS_ENUM = i32;
 pub const FAX_JOB_MANAGE: u32 = 64;
 pub type FAX_JOB_OPERATIONS_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_JOB_PARAMA {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_sys::core::PCSTR,
@@ -491,7 +491,7 @@ impl Default for FAX_JOB_PARAMA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_JOB_PARAMW {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_sys::core::PCWSTR,
@@ -519,7 +519,7 @@ pub type FAX_JOB_STATUS_ENUM = i32;
 pub const FAX_JOB_SUBMIT: u32 = 1;
 pub type FAX_JOB_TYPE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_LOG_CATEGORYA {
     pub Name: windows_sys::core::PCSTR,
     pub Category: u32,
@@ -531,7 +531,7 @@ impl Default for FAX_LOG_CATEGORYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_LOG_CATEGORYW {
     pub Name: windows_sys::core::PCWSTR,
     pub Category: u32,
@@ -544,7 +544,7 @@ impl Default for FAX_LOG_CATEGORYW {
 }
 pub type FAX_LOG_LEVEL_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_PORT_INFOA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -562,7 +562,7 @@ impl Default for FAX_PORT_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_PORT_INFOW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -582,7 +582,7 @@ impl Default for FAX_PORT_INFOW {
 pub const FAX_PORT_QUERY: u32 = 16;
 pub const FAX_PORT_SET: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_PRINT_INFOA {
     pub SizeOfStruct: u32,
     pub DocName: windows_sys::core::PCSTR,
@@ -602,7 +602,7 @@ impl Default for FAX_PRINT_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_PRINT_INFOW {
     pub SizeOfStruct: u32,
     pub DocName: windows_sys::core::PCWSTR,
@@ -625,7 +625,7 @@ pub type FAX_PRIORITY_TYPE_ENUM = i32;
 pub type FAX_PROVIDER_STATUS_ENUM = i32;
 pub type FAX_RECEIPT_TYPE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_RECEIVE {
     pub SizeOfStruct: u32,
     pub FileName: windows_sys::core::PWSTR,
@@ -639,7 +639,7 @@ impl Default for FAX_RECEIVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_ROUTE {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -663,7 +663,7 @@ impl Default for FAX_ROUTE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
     pub FaxRouteAddFile: PFAXROUTEADDFILE,
@@ -673,7 +673,7 @@ pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_ROUTING_METHODA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -691,7 +691,7 @@ impl Default for FAX_ROUTING_METHODA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_ROUTING_METHODW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -712,7 +712,7 @@ pub type FAX_ROUTING_RULE_CODE_ENUM = i32;
 pub type FAX_RULE_STATUS_ENUM = i32;
 pub type FAX_SCHEDULE_TYPE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAX_SEND {
     pub SizeOfStruct: u32,
     pub FileName: windows_sys::core::PWSTR,
@@ -733,7 +733,7 @@ pub type FAX_SERVER_APIVERSION_ENUM = i32;
 pub type FAX_SERVER_EVENTS_TYPE_ENUM = i32;
 pub type FAX_SMTP_AUTHENTICATION_TYPE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FAX_TIME {
     pub Hour: u16,
     pub Minute: u16,
@@ -1041,7 +1041,7 @@ pub const STIERR_READONLY: i32 = -2147024891;
 pub const STIERR_SHARING_VIOLATION: windows_sys::core::HRESULT = 0x80070020_u32 as _;
 pub const STIERR_UNSUPPORTED: i32 = -2147467263;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STINOTIFY {
     pub dwSize: u32,
     pub guidNotificationCode: windows_sys::core::GUID,
@@ -1053,7 +1053,7 @@ impl Default for STINOTIFY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1076,7 +1076,7 @@ pub const STI_DEVICE_CREATE_FOR_MONITOR: u32 = 16777216;
 pub const STI_DEVICE_CREATE_MASK: u32 = 65535;
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -1096,7 +1096,7 @@ impl Default for STI_DEVICE_INFORMATIONW {
 }
 pub type STI_DEVICE_MJ_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: u32,
     pub StatusMask: u32,
@@ -1120,12 +1120,12 @@ pub const STI_DEVICE_VALUE_TWAIN_NAME_A: windows_sys::core::PCSTR = windows_sys:
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2;
 pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STI_DIAG {
     pub dwSize: u32,
     pub dwBasicDiagCode: u32,
@@ -1177,7 +1177,7 @@ pub const STI_TRACE_INFORMATION: u32 = 1;
 pub const STI_TRACE_WARNING: u32 = 2;
 pub const STI_UNICODE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STI_USD_CAPS {
     pub dwVersion: u32,
     pub dwGenericCaps: u32,
@@ -1189,7 +1189,7 @@ pub const STI_VERSION_FLAG_UNICODE: u32 = 16777216;
 pub const STI_VERSION_MIN_ALLOWED: u32 = 2;
 pub const STI_VERSION_REAL: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -1218,7 +1218,7 @@ pub const StiDeviceTypeScanner: STI_DEVICE_MJ_TYPE = 1;
 pub const StiDeviceTypeStreamingVideo: STI_DEVICE_MJ_TYPE = 3;
 pub const WIA_INCOMPAT_XP: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _ERROR_INFOW {
     pub dwSize: u32,
     pub dwGenericError: u32,

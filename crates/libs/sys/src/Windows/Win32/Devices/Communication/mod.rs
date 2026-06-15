@@ -39,7 +39,7 @@ pub const CLRBREAK: ESCAPE_COMM_FUNCTION = 9;
 pub const CLRDTR: ESCAPE_COMM_FUNCTION = 6;
 pub const CLRRTS: ESCAPE_COMM_FUNCTION = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -56,7 +56,7 @@ impl Default for COMMCONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMMPROP {
     pub wPacketLength: u16,
     pub wPacketVersion: u16,
@@ -84,7 +84,7 @@ impl Default for COMMPROP {
 }
 pub type COMMPROP_STOP_PARITY = u16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -94,14 +94,14 @@ pub struct COMMTIMEOUTS {
 }
 pub type COMM_EVENT_MASK = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -250,7 +250,7 @@ pub const MDM_X75_DATA_BTX: u32 = 4;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0;
 pub const MDM_X75_DATA_T_70: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODEMDEVCAPS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -282,7 +282,7 @@ pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
 pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
 pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,

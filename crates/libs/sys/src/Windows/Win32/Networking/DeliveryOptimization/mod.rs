@@ -44,7 +44,7 @@ pub const DODownloadState_Paused: DODownloadState = 5;
 pub const DODownloadState_Transferred: DODownloadState = 2;
 pub const DODownloadState_Transferring: DODownloadState = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DO_DOWNLOAD_ENUM_CATEGORY {
     pub Property: DODownloadProperty,
     pub Value: windows_sys::core::PCWSTR,
@@ -55,13 +55,13 @@ impl Default for DO_DOWNLOAD_ENUM_CATEGORY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DO_DOWNLOAD_RANGE {
     pub Offset: u64,
     pub Length: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DO_DOWNLOAD_RANGES_INFO {
     pub RangeCount: u32,
     pub Ranges: [DO_DOWNLOAD_RANGE; 1],
@@ -72,7 +72,7 @@ impl Default for DO_DOWNLOAD_RANGES_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DO_DOWNLOAD_STATUS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,

@@ -33,7 +33,7 @@ pub type SW_DEVICE_CAPABILITIES = i32;
 pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_sys::core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_sys::core::PCWSTR)>;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SW_DEVICE_CREATE_INFO {
     pub cbSize: u32,
     pub pszInstanceId: windows_sys::core::PCWSTR,

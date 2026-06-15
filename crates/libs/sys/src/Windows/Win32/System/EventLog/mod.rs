@@ -65,7 +65,7 @@ windows_link::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::s
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation::HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security::PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -90,7 +90,7 @@ pub const EVENTLOG_BACKWARDS_READ: READ_EVENT_LOG_READ_FLAGS = 8;
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = 1;
 pub const EVENTLOG_FORWARDS_READ: READ_EVENT_LOG_READ_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
@@ -100,7 +100,7 @@ pub const EVENTLOG_SEQUENTIAL_READ: READ_EVENT_LOG_READ_FLAGS = 1;
 pub const EVENTLOG_SUCCESS: REPORT_EVENT_TYPE = 0;
 pub const EVENTLOG_WARNING_TYPE: REPORT_EVENT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
@@ -135,7 +135,7 @@ pub const EVT_READ_ACCESS: u32 = 1;
 pub type EVT_RENDER_CONTEXT_FLAGS = u32;
 pub type EVT_RENDER_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_sys::core::PWSTR,
     pub User: windows_sys::core::PWSTR,

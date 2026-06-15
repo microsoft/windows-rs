@@ -309,9 +309,9 @@ pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 1;
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TF_HALTCOND {
-    pub pHaltRange: *mut core::ffi::c_void,
+    pub pHaltRange: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
 }
@@ -327,7 +327,7 @@ pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2;
 pub const TF_IE_CORRECTION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -365,7 +365,7 @@ pub const TF_IPP_FLAG_ENABLED: u32 = 2;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: windows_sys::core::GUID,
     pub guidItem: windows_sys::core::GUID,
@@ -379,7 +379,7 @@ impl Default for TF_LANGBARITEMINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_sys::core::GUID,
     pub langid: u16,
@@ -388,10 +388,10 @@ pub struct TF_LANGUAGEPROFILE {
     pub guidProfile: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
-    pub bstrText: windows_sys::core::BSTR,
+    pub bstrText: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for TF_LBBALLOONINFO {
     fn default() -> Self {
@@ -433,13 +433,17 @@ pub const TF_LC_CHANGE: TfLayoutCode = 1;
 pub const TF_LC_CREATE: TfLayoutCode = 0;
 pub const TF_LC_DESTROY: TfLayoutCode = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
     pub dwFrameLen: u32,
     pub dwFlags: u32,
     pub Anonymous: TF_LMLATTELEMENT_0,
-    pub bstrText: windows_sys::core::BSTR,
+    pub bstrText: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+}
+impl Clone for TF_LMLATTELEMENT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for TF_LMLATTELEMENT {
     fn default() -> Self {
@@ -474,7 +478,7 @@ pub const TF_MOD_RCONTROL: u32 = 16;
 pub const TF_MOD_RSHIFT: u32 = 32;
 pub const TF_MOD_SHIFT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_sys::core::GUID,
     pub ichStart: i32,
@@ -485,7 +489,7 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
 }
 pub const TF_POPF_ALL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -509,10 +513,15 @@ pub const TF_PROFILE_WUBI: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const TF_PROFILE_YI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
     pub varValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for TF_PROPERTYVAL {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for TF_PROPERTYVAL {
@@ -540,9 +549,9 @@ pub const TF_SD_FORWARD: TfShiftDir = 1;
 pub const TF_SD_LOADING: u32 = 2;
 pub const TF_SD_READONLY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TF_SELECTION {
-    pub range: *mut core::ffi::c_void,
+    pub range: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub style: TF_SELECTIONSTYLE,
 }
 impl Default for TF_SELECTION {
@@ -551,7 +560,7 @@ impl Default for TF_SELECTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: windows_sys::core::BOOL,
@@ -718,11 +727,16 @@ pub const TS_AS_STATUS_CHANGE: u32 = 16;
 pub const TS_AS_TEXT_CHANGE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub struct TS_ATTRVAL {
     pub idAttr: windows_sys::core::GUID,
     pub dwOverlapId: u32,
     pub varValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for TS_ATTRVAL {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for TS_ATTRVAL {
@@ -771,7 +785,7 @@ pub const TS_RT_HIDDEN: TsRunType = 1;
 pub const TS_RT_OPAQUE: TsRunType = 2;
 pub const TS_RT_PLAIN: TsRunType = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -788,23 +802,23 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
     pub style: TS_SELECTIONSTYLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
-    pub paStart: *mut core::ffi::c_void,
-    pub paEnd: *mut core::ffi::c_void,
+    pub paStart: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub paEnd: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub style: TS_SELECTIONSTYLE,
 }
 impl Default for TS_SELECTION_ANCHOR {
@@ -824,7 +838,7 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32;
 pub const TS_SS_TRANSITORY: u32 = 4;
 pub const TS_SS_UWPCONTROL: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -838,7 +852,7 @@ pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
 pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1;
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,

@@ -174,7 +174,7 @@ impl Default for DNS_ADDR_ARRAY {
 }
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -183,7 +183,7 @@ pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1;
 pub const DNS_APP_SETTINGS_VERSION1: u32 = 1;
 pub const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_ATMA_DATA {
     pub AddressType: u8,
     pub Address: [u8; 20],
@@ -198,7 +198,7 @@ pub const DNS_ATMA_FORMAT_E164: u32 = 1;
 pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20;
 pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_A_DATA {
     pub IpAddress: u32,
 }
@@ -215,7 +215,7 @@ pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164;
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1;
 pub type DNS_CONFIG_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_sys::core::PCWSTR,
     pub dwIfIndex: u32,
@@ -226,7 +226,7 @@ impl Default for DNS_CONNECTION_IFINDEX_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
@@ -237,7 +237,7 @@ impl Default for DNS_CONNECTION_IFINDEX_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_NAME {
     pub wszName: [u16; 65],
 }
@@ -247,7 +247,7 @@ impl Default for DNS_CONNECTION_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
@@ -259,7 +259,7 @@ impl Default for DNS_CONNECTION_NAME_LIST {
 }
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub pwszAppId: windows_sys::core::PCWSTR,
@@ -275,7 +275,7 @@ impl Default for DNS_CONNECTION_POLICY_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
@@ -324,7 +324,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszServer: windows_sys::core::PWSTR,
     pub pwszUsername: windows_sys::core::PWSTR,
@@ -339,7 +339,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: windows_sys::core::PWSTR,
     pub pwszUsername: windows_sys::core::PWSTR,
@@ -378,7 +378,7 @@ pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWI
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2;
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
@@ -434,7 +434,7 @@ pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1;
 pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1;
 pub const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_DHCID_DATA {
     pub dwByteCount: u32,
     pub DHCID: [u8; 1],
@@ -445,7 +445,7 @@ impl Default for DNS_DHCID_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_DS_DATA {
     pub wKeyTag: u16,
     pub chAlgorithm: u8,
@@ -472,14 +472,14 @@ pub struct DNS_HEADER {
     pub AdditionalCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
     pub chVersion: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_KEY_DATA {
     pub wFlags: u16,
     pub chProtocol: u8,
@@ -494,7 +494,7 @@ impl Default for DNS_KEY_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_LOC_DATA {
     pub wVersion: u16,
     pub wSize: u16,
@@ -527,7 +527,7 @@ impl Default for DNS_MESSAGE_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: windows_sys::core::PSTR,
     pub pNameErrorsMailbox: windows_sys::core::PSTR,
@@ -538,7 +538,7 @@ impl Default for DNS_MINFO_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: windows_sys::core::PWSTR,
     pub pNameErrorsMailbox: windows_sys::core::PWSTR,
@@ -549,7 +549,7 @@ impl Default for DNS_MINFO_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MX_DATAA {
     pub pNameExchange: windows_sys::core::PSTR,
     pub wPreference: u16,
@@ -561,7 +561,7 @@ impl Default for DNS_MX_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: windows_sys::core::PWSTR,
     pub wPreference: u16,
@@ -574,7 +574,7 @@ impl Default for DNS_MX_DATAW {
 }
 pub type DNS_NAME_FORMAT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NAPTR_DATAA {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -589,7 +589,7 @@ impl Default for DNS_NAPTR_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NAPTR_DATAW {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -604,7 +604,7 @@ impl Default for DNS_NAPTR_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC3PARAM_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -619,7 +619,7 @@ impl Default for DNS_NSEC3PARAM_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC3_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -635,7 +635,7 @@ impl Default for DNS_NSEC3_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC_DATAA {
     pub pNextDomainName: windows_sys::core::PSTR,
     pub wTypeBitMapsLength: u16,
@@ -648,7 +648,7 @@ impl Default for DNS_NSEC_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC_DATAW {
     pub pNextDomainName: windows_sys::core::PWSTR,
     pub wTypeBitMapsLength: u16,
@@ -661,7 +661,7 @@ impl Default for DNS_NSEC_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NULL_DATA {
     pub dwByteCount: u32,
     pub Data: [u8; 1],
@@ -672,7 +672,7 @@ impl Default for DNS_NULL_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NXT_DATAA {
     pub pNameNext: windows_sys::core::PSTR,
     pub wNumTypes: u16,
@@ -684,7 +684,7 @@ impl Default for DNS_NXT_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NXT_DATAW {
     pub pNameNext: windows_sys::core::PWSTR,
     pub wNumTypes: u16,
@@ -702,7 +702,7 @@ pub const DNS_OPCODE_SERVER_STATUS: u32 = 2;
 pub const DNS_OPCODE_UNKNOWN: u32 = 3;
 pub const DNS_OPCODE_UPDATE: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_OPT_DATA {
     pub wDataLength: u16,
     pub wPad: u16,
@@ -723,7 +723,7 @@ pub const DNS_PROTOCOL_UDP: u32 = 1;
 pub const DNS_PROTOCOL_UNSPECIFIED: u32 = 0;
 pub type DNS_PROXY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(completioncontext: *const core::ffi::c_void, status: i32)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_PROXY_INFORMATION {
     pub version: u32,
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
@@ -740,7 +740,7 @@ pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = 3;
 pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = 2;
 pub type DNS_PROXY_INFORMATION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_PTR_DATAA {
     pub pNameHost: windows_sys::core::PSTR,
 }
@@ -750,7 +750,7 @@ impl Default for DNS_PTR_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: windows_sys::core::PWSTR,
 }
@@ -765,7 +765,7 @@ pub const DNS_QUERY_APPEND_MULTILABEL: DNS_QUERY_OPTIONS = 8388608;
 pub const DNS_QUERY_BYPASS_CACHE: DNS_QUERY_OPTIONS = 8;
 pub const DNS_QUERY_CACHE_ONLY: DNS_QUERY_OPTIONS = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_CANCEL {
     pub Reserved: [i8; 32],
 }
@@ -790,7 +790,7 @@ pub const DNS_QUERY_NO_WIRE_QUERY: DNS_QUERY_OPTIONS = 16;
 pub type DNS_QUERY_OPTIONS = u32;
 pub const DNS_QUERY_PARSE_ALL_RECORDS: DNS_QUERY_OPTIONS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_RAW_CANCEL {
     pub reserved: [i8; 32],
 }
@@ -867,7 +867,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
 }
 pub const DNS_QUERY_RAW_RESULTS_VERSION1: DNS_QUERY_OPTIONS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: windows_sys::core::PCWSTR,
@@ -884,7 +884,7 @@ impl Default for DNS_QUERY_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: windows_sys::core::PCWSTR,
@@ -909,7 +909,7 @@ pub const DNS_QUERY_REQUEST_VERSION2: DNS_QUERY_OPTIONS = 2;
 pub const DNS_QUERY_REQUEST_VERSION3: DNS_QUERY_OPTIONS = 3;
 pub const DNS_QUERY_RESERVED: DNS_QUERY_OPTIONS = 4026531840;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
     pub QueryStatus: i32,
@@ -1205,7 +1205,7 @@ impl Default for DNS_RECORDW_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
 }
@@ -1251,7 +1251,7 @@ impl Default for DNS_RECORD_OPTW_1 {
 }
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_RRSET {
     pub pFirstRR: *mut DNS_RECORDA,
     pub pLastRR: *mut DNS_RECORDA,
@@ -1351,7 +1351,7 @@ impl Default for DNS_SERVICE_BROWSE_REQUEST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut core::ffi::c_void,
 }
@@ -1361,7 +1361,7 @@ impl Default for DNS_SERVICE_CANCEL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: windows_sys::core::PWSTR,
     pub pszHostName: windows_sys::core::PWSTR,
@@ -1381,7 +1381,7 @@ impl Default for DNS_SERVICE_INSTANCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1397,7 +1397,7 @@ impl Default for DNS_SERVICE_REGISTER_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1411,7 +1411,7 @@ impl Default for DNS_SERVICE_RESOLVE_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SIG_DATAA {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -1430,7 +1430,7 @@ impl Default for DNS_SIG_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SIG_DATAW {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -1449,7 +1449,7 @@ impl Default for DNS_SIG_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SOA_DATAA {
     pub pNamePrimaryServer: windows_sys::core::PSTR,
     pub pNameAdministrator: windows_sys::core::PSTR,
@@ -1465,7 +1465,7 @@ impl Default for DNS_SOA_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SOA_DATAW {
     pub pNamePrimaryServer: windows_sys::core::PWSTR,
     pub pNameAdministrator: windows_sys::core::PWSTR,
@@ -1481,7 +1481,7 @@ impl Default for DNS_SOA_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SRV_DATAA {
     pub pNameTarget: windows_sys::core::PSTR,
     pub wPriority: u16,
@@ -1495,7 +1495,7 @@ impl Default for DNS_SRV_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SRV_DATAW {
     pub pNameTarget: windows_sys::core::PWSTR,
     pub wPriority: u16,
@@ -1509,7 +1509,7 @@ impl Default for DNS_SRV_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_DATA {
     pub wSvcPriority: u16,
     pub pszTargetName: windows_sys::core::PSTR,
@@ -1550,7 +1550,7 @@ impl Default for DNS_SVCB_PARAM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN {
     pub cIds: u16,
     pub rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
@@ -1561,7 +1561,7 @@ impl Default for DNS_SVCB_PARAM_ALPN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: u8,
     pub pbId: *mut u8,
@@ -1572,7 +1572,7 @@ impl Default for DNS_SVCB_PARAM_ALPN_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_IPV4 {
     pub cIps: u16,
     pub rgIps: [u32; 1],
@@ -1594,7 +1594,7 @@ impl Default for DNS_SVCB_PARAM_IPV6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_MANDATORY {
     pub cMandatoryKeys: u16,
     pub rgwMandatoryKeys: [u16; 1],
@@ -1606,7 +1606,7 @@ impl Default for DNS_SVCB_PARAM_MANDATORY {
 }
 pub type DNS_SVCB_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_UNKNOWN {
     pub cBytes: u16,
     pub pbSvcParamValue: [u8; 1],
@@ -1617,7 +1617,7 @@ impl Default for DNS_SVCB_PARAM_UNKNOWN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: windows_sys::core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1638,7 +1638,7 @@ impl Default for DNS_TKEY_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: windows_sys::core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1663,7 +1663,7 @@ pub const DNS_TKEY_MODE_GSS: u32 = 3;
 pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4;
 pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TLSA_DATA {
     pub bCertUsage: u8,
     pub bSelector: u8,
@@ -1678,7 +1678,7 @@ impl Default for DNS_TLSA_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: windows_sys::core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1699,7 +1699,7 @@ impl Default for DNS_TSIG_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: windows_sys::core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1720,7 +1720,7 @@ impl Default for DNS_TSIG_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TXT_DATAA {
     pub dwStringCount: u32,
     pub pStringArray: [windows_sys::core::PSTR; 1],
@@ -1731,7 +1731,7 @@ impl Default for DNS_TXT_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TXT_DATAW {
     pub dwStringCount: u32,
     pub pStringArray: [windows_sys::core::PWSTR; 1],
@@ -1810,7 +1810,7 @@ pub const DNS_TYPE_WKS: u32 = 11;
 pub const DNS_TYPE_X25: u32 = 19;
 pub const DNS_TYPE_ZERO: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_UNKNOWN_DATA {
     pub dwByteCount: u32,
     pub bData: [u8; 1],
@@ -1840,7 +1840,7 @@ pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6;
 pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255;
 pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WINSR_DATAA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -1853,7 +1853,7 @@ impl Default for DNS_WINSR_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WINSR_DATAW {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -1866,7 +1866,7 @@ impl Default for DNS_WINSR_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WINS_DATA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -1896,7 +1896,7 @@ pub struct DNS_WIRE_RECORD {
     pub DataLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WKS_DATA {
     pub IpAddress: u32,
     pub chProtocol: u8,
@@ -1958,7 +1958,7 @@ pub const INTERNET_DEFAULT_DOT_PORT: u32 = 853;
 pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16;
 pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IP4_ARRAY {
     pub AddrCount: u32,
     pub AddrArray: [u32; 1],
@@ -2000,7 +2000,7 @@ impl Default for IP6_ADDRESS {
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65;
 pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDNS_QUERY_HANDLE {
     pub nameBuf: [u16; 256],
     pub wType: u16,
@@ -2014,7 +2014,7 @@ impl Default for MDNS_QUERY_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,

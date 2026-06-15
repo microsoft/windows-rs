@@ -13,7 +13,7 @@ pub type BSTR = *const u16;
 pub type HSTRING = *mut core::ffi::c_void;
 
 #[repr(C)]
-#[derive(Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GUID {
     pub data1: u32,
     pub data2: u16,

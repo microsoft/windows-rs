@@ -4,7 +4,7 @@ pub type HKEY = *mut core::ffi::c_void;
 pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646 as _;
 pub type NTSTATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSVERSIONINFOEXW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -24,7 +24,7 @@ impl Default for OSVERSIONINFOEXW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSVERSIONINFOW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,

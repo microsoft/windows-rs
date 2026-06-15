@@ -85,7 +85,7 @@ impl Default for MMTIME_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMTIME_0_0 {
     pub hour: u8,
     pub min: u8,
@@ -155,7 +155,7 @@ pub const MM_WOM_CLOSE: u32 = 956;
 pub const MM_WOM_DONE: u32 = 957;
 pub const MM_WOM_OPEN: u32 = 955;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
@@ -172,7 +172,7 @@ impl Default for TIMECODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,

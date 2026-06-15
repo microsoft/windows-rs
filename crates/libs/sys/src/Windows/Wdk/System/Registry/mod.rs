@@ -69,7 +69,7 @@ windows_link::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::sup
 pub type KEY_INFORMATION_CLASS = i32;
 pub type KEY_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub DataLength: u32,
@@ -109,7 +109,7 @@ pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = 10;
 pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 7;
 pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = 6;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -127,7 +127,7 @@ impl Default for REG_ENUMERATE_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -145,7 +145,7 @@ impl Default for REG_ENUMERATE_VALUE_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyInformationClass: KEY_INFORMATION_CLASS,
@@ -162,7 +162,7 @@ impl Default for REG_QUERY_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueEntries: *mut KEY_VALUE_ENTRY,
@@ -180,7 +180,7 @@ impl Default for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -198,7 +198,7 @@ impl Default for REG_QUERY_VALUE_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeySetInformationClass: KEY_SET_INFORMATION_CLASS,

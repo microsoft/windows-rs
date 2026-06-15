@@ -120,7 +120,7 @@ pub const GPM_PROCESS_SECURITY: u32 = 2;
 pub const GPM_USE_ANYDC: u32 = 1;
 pub const GPM_USE_PDC: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -192,7 +192,7 @@ pub const GP_PROCESSGROUPPOLICY: windows_sys::core::PCWSTR = windows_sys::core::
 pub const GP_REQUIRESSUCCESSFULREGISTRY: windows_sys::core::PCWSTR = windows_sys::core::w!("RequiresSuccessfulRegistry");
 pub type GROUP_POLICY_HINT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -214,7 +214,7 @@ impl Default for GROUP_POLICY_OBJECTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -262,7 +262,7 @@ impl Default for INSTALLSPEC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INSTALLSPEC_0 {
     pub Name: windows_sys::core::PWSTR,
     pub GPOId: windows_sys::core::GUID,
@@ -273,14 +273,14 @@ impl Default for INSTALLSPEC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INSTALLSPEC_1 {
     pub Clsid: windows_sys::core::GUID,
     pub ClsCtx: u32,
 }
 pub type INSTALLSPECTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: windows_sys::core::PWSTR,
     pub pszPolicyName: windows_sys::core::PWSTR,
@@ -301,7 +301,7 @@ pub const LOCALSTATE_UNINSTALLED: u32 = 64;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4;
 pub const MACHINE_POLICY_PRESENT_TRIGGER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: windows_sys::core::PWSTR,
     pub pszPublisher: windows_sys::core::PWSTR,
@@ -349,7 +349,7 @@ pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "system" fn(bverbose: w
 pub const PI_APPLYPOLICY: u32 = 2;
 pub const PI_NOUI: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_sys::core::PWSTR,
     pub szEventSource: windows_sys::core::PWSTR,
@@ -389,14 +389,14 @@ pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1;
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: windows_sys::core::PWSTR,
     pub pwszNewSOM: windows_sys::core::PWSTR,
     pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
     pub pRsopToken: *mut core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
-    pub pWbemServices: *mut core::ffi::c_void,
+    pub pWbemServices: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 impl Default for RSOP_TARGET {

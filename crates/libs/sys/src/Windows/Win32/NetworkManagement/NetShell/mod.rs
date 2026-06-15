@@ -7,7 +7,7 @@ windows_link::link!("netsh.dll" "C" fn PrintMessageFromModule(hmodule : super::s
 windows_link::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
 windows_link::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_sys::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_sys::core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -29,7 +29,7 @@ pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16;
 pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648;
 pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: windows_sys::core::PCWSTR,
     pub dwShortCmdHelpToken: u32,
@@ -115,7 +115,7 @@ impl Default for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
@@ -152,7 +152,7 @@ impl Default for NS_HELPER_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
@@ -174,7 +174,7 @@ pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *co
 pub type PNS_HELPER_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_OSVERSIONCHECK = Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: windows_sys::core::PCWSTR, cimosbuildnumber: windows_sys::core::PCWSTR, cimservicepackmajorversion: windows_sys::core::PCWSTR, cimservicepackminorversion: windows_sys::core::PCWSTR, uireserved: u32, dwreserved: u32) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAG_TYPE {
     pub pwszTag: windows_sys::core::PCWSTR,
     pub dwRequired: u32,
@@ -186,7 +186,7 @@ impl Default for TAG_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOKEN_VALUE {
     pub pwszToken: windows_sys::core::PCWSTR,
     pub dwValue: u32,

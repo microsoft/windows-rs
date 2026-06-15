@@ -35,7 +35,7 @@ windows_link::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mut A
 windows_link::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_sys::core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_sys::core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_sys::core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_sys::core::GUID, dwclscontext : CLSCTX, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetContextToken(ptoken : *mut usize) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetCurrentLogicalThreadId(pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetCurrentProcess() -> u32);
@@ -49,9 +49,9 @@ windows_link::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const 
 windows_link::link!("ole32.dll" "system" fn CoImpersonateClient() -> windows_sys::core::HRESULT);
 windows_link::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : COINIT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::super::Security::PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::super::Security::PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const core::ffi::c_void, dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES, preserved3 : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoInstall(pbc : *mut core::ffi::c_void, dwflags : u32, pclassspec : *const uCLSSPEC, pquery : *const QUERYCONTEXT, pszcodebase : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
@@ -63,7 +63,7 @@ windows_link::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mu
 windows_link::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut *mut core::ffi::c_void, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const windows_sys::core::GUID, pchannelhook : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwclscontext : CLSCTX, flags : u32, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwclscontext : CLSCTX, flags : REGCLS, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterDeviceCatalog(deviceinstanceid : windows_sys::core::PCWSTR, cookie : *mut CO_DEVICE_CATALOG_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : *mut core::ffi::c_void, pulicookie : *mut u64) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -77,7 +77,7 @@ windows_link::link!("ole32.dll" "system" fn CoRevokeDeviceCatalog(cookie : CO_DE
 windows_link::link!("ole32.dll" "system" fn CoRevokeInitializeSpy(ulicookie : u64) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRevokeMallocSpy() -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSetCancelObject(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : *mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_sys::core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : *mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_sys::core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSuspendClassObjects() -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSwitchCallContext(pnewobject : *mut core::ffi::c_void, ppoldobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
@@ -159,7 +159,7 @@ pub const APTTYPE_STA: APTTYPE = 0;
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1;
 pub const ASYNC_MODE_DEFAULT: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -167,7 +167,6 @@ pub struct AUTHENTICATEINFO {
 pub type ApplicationType = i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -181,8 +180,14 @@ pub struct BINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
     pub iid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwReserved: u32,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for BINDINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for BINDINFO {
@@ -195,11 +200,16 @@ pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = 2;
 pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = 1;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
-    pub lptcomp: *mut core::ffi::c_void,
+    pub lptcomp: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for BINDPTR {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for BINDPTR {
@@ -211,7 +221,7 @@ pub type BIND_FLAGS = i32;
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2;
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
@@ -219,7 +229,7 @@ pub struct BIND_OPTS {
     pub dwTickCountDeadline: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
@@ -233,7 +243,7 @@ impl Default for BIND_OPTS2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::super::Foundation::HWND,
@@ -244,7 +254,7 @@ impl Default for BIND_OPTS3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BLOB {
     pub cbSize: u32,
     pub pBlobData: *mut u8,
@@ -255,7 +265,7 @@ impl Default for BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
     pub abData: [u8; 1],
@@ -266,7 +276,7 @@ impl Default for BYTE_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u8,
@@ -284,7 +294,7 @@ pub const CALLTYPE_NESTED: CALLTYPE = 2;
 pub const CALLTYPE_TOPLEVEL: CALLTYPE = 1;
 pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CATEGORYINFO {
     pub catid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -341,7 +351,7 @@ pub const CLSCTX_SERVER: CLSCTX = 21;
 pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = 134217728;
 pub const CLSID_GlobalOptions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -357,7 +367,7 @@ impl Default for COAUTHIDENTITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COAUTHINFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -424,9 +434,9 @@ pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4;
 pub const COM_RIGHTS_RESERVED1: u32 = 32;
 pub const COM_RIGHTS_RESERVED2: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CONNECTDATA {
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwCookie: u32,
 }
 impl Default for CONNECTDATA {
@@ -435,7 +445,7 @@ impl Default for CONNECTDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
     pub pwszName: windows_sys::core::PWSTR,
@@ -477,7 +487,7 @@ pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTR
 pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = 0;
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,
     pub dwVersionHi: u32,
@@ -486,7 +496,7 @@ pub struct CSPLATFORM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
@@ -499,10 +509,15 @@ impl Default for CUSTDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub struct CUSTDATAITEM {
     pub guid: windows_sys::core::GUID,
     pub varValue: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for CUSTDATAITEM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for CUSTDATAITEM {
@@ -527,13 +542,13 @@ impl Default for CY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ComCallData {
     pub dwDispid: u32,
     pub dwReserved: u32,
@@ -545,11 +560,11 @@ impl Default for ComCallData {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ContextProperty {
     pub policyId: windows_sys::core::GUID,
     pub flags: u32,
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for ContextProperty {
     fn default() -> Self {
@@ -583,7 +598,7 @@ pub const DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = 4;
 pub const DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = 8;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
@@ -605,7 +620,7 @@ pub const DVASPECT_OPAQUE: DVASPECT = 16;
 pub const DVASPECT_THUMBNAIL: DVASPECT = 2;
 pub const DVASPECT_TRANSPARENT: DVASPECT = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
     pub tdDriverNameOffset: u16,
@@ -620,7 +635,7 @@ impl Default for DVTARGETDEVICE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWORD_BLOB {
     pub clSize: u32,
     pub alData: [u32; 1],
@@ -631,7 +646,7 @@ impl Default for DWORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u32,
@@ -685,13 +700,13 @@ pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = 2;
 pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = 32;
 pub type EOLE_AUTHENTICATION_CAPABILITIES = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
-    pub bstrSource: windows_sys::core::BSTR,
-    pub bstrDescription: windows_sys::core::BSTR,
-    pub bstrHelpFile: windows_sys::core::BSTR,
+    pub bstrSource: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub bstrDescription: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub bstrHelpFile: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub dwHelpContext: u32,
     pub pvReserved: *mut core::ffi::c_void,
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
@@ -719,7 +734,7 @@ pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = 2;
 pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = 512;
 pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = 2048;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
@@ -731,7 +746,7 @@ impl Default for FLAGGED_BYTE_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLAGGED_WORD_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
@@ -744,11 +759,16 @@ impl Default for FLAGGED_WORD_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for FLAG_STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for FLAG_STGMEDIUM {
@@ -757,7 +777,7 @@ impl Default for FLAG_STGMEDIUM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FORMATETC {
     pub cfFormat: u16,
     pub ptd: *mut DVTARGETDEVICE,
@@ -847,7 +867,7 @@ pub type GLOBALOPT_RO_FLAGS = i32;
 pub type GLOBALOPT_RPCTP_VALUES = i32;
 pub type GLOBALOPT_UNMARSHALING_POLICY_VALUES = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut i64,
@@ -858,7 +878,7 @@ impl Default for HYPER_SIZEDARR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
@@ -875,9 +895,9 @@ pub const IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = 8;
 pub const IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = 4;
 pub const IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct INTERFACEINFO {
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub iid: windows_sys::core::GUID,
     pub wMethod: u16,
 }
@@ -941,10 +961,10 @@ pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = 64;
 pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = 1;
 pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MULTI_QI {
     pub pIID: *const windows_sys::core::GUID,
-    pub pItf: *mut core::ffi::c_void,
+    pub pItf: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub hr: windows_sys::core::HRESULT,
 }
 impl Default for MULTI_QI {
@@ -962,7 +982,7 @@ pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1;
 pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
     pub Platform: CSPLATFORM,
@@ -982,7 +1002,7 @@ pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = 1;
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1;
 pub type ROT_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPCOLEMESSAGE {
     pub reserved1: *mut core::ffi::c_void,
     pub dataRepresentation: u32,
@@ -1014,7 +1034,7 @@ pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = 4;
 pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = 2;
 pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
     pub dwHandleType: u32,
@@ -1029,7 +1049,7 @@ impl Default for RemSTGMEDIUM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFEARRAY {
     pub cDims: u16,
     pub fFeatures: ADVANCED_FEATURE_FLAGS,
@@ -1044,13 +1064,13 @@ impl Default for SAFEARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SChannelHookCallInfo {
     pub iid: windows_sys::core::GUID,
     pub cbSize: u32,
@@ -1076,7 +1096,7 @@ pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 1;
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 0;
 pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -1088,7 +1108,7 @@ impl Default for SOLE_AUTHENTICATION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: u32,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
@@ -1099,7 +1119,7 @@ impl Default for SOLE_AUTHENTICATION_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -1112,11 +1132,11 @@ impl Default for SOLE_AUTHENTICATION_SERVICE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
-    pub pAdvSink: *mut core::ffi::c_void,
+    pub pAdvSink: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwConnection: u32,
 }
 impl Default for STATDATA {
@@ -1129,7 +1149,7 @@ pub const STATFLAG_DEFAULT: STATFLAG = 0;
 pub const STATFLAG_NONAME: STATFLAG = 1;
 pub const STATFLAG_NOOPEN: STATFLAG = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATSTG {
     pub pwcsName: windows_sys::core::PWSTR,
     pub r#type: u32,
@@ -1157,11 +1177,16 @@ pub const STGC_OVERWRITE: STGC = 1;
 pub type STGM = u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
-    pub pUnkForRelease: *mut core::ffi::c_void,
+    pub pUnkForRelease: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for STGMEDIUM {
@@ -1171,15 +1196,20 @@ impl Default for STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut core::ffi::c_void,
     pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
     pub hGlobal: super::super::Foundation::HGLOBAL,
     pub lpszFileName: windows_sys::core::PWSTR,
-    pub pstm: *mut core::ffi::c_void,
-    pub pstg: *mut core::ffi::c_void,
+    pub pstm: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pstg: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for STGMEDIUM_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for STGMEDIUM_0 {
@@ -1226,7 +1256,7 @@ pub const SYS_WIN64: SYSKIND = 3;
 pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: windows_sys::core::PWSTR,
@@ -1251,7 +1281,7 @@ pub const TKIND_MODULE: TYPEKIND = 2;
 pub const TKIND_RECORD: TYPEKIND = 1;
 pub const TKIND_UNION: TYPEKIND = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TLIBATTR {
     pub guid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -1427,7 +1457,7 @@ pub const VAR_DISPATCH: VARKIND = 3;
 pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WORD_BLOB {
     pub clSize: u32,
     pub asData: [u16; 1],
@@ -1438,7 +1468,7 @@ impl Default for WORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u16,
@@ -1476,7 +1506,7 @@ impl Default for uCLSSPEC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_sys::core::PWSTR,
     pub PolicyId: windows_sys::core::GUID,
@@ -1487,18 +1517,23 @@ impl Default for uCLSSPEC_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: windows_sys::core::GUID,
     pub PolicyId: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Clone for userFLAG_STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl Default for userFLAG_STGMEDIUM {
@@ -1508,10 +1543,15 @@ impl Default for userFLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
-    pub pUnkForRelease: *mut core::ffi::c_void,
+    pub pUnkForRelease: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Clone for userSTGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl Default for userSTGMEDIUM {

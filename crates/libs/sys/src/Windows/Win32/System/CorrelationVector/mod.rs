@@ -3,7 +3,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correl
 windows_link::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const windows_sys::core::GUID) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *const CORRELATION_VECTOR) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CORRELATION_VECTOR {
     pub Version: i8,
     pub Vector: [i8; 129],

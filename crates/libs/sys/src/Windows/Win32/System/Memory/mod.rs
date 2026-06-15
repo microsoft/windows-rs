@@ -114,7 +114,7 @@ windows_link::link!("kernel32.dll" "system" fn VirtualUnlock(lpaddress : *const 
 windows_link::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn VirtualUnlockEx(process : super::super::Foundation::HANDLE, address : *const core::ffi::c_void, size : usize) -> windows_sys::core::BOOL);
 pub type AtlThunkData_t = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
@@ -155,7 +155,7 @@ pub const HEAP_NO_SERIALIZE: HEAP_FLAGS = 1;
 pub const HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = 32768;
 pub const HEAP_REALLOC_IN_PLACE_ONLY: HEAP_FLAGS = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HEAP_SUMMARY {
     pub cb: u32,
     pub cbAllocated: usize,
@@ -181,7 +181,7 @@ pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0;
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -199,7 +199,7 @@ impl Default for MEMORY_BASIC_INFORMATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -217,7 +217,7 @@ impl Default for MEMORY_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,
@@ -228,7 +228,7 @@ pub struct MEMORY_BASIC_INFORMATION32 {
     pub Type: PAGE_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION64 {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -242,14 +242,14 @@ pub struct MEMORY_BASIC_INFORMATION64 {
 }
 pub type MEMORY_MAPPED_VIEW_ADDRESS = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub SizeOfInformation: u32,
@@ -261,7 +261,7 @@ pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
 }
 pub type MEMORY_RESOURCE_NOTIFICATION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut core::ffi::c_void,
     pub HighestEndingAddress: *mut core::ffi::c_void,
@@ -287,7 +287,7 @@ impl Default for MEM_EXTENDED_PARAMETER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
@@ -403,7 +403,7 @@ impl Default for PROCESS_HEAP_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::super::Foundation::HANDLE,
     pub dwReserved: [u32; 3],
@@ -414,7 +414,7 @@ impl Default for PROCESS_HEAP_ENTRY_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
@@ -461,7 +461,7 @@ pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = 1;
 pub type WIN32_MEMORY_INFORMATION_CLASS = i32;
 pub const WIN32_MEMORY_NUMA_PERFORMANCE_ALL_TARGET_NODE: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY {
     pub InitiatorNodeNumber: u32,
     pub TargetNodeNumber: u32,
@@ -471,12 +471,12 @@ pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY {
     pub EntryValue: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT {
     pub EntryCount: u32,
     pub PerformanceEntries: [WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY; 1],
@@ -491,7 +491,7 @@ pub const WIN32_MEMORY_NUMA_PERFORMANCE_READ_LATENCY: u32 = 1;
 pub const WIN32_MEMORY_NUMA_PERFORMANCE_WRITE_BANDWIDTH: u32 = 8;
 pub const WIN32_MEMORY_NUMA_PERFORMANCE_WRITE_LATENCY: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -518,7 +518,7 @@ impl Default for WIN32_MEMORY_PARTITION_INFORMATION {
 }
 pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -554,7 +554,7 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

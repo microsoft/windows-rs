@@ -2,7 +2,7 @@ windows_link::link!("advapi32.dll" "system" fn OperationEnd(operationendparams :
 windows_link::link!("advapi32.dll" "system" fn OperationStart(operationstartparams : *const OPERATION_START_PARAMETERS) -> windows_sys::core::BOOL);
 pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPERATION_END_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
@@ -11,7 +11,7 @@ pub struct OPERATION_END_PARAMETERS {
 pub type OPERATION_END_PARAMETERS_FLAGS = u32;
 pub type OPERATION_START_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPERATION_START_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,

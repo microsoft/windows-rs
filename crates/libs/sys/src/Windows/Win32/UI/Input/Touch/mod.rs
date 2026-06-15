@@ -9,7 +9,7 @@ windows_link::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::s
 windows_link::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation::HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation::HWND) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GESTURECONFIG {
     pub dwID: GESTURECONFIG_ID,
     pub dwWant: u32,
@@ -17,7 +17,7 @@ pub struct GESTURECONFIG {
 }
 pub type GESTURECONFIG_ID = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GESTUREINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -35,7 +35,7 @@ impl Default for GESTUREINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GESTURENOTIFYSTRUCT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -78,7 +78,7 @@ pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = 64;
 pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = 16;
 pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOUCHINPUT {
     pub x: i32,
     pub y: i32,

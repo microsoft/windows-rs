@@ -345,7 +345,7 @@ pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = 4;
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = 8;
 pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
@@ -386,7 +386,7 @@ pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = 2;
 pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = 0;
 pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
@@ -564,7 +564,7 @@ pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = 3;
 pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = 0;
 pub type SCROLLABLECONTEXTMENU_PLACEMENT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATURL {
     pub cbSize: u32,
     pub pwcsUrl: windows_sys::core::PWSTR,

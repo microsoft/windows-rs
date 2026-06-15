@@ -567,7 +567,7 @@ impl Default for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_AUTHZ_QUOTA {
     pub maxAllowedConcurrentShells: u32,
     pub maxAllowedConcurrentOperations: u32,
@@ -575,7 +575,7 @@ pub struct WSMAN_AUTHZ_QUOTA {
     pub maxAllowedOperationsPerTimeslot: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_CERTIFICATE_DETAILS {
     pub subject: windows_sys::core::PCWSTR,
     pub issuerName: windows_sys::core::PCWSTR,
@@ -591,7 +591,7 @@ pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: windows_sys::core::PCWSTR = windows_sy
 pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_CONSOLEMODE_STDIN");
 pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_SKIP_CMD_SHELL");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_COMMAND_ARG_SET {
     pub argsCount: u32,
     pub args: *const windows_sys::core::PCWSTR,
@@ -646,7 +646,7 @@ impl Default for WSMAN_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_DATA_BINARY {
     pub dataLength: u32,
     pub data: *mut u8,
@@ -658,7 +658,7 @@ impl Default for WSMAN_DATA_BINARY {
 }
 pub const WSMAN_DATA_NONE: WSManDataType = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_DATA_TEXT {
     pub bufferLength: u32,
     pub buffer: windows_sys::core::PCWSTR,
@@ -673,7 +673,7 @@ pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = 4;
 pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = 1;
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE {
     pub name: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
@@ -684,7 +684,7 @@ impl Default for WSMAN_ENVIRONMENT_VARIABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
     pub varsCount: u32,
     pub vars: *mut WSMAN_ENVIRONMENT_VARIABLE,
@@ -695,7 +695,7 @@ impl Default for WSMAN_ENVIRONMENT_VARIABLE_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_ERROR {
     pub code: u32,
     pub errorDetail: windows_sys::core::PCWSTR,
@@ -709,7 +709,7 @@ impl Default for WSMAN_ERROR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_FILTER {
     pub filter: windows_sys::core::PCWSTR,
     pub dialect: windows_sys::core::PCWSTR,
@@ -749,7 +749,7 @@ pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1;
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = 8;
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_FRAGMENT {
     pub path: windows_sys::core::PCWSTR,
     pub dialect: windows_sys::core::PCWSTR,
@@ -760,7 +760,7 @@ impl Default for WSMAN_FRAGMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_KEY {
     pub key: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
@@ -772,7 +772,7 @@ impl Default for WSMAN_KEY {
 }
 pub type WSMAN_OPERATION_HANDLE = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPERATION_INFO {
     pub fragment: WSMAN_FRAGMENT,
     pub filter: WSMAN_FILTER,
@@ -787,7 +787,7 @@ impl Default for WSMAN_OPERATION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPERATION_INFOEX {
     pub fragment: WSMAN_FRAGMENT,
     pub filter: WSMAN_FILTER,
@@ -805,7 +805,7 @@ impl Default for WSMAN_OPERATION_INFOEX {
 pub const WSMAN_OPERATION_INFOV1: u32 = 0;
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPTION {
     pub name: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
@@ -829,7 +829,7 @@ pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = 8;
 pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = 2;
 pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = 30;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPTION_SET {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
@@ -841,7 +841,7 @@ impl Default for WSMAN_OPTION_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_OPTION_SETEX {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
@@ -889,7 +889,7 @@ pub type WSMAN_PLUGIN_RECEIVE = Option<unsafe extern "system" fn(requestdetails:
 pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void, commandcontext: *const core::ffi::c_void)>;
 pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = Option<unsafe extern "system" fn(shellcontext: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_PLUGIN_REQUEST {
     pub senderDetails: *mut WSMAN_SENDER_DETAILS,
     pub locale: windows_sys::core::PCWSTR,
@@ -953,7 +953,7 @@ impl Default for WSMAN_RESPONSE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SELECTOR_SET {
     pub numberKeys: u32,
     pub keys: *mut WSMAN_KEY,
@@ -964,7 +964,7 @@ impl Default for WSMAN_SELECTOR_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SENDER_DETAILS {
     pub senderName: windows_sys::core::PCWSTR,
     pub authenticationMechanism: windows_sys::core::PCWSTR,
@@ -979,7 +979,7 @@ impl Default for WSMAN_SENDER_DETAILS {
 }
 pub type WSMAN_SESSION_HANDLE = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut core::ffi::c_void,
     pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
@@ -991,7 +991,7 @@ impl Default for WSMAN_SHELL_ASYNC {
 }
 pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {
     pub idleTimeoutMs: u32,
 }
@@ -999,7 +999,7 @@ pub type WSMAN_SHELL_HANDLE = isize;
 pub const WSMAN_SHELL_NS: windows_sys::core::PCWSTR = windows_sys::core::w!("http://schemas.microsoft.com/wbem/wsman/1/windows/shell");
 pub const WSMAN_SHELL_OPTION_NOPROFILE: windows_sys::core::PCWSTR = windows_sys::core::w!("WINRS_NOPROFILE");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
     pub inputStreamSet: *mut WSMAN_STREAM_ID_SET,
     pub outputStreamSet: *mut WSMAN_STREAM_ID_SET,
@@ -1013,7 +1013,7 @@ impl Default for WSMAN_SHELL_STARTUP_INFO_V10 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
     pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
     pub name: windows_sys::core::PCWSTR,
@@ -1024,7 +1024,7 @@ impl Default for WSMAN_SHELL_STARTUP_INFO_V11 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_STREAM_ID_SET {
     pub streamIDsCount: u32,
     pub streamIDs: *const windows_sys::core::PCWSTR,
@@ -1038,7 +1038,7 @@ pub const WSMAN_STREAM_ID_STDERR: windows_sys::core::PCWSTR = windows_sys::core:
 pub const WSMAN_STREAM_ID_STDIN: windows_sys::core::PCWSTR = windows_sys::core::w!("stdin");
 pub const WSMAN_STREAM_ID_STDOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("stdout");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS {
     pub username: windows_sys::core::PCWSTR,
     pub password: windows_sys::core::PCWSTR,

@@ -29,7 +29,7 @@ windows_link::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(mac
 pub const DFS_ADD_VOLUME: u32 = 1;
 pub const DFS_FORCE_REMOVE: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
     pub DfsEntryPathLen: u16,
     pub ServerNameLen: u16,
@@ -43,7 +43,7 @@ impl Default for DFS_GET_PKT_ENTRY_STATE_ARG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_1 {
     pub EntryPath: windows_sys::core::PWSTR,
 }
@@ -53,7 +53,7 @@ impl Default for DFS_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_100 {
     pub Comment: windows_sys::core::PWSTR,
 }
@@ -63,28 +63,28 @@ impl Default for DFS_INFO_100 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_101 {
     pub State: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_102 {
     pub Timeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_103 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_104 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_105 {
     pub Comment: windows_sys::core::PWSTR,
     pub State: u32,
@@ -98,14 +98,14 @@ impl Default for DFS_INFO_105 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_106 {
     pub State: u32,
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_107 {
     pub Comment: windows_sys::core::PWSTR,
     pub State: u32,
@@ -123,7 +123,7 @@ impl Default for DFS_INFO_107 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
@@ -136,12 +136,12 @@ impl Default for DFS_INFO_150 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_2 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -154,7 +154,7 @@ impl Default for DFS_INFO_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_200 {
     pub FtDfsName: windows_sys::core::PWSTR,
 }
@@ -165,7 +165,7 @@ impl Default for DFS_INFO_200 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -173,7 +173,7 @@ pub struct DFS_INFO_2_32 {
     pub NumberOfStorages: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_3 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -187,7 +187,7 @@ impl Default for DFS_INFO_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_300 {
     pub Flags: u32,
     pub DfsName: windows_sys::core::PWSTR,
@@ -199,7 +199,7 @@ impl Default for DFS_INFO_300 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -208,7 +208,7 @@ pub struct DFS_INFO_3_32 {
     pub Storage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_4 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -225,7 +225,7 @@ impl Default for DFS_INFO_4 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -236,7 +236,7 @@ pub struct DFS_INFO_4_32 {
     pub Storage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_5 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -253,14 +253,14 @@ impl Default for DFS_INFO_5 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_50 {
     pub NamespaceMajorVersion: u32,
     pub NamespaceMinorVersion: u32,
     pub NamespaceCapabilities: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_6 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -278,13 +278,13 @@ impl Default for DFS_INFO_6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_INFO_7 {
     pub GenerationGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_8 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -305,7 +305,7 @@ impl Default for DFS_INFO_8 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_9 {
     pub EntryPath: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
@@ -338,7 +338,7 @@ pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4;
 pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8;
 pub const DFS_RESTORE_VOLUME: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_SITELIST_INFO {
     pub cSites: u32,
     pub Site: [DFS_SITENAME_INFO; 1],
@@ -349,7 +349,7 @@ impl Default for DFS_SITELIST_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_SITENAME_INFO {
     pub SiteFlags: u32,
     pub SiteName: windows_sys::core::PWSTR,
@@ -362,7 +362,7 @@ impl Default for DFS_SITENAME_INFO {
 pub const DFS_SITE_PRIMARY: u32 = 1;
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_STORAGE_INFO {
     pub State: u32,
     pub ServerName: windows_sys::core::PWSTR,
@@ -375,14 +375,14 @@ impl Default for DFS_STORAGE_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
     pub ShareName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_STORAGE_INFO_1 {
     pub State: u32,
     pub ServerName: windows_sys::core::PWSTR,
@@ -399,7 +399,7 @@ pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4;
 pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1;
 pub const DFS_STORAGE_STATE_ONLINE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub DomainDfsMajorVersion: u32,
     pub DomainDfsMinorVersion: u32,
@@ -409,7 +409,7 @@ pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub StandaloneDfsCapabilities: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityClass: DFS_TARGET_PRIORITY_CLASS,
     pub TargetPriorityRank: u16,

@@ -23,7 +23,7 @@ pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13;
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24;
 pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: windows_sys::core::BOOL,
     pub dwDeviceRegistionKind: u32,
@@ -36,7 +36,7 @@ impl Default for MANAGEMENT_REGISTRATION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_sys::core::PWSTR,
     pub pszAuthenticationUri: windows_sys::core::PWSTR,

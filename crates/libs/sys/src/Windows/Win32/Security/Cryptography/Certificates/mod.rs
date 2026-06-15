@@ -47,7 +47,7 @@ pub const CAIF_REGISTRY: u32 = 4;
 pub const CAIF_REGISTRYPARENT: u32 = 16;
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -141,7 +141,7 @@ pub const CERTENROLL_INDEX_BASE: u32 = 0;
 pub type CERTENROLL_OBJECTID = i32;
 pub type CERTENROLL_PROPERTYID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
@@ -152,7 +152,7 @@ impl Default for CERTTRANSBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERTVIEWRESTRICTION {
     pub ColumnIndex: u32,
     pub SeekOperator: i32,
@@ -372,7 +372,7 @@ pub const CSCONTROL_RESTART: u64 = 3;
 pub const CSCONTROL_SHUTDOWN: u64 = 1;
 pub const CSCONTROL_SUSPEND: u64 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: windows_sys::core::PWSTR,
     pub pwszNewDatabaseName: windows_sys::core::PWSTR,

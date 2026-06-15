@@ -306,7 +306,7 @@ windows_link::link!("wininet.dll" "system" fn UrlCacheSetGlobalLimit(limittype :
 windows_link::link!("wininet.dll" "system" fn UrlCacheUpdateEntryExtraData(happcache : *const core::ffi::c_void, pcwszurl : windows_sys::core::PCWSTR, pbextradata : *const u8, cbextradata : u32) -> u32);
 pub const ANY_CACHE_ENTRY: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_ENTRY {
     pub pwszUrl: windows_sys::core::PWSTR,
     pub dwEntryType: u32,
@@ -317,7 +317,7 @@ impl Default for APP_CACHE_DOWNLOAD_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_LIST {
     pub dwEntryCount: u32,
     pub pEntries: *mut APP_CACHE_DOWNLOAD_ENTRY,
@@ -334,7 +334,7 @@ pub const APP_CACHE_ENTRY_TYPE_MANIFEST: u32 = 16;
 pub const APP_CACHE_ENTRY_TYPE_MASTER: u32 = 1;
 pub type APP_CACHE_FINALIZE_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_INFO {
     pub pwszManifestUrl: windows_sys::core::PWSTR,
     pub ftLastAccessTime: super::super::Foundation::FILETIME,
@@ -346,7 +346,7 @@ impl Default for APP_CACHE_GROUP_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_LIST {
     pub dwAppCacheGroupCount: u32,
     pub pAppCacheGroups: *mut APP_CACHE_GROUP_INFO,
@@ -374,7 +374,7 @@ pub const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: u32 = 16;
 pub const AUTO_PROXY_FLAG_MIGRATED: u32 = 8;
 pub const AUTO_PROXY_FLAG_USER_SET: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: u32,
     pub lpszScriptBuffer: windows_sys::core::PSTR,
@@ -393,7 +393,7 @@ pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = 1;
 pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = 3;
 pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
@@ -403,7 +403,7 @@ impl Default for AutoProxyHelperFunctions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: isize,
     pub GetIPAddress: isize,
@@ -505,7 +505,7 @@ pub const COOKIE_ALLOW: u32 = 2;
 pub const COOKIE_ALLOW_ALL: u32 = 4;
 pub const COOKIE_CACHE_ENTRY: u32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COOKIE_DLG_INFO {
     pub pszServer: windows_sys::core::PWSTR,
     pub pic: *mut INTERNET_COOKIE,
@@ -543,7 +543,7 @@ pub const COOKIE_STATE_UNKNOWN: InternetCookieState = 0;
 pub const ConnectionEstablishmentEnd: REQUEST_TIMES = 3;
 pub const ConnectionEstablishmentStart: REQUEST_TIMES = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CookieDecision {
     pub dwCookieState: u32,
     pub fAllowSession: windows_sys::core::BOOL,
@@ -707,7 +707,7 @@ pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = 2;
 pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = 0;
 pub const GOPHER_ABSTRACT_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Abstract");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: *mut i8,
     pub AbstractFile: *mut i8,
@@ -720,7 +720,7 @@ impl Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
 pub const GOPHER_ABSTRACT_CATEGORY: windows_sys::core::PCWSTR = windows_sys::core::w!("+ABSTRACT");
 pub const GOPHER_ADMIN_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Admin");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: *mut i8,
     pub EmailAddress: *mut i8,
@@ -732,7 +732,7 @@ impl Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
 }
 pub const GOPHER_ADMIN_CATEGORY: windows_sys::core::PCWSTR = windows_sys::core::w!("+ADMIN");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: *mut i8,
     pub QuestionText: *mut i8,
@@ -808,7 +808,7 @@ pub const GOPHER_CATEGORY_ID_UNKNOWN: u32 = 2882325512;
 pub const GOPHER_CATEGORY_ID_VERONICA: u32 = 2882325510;
 pub const GOPHER_CATEGORY_ID_VIEWS: u32 = 2882325508;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [i8; 129],
     pub GopherType: GOPHER_TYPE,
@@ -823,7 +823,7 @@ impl Default for GOPHER_FIND_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [u16; 129],
     pub GopherType: GOPHER_TYPE,
@@ -838,7 +838,7 @@ impl Default for GOPHER_FIND_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: i32,
     pub MinutesNorth: i32,
@@ -851,7 +851,7 @@ pub const GOPHER_GEOG_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::
 pub const GOPHER_INFO_CATEGORY: windows_sys::core::PCWSTR = windows_sys::core::w!("+INFO");
 pub const GOPHER_LOCATION_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Loc");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: *mut i8,
 }
@@ -862,12 +862,12 @@ impl Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
 }
 pub const GOPHER_MOD_DATE_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Mod-Date");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: *mut i8,
 }
@@ -879,7 +879,7 @@ impl Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
 pub const GOPHER_ORG_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Org");
 pub const GOPHER_PROVIDER_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Provider");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: *mut i8,
 }
@@ -891,19 +891,19 @@ impl Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
 pub const GOPHER_RANGE_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Score-range");
 pub const GOPHER_SCORE_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Score");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: i32,
     pub UpperBound: i32,
 }
 pub const GOPHER_SITE_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Site");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: *mut i8,
 }
@@ -914,14 +914,14 @@ impl Default for GOPHER_SITE_ATTRIBUTE_TYPE {
 }
 pub const GOPHER_TIMEZONE_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("TZ");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: i32,
 }
 pub const GOPHER_TREEWALK_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("treewalk");
 pub const GOPHER_TTL_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("TTL");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: u32,
 }
@@ -951,7 +951,7 @@ pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = 2048;
 pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = 64;
 pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = 536870912;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: *mut i8,
 }
@@ -961,14 +961,14 @@ impl Default for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: windows_sys::core::BOOL,
 }
 pub const GOPHER_VERONICA_CATEGORY: windows_sys::core::PCWSTR = windows_sys::core::w!("+VERONICA");
 pub const GOPHER_VERSION_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("Version");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: *mut i8,
 }
@@ -980,7 +980,7 @@ impl Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
 pub const GOPHER_VIEWS_CATEGORY: windows_sys::core::PCWSTR = windows_sys::core::w!("+VIEWS");
 pub const GOPHER_VIEW_ATTRIBUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("View");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: *mut i8,
     pub Language: *mut i8,
@@ -1025,13 +1025,13 @@ pub type HTTP_POLICY_EXTENSION_VERSION = i32;
 pub const HTTP_PROTOCOL_FLAG_HTTP2: u32 = 2;
 pub const HTTP_PROTOCOL_MASK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_PUSH_NOTIFICATION_STATUS {
     pub ChannelStatusValid: windows_sys::core::BOOL,
     pub ChannelStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_PUSH_TRANSPORT_SETTING {
     pub TransportSettingId: windows_sys::core::GUID,
     pub BrokerEventId: windows_sys::core::GUID,
@@ -1144,7 +1144,7 @@ pub const HTTP_QUERY_X_P2P_PEERDIST: u32 = 81;
 pub const HTTP_QUERY_X_UA_COMPATIBLE: u32 = 83;
 pub const HTTP_QUERY_X_XSS_PROTECTION: u32 = 86;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgTimes: [u64; 32],
@@ -1159,7 +1159,7 @@ pub const HTTP_VERSIONA: windows_sys::core::PCSTR = windows_sys::core::s!("HTTP/
 pub const HTTP_VERSIONW: windows_sys::core::PCWSTR = windows_sys::core::w!("HTTP/1.0");
 pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1006;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: INTERNET_ASYNC_RESULT,
     pub Operation: HTTP_WEB_SOCKET_OPERATION,
@@ -1209,13 +1209,13 @@ pub const INTERENT_GOONLINE_NOPROMPT: u32 = 2;
 pub const INTERENT_GOONLINE_REFRESH: u32 = 1;
 pub type INTERNET_ACCESS_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
@@ -1239,7 +1239,7 @@ pub const INTERNET_AUTOPROXY_INIT_DOWNLOADSYNC: u32 = 2;
 pub const INTERNET_AUTOPROXY_INIT_ONLYQUERY: u32 = 8;
 pub const INTERNET_AUTOPROXY_INIT_QUERYSTATE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSA,
@@ -1258,7 +1258,7 @@ impl Default for INTERNET_BUFFERSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSW,
@@ -1307,7 +1307,7 @@ impl Default for INTERNET_CACHE_CONFIG_INFOA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
@@ -1348,7 +1348,7 @@ impl Default for INTERNET_CACHE_CONFIG_INFOW_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
@@ -1359,7 +1359,7 @@ impl Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
@@ -1370,7 +1370,7 @@ impl Default for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
@@ -1383,7 +1383,7 @@ impl Default for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
 pub const INTERNET_CACHE_CONTAINER_AUTODELETE: u32 = 2;
 pub const INTERNET_CACHE_CONTAINER_BLOOM_FILTER: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOA {
     pub dwCacheVersion: u32,
     pub lpszName: windows_sys::core::PSTR,
@@ -1397,7 +1397,7 @@ impl Default for INTERNET_CACHE_CONTAINER_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOW {
     pub dwCacheVersion: u32,
     pub lpszName: windows_sys::core::PWSTR,
@@ -1495,7 +1495,7 @@ pub const INTERNET_CACHE_FLAG_GET_STRUCT_ONLY: u32 = 4096;
 pub const INTERNET_CACHE_FLAG_INSTALLED_ENTRY: u32 = 512;
 pub const INTERNET_CACHE_GROUP_ADD: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -1511,7 +1511,7 @@ impl Default for INTERNET_CACHE_GROUP_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -1528,13 +1528,13 @@ impl Default for INTERNET_CACHE_GROUP_INFOW {
 }
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub ftLastModified: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CALLBACK_COOKIE {
     pub pcwszName: windows_sys::core::PCWSTR,
     pub pcwszValue: windows_sys::core::PCWSTR,
@@ -1549,7 +1549,7 @@ impl Default for INTERNET_CALLBACK_COOKIE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::super::Foundation::FILETIME,
     pub ftStart: super::super::Foundation::FILETIME,
@@ -1566,7 +1566,7 @@ impl Default for INTERNET_CERTIFICATE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: INTERNET_STATE,
     pub dwFlags: u32,
@@ -1579,7 +1579,7 @@ pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = 8;
 pub const INTERNET_CONNECTION_OFFLINE: INTERNET_CONNECTION = 32;
 pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_COOKIE {
     pub cbSize: u32,
     pub pszName: windows_sys::core::PSTR,
@@ -1597,7 +1597,7 @@ impl Default for INTERNET_COOKIE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_sys::core::PWSTR,
     pub pwszValue: windows_sys::core::PWSTR,
@@ -1665,7 +1665,7 @@ impl Default for INTERNET_CREDENTIALS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CREDENTIALS_0_0 {
     pub lpcwszUserName: windows_sys::core::PCWSTR,
     pub lpcwszPassword: windows_sys::core::PCWSTR,
@@ -1686,7 +1686,7 @@ pub const INTERNET_DEFAULT_FTP_PORT: u16 = 21;
 pub const INTERNET_DEFAULT_GOPHER_PORT: u16 = 70;
 pub const INTERNET_DEFAULT_SOCKS_PORT: u16 = 1080;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: usize,
     pub SourcePort: u32,
@@ -1698,7 +1698,7 @@ pub const INTERNET_DIAL_FORCE_PROMPT: u32 = 8192;
 pub const INTERNET_DIAL_SHOW_OFFLINE: u32 = 16384;
 pub const INTERNET_DIAL_UNATTENDED: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_DOWNLOAD_MODE_HANDLE {
     pub pcwszFileName: windows_sys::core::PCWSTR,
     pub phFile: *mut super::super::Foundation::HANDLE,
@@ -1709,7 +1709,7 @@ impl Default for INTERNET_DOWNLOAD_MODE_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_END_BROWSER_SESSION_DATA {
     pub lpBuffer: *mut core::ffi::c_void,
     pub dwBufferLength: u32,
@@ -2050,7 +2050,7 @@ impl Default for INTERNET_PER_CONN_OPTIONW_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: u32,
     pub pszConnection: windows_sys::core::PSTR,
@@ -2064,7 +2064,7 @@ impl Default for INTERNET_PER_CONN_OPTION_LISTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: u32,
     pub pszConnection: windows_sys::core::PWSTR,
@@ -2083,14 +2083,14 @@ pub const INTERNET_PREFETCH_ABORTED: u32 = 2;
 pub const INTERNET_PREFETCH_COMPLETE: u32 = 1;
 pub const INTERNET_PREFETCH_PROGRESS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_PREFETCH_STATUS {
     pub dwStatus: u32,
     pub dwSize: u32,
 }
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: INTERNET_ACCESS_TYPE,
     pub lpszProxy: *mut i8,
@@ -2131,7 +2131,7 @@ pub const INTERNET_SCHEME_UNKNOWN: INTERNET_SCHEME = -1;
 pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = 10;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: windows_sys::core::BOOL,
@@ -2140,7 +2140,7 @@ pub struct INTERNET_SECURITY_CONNECTION_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
     pub pCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -2157,7 +2157,7 @@ impl Default for INTERNET_SECURITY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_SERVER_CONNECTION_STATE {
     pub lpcwszHostName: windows_sys::core::PCWSTR,
     pub fProxy: windows_sys::core::BOOL,
@@ -2238,7 +2238,7 @@ pub const INTERNET_SUPPRESS_COOKIE_POLICY: u32 = 1;
 pub const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: u32 = 2;
 pub const INTERNET_SUPPRESS_RESET_ALL: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
@@ -2252,7 +2252,7 @@ pub const ISO_FORCE_OFFLINE: u32 = 1;
 pub const ISO_GLOBAL: u32 = 1;
 pub const ISO_REGISTRY: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -2268,7 +2268,7 @@ impl Default for IncomingCookieState {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InternetCookieHistory {
     pub fAccepted: windows_sys::core::BOOL,
     pub fLeashed: windows_sys::core::BOOL,
@@ -2293,7 +2293,7 @@ pub const NameResolutionEnd: REQUEST_TIMES = 1;
 pub const NameResolutionStart: REQUEST_TIMES = 0;
 pub const OTHER_USER_CACHE_ENTRY: u32 = 8388608;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
@@ -2337,7 +2337,7 @@ pub const PROXY_TYPE_AUTO_PROXY_URL: u32 = 4;
 pub const PROXY_TYPE_DIRECT: u32 = 1;
 pub const PROXY_TYPE_PROXY: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ProofOfPossessionCookieInfo {
     pub name: windows_sys::core::PWSTR,
     pub data: windows_sys::core::PWSTR,
@@ -2380,7 +2380,7 @@ pub const TLSHandshakeStart: REQUEST_TIMES = 4;
 pub const TRACK_OFFLINE_CACHE_ENTRY: u32 = 16;
 pub const TRACK_ONLINE_CACHE_ENTRY: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URLCACHE_ENTRY_INFO {
     pub pwszSourceUrlName: windows_sys::core::PWSTR,
     pub pwszLocalFileName: windows_sys::core::PWSTR,
@@ -2406,7 +2406,7 @@ impl Default for URLCACHE_ENTRY_INFO {
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152;
 pub type URL_CACHE_LIMIT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PSTR,
@@ -2430,7 +2430,7 @@ impl Default for URL_COMPONENTSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URL_COMPONENTSW {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PWSTR,
@@ -2462,7 +2462,7 @@ pub const WININET_API_FLAG_ASYNC: u32 = 1;
 pub const WININET_API_FLAG_SYNC: u32 = 4;
 pub const WININET_API_FLAG_USE_CONTEXT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO {
     pub fProxy: windows_sys::core::BOOL,
     pub fBypass: windows_sys::core::BOOL,
@@ -2476,7 +2476,7 @@ impl Default for WININET_PROXY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO_LIST {
     pub dwProxyInfoCount: u32,
     pub pProxyInfo: *mut WININET_PROXY_INFO,

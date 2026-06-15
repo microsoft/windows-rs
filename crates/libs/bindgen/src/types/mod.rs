@@ -470,13 +470,7 @@ impl Type {
                 quote! { [#name; #len] }
             }
             Self::Array(ty) | Self::ArrayRef(ty) | Self::ConstRef(ty) => ty.write_name(config),
-            Self::PrimitiveOrEnum(primitive, ty) => {
-                if config.bindgen.style.is_sys() {
-                    primitive.write_name(config)
-                } else {
-                    ty.write_name(config)
-                }
-            }
+            Self::PrimitiveOrEnum(_primitive, ty) => ty.write_name(config),
             rest => panic!("{rest:?}"),
         }
     }
@@ -826,7 +820,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if config.bindgen.resolved_deps() != DepMode::None || !config.bindgen.style.is_sys() {
+        if config.bindgen.resolved_deps() != DepMode::None || !config.bindgen.style.is_lean() {
             return quote! {};
         }
 

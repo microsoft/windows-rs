@@ -8,7 +8,7 @@ pub const IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE: u32 = 5308480;
 pub const IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE: u32 = 5308488;
 pub const IOCTL_NFP_SET_PAYLOAD: u32 = 5308484;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SUBSCRIBED_MESSAGE {
     pub cbPayloadHint: u32,
     pub payload: [u8; 1],

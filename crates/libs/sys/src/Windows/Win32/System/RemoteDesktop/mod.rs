@@ -79,17 +79,17 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhan
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation::HANDLE, buffer : windows_sys::core::PCSTR, length : u32, pbyteswritten : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSWaitSystemEvent(hserver : super::super::Foundation::HANDLE, eventmask : u32, peventflags : *mut u32) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AAAccountingData {
-    pub userName: windows_sys::core::BSTR,
-    pub clientName: windows_sys::core::BSTR,
+    pub userName: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub clientName: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub authType: AAAuthSchemes,
-    pub resourceName: windows_sys::core::BSTR,
+    pub resourceName: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub portNumber: i32,
-    pub protocolName: windows_sys::core::BSTR,
+    pub protocolName: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub numberOfBytesReceived: i32,
     pub numberOfBytesTransfered: i32,
-    pub reasonForDisconnect: windows_sys::core::BSTR,
+    pub reasonForDisconnect: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub mainSessionId: windows_sys::core::GUID,
     pub subSessionId: i32,
 }
@@ -124,7 +124,7 @@ pub const AA_UNTRUSTED: AATrustClassID = 0;
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000;
 pub const ADsTSUserEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
     pub u64StreamPosition: u64,
@@ -136,7 +136,7 @@ pub struct AE_CURRENT_POSITION {
 pub type AE_POSITION_FLAGS = i32;
 pub const AllowOnlySDRServers: PolicyAttributeType = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
     pub dwFramesDropped: u32,
@@ -155,7 +155,7 @@ impl Default for CHANNEL_DEF {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -190,7 +190,7 @@ pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864;
 pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576;
 pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHANNEL_PDU_HEADER {
     pub length: u32,
     pub flags: u32,
@@ -219,7 +219,7 @@ pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17;
 pub const CLIENTADDRESS_LENGTH: u32 = 30;
 pub const CLIENTNAME_LENGTH: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
@@ -323,7 +323,7 @@ pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = 4;
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256;
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRODUCT_INFOA {
     pub CompanyName: [i8; 256],
     pub ProductID: [i8; 4],
@@ -334,7 +334,7 @@ impl Default for PRODUCT_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRODUCT_INFOW {
     pub CompanyName: [u16; 256],
     pub ProductID: [u16; 4],
@@ -561,7 +561,7 @@ pub const TSSD_ADDR_IPv6: TSSD_AddrV46Type = 6;
 pub const TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = 0;
 pub type TSSD_AddrV46Type = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TSSD_ConnectionPoint {
     pub ServerAddressB: [u8; 16],
     pub AddressType: TSSD_AddrV46Type,
@@ -592,7 +592,7 @@ pub const VM_HOST_STATUS_INIT_FAILED: VM_HOST_NOTIFY_STATUS = 3;
 pub const VM_HOST_STATUS_INIT_IN_PROGRESS: VM_HOST_NOTIFY_STATUS = 1;
 pub const VM_HOST_STATUS_INIT_PENDING: VM_HOST_NOTIFY_STATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
     pub VmHost: [u16; 128],
@@ -603,7 +603,7 @@ impl Default for VM_NOTIFY_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VM_NOTIFY_INFO {
     pub dwNumEntries: u32,
     pub ppVmEntries: *mut *mut VM_NOTIFY_ENTRY,
@@ -620,7 +620,7 @@ pub const VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = 3;
 pub const VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = 1;
 pub const VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VM_PATCH_INFO {
     pub dwNumEntries: u32,
     pub pVmNames: *mut windows_sys::core::PWSTR,
@@ -740,7 +740,7 @@ pub const WRDS_DIRECTORY_LENGTH: u32 = 256;
 pub const WRDS_DOMAIN_LENGTH: u32 = 255;
 pub const WRDS_DRIVER_NAME_LENGTH: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -785,7 +785,7 @@ impl Default for WRDS_LISTENER_SETTINGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WRDS_LISTENER_SETTINGS_1 {
     pub MaxProtocolListenerConnectionCount: u32,
     pub SecurityDescriptorSize: u32,
@@ -840,7 +840,7 @@ impl Default for WRDS_SETTINGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WRDS_SETTINGS_1 {
     pub WRdsDisableClipStatus: WRDS_SETTING_STATUS,
     pub WRdsDisableClipValue: u32,
@@ -899,7 +899,7 @@ pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988;
 pub const WTSActive: WTS_CONNECTSTATE_CLASS = 0;
 pub const WTSApplicationName: WTS_INFO_CLASS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCLIENTA {
     pub ClientName: [i8; 21],
     pub Domain: [i8; 18],
@@ -927,7 +927,7 @@ impl Default for WTSCLIENTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCLIENTW {
     pub ClientName: [u16; 21],
     pub Domain: [u16; 18],
@@ -955,7 +955,7 @@ impl Default for WTSCLIENTW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCONFIGINFOA {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -975,7 +975,7 @@ impl Default for WTSCONFIGINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSCONFIGINFOW {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -1012,7 +1012,7 @@ pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = 4;
 pub const WTSDomainName: WTS_INFO_CLASS = 7;
 pub const WTSDown: WTS_CONNECTSTATE_CLASS = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -1059,7 +1059,7 @@ impl Default for WTSINFOEXW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -1085,7 +1085,7 @@ impl Default for WTSINFOEX_LEVEL1_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSINFOEX_LEVEL1_W {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -1131,7 +1131,7 @@ impl Default for WTSINFOEX_LEVEL_W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSINFOW {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -1163,7 +1163,7 @@ pub const WTSInit: WTS_CONNECTSTATE_CLASS = 9;
 pub const WTSInitialProgram: WTS_INFO_CLASS = 0;
 pub const WTSIsRemoteSession: WTS_INFO_CLASS = 29;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSLISTENERCONFIGA {
     pub version: u32,
     pub fEnableListener: u32,
@@ -1203,7 +1203,7 @@ impl Default for WTSLISTENERCONFIGA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSLISTENERCONFIGW {
     pub version: u32,
     pub fEnableListener: u32,
@@ -1255,7 +1255,7 @@ pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = 3;
 pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = 4;
 pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSSBX_IP_ADDRESS {
     pub AddressFamily: WTSSBX_ADDRESS_FAMILY,
     pub Address: [u8; 16],
@@ -1268,7 +1268,7 @@ impl Default for WTSSBX_IP_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSSBX_MACHINE_CONNECT_INFO {
     pub wczMachineFQDN: [u16; 257],
     pub wczMachineNetBiosName: [u16; 17],
@@ -1285,7 +1285,7 @@ pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = 1;
 pub const WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = 2;
 pub const WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSSBX_MACHINE_INFO {
     pub ClientConnectInfo: WTSSBX_MACHINE_CONNECT_INFO,
     pub wczFarmName: [u16; 257],
@@ -1315,7 +1315,7 @@ pub const WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = 1;
 pub const WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = 8;
 pub type WTSSBX_NOTIFICATION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSSBX_SESSION_INFO {
     pub wszUserName: [u16; 105],
     pub wszDomainName: [u16; 257],
@@ -1335,7 +1335,7 @@ pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = 1;
 pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = 2;
 pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
@@ -1352,7 +1352,7 @@ pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = 1;
 pub const WTSTypeSerializedUserCredential: WTS_TYPE_CLASS = 4;
 pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSUSERCONFIGA {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -1379,7 +1379,7 @@ impl Default for WTSUSERCONFIGA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTSUSERCONFIGW {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -1470,7 +1470,7 @@ pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6;
 pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30;
 pub const WTS_CLIENTNAME_LENGTH: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_CLIENT_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
@@ -1545,7 +1545,7 @@ impl Default for WTS_CLIENT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
@@ -1564,7 +1564,7 @@ pub const WTS_CURRENT_SESSION: u32 = 4294967295;
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19;
 pub const WTS_DIRECTORY_LENGTH: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_DISPLAY_IOCTL {
     pub pDisplayIOCtlData: [u8; 256],
     pub cbDisplayIOCtlData: u32,
@@ -1598,7 +1598,7 @@ pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256;
 pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2;
 pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_LICENSE_CAPABILITIES {
     pub KeyExchangeAlg: u32,
     pub ProtocolVer: u32,
@@ -1640,7 +1640,7 @@ pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256;
 pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16;
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_POLICY_DATA {
     pub fDisableEncryption: bool,
     pub fDisableAutoReconnect: bool,
@@ -1655,7 +1655,7 @@ pub struct WTS_POLICY_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -1670,7 +1670,7 @@ impl Default for WTS_PROCESS_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -1685,7 +1685,7 @@ impl Default for WTS_PROCESS_INFOW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -1708,7 +1708,7 @@ impl Default for WTS_PROCESS_INFO_EXA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -1757,7 +1757,7 @@ impl Default for WTS_PROPERTY_VALUE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pstrVal: windows_sys::core::PWSTR,
@@ -1768,7 +1768,7 @@ impl Default for WTS_PROPERTY_VALUE_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pbVal: windows_sys::core::PSTR,
@@ -1779,13 +1779,13 @@ impl Default for WTS_PROPERTY_VALUE_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_PROTOCOL_CACHE {
     pub CacheReads: u32,
     pub CacheHits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_PROTOCOL_COUNTERS {
     pub WdBytes: u32,
     pub WdFrames: u32,
@@ -1853,7 +1853,7 @@ pub const WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = 2;
 pub const WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = 329;
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SERIALIZED_USER_CREDENTIAL {
     pub SerializationLength: u32,
     pub Serialization: *mut u8,
@@ -1864,7 +1864,7 @@ impl Default for WTS_SERIALIZED_USER_CREDENTIAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SERVER_INFOA {
     pub pServerName: windows_sys::core::PSTR,
 }
@@ -1874,7 +1874,7 @@ impl Default for WTS_SERVER_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: windows_sys::core::PWSTR,
 }
@@ -1886,7 +1886,7 @@ impl Default for WTS_SERVER_INFOW {
 pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = 0;
 pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_SERVICE_STATE {
     pub RcmServiceState: WTS_RCM_SERVICE_STATE,
     pub RcmDrainState: WTS_RCM_DRAIN_STATE,
@@ -1896,7 +1896,7 @@ pub const WTS_SESSIONSTATE_LOCK: u32 = 0;
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295;
 pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
@@ -1907,13 +1907,13 @@ impl Default for WTS_SESSION_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_SESSION_ID {
     pub SessionUniqueGuid: windows_sys::core::GUID,
     pub SessionId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PSTR,
@@ -1925,7 +1925,7 @@ impl Default for WTS_SESSION_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PWSTR,
@@ -1937,7 +1937,7 @@ impl Default for WTS_SESSION_INFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -1954,7 +1954,7 @@ impl Default for WTS_SESSION_INFO_1A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -1971,7 +1971,7 @@ impl Default for WTS_SESSION_INFO_1W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
@@ -2001,7 +2001,7 @@ impl Default for WTS_SOCKADDR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SOCKADDR_0_0 {
     pub sin_port: u16,
     pub IN_ADDR: u32,
@@ -2013,7 +2013,7 @@ impl Default for WTS_SOCKADDR_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_SOCKADDR_0_1 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
@@ -2026,7 +2026,7 @@ impl Default for WTS_SOCKADDR_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -2038,7 +2038,7 @@ pub struct WTS_SYSTEMTIME {
     pub wMilliseconds: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -2056,7 +2056,7 @@ impl Default for WTS_TIME_ZONE_INFORMATION {
 pub type WTS_TYPE_CLASS = i32;
 pub const WTS_USERNAME_LENGTH: u32 = 255;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_USER_CREDENTIAL {
     pub UserName: [u16; 256],
     pub Password: [u16; 256],
@@ -2068,7 +2068,7 @@ impl Default for WTS_USER_CREDENTIAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_USER_DATA {
     pub WorkDirectory: [u16; 257],
     pub InitialProgram: [u16; 257],
@@ -2080,7 +2080,7 @@ impl Default for WTS_USER_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_VALIDATION_INFORMATIONA {
     pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
@@ -2094,7 +2094,7 @@ impl Default for WTS_VALIDATION_INFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_VALIDATION_INFORMATIONW {
     pub ProductInfo: PRODUCT_INFOW,
     pub License: [u8; 16384],
@@ -2119,7 +2119,7 @@ pub const WTS_WSD_REBOOT: u32 = 4;
 pub const WTS_WSD_SHUTDOWN: u32 = 2;
 pub const Workspace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct pluginResource {
     pub alias: [u16; 256],
     pub name: [u16; 256],
@@ -2139,7 +2139,7 @@ impl Default for pluginResource {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct pluginResource2 {
     pub resourceV1: pluginResource,
     pub pceFileAssocListSize: u32,
@@ -2154,7 +2154,7 @@ impl Default for pluginResource2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct pluginResource2FileAssociation {
     pub extName: [u16; 256],
     pub primaryHandler: u8,

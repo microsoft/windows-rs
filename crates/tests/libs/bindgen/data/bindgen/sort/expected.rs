@@ -5,7 +5,7 @@ pub const E_FAIL: HRESULT = 0x80004005_u32 as _;
 pub const E_OUTOFMEMORY: HRESULT = 0x8007000E_u32 as _;
 pub type HRESULT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
@@ -13,7 +13,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,

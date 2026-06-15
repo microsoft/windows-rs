@@ -584,7 +584,7 @@ pub const IMMPID_RP_RECIPIENT_FLAGS: IMMPID_RP_ENUM = 8205;
 pub const IMMPID_RP_SMTP_STATUS_STRING: IMMPID_RP_ENUM = 8206;
 pub const IMMPID_RP_USER_GUID: IMMPID_RP_ENUM = 8209;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: windows_sys::core::GUID,
 }
@@ -678,7 +678,7 @@ pub const RP_REMOTE_MTA_NO_DSN: u32 = 524288;
 pub const RP_UNRESOLVED: u32 = 4144;
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPropAttrArray {
     pub cValues: u32,
     pub aPropAttr: [u32; 1],
@@ -691,7 +691,7 @@ impl Default for SPropAttrArray {
 pub const SZ_PROGID_SMTPCAT: windows_sys::core::PCSTR = windows_sys::core::s!("Smtp.Cat");
 pub const tagIMMPID_CPV_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const windows_sys::core::GUID,
     pub dwStart: u32,

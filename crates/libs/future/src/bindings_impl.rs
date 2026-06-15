@@ -6,7 +6,7 @@ pub type BOOL = i32;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type PCWSTR = *const u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,

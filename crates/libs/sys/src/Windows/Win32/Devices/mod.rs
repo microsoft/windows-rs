@@ -90,7 +90,7 @@ pub const IEEE1394_REQUEST_FLAG_PERSISTENT: u32 = 2;
 pub const IEEE1394_REQUEST_FLAG_UNICODE: u32 = 1;
 pub const IEEE1394_REQUEST_FLAG_USE_LOCAL_HOST_EUI: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IEEE1394_VDEV_PNP_REQUEST {
     pub fulFlags: u32,
     pub Reserved: u32,

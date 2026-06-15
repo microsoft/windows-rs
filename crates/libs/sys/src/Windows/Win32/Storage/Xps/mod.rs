@@ -55,7 +55,7 @@ pub const DC_STAPLE: PRINTER_DEVICE_CAPABILITIES = 30;
 pub const DC_TRUETYPE: PRINTER_DEVICE_CAPABILITIES = 15;
 pub const DC_VERSION: PRINTER_DEVICE_CAPABILITIES = 10;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCSTR,
@@ -69,7 +69,7 @@ impl Default for DOCINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCWSTR,
@@ -83,7 +83,7 @@ impl Default for DOCINFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
     pub ptSize: super::super::Foundation::POINT,
@@ -93,7 +93,7 @@ pub struct DRAWPATRECT {
 pub type PRINTER_DEVICE_CAPABILITIES = u16;
 pub type PRINT_WINDOW_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -102,13 +102,13 @@ pub struct PSFEATURE_CUSTPAPER {
     pub lHeightOffset: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: windows_sys::core::BOOL,
     pub bSetPageDevice: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: PSINJECT_POINT,
@@ -171,7 +171,7 @@ impl Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
     pub red: u8,
@@ -179,7 +179,7 @@ pub struct XPS_COLOR_0_0 {
     pub blue: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_COLOR_0_1 {
     pub alpha: f32,
     pub red: f32,
@@ -187,7 +187,7 @@ pub struct XPS_COLOR_0_1 {
     pub blue: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_COLOR_0_2 {
     pub channelCount: u8,
     pub channels: [f32; 9],
@@ -205,7 +205,7 @@ pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = 3;
 pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = 2;
 pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
@@ -313,7 +313,7 @@ pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = 2;
 pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = 3;
 pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
     pub advanceWidth: f32,
@@ -321,7 +321,7 @@ pub struct XPS_GLYPH_INDEX {
     pub verticalOffset: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
@@ -347,7 +347,7 @@ pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = 2;
 pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = 1;
 pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -368,13 +368,13 @@ pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 9;
 pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = 6;
 pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_RECT {
     pub x: f32,
     pub y: f32,
@@ -410,7 +410,7 @@ pub const XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = 0;
 pub const XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = 4;
 pub const XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XPS_SIGN_POLICY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,

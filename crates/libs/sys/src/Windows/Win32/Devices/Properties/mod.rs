@@ -201,7 +201,7 @@ pub const DEVPKEY_DrvPkg_Model: super::super::Foundation::DEVPROPKEY = super::su
 pub const DEVPKEY_DrvPkg_VendorWebSite: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
 pub const DEVPKEY_NAME: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVPROPCOMPKEY {
     pub Key: super::super::Foundation::DEVPROPKEY,
     pub Store: DEVPROPSTORE,
@@ -213,7 +213,7 @@ impl Default for DEVPROPCOMPKEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,

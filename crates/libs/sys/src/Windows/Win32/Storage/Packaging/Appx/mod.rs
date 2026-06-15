@@ -113,7 +113,7 @@ pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0;
 pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1;
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *const windows_sys::core::PCWSTR,
@@ -129,12 +129,12 @@ pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub useDiffusion: windows_sys::core::BOOL,
-    pub blockMapHashAlgorithm: *mut core::ffi::c_void,
+    pub blockMapHashAlgorithm: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -144,11 +144,11 @@ impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
-    pub blockMapHashAlgorithm: *mut core::ffi::c_void,
+    pub blockMapHashAlgorithm: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub options: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -164,7 +164,7 @@ pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0;
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
@@ -198,10 +198,10 @@ pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: windows_sys::core::BOOL,
-    pub hashMethod: *mut core::ffi::c_void,
+    pub hashMethod: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for APPX_PACKAGE_SETTINGS {
@@ -211,9 +211,9 @@ impl Default for APPX_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: *mut core::ffi::c_void,
+    pub inputStream: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub fileName: windows_sys::core::PCWSTR,
     pub contentType: windows_sys::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
@@ -281,7 +281,7 @@ pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = 1;
 pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = 0;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FindPackageDependencyCriteria {
     pub User: super::super::super::Security::PSID,
     pub ScopeIsSystem: windows_sys::core::BOOL,
@@ -432,7 +432,7 @@ impl Default for PACKAGE_VERSION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -472,7 +472,7 @@ pub const PackagePathType_MachineExternal: PackagePathType = 3;
 pub const PackagePathType_Mutable: PackagePathType = 1;
 pub const PackagePathType_UserExternal: PackagePathType = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
 }

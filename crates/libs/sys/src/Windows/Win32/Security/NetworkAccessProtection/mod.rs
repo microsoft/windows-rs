@@ -1,13 +1,13 @@
 pub const ComponentTypeEnforcementClientRp: u32 = 2;
 pub const ComponentTypeEnforcementClientSoH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CorrelationId {
     pub connId: windows_sys::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CountedString {
     pub length: u16,
     pub string: windows_sys::core::PWSTR,
@@ -20,7 +20,7 @@ impl Default for CountedString {
 pub type ExtendedIsolationState = i32;
 pub type FailureCategory = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [windows_sys::core::BOOL; 5],
 }
@@ -30,7 +30,7 @@ impl Default for FailureCategoryMapping {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
@@ -39,7 +39,7 @@ pub struct FixupInfo {
 }
 pub type FixupState = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
@@ -49,7 +49,7 @@ impl Default for Ipv4Address {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
@@ -59,14 +59,14 @@ impl Default for Ipv6Address {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
@@ -75,7 +75,7 @@ pub struct IsolationInfoEx {
 }
 pub type IsolationState = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -90,7 +90,7 @@ pub struct NapComponentRegistrationInfo {
 pub type NapNotifyType = i32;
 pub type NapTracingLevel = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
@@ -101,7 +101,7 @@ impl Default for NetworkSoH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
@@ -113,7 +113,7 @@ impl Default for PrivateData {
 }
 pub type RemoteConfigurationType = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ResultCodes {
     pub count: u16,
     pub results: *mut windows_sys::core::HRESULT,
@@ -124,7 +124,7 @@ impl Default for ResultCodes {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
@@ -135,7 +135,7 @@ impl Default for SoH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SoHAttribute {
     pub r#type: u16,
     pub size: u16,
@@ -147,7 +147,7 @@ impl Default for SoHAttribute {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,

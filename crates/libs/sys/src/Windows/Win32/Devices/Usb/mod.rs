@@ -43,7 +43,7 @@ windows_link::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : 
 pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = 5;
 pub const ALL_PIPE: PIPE_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ALTERNATE_INTERFACE {
     pub InterfaceNumber: u16,
     pub AlternateInterfaceNumber: u16,
@@ -76,13 +76,13 @@ impl Default for BM_REQUEST_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BM_REQUEST_TYPE_0 {
     pub _bitfield: u8,
 }
 pub const BULKIN_FLAG: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHANNEL_INFO {
     pub EventChannelSize: u32,
     pub uReadDataAlignment: u32,
@@ -90,7 +90,7 @@ pub struct CHANNEL_INFO {
 }
 pub const CompositeDevice: USB_WMI_DEVICE_NODE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_DESCRIPTOR {
     pub usVendorId: u16,
     pub usProductId: u16,
@@ -99,7 +99,7 @@ pub struct DEVICE_DESCRIPTOR {
 }
 pub const DEVICE_SPEED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRV_VERSION {
     pub major: u32,
     pub minor: u32,
@@ -349,7 +349,7 @@ pub const IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 22293
 pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848;
 pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_BLOCK {
     pub uOffset: u32,
     pub uLength: u32,
@@ -362,7 +362,7 @@ impl Default for IO_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_BLOCK_EX {
     pub uOffset: u32,
     pub uLength: u32,
@@ -647,7 +647,7 @@ impl Default for USB4_HRD_DEBUG_READ_CONFIGURATION_SPACE_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USB4_HRD_DEBUG_ROUTE_STRING {
     pub Depth: u8,
     pub Route: [u8; 7],
@@ -730,7 +730,7 @@ impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
 }
 pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBD_INTERFACE_INFORMATION {
     pub Length: u16,
     pub InterfaceNumber: u8,
@@ -749,7 +749,7 @@ impl Default for USBD_INTERFACE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USBD_ISO_PACKET_DESCRIPTOR {
     pub Offset: u32,
     pub Length: u32,
@@ -767,7 +767,7 @@ pub const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536;
 pub const USBD_PF_VIDEO_PRIORITY: u32 = 16;
 pub const USBD_PF_VOICE_PRIORITY: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBD_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -788,7 +788,7 @@ pub const USBD_PORT_ENABLED: u32 = 1;
 pub const USBD_SHORT_TRANSFER_OK: u32 = 2;
 pub const USBD_START_ISO_TRANSFER_ASAP: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBD_STREAM_INFORMATION {
     pub PipeHandle: *mut core::ffi::c_void,
     pub StreamID: u32,
@@ -804,13 +804,13 @@ pub const USBD_TRANSFER_DIRECTION: u32 = 1;
 pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1;
 pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USBD_VERSION_INFORMATION {
     pub USBDI_Version: u32,
     pub Supported_USB_Version: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBFN_BUS_CONFIGURATION_INFO {
     pub ConfigurationName: [u16; 40],
     pub IsCurrent: bool,
@@ -881,7 +881,7 @@ pub type USBFN_DEVICE_STATE = i32;
 pub type USBFN_DIRECTION = i32;
 pub type USBFN_EVENT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBFN_INTERFACE_INFO {
     pub InterfaceNumber: u8,
     pub Speed: USBFN_BUS_SPEED,
@@ -927,7 +927,7 @@ pub struct USBFN_PIPE_INFORMATION {
 }
 pub type USBFN_PORT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBFN_USB_STRING {
     pub StringIndex: u8,
     pub UsbString: [u16; 255],
@@ -938,7 +938,7 @@ impl Default for USBFN_USB_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USBSCAN_GET_DESCRIPTOR {
     pub DescriptorType: u8,
     pub Index: u8,
@@ -946,7 +946,7 @@ pub struct USBSCAN_GET_DESCRIPTOR {
 }
 pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USBSCAN_PIPE_CONFIGURATION {
     pub NumberOfPipes: u32,
     pub PipeInfo: [USBSCAN_PIPE_INFORMATION; 8],
@@ -958,7 +958,7 @@ impl Default for USBSCAN_PIPE_CONFIGURATION {
 }
 pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USBSCAN_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -968,7 +968,7 @@ pub struct USBSCAN_PIPE_INFORMATION {
 pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = 3;
 pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USBSCAN_TIMEOUT {
     pub TimeoutRead: u32,
     pub TimeoutWrite: u32,
@@ -1262,7 +1262,7 @@ pub struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
     pub xxx: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_COMMON_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1282,7 +1282,7 @@ impl Default for USB_COMPOSITE_DEVICE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_COMPOSITE_FUNCTION_INFO {
     pub FunctionNumber: u8,
     pub BaseInterfaceNumber: u8,
@@ -1398,7 +1398,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     pub LowByte: u8,
     pub HiByte: u8,
@@ -1415,7 +1415,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     pub LowByte: u8,
     pub HiByte: u8,
@@ -1487,7 +1487,7 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
 }
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1501,7 +1501,7 @@ impl Default for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2056,7 +2056,7 @@ impl Default for USB_FUNCTION_SUSPEND_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
@@ -2140,7 +2140,7 @@ impl Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
@@ -2333,7 +2333,7 @@ pub type USB_HUB_TYPE = i32;
 pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = 0;
 pub type USB_IDLE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut core::ffi::c_void,
@@ -2359,7 +2359,7 @@ impl Default for USB_ID_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2372,7 +2372,7 @@ pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 }
 pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_INTERFACE_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2901,12 +2901,12 @@ impl Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
@@ -2924,7 +2924,7 @@ pub const USB_TEST_MODE_TEST_K: u32 = 2;
 pub const USB_TEST_MODE_TEST_PACKET: u32 = 4;
 pub const USB_TEST_MODE_TEST_SE0_NAK: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USB_TOPOLOGY_ADDRESS {
     pub PciBusNumber: u32,
     pub PciDeviceNumber: u32,
@@ -3076,7 +3076,7 @@ pub const UsbfnUnknownPort: USBFN_PORT_TYPE = 0;
 pub type WDMUSB_POWER_STATE = i32;
 pub type WINUSB_INTERFACE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINUSB_PIPE_INFORMATION {
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeId: u8,
@@ -3084,7 +3084,7 @@ pub struct WINUSB_PIPE_INFORMATION {
     pub Interval: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINUSB_PIPE_INFORMATION_EX {
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeId: u8,
@@ -3125,7 +3125,7 @@ pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = 100;
 pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = 101;
 pub const WinUSB_TestGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3142,7 +3142,7 @@ impl Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3164,7 +3164,7 @@ impl Default for _URB_CONTROL_DESCRIPTOR_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3185,7 +3185,7 @@ impl Default for _URB_CONTROL_FEATURE_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3203,7 +3203,7 @@ impl Default for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3223,7 +3223,7 @@ impl Default for _URB_CONTROL_GET_INTERFACE_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3243,7 +3243,7 @@ impl Default for _URB_CONTROL_GET_STATUS_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3261,7 +3261,7 @@ impl Default for _URB_CONTROL_TRANSFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_TRANSFER_EX {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3279,7 +3279,7 @@ impl Default for _URB_CONTROL_TRANSFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3301,25 +3301,25 @@ impl Default for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _URB_FRAME_LENGTH_CONTROL {
     pub Hdr: _URB_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _URB_GET_CURRENT_FRAME_NUMBER {
     pub Hdr: _URB_HEADER,
     pub FrameNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _URB_GET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLength: u32,
     pub FrameNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3332,7 +3332,7 @@ impl Default for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_HCD_AREA {
     pub Reserved8: [*mut core::ffi::c_void; 8],
 }
@@ -3342,7 +3342,7 @@ impl Default for _URB_HCD_AREA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_HEADER {
     pub Length: u16,
     pub Function: u16,
@@ -3356,7 +3356,7 @@ impl Default for _URB_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_ISOCH_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3377,7 +3377,7 @@ impl Default for _URB_ISOCH_TRANSFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_OPEN_STATIC_STREAMS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3392,7 +3392,7 @@ impl Default for _URB_OPEN_STATIC_STREAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3415,7 +3415,7 @@ impl Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_PIPE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3427,7 +3427,7 @@ impl Default for _URB_PIPE_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,
     pub ConfigurationDescriptor: *mut USB_CONFIGURATION_DESCRIPTOR,
@@ -3440,7 +3440,7 @@ impl Default for _URB_SELECT_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _URB_SELECT_INTERFACE {
     pub Hdr: _URB_HEADER,
     pub ConfigurationHandle: *mut core::ffi::c_void,
@@ -3452,7 +3452,7 @@ impl Default for _URB_SELECT_INTERFACE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _URB_SET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLengthDelta: i32,

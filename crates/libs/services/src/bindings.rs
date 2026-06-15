@@ -29,7 +29,7 @@ pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = 6;
 pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = 4;
 pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -44,7 +44,7 @@ pub type SERVICE_STATUS_HANDLE = *mut core::ffi::c_void;
 pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = 1;
 pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,

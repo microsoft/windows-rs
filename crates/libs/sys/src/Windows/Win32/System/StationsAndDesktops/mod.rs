@@ -50,7 +50,7 @@ pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1;
 pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 512;
 pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 256;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BSMINFO {
     pub cbSize: u32,
     pub hdesk: HDESK,
@@ -93,7 +93,7 @@ pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = 2;
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = 3;
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: windows_sys::core::BOOL,
     pub fReserved: windows_sys::core::BOOL,

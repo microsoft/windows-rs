@@ -1,7 +1,7 @@
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
-    pub pResource: *mut core::ffi::c_void,
+    pub pResource: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for D3D12_RESOURCE_UAV_BARRIER {
     fn default() -> Self {

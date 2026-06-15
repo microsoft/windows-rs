@@ -39,7 +39,7 @@ pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = 8;
 pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = 2;
 pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
@@ -47,7 +47,7 @@ pub struct DMO_MEDIA_TYPE {
     pub bTemporalCompression: windows_sys::core::BOOL,
     pub lSampleSize: u32,
     pub formattype: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
+    pub pUnk: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
@@ -57,9 +57,9 @@ impl Default for DMO_MEDIA_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
-    pub pBuffer: *mut core::ffi::c_void,
+    pub pBuffer: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,
@@ -80,7 +80,7 @@ pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = 16;
 pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_FLAGS = 2;
 pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,

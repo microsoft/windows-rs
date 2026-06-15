@@ -541,33 +541,51 @@ impl Layout {
     }
 }
 
-/// Code-style mode for the generated bindings. Mutually exclusive variants
-/// replace the legacy `sys: bool` + `minimal: bool` + `sys_fn_extern: bool`
-/// triple, making invalid combinations unrepresentable.
+/// Code-generation style for bindgen output.
+///
+/// `Default` produces full-fidelity WinRT/COM wrappers (used by umbrella
+/// crates). `Lean` produces stripped-down bindings suitable for standalone
+/// use. Within `Lean`, `com` controls whether COM/WinRT interface wrappers
+/// are emitted (`true` = old `--minimal`) or interfaces collapse to
+/// `*mut c_void` (`false` = old `--sys`).
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 enum Style {
-    /// Full-fidelity bindings (the default).
+    /// Full-fidelity bindings (the default). Used by umbrella crates.
     #[default]
     Default,
-    /// Raw / sys-style bindings.
-    Sys {
+    /// Lean bindings — stripped-down output for standalone / library use.
+    Lean {
+        /// When `true`, generate proper COM/WinRT interface types with
+        /// vtables, method-level filtering, auto-revoking events, and
+        /// factory helpers. When `false`, interfaces become `*mut c_void`
+        /// and no COM wrappers are emitted.
+        com: bool,
         /// When `true`, emit `extern { fn … }` instead of `link!` macros.
         extern_fns: bool,
     },
-    /// Minimal-mode bindings (drop class wrappers, inherited forwarders,
-    /// handle ergonomics; auto-revoke events).
-    Minimal,
 }
 
 impl Style {
-    fn is_sys(self) -> bool {
-        matches!(self, Style::Sys { .. })
+    /// True for any lean binding mode (both old `--sys` and `--minimal`).
+    fn is_lean(self) -> bool {
+        matches!(self, Style::Lean { .. })
     }
-    fn is_minimal(self) -> bool {
-        matches!(self, Style::Minimal)
+    /// True for lean bindings with COM support (old `--minimal`).
+    fn has_com(self) -> bool {
+        matches!(self, Style::Lean { com: true, .. })
+    }
+    /// True for lean bindings without COM support (old `--sys`).
+    fn is_sys(self) -> bool {
+        matches!(self, Style::Lean { com: false, .. })
     }
     fn sys_fn_extern(self) -> bool {
-        matches!(self, Style::Sys { extern_fns: true })
+        matches!(
+            self,
+            Style::Lean {
+                extern_fns: true,
+                ..
+            }
+        )
     }
 }
 
@@ -764,60 +782,60 @@ impl Bindgen {
     /// already selected.
     #[track_caller]
     pub fn sys(&mut self) -> &mut Self {
-        let extern_fns = matches!(self.style, Style::Sys { extern_fns: true });
-        if matches!(self.style, Style::Minimal) {
+        let extern_fns = matches!(
+            self.style,
+            Style::Lean {
+                extern_fns: true,
+                ..
+            }
+        );
+        if matches!(self.style, Style::Lean { com: true, .. }) {
             panic!("cannot combine `--sys` and `--minimal`");
         }
-        self.style = Style::Sys { extern_fns };
+        self.style = Style::Lean {
+            com: false,
+            extern_fns,
+        };
         self
     }
 
-    /// Generate minimal-mode Rust bindings.
+    /// Generate lean bindings with COM/WinRT support.
     ///
-    /// In `minimal` mode, the per-class wrapper methods on WinRT runtime
-    /// classes are omitted (only static/composable factory helpers and the
-    /// `new()` activation helper are kept), and inherited / forwarding wrapper
-    /// methods on interfaces are omitted (only methods that dispatch on the
-    /// interface's own vtable are kept). Callers must explicitly
-    /// `cast::<IFoo>()?` to the interface that owns a slot before invoking it.
-    ///
-    /// Handle types are emitted as bare `pub type` aliases over their
-    /// underlying primitive (matching `--sys`), without the
-    /// `is_invalid`, `Free`, or `AlsoUsableFor` machinery. Free functions are
-    /// emitted as their `link!` (or extern) declaration only, without the
-    /// `Result<T>` / `from_thread` / `from_abi` ergonomic wrappers (also
-    /// matching `--sys`).
+    /// In lean+COM mode (the old `--minimal`), per-class wrapper methods on
+    /// WinRT runtime classes are omitted (only static/composable factory
+    /// helpers and the `new()` activation helper are kept), and inherited /
+    /// forwarding wrapper methods on interfaces are omitted (only methods that
+    /// dispatch on the interface's own vtable are kept). Callers must
+    /// explicitly `cast::<IFoo>()?` to the interface that owns a slot before
+    /// invoking it.
     ///
     /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
     /// auto-revoking wrapper that returns a `windows_core::EventRevoker`.
-    /// The `Remove*` wrapper is suppressed. Callers can call
-    /// `windows_core::EventRevoker::into_token` to recover the raw token when interoperating
-    /// with code that manages registration tokens directly.
     ///
     /// This is a build-time / disk / memory optimization: the generated source
     /// is dramatically smaller and rustc does much less type-checking and
-    /// codegen work, at the cost of API ergonomics. Vtable layout, ABI, GUIDs,
-    /// `RuntimeType` signatures, and `interface_hierarchy!` invocations are
-    /// preserved bit-for-bit, so existing `windows-implement` consumers and
-    /// raw-vtable callers are unaffected.
+    /// codegen work, at the cost of API ergonomics.
     ///
     /// `--minimal` is mutually exclusive with `--sys`.
     #[track_caller]
     pub fn minimal(&mut self) -> &mut Self {
-        if matches!(self.style, Style::Sys { .. }) {
+        if matches!(self.style, Style::Lean { com: false, .. }) {
             panic!("cannot combine `--sys` and `--minimal`");
         }
-        self.style = Style::Minimal;
+        self.style = Style::Lean {
+            com: true,
+            extern_fns: false,
+        };
         self
     }
 
-    /// Generate `extern` declarations rather than `link!` macros for sys-style Rust bindings.
+    /// Generate `extern` declarations rather than `link!` macros for lean bindings.
     ///
     /// Only valid in combination with [`Bindgen::sys`]; panics otherwise.
     #[track_caller]
     pub fn extern_fns(&mut self) -> &mut Self {
         match &mut self.style {
-            Style::Sys { extern_fns } => *extern_fns = true,
+            Style::Lean { extern_fns, .. } => *extern_fns = true,
             _ => panic!("`--extern` requires `--sys`"),
         }
         self
@@ -827,10 +845,6 @@ impl Bindgen {
     pub fn index(&mut self) -> &mut Self {
         self.index = true;
         self
-    }
-
-    fn is_sys(&self) -> bool {
-        self.style.is_sys()
     }
 
     /// Generate the bindings.
@@ -857,11 +871,11 @@ impl Bindgen {
 
         assert!(!include.is_empty(), "at least one `--filter` required");
 
-        let sys = self.is_sys();
+        let lean_no_com = self.style.is_sys();
 
         let link = if let Some(link) = self.link.as_deref() {
             link
-        } else if sys || self.resolved_deps() == DepMode::Specific {
+        } else if lean_no_com || self.resolved_deps() == DepMode::Specific {
             "windows_link"
         } else {
             "windows_core"
@@ -882,7 +896,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !sys && self.resolved_deps() != DepMode::None {
+        if !lean_no_com && self.resolved_deps() != DepMode::None {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -983,9 +997,9 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        // In minimal mode, use the method-centric filter and automatic type
+        // In lean+COM mode, use the method-centric filter and automatic type
         // closure instead of the traditional type-level include/exclude filter.
-        let minimal_filter = if self.style.is_minimal() {
+        let minimal_filter = if self.style.has_com() {
             Some(MinimalFilter::new(&reader, &include))
         } else {
             None
@@ -1009,7 +1023,7 @@ impl Bindgen {
             warnings.add(message.clone());
         }
 
-        let event_only_delegates = if self.style.is_minimal() {
+        let event_only_delegates = if self.style.has_com() {
             compute_event_only_delegates(&types, &reader)
         } else {
             HashSet::new()

@@ -21,7 +21,7 @@ pub const GameInputArcadeStickAction6: GameInputArcadeStickButtons = 2048;
 pub type GameInputArcadeStickButtons = i32;
 pub const GameInputArcadeStickDown: GameInputArcadeStickButtons = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputArcadeStickInfo {
     pub menuButtonLabel: GameInputLabel,
     pub viewButtonLabel: GameInputLabel,
@@ -45,7 +45,7 @@ pub const GameInputArcadeStickRight: GameInputArcadeStickButtons = 32;
 pub const GameInputArcadeStickSpecial1: GameInputArcadeStickButtons = 4096;
 pub const GameInputArcadeStickSpecial2: GameInputArcadeStickButtons = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputArcadeStickState {
     pub buttons: GameInputArcadeStickButtons,
 }
@@ -58,7 +58,7 @@ pub const GameInputBatteryDischarging: GameInputBatteryStatus = 1;
 pub const GameInputBatteryIdle: GameInputBatteryStatus = 2;
 pub const GameInputBatteryNotPresent: GameInputBatteryStatus = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputBatteryState {
     pub chargeRate: f32,
     pub maxChargeRate: f32,
@@ -72,7 +72,7 @@ pub const GameInputBlockingEnumeration: GameInputEnumerationKind = 2;
 pub const GameInputBufferedItem: GameInputRawDeviceReportItemFlags = 256;
 pub const GameInputConstantItem: GameInputRawDeviceReportItemFlags = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputControllerAxisInfo {
     pub mappedInputKinds: GameInputKind,
     pub label: GameInputLabel,
@@ -94,7 +94,7 @@ impl Default for GameInputControllerAxisInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputControllerButtonInfo {
     pub mappedInputKinds: GameInputKind,
     pub label: GameInputLabel,
@@ -110,7 +110,7 @@ impl Default for GameInputControllerButtonInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputControllerSwitchInfo {
     pub mappedInputKinds: GameInputKind,
     pub label: GameInputLabel,
@@ -143,7 +143,7 @@ pub const GameInputDeviceCapabilityWireless: GameInputDeviceCapabilities = 16;
 pub const GameInputDeviceConnected: GameInputDeviceStatus = 1;
 pub type GameInputDeviceFamily = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputDeviceInfo {
     pub infoSize: u32,
     pub vendorId: u16,
@@ -237,7 +237,7 @@ pub type GameInputFlightStickButtons = i32;
 pub const GameInputFlightStickFirePrimary: GameInputFlightStickButtons = 4;
 pub const GameInputFlightStickFireSecondary: GameInputFlightStickButtons = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputFlightStickInfo {
     pub menuButtonLabel: GameInputLabel,
     pub viewButtonLabel: GameInputLabel,
@@ -248,7 +248,7 @@ pub struct GameInputFlightStickInfo {
 pub const GameInputFlightStickMenu: GameInputFlightStickButtons = 1;
 pub const GameInputFlightStickNone: GameInputFlightStickButtons = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputFlightStickState {
     pub buttons: GameInputFlightStickButtons,
     pub hatSwitch: GameInputSwitchPosition,
@@ -260,7 +260,7 @@ pub struct GameInputFlightStickState {
 pub const GameInputFlightStickView: GameInputFlightStickButtons = 2;
 pub type GameInputFocusPolicy = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackConditionParams {
     pub magnitude: GameInputForceFeedbackMagnitude,
     pub positiveCoefficient: f32,
@@ -272,7 +272,7 @@ pub struct GameInputForceFeedbackConditionParams {
 }
 pub const GameInputForceFeedbackConstant: GameInputForceFeedbackEffectKind = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackConstantParams {
     pub envelope: GameInputForceFeedbackEnvelope,
     pub magnitude: GameInputForceFeedbackMagnitude,
@@ -280,7 +280,7 @@ pub struct GameInputForceFeedbackConstantParams {
 pub const GameInputForceFeedbackDamper: GameInputForceFeedbackEffectKind = 9;
 pub type GameInputForceFeedbackEffectKind = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackEnvelope {
     pub attackDuration: u64,
     pub sustainDuration: u64,
@@ -294,7 +294,7 @@ pub struct GameInputForceFeedbackEnvelope {
 pub const GameInputForceFeedbackFriction: GameInputForceFeedbackEffectKind = 8;
 pub const GameInputForceFeedbackInertia: GameInputForceFeedbackEffectKind = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackMagnitude {
     pub linearX: f32,
     pub linearY: f32,
@@ -305,7 +305,7 @@ pub struct GameInputForceFeedbackMagnitude {
     pub normal: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackMotorInfo {
     pub supportedAxes: GameInputFeedbackAxes,
     pub location: GameInputLocation,
@@ -355,7 +355,7 @@ impl Default for GameInputForceFeedbackParams_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackPeriodicParams {
     pub envelope: GameInputForceFeedbackEnvelope,
     pub magnitude: GameInputForceFeedbackMagnitude,
@@ -365,7 +365,7 @@ pub struct GameInputForceFeedbackPeriodicParams {
 }
 pub const GameInputForceFeedbackRamp: GameInputForceFeedbackEffectKind = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputForceFeedbackRampParams {
     pub envelope: GameInputForceFeedbackEnvelope,
     pub startMagnitude: GameInputForceFeedbackMagnitude,
@@ -385,7 +385,7 @@ pub const GameInputGamepadDPadLeft: GameInputGamepadButtons = 256;
 pub const GameInputGamepadDPadRight: GameInputGamepadButtons = 512;
 pub const GameInputGamepadDPadUp: GameInputGamepadButtons = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputGamepadInfo {
     pub menuButtonLabel: GameInputLabel,
     pub viewButtonLabel: GameInputLabel,
@@ -409,7 +409,7 @@ pub const GameInputGamepadNone: GameInputGamepadButtons = 0;
 pub const GameInputGamepadRightShoulder: GameInputGamepadButtons = 2048;
 pub const GameInputGamepadRightThumbstick: GameInputGamepadButtons = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputGamepadState {
     pub buttons: GameInputGamepadButtons,
     pub leftTrigger: f32,
@@ -423,7 +423,7 @@ pub const GameInputGamepadView: GameInputGamepadButtons = 2;
 pub const GameInputGamepadX: GameInputGamepadButtons = 16;
 pub const GameInputGamepadY: GameInputGamepadButtons = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputHapticFeedbackMotorInfo {
     pub mappedRumbleMotors: GameInputRumbleMotors,
     pub location: GameInputLocation,
@@ -437,7 +437,7 @@ impl Default for GameInputHapticFeedbackMotorInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputHapticFeedbackParams {
     pub waveformIndex: u32,
     pub duration: u64,
@@ -446,7 +446,7 @@ pub struct GameInputHapticFeedbackParams {
     pub repeatDelay: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputHapticWaveformInfo {
     pub usage: GameInputUsage,
     pub isDurationSupported: u8,
@@ -458,7 +458,7 @@ pub struct GameInputHapticWaveformInfo {
 pub const GameInputIsoKeyboard: GameInputKeyboardKind = 1;
 pub const GameInputJisKeyboard: GameInputKeyboardKind = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputKeyState {
     pub scanCode: u32,
     pub codePoint: u32,
@@ -466,7 +466,7 @@ pub struct GameInputKeyState {
     pub isDeadKey: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputKeyboardInfo {
     pub kind: GameInputKeyboardKind,
     pub layout: u32,
@@ -642,14 +642,14 @@ pub const GameInputMotionAccuracyUnknown: GameInputMotionAccuracy = -1;
 pub const GameInputMotionAccurate: GameInputMotionAccuracy = 3;
 pub const GameInputMotionApproximate: GameInputMotionAccuracy = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputMotionInfo {
     pub maxAcceleration: f32,
     pub maxAngularVelocity: f32,
     pub maxMagneticFieldStrength: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputMotionState {
     pub accelerationX: f32,
     pub accelerationY: f32,
@@ -675,7 +675,7 @@ pub const GameInputMouseButton4: GameInputMouseButtons = 8;
 pub const GameInputMouseButton5: GameInputMouseButtons = 16;
 pub type GameInputMouseButtons = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputMouseInfo {
     pub supportedButtons: GameInputMouseButtons,
     pub sampleRate: u32,
@@ -688,7 +688,7 @@ pub const GameInputMouseMiddleButton: GameInputMouseButtons = 4;
 pub const GameInputMouseNone: GameInputMouseButtons = 0;
 pub const GameInputMouseRightButton: GameInputMouseButtons = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputMouseState {
     pub buttons: GameInputMouseButtons,
     pub positionX: i64,
@@ -735,7 +735,7 @@ pub const GameInputRacingWheelDpadLeft: GameInputRacingWheelButtons = 64;
 pub const GameInputRacingWheelDpadRight: GameInputRacingWheelButtons = 128;
 pub const GameInputRacingWheelDpadUp: GameInputRacingWheelButtons = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputRacingWheelInfo {
     pub menuButtonLabel: GameInputLabel,
     pub viewButtonLabel: GameInputLabel,
@@ -757,7 +757,7 @@ pub const GameInputRacingWheelNextGear: GameInputRacingWheelButtons = 8;
 pub const GameInputRacingWheelNone: GameInputRacingWheelButtons = 0;
 pub const GameInputRacingWheelPreviousGear: GameInputRacingWheelButtons = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputRacingWheelState {
     pub buttons: GameInputRacingWheelButtons,
     pub patternShifterGear: i32,
@@ -769,7 +769,7 @@ pub struct GameInputRacingWheelState {
 }
 pub const GameInputRacingWheelView: GameInputRacingWheelButtons = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputRawDeviceItemCollectionInfo {
     pub kind: GameInputRawDeviceItemCollectionKind,
     pub childCount: u32,
@@ -792,7 +792,7 @@ impl Default for GameInputRawDeviceItemCollectionInfo {
 pub type GameInputRawDeviceItemCollectionKind = i32;
 pub type GameInputRawDevicePhysicalUnitKind = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputRawDeviceReportInfo {
     pub kind: GameInputRawDeviceReportKind,
     pub id: u32,
@@ -807,7 +807,7 @@ impl Default for GameInputRawDeviceReportInfo {
 }
 pub type GameInputRawDeviceReportItemFlags = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputRawDeviceReportItemInfo {
     pub bitOffset: u32,
     pub bitSize: u32,
@@ -842,7 +842,7 @@ pub const GameInputRumbleLowFrequency: GameInputRumbleMotors = 1;
 pub type GameInputRumbleMotors = i32;
 pub const GameInputRumbleNone: GameInputRumbleMotors = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputRumbleParams {
     pub lowFrequency: f32,
     pub highFrequency: f32,
@@ -852,7 +852,7 @@ pub struct GameInputRumbleParams {
 pub const GameInputRumbleRightTrigger: GameInputRumbleMotors = 8;
 pub const GameInputStableItem: GameInputRawDeviceReportItemFlags = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GameInputString {
     pub sizeInBytes: u32,
     pub codePointCount: u32,
@@ -880,7 +880,7 @@ pub const GameInputSystemButtonNone: GameInputSystemButtons = 0;
 pub const GameInputSystemButtonShare: GameInputSystemButtons = 2;
 pub type GameInputSystemButtons = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputTouchSensorInfo {
     pub mappedInputKinds: GameInputKind,
     pub label: GameInputLabel,
@@ -907,7 +907,7 @@ pub const GameInputTouchShape2DRectangular: GameInputTouchShape = 4;
 pub const GameInputTouchShapePoint: GameInputTouchShape = 0;
 pub const GameInputTouchShapeUnknown: GameInputTouchShape = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputTouchState {
     pub touchId: u64,
     pub sensorIndex: u32,
@@ -929,7 +929,7 @@ pub const GameInputUiNavigationContext3: GameInputUiNavigationButtons = 1024;
 pub const GameInputUiNavigationContext4: GameInputUiNavigationButtons = 2048;
 pub const GameInputUiNavigationDown: GameInputUiNavigationButtons = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputUiNavigationInfo {
     pub menuButtonLabel: GameInputLabel,
     pub viewButtonLabel: GameInputLabel,
@@ -966,7 +966,7 @@ pub const GameInputUiNavigationScrollLeft: GameInputUiNavigationButtons = 262144
 pub const GameInputUiNavigationScrollRight: GameInputUiNavigationButtons = 524288;
 pub const GameInputUiNavigationScrollUp: GameInputUiNavigationButtons = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputUiNavigationState {
     pub buttons: GameInputUiNavigationButtons,
 }
@@ -976,7 +976,7 @@ pub const GameInputUnknownItemCollection: GameInputRawDeviceItemCollectionKind =
 pub const GameInputUnknownKeyboard: GameInputKeyboardKind = -1;
 pub const GameInputUnknownSwitchKind: GameInputSwitchKind = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputUsage {
     pub page: u16,
     pub id: u16,
@@ -984,7 +984,7 @@ pub struct GameInputUsage {
 pub const GameInputUsageModifierItemCollection: GameInputRawDeviceItemCollectionKind = 6;
 pub const GameInputUsageSwitchItemCollection: GameInputRawDeviceItemCollectionKind = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GameInputVersion {
     pub major: u16,
     pub minor: u16,

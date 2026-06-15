@@ -3,7 +3,7 @@ windows_link::link!("kernel32.dll" "system" fn EnableThreadProfiling(threadhandl
 windows_link::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation::HANDLE, enabled : *mut bool) -> u32);
 windows_link::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation::HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
@@ -12,7 +12,7 @@ pub struct HARDWARE_COUNTER_DATA {
 pub type HARDWARE_COUNTER_TYPE = i32;
 pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,

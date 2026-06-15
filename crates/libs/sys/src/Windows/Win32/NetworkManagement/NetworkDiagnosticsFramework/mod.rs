@@ -36,7 +36,7 @@ pub const DF_IMPERSONATION: u32 = 2147483648;
 pub const DF_TRACELESS: u32 = 1073741824;
 pub type DIAGNOSIS_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
@@ -53,7 +53,7 @@ pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = 0;
 pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = 5;
 pub const DS_REJECTED: DIAGNOSIS_STATUS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
@@ -94,7 +94,7 @@ impl Default for HELPER_ATTRIBUTE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HYPOTHESIS {
     pub pwszClassName: windows_sys::core::PWSTR,
     pub pwszDescription: windows_sys::core::PWSTR,
@@ -107,7 +107,7 @@ impl Default for HYPOTHESIS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
@@ -118,13 +118,13 @@ impl Default for HelperAttributeInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
@@ -143,7 +143,7 @@ pub const NDF_E_VALIDATION: windows_sys::core::HRESULT = 0x8008F906_u32 as _;
 pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1;
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -222,7 +222,7 @@ impl Default for RepairInfoEx {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RootCauseInfo {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub rootCauseID: windows_sys::core::GUID,
@@ -237,7 +237,7 @@ impl Default for RootCauseInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ShellCommandInfo {
     pub pwszOperation: windows_sys::core::PWSTR,
     pub pwszFile: windows_sys::core::PWSTR,

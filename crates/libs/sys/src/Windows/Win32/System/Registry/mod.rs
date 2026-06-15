@@ -71,8 +71,8 @@ windows_link::link!("advapi32.dll" "system" fn RegQueryValueW(hkey : HKEY, lpsub
 windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : windows_sys::core::PCWSTR, lpnewkeyname : windows_sys::core::PCWSTR) -> super::super::Foundation::WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn RegReplaceKeyA(hkey : HKEY, lpsubkey : windows_sys::core::PCSTR, lpnewfile : windows_sys::core::PCSTR, lpoldfile : windows_sys::core::PCSTR) -> super::super::Foundation::WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn RegReplaceKeyW(hkey : HKEY, lpsubkey : windows_sys::core::PCWSTR, lpnewfile : windows_sys::core::PCWSTR, lpoldfile : windows_sys::core::PCWSTR) -> super::super::Foundation::WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : HKEY, lpfile : windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation::WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation::WIN32_ERROR);
+windows_link::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : HKEY, lpfile : windows_sys::core::PCSTR, dwflags : REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR);
+windows_link::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : windows_sys::core::PCWSTR, dwflags : REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR);
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : HKEY, lpfile : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR);
 #[cfg(feature = "Win32_Security")]
@@ -125,7 +125,7 @@ pub const DRIVERSIGN_BLOCKING: u32 = 2;
 pub const DRIVERSIGN_NONE: u32 = 0;
 pub const DRIVERSIGN_WARNING: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -223,7 +223,7 @@ pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6;
 pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PVALUEA {
     pub pv_valuename: windows_sys::core::PSTR,
     pub pv_valuelen: i32,
@@ -236,7 +236,7 @@ impl Default for PVALUEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PVALUEW {
     pub pv_valuename: windows_sys::core::PWSTR,
     pub pv_valuelen: i32,
@@ -1048,7 +1048,7 @@ pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = 0;
 pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = 1;
 pub const REG_PROCESS_APPKEY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,
@@ -1101,7 +1101,7 @@ pub const SUF_NETRPLBOOT: i32 = 128;
 pub const SUF_NETSETUP: i32 = 32;
 pub const SUF_SBSCOPYOK: i32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VALENTA {
     pub ve_valuename: windows_sys::core::PSTR,
     pub ve_valuelen: u32,
@@ -1114,7 +1114,7 @@ impl Default for VALENTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VALENTW {
     pub ve_valuename: windows_sys::core::PWSTR,
     pub ve_valuelen: u32,
@@ -1133,7 +1133,7 @@ pub const VPDF_FORCEAPM10MODE: u32 = 2;
 pub const VPDF_SHOWMULTIBATT: u32 = 32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,

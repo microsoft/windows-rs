@@ -380,7 +380,7 @@ impl Method {
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
-                } else if config.bindgen.style.is_minimal() && param.is_input() && matches!(param.ty, Type::String) {
+                } else if config.bindgen.style.has_com() && param.is_input() && matches!(param.ty, Type::String) {
                     // In minimal mode, string params accept &str directly.
                     // Convert to HSTRING and pass its abi.
                     quote! { core::mem::transmute_copy(&windows_core::HSTRING::from(#name)) }
@@ -449,9 +449,7 @@ impl Method {
         // In minimal mode, HSTRING input params accept `&str` directly — the generated
         // method body handles the conversion to HSTRING internally.
         let is_string_param = |param: &Param| -> bool {
-            config.bindgen.style.is_minimal()
-                && param.is_input()
-                && matches!(param.ty, Type::String)
+            config.bindgen.style.has_com() && param.is_input() && matches!(param.ty, Type::String)
         };
 
         let generics: Vec<TokenStream> = params
@@ -598,7 +596,7 @@ impl Method {
         let return_type = if self.signature.return_type == Type::Void {
             quote! { () }
         } else {
-            let tokens = if config.bindgen.style.is_minimal()
+            let tokens = if config.bindgen.style.has_com()
                 && matches!(self.signature.return_type, Type::String)
             {
                 quote! { String }
@@ -676,7 +674,7 @@ impl Method {
                                 #assert_success
                                 result__
                             }
-                        } else if config.bindgen.style.is_minimal()
+                        } else if config.bindgen.style.has_com()
                             && matches!(self.signature.return_type, Type::String)
                         {
                             quote! {
@@ -706,7 +704,7 @@ impl Method {
                                 let mut result__ = core::mem::zeroed();
                                 #vcall.#map.and_then(|r__: #iref| r__.Value())
                             }
-                        } else if config.bindgen.style.is_minimal()
+                        } else if config.bindgen.style.has_com()
                             && matches!(self.signature.return_type, Type::String)
                         {
                             // In minimal mode, return String instead of HSTRING.
@@ -734,10 +732,10 @@ impl Method {
         // with a combined wrapper returning EventRevoker.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && config.bindgen.style.is_minimal()
+            && config.bindgen.style.has_com()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = config.bindgen.style.is_minimal()
+        let is_event_remove = config.bindgen.style.has_com()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove
@@ -759,7 +757,7 @@ impl Method {
             // The event part (e.g. "Click" from "add_Click") determines the
             // vtable field name for the paired remove method.
             let event_part = &raw_method_name[4..];
-            let remove_vname = if config.bindgen.style.is_minimal() {
+            let remove_vname = if config.bindgen.style.has_com() {
                 // Raw mode: vtbl field is "remove_Click"
                 to_ident(&format!("remove_{event_part}"))
             } else {

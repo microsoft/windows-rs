@@ -88,7 +88,7 @@ pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = 0;
 pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1;
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {
     pub uVersion: u32,
     pub hEnablingPrincipal: u32,
@@ -124,7 +124,7 @@ pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = 0;
 pub const DRMHANDLE_INVALID: u32 = 0;
 pub const DRMHSESSION_INVALID: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRMID {
     pub uVersion: u32,
     pub wszIDType: windows_sys::core::PWSTR,
@@ -155,7 +155,7 @@ pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32;
 pub const DRM_ACTIVATE_SILENT: u32 = 16;
 pub const DRM_ACTIVATE_TEMPORARY: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_ACTSERV_INFO {
     pub uVersion: u32,
     pub wszPubKey: windows_sys::core::PWSTR,
@@ -178,7 +178,7 @@ pub const DRM_AL_NOPERSIST: u32 = 2;
 pub const DRM_AL_NOUI: u32 = 16;
 pub const DRM_AUTO_GENERATE_KEY: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_CLIENT_VERSION_INFO {
     pub uStructVersion: u32,
     pub dwVersion: [u32; 4],
@@ -214,7 +214,7 @@ pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_LICENSE_ACQ_DATA {
     pub uVersion: u32,
     pub wszURL: windows_sys::core::PWSTR,

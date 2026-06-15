@@ -30,7 +30,7 @@ impl Class {
 
         let mut methods = quote! {};
 
-        if !config.bindgen.style.is_minimal() {
+        if !config.bindgen.style.has_com() {
             let mut method_names = MethodNames::for_style(&config.bindgen.style);
 
             for interface in &required_interfaces {
@@ -120,7 +120,7 @@ impl Class {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
                     None
-                } else if config.bindgen.style == Style::Minimal
+                } else if config.bindgen.style.has_com()
                     && !interface
                         .get_methods(config)
                         .iter()
@@ -181,7 +181,7 @@ impl Class {
                         // in the type map (i.e., have requested methods or were pulled
                         // in by other means). This avoids referencing interfaces that
                         // were pruned from the closure.
-                        if config.bindgen.style.is_minimal() {
+                        if config.bindgen.style.has_com() {
                             let tn = Type::Interface((*ty).clone()).type_name();
                             config.types.contains_key(&tn)
                         } else {
@@ -195,7 +195,7 @@ impl Class {
                     self.bases(config.reader)
                         .iter()
                         .filter(|ty| {
-                            if config.bindgen.style.is_minimal() {
+                            if config.bindgen.style.has_com() {
                                 let tn = Type::Class((*ty).clone()).type_name();
                                 config.types.contains_key(&tn)
                             } else {
@@ -224,7 +224,7 @@ impl Class {
                 }
             });
 
-            let into_iterator = if config.bindgen.style.is_minimal() {
+            let into_iterator = if config.bindgen.style.has_com() {
                 None
             } else {
                 required_interfaces
@@ -258,7 +258,7 @@ impl Class {
                     })
             };
 
-            let deref = if config.bindgen.style.is_minimal() {
+            let deref = if config.bindgen.style.has_com() {
                 quote! {
                     #cfg
                     impl core::ops::Deref for #name {

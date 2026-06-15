@@ -60,7 +60,7 @@ impl CppConst {
             if field_ty == constant_ty {
                 if field_ty == Type::String {
                     if config.bindgen.resolved_deps() == DepMode::None
-                        && config.bindgen.style.is_sys()
+                        && config.bindgen.style.is_lean()
                     {
                         // With --deps none, the w!/s! macros and PCWSTR/PCSTR
                         // types are unavailable. Emit an inline null-terminated
@@ -147,7 +147,7 @@ impl CppConst {
                 // cpp_enum), so we drop the wrapper for those too; scoped
                 // enums and other wrapper types still get the constructor.
                 let emit_alias_const = config.bindgen.style.is_sys()
-                    || (config.bindgen.style.is_minimal()
+                    || (config.bindgen.style.has_com()
                         && (matches!(&field_ty, Type::CppStruct(ty) if ty.is_handle(config.reader))
                             || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"))));
                 if emit_alias_const || field_ty == Type::Bool {

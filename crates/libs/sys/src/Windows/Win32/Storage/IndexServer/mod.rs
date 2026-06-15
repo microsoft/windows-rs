@@ -27,7 +27,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -193,7 +193,7 @@ pub const DBSETFUNC_ALL: u32 = 1;
 pub const DBSETFUNC_DISTINCT: u32 = 2;
 pub const DBSETFUNC_NONE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
@@ -248,7 +248,7 @@ pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = 2;
 pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = 64;
 pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_INFO {
     pub Width: u32,
     pub Height: u32,

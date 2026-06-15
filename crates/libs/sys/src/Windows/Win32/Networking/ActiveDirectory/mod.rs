@@ -221,7 +221,7 @@ pub type ADSI_DIALECT_ENUM = i32;
 pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = 0;
 pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADSPROPERROR {
     pub hwndPage: super::super::Foundation::HWND,
     pub pszPageTitle: windows_sys::core::PWSTR,
@@ -236,12 +236,12 @@ impl Default for ADSPROPERROR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hr: windows_sys::core::HRESULT,
-    pub pDsObj: *mut core::ffi::c_void,
+    pub pDsObj: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub pwzCN: windows_sys::core::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
 }
@@ -354,7 +354,7 @@ pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = 7;
 pub const ADS_ATTR_APPEND: u32 = 3;
 pub const ADS_ATTR_CLEAR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwADsType: ADSTYPE,
@@ -369,7 +369,7 @@ impl Default for ADS_ATTR_DEF {
 }
 pub const ADS_ATTR_DELETE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwControlCode: u32,
@@ -386,7 +386,7 @@ pub const ADS_ATTR_UPDATE: u32 = 2;
 pub type ADS_AUTHENTICATION_ENUM = u32;
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_BACKLINK {
     pub RemoteID: u32,
     pub ObjectName: windows_sys::core::PWSTR,
@@ -397,7 +397,7 @@ impl Default for ADS_BACKLINK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut ADS_CASEIGNORE_LIST,
     pub String: windows_sys::core::PWSTR,
@@ -413,7 +413,7 @@ pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = 64;
 pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = 0;
 pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: windows_sys::core::PWSTR,
     pub dwMandatoryAttrs: u32,
@@ -440,7 +440,7 @@ pub type ADS_DISPLAY_ENUM = i32;
 pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = 1;
 pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_DN_WITH_BINARY {
     pub dwLength: u32,
     pub lpBinaryValue: *mut u8,
@@ -452,7 +452,7 @@ impl Default for ADS_DN_WITH_BINARY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_DN_WITH_STRING {
     pub pszStringValue: windows_sys::core::PWSTR,
     pub pszDNString: windows_sys::core::PWSTR,
@@ -463,7 +463,7 @@ impl Default for ADS_DN_WITH_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_EMAIL {
     pub Address: windows_sys::core::PWSTR,
     pub Type: u32,
@@ -484,7 +484,7 @@ pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215;
 pub const ADS_EXT_MINEXTDISPID: u32 = 1;
 pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_FAXNUMBER {
     pub TelephoneNumber: windows_sys::core::PWSTR,
     pub NumberOfBits: u32,
@@ -517,7 +517,7 @@ pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4;
 pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = -2147483648;
 pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_HOLD {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Amount: u32,
@@ -545,7 +545,7 @@ pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = 12;
 pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = 8;
 pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 9;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_NETADDRESS {
     pub AddressType: u32,
     pub AddressLength: u32,
@@ -559,7 +559,7 @@ impl Default for ADS_NETADDRESS {
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16;
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -570,7 +570,7 @@ impl Default for ADS_NT_SECURITY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OBJECT_INFO {
     pub pszRDN: windows_sys::core::PWSTR,
     pub pszObjectDN: windows_sys::core::PWSTR,
@@ -584,7 +584,7 @@ impl Default for ADS_OBJECT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_LIST {
     pub Next: *mut ADS_OCTET_LIST,
     pub Length: u32,
@@ -596,7 +596,7 @@ impl Default for ADS_OCTET_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -621,7 +621,7 @@ pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = 1;
 pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = 0;
 pub type ADS_PASSWORD_ENCODING_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_PATH {
     pub Type: u32,
     pub VolumeName: windows_sys::core::PWSTR,
@@ -637,7 +637,7 @@ pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = 1;
 pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = 2;
 pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_POSTALADDRESS {
     pub PostalAddress: [windows_sys::core::PWSTR; 6],
 }
@@ -654,7 +654,7 @@ pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = 4;
 pub type ADS_PROPERTY_OPERATION_ENUM = i32;
 pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -666,7 +666,7 @@ impl Default for ADS_PROV_SPECIFIC {
 }
 pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_REPLICAPOINTER {
     pub ServerName: windows_sys::core::PWSTR,
     pub ReplicaType: u32,
@@ -756,7 +756,7 @@ pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 3;
 pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = 13;
 pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = 14;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwADsType: ADSTYPE,
@@ -783,7 +783,7 @@ pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1;
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2;
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_sys::core::PWSTR,
     pub pszReserved: windows_sys::core::PWSTR,
@@ -810,13 +810,13 @@ pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 67108864;
 pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 134217728;
 pub type ADS_SYSTEMFLAG_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ADS_TIMESTAMP {
     pub WholeSeconds: u32,
     pub EventID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_TYPEDNAME {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Level: u32,
@@ -855,7 +855,7 @@ pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = 128;
 pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = 64;
 pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_VLV {
     pub dwBeforeCount: u32,
     pub dwAfterCount: u32,
@@ -905,7 +905,7 @@ pub const CQFF_ISOPTIONAL: u32 = 2;
 pub const CQFF_NOGLOBALPAGES: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CQFORM {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -921,7 +921,7 @@ impl Default for CQFORM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -956,7 +956,7 @@ pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2;
 pub const DNWithBinary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
 pub const DNWithString: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAINDESC {
     pub pszName: windows_sys::core::PWSTR,
     pub pszPath: windows_sys::core::PWSTR,
@@ -974,7 +974,7 @@ impl Default for DOMAINDESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOA {
     pub DomainControllerName: windows_sys::core::PSTR,
     pub DomainControllerAddress: windows_sys::core::PSTR,
@@ -992,7 +992,7 @@ impl Default for DOMAIN_CONTROLLER_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOW {
     pub DomainControllerName: windows_sys::core::PWSTR,
     pub DomainControllerAddress: windows_sys::core::PWSTR,
@@ -1010,7 +1010,7 @@ impl Default for DOMAIN_CONTROLLER_INFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_TREE {
     pub dsSize: u32,
     pub dwCount: u32,
@@ -1027,7 +1027,7 @@ pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3;
 pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSA_NEWOBJ_DISPINFO {
     pub dwSize: u32,
     pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
@@ -1052,7 +1052,7 @@ pub const DSBF_STATE: u32 = 1;
 pub const DSBID_BANNER: u32 = 256;
 pub const DSBID_CONTAINERLIST: u32 = 257;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBITEMA {
     pub cbStruct: u32,
     pub pszADsPath: windows_sys::core::PCWSTR,
@@ -1070,7 +1070,7 @@ impl Default for DSBITEMA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBITEMW {
     pub cbStruct: u32,
     pub pszADsPath: windows_sys::core::PCWSTR,
@@ -1109,7 +1109,7 @@ pub const DSBM_QUERYINSERTA: u32 = 101;
 pub const DSBM_QUERYINSERTW: u32 = 100;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct DSBROWSEINFOA {
     pub cbStruct: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1135,7 +1135,7 @@ impl Default for DSBROWSEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct DSBROWSEINFOW {
     pub cbStruct: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1166,7 +1166,7 @@ pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64;
 pub const DSCCIF_HASWIZARDDIALOG: u32 = 1;
 pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCLASSCREATIONINFO {
     pub dwFlags: u32,
     pub clsidWizardDialog: windows_sys::core::GUID,
@@ -1180,7 +1180,7 @@ impl Default for DSCLASSCREATIONINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSCOLUMN {
     pub dwFlags: u32,
     pub fmt: i32,
@@ -1190,7 +1190,7 @@ pub struct DSCOLUMN {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSDISPLAYSPECOPTIONS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1213,7 +1213,7 @@ pub const DSGIF_ISNORMAL: u32 = 0;
 pub const DSGIF_ISOPEN: u32 = 1;
 pub const DSICCF_IGNORETREATASLEAF: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSOBJECT {
     pub dwFlags: u32,
     pub dwProviderFlags: u32,
@@ -1221,7 +1221,7 @@ pub struct DSOBJECT {
     pub offsetClass: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOBJECTNAMES {
     pub clsidNamespace: windows_sys::core::GUID,
     pub cItems: u32,
@@ -1269,7 +1269,7 @@ pub const DSOP_FILTER_CONTACTS: u32 = 1024;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSOP_FILTER_FLAGS {
     pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
     pub flDownlevel: u32,
@@ -1286,7 +1286,7 @@ pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8;
 pub const DSOP_FLAG_MULTISELECT: u32 = 1;
 pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOP_INIT_INFO {
     pub cbSize: u32,
     pub pwzTargetComputer: windows_sys::core::PCWSTR,
@@ -1314,7 +1314,7 @@ pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4;
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2;
 pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOP_SCOPE_INIT_INFO {
     pub cbSize: u32,
     pub flType: u32,
@@ -1340,14 +1340,14 @@ pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512;
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256;
 pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSOP_UPLEVEL_FILTER_FLAGS {
     pub flBothModes: u32,
     pub flMixedModeOnly: u32,
     pub flNativeModeOnly: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSPROPERTYPAGEINFO {
     pub offsetString: u32,
 }
@@ -1368,7 +1368,7 @@ pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4;
 pub const DSQPM_GETCLASSLIST: u32 = 268435456;
 pub const DSQPM_HELPTOPICS: u32 = 268435457;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYCLASSLIST {
     pub cbStruct: u32,
     pub cClasses: i32,
@@ -1380,7 +1380,7 @@ impl Default for DSQUERYCLASSLIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYINITPARAMS {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -1396,7 +1396,7 @@ impl Default for DSQUERYINITPARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYPARAMS {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -1414,13 +1414,13 @@ impl Default for DSQUERYPARAMS {
 pub type DSROLE_MACHINE_ROLE = i32;
 pub type DSROLE_OPERATION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
 }
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub MachineRole: DSROLE_MACHINE_ROLE,
     pub Flags: u32,
@@ -1441,7 +1441,7 @@ pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1;
 pub type DSROLE_SERVER_STATE = i32;
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
     pub OperationState: u32,
     pub PreviousServerState: DSROLE_SERVER_STATE,
@@ -1481,7 +1481,7 @@ pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824;
 pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = 12;
 pub const DS_DNS_FOREST_FLAG: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub NetbiosName: windows_sys::core::PSTR,
     pub DnsHostName: windows_sys::core::PSTR,
@@ -1497,7 +1497,7 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub NetbiosName: windows_sys::core::PWSTR,
     pub DnsHostName: windows_sys::core::PWSTR,
@@ -1513,7 +1513,7 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NetbiosName: windows_sys::core::PSTR,
     pub DnsHostName: windows_sys::core::PSTR,
@@ -1536,7 +1536,7 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_2A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NetbiosName: windows_sys::core::PWSTR,
     pub DnsHostName: windows_sys::core::PWSTR,
@@ -1559,7 +1559,7 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_2W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NetbiosName: windows_sys::core::PSTR,
     pub DnsHostName: windows_sys::core::PSTR,
@@ -1583,7 +1583,7 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_3A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NetbiosName: windows_sys::core::PWSTR,
     pub DnsHostName: windows_sys::core::PWSTR,
@@ -1614,7 +1614,7 @@ pub const DS_DOMAIN_PRIMARY: u32 = 8;
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_sys::core::PSTR,
     pub DnsDomainName: windows_sys::core::PSTR,
@@ -1633,7 +1633,7 @@ impl Default for DS_DOMAIN_TRUSTSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_sys::core::PWSTR,
     pub DnsDomainName: windows_sys::core::PWSTR,
@@ -1705,7 +1705,7 @@ pub type DS_NAME_FORMAT = i32;
 pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0;
 pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULTA {
     pub cItems: u32,
     pub rItems: *mut DS_NAME_RESULT_ITEMA,
@@ -1716,7 +1716,7 @@ impl Default for DS_NAME_RESULTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULTW {
     pub cItems: u32,
     pub rItems: *mut DS_NAME_RESULT_ITEMW,
@@ -1727,7 +1727,7 @@ impl Default for DS_NAME_RESULTW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMA {
     pub status: u32,
     pub pDomain: windows_sys::core::PSTR,
@@ -1739,7 +1739,7 @@ impl Default for DS_NAME_RESULT_ITEMA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMW {
     pub status: u32,
     pub pDomain: windows_sys::core::PWSTR,
@@ -1782,7 +1782,7 @@ pub const DS_REPDEL_NO_SOURCE: u32 = 32;
 pub const DS_REPDEL_REF_OK: u32 = 64;
 pub const DS_REPDEL_WRITEABLE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub dwVersion: u32,
@@ -1797,7 +1797,7 @@ impl Default for DS_REPL_ATTR_META_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub dwVersion: u32,
@@ -1813,7 +1813,7 @@ impl Default for DS_REPL_ATTR_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub dwVersion: u32,
@@ -1824,7 +1824,7 @@ pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszLastOriginatingDsaDN: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -1836,7 +1836,7 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -1848,7 +1848,7 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -1860,13 +1860,13 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_CURSOR {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS {
     pub cNumCursors: u32,
     pub dwReserved: u32,
@@ -1878,7 +1878,7 @@ impl Default for DS_REPL_CURSORS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
@@ -1890,7 +1890,7 @@ impl Default for DS_REPL_CURSORS_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS_3W {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
@@ -1902,14 +1902,14 @@ impl Default for DS_REPL_CURSORS_3W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
     pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
@@ -1922,7 +1922,7 @@ impl Default for DS_REPL_CURSOR_3W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: i64,
@@ -1945,7 +1945,7 @@ pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = 5;
 pub type DS_REPL_INFO_TYPE = i32;
 pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = 12;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -1957,7 +1957,7 @@ impl Default for DS_REPL_KCC_DSA_FAILURESW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: windows_sys::core::PWSTR,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
@@ -1971,7 +1971,7 @@ impl Default for DS_REPL_KCC_DSA_FAILUREW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
@@ -1998,7 +1998,7 @@ pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512;
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128;
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_NEIGHBORSW {
     pub cNumNeighbors: u32,
     pub dwReserved: u32,
@@ -2010,7 +2010,7 @@ impl Default for DS_REPL_NEIGHBORSW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: windows_sys::core::PWSTR,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
@@ -2035,7 +2035,7 @@ impl Default for DS_REPL_NEIGHBORW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
     pub oszSourceDsaDN: u32,
@@ -2055,7 +2055,7 @@ pub struct DS_REPL_NEIGHBORW_BLOB {
     pub cNumConsecutiveSyncFailures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -2067,7 +2067,7 @@ impl Default for DS_REPL_OBJ_META_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -2079,7 +2079,7 @@ impl Default for DS_REPL_OBJ_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
     pub ulSerialNumber: u32,
@@ -2098,7 +2098,7 @@ impl Default for DS_REPL_OPW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
     pub ulSerialNumber: u32,
@@ -2118,7 +2118,7 @@ pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = 3;
 pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = 0;
 pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
     pub cNumPendingOps: u32,
@@ -2130,7 +2130,7 @@ impl Default for DS_REPL_PENDING_OPSW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
     pub cNumPendingOps: u32,
@@ -2141,7 +2141,7 @@ pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeOldestUpdRefs: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
@@ -2161,7 +2161,7 @@ impl Default for DS_REPL_VALUE_META_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
@@ -2182,7 +2182,7 @@ impl Default for DS_REPL_VALUE_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -2198,7 +2198,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszLastOriginatingDsaDN: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -2217,7 +2217,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub dwCurrentLinkState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
@@ -2252,7 +2252,7 @@ pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64;
 pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOA {
     pub pszSvrId: windows_sys::core::PSTR,
     pub error: DS_REPSYNCALL_ERROR,
@@ -2265,7 +2265,7 @@ impl Default for DS_REPSYNCALL_ERRINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOW {
     pub pszSvrId: windows_sys::core::PWSTR,
     pub error: DS_REPSYNCALL_ERROR,
@@ -2289,7 +2289,7 @@ pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32;
 pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = 2;
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCA {
     pub pszSrcId: windows_sys::core::PSTR,
     pub pszDstId: windows_sys::core::PSTR,
@@ -2303,7 +2303,7 @@ impl Default for DS_REPSYNCALL_SYNCA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCW {
     pub pszSrcId: windows_sys::core::PWSTR,
     pub pszDstId: windows_sys::core::PWSTR,
@@ -2318,7 +2318,7 @@ impl Default for DS_REPSYNCALL_SYNCW {
 }
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEA {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
@@ -2330,7 +2330,7 @@ impl Default for DS_REPSYNCALL_UPDATEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
@@ -2385,7 +2385,7 @@ pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2;
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPA {
     pub guid: windows_sys::core::GUID,
     pub guidType: u32,
@@ -2397,7 +2397,7 @@ impl Default for DS_SCHEMA_GUID_MAPA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPW {
     pub guid: windows_sys::core::GUID,
     pub guidType: u32,
@@ -2411,7 +2411,7 @@ impl Default for DS_SCHEMA_GUID_MAPW {
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SELECTION {
     pub pwzName: windows_sys::core::PWSTR,
     pub pwzADsPath: windows_sys::core::PWSTR,
@@ -2428,7 +2428,7 @@ impl Default for DS_SELECTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SELECTION_LIST {
     pub cItems: u32,
     pub cFetchedAttributes: u32,
@@ -2444,7 +2444,7 @@ pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = 10;
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DS_SITE_COST_INFO {
     pub errorCode: u32,
     pub cost: u32,
@@ -2593,15 +2593,20 @@ pub const NameTranslate: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const NetAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
 pub struct OPENQUERYWINDOW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub clsidHandler: windows_sys::core::GUID,
     pub pHandlerParameters: *mut core::ffi::c_void,
     pub clsidDefaultForm: windows_sys::core::GUID,
-    pub pPersistQuery: *mut core::ffi::c_void,
+    pub pPersistQuery: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub Anonymous: OPENQUERYWINDOW_0,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OPENQUERYWINDOW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OPENQUERYWINDOW {
@@ -2611,10 +2616,15 @@ impl Default for OPENQUERYWINDOW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut core::ffi::c_void,
-    pub ppbFormParameters: *mut core::ffi::c_void,
+    pub ppbFormParameters: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OPENQUERYWINDOW_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OPENQUERYWINDOW_0 {
@@ -2644,7 +2654,7 @@ pub const QUERYFORM_CHANGESFORMLIST: u64 = 1;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2;
 pub const ReplicaPointer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCHEDULE {
     pub Size: u32,
     pub Bandwidth: u32,
@@ -2658,7 +2668,7 @@ impl Default for SCHEDULE {
 }
 pub const SCHEDULE_BANDWIDTH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCHEDULE_HEADER {
     pub Type: u32,
     pub Offset: u32,

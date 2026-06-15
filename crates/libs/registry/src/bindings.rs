@@ -21,7 +21,7 @@ pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13;
 pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -70,7 +70,7 @@ pub type REG_SAM_FLAGS = u32;
 pub const REG_SZ: REG_VALUE_TYPE = 1;
 pub type REG_VALUE_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,

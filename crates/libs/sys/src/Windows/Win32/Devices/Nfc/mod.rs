@@ -97,18 +97,18 @@ pub const MAX_SNEP_SERVER_NAME_SIZE: u32 = 256;
 pub const MAX_UID_SIZE: u32 = 16;
 pub const NFCRMDDI_IOCTL_BASE: u32 = 80;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFCRM_RADIO_STATE {
     pub MediaRadioOn: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFCRM_SET_RADIO_STATE {
     pub SystemStateUpdate: bool,
     pub MediaRadioOn: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_DATA_BUFFER {
     pub cbBuffer: u16,
     pub pbBuffer: [u8; 1],
@@ -120,7 +120,7 @@ impl Default for NFC_DATA_BUFFER {
 }
 pub type NFC_DEVICE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_CONFIG {
     pub uMIU: u16,
     pub uWKS: u16,
@@ -130,7 +130,7 @@ pub struct NFC_LLCP_CONFIG {
 }
 pub type NFC_LLCP_LINK_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SERVICE_DISCOVER_REQUEST {
     pub hRemoteDev: isize,
     pub NumberOfEntries: u32,
@@ -142,7 +142,7 @@ impl Default for NFC_LLCP_SERVICE_DISCOVER_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SERVICE_DISCOVER_SAP {
     pub NumberOfEntries: u32,
     pub SAPEntries: [u8; 1],
@@ -153,7 +153,7 @@ impl Default for NFC_LLCP_SERVICE_DISCOVER_SAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SERVICE_NAME_ENTRY {
     pub cbServiceName: u32,
     pub pbServiceName: [u8; 1],
@@ -164,13 +164,13 @@ impl Default for NFC_LLCP_SERVICE_NAME_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ACCEPT_INFO {
     pub hSocket: isize,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_CL_PAYLOAD {
     pub hSocket: isize,
     pub bSAP: u8,
@@ -203,32 +203,32 @@ impl Default for NFC_LLCP_SOCKET_CONNECT_INFO_0 {
 pub type NFC_LLCP_SOCKET_CONNECT_TYPE = i32;
 pub type NFC_LLCP_SOCKET_ERROR = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ERROR_INFO {
     pub hSocket: isize,
     pub eSocketError: NFC_LLCP_SOCKET_ERROR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_INFO {
     pub eSocketType: NFC_LLCP_SOCKET_TYPE,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_OPTION {
     pub uMIUX: u16,
     pub bRW: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_PAYLOAD {
     pub hSocket: isize,
     pub bSAP: u8,
     pub sPayload: NFC_DATA_BUFFER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_SERVICE_INFO {
     pub hSocket: isize,
     pub bSAP: u8,
@@ -236,7 +236,7 @@ pub struct NFC_LLCP_SOCKET_SERVICE_INFO {
 }
 pub type NFC_LLCP_SOCKET_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_NDEF_INFO {
     pub fIsNdefFormatted: bool,
     pub fIsReadOnly: bool,
@@ -245,7 +245,7 @@ pub struct NFC_NDEF_INFO {
 }
 pub type NFC_P2P_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_P2P_PARAM_CONFIG {
     pub eP2pMode: NFC_P2P_MODE,
     pub cbGeneralBytes: u8,
@@ -258,13 +258,13 @@ impl Default for NFC_P2P_PARAM_CONFIG {
 }
 pub type NFC_RELEASE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_REMOTE_DEVICE_DISCONNET {
     pub hRemoteDev: isize,
     pub eReleaseType: NFC_RELEASE_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_REMOTE_DEV_INFO {
     pub hRemoteDev: isize,
     pub eType: NFC_DEVICE_TYPE,
@@ -279,20 +279,20 @@ impl Default for NFC_REMOTE_DEV_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_REMOTE_DEV_RECV_INFO {
     pub hRemoteDev: isize,
     pub sRecvBuffer: NFC_DATA_BUFFER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_REMOTE_DEV_SEND_INFO {
     pub hRemoteDev: isize,
     pub usTimeOut: u16,
     pub sSendBuffer: NFC_DATA_BUFFER,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_RF_DISCOVERY_CONFIG {
     pub usTotalDuration: u16,
     pub ulPollConfig: u32,
@@ -314,7 +314,7 @@ impl Default for NFC_RF_DISCOVERY_CONFIG {
 }
 pub type NFC_RF_DISCOVERY_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_AID_ROUTING_INFO {
     pub hSecureElement: isize,
     pub bPowerState: u8,
@@ -328,13 +328,13 @@ impl Default for NFC_SE_AID_ROUTING_INFO {
 }
 pub type NFC_SE_EMULATION_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_EMULATION_MODE_INFO {
     pub hSecureElement: isize,
     pub eMode: NFC_SE_EMULATION_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_EVENT_INFO {
     pub hSecureElement: isize,
     pub eEventType: SECURE_ELEMENT_EVENT_TYPE,
@@ -347,13 +347,13 @@ impl Default for NFC_SE_EVENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_INFO {
     pub hSecureElement: isize,
     pub eSecureElementType: SECURE_ELEMENT_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_LIST {
     pub NumberOfEndpoints: u32,
     pub EndpointList: [NFC_SE_INFO; 1],
@@ -364,7 +364,7 @@ impl Default for NFC_SE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_PROTO_ROUTING_INFO {
     pub hSecureElement: isize,
     pub bPowerState: u8,
@@ -405,20 +405,20 @@ impl Default for NFC_SE_ROUTING_TABLE_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_TECH_ROUTING_INFO {
     pub hSecureElement: isize,
     pub bPowerState: u8,
     pub eRfTechType: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_CLIENT_GET_INFO {
     pub hSnepClient: isize,
     pub sGetPayload: NFC_DATA_BUFFER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_CLIENT_INFO {
     pub hRemoteDev: isize,
     pub eServerType: NFC_SNEP_SERVER_TYPE,
@@ -426,21 +426,21 @@ pub struct NFC_SNEP_CLIENT_INFO {
     pub sService: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_CLIENT_PUT_INFO {
     pub hSnepClient: isize,
     pub sPutPayload: NFC_DATA_BUFFER,
 }
 pub type NFC_SNEP_REQUEST_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_ACCEPT_INFO {
     pub hSnepServer: isize,
     pub hConnection: isize,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_INFO {
     pub eServerType: NFC_SNEP_SERVER_TYPE,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
@@ -449,7 +449,7 @@ pub struct NFC_SNEP_SERVER_INFO {
     pub sService: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_REQUEST {
     pub hSnepServer: isize,
     pub hConnection: isize,
@@ -457,7 +457,7 @@ pub struct NFC_SNEP_SERVER_REQUEST {
     pub sRequestPayload: NFC_DATA_BUFFER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_RESPONSE_INFO {
     pub hSnepServer: isize,
     pub hConnection: isize,
@@ -488,7 +488,7 @@ pub const RoutingTypeAid: SECURE_ELEMENT_ROUTING_TYPE = 2;
 pub const RoutingTypeProtocol: SECURE_ELEMENT_ROUTING_TYPE = 1;
 pub const RoutingTypeTech: SECURE_ELEMENT_ROUTING_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_AID_ROUTING_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub cbAid: u32,
@@ -501,13 +501,13 @@ impl Default for SECURE_ELEMENT_AID_ROUTING_INFO {
 }
 pub type SECURE_ELEMENT_CARD_EMULATION_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_ENDPOINT_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eSecureElementType: SECURE_ELEMENT_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_ENDPOINT_LIST {
     pub NumberOfEndpoints: u32,
     pub EndpointList: [SECURE_ELEMENT_ENDPOINT_INFO; 1],
@@ -518,7 +518,7 @@ impl Default for SECURE_ELEMENT_ENDPOINT_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_EVENT_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eEventType: SECURE_ELEMENT_EVENT_TYPE,
@@ -531,21 +531,21 @@ impl Default for SECURE_ELEMENT_EVENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eEventType: SECURE_ELEMENT_EVENT_TYPE,
 }
 pub type SECURE_ELEMENT_EVENT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
     pub bConnectionId: u16,
     pub eRfTechType: u8,
     pub eRfProtocolType: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_HCE_DATA_PACKET {
     pub bConnectionId: u16,
     pub cbPayload: u16,
@@ -557,7 +557,7 @@ impl Default for SECURE_ELEMENT_HCE_DATA_PACKET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
     pub cbMaxRoutingTableSize: u16,
     pub IsAidRoutingSupported: bool,
@@ -566,7 +566,7 @@ pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
 }
 pub type SECURE_ELEMENT_POWER_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_PROTO_ROUTING_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eRfProtocolType: u8,
@@ -607,19 +607,19 @@ impl Default for SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
 }
 pub type SECURE_ELEMENT_ROUTING_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eMode: SECURE_ELEMENT_CARD_EMULATION_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_SET_POWER_MODE_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub powerMode: SECURE_ELEMENT_POWER_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_TECH_ROUTING_INFO {
     pub guidSecureElementId: windows_sys::core::GUID,
     pub eRfTechType: u8,

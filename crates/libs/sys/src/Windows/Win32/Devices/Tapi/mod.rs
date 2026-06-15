@@ -323,7 +323,7 @@ pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = 27;
 pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = 16;
 pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = 28;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRALIAS {
     pub rgchName: [i8; 41],
     pub rgchEName: [i8; 11],
@@ -2134,7 +2134,7 @@ pub const LINEREMOVEFROMCONF_ANY: u32 = 3;
 pub const LINEREMOVEFROMCONF_LAST: u32 = 2;
 pub const LINEREMOVEFROMCONF_NONE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LINEREQMAKECALL {
     pub szDestAddress: [i8; 80],
     pub szAppName: [i8; 40],
@@ -2342,12 +2342,17 @@ pub type MSP_CALL_EVENT_CAUSE = i32;
 pub type MSP_EVENT = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
     pub hCall: *mut i32,
     pub Anonymous: MSP_EVENT_INFO_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO {
@@ -2357,16 +2362,21 @@ impl Default for MSP_EVENT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
 pub union MSP_EVENT_INFO_0 {
-    pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
-    pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_1,
+    pub MSP_ADDRESS_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
+    pub MSP_CALL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
     pub MSP_TSP_DATA: MSP_EVENT_INFO_0_2,
-    pub MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_3,
-    pub MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_4,
-    pub MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
-    pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_6,
-    pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
+    pub MSP_PRIVATE_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_3>,
+    pub MSP_FILE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_4>,
+    pub MSP_ASR_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
+    pub MSP_TTS_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_6>,
+    pub MSP_TONE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0 {
@@ -2376,10 +2386,10 @@ impl Default for MSP_EVENT_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
-    pub pTerminal: *mut core::ffi::c_void,
+    pub pTerminal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_0 {
@@ -2389,12 +2399,12 @@ impl Default for MSP_EVENT_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: *mut core::ffi::c_void,
-    pub pTerminal: *mut core::ffi::c_void,
+    pub pStream: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pTerminal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub hrError: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2405,7 +2415,7 @@ impl Default for MSP_EVENT_INFO_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_2 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
@@ -2418,9 +2428,9 @@ impl Default for MSP_EVENT_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_3 {
-    pub pEvent: *mut core::ffi::c_void,
+    pub pEvent: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub lEventCode: i32,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2431,10 +2441,10 @@ impl Default for MSP_EVENT_INFO_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_4 {
-    pub pParentFileTerminal: *mut core::ffi::c_void,
-    pub pFileTrack: *mut core::ffi::c_void,
+    pub pParentFileTerminal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pFileTrack: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub TerminalMediaState: TERMINAL_MEDIA_STATE,
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: windows_sys::core::HRESULT,
@@ -2447,9 +2457,9 @@ impl Default for MSP_EVENT_INFO_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_5 {
-    pub pASRTerminal: *mut core::ffi::c_void,
+    pub pASRTerminal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2460,9 +2470,9 @@ impl Default for MSP_EVENT_INFO_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_6 {
-    pub pTTSTerminal: *mut core::ffi::c_void,
+    pub pTTSTerminal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2473,9 +2483,9 @@ impl Default for MSP_EVENT_INFO_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_7 {
-    pub pToneTerminal: *mut core::ffi::c_void,
+    pub pToneTerminal: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3006,7 +3016,7 @@ pub const STRM_RUNNING: u32 = 4;
 pub const STRM_STOPPED: u32 = 16;
 pub const STRM_TERMINALSELECTED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STnefProblem {
     pub ulComponent: u32,
     pub ulAttribute: u32,
@@ -3014,7 +3024,7 @@ pub struct STnefProblem {
     pub scode: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STnefProblemArray {
     pub cProblem: u32,
     pub aProblem: [STnefProblem; 1],
@@ -3063,7 +3073,7 @@ pub const TAPIMEDIATYPE_VIDEO: u32 = 32768;
 pub type TAPIOBJECT_EVENT = i32;
 pub const TAPI_CURRENT_VERSION: u32 = 131074;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
@@ -3071,7 +3081,7 @@ pub struct TAPI_CUSTOMTONE {
     pub dwVolume: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPI_DETECTTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -3233,7 +3243,7 @@ pub const TOT_PHONE: TAPI_OBJECT_TYPE = 6;
 pub const TOT_TAPI: TAPI_OBJECT_TYPE = 1;
 pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRP {
     pub trpid: u16,
     pub cbgrtrp: u16,
@@ -3361,7 +3371,7 @@ pub const TTM_RINGBACK: TAPI_TONEMODE = 2;
 pub const TT_DYNAMIC: TERMINAL_TYPE = 1;
 pub const TT_STATIC: TERMINAL_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
     pub hdDlgInst: HDRVDIALOGINSTANCE,

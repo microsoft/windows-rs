@@ -41,9 +41,9 @@ impl Delegate {
 
         // In minimal mode, delegates are invoked by the API, not by user code.
         // Suppress the public Invoke() method for all minimal delegates.
-        let is_event_only = config.bindgen.style.is_minimal()
+        let is_event_only = config.bindgen.style.has_com()
             && config.event_only_delegates.contains(&self.type_name());
-        let invoke_method = if config.bindgen.style.is_minimal() {
+        let invoke_method = if config.bindgen.style.has_com() {
             quote! {}
         } else {
             invoke
@@ -97,13 +97,13 @@ impl Delegate {
         // directly, avoiding a `Result` round trip. This also lets the
         // generated event-add wrappers reuse the same closure signature.
         let fn_constraint = {
-            let signature = if config.bindgen.style.is_minimal() {
+            let signature = if config.bindgen.style.has_com() {
                 method.write_impl_signature_no_return(config)
             } else {
                 method.write_impl_signature(config, false, false)
             };
 
-            if config.bindgen.style.is_minimal() {
+            if config.bindgen.style.has_com() {
                 quote! { F: Fn #signature + 'static }
             } else {
                 quote! { F: Fn #signature + Send + 'static }
@@ -125,7 +125,7 @@ impl Delegate {
             }
         };
 
-        let invoke_upcall = if config.bindgen.style.is_minimal() {
+        let invoke_upcall = if config.bindgen.style.has_com() {
             method.write_upcall_no_return(quote! { (this.invoke) }, false, config)
         } else {
             method.write_upcall(quote! { (this.invoke) }, false, config)
@@ -143,7 +143,7 @@ impl Delegate {
             }
         };
 
-        let hide_vtbl = if config.bindgen.style.is_minimal() {
+        let hide_vtbl = if config.bindgen.style.has_com() {
             quote! {}
         } else {
             quote! { #[doc(hidden)] }

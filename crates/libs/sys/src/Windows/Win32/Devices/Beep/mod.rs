@@ -1,7 +1,7 @@
 pub const BEEP_FREQUENCY_MAXIMUM: u32 = 32767;
 pub const BEEP_FREQUENCY_MINIMUM: u32 = 37;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BEEP_SET_PARAMETERS {
     pub Frequency: u32,
     pub Duration: u32,

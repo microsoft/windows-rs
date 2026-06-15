@@ -259,7 +259,7 @@ windows_link::link!("ws2_32.dll" "system" fn socket(af : i32, r#type : WINSOCK_S
 pub const AAL5_MODE_MESSAGE: u32 = 1;
 pub const AAL5_MODE_STREAMING: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AAL5_PARAMETERS {
     pub ForwardMaxCPCSSDUSize: u32,
     pub BackwardMaxCPCSSDUSize: u32,
@@ -273,7 +273,7 @@ pub const AAL5_SSCS_SSCOP_NON_ASSURED: u32 = 2;
 pub const AALTYPE_5: AAL_TYPE = 5;
 pub const AALTYPE_USER: AAL_TYPE = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AALUSER_PARAMETERS {
     pub UserDefined: u32,
 }
@@ -302,7 +302,7 @@ impl Default for AAL_PARAMETERS_IE_0 {
 pub type AAL_TYPE = i32;
 pub type ADDRESS_FAMILY = u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -319,7 +319,7 @@ impl Default for ADDRINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -341,7 +341,7 @@ impl Default for ADDRINFOEX2A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -363,7 +363,7 @@ impl Default for ADDRINFOEX2W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -386,7 +386,7 @@ impl Default for ADDRINFOEX3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -410,7 +410,7 @@ impl Default for ADDRINFOEX4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -435,7 +435,7 @@ impl Default for ADDRINFOEX5 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -463,7 +463,7 @@ impl Default for ADDRINFOEX6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -492,7 +492,7 @@ impl Default for ADDRINFOEX7 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -512,7 +512,7 @@ impl Default for ADDRINFOEXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -538,7 +538,7 @@ pub const ADDRINFOEX_VERSION_5: u32 = 5;
 pub const ADDRINFOEX_VERSION_6: u32 = 6;
 pub const ADDRINFOEX_VERSION_7: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADDRINFOW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -581,7 +581,7 @@ impl Default for ADDRINFO_DNS_SERVER_0 {
 }
 pub const ADDR_ANY: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AFPROTOCOLS {
     pub iAddressFamily: i32,
     pub iProtocol: i32,
@@ -654,7 +654,7 @@ pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576;
 pub const AI_V4MAPPED: u32 = 2048;
 pub type ARP_HARDWARE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ARP_HEADER {
     pub HardwareAddressSpace: u16,
     pub ProtocolAddressSpace: u16,
@@ -675,7 +675,7 @@ pub const ARP_REQUEST: ARP_OPCODE = 1;
 pub const ARP_RESPONSE: ARP_OPCODE = 2;
 pub const ASSOCIATE_NAMERES_CONTEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub Handle: u64,
@@ -686,7 +686,7 @@ pub const ATMPROTO_AAL34: u32 = 3;
 pub const ATMPROTO_AAL5: u32 = 5;
 pub const ATMPROTO_AALUSER: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATM_ADDRESS {
     pub AddressType: u32,
     pub NumofDigits: u32,
@@ -700,7 +700,7 @@ impl Default for ATM_ADDRESS {
 pub const ATM_ADDR_SIZE: u32 = 20;
 pub const ATM_AESA: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATM_BHLI {
     pub HighLayerInfoType: u32,
     pub HighLayerInfoLength: u32,
@@ -712,7 +712,7 @@ impl Default for ATM_BHLI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATM_BLLI {
     pub Layer2Protocol: u32,
     pub Layer2UserSpecifiedProtocol: u32,
@@ -727,7 +727,7 @@ impl Default for ATM_BLLI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATM_BLLI_IE {
     pub Layer2Protocol: u32,
     pub Layer2Mode: u8,
@@ -747,7 +747,7 @@ impl Default for ATM_BLLI_IE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ATM_BROADBAND_BEARER_CAPABILITY_IE {
     pub BearerClass: u8,
     pub TrafficType: u8,
@@ -756,14 +756,14 @@ pub struct ATM_BROADBAND_BEARER_CAPABILITY_IE {
     pub UserPlaneConnectionConfig: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ATM_CALLING_PARTY_NUMBER_IE {
     pub ATM_Number: ATM_ADDRESS,
     pub Presentation_Indication: u8,
     pub Screening_Indicator: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATM_CAUSE_IE {
     pub Location: u8,
     pub Cause: u8,
@@ -776,7 +776,7 @@ impl Default for ATM_CAUSE_IE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ATM_CONNECTION_ID {
     pub DeviceNumber: u32,
     pub VPI: u32,
@@ -791,13 +791,13 @@ pub struct ATM_PVC_PARAMS {
     pub PvcQos: QOS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ATM_QOS_CLASS_IE {
     pub QOSClassForward: u8,
     pub QOSClassBackward: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ATM_TD {
     pub PeakCellRate_CLP0: u32,
     pub PeakCellRate_CLP01: u32,
@@ -808,14 +808,14 @@ pub struct ATM_TD {
     pub Tagging: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ATM_TRAFFIC_DESCRIPTOR_IE {
     pub Forward: ATM_TD,
     pub Backward: ATM_TD,
     pub BestEffort: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATM_TRANSIT_NETWORK_SELECTION_IE {
     pub TypeOfNetworkId: u8,
     pub NetworkIdPlan: u8,
@@ -939,7 +939,7 @@ pub const CF_REJECT: u32 = 1;
 pub const CLIP_NOT: u32 = 0;
 pub const CLIP_SUS: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMSGHDR {
     pub cmsg_len: usize,
     pub cmsg_level: i32,
@@ -956,7 +956,7 @@ pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNE
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4;
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSADDR_INFO {
     pub LocalAddr: SOCKET_ADDRESS,
     pub RemoteAddr: SOCKET_ADDRESS,
@@ -1066,7 +1066,7 @@ impl Default for DL_OUI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DL_OUI_0 {
     pub _bitfield: u8,
 }
@@ -1208,7 +1208,7 @@ pub const FD_READ: u32 = 1;
 pub const FD_READ_BIT: u32 = 0;
 pub const FD_ROUTING_INTERFACE_CHANGE_BIT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FD_SET {
     pub fd_count: u32,
     pub fd_array: [SOCKET; 64],
@@ -1225,7 +1225,7 @@ pub const FIOASYNC: i32 = -2147195267;
 pub const FIONBIO: i32 = -2147195266;
 pub const FIONREAD: i32 = 1074030207;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLOWSPEC {
     pub TokenRate: u32,
     pub TokenBucketSize: u32,
@@ -1241,7 +1241,7 @@ pub const FallbackIndexMax: FALLBACK_INDEX = 1;
 pub const FallbackIndexTcpFastopen: FALLBACK_INDEX = 0;
 pub const GAI_STRERROR_BUFFER_SIZE: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_FILTER {
     pub gf_interface: u32,
     pub gf_group: SOCKADDR_STORAGE,
@@ -1255,20 +1255,20 @@ impl Default for GROUP_FILTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GROUP_REQ {
     pub gr_interface: u32,
     pub gr_group: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GROUP_SOURCE_REQ {
     pub gsr_interface: u32,
     pub gsr_group: SOCKADDR_STORAGE,
     pub gsr_source: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HOSTENT {
     pub h_name: windows_sys::core::PSTR,
     pub h_aliases: *mut *mut i8,
@@ -1390,7 +1390,7 @@ impl Default for ICMP_ERROR_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ICMP_HEADER {
     pub Type: u8,
     pub Code: u8,
@@ -1464,7 +1464,7 @@ impl Default for IGMPV3_QUERY_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IGMPV3_QUERY_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1480,12 +1480,12 @@ impl Default for IGMPV3_QUERY_HEADER_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IGMPV3_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IGMPV3_REPORT_HEADER {
     pub Type: u8,
     pub Reserved: u8,
@@ -1531,7 +1531,7 @@ impl Default for IGMP_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IGMP_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1624,24 +1624,24 @@ pub const INCL_WINSOCK_API_TYPEDEFS: u32 = 0;
 pub const INET6_ADDRSTRLEN: u32 = 65;
 pub const INET_ADDRSTRLEN: u32 = 22;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INET_PORT_RANGE {
     pub StartPort: u16,
     pub NumberOfPorts: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INET_PORT_RESERVATION_INFORMATION {
     pub OwningPid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INET_PORT_RESERVATION_INSTANCE {
     pub Reservation: INET_PORT_RANGE,
     pub Token: INET_PORT_RESERVATION_TOKEN,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INET_PORT_RESERVATION_TOKEN {
     pub Token: u64,
 }
@@ -1659,7 +1659,7 @@ impl Default for INTERFACE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTERFACE_INFO_EX {
     pub iiFlags: u32,
     pub iiAddress: SOCKET_ADDRESS,
@@ -1690,7 +1690,7 @@ impl Default for IN_ADDR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IN_ADDR_0_0 {
     pub s_b1: u8,
     pub s_b2: u8,
@@ -1698,7 +1698,7 @@ pub struct IN_ADDR_0_0 {
     pub s_b4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IN_ADDR_0_1 {
     pub s_w1: u16,
     pub s_w2: u16,
@@ -1740,7 +1740,7 @@ impl Default for IN_PKTINFO_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IN_RECVERR {
     pub protocol: IPPROTO,
     pub info: u32,
@@ -1893,7 +1893,7 @@ impl Default for IPV4_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV4_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1909,7 +1909,7 @@ impl Default for IPV4_HEADER_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV4_HEADER_1_0 {
     pub _bitfield: u8,
 }
@@ -1925,7 +1925,7 @@ impl Default for IPV4_HEADER_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV4_HEADER_2_0 {
     pub _bitfield: u16,
 }
@@ -1955,7 +1955,7 @@ impl Default for IPV4_OPTION_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV4_OPTION_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1995,7 +1995,7 @@ impl Default for IPV4_TIMESTAMP_OPTION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV4_TIMESTAMP_OPTION_0_0 {
     pub _bitfield: u8,
 }
@@ -2010,7 +2010,7 @@ pub const IPV6_ECN: i32 = 50;
 pub const IPV6_ECN_MASK: u32 = 12288;
 pub const IPV6_ECN_SHIFT: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV6_EXTENSION_HEADER {
     pub NextHeader: u8,
     pub Length: u8,
@@ -2041,7 +2041,7 @@ impl Default for IPV6_FRAGMENT_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV6_FRAGMENT_HEADER_0_0 {
     pub _bitfield: u16,
 }
@@ -2075,7 +2075,7 @@ impl Default for IPV6_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV6_HEADER_0_0 {
     pub _bitfield: u32,
 }
@@ -2113,7 +2113,7 @@ impl Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
@@ -2125,13 +2125,13 @@ impl Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
 }
 pub const IPV6_NRT_INTERFACE: i32 = 74;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV6_OPTION_HEADER {
     pub Type: u8,
     pub DataLength: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPV6_OPTION_JUMBOGRAM {
     pub Header: IPV6_OPTION_HEADER,
     pub JumbogramLength: [u8; 4],
@@ -2142,7 +2142,7 @@ impl Default for IPV6_OPTION_JUMBOGRAM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPV6_OPTION_ROUTER_ALERT {
     pub Header: IPV6_OPTION_HEADER,
     pub Value: [u8; 2],
@@ -2174,12 +2174,12 @@ impl Default for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPV6_ROUTING_HEADER {
     pub NextHeader: u8,
     pub Length: u8,
@@ -2204,7 +2204,7 @@ pub const IPV6_WFP_REDIRECT_CONTEXT: i32 = 70;
 pub const IPV6_WFP_REDIRECT_RECORDS: i32 = 60;
 pub const IPX_ADDRESS: i32 = 16391;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPX_ADDRESS_DATA {
     pub adapternum: i32,
     pub netnum: [u8; 4],
@@ -2229,7 +2229,7 @@ pub const IPX_IMMEDIATESPXACK: i32 = 16400;
 pub const IPX_MAXSIZE: i32 = 16390;
 pub const IPX_MAX_ADAPTER_NUM: i32 = 16397;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPX_NETNUM_DATA {
     pub netnum: [u8; 4],
     pub hopcount: u16,
@@ -2247,7 +2247,7 @@ pub const IPX_RECEIVE_BROADCAST: i32 = 16399;
 pub const IPX_RECVHDR: i32 = 16389;
 pub const IPX_RERIPNETNUMBER: i32 = 16398;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IPX_SPXCONNSTATUS_DATA {
     pub ConnectionState: u8,
     pub WatchDogActive: u8,
@@ -2432,7 +2432,7 @@ pub const JL_RECEIVER_ONLY: u32 = 2;
 pub const JL_SENDER_ONLY: u32 = 1;
 pub const LAYERED_PROTOCOL: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LINGER {
     pub l_onoff: u16,
     pub l_linger: u16,
@@ -2460,7 +2460,7 @@ pub const LM_HB2_FileServer: i32 = 2;
 pub const LM_HB2_Telephony: i32 = 1;
 pub const LM_HB_Extension: i32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LM_IRPARMS {
     pub nTXDataBytes: u32,
     pub nRXDataBytes: u32,
@@ -2725,7 +2725,7 @@ impl Default for MLDV2_QUERY_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MLDV2_QUERY_HEADER_0_0 {
     pub _bitfield: u16,
 }
@@ -2741,12 +2741,12 @@ impl Default for MLDV2_QUERY_HEADER_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MLDV2_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MLDV2_REPORT_HEADER {
     pub IcmpHeader: ICMP_HEADER,
     pub Reserved: u16,
@@ -2796,7 +2796,7 @@ pub const MSG_TRUNC: u32 = 256;
 pub const MSG_WAITALL: SEND_RECV_FLAGS = 8;
 pub type MULTICAST_MODE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
     pub AuthLevel: u32,
     pub cchDomainName: u32,
@@ -2804,7 +2804,7 @@ pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
     pub OffsetThisDomainName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAPI_PROVIDER_INSTALLATION_BLOB {
     pub dwVersion: u32,
     pub dwProviderType: u32,
@@ -2840,7 +2840,7 @@ impl Default for ND_NEIGHBOR_SOLICIT_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_DNSSL {
     pub nd_opt_dnssl_type: u8,
     pub nd_opt_dnssl_len: u8,
@@ -2848,13 +2848,13 @@ pub struct ND_OPTION_DNSSL {
     pub nd_opt_dnssl_lifetime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_HDR {
     pub nd_opt_type: u8,
     pub nd_opt_len: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_MTU {
     pub nd_opt_mtu_type: u8,
     pub nd_opt_mtu_len: u8,
@@ -2886,7 +2886,7 @@ impl Default for ND_OPTION_PREF64_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_PREF64_0_0 {
     pub _bitfield: u16,
 }
@@ -2919,7 +2919,7 @@ impl Default for ND_OPTION_PREFIX_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_PREFIX_INFO_0_0 {
     pub _bitfield: u8,
 }
@@ -2935,7 +2935,7 @@ impl Default for ND_OPTION_PREFIX_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ND_OPTION_PREFIX_INFO_1_0 {
     pub nd_opt_pi_reserved3: [u8; 3],
     pub nd_opt_pi_site_prefix_len: u8,
@@ -2946,7 +2946,7 @@ impl Default for ND_OPTION_PREFIX_INFO_1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_RDNSS {
     pub nd_opt_rdnss_type: u8,
     pub nd_opt_rdnss_len: u8,
@@ -2954,7 +2954,7 @@ pub struct ND_OPTION_RDNSS {
     pub nd_opt_rdnss_lifetime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_RD_HDR {
     pub nd_opt_rh_type: u8,
     pub nd_opt_rh_len: u8,
@@ -2988,7 +2988,7 @@ impl Default for ND_OPTION_ROUTE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ND_OPTION_ROUTE_INFO_0_0 {
     pub _bitfield: u8,
 }
@@ -3066,7 +3066,7 @@ pub const NETBIOS_TYPE_QUICK_GROUP: u32 = 3;
 pub const NETBIOS_TYPE_QUICK_UNIQUE: u32 = 2;
 pub const NETBIOS_UNIQUE_NAME: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETRESOURCE2A {
     pub dwScope: u32,
     pub dwType: u32,
@@ -3086,7 +3086,7 @@ impl Default for NETRESOURCE2A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETRESOURCE2W {
     pub dwScope: u32,
     pub dwType: u32,
@@ -3126,7 +3126,7 @@ impl Default for NLA_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLA_BLOB_0 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
@@ -3147,7 +3147,7 @@ impl Default for NLA_BLOB_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NLA_BLOB_1_0 {
     pub dwType: u32,
     pub dwSpeed: u32,
@@ -3159,7 +3159,7 @@ impl Default for NLA_BLOB_1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NLA_BLOB_1_1 {
     pub information: [i8; 1],
 }
@@ -3169,18 +3169,18 @@ impl Default for NLA_BLOB_1_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLA_BLOB_1_2 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLA_BLOB_1_3 {
     pub remote: NLA_BLOB_1_3_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NLA_BLOB_1_3_0 {
     pub speed: u32,
     pub r#type: u32,
@@ -3213,7 +3213,7 @@ pub const NLA_SERVICE_CLASS_GUID: windows_sys::core::GUID = windows_sys::core::G
 pub type NL_ADDRESS_TYPE = i32;
 pub type NL_BANDWIDTH_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
@@ -3222,7 +3222,7 @@ pub struct NL_BANDWIDTH_INFORMATION {
 pub type NL_DAD_STATE = i32;
 pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
     pub _bitfield: u8,
 }
@@ -3231,7 +3231,7 @@ pub type NL_NEIGHBOR_STATE = i32;
 pub type NL_NETWORK_CATEGORY = i32;
 pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
@@ -3241,7 +3241,7 @@ pub struct NL_NETWORK_CONNECTIVITY_HINT {
 }
 pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,
@@ -3282,7 +3282,7 @@ pub const NSPROTO_SPX: u32 = 1256;
 pub const NSPROTO_SPXII: u32 = 1257;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -3302,7 +3302,7 @@ pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0;
 pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NSP_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -3327,7 +3327,7 @@ pub const NS_DHCP: u32 = 6;
 pub const NS_DNS: u32 = 12;
 pub const NS_EMAIL: u32 = 37;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NS_INFOA {
     pub dwNameSpace: u32,
     pub dwNameSpaceFlags: u32,
@@ -3339,7 +3339,7 @@ impl Default for NS_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NS_INFOW {
     pub dwNameSpace: u32,
     pub dwNameSpaceFlags: u32,
@@ -3364,14 +3364,14 @@ pub const NS_PEER_BROWSE: u32 = 3;
 pub const NS_SAP: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NS_SERVICE_INFOA {
     pub dwNameSpace: u32,
     pub ServiceInfo: SERVICE_INFOA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NS_SERVICE_INFOW {
     pub dwNameSpace: u32,
     pub ServiceInfo: SERVICE_INFOW,
@@ -3481,7 +3481,7 @@ pub const POLLRDNORM: WSAPOLL_EVENT_FLAGS = 256;
 pub const POLLWRBAND: WSAPOLL_EVENT_FLAGS = 32;
 pub const POLLWRNORM: WSAPOLL_EVENT_FLAGS = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PRIORITY_STATUS {
     pub Sender: SOCKET_PRIORITY_HINT,
     pub Receiver: SOCKET_PRIORITY_HINT,
@@ -3500,7 +3500,7 @@ pub const PROTECTION_LEVEL_EDGERESTRICTED: u32 = 20;
 pub const PROTECTION_LEVEL_RESTRICTED: u32 = 30;
 pub const PROTECTION_LEVEL_UNRESTRICTED: u32 = 10;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTOCOL_INFOA {
     pub dwServiceFlags: u32,
     pub iAddressFamily: i32,
@@ -3517,7 +3517,7 @@ impl Default for PROTOCOL_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTOCOL_INFOW {
     pub dwServiceFlags: u32,
     pub iAddressFamily: i32,
@@ -3534,7 +3534,7 @@ impl Default for PROTOCOL_INFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTOENT {
     pub p_name: windows_sys::core::PSTR,
     pub p_aliases: *mut *mut i8,
@@ -3576,7 +3576,7 @@ pub const ProviderLevel_Secondary: NAPI_PROVIDER_LEVEL = 1;
 pub const ProviderType_Application: NAPI_PROVIDER_TYPE = 1;
 pub const ProviderType_Service: NAPI_PROVIDER_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Q2931_IE {
     pub IEType: Q2931_IE_TYPE,
     pub IELength: u32,
@@ -3589,7 +3589,7 @@ impl Default for Q2931_IE {
 }
 pub type Q2931_IE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS {
     pub SendingFlowspec: FLOWSPEC,
     pub ReceivingFlowspec: FLOWSPEC,
@@ -3601,7 +3601,7 @@ pub const QOS_CLASS2: u32 = 2;
 pub const QOS_CLASS3: u32 = 3;
 pub const QOS_CLASS4: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RCVALL_IF {
     pub Mode: RCVALL_VALUE,
     pub Interface: u32,
@@ -3614,20 +3614,20 @@ pub type RCVALL_VALUE = i32;
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f);
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_sys::core::GUID,
     pub Unmark: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
     pub ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS,
 }
@@ -3649,7 +3649,7 @@ pub const RES_SERVICE: u32 = 4;
 pub const RES_SOFT_SEARCH: u32 = 1;
 pub const RES_UNUSED_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RIORESULT {
     pub Status: i32,
     pub BytesTransferred: u32,
@@ -3657,7 +3657,7 @@ pub struct RIORESULT {
     pub RequestContext: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RIO_BUF {
     pub BufferId: RIO_BUFFERID,
     pub Offset: u32,
@@ -3665,7 +3665,7 @@ pub struct RIO_BUF {
 }
 pub type RIO_BUFFERID = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RIO_CMSG_BUFFER {
     pub TotalLength: u32,
 }
@@ -3673,7 +3673,7 @@ pub const RIO_CORRUPT_CQ: u32 = 4294967295;
 pub type RIO_CQ = isize;
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RIO_EXTENSION_FUNCTION_TABLE {
     pub cbSize: u32,
     pub RIOReceive: LPFN_RIORECEIVE,
@@ -3719,7 +3719,7 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::super::Foundation::HANDLE,
     pub NotifyReset: windows_sys::core::BOOL,
@@ -3730,7 +3730,7 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub IocpHandle: super::super::Foundation::HANDLE,
     pub CompletionKey: *mut core::ffi::c_void,
@@ -3746,7 +3746,7 @@ pub type RIO_RQ = isize;
 pub const RM_ADD_RECEIVE_IF: i32 = 1008;
 pub const RM_DEL_RECEIVE_IF: i32 = 1009;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RM_FEC_INFO {
     pub FECBlockSize: u16,
     pub FECProActivePackets: u16,
@@ -3760,7 +3760,7 @@ pub const RM_OPTIONSBASE: i32 = 1000;
 pub const RM_RATE_WINDOW_SIZE: i32 = 1001;
 pub const RM_RECEIVER_STATISTICS: i32 = 1013;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RM_RECEIVER_STATS {
     pub NumODataPacketsReceived: u64,
     pub NumRDataPacketsReceived: u64,
@@ -3783,7 +3783,7 @@ pub struct RM_RECEIVER_STATS {
 }
 pub const RM_SENDER_STATISTICS: i32 = 1005;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RM_SENDER_STATS {
     pub DataBytesSent: u64,
     pub TotalBytesSent: u64,
@@ -3801,7 +3801,7 @@ pub struct RM_SENDER_STATS {
 }
 pub const RM_SENDER_WINDOW_ADVANCE_METHOD: i32 = 1004;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RM_SEND_WINDOW {
     pub RateKbitsPerSec: u32,
     pub WindowSizeInMSecs: u32,
@@ -3816,7 +3816,7 @@ pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2;
 pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1;
 pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RSS_SCALABILITY_INFO {
     pub RssEnabled: bool,
 }
@@ -3869,7 +3869,7 @@ impl Default for SCOPE_ID_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCOPE_ID_0_0 {
     pub _bitfield: u32,
 }
@@ -3885,7 +3885,7 @@ pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75;
 pub type SEND_RECV_FLAGS = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVENT {
     pub s_name: windows_sys::core::PSTR,
     pub s_aliases: *mut *mut i8,
@@ -3900,7 +3900,7 @@ impl Default for SERVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVENT {
     pub s_name: windows_sys::core::PSTR,
     pub s_aliases: *mut *mut i8,
@@ -3914,7 +3914,7 @@ impl Default for SERVENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_ADDRESS {
     pub dwAddressType: u32,
     pub dwAddressFlags: u32,
@@ -3929,7 +3929,7 @@ impl Default for SERVICE_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_ADDRESSES {
     pub dwAddressCount: u32,
     pub Addresses: [SERVICE_ADDRESS; 1],
@@ -3944,7 +3944,7 @@ pub const SERVICE_ADDRESS_FLAG_RPC_DG: u32 = 2;
 pub const SERVICE_ADDRESS_FLAG_RPC_NB: u32 = 4;
 pub const SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_ASYNC_INFO {
     pub lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
@@ -3962,7 +3962,7 @@ pub const SERVICE_FLAG_HARD: u32 = 2;
 pub const SERVICE_FLUSH: SET_SERVICE_OPERATION = 3;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_INFOA {
     pub lpServiceType: *mut windows_sys::core::GUID,
     pub lpServiceName: windows_sys::core::PSTR,
@@ -3983,7 +3983,7 @@ impl Default for SERVICE_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_INFOW {
     pub lpServiceType: *mut windows_sys::core::GUID,
     pub lpServiceName: windows_sys::core::PWSTR,
@@ -4008,7 +4008,7 @@ pub const SERVICE_REGISTER: SET_SERVICE_OPERATION = 1;
 pub const SERVICE_RESOURCE: u32 = 1;
 pub const SERVICE_SERVICE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TYPE_INFO {
     pub dwTypeNameOffset: u32,
     pub dwValueCount: u32,
@@ -4020,7 +4020,7 @@ impl Default for SERVICE_TYPE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TYPE_INFO_ABSA {
     pub lpTypeName: windows_sys::core::PSTR,
     pub dwValueCount: u32,
@@ -4032,7 +4032,7 @@ impl Default for SERVICE_TYPE_INFO_ABSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TYPE_INFO_ABSW {
     pub lpTypeName: windows_sys::core::PWSTR,
     pub dwValueCount: u32,
@@ -4044,7 +4044,7 @@ impl Default for SERVICE_TYPE_INFO_ABSW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_TYPE_VALUE {
     pub dwNameSpace: u32,
     pub dwValueType: u32,
@@ -4053,7 +4053,7 @@ pub struct SERVICE_TYPE_VALUE {
     pub dwValueOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TYPE_VALUE_ABSA {
     pub dwNameSpace: u32,
     pub dwValueType: u32,
@@ -4067,7 +4067,7 @@ impl Default for SERVICE_TYPE_VALUE_ABSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVICE_TYPE_VALUE_ABSW {
     pub dwNameSpace: u32,
     pub dwValueType: u32,
@@ -4198,7 +4198,7 @@ pub const SI_USER_PASSED: u32 = 1;
 pub const SNAP_CONTROL: u32 = 3;
 pub const SNAP_DSAP: u32 = 170;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SNAP_HEADER {
     pub Dsap: u8,
     pub Ssap: u8,
@@ -4214,7 +4214,7 @@ impl Default for SNAP_HEADER {
 pub const SNAP_OUI: u32 = 0;
 pub const SNAP_SSAP: u32 = 170;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
     pub sa_data: [i8; 14],
@@ -4225,7 +4225,7 @@ impl Default for SOCKADDR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKADDR_ATM {
     pub satm_family: u16,
     pub satm_number: ATM_ADDRESS,
@@ -4233,7 +4233,7 @@ pub struct SOCKADDR_ATM {
     pub satm_bhli: ATM_BHLI,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_DL {
     pub sdl_family: ADDRESS_FAMILY,
     pub sdl_data: [u8; 8],
@@ -4283,7 +4283,7 @@ impl Default for SOCKADDR_IN6_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: *mut SOCKADDR_IN6,
     pub DestinationAddress: *mut SOCKADDR_IN6,
@@ -4320,7 +4320,7 @@ impl Default for SOCKADDR_INET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_IPX {
     pub sa_family: i16,
     pub sa_netnum: [i8; 4],
@@ -4333,7 +4333,7 @@ impl Default for SOCKADDR_IPX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_IRDA {
     pub irdaAddressFamily: u16,
     pub irdaDeviceID: [u8; 4],
@@ -4345,7 +4345,7 @@ impl Default for SOCKADDR_IRDA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_NB {
     pub snb_family: i16,
     pub snb_type: u16,
@@ -4357,7 +4357,7 @@ impl Default for SOCKADDR_NB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_STORAGE {
     pub ss_family: ADDRESS_FAMILY,
     pub __ss_pad1: [i8; 6],
@@ -4370,7 +4370,7 @@ impl Default for SOCKADDR_STORAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_STORAGE_XP {
     pub ss_family: i16,
     pub __ss_pad1: [i8; 6],
@@ -4383,7 +4383,7 @@ impl Default for SOCKADDR_STORAGE_XP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_TP {
     pub tp_family: u16,
     pub tp_addr_type: u16,
@@ -4397,7 +4397,7 @@ impl Default for SOCKADDR_TP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_UN {
     pub sun_family: ADDRESS_FAMILY,
     pub sun_path: [i8; 108],
@@ -4408,7 +4408,7 @@ impl Default for SOCKADDR_UN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKADDR_VNS {
     pub sin_family: u16,
     pub net_address: [u8; 4],
@@ -4424,7 +4424,7 @@ impl Default for SOCKADDR_VNS {
 }
 pub type SOCKET = usize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKET_ADDRESS {
     pub lpSockaddr: *mut SOCKADDR,
     pub iSockaddrLength: i32,
@@ -4435,7 +4435,7 @@ impl Default for SOCKET_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKET_ADDRESS_LIST {
     pub iAddressCount: i32,
     pub Address: [SOCKET_ADDRESS; 1],
@@ -4451,7 +4451,7 @@ pub const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2;
 pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4;
 pub const SOCKET_INFO_CONNECTION_SECURED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKET_PEER_TARGET_NAME {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
@@ -4466,7 +4466,7 @@ impl Default for SOCKET_PEER_TARGET_NAME {
 pub type SOCKET_PRIORITY_HINT = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::super::System::Kernel::PROCESSOR_NUMBER,
     pub NumaNodeId: u16,
@@ -4481,7 +4481,7 @@ pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_INFO {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub Flags: u32,
@@ -4489,7 +4489,7 @@ pub struct SOCKET_SECURITY_QUERY_INFO {
     pub PeerMachineAccessTokenHandle: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub Flags: u32,
@@ -4501,14 +4501,14 @@ pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SaLookupContext: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
     pub PeerTokenAccessMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
@@ -4517,13 +4517,13 @@ pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub FieldMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOCKET_SECURITY_SETTINGS {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub SecurityFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCKET_SECURITY_SETTINGS_IPSEC {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub SecurityFlags: u32,
@@ -4564,7 +4564,7 @@ pub const SOCK_NOTIFY_REGISTER_EVENT_IN: u32 = 1;
 pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: u32 = 0;
 pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOCK_NOTIFY_REGISTRATION {
     pub socket: SOCKET,
     pub completionKey: *mut core::ffi::c_void,
@@ -4672,7 +4672,7 @@ pub const TCPSTATE_SYN_RCVD: TCPSTATE = 3;
 pub const TCPSTATE_SYN_SENT: TCPSTATE = 2;
 pub const TCPSTATE_TIME_WAIT: TCPSTATE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
     pub TcpDelayedAckFrequency: u8,
 }
@@ -4706,12 +4706,12 @@ pub const TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = 1;
 pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255;
 pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_ICW_PARAMETERS {
     pub Level: TCP_ICW_LEVEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -4734,7 +4734,7 @@ pub struct TCP_INFO_v0 {
     pub SynRetrans: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -4766,7 +4766,7 @@ pub struct TCP_INFO_v1 {
     pub SndLimBytesSnd: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_INFO_v2 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -4805,7 +4805,7 @@ pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0;
 pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u16 = 65534;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_INITIAL_RTO_PARAMETERS {
     pub Rtt: u16,
     pub MaxSynRetransmissions: u8,
@@ -4917,7 +4917,7 @@ pub const TH_SYN: u32 = 2;
 pub const TH_TAPI: u32 = 2;
 pub const TH_URG: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMESTAMPING_CONFIG {
     pub Flags: u32,
     pub TxTimestampsBuffered: u16,
@@ -4925,7 +4925,7 @@ pub struct TIMESTAMPING_CONFIG {
 pub const TIMESTAMPING_FLAG_RX: u32 = 1;
 pub const TIMESTAMPING_FLAG_TX: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
@@ -4941,7 +4941,7 @@ pub const TP_USE_DEFAULT_WORKER: u32 = 0;
 pub const TP_USE_KERNEL_APC: u32 = 32;
 pub const TP_USE_SYSTEM_THREAD: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSMIT_FILE_BUFFERS {
     pub Head: *mut core::ffi::c_void,
     pub HeadLength: u32,
@@ -4977,7 +4977,7 @@ impl Default for TRANSMIT_PACKETS_ELEMENT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSMIT_PACKETS_ELEMENT_0_0 {
     pub nFileOffset: i64,
     pub hFile: super::super::Foundation::HANDLE,
@@ -4988,7 +4988,7 @@ impl Default for TRANSMIT_PACKETS_ELEMENT_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSPORT_SETTING_ID {
     pub Guid: windows_sys::core::GUID,
 }
@@ -5034,7 +5034,7 @@ impl Default for VLAN_TAG_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VLAN_TAG_0_0 {
     pub _bitfield: u16,
 }
@@ -5043,7 +5043,7 @@ pub const VNSPROTO_RELIABLE_IPC: u32 = 2;
 pub const VNSPROTO_SPP: u32 = 3;
 pub const WCE_AF_IRDA: u32 = 22;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WCE_DEVICELIST {
     pub numDevice: u32,
     pub Device: [WCE_IRDA_DEVICE_INFO; 1],
@@ -5054,7 +5054,7 @@ impl Default for WCE_DEVICELIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WCE_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
     pub irdaDeviceName: [i8; 22],
@@ -5068,7 +5068,7 @@ impl Default for WCE_IRDA_DEVICE_INFO {
 pub const WCE_PF_IRDA: u32 = 22;
 pub const WINDOWS_AF_IRDA: u32 = 26;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWS_DEVICELIST {
     pub numDevice: u32,
     pub Device: [WINDOWS_IRDA_DEVICE_INFO; 1],
@@ -5105,7 +5105,7 @@ impl Default for WINDOWS_IAS_QUERY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWS_IAS_QUERY_0_0 {
     pub Len: u32,
     pub OctetSeq: [u8; 1024],
@@ -5116,7 +5116,7 @@ impl Default for WINDOWS_IAS_QUERY_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWS_IAS_QUERY_0_1 {
     pub Len: u32,
     pub CharSet: u32,
@@ -5153,7 +5153,7 @@ impl Default for WINDOWS_IAS_SET_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWS_IAS_SET_0_0 {
     pub Len: u16,
     pub OctetSeq: [u8; 1024],
@@ -5164,7 +5164,7 @@ impl Default for WINDOWS_IAS_SET_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWS_IAS_SET_0_1 {
     pub Len: u8,
     pub CharSet: u8,
@@ -5176,7 +5176,7 @@ impl Default for WINDOWS_IAS_SET_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDOWS_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
     pub irdaDeviceName: [i8; 22],
@@ -5194,7 +5194,7 @@ pub type WINSOCK_SHUTDOWN_HOW = i32;
 pub type WINSOCK_SOCKET_TYPE = i32;
 pub const WSABASEERR: WSA_ERROR = 10000;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSABUF {
     pub len: u32,
     pub buf: windows_sys::core::PSTR,
@@ -5234,7 +5234,7 @@ impl Default for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSACOMPLETION_0_0 {
     pub hWnd: super::super::Foundation::HWND,
     pub uMsg: u32,
@@ -5248,7 +5248,7 @@ impl Default for WSACOMPLETION_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
 }
@@ -5260,7 +5260,7 @@ impl Default for WSACOMPLETION_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
@@ -5273,7 +5273,7 @@ impl Default for WSACOMPLETION_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub hPort: super::super::Foundation::HANDLE,
@@ -5288,7 +5288,7 @@ impl Default for WSACOMPLETION_0_3 {
 pub type WSACOMPLETIONTYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -5306,7 +5306,7 @@ impl Default for WSADATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -5388,7 +5388,7 @@ pub const WSAID_WSAPOLL: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const WSAID_WSARECVMSG: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf689d7c8_6f1f_436b_8a53_e54fe351c322);
 pub const WSAID_WSASENDMSG: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa441e712_754f_43ca_84a7_0dee44cf606d);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAMSG {
     pub name: *mut SOCKADDR,
     pub namelen: i32,
@@ -5403,7 +5403,7 @@ impl Default for WSAMSG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANAMESPACE_INFOA {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -5418,7 +5418,7 @@ impl Default for WSANAMESPACE_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANAMESPACE_INFOEXA {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -5435,7 +5435,7 @@ impl Default for WSANAMESPACE_INFOEXA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANAMESPACE_INFOEXW {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -5451,7 +5451,7 @@ impl Default for WSANAMESPACE_INFOEXW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANAMESPACE_INFOW {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -5465,7 +5465,7 @@ impl Default for WSANAMESPACE_INFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANETWORKEVENTS {
     pub lNetworkEvents: i32,
     pub iErrorCode: [i32; 10],
@@ -5479,7 +5479,7 @@ pub const WSANOTINITIALISED: WSA_ERROR = 10093;
 pub const WSANO_DATA: WSA_ERROR = 11004;
 pub const WSANO_RECOVERY: WSA_ERROR = 11003;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANSCLASSINFOA {
     pub lpszName: windows_sys::core::PSTR,
     pub dwNameSpace: u32,
@@ -5493,7 +5493,7 @@ impl Default for WSANSCLASSINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSANSCLASSINFOW {
     pub lpszName: windows_sys::core::PWSTR,
     pub dwNameSpace: u32,
@@ -5507,7 +5507,7 @@ impl Default for WSANSCLASSINFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAPOLLDATA {
     pub result: i32,
     pub fds: u32,
@@ -5520,7 +5520,7 @@ impl Default for WSAPOLLDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSAPOLLFD {
     pub fd: SOCKET,
     pub events: WSAPOLL_EVENT_FLAGS,
@@ -5528,7 +5528,7 @@ pub struct WSAPOLLFD {
 }
 pub type WSAPOLL_EVENT_FLAGS = i16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAPROTOCOLCHAIN {
     pub ChainLen: i32,
     pub ChainEntries: [u32; 7],
@@ -5539,7 +5539,7 @@ impl Default for WSAPROTOCOLCHAIN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAPROTOCOL_INFOA {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -5568,7 +5568,7 @@ impl Default for WSAPROTOCOL_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAPROTOCOL_INFOW {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -5599,7 +5599,7 @@ impl Default for WSAPROTOCOL_INFOW {
 pub const WSAPROTOCOL_LEN: u32 = 255;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAQUERYSET2A {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PSTR,
@@ -5624,7 +5624,7 @@ impl Default for WSAQUERYSET2A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAQUERYSET2W {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PWSTR,
@@ -5649,7 +5649,7 @@ impl Default for WSAQUERYSET2W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAQUERYSETA {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PSTR,
@@ -5675,7 +5675,7 @@ impl Default for WSAQUERYSETA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSAQUERYSETW {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PWSTR,
@@ -5701,7 +5701,7 @@ impl Default for WSAQUERYSETW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSASENDMSG {
     pub lpMsg: *mut WSAMSG,
     pub dwFlags: u32,
@@ -5716,7 +5716,7 @@ impl Default for WSASENDMSG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSASERVICECLASSINFOA {
     pub lpServiceClassId: *mut windows_sys::core::GUID,
     pub lpszServiceClassName: windows_sys::core::PSTR,
@@ -5729,7 +5729,7 @@ impl Default for WSASERVICECLASSINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSASERVICECLASSINFOW {
     pub lpServiceClassId: *mut windows_sys::core::GUID,
     pub lpszServiceClassName: windows_sys::core::PWSTR,
@@ -5746,7 +5746,7 @@ pub const WSASYSCALLFAILURE: WSA_ERROR = 10107;
 pub const WSASYSNOTREADY: WSA_ERROR = 10091;
 pub const WSASYS_STATUS_LEN: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSATHREADID {
     pub ThreadHandle: super::super::Foundation::HANDLE,
     pub Reserved: usize,
@@ -5760,14 +5760,14 @@ pub const WSATRY_AGAIN: WSA_ERROR = 11002;
 pub const WSATYPE_NOT_FOUND: WSA_ERROR = 10109;
 pub const WSAVERNOTSUPPORTED: WSA_ERROR = 10092;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSAVERSION {
     pub dwVersion: u32,
     pub ecHow: WSAECOMPARATOR,
 }
 pub type WSA_COMPATIBILITY_BEHAVIOR_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSA_COMPATIBILITY_MODE {
     pub BehaviorId: WSA_COMPATIBILITY_BEHAVIOR_ID,
     pub TargetOsVersion: u32,
@@ -5826,7 +5826,7 @@ pub const WSA_WAIT_FAILED: u32 = 4294967295;
 pub const WSA_WAIT_IO_COMPLETION: WSA_ERROR = 192;
 pub const WSA_WAIT_TIMEOUT: u32 = 258;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSC_PROVIDER_AUDIT_INFO {
     pub RecordSize: u32,
     pub Reserved: *mut core::ffi::c_void,
@@ -5839,7 +5839,7 @@ impl Default for WSC_PROVIDER_AUDIT_INFO {
 pub type WSC_PROVIDER_INFO_TYPE = i32;
 pub const WSK_SO_BASE: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSPDATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -5853,7 +5853,7 @@ impl Default for WSPDATA {
 pub const WSPDESCRIPTION_LEN: u32 = 255;
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WSPPROC_TABLE {
     pub lpWSPAccept: LPWSPACCEPT,
     pub lpWSPAddressToString: LPWSPADDRESSTOSTRING,
@@ -5887,7 +5887,7 @@ pub struct WSPPROC_TABLE {
     pub lpWSPStringToAddress: LPWSPSTRINGTOADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WSPUPCALLTABLE {
     pub lpWPUCloseEvent: LPWPUCLOSEEVENT,
     pub lpWPUCloseSocketHandle: LPWPUCLOSESOCKETHANDLE,
@@ -5949,7 +5949,7 @@ pub const _PDP_ENDIAN: u32 = 3412;
 pub const _SS_MAXSIZE: u32 = 128;
 pub type eWINDOW_ADVANCE_METHOD = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct netent {
     pub n_name: windows_sys::core::PSTR,
     pub n_aliases: *mut *mut i8,
@@ -5988,13 +5988,13 @@ impl Default for sockaddr_in6_old {
 }
 pub type socklen_t = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct sockproto {
     pub sp_family: u16,
     pub sp_protocol: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct tcp_keepalive {
     pub onoff: u32,
     pub keepalivetime: u32,

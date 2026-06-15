@@ -55,7 +55,7 @@ pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: windows_sys::core::HRESULT = 0x80080
 pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: windows_sys::core::HRESULT = 0x80080208_u32 as _;
 pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: windows_sys::core::HRESULT = 0x80080213_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
@@ -668,7 +668,7 @@ impl Default for DECIMAL_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
@@ -685,13 +685,13 @@ impl Default for DECIMAL_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,
@@ -4858,7 +4858,7 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: windows_sys::core::HRESULT = 0x8004168
 pub const FDAEMON_W_EMPTYWORDLIST: windows_sys::core::HRESULT = 0x41685_u32 as _;
 pub const FDAEMON_W_WORDLISTFULL: windows_sys::core::HRESULT = 0x41680_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -4879,7 +4879,7 @@ pub const FILTER_S_NO_PROPSETS: windows_sys::core::HRESULT = 0x4173A_u32 as _;
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: windows_sys::core::HRESULT = 0x4173C_u32 as _;
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: windows_sys::core::HRESULT = 0x41731_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -5528,7 +5528,7 @@ pub const LANGUAGE_S_LARGE_WORD: windows_sys::core::HRESULT = 0x41781_u32 as _;
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -6070,19 +6070,19 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: windows_sys::core::HRESULT = 0x80
 pub const PLA_E_TOO_MANY_FOLDERS: windows_sys::core::HRESULT = 0x80300045_u32 as _;
 pub const PLA_S_PROPERTY_IGNORED: windows_sys::core::HRESULT = 0x300100_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
@@ -6095,7 +6095,7 @@ pub const PPF_E_TRANSFORM_DIGEST_ALGO_NOT_SUPPORTED: windows_sys::core::HRESULT 
 pub const PRESENTATION_ERROR_LOST: windows_sys::core::HRESULT = 0x88810001_u32 as _;
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,
@@ -6160,7 +6160,7 @@ pub const QUERY_S_NO_QUERY: windows_sys::core::HRESULT = 0x8004160C_u32 as _;
 pub const QUTIL_E_CANT_CONVERT_VROOT: windows_sys::core::HRESULT = 0x80041676_u32 as _;
 pub const QUTIL_E_INVALID_CODEPAGE: windows_sys::core::HRESULT = 0xC0041678_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
@@ -6168,7 +6168,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
@@ -6616,7 +6616,7 @@ pub const SEVERITY_ERROR: u32 = 1;
 pub const SEVERITY_SUCCESS: u32 = 0;
 pub type SHANDLE_PTR = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
@@ -9737,7 +9737,7 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862;
 pub const STRICT: u32 = 1;
 pub const SUCCESS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -10210,7 +10210,7 @@ pub const UI_E_VALUE_NOT_SET: windows_sys::core::HRESULT = 0x802A0005_u32 as _;
 pub const UI_E_WINDOW_CLOSED: windows_sys::core::HRESULT = 0x802A0201_u32 as _;
 pub const UI_E_WRONG_THREAD: windows_sys::core::HRESULT = 0x802A000C_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,

@@ -27,7 +27,7 @@ windows_link::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevGetObje
 windows_link::link!("api-ms-win-devices-query-l1-1-1.dll" "system" fn DevGetObjectsEx(objecttype : DEV_OBJECT_TYPE, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount : u32, pextendedparameters : *const DEV_QUERY_PARAMETER, pcobjectcount : *mut u32, ppobjects : *mut *mut DEV_OBJECT) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
@@ -77,7 +77,7 @@ pub const DEVPROP_OPERATOR_OR_CLOSE: DEVPROP_OPERATOR = 4194304;
 pub const DEVPROP_OPERATOR_OR_OPEN: DEVPROP_OPERATOR = 3145728;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: windows_sys::core::PCWSTR,
@@ -94,7 +94,7 @@ pub type DEV_OBJECT_TYPE = i32;
 pub type DEV_QUERY_FLAGS = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::super::Foundation::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,

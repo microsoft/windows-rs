@@ -12,7 +12,7 @@ pub struct SP_CLASSINSTALL_HEADER {
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,

@@ -14,7 +14,7 @@ windows_link::link!("kernel32.dll" "system" fn SystemTimeToTzSpecificLocalTimeEx
 windows_link::link!("kernel32.dll" "system" fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation : *const TIME_ZONE_INFORMATION, lplocaltime : *const super::super::Foundation::SYSTEMTIME, lpuniversaltime : *mut super::super::Foundation::SYSTEMTIME) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation : *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime : *const super::super::Foundation::SYSTEMTIME, lpuniversaltime : *mut super::super::Foundation::SYSTEMTIME) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -33,7 +33,7 @@ impl Default for DYNAMIC_TIME_ZONE_INFORMATION {
 }
 pub const TIME_ZONE_ID_INVALID: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],

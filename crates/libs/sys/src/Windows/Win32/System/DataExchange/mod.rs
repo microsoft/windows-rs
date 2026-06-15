@@ -101,7 +101,7 @@ pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = 524288;
 pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = 1048576;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -113,7 +113,7 @@ pub struct CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -141,7 +141,7 @@ impl Default for CONVINFO {
 pub type CONVINFO_CONVERSATION_STATE = u32;
 pub type CONVINFO_STATUS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
@@ -156,18 +156,18 @@ pub const CP_WINANSI: i32 = 1004;
 pub const CP_WINNEUTRAL: i32 = 1200;
 pub const CP_WINUNICODE: i32 = 1200;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -179,13 +179,13 @@ impl Default for DDEDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
@@ -198,7 +198,7 @@ impl Default for DDEML_MSG_HOOK_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -210,7 +210,7 @@ impl Default for DDEPOKE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -268,7 +268,7 @@ pub const HDATA_APPOWNED: u32 = 1;
 pub type HDDEDATA = *mut core::ffi::c_void;
 pub type HSZ = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
@@ -281,7 +281,7 @@ impl Default for HSZPAIR {
 pub const MAX_MONITORS: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -308,7 +308,7 @@ pub const MH_DELETE: u32 = 3;
 pub const MH_KEEP: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -333,7 +333,7 @@ impl Default for MONCBSTRUCT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: windows_sys::core::BOOL,
@@ -350,7 +350,7 @@ impl Default for MONCONVSTRUCT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
@@ -363,7 +363,7 @@ impl Default for MONERRSTRUCT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: windows_sys::core::BOOL,
@@ -378,7 +378,7 @@ impl Default for MONHSZSTRUCTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: windows_sys::core::BOOL,
@@ -393,7 +393,7 @@ impl Default for MONHSZSTRUCTW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -414,7 +414,7 @@ impl Default for MONLINKSTRUCT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::super::Foundation::HWND,

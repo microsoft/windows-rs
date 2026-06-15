@@ -105,13 +105,13 @@ windows_link::link!("msi.dll" "system" fn MsiDeterminePatchSequenceA(szproductco
 windows_link::link!("msi.dll" "system" fn MsiDeterminePatchSequenceW(szproductcode : windows_sys::core::PCWSTR, szusersid : windows_sys::core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, cpatchinfo : u32, ppatchinfo : *mut MSIPATCHSEQUENCEINFOW) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiDoActionA(hinstall : MSIHANDLE, szaction : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiDoActionW(hinstall : MSIHANDLE, szaction : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiEnableLogA(dwlogmode : u32, szlogfile : windows_sys::core::PCSTR, dwlogattributes : u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiEnableLogW(dwlogmode : u32, szlogfile : windows_sys::core::PCWSTR, dwlogattributes : u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiEnableLogA(dwlogmode : INSTALLLOGMODE, szlogfile : windows_sys::core::PCSTR, dwlogattributes : u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiEnableLogW(dwlogmode : INSTALLLOGMODE, szlogfile : windows_sys::core::PCWSTR, dwlogattributes : u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiEnableUIPreview(hdatabase : MSIHANDLE, phpreview : *mut MSIHANDLE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiEndTransaction(dwtransactionstate : MSITRANSACTIONSTATE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiEnumClientsA(szcomponent : windows_sys::core::PCSTR, iproductindex : u32, lpproductbuf : windows_sys::core::PSTR) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiEnumClientsExA(szcomponent : windows_sys::core::PCSTR, szusersid : windows_sys::core::PCSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : windows_sys::core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_sys::core::PSTR, pcchsid : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiEnumClientsExW(szcomponent : windows_sys::core::PCWSTR, szusersid : windows_sys::core::PCWSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : windows_sys::core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_sys::core::PWSTR, pcchsid : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiEnumClientsExA(szcomponent : windows_sys::core::PCSTR, szusersid : windows_sys::core::PCSTR, dwcontext : MSIINSTALLCONTEXT, dwproductindex : u32, szproductbuf : windows_sys::core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_sys::core::PSTR, pcchsid : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiEnumClientsExW(szcomponent : windows_sys::core::PCWSTR, szusersid : windows_sys::core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwproductindex : u32, szproductbuf : windows_sys::core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_sys::core::PWSTR, pcchsid : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiEnumClientsW(szcomponent : windows_sys::core::PCWSTR, iproductindex : u32, lpproductbuf : windows_sys::core::PWSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiEnumComponentCostsA(hinstall : MSIHANDLE, szcomponent : windows_sys::core::PCSTR, dwindex : u32, istate : INSTALLSTATE, szdrivebuf : windows_sys::core::PSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiEnumComponentCostsW(hinstall : MSIHANDLE, szcomponent : windows_sys::core::PCWSTR, dwindex : u32, istate : INSTALLSTATE, szdrivebuf : windows_sys::core::PWSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
@@ -226,14 +226,14 @@ windows_link::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfil
 #[cfg(feature = "Win32_System_Registry")]
 windows_link::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_sys::core::PCWSTR, sziconfolder : windows_sys::core::PCWSTR, hregdata : super::Registry::HKEY, fshortcuts : windows_sys::core::BOOL, fremoveitems : windows_sys::core::BOOL) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiProcessMessage(hinstall : MSIHANDLE, emessagetype : INSTALLMESSAGE, hrecord : MSIHANDLE) -> i32);
-windows_link::link!("msi.dll" "system" fn MsiProvideAssemblyA(szassemblyname : windows_sys::core::PCSTR, szappcontext : windows_sys::core::PCSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : windows_sys::core::PCWSTR, szappcontext : windows_sys::core::PCWSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideComponentA(szproduct : windows_sys::core::PCSTR, szfeature : windows_sys::core::PCSTR, szcomponent : windows_sys::core::PCSTR, dwinstallmode : u32, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideComponentW(szproduct : windows_sys::core::PCWSTR, szfeature : windows_sys::core::PCWSTR, szcomponent : windows_sys::core::PCWSTR, dwinstallmode : u32, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentA(szcategory : windows_sys::core::PCSTR, szqualifier : windows_sys::core::PCSTR, dwinstallmode : u32, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExA(szcategory : windows_sys::core::PCSTR, szqualifier : windows_sys::core::PCSTR, dwinstallmode : u32, szproduct : windows_sys::core::PCSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExW(szcategory : windows_sys::core::PCWSTR, szqualifier : windows_sys::core::PCWSTR, dwinstallmode : u32, szproduct : windows_sys::core::PCWSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentW(szcategory : windows_sys::core::PCWSTR, szqualifier : windows_sys::core::PCWSTR, dwinstallmode : u32, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideAssemblyA(szassemblyname : windows_sys::core::PCSTR, szappcontext : windows_sys::core::PCSTR, dwinstallmode : INSTALLMODE, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : windows_sys::core::PCWSTR, szappcontext : windows_sys::core::PCWSTR, dwinstallmode : INSTALLMODE, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideComponentA(szproduct : windows_sys::core::PCSTR, szfeature : windows_sys::core::PCSTR, szcomponent : windows_sys::core::PCSTR, dwinstallmode : INSTALLMODE, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideComponentW(szproduct : windows_sys::core::PCWSTR, szfeature : windows_sys::core::PCWSTR, szcomponent : windows_sys::core::PCWSTR, dwinstallmode : INSTALLMODE, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentA(szcategory : windows_sys::core::PCSTR, szqualifier : windows_sys::core::PCSTR, dwinstallmode : INSTALLMODE, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExA(szcategory : windows_sys::core::PCSTR, szqualifier : windows_sys::core::PCSTR, dwinstallmode : INSTALLMODE, szproduct : windows_sys::core::PCSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExW(szcategory : windows_sys::core::PCWSTR, szqualifier : windows_sys::core::PCWSTR, dwinstallmode : INSTALLMODE, szproduct : windows_sys::core::PCWSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiProvideQualifiedComponentW(szcategory : windows_sys::core::PCWSTR, szqualifier : windows_sys::core::PCWSTR, dwinstallmode : INSTALLMODE, lppathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiQueryComponentStateA(szproductcode : windows_sys::core::PCSTR, szusersid : windows_sys::core::PCSTR, dwcontext : MSIINSTALLCONTEXT, szcomponentcode : windows_sys::core::PCSTR, pdwstate : *mut INSTALLSTATE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiQueryComponentStateW(szproductcode : windows_sys::core::PCWSTR, szusersid : windows_sys::core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szcomponentcode : windows_sys::core::PCWSTR, pdwstate : *mut INSTALLSTATE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiQueryFeatureStateA(szproduct : windows_sys::core::PCSTR, szfeature : windows_sys::core::PCSTR) -> INSTALLSTATE);
@@ -255,10 +255,10 @@ windows_link::link!("msi.dll" "system" fn MsiRecordSetStreamA(hrecord : MSIHANDL
 windows_link::link!("msi.dll" "system" fn MsiRecordSetStreamW(hrecord : MSIHANDLE, ifield : u32, szfilepath : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiRecordSetStringA(hrecord : MSIHANDLE, ifield : u32, szvalue : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiRecordSetStringW(hrecord : MSIHANDLE, ifield : u32, szvalue : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiReinstallFeatureA(szproduct : windows_sys::core::PCSTR, szfeature : windows_sys::core::PCSTR, dwreinstallmode : u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiReinstallFeatureW(szproduct : windows_sys::core::PCWSTR, szfeature : windows_sys::core::PCWSTR, dwreinstallmode : u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiReinstallProductA(szproduct : windows_sys::core::PCSTR, szreinstallmode : u32) -> u32);
-windows_link::link!("msi.dll" "system" fn MsiReinstallProductW(szproduct : windows_sys::core::PCWSTR, szreinstallmode : u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiReinstallFeatureA(szproduct : windows_sys::core::PCSTR, szfeature : windows_sys::core::PCSTR, dwreinstallmode : REINSTALLMODE) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiReinstallFeatureW(szproduct : windows_sys::core::PCWSTR, szfeature : windows_sys::core::PCWSTR, dwreinstallmode : REINSTALLMODE) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiReinstallProductA(szproduct : windows_sys::core::PCSTR, szreinstallmode : REINSTALLMODE) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiReinstallProductW(szproduct : windows_sys::core::PCWSTR, szreinstallmode : REINSTALLMODE) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiRemovePatchesA(szpatchlist : windows_sys::core::PCSTR, szproductcode : windows_sys::core::PCSTR, euninstalltype : INSTALLTYPE, szpropertylist : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiRemovePatchesW(szpatchlist : windows_sys::core::PCWSTR, szproductcode : windows_sys::core::PCWSTR, euninstalltype : INSTALLTYPE, szpropertylist : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("msi.dll" "system" fn MsiSequenceA(hinstall : MSIHANDLE, sztable : windows_sys::core::PCSTR, isequencemode : i32) -> u32);
@@ -340,7 +340,7 @@ windows_link::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(pat
 windows_link::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTCTXA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -358,7 +358,7 @@ impl Default for ACTCTXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTCTXW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -388,7 +388,7 @@ pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = 3;
 pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = 0;
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -410,7 +410,7 @@ impl Default for ACTCTX_SECTION_KEYED_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulEncodedAssemblyIdentityLength: u32,
@@ -438,7 +438,7 @@ impl Default for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
     pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
@@ -449,7 +449,7 @@ impl Default for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub dwFlags: u32,
     pub ulFormatVersion: u32,
@@ -470,13 +470,13 @@ impl Default for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
     pub ulAssemblyIndex: u32,
     pub ulFileIndexInAssembly: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub ulFlags: u32,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
@@ -540,7 +540,7 @@ pub const ASM_NAME_REVISION_NUMBER: ASM_NAME = 7;
 pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1;
 pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulFilenameLength: u32,
@@ -554,7 +554,7 @@ impl Default for ASSEMBLY_FILE_DETAILED_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASSEMBLY_INFO {
     pub cbAssemblyInfo: u32,
     pub dwAssemblyFlags: u32,
@@ -572,7 +572,7 @@ pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = 2;
 pub const CLSID_EvalCom2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
 pub const CLSID_MsmMerge2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: windows_sys::core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
@@ -583,7 +583,7 @@ pub const DEFAULT_DISK_ID: u32 = 2;
 pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2;
 pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELTA_HASH {
     pub HashSize: u32,
     pub HashValue: [u8; 32],
@@ -595,7 +595,7 @@ impl Default for DELTA_HASH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,
     pub FileType: i64,
@@ -630,7 +630,7 @@ impl Default for DELTA_INPUT_0 {
 }
 pub const DELTA_MAX_HASH_SIZE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELTA_OUTPUT {
     pub lpStart: *mut core::ffi::c_void,
     pub uSize: usize,
@@ -822,7 +822,7 @@ pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787;
 pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859;
 pub const ERROR_ROLLBACK_DISABLED: u32 = 1653;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FUSION_INSTALL_REFERENCE {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1314,7 +1314,7 @@ pub const MSIDBSTATE_ERROR: MSIDBSTATE = -1;
 pub const MSIDBSTATE_READ: MSIDBSTATE = 0;
 pub const MSIDBSTATE_WRITE: MSIDBSTATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
     pub dwData: [u32; 4],
@@ -1351,7 +1351,7 @@ pub type MSIOPENPACKAGEFLAGS = i32;
 pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = 1;
 pub type MSIPATCHDATATYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: windows_sys::core::PCSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -1364,7 +1364,7 @@ impl Default for MSIPATCHSEQUENCEINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: windows_sys::core::PCWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -1450,13 +1450,13 @@ pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = 1;
 pub const PACKMAN_RUNTIME_SILVERLIGHTMOBILE: PACKMAN_RUNTIME = 2;
 pub const PACKMAN_RUNTIME_XNA: PACKMAN_RUNTIME = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PATCH_INTERLEAVE_MAP {
     pub CountRanges: u32,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
@@ -1467,7 +1467,7 @@ impl Default for PATCH_INTERLEAVE_MAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATCH_INTERLEAVE_MAP_0 {
     pub OldOffset: u32,
     pub OldLength: u32,
@@ -1501,7 +1501,7 @@ impl Default for PATCH_OLD_FILE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCSTR,
@@ -1516,7 +1516,7 @@ impl Default for PATCH_OLD_FILE_INFO_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
     pub OldFileHandle: super::super::Foundation::HANDLE,
@@ -1531,7 +1531,7 @@ impl Default for PATCH_OLD_FILE_INFO_H {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCWSTR,
@@ -1546,7 +1546,7 @@ impl Default for PATCH_OLD_FILE_INFO_W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
@@ -1581,7 +1581,7 @@ pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3;
 pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATCH_RETAIN_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
@@ -1615,7 +1615,7 @@ pub const PID_TITLE: u32 = 2;
 pub const PID_WORDCOUNT: u32 = 15;
 pub type PINSTALLUI_HANDLER_RECORD = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PMSIHANDLE {
     pub m_h: MSIHANDLE,
 }
@@ -1655,7 +1655,7 @@ pub const PM_APPLICATION_STATE_MOVING: PM_APPLICATION_STATE = 6;
 pub const PM_APPLICATION_STATE_UNINSTALLING: PM_APPLICATION_STATE = 4;
 pub const PM_APPLICATION_STATE_UPDATING: PM_APPLICATION_STATE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PM_APPTASKTYPE {
     pub ProductID: windows_sys::core::GUID,
     pub TaskType: PM_TASK_TYPE,
@@ -1674,10 +1674,10 @@ pub const PM_APP_GENRE_GAMES: PM_APP_GENRE = 0;
 pub const PM_APP_GENRE_INVALID: PM_APP_GENRE = 2;
 pub const PM_APP_GENRE_OTHER: PM_APP_GENRE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_BSATASKID {
     pub ProductID: windows_sys::core::GUID,
-    pub TaskID: windows_sys::core::BSTR,
+    pub TaskID: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for PM_BSATASKID {
     fn default() -> Self {
@@ -1685,10 +1685,10 @@ impl Default for PM_BSATASKID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_BWTASKID {
     pub ProductID: windows_sys::core::GUID,
-    pub TaskID: windows_sys::core::BSTR,
+    pub TaskID: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for PM_BWTASKID {
     fn default() -> Self {
@@ -1720,10 +1720,14 @@ pub const PM_ENUM_EXTENSION_FILTER_MAX: PM_ENUM_EXTENSION_FILTER = 26;
 pub const PM_ENUM_EXTENSION_FILTER_PROTOCOL_ALL: PM_ENUM_EXTENSION_FILTER = 18;
 pub const PM_ENUM_EXTENSION_FILTER_SHARETARGET_ALL: PM_ENUM_EXTENSION_FILTER = 22;
 #[repr(C)]
-#[derive(Clone, Copy)]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
+}
+impl Clone for PM_ENUM_FILTER {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PM_ENUM_FILTER {
     fn default() -> Self {
@@ -1731,7 +1735,6 @@ impl Default for PM_ENUM_FILTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,
@@ -1741,15 +1744,20 @@ pub union PM_ENUM_FILTER_0 {
     pub TaskProductID: windows_sys::core::GUID,
     pub TileProductID: windows_sys::core::GUID,
     pub AppTaskType: PM_APPTASKTYPE,
-    pub Consumer: PM_EXTENSIONCONSUMER,
-    pub BSATask: PM_BSATASKID,
+    pub Consumer: core::mem::ManuallyDrop<PM_EXTENSIONCONSUMER>,
+    pub BSATask: core::mem::ManuallyDrop<PM_BSATASKID>,
     pub BSAProductID: windows_sys::core::GUID,
-    pub BWTask: PM_BWTASKID,
-    pub ProtocolName: windows_sys::core::BSTR,
-    pub FileType: windows_sys::core::BSTR,
-    pub ContentType: windows_sys::core::BSTR,
+    pub BWTask: core::mem::ManuallyDrop<PM_BWTASKID>,
+    pub ProtocolName: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub FileType: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub ContentType: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub AppSupportedFileExtPID: windows_sys::core::GUID,
-    pub ShareTargetFileType: windows_sys::core::BSTR,
+    pub ShareTargetFileType: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+}
+impl Clone for PM_ENUM_FILTER_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PM_ENUM_FILTER_0 {
     fn default() -> Self {
@@ -1759,10 +1767,10 @@ impl Default for PM_ENUM_FILTER_0 {
 pub type PM_ENUM_TASK_FILTER = i32;
 pub type PM_ENUM_TILE_FILTER = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: windows_sys::core::GUID,
-    pub ExtensionID: windows_sys::core::BSTR,
+    pub ExtensionID: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for PM_EXTENSIONCONSUMER {
     fn default() -> Self {
@@ -1770,17 +1778,17 @@ impl Default for PM_EXTENSIONCONSUMER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_INSTALLINFO {
     pub ProductID: windows_sys::core::GUID,
-    pub PackagePath: windows_sys::core::BSTR,
+    pub PackagePath: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub InstanceID: windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
     pub IsUninstallDisabled: windows_sys::core::BOOL,
     pub DeploymentOptions: u32,
     pub OfferID: windows_sys::core::GUID,
-    pub MarketplaceAppVersion: windows_sys::core::BSTR,
+    pub MarketplaceAppVersion: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for PM_INSTALLINFO {
     fn default() -> Self {
@@ -1788,10 +1796,10 @@ impl Default for PM_INSTALLINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_INVOCATIONINFO {
-    pub URIBaseOrAUMID: windows_sys::core::BSTR,
-    pub URIFragmentOrArgs: windows_sys::core::BSTR,
+    pub URIBaseOrAUMID: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub URIFragmentOrArgs: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for PM_INVOCATIONINFO {
     fn default() -> Self {
@@ -1809,12 +1817,12 @@ pub const PM_LOGO_SIZE_LARGE: PM_LOGO_SIZE = 2;
 pub const PM_LOGO_SIZE_MEDIUM: PM_LOGO_SIZE = 1;
 pub const PM_LOGO_SIZE_SMALL: PM_LOGO_SIZE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: windows_sys::core::GUID,
-    pub AppTitle: windows_sys::core::BSTR,
-    pub IconPath: windows_sys::core::BSTR,
+    pub AppTitle: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
+    pub IconPath: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub IsUninstallable: windows_sys::core::BOOL,
     pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
     pub InstanceID: windows_sys::core::GUID,
@@ -1829,11 +1837,11 @@ impl Default for PM_STARTAPPBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: windows_sys::core::GUID,
-    pub TileID: windows_sys::core::BSTR,
+    pub TileID: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub TemplateType: TILE_TEMPLATE_TYPE,
     pub HubPosition: [u32; 32],
     pub HubVisibilityBitmask: u32,
@@ -1901,14 +1909,14 @@ pub const PM_TILE_SIZE_SMALL: PM_TILE_SIZE = 0;
 pub const PM_TILE_SIZE_SQUARE310X310: PM_TILE_SIZE = 3;
 pub const PM_TILE_SIZE_TALL150X310: PM_TILE_SIZE = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_UPDATEINFO {
     pub ProductID: windows_sys::core::GUID,
-    pub PackagePath: windows_sys::core::BSTR,
+    pub PackagePath: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub InstanceID: windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: windows_sys::core::BSTR,
+    pub MarketplaceAppVersion: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub DeploymentOptions: u32,
 }
 impl Default for PM_UPDATEINFO {
@@ -1917,14 +1925,14 @@ impl Default for PM_UPDATEINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: windows_sys::core::GUID,
-    pub PackagePath: windows_sys::core::BSTR,
+    pub PackagePath: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
     pub InstanceID: windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: windows_sys::core::BSTR,
+    pub MarketplaceAppVersion: core::mem::ManuallyDrop<windows_sys::core::BSTR>,
 }
 impl Default for PM_UPDATEINFO_LEGACY {
     fn default() -> Self {
@@ -1934,7 +1942,7 @@ impl Default for PM_UPDATEINFO_LEGACY {
 pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_sys::core::BOOL>;
 pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTECTED_FILE_DATA {
     pub FileName: [u16; 260],
     pub FileNumber: u32,

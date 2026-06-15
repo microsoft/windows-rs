@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_BINDING_NONCE {
     pub BindingNonce: [u8; 16],
     pub MAC: [u8; 16],
@@ -10,7 +10,7 @@ impl Default for AACS_BINDING_NONCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_CERTIFICATE {
     pub Nonce: [u8; 20],
     pub Certificate: [u8; 92],
@@ -21,7 +21,7 @@ impl Default for AACS_CERTIFICATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_CHALLENGE_KEY {
     pub EllipticCurvePoint: [u8; 40],
     pub Signature: [u8; 40],
@@ -32,7 +32,7 @@ impl Default for AACS_CHALLENGE_KEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_MEDIA_ID {
     pub MediaID: [u8; 16],
     pub MAC: [u8; 16],
@@ -67,19 +67,19 @@ impl Default for AACS_READ_BINDING_NONCE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AACS_SEND_CERTIFICATE {
     pub SessionId: u32,
     pub Certificate: AACS_CERTIFICATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AACS_SEND_CHALLENGE_KEY {
     pub SessionId: u32,
     pub ChallengeKey: AACS_CHALLENGE_KEY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_SERIAL_NUMBER {
     pub PrerecordedSerialNumber: [u8; 16],
     pub MAC: [u8; 16],
@@ -90,7 +90,7 @@ impl Default for AACS_SERIAL_NUMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_VOLUME_ID {
     pub VolumeID: [u8; 16],
     pub MAC: [u8; 16],
@@ -101,7 +101,7 @@ impl Default for AACS_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BD_DISC_WRITE_PROTECT_PAC {
     pub Header: BD_PAC_HEADER,
     pub KnownPACEntireDiscFlags: u8,
@@ -116,7 +116,7 @@ impl Default for BD_DISC_WRITE_PROTECT_PAC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BD_PAC_HEADER {
     pub PACId: [u8; 3],
     pub PACFormatNumber: u8,
@@ -135,7 +135,7 @@ impl Default for BD_PAC_HEADER {
 }
 pub type DISC_CONTROL_BLOCK_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_ASF {
     pub Reserved0: [u8; 3],
     pub _bitfield: u8,
@@ -146,7 +146,7 @@ impl Default for DVD_ASF {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_BCA_DESCRIPTOR {
     pub BCAInformation: [u8; 1],
 }
@@ -156,7 +156,7 @@ impl Default for DVD_BCA_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_BD_SPARE_AREA_INFORMATION {
     pub Reserved1: [u8; 4],
     pub NumberOfFreeSpareBlocks: [u8; 4],
@@ -206,22 +206,22 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
     pub Reserved0003: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
     pub _bitfield: u8,
 }
@@ -288,7 +288,7 @@ impl Default for DVD_DISC_CONTROL_BLOCK_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_HEADER_0_0 {
     pub ReservedDoNotUse_UseAsByteInstead_0: [u8; 3],
     pub _bitfield: u8,
@@ -314,7 +314,7 @@ impl Default for DVD_DISC_CONTROL_BLOCK_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_LIST_DCB {
     pub DcbIdentifier: [u8; 4],
 }
@@ -340,7 +340,7 @@ impl Default for DVD_DISC_CONTROL_BLOCK_SESSION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_SESSION_ITEM {
     pub AsByte: [u8; 16],
 }
@@ -376,7 +376,7 @@ impl Default for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0_0 {
     pub ReservedDoNotUse_UseAsByteInstead_0: [u8; 3],
     pub _bitfield: u8,
@@ -387,7 +387,7 @@ impl Default for DVD_DISC_CONTROL_BLOCK_WRITE_INHIBIT_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DISK_KEY_DESCRIPTOR {
     pub DiskKeyData: [u8; 2048],
 }
@@ -397,7 +397,7 @@ impl Default for DVD_DISK_KEY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_JUMP_INTERVAL_SIZE {
     pub Reserved1: [u8; 4],
     pub JumpIntervalSize: [u8; 4],
@@ -408,7 +408,7 @@ impl Default for DVD_DUAL_LAYER_JUMP_INTERVAL_SIZE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_MANUAL_LAYER_JUMP {
     pub Reserved1: [u8; 4],
     pub ManualJumpLayerAddress: [u8; 4],
@@ -419,7 +419,7 @@ impl Default for DVD_DUAL_LAYER_MANUAL_LAYER_JUMP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_MIDDLE_ZONE_START_ADDRESS {
     pub _bitfield: u8,
     pub Reserved1: [u8; 3],
@@ -431,7 +431,7 @@ impl Default for DVD_DUAL_LAYER_MIDDLE_ZONE_START_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_RECORDING_INFORMATION {
     pub _bitfield: u8,
     pub Reserved1: [u8; 3],
@@ -443,7 +443,7 @@ impl Default for DVD_DUAL_LAYER_RECORDING_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DUAL_LAYER_REMAPPING_INFORMATION {
     pub Reserved1: [u8; 4],
     pub RemappingAddress: [u8; 4],
@@ -478,7 +478,7 @@ pub struct DVD_LAYER_DESCRIPTOR {
     pub _bitfield5: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS {
     pub TypeCodeOfFormatLayer: [u8; 2],
 }
@@ -488,13 +488,13 @@ impl Default for DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_LIST_OF_RECOGNIZED_FORMAT_LAYERS_TYPE_CODE {
     pub NumberOfRecognizedFormatLayers: u8,
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MANUFACTURER_DESCRIPTOR {
     pub ManufacturingInformation: [u8; 2048],
 }
@@ -505,7 +505,7 @@ impl Default for DVD_MANUFACTURER_DESCRIPTOR {
 }
 pub const DVD_NOT_COPYRIGHTED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_PRERECORDED_INFORMATION {
     pub FieldID_1: u8,
     pub DiscApplicationCode: u8,
@@ -535,7 +535,7 @@ impl Default for DVD_PRERECORDED_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_RAM_MEDIUM_STATUS {
     pub _bitfield: u8,
     pub DiscTypeIdentification: u8,
@@ -543,7 +543,7 @@ pub struct DVD_RAM_MEDIUM_STATUS {
     pub MediaSpecificWriteInhibitInformation: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RAM_RECORDING_TYPE {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
@@ -554,7 +554,7 @@ impl Default for DVD_RAM_RECORDING_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RAM_SPARE_AREA_INFORMATION {
     pub FreePrimarySpareSectors: [u8; 4],
     pub FreeSupplementalSpareSectors: [u8; 4],
@@ -574,7 +574,7 @@ pub struct DVD_READ_STRUCTURE {
     pub LayerNumber: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_RECORDING_MANAGEMENT_AREA_DATA {
     pub LastRecordedRMASectorNumber: [u8; 4],
     pub RMDBytes: [u8; 1],
@@ -585,7 +585,7 @@ impl Default for DVD_RECORDING_MANAGEMENT_AREA_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_REGION {
     pub CopySystem: u8,
     pub RegionData: u8,
@@ -593,7 +593,7 @@ pub struct DVD_REGION {
     pub ResetCount: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_RPC_KEY {
     pub _bitfield: u8,
     pub RegionMask: u8,
@@ -604,7 +604,7 @@ pub const DVD_SECTOR_NOT_PROTECTED: u32 = 0;
 pub const DVD_SECTOR_PROTECTED: u32 = 32;
 pub const DVD_SECTOR_PROTECT_MASK: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_SET_RPC_KEY {
     pub PreferredDriveRegionCode: u8,
     pub Reserved: [u8; 3],
@@ -616,7 +616,7 @@ impl Default for DVD_SET_RPC_KEY {
 }
 pub type DVD_STRUCTURE_FORMAT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_STRUCTURE_LIST_ENTRY {
     pub FormatCode: u8,
     pub _bitfield: u8,
@@ -628,7 +628,7 @@ impl Default for DVD_STRUCTURE_LIST_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_UNIQUE_DISC_IDENTIFIER {
     pub Reserved0: [u8; 2],
     pub RandomNumber: [u8; 2],
@@ -645,7 +645,7 @@ impl Default for DVD_UNIQUE_DISC_IDENTIFIER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_WRITE_PROTECTION_STATUS {
     pub _bitfield: u8,
     pub Reserved1: [u8; 3],
@@ -673,7 +673,7 @@ pub const DvdSetRpcKey: DVD_KEY_TYPE = 6;
 pub const DvdTitleKey: DVD_KEY_TYPE = 4;
 pub const FormattingDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1178878720;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HD_DVD_R_MEDIUM_STATUS {
     pub _bitfield: u8,
     pub NumberOfRemainingRMDsInRDZ: u8,

@@ -42,7 +42,7 @@ pub const EAPCODE_Request: u32 = 1;
 pub const EAPCODE_Response: u32 = 2;
 pub const EAPCODE_Success: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
@@ -50,7 +50,7 @@ pub struct EAPHOST_AUTH_INFO {
 }
 pub type EAPHOST_AUTH_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -70,7 +70,7 @@ impl Default for EAPHOST_IDENTITY_UI_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -87,7 +87,7 @@ impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1;
 pub const EAPHOST_PEER_API_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
@@ -99,7 +99,7 @@ impl Default for EAP_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
@@ -111,7 +111,7 @@ impl Default for EAP_ATTRIBUTES {
 }
 pub type EAP_ATTRIBUTE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
     pub pEapType: *mut EAP_METHOD_TYPE,
@@ -141,7 +141,7 @@ pub const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: windows_sys::core::PCWSTR =
 pub const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: windows_sys::core::PCWSTR = windows_sys::core::w!("Properties");
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
@@ -153,7 +153,7 @@ impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -174,14 +174,14 @@ pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2;
 pub type EAP_CONFIG_INPUT_FIELD_TYPE = i32;
 pub const EAP_CREDENTIAL_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
 }
 pub const EAP_EMPTY_CREDENTIAL: EapCredentialType = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -296,7 +296,7 @@ pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND: EAP_METHOD_AUTHENTICATOR_RE
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 2;
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub fIsSuccess: windows_sys::core::BOOL,
     pub dwFailureReason: u32,
@@ -308,7 +308,7 @@ impl Default for EAP_METHOD_AUTHENTICATOR_RESULT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_sys::core::PWSTR,
@@ -322,7 +322,7 @@ impl Default for EAP_METHOD_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
@@ -333,7 +333,7 @@ impl Default for EAP_METHOD_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
@@ -344,7 +344,7 @@ impl Default for EAP_METHOD_INFO_ARRAY_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_sys::core::PWSTR,
@@ -371,7 +371,7 @@ impl Default for EAP_METHOD_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
@@ -395,19 +395,19 @@ impl Default for EAP_METHOD_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
@@ -419,7 +419,7 @@ impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
 }
 pub type EAP_METHOD_PROPERTY_VALUE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
@@ -427,7 +427,7 @@ pub struct EAP_METHOD_TYPE {
 pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64;
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EAP_PEER_METHOD_ROUTINES {
     pub dwVersion: u32,
     pub pEapType: *mut EAP_TYPE,
@@ -462,7 +462,7 @@ pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: windows_sys::core::PCWSTR = windo
 pub const EAP_REGISTRY_LOCATION: windows_sys::core::PCWSTR = windows_sys::core::w!("System\\CurrentControlSet\\Services\\EapHost\\Methods");
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
@@ -488,7 +488,7 @@ pub const EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = 1;
 pub const EAP_VALUENAME_PROPERTIES: windows_sys::core::PCWSTR = windows_sys::core::w!("Properties");
 pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: windows_sys::core::PWSTR,
@@ -557,7 +557,7 @@ pub const EapHostPeerAuthStatus: EapHostPeerAuthParams = 1;
 pub const EapHostPeerIdentity: EapHostPeerAuthParams = 2;
 pub const EapHostPeerIdentityExtendedInfo: EapHostPeerAuthParams = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapHostPeerMethodResult {
     pub fIsSuccess: windows_sys::core::BOOL,
     pub dwFailureReasonCode: u32,
@@ -590,7 +590,7 @@ pub const EapHostPeerResponseResult: EapHostPeerResponseAction = 2;
 pub const EapHostPeerResponseSend: EapHostPeerResponseAction = 1;
 pub const EapHostPeerResponseStartAuthentication: EapHostPeerResponseAction = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapPacket {
     pub Code: u8,
     pub Id: u8,
@@ -603,7 +603,7 @@ impl Default for EapPacket {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
     pub fAllowNotifications: windows_sys::core::BOOL,
@@ -617,7 +617,7 @@ pub const EapPeerMethodResponseActionResult: EapPeerMethodResponseAction = 2;
 pub const EapPeerMethodResponseActionSend: EapPeerMethodResponseAction = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: windows_sys::core::BOOL,
     pub dwFailureReasonCode: u32,
@@ -643,7 +643,7 @@ pub type EapPeerMethodResultReason = i32;
 pub const EapPeerMethodResultSuccess: EapPeerMethodResultReason = 2;
 pub const EapPeerMethodResultUnknown: EapPeerMethodResultReason = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapSimCredential {
     pub iccID: windows_sys::core::PWSTR,
 }
@@ -653,7 +653,7 @@ impl Default for EapSimCredential {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EapUsernamePasswordCredential {
     pub username: windows_sys::core::PWSTR,
     pub password: windows_sys::core::PWSTR,
@@ -724,7 +724,7 @@ pub const ISOLATION_STATE_NOT_RESTRICTED: ISOLATION_STATE = 1;
 pub const ISOLATION_STATE_RESTRICTED_ACCESS: ISOLATION_STATE = 3;
 pub const ISOLATION_STATE_UNKNOWN: ISOLATION_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub eapType: u32,
     pub dwFlags: u32,
@@ -743,7 +743,7 @@ impl Default for LEGACY_IDENTITY_UI_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub eapType: u32,
     pub dwSizeofContextData: u32,
@@ -763,7 +763,7 @@ pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024;
 pub const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
     pub hKey: super::Cryptography::NCRYPT_KEY_HANDLE,
@@ -778,7 +778,7 @@ impl Default for NgcTicketContext {
 pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_sys::core::GUID, pcontextdata: *const core::ffi::c_void)>;
 pub type PPP_EAP_ACTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -788,7 +788,7 @@ pub struct PPP_EAP_INFO {
     pub RasEapMakeMessage: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
@@ -819,7 +819,7 @@ impl Default for PPP_EAP_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,
     pub Action: PPP_EAP_ACTION,
@@ -844,7 +844,7 @@ impl Default for PPP_EAP_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_EAP_PACKET {
     pub Code: u8,
     pub Id: u8,
@@ -857,7 +857,7 @@ impl Default for PPP_EAP_PACKET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,

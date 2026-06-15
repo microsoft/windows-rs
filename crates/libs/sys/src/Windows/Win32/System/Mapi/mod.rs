@@ -67,7 +67,7 @@ pub const MAPI_UNREAD: u32 = 1;
 pub const MAPI_UNREAD_ONLY: u32 = 32;
 pub const MAPI_USER_ABORT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -82,7 +82,7 @@ impl Default for MapiFileDesc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -97,7 +97,7 @@ impl Default for MapiFileDescW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileTagExt {
     pub ulReserved: u32,
     pub cbTag: u32,
@@ -111,7 +111,7 @@ impl Default for MapiFileTagExt {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiMessage {
     pub ulReserved: u32,
     pub lpszSubject: windows_sys::core::PSTR,
@@ -132,7 +132,7 @@ impl Default for MapiMessage {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiMessageW {
     pub ulReserved: u32,
     pub lpszSubject: windows_sys::core::PWSTR,
@@ -153,7 +153,7 @@ impl Default for MapiMessageW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -168,7 +168,7 @@ impl Default for MapiRecipDesc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,

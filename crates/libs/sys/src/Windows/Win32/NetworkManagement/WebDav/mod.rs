@@ -19,7 +19,7 @@ pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16;
 pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2;
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
     pub pBuffer: *mut core::ffi::c_void,
     pub ulSize: u32,
@@ -31,7 +31,7 @@ impl Default for DAV_CALLBACK_AUTH_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_UNP {
     pub pszUserName: windows_sys::core::PWSTR,
     pub ulUserNameLength: u32,
@@ -44,7 +44,7 @@ impl Default for DAV_CALLBACK_AUTH_UNP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,

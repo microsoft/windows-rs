@@ -503,7 +503,7 @@ pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = 3;
 pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = 9;
 pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BY_HANDLE_FILE_INFORMATION {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -572,7 +572,7 @@ pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = 4;
 pub type CLFS_IOSTATS_CLASS = i32;
 pub type CLFS_LOG_ARCHIVE_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
@@ -587,7 +587,7 @@ pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0;
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256;
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: CLS_LSN,
@@ -628,44 +628,44 @@ impl Default for CLFS_MGMT_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Containers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Containers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub SizeInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Percentage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub Enabled: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
@@ -676,12 +676,12 @@ impl Default for CLFS_MGMT_POLICY_0_7 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub NextContainerSuffix: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
@@ -694,13 +694,13 @@ impl Default for CLFS_MGMT_POLICY_0_9 {
 pub type CLFS_MGMT_POLICY_TYPE = i32;
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLS_LSN,
@@ -713,20 +713,20 @@ pub const CLFS_SCAN_FORWARD: u8 = 2;
 pub const CLFS_SCAN_INIT: u8 = 1;
 pub const CLFS_SCAN_INITIALIZED: u8 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
 pub const CLSID_DiskQuotaControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
     pub infoContainer: CLS_CONTAINER_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
     pub CreationTime: u64,
@@ -747,7 +747,7 @@ impl Default for CLS_CONTAINER_INFORMATION {
 }
 pub type CLS_CONTEXT_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
     pub CurrentAvailable: i64,
@@ -769,7 +769,7 @@ pub struct CLS_INFORMATION {
 }
 pub type CLS_IOSTATS_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
     pub cFlush: u64,
@@ -778,7 +778,7 @@ pub struct CLS_IO_STATISTICS {
     pub cbMetaFlush: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
     pub ubMinorVersion: u8,
@@ -788,12 +788,12 @@ pub struct CLS_IO_STATISTICS_HEADER {
 }
 pub type CLS_LOG_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::super::Foundation::HANDLE,
@@ -809,7 +809,7 @@ impl Default for CLS_SCAN_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut core::ffi::c_void,
     pub ByteLength: u32,
@@ -830,12 +830,12 @@ pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = 3;
 pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = 4;
 pub const COMPRESSION_FORMAT_ZLIB: COMPRESSION_FORMAT = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: u32,
     pub coni1_type: SHARE_TYPE,
@@ -860,13 +860,13 @@ pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = 4;
 pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = 3;
 pub type COPYFILE2_COPY_PHASE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COPYFILE2_CREATE_OPLOCK_KEYS {
     pub ParentOplockKey: windows_sys::core::GUID,
     pub TargetOplockKey: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: COPYFILE_FLAGS,
@@ -880,7 +880,7 @@ impl Default for COPYFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
     pub dwCopyFlags: COPYFILE_FLAGS,
@@ -930,7 +930,7 @@ impl Default for COPYFILE2_MESSAGE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -947,7 +947,7 @@ impl Default for COPYFILE2_MESSAGE_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -966,7 +966,7 @@ impl Default for COPYFILE2_MESSAGE_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -981,7 +981,7 @@ impl Default for COPYFILE2_MESSAGE_0_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -998,12 +998,12 @@ impl Default for COPYFILE2_MESSAGE_0_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_5 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
@@ -1059,7 +1059,7 @@ pub const COPY_FILE_RESUME_FROM_PAUSE: COPYFILE_FLAGS = 16384;
 pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: COPYFILE_FLAGS = 32768;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwFileAttributes: u32,
@@ -1076,7 +1076,7 @@ impl Default for CREATEFILE2_EXTENDED_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATEFILE3_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwFileAttributes: u32,
@@ -1190,14 +1190,14 @@ pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1;
 pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4;
 pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
     pub QuotaLimit: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -1216,7 +1216,7 @@ pub struct DISK_SPACE_INFORMATION {
 pub const EA_CONTAINER_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("ContainerName");
 pub const EA_CONTAINER_SIZE: windows_sys::core::PCSTR = windows_sys::core::s!("ContainerSize");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
@@ -1228,14 +1228,14 @@ impl Default for EFS_CERTIFICATE_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5;
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
@@ -1243,13 +1243,13 @@ pub struct EFS_DECRYPTION_STATUS_INFO {
 }
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub bHasCurrentKey: windows_sys::core::BOOL,
     pub dwEncryptionError: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -1261,7 +1261,7 @@ impl Default for EFS_HASH_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
@@ -1275,7 +1275,7 @@ pub const EFS_METADATA_REPLACE_USER: u32 = 4;
 pub const EFS_PFILE_SUBVER_APPX: u32 = 3;
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
@@ -1287,7 +1287,7 @@ impl Default for EFS_PIN_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -1299,14 +1299,14 @@ impl Default for EFS_RPC_BLOB {
 }
 pub const EFS_SUBVER_UNKNOWN: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
     pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
@@ -1321,7 +1321,7 @@ impl Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
@@ -1335,7 +1335,7 @@ impl Default for ENCRYPTION_CERTIFICATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
@@ -1350,7 +1350,7 @@ impl Default for ENCRYPTION_CERTIFICATE_HASH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
@@ -1363,7 +1363,7 @@ impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
@@ -1376,7 +1376,7 @@ impl Default for ENCRYPTION_CERTIFICATE_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
@@ -1390,7 +1390,7 @@ impl Default for ENCRYPTION_PROTECTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
     pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
@@ -1409,7 +1409,7 @@ pub const ExtendedFileIdType: FILE_ID_TYPE = 2;
 pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_sys::core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
 pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_sys::core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut windows_sys::core::BOOL, pfisstuffed: *mut windows_sys::core::BOOL, pfstoredwithdots: *mut windows_sys::core::BOOL, pfstoredwithterminatingdot: *mut windows_sys::core::BOOL) -> super::super::Foundation::HANDLE>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct FH_OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
@@ -1437,12 +1437,12 @@ pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = 4;
 pub const FILE_ADD_FILE: FILE_ACCESS_RIGHTS = 2;
 pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_RIGHTS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
@@ -1468,7 +1468,7 @@ pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = 1024;
 pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = 512;
 pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
@@ -1477,7 +1477,7 @@ pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = 256;
 pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = 1048576;
 pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_BASIC_INFO {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -1487,12 +1487,12 @@ pub struct FILE_BASIC_INFO {
 }
 pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_CASE_SENSITIVE_INFO {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
     pub CompressionFormat: COMPRESSION_FORMAT,
@@ -1522,25 +1522,25 @@ pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO
 pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = 8;
 pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_DISPOSITION_INFO {
     pub DeleteFile: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_DISPOSITION_INFO_EX {
     pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
 }
 pub type FILE_DISPOSITION_INFO_EX_FLAGS = u32;
 pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
 pub const FILE_EXECUTE: FILE_ACCESS_RIGHTS = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
@@ -1564,7 +1564,7 @@ pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = 2;
 pub type FILE_FLUSH_MODE = i32;
 pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_FULL_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1588,7 +1588,7 @@ pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_RIGHTS = 1179808;
 pub const FILE_GENERIC_READ: FILE_ACCESS_RIGHTS = 1179785;
 pub const FILE_GENERIC_WRITE: FILE_ACCESS_RIGHTS = 1179926;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
@@ -1598,7 +1598,7 @@ impl Default for FILE_ID_128 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_BOTH_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1646,7 +1646,7 @@ impl Default for FILE_ID_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_EXTD_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1669,19 +1669,19 @@ impl Default for FILE_ID_EXTD_DIR_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ID_INFO {
     pub VolumeSerialNumber: u64,
     pub FileId: FILE_ID_128,
 }
 pub type FILE_ID_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_INFO_3 {
     pub fi3_id: u32,
     pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
@@ -1698,13 +1698,13 @@ pub type FILE_INFO_BY_HANDLE_CLASS = i32;
 pub type FILE_INFO_BY_NAME_CLASS = i32;
 pub type FILE_INFO_FLAGS_PERMISSIONS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
 pub const FILE_LIST_DIRECTORY: FILE_ACCESS_RIGHTS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_NAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
@@ -1760,7 +1760,7 @@ impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -1799,7 +1799,7 @@ impl Default for FILE_REMOTE_PROTOCOL_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
@@ -1820,18 +1820,18 @@ impl Default for FILE_REMOTE_PROTOCOL_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
     pub ShareFlags: u32,
@@ -1877,7 +1877,7 @@ pub const FILE_SHARE_NONE: FILE_SHARE_MODE = 0;
 pub const FILE_SHARE_READ: FILE_SHARE_MODE = 1;
 pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -1886,7 +1886,7 @@ pub struct FILE_STANDARD_INFO {
     pub Directory: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STAT_BASIC_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -1905,7 +1905,7 @@ pub struct FILE_STAT_BASIC_INFORMATION {
     pub FileId128: FILE_ID_128,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STORAGE_INFO {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -1916,7 +1916,7 @@ pub struct FILE_STORAGE_INFO {
     pub ByteOffsetForPartitionAlignment: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -1952,7 +1952,7 @@ pub type FIND_FIRST_EX_FLAGS = u32;
 pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = 2;
 pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIO_CONTEXT {
     pub m_dwTempHack: u32,
     pub m_dwSignature: u32,
@@ -2046,7 +2046,7 @@ pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148;
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100;
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_BUFFER_INFO {
     pub Address: *mut core::ffi::c_void,
     pub Length: u32,
@@ -2079,7 +2079,7 @@ impl Default for IORING_BUFFER_REF_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IORING_CAPABILITIES {
     pub MaxVersion: IORING_VERSION,
     pub MaxSubmissionQueueSize: u32,
@@ -2087,7 +2087,7 @@ pub struct IORING_CAPABILITIES {
     pub FeatureFlags: IORING_FEATURE_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IORING_CQE {
     pub UserData: usize,
     pub ResultCode: windows_sys::core::HRESULT,
@@ -2096,7 +2096,7 @@ pub struct IORING_CQE {
 pub type IORING_CREATE_ADVISORY_FLAGS = i32;
 pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IORING_CREATE_FLAGS {
     pub Required: IORING_CREATE_REQUIRED_FLAGS,
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
@@ -2131,7 +2131,7 @@ impl Default for IORING_HANDLE_REF_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IORING_INFO {
     pub IoRingVersion: IORING_VERSION,
     pub Flags: IORING_CREATE_FLAGS,
@@ -2152,7 +2152,7 @@ pub type IORING_REF_KIND = i32;
 pub const IORING_REF_RAW: IORING_REF_KIND = 0;
 pub const IORING_REF_REGISTERED: IORING_REF_KIND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IORING_REGISTERED_BUFFER {
     pub BufferIndex: u32,
     pub Offset: u32,
@@ -2170,7 +2170,7 @@ pub const IoPriorityHintLow: PRIORITY_HINT = 1;
 pub const IoPriorityHintNormal: PRIORITY_HINT = 2;
 pub const IoPriorityHintVeryLow: PRIORITY_HINT = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
     pub VersionMinor: u32,
@@ -2178,7 +2178,7 @@ pub struct KCRM_MARSHAL_HEADER {
     pub Unused: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: windows_sys::core::GUID,
     pub StaticInfoLength: u32,
@@ -2187,7 +2187,7 @@ pub struct KCRM_PROTOCOL_BLOB {
     pub Unused2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: windows_sys::core::GUID,
     pub TmIdentity: windows_sys::core::GUID,
@@ -2207,7 +2207,7 @@ pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = 2;
 pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = 1;
 pub type LOCK_FILE_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut core::ffi::c_void,
     pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
@@ -2249,7 +2249,7 @@ pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = 25;
 pub const MaximumFileInfoByNameClass: FILE_INFO_BY_NAME_CLASS = 4;
 pub const MaximumIoPriorityHintType: PRIORITY_HINT = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MediaLabelInfo {
     pub LabelType: [u16; 64],
     pub LabelIDSize: u32,
@@ -2262,7 +2262,7 @@ impl Default for MediaLabelInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
@@ -2274,7 +2274,7 @@ pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = 1;
 pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = 1;
 pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut core::ffi::c_void,
@@ -2293,7 +2293,7 @@ pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = 0;
 pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = 2;
 pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_ASYNC_IO {
     pub OperationId: windows_sys::core::GUID,
     pub EventId: windows_sys::core::GUID,
@@ -2313,7 +2313,7 @@ pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = 2;
 pub const NTMS_BARCODE_LENGTH: u32 = 64;
 pub const NTMS_CHANGER: NtmsObjectsTypes = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: windows_sys::core::GUID,
@@ -2332,7 +2332,7 @@ impl Default for NTMS_CHANGERINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
     pub ChangerType: windows_sys::core::GUID,
@@ -2351,7 +2351,7 @@ impl Default for NTMS_CHANGERINFORMATIONW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
     pub szVendor: [i8; 128],
     pub szProduct: [i8; 128],
@@ -2363,7 +2363,7 @@ impl Default for NTMS_CHANGERTYPEINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -2377,7 +2377,7 @@ impl Default for NTMS_CHANGERTYPEINFORMATIONW {
 pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = 3;
 pub const NTMS_COMPUTER: NtmsObjectsTypes = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_COMPUTERINFORMATION {
     pub dwLibRequestPurgeTime: u32,
     pub dwOpRequestPurgeTime: u32,
@@ -2398,7 +2398,7 @@ pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = 2;
 pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = 0;
 pub const NTMS_DRIVE: NtmsObjectsTypes = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: u32,
@@ -2423,7 +2423,7 @@ impl Default for NTMS_DRIVEINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVEINFORMATIONW {
     pub Number: u32,
     pub State: u32,
@@ -2454,7 +2454,7 @@ pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = 2;
 pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = 1;
 pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
     pub szVendor: [i8; 128],
     pub szProduct: [i8; 128],
@@ -2467,7 +2467,7 @@ impl Default for NTMS_DRIVETYPEINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -2492,7 +2492,7 @@ pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = 1;
 pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = 5;
 pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_FILESYSTEM_INFO {
     pub FileSystemType: [u16; 64],
     pub VolumeName: [u16; 256],
@@ -2504,7 +2504,7 @@ impl Default for NTMS_FILESYSTEM_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_I1_LIBRARYINFORMATION {
     pub LibraryType: u32,
     pub CleanerSlot: windows_sys::core::GUID,
@@ -2529,7 +2529,7 @@ pub struct NTMS_I1_LIBRARYINFORMATION {
     pub Reserved: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -2551,7 +2551,7 @@ impl Default for NTMS_I1_LIBREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -2660,7 +2660,7 @@ impl Default for NTMS_I1_OBJECTINFORMATIONW_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -2680,7 +2680,7 @@ impl Default for NTMS_I1_OPREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -2700,7 +2700,7 @@ impl Default for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -2719,7 +2719,7 @@ impl Default for NTMS_I1_PARTITIONINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -2738,7 +2738,7 @@ impl Default for NTMS_I1_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -2758,7 +2758,7 @@ impl Default for NTMS_I1_PMIDINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PMIDINFORMATIONW {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -2779,7 +2779,7 @@ impl Default for NTMS_I1_PMIDINFORMATIONW {
 }
 pub const NTMS_IEDOOR: NtmsObjectsTypes = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
     pub State: u32,
@@ -2788,7 +2788,7 @@ pub struct NTMS_IEDOORINFORMATION {
 }
 pub const NTMS_IEPORT: NtmsObjectsTypes = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_IEPORTINFORMATION {
     pub Number: u32,
     pub Content: u32,
@@ -2815,7 +2815,7 @@ pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = 1;
 pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = 8;
 pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_LIBRARYINFORMATION {
     pub LibraryType: u32,
     pub CleanerSlot: windows_sys::core::GUID,
@@ -2849,7 +2849,7 @@ pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = 1;
 pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = 2;
 pub const NTMS_LIBREQUEST: NtmsObjectsTypes = 10;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -2874,7 +2874,7 @@ impl Default for NTMS_LIBREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -2899,7 +2899,7 @@ impl Default for NTMS_LIBREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_LMIDINFORMATION {
     pub MediaPool: windows_sys::core::GUID,
     pub dwNumberOfPartitions: u32,
@@ -2943,7 +2943,7 @@ pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = 11;
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536;
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
     pub MediaType: windows_sys::core::GUID,
@@ -2967,7 +2967,7 @@ pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = 5;
 pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = 6;
 pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_MEDIATYPEINFORMATION {
     pub MediaType: u32,
     pub NumberOfSides: u32,
@@ -2983,7 +2983,7 @@ pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = 4;
 pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = 4;
 pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut core::ffi::c_void,
@@ -2999,7 +2999,7 @@ pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = 16;
 pub const NTMS_MOUNT_WRITE: NtmsMountOptions = 2;
 pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: u32,
     pub ObjectId: windows_sys::core::GUID,
@@ -3113,7 +3113,7 @@ pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = 2;
 pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = 32;
 pub const NTMS_OPREQUEST: NtmsObjectsTypes = 17;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -3133,7 +3133,7 @@ impl Default for NTMS_OPREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_OPREQUESTINFORMATIONW {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -3166,7 +3166,7 @@ pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = 1;
 pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = 0;
 pub const NTMS_PARTITION: NtmsObjectsTypes = 14;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -3186,7 +3186,7 @@ impl Default for NTMS_PARTITIONINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PARTITIONINFORMATIONW {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -3217,7 +3217,7 @@ pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = 0;
 pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = 1;
 pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = 15;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -3240,7 +3240,7 @@ impl Default for NTMS_PMIDINFORMATIONA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PMIDINFORMATIONW {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -3295,7 +3295,7 @@ pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = 3;
 pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = 0;
 pub const NTMS_STORAGESLOT: NtmsObjectsTypes = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
@@ -3358,7 +3358,7 @@ pub type NtmsSlotState = i32;
 pub type NtmsUIOperations = i32;
 pub type NtmsUITypes = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OFSTRUCT {
     pub cBytes: u8,
     pub fFixedDisk: u8,
@@ -3439,7 +3439,7 @@ pub const PROGRESS_STOP: COPYPROGRESSROUTINE_PROGRESS = 2;
 pub const READ_CONTROL: FILE_ACCESS_RIGHTS = 131072;
 pub type READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -3448,7 +3448,7 @@ pub struct REPARSE_GUID_DATA_BUFFER {
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
@@ -3478,7 +3478,7 @@ pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = 131072;
 pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = 1048576;
 pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = 2031616;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_sys::core::PWSTR,
     pub srvai0_target: windows_sys::core::PWSTR,
@@ -3493,7 +3493,7 @@ impl Default for SERVER_ALIAS_INFO_0 {
 pub const SESI1_NUM_ELEMENTS: u32 = 8;
 pub const SESI2_NUM_ELEMENTS: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: windows_sys::core::PWSTR,
 }
@@ -3503,7 +3503,7 @@ impl Default for SESSION_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: windows_sys::core::PWSTR,
     pub sesi1_username: windows_sys::core::PWSTR,
@@ -3518,7 +3518,7 @@ impl Default for SESSION_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: windows_sys::core::PWSTR,
     pub sesi10_username: windows_sys::core::PWSTR,
@@ -3531,7 +3531,7 @@ impl Default for SESSION_INFO_10 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: windows_sys::core::PWSTR,
     pub sesi2_username: windows_sys::core::PWSTR,
@@ -3547,7 +3547,7 @@ impl Default for SESSION_INFO_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: windows_sys::core::PWSTR,
     pub sesi502_username: windows_sys::core::PWSTR,
@@ -3572,7 +3572,7 @@ pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = 0;
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7;
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: windows_sys::core::PWSTR,
 }
@@ -3582,7 +3582,7 @@ impl Default for SHARE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: windows_sys::core::PWSTR,
     pub shi1_type: SHARE_TYPE,
@@ -3594,7 +3594,7 @@ impl Default for SHARE_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: windows_sys::core::PWSTR,
 }
@@ -3604,18 +3604,18 @@ impl Default for SHARE_INFO_1004 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
     pub shi1501_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
@@ -3627,12 +3627,12 @@ impl Default for SHARE_INFO_1501 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: windows_sys::core::PWSTR,
     pub shi2_type: SHARE_TYPE,
@@ -3649,7 +3649,7 @@ impl Default for SHARE_INFO_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: windows_sys::core::PWSTR,
     pub shi501_type: SHARE_TYPE,
@@ -3663,7 +3663,7 @@ impl Default for SHARE_INFO_501 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_sys::core::PWSTR,
     pub shi502_type: SHARE_TYPE,
@@ -3684,7 +3684,7 @@ impl Default for SHARE_INFO_502 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_sys::core::PWSTR,
     pub shi503_type: SHARE_TYPE,
@@ -3743,7 +3743,7 @@ pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_RIGHTS = 983040;
 pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_RIGHTS = 131072;
 pub const STATSOPT_CLR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
     pub sts0_fopens: u32,
@@ -3764,7 +3764,7 @@ pub struct STAT_SERVER_0 {
     pub sts0_bigbufneed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
     pub BytesReceived: i64,
@@ -3830,7 +3830,7 @@ pub type TAPEMARK_TYPE = u32;
 pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = 1;
 pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
     pub Immediate: bool,
@@ -3841,7 +3841,7 @@ pub const TAPE_FILEMARKS: TAPEMARK_TYPE = 1;
 pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 0;
 pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPE_GET_POSITION {
     pub Type: TAPE_POSITION_TYPE,
     pub Partition: u32,
@@ -3857,7 +3857,7 @@ pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = 3;
 pub type TAPE_POSITION_METHOD = u32;
 pub type TAPE_POSITION_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
     pub Immediate: bool,
@@ -3866,7 +3866,7 @@ pub const TAPE_REWIND: TAPE_POSITION_METHOD = 0;
 pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 1;
 pub const TAPE_SETMARKS: TAPEMARK_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
     pub Partition: u32,
@@ -3884,7 +3884,7 @@ pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = 2;
 pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = 1;
 pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
     pub Count: u32,
@@ -3902,7 +3902,7 @@ pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63;
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1;
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut core::ffi::c_void,
     pub TransactionNotification: u32,
@@ -3915,13 +3915,13 @@ impl Default for TRANSACTION_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
     pub UOW: windows_sys::core::GUID,
@@ -3929,18 +3929,18 @@ pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub BufferLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: windows_sys::core::GUID,
     pub UOW: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: windows_sys::core::GUID,
     pub Flags: u32,
@@ -4103,7 +4103,7 @@ pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = 4;
 pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = 1;
 pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = 64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -4122,20 +4122,20 @@ impl Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
     pub StartingClusterNumber: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
@@ -4145,7 +4145,7 @@ impl Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
@@ -4157,7 +4157,7 @@ impl Default for VOLUME_CRITICAL_IO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
@@ -4168,7 +4168,7 @@ impl Default for VOLUME_FAILOVER_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
     pub Reserved1: u32,
@@ -4178,7 +4178,7 @@ pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub AccessMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -4188,7 +4188,7 @@ pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub RequestSize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
@@ -4197,7 +4197,7 @@ pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = 1;
 pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = 4;
 pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
@@ -4208,13 +4208,13 @@ impl Default for VOLUME_NUMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
@@ -4225,14 +4225,14 @@ impl Default for VOLUME_PHYSICAL_OFFSETS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
     pub PlexNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
     pub RevertOnClose: bool,
@@ -4241,7 +4241,7 @@ pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
@@ -4271,7 +4271,7 @@ pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = 2;
 pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = 8;
 pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
     pub dwStrucVersion: u32,
@@ -4298,7 +4298,7 @@ pub const WIM_BOOT_OS_WIM: u32 = 1;
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1;
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_ENTRY_INFO {
     pub WimEntryInfoSize: u32,
     pub WimType: u32,
@@ -4314,7 +4314,7 @@ impl Default for WIM_ENTRY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_EXTERNAL_FILE_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
@@ -4329,7 +4329,7 @@ pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1;
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2;
 pub const WIM_PROVIDER_HASH_SIZE: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -4339,7 +4339,7 @@ pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub nFileSizeLow: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -4358,7 +4358,7 @@ impl Default for WIN32_FIND_DATAA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -4377,7 +4377,7 @@ impl Default for WIN32_FIND_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],
@@ -4388,7 +4388,7 @@ impl Default for WIN32_FIND_STREAM_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_STREAM_ID {
     pub dwStreamId: WIN_STREAM_ID,
     pub dwStreamAttributes: u32,
@@ -4404,12 +4404,12 @@ impl Default for WIN32_STREAM_ID {
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1;
 pub type WIN_STREAM_ID = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Algorithm: u32,
     pub Flags: u32,

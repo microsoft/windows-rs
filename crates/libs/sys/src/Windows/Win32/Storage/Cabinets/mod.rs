@@ -14,7 +14,7 @@ pub const CB_MAX_DISK: i32 = 2147483647;
 pub const CB_MAX_DISK_NAME: u32 = 256;
 pub const CB_MAX_FILENAME: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -35,7 +35,7 @@ impl Default for CCAB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
@@ -53,7 +53,7 @@ pub const FCIERR_READ_SRC: FCIERROR = 2;
 pub const FCIERR_TEMP_FILE: FCIERROR = 4;
 pub const FCIERR_USER_ABORT: FCIERROR = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -90,7 +90,7 @@ impl Default for FDIDECRYPT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut core::ffi::c_void,
     pub cbHeaderReserve: u16,
@@ -103,7 +103,7 @@ impl Default for FDIDECRYPT_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_1 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
@@ -115,7 +115,7 @@ impl Default for FDIDECRYPT_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -145,7 +145,7 @@ pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = 3;
 pub const FDIERROR_USER_ABORT: FDIERROR = 11;
 pub const FDIERROR_WRONG_CABINET: FDIERROR = 10;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: windows_sys::core::PSTR,
@@ -182,7 +182,7 @@ impl Default for FDISPILLFILE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,

@@ -63,7 +63,7 @@ pub const CFL_INTERMEDIATE: CONFIDENCE_LEVEL = 1;
 pub const CFL_POOR: CONFIDENCE_LEVEL = 2;
 pub const CFL_STRONG: CONFIDENCE_LEVEL = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHARACTER_RANGE {
     pub wcLow: u16,
     pub cChars: u16,
@@ -540,10 +540,10 @@ pub const DISPID_Text: DISPID_InkEdit = 0;
 pub const DISPID_TextRTF: DISPID_InkEdit = 1;
 pub const DISPID_UseMouseForInput: DISPID_InkEdit = 23;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
-    pub dynamicRenderer: *mut core::ffi::c_void,
+    pub dynamicRenderer: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for DYNAMIC_RENDERER_CACHED_DATA {
     fn default() -> Self {
@@ -651,12 +651,12 @@ pub const FLICKMODE_MIN: FLICKMODE = 0;
 pub const FLICKMODE_OFF: FLICKMODE = 0;
 pub const FLICKMODE_ON: FLICKMODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLICK_POINT {
     pub _bitfield: i32,
 }
@@ -692,7 +692,7 @@ pub const GESTURE_CLOSEUP: u32 = 61455;
 pub const GESTURE_CROSS: u32 = 61447;
 pub const GESTURE_CURLICUE: u32 = 61456;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GESTURE_DATA {
     pub gestureId: i32,
     pub recoConfidence: i32,
@@ -934,12 +934,17 @@ pub const IECN_STROKE: u32 = 2049;
 pub const IECN__BASE: u32 = 2048;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Copy)]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: *mut core::ffi::c_void,
-    pub Strokes: *mut core::ffi::c_void,
+    pub Cursor: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub Strokes: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub Gestures: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+impl Clone for IEC_GESTUREINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl Default for IEC_GESTUREINFO {
@@ -949,10 +954,10 @@ impl Default for IEC_GESTUREINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub RecognitionResult: *mut core::ffi::c_void,
+    pub RecognitionResult: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl Default for IEC_RECOGNITIONRESULTINFO {
@@ -962,11 +967,11 @@ impl Default for IEC_RECOGNITIONRESULTINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: *mut core::ffi::c_void,
-    pub Stroke: *mut core::ffi::c_void,
+    pub Cursor: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub Stroke: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl Default for IEC_STROKEINFO {
@@ -1014,7 +1019,7 @@ pub const IMP_UpArrow: InkMousePointer = 8;
 pub const INKEDIT_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("INKEDIT");
 pub const INKEDIT_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("INKEDIT");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
@@ -1179,7 +1184,7 @@ pub const InkPicture: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub type InkPictureSizeMode = i32;
 pub type InkRasterOperation = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
     pub rectDrawnBox: super::super::Foundation::RECT,
@@ -1218,7 +1223,7 @@ pub const KEYMODIFIER_MENU: KEYMODIFIER = 2;
 pub const KEYMODIFIER_SHIFT: KEYMODIFIER = 4;
 pub const KEYMODIFIER_WIN: KEYMODIFIER = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
     pub iMidlineOffset: i16,
@@ -1226,7 +1231,7 @@ pub struct LATTICE_METRICS {
 pub const LEFT_BUTTON: MouseButton = 1;
 pub type LINE_METRICS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
     pub PtB: super::super::Foundation::POINT,
@@ -1267,7 +1272,7 @@ pub type MouseButton = i32;
 pub const NO_BUTTON: MouseButton = 0;
 pub const NUM_FLICK_DIRECTIONS: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
     pub cPacketProperties: u32,
@@ -1281,13 +1286,13 @@ impl Default for PACKET_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_sys::core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
@@ -1337,7 +1342,7 @@ pub const RECOFLAG_PREFIXOK: u32 = 8;
 pub const RECOFLAG_SINGLESEG: u32 = 4;
 pub const RECOFLAG_WORDMODE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_ATTRS {
     pub dwRecoCapabilityFlags: u32,
     pub awcVendorName: [u16; 32],
@@ -1350,7 +1355,7 @@ impl Default for RECO_ATTRS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECO_GUIDE {
     pub xOrigin: i32,
     pub yOrigin: i32,
@@ -1363,7 +1368,7 @@ pub struct RECO_GUIDE {
     pub cyMid: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE {
     pub ulColumnCount: u32,
     pub pLatticeColumns: *mut RECO_LATTICE_COLUMN,
@@ -1379,7 +1384,7 @@ impl Default for RECO_LATTICE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE_COLUMN {
     pub key: u32,
     pub cpProp: RECO_LATTICE_PROPERTIES,
@@ -1394,7 +1399,7 @@ impl Default for RECO_LATTICE_COLUMN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE_ELEMENT {
     pub score: i32,
     pub r#type: u16,
@@ -1409,7 +1414,7 @@ impl Default for RECO_LATTICE_ELEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE_PROPERTIES {
     pub cProperties: u32,
     pub apProps: *mut *mut RECO_LATTICE_PROPERTY,
@@ -1420,7 +1425,7 @@ impl Default for RECO_LATTICE_PROPERTIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECO_LATTICE_PROPERTY {
     pub guidProperty: windows_sys::core::GUID,
     pub cbPropertyValue: u16,
@@ -1432,7 +1437,7 @@ impl Default for RECO_LATTICE_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECO_RANGE {
     pub iwcBegin: u32,
     pub cCount: u32,
@@ -1502,7 +1507,7 @@ pub const SHR_SW: SelectionHitResult = 4;
 pub const SHR_Selection: SelectionHitResult = 9;
 pub const SHR_W: SelectionHitResult = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
@@ -1529,7 +1534,7 @@ pub const STR_GUID_YAWROTATION: windows_sys::core::PCWSTR = windows_sys::core::w
 pub const STR_GUID_YTILTORIENTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}");
 pub const STR_GUID_Z: windows_sys::core::PCWSTR = windows_sys::core::w!("{735ADB30-0EBB-4788-A0E4-0F316490055D}");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,
@@ -1544,7 +1549,7 @@ pub type SelectionHitResult = i32;
 pub const SketchInk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct StylusInfo {
     pub tcid: u32,
     pub cid: u32,

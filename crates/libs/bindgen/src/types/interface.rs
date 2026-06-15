@@ -59,7 +59,7 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
+                if !config.bindgen.style.has_com() && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
@@ -82,7 +82,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+            (!config.bindgen.style.has_com() && !method.dependencies.included(config))
                 || !config.includes_method(type_name, def)
         })
     }
@@ -111,7 +111,7 @@ impl Interface {
 
             // In minimal mode, drop trailing usize slots — nothing indexes
             // past the last real method, so they waste space and compile time.
-            let methods_for_vtbl: &[MethodOrName] = if config.bindgen.style.is_minimal() {
+            let methods_for_vtbl: &[MethodOrName] = if config.bindgen.style.has_com() {
                 let last_real = methods
                     .iter()
                     .rposition(|m| matches!(m, MethodOrName::Method(_)));
@@ -152,7 +152,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
+            let hide_vtbl = if config.bindgen.style.is_lean() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -194,7 +194,7 @@ impl Interface {
                 // In minimal mode, NAME is only needed for interfaces that are
                 // being implemented (for GetRuntimeClassName). The trait provides
                 // an empty default, so omitting it is safe.
-                let name_const = if config.bindgen.style.is_minimal()
+                let name_const = if config.bindgen.style.has_com()
                     && !config.should_implement(type_name, false)
                 {
                     quote! {}
@@ -229,7 +229,7 @@ impl Interface {
                 // In minimal mode, NAME on parameterized interfaces is only needed
                 // when the interface is implemented (for GetRuntimeClassName via
                 // RUNTIME_CLASS_NAME). Skip it otherwise.
-                let name_const = if config.bindgen.style.is_minimal()
+                let name_const = if config.bindgen.style.has_com()
                     && !config.should_implement(type_name, false)
                 {
                     quote! {}
@@ -284,7 +284,7 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            if config.bindgen.style.is_minimal() {
+                            if config.bindgen.style.has_com() {
                                 let tn = Type::Interface((*ty).clone()).type_name();
                                 config.types.contains_key(&tn)
                             } else {
@@ -327,9 +327,9 @@ impl Interface {
             // `IPropertyValue` on an `IReference<T>` impl) where no projection caller invokes
             // the methods through this type.
             let is_factory =
-                is_exclusive && config.bindgen.style.is_minimal() && self.is_factory(config.reader);
+                is_exclusive && config.bindgen.style.has_com() && self.is_factory(config.reader);
             let is_trait_only = config.filter.is_trait_only(type_name);
-            if !is_exclusive || (config.bindgen.style.is_minimal() && !is_factory) {
+            if !is_exclusive || (config.bindgen.style.has_com() && !is_factory) {
                 if !is_trait_only {
                     let method_names = &mut MethodNames::for_style(&config.bindgen.style);
                     let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
@@ -357,7 +357,7 @@ impl Interface {
 
                     for interface in &required_interfaces {
                         // In `minimal` mode callers `cast` to the owning interface explicitly.
-                        if config.bindgen.style.is_minimal() {
+                        if config.bindgen.style.has_com() {
                             continue;
                         }
                         let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
@@ -406,7 +406,7 @@ impl Interface {
                     });
                 }
 
-                let into_iterator = if config.bindgen.style.is_minimal() {
+                let into_iterator = if config.bindgen.style.has_com() {
                     None
                 } else {
                     required_interfaces

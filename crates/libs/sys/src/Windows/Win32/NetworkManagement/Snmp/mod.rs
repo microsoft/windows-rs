@@ -58,7 +58,7 @@ windows_link::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, s
 windows_link::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : windows_sys::core::PCSTR, dstoid : *mut smiOID) -> u32);
 windows_link::link!("snmpapi.dll" "system" fn SnmpSvcGetUptime() -> u32);
 windows_link::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNMP_LOG));
-windows_link::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
+windows_link::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : SNMP_OUTPUT_LOG_TYPE));
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyFree(pany : *mut AsnAny));
 windows_link::link!("snmpapi.dll" "C" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_sys::core::PCSTR, ...));
@@ -124,7 +124,7 @@ impl Default for AsnAny_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
@@ -150,7 +150,7 @@ impl Default for AsnObjectIdentifier {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
@@ -363,7 +363,7 @@ impl Default for SnmpVarBind {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
@@ -388,13 +388,13 @@ impl Default for SnmpVarBindList {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
@@ -405,7 +405,7 @@ impl Default for smiOCTETS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
@@ -442,7 +442,7 @@ impl Default for smiVALUE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiVENDORINFO {
     pub vendorName: [i8; 64],
     pub vendorContact: [i8; 64],

@@ -59,7 +59,7 @@ pub const CAPLOKALTGR: u32 = 4;
 pub const CEDILLA: u32 = 807;
 pub const CIRCUMFLEX: u32 = 770;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEADKEY {
     pub dwBoth: u32,
     pub wchComposed: u16,
@@ -85,7 +85,7 @@ pub const GRAVE: u32 = 768;
 pub const GRPSELTAP: u32 = 128;
 pub const HACEK: u32 = 780;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HARDWAREINPUT {
     pub uMsg: u32,
     pub wParamL: u16,
@@ -129,7 +129,7 @@ pub const KBDGRPSELTAP: u32 = 128;
 pub const KBDKANA: u32 = 8;
 pub const KBDLOYA: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDNLSTABLES {
     pub OEMIdentifier: u16,
     pub LayoutInformation: u16,
@@ -167,7 +167,7 @@ pub const KBDNLS_TYPE_TOGGLE: u32 = 2;
 pub const KBDROYA: u32 = 16;
 pub const KBDSHIFT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDTABLES {
     pub pCharModifiers: *mut MODIFIERS,
     pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
@@ -192,7 +192,7 @@ impl Default for KBDTABLES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDTABLE_DESC {
     pub wszDllName: [u16; 32],
     pub dwType: u32,
@@ -204,7 +204,7 @@ impl Default for KBDTABLE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDTABLE_MULTI {
     pub nTables: u32,
     pub aKbdTables: [KBDTABLE_DESC; 8],
@@ -217,7 +217,7 @@ impl Default for KBDTABLE_MULTI {
 pub const KBDTABLE_MULTI_MAX: u32 = 8;
 pub const KBD_TYPE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KBD_TYPE_INFO {
     pub dwVersion: u32,
     pub dwType: u32,
@@ -225,7 +225,7 @@ pub struct KBD_TYPE_INFO {
 }
 pub const KBD_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEYBDINPUT {
     pub wVk: VIRTUAL_KEY,
     pub wScan: u16,
@@ -255,13 +255,13 @@ pub const KLLF_GLOBAL_ATTRS: u32 = 2;
 pub const KLLF_LRM_RLM: u32 = 4;
 pub const KLLF_SHIFTLOCK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LASTINPUTINFO {
     pub cbSize: u32,
     pub dwTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE1 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
@@ -273,7 +273,7 @@ impl Default for LIGATURE1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE2 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
@@ -285,7 +285,7 @@ impl Default for LIGATURE2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE3 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
@@ -297,7 +297,7 @@ impl Default for LIGATURE3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE4 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
@@ -309,7 +309,7 @@ impl Default for LIGATURE4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIGATURE5 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
@@ -338,7 +338,7 @@ pub const MICROSOFT_KBD_106_TYPE: u32 = 2;
 pub const MICROSOFT_KBD_AX_TYPE: u32 = 1;
 pub const MICROSOFT_KBD_FUNC: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODIFIERS {
     pub pVkToBit: *mut VK_TO_BIT,
     pub wMaxModBits: u16,
@@ -369,7 +369,7 @@ pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = 2048;
 pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = 128;
 pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSEINPUT {
     pub dx: i32,
     pub dy: i32,
@@ -379,7 +379,7 @@ pub struct MOUSEINPUT {
     pub dwExtraInfo: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSEMOVEPOINT {
     pub x: i32,
     pub y: i32,
@@ -429,7 +429,7 @@ pub const TONOS: u32 = 900;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13;
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACKMOUSEEVENT {
     pub cbSize: u32,
     pub dwFlags: TRACKMOUSEEVENT_FLAGS,
@@ -503,7 +503,7 @@ pub const VK_ESCAPE: VIRTUAL_KEY = 27;
 pub const VK_EXECUTE: VIRTUAL_KEY = 43;
 pub const VK_EXSEL: VIRTUAL_KEY = 248;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_F {
     pub Vk: u8,
     pub NLSFEProcType: u8,
@@ -544,7 +544,7 @@ pub const VK_F8: VIRTUAL_KEY = 119;
 pub const VK_F9: VIRTUAL_KEY = 120;
 pub const VK_FINAL: VIRTUAL_KEY = 24;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,
@@ -699,13 +699,13 @@ pub const VK_SUBTRACT: VIRTUAL_KEY = 109;
 pub const VK_T: VIRTUAL_KEY = 84;
 pub const VK_TAB: VIRTUAL_KEY = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VK_TO_BIT {
     pub Vk: u8,
     pub ModBits: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS1 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -717,7 +717,7 @@ impl Default for VK_TO_WCHARS1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS10 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -729,7 +729,7 @@ impl Default for VK_TO_WCHARS10 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS2 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -741,7 +741,7 @@ impl Default for VK_TO_WCHARS2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS3 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -753,7 +753,7 @@ impl Default for VK_TO_WCHARS3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS4 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -765,7 +765,7 @@ impl Default for VK_TO_WCHARS4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS5 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -777,7 +777,7 @@ impl Default for VK_TO_WCHARS5 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS6 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -789,7 +789,7 @@ impl Default for VK_TO_WCHARS6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS7 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -801,7 +801,7 @@ impl Default for VK_TO_WCHARS7 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS8 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -813,7 +813,7 @@ impl Default for VK_TO_WCHARS8 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHARS9 {
     pub VirtualKey: u8,
     pub Attributes: u8,
@@ -825,7 +825,7 @@ impl Default for VK_TO_WCHARS9 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_WCHAR_TABLE {
     pub pVkToWchars: *mut VK_TO_WCHARS1,
     pub nModifications: u8,
@@ -843,7 +843,7 @@ pub const VK_VOLUME_DOWN: VIRTUAL_KEY = 174;
 pub const VK_VOLUME_MUTE: VIRTUAL_KEY = 173;
 pub const VK_VOLUME_UP: VIRTUAL_KEY = 175;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VK_VSC {
     pub Vk: u8,
     pub Vsc: u8,
@@ -857,7 +857,7 @@ pub const VK_Z: VIRTUAL_KEY = 90;
 pub const VK_ZOOM: VIRTUAL_KEY = 251;
 pub const VK__none_: VIRTUAL_KEY = 255;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
     pub pwsz: windows_sys::core::PWSTR,
@@ -868,7 +868,7 @@ impl Default for VSC_LPWSTR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VSC_VK {
     pub Vsc: u8,
     pub Vk: u16,

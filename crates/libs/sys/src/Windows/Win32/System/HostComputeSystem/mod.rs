@@ -76,7 +76,7 @@ windows_link::link!("computecore.dll" "system" fn HcsWaitForProcessExit(computes
 pub type HCS_CREATE_OPTIONS = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -92,7 +92,7 @@ impl Default for HCS_CREATE_OPTIONS_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HCS_EVENT {
     pub Type: HCS_EVENT_TYPE,
     pub EventData: windows_sys::core::PCWSTR,
@@ -115,7 +115,7 @@ pub type HCS_OPERATION_OPTIONS = i32;
 pub type HCS_OPERATION_TYPE = i32;
 pub type HCS_PROCESS = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HCS_PROCESS_INFORMATION {
     pub ProcessId: u32,
     pub Reserved: u32,

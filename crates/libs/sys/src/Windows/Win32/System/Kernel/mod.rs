@@ -9,7 +9,7 @@ pub const BackOffice: SUITE_TYPE = 2;
 pub const Blade: SUITE_TYPE = 10;
 pub type COMPARTMENT_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -28,7 +28,7 @@ pub type EVENT_TYPE = i32;
 pub type EXCEPTION_DISPOSITION = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: EXCEPTION_ROUTINE,
@@ -50,7 +50,7 @@ pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = 1;
 pub const ExceptionNestedException: EXCEPTION_DISPOSITION = 2;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -70,7 +70,7 @@ impl Default for FLOATING_SAVE_AREA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -89,7 +89,7 @@ impl Default for FLOATING_SAVE_AREA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
@@ -100,13 +100,13 @@ impl Default for LIST_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
@@ -155,14 +155,14 @@ pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
 pub const NtProductServer: NT_PRODUCT_TYPE = 3;
 pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OBJECTID {
     pub Lineage: windows_sys::core::GUID,
     pub Uniquifier: u32,
 }
 pub const OBJ_HANDLE_TAGBITS: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,
@@ -214,7 +214,7 @@ impl Default for RTL_BALANCED_NODE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTL_BALANCED_NODE_0_0 {
     pub Left: *mut RTL_BALANCED_NODE,
     pub Right: *mut RTL_BALANCED_NODE,
@@ -237,7 +237,7 @@ impl Default for RTL_BALANCED_NODE_1 {
 }
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut SINGLE_LIST_ENTRY,
 }
@@ -247,12 +247,12 @@ impl Default for SINGLE_LIST_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SINGLE_LIST_ENTRY32 {
     pub Next: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_ENTRY {
     pub Next: *mut SLIST_ENTRY,
 }
@@ -276,7 +276,7 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Next: SINGLE_LIST_ENTRY,
     pub Depth: u16,
@@ -297,14 +297,14 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
@@ -324,20 +324,20 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -349,14 +349,14 @@ impl Default for STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRING32 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRING64 {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -376,7 +376,7 @@ pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0;
 pub type WAIT_TYPE = i32;
 pub const WHServer: SUITE_TYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],
 }

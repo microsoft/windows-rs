@@ -733,7 +733,7 @@ pub type AMBISONICS_NORMALIZATION = i32;
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1;
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
     pub u32Version: u32,
@@ -841,7 +841,7 @@ pub type AUDIOCLIENT_ACTIVATION_TYPE = i32;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = 0;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
@@ -851,7 +851,7 @@ pub type AUDIO_DUCKING_OPTIONS = i32;
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0;
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIO_EFFECT {
     pub id: windows_sys::core::GUID,
     pub canSetState: windows_sys::core::BOOL,
@@ -867,7 +867,7 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 1;
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
     pub guidEventContext: windows_sys::core::GUID,
     pub bMuted: windows_sys::core::BOOL,
@@ -969,12 +969,12 @@ pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = 9;
 pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = 13;
 pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
     pub bIsOffload: windows_sys::core::BOOL,
@@ -982,12 +982,12 @@ pub struct AudioClientProperties {
     pub Options: AUDCLNT_STREAMOPTIONS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: *mut core::ffi::c_void,
-    pub pPnpInterface: *mut core::ffi::c_void,
-    pub pPnpDevnode: *mut core::ffi::c_void,
+    pub pEndpoint: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pPnpInterface: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
+    pub pPnpDevnode: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for AudioExtensionParams {
     fn default() -> Self {
@@ -1031,7 +1031,7 @@ pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = 458752;
 pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = 65536;
 pub const Connector: PartType = 0;
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0);
@@ -1052,7 +1052,7 @@ pub const DEVINTERFACE_AUDIO_RENDER: windows_sys::core::GUID = windows_sys::core
 pub const DEVINTERFACE_MIDI_INPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
 pub const DEVINTERFACE_MIDI_OUTPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
     pub guidAudioSession: windows_sys::core::GUID,
@@ -1945,7 +1945,7 @@ pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: windows_sys::core::HRESULT = 0x888902
 pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: windows_sys::core::HRESULT = 0x88890201_u32 as _;
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: windows_sys::core::HRESULT = 0x88890204_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SpatialAudioClientActivationParams {
     pub tracingContextId: windows_sys::core::GUID,
     pub appId: windows_sys::core::GUID,
@@ -1955,7 +1955,6 @@ pub struct SpatialAudioClientActivationParams {
     pub minorVersion3: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1963,7 +1962,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut core::ffi::c_void,
+    pub NotifyObject: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -1975,7 +1974,6 @@ impl Default for SpatialAudioHrtfActivationParams {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1983,7 +1981,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut core::ffi::c_void,
+    pub NotifyObject: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2066,7 +2064,6 @@ pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOve
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -2074,7 +2071,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut core::ffi::c_void,
+    pub NotifyObject: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 impl Default for SpatialAudioObjectRenderStreamActivationParams {
     fn default() -> Self {
@@ -2082,7 +2079,6 @@ impl Default for SpatialAudioObjectRenderStreamActivationParams {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -2090,7 +2086,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: *mut core::ffi::c_void,
+    pub NotifyObject: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 impl Default for SpatialAudioObjectRenderStreamActivationParams2 {
@@ -2100,7 +2096,6 @@ impl Default for SpatialAudioObjectRenderStreamActivationParams2 {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -2111,7 +2106,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataFormatId: windows_sys::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: *mut core::ffi::c_void,
+    pub NotifyObject: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -2121,7 +2116,6 @@ impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -2132,7 +2126,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataFormatId: windows_sys::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: *mut core::ffi::c_void,
+    pub NotifyObject: core::mem::ManuallyDrop<*mut core::ffi::c_void>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]

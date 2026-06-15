@@ -199,7 +199,7 @@ pub const BM_xBGRQUADS: BMFORMAT = 16;
 pub const BM_xG3CHQUADS: BMFORMAT = 772;
 pub const BM_xRGBQUADS: BMFORMAT = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BlackInformation {
     pub fBlackOnly: windows_sys::core::BOOL,
     pub blackWeight: f32,
@@ -231,7 +231,7 @@ pub const CMS_USEAPPLYCALLBACK: u32 = 256;
 pub const CMS_USEDESCRIPTION: u32 = 512;
 pub const CMS_USEHOOK: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMYKCOLOR {
     pub cyan: u16,
     pub magenta: u16,
@@ -258,7 +258,7 @@ impl Default for COLOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
@@ -271,7 +271,7 @@ impl Default for COLOR_0 {
 pub type COLORDATATYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct COLORMATCHSETUPA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -301,7 +301,7 @@ impl Default for COLORMATCHSETUPA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct COLORMATCHSETUPW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -380,7 +380,7 @@ pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = 1;
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRCREATECOLORSPACE {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
@@ -388,7 +388,7 @@ pub struct EMRCREATECOLORSPACE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EMRCREATECOLORSPACEW {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
@@ -405,7 +405,7 @@ impl Default for EMRCREATECOLORSPACEW {
 }
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMTYPEA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -434,7 +434,7 @@ impl Default for ENUMTYPEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUMTYPEW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -487,19 +487,19 @@ pub const FLAG_DEPENDENTONDATA: u32 = 2;
 pub const FLAG_EMBEDDEDPROFILE: u32 = 1;
 pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GENERIC3CHANNEL {
     pub ch1: u16,
     pub ch2: u16,
     pub ch3: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamutBoundaryDescription {
     pub pPrimaries: *mut PrimaryJabColors,
     pub cNeutralSamples: u32,
@@ -514,7 +514,7 @@ impl Default for GamutBoundaryDescription {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamutShell {
     pub JMin: f32,
     pub JMax: f32,
@@ -529,7 +529,7 @@ impl Default for GamutShell {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
 }
@@ -540,7 +540,7 @@ impl Default for GamutShellTriangle {
 }
 pub type HCOLORSPACE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
@@ -570,14 +570,14 @@ pub const INTENT_PERCEPTUAL: u32 = 0;
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
 pub const INTENT_SATURATION: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JChColorF {
     pub J: f32,
     pub C: f32,
     pub h: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JabColorF {
     pub J: f32,
     pub a: f32,
@@ -589,7 +589,7 @@ pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = 1466527264;
 pub const LCS_sRGB: LCSCSTYPE = 1934772034;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -610,7 +610,7 @@ impl Default for LOGCOLORSPACEA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -631,7 +631,7 @@ impl Default for LOGCOLORSPACEW {
 }
 pub type LPBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LabCOLOR {
     pub L: u16,
     pub a: u16,
@@ -640,12 +640,12 @@ pub struct LabCOLOR {
 pub const MAX_COLOR_CHANNELS: u32 = 8;
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NAMED_PROFILE_INFO {
     pub dwFlags: u32,
     pub dwCount: u32,
@@ -665,7 +665,7 @@ pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATC
 pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
 pub const PRESERVEBLACK: u32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut core::ffi::c_void,
@@ -678,7 +678,7 @@ impl Default for PROFILE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILEHEADER {
     pub phSize: u32,
     pub phCMMType: u32,
@@ -710,7 +710,7 @@ pub const PROFILE_READ: u32 = 1;
 pub const PROFILE_READWRITE: u32 = 2;
 pub const PROOF_MODE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PrimaryJabColors {
     pub red: JabColorF,
     pub yellow: JabColorF,
@@ -722,7 +722,7 @@ pub struct PrimaryJabColors {
     pub white: JabColorF,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PrimaryXYZColors {
     pub red: XYZColorF,
     pub yellow: XYZColorF,
@@ -735,7 +735,7 @@ pub struct PrimaryXYZColors {
 }
 pub const RESERVED: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RGBCOLOR {
     pub red: u16,
     pub green: u16,
@@ -748,7 +748,7 @@ pub const WCS_ALWAYS: u32 = 2097152;
 pub const WCS_DEFAULT: i32 = 0;
 pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub Size: u32,
     pub SupportsMhc2: windows_sys::core::BOOL,
@@ -757,7 +757,7 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixColumns: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: windows_sys::core::BOOL,
@@ -767,21 +767,21 @@ pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XYZCOLOR {
     pub X: u16,
     pub Y: u16,
     pub Z: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XYZColorF {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct YxyCOLOR {
     pub Y: u16,
     pub x: u16,

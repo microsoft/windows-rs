@@ -1306,7 +1306,7 @@ pub const C3_NOTAPPLICABLE: u32 = 0;
 pub const C3_SYMBOL: u32 = 8;
 pub const C3_VOWELMARK: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CALDATETIME {
     pub CalId: u32,
     pub Era: u32,
@@ -1406,7 +1406,7 @@ pub const CAL_UMALQURA: u32 = 23;
 pub const CAL_USE_CP_ACP: u32 = 1073741824;
 pub const CANITER_SKIP_ZEROES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHARSETINFO {
     pub ciCharset: u32,
     pub ciACP: u32,
@@ -1426,7 +1426,7 @@ pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = 1;
 pub const CORRECTIVE_ACTION_NONE: CORRECTIVE_ACTION = 0;
 pub const CORRECTIVE_ACTION_REPLACE: CORRECTIVE_ACTION = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -1438,7 +1438,7 @@ impl Default for CPINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPINFOEXA {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -1453,7 +1453,7 @@ impl Default for CPINFOEXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPINFOEXW {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -1597,7 +1597,7 @@ pub const CT_CTYPE1: u32 = 1;
 pub const CT_CTYPE2: u32 = 2;
 pub const CT_CTYPE3: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CURRENCYFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -1614,7 +1614,7 @@ impl Default for CURRENCYFMTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CURRENCYFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -1645,7 +1645,7 @@ pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = 4;
 pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = 8;
 pub const DayUnit: CALDATETIME_DATEUNIT = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
@@ -1663,14 +1663,14 @@ pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: windows_sys::core::GUID = windo
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTW,
@@ -1681,7 +1681,7 @@ pub type ENUM_SYSTEM_CODE_PAGES_FLAGS = u32;
 pub type ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = u32;
 pub const EraUnit: CALDATETIME_DATEUNIT = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILEMUIINFO {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1708,7 +1708,7 @@ pub const FIND_FROMSTART: u32 = 4194304;
 pub const FIND_STARTSWITH: u32 = 1048576;
 pub type FOLD_STRING_MAP_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
     pub fsCsb: [u32; 2],
@@ -1743,7 +1743,7 @@ pub const GEO_PARENT: SYSGEOTYPE = 13;
 pub const GEO_RFC1766: SYSGEOTYPE = 6;
 pub const GEO_TIMEZONES: SYSGEOTYPE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
@@ -1821,7 +1821,7 @@ pub const LGRPID_WESTERN_EUROPE: u32 = 1;
 pub const LINGUISTIC_IGNORECASE: COMPARE_STRING_FLAGS = 16;
 pub const LINGUISTIC_IGNOREDIACRITIC: COMPARE_STRING_FLAGS = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOCALESIGNATURE {
     pub lsUsb: [u32; 4],
     pub lsCsbDefault: [u32; 2],
@@ -2018,7 +2018,7 @@ pub const LOWLEVEL_SERVICE_TYPES: u32 = 2;
 pub const LOW_SURROGATE_END: u32 = 57343;
 pub const LOW_SURROGATE_START: u32 = 56320;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPPING_DATA_RANGE {
     pub dwStartIndex: u32,
     pub dwEndIndex: u32,
@@ -2037,7 +2037,7 @@ impl Default for MAPPING_DATA_RANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPPING_ENUM_OPTIONS {
     pub Size: usize,
     pub pszCategory: windows_sys::core::PWSTR,
@@ -2056,7 +2056,7 @@ impl Default for MAPPING_ENUM_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct MAPPING_OPTIONS {
     pub Size: usize,
     pub pszInputLanguage: windows_sys::core::PWSTR,
@@ -2081,7 +2081,7 @@ impl Default for MAPPING_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPPING_PROPERTY_BAG {
     pub Size: usize,
     pub prgResultRanges: *mut MAPPING_DATA_RANGE,
@@ -2098,7 +2098,7 @@ impl Default for MAPPING_PROPERTY_BAG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAPPING_SERVICE_INFO {
     pub Size: usize,
     pub pszCopyright: windows_sys::core::PWSTR,
@@ -2163,7 +2163,7 @@ pub const MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = 256;
 pub const MIMECONTF_VALID: MIMECONTF = 131072;
 pub const MIMECONTF_VALID_NLS: MIMECONTF = 262144;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
     pub uiCodePage: u32,
@@ -2182,7 +2182,7 @@ impl Default for MIMECPINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MIMECSETINFO {
     pub uiCodePage: u32,
     pub uiInternetEncoding: u32,
@@ -2259,20 +2259,20 @@ pub const MinuteUnit: CALDATETIME_DATEUNIT = 6;
 pub const MonthUnit: CALDATETIME_DATEUNIT = 2;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLSVERSIONINFO {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -2281,7 +2281,7 @@ pub struct NLSVERSIONINFO {
     pub guidCustomVersion: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLSVERSIONINFOEX {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -2300,7 +2300,7 @@ pub const NORM_IGNORESYMBOLS: COMPARE_STRING_FLAGS = 4;
 pub const NORM_IGNOREWIDTH: COMPARE_STRING_FLAGS = 131072;
 pub const NORM_LINGUISTIC_CASING: COMPARE_STRING_FLAGS = 134217728;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NUMBERFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -2315,7 +2315,7 @@ impl Default for NUMBERFMTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NUMBERFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -2338,14 +2338,14 @@ pub const NormalizationOther: NORM_FORM = 0;
 pub const OFFLINE_SERVICES: u32 = 2;
 pub const ONLINE_SERVICES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: u32,
     pub lParameter: i32,
 }
 pub type PFN_MAPPINGCALLBACKPROC = Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut core::ffi::c_void, dwdatasize: u32, result: windows_sys::core::HRESULT)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RFC1766INFO {
     pub lcid: u32,
     pub wszRfc1766: [u16; 6],
@@ -2364,7 +2364,7 @@ pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = 262144;
 pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = 65536;
 pub type SCRIPTFONTCONTF = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPTFONTINFO {
     pub scripts: i64,
     pub wszFont: [u16; 32],
@@ -2375,7 +2375,7 @@ impl Default for SCRIPTFONTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPTINFO {
     pub ScriptId: u8,
     pub uiCodePage: u32,
@@ -2389,23 +2389,23 @@ impl Default for SCRIPTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
@@ -2416,7 +2416,7 @@ pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
     pub wgBlank: u16,
@@ -2426,14 +2426,14 @@ pub struct SCRIPT_FONTPROPERTIES {
     pub iKashidaWidth: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
 }
 pub type SCRIPT_IS_COMPLEX_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
@@ -2456,23 +2456,23 @@ pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = 3;
 pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = 5;
 pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCRIPT_TABDEF {
     pub cTabStops: i32,
     pub iScale: i32,
@@ -2487,7 +2487,7 @@ impl Default for SCRIPT_TABDEF {
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0;
 pub const SCRIPT_UNDEFINED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
@@ -2530,7 +2530,7 @@ pub const TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = 2;
 pub const TCI_SRCFONTSIG: TRANSLATE_CHARSET_INFO_FLAGS = 3;
 pub const TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = 4096;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,
@@ -3335,7 +3335,7 @@ pub type UCharCategory = i32;
 pub type UCharDirection = i32;
 pub type UCharEnumTypeRange = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct UCharIterator {
     pub context: *const core::ffi::c_void,
     pub length: i32,
@@ -3386,7 +3386,7 @@ pub type UConverter = isize;
 pub type UConverterCallbackReason = i32;
 pub type UConverterFromUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UConverterFromUnicodeArgs {
     pub size: u16,
     pub flush: i8,
@@ -3406,7 +3406,7 @@ pub type UConverterPlatform = i32;
 pub type UConverterSelector = isize;
 pub type UConverterToUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: windows_sys::core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UConverterToUnicodeArgs {
     pub size: u16,
     pub flush: i8,
@@ -3697,7 +3697,7 @@ pub const UFMT_OBJECT: UFormattableType = 6;
 pub const UFMT_STRING: UFormattableType = 3;
 pub type UFieldCategory = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UFieldPosition {
     pub field: i32,
     pub beginIndex: i32,
@@ -3721,7 +3721,7 @@ pub type UHangulSyllableType = i32;
 pub type UHashtable = isize;
 pub type UIDNA = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UIDNAInfo {
     pub size: i16,
     pub isTransitionalDifferent: i8,
@@ -3881,7 +3881,7 @@ pub type UMessagePatternPartType = i32;
 pub type UMutableCPTrie = isize;
 pub type UNESCAPE_CHAR_AT = Option<unsafe extern "C" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
@@ -4092,7 +4092,7 @@ pub type UNumericType = i32;
 pub const UPLURAL_TYPE_CARDINAL: UPluralType = 0;
 pub const UPLURAL_TYPE_ORDINAL: UPluralType = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UParseError {
     pub line: i32,
     pub offset: i32,
@@ -4141,7 +4141,7 @@ pub type URelativeDateTimeFormatter = isize;
 pub type URelativeDateTimeFormatterField = i32;
 pub type URelativeDateTimeUnit = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UReplaceableCallbacks {
     pub length: isize,
     pub charAt: isize,
@@ -4423,7 +4423,7 @@ pub type USearchAttributeValue = i32;
 pub type USentenceBreak = i32;
 pub type USentenceBreakTag = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USerializedSet {
     pub array: *const u16,
     pub bmpLength: i32,
@@ -4544,7 +4544,7 @@ pub const UTZNM_SHORT_GENERIC: UTimeZoneNameType = 8;
 pub const UTZNM_SHORT_STANDARD: UTimeZoneNameType = 16;
 pub const UTZNM_UNKNOWN: UTimeZoneNameType = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UText {
     pub magic: u32,
     pub flags: i32,
@@ -4582,7 +4582,7 @@ pub type UTextClose = Option<unsafe extern "C" fn(ut: *mut UText)>;
 pub type UTextCopy = Option<unsafe extern "C" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
 pub type UTextExtract = Option<unsafe extern "C" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,
@@ -4620,7 +4620,7 @@ pub type UTraceFunctionNumber = i32;
 pub type UTraceLevel = i32;
 pub type UTransDirection = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UTransPosition {
     pub contextStart: i32,
     pub contextLimit: i32,

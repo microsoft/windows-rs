@@ -21,9 +21,7 @@ impl Enum {
         let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Copy", "Clone"]);
 
-        if !config.bindgen.style.is_sys() {
-            derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
-        }
+        derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
 
         let fields = self
             .def
@@ -48,7 +46,7 @@ impl Enum {
                 }
             });
 
-        let flags = if config.bindgen.style.is_sys() || underlying_type != Type::U32 {
+        let flags = if underlying_type != Type::U32 {
             quote! {}
         } else {
             quote! {
@@ -100,7 +98,7 @@ impl Enum {
             // useful when the enum appears as a generic type argument in an
             // implemented parameterized interface. In minimal mode we skip it
             // unconditionally — the trait default (empty) is sufficient.
-            let name_const = if config.bindgen.style.is_minimal() {
+            let name_const = if config.bindgen.style.has_com() {
                 quote! {}
             } else {
                 let type_name_bytes =

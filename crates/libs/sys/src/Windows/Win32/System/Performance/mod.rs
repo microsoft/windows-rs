@@ -178,7 +178,7 @@ pub const PDH_ACCESS_DENIED: u32 = 3221228507;
 pub const PDH_ASYNC_QUERY_TIMEOUT: u32 = 2147485659;
 pub const PDH_BINARY_LOG_CORRUPT: u32 = 3221228535;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -197,7 +197,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -216,7 +216,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_HA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -235,7 +235,7 @@ impl Default for PDH_BROWSE_DLG_CONFIG_HW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -295,7 +295,7 @@ impl Default for PDH_COUNTER_INFO_A_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -343,7 +343,7 @@ impl Default for PDH_COUNTER_INFO_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -358,7 +358,7 @@ impl Default for PDH_COUNTER_INFO_W_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -373,7 +373,7 @@ impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -399,7 +399,7 @@ pub const PDH_CSTATUS_NO_OBJECT: u32 = 3221228472;
 pub const PDH_CSTATUS_VALID_DATA: u32 = 0;
 pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = 1280;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub ObjectGUID: windows_sys::core::GUID,
@@ -412,7 +412,7 @@ impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub ObjectGUID: windows_sys::core::GUID,
@@ -538,7 +538,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -555,7 +555,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -603,7 +603,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -620,7 +620,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -686,7 +686,7 @@ pub const PDH_PLA_VALIDATION_ERROR: u32 = 3221228530;
 pub const PDH_PLA_VALIDATION_WARNING: u32 = 2147486707;
 pub const PDH_QUERY_PERF_DATA_TIMEOUT: u32 = 3221228542;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -695,7 +695,7 @@ pub struct PDH_RAW_COUNTER {
     pub MultiCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
@@ -706,7 +706,7 @@ impl Default for PDH_RAW_COUNTER_ITEM_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
@@ -717,7 +717,7 @@ impl Default for PDH_RAW_COUNTER_ITEM_W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDH_RAW_LOG_RECORD {
     pub dwStructureSize: u32,
     pub dwRecordType: PDH_LOG_TYPE,
@@ -757,7 +757,7 @@ impl Default for PDH_STATISTICS {
 }
 pub const PDH_STRING_NOT_FOUND: u32 = 3221228500;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PDH_TIME_INFO {
     pub StartTime: i64,
     pub EndTime: i64,
@@ -791,7 +791,7 @@ pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8;
 pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16;
 pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTERSET_INFO {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub ProviderGuid: windows_sys::core::GUID,
@@ -799,7 +799,7 @@ pub struct PERF_COUNTERSET_INFO {
     pub InstanceType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTERSET_INSTANCE {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub dwSize: u32,
@@ -809,7 +809,7 @@ pub struct PERF_COUNTERSET_INSTANCE {
 }
 pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTERSET_REG_INFO {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub CounterSetType: u32,
@@ -822,19 +822,19 @@ pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0;
 pub type PERF_COUNTER_AGGREGATE_FUNC = u32;
 pub const PERF_COUNTER_BASE: u32 = 196608;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_DATA {
     pub dwDataSize: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -855,7 +855,7 @@ impl Default for PERF_COUNTER_DEFINITION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -871,7 +871,7 @@ pub struct PERF_COUNTER_DEFINITION {
 pub const PERF_COUNTER_ELAPSED: u32 = 262144;
 pub const PERF_COUNTER_FRACTION: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_HEADER {
     pub dwStatus: u32,
     pub dwType: PerfCounterDataType,
@@ -881,7 +881,7 @@ pub struct PERF_COUNTER_HEADER {
 pub const PERF_COUNTER_HISTOGRAM: u32 = 393216;
 pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_IDENTIFIER {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub Status: u32,
@@ -892,7 +892,7 @@ pub struct PERF_COUNTER_IDENTIFIER {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_IDENTITY {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub BufferSize: u32,
@@ -903,7 +903,7 @@ pub struct PERF_COUNTER_IDENTITY {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -917,7 +917,7 @@ pub const PERF_COUNTER_PRECISION: u32 = 458752;
 pub const PERF_COUNTER_QUEUELEN: u32 = 327680;
 pub const PERF_COUNTER_RATE: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_COUNTER_REG_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -933,7 +933,7 @@ pub struct PERF_COUNTER_REG_INFO {
 }
 pub const PERF_COUNTER_VALUE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
     pub LittleEndian: u32,
@@ -956,7 +956,7 @@ impl Default for PERF_DATA_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_DATA_HEADER {
     pub dwTotalSize: u32,
     pub dwNumCounters: u32,
@@ -983,7 +983,7 @@ pub const PERF_ENUM_INSTANCES: u32 = 3;
 pub const PERF_ERROR_RETURN: PerfCounterDataType = 0;
 pub const PERF_FILTER: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: u32,
     pub ParentObjectTitleIndex: u32,
@@ -993,7 +993,7 @@ pub struct PERF_INSTANCE_DEFINITION {
     pub NameLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_INSTANCE_HEADER {
     pub Size: u32,
     pub InstanceId: u32,
@@ -1008,13 +1008,13 @@ pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = 2;
 pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = 4;
 pub const PERF_MULTI_COUNTER: u32 = 33554432;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_MULTI_COUNTERS {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_MULTI_INSTANCES {
     pub dwTotalSize: u32,
     pub dwInstances: u32,
@@ -1027,7 +1027,7 @@ pub const PERF_NUMBER_HEX: u32 = 0;
 pub const PERF_OBJECT_TIMER: u32 = 2097152;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -1052,7 +1052,7 @@ impl Default for PERF_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -1070,7 +1070,7 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: u32,
     pub Reserved: u32,
@@ -1104,13 +1104,13 @@ pub const PERF_SIZE_LARGE: u32 = 256;
 pub const PERF_SIZE_VARIABLE_LEN: u32 = 768;
 pub const PERF_SIZE_ZERO: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_STRING_BUFFER_HEADER {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERF_STRING_COUNTER_HEADER {
     pub dwCounterId: u32,
     pub dwOffset: u32,

@@ -21,7 +21,7 @@ pub const MCAST_API_VERSION_0: i32 = 0;
 pub const MCAST_API_VERSION_1: i32 = 1;
 pub const MCAST_CLIENT_ID_LEN: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,

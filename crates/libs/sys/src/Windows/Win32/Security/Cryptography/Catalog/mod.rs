@@ -47,7 +47,7 @@ windows_link::link!("wintrust.dll" "system" fn CryptCATPutMemberInfo(hcatalog : 
 windows_link::link!("wintrust.dll" "system" fn CryptCATStoreFromHandle(hcatalog : super::super::super::Foundation::HANDLE) -> *mut CRYPTCATSTORE);
 windows_link::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::super::super::Foundation::HANDLE, pwszfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
@@ -58,7 +58,7 @@ impl Default for CATALOG_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -74,7 +74,7 @@ impl Default for CRYPTCATATTRIBUTE {
 }
 pub type CRYPTCATATTRIBUTE_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -91,7 +91,7 @@ impl Default for CRYPTCATCDF {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -112,7 +112,7 @@ impl Default for CRYPTCATMEMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,
@@ -170,7 +170,7 @@ pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = 256;
 pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = 512;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut CRYPTCATSTORE,
