@@ -10,19 +10,6 @@ pub mod Test {
     );
     windows_core::imp::required_hierarchy!(Foo, IFooFactory);
     impl Foo {
-        pub fn CreateInstance(name: i32) -> windows_result::Result<Foo> {
-            Self::IFooFactory(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(this).CreateInstance)(
-                    windows_core::Interface::as_raw(this),
-                    name,
-                    core::ptr::null_mut(),
-                    core::ptr::null_mut(),
-                    &mut result__,
-                )
-                .and_then(|| windows_core::Type::from_abi(result__))
-            })
-        }
         pub fn CreateInstance_compose<T>(name: i32, compose: T) -> windows_result::Result<Foo>
         where
             T: windows_core::Compose,
@@ -40,18 +27,6 @@ pub mod Test {
                 .ok()?;
                 let _ = &derived__;
                 windows_core::Type::from_abi(result__)
-            })
-        }
-        pub fn new() -> windows_result::Result<Foo> {
-            Self::IFooFactory(|this| unsafe {
-                let mut result__ = core::mem::zeroed();
-                (windows_core::Interface::vtable(this).Default)(
-                    windows_core::Interface::as_raw(this),
-                    core::ptr::null_mut(),
-                    core::ptr::null_mut(),
-                    &mut result__,
-                )
-                .and_then(|| windows_core::Type::from_abi(result__))
             })
         }
         pub fn compose<T>(compose: T) -> windows_result::Result<Foo>

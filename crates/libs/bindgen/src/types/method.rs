@@ -1081,11 +1081,19 @@ impl Method {
                     quote! {}
                 };
 
-                quote! {
-                    #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
-                        #prelude
-                        Self::#interface_name(|this| unsafe { #vcall })
+                let new = if !emit_compose {
+                    quote! {
+                        #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                            #prelude
+                            Self::#interface_name(|this| unsafe { #vcall })
+                        }
                     }
+                } else {
+                    quote! {}
+                };
+
+                quote! {
+                    #new
                     #compose
                 }
             }

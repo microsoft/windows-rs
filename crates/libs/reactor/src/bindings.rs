@@ -326,18 +326,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Application {
-    pub(crate) fn new() -> windows_core::Result<Application> {
-        Self::IApplicationFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::ptr::null_mut(),
-                core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
     pub(crate) fn compose<T>(compose: T) -> windows_core::Result<Application>
     where
         T: windows_core::Compose,
