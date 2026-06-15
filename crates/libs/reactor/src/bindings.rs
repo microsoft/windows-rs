@@ -9628,24 +9628,9 @@ impl windows_core::RuntimeType for IListBox {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl IListBox {
-    pub(crate) fn put_SelectionMode(&self, value: SelectionMode) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).put_SelectionMode)(
-                windows_core::Interface::as_raw(self),
-                value,
-            )
-            .ok()
-        }
-    }
-}
 #[repr(C)]
 pub struct IListBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_SelectedItems: usize,
-    get_SelectionMode: usize,
-    pub put_SelectionMode:
-        unsafe extern "system" fn(*mut core::ffi::c_void, SelectionMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IListBoxFactory,
@@ -10298,16 +10283,6 @@ impl INavigationView {
             .ok()
         }
     }
-    pub(crate) fn get_SelectedItem(&self) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_SelectedItem)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     pub(crate) fn put_SelectedItem<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -10432,10 +10407,7 @@ pub struct INavigationView_Vtbl {
     put_OpenPaneLength: usize,
     get_PaneToggleButtonStyle: usize,
     put_PaneToggleButtonStyle: usize,
-    pub get_SelectedItem: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    get_SelectedItem: usize,
     pub put_SelectedItem: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -12036,16 +12008,6 @@ impl IRangeBase {
             .ok()
         }
     }
-    pub(crate) fn get_Value(&self) -> windows_core::Result<f64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Value)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn put_Value(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_Value)(
@@ -12102,8 +12064,7 @@ pub struct IRangeBase_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     get_LargeChange: usize,
     put_LargeChange: usize,
-    pub get_Value:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    get_Value: usize,
     pub put_Value: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub add_ValueChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -13146,16 +13107,6 @@ impl ISelector {
             .ok()
         }
     }
-    pub(crate) fn get_SelectedItem(&self) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_SelectedItem)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     pub(crate) fn add_SelectionChanged<F>(
         &self,
         handler: F,
@@ -13196,10 +13147,7 @@ pub struct ISelector_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub put_SelectedIndex:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub get_SelectedItem: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    get_SelectedItem: usize,
     put_SelectedItem: usize,
     get_SelectedValue: usize,
     put_SelectedValue: usize,
@@ -15317,18 +15265,6 @@ impl windows_core::RuntimeType for ITextElement {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ITextElement {
-    pub(crate) fn put_FontFamily<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<FontFamily>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).put_FontFamily)(
-                windows_core::Interface::as_raw(self),
-                value.param().abi(),
-            )
-            .ok()
-        }
-    }
     pub(crate) fn put_FontWeight(&self, value: FontWeight) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_FontWeight)(
@@ -15346,10 +15282,7 @@ pub struct ITextElement_Vtbl {
     get_FontSize: usize,
     put_FontSize: usize,
     get_FontFamily: usize,
-    pub put_FontFamily: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    put_FontFamily: usize,
     get_FontWeight: usize,
     pub put_FontWeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, FontWeight) -> windows_core::HRESULT,
@@ -17022,16 +16955,6 @@ impl windows_core::RuntimeType for IWindow {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IWindow {
-    pub(crate) fn get_Content(&self) -> windows_core::Result<UIElement> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Content)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     pub(crate) fn put_Content<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -17119,10 +17042,7 @@ pub struct IWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Bounds: usize,
     get_Visible: usize,
-    pub get_Content: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    get_Content: usize,
     pub put_Content: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -17214,23 +17134,9 @@ impl windows_core::RuntimeType for IWindowEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl IWindowEventArgs {
-    pub(crate) fn put_Handled(&self, value: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).put_Handled)(
-                windows_core::Interface::as_raw(self),
-                value,
-            )
-            .ok()
-        }
-    }
-}
 #[repr(C)]
 pub struct IWindowEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    get_Handled: usize,
-    pub put_Handled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IWindowFactory,
@@ -21627,22 +21533,6 @@ impl<
             windows_core::HRESULT(0)
         }
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SelectionMode(pub i32);
-impl SelectionMode {
-    pub const Single: Self = Self(0);
-    pub const Multiple: Self = Self(1);
-    pub const Extended: Self = Self(2);
-}
-impl windows_core::TypeKind for SelectionMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for SelectionMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
-        b"enum(Microsoft.UI.Xaml.Controls.SelectionMode;i4)",
-    );
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
