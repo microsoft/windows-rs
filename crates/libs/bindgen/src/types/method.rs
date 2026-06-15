@@ -60,7 +60,7 @@ impl Method {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -69,7 +69,7 @@ impl Method {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
                                 let (ok_data__, ok_data_len__) = ok__.into_abi();
-                                result__.write(core::mem::transmute(ok_data__));
+                                result__.write(ok_data__);
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
                             }

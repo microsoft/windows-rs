@@ -17302,7 +17302,7 @@ impl IXamlMetadataProvider_Vtbl {
                 match IXamlMetadataProvider_Impl::GetXmlnsDefinitions(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
