@@ -197,7 +197,7 @@ Microsoft.UI.Xaml.Controls.Primitives.PlacementMode
 Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
 Microsoft.UI.Xaml.Controls.Primitives.Selector
 Microsoft.UI.Xaml.Controls.RelativePanel::{SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
-Microsoft.UI.Xaml.Controls.RichTextBlock
+Microsoft.UI.Xaml.Controls.RichTextBlock::{CreateInstance}
 Microsoft.UI.Xaml.Controls.RowDefinition::{CreateInstance}
 Microsoft.UI.Xaml.Controls.RowDefinitionCollection
 Microsoft.UI.Xaml.Controls.ScrollBarVisibility
@@ -210,7 +210,6 @@ Microsoft.UI.Xaml.Controls.SplitViewDisplayMode
 Microsoft.UI.Xaml.Controls.SwapChainPanel::{CreateInstance}
 Microsoft.UI.Xaml.Controls.ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
 Microsoft.UI.Xaml.Controls.Symbol
-Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstance}
 Microsoft.UI.Xaml.Controls.SymbolIcon::{CreateInstanceWithSymbol}
 Microsoft.UI.Xaml.Controls.TabViewItem::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TabViewTabCloseRequestedEventArgs
@@ -224,7 +223,7 @@ Microsoft.UI.Xaml.Controls.TreeViewItemInvokedEventArgs
 Microsoft.UI.Xaml.Controls.TreeViewNode::{CreateInstance}
 Microsoft.UI.Xaml.Controls.TreeViewSelectionMode
 Microsoft.UI.Xaml.Controls.UIElementCollection
-Microsoft.UI.Xaml.Controls.XamlControlsResources
+Microsoft.UI.Xaml.Controls.XamlControlsResources::{CreateInstance}
 Microsoft.UI.Xaml.CornerRadius
 Microsoft.UI.Xaml.DependencyObject
 Microsoft.UI.Xaml.Documents.BlockCollection
@@ -271,13 +270,13 @@ Microsoft.UI.Xaml.Media.CompositionTarget::{add_Rendering}
 Microsoft.UI.Xaml.Media.DesktopAcrylicBackdrop::{CreateInstance}
 Microsoft.UI.Xaml.Media.FontFamily::{CreateInstanceWithName}
 Microsoft.UI.Xaml.Media.ImageSource
-Microsoft.UI.Xaml.Media.Imaging.BitmapImage
+Microsoft.UI.Xaml.Media.Imaging.BitmapImage::{CreateInstance}
 Microsoft.UI.Xaml.Media.Imaging.IBitmapImage::{put_UriSource}
 Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource::{CreateInstanceWithDimensions}
 Microsoft.UI.Xaml.Media.IMicaBackdrop::{put_Kind}
 Microsoft.UI.Xaml.Media.ISolidColorBrush::{put_Color}
 Microsoft.UI.Xaml.Media.MicaBackdrop::{CreateInstance}
-Microsoft.UI.Xaml.Media.SolidColorBrush
+Microsoft.UI.Xaml.Media.SolidColorBrush::{CreateInstance}
 Microsoft.UI.Xaml.Media.Stretch
 Microsoft.UI.Xaml.Media.SystemBackdrop
 Microsoft.UI.Xaml.RoutedEventHandler
@@ -291,7 +290,6 @@ Microsoft.UI.Xaml.Shapes.Rectangle::{CreateInstance}
 Microsoft.UI.Xaml.Shapes.Shape
 Microsoft.UI.Xaml.SizeChangedEventArgs
 Microsoft.UI.Xaml.SizeChangedEventHandler
-Microsoft.UI.Xaml.Style::{CreateInstance}
 Microsoft.UI.Xaml.TextWrapping
 Microsoft.UI.Xaml.Thickness
 Microsoft.UI.Xaml.TriggerBase
@@ -300,7 +298,7 @@ Microsoft.UI.Xaml.VerticalAlignment
 Microsoft.UI.Xaml.Window::{CreateInstance}
 Microsoft.UI.Xaml.WindowEventArgs
 Microsoft.UI.Xaml.XamlRoot
-Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider
+Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider::{CreateInstance}
 Windows.Foundation.EventHandler
 Windows.Foundation.Size
 Windows.Foundation.TypedEventHandler

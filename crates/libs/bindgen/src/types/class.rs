@@ -126,9 +126,21 @@ impl Class {
 
         let result = config.write_result();
 
-        let new = self.has_default_constructor(config.reader).then(||
+        let vis = if config.bindgen.style.is_minimal() {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        };
+
+        let has_default_ctor = self.has_default_constructor(config.reader)
+            && config.minimal_filter.map_or(true, |mf| {
+                mf.activatable
+                    .contains(&(type_name.namespace(), type_name.name()))
+            });
+
+        let new = has_default_ctor.then(||
             quote! {
-                pub fn new() -> #result Result<Self> {
+                #vis fn new() -> #result Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
                 fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> #result Result<R>>(
