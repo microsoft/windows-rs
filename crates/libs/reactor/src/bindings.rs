@@ -2232,21 +2232,6 @@ unsafe impl Send for ContentDialogClosedEventArgs {}
 unsafe impl Sync for ContentDialogClosedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContentDialogPlacement(pub i32);
-impl ContentDialogPlacement {
-    pub const Popup: Self = Self(0);
-    pub const InPlace: Self = Self(1);
-}
-impl windows_core::TypeKind for ContentDialogPlacement {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContentDialogPlacement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
-        b"enum(Microsoft.UI.Xaml.Controls.ContentDialogPlacement;i4)",
-    );
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContentDialogResult(pub i32);
 impl ContentDialogResult {
     pub const None: Self = Self(0);
@@ -19763,21 +19748,6 @@ impl windows_core::TypeKind for ScrollBarVisibility {
 impl windows_core::RuntimeType for ScrollBarVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Xaml.Controls.ScrollBarVisibility;i4)",
-    );
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ScrollIntoViewAlignment(pub i32);
-impl ScrollIntoViewAlignment {
-    pub const Default: Self = Self(0);
-    pub const Leading: Self = Self(1);
-}
-impl windows_core::TypeKind for ScrollIntoViewAlignment {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ScrollIntoViewAlignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
-        b"enum(Microsoft.UI.Xaml.Controls.ScrollIntoViewAlignment;i4)",
     );
 }
 #[repr(transparent)]

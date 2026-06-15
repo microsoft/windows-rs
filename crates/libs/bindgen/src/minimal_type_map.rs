@@ -1,5 +1,16 @@
 use super::*;
 
+/// Returns `true` if the given method should be considered "included" by the
+/// method set for type-closure purposes. This mirrors the overload-aware
+/// logic in `Config::includes_method`: methods with an overload-disambiguated
+/// name are matched only on that name, not on the shared raw metadata name.
+fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
+    if let Some(overload) = method_overload_name(method) {
+        return method_set.includes(&overload);
+    }
+    method_set.includes(method.name())
+}
+
 /// Computes the minimal type closure for `--minimal` mode.
 ///
 /// Starting from the methods and types listed in a [`MinimalFilter`], this
@@ -46,7 +57,7 @@ impl MinimalTypeMap {
 
                     // Walk method signatures for the requested methods.
                     for method in iface.def.methods() {
-                        if method_set.includes(method.name()) {
+                        if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(
                                 iface.def.namespace(),
                                 &iface.generics,
@@ -65,7 +76,7 @@ impl MinimalTypeMap {
                     }
                     // Walk requested method signatures.
                     for method in iface.def.methods() {
-                        if method_set.includes(method.name()) {
+                        if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(iface.def.namespace(), &[], reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_minimal(&mut types, reader, references);
