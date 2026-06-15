@@ -115,8 +115,13 @@ impl Delegate {
         let new_method = if is_event_only {
             quote! {}
         } else {
+            let vis = if config.bindgen.style.is_minimal() {
+                quote! { pub(crate) }
+            } else {
+                quote! { pub }
+            };
             quote! {
-                pub fn new<#fn_constraint>(invoke: F) -> Self {
+                #vis fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = windows_core::imp::DelegateBox::<#name, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
                     unsafe {
                         core::mem::transmute(windows_core::imp::box_new(com))

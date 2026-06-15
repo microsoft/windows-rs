@@ -372,6 +372,14 @@ impl Method {
             (method_names.add(self.def), TokenStream::new())
         };
 
+        // In minimal mode, use pub(crate) so that the dead_code lint can detect
+        // unused methods within the consuming crate.
+        let vis = if config.bindgen.style.is_minimal() {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        };
+
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
             let name = param.write_ident();
 
@@ -973,7 +981,7 @@ impl Method {
 
             return match kind {
                 InterfaceKind::Default => quote! {
-                    pub fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                    #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                         #event_prelude
                         unsafe {
                             #event_body
@@ -983,7 +991,7 @@ impl Method {
                 InterfaceKind::None | InterfaceKind::Base => {
                     let interface_name = interface.unwrap().write_name(config);
                     quote! {
-                        pub fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                             let this = &windows_core::Interface::cast::<#interface_name>(self)?;
                             #event_prelude
                             unsafe {
@@ -995,7 +1003,7 @@ impl Method {
                 InterfaceKind::Static => {
                     let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
                     quote! {
-                        pub fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #vis fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                             #event_prelude
                             Self::#factory_name(|this| unsafe {
                                 #event_body
@@ -1010,7 +1018,7 @@ impl Method {
 
         match kind {
             InterfaceKind::Default => quote! {
-                pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
+                #vis fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                     #prelude
                     unsafe {
                         #vcall
@@ -1027,7 +1035,7 @@ impl Method {
                 let interface_name = interface.unwrap().write_name(config);
 
                 quote! {
-                    pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
+                    #vis fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
                         #prelude
                         unsafe {
@@ -1040,7 +1048,7 @@ impl Method {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
-                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                    #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
@@ -1054,11 +1062,11 @@ impl Method {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
-                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                    #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
-                    pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                    #vis fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
                         #prelude
                         Self::#interface_name(|this| unsafe {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
