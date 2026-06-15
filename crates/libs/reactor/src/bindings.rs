@@ -2,7 +2,6 @@ windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const c
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
 windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> windows_core::BOOL);
 windows_core::link!("microsoft.windowsappruntime.bootstrap.dll" "system" fn MddBootstrapInitialize2(majorminorversion : u32, versiontag : *const u16, minversion : PACKAGE_VERSION, options : MddBootstrapInitializeOptions) -> windows_core::HRESULT);
-windows_core::link!("microsoft.windowsappruntime.bootstrap.dll" "system" fn MddBootstrapShutdown());
 windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
@@ -5345,16 +5344,6 @@ impl IBorder {
             .ok()
         }
     }
-    pub fn get_Child(&self) -> windows_core::Result<UIElement> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Child)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     pub fn put_Child<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -5392,10 +5381,7 @@ pub struct IBorder_Vtbl {
     get_Padding: usize,
     pub put_Padding:
         unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
-    pub get_Child: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    get_Child: usize,
     pub put_Child: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -6096,43 +6082,9 @@ impl windows_core::RuntimeType for ICalendarViewSelectedDatesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl ICalendarViewSelectedDatesChangedEventArgs {
-    pub fn get_AddedDates(
-        &self,
-    ) -> windows_core::Result<windows_collections::IVectorView<windows_time::DateTime>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AddedDates)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn get_RemovedDates(
-        &self,
-    ) -> windows_core::Result<windows_collections::IVectorView<windows_time::DateTime>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_RemovedDates)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
 #[repr(C)]
 pub struct ICalendarViewSelectedDatesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub get_AddedDates: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_RemovedDates: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICanvas,
@@ -7389,16 +7341,6 @@ impl IControl {
             .ok()
         }
     }
-    pub fn get_IsEnabled(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsEnabled)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub fn put_IsEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_IsEnabled)(
@@ -7463,8 +7405,7 @@ pub struct IControl_Vtbl {
     ) -> windows_core::HRESULT,
     get_IsTextScaleFactorEnabled: usize,
     put_IsTextScaleFactorEnabled: usize,
-    pub get_IsEnabled:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    get_IsEnabled: usize,
     pub put_IsEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     get_TabNavigation: usize,
@@ -14198,23 +14139,9 @@ impl windows_core::RuntimeType for ISymbolIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl ISymbolIcon {
-    pub fn get_Symbol(&self) -> windows_core::Result<Symbol> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Symbol)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-}
 #[repr(C)]
 pub struct ISymbolIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub get_Symbol:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Symbol) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ISymbolIconFactory,
@@ -15717,17 +15644,6 @@ impl windows_core::RuntimeType for IToggleButton {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IToggleButton {
-    pub fn get_IsChecked(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsChecked)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-            .and_then(|r__: windows_reference::IReference<bool>| r__.Value())
-        }
-    }
     pub fn put_IsChecked(&self, value: Option<bool>) -> windows_core::Result<()> {
         let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe {
@@ -15796,10 +15712,7 @@ impl IToggleButton {
 #[repr(C)]
 pub struct IToggleButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub get_IsChecked: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
+    get_IsChecked: usize,
     pub put_IsChecked: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -16322,15 +16235,6 @@ impl IUIElement {
             .ok()
         }
     }
-    pub fn put_IsHitTestVisible(&self, value: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).put_IsHitTestVisible)(
-                windows_core::Interface::as_raw(self),
-                value,
-            )
-            .ok()
-        }
-    }
     pub fn get_KeyboardAccelerators(
         &self,
     ) -> windows_core::Result<windows_collections::IVector<KeyboardAccelerator>> {
@@ -16531,14 +16435,6 @@ impl IUIElement {
             ))
         }
     }
-    pub fn UpdateLayout(&self) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).UpdateLayout)(windows_core::Interface::as_raw(
-                self,
-            ))
-            .ok()
-        }
-    }
 }
 #[repr(C)]
 pub struct IUIElement_Vtbl {
@@ -16561,8 +16457,7 @@ pub struct IUIElement_Vtbl {
     get_RenderTransformOrigin: usize,
     put_RenderTransformOrigin: usize,
     get_IsHitTestVisible: usize,
-    pub put_IsHitTestVisible:
-        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    put_IsHitTestVisible: usize,
     get_Visibility: usize,
     put_Visibility: usize,
     get_RenderSize: usize,
@@ -16758,47 +16653,6 @@ pub struct IUIElement_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_RightTapped:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_ManipulationStarting: usize,
-    remove_ManipulationStarting: usize,
-    add_ManipulationInertiaStarting: usize,
-    remove_ManipulationInertiaStarting: usize,
-    add_ManipulationStarted: usize,
-    remove_ManipulationStarted: usize,
-    add_ManipulationDelta: usize,
-    remove_ManipulationDelta: usize,
-    add_ManipulationCompleted: usize,
-    remove_ManipulationCompleted: usize,
-    add_AccessKeyDisplayRequested: usize,
-    remove_AccessKeyDisplayRequested: usize,
-    add_AccessKeyDisplayDismissed: usize,
-    remove_AccessKeyDisplayDismissed: usize,
-    add_AccessKeyInvoked: usize,
-    remove_AccessKeyInvoked: usize,
-    add_ProcessKeyboardAccelerators: usize,
-    remove_ProcessKeyboardAccelerators: usize,
-    add_GettingFocus: usize,
-    remove_GettingFocus: usize,
-    add_LosingFocus: usize,
-    remove_LosingFocus: usize,
-    add_NoFocusCandidateFound: usize,
-    remove_NoFocusCandidateFound: usize,
-    add_PreviewKeyDown: usize,
-    remove_PreviewKeyDown: usize,
-    add_PreviewKeyUp: usize,
-    remove_PreviewKeyUp: usize,
-    add_BringIntoViewRequested: usize,
-    remove_BringIntoViewRequested: usize,
-    Measure: usize,
-    Arrange: usize,
-    CapturePointer: usize,
-    ReleasePointerCapture: usize,
-    ReleasePointerCaptures: usize,
-    AddHandler: usize,
-    RemoveHandler: usize,
-    TransformToVisual: usize,
-    InvalidateMeasure: usize,
-    InvalidateArrange: usize,
-    pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IUriRuntimeClass,
@@ -17321,24 +17175,6 @@ pub struct IXamlControlsResources_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
-    IXamlMember,
-    IXamlMember_Vtbl,
-    0xbf3a2913_5c63_50ec_8660_61809be7b9b9
-);
-impl windows_core::RuntimeType for IXamlMember {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(
-    IXamlMember,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-#[repr(C)]
-pub struct IXamlMember_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(
     IXamlMetadataProvider,
     IXamlMetadataProvider_Vtbl,
     0xa96251f0_2214_5d53_8746_ce99a2593cd7
@@ -17563,283 +17399,9 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl IXamlType {
-    pub fn get_BaseType(&self) -> windows_core::Result<IXamlType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_BaseType)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn get_ContentProperty(&self) -> windows_core::Result<IXamlMember> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_ContentProperty)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn get_FullName(&self) -> windows_core::Result<String> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_FullName)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| {
-                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
-                hstring.to_string_lossy()
-            })
-        }
-    }
-    pub fn get_IsArray(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsArray)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn get_IsCollection(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsCollection)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn get_IsConstructible(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsConstructible)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn get_IsDictionary(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsDictionary)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn get_IsMarkupExtension(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsMarkupExtension)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn get_IsBindable(&self) -> windows_core::Result<bool> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_IsBindable)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn get_ItemType(&self) -> windows_core::Result<IXamlType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_ItemType)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn get_KeyType(&self) -> windows_core::Result<IXamlType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_KeyType)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn get_BoxedType(&self) -> windows_core::Result<IXamlType> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_BoxedType)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn get_UnderlyingType(&self) -> windows_core::Result<TypeName> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_UnderlyingType)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ActivateInstance(&self) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ActivateInstance)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateFromString(
-        &self,
-        value: &str,
-    ) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFromString)(
-                windows_core::Interface::as_raw(self),
-                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetMember(&self, name: &str) -> windows_core::Result<IXamlMember> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMember)(
-                windows_core::Interface::as_raw(self),
-                core::mem::transmute_copy(&windows_core::HSTRING::from(name)),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AddToVector<P0, P1>(&self, instance: P0, value: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).AddToVector)(
-                windows_core::Interface::as_raw(self),
-                instance.param().abi(),
-                value.param().abi(),
-            )
-            .ok()
-        }
-    }
-    pub fn AddToMap<P0, P1, P2>(&self, instance: P0, key: P1, value: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-        P2: windows_core::Param<windows_core::IInspectable>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).AddToMap)(
-                windows_core::Interface::as_raw(self),
-                instance.param().abi(),
-                key.param().abi(),
-                value.param().abi(),
-            )
-            .ok()
-        }
-    }
-    pub fn RunInitializer(&self) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).RunInitializer)(windows_core::Interface::as_raw(
-                self,
-            ))
-            .ok()
-        }
-    }
-}
 #[repr(C)]
 pub struct IXamlType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub get_BaseType: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_ContentProperty: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_FullName: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_IsArray:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub get_IsCollection:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub get_IsConstructible:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub get_IsDictionary:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub get_IsMarkupExtension:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub get_IsBindable:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub get_ItemType: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_KeyType: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_BoxedType: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub get_UnderlyingType: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::mem::MaybeUninit<TypeName>,
-    ) -> windows_core::HRESULT,
-    pub ActivateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub CreateFromString: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub GetMember: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub AddToVector: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub AddToMap: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub RunInitializer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
