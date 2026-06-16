@@ -15,7 +15,7 @@ impl Config<'_> {
 
     fn write_specific(&self, specific: &str) -> TokenStream {
         if self.bindgen.style.is_sys() {
-            if self.bindgen.layout.is_package() || self.bindgen.deps != DepMode::None {
+            if self.bindgen.layout.is_package() || self.bindgen.resolved_deps() != DepMode::None {
                 quote! { windows_sys::core:: }
             } else if self.bindgen.layout.is_flat() {
                 quote! {}
@@ -28,7 +28,7 @@ impl Config<'_> {
 
                 path.parse().unwrap()
             }
-        } else if self.bindgen.deps != DepMode::Specific {
+        } else if self.bindgen.resolved_deps() != DepMode::Specific {
             quote! { windows_core:: }
         } else {
             format!("{specific}::").parse().unwrap()
