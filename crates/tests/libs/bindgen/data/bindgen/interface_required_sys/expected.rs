@@ -6,18 +6,13 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
 pub type HRESULT = i32;
-pub const IID_IAsyncAction: GUID = GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
+pub const IID_IAsyncAction: GUID = GUID {
+    data1: 0x5a648006,
+    data2: 0x843a,
+    data3: 0x4da9,
+    data4: [134, 91, 157, 38, 229, 223, 173, 123],
+};
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: IInspectable_Vtbl,
@@ -25,7 +20,12 @@ pub struct IAsyncAction_Vtbl {
     Completed: usize,
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
 }
-pub const IID_IAsyncInfo: GUID = GUID::from_u128(0x00000036_0000_0000_c000_000000000046);
+pub const IID_IAsyncInfo: GUID = GUID {
+    data1: 0x00000036,
+    data2: 0x0000,
+    data3: 0x0000,
+    data4: [192, 0, 0, 0, 0, 0, 0, 70],
+};
 #[repr(C)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: IInspectable_Vtbl,
@@ -35,7 +35,12 @@ pub struct IAsyncInfo_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> HRESULT,
 }
-pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+pub const IID_IUnknown: GUID = GUID {
+    data1: 0x00000000,
+    data2: 0x0000,
+    data3: 0x0000,
+    data4: [192, 0, 0, 0, 0, 0, 0, 70],
+};
 #[repr(C)]
 pub struct IUnknown_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(
@@ -46,7 +51,12 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
-pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+pub const IID_IInspectable: GUID = GUID {
+    data1: 0xaf86e2e0,
+    data2: 0xb12d,
+    data3: 0x4c6a,
+    data4: [156, 90, 215, 170, 101, 16, 30, 144],
+};
 #[repr(C)]
 pub struct IInspectable_Vtbl {
     pub base: IUnknown_Vtbl,
