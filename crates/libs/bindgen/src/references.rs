@@ -85,10 +85,7 @@ impl References {
             stage
                 .into_iter()
                 .map(|stage| {
-                    // Reference paths use dots (e.g. "Windows.Win32.Foundation.WIN32_ERROR")
-                    // — convert to :: syntax for the new parser.
-                    let path = stage.path.replace('.', "::");
-                    let entries = filter_parser::parse_filter_entry(&path);
+                    let entries = filter_parser::parse_filter_entry(&stage.path);
                     let resolved = filter_parser::resolve_entries(reader, &entries);
                     let filter = Filter::from_resolved(reader, &resolved, false);
 
