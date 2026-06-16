@@ -316,8 +316,10 @@ impl Filter {
                     members,
                 } => {
                     let full = format!("{namespace}.{name}");
+                    // Member-level entries always include the type — exclusion
+                    // applies to the method/variant, not the type itself.
                     if !rules.iter().any(|(r, _)| r == &full) {
-                        rules.push((full, include));
+                        rules.push((full, true));
                     }
 
                     if entry.trait_only {
@@ -330,15 +332,17 @@ impl Filter {
                     // Register each member
                     if members.len() == 1 && members[0] == "*" {
                         // ::* — expand all methods/members on the type
-                        Self::register_type_for_minimal(
-                            reader,
-                            namespace,
-                            name,
-                            &mut requested_interfaces,
-                            &mut direct_types,
-                            &mut activatable,
-                            &mut enum_variants,
-                        );
+                        if include {
+                            Self::register_type_for_minimal(
+                                reader,
+                                namespace,
+                                name,
+                                &mut requested_interfaces,
+                                &mut direct_types,
+                                &mut activatable,
+                                &mut enum_variants,
+                            );
+                        }
                     } else {
                         for member in members {
                             Self::register_member(

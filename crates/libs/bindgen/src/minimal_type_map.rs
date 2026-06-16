@@ -92,6 +92,13 @@ impl MinimalTypeMap {
             }
         }
 
+        // Re-sort rules so precedence (longer/more-specific first) is maintained.
+        filter.rules.sort_unstable_by(|left, right| {
+            let left = (left.0.len(), !left.1);
+            let right = (right.0.len(), !right.1);
+            left.cmp(&right).reverse()
+        });
+
         types
     }
 }
