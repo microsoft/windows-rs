@@ -5,7 +5,6 @@ extras.MddBootstrapInitialize2
 extras.MddBootstrapInitializeOptions
 extras.MddBootstrapInitializeOptions_OnNoMatch_ShowUI
 extras.MddBootstrapInitializeOptions_OnPackageIdentity_NOOP
-extras.MddBootstrapShutdown
 extras.WINDOWSAPPSDK_RELEASE_MAJORMINOR
 extras.WINDOWSAPPSDK_RELEASE_VERSION_TAG_W
 extras.WINDOWSAPPSDK_RUNTIME_VERSION_UINT64
@@ -94,7 +93,7 @@ Microsoft.UI.Xaml.Controls.IAutoSuggestBox::{put_Text, get_Text, add_QuerySubmit
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs::{get_QueryText}
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs::{get_SelectedItem}
 Microsoft.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs::{get_Reason}
-Microsoft.UI.Xaml.Controls.IBorder::{put_Child, get_Child, put_Padding, put_Background, put_CornerRadius, put_BorderBrush, put_BorderThickness}
+Microsoft.UI.Xaml.Controls.IBorder::{put_Child, put_Padding, put_Background, put_CornerRadius, put_BorderBrush, put_BorderThickness}
 Microsoft.UI.Xaml.Controls.IBreadcrumbBar::{put_ItemsSource, add_ItemClicked}
 Microsoft.UI.Xaml.Controls.IBreadcrumbBarItemClickedEventArgs::{get_Index}
 Microsoft.UI.Xaml.Controls.BreadcrumbBarItemClickedEventArgs
@@ -102,7 +101,6 @@ Microsoft.UI.Xaml.Controls.IButton::{put_Flyout, get_Flyout}
 Microsoft.UI.Xaml.Controls.ICalendarDatePicker::{add_DateChanged}
 Microsoft.UI.Xaml.Controls.ICalendarDatePickerDateChangedEventArgs::{get_NewDate}
 Microsoft.UI.Xaml.Controls.ICalendarView::{add_SelectedDatesChanged}
-Microsoft.UI.Xaml.Controls.ICalendarViewSelectedDatesChangedEventArgs::{get_AddedDates, get_RemovedDates}
 Microsoft.UI.Xaml.Controls.IColorChangedEventArgs::{get_NewColor}
 Microsoft.UI.Xaml.Controls.IColorPicker::{put_Color, add_ColorChanged}
 Microsoft.UI.Xaml.Controls.IColumnDefinition::{put_Width}
@@ -113,7 +111,7 @@ Microsoft.UI.Xaml.Controls.ICommandBarFlyoutFactory
 Microsoft.UI.Xaml.Controls.IContentControl::{get_Content}
 Microsoft.UI.Xaml.Controls.IContentDialog::{ShowAsync, Hide, add_Closed}
 Microsoft.UI.Xaml.Controls.IContentDialogClosedEventArgs::{get_Result}
-Microsoft.UI.Xaml.Controls.IControl::{get_IsEnabled, put_Padding, put_Background, put_Foreground, put_FontSize, put_FontWeight, put_FontFamily}
+Microsoft.UI.Xaml.Controls.IControl::{put_Padding, put_Background, put_Foreground, put_FontSize, put_FontWeight, put_FontFamily}
 Microsoft.UI.Xaml.Controls.IDatePicker::{add_SelectedDateChanged}
 Microsoft.UI.Xaml.Controls.IDatePickerSelectedValueChangedEventArgs::{get_NewDate}
 Microsoft.UI.Xaml.Controls.IExpander::{put_Header, add_Expanding, add_Collapsed}
@@ -155,7 +153,6 @@ Microsoft.UI.Xaml.Controls.ISelectorBarItem::{put_Text, get_Text, put_Icon}
 Microsoft.UI.Xaml.Controls.ISlider::{put_StepFrequency}
 Microsoft.UI.Xaml.Controls.ISplitButton::{add_Click}
 Microsoft.UI.Xaml.Controls.ISplitView::{put_DisplayMode, put_Content, put_Pane, add_PaneClosed}
-Microsoft.UI.Xaml.Controls.ISymbolIcon::{get_Symbol}
 Microsoft.UI.Xaml.Controls.ITabView::{get_TabItems, get_SelectedIndex, add_SelectionChanged, add_TabCloseRequested, add_AddTabButtonClick}
 Microsoft.UI.Xaml.Controls.ITabViewItem::{put_Header, put_IsClosable}
 Microsoft.UI.Xaml.Controls.ITabViewTabCloseRequestedEventArgs::{get_Tab}
@@ -196,7 +193,7 @@ Microsoft.UI.Xaml.Controls.Primitives.IFlyoutBase::{put_Placement}
 Microsoft.UI.Xaml.Controls.Primitives.IRangeBase::{get_Value, put_SmallChange, add_ValueChanged}
 Microsoft.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs::{get_NewValue}
 Microsoft.UI.Xaml.Controls.Primitives.ISelector::{get_SelectedIndex, get_SelectedItem, add_SelectionChanged}
-Microsoft.UI.Xaml.Controls.Primitives.IToggleButton::{get_IsChecked, add_Checked, add_Unchecked}
+Microsoft.UI.Xaml.Controls.Primitives.IToggleButton::{add_Checked, add_Unchecked}
 Microsoft.UI.Xaml.Controls.Primitives.PlacementMode
 Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
 Microsoft.UI.Xaml.Controls.Primitives.Selector
@@ -262,13 +259,13 @@ Microsoft.UI.Xaml.Input.TappedEventHandler
 Microsoft.UI.Xaml.Input.TappedRoutedEventArgs
 Microsoft.UI.Xaml.IResourceDictionary::{get_MergedDictionaries}
 Microsoft.UI.Xaml.ISizeChangedEventArgs::{get_NewSize}
-Microsoft.UI.Xaml.IUIElement::{put_AllowDrop, put_IsHitTestVisible, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, add_PointerPressed, add_PointerReleased, add_PointerExited, add_Tapped, add_RightTapped, UpdateLayout}
+Microsoft.UI.Xaml.IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, add_PointerPressed, add_PointerReleased, add_PointerExited, add_Tapped, add_RightTapped}
 Microsoft.UI.Xaml.IWindow::{put_Title, get_Content, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, add_Closed}
 Microsoft.UI.Xaml.IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft.UI.Xaml.IWindowEventArgs::{put_Handled}
 Microsoft.UI.Xaml.LaunchActivatedEventArgs
 Microsoft.UI.Xaml.Markup.IXamlMetadataProvider::*
-Microsoft.UI.Xaml.Markup.IXamlType::*
+Microsoft.UI.Xaml.Markup.IXamlType
 Microsoft.UI.Xaml.Markup.XamlReader::{Load}
 Microsoft.UI.Xaml.Markup.XmlnsDefinition
 Microsoft.UI.Xaml.Media.Brush
