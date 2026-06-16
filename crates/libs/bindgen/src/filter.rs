@@ -647,6 +647,340 @@ impl Filter {
             self.direct_types.push(key);
         }
     }
+
+    /// Build a `Filter` from resolved filter entries (new unified syntax).
+    ///
+    /// This constructor handles both minimal and non-minimal modes uniformly.
+    /// The `default_demote` flag is set based on whether `--minimal` is active,
+    /// which controls whether methods on types without explicit `::` member
+    /// specs are emitted or suppressed.
+    #[track_caller]
+    #[allow(clippy::redundant_clone)]
+    pub fn from_resolved(
+        reader: &Reader,
+        entries: &[filter_parser::ResolvedFilter],
+        default_demote: bool,
+    ) -> Self {
+        use filter_parser::ResolvedKind;
+
+        let mut rules: Vec<(String, bool)> = Vec::new();
+        let mut methods: HashMap<(String, String), MethodFilter> = HashMap::new();
+        let mut trait_only: BTreeSet<(String, String)> = BTreeSet::new();
+        let mut full_demote: BTreeSet<(String, String)> = BTreeSet::new();
+        let mut enum_variants: HashMap<(String, String), MethodSet> = HashMap::new();
+        let mut activatable: HashSet<(String, String)> = HashSet::new();
+        let mut requested_interfaces: HashMap<(String, String), MethodSet> = HashMap::new();
+        let mut direct_types: Vec<(String, String)> = Vec::new();
+        let mut warnings: Vec<String> = Vec::new();
+
+        for entry in entries {
+            let include = !entry.exclude;
+
+            match &entry.kind {
+                ResolvedKind::Namespace(ns) => {
+                    rules.push((ns.clone(), include));
+                }
+                ResolvedKind::NameGlob { namespace, prefix } => {
+                    // Expand glob to concrete types
+                    if let Some(ns_map) = reader.get(namespace.as_str()) {
+                        for name in ns_map.keys() {
+                            if name.starts_with(prefix.as_str()) {
+                                let full = format!("{namespace}.{name}");
+                                rules.push((full, include));
+                            }
+                        }
+                    }
+                }
+                ResolvedKind::Type { namespace, name } => {
+                    let full = format!("{namespace}.{name}");
+                    rules.push((full, include));
+
+                    if entry.trait_only {
+                        trait_only.insert((namespace.clone(), name.clone()));
+                        if entry.skeleton_only {
+                            full_demote.insert((namespace.clone(), name.clone()));
+                        }
+                    }
+
+                    if include && default_demote {
+                        // In minimal mode, a bare type entry means "all methods"
+                        // — register in requested_interfaces for type closure
+                        // and expand class methods.
+                        Self::register_type_for_minimal(
+                            reader,
+                            namespace,
+                            name,
+                            &mut requested_interfaces,
+                            &mut direct_types,
+                            &mut activatable,
+                            &mut enum_variants,
+                        );
+                    }
+                }
+                ResolvedKind::Members {
+                    namespace,
+                    name,
+                    members,
+                } => {
+                    let full = format!("{namespace}.{name}");
+                    if !rules.iter().any(|(r, _)| r == &full) {
+                        rules.push((full, include));
+                    }
+
+                    if entry.trait_only {
+                        trait_only.insert((namespace.clone(), name.clone()));
+                        if entry.skeleton_only {
+                            full_demote.insert((namespace.clone(), name.clone()));
+                        }
+                    }
+
+                    // Register each member
+                    for member in members {
+                        Self::register_member(
+                            reader,
+                            &mut methods,
+                            &mut warnings,
+                            &mut requested_interfaces,
+                            &mut direct_types,
+                            &mut activatable,
+                            &mut enum_variants,
+                            namespace,
+                            name,
+                            member,
+                            include,
+                            default_demote,
+                        );
+                    }
+                }
+            }
+        }
+
+        rules.sort_unstable_by(|left, right| {
+            let left = (left.0.len(), !left.1);
+            let right = (right.0.len(), !right.1);
+            left.cmp(&right).reverse()
+        });
+
+        Self {
+            rules,
+            methods,
+            trait_only,
+            full_demote,
+            warnings,
+            enum_variants,
+            activatable,
+            default_demote,
+            requested_interfaces,
+            direct_types,
+        }
+    }
+
+    /// Register a type for minimal mode's type closure.
+    fn register_type_for_minimal(
+        reader: &Reader,
+        namespace: &str,
+        name: &str,
+        requested_interfaces: &mut HashMap<(String, String), MethodSet>,
+        direct_types: &mut Vec<(String, String)>,
+        activatable: &mut HashSet<(String, String)>,
+        enum_variants: &mut HashMap<(String, String), MethodSet>,
+    ) {
+        let key = (namespace.to_string(), name.to_string());
+
+        if let Some(ty) = reader.with_full_name(namespace, name).next() {
+            match &ty {
+                Type::Class(c) => {
+                    if !direct_types.contains(&key) {
+                        direct_types.push(key.clone());
+                    }
+                    activatable.insert(key);
+                    for iface in c.required_interfaces(reader) {
+                        let iface_ns = iface.def.namespace().to_string();
+                        let iface_name = iface.def.name().to_string();
+                        requested_interfaces
+                            .entry((iface_ns, iface_name))
+                            .or_insert(MethodSet::All);
+                    }
+                }
+                Type::Enum(_) | Type::CppEnum(_) => {
+                    enum_variants.insert(key.clone(), MethodSet::All);
+                    if !direct_types.contains(&key) {
+                        direct_types.push(key);
+                    }
+                }
+                Type::Interface(_) | Type::CppInterface(_) => {
+                    requested_interfaces.insert(key, MethodSet::All);
+                }
+                _ => {
+                    if !direct_types.contains(&key) {
+                        direct_types.push(key);
+                    }
+                }
+            }
+        }
+    }
+
+    /// Register a specific member (method/variant) on a type.
+    #[allow(clippy::too_many_arguments, clippy::redundant_clone)]
+    fn register_member(
+        reader: &Reader,
+        methods: &mut HashMap<(String, String), MethodFilter>,
+        warnings: &mut Vec<String>,
+        requested_interfaces: &mut HashMap<(String, String), MethodSet>,
+        direct_types: &mut Vec<(String, String)>,
+        activatable: &mut HashSet<(String, String)>,
+        enum_variants: &mut HashMap<(String, String), MethodSet>,
+        namespace: &str,
+        name: &str,
+        member: &str,
+        include: bool,
+        default_demote: bool,
+    ) {
+        let key = (namespace.to_string(), name.to_string());
+
+        if let Some(ty) = reader.with_full_name(namespace, name).next() {
+            match &ty {
+                Type::Enum(e) => {
+                    // Check variant exists
+                    assert!(
+                        e.def.fields().any(|f| {
+                            f.flags().contains(FieldAttributes::Literal) && f.name() == member
+                        }),
+                        "variant `{member}` not found on enum `{namespace}.{name}`"
+                    );
+                    let set = enum_variants
+                        .entry(key.clone())
+                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                    if let MethodSet::Names(names) = set {
+                        names.insert(member.to_string());
+                    }
+                    if !direct_types.contains(&key) {
+                        direct_types.push(key);
+                    }
+                }
+                Type::CppEnum(e) => {
+                    assert!(
+                        e.def.fields().any(|f| {
+                            f.flags().contains(FieldAttributes::Literal) && f.name() == member
+                        }),
+                        "variant `{member}` not found on enum `{namespace}.{name}`"
+                    );
+                    let set = enum_variants
+                        .entry(key.clone())
+                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                    if let MethodSet::Names(names) = set {
+                        names.insert(member.to_string());
+                    }
+                    if !direct_types.contains(&key) {
+                        direct_types.push(key);
+                    }
+                }
+                Type::Class(class) => {
+                    // Route to the class's required interfaces
+                    if member == "CreateInstance" {
+                        if !direct_types.contains(&key) {
+                            direct_types.push(key.clone());
+                        }
+                        activatable.insert(key);
+                    } else {
+                        // Find which interface carries this method
+                        let required = class.required_interfaces(reader);
+                        let mut found = false;
+                        for iface in &required {
+                            if iface.def.methods().any(|m| method_matches(m, member)) {
+                                let iface_key = (
+                                    iface.def.namespace().to_string(),
+                                    iface.def.name().to_string(),
+                                );
+                                // Register on the interface
+                                let set = requested_interfaces
+                                    .entry(iface_key.clone())
+                                    .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                                if let MethodSet::Names(names) = set {
+                                    names.insert(member.to_string());
+                                }
+                                let filter_entry = methods.entry(iface_key).or_default();
+                                if include {
+                                    filter_entry.keep.insert(member.to_string());
+                                    if let Some(event) = member.strip_prefix("add_") {
+                                        filter_entry.keep.insert(format!("remove_{event}"));
+                                    }
+                                } else {
+                                    filter_entry.drop.insert(member.to_string());
+                                }
+                                if !direct_types.contains(&key) {
+                                    direct_types.push(key.clone());
+                                }
+                                found = true;
+                                break;
+                            }
+                        }
+                        // Check composable interfaces too
+                        if !found {
+                            for iface in &required {
+                                if matches!(iface.kind, InterfaceKind::Composable)
+                                    && iface.def.methods().any(|m| method_matches(m, member))
+                                {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                        }
+                        assert!(
+                            found,
+                            "method `{member}` not found on class `{namespace}.{name}`"
+                        );
+                        // Include composable factory interfaces
+                        for iface in &required {
+                            if matches!(iface.kind, InterfaceKind::Composable) {
+                                let iface_key = (
+                                    iface.def.namespace().to_string(),
+                                    iface.def.name().to_string(),
+                                );
+                                requested_interfaces
+                                    .entry(iface_key)
+                                    .or_insert(MethodSet::All);
+                            }
+                        }
+                    }
+                }
+                Type::Interface(_) | Type::CppInterface(_) | Type::Delegate(_) => {
+                    // Use existing method filter expansion (property/event sugar)
+                    if default_demote {
+                        // Minimal mode: register in requested_interfaces
+                        let set = requested_interfaces
+                            .entry(key.clone())
+                            .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                        if let MethodSet::Names(names) = set {
+                            names.insert(member.to_string());
+                        }
+                    }
+                    // Also register in method filter for emission control
+                    let def = match &ty {
+                        Type::Interface(t) => t.def,
+                        Type::CppInterface(t) => t.def,
+                        Type::Delegate(t) => t.def,
+                        _ => unreachable!(),
+                    };
+                    let defs: Vec<MethodDef> = def.methods().collect();
+                    let expanded = expand_method_part(member, &defs);
+                    assert!(
+                        !expanded.is_empty(),
+                        "method `{member}` not found on `{namespace}.{name}`"
+                    );
+                    maybe_warn_ambiguous_overload(
+                        warnings, member, namespace, name, &defs, include, member,
+                    );
+                    register_method_filter(methods, namespace, name, expanded, include);
+                }
+                _ => {
+                    panic!("type `{namespace}.{name}` does not support member-level filtering");
+                }
+            }
+        } else {
+            panic!("type not found: `{namespace}.{name}`");
+        }
+    }
 }
 
 #[track_caller]

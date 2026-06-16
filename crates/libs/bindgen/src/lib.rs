@@ -51,6 +51,7 @@ use types::*;
 use value::*;
 pub use warnings::*;
 use winmd::*;
+mod filter_parser;
 mod method_names;
 mod minimal_type_map;
 use method_names::*;
@@ -554,13 +555,62 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        // In minimal mode, use the method-centric filter and automatic type
-        // closure instead of the traditional type-level include/exclude filter.
-        let (filter, types) = if self.style.is_minimal() {
+        // Detect new Rust-style filter syntax: entries that use `::` as the
+        // namespace separator (not just for methods). Old syntax uses dots for
+        // namespaces: `Windows.Foundation.DateTime` or `Ns.Type::{Method}`.
+        // New syntax uses `::` throughout: `Windows::Foundation::DateTime`.
+        let use_new_parser = include.iter().chain(exclude.iter()).any(|e| {
+            // New syntax: first `::` is NOT preceded by a dot-separated path.
+            // e.g. `Windows::Foundation` has `::` at position 7 with no dots before it.
+            // Old syntax: `Windows.Foundation.IFoo::{Method}` has dots before `::`.
+            if let Some(pos) = e.find("::") {
+                !e[..pos].contains('.')
+            } else {
+                false
+            }
+        });
+
+        let (filter, types) = if use_new_parser {
+            // New unified filter path: parse + resolve all entries, then build
+            // the filter and type closure uniformly.
+            let mut parsed = Vec::new();
+            for entry in include.iter().chain(exclude.iter()) {
+                parsed.extend(filter_parser::parse_filter_entry(entry));
+            }
+            // Mark exclusion entries (from the `exclude` list, unless they
+            // already have `!` prefix from the new syntax).
+            // Actually, with new syntax all entries go through include and
+            // `!` prefix handles exclusions inline. The old --exclude entries
+            // will have been converted to `!` prefixed in the filter list.
+            // For now, handle the case where exclude entries come separately:
+            let mut all_parsed = Vec::new();
+            for entry in &include {
+                all_parsed.extend(filter_parser::parse_filter_entry(entry));
+            }
+            for entry in &exclude {
+                let mut entries = filter_parser::parse_filter_entry(entry);
+                for e in &mut entries {
+                    e.exclude = true;
+                }
+                all_parsed.extend(entries);
+            }
+            let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
+            let default_demote = self.style.is_minimal();
+            let mut filter = Filter::from_resolved(&reader, &resolved, default_demote);
+
+            let types = if self.style.is_minimal() {
+                MinimalTypeMap::build(&reader, &mut filter, &references)
+            } else {
+                TypeMap::filter(&reader, &filter, &references)
+            };
+            (filter, types)
+        } else if self.style.is_minimal() {
+            // Legacy minimal path
             let mut filter = Filter::new_minimal(&reader, &include);
             let types = MinimalTypeMap::build(&reader, &mut filter, &references);
             (filter, types)
         } else {
+            // Legacy non-minimal path
             let filter = Filter::new(&reader, &include, &exclude);
             let types = TypeMap::filter(&reader, &filter, &references);
             (filter, types)
