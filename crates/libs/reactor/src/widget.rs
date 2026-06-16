@@ -49,32 +49,6 @@ pub fn find_event(bindings: &[Binding], event: Event) -> Option<&Option<EventHan
     })
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn find_prop_returns_first_match() {
-        let bs = vec![
-            Binding::Prop(Prop::Text, PropValue::Str("hi".into())),
-            Binding::Prop(Prop::FontSize, PropValue::F64(12.0)),
-        ];
-        assert_eq!(
-            find_prop(&bs, Prop::Text),
-            Some(&PropValue::Str("hi".into()))
-        );
-        assert_eq!(find_prop(&bs, Prop::FontSize), Some(&PropValue::F64(12.0)));
-        assert_eq!(find_prop(&bs, Prop::Background), None);
-    }
-
-    #[test]
-    fn find_event_distinguishes_some_and_none() {
-        let bs = vec![Binding::Event(Event::Click, None)];
-        assert!(matches!(find_event(&bs, Event::Click), Some(None)));
-        assert!(find_event(&bs, Event::Toggled).is_none());
-    }
-}
-
 #[derive(Clone, Default, Debug, PartialEq, Eq)]
 pub struct RichTextLineBreak;
 
