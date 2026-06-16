@@ -555,20 +555,26 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        // Detect new Rust-style filter syntax: entries that use `::` as the
-        // namespace separator (not just for methods). Old syntax uses dots for
-        // namespaces: `Windows.Foundation.DateTime` or `Ns.Type::{Method}`.
-        // New syntax uses `::` throughout: `Windows::Foundation::DateTime`.
-        let use_new_parser = include.iter().chain(exclude.iter()).any(|e| {
-            // New syntax: first `::` is NOT preceded by a dot-separated path.
-            // e.g. `Windows::Foundation` has `::` at position 7 with no dots before it.
-            // Old syntax: `Windows.Foundation.IFoo::{Method}` has dots before `::`.
+        // Detect new Rust-style filter syntax. Use the new parser when:
+        // 1. Any entry uses `::` as namespace separator (no dots before first `::`)
+        // 2. All entries are bare names (no dots at all) — these work with new parser
+        // Old syntax is only needed when entries use dots: `Windows.Foundation.DateTime`
+        let has_dot_paths = include.iter().chain(exclude.iter()).any(|e| {
+            let e = e
+                .trim()
+                .trim_start_matches('!')
+                .trim_start_matches("??")
+                .trim_start_matches('?');
+            e.contains('.') && !e.starts_with("--")
+        });
+        let has_new_syntax = include.iter().chain(exclude.iter()).any(|e| {
             if let Some(pos) = e.find("::") {
                 !e[..pos].contains('.')
             } else {
                 false
             }
         });
+        let use_new_parser = has_new_syntax || !has_dot_paths;
 
         let (filter, types) = if use_new_parser {
             // New unified filter path: parse + resolve all entries, then build

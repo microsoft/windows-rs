@@ -2,13 +2,13 @@
 --flat --minimal
 
 --filter
-    Windows.Win32.UI.Animation.IUIAnimationManager2::{CreateAnimationVariable, CreateStoryboard, Update, ScheduleTransition}
-    Windows.Win32.UI.Animation.IUIAnimationVariable2::{GetValue, GetCurve}
-    Windows.Win32.UI.Animation.IUIAnimationTransitionLibrary2::{CreateAccelerateDecelerateTransition, CreateLinearTransition, CreateInstantaneousTransition}
-    Windows.Win32.UI.Animation.IUIAnimationStoryboard2::{AddTransition, AddKeyframeAfterTransition, AddTransitionAtKeyframe, Schedule}
-    Windows.Win32.UI.Animation.IUIAnimationTransition2
-    Windows.Win32.UI.Animation.UIAnimationManager2
-    Windows.Win32.UI.Animation.UIAnimationTransitionLibrary2
-    Windows.Win32.UI.Animation.UI_ANIMATION_KEYFRAME
-    Windows.Win32.System.Com.CoCreateInstance
-    Windows.Win32.System.Com.CLSCTX_INPROC_SERVER
+    Windows::Win32::UI::Animation::IUIAnimationManager2::{CreateAnimationVariable, CreateStoryboard, Update, ScheduleTransition}
+    Windows::Win32::UI::Animation::IUIAnimationVariable2::{GetValue, GetCurve}
+    Windows::Win32::UI::Animation::IUIAnimationTransitionLibrary2::{CreateAccelerateDecelerateTransition, CreateLinearTransition, CreateInstantaneousTransition}
+    Windows::Win32::UI::Animation::IUIAnimationStoryboard2::{AddTransition, AddKeyframeAfterTransition, AddTransitionAtKeyframe, Schedule}
+    Windows::Win32::UI::Animation::IUIAnimationTransition2
+    Windows::Win32::UI::Animation::UIAnimationManager2
+    Windows::Win32::UI::Animation::UIAnimationTransitionLibrary2
+    Windows::Win32::UI::Animation::UI_ANIMATION_KEYFRAME
+    Windows::Win32::System::Com::CoCreateInstance
+    Windows::Win32::System::Com::CLSCTX_INPROC_SERVER
