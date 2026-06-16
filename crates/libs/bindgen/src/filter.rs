@@ -1,35 +1,54 @@
 use super::*;
-use std::collections::{BTreeSet, HashMap};
+use std::collections::{BTreeSet, HashMap, HashSet};
+
+/// Which methods are requested on an interface.
+#[derive(Debug, Clone)]
+pub enum MethodSet {
+    /// All methods on the interface.
+    All,
+    /// Specific methods by their raw MethodDef name.
+    Names(BTreeSet<String>),
+}
+
+impl MethodSet {
+    pub fn includes(&self, name: &str) -> bool {
+        match self {
+            MethodSet::All => true,
+            MethodSet::Names(set) => set.contains(name),
+        }
+    }
+}
+
+/// Returns true if `method_name` matches either the raw metadata name or the
+/// overload-disambiguated name of `m`.
+fn method_matches(m: MethodDef, method_name: &str) -> bool {
+    if m.name() == method_name {
+        return true;
+    }
+    method_overload_name(m).as_deref() == Some(method_name)
+}
 
 #[derive(Debug, Default)]
 pub struct Filter {
-    rules: Vec<(String, bool)>,
+    pub rules: Vec<(String, bool)>,
     methods: HashMap<(String, String), MethodFilter>,
-    /// Types marked with the `?Ns.Type` prefix in `--filter`. Such types are
-    /// still emitted (struct, vtable, `_Impl` trait, vtable thunks, IID,
-    /// `Interface` impl) so they can be implemented and queried, but the
-    /// inherent `impl IFace { fn Method(&self) -> Result<T> { ... } }`
-    /// call-side wrapper block is suppressed. Useful for required-but-uncalled
-    /// interfaces (e.g. `IPropertyValue` on an `IReference<T>` implementation)
-    /// where implementers stub the methods (typically with `E_NOTIMPL`) but
-    /// no caller invokes them through this projection.
+    /// Types marked with the `?Ns.Type` prefix in `--filter`.
     trait_only: BTreeSet<(String, String)>,
-    /// Types marked with the `??Ns.Type` prefix in `--filter`. Such types
-    /// are emitted "skeleton-only": the struct, IID, hierarchy, and
-    /// `Interface` impl are kept (so the type can participate in QI and
-    /// class hierarchy chains), but every vtable slot is demoted to
-    /// `Slot: usize` and the inherent caller-side wrapper block is
-    /// suppressed. The `_Impl` trait is omitted via the existing
-    /// has-skipped-methods path. Useful for interfaces needed only for
-    /// hierarchy / casting (e.g. an abstract base) that the caller never
-    /// invokes through this projection.
+    /// Types marked with the `??Ns.Type` prefix in `--filter`.
     full_demote: BTreeSet<(String, String)>,
-    /// Warnings collected while parsing `--filter` entries — emitted
-    /// alongside the regular bindgen warnings once the `WarningBuilder`
-    /// is available. Currently used to flag deny entries that match more
-    /// than one `MethodDef` row (i.e. real CLR overloads), so consumers
-    /// don't silently lose methods they didn't intend to filter out.
     warnings: Vec<String>,
+    /// Enums with specific variants requested.
+    enum_variants: HashMap<(String, String), MethodSet>,
+    /// Classes that explicitly requested `CreateInstance`.
+    activatable: HashSet<(String, String)>,
+    /// When `true`, methods on types with no explicit MethodFilter entry are
+    /// demoted by default (minimal/opt-in mode).
+    default_demote: bool,
+    /// Interfaces with specific methods requested (for type closure in minimal mode).
+    /// Key: (namespace, type_name), Value: requested method names (or All).
+    pub requested_interfaces: HashMap<(String, String), MethodSet>,
+    /// Types directly included without `::` (for type closure in minimal mode).
+    pub direct_types: Vec<(String, String)>,
 }
 
 /// Per-type method filter. Entries are recorded as two parallel sets:
@@ -110,6 +129,11 @@ impl Filter {
             trait_only,
             full_demote,
             warnings,
+            enum_variants: HashMap::new(),
+            activatable: HashSet::new(),
+            default_demote: false,
+            requested_interfaces: HashMap::new(),
+            direct_types: Vec::new(),
         }
     }
 
@@ -205,7 +229,7 @@ impl Filter {
             type_name.namespace().to_string(),
             type_name.name().to_string(),
         )) else {
-            return true;
+            return !self.default_demote;
         };
 
         let raw = method.name();
@@ -240,6 +264,388 @@ impl Filter {
     pub fn is_trait_only(&self, name: TypeName) -> bool {
         let key = (name.namespace().to_string(), name.name().to_string());
         self.trait_only.contains(&key) || self.full_demote.contains(&key)
+    }
+
+    /// Returns the variant filter for a given enum, if one was specified.
+    /// Returns `None` if the enum was included as a plain type (all variants kept).
+    pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&MethodSet> {
+        self.enum_variants
+            .get(&(namespace.to_string(), name.to_string()))
+    }
+
+    /// Returns `true` if the class was explicitly marked as activatable
+    /// (i.e. `CreateInstance` or `::*` was in the filter).
+    pub fn is_activatable(&self, namespace: &str, name: &str) -> bool {
+        self.activatable
+            .contains(&(namespace.to_string(), name.to_string()))
+    }
+
+    /// Create a filter for minimal/opt-in mode. Parses the same `::` syntax
+    /// as the standard filter but with `default_demote = true` — only
+    /// explicitly-requested methods are emitted.
+    ///
+    /// Supported entry syntax:
+    /// - `Namespace.Type` — include a type (function, struct, enum, class)
+    /// - `Namespace.Type::method` — include a specific method
+    /// - `Namespace.Type::*` — include all methods on a type
+    /// - `Namespace.Type::{a, b}` — include multiple methods
+    /// - `Namespace.Class::CreateInstance` — mark class as activatable
+    #[track_caller]
+    pub fn new_minimal(reader: &Reader, include: &[&str]) -> Self {
+        let mut filter = Self {
+            default_demote: true,
+            ..Default::default()
+        };
+
+        for entry in include {
+            let entry = entry.trim();
+            if entry.is_empty() {
+                continue;
+            }
+
+            if let Some((type_part, method_part)) = entry.split_once("::") {
+                filter.parse_minimal_method_entry(reader, entry, type_part, method_part);
+            } else {
+                filter.parse_minimal_type_entry(reader, entry);
+            }
+        }
+
+        assert!(
+            !(filter.requested_interfaces.is_empty() && filter.direct_types.is_empty()),
+            "at least one `--filter` entry required for minimal mode"
+        );
+
+        // Build type-level rules for every type we've collected (needed by
+        // the codegen pipeline's includes_type_name / includes_namespace).
+        for (namespace, name) in &filter.direct_types {
+            let rule = format!("{namespace}.{name}");
+            if !filter.rules.iter().any(|(r, _)| r == &rule) {
+                filter.rules.push((rule, true));
+            }
+        }
+        for (namespace, name) in filter.requested_interfaces.keys() {
+            let rule = format!("{namespace}.{name}");
+            if !filter.rules.iter().any(|(r, _)| r == &rule) {
+                filter.rules.push((rule, true));
+            }
+        }
+
+        filter
+    }
+
+    #[track_caller]
+    fn parse_minimal_method_entry(
+        &mut self,
+        reader: &Reader,
+        entry: &str,
+        type_part: &str,
+        method_part: &str,
+    ) {
+        let (namespace, type_name) = type_part.rsplit_once('.').unwrap_or_else(|| {
+            panic!(
+                "invalid filter entry `{entry}`: \
+                 type must be fully qualified (e.g. `Namespace.IFoo::Method`)"
+            )
+        });
+
+        let resolved_ns = reader
+            .keys()
+            .find(|ns| *ns == &namespace)
+            .unwrap_or_else(|| {
+                panic!("namespace not found: `{namespace}` (in filter entry `{entry}`)")
+            });
+        let resolved_name = reader[resolved_ns]
+            .keys()
+            .find(|n| *n == &type_name)
+            .unwrap_or_else(|| panic!("type not found: `{type_part}` (in filter entry `{entry}`)"));
+
+        // Parse method specifier: *, {a, b}, or single name.
+        let method_names: Vec<&str> = if method_part == "*" {
+            vec!["*"]
+        } else if method_part.starts_with('{') && method_part.ends_with('}') {
+            method_part[1..method_part.len() - 1]
+                .split(',')
+                .map(|s| s.trim())
+                .filter(|s| !s.is_empty())
+                .collect()
+        } else {
+            vec![method_part]
+        };
+
+        for method_name in method_names {
+            if method_name == "*" {
+                self.expand_star(reader, entry, resolved_ns, resolved_name);
+            } else {
+                self.expand_method(
+                    reader,
+                    entry,
+                    type_part,
+                    method_name,
+                    resolved_ns,
+                    resolved_name,
+                );
+            }
+        }
+    }
+
+    #[track_caller]
+    fn expand_star(&mut self, reader: &Reader, entry: &str, namespace: &str, name: &str) {
+        let ty = reader.unwrap_full_name(namespace, name);
+        let ns_key = namespace.to_string();
+        let name_key = name.to_string();
+
+        match &ty {
+            Type::Class(c) => {
+                if !self
+                    .direct_types
+                    .contains(&(ns_key.clone(), name_key.clone()))
+                {
+                    self.direct_types.push((ns_key.clone(), name_key.clone()));
+                }
+                self.activatable.insert((ns_key, name_key));
+                for iface in c.required_interfaces(reader) {
+                    let iface_ns = iface.def.namespace().to_string();
+                    let iface_name = iface.def.name().to_string();
+                    let ikey = (iface_ns, iface_name);
+                    self.requested_interfaces
+                        .entry(ikey)
+                        .or_insert(MethodSet::All);
+                }
+            }
+            Type::Enum(_) | Type::CppEnum(_) => {
+                self.enum_variants
+                    .insert((ns_key.clone(), name_key.clone()), MethodSet::All);
+                if !self
+                    .direct_types
+                    .contains(&(ns_key.clone(), name_key.clone()))
+                {
+                    self.direct_types.push((ns_key, name_key));
+                }
+            }
+            _ => {
+                let _ = entry;
+                self.requested_interfaces
+                    .insert((ns_key, name_key), MethodSet::All);
+            }
+        }
+    }
+
+    #[track_caller]
+    #[allow(clippy::too_many_arguments)]
+    fn expand_method(
+        &mut self,
+        reader: &Reader,
+        entry: &str,
+        type_part: &str,
+        method_name: &str,
+        namespace: &str,
+        name: &str,
+    ) {
+        let ty = reader.unwrap_full_name(namespace, name);
+        let ns_key = namespace.to_string();
+        let name_key = name.to_string();
+
+        match &ty {
+            Type::Interface(t) => {
+                assert!(
+                    t.def.methods().any(|m| method_matches(m, method_name)),
+                    "method `{method_name}` not found on `{type_part}` (in filter entry `{entry}`)"
+                );
+                self.insert_requested_method(&ns_key, &name_key, method_name);
+            }
+            Type::CppInterface(t) => {
+                assert!(
+                    t.def.methods().any(|m| method_matches(m, method_name)),
+                    "method `{method_name}` not found on `{type_part}` (in filter entry `{entry}`)"
+                );
+                self.insert_requested_method(&ns_key, &name_key, method_name);
+            }
+            Type::Delegate(t) => {
+                assert!(
+                    t.def.methods().any(|m| method_matches(m, method_name)),
+                    "method `{method_name}` not found on `{type_part}` (in filter entry `{entry}`)"
+                );
+                self.insert_requested_method(&ns_key, &name_key, method_name);
+            }
+            Type::Class(c) => {
+                self.expand_class_method(
+                    reader,
+                    entry,
+                    type_part,
+                    method_name,
+                    &ns_key,
+                    &name_key,
+                    c,
+                );
+            }
+            Type::Enum(e) => {
+                assert!(
+                    e.def
+                        .fields()
+                        .any(|f| f.flags().contains(FieldAttributes::Literal)
+                            && f.name() == method_name),
+                    "variant `{method_name}` not found on enum `{type_part}` (in filter entry `{entry}`)"
+                );
+                self.insert_enum_variant(&ns_key, &name_key, method_name);
+            }
+            Type::CppEnum(e) => {
+                assert!(
+                    e.def
+                        .fields()
+                        .any(|f| f.flags().contains(FieldAttributes::Literal)
+                            && f.name() == method_name),
+                    "variant `{method_name}` not found on enum `{type_part}` (in filter entry `{entry}`)"
+                );
+                self.insert_enum_variant(&ns_key, &name_key, method_name);
+            }
+            _ => panic!(
+                "type `{type_part}` is not an interface, delegate, enum, or class (in filter entry `{entry}`)"
+            ),
+        }
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn expand_class_method(
+        &mut self,
+        reader: &Reader,
+        entry: &str,
+        type_part: &str,
+        method_name: &str,
+        ns_key: &str,
+        name_key: &str,
+        class: &Class,
+    ) {
+        let required = class.required_interfaces(reader);
+        let mut found = false;
+
+        if method_name == "CreateInstance" {
+            if !self
+                .direct_types
+                .contains(&(ns_key.to_string(), name_key.to_string()))
+            {
+                self.direct_types
+                    .push((ns_key.to_string(), name_key.to_string()));
+            }
+            self.activatable
+                .insert((ns_key.to_string(), name_key.to_string()));
+            found = true;
+        }
+
+        if !found {
+            for iface in &required {
+                if iface.def.methods().any(|m| method_matches(m, method_name)) {
+                    let iface_ns = iface.def.namespace().to_string();
+                    let iface_name = iface.def.name().to_string();
+                    self.insert_requested_method(&iface_ns, &iface_name, method_name);
+                    if !self
+                        .direct_types
+                        .contains(&(ns_key.to_string(), name_key.to_string()))
+                    {
+                        self.direct_types
+                            .push((ns_key.to_string(), name_key.to_string()));
+                    }
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        if !found {
+            for iface in &required {
+                if matches!(iface.kind, InterfaceKind::Composable)
+                    && iface.def.methods().any(|m| method_matches(m, method_name))
+                {
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        assert!(
+            found,
+            "method `{method_name}` not found on class `{type_part}` (in filter entry `{entry}`)"
+        );
+
+        // Include composable factory interfaces so new() works.
+        for iface in &required {
+            if matches!(iface.kind, InterfaceKind::Composable) {
+                let iface_ns = iface.def.namespace().to_string();
+                let iface_name = iface.def.name().to_string();
+                self.requested_interfaces
+                    .entry((iface_ns, iface_name))
+                    .or_insert(MethodSet::All);
+            }
+        }
+    }
+
+    #[track_caller]
+    fn parse_minimal_type_entry(&mut self, reader: &Reader, entry: &str) {
+        let (namespace, type_name) = entry.rsplit_once('.').unwrap_or_else(|| {
+            panic!(
+                "invalid filter entry `{entry}`: \
+                 must be fully qualified (e.g. `Namespace.TypeName`)"
+            )
+        });
+
+        let resolved_ns = reader
+            .keys()
+            .find(|ns| *ns == &namespace)
+            .unwrap_or_else(|| {
+                panic!("namespace not found: `{namespace}` (in filter entry `{entry}`)")
+            });
+        let resolved_name = reader[resolved_ns]
+            .keys()
+            .find(|n| *n == &type_name)
+            .unwrap_or_else(|| panic!("type not found: `{entry}`"));
+
+        self.direct_types
+            .push((resolved_ns.to_string(), resolved_name.to_string()));
+    }
+
+    fn insert_requested_method(&mut self, namespace: &str, name: &str, method_name: &str) {
+        let key = (namespace.to_string(), name.to_string());
+
+        // Update requested_interfaces for type closure.
+        let set = self
+            .requested_interfaces
+            .entry(key.clone())
+            .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+        match set {
+            MethodSet::All => {
+                let mut names = BTreeSet::new();
+                names.insert(method_name.to_string());
+                *set = MethodSet::Names(names);
+            }
+            MethodSet::Names(names) => {
+                names.insert(method_name.to_string());
+            }
+        }
+
+        // Update methods for emission filtering.
+        let entry = self.methods.entry(key).or_default();
+        entry.keep.insert(method_name.to_string());
+        // Also keep `remove_X` when `add_X` is requested.
+        if let Some(event) = method_name.strip_prefix("add_") {
+            let remove_name = format!("remove_{event}");
+            entry.keep.insert(remove_name);
+        }
+    }
+
+    fn insert_enum_variant(&mut self, namespace: &str, name: &str, variant: &str) {
+        let key = (namespace.to_string(), name.to_string());
+        let set = self
+            .enum_variants
+            .entry(key.clone())
+            .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+        match set {
+            MethodSet::All => {}
+            MethodSet::Names(names) => {
+                names.insert(variant.to_string());
+            }
+        }
+        if !self.direct_types.contains(&key) {
+            self.direct_types.push(key);
+        }
     }
 }
 

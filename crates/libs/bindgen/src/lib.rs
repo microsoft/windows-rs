@@ -52,10 +52,8 @@ use value::*;
 pub use warnings::*;
 use winmd::*;
 mod method_names;
-mod minimal_filter;
 mod minimal_type_map;
 use method_names::*;
-use minimal_filter::*;
 use minimal_type_map::*;
 
 pub fn builder() -> Bindgen {
@@ -558,14 +556,9 @@ impl Bindgen {
 
         // In minimal mode, use the method-centric filter and automatic type
         // closure instead of the traditional type-level include/exclude filter.
-        let minimal_filter = if self.style.is_minimal() {
-            Some(MinimalFilter::new(&reader, &include))
-        } else {
-            None
-        };
-
-        let (filter, types) = if let Some(minimal) = &minimal_filter {
-            let (types, filter) = MinimalTypeMap::build(&reader, minimal, &references);
+        let (filter, types) = if self.style.is_minimal() {
+            let mut filter = Filter::new_minimal(&reader, &include);
+            let types = MinimalTypeMap::build(&reader, &mut filter, &references);
             (filter, types)
         } else {
             let filter = Filter::new(&reader, &include, &exclude);
@@ -600,7 +593,6 @@ impl Bindgen {
             warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
-            minimal_filter: minimal_filter.as_ref(),
         };
 
         let tree = TypeTree::new(&types);

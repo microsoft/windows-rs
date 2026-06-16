@@ -1,9 +1,7 @@
 use super::*;
 
 /// Returns `true` if the given method should be considered "included" by the
-/// method set for type-closure purposes. This mirrors the overload-aware
-/// logic in `Config::includes_method`: methods with an overload-disambiguated
-/// name are matched only on that name, not on the shared raw metadata name.
+/// method set for type-closure purposes.
 fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
     if let Some(overload) = method_overload_name(method) {
         return method_set.includes(&overload);
@@ -13,49 +11,39 @@ fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
 
 /// Computes the minimal type closure for `--minimal` mode.
 ///
-/// Starting from the methods and types listed in a [`MinimalFilter`], this
-/// walks method signatures recursively to discover only the types that are
-/// actually needed by the requested API surface.
+/// Starting from the methods and types listed in a [`Filter`], this walks
+/// method signatures recursively to discover only the types that are actually
+/// needed by the requested API surface.
 pub struct MinimalTypeMap;
 
 impl MinimalTypeMap {
     /// Build a `TypeMap` containing only the types required by the methods and
-    /// types listed in `filter`. Also returns a `Filter` compatible with the
-    /// existing codegen pipeline (for method demotion queries).
+    /// types listed in `filter`. Also adds type-level include rules to the
+    /// filter for all discovered types.
     #[track_caller]
-    pub fn build(
-        reader: &Reader,
-        minimal_filter: &MinimalFilter,
-        references: &References,
-    ) -> (TypeMap, Filter) {
+    pub fn build(reader: &Reader, filter: &mut Filter, references: &References) -> TypeMap {
         let mut types = TypeMap::new();
 
         // 1. Process interface method entries — for each requested interface,
         //    include the interface itself and walk the signatures of requested
         //    methods to pull in their dependent types.
-        for ((namespace, name), method_set) in &minimal_filter.interfaces {
-            // Include the interface type itself.
+        for ((namespace, name), method_set) in &filter.requested_interfaces {
             for ty in reader.with_full_name(namespace, name) {
                 types.insert(ty.clone());
 
-                // Walk the interface hierarchy so QI / casts work.
                 if let Type::Interface(iface) = &ty {
                     for required in iface.required_interfaces(reader) {
                         let req_tn = Type::Interface(required.clone()).type_name();
                         if references.contains(req_tn).is_some() {
-                            // Still recurse into generic args of reference interfaces.
                             for g in &required.generics {
                                 g.combine_minimal(&mut types, reader, references);
                             }
                             continue;
                         }
                         types.insert(Type::Interface(required.clone()));
-                        // Also pull in the required interface's type dependencies
-                        // (IUnknown, Object, etc.) minimally.
                         Type::Object.combine_minimal(&mut types, reader, references);
                     }
 
-                    // Walk method signatures for the requested methods.
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(
@@ -69,12 +57,9 @@ impl MinimalTypeMap {
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
-                    // Win32 COM interface — walk the base interface hierarchy
-                    // so that vtable definitions and Deref chains are available.
                     for base in iface.base_interfaces(reader) {
                         base.combine_minimal(&mut types, reader, references);
                     }
-                    // Walk requested method signatures.
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(iface.def.namespace(), &[], reader);
@@ -88,47 +73,26 @@ impl MinimalTypeMap {
         }
 
         // 2. Process directly-included types (functions, structs, enums, etc.)
-        //    Walk dependencies first via combine_minimal, then force-insert the
-        //    type even if it belongs to a reference crate — the filter explicitly
-        //    requests it (e.g. `windows-time` generating its own `DateTime`/
-        //    `TimeSpan` bindings).  The insert must come AFTER combine_minimal so
-        //    that combine_minimal's early-return-if-present guard doesn't skip
-        //    dependency walking for non-reference types.
-        for (namespace, name) in &minimal_filter.types {
+        for (namespace, name) in &filter.direct_types {
             for ty in reader.with_full_name(namespace, name) {
                 ty.combine_minimal(&mut types, reader, references);
                 types.insert(ty.clone());
             }
         }
 
-        // 3. Build a Filter that the existing codegen can query for method
-        //    demotion. We construct include rules for every type in `types`,
-        //    and configure method filters based on the MinimalFilter.
-        let filter = Self::build_filter(reader, minimal_filter, &types);
-
-        (types, filter)
-    }
-
-    /// Build a `Filter` compatible with the existing codegen.
-    ///
-    /// For minimal mode, every type in the type map is "included", and method
-    /// filters demote all methods not explicitly requested.
-    fn build_filter(reader: &Reader, _minimal_filter: &MinimalFilter, types: &TypeMap) -> Filter {
-        // In minimal mode the Filter only needs type-level includes.
-        // Method-level emission is handled directly by Config::includes_method
-        // querying the MinimalFilter with raw names.
-        let mut include: Vec<&str> = Vec::new();
-
+        // 3. Add type-level include rules for every discovered type so the
+        //    codegen pipeline's includes_type_name / includes_namespace work.
         for type_name in types.keys() {
             if type_name.namespace().is_empty() {
                 continue;
             }
-            let full = format!("{}.{}", type_name.namespace(), type_name.name());
-            include.push(full.leak());
+            let rule = format!("{}.{}", type_name.namespace(), type_name.name());
+            if !filter.rules.iter().any(|(r, _)| r == &rule) {
+                filter.rules.push((rule, true));
+            }
         }
 
-        let exclude: Vec<&str> = Vec::new();
-        Filter::new(reader, &include, &exclude)
+        types
     }
 }
 

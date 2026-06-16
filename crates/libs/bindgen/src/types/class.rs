@@ -133,10 +133,10 @@ impl Class {
         };
 
         let has_default_ctor = self.has_default_constructor(config.reader)
-            && config.minimal_filter.is_none_or(|mf| {
-                mf.activatable
-                    .contains(&(type_name.namespace(), type_name.name()))
-            });
+            && (!config.bindgen.style.is_minimal()
+                || config
+                    .filter
+                    .is_activatable(type_name.namespace(), type_name.name()));
 
         let new = has_default_ctor.then(||
             quote! {
