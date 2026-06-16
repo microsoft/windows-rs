@@ -87,9 +87,18 @@ fn parse_tree(input: &str) -> Vec<Vec<String>> {
             }
             result = expanded;
         } else {
-            // Simple segment: append to all current paths
-            for path in &mut result {
-                path.push(part.to_string());
+            // Simple segment: append to all current paths.
+            // If it contains dots, split further (legacy dot-path compat).
+            if part.contains('.') {
+                for dot_part in part.split('.') {
+                    for path in &mut result {
+                        path.push(dot_part.to_string());
+                    }
+                }
+            } else {
+                for path in &mut result {
+                    path.push(part.to_string());
+                }
             }
         }
     }
@@ -231,8 +240,12 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             }
         }
         if !found {
-            // Maybe it's a namespace?
-            if reader.contains_key(name.as_str()) {
+            // Maybe it's a namespace (exact or prefix)?
+            if reader.contains_key(name.as_str())
+                || reader
+                    .keys()
+                    .any(|ns| namespace_starts_with(ns, name.as_str()))
+            {
                 results.push(base(ResolvedKind::Namespace(name.clone())));
             } else {
                 panic!("type or namespace not found: `{name}`");

@@ -555,40 +555,7 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        // Detect new Rust-style filter syntax. Use the new parser when:
-        // 1. Any entry uses `::` as namespace separator (no dots before first `::`)
-        // 2. All entries are bare names (no dots at all) — these work with new parser
-        // Old syntax is only needed when entries use dots: `Windows.Foundation.DateTime`
-        let has_dot_paths = include.iter().chain(exclude.iter()).any(|e| {
-            let e = e
-                .trim()
-                .trim_start_matches('!')
-                .trim_start_matches("??")
-                .trim_start_matches('?');
-            e.contains('.') && !e.starts_with("--")
-        });
-        let has_new_syntax = include.iter().chain(exclude.iter()).any(|e| {
-            if let Some(pos) = e.find("::") {
-                !e[..pos].contains('.')
-            } else {
-                false
-            }
-        });
-        let use_new_parser = has_new_syntax || !has_dot_paths;
-
-        let (filter, types) = if use_new_parser {
-            // New unified filter path: parse + resolve all entries, then build
-            // the filter and type closure uniformly.
-            let mut parsed = Vec::new();
-            for entry in include.iter().chain(exclude.iter()) {
-                parsed.extend(filter_parser::parse_filter_entry(entry));
-            }
-            // Mark exclusion entries (from the `exclude` list, unless they
-            // already have `!` prefix from the new syntax).
-            // Actually, with new syntax all entries go through include and
-            // `!` prefix handles exclusions inline. The old --exclude entries
-            // will have been converted to `!` prefixed in the filter list.
-            // For now, handle the case where exclude entries come separately:
+        let (filter, types) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
                 all_parsed.extend(filter_parser::parse_filter_entry(entry));
@@ -609,16 +576,6 @@ impl Bindgen {
             } else {
                 TypeMap::filter(&reader, &filter, &references)
             };
-            (filter, types)
-        } else if self.style.is_minimal() {
-            // Legacy minimal path
-            let mut filter = Filter::new_minimal(&reader, &include);
-            let types = MinimalTypeMap::build(&reader, &mut filter, &references);
-            (filter, types)
-        } else {
-            // Legacy non-minimal path
-            let filter = Filter::new(&reader, &include, &exclude);
-            let types = TypeMap::filter(&reader, &filter, &references);
             (filter, types)
         };
 
