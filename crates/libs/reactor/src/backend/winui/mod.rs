@@ -2881,6 +2881,7 @@ impl Backend for WinUIBackend {
                             agile_args,
                             agile_deferral,
                             vec![],
+                            None,
                         );
                     });
                 })
@@ -2949,9 +2950,12 @@ impl Backend for WinUIBackend {
                     std::thread::spawn(move || {
                         use crate::drag::DroppedItem;
 
+                        let resolved_data_view =
+                            agile_data_view.and_then(|agile_reference| agile_reference.resolve().ok());
+
                         let items: Vec<DroppedItem> = if formats.storage_items {
-                            agile_data_view
-                                .and_then(|agile_reference| agile_reference.resolve().ok())
+                            resolved_data_view
+                                .as_ref()
                                 .and_then(|data_package_view| {
                                     data_package_view.GetStorageItemsAsync().ok()
                                 })
@@ -2974,6 +2978,16 @@ impl Backend for WinUIBackend {
                             vec![]
                         };
 
+                        let text: Option<String> = if formats.text {
+                            resolved_data_view
+                                .as_ref()
+                                .and_then(|data_package_view| data_package_view.GetTextAsync().ok())
+                                .and_then(|async_operation| async_operation.join().ok())
+                                .and_then(|h| String::try_from(&h).ok())
+                        } else {
+                            None
+                        };
+
                         let Some(marshaller) = marshaller else {
                             if let Some(deferral) =
                                 agile_deferral.and_then(|agile_ref| agile_ref.resolve().ok())
@@ -2989,6 +3003,7 @@ impl Backend for WinUIBackend {
                             agile_args,
                             agile_deferral,
                             items,
+                            text,
                         );
                     });
                 })
@@ -3122,6 +3137,7 @@ fn dispatch_accept(
     iargs_agile: Option<windows_core::AgileReference<bindings::IDragEventArgs>>,
     deferral_agile: Option<windows_core::AgileReference<bindings::IDragOperationDeferral>>,
     items: Vec<DroppedItem>,
+    text: Option<String>,
 ) {
     use crate::drag::{DragContext, DragOperation};
     m.dispatch(move || {
@@ -3131,6 +3147,8 @@ fn dispatch_accept(
             let v = items.clone();
             Some(Box::new(move || v.clone()) as Box<dyn Fn() -> Vec<DroppedItem>>)
         };
+        let get_text_fn = text
+            .map(|t| Box::new(move || Some(t.clone())) as Box<dyn Fn() -> Option<String>>);
         let mut ctx = DragContext {
             has_text: formats.text,
             has_html: formats.html,
@@ -3143,7 +3161,7 @@ fn dispatch_accept(
             caption: None,
             glyph_visible: None,
             content_visible: None,
-            get_text_fn: None,
+            get_text_fn,
             get_storage_items_fn,
         };
         let op = cb.call(&mut ctx);
