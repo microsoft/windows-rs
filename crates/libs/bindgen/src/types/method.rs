@@ -55,12 +55,22 @@ impl Method {
                     }
                 }
             }
-            _ if self.signature.return_type.is_winrt_array() => {
+            Type::Array(element_type) => {
+                // When the element's ABI representation is `*mut c_void` (interfaces,
+                // strings, delegates, etc.) it differs from the Rust pointer type
+                // returned by `into_abi`, so `transmute` is needed. For structs,
+                // primitives, and enums the ABI type matches and transmute is a no-op.
+                let write_result = if element_type.has_pointer_abi() {
+                    quote! { result__.write(core::mem::transmute(ok_data__)); }
+                } else {
+                    quote! { result__.write(ok_data__); }
+                };
+
                 if noexcept {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        #write_result
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -69,7 +79,7 @@ impl Method {
                         match #inner(#this #(#invoke_args,)*) {
                             Ok(ok__) => {
                                 let (ok_data__, ok_data_len__) = ok__.into_abi();
-                                result__.write(core::mem::transmute(ok_data__));
+                                #write_result
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
                             }
@@ -343,6 +353,7 @@ impl Method {
         kind: InterfaceKind,
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
+        emit_compose: bool,
     ) -> TokenStream {
         let params = if kind == InterfaceKind::Composable {
             &self.signature.params[..self.signature.params.len() - 2]
@@ -360,6 +371,14 @@ impl Method {
             (name, compose)
         } else {
             (method_names.add(self.def), TokenStream::new())
+        };
+
+        // In minimal mode, use pub(crate) so that the dead_code lint can detect
+        // unused methods within the consuming crate.
+        let vis = if config.bindgen.style.is_minimal() {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
         };
 
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
@@ -963,7 +982,7 @@ impl Method {
 
             return match kind {
                 InterfaceKind::Default => quote! {
-                    pub fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                    #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                         #event_prelude
                         unsafe {
                             #event_body
@@ -973,7 +992,7 @@ impl Method {
                 InterfaceKind::None | InterfaceKind::Base => {
                     let interface_name = interface.unwrap().write_name(config);
                     quote! {
-                        pub fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                             let this = &windows_core::Interface::cast::<#interface_name>(self)?;
                             #event_prelude
                             unsafe {
@@ -985,7 +1004,7 @@ impl Method {
                 InterfaceKind::Static => {
                     let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
                     quote! {
-                        pub fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #vis fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                             #event_prelude
                             Self::#factory_name(|this| unsafe {
                                 #event_body
@@ -1000,7 +1019,7 @@ impl Method {
 
         match kind {
             InterfaceKind::Default => quote! {
-                pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
+                #vis fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                     #prelude
                     unsafe {
                         #vcall
@@ -1017,7 +1036,7 @@ impl Method {
                 let interface_name = interface.unwrap().write_name(config);
 
                 quote! {
-                    pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
+                    #vis fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
                         #prelude
                         unsafe {
@@ -1030,7 +1049,7 @@ impl Method {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
-                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                    #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
@@ -1043,23 +1062,44 @@ impl Method {
                 // AddRef/Release on the returned value keeps the outer alive.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
+                let compose = if emit_compose {
+                    quote! {
+                        #vis fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                            #prelude
+                            Self::#interface_name(|this| unsafe {
+                                let (derived__, base__) = windows_core::Compose::compose(compose);
+                                let mut result__ = core::mem::zeroed();
+                                (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
+                                // Keep `derived__` alive until the factory returns; its owning
+                                // ref is replaced by the delegating ref in `result__`.
+                                let _ = &derived__;
+                                windows_core::Type::from_abi(result__)
+                            })
+                        }
+                    }
+                } else {
+                    quote! {}
+                };
+
+                // In minimal mode, when compose() is emitted (class is subclassed
+                // via --implement), suppress the non-aggregating new() since the
+                // consuming crate uses compose() instead. In non-minimal mode,
+                // always emit both.
+                let suppress_new = emit_compose && config.bindgen.style.is_minimal();
+                let new = if !suppress_new {
+                    quote! {
+                        #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                            #prelude
+                            Self::#interface_name(|this| unsafe { #vcall })
+                        }
+                    }
+                } else {
+                    quote! {}
+                };
+
                 quote! {
-                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
-                        #prelude
-                        Self::#interface_name(|this| unsafe { #vcall })
-                    }
-                    pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
-                        #prelude
-                        Self::#interface_name(|this| unsafe {
-                            let (derived__, base__) = windows_core::Compose::compose(compose);
-                            let mut result__ = core::mem::zeroed();
-                            (windows_core::Interface::vtable(#receiver).#vname)(windows_core::Interface::as_raw(#receiver), #compose_args).ok()?;
-                            // Keep `derived__` alive until the factory returns; its owning
-                            // ref is replaced by the delegating ref in `result__`.
-                            let _ = &derived__;
-                            windows_core::Type::from_abi(result__)
-                        })
-                    }
+                    #new
+                    #compose
                 }
             }
         }

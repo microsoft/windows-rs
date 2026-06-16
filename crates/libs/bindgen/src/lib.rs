@@ -1,5 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
+mod cli;
 mod config;
 mod derive;
 mod derive_writer;
@@ -25,6 +26,7 @@ mod value;
 mod warnings;
 mod winmd;
 
+pub use cli::bindgen;
 use config::*;
 use derive::*;
 use derive_writer::*;
@@ -60,412 +62,6 @@ pub fn builder() -> Bindgen {
     Bindgen::new()
 }
 
-/// The conventional way of calling the `bindgen` function is as follows:
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "GetTickCount",
-/// ];
-///
-/// windows_bindgen::bindgen(args).unwrap();
-/// ```
-///
-/// Here is a list of supported arguments.
-///
-/// | Argument | Description |
-/// |----------|-------------|
-/// | `--in` | .winmd files or directories to include. |
-/// | `--out` | File name where the generated bindings will be saved. |
-/// | `--filter` | APIs to include or exclude in the generated bindings. |
-/// | `--rustfmt` | Overrides the default Rust formatting. |
-/// | `--derive` | Extra traits for types to derive. |
-/// | `--flat` | Avoids the default namespace-to-module conversion. |
-/// | `--deps` | Selects how generated bindings depend on the `windows-*` crates: `core` (default, uses `windows-core`), `specific` (uses `windows-result`, `windows-strings`, and `windows-link` directly), or `none` (no `windows-*` dependencies). |
-/// | `--sys` | Generates raw or sys-style Rust bindings. |
-/// | `--extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. Only valid with `--sys`. |
-/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
-/// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
-/// | `--link` | Overrides the default `windows-link` implementation for system calls. |
-/// | `--etc` | Reads additional whitespace-separated arguments from one or more response files (lines beginning with `//` are ignored). |
-///
-///
-/// # `--out`
-///
-/// Exactly one `--out` argument is required and instructs the `bindgen` function where to write the bindings.
-///
-/// # `--filter`
-///
-/// At least one `--filter` is required and indicates what APIs to include in the generated bindings.
-/// The following will, for example, also include the `Sleep` function:
-///
-/// ```rust
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
-/// ];
-/// ```
-///
-/// The `--filter` argument can refer to the function or type name and nothing more. You can also refer
-/// to the namespace that the API metadata uses to group functions and types:
-///
-/// ```rust
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "Windows.Foundation.Numerics",
-///     "!Windows.Foundation.Numerics.Matrix3x2",
-/// ];
-/// ```
-///
-/// In this example, all types from the `Windows.Foundation.Numerics` namepace are included with the
-/// exception of `Matrix3x2` which is excluded due to the `!` preamble.
-///
-/// ## Method-level filters
-///
-/// `--filter` entries can also target individual methods of an interface using the
-/// `Namespace.Type::Method` form. This is useful for trimming heavy interfaces down to
-/// only the methods you actually call:
-///
-/// ```rust
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "Microsoft.UI.Xaml",
-///     "!Microsoft.UI.Xaml.IUIElement::AccessKey",
-///     "!Microsoft.UI.Xaml.IUIElement::Translation",
-/// ];
-/// ```
-///
-/// Method-level entries follow this grammar:
-///
-/// | Entry                         | Meaning                                                                         |
-/// |-------------------------------|---------------------------------------------------------------------------------|
-/// | `Ns.Type`                     | Keep the type and all its methods (existing behavior; backwards-compatible).    |
-/// | `?Ns.Type`                    | Trait-only emit: vtable + `_Impl` trait + thunks, but no inherent `impl IFace { fn X(&self) … }` caller-side wrapper block. |
-/// | `??Ns.Type`                   | Skeleton-only emit: struct + IID + hierarchy + `Interface` impl, but every vtable slot demoted to `Slot: usize` and no caller-side wrapper block (the `_Impl` trait is omitted via the existing has-skipped-methods path). |
-/// | `Ns.Type::Method`             | Allowlist entry: keep this method. Unlisted methods demote when at least one allow entry exists on the type. |
-/// | `!Ns.Type::Method`            | Denylist entry: demote this method to `Slot: usize`.                            |
-/// | `Ns.Type::Property`           | Sugar for `Ns.Type::get_Property` + `Ns.Type::put_Property` (whichever exist).  |
-/// | `Ns.Type::get:Property`       | Accessor-only sugar: only the `get_Property` getter.                            |
-/// | `Ns.Type::set:Property`       | Accessor-only sugar: only the `put_Property` setter.                            |
-/// | `Ns.Type::Event`              | Sugar for `Ns.Type::add_Event` + `Ns.Type::remove_Event` (whichever exist).     |
-/// | `Ns.Type::add:Event`          | Accessor-only sugar: only the `add_Event` subscriber.                           |
-/// | `Ns.Type::remove:Event`       | Accessor-only sugar: only the `remove_Event` unsubscriber.                      |
-///
-/// The `?Ns.Type` prefix is for required-but-uncalled interfaces (e.g. `IPropertyValue` on
-/// an `IReference<T>` implementation): callers never invoke the methods through this projection,
-/// but implementers must still stub them (typically with `E_NOTIMPL`) to satisfy the WinRT
-/// required-interface contract. Trait-only emission preserves ABI, the `_Impl` super-trait chain,
-/// and `QueryInterface` support; it only drops the caller-side wrappers that nobody calls.
-///
-/// The `??Ns.Type` prefix is for interfaces needed only for class / `QueryInterface` hierarchy
-/// (e.g. an abstract base) that the caller never invokes through this projection and never
-/// implements. The type still participates in `interface_hierarchy!` / `required_hierarchy!` so
-/// `cast::<T>(&derived)?` works, but every vtable slot becomes opaque and the `_Impl` trait is
-/// omitted; this combines `?` (no caller wrappers) with whole-vtable demotion.
-///
-/// Allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) method-level entries may coexist on
-/// the same type. Deny wins on overlap. When at least one allow entry exists on the type,
-/// unlisted methods are demoted (allow-list mode treats them as opt-out); with deny entries
-/// only, unlisted methods are kept (deny-only mode). This lets you start from a denylist and
-/// add explicit `keep` entries later, or vice-versa, without rewriting all entries to a single
-/// style.
-///
-/// When `Ns.Type` is a runtime class, the entry resolves against the class's required interfaces
-/// (instance default, static factory, activation/composable factory, base interfaces) and registers
-/// the equivalent filter on every required interface that exposes the named method. This drops the
-/// matching forwarder on `impl Class { … }` (and demotes the underlying vtable slot) without
-/// requiring the caller to know which interface owns the method. If the method name is not found
-/// on any required interface, bindgen panics with a list of the interfaces searched.
-///
-/// Vtable layout is preserved: demoted methods become `Slot: usize` at their original offset using
-/// the same opaque-slot mechanism `--minimal` already uses for signature-pruned methods, so ABI is
-/// safe by construction. Using a method-level filter on a type matched by `--implement` is a hard
-/// error (methods on implemented interfaces are always emitted).
-///
-/// Because demoting a method to an opaque slot leaves the type unable to be implemented through
-/// its `_Impl` trait, the trait is omitted with the same warning the existing dependency-skip
-/// path emits. This is a binary-size / compile-time tool, not an API gate — raw-vtable callers
-/// can still derive the offset of a demoted slot.
-///
-/// # `--in`
-///
-/// `--in` can indicate a .winmd file or directory containing .winmd files. Alternatively, the special
-/// "default" input can be used to include the particular .winmd files that ship with the `windows-bindgen`
-/// crate. This may used to combine the default metadata with specific .winmd files.
-///
-/// ```rust
-/// let args = [
-///     "--in",
-///     "default",
-///     "Sample.winmd",
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "Sample",
-/// ];
-/// ```
-///
-/// # `--flat`
-///
-/// By default, the bindings include a mapping of namespaces to modules. Consider this example again:
-///
-/// ```rust
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
-/// ];
-/// ```
-///
-/// The resulting bindings might look something like this:
-///
-/// ```rust
-/// pub mod Windows {
-///     pub mod Win32 {
-///         pub mod System {
-///             pub mod SystemInformation {
-///                 #[inline]
-///                 pub unsafe fn GetTickCount() -> u32 {
-///                     windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
-///                     unsafe { GetTickCount() }
-///                 }
-///             }
-///             pub mod Threading {
-///                 #[inline]
-///                 pub unsafe fn Sleep(dwmilliseconds: u32) {
-///                     windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
-///                     unsafe { Sleep(dwmilliseconds) }
-///                 }
-///             }
-///         }
-///     }
-/// }
-/// ```
-///
-/// That's because the default metadata defines `GetTickCount` in the `Windows.Win32.System.SystemInformation`
-/// namespace while `Sleep` is defined in the `Windows.Win32.System.Threading` namespace. Fortunately, it's
-/// easy to turn that off by using the `--flat` argument:
-///
-/// ```rust
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--flat",
-///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
-/// ];
-/// ```
-///
-/// The resulting bindings now look something like this:
-///
-/// ```rust
-/// #[inline]
-/// pub unsafe fn GetTickCount() -> u32 {
-///     windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
-///     unsafe { GetTickCount() }
-/// }
-/// #[inline]
-/// pub unsafe fn Sleep(dwmilliseconds: u32) {
-///     windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
-///     unsafe { Sleep(dwmilliseconds) }
-/// }
-/// ```
-///
-/// # `--sys`
-///
-/// The `--sys` argument instruct the `bindgen` function to generate raw, sometimes called sys-style Rust
-/// bindings.
-///
-/// ```rust
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--flat",
-///     "--sys",
-///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
-/// ];
-/// ```
-///
-/// The resulting bindings now look something like this:
-///
-/// ```rust
-/// windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
-/// windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
-/// ```
-///
-/// You'll notice that the bindings are simpler as there's no wrapper functions and other
-/// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
-///
-/// # `--deps`
-///
-/// By default, `windows-bindgen` uses `windows-core` uniformly for most dependencies to provide
-/// consistency and convenience. The `--deps` option selects an alternative dependency strategy:
-///
-/// - `--deps core` (default): bindings depend on `windows-core` and use its re-exports for
-///   shared types as well as the `windows_core::link!` macro.
-/// - `--deps specific`: bindings target specific - and much smaller - crates directly
-///   (`windows-result`, `windows-strings`, `windows-link`) instead of going through
-///   `windows-core`. This can significantly reduce your dependency tree when you don't need
-///   the full `windows-core` functionality.
-/// - `--deps none`: bindings avoid pulling in any of the `windows-*` crates. This is mostly
-///   useful when generating internal `--sys` bindings inside a crate that cannot itself
-///   depend on the rest of the family.
-///
-/// Consider the following example using the `WindowsStringHasEmbeddedNull` function:
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--flat",
-///     "--filter",
-///     "WindowsStringHasEmbeddedNull",
-/// ];
-///
-/// windows_bindgen::bindgen(args).unwrap();
-/// ```
-///
-/// By default, the generated bindings will reference `windows_core` types and use the
-/// `windows_core::link!` macro for convenience and consistent dependency management.
-///
-/// With `--deps specific`:
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--flat",
-///     "--deps",
-///     "specific",
-///     "--filter",
-///     "WindowsStringHasEmbeddedNull",
-/// ];
-///
-/// windows_bindgen::bindgen(args).unwrap();
-/// ```
-///
-/// The bindings will now directly reference specific crates such as `windows_strings::HSTRING`,
-/// `windows_result::Result`, and `windows_link::link!` instead of `windows_core`. This allows
-/// for fine-grained dependency management and can significantly reduce your dependency tree if
-/// you don't need the full `windows-core` functionality.
-///
-/// This is not the default because this level of control is not for everyone, but if you
-/// need fine-grained dependency management and want to minimize your dependency tree, this
-/// provides that flexibility.
-///
-#[track_caller]
-#[must_use]
-pub fn bindgen<I, S>(args: I) -> Warnings
-where
-    I: IntoIterator<Item = S>,
-    S: AsRef<str>,
-{
-    let args = expand_args(args);
-    let mut builder = Bindgen::new();
-    let mut kind = ArgKind::None;
-    let mut has_output = false;
-
-    for arg in &args {
-        if arg.starts_with('-') {
-            kind = ArgKind::None;
-        }
-
-        match kind {
-            ArgKind::None => match arg.as_str() {
-                "--in" => kind = ArgKind::Input,
-                "--out" => kind = ArgKind::Output,
-                "--filter" => kind = ArgKind::Filter,
-                "--rustfmt" => kind = ArgKind::Rustfmt,
-                "--reference" => kind = ArgKind::Reference,
-                "--derive" => kind = ArgKind::Derive,
-                "--flat" => {
-                    builder.flat();
-                }
-                "--deps" => kind = ArgKind::Deps,
-                "--no-toml" => {
-                    builder.no_toml();
-                }
-                "--package" => {
-                    builder.package();
-                }
-                "--sys" => {
-                    builder.sys();
-                }
-                "--minimal" => {
-                    builder.minimal();
-                }
-                "--extern" => {
-                    builder.extern_fns();
-                }
-                "--implement" => {
-                    builder.implement.get_or_insert_with(Vec::new);
-                    kind = ArgKind::Implement;
-                }
-                "--link" => kind = ArgKind::Link,
-                "--index" => {
-                    builder.index();
-                }
-                _ => panic!("invalid option `{arg}`"),
-            },
-            ArgKind::Output => {
-                assert!(!has_output, "exactly one `--out` is required");
-                builder.output(arg);
-                has_output = true;
-            }
-            ArgKind::Input => {
-                builder.input(arg);
-            }
-            ArgKind::Filter => {
-                builder.filter(arg);
-            }
-            ArgKind::Reference => {
-                builder.reference(arg);
-            }
-            ArgKind::Derive => {
-                builder.derive(arg);
-            }
-            ArgKind::Implement => {
-                builder
-                    .implement
-                    .get_or_insert_with(Vec::new)
-                    .push(arg.clone());
-            }
-            ArgKind::Rustfmt => {
-                builder.rustfmt(arg);
-            }
-            ArgKind::Link => {
-                builder.link(arg);
-            }
-            ArgKind::Deps => {
-                builder.deps(match arg.as_str() {
-                    "core" => DepMode::Core,
-                    "specific" => DepMode::Specific,
-                    "none" => DepMode::None,
-                    other => {
-                        panic!("invalid `--deps` value `{other}`; expected `core`, `specific`, or `none`")
-                    }
-                });
-            }
-        }
-    }
-
-    builder.write()
-}
-
 /// Builder for generating Windows API bindings.
 ///
 /// This provides a fluent builder API as an alternative to the command-line-like [`bindgen`] function.
@@ -491,7 +87,7 @@ pub struct Bindgen {
     link: Option<String>,
     layout: Layout,
     style: Style,
-    deps: DepMode,
+    deps: Option<DepMode>,
     index: bool,
 }
 
@@ -669,14 +265,24 @@ impl Bindgen {
 
     /// Select how generated bindings depend on the `windows-*` crates.
     ///
-    /// - [`DepMode::Core`] (default): bindings depend on `windows-core` and use its
-    ///   re-exports for shared types as well as the `windows_core::link!` macro.
-    /// - [`DepMode::Specific`]: bindings depend on `windows-result`, `windows-strings`,
-    ///   and `windows-link` directly instead of going through `windows-core`.
-    /// - [`DepMode::None`]: bindings avoid pulling in any of the `windows-*` crates.
+    /// - [`DepMode::Core`]: depend on `windows-core` (default).
+    /// - [`DepMode::Specific`]: depend on `windows-result`, `windows-strings`,
+    ///   and `windows-link` directly.
+    /// - [`DepMode::None`]: no `windows-*` dependencies (default for `--sys`).
     pub fn deps(&mut self, mode: DepMode) -> &mut Self {
-        self.deps = mode;
+        self.deps = Some(mode);
         self
+    }
+
+    /// Returns the effective dependency mode, resolving the default based on
+    /// the current style when `--deps` was not explicitly set.
+    pub(crate) fn resolved_deps(&self) -> DepMode {
+        self.deps
+            .unwrap_or(if self.style.is_sys() && !self.layout.is_package() {
+                DepMode::None
+            } else {
+                DepMode::Core
+            })
     }
 
     /// Avoid generating the Cargo.toml features when using `package` mode.
@@ -828,7 +434,7 @@ impl Bindgen {
 
         let link = if let Some(link) = self.link.as_deref() {
             link
-        } else if sys || self.deps == DepMode::Specific {
+        } else if sys || self.resolved_deps() == DepMode::Specific {
             "windows_link"
         } else {
             "windows_core"
@@ -849,7 +455,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !sys && self.deps != DepMode::None {
+        if !sys && self.resolved_deps() != DepMode::None {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -857,7 +463,7 @@ impl Bindgen {
             // `prepend_default_refs` so they take precedence over any
             // user-supplied `--reference` entries (matching the historical
             // `references.insert(0, …)` ordering).
-            let win32_foundation_crate = if self.deps == DepMode::Specific {
+            let win32_foundation_crate = if self.resolved_deps() == DepMode::Specific {
                 "windows_result"
             } else {
                 "windows_core"
@@ -1008,100 +614,17 @@ impl Bindgen {
     }
 }
 
-enum ArgKind {
-    None,
-    Input,
-    Output,
-    Filter,
-    Rustfmt,
-    Reference,
-    Derive,
-    Implement,
-    Link,
-    Deps,
-}
-
 /// Selects how generated bindings depend on the `windows-*` crates.
 ///
 /// Used with [`Bindgen::deps`].
-#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DepMode {
-    /// Depend on `windows-core` (the default).
-    #[default]
+    /// Depend on `windows-core` (default).
     Core,
-    /// Depend on `windows-result`, `windows-strings`, and `windows-link` directly
-    /// instead of going through `windows-core`.
+    /// Depend on `windows-result`, `windows-strings`, and `windows-link` directly.
     Specific,
-    /// Do not depend on any of the `windows-*` crates.
+    /// No `windows-*` dependencies (default for `--sys`).
     None,
-}
-
-#[track_caller]
-fn expand_args<I, S>(args: I) -> Vec<String>
-where
-    I: IntoIterator<Item = S>,
-    S: AsRef<str>,
-{
-    // This function is needed to avoid a recursion limit in the Rust compiler.
-    #[track_caller]
-    fn from_string(result: &mut Vec<String>, value: &str) {
-        // Split on whitespace but keep `{...}` groups together so that
-        // `Type::{a, b}` is not split across multiple args.
-        let mut args = Vec::new();
-        let mut current = String::new();
-        let mut brace_depth = 0u32;
-
-        for ch in value.chars() {
-            if ch == '{' {
-                brace_depth += 1;
-                current.push(ch);
-            } else if ch == '}' {
-                brace_depth = brace_depth.saturating_sub(1);
-                current.push(ch);
-            } else if ch.is_whitespace() && brace_depth == 0 {
-                if !current.is_empty() {
-                    args.push(std::mem::take(&mut current));
-                }
-            } else {
-                current.push(ch);
-            }
-        }
-        if !current.is_empty() {
-            args.push(current);
-        }
-
-        expand_args(result, args);
-    }
-
-    #[track_caller]
-    fn expand_args<I, S>(result: &mut Vec<String>, args: I)
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        let mut expand = false;
-
-        for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
-            if arg.starts_with('-') {
-                expand = false;
-            }
-            if expand {
-                for args in read_file_lines(&arg) {
-                    if !args.starts_with("//") {
-                        from_string(result, &args);
-                    }
-                }
-            } else if arg == "--etc" {
-                expand = true;
-            } else {
-                result.push(arg);
-            }
-        }
-    }
-
-    let mut result = vec![];
-    expand_args(&mut result, args);
-    result
 }
 
 #[track_caller]

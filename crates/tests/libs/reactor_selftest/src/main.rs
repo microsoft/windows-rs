@@ -15,7 +15,6 @@ use windows_reactor::*;
     non_camel_case_types,
     clippy::upper_case_acronyms,
     clippy::transmute_ptr_to_ptr,
-    clippy::useless_transmute,
     clippy::missing_transmute_annotations,
     clippy::too_many_arguments
 )]

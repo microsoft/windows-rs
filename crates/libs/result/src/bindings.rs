@@ -26,22 +26,17 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HEAP_FLAGS = u32;
 pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
-pub const IID_IErrorInfo: GUID = GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
+pub const IID_IErrorInfo: GUID = GUID {
+    data1: 0x1cf2b120,
+    data2: 0x547d,
+    data3: 0x101b,
+    data4: [142, 101, 8, 0, 43, 43, 209, 25],
+};
 #[repr(C)]
 pub struct IErrorInfo_Vtbl {
     pub base__: IUnknown_Vtbl,
@@ -51,7 +46,12 @@ pub struct IErrorInfo_Vtbl {
     pub GetHelpFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
     pub GetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> HRESULT,
 }
-pub const IID_IRestrictedErrorInfo: GUID = GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
+pub const IID_IRestrictedErrorInfo: GUID = GUID {
+    data1: 0x82ba7092,
+    data2: 0x4c88,
+    data3: 0x427d,
+    data4: [167, 188, 22, 221, 147, 254, 182, 126],
+};
 #[repr(C)]
 pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: IUnknown_Vtbl,
@@ -64,7 +64,12 @@ pub struct IRestrictedErrorInfo_Vtbl {
     ) -> HRESULT,
     pub GetReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BSTR) -> HRESULT,
 }
-pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+pub const IID_IUnknown: GUID = GUID {
+    data1: 0x00000000,
+    data2: 0x0000,
+    data3: 0x0000,
+    data4: [192, 0, 0, 0, 0, 0, 0, 70],
+};
 #[repr(C)]
 pub struct IUnknown_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(

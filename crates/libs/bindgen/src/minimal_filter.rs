@@ -1,5 +1,5 @@
 use super::*;
-use std::collections::{BTreeSet, HashMap};
+use std::collections::{BTreeSet, HashMap, HashSet};
 
 /// Returns true if `method_name` matches either the raw metadata name or the
 /// overload-disambiguated name of `m`.
@@ -37,6 +37,11 @@ pub struct MinimalFilter {
     /// Enums with specific variants requested.
     /// Key: (namespace, type_name), Value: requested variant names (or `All`).
     pub enum_variants: HashMap<(&'static str, &'static str), MethodSet>,
+
+    /// Classes that explicitly requested `CreateInstance` in the filter.
+    /// Used to decide whether to emit the `IActivationFactory` default
+    /// constructor (`new()`).
+    pub activatable: HashSet<(&'static str, &'static str)>,
 }
 
 /// Which methods are requested on an interface.
@@ -113,13 +118,8 @@ impl MinimalFilter {
                                 if !filter.types.contains(&(resolved_ns, resolved_name)) {
                                     filter.types.push((resolved_ns, resolved_name));
                                 }
+                                filter.activatable.insert((resolved_ns, resolved_name));
                                 for iface in c.required_interfaces(reader) {
-                                    // Skip statics — they only need expansion when specific
-                                    // static methods are explicitly listed in the filter.
-                                    // Keep composable interfaces (needed for new()/compose()).
-                                    if matches!(iface.kind, InterfaceKind::Static) {
-                                        continue;
-                                    }
                                     let iface_ns = iface.def.namespace();
                                     let iface_name = iface.def.name();
                                     let Some(r_ns) = reader.keys().find(|ns| *ns == &iface_ns)
@@ -309,6 +309,7 @@ impl MinimalFilter {
                     if !self.types.contains(&(resolved_ns, resolved_name)) {
                         self.types.push((resolved_ns, resolved_name));
                     }
+                    self.activatable.insert((resolved_ns, resolved_name));
                     found = true;
                 }
                 if !found {
@@ -343,7 +344,9 @@ impl MinimalFilter {
                     "method `{method_name}` not found on \
                      class `{type_part}` (in filter entry `{entry}`)"
                 );
-                // Include composable factory interfaces so new()/compose() work.
+                // Include composable factory interfaces so new() works.
+                // The compose() variant is controlled separately by emit_compose
+                // in class.rs based on the --implement option.
                 for iface in &required {
                     if matches!(iface.kind, InterfaceKind::Composable) {
                         let iface_ns = iface.def.namespace();

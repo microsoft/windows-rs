@@ -9,7 +9,7 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     impl IFoo {
-        pub fn Direct(&self) -> windows_result::Result<i32> {
+        pub(crate) fn Direct(&self) -> windows_result::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Direct)(
@@ -19,7 +19,7 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn get_Name(&self) -> windows_result::Result<String> {
+        pub(crate) fn get_Name(&self) -> windows_result::Result<String> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).get_Name)(
@@ -32,7 +32,7 @@ pub mod Test {
                 })
             }
         }
-        pub fn put_Name(&self, value: &str) -> windows_result::Result<()> {
+        pub(crate) fn put_Name(&self, value: &str) -> windows_result::Result<()> {
             unsafe {
                 (windows_core::Interface::vtable(self).put_Name)(
                     windows_core::Interface::as_raw(self),
@@ -67,7 +67,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IFoo2 {
-        pub fn Bar(&self) -> windows_result::Result<i32> {
+        pub(crate) fn Bar(&self) -> windows_result::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Bar)(

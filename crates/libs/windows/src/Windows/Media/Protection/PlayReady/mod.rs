@@ -99,7 +99,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                 match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -161,7 +161,7 @@ impl INDCustomData_Vtbl {
                 match INDCustomData_Impl::CustomDataTypeID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -175,7 +175,7 @@ impl INDCustomData_Vtbl {
                 match INDCustomData_Impl::CustomData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -601,7 +601,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 match INDLicenseFetchDescriptor_Impl::ContentID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1008,7 +1008,7 @@ impl INDSendResult_Vtbl {
                 match INDSendResult_Impl::Response(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1493,7 +1493,7 @@ impl INDTransmitterProperties_Vtbl {
                 match INDTransmitterProperties_Impl::SupportedFeatures(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1543,7 +1543,7 @@ impl INDTransmitterProperties_Vtbl {
                 match INDTransmitterProperties_Impl::ClientID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1557,7 +1557,7 @@ impl INDTransmitterProperties_Vtbl {
                 match INDTransmitterProperties_Impl::ModelDigest(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -2672,7 +2672,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 match IPlayReadySecureStopServiceRequest_Impl::PublisherCertificate(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }

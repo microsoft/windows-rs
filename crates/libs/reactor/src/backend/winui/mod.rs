@@ -2950,8 +2950,8 @@ impl Backend for WinUIBackend {
                     std::thread::spawn(move || {
                         use crate::drag::DroppedItem;
 
-                        let resolved_data_view =
-                            agile_data_view.and_then(|agile_reference| agile_reference.resolve().ok());
+                        let resolved_data_view = agile_data_view
+                            .and_then(|agile_reference| agile_reference.resolve().ok());
 
                         let items: Vec<DroppedItem> = if formats.storage_items {
                             resolved_data_view
@@ -3147,8 +3147,8 @@ fn dispatch_accept(
             let v = items.clone();
             Some(Box::new(move || v.clone()) as Box<dyn Fn() -> Vec<DroppedItem>>)
         };
-        let get_text_fn = text
-            .map(|t| Box::new(move || Some(t.clone())) as Box<dyn Fn() -> Option<String>>);
+        let get_text_fn =
+            text.map(|t| Box::new(move || Some(t.clone())) as Box<dyn Fn() -> Option<String>>);
         let mut ctx = DragContext {
             has_text: formats.text,
             has_html: formats.html,
