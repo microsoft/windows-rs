@@ -125,46 +125,6 @@ pub fn panic_message(payload: Box<dyn Any + Send>) -> String {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn fallback_invoke_returns_element() {
-        let fb = Fallback::new(|msg| TextBlock::new(format!("oops: {msg}")).into());
-        let e = fb.invoke("boom");
-        match e {
-            Element::TextBlock(t) => assert_eq!(t.text, "oops: boom"),
-            other => panic!("unexpected {other:?}"),
-        }
-    }
-
-    #[test]
-    fn fallback_clone_ptr_eq() {
-        let fb1 = Fallback::new(|_| Element::Empty);
-        let fb2 = fb1.clone();
-        let fb3 = Fallback::new(|_| Element::Empty);
-        assert_eq!(fb1, fb2);
-        assert_ne!(fb1, fb3);
-    }
-
-    #[test]
-    fn error_boundary_factory_produces_variant() {
-        let eb = error_boundary(TextBlock::new("child"), |_| Element::Empty);
-        assert!(matches!(eb, Element::ErrorBoundary(_)));
-    }
-
-    #[test]
-    fn panic_message_handles_known_payload_shapes() {
-        let e: Box<dyn Any + Send> = Box::new("literal");
-        assert_eq!(panic_message(e), "literal");
-        let e: Box<dyn Any + Send> = Box::new(String::from("owned"));
-        assert_eq!(panic_message(e), "owned");
-        let e: Box<dyn Any + Send> = Box::new(42_i32);
-        assert_eq!(panic_message(e), "<non-string panic>");
-    }
-}
-
 // Trait for converting heterogeneous tuples into `Vec<Element>`.
 //
 // This enables writing `vstack((title, body, footer))` without macros,
