@@ -25,7 +25,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IUIAnimationManager2, windows_core::IUnknown);
 impl IUIAnimationManager2 {
-    pub unsafe fn CreateAnimationVariable(
+    pub(crate) unsafe fn CreateAnimationVariable(
         &self,
         initialvalue: f64,
     ) -> windows_core::Result<IUIAnimationVariable2> {
@@ -39,7 +39,7 @@ impl IUIAnimationManager2 {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ScheduleTransition<P0, P1>(
+    pub(crate) unsafe fn ScheduleTransition<P0, P1>(
         &self,
         variable: P0,
         transition: P1,
@@ -59,7 +59,7 @@ impl IUIAnimationManager2 {
             .ok()
         }
     }
-    pub unsafe fn CreateStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard2> {
+    pub(crate) unsafe fn CreateStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateStoryboard)(
@@ -69,7 +69,7 @@ impl IUIAnimationManager2 {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Update(
+    pub(crate) unsafe fn Update(
         &self,
         timenow: f64,
         updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>,
@@ -133,7 +133,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IUIAnimationStoryboard2, windows_core::IUnknown);
 impl IUIAnimationStoryboard2 {
-    pub unsafe fn AddTransition<P0, P1>(
+    pub(crate) unsafe fn AddTransition<P0, P1>(
         &self,
         variable: P0,
         transition: P1,
@@ -151,7 +151,7 @@ impl IUIAnimationStoryboard2 {
             .ok()
         }
     }
-    pub unsafe fn AddKeyframeAfterTransition<P0>(
+    pub(crate) unsafe fn AddKeyframeAfterTransition<P0>(
         &self,
         transition: P0,
     ) -> windows_core::Result<UI_ANIMATION_KEYFRAME>
@@ -168,7 +168,7 @@ impl IUIAnimationStoryboard2 {
             .map(|| result__)
         }
     }
-    pub unsafe fn AddTransitionAtKeyframe<P0, P1>(
+    pub(crate) unsafe fn AddTransitionAtKeyframe<P0, P1>(
         &self,
         variable: P0,
         transition: P1,
@@ -188,7 +188,7 @@ impl IUIAnimationStoryboard2 {
             .ok()
         }
     }
-    pub unsafe fn Schedule(
+    pub(crate) unsafe fn Schedule(
         &self,
         timenow: f64,
         schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>,
@@ -268,7 +268,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IUIAnimationTransitionLibrary2, windows_core::IUnknown);
 impl IUIAnimationTransitionLibrary2 {
-    pub unsafe fn CreateInstantaneousTransition(
+    pub(crate) unsafe fn CreateInstantaneousTransition(
         &self,
         finalvalue: f64,
     ) -> windows_core::Result<IUIAnimationTransition2> {
@@ -282,7 +282,7 @@ impl IUIAnimationTransitionLibrary2 {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateLinearTransition(
+    pub(crate) unsafe fn CreateLinearTransition(
         &self,
         duration: f64,
         finalvalue: f64,
@@ -298,7 +298,7 @@ impl IUIAnimationTransitionLibrary2 {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAccelerateDecelerateTransition(
+    pub(crate) unsafe fn CreateAccelerateDecelerateTransition(
         &self,
         duration: f64,
         finalvalue: f64,
@@ -367,7 +367,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IUIAnimationVariable2, windows_core::IUnknown);
 impl IUIAnimationVariable2 {
-    pub unsafe fn GetValue(&self) -> windows_core::Result<f64> {
+    pub(crate) unsafe fn GetValue(&self) -> windows_core::Result<f64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(
@@ -377,7 +377,7 @@ impl IUIAnimationVariable2 {
             .map(|| result__)
         }
     }
-    pub unsafe fn GetCurve<P0>(&self, animation: P0) -> windows_core::Result<()>
+    pub(crate) unsafe fn GetCurve<P0>(&self, animation: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDCompositionAnimation>,
     {

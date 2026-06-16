@@ -15649,7 +15649,10 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ISurfaceImageSourceNativeWithD2D, windows_core::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {
-    pub unsafe fn SetDevice(&self, device: *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SetDevice(
+        &self,
+        device: *mut core::ffi::c_void,
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetDevice)(
                 windows_core::Interface::as_raw(self),
@@ -15658,7 +15661,7 @@ impl ISurfaceImageSourceNativeWithD2D {
             .ok()
         }
     }
-    pub unsafe fn BeginDraw(
+    pub(crate) unsafe fn BeginDraw(
         &self,
         updaterect: *const RECT,
         iid: *const windows_core::GUID,
@@ -15676,13 +15679,13 @@ impl ISurfaceImageSourceNativeWithD2D {
             .ok()
         }
     }
-    pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self))
                 .ok()
         }
     }
-    pub unsafe fn SuspendDraw(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn SuspendDraw(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SuspendDraw)(windows_core::Interface::as_raw(
                 self,
@@ -15690,7 +15693,7 @@ impl ISurfaceImageSourceNativeWithD2D {
             .ok()
         }
     }
-    pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
+    pub(crate) unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(
                 self,
@@ -15928,7 +15931,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ISwapChainPanelNative, windows_core::IUnknown);
 impl ISwapChainPanelNative {
-    pub unsafe fn SetSwapChain(
+    pub(crate) unsafe fn SetSwapChain(
         &self,
         swapchain: *mut core::ffi::c_void,
     ) -> windows_core::Result<()> {
@@ -19120,7 +19123,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IWindowNative, windows_core::IUnknown);
 impl IWindowNative {
-    pub unsafe fn get_WindowHandle(
+    pub(crate) unsafe fn get_WindowHandle(
         &self,
         hwnd: *mut *mut core::ffi::c_void,
     ) -> windows_core::Result<()> {

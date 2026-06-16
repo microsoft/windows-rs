@@ -1081,7 +1081,12 @@ impl Method {
                     quote! {}
                 };
 
-                let new = if !emit_compose {
+                // In minimal mode, when compose() is emitted (class is subclassed
+                // via --implement), suppress the non-aggregating new() since the
+                // consuming crate uses compose() instead. In non-minimal mode,
+                // always emit both.
+                let suppress_new = emit_compose && config.bindgen.style.is_minimal();
+                let new = if !suppress_new {
                     quote! {
                         #vis fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                             #prelude
