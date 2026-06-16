@@ -111,18 +111,100 @@ presentation — is not currently utilized.
 | Swap chain resize + DPI | ✅ | ✅ | Done |
 | Per-frame draw closure | ✅ | ✅ | Done |
 | Stroke styles | ✅ | ✅ | Done |
-| Bitmaps (WIC) | ✅ | ✅ | Done |
-| Text rendering (DWrite) | ✅ | ✅ | Done |
-| Geometry paths | ✅ | ✅ | Done |
-| Gradients | ✅ | ✅ | Done |
-| Transforms | ✅ | ✅ | Done |
-| Invalidation-only mode (`canvas()`) | `CanvasControl` | ❌ | Gap |
-| Timing info in DrawContext | `CanvasTimingInformation` | ❌ | Gap |
-| Pause / resume | `Paused` property | ❌ | Gap |
-| Fixed timestep | `IsFixedTimeStep` | ❌ | Gap |
+| Bitmaps (load from file) | ✅ | ✅ | Done |
+| Text rendering (DrawText) | ✅ | ✅ | Done |
+| Geometry paths (typestate builder) | ✅ | ✅ | Done |
+| Gradients (linear + radial) | ✅ | ✅ | Done |
+| Transforms (with_transform scoping) | ✅ | ✅ | Done |
+| Render-to-bitmap target | ✅ | ✅ | Done |
+| Shadow effect | ✅ | ✅ | Done |
+| **Text layout / metrics / hit-test** | `CanvasTextLayout` | ❌ | **High** |
+| **Clipping / opacity layers** | `PushLayer` | ❌ | **High** |
+| **Effects graph** (blur, blend, …) | ~100 effects | Shadow only | **High** |
+| **Geometry ops** (combine, bounds, hit-test) | `CanvasGeometry` | ❌ | Medium |
+| **Bitmap from bytes / save** | ✅ | ❌ | Medium |
+| **Command lists** (record/replay) | `CanvasCommandList` | ❌ | Medium |
+| Invalidation-only mode (`canvas()`) | `CanvasControl` | ❌ | Medium |
+| Timing info in DrawContext | `CanvasTimingInformation` | ❌ | Medium |
+| Sprite batch | `CanvasSpriteBatch` | ❌ | Low |
+| SVG rendering | `CanvasSvgDocument` | ❌ | Low |
 | **Dedicated render thread** | **GameLoopThread** | **❌** | **Key gap** |
-| Opacity layers | ✅ | ❌ | Gap |
-| CanvasTextLayout (metrics) | ✅ | ❌ | Gap |
+| Pause / resume | `Paused` property | ❌ | Low |
+| Fixed timestep | `IsFixedTimeStep` | ❌ | Low |
+
+### Prioritized Feature Gaps
+
+Gaps ordered by user impact. The goal is not a straight Win2D port — it's a
+Rust-first library that does things *better* by being directly on the platform.
+
+#### High priority
+
+1. **TextLayout** — Wrap `IDWriteTextLayout`. Measuring text, per-character
+   metrics, and hit-testing are the single most-requested missing feature for
+   any text-heavy UI. Win2D's `CanvasTextLayout` is one of its most-used types.
+
+2. **Clipping / layers** — `with_clip(rect, f)` wrapping
+   `PushAxisAlignedClip`/`PopAxisAlignedClip`, and `with_layer(params, f)`
+   wrapping `PushLayer`/`PopLayer` for opacity, geometric clip, and masks.
+   ~15 lines each; high compositing value.
+
+3. **Effects** — Expose common D2D effects beyond Shadow: Gaussian blur, blend,
+   color matrix, saturation, brightness. Add a typed wrapper per effect plus
+   `Effect::custom(clsid)` as an escape hatch. Win2D wraps ~100; we need ~10.
+
+#### Medium priority
+
+4. **Geometry operations** — `Path::bounds()`, `Path::contains_point()`,
+   `Path::stroke_contains_point()`, `Path::combine()`, `Path::widen()`.
+   Single D2D calls each; critical for hit-testing and procedural shapes.
+
+5. **Bitmap from bytes / save** — `Bitmap::from_rgba(width, height, &[u8])`
+   and `Bitmap::save(path, format)`. Enables procedural textures, screenshots,
+   and image processing pipelines without file I/O.
+
+6. **Command lists** — `CommandList` type wrapping `ID2D1CommandList`. Record
+   draw calls, replay them, or feed them as effect inputs. Enables complex
+   scene caching and compositing.
+
+7. **`canvas()` (invalidation-driven)** — Draw once, re-draw only on
+   `invalidate()` or resize. Essential for charts, diagrams, and static content
+   where 60fps rendering wastes power.
+
+8. **Timing info** — `FrameTiming { total_time, elapsed_time, frame_count }`
+   in `DrawContext` for `animated_canvas`. Trivial to add.
+
+#### Low priority (defer)
+
+9. **Sprite batch** — Fast path for many bitmaps (particles, tile maps).
+   Niche but good perf win for games. D2D's `ID2D1SpriteBatch`.
+
+10. **SVG rendering** — `ID2D1SvgDocument` (Windows 10 1703+). Nice-to-have
+    for icon rendering without rasterization.
+
+11. **Dedicated render thread** — `threaded_canvas()`. Architecturally complex
+    (own DispatcherQueue, Send bounds, channel communication). Only needed
+    for games or heavy simulations that would block the UI thread.
+
+#### Deliberately omitted
+
+- **Printing** — niche, not worth API surface
+- **Font enumeration** — too specialized; users can call DWrite directly
+- **XAML controls** — reactor's `animated_canvas()` / future `canvas()`
+  handles this better than Win2D's XAML interop
+- **Bitmap brush** — rarely needed when `draw_bitmap` exists
+
+### Quick Wins
+
+Minimal-effort additions with outsized value:
+
+| Addition | Effort | Wraps |
+|----------|--------|-------|
+| `with_clip(rect, f)` | ~15 LOC | `PushAxisAlignedClip` / `PopAxisAlignedClip` |
+| `Bitmap::from_bytes(w, h, data)` | ~20 LOC | `CreateBitmap` with pixel data |
+| `blur_effect(source, radius)` | ~10 LOC | `CLSID_D2D1GaussianBlur` |
+| `Path::bounds()` | ~5 LOC | `GetBounds` |
+| `TextFormat::with_word_wrapping` | ~5 LOC | `SetWordWrapping` |
+| `draw_text` avoid per-call alloc | refactor | Cache UTF-16 or accept `&[u16]` |
 
 ### Planned Entry Points
 
