@@ -51,7 +51,7 @@ fn main() {
 | `--flat` | Emit all types in a single module (no namespace hierarchy) |
 | `--sys` | Generate raw C-style bindings (like `windows-sys`) |
 | `--minimal` | Emit only explicitly listed methods; others become `usize` vtable slots |
-| `--deps` | Dependency mode for shared types (default: `core` for non-`--sys`, `none` for `--sys`) |
+| `--deps {core,specific,none}` | Dependency mode (default: `core`, or `none` for `--sys`) |
 | `--derive <traits>` | Additional derives on generated types |
 | `--rustfmt` | Format output with rustfmt |
 | `--implement <ifaces>` | Generate implementation traits for COM interfaces |
