@@ -71,7 +71,7 @@ impl Class {
             // subclassed (aggregated), which requires --implement on one of its
             // interfaces — including overridable interfaces declared via
             // OverridableAttribute (e.g. IApplicationOverrides).
-            let needs_compose = config.implement.map_or(false, |imp| {
+            let needs_compose = config.implement.is_some_and(|imp| {
                 required_interfaces
                     .iter()
                     .any(|i| imp.matches(i.def.type_name()))
@@ -133,7 +133,7 @@ impl Class {
         };
 
         let has_default_ctor = self.has_default_constructor(config.reader)
-            && config.minimal_filter.map_or(true, |mf| {
+            && config.minimal_filter.is_none_or(|mf| {
                 mf.activatable
                     .contains(&(type_name.namespace(), type_name.name()))
             });

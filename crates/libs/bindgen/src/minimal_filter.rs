@@ -120,12 +120,6 @@ impl MinimalFilter {
                                 }
                                 filter.activatable.insert((resolved_ns, resolved_name));
                                 for iface in c.required_interfaces(reader) {
-                                    // Skip statics — they only need expansion when specific
-                                    // static methods are explicitly listed in the filter.
-                                    // Keep composable interfaces (needed for new()/compose()).
-                                    if matches!(iface.kind, InterfaceKind::Static) {
-                                        continue;
-                                    }
                                     let iface_ns = iface.def.namespace();
                                     let iface_name = iface.def.name();
                                     let Some(r_ns) = reader.keys().find(|ns| *ns == &iface_ns)

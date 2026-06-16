@@ -3728,6 +3728,34 @@ impl FrameworkElementAutomationPeer {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub(crate) fn FromElement<P0>(element: P0) -> windows_core::Result<AutomationPeer>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromElement)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn CreatePeerForElement<P0>(element: P0) -> windows_core::Result<AutomationPeer>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IFrameworkElementAutomationPeerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreatePeerForElement)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
     fn IFrameworkElementAutomationPeerFactory<
         R,
         F: FnOnce(&IFrameworkElementAutomationPeerFactory) -> windows_core::Result<R>,
@@ -3737,6 +3765,18 @@ impl FrameworkElementAutomationPeer {
         static SHARED: windows_core::imp::FactoryCache<
             FrameworkElementAutomationPeer,
             IFrameworkElementAutomationPeerFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IFrameworkElementAutomationPeerStatics<
+        R,
+        F: FnOnce(&IFrameworkElementAutomationPeerStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            FrameworkElementAutomationPeer,
+            IFrameworkElementAutomationPeerStatics,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3777,6 +3817,20 @@ impl Grid {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetRow<P0>(element: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetRow)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
         })
     }
     pub(crate) fn SetRow<P0>(element: P0, value: i32) -> windows_core::Result<()>
@@ -9309,6 +9363,20 @@ impl IDispatcherQueue {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub(crate) fn TryEnqueue<P0>(&self, callback: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<DispatcherQueueHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TryEnqueue)(
+                windows_core::Interface::as_raw(self),
+                callback.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn TryEnqueueWithPriority<P1>(
         &self,
         priority: DispatcherQueuePriority,
@@ -9336,7 +9404,11 @@ pub struct IDispatcherQueue_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    TryEnqueue: usize,
+    pub TryEnqueue: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut bool,
+    ) -> windows_core::HRESULT,
     pub TryEnqueueWithPriority: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         DispatcherQueuePriority,
@@ -10250,6 +10322,29 @@ pub struct IFrameworkElementAutomationPeerFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(
+    IFrameworkElementAutomationPeerStatics,
+    IFrameworkElementAutomationPeerStatics_Vtbl,
+    0x081f6fbe_6500_528a_a506_f5a4d41ddf6c
+);
+impl windows_core::RuntimeType for IFrameworkElementAutomationPeerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IFrameworkElementAutomationPeerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FromElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub CreatePeerForElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGrid, IGrid_Vtbl, 0xc4496219_9014_58a1_b4ad_c5044913a5bb);
 impl windows_core::RuntimeType for IGrid {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -10362,7 +10457,11 @@ pub struct IGridStatics_Vtbl {
     get_RowSpacingProperty: usize,
     get_ColumnSpacingProperty: usize,
     get_RowProperty: usize,
-    GetRow: usize,
+    pub GetRow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
     pub SetRow: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -13204,6 +13303,15 @@ pub struct IPointerRoutedEventArgs_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IPopup, IPopup_Vtbl, 0x4e3ab19d_2f95_579c_9535_906c58629437);
+impl windows_core::RuntimeType for IPopup {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPopup_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 windows_core::imp::define_interface!(
     IProgressBar,
     IProgressBar_Vtbl,
@@ -13577,6 +13685,16 @@ impl IRangeBase {
             .ok()
         }
     }
+    pub(crate) fn get_Value(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_Value)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn put_Value(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).put_Value)(
@@ -13633,7 +13751,8 @@ pub struct IRangeBase_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     get_LargeChange: usize,
     put_LargeChange: usize,
-    get_Value: usize,
+    pub get_Value:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub put_Value: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub add_ValueChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -18699,6 +18818,77 @@ pub struct IVisualTreeHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    IVisualTreeHelperStatics,
+    IVisualTreeHelperStatics_Vtbl,
+    0x5aece43c_7651_5bb5_855c_2198496e455e
+);
+impl windows_core::RuntimeType for IVisualTreeHelperStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVisualTreeHelperStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FindElementsInHostCoordinatesPoint: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        Point,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub FindElementsInHostCoordinatesRect: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        Rect,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub FindAllElementsInHostCoordinatesPoint: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        Point,
+        *mut core::ffi::c_void,
+        bool,
+        *mut *mut core::ffi::c_void,
+    )
+        -> windows_core::HRESULT,
+    pub FindAllElementsInHostCoordinatesRect: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        Rect,
+        *mut core::ffi::c_void,
+        bool,
+        *mut *mut core::ffi::c_void,
+    )
+        -> windows_core::HRESULT,
+    pub GetChild: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetChildrenCount: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    pub GetParent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub DisconnectChildrenRecursive: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetOpenPopups: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetOpenPopupsForXamlRoot: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IWindow,
     IWindow_Vtbl,
     0x61f0ec79_5d52_56b5_86fb_40fa4af288b0
@@ -18708,6 +18898,16 @@ impl windows_core::RuntimeType for IWindow {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IWindow {
+    pub(crate) fn get_Content(&self) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_Content)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn put_Content<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -18795,7 +18995,10 @@ pub struct IWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     get_Bounds: usize,
     get_Visible: usize,
-    get_Content: usize,
+    pub get_Content: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub put_Content: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -21471,6 +21674,30 @@ impl windows_core::RuntimeName for PointerRoutedEventArgs {
 }
 unsafe impl Send for PointerRoutedEventArgs {}
 unsafe impl Sync for PointerRoutedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Popup(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(Popup, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Popup, FrameworkElement, UIElement, DependencyObject);
+impl windows_core::RuntimeType for Popup {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IPopup>();
+}
+unsafe impl windows_core::Interface for Popup {
+    type Vtable = <IPopup as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPopup as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for Popup {
+    type Target = IPopup;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for Popup {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.Primitives.Popup";
+}
+unsafe impl Send for Popup {}
+unsafe impl Sync for Popup {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProgressBar(windows_core::IUnknown);
@@ -25813,6 +26040,184 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl VisualTreeHelper {
+    pub(crate) fn FindElementsInHostCoordinatesPoint<P1>(
+        intersectingpoint: Point,
+        subtree: P1,
+    ) -> windows_core::Result<windows_collections::IIterable<UIElement>>
+    where
+        P1: windows_core::Param<UIElement>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindElementsInHostCoordinatesPoint)(
+                windows_core::Interface::as_raw(this),
+                intersectingpoint,
+                subtree.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn FindElementsInHostCoordinatesRect<P1>(
+        intersectingrect: Rect,
+        subtree: P1,
+    ) -> windows_core::Result<windows_collections::IIterable<UIElement>>
+    where
+        P1: windows_core::Param<UIElement>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindElementsInHostCoordinatesRect)(
+                windows_core::Interface::as_raw(this),
+                intersectingrect,
+                subtree.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn FindAllElementsInHostCoordinatesPoint<P1>(
+        intersectingpoint: Point,
+        subtree: P1,
+        includeallelements: bool,
+    ) -> windows_core::Result<windows_collections::IIterable<UIElement>>
+    where
+        P1: windows_core::Param<UIElement>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllElementsInHostCoordinatesPoint)(
+                windows_core::Interface::as_raw(this),
+                intersectingpoint,
+                subtree.param().abi(),
+                includeallelements,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn FindAllElementsInHostCoordinatesRect<P1>(
+        intersectingrect: Rect,
+        subtree: P1,
+        includeallelements: bool,
+    ) -> windows_core::Result<windows_collections::IIterable<UIElement>>
+    where
+        P1: windows_core::Param<UIElement>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllElementsInHostCoordinatesRect)(
+                windows_core::Interface::as_raw(this),
+                intersectingrect,
+                subtree.param().abi(),
+                includeallelements,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetChild<P0>(
+        reference: P0,
+        childindex: i32,
+    ) -> windows_core::Result<DependencyObject>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetChild)(
+                windows_core::Interface::as_raw(this),
+                reference.param().abi(),
+                childindex,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetChildrenCount<P0>(reference: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetChildrenCount)(
+                windows_core::Interface::as_raw(this),
+                reference.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn GetParent<P0>(reference: P0) -> windows_core::Result<DependencyObject>
+    where
+        P0: windows_core::Param<DependencyObject>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetParent)(
+                windows_core::Interface::as_raw(this),
+                reference.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn DisconnectChildrenRecursive<P0>(element: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).DisconnectChildrenRecursive)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn GetOpenPopups<P0>(
+        window: P0,
+    ) -> windows_core::Result<windows_collections::IVectorView<Popup>>
+    where
+        P0: windows_core::Param<Window>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetOpenPopups)(
+                windows_core::Interface::as_raw(this),
+                window.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetOpenPopupsForXamlRoot<P0>(
+        xamlroot: P0,
+    ) -> windows_core::Result<windows_collections::IVectorView<Popup>>
+    where
+        P0: windows_core::Param<XamlRoot>,
+    {
+        Self::IVisualTreeHelperStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetOpenPopupsForXamlRoot)(
+                windows_core::Interface::as_raw(this),
+                xamlroot.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVisualTreeHelperStatics<
+        R,
+        F: FnOnce(&IVisualTreeHelperStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VisualTreeHelper, IVisualTreeHelperStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for VisualTreeHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IVisualTreeHelper>();
