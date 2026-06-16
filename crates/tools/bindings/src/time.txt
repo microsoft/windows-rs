@@ -3,4 +3,4 @@
 
 --filter
     Windows::Foundation::{DateTime, TimeSpan}
-    Windows::Win32::Storage::FileSystem::FileTimeToLocalFileTime
+    FileTimeToLocalFileTime
