@@ -225,21 +225,43 @@ impl Filter {
             return false;
         }
 
-        let Some(filter) = self.methods.get(&(
+        let key = (
             type_name.namespace().to_string(),
             type_name.name().to_string(),
-        )) else {
+        );
+
+        let Some(filter) = self.methods.get(&key) else {
+            // No explicit method filter for this type. In minimal mode,
+            // check requested_interfaces — types registered with MethodSet::All
+            // (e.g. composable factory interfaces) should include all methods.
+            if self.default_demote {
+                if let Some(MethodSet::All) = self.requested_interfaces.get(&key) {
+                    return true;
+                }
+            }
             return !self.default_demote;
         };
 
         let raw = method.name();
         let overload = method_overload_name(method);
 
+        // In minimal mode (default_demote), match by overload-disambiguated name
+        // when one exists — the raw metadata name is shared with other overloads
+        // and would include them all indiscriminately. In non-minimal mode,
+        // match either raw or overload for broader compatibility.
         let in_set = |set: &BTreeSet<String>| -> bool {
-            set.contains(raw)
-                || overload
-                    .as_ref()
-                    .is_some_and(|name| set.contains(name.as_str()))
+            if self.default_demote {
+                if let Some(ref name) = overload {
+                    set.contains(name.as_str())
+                } else {
+                    set.contains(raw)
+                }
+            } else {
+                set.contains(raw)
+                    || overload
+                        .as_ref()
+                        .is_some_and(|name| set.contains(name.as_str()))
+            }
         };
 
         // Deny wins on overlap.
@@ -703,18 +725,13 @@ impl Filter {
                     }
 
                     if include && default_demote {
-                        // In minimal mode, a bare type entry means "all methods"
-                        // — register in requested_interfaces for type closure
-                        // and expand class methods.
-                        Self::register_type_for_minimal(
-                            reader,
-                            namespace,
-                            name,
-                            &mut requested_interfaces,
-                            &mut direct_types,
-                            &mut activatable,
-                            &mut enum_variants,
-                        );
+                        // In minimal mode, a bare type entry (no ::members)
+                        // is recorded as a direct type for the type closure.
+                        // This matches the old parse_minimal_type_entry behavior.
+                        let key = (namespace.clone(), name.clone());
+                        if !direct_types.contains(&key) {
+                            direct_types.push(key);
+                        }
                     }
                 }
                 ResolvedKind::Members {
@@ -735,21 +752,34 @@ impl Filter {
                     }
 
                     // Register each member
-                    for member in members {
-                        Self::register_member(
+                    if members.len() == 1 && members[0] == "*" {
+                        // ::* — expand all methods/members on the type
+                        Self::register_type_for_minimal(
                             reader,
-                            &mut methods,
-                            &mut warnings,
+                            namespace,
+                            name,
                             &mut requested_interfaces,
                             &mut direct_types,
                             &mut activatable,
                             &mut enum_variants,
-                            namespace,
-                            name,
-                            member,
-                            include,
-                            default_demote,
                         );
+                    } else {
+                        for member in members {
+                            Self::register_member(
+                                reader,
+                                &mut methods,
+                                &mut warnings,
+                                &mut requested_interfaces,
+                                &mut direct_types,
+                                &mut activatable,
+                                &mut enum_variants,
+                                namespace,
+                                name,
+                                member,
+                                include,
+                                default_demote,
+                            );
+                        }
                     }
                 }
             }
@@ -876,15 +906,15 @@ impl Filter {
                     }
                 }
                 Type::Class(class) => {
+                    let required = class.required_interfaces(reader);
                     // Route to the class's required interfaces
                     if member == "CreateInstance" {
                         if !direct_types.contains(&key) {
                             direct_types.push(key.clone());
                         }
-                        activatable.insert(key);
+                        activatable.insert(key.clone());
                     } else {
                         // Find which interface carries this method
-                        let required = class.required_interfaces(reader);
                         let mut found = false;
                         for iface in &required {
                             if iface.def.methods().any(|m| method_matches(m, member)) {
@@ -898,6 +928,9 @@ impl Filter {
                                     .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
                                 if let MethodSet::Names(names) = set {
                                     names.insert(member.to_string());
+                                    if let Some(event) = member.strip_prefix("add_") {
+                                        names.insert(format!("remove_{event}"));
+                                    }
                                 }
                                 let filter_entry = methods.entry(iface_key).or_default();
                                 if include {
@@ -930,17 +963,17 @@ impl Filter {
                             found,
                             "method `{member}` not found on class `{namespace}.{name}`"
                         );
-                        // Include composable factory interfaces
-                        for iface in &required {
-                            if matches!(iface.kind, InterfaceKind::Composable) {
-                                let iface_key = (
-                                    iface.def.namespace().to_string(),
-                                    iface.def.name().to_string(),
-                                );
-                                requested_interfaces
-                                    .entry(iface_key)
-                                    .or_insert(MethodSet::All);
-                            }
+                    }
+                    // Include composable factory interfaces so new() works.
+                    for iface in &required {
+                        if matches!(iface.kind, InterfaceKind::Composable) {
+                            let iface_key = (
+                                iface.def.namespace().to_string(),
+                                iface.def.name().to_string(),
+                            );
+                            requested_interfaces
+                                .entry(iface_key)
+                                .or_insert(MethodSet::All);
                         }
                     }
                 }
@@ -953,6 +986,10 @@ impl Filter {
                             .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
                         if let MethodSet::Names(names) = set {
                             names.insert(member.to_string());
+                            // Auto-include remove_X when add_X is requested
+                            if let Some(event) = member.strip_prefix("add_") {
+                                names.insert(format!("remove_{event}"));
+                            }
                         }
                     }
                     // Also register in method filter for emission control
@@ -963,11 +1000,23 @@ impl Filter {
                         _ => unreachable!(),
                     };
                     let defs: Vec<MethodDef> = def.methods().collect();
-                    let expanded = expand_method_part(member, &defs);
+                    let mut expanded = expand_method_part(member, &defs);
                     assert!(
                         !expanded.is_empty(),
                         "method `{member}` not found on `{namespace}.{name}`"
                     );
+                    // Auto-include remove_X when add_X is requested
+                    if include {
+                        let remove_extras: Vec<String> = expanded
+                            .iter()
+                            .filter_map(|m| {
+                                m.strip_prefix("add_")
+                                    .map(|event| format!("remove_{event}"))
+                            })
+                            .filter(|r| defs.iter().any(|d| d.name() == r.as_str()))
+                            .collect();
+                        expanded.extend(remove_extras);
+                    }
                     maybe_warn_ambiguous_overload(
                         warnings, member, namespace, name, &defs, include, member,
                     );

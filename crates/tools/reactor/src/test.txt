@@ -1,17 +1,17 @@
-Microsoft.UI.Xaml.Automation.Peers.ButtonAutomationPeer::*
-Microsoft.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer::*
-Microsoft.UI.Xaml.Automation.Peers.PatternInterface
-Microsoft.UI.Xaml.Automation.Provider.IInvokeProvider::*
-Microsoft.UI.Xaml.Media.VisualTreeHelper::*
-Microsoft.UI.Xaml.Controls.IBorder::{get_Child}
-Microsoft.UI.Xaml.Controls.Canvas::{GetLeft, GetTop}
-Microsoft.UI.Xaml.Controls.Grid::{GetRow}
-Microsoft.UI.Xaml.Controls.IControl::{get_IsEnabled}
-Microsoft.UI.Xaml.Controls.IListViewBase::{get_CanDragItems, get_CanReorderItems}
-Microsoft.UI.Xaml.Controls.ISymbolIcon::{get_Symbol}
-Microsoft.UI.Xaml.Controls.Primitives.IRangeBase::{get_Value}
-Microsoft.UI.Xaml.Controls.Primitives.IToggleButton::{get_IsChecked}
-Microsoft.UI.Xaml.Controls.ToolTipService::{GetPlacement, GetToolTip}
-Microsoft.UI.Dispatching.IDispatcherQueue::{TryEnqueue}
-Microsoft.UI.Xaml.IUIElement::{get_AllowDrop, put_IsHitTestVisible, UpdateLayout}
-Microsoft.UI.Xaml.IWindow::{get_Content}
+    Microsoft::UI::Xaml::Automation::Peers::ButtonAutomationPeer::*
+    Microsoft::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer::*
+    Microsoft::UI::Xaml::Automation::Peers::PatternInterface
+    Microsoft::UI::Xaml::Automation::Provider::IInvokeProvider::*
+    Microsoft::UI::Xaml::Media::VisualTreeHelper::*
+    Microsoft::UI::Xaml::Controls::IBorder::{get_Child}
+    Microsoft::UI::Xaml::Controls::Canvas::{GetLeft, GetTop}
+    Microsoft::UI::Xaml::Controls::Grid::{GetRow}
+    Microsoft::UI::Xaml::Controls::IControl::{get_IsEnabled}
+    Microsoft::UI::Xaml::Controls::IListViewBase::{get_CanDragItems, get_CanReorderItems}
+    Microsoft::UI::Xaml::Controls::ISymbolIcon::{get_Symbol}
+    Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::{get_Value}
+    Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::{get_IsChecked}
+    Microsoft::UI::Xaml::Controls::ToolTipService::{GetPlacement, GetToolTip}
+    Microsoft::UI::Dispatching::IDispatcherQueue::{TryEnqueue}
+    Microsoft::UI::Xaml::IUIElement::{get_AllowDrop, put_IsHitTestVisible, UpdateLayout}
+    Microsoft::UI::Xaml::IWindow::{get_Content}

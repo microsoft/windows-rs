@@ -1,96 +1,96 @@
-Microsoft.UI.Xaml.Controls.AutoSuggestBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Border::{CreateInstance}
-Microsoft.UI.Xaml.Controls.BreadcrumbBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Button::{CreateInstance}
-Microsoft.UI.Xaml.Controls.CalendarDatePicker::{CreateInstance}
-Microsoft.UI.Xaml.Controls.CalendarView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Canvas::{CreateInstance}
-Microsoft.UI.Xaml.Controls.CheckBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ColorPicker::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ComboBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.CommandBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ContentDialog::{CreateInstance}
-Microsoft.UI.Xaml.Controls.DatePicker::{CreateInstance}
-Microsoft.UI.Xaml.Controls.DropDownButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Expander::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Grid::{CreateInstance}
-Microsoft.UI.Xaml.Controls.HyperlinkButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.IAutoSuggestBox::{put_Header, put_PlaceholderText}
-Microsoft.UI.Xaml.Controls.ICalendarDatePicker::{put_Header, put_IsCalendarOpen, put_IsTodayHighlighted, put_PlaceholderText}
-Microsoft.UI.Xaml.Controls.ICalendarView::{put_IsGroupLabelVisible, put_IsTodayHighlighted}
-Microsoft.UI.Xaml.Controls.IColorPicker::{put_IsAlphaEnabled, put_IsColorChannelTextInputVisible, put_IsColorSliderVisible, put_IsHexInputVisible}
-Microsoft.UI.Xaml.Controls.IComboBox::{put_Header, put_IsEditable, put_PlaceholderText}
-Microsoft.UI.Xaml.Controls.ICommandBar::{put_DefaultLabelPosition}
-Microsoft.UI.Xaml.Controls.IContentControl::{put_Content}
-Microsoft.UI.Xaml.Controls.IContentDialog::{put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title}
-Microsoft.UI.Xaml.Controls.IControl::{put_IsEnabled}
-Microsoft.UI.Xaml.Controls.IDatePicker::{put_DayVisible, put_Header, put_MonthVisible, put_YearVisible}
-Microsoft.UI.Xaml.Controls.IExpander::{put_IsExpanded}
-Microsoft.UI.Xaml.Controls.IGrid::{put_ColumnSpacing, put_RowSpacing}
-Microsoft.UI.Xaml.Controls.IImage::{put_Stretch}
-Microsoft.UI.Xaml.Controls.IInfoBar::{put_IsClosable, put_IsOpen, put_Message, put_Severity, put_Title}
-Microsoft.UI.Xaml.Controls.INavigationView::{put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible}
-Microsoft.UI.Xaml.Controls.INavigationView2::{put_IsBackEnabled, put_PaneDisplayMode, put_PaneTitle}
-Microsoft.UI.Xaml.Controls.INumberBox::{put_Header, put_Maximum, put_Minimum, put_Value}
-Microsoft.UI.Xaml.Controls.IPasswordBox::{put_Header, put_IsPasswordRevealButtonEnabled, put_PasswordRevealMode, put_PlaceholderText}
-Microsoft.UI.Xaml.Controls.IPersonPicture::{put_DisplayName, put_Initials}
-Microsoft.UI.Xaml.Controls.IPivot::{put_SelectedIndex, put_Title}
-Microsoft.UI.Xaml.Controls.IProgressBar::{put_IsIndeterminate}
-Microsoft.UI.Xaml.Controls.IProgressRing::{put_IsActive, put_IsIndeterminate, put_Maximum, put_Minimum, put_Value}
-Microsoft.UI.Xaml.Controls.IRadioButton::{put_GroupName}
-Microsoft.UI.Xaml.Controls.IRadioButtons::{put_Header, put_MaxColumns, put_SelectedIndex}
-Microsoft.UI.Xaml.Controls.IRatingControl::{put_Caption, put_IsReadOnly, put_MaxRating, put_PlaceholderValue, put_Value}
-Microsoft.UI.Xaml.Controls.IRichEditBox::{put_Header, put_IsReadOnly, put_PlaceholderText}
-Microsoft.UI.Xaml.Controls.IScrollView::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
-Microsoft.UI.Xaml.Controls.IScrollViewer::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
-Microsoft.UI.Xaml.Controls.ISlider::{put_Header, put_Orientation}
-Microsoft.UI.Xaml.Controls.ISplitView::{put_CompactPaneLength, put_IsPaneOpen, put_OpenPaneLength}
-Microsoft.UI.Xaml.Controls.IStackPanel::{put_Orientation, put_Spacing}
-Microsoft.UI.Xaml.Controls.ITabView::{put_CanReorderTabs, put_IsAddTabButtonVisible, put_SelectedIndex}
-Microsoft.UI.Xaml.Controls.ITeachingTip::{put_IsLightDismissEnabled, put_IsOpen, put_PreferredPlacement, put_Subtitle, put_Title}
-Microsoft.UI.Xaml.Controls.ITextBlock::{put_IsTextSelectionEnabled, put_Text, put_TextWrapping}
-Microsoft.UI.Xaml.Controls.ITextBox::{put_AcceptsReturn, put_Header, put_PlaceholderText, put_TextWrapping}
-Microsoft.UI.Xaml.Controls.ITimePicker::{put_ClockIdentifier, put_Header, put_MinuteIncrement}
-Microsoft.UI.Xaml.Controls.ITitleBar::{put_IsBackButtonEnabled, put_IsBackButtonVisible, put_IsPaneToggleButtonVisible, put_Subtitle, put_Title}
-Microsoft.UI.Xaml.Controls.IToggleSwitch::{put_Header, put_IsOn, put_OffContent, put_OnContent}
-Microsoft.UI.Xaml.Controls.ITreeView::{put_SelectionMode}
-Microsoft.UI.Xaml.Controls.IViewbox::{put_Stretch}
-Microsoft.UI.Xaml.Controls.Image::{CreateInstance}
-Microsoft.UI.Xaml.Controls.InfoBadge::{CreateInstance}
-Microsoft.UI.Xaml.Controls.InfoBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ListBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.MenuBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.NavigationView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.NumberBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.PasswordBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.PersonPicture::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Pivot::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Primitives.IRangeBase::{put_Maximum, put_Minimum, put_Value}
-Microsoft.UI.Xaml.Controls.Primitives.IRepeatButton::{put_Delay, put_Interval}
-Microsoft.UI.Xaml.Controls.Primitives.ISelector::{put_SelectedIndex}
-Microsoft.UI.Xaml.Controls.Primitives.IToggleButton::{put_IsChecked}
-Microsoft.UI.Xaml.Controls.Primitives.RepeatButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Primitives.ToggleButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ProgressBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ProgressRing::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RadioButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RadioButtons::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RatingControl::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RelativePanel::{CreateInstance}
-Microsoft.UI.Xaml.Controls.RichEditBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ScrollView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ScrollViewer::{CreateInstance}
-Microsoft.UI.Xaml.Controls.SelectorBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Slider::{CreateInstance}
-Microsoft.UI.Xaml.Controls.SplitButton::{CreateInstance}
-Microsoft.UI.Xaml.Controls.SplitView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.StackPanel::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TabView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TeachingTip::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TextBlock::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TextBox::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TimePicker::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TitleBar::{CreateInstance}
-Microsoft.UI.Xaml.Controls.ToggleSwitch::{CreateInstance}
-Microsoft.UI.Xaml.Controls.TreeView::{CreateInstance}
-Microsoft.UI.Xaml.Controls.Viewbox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::AutoSuggestBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Border::{CreateInstance}
+Microsoft::UI::Xaml::Controls::BreadcrumbBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Button::{CreateInstance}
+Microsoft::UI::Xaml::Controls::CalendarDatePicker::{CreateInstance}
+Microsoft::UI::Xaml::Controls::CalendarView::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Canvas::{CreateInstance}
+Microsoft::UI::Xaml::Controls::CheckBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ColorPicker::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ComboBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::CommandBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ContentDialog::{CreateInstance}
+Microsoft::UI::Xaml::Controls::DatePicker::{CreateInstance}
+Microsoft::UI::Xaml::Controls::DropDownButton::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Expander::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Grid::{CreateInstance}
+Microsoft::UI::Xaml::Controls::HyperlinkButton::{CreateInstance}
+Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{put_Header, put_PlaceholderText}
+Microsoft::UI::Xaml::Controls::ICalendarDatePicker::{put_Header, put_IsCalendarOpen, put_IsTodayHighlighted, put_PlaceholderText}
+Microsoft::UI::Xaml::Controls::ICalendarView::{put_IsGroupLabelVisible, put_IsTodayHighlighted}
+Microsoft::UI::Xaml::Controls::IColorPicker::{put_IsAlphaEnabled, put_IsColorChannelTextInputVisible, put_IsColorSliderVisible, put_IsHexInputVisible}
+Microsoft::UI::Xaml::Controls::IComboBox::{put_Header, put_IsEditable, put_PlaceholderText}
+Microsoft::UI::Xaml::Controls::ICommandBar::{put_DefaultLabelPosition}
+Microsoft::UI::Xaml::Controls::IContentControl::{put_Content}
+Microsoft::UI::Xaml::Controls::IContentDialog::{put_CloseButtonText, put_IsPrimaryButtonEnabled, put_IsSecondaryButtonEnabled, put_PrimaryButtonText, put_SecondaryButtonText, put_Title}
+Microsoft::UI::Xaml::Controls::IControl::{put_IsEnabled}
+Microsoft::UI::Xaml::Controls::IDatePicker::{put_DayVisible, put_Header, put_MonthVisible, put_YearVisible}
+Microsoft::UI::Xaml::Controls::IExpander::{put_IsExpanded}
+Microsoft::UI::Xaml::Controls::IGrid::{put_ColumnSpacing, put_RowSpacing}
+Microsoft::UI::Xaml::Controls::IImage::{put_Stretch}
+Microsoft::UI::Xaml::Controls::IInfoBar::{put_IsClosable, put_IsOpen, put_Message, put_Severity, put_Title}
+Microsoft::UI::Xaml::Controls::INavigationView::{put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible}
+Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackEnabled, put_PaneDisplayMode, put_PaneTitle}
+Microsoft::UI::Xaml::Controls::INumberBox::{put_Header, put_Maximum, put_Minimum, put_Value}
+Microsoft::UI::Xaml::Controls::IPasswordBox::{put_Header, put_IsPasswordRevealButtonEnabled, put_PasswordRevealMode, put_PlaceholderText}
+Microsoft::UI::Xaml::Controls::IPersonPicture::{put_DisplayName, put_Initials}
+Microsoft::UI::Xaml::Controls::IPivot::{put_SelectedIndex, put_Title}
+Microsoft::UI::Xaml::Controls::IProgressBar::{put_IsIndeterminate}
+Microsoft::UI::Xaml::Controls::IProgressRing::{put_IsActive, put_IsIndeterminate, put_Maximum, put_Minimum, put_Value}
+Microsoft::UI::Xaml::Controls::IRadioButton::{put_GroupName}
+Microsoft::UI::Xaml::Controls::IRadioButtons::{put_Header, put_MaxColumns, put_SelectedIndex}
+Microsoft::UI::Xaml::Controls::IRatingControl::{put_Caption, put_IsReadOnly, put_MaxRating, put_PlaceholderValue, put_Value}
+Microsoft::UI::Xaml::Controls::IRichEditBox::{put_Header, put_IsReadOnly, put_PlaceholderText}
+Microsoft::UI::Xaml::Controls::IScrollView::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
+Microsoft::UI::Xaml::Controls::IScrollViewer::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
+Microsoft::UI::Xaml::Controls::ISlider::{put_Header, put_Orientation}
+Microsoft::UI::Xaml::Controls::ISplitView::{put_CompactPaneLength, put_IsPaneOpen, put_OpenPaneLength}
+Microsoft::UI::Xaml::Controls::IStackPanel::{put_Orientation, put_Spacing}
+Microsoft::UI::Xaml::Controls::ITabView::{put_CanReorderTabs, put_IsAddTabButtonVisible, put_SelectedIndex}
+Microsoft::UI::Xaml::Controls::ITeachingTip::{put_IsLightDismissEnabled, put_IsOpen, put_PreferredPlacement, put_Subtitle, put_Title}
+Microsoft::UI::Xaml::Controls::ITextBlock::{put_IsTextSelectionEnabled, put_Text, put_TextWrapping}
+Microsoft::UI::Xaml::Controls::ITextBox::{put_AcceptsReturn, put_Header, put_PlaceholderText, put_TextWrapping}
+Microsoft::UI::Xaml::Controls::ITimePicker::{put_ClockIdentifier, put_Header, put_MinuteIncrement}
+Microsoft::UI::Xaml::Controls::ITitleBar::{put_IsBackButtonEnabled, put_IsBackButtonVisible, put_IsPaneToggleButtonVisible, put_Subtitle, put_Title}
+Microsoft::UI::Xaml::Controls::IToggleSwitch::{put_Header, put_IsOn, put_OffContent, put_OnContent}
+Microsoft::UI::Xaml::Controls::ITreeView::{put_SelectionMode}
+Microsoft::UI::Xaml::Controls::IViewbox::{put_Stretch}
+Microsoft::UI::Xaml::Controls::Image::{CreateInstance}
+Microsoft::UI::Xaml::Controls::InfoBadge::{CreateInstance}
+Microsoft::UI::Xaml::Controls::InfoBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ListBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::MenuBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::NavigationView::{CreateInstance}
+Microsoft::UI::Xaml::Controls::NumberBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::PasswordBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::PersonPicture::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Pivot::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::{put_Maximum, put_Minimum, put_Value}
+Microsoft::UI::Xaml::Controls::Primitives::IRepeatButton::{put_Delay, put_Interval}
+Microsoft::UI::Xaml::Controls::Primitives::ISelector::{put_SelectedIndex}
+Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::{put_IsChecked}
+Microsoft::UI::Xaml::Controls::Primitives::RepeatButton::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Primitives::ToggleButton::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ProgressBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ProgressRing::{CreateInstance}
+Microsoft::UI::Xaml::Controls::RadioButton::{CreateInstance}
+Microsoft::UI::Xaml::Controls::RadioButtons::{CreateInstance}
+Microsoft::UI::Xaml::Controls::RatingControl::{CreateInstance}
+Microsoft::UI::Xaml::Controls::RelativePanel::{CreateInstance}
+Microsoft::UI::Xaml::Controls::RichEditBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ScrollView::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ScrollViewer::{CreateInstance}
+Microsoft::UI::Xaml::Controls::SelectorBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Slider::{CreateInstance}
+Microsoft::UI::Xaml::Controls::SplitButton::{CreateInstance}
+Microsoft::UI::Xaml::Controls::SplitView::{CreateInstance}
+Microsoft::UI::Xaml::Controls::StackPanel::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TabView::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TeachingTip::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TextBlock::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TextBox::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TimePicker::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TitleBar::{CreateInstance}
+Microsoft::UI::Xaml::Controls::ToggleSwitch::{CreateInstance}
+Microsoft::UI::Xaml::Controls::TreeView::{CreateInstance}
+Microsoft::UI::Xaml::Controls::Viewbox::{CreateInstance}

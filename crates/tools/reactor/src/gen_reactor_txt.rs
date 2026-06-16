@@ -23,7 +23,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
         if line.is_empty() {
             continue;
         }
-        if let Some((iface, methods_part)) = line.split_once("::{") {
+        if let Some((iface, methods_part)) = line.rsplit_once("::{") {
             let methods_part = methods_part.trim_end_matches('}');
             let methods: BTreeSet<String> = methods_part
                 .split(',')
@@ -44,10 +44,11 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
         let ns = ctrl
             .namespace
             .as_deref()
-            .unwrap_or("Microsoft.UI.Xaml.Controls");
+            .unwrap_or("Microsoft.UI.Xaml.Controls")
+            .replace('.', "::");
 
         // CreateInstance for each control class
-        let class_path = format!("{ns}.{}", ctrl.handle());
+        let class_path = format!("{ns}::{}", ctrl.handle());
         needed
             .entry(class_path)
             .or_default()
@@ -67,7 +68,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                 && let Some(iface_ref) = resolver.resolve(ctrl.handle(), method)
             {
                 needed
-                    .entry(iface_ref.full_path())
+                    .entry(iface_ref.full_path().replace('.', "::"))
                     .or_default()
                     .insert(method.to_string());
             }

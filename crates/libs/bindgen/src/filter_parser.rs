@@ -310,8 +310,12 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         // Remaining segments are members
         let member_segments = &rest[1..];
         if member_segments.len() == 1 && member_segments[0] == "*" {
-            // Type::* — all members
-            return vec![base(ResolvedKind::Type { namespace, name })];
+            // Type::* — all members (classes get expanded, interfaces get MethodSet::All)
+            return vec![base(ResolvedKind::Members {
+                namespace,
+                name,
+                members: vec!["*".to_string()],
+            })];
         }
 
         // Specific members
@@ -545,11 +549,16 @@ mod resolution_tests {
         let resolved = resolve_entries(reader, &entries);
         assert_eq!(resolved.len(), 1);
         match &resolved[0].kind {
-            ResolvedKind::Type { namespace, name } => {
+            ResolvedKind::Members {
+                namespace,
+                name,
+                members,
+            } => {
                 assert_eq!(namespace, "Windows.Win32.Graphics.Dxgi");
                 assert_eq!(name, "IDXGIDevice");
+                assert_eq!(members, &["*"]);
             }
-            other => panic!("expected Type, got {other:?}"),
+            other => panic!("expected Members with wildcard, got {other:?}"),
         }
     }
 
