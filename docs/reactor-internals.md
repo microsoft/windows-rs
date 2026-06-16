@@ -15,7 +15,7 @@ type-safe Rust dispatch code via `quote`/`proc-macro2`.
 ### Pipeline
 
 ```
-winui.toml  ──▶  tool_reactor  ──▶  generated_bindings.rs   (per-widget bindings() helpers)
+winui.toml  ──▶  tool_reactor  ──▶  generated.rs              (per-widget bindings() helpers)
                   (TOML + winmd)      generated_set_prop.rs   (set_prop dispatch, 6 setter patterns)
                                       generated_attach_event.rs (event dispatch, 8 invoke patterns)
                                       generated.txt           (binding filter entries)
@@ -292,3 +292,61 @@ domain-prefixed alternative (e.g., `UiBrush`).
 
 The `diagnostics` feature warns via `diag::unhandled_modifier` when `.padding()`
 is applied to a non-`Control` element.
+
+---
+
+## C# Comparison & Performance
+
+The `crates/tests/libs/reactor_perf` app produces CSV output compatible with
+the C# `stress_perf` benchmarks in `microsoft-ui-reactor`. This enables
+direct frame-time / memory comparison between the Rust and C# reactor
+implementations.
+
+**Important:** Compare Rust against `StressPerf.ReactorOptimized`, not the
+base `StressPerf.Reactor`. The base variant rebuilds all cells on every
+render; the optimized variant caches cells (matching what Rust does
+automatically).
+
+### Current Feature Parity
+
+| Dimension | Rust (`windows-reactor`) | C# (`Microsoft.UI.Reactor`) |
+|-----------|--------------------------|------------------------------|
+| Controls | 56 WinUI widgets | Full WinUI coverage |
+| Hooks | 16 (state, reducer, effect, memo, context, async, etc.) | Similar set |
+| Reconciler | LIS-based child reordering | Same algorithm |
+| Async | `use_resource` / `use_mutation` | Equivalent |
+| Error handling | Error boundaries | Exception boundaries |
+| Custom render | `SwapChainPanel` + `SurfaceImageSource` | Same |
+| Animations | Opacity / scale / offset transitions | Same |
+
+---
+
+## Future Work
+
+### Naming Collisions (Open)
+
+`Brush`, `Ellipse`, and `FontWeight` conflict between reactor and canvas.
+Per convention, canvas keeps the short name; reactor will adopt prefixed
+alternatives (e.g., `UiBrush`, `XamlEllipse`).
+
+### Thread-Local → Struct Field
+
+`PENDING_THEME`, `PENDING_TALL`, and `CURRENT_COLOR_SCHEME` are one-shot
+latches or per-thread state that logically belong on `ReactorHost` or
+`RenderHost`. Blocked by the public free-function API (`set_requested_theme`,
+`set_titlebar_height`) which would need a host reference parameter.
+
+### Backend Unit Tests
+
+The WinUI backend's generated dispatch (`generated_set_prop.rs`,
+`generated_attach_event.rs`) is exercised only through end-to-end selftest
+fixtures. Direct unit tests for property/event dispatch would catch
+regressions earlier and run without a desktop session.
+
+### Cast Audit — Current State
+
+All remaining `.cast::` calls in the reactor source (~148 total) are to
+non-default parent interfaces (e.g., `IWindow2`, `INavigationView2`,
+`IButtonBase`, `IContentControl`, `IAppWindowTitleBar2/3`). The codegen
+already applies Deref-aware cast elimination — no unnecessary QI calls
+remain at this time.
