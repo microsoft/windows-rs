@@ -852,6 +852,14 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
             handle.as_ui_element().put_Opacity(1.0)?;
             Ok(true)
         }
+        (Prop::AllowDrop, PropValue::Bool(v)) => {
+            handle.as_ui_element().put_AllowDrop(*v)?;
+            Ok(true)
+        }
+        (Prop::AllowDrop, PropValue::Unset) => {
+            handle.as_ui_element().put_AllowDrop(false)?;
+            Ok(true)
+        }
         (Prop::IsEnabled, PropValue::Unset) => {
             handle
                 .as_ui_element()
