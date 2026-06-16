@@ -1,2 +1,2 @@
 
-error: type not found: `POINTY`
+error: type or namespace not found: `POINTY`

@@ -1,2 +1,2 @@
 
-error: method `Bogus` not found on `Windows.Foundation.IStringable` (in method filter `Windows.Foundation.IStringable::Bogus`)
+error: method `Bogus` not found on `Windows.Foundation.IStringable`

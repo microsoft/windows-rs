@@ -1,2 +1,2 @@
 
-error: method `NoSuchMethod` not found on `Windows.Foundation.PropertyValue` or any of its required interfaces (in method filter `Windows.Foundation.PropertyValue::NoSuchMethod`); searched: [Windows.Foundation.IPropertyValueStatics]
+error: method `NoSuchMethod` not found on class `Windows.Foundation.PropertyValue`
