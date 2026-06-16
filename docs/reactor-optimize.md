@@ -140,28 +140,35 @@ Moving these to a dedicated `test_reactor` crate would:
 
 ---
 
-## Recommendations (Priority Order)
+## Completed
 
-1. ~~**Generate `define_handles!` input list**~~ ✅ Done — `tool_reactor` now
-   emits `generated_handles.rs` from the TOML manifest. 10 handle-only controls
-   added with `_control = { handle_only = true }`.
-
-2. ~~**Move tests to `test_reactor`**~~ ✅ Done — ~2,700 lines moved from 6
+1. ~~**Move tests to `test_reactor`**~~ ✅ Done — ~2,700 lines moved from 6
    source files to dedicated test files in `crates/tests/libs/reactor/tests/`.
    Only `backend/mod.rs` dispatcher test kept (accesses private field).
 
-3. **Generate `try_universal_prop`** — biggest remaining win: ~225 lines of
-   repetitive set/unset pairs. Requires a schema addition to declare universal
-   props and their interface/method/default mappings.
+## Future Opportunities (Priority Order)
 
-4. **Generate `classify_container`** — ~50 lines, low churn. Would require a
-   `container` key in the TOML for ~14 controls. Low ROI relative to schema
-   complexity added.
+Remaining codegen opportunities require adding non-declarative schema entries to
+`winui.toml`, which conflicts with the TOML's strict declarative model (controls
+→ props → events). These are documented here for future consideration if the
+cost/benefit tradeoff changes.
 
-5. **Generate 10–15 more simple `set_prop` arms** — incremental improvement,
+1. **Generate `try_universal_prop`** — biggest remaining win: ~225 lines of
+   repetitive set/unset pairs. Would require declaring universal props and
+   their interface/method/default mappings somewhere.
+
+2. **Generate `define_handles!` input list** — the list of 57 handle variants
+   is hand-maintained. Generating it from TOML was attempted but reverted:
+   10 handle-only controls (TabViewItem, PivotItem, shapes, list views, etc.)
+   don't map to widgets and polluted the TOML's declarative structure.
+
+3. **Generate `classify_container`** — ~50 lines, low churn. Would require a
+   `container` key in the TOML for ~14 controls. Low ROI.
+
+4. **Generate 10–15 more simple `set_prop` arms** — incremental improvement,
    reduces the residual hand-written dispatch.
 
-6. **Generate `style_target_for_handle`** — small but free if the tool already
+5. **Generate `style_target_for_handle`** — small but free if the tool already
    knows widget metadata.
 
 ---
@@ -171,9 +178,7 @@ Moving these to a dedicated `test_reactor` crate would:
 These changes won't dramatically cut wall-clock build time (reactor is already
 ~10.9s clean, dominated by upstream crates). The value is:
 
-- **Less code to maintain**: ~600 fewer hand-written lines in the backend
-- **Fewer bugs when adding widgets**: schema-driven generation means one place
-  to declare a new widget instead of 5–6
-- **Faster `cargo check`**: moving tests out reduces work for the type checker
-- **Better parallelism potential**: smaller compilation units finish sooner,
-  unblocking downstream crates earlier in the dependency graph
+- **Less code to maintain**: moving tests out removed ~2,700 lines from the
+  library crate
+- **Faster `cargo check -p windows-reactor`**: fewer lines for the type checker
+- **Centralized tests**: all reactor unit tests in one place (`test_reactor`)
