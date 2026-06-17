@@ -256,7 +256,19 @@ Microsoft.UI.Xaml.Input.TappedEventHandler
 Microsoft.UI.Xaml.Input.TappedRoutedEventArgs
 Microsoft.UI.Xaml.IResourceDictionary::{get_MergedDictionaries}
 Microsoft.UI.Xaml.ISizeChangedEventArgs::{get_NewSize}
-Microsoft.UI.Xaml.IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, add_PointerPressed, add_PointerReleased, add_PointerExited, add_Tapped, add_RightTapped}
+Microsoft.UI.Xaml.DragEventHandler
+Microsoft.UI.Xaml.DragEventArgs
+Microsoft.UI.Xaml.DragUIOverride
+Microsoft.UI.Xaml.IDragEventArgs::{put_AcceptedOperation, get_AllowedOperations, get_DataView, get_DragUIOverride, GetDeferral}
+Microsoft.UI.Xaml.DragOperationDeferral
+Microsoft.UI.Xaml.IDragOperationDeferral::Complete
+Microsoft.UI.Xaml.IDragUIOverride::{put_Caption, put_IsGlyphVisible, put_IsContentVisible}
+Windows.ApplicationModel.DataTransfer.DataPackageView
+Windows.ApplicationModel.DataTransfer.IDataPackageView::{get_AvailableFormats, GetTextAsync, GetStorageItemsAsync}
+Windows.Storage.FileAttributes
+Windows.Storage.IStorageItem::{get_Path, get_Name, get_Attributes}
+Windows.ApplicationModel.DataTransfer.DataPackageOperation
+Microsoft.UI.Xaml.IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, add_PointerPressed, add_PointerReleased, add_PointerExited, add_Tapped, add_RightTapped, add_DragEnter, add_DragLeave, add_DragOver, add_Drop}
 Microsoft.UI.Xaml.IWindow::{put_Title, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, add_Closed}
 Microsoft.UI.Xaml.IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft.UI.Xaml.IWindowEventArgs
