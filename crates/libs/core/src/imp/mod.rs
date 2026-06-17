@@ -4,19 +4,16 @@ include!("windows.rs");
 use alloc::boxed::Box;
 
 mod agile;
-#[allow(dead_code)]
 mod bindings;
 mod can_into;
-mod com_bindings;
 mod delegate_box;
 mod ref_count;
 mod sha1;
 mod weak_ref_count;
 
 pub use agile::*;
-pub(crate) use bindings::*;
+pub use bindings::*;
 pub use can_into::*;
-pub use com_bindings::*;
 pub use delegate_box::*;
 pub use ref_count::*;
 pub use sha1::*;

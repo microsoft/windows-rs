@@ -4,7 +4,6 @@ fn main() {
     let time = std::time::Instant::now();
 
     bindgen(["--etc", "crates/tools/bindings/src/collections.txt"]).unwrap();
-    bindgen(["--etc", "crates/tools/bindings/src/core_com.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/core.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/future_impl.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/future.txt"]).unwrap();
