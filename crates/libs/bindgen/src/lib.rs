@@ -23,7 +23,6 @@ mod type_name;
 mod type_tree;
 mod types;
 mod value;
-mod warnings;
 mod winmd;
 
 pub use cli::bindgen;
@@ -49,7 +48,6 @@ use type_name::*;
 use type_tree::*;
 use types::*;
 use value::*;
-pub use warnings::*;
 use winmd::*;
 mod filter_parser;
 mod method_names;
@@ -71,8 +69,7 @@ pub fn builder() -> Bindgen {
 /// windows_bindgen::Bindgen::new()
 ///     .output("src/bindings.rs")
 ///     .filter("GetTickCount")
-///     .write()
-///     .unwrap();
+///     .write();
 /// ```
 #[derive(Default)]
 pub struct Bindgen {
@@ -403,8 +400,7 @@ impl Bindgen {
 
     /// Generate the bindings.
     #[track_caller]
-    #[must_use]
-    pub fn write(&self) -> Warnings {
+    pub fn write(&self) {
         // Validate up front so we fail fast before any expensive plumbing
         // (link string, input vec, references, reader, …) runs.
         assert!(
@@ -588,10 +584,6 @@ impl Bindgen {
         if let Some(implements) = &implements {
             filter.validate_implements(implements);
         }
-        let warnings = WarningBuilder::default();
-        for message in filter.warnings() {
-            warnings.add(message.clone());
-        }
 
         let event_only_delegates = compute_event_only_delegates(&types, &reader);
 
@@ -604,7 +596,6 @@ impl Bindgen {
             derive: &derive,
             implement: implements.as_ref(),
             link,
-            warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
             minimal_closure: use_minimal_closure,
@@ -616,8 +607,6 @@ impl Bindgen {
         if self.index {
             index::write(&types, &format!("{}/features.json", self.output), &reader);
         }
-
-        warnings.build()
     }
 }
 

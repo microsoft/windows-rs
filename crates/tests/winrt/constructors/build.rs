@@ -32,6 +32,5 @@ fn main() {
         "test_constructors",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

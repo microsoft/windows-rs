@@ -5,8 +5,7 @@
 #![expect(
     non_snake_case,
     non_camel_case_types,
-    clippy::missing_transmute_annotations,
-    clippy::upper_case_acronyms
+    clippy::missing_transmute_annotations
 )]
 
 #[cfg(windows)]

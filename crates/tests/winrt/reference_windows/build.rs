@@ -20,6 +20,5 @@ fn main() {
         "--flat",
         "--reference",
         "windows",
-    ])
-    .unwrap();
+    ]);
 }

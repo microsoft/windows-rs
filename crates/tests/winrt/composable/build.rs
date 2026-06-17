@@ -32,6 +32,5 @@ fn main() {
         "test_composable",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

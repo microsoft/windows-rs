@@ -14,6 +14,5 @@ fn main() {
         "--filter",
         "test_overloads",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

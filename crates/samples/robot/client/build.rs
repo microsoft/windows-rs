@@ -7,6 +7,5 @@ fn main() {
         .output("src/bindings.rs")
         .filter("Robotics")
         .flat()
-        .write()
-        .unwrap();
+        .write();
 }

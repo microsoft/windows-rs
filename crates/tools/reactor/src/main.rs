@@ -96,7 +96,7 @@ fn generate_reactor_bindings() {
         "crates/tools/reactor/src/base.txt",
         "crates/tools/reactor/src/generated.txt",
     ];
-    _ = windows_bindgen::bindgen(reactor_args);
+    windows_bindgen::bindgen(reactor_args);
 
     let test_args = [
         "--in",
@@ -111,7 +111,7 @@ fn generate_reactor_bindings() {
         "crates/tools/reactor/src/generated.txt",
         "crates/tools/reactor/src/test.txt",
     ];
-    _ = windows_bindgen::bindgen(test_args);
+    windows_bindgen::bindgen(test_args);
 }
 
 /// Write `content` to `path` if changed. Runs `rustfmt` when `format` is true.

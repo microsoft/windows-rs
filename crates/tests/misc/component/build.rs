@@ -29,6 +29,5 @@ fn msvc_main() {
         "--implement",
         "--reference",
         "windows",
-    ])
-    .unwrap();
+    ]);
 }

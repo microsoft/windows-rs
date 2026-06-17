@@ -19,6 +19,5 @@ fn main() {
         "IStringable",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

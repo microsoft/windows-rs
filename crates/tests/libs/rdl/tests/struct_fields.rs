@@ -23,8 +23,7 @@ fn test() {
         "--filter",
         "Test",
         "--sys",
-    ])
-    .unwrap();
+    ]);
 
     assert_eq!(size_of::<Point>(), 8);
     assert_eq!(align_of::<Point>(), 4);

@@ -18,8 +18,7 @@ fn main() {
         "test_composable_aggregation",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 
     // Post-process: bindgen emits `imp::FactoryCache` references for `Foo::new`,
     // `Foo::compose`, and the private `Foo::IFooFactory` helper. `FactoryCache`

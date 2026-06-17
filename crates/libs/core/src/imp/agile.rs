@@ -26,11 +26,14 @@ impl AgileSlot {
     pub fn new<T: Interface>(object: &T) -> Result<Self> {
         #[cfg(windows)]
         unsafe {
+            let mut result__ = core::mem::zeroed();
             RoGetAgileReference(
                 AGILEREFERENCE_DEFAULT,
                 &T::IID,
-                core::mem::transmute::<&T, &IUnknown>(object),
+                Interface::as_raw(object) as _,
+                &mut result__,
             )
+            .and_then(|| Type::from_abi(result__))
             .map(Self)
         }
         #[cfg(not(windows))]
