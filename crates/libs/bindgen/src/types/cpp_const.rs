@@ -59,10 +59,9 @@ impl CppConst {
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
-                    if config.bindgen.resolved_deps() == DepMode::None
-                        && config.bindgen.style.is_sys()
-                    {
-                        // With --deps none, the w!/s! macros are unavailable.
+                    if config.bindgen.uses_inline_core_types() {
+                        // Sys bindings emit inline core types, so the w!/s!
+                        // macros are unavailable.
                         // Emit an inline null-terminated array instead.
                         let (Value::Utf16(value_str) | Value::Utf8(value_str)) = constant.value()
                         else {

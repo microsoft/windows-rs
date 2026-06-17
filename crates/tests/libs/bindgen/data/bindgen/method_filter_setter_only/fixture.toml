@@ -1,4 +1,3 @@
 filter = "Test"
 filters = ["Test.IFoo::set:Value", "!Test.IBar::get:Other"]
-deps = "specific"
 references = ["../../../libs/bindgen/default"]

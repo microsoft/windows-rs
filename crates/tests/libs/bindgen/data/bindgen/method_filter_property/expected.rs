@@ -10,7 +10,7 @@ pub mod Test {
     }
     impl Handler {
         pub fn new<
-            F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_result::Result<()>
+            F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>
                 + Send
                 + 'static,
         >(
@@ -20,7 +20,7 @@ pub mod Test {
                 windows_core::imp::DelegateBox::<Handler, F>::new(&HandlerBox::<F>::VTABLE, invoke);
             unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         }
-        pub fn Invoke<P0>(&self, sender: P0) -> windows_result::Result<()>
+        pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
         where
             P0: windows_core::Param<windows_core::IInspectable>,
         {
@@ -42,12 +42,12 @@ pub mod Test {
         ) -> windows_core::HRESULT,
     }
     struct HandlerBox<
-        F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_result::Result<()>
+        F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>
             + Send
             + 'static,
     >(core::marker::PhantomData<(fn() -> F,)>);
     impl<
-        F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_result::Result<()>
+        F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>
             + Send
             + 'static,
     > HandlerBox<F>
@@ -84,7 +84,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IFoo {
-        pub fn Keep(&self) -> windows_result::Result<i32> {
+        pub fn Keep(&self) -> windows_core::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Keep)(
@@ -106,6 +106,6 @@ pub mod Test {
         Changed: usize,
         RemoveChanged: usize,
         pub Keep:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     }
 }

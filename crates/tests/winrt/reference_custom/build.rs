@@ -21,8 +21,6 @@ fn main() {
         "IAsyncAction",
         "--implement",
         "--flat",
-        "--deps",
-        "none",
         "--reference",
         "windows,skip-root,Windows.Foundation.IStringable",
     ]);

@@ -10,7 +10,7 @@ pub mod Test {
     );
     windows_core::imp::required_hierarchy!(Foo, IFooFactory);
     impl Foo {
-        pub fn CreateInstance(name: i32) -> windows_result::Result<Foo> {
+        pub fn CreateInstance(name: i32) -> windows_core::Result<Foo> {
             Self::IFooFactory(|this| unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23,7 +23,7 @@ pub mod Test {
                 .and_then(|| windows_core::Type::from_abi(result__))
             })
         }
-        pub fn CreateInstance_compose<T>(name: i32, compose: T) -> windows_result::Result<Foo>
+        pub fn CreateInstance_compose<T>(name: i32, compose: T) -> windows_core::Result<Foo>
         where
             T: windows_core::Compose,
         {
@@ -42,7 +42,7 @@ pub mod Test {
                 windows_core::Type::from_abi(result__)
             })
         }
-        pub fn new() -> windows_result::Result<Foo> {
+        pub fn new() -> windows_core::Result<Foo> {
             Self::IFooFactory(|this| unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(this).Default)(
@@ -54,7 +54,7 @@ pub mod Test {
                 .and_then(|| windows_core::Type::from_abi(result__))
             })
         }
-        pub fn compose<T>(compose: T) -> windows_result::Result<Foo>
+        pub fn compose<T>(compose: T) -> windows_core::Result<Foo>
         where
             T: windows_core::Compose,
         {
@@ -72,9 +72,9 @@ pub mod Test {
                 windows_core::Type::from_abi(result__)
             })
         }
-        fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_result::Result<R>>(
+        fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_core::Result<R>>(
             callback: F,
-        ) -> windows_result::Result<R> {
+        ) -> windows_core::Result<R> {
             static SHARED: windows_core::imp::FactoryCache<Foo, IFooFactory> =
                 windows_core::imp::FactoryCache::new();
             SHARED.call(callback)
@@ -143,7 +143,7 @@ pub mod Test {
             name: i32,
             outer: P1,
             inner: &mut Option<windows_core::IInspectable>,
-        ) -> windows_result::Result<Foo>
+        ) -> windows_core::Result<Foo>
         where
             P1: windows_core::Param<windows_core::IInspectable>,
         {
@@ -163,7 +163,7 @@ pub mod Test {
             &self,
             outer: P0,
             inner: &mut Option<windows_core::IInspectable>,
-        ) -> windows_result::Result<Foo>
+        ) -> windows_core::Result<Foo>
         where
             P0: windows_core::Param<windows_core::IInspectable>,
         {
@@ -188,12 +188,12 @@ pub mod Test {
             name: i32,
             outer: windows_core::Ref<windows_core::IInspectable>,
             inner: windows_core::OutRef<windows_core::IInspectable>,
-        ) -> windows_result::Result<Foo>;
+        ) -> windows_core::Result<Foo>;
         fn Default(
             &self,
             outer: windows_core::Ref<windows_core::IInspectable>,
             inner: windows_core::OutRef<windows_core::IInspectable>,
-        ) -> windows_result::Result<Foo>;
+        ) -> windows_core::Result<Foo>;
     }
     impl IFooFactory_Vtbl {
         pub const fn new<Identity: IFooFactory_Impl, const OFFSET: isize>() -> Self {
@@ -267,12 +267,12 @@ pub mod Test {
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
-        ) -> windows_result::HRESULT,
+        ) -> windows_core::HRESULT,
         pub Default: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
-        ) -> windows_result::HRESULT,
+        ) -> windows_core::HRESULT,
     }
 }

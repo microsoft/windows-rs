@@ -14,8 +14,30 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(IAsyncAction, IAsyncInfo);
+windows_core::imp::required_hierarchy!(IAsyncAction, windows_future::IAsyncInfo);
 impl IAsyncAction {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_future::AsyncActionCompletedHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetCompleted)(
+                windows_core::Interface::as_raw(self),
+                handler.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub fn Completed(&self) -> windows_core::Result<windows_future::AsyncActionCompletedHandler> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Completed)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn GetResults(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(
@@ -25,7 +47,7 @@ impl IAsyncAction {
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
+        let this = &windows_core::Interface::cast::<windows_future::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(
@@ -35,8 +57,19 @@ impl IAsyncAction {
             .map(|| result__)
         }
     }
+    pub fn Status(&self) -> windows_core::Result<windows_future::AsyncStatus> {
+        let this = &windows_core::Interface::cast::<windows_future::IAsyncInfo>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
+        let this = &windows_core::Interface::cast::<windows_future::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorCode)(
@@ -47,14 +80,14 @@ impl IAsyncAction {
         }
     }
     pub fn Cancel(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
+        let this = &windows_core::Interface::cast::<windows_future::IAsyncInfo>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
+        let this = &windows_core::Interface::cast::<windows_future::IAsyncInfo>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
                 .ok()
@@ -66,75 +99,73 @@ unsafe impl Sync for IAsyncAction {}
 impl windows_core::RuntimeName for IAsyncAction {
     const NAME: &'static str = "Windows.Foundation.IAsyncAction";
 }
+pub trait IAsyncAction_Impl: windows_future::IAsyncInfo_Impl {
+    fn SetCompleted(
+        &self,
+        handler: windows_core::Ref<windows_future::AsyncActionCompletedHandler>,
+    ) -> windows_core::Result<()>;
+    fn Completed(&self) -> windows_core::Result<windows_future::AsyncActionCompletedHandler>;
+    fn GetResults(&self) -> windows_core::Result<()>;
+}
+impl IAsyncAction_Vtbl {
+    pub const fn new<Identity: IAsyncAction_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetCompleted<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            handler: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAsyncAction_Impl::SetCompleted(this, core::mem::transmute_copy(&handler)).into()
+            }
+        }
+        unsafe extern "system" fn Completed<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IAsyncAction_Impl::Completed(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetResults<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAsyncAction_Impl::GetResults(this).into()
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncAction, OFFSET>(),
+            SetCompleted: SetCompleted::<Identity, OFFSET>,
+            Completed: Completed::<Identity, OFFSET>,
+            GetResults: GetResults::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAsyncAction as windows_core::Interface>::IID
+    }
+}
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    SetCompleted: usize,
-    Completed: usize,
-    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IAsyncInfo,
-    IAsyncInfo_Vtbl,
-    0x00000036_0000_0000_c000_000000000046
-);
-impl windows_core::RuntimeType for IAsyncInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-    const NAME: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IAsyncInfo");
-}
-windows_core::imp::interface_hierarchy!(
-    IAsyncInfo,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl IAsyncInfo {
-    pub fn Id(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ErrorCode)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn Cancel(&self) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self))
-                .ok()
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
-                .ok()
-        }
-    }
-}
-impl windows_core::RuntimeName for IAsyncInfo {
-    const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
-}
-#[repr(C)]
-pub struct IAsyncInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    Status: usize,
-    pub ErrorCode: unsafe extern "system" fn(
+    pub SetCompleted: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::HRESULT,
+        *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Completed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
