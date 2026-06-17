@@ -7365,16 +7365,6 @@ impl IDragEventArgs {
             .ok()
         }
     }
-    pub(crate) fn get_AllowedOperations(&self) -> windows_core::Result<DataPackageOperation> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AllowedOperations)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
     pub(crate) fn GetDeferral(&self) -> windows_core::Result<DragOperationDeferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7407,10 +7397,7 @@ pub struct IDragEventArgs_Vtbl {
         *mut core::ffi::c_void,
         DataPackageOperation,
     ) -> windows_core::HRESULT,
-    pub get_AllowedOperations: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut DataPackageOperation,
-    ) -> windows_core::HRESULT,
+    get_AllowedOperations: usize,
     pub GetDeferral: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
