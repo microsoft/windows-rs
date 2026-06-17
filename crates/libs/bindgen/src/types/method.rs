@@ -749,14 +749,15 @@ impl Method {
 
         let vcall = build_vcall(&args);
 
-        // minimal: suppress remove_* methods and replace add_* methods
-        // with a combined wrapper returning EventRevoker.
+        // Suppress remove_* methods and replace add_* methods with a combined
+        // wrapper returning EventRevoker. Excluded from --package mode because
+        // the windows crate's public API preserves the raw add/remove pattern.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && config.bindgen.style.is_minimal()
+            && !config.bindgen.layout.is_package()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = config.bindgen.style.is_minimal()
+        let is_event_remove = !config.bindgen.layout.is_package()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove
@@ -819,11 +820,11 @@ impl Method {
                     // run under `--minimal`, its `new` accepts the void-
                     // returning closure directly and returns S_OK internally,
                     // so we can pass `handler` straight through. Otherwise
-                    // (the delegate comes from a referenced crate built
-                    // without `--minimal`), wrap the handler to satisfy its
+                    // (default mode or the delegate comes from a referenced
+                    // crate), wrap the handler to satisfy its
                     // `Fn(...) -> Result<()>` constraint.
-                    let delegate_is_local_minimal =
-                        config.references.contains(d.type_name()).is_none();
+                    let delegate_is_local_minimal = config.bindgen.style.is_minimal()
+                        && config.references.contains(d.type_name()).is_none();
 
                     // Rebuild typed_args, replacing the delegate slot with a raw
                     // interface pointer for the locally-constructed delegate.

@@ -10,7 +10,7 @@
 mod bindings;
 use bindings::*;
 use std::sync::{Mutex, MutexGuard};
-use windows::{Foundation::*, core::*};
+use windows_core::*;
 
 static STATIC_EVENT_TEST_LOCK: Mutex<()> = Mutex::new(());
 
@@ -29,33 +29,26 @@ fn test() -> Result<()> {
     // The signal value is passed to each delegate.
     assert_eq!(0, class.Signal(1)?);
 
-    let token = class.Event(&TypedEventHandler::new(
-        move |sender: Ref<Class>, args: i32| {
-            assert_eq!(sender.as_ref().unwrap(), class);
-            assert_eq!(args, 2);
-            Ok(())
-        },
-    ))?;
+    let revoker = class.Event(move |sender: Ref<Class>, args: i32| {
+        assert_eq!(sender.as_ref().unwrap(), class);
+        assert_eq!(args, 2);
+    })?;
 
     assert_eq!(1, class.Signal(2)?);
-    class.RemoveEvent(token)?;
+    drop(revoker);
     assert_eq!(0, class.Signal(3)?);
 
-    class.Event(&TypedEventHandler::new(
-        move |sender: Ref<Class>, args: i32| {
-            assert_eq!(sender.as_ref().unwrap(), class);
-            assert_eq!(args, 4);
-            Ok(())
-        },
-    ))?;
+    // Handlers without a stored revoker are immediately revoked on drop.
+    // Use .forget() to keep them alive indefinitely.
+    class.Event(move |sender: Ref<Class>, args: i32| {
+        assert_eq!(sender.as_ref().unwrap(), class);
+        assert_eq!(args, 4);
+    })?.forget();
 
-    class.Event(&TypedEventHandler::new(
-        move |sender: Ref<Class>, args: i32| {
-            assert_eq!(sender.as_ref().unwrap(), class);
-            assert_eq!(args, 4);
-            Ok(())
-        },
-    ))?;
+    class.Event(move |sender: Ref<Class>, args: i32| {
+        assert_eq!(sender.as_ref().unwrap(), class);
+        assert_eq!(args, 4);
+    })?.forget();
 
     assert_eq!(2, class.Signal(4)?);
     Ok(())
@@ -66,27 +59,22 @@ fn test_static() -> Result<()> {
     let _lock = lock_static_event_tests();
     assert_eq!(0, Class::StaticSignal(1)?);
 
-    let token = Class::StaticEvent(&EventHandler::new(move |_, args| {
+    let revoker = Class::StaticEvent(move |_, args| {
         assert_eq!(args, 2);
-        Ok(())
-    }))?;
+    })?;
 
     assert_eq!(1, Class::StaticSignal(2)?);
-    Class::RemoveStaticEvent(token)?;
+    drop(revoker);
     assert_eq!(0, Class::StaticSignal(3)?);
 
-    let token1 = Class::StaticEvent(&EventHandler::new(move |_, args| {
+    Class::StaticEvent(move |_, args| {
         assert_eq!(args, 4);
-        Ok(())
-    }))?;
+    })?.forget();
 
-    let token2 = Class::StaticEvent(&EventHandler::new(move |_, args| {
+    Class::StaticEvent(move |_, args| {
         assert_eq!(args, 4);
-        Ok(())
-    }))?;
+    })?.forget();
 
     assert_eq!(2, Class::StaticSignal(4)?);
-    Class::RemoveStaticEvent(token1)?;
-    Class::RemoveStaticEvent(token2)?;
     Ok(())
 }

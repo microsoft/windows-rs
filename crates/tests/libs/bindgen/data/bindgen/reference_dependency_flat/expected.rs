@@ -81,15 +81,6 @@ impl IMemoryBufferReference {
             .map(|| result__)
         }
     }
-    pub fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).RemoveClosed)(
-                windows_core::Interface::as_raw(self),
-                cookie,
-            )
-            .ok()
-        }
-    }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;
         unsafe {
