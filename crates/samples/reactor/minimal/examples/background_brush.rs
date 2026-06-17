@@ -1,4 +1,4 @@
-//! Minimal sample for grid background color.
+//! Sample for grid background color.
 
 use windows_reactor::*;
 
@@ -9,5 +9,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("BackgroundBrush", app)
 }

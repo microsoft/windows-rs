@@ -6,15 +6,11 @@ pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> Element {
     let (top_selected, set_top_selected) = cx.use_state(String::from("home"));
 
     let items = [
-        NavViewItem::new("Home")
-            .tag("page1")
-            .icon(SymbolGlyph::Home),
-        NavViewItem::new("Browse")
-            .tag("page2")
-            .icon(SymbolGlyph::Find),
+        NavViewItem::new("Home").tag("page1").icon(Symbol::Home),
+        NavViewItem::new("Browse").tag("page2").icon(Symbol::Find),
         NavViewItem::new("Settings")
             .tag("page3")
-            .icon(SymbolGlyph::Setting),
+            .icon(Symbol::Setting),
     ];
 
     let body: Element = match selected.as_str() {
@@ -24,13 +20,11 @@ pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> Element {
     };
 
     let top_items = [
-        NavViewItem::new("Home").tag("home").icon(SymbolGlyph::Home),
-        NavViewItem::new("Documents")
-            .tag("docs")
-            .icon(SymbolGlyph::Edit),
+        NavViewItem::new("Home").tag("home").icon(Symbol::Home),
+        NavViewItem::new("Documents").tag("docs").icon(Symbol::Edit),
         NavViewItem::new("Downloads")
             .tag("downloads")
-            .icon(SymbolGlyph::Download),
+            .icon(Symbol::Download),
     ];
 
     let top_body: Element = match top_selected.as_str() {
@@ -62,13 +56,13 @@ pub fn navigation_view_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "Top-Mode NavigationView",
                 NavigationView::new(top_items, top_body)
-                    .pane_display_mode(NavViewPaneDisplayMode::Top)
+                    .pane_display_mode(NavigationViewPaneDisplayMode::Top)
                     .selected_tag(&top_selected)
                     .on_selection_changed(move |tag: String| set_top_selected.call(tag))
                     .settings_visible(false)
                     .height(200.0),
                 r#"NavigationView::new(items, body)
-    .pane_display_mode(NavViewPaneDisplayMode::Top)"#,
+    .pane_display_mode(NavigationViewPaneDisplayMode::Top)"#,
             ),
         ],
     )

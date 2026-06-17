@@ -750,15 +750,15 @@ impl windows_core::RuntimeName for MusicProperties {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
-    pub const FlipHorizontal: Self = Self(2i32);
-    pub const Rotate180: Self = Self(3i32);
-    pub const FlipVertical: Self = Self(4i32);
-    pub const Transpose: Self = Self(5i32);
-    pub const Rotate270: Self = Self(6i32);
-    pub const Transverse: Self = Self(7i32);
-    pub const Rotate90: Self = Self(8i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Normal: Self = Self(1);
+    pub const FlipHorizontal: Self = Self(2);
+    pub const Rotate180: Self = Self(3);
+    pub const FlipVertical: Self = Self(4);
+    pub const Transpose: Self = Self(5);
+    pub const Rotate270: Self = Self(6);
+    pub const Transverse: Self = Self(7);
+    pub const Rotate90: Self = Self(8);
 }
 impl windows_core::TypeKind for PhotoOrientation {
     type TypeKind = windows_core::CopyType;
@@ -771,12 +771,12 @@ impl windows_core::RuntimeType for PhotoOrientation {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
-    pub const None: Self = Self(0u32);
-    pub const MusicProperties: Self = Self(1u32);
-    pub const VideoProperties: Self = Self(2u32);
-    pub const ImageProperties: Self = Self(4u32);
-    pub const DocumentProperties: Self = Self(8u32);
-    pub const BasicProperties: Self = Self(16u32);
+    pub const None: Self = Self(0);
+    pub const MusicProperties: Self = Self(1);
+    pub const VideoProperties: Self = Self(2);
+    pub const ImageProperties: Self = Self(4);
+    pub const DocumentProperties: Self = Self(8);
+    pub const BasicProperties: Self = Self(16);
 }
 impl windows_core::TypeKind for PropertyPrefetchOptions {
     type TypeKind = windows_core::CopyType;
@@ -1037,12 +1037,12 @@ impl windows_core::RuntimeName for StorageItemThumbnail {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
-    pub const PicturesView: Self = Self(0i32);
-    pub const VideosView: Self = Self(1i32);
-    pub const MusicView: Self = Self(2i32);
-    pub const DocumentsView: Self = Self(3i32);
-    pub const ListView: Self = Self(4i32);
-    pub const SingleItem: Self = Self(5i32);
+    pub const PicturesView: Self = Self(0);
+    pub const VideosView: Self = Self(1);
+    pub const MusicView: Self = Self(2);
+    pub const DocumentsView: Self = Self(3);
+    pub const ListView: Self = Self(4);
+    pub const SingleItem: Self = Self(5);
 }
 impl windows_core::TypeKind for ThumbnailMode {
     type TypeKind = windows_core::CopyType;
@@ -1055,10 +1055,10 @@ impl windows_core::RuntimeType for ThumbnailMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
-    pub const None: Self = Self(0u32);
-    pub const ReturnOnlyIfCached: Self = Self(1u32);
-    pub const ResizeThumbnail: Self = Self(2u32);
-    pub const UseCurrentScale: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const ReturnOnlyIfCached: Self = Self(1);
+    pub const ResizeThumbnail: Self = Self(2);
+    pub const UseCurrentScale: Self = Self(4);
 }
 impl windows_core::TypeKind for ThumbnailOptions {
     type TypeKind = windows_core::CopyType;
@@ -1104,8 +1104,8 @@ impl core::ops::Not for ThumbnailOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
-    pub const Image: Self = Self(0i32);
-    pub const Icon: Self = Self(1i32);
+    pub const Image: Self = Self(0);
+    pub const Icon: Self = Self(1);
 }
 impl windows_core::TypeKind for ThumbnailType {
     type TypeKind = windows_core::CopyType;
@@ -1118,10 +1118,10 @@ impl windows_core::RuntimeType for ThumbnailType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
-    pub const Normal: Self = Self(0i32);
-    pub const Rotate90: Self = Self(90i32);
-    pub const Rotate180: Self = Self(180i32);
-    pub const Rotate270: Self = Self(270i32);
+    pub const Normal: Self = Self(0);
+    pub const Rotate90: Self = Self(90);
+    pub const Rotate180: Self = Self(180);
+    pub const Rotate270: Self = Self(270);
 }
 impl windows_core::TypeKind for VideoOrientation {
     type TypeKind = windows_core::CopyType;

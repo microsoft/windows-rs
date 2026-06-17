@@ -21,7 +21,7 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                                 text: "Paste".into(),
                             },
                         ])
-                        .on_flyout_item_click({
+                        .on_item_clicked({
                             let set_action = set_action.clone();
                             move |s| set_action.call(s)
                         }),
@@ -32,7 +32,7 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
     MenuItemDef::Item { text: "Cut".into() },
     MenuItemDef::Item { text: "Copy".into() },
     MenuItemDef::Item { text: "Paste".into() },
-]).on_flyout_item_click(handler)"#,
+]).on_item_clicked(handler)"#,
             ),
             sample_card(
                 "MenuFlyout with Separators",
@@ -53,7 +53,7 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                                 text: "Strikethrough".into(),
                             },
                         ])
-                        .on_flyout_item_click(move |s| set_action.call(s)),
+                        .on_item_clicked(move |s| set_action.call(s)),
                     text_block(format!("Last format: {last_action}")).opacity(0.6),
                 ))
                 .spacing(8.0),

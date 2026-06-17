@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
-    pub const Premultiplied: Self = Self(0i32);
-    pub const Straight: Self = Self(1i32);
-    pub const Ignore: Self = Self(2i32);
+    pub const Premultiplied: Self = Self(0);
+    pub const Straight: Self = Self(1);
+    pub const Ignore: Self = Self(2);
 }
 impl windows_core::TypeKind for BitmapAlphaMode {
     type TypeKind = windows_core::CopyType;
@@ -74,9 +74,9 @@ unsafe impl Sync for BitmapBuffer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
-    pub const Read: Self = Self(0i32);
-    pub const ReadWrite: Self = Self(1i32);
-    pub const Write: Self = Self(2i32);
+    pub const Read: Self = Self(0);
+    pub const ReadWrite: Self = Self(1);
+    pub const Write: Self = Self(2);
 }
 impl windows_core::TypeKind for BitmapBufferAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -578,9 +578,9 @@ unsafe impl Sync for BitmapEncoder {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
-    pub const None: Self = Self(0i32);
-    pub const Horizontal: Self = Self(1i32);
-    pub const Vertical: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Horizontal: Self = Self(1);
+    pub const Vertical: Self = Self(2);
 }
 impl windows_core::TypeKind for BitmapFlip {
     type TypeKind = windows_core::CopyType;
@@ -712,10 +712,10 @@ unsafe impl Sync for BitmapFrame {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
-    pub const NearestNeighbor: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-    pub const Cubic: Self = Self(2i32);
-    pub const Fant: Self = Self(3i32);
+    pub const NearestNeighbor: Self = Self(0);
+    pub const Linear: Self = Self(1);
+    pub const Cubic: Self = Self(2);
+    pub const Fant: Self = Self(3);
 }
 impl windows_core::TypeKind for BitmapInterpolationMode {
     type TypeKind = windows_core::CopyType;
@@ -728,15 +728,15 @@ impl windows_core::RuntimeType for BitmapInterpolationMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
-    pub const Unknown: Self = Self(0i32);
-    pub const Rgba16: Self = Self(12i32);
-    pub const Rgba8: Self = Self(30i32);
-    pub const Gray16: Self = Self(57i32);
-    pub const Gray8: Self = Self(62i32);
-    pub const Bgra8: Self = Self(87i32);
-    pub const Nv12: Self = Self(103i32);
-    pub const P010: Self = Self(104i32);
-    pub const Yuy2: Self = Self(107i32);
+    pub const Unknown: Self = Self(0);
+    pub const Rgba16: Self = Self(12);
+    pub const Rgba8: Self = Self(30);
+    pub const Gray16: Self = Self(57);
+    pub const Gray8: Self = Self(62);
+    pub const Bgra8: Self = Self(87);
+    pub const Nv12: Self = Self(103);
+    pub const P010: Self = Self(104);
+    pub const Yuy2: Self = Self(107);
 }
 impl windows_core::TypeKind for BitmapPixelFormat {
     type TypeKind = windows_core::CopyType;
@@ -915,10 +915,10 @@ impl IntoIterator for &BitmapPropertySet {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
-    pub const None: Self = Self(0i32);
-    pub const Clockwise90Degrees: Self = Self(1i32);
-    pub const Clockwise180Degrees: Self = Self(2i32);
-    pub const Clockwise270Degrees: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Clockwise90Degrees: Self = Self(1);
+    pub const Clockwise180Degrees: Self = Self(2);
+    pub const Clockwise270Degrees: Self = Self(3);
 }
 impl windows_core::TypeKind for BitmapRotation {
     type TypeKind = windows_core::CopyType;
@@ -1066,8 +1066,8 @@ unsafe impl Sync for BitmapTypedValue {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
-    pub const DoNotColorManage: Self = Self(0i32);
-    pub const ColorManageToSRgb: Self = Self(1i32);
+    pub const DoNotColorManage: Self = Self(0);
+    pub const ColorManageToSRgb: Self = Self(1);
 }
 impl windows_core::TypeKind for ColorManagementMode {
     type TypeKind = windows_core::CopyType;
@@ -1080,8 +1080,8 @@ impl windows_core::RuntimeType for ColorManagementMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
-    pub const IgnoreExifOrientation: Self = Self(0i32);
-    pub const RespectExifOrientation: Self = Self(1i32);
+    pub const IgnoreExifOrientation: Self = Self(0);
+    pub const RespectExifOrientation: Self = Self(1);
 }
 impl windows_core::TypeKind for ExifOrientationMode {
     type TypeKind = windows_core::CopyType;
@@ -2049,10 +2049,10 @@ unsafe impl Sync for ImageStream {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
-    pub const Default: Self = Self(0i32);
-    pub const Y4Cb2Cr0: Self = Self(1i32);
-    pub const Y4Cb2Cr2: Self = Self(2i32);
-    pub const Y4Cb4Cr4: Self = Self(3i32);
+    pub const Default: Self = Self(0);
+    pub const Y4Cb2Cr0: Self = Self(1);
+    pub const Y4Cb2Cr2: Self = Self(2);
+    pub const Y4Cb4Cr4: Self = Self(3);
 }
 impl windows_core::TypeKind for JpegSubsamplingMode {
     type TypeKind = windows_core::CopyType;
@@ -2089,13 +2089,13 @@ unsafe impl Sync for PixelDataProvider {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
-    pub const Automatic: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Sub: Self = Self(2i32);
-    pub const Up: Self = Self(3i32);
-    pub const Average: Self = Self(4i32);
-    pub const Paeth: Self = Self(5i32);
-    pub const Adaptive: Self = Self(6i32);
+    pub const Automatic: Self = Self(0);
+    pub const None: Self = Self(1);
+    pub const Sub: Self = Self(2);
+    pub const Up: Self = Self(3);
+    pub const Average: Self = Self(4);
+    pub const Paeth: Self = Self(5);
+    pub const Adaptive: Self = Self(6);
 }
 impl windows_core::TypeKind for PngFilterMode {
     type TypeKind = windows_core::CopyType;
@@ -2298,14 +2298,14 @@ unsafe impl Sync for SoftwareBitmap {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
-    pub const Automatic: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Ccitt3: Self = Self(2i32);
-    pub const Ccitt4: Self = Self(3i32);
-    pub const Lzw: Self = Self(4i32);
-    pub const Rle: Self = Self(5i32);
-    pub const Zip: Self = Self(6i32);
-    pub const LzwhDifferencing: Self = Self(7i32);
+    pub const Automatic: Self = Self(0);
+    pub const None: Self = Self(1);
+    pub const Ccitt3: Self = Self(2);
+    pub const Ccitt4: Self = Self(3);
+    pub const Lzw: Self = Self(4);
+    pub const Rle: Self = Self(5);
+    pub const Zip: Self = Self(6);
+    pub const LzwhDifferencing: Self = Self(7);
 }
 impl windows_core::TypeKind for TiffCompressionMode {
     type TypeKind = windows_core::CopyType;

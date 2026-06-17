@@ -188,10 +188,10 @@ unsafe impl Sync for OfflineMapPackageQueryResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const InvalidCredentials: Self = Self(2);
+    pub const NetworkFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for OfflineMapPackageQueryStatus {
     type TypeKind = windows_core::CopyType;
@@ -228,10 +228,10 @@ unsafe impl Sync for OfflineMapPackageStartDownloadResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const DeniedWithoutCapability: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const InvalidCredentials: Self = Self(2);
+    pub const DeniedWithoutCapability: Self = Self(3);
 }
 impl windows_core::TypeKind for OfflineMapPackageStartDownloadStatus {
     type TypeKind = windows_core::CopyType;
@@ -244,10 +244,10 @@ impl windows_core::RuntimeType for OfflineMapPackageStartDownloadStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {
-    pub const NotDownloaded: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const Downloaded: Self = Self(2i32);
-    pub const Deleting: Self = Self(3i32);
+    pub const NotDownloaded: Self = Self(0);
+    pub const Downloading: Self = Self(1);
+    pub const Downloaded: Self = Self(2);
+    pub const Deleting: Self = Self(3);
 }
 impl windows_core::TypeKind for OfflineMapPackageStatus {
     type TypeKind = windows_core::CopyType;

@@ -2,10 +2,10 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
-    pub const None: Self = Self(0u32);
-    pub const RequireUpdateOnAccess: Self = Self(1u32);
-    pub const UseCachedFileWhenOffline: Self = Self(2u32);
-    pub const DenyAccessWhenOffline: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const RequireUpdateOnAccess: Self = Self(1);
+    pub const UseCachedFileWhenOffline: Self = Self(2);
+    pub const DenyAccessWhenOffline: Self = Self(4);
 }
 impl windows_core::TypeKind for CachedFileOptions {
     type TypeKind = windows_core::CopyType;
@@ -51,8 +51,8 @@ impl core::ops::Not for CachedFileOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
-    pub const Local: Self = Self(0i32);
-    pub const Remote: Self = Self(1i32);
+    pub const Local: Self = Self(0);
+    pub const Remote: Self = Self(1);
 }
 impl windows_core::TypeKind for CachedFileTarget {
     type TypeKind = windows_core::CopyType;
@@ -260,12 +260,12 @@ impl windows_core::RuntimeName for FileUpdateRequestedEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
-    pub const Incomplete: Self = Self(0i32);
-    pub const Complete: Self = Self(1i32);
-    pub const UserInputNeeded: Self = Self(2i32);
-    pub const CurrentlyUnavailable: Self = Self(3i32);
-    pub const Failed: Self = Self(4i32);
-    pub const CompleteAndRenamed: Self = Self(5i32);
+    pub const Incomplete: Self = Self(0);
+    pub const Complete: Self = Self(1);
+    pub const UserInputNeeded: Self = Self(2);
+    pub const CurrentlyUnavailable: Self = Self(3);
+    pub const Failed: Self = Self(4);
+    pub const CompleteAndRenamed: Self = Self(5);
 }
 impl windows_core::TypeKind for FileUpdateStatus {
     type TypeKind = windows_core::CopyType;
@@ -1881,8 +1881,8 @@ pub struct IStorageProviderUriSource_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
-    pub const NotNeeded: Self = Self(0i32);
-    pub const BeforeAccess: Self = Self(1i32);
+    pub const NotNeeded: Self = Self(0);
+    pub const BeforeAccess: Self = Self(1);
 }
 impl windows_core::TypeKind for ReadActivationMode {
     type TypeKind = windows_core::CopyType;
@@ -2030,8 +2030,8 @@ unsafe impl Sync for StorageProviderGetPathForContentUriResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
-    pub const None: Self = Self(0u32);
-    pub const Allowed: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const Allowed: Self = Self(1);
 }
 impl windows_core::TypeKind for StorageProviderHardlinkPolicy {
     type TypeKind = windows_core::CopyType;
@@ -2077,10 +2077,10 @@ impl core::ops::Not for StorageProviderHardlinkPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
-    pub const Partial: Self = Self(0i32);
-    pub const Progressive: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
-    pub const AlwaysFull: Self = Self(3i32);
+    pub const Partial: Self = Self(0);
+    pub const Progressive: Self = Self(1);
+    pub const Full: Self = Self(2);
+    pub const AlwaysFull: Self = Self(3);
 }
 impl windows_core::TypeKind for StorageProviderHydrationPolicy {
     type TypeKind = windows_core::CopyType;
@@ -2093,11 +2093,11 @@ impl windows_core::RuntimeType for StorageProviderHydrationPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
-    pub const None: Self = Self(0u32);
-    pub const ValidationRequired: Self = Self(1u32);
-    pub const StreamingAllowed: Self = Self(2u32);
-    pub const AutoDehydrationAllowed: Self = Self(4u32);
-    pub const AllowFullRestartHydration: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const ValidationRequired: Self = Self(1);
+    pub const StreamingAllowed: Self = Self(2);
+    pub const AutoDehydrationAllowed: Self = Self(4);
+    pub const AllowFullRestartHydration: Self = Self(8);
 }
 impl windows_core::TypeKind for StorageProviderHydrationPolicyModifier {
     type TypeKind = windows_core::CopyType;
@@ -2143,18 +2143,18 @@ impl core::ops::Not for StorageProviderHydrationPolicyModifier {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
-    pub const Default: Self = Self(0u32);
-    pub const FileCreationTime: Self = Self(1u32);
-    pub const FileReadOnlyAttribute: Self = Self(2u32);
-    pub const FileHiddenAttribute: Self = Self(4u32);
-    pub const FileSystemAttribute: Self = Self(8u32);
-    pub const DirectoryCreationTime: Self = Self(16u32);
-    pub const DirectoryReadOnlyAttribute: Self = Self(32u32);
-    pub const DirectoryHiddenAttribute: Self = Self(64u32);
-    pub const DirectorySystemAttribute: Self = Self(128u32);
-    pub const FileLastWriteTime: Self = Self(256u32);
-    pub const DirectoryLastWriteTime: Self = Self(512u32);
-    pub const PreserveInsyncForSyncEngine: Self = Self(2147483648u32);
+    pub const Default: Self = Self(0);
+    pub const FileCreationTime: Self = Self(1);
+    pub const FileReadOnlyAttribute: Self = Self(2);
+    pub const FileHiddenAttribute: Self = Self(4);
+    pub const FileSystemAttribute: Self = Self(8);
+    pub const DirectoryCreationTime: Self = Self(16);
+    pub const DirectoryReadOnlyAttribute: Self = Self(32);
+    pub const DirectoryHiddenAttribute: Self = Self(64);
+    pub const DirectorySystemAttribute: Self = Self(128);
+    pub const FileLastWriteTime: Self = Self(256);
+    pub const DirectoryLastWriteTime: Self = Self(512);
+    pub const PreserveInsyncForSyncEngine: Self = Self(2147483648);
 }
 impl windows_core::TypeKind for StorageProviderInSyncPolicy {
     type TypeKind = windows_core::CopyType;
@@ -2444,7 +2444,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandle
 impl StorageProviderKnownFolderSyncRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<StorageProviderKnownFolderSyncRequestedHandler, F>::new(&StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where
@@ -2480,9 +2480,9 @@ impl<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> wind
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderKnownFolderSyncStatus(pub i32);
 impl StorageProviderKnownFolderSyncStatus {
-    pub const Available: Self = Self(0i32);
-    pub const Enrolling: Self = Self(1i32);
-    pub const Enrolled: Self = Self(2i32);
+    pub const Available: Self = Self(0);
+    pub const Enrolling: Self = Self(1);
+    pub const Enrolled: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageProviderKnownFolderSyncStatus {
     type TypeKind = windows_core::CopyType;
@@ -2541,8 +2541,8 @@ unsafe impl Sync for StorageProviderMoreInfoUI {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
-    pub const Full: Self = Self(1i32);
-    pub const AlwaysFull: Self = Self(2i32);
+    pub const Full: Self = Self(1);
+    pub const AlwaysFull: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageProviderPopulationPolicy {
     type TypeKind = windows_core::CopyType;
@@ -2555,8 +2555,8 @@ impl windows_core::RuntimeType for StorageProviderPopulationPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
-    pub const Unknown: Self = Self(0i32);
-    pub const Personal: Self = Self(1i32);
+    pub const Unknown: Self = Self(0);
+    pub const Personal: Self = Self(1);
 }
 impl windows_core::TypeKind for StorageProviderProtectionMode {
     type TypeKind = windows_core::CopyType;
@@ -2665,7 +2665,7 @@ impl StorageProviderQuotaUI {
     }
     #[cfg(feature = "UI")]
     pub fn SetQuotaUsedColor(&self, value: Option<super::super::UI::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -2685,13 +2685,13 @@ unsafe impl Sync for StorageProviderQuotaUI {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderResultKind(pub i32);
 impl StorageProviderResultKind {
-    pub const Search: Self = Self(0i32);
-    pub const Recommended: Self = Self(1i32);
-    pub const Favorites: Self = Self(2i32);
-    pub const Recent: Self = Self(3i32);
-    pub const Shared: Self = Self(4i32);
-    pub const RelatedFiles: Self = Self(5i32);
-    pub const RelatedConversations: Self = Self(6i32);
+    pub const Search: Self = Self(0);
+    pub const Recommended: Self = Self(1);
+    pub const Favorites: Self = Self(2);
+    pub const Recent: Self = Self(3);
+    pub const Shared: Self = Self(4);
+    pub const RelatedFiles: Self = Self(5);
+    pub const RelatedConversations: Self = Self(6);
 }
 impl windows_core::TypeKind for StorageProviderResultKind {
     type TypeKind = windows_core::CopyType;
@@ -2704,9 +2704,9 @@ impl windows_core::RuntimeType for StorageProviderResultKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderResultUsageKind(pub i32);
 impl StorageProviderResultUsageKind {
-    pub const Rendered: Self = Self(0i32);
-    pub const Opened: Self = Self(1i32);
-    pub const SuggestionResponseReceived: Self = Self(2i32);
+    pub const Rendered: Self = Self(0);
+    pub const Opened: Self = Self(1);
+    pub const SuggestionResponseReceived: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageProviderResultUsageKind {
     type TypeKind = windows_core::CopyType;
@@ -2719,8 +2719,8 @@ impl windows_core::RuntimeType for StorageProviderResultUsageKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderSearchMatchKind(pub i32);
 impl StorageProviderSearchMatchKind {
-    pub const Lexical: Self = Self(0i32);
-    pub const Semantic: Self = Self(1i32);
+    pub const Lexical: Self = Self(0);
+    pub const Semantic: Self = Self(1);
 }
 impl windows_core::TypeKind for StorageProviderSearchMatchKind {
     type TypeKind = windows_core::CopyType;
@@ -2800,14 +2800,14 @@ unsafe impl Sync for StorageProviderSearchQueryOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderSearchQueryStatus(pub i32);
 impl StorageProviderSearchQueryStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const Timeout: Self = Self(2i32);
-    pub const NoNetwork: Self = Self(3i32);
-    pub const NetworkError: Self = Self(4i32);
-    pub const NotSignedIn: Self = Self(5i32);
-    pub const QueryNotSupported: Self = Self(6i32);
-    pub const SortOrderNotSupported: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const Error: Self = Self(1);
+    pub const Timeout: Self = Self(2);
+    pub const NoNetwork: Self = Self(3);
+    pub const NetworkError: Self = Self(4);
+    pub const NotSignedIn: Self = Self(5);
+    pub const QueryNotSupported: Self = Self(6);
+    pub const SortOrderNotSupported: Self = Self(7);
 }
 impl windows_core::TypeKind for StorageProviderSearchQueryStatus {
     type TypeKind = windows_core::CopyType;
@@ -2925,8 +2925,8 @@ unsafe impl Sync for StorageProviderSearchResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderShareLinkState(pub i32);
 impl StorageProviderShareLinkState {
-    pub const Enabled: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
+    pub const Enabled: Self = Self(0);
+    pub const Disabled: Self = Self(1);
 }
 impl windows_core::TypeKind for StorageProviderShareLinkState {
     type TypeKind = windows_core::CopyType;
@@ -2939,12 +2939,12 @@ impl windows_core::RuntimeType for StorageProviderShareLinkState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
-    pub const InSync: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const Paused: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-    pub const Warning: Self = Self(4i32);
-    pub const Offline: Self = Self(5i32);
+    pub const InSync: Self = Self(0);
+    pub const Syncing: Self = Self(1);
+    pub const Paused: Self = Self(2);
+    pub const Error: Self = Self(3);
+    pub const Warning: Self = Self(4);
+    pub const Offline: Self = Self(5);
 }
 impl windows_core::TypeKind for StorageProviderState {
     type TypeKind = windows_core::CopyType;
@@ -3433,9 +3433,9 @@ impl windows_core::RuntimeName for StorageProviderSyncRootManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderUICommandState(pub i32);
 impl StorageProviderUICommandState {
-    pub const Enabled: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Hidden: Self = Self(2i32);
+    pub const Enabled: Self = Self(0);
+    pub const Disabled: Self = Self(1);
+    pub const Hidden: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageProviderUICommandState {
     type TypeKind = windows_core::CopyType;
@@ -3448,9 +3448,9 @@ impl windows_core::RuntimeType for StorageProviderUICommandState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NoSyncRoot: Self = Self(1i32);
-    pub const FileNotFound: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const NoSyncRoot: Self = Self(1);
+    pub const FileNotFound: Self = Self(2);
 }
 impl windows_core::TypeKind for StorageProviderUriSourceStatus {
     type TypeKind = windows_core::CopyType;
@@ -3463,10 +3463,10 @@ impl windows_core::RuntimeType for StorageProviderUriSourceStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
-    pub const Unavailable: Self = Self(0i32);
-    pub const Hidden: Self = Self(1i32);
-    pub const Visible: Self = Self(2i32);
-    pub const Complete: Self = Self(3i32);
+    pub const Unavailable: Self = Self(0);
+    pub const Hidden: Self = Self(1);
+    pub const Visible: Self = Self(2);
+    pub const Complete: Self = Self(3);
 }
 impl windows_core::TypeKind for UIStatus {
     type TypeKind = windows_core::CopyType;
@@ -3479,9 +3479,9 @@ impl windows_core::RuntimeType for UIStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {
-    pub const ReadOnly: Self = Self(0i32);
-    pub const NotNeeded: Self = Self(1i32);
-    pub const AfterWrite: Self = Self(2i32);
+    pub const ReadOnly: Self = Self(0);
+    pub const NotNeeded: Self = Self(1);
+    pub const AfterWrite: Self = Self(2);
 }
 impl windows_core::TypeKind for WriteActivationMode {
     type TypeKind = windows_core::CopyType;

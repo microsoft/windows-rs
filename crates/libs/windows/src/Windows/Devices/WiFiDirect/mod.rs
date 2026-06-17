@@ -310,9 +310,9 @@ unsafe impl Sync for WiFiDirectAdvertisement {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);
 impl WiFiDirectAdvertisementListenStateDiscoverability {
-    pub const None: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
-    pub const Intensive: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Normal: Self = Self(1);
+    pub const Intensive: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiDirectAdvertisementListenStateDiscoverability {
     type TypeKind = windows_core::CopyType;
@@ -380,10 +380,10 @@ unsafe impl Sync for WiFiDirectAdvertisementPublisher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectAdvertisementPublisherStatus(pub i32);
 impl WiFiDirectAdvertisementPublisherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const Stopped: Self = Self(2i32);
-    pub const Aborted: Self = Self(3i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const Stopped: Self = Self(2);
+    pub const Aborted: Self = Self(3);
 }
 impl windows_core::TypeKind for WiFiDirectAdvertisementPublisherStatus {
     type TypeKind = windows_core::CopyType;
@@ -426,9 +426,9 @@ unsafe impl Sync for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectConfigurationMethod(pub i32);
 impl WiFiDirectConfigurationMethod {
-    pub const ProvidePin: Self = Self(0i32);
-    pub const DisplayPin: Self = Self(1i32);
-    pub const PushButton: Self = Self(2i32);
+    pub const ProvidePin: Self = Self(0);
+    pub const DisplayPin: Self = Self(1);
+    pub const PushButton: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiDirectConfigurationMethod {
     type TypeKind = windows_core::CopyType;
@@ -604,8 +604,8 @@ unsafe impl Sync for WiFiDirectConnectionRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectConnectionStatus(pub i32);
 impl WiFiDirectConnectionStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
+    pub const Disconnected: Self = Self(0);
+    pub const Connected: Self = Self(1);
 }
 impl windows_core::TypeKind for WiFiDirectConnectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -708,8 +708,8 @@ unsafe impl Sync for WiFiDirectDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectDeviceSelectorType(pub i32);
 impl WiFiDirectDeviceSelectorType {
-    pub const DeviceInterface: Self = Self(0i32);
-    pub const AssociationEndpoint: Self = Self(1i32);
+    pub const DeviceInterface: Self = Self(0);
+    pub const AssociationEndpoint: Self = Self(1);
 }
 impl windows_core::TypeKind for WiFiDirectDeviceSelectorType {
     type TypeKind = windows_core::CopyType;
@@ -722,9 +722,9 @@ impl windows_core::RuntimeType for WiFiDirectDeviceSelectorType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectError(pub i32);
 impl WiFiDirectError {
-    pub const Success: Self = Self(0i32);
-    pub const RadioNotAvailable: Self = Self(1i32);
-    pub const ResourceInUse: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const RadioNotAvailable: Self = Self(1);
+    pub const ResourceInUse: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiDirectError {
     type TypeKind = windows_core::CopyType;
@@ -873,8 +873,8 @@ unsafe impl Sync for WiFiDirectLegacySettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectPairingProcedure(pub i32);
 impl WiFiDirectPairingProcedure {
-    pub const GroupOwnerNegotiation: Self = Self(0i32);
-    pub const Invitation: Self = Self(1i32);
+    pub const GroupOwnerNegotiation: Self = Self(0);
+    pub const Invitation: Self = Self(1);
 }
 impl windows_core::TypeKind for WiFiDirectPairingProcedure {
     type TypeKind = windows_core::CopyType;

@@ -17,7 +17,7 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
                         .range(0.0, 100.0)
                         .step(1.0)
                         .header("Volume")
-                        .on_changed({
+                        .on_value_changed({
                             let set_volume = set_volume;
                             move |value| set_volume.call(value)
                         }),
@@ -27,7 +27,7 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"Slider::new(volume)
     .range(0.0, 100.0)
     .step(1.0)
-    .on_changed(...)"#,
+    .on_value_changed(...)"#,
             ),
             sample_card(
                 "Vertical Slider",
@@ -38,7 +38,7 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
                         .header("Brightness")
                         .vertical()
                         .height(140.0)
-                        .on_changed({
+                        .on_value_changed({
                             let set_brightness = set_brightness;
                             move |value| set_brightness.call(value)
                         }),
@@ -54,7 +54,7 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"Slider::new(brightness)
     .vertical()
     .height(140.0)
-    .on_changed(...)"#,
+    .on_value_changed(...)"#,
             ),
             sample_card(
                 "Range with Value Label",
@@ -63,7 +63,7 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
                         .range(16.0, 30.0)
                         .step(0.5)
                         .header("Room temperature")
-                        .on_changed({
+                        .on_value_changed({
                             let set_temperature = set_temperature;
                             move |value| set_temperature.call(value)
                         }),
@@ -73,7 +73,7 @@ pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
                 r#"Slider::new(temperature)
     .range(16.0, 30.0)
     .step(0.5)
-    .on_changed(...)"#,
+    .on_value_changed(...)"#,
             ),
         ],
     )

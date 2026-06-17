@@ -7,16 +7,16 @@ where
     let mut result__ = core::ptr::null_mut();
     unsafe { DXCoreCreateAdapterFactory(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
-pub const AdapterEngineFrequencyHertz: DXCoreAdapterState = DXCoreAdapterState(9u32);
-pub const AdapterEngineRunningTimeByProcessMicroseconds: DXCoreAdapterState = DXCoreAdapterState(5u32);
-pub const AdapterEngineRunningTimeMicroseconds: DXCoreAdapterState = DXCoreAdapterState(4u32);
-pub const AdapterInUseProcessCount: DXCoreAdapterState = DXCoreAdapterState(7u32);
-pub const AdapterInUseProcessSet: DXCoreAdapterState = DXCoreAdapterState(8u32);
-pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
-pub const AdapterMemoryFrequencyHertz: DXCoreAdapterState = DXCoreAdapterState(10u32);
-pub const AdapterMemoryUsageByProcessBytes: DXCoreAdapterState = DXCoreAdapterState(3u32);
-pub const AdapterMemoryUsageBytes: DXCoreAdapterState = DXCoreAdapterState(2u32);
-pub const AdapterTemperatureCelsius: DXCoreAdapterState = DXCoreAdapterState(6u32);
+pub const AdapterEngineFrequencyHertz: DXCoreAdapterState = DXCoreAdapterState(9);
+pub const AdapterEngineRunningTimeByProcessMicroseconds: DXCoreAdapterState = DXCoreAdapterState(5);
+pub const AdapterEngineRunningTimeMicroseconds: DXCoreAdapterState = DXCoreAdapterState(4);
+pub const AdapterInUseProcessCount: DXCoreAdapterState = DXCoreAdapterState(7);
+pub const AdapterInUseProcessSet: DXCoreAdapterState = DXCoreAdapterState(8);
+pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1);
+pub const AdapterMemoryFrequencyHertz: DXCoreAdapterState = DXCoreAdapterState(10);
+pub const AdapterMemoryUsageByProcessBytes: DXCoreAdapterState = DXCoreAdapterState(3);
+pub const AdapterMemoryUsageBytes: DXCoreAdapterState = DXCoreAdapterState(2);
+pub const AdapterTemperatureCelsius: DXCoreAdapterState = DXCoreAdapterState(6);
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: windows_core::GUID = windows_core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: windows_core::GUID = windows_core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GENERIC_MEDIA: windows_core::GUID = windows_core::GUID::from_u128(0x8eb2c848_82f6_4b49_aa87_aecfcf0174c6);
@@ -50,9 +50,9 @@ pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterPreference(pub u32);
 impl DXCoreAdapterPreference {
-    pub const Hardware: Self = Self(0u32);
-    pub const MinimumPower: Self = Self(1u32);
-    pub const HighPerformance: Self = Self(2u32);
+    pub const Hardware: Self = Self(0);
+    pub const MinimumPower: Self = Self(1);
+    pub const HighPerformance: Self = Self(2);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -75,24 +75,24 @@ pub struct DXCoreAdapterProcessSetQueryOutput {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProperty(pub u32);
 impl DXCoreAdapterProperty {
-    pub const InstanceLuid: Self = Self(0u32);
-    pub const DriverVersion: Self = Self(1u32);
-    pub const DriverDescription: Self = Self(2u32);
-    pub const HardwareID: Self = Self(3u32);
-    pub const KmdModelVersion: Self = Self(4u32);
-    pub const ComputePreemptionGranularity: Self = Self(5u32);
-    pub const GraphicsPreemptionGranularity: Self = Self(6u32);
-    pub const DedicatedAdapterMemory: Self = Self(7u32);
-    pub const DedicatedSystemMemory: Self = Self(8u32);
-    pub const SharedSystemMemory: Self = Self(9u32);
-    pub const AcgCompatible: Self = Self(10u32);
-    pub const IsHardware: Self = Self(11u32);
-    pub const IsIntegrated: Self = Self(12u32);
-    pub const IsDetachable: Self = Self(13u32);
-    pub const HardwareIDParts: Self = Self(14u32);
-    pub const PhysicalAdapterCount: Self = Self(15u32);
-    pub const AdapterEngineCount: Self = Self(16u32);
-    pub const AdapterEngineName: Self = Self(17u32);
+    pub const InstanceLuid: Self = Self(0);
+    pub const DriverVersion: Self = Self(1);
+    pub const DriverDescription: Self = Self(2);
+    pub const HardwareID: Self = Self(3);
+    pub const KmdModelVersion: Self = Self(4);
+    pub const ComputePreemptionGranularity: Self = Self(5);
+    pub const GraphicsPreemptionGranularity: Self = Self(6);
+    pub const DedicatedAdapterMemory: Self = Self(7);
+    pub const DedicatedSystemMemory: Self = Self(8);
+    pub const SharedSystemMemory: Self = Self(9);
+    pub const AcgCompatible: Self = Self(10);
+    pub const IsHardware: Self = Self(11);
+    pub const IsIntegrated: Self = Self(12);
+    pub const IsDetachable: Self = Self(13);
+    pub const HardwareIDParts: Self = Self(14);
+    pub const PhysicalAdapterCount: Self = Self(15);
+    pub const AdapterEngineCount: Self = Self(16);
+    pub const AdapterEngineName: Self = Self(17);
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -149,11 +149,11 @@ pub struct DXCoreHardwareIDParts {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreHardwareTypeFilterFlags(pub u32);
 impl DXCoreHardwareTypeFilterFlags {
-    pub const None: Self = Self(0u32);
-    pub const GPU: Self = Self(1u32);
-    pub const ComputeAccelerator: Self = Self(2u32);
-    pub const NPU: Self = Self(4u32);
-    pub const MediaAccelerator: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const GPU: Self = Self(1);
+    pub const ComputeAccelerator: Self = Self(2);
+    pub const NPU: Self = Self(4);
+    pub const MediaAccelerator: Self = Self(8);
 }
 impl DXCoreHardwareTypeFilterFlags {
     pub const fn contains(&self, other: Self) -> bool {
@@ -198,8 +198,8 @@ pub struct DXCoreMemoryQueryInput {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreMemoryType(pub u32);
 impl DXCoreMemoryType {
-    pub const Dedicated: Self = Self(0u32);
-    pub const Shared: Self = Self(1u32);
+    pub const Dedicated: Self = Self(0);
+    pub const Shared: Self = Self(1);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -211,10 +211,10 @@ pub struct DXCoreMemoryUsage {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreNotificationType(pub u32);
 impl DXCoreNotificationType {
-    pub const AdapterListStale: Self = Self(0u32);
-    pub const AdapterNoLongerValid: Self = Self(1u32);
-    pub const AdapterBudgetChange: Self = Self(2u32);
-    pub const AdapterHardwareContentProtectionTeardown: Self = Self(3u32);
+    pub const AdapterListStale: Self = Self(0);
+    pub const AdapterNoLongerValid: Self = Self(1);
+    pub const AdapterBudgetChange: Self = Self(2);
+    pub const AdapterHardwareContentProtectionTeardown: Self = Self(3);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -233,9 +233,9 @@ pub struct DXCoreProcessMemoryQueryOutput {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreRuntimeFilterFlags(pub u32);
 impl DXCoreRuntimeFilterFlags {
-    pub const None: Self = Self(0u32);
-    pub const D3D11: Self = Self(1u32);
-    pub const D3D12: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const D3D11: Self = Self(1);
+    pub const D3D12: Self = Self(2);
 }
 impl DXCoreRuntimeFilterFlags {
     pub const fn contains(&self, other: Self) -> bool {
@@ -274,17 +274,17 @@ impl core::ops::Not for DXCoreRuntimeFilterFlags {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreSegmentGroup(pub u32);
 impl DXCoreSegmentGroup {
-    pub const Local: Self = Self(0u32);
-    pub const NonLocal: Self = Self(1u32);
+    pub const Local: Self = Self(0);
+    pub const NonLocal: Self = Self(1);
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreWorkload(pub u32);
 impl DXCoreWorkload {
-    pub const Graphics: Self = Self(0u32);
-    pub const Compute: Self = Self(1u32);
-    pub const Media: Self = Self(2u32);
-    pub const MachineLearning: Self = Self(3u32);
+    pub const Graphics: Self = Self(0);
+    pub const Compute: Self = Self(1);
+    pub const Media: Self = Self(2);
+    pub const MachineLearning: Self = Self(3);
 }
 windows_core::imp::define_interface!(IDXCoreAdapter, IDXCoreAdapter_Vtbl, 0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
 windows_core::imp::interface_hierarchy!(IDXCoreAdapter, windows_core::IUnknown);
@@ -723,6 +723,6 @@ impl IDXCoreAdapterList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXCoreAdapterList {}
-pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
+pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0);
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: windows_core::Ref<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
-pub const _FACDXCORE: u32 = 2176u32;
+pub const _FACDXCORE: u32 = 2176;

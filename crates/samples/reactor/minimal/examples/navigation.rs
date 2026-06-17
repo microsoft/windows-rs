@@ -1,8 +1,4 @@
 //! Multi-page navigation using enum-based routing.
-//!
-//! An enum defines pages, `use_state` holds the current route,
-//! `NavigationView` drives selection, and a `match` renders the page.
-//! No framework router needed — just state + match.
 
 use std::thread;
 use std::time::Duration;
@@ -85,10 +81,10 @@ fn settings_page(_: &(), cx: &mut RenderCx) -> Element {
         text_block("Settings").font_size(28.0).bold(),
         ToggleSwitch::new(dark_mode)
             .header("Dark mode")
-            .on_changed(set_dark),
+            .on_toggled(set_dark),
         ToggleSwitch::new(notifications)
             .header("Notifications")
-            .on_changed(set_notif),
+            .on_toggled(set_notif),
         text_block(format!(
             "Dark: {} | Notifications: {}",
             if dark_mode { "on" } else { "off" },
@@ -104,13 +100,13 @@ fn app(cx: &mut RenderCx) -> Element {
     let (page, set_page) = cx.use_state(Page::Home);
 
     let menu_items = [
-        NavViewItem::new("Home").tag("home").icon(SymbolGlyph::Home),
+        NavViewItem::new("Home").tag("home").icon(Symbol::Home),
         NavViewItem::new("Dashboard")
             .tag("dashboard")
-            .icon(SymbolGlyph::World),
+            .icon(Symbol::World),
         NavViewItem::new("Settings")
             .tag("settings")
-            .icon(SymbolGlyph::Setting),
+            .icon(Symbol::Setting),
     ];
 
     let body: Element = match &page {
@@ -122,11 +118,11 @@ fn app(cx: &mut RenderCx) -> Element {
     NavigationView::new(menu_items, body)
         .selected_tag(page.tag())
         .on_selection_changed(move |tag: String| set_page.call(Page::from_tag(&tag)))
-        .pane_display_mode(NavViewPaneDisplayMode::Left)
+        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
         .pane_title("My App")
         .into()
 }
 
 fn main() -> Result<()> {
-    App::new().title("Navigation Pattern").render(app)
+    reactor_minimal::run("Navigation", app)
 }

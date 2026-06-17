@@ -1,4 +1,4 @@
-//! Minimal sample for the `list_view` templated list.
+//! Sample for the `list_view` templated list with drag-and-drop reordering.
 
 use windows_reactor::*;
 
@@ -36,19 +36,22 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         text_block("Selection Mode:").bold(),
         list_view(mode_items, |s, _idx| {
-            text_block(s.clone()).padding(Thickness::xy(12.0, 4.0))
+            text_block(s.clone()).margin(Thickness::xy(12.0, 4.0))
         })
         .with_key_selector(|s| s.clone())
         .selected_index(mode_idx)
         .on_selection_changed(move |i| set_mode_idx.call(i))
         .height(120.0),
-        text_block("Items:").bold(),
+        text_block("Items (drag to reorder):").bold(),
         list_view(items, |s, _idx| {
-            text_block(s.clone()).padding(Thickness::xy(12.0, 6.0))
+            text_block(s.clone()).margin(Thickness::xy(12.0, 6.0))
         })
         .with_key_selector(|s| s.clone())
         .selected_index(selected)
         .selection_mode(mode)
+        .can_drag_items(true)
+        .can_reorder_items(true)
+        .allow_drop(true)
         .on_selection_changed(move |i| set_selected.call(i))
         .height(180.0),
         text_block(format!(
@@ -61,6 +64,7 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
+    bootstrap()?;
     App::new()
         .title("Sample")
         .eager_templated_realization(true)

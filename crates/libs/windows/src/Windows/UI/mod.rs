@@ -1189,7 +1189,6 @@ unsafe impl Sync for UIContentRoot {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIContext, windows_core::IUnknown, windows_core::IInspectable);
-impl UIContext {}
 impl windows_core::RuntimeType for UIContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContext>();
 }

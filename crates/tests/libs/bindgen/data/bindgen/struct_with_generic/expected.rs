@@ -20,16 +20,16 @@ impl windows_core::RuntimeType for HttpProgress {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
-    pub const None: Self = Self(0i32);
-    pub const DetectingProxy: Self = Self(10i32);
-    pub const ResolvingName: Self = Self(20i32);
-    pub const ConnectingToServer: Self = Self(30i32);
-    pub const NegotiatingSsl: Self = Self(40i32);
-    pub const SendingHeaders: Self = Self(50i32);
-    pub const SendingContent: Self = Self(60i32);
-    pub const WaitingForResponse: Self = Self(70i32);
-    pub const ReceivingHeaders: Self = Self(80i32);
-    pub const ReceivingContent: Self = Self(90i32);
+    pub const None: Self = Self(0);
+    pub const DetectingProxy: Self = Self(10);
+    pub const ResolvingName: Self = Self(20);
+    pub const ConnectingToServer: Self = Self(30);
+    pub const NegotiatingSsl: Self = Self(40);
+    pub const SendingHeaders: Self = Self(50);
+    pub const SendingContent: Self = Self(60);
+    pub const WaitingForResponse: Self = Self(70);
+    pub const ReceivingHeaders: Self = Self(80);
+    pub const ReceivingContent: Self = Self(90);
 }
 impl windows_core::TypeKind for HttpProgressStage {
     type TypeKind = windows_core::CopyType;

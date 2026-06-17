@@ -41,13 +41,13 @@ where
     windows_core::link!("dssec.dll" "system" fn DSEditSecurity(hwndowner : super::super::Foundation::HWND, pwszobjectpath : windows_core::PCWSTR, pwszobjectclass : windows_core::PCWSTR, dwflags : u32, pwszcaption : windows_core::PCWSTR, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation::LPARAM) -> windows_core::HRESULT);
     unsafe { DSEditSecurity(hwndowner, pwszobjectpath.param().abi(), pwszobjectclass.param().abi(), dwflags, pwszcaption.param().abi(), pfnreadsd, pfnwritesd, lpcontext).ok() }
 }
-pub const DSSI_IS_ROOT: u32 = 16u32;
-pub const DSSI_NO_ACCESS_CHECK: u32 = 2u32;
-pub const DSSI_NO_EDIT_OWNER: u32 = 8u32;
-pub const DSSI_NO_EDIT_SACL: u32 = 4u32;
-pub const DSSI_NO_FILTER: u32 = 32u32;
-pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
-pub const DSSI_READ_ONLY: u32 = 1u32;
+pub const DSSI_IS_ROOT: u32 = 16;
+pub const DSSI_NO_ACCESS_CHECK: u32 = 2;
+pub const DSSI_NO_EDIT_OWNER: u32 = 8;
+pub const DSSI_NO_EDIT_SACL: u32 = 4;
+pub const DSSI_NO_FILTER: u32 = 32;
+pub const DSSI_NO_READONLY_MESSAGE: u32 = 64;
+pub const DSSI_READ_ONLY: u32 = 1;
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 pub type PFNDSCREATEISECINFO = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: windows_core::PCWSTR, param2: u32, param3: windows_core::OutRef<super::Authorization::UI::ISecurityInformation>, param4: PFNREADOBJECTSECURITY, param5: PFNWRITEOBJECTSECURITY, param6: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Security_Authorization_UI")]

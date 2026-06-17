@@ -849,8 +849,8 @@ unsafe impl Sync for WebAccountClientView {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
-    pub const IdOnly: Self = Self(0i32);
-    pub const IdAndProperties: Self = Self(1i32);
+    pub const IdOnly: Self = Self(0);
+    pub const IdAndProperties: Self = Self(1);
 }
 impl windows_core::TypeKind for WebAccountClientViewType {
     type TypeKind = windows_core::CopyType;
@@ -1311,13 +1311,13 @@ unsafe impl Sync for WebAccountProviderManageAccountOperation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
-    pub const RequestToken: Self = Self(0i32);
-    pub const GetTokenSilently: Self = Self(1i32);
-    pub const AddAccount: Self = Self(2i32);
-    pub const ManageAccount: Self = Self(3i32);
-    pub const DeleteAccount: Self = Self(4i32);
-    pub const RetrieveCookies: Self = Self(5i32);
-    pub const SignOutAccount: Self = Self(6i32);
+    pub const RequestToken: Self = Self(0);
+    pub const GetTokenSilently: Self = Self(1);
+    pub const AddAccount: Self = Self(2);
+    pub const ManageAccount: Self = Self(3);
+    pub const DeleteAccount: Self = Self(4);
+    pub const RetrieveCookies: Self = Self(5);
+    pub const SignOutAccount: Self = Self(6);
 }
 impl windows_core::TypeKind for WebAccountProviderOperationKind {
     type TypeKind = windows_core::CopyType;
@@ -1552,8 +1552,8 @@ unsafe impl Sync for WebAccountProviderTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
-    pub const PerUser: Self = Self(0i32);
-    pub const PerApplication: Self = Self(1i32);
+    pub const PerUser: Self = Self(0);
+    pub const PerApplication: Self = Self(1);
 }
 impl windows_core::TypeKind for WebAccountScope {
     type TypeKind = windows_core::CopyType;
@@ -1566,8 +1566,8 @@ impl windows_core::RuntimeType for WebAccountScope {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
-    pub const Default: Self = Self(0u32);
-    pub const New: Self = Self(1u32);
+    pub const Default: Self = Self(0);
+    pub const New: Self = Self(1);
 }
 impl windows_core::TypeKind for WebAccountSelectionOptions {
     type TypeKind = windows_core::CopyType;

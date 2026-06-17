@@ -61,6 +61,7 @@ fn create_arrows() -> Vec<Element> {
 }
 
 fn main() -> Result<()> {
+    bootstrap()?;
     App::new()
         .title("Sample")
         .backdrop(Backdrop::Mica)

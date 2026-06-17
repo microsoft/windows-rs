@@ -22,13 +22,13 @@ pub fn border_page(_: &(), cx: &mut RenderCx) -> Element {
                     Slider::new(radius)
                         .range(0.0, 32.0)
                         .header("Corner radius")
-                        .on_changed({
+                        .on_value_changed({
                             let set_radius = set_radius;
                             move |value: f64| set_radius.call(value)
                         }),
                     ToggleSwitch::new(thick)
                         .header("Thick border")
-                        .on_changed(move |value: bool| set_thick.call(value)),
+                        .on_toggled(move |value: bool| set_thick.call(value)),
                 ))
                 .spacing(12.0),
                 r#"border(content)

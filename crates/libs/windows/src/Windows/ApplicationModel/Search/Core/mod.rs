@@ -71,7 +71,6 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl RequestingFocusOnKeyboardInputEventArgs {}
 impl windows_core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRequestingFocusOnKeyboardInputEventArgs>();
 }
@@ -141,9 +140,9 @@ impl windows_core::RuntimeName for SearchSuggestion {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {
-    pub const Query: Self = Self(0i32);
-    pub const Result: Self = Self(1i32);
-    pub const Separator: Self = Self(2i32);
+    pub const Query: Self = Self(0);
+    pub const Result: Self = Self(1);
+    pub const Separator: Self = Self(2);
 }
 impl windows_core::TypeKind for SearchSuggestionKind {
     type TypeKind = windows_core::CopyType;

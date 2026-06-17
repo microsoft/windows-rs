@@ -612,7 +612,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegSetValueA(hkey : HKEY, lpsubkey : windows_core::PCSTR, dwtype : REG_VALUE_TYPE, lpdata : windows_core::PCSTR, cbdata : u32) -> windows_core::WIN32_ERROR);
-    unsafe { RegSetValueA(hkey, lpsubkey.param().abi(), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { RegSetValueA(hkey, lpsubkey.param().abi(), dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn RegSetValueExA<P1>(hkey: HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: REG_VALUE_TYPE, lpdata: Option<&[u8]>) -> windows_core::WIN32_ERROR
@@ -620,7 +620,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegSetValueExA(hkey : HKEY, lpvaluename : windows_core::PCSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> windows_core::WIN32_ERROR);
-    unsafe { RegSetValueExA(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { RegSetValueExA(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn RegSetValueExW<P1>(hkey: HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: REG_VALUE_TYPE, lpdata: Option<&[u8]>) -> windows_core::WIN32_ERROR
@@ -628,7 +628,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> windows_core::WIN32_ERROR);
-    unsafe { RegSetValueExW(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { RegSetValueExW(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn RegSetValueW<P1, P3>(hkey: HKEY, lpsubkey: P1, dwtype: REG_VALUE_TYPE, lpdata: P3, cbdata: u32) -> windows_core::WIN32_ERROR
@@ -655,39 +655,39 @@ where
     windows_core::link!("advapi32.dll" "system" fn RegUnLoadKeyW(hkey : HKEY, lpsubkey : windows_core::PCWSTR) -> windows_core::WIN32_ERROR);
     unsafe { RegUnLoadKeyW(hkey, lpsubkey.param().abi()) }
 }
-pub const AGP_FLAG_NO_1X_RATE: i32 = 1i32;
-pub const AGP_FLAG_NO_2X_RATE: i32 = 2i32;
-pub const AGP_FLAG_NO_4X_RATE: i32 = 4i32;
-pub const AGP_FLAG_NO_8X_RATE: i32 = 8i32;
-pub const AGP_FLAG_NO_FW_ENABLE: i32 = 512i32;
-pub const AGP_FLAG_NO_SBA_ENABLE: i32 = 256i32;
-pub const AGP_FLAG_REVERSE_INITIALIZATION: i32 = 128i32;
-pub const AGP_FLAG_SPECIAL_RESERVE: i32 = 1015808i32;
-pub const AGP_FLAG_SPECIAL_TARGET: i32 = 1048575i32;
-pub const APMMENUSUSPEND_DISABLED: u32 = 0u32;
-pub const APMMENUSUSPEND_ENABLED: u32 = 1u32;
-pub const APMMENUSUSPEND_NOCHANGE: u32 = 128u32;
-pub const APMMENUSUSPEND_UNDOCKED: u32 = 2u32;
-pub const APMTIMEOUT_DISABLED: u32 = 0u32;
-pub const BIF_RAWDEVICENEEDSDRIVER: u32 = 2u32;
-pub const BIF_SHOWSIMILARDRIVERS: u32 = 1u32;
-pub const CSCONFIGFLAG_BITS: u32 = 7u32;
-pub const CSCONFIGFLAG_DISABLED: u32 = 1u32;
-pub const CSCONFIGFLAG_DO_NOT_CREATE: u32 = 2u32;
-pub const CSCONFIGFLAG_DO_NOT_START: u32 = 4u32;
-pub const DMSTATEFLAG_APPLYTOALL: u32 = 1u32;
-pub const DOSOPTF_ALWAYSUSE: i32 = 4i32;
-pub const DOSOPTF_DEFAULT: i32 = 1i32;
-pub const DOSOPTF_INDOSSTART: i32 = 64i32;
-pub const DOSOPTF_MULTIPLE: i32 = 128i32;
-pub const DOSOPTF_NEEDSETUP: i32 = 32i32;
-pub const DOSOPTF_PROVIDESUMB: i32 = 16i32;
-pub const DOSOPTF_SUPPORTED: i32 = 2i32;
-pub const DOSOPTF_USESPMODE: i32 = 8i32;
-pub const DOSOPTGF_DEFCLEAN: i32 = 1i32;
-pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
-pub const DRIVERSIGN_NONE: u32 = 0u32;
-pub const DRIVERSIGN_WARNING: u32 = 1u32;
+pub const AGP_FLAG_NO_1X_RATE: i32 = 1;
+pub const AGP_FLAG_NO_2X_RATE: i32 = 2;
+pub const AGP_FLAG_NO_4X_RATE: i32 = 4;
+pub const AGP_FLAG_NO_8X_RATE: i32 = 8;
+pub const AGP_FLAG_NO_FW_ENABLE: i32 = 512;
+pub const AGP_FLAG_NO_SBA_ENABLE: i32 = 256;
+pub const AGP_FLAG_REVERSE_INITIALIZATION: i32 = 128;
+pub const AGP_FLAG_SPECIAL_RESERVE: i32 = 1015808;
+pub const AGP_FLAG_SPECIAL_TARGET: i32 = 1048575;
+pub const APMMENUSUSPEND_DISABLED: u32 = 0;
+pub const APMMENUSUSPEND_ENABLED: u32 = 1;
+pub const APMMENUSUSPEND_NOCHANGE: u32 = 128;
+pub const APMMENUSUSPEND_UNDOCKED: u32 = 2;
+pub const APMTIMEOUT_DISABLED: u32 = 0;
+pub const BIF_RAWDEVICENEEDSDRIVER: u32 = 2;
+pub const BIF_SHOWSIMILARDRIVERS: u32 = 1;
+pub const CSCONFIGFLAG_BITS: u32 = 7;
+pub const CSCONFIGFLAG_DISABLED: u32 = 1;
+pub const CSCONFIGFLAG_DO_NOT_CREATE: u32 = 2;
+pub const CSCONFIGFLAG_DO_NOT_START: u32 = 4;
+pub const DMSTATEFLAG_APPLYTOALL: u32 = 1;
+pub const DOSOPTF_ALWAYSUSE: i32 = 4;
+pub const DOSOPTF_DEFAULT: i32 = 1;
+pub const DOSOPTF_INDOSSTART: i32 = 64;
+pub const DOSOPTF_MULTIPLE: i32 = 128;
+pub const DOSOPTF_NEEDSETUP: i32 = 32;
+pub const DOSOPTF_PROVIDESUMB: i32 = 16;
+pub const DOSOPTF_SUPPORTED: i32 = 2;
+pub const DOSOPTF_USESPMODE: i32 = 8;
+pub const DOSOPTGF_DEFCLEAN: i32 = 1;
+pub const DRIVERSIGN_BLOCKING: u32 = 2;
+pub const DRIVERSIGN_NONE: u32 = 0;
+pub const DRIVERSIGN_WARNING: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSKTLSYSTEMTIME {
@@ -701,13 +701,13 @@ pub struct DSKTLSYSTEMTIME {
     pub wMilliseconds: u16,
     pub wResult: u16,
 }
-pub const DTRESULTFIX: u32 = 1u32;
-pub const DTRESULTOK: u32 = 0u32;
-pub const DTRESULTPART: u32 = 3u32;
-pub const DTRESULTPROB: u32 = 2u32;
-pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
-pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
-pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
+pub const DTRESULTFIX: u32 = 1;
+pub const DTRESULTOK: u32 = 0;
+pub const DTRESULTPART: u32 = 3;
+pub const DTRESULTPROB: u32 = 2;
+pub const EISAFLAG_NO_IO_MERGE: u32 = 1;
+pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2;
+pub const EISA_NO_MAX_FUNCTION: u32 = 255;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKEY(pub *mut core::ffi::c_void);
@@ -732,83 +732,83 @@ impl Default for HKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
-pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
-pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);
-pub const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = HKEY(-2147483641i32 as _);
-pub const HKEY_DYN_DATA: HKEY = HKEY(-2147483642i32 as _);
-pub const HKEY_LOCAL_MACHINE: HKEY = HKEY(-2147483646i32 as _);
-pub const HKEY_PERFORMANCE_DATA: HKEY = HKEY(-2147483644i32 as _);
-pub const HKEY_PERFORMANCE_NLSTEXT: HKEY = HKEY(-2147483552i32 as _);
-pub const HKEY_PERFORMANCE_TEXT: HKEY = HKEY(-2147483568i32 as _);
-pub const HKEY_USERS: HKEY = HKEY(-2147483645i32 as _);
-pub const IT_COMPACT: u32 = 0u32;
-pub const IT_CUSTOM: u32 = 3u32;
-pub const IT_PORTABLE: u32 = 2u32;
-pub const IT_TYPICAL: u32 = 1u32;
-pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = REG_SAM_FLAGS(983103u32);
-pub const KEY_CREATE_LINK: REG_SAM_FLAGS = REG_SAM_FLAGS(32u32);
-pub const KEY_CREATE_SUB_KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(4u32);
-pub const KEY_ENUMERATE_SUB_KEYS: REG_SAM_FLAGS = REG_SAM_FLAGS(8u32);
-pub const KEY_EXECUTE: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
-pub const KEY_NOTIFY: REG_SAM_FLAGS = REG_SAM_FLAGS(16u32);
-pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1u32);
-pub const KEY_READ: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
-pub const KEY_SET_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(2u32);
-pub const KEY_WOW64_32KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(512u32);
-pub const KEY_WOW64_64KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(256u32);
-pub const KEY_WOW64_RES: REG_SAM_FLAGS = REG_SAM_FLAGS(768u32);
-pub const KEY_WRITE: REG_SAM_FLAGS = REG_SAM_FLAGS(131078u32);
-pub const LASTGOOD_OPERATION: u32 = 255u32;
-pub const LASTGOOD_OPERATION_DELETE: u32 = 1u32;
-pub const LASTGOOD_OPERATION_NOPOSTPROC: u32 = 0u32;
-pub const MF_FLAGS_CREATE_BUT_NO_SHOW_DISABLED: u32 = 8u32;
-pub const MF_FLAGS_EVEN_IF_NO_RESOURCE: u32 = 1u32;
-pub const MF_FLAGS_FILL_IN_UNKNOWN_RESOURCE: u32 = 4u32;
-pub const MF_FLAGS_NO_CREATE_IF_NO_RESOURCE: u32 = 2u32;
-pub const NUM_EISA_RANGES: u32 = 4u32;
-pub const NUM_RESOURCE_MAP: u32 = 256u32;
-pub const PCIC_DEFAULT_IRQMASK: u32 = 20152u32;
-pub const PCIC_DEFAULT_NUMSOCKETS: u32 = 0u32;
-pub const PCI_OPTIONS_USE_BIOS: i32 = 1i32;
-pub const PCI_OPTIONS_USE_IRQ_STEERING: i32 = 2i32;
-pub const PCMCIA_DEF_MEMBEGIN: u32 = 786432u32;
-pub const PCMCIA_DEF_MEMEND: u32 = 16777215u32;
-pub const PCMCIA_DEF_MEMLEN: u32 = 4096u32;
-pub const PCMCIA_DEF_MIN_REGION: u32 = 65536u32;
-pub const PCMCIA_OPT_AUTOMEM: i32 = 4i32;
-pub const PCMCIA_OPT_HAVE_SOCKET: i32 = 1i32;
-pub const PCMCIA_OPT_NO_APMREMOVE: i32 = 32i32;
-pub const PCMCIA_OPT_NO_AUDIO: i32 = 16i32;
-pub const PCMCIA_OPT_NO_SOUND: i32 = 8i32;
-pub const PIR_OPTION_DEFAULT: u32 = 15u32;
-pub const PIR_OPTION_ENABLED: u32 = 1u32;
-pub const PIR_OPTION_MSSPEC: u32 = 4u32;
-pub const PIR_OPTION_REALMODE: u32 = 8u32;
-pub const PIR_OPTION_REGISTRY: u32 = 2u32;
-pub const PIR_STATUS_DISABLED: u32 = 2u32;
-pub const PIR_STATUS_ENABLED: u32 = 1u32;
-pub const PIR_STATUS_ERROR: u32 = 0u32;
-pub const PIR_STATUS_MAX: u32 = 3u32;
-pub const PIR_STATUS_MINIPORT_COMPATIBLE: u32 = 1u32;
-pub const PIR_STATUS_MINIPORT_ERROR: u32 = 4u32;
-pub const PIR_STATUS_MINIPORT_INVALID: u32 = 7u32;
-pub const PIR_STATUS_MINIPORT_MAX: u32 = 8u32;
-pub const PIR_STATUS_MINIPORT_NOKEY: u32 = 5u32;
-pub const PIR_STATUS_MINIPORT_NONE: u32 = 3u32;
-pub const PIR_STATUS_MINIPORT_NORMAL: u32 = 0u32;
-pub const PIR_STATUS_MINIPORT_OVERRIDE: u32 = 2u32;
-pub const PIR_STATUS_MINIPORT_SUCCESS: u32 = 6u32;
-pub const PIR_STATUS_TABLE_BAD: u32 = 5u32;
-pub const PIR_STATUS_TABLE_ERROR: u32 = 4u32;
-pub const PIR_STATUS_TABLE_MAX: u32 = 7u32;
-pub const PIR_STATUS_TABLE_MSSPEC: u32 = 1u32;
-pub const PIR_STATUS_TABLE_NONE: u32 = 3u32;
-pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
-pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
-pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
+pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648 as _);
+pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643 as _);
+pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647 as _);
+pub const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = HKEY(-2147483641 as _);
+pub const HKEY_DYN_DATA: HKEY = HKEY(-2147483642 as _);
+pub const HKEY_LOCAL_MACHINE: HKEY = HKEY(-2147483646 as _);
+pub const HKEY_PERFORMANCE_DATA: HKEY = HKEY(-2147483644 as _);
+pub const HKEY_PERFORMANCE_NLSTEXT: HKEY = HKEY(-2147483552 as _);
+pub const HKEY_PERFORMANCE_TEXT: HKEY = HKEY(-2147483568 as _);
+pub const HKEY_USERS: HKEY = HKEY(-2147483645 as _);
+pub const IT_COMPACT: u32 = 0;
+pub const IT_CUSTOM: u32 = 3;
+pub const IT_PORTABLE: u32 = 2;
+pub const IT_TYPICAL: u32 = 1;
+pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = REG_SAM_FLAGS(983103);
+pub const KEY_CREATE_LINK: REG_SAM_FLAGS = REG_SAM_FLAGS(32);
+pub const KEY_CREATE_SUB_KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(4);
+pub const KEY_ENUMERATE_SUB_KEYS: REG_SAM_FLAGS = REG_SAM_FLAGS(8);
+pub const KEY_EXECUTE: REG_SAM_FLAGS = REG_SAM_FLAGS(131097);
+pub const KEY_NOTIFY: REG_SAM_FLAGS = REG_SAM_FLAGS(16);
+pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1);
+pub const KEY_READ: REG_SAM_FLAGS = REG_SAM_FLAGS(131097);
+pub const KEY_SET_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(2);
+pub const KEY_WOW64_32KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(512);
+pub const KEY_WOW64_64KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(256);
+pub const KEY_WOW64_RES: REG_SAM_FLAGS = REG_SAM_FLAGS(768);
+pub const KEY_WRITE: REG_SAM_FLAGS = REG_SAM_FLAGS(131078);
+pub const LASTGOOD_OPERATION: u32 = 255;
+pub const LASTGOOD_OPERATION_DELETE: u32 = 1;
+pub const LASTGOOD_OPERATION_NOPOSTPROC: u32 = 0;
+pub const MF_FLAGS_CREATE_BUT_NO_SHOW_DISABLED: u32 = 8;
+pub const MF_FLAGS_EVEN_IF_NO_RESOURCE: u32 = 1;
+pub const MF_FLAGS_FILL_IN_UNKNOWN_RESOURCE: u32 = 4;
+pub const MF_FLAGS_NO_CREATE_IF_NO_RESOURCE: u32 = 2;
+pub const NUM_EISA_RANGES: u32 = 4;
+pub const NUM_RESOURCE_MAP: u32 = 256;
+pub const PCIC_DEFAULT_IRQMASK: u32 = 20152;
+pub const PCIC_DEFAULT_NUMSOCKETS: u32 = 0;
+pub const PCI_OPTIONS_USE_BIOS: i32 = 1;
+pub const PCI_OPTIONS_USE_IRQ_STEERING: i32 = 2;
+pub const PCMCIA_DEF_MEMBEGIN: u32 = 786432;
+pub const PCMCIA_DEF_MEMEND: u32 = 16777215;
+pub const PCMCIA_DEF_MEMLEN: u32 = 4096;
+pub const PCMCIA_DEF_MIN_REGION: u32 = 65536;
+pub const PCMCIA_OPT_AUTOMEM: i32 = 4;
+pub const PCMCIA_OPT_HAVE_SOCKET: i32 = 1;
+pub const PCMCIA_OPT_NO_APMREMOVE: i32 = 32;
+pub const PCMCIA_OPT_NO_AUDIO: i32 = 16;
+pub const PCMCIA_OPT_NO_SOUND: i32 = 8;
+pub const PIR_OPTION_DEFAULT: u32 = 15;
+pub const PIR_OPTION_ENABLED: u32 = 1;
+pub const PIR_OPTION_MSSPEC: u32 = 4;
+pub const PIR_OPTION_REALMODE: u32 = 8;
+pub const PIR_OPTION_REGISTRY: u32 = 2;
+pub const PIR_STATUS_DISABLED: u32 = 2;
+pub const PIR_STATUS_ENABLED: u32 = 1;
+pub const PIR_STATUS_ERROR: u32 = 0;
+pub const PIR_STATUS_MAX: u32 = 3;
+pub const PIR_STATUS_MINIPORT_COMPATIBLE: u32 = 1;
+pub const PIR_STATUS_MINIPORT_ERROR: u32 = 4;
+pub const PIR_STATUS_MINIPORT_INVALID: u32 = 7;
+pub const PIR_STATUS_MINIPORT_MAX: u32 = 8;
+pub const PIR_STATUS_MINIPORT_NOKEY: u32 = 5;
+pub const PIR_STATUS_MINIPORT_NONE: u32 = 3;
+pub const PIR_STATUS_MINIPORT_NORMAL: u32 = 0;
+pub const PIR_STATUS_MINIPORT_OVERRIDE: u32 = 2;
+pub const PIR_STATUS_MINIPORT_SUCCESS: u32 = 6;
+pub const PIR_STATUS_TABLE_BAD: u32 = 5;
+pub const PIR_STATUS_TABLE_ERROR: u32 = 4;
+pub const PIR_STATUS_TABLE_MAX: u32 = 7;
+pub const PIR_STATUS_TABLE_MSSPEC: u32 = 1;
+pub const PIR_STATUS_TABLE_NONE: u32 = 3;
+pub const PIR_STATUS_TABLE_REALMODE: u32 = 2;
+pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0;
+pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6;
 pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
-pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
+pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PVALUEA {
@@ -835,19 +835,19 @@ impl Default for PVALUEW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REGDF_CONFLICTDMA: u32 = 524288u32;
-pub const REGDF_CONFLICTIO: u32 = 65536u32;
-pub const REGDF_CONFLICTIRQ: u32 = 262144u32;
-pub const REGDF_CONFLICTMEM: u32 = 131072u32;
-pub const REGDF_GENFORCEDCONFIG: u32 = 32u32;
-pub const REGDF_MAPIRQ2TO9: u32 = 1048576u32;
-pub const REGDF_NEEDFULLCONFIG: u32 = 16u32;
-pub const REGDF_NODETCONFIG: u32 = 32768u32;
-pub const REGDF_NOTDETDMA: u32 = 8u32;
-pub const REGDF_NOTDETIO: u32 = 1u32;
-pub const REGDF_NOTDETIRQ: u32 = 4u32;
-pub const REGDF_NOTDETMEM: u32 = 2u32;
-pub const REGDF_NOTVERIFIED: u32 = 2147483648u32;
+pub const REGDF_CONFLICTDMA: u32 = 524288;
+pub const REGDF_CONFLICTIO: u32 = 65536;
+pub const REGDF_CONFLICTIRQ: u32 = 262144;
+pub const REGDF_CONFLICTMEM: u32 = 131072;
+pub const REGDF_GENFORCEDCONFIG: u32 = 32;
+pub const REGDF_MAPIRQ2TO9: u32 = 1048576;
+pub const REGDF_NEEDFULLCONFIG: u32 = 16;
+pub const REGDF_NODETCONFIG: u32 = 32768;
+pub const REGDF_NOTDETDMA: u32 = 8;
+pub const REGDF_NOTDETIO: u32 = 1;
+pub const REGDF_NOTDETIRQ: u32 = 4;
+pub const REGDF_NOTDETMEM: u32 = 2;
+pub const REGDF_NOTVERIFIED: u32 = 2147483648;
 pub const REGSTR_DATA_NETOS_IPX: windows_core::PCWSTR = windows_core::w!("IPX");
 pub const REGSTR_DATA_NETOS_NDIS: windows_core::PCWSTR = windows_core::w!("NDIS");
 pub const REGSTR_DATA_NETOS_ODI: windows_core::PCWSTR = windows_core::w!("ODI");
@@ -951,7 +951,7 @@ pub const REGSTR_MACHTYPE_IBMPS2_P70: windows_core::PCWSTR = windows_core::w!("I
 pub const REGSTR_MACHTYPE_PHOENIX_PCAT: windows_core::PCWSTR = windows_core::w!("Phoenix PC/AT Compatible");
 pub const REGSTR_MACHTYPE_UNKNOWN: windows_core::PCWSTR = windows_core::w!("Unknown");
 pub const REGSTR_MACHTYPE_ZENITH_PC: windows_core::PCWSTR = windows_core::w!("Zenith PC");
-pub const REGSTR_MAX_VALUE_LENGTH: u32 = 256u32;
+pub const REGSTR_MAX_VALUE_LENGTH: u32 = 256;
 pub const REGSTR_PATH_ADDRARB: windows_core::PCWSTR = windows_core::w!("System\\CurrentControlSet\\Services\\Arbitrators\\AddrArb");
 pub const REGSTR_PATH_AEDEBUG: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\AeDebug");
 pub const REGSTR_PATH_APPEARANCE: windows_core::PCWSTR = windows_core::w!("Control Panel\\Appearance");
@@ -1367,7 +1367,7 @@ pub const REGSTR_VAL_MAXCONNECTIONS: windows_core::PCWSTR = windows_core::w!("Ma
 pub const REGSTR_VAL_MAXLIP: windows_core::PCWSTR = windows_core::w!("MaxLIP");
 pub const REGSTR_VAL_MAXRES: windows_core::PCWSTR = windows_core::w!("MaxResolution");
 pub const REGSTR_VAL_MAXRETRY: windows_core::PCWSTR = windows_core::w!("MaxRetry");
-pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024u32;
+pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024;
 pub const REGSTR_VAL_MEDIA: windows_core::PCWSTR = windows_core::w!("MediaPath");
 pub const REGSTR_VAL_MFG: windows_core::PCWSTR = windows_core::w!("Mfg");
 pub const REGSTR_VAL_MF_FLAGS: windows_core::PCWSTR = windows_core::w!("MFFlags");
@@ -1600,29 +1600,29 @@ pub const REGSTR_VAL_WRAPPER: windows_core::PCWSTR = windows_core::w!("Wrapper")
 pub const REGSTR_VAL_WRINTTHRESHOLD: windows_core::PCWSTR = windows_core::w!("WRIntThreshold");
 pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: windows_core::PCWSTR = windows_core::w!("WrkgrpForceMapping");
 pub const REGSTR_VAL_WRKGRP_REQUIRED: windows_core::PCWSTR = windows_core::w!("WrkgrpRequired");
-pub const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2u32;
-pub const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4u32;
-pub const REG_BINARY: REG_VALUE_TYPE = REG_VALUE_TYPE(3u32);
-pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
+pub const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2;
+pub const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4;
+pub const REG_BINARY: REG_VALUE_TYPE = REG_VALUE_TYPE(3);
+pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
-pub const REG_DWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
-pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(5u32);
-pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
-pub const REG_EXPAND_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(2u32);
-pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(8i32);
-pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = REG_VALUE_TYPE(9u32);
+pub const REG_DWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(4);
+pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(5);
+pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(4);
+pub const REG_EXPAND_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(2);
+pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(8);
+pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = REG_VALUE_TYPE(9);
 pub const REG_KEY_INSTDEV: windows_core::PCWSTR = windows_core::w!("Installed");
-pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(2u32);
-pub const REG_LINK: REG_VALUE_TYPE = REG_VALUE_TYPE(6u32);
-pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
-pub const REG_MULTI_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(7u32);
-pub const REG_NONE: REG_VALUE_TYPE = REG_VALUE_TYPE(0u32);
-pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(2u32);
-pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(4u32);
-pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(1u32);
-pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(8u32);
+pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(2);
+pub const REG_LINK: REG_VALUE_TYPE = REG_VALUE_TYPE(6);
+pub const REG_MUI_STRING_TRUNCATE: u32 = 1;
+pub const REG_MULTI_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(7);
+pub const REG_NONE: REG_VALUE_TYPE = REG_VALUE_TYPE(0);
+pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(2);
+pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(4);
+pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(1);
+pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_NOTIFY_FILTER(pub u32);
@@ -1659,9 +1659,9 @@ impl core::ops::Not for REG_NOTIFY_FILTER {
         Self(self.0.not())
     }
 }
-pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(268435456u32);
-pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = REG_SAVE_FORMAT(4u32);
-pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(2u32);
+pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(268435456);
+pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = REG_SAVE_FORMAT(4);
+pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
@@ -1698,14 +1698,14 @@ impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(4u32);
-pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(2u32);
-pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(16u32);
-pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
-pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(8u32);
-pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
-pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(1u32);
-pub const REG_PROCESS_APPKEY: u32 = 1u32;
+pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(4);
+pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(2);
+pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(16);
+pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0);
+pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(8);
+pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0);
+pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(1);
+pub const REG_PROCESS_APPKEY: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct REG_PROVIDER {
@@ -1721,10 +1721,10 @@ impl Default for REG_PROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
-pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
-pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(8u32);
-pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(10u32);
+pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11);
+pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11);
+pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(8);
+pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(10);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
@@ -1803,38 +1803,38 @@ impl core::ops::Not for REG_SAM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_SAVE_FORMAT(pub u32);
-pub const REG_SECURE_CONNECTION: u32 = 1u32;
-pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1u32);
-pub const REG_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(1u32);
-pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
+pub const REG_SECURE_CONNECTION: u32 = 1;
+pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1);
+pub const REG_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(1);
+pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_VALUE_TYPE(pub u32);
-pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(1i32);
-pub const RRF_NOEXPAND: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(268435456u32);
-pub const RRF_RT_ANY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65535u32);
-pub const RRF_RT_DWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(24u32);
-pub const RRF_RT_QWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(72u32);
-pub const RRF_RT_REG_BINARY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(8u32);
-pub const RRF_RT_REG_DWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(16u32);
-pub const RRF_RT_REG_EXPAND_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(4u32);
-pub const RRF_RT_REG_MULTI_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(32u32);
-pub const RRF_RT_REG_NONE: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(1u32);
-pub const RRF_RT_REG_QWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(64u32);
-pub const RRF_RT_REG_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(2u32);
-pub const RRF_SUBKEY_WOW6432KEY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(131072u32);
-pub const RRF_SUBKEY_WOW6464KEY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65536u32);
-pub const RRF_WOW64_MASK: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(196608u32);
-pub const RRF_ZEROONFAILURE: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(536870912u32);
-pub const SUF_BATCHINF: i32 = 4i32;
-pub const SUF_CLEAN: i32 = 8i32;
-pub const SUF_EXPRESS: i32 = 2i32;
-pub const SUF_FIRSTTIME: i32 = 1i32;
-pub const SUF_INSETUP: i32 = 16i32;
-pub const SUF_NETHDBOOT: i32 = 64i32;
-pub const SUF_NETRPLBOOT: i32 = 128i32;
-pub const SUF_NETSETUP: i32 = 32i32;
-pub const SUF_SBSCOPYOK: i32 = 256i32;
+pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(1);
+pub const RRF_NOEXPAND: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(268435456);
+pub const RRF_RT_ANY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65535);
+pub const RRF_RT_DWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(24);
+pub const RRF_RT_QWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(72);
+pub const RRF_RT_REG_BINARY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(8);
+pub const RRF_RT_REG_DWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(16);
+pub const RRF_RT_REG_EXPAND_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(4);
+pub const RRF_RT_REG_MULTI_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(32);
+pub const RRF_RT_REG_NONE: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(1);
+pub const RRF_RT_REG_QWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(64);
+pub const RRF_RT_REG_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(2);
+pub const RRF_SUBKEY_WOW6432KEY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(131072);
+pub const RRF_SUBKEY_WOW6464KEY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65536);
+pub const RRF_WOW64_MASK: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(196608);
+pub const RRF_ZEROONFAILURE: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(536870912);
+pub const SUF_BATCHINF: i32 = 4;
+pub const SUF_CLEAN: i32 = 8;
+pub const SUF_EXPRESS: i32 = 2;
+pub const SUF_FIRSTTIME: i32 = 1;
+pub const SUF_INSETUP: i32 = 16;
+pub const SUF_NETHDBOOT: i32 = 64;
+pub const SUF_NETRPLBOOT: i32 = 128;
+pub const SUF_NETSETUP: i32 = 32;
+pub const SUF_SBSCOPYOK: i32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VALENTA {
@@ -1851,12 +1851,12 @@ pub struct VALENTW {
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
 }
-pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
-pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
-pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
-pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
-pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
-pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
+pub const VPDF_DISABLEPWRMGMT: u32 = 1;
+pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8;
+pub const VPDF_DISABLERINGRESUME: u32 = 16;
+pub const VPDF_FORCEAPM10MODE: u32 = 2;
+pub const VPDF_SHOWMULTIBATT: u32 = 32;
+pub const VPDF_SKIPINTELSLCHECK: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct val_context {

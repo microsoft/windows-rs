@@ -24,7 +24,7 @@ pub struct Records {
 }
 
 pub struct TypeSpec {
-    pub Signature: id::BlobId,
+    pub Signature: BlobId,
 }
 
 pub struct NestedClass {
@@ -33,7 +33,7 @@ pub struct NestedClass {
 }
 
 pub struct ModuleRef {
-    pub Name: id::StringId,
+    pub Name: StringId,
 }
 
 #[derive(Default)]
@@ -45,7 +45,7 @@ pub struct Assembly {
     pub RevisionNumber: u16,
     pub Flags: AssemblyFlags,
     pub PublicKey: u32,
-    pub Name: id::StringId,
+    pub Name: StringId,
     pub Culture: u32,
 }
 
@@ -58,7 +58,7 @@ pub struct InterfaceImpl {
 pub struct ImplMap {
     pub MappingFlags: PInvokeAttributes,
     pub MemberForwarded: MemberForwarded,
-    pub ImportName: id::StringId,
+    pub ImportName: StringId,
     pub ImportScope: id::ModuleRef,
 }
 
@@ -69,8 +69,8 @@ pub struct AssemblyRef {
     pub BuildNumber: u16,
     pub RevisionNumber: u16,
     pub Flags: AssemblyFlags,
-    pub PublicKeyOrToken: id::BlobId,
-    pub Name: id::StringId,
+    pub PublicKeyOrToken: BlobId,
+    pub Name: StringId,
     pub Culture: u32,
     pub HashValue: u32,
 }
@@ -85,13 +85,13 @@ pub struct ClassLayout {
 pub struct Constant {
     pub Type: u8,
     pub Parent: HasConstant,
-    pub Value: id::BlobId,
+    pub Value: BlobId,
 }
 
 pub struct Field {
     pub Flags: FieldAttributes,
-    pub Name: id::StringId,
-    pub Signature: id::BlobId,
+    pub Name: StringId,
+    pub Signature: BlobId,
 }
 
 pub struct FieldLayout {
@@ -103,15 +103,15 @@ pub struct MethodDef {
     pub RVA: u32,
     pub ImplFlags: MethodImplAttributes,
     pub Flags: MethodAttributes,
-    pub Name: id::StringId,
-    pub Signature: id::BlobId,
+    pub Name: StringId,
+    pub Signature: BlobId,
     pub ParamList: u32,
 }
 
 #[derive(Default)]
 pub struct Module {
     pub Generation: u16,
-    pub Name: id::StringId,
+    pub Name: StringId,
     pub Mvid: u32,
     pub EncId: u32,
     pub EncBaseId: u32,
@@ -122,19 +122,19 @@ pub struct GenericParam {
     pub Number: u16,
     pub Flags: GenericParamAttributes,
     pub Owner: TypeOrMethodDef,
-    pub Name: id::StringId,
+    pub Name: StringId,
 }
 
 pub struct Param {
     pub Flags: ParamAttributes,
     pub Sequence: u16,
-    pub Name: id::StringId,
+    pub Name: StringId,
 }
 
 pub struct TypeDef {
     pub Flags: TypeAttributes,
-    pub TypeName: id::StringId,
-    pub TypeNamespace: id::StringId,
+    pub TypeName: StringId,
+    pub TypeNamespace: StringId,
     pub Extends: TypeDefOrRef,
     pub FieldList: u32,
     pub MethodList: u32,
@@ -142,22 +142,22 @@ pub struct TypeDef {
 
 pub struct TypeRef {
     pub ResolutionScope: ResolutionScope,
-    pub TypeName: id::StringId,
-    pub TypeNamespace: id::StringId,
+    pub TypeName: StringId,
+    pub TypeNamespace: StringId,
 }
 
 #[derive(Copy, Clone)]
 pub struct Attribute {
     pub Parent: HasAttribute,
     pub Type: AttributeType,
-    pub Value: id::BlobId,
+    pub Value: BlobId,
 }
 
 #[derive(Hash, PartialEq, Eq, Copy, Clone)]
 pub struct MemberRef {
     pub Parent: MemberRefParent,
-    pub Name: id::StringId,
-    pub Signature: id::BlobId,
+    pub Name: StringId,
+    pub Signature: BlobId,
 }
 
 impl Records {

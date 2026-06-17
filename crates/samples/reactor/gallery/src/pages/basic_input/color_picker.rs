@@ -12,8 +12,7 @@ pub fn color_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Full ColorPicker",
                 vstack((
                     color_picker(ColorArgb::new(color.0, color.1, color.2))
-                        .alpha_enabled(true)
-                        .on_changed(move |(a, r, g, b)| set_color.call((r, g, b, a))),
+                        .on_color_changed(move |(a, r, g, b)| set_color.call((r, g, b, a))),
                     text_block(format!(
                         "RGBA({}, {}, {}, {})",
                         color.0, color.1, color.2, color.3
@@ -21,7 +20,7 @@ pub fn color_picker_page(_: &(), cx: &mut RenderCx) -> Element {
                     .opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"color_picker(color).alpha_enabled(true).on_changed(handler)"#,
+                r#"color_picker(color).on_color_changed(handler)"#,
             ),
             sample_card(
                 "Minimal ColorPicker",

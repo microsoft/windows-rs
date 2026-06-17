@@ -1,4 +1,4 @@
-//! Minimal sample for the `PasswordBox` element.
+//! Sample for the `PasswordBox` element.
 
 use windows_reactor::*;
 
@@ -11,13 +11,13 @@ fn app(cx: &mut RenderCx) -> Element {
         PasswordBox::new()
             .value(password.clone())
             .header("Password")
-            .placeholder("Type a password…")
-            .on_changed(update_password),
+            .placeholder_text("Type a password…")
+            .on_password_changed(update_password),
         text_block(format!("captured length = {}", password.chars().count())),
         PasswordBox::new()
             .header("No reveal button")
-            .placeholder("Reveal hidden")
-            .reveal_mode(PasswordRevealMode::Hidden),
+            .placeholder_text("Reveal hidden")
+            .password_reveal_mode(PasswordRevealMode::Hidden),
         PasswordBox::new().header("Disabled").enabled(false),
     ))
     .spacing(8.0)
@@ -26,5 +26,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("PasswordBox", app)
 }

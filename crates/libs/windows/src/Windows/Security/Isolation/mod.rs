@@ -5,7 +5,7 @@ impl windows_core::RuntimeType for HostMessageReceivedCallback {
 impl HostMessageReceivedCallback {
     pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<HostMessageReceivedCallback, F>::new(&HostMessageReceivedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P1>(&self, receiverid: windows_core::GUID, message: P1) -> windows_core::Result<()>
     where
@@ -613,8 +613,8 @@ unsafe impl Sync for IsolatedWindowsEnvironment {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
 impl IsolatedWindowsEnvironmentActivator {
-    pub const System: Self = Self(0i32);
-    pub const User: Self = Self(1i32);
+    pub const System: Self = Self(0);
+    pub const User: Self = Self(1);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentActivator {
     type TypeKind = windows_core::CopyType;
@@ -627,10 +627,10 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentActivator {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    pub const None: Self = Self(0u32);
-    pub const Text: Self = Self(1u32);
-    pub const Image: Self = Self(2u32);
-    pub const Rtf: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const Text: Self = Self(1);
+    pub const Image: Self = Self(2);
+    pub const Rtf: Self = Self(4);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type TypeKind = windows_core::CopyType;
@@ -676,11 +676,11 @@ impl core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
 impl IsolatedWindowsEnvironmentAvailablePrinters {
-    pub const None: Self = Self(0u32);
-    pub const Local: Self = Self(1u32);
-    pub const Network: Self = Self(2u32);
-    pub const SystemPrintToPdf: Self = Self(4u32);
-    pub const SystemPrintToXps: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const Local: Self = Self(1);
+    pub const Network: Self = Self(2);
+    pub const SystemPrintToPdf: Self = Self(4);
+    pub const SystemPrintToXps: Self = Self(8);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentAvailablePrinters {
     type TypeKind = windows_core::CopyType;
@@ -726,9 +726,9 @@ impl core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    pub const None: Self = Self(0u32);
-    pub const HostToIsolatedWindowsEnvironment: Self = Self(1u32);
-    pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const HostToIsolatedWindowsEnvironment: Self = Self(1);
+    pub const IsolatedWindowsEnvironmentToHost: Self = Self(2);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     type TypeKind = windows_core::CopyType;
@@ -827,9 +827,9 @@ unsafe impl Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
 impl IsolatedWindowsEnvironmentCreateStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FailureByPolicy: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const FailureByPolicy: Self = Self(1);
+    pub const UnknownFailure: Self = Self(2);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateStatus {
     type TypeKind = windows_core::CopyType;
@@ -842,8 +842,8 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentCreationPriority(pub i32);
 impl IsolatedWindowsEnvironmentCreationPriority {
-    pub const Low: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
+    pub const Low: Self = Self(0);
+    pub const Normal: Self = Self(1);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreationPriority {
     type TypeKind = windows_core::CopyType;
@@ -925,11 +925,11 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentHost {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentHostError(pub i32);
 impl IsolatedWindowsEnvironmentHostError {
-    pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
-    pub const FeatureNotInstalled: Self = Self(1i32);
-    pub const HardwareRequirementsNotMet: Self = Self(2i32);
-    pub const RebootRequired: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
+    pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0);
+    pub const FeatureNotInstalled: Self = Self(1);
+    pub const HardwareRequirementsNotMet: Self = Self(2);
+    pub const RebootRequired: Self = Self(3);
+    pub const UnknownError: Self = Self(4);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentHostError {
     type TypeKind = windows_core::CopyType;
@@ -978,12 +978,12 @@ unsafe impl Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentLaunchFileStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FileNotFound: Self = Self(3i32);
-    pub const TimedOut: Self = Self(4i32);
-    pub const AlreadySharedWithConflictingOptions: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const EnvironmentUnavailable: Self = Self(2);
+    pub const FileNotFound: Self = Self(3);
+    pub const TimedOut: Self = Self(4);
+    pub const AlreadySharedWithConflictingOptions: Self = Self(5);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentLaunchFileStatus {
     type TypeKind = windows_core::CopyType;
@@ -1244,11 +1244,11 @@ unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
 impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidArgument: Self = Self(1i32);
-    pub const AccessDenied: Self = Self(2i32);
-    pub const InsufficientMemory: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const InvalidArgument: Self = Self(1);
+    pub const AccessDenied: Self = Self(2);
+    pub const InsufficientMemory: Self = Self(3);
+    pub const UnknownFailure: Self = Self(4);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1291,9 +1291,9 @@ unsafe impl Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
 impl IsolatedWindowsEnvironmentPostMessageStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const EnvironmentUnavailable: Self = Self(2);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentPostMessageStatus {
     type TypeKind = windows_core::CopyType;
@@ -1348,9 +1348,9 @@ unsafe impl Sync for IsolatedWindowsEnvironmentProcess {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
 impl IsolatedWindowsEnvironmentProcessState {
-    pub const Running: Self = Self(1i32);
-    pub const Aborted: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
+    pub const Running: Self = Self(1);
+    pub const Aborted: Self = Self(2);
+    pub const Completed: Self = Self(3);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentProcessState {
     type TypeKind = windows_core::CopyType;
@@ -1363,13 +1363,13 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
 impl IsolatedWindowsEnvironmentProgressState {
-    pub const Queued: Self = Self(0i32);
-    pub const Processing: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-    pub const Creating: Self = Self(3i32);
-    pub const Retrying: Self = Self(4i32);
-    pub const Starting: Self = Self(5i32);
-    pub const Finalizing: Self = Self(6i32);
+    pub const Queued: Self = Self(0);
+    pub const Processing: Self = Self(1);
+    pub const Completed: Self = Self(2);
+    pub const Creating: Self = Self(3);
+    pub const Retrying: Self = Self(4);
+    pub const Starting: Self = Self(5);
+    pub const Finalizing: Self = Self(6);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentProgressState {
     type TypeKind = windows_core::CopyType;
@@ -1452,12 +1452,12 @@ unsafe impl Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFileStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const AlreadySharedWithConflictingOptions: Self = Self(3i32);
-    pub const FileNotFound: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const EnvironmentUnavailable: Self = Self(2);
+    pub const AlreadySharedWithConflictingOptions: Self = Self(3);
+    pub const FileNotFound: Self = Self(4);
+    pub const AccessDenied: Self = Self(5);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFileStatus {
     type TypeKind = windows_core::CopyType;
@@ -1534,11 +1534,11 @@ unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFolderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FolderNotFound: Self = Self(3i32);
-    pub const AccessDenied: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const EnvironmentUnavailable: Self = Self(2);
+    pub const FolderNotFound: Self = Self(3);
+    pub const AccessDenied: Self = Self(4);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFolderStatus {
     type TypeKind = windows_core::CopyType;
@@ -1551,12 +1551,12 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentSignInProgress(pub i32);
 impl IsolatedWindowsEnvironmentSignInProgress {
-    pub const Connecting: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Authenticating: Self = Self(2i32);
-    pub const SettingUpAccount: Self = Self(3i32);
-    pub const Finalizing: Self = Self(4i32);
-    pub const Completed: Self = Self(5i32);
+    pub const Connecting: Self = Self(0);
+    pub const Connected: Self = Self(1);
+    pub const Authenticating: Self = Self(2);
+    pub const SettingUpAccount: Self = Self(3);
+    pub const Finalizing: Self = Self(4);
+    pub const Completed: Self = Self(5);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentSignInProgress {
     type TypeKind = windows_core::CopyType;
@@ -1605,11 +1605,11 @@ unsafe impl Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
 impl IsolatedWindowsEnvironmentStartProcessStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FileNotFound: Self = Self(3i32);
-    pub const AppNotRegistered: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const EnvironmentUnavailable: Self = Self(2);
+    pub const FileNotFound: Self = Self(3);
+    pub const AppNotRegistered: Self = Self(4);
 }
 impl windows_core::TypeKind for IsolatedWindowsEnvironmentStartProcessStatus {
     type TypeKind = windows_core::CopyType;
@@ -1737,7 +1737,7 @@ impl windows_core::RuntimeType for MessageReceivedCallback {
 impl MessageReceivedCallback {
     pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<MessageReceivedCallback, F>::new(&MessageReceivedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P1>(&self, receiverid: windows_core::GUID, message: P1) -> windows_core::Result<()>
     where

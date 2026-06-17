@@ -1,4 +1,4 @@
-//! Minimal sample for the `TitleBar` element.
+//! Sample for the `TitleBar` element.
 
 use windows_reactor::*;
 
@@ -23,5 +23,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("TitleBar", app)
 }

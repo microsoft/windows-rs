@@ -344,7 +344,7 @@ windows_core::imp::define_interface!(AsyncIIdentityAuthentication, AsyncIIdentit
 windows_core::imp::interface_hierarchy!(AsyncIIdentityAuthentication, windows_core::IUnknown);
 impl AsyncIIdentityAuthentication {
     pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Begin_SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Begin_SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn Finish_SetIdentityCredential(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Finish_SetIdentityCredential)(windows_core::Interface::as_raw(self)).ok() }
@@ -1009,8 +1009,8 @@ impl AsyncIIdentityStoreEx_Vtbl {
 }
 impl windows_core::RuntimeName for AsyncIIdentityStoreEx {}
 pub const CIdentityProfileHandler: windows_core::GUID = windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
-pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
-pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
+pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1);
+pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2);
 pub const CoClassIdentityStore: windows_core::GUID = windows_core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
 windows_core::imp::define_interface!(IAssociatedIdentityProvider, IAssociatedIdentityProvider_Vtbl, 0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
 windows_core::imp::interface_hierarchy!(IAssociatedIdentityProvider, windows_core::IUnknown);
@@ -1202,33 +1202,33 @@ impl IConnectedIdentityProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IConnectedIdentityProvider {}
-pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
-pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
-pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
-pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64i32);
-pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4i32);
-pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16i32);
-pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2i32);
-pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128i32);
-pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8i32);
+pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0);
+pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1);
+pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1);
+pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64);
+pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4);
+pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16);
+pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2);
+pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128);
+pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8);
 pub const IDENTITY_KEYWORD_ASSOCIATED: windows_core::PCWSTR = windows_core::w!("associated");
 pub const IDENTITY_KEYWORD_CONNECTED: windows_core::PCWSTR = windows_core::w!("connected");
 pub const IDENTITY_KEYWORD_HOMEGROUP: windows_core::PCWSTR = windows_core::w!("homegroup");
 pub const IDENTITY_KEYWORD_LOCAL: windows_core::PCWSTR = windows_core::w!("local");
-pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32i32);
+pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDENTITY_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDENTITY_URL(pub i32);
-pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
-pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
-pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
-pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
-pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
-pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
-pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
+pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4);
+pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2);
+pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6);
+pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0);
+pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3);
+pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5);
+pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1);
 windows_core::imp::define_interface!(IIdentityAdvise, IIdentityAdvise_Vtbl, 0x4e982fed_d14b_440c_b8d6_bb386453d386);
 windows_core::imp::interface_hierarchy!(IIdentityAdvise, windows_core::IUnknown);
 impl IIdentityAdvise {
@@ -1267,7 +1267,7 @@ windows_core::imp::define_interface!(IIdentityAuthentication, IIdentityAuthentic
 windows_core::imp::interface_hierarchy!(IIdentityAuthentication, windows_core::IUnknown);
 impl IIdentityAuthentication {
     pub unsafe fn SetIdentityCredential(&self, credbuffer: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetIdentityCredential)(windows_core::Interface::as_raw(self), core::mem::transmute(credbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), credbuffer.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: Option<*mut Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> windows_core::Result<()> {
@@ -1726,7 +1726,7 @@ impl core::ops::Not for IdentityUpdateEvent {
         Self(self.0.not())
     }
 }
-pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
+pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0);
 pub const OID_OAssociatedIdentityProviderObject: windows_core::GUID = windows_core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
 pub const STR_COMPLETE_ACCOUNT: windows_core::PCWSTR = windows_core::w!("CompleteAccount");
 pub const STR_MODERN_SETTINGS_ADD_USER: windows_core::PCWSTR = windows_core::w!("ModernSettingsAddUser");

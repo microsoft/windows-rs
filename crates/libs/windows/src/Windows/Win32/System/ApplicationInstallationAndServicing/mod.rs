@@ -60,8 +60,8 @@ pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: O
         ApplyPatchToFileByBuffers(
             core::mem::transmute(patchfilemapped.as_ptr()),
             patchfilemapped.len().try_into().unwrap(),
-            core::mem::transmute(oldfilemapped.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            oldfilemapped.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(oldfilemapped.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            oldfilemapped.map_or(0, |slice| slice.len().try_into().unwrap()),
             core::mem::transmute(newfilebuffer.as_ptr()),
             newfilebuffer.len().try_into().unwrap(),
             newfileactualsize.unwrap_or(core::mem::zeroed()) as _,
@@ -330,10 +330,10 @@ where
             filename.param().abi(),
             optionflags,
             optiondata.unwrap_or(core::mem::zeroed()) as _,
-            ignorerangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ignorerangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            retainrangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(retainrangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())),
             signaturebuffer.len().try_into().unwrap(),
             core::mem::transmute(signaturebuffer.as_ptr()),
         )
@@ -348,10 +348,10 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optio
             filebufferwritable.len().try_into().unwrap(),
             optionflags,
             optiondata.unwrap_or(core::mem::zeroed()) as _,
-            ignorerangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ignorerangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            retainrangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(retainrangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())),
             signaturebuffer.len().try_into().unwrap(),
             core::mem::transmute(signaturebuffer.as_ptr()),
         )
@@ -360,19 +360,7 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optio
 #[inline]
 pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe {
-        GetFilePatchSignatureByHandle(
-            filehandle,
-            optionflags,
-            optiondata.unwrap_or(core::mem::zeroed()) as _,
-            ignorerangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ignorerangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            retainrangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(retainrangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            signaturebuffer.len().try_into().unwrap(),
-            core::mem::transmute(signaturebuffer.as_ptr()),
-        )
-    }
+    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffer.len().try_into().unwrap(), core::mem::transmute(signaturebuffer.as_ptr())) }
 }
 #[inline]
 pub unsafe fn GetFilePatchSignatureW<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PWSTR) -> windows_core::BOOL
@@ -380,19 +368,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureW(filename : windows_core::PCWSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe {
-        GetFilePatchSignatureW(
-            filename.param().abi(),
-            optionflags,
-            optiondata.unwrap_or(core::mem::zeroed()) as _,
-            ignorerangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ignorerangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            retainrangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(retainrangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            signaturebuffersize,
-            core::mem::transmute(signaturebuffer),
-        )
-    }
+    unsafe { GetFilePatchSignatureW(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, core::mem::transmute(signaturebuffer)) }
 }
 #[inline]
 pub unsafe fn MsiAdvertiseProductA<P0, P1, P2>(szpackagepath: P0, szscriptfilepath: P1, sztransforms: P2, lgidlanguage: u16) -> u32
@@ -2527,20 +2503,7 @@ pub unsafe fn MsiViewModify(hview: MSIHANDLE, emodifymode: MSIMODIFY, hrecord: M
 #[inline]
 pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
     windows_core::link!("mspatcha.dll" "system" fn NormalizeFileForPatchSignature(filebuffer : *mut core::ffi::c_void, filesize : u32, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, newfilecoffbase : u32, newfilecofftime : u32, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE) -> i32);
-    unsafe {
-        NormalizeFileForPatchSignature(
-            filebuffer as _,
-            filesize,
-            optionflags,
-            optiondata.unwrap_or(core::mem::zeroed()) as _,
-            newfilecoffbase,
-            newfilecofftime,
-            ignorerangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ignorerangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            retainrangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(retainrangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        )
-    }
+    unsafe { NormalizeFileForPatchSignature(filebuffer as _, filesize, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, newfilecoffbase, newfilecofftime, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn QueryActCtxSettingsW<P2, P3>(dwflags: Option<u32>, hactctx: Option<super::super::Foundation::HANDLE>, settingsnamespace: P2, settingname: P3, pvbuffer: Option<windows_core::PWSTR>, dwbuffer: usize, pdwwrittenorrequired: Option<*mut usize>) -> windows_core::Result<()>
@@ -2603,7 +2566,7 @@ where
 #[inline]
 pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffer: Option<&[u8]>, newfilesize: Option<*mut u32>, applyoptionflags: u32) -> windows_core::BOOL {
     windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *const u8, patchfilesize : u32, oldfilebuffer : *const u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
-    unsafe { TestApplyPatchToFileByBuffers(core::mem::transmute(patchfilebuffer.as_ptr()), patchfilebuffer.len().try_into().unwrap(), core::mem::transmute(oldfilebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), newfilesize.unwrap_or(core::mem::zeroed()) as _, applyoptionflags) }
+    unsafe { TestApplyPatchToFileByBuffers(core::mem::transmute(patchfilebuffer.as_ptr()), patchfilebuffer.len().try_into().unwrap(), core::mem::transmute(oldfilebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), newfilesize.unwrap_or(core::mem::zeroed()) as _, applyoptionflags) }
 }
 #[inline]
 pub unsafe fn TestApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
@@ -2653,18 +2616,18 @@ pub struct ACTCTXW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTCTX_COMPATIBILITY_ELEMENT_TYPE(pub i32);
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(3i32);
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(2i32);
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(1i32);
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(0i32);
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(3);
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(2);
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(1);
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTCTX_REQUESTED_RUN_LEVEL(pub i32);
-pub const ACTCTX_RUN_LEVEL_AS_INVOKER: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(1i32);
-pub const ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(2i32);
-pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(4i32);
-pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(3i32);
-pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(0i32);
+pub const ACTCTX_RUN_LEVEL_AS_INVOKER: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(1);
+pub const ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(2);
+pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(4);
+pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(3);
+pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(0);
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2754,18 +2717,18 @@ pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADVERTISEFLAGS(pub i32);
-pub const ADVERTISEFLAGS_MACHINEASSIGN: ADVERTISEFLAGS = ADVERTISEFLAGS(0i32);
-pub const ADVERTISEFLAGS_USERASSIGN: ADVERTISEFLAGS = ADVERTISEFLAGS(1i32);
-pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
-pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1u32;
-pub const APPLY_OPTION_TEST_ONLY: u32 = 4u32;
-pub const APPLY_OPTION_VALID_FLAGS: u32 = 7u32;
-pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = ASM_BIND_FLAGS(8i32);
-pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = ASM_BIND_FLAGS(1i32);
-pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(32i32);
-pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(2i32);
-pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(4i32);
-pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(16i32);
+pub const ADVERTISEFLAGS_MACHINEASSIGN: ADVERTISEFLAGS = ADVERTISEFLAGS(0);
+pub const ADVERTISEFLAGS_USERASSIGN: ADVERTISEFLAGS = ADVERTISEFLAGS(1);
+pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2;
+pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1;
+pub const APPLY_OPTION_TEST_ONLY: u32 = 4;
+pub const APPLY_OPTION_VALID_FLAGS: u32 = 7;
+pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = ASM_BIND_FLAGS(8);
+pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = ASM_BIND_FLAGS(1);
+pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(32);
+pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(2);
+pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(4);
+pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASM_BIND_FLAGS(pub i32);
@@ -2802,55 +2765,55 @@ impl core::ops::Not for ASM_BIND_FLAGS {
         Self(self.0.not())
     }
 }
-pub const ASM_CMPF_ALL: ASM_CMP_FLAGS = ASM_CMP_FLAGS(255i32);
-pub const ASM_CMPF_BUILD_NUMBER: ASM_CMP_FLAGS = ASM_CMP_FLAGS(8i32);
-pub const ASM_CMPF_CULTURE: ASM_CMP_FLAGS = ASM_CMP_FLAGS(64i32);
-pub const ASM_CMPF_CUSTOM: ASM_CMP_FLAGS = ASM_CMP_FLAGS(128i32);
-pub const ASM_CMPF_DEFAULT: ASM_CMP_FLAGS = ASM_CMP_FLAGS(256i32);
-pub const ASM_CMPF_MAJOR_VERSION: ASM_CMP_FLAGS = ASM_CMP_FLAGS(2i32);
-pub const ASM_CMPF_MINOR_VERSION: ASM_CMP_FLAGS = ASM_CMP_FLAGS(4i32);
-pub const ASM_CMPF_NAME: ASM_CMP_FLAGS = ASM_CMP_FLAGS(1i32);
-pub const ASM_CMPF_PUBLIC_KEY_TOKEN: ASM_CMP_FLAGS = ASM_CMP_FLAGS(32i32);
-pub const ASM_CMPF_REVISION_NUMBER: ASM_CMP_FLAGS = ASM_CMP_FLAGS(16i32);
+pub const ASM_CMPF_ALL: ASM_CMP_FLAGS = ASM_CMP_FLAGS(255);
+pub const ASM_CMPF_BUILD_NUMBER: ASM_CMP_FLAGS = ASM_CMP_FLAGS(8);
+pub const ASM_CMPF_CULTURE: ASM_CMP_FLAGS = ASM_CMP_FLAGS(64);
+pub const ASM_CMPF_CUSTOM: ASM_CMP_FLAGS = ASM_CMP_FLAGS(128);
+pub const ASM_CMPF_DEFAULT: ASM_CMP_FLAGS = ASM_CMP_FLAGS(256);
+pub const ASM_CMPF_MAJOR_VERSION: ASM_CMP_FLAGS = ASM_CMP_FLAGS(2);
+pub const ASM_CMPF_MINOR_VERSION: ASM_CMP_FLAGS = ASM_CMP_FLAGS(4);
+pub const ASM_CMPF_NAME: ASM_CMP_FLAGS = ASM_CMP_FLAGS(1);
+pub const ASM_CMPF_PUBLIC_KEY_TOKEN: ASM_CMP_FLAGS = ASM_CMP_FLAGS(32);
+pub const ASM_CMPF_REVISION_NUMBER: ASM_CMP_FLAGS = ASM_CMP_FLAGS(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASM_CMP_FLAGS(pub i32);
-pub const ASM_DISPLAYF_CULTURE: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(2i32);
-pub const ASM_DISPLAYF_CUSTOM: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(16i32);
-pub const ASM_DISPLAYF_LANGUAGEID: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(64i32);
-pub const ASM_DISPLAYF_PROCESSORARCHITECTURE: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(32i32);
-pub const ASM_DISPLAYF_PUBLIC_KEY: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(8i32);
-pub const ASM_DISPLAYF_PUBLIC_KEY_TOKEN: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(4i32);
-pub const ASM_DISPLAYF_VERSION: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(1i32);
+pub const ASM_DISPLAYF_CULTURE: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(2);
+pub const ASM_DISPLAYF_CUSTOM: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(16);
+pub const ASM_DISPLAYF_LANGUAGEID: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(64);
+pub const ASM_DISPLAYF_PROCESSORARCHITECTURE: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(32);
+pub const ASM_DISPLAYF_PUBLIC_KEY: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(8);
+pub const ASM_DISPLAYF_PUBLIC_KEY_TOKEN: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(4);
+pub const ASM_DISPLAYF_VERSION: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASM_DISPLAY_FLAGS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASM_NAME(pub i32);
-pub const ASM_NAME_ALIAS: ASM_NAME = ASM_NAME(12i32);
-pub const ASM_NAME_BUILD_NUMBER: ASM_NAME = ASM_NAME(6i32);
-pub const ASM_NAME_CODEBASE_LASTMOD: ASM_NAME = ASM_NAME(14i32);
-pub const ASM_NAME_CODEBASE_URL: ASM_NAME = ASM_NAME(13i32);
-pub const ASM_NAME_CULTURE: ASM_NAME = ASM_NAME(8i32);
-pub const ASM_NAME_CUSTOM: ASM_NAME = ASM_NAME(17i32);
-pub const ASM_NAME_HASH_ALGID: ASM_NAME = ASM_NAME(11i32);
-pub const ASM_NAME_HASH_VALUE: ASM_NAME = ASM_NAME(2i32);
-pub const ASM_NAME_MAJOR_VERSION: ASM_NAME = ASM_NAME(4i32);
-pub const ASM_NAME_MAX_PARAMS: ASM_NAME = ASM_NAME(20i32);
-pub const ASM_NAME_MINOR_VERSION: ASM_NAME = ASM_NAME(5i32);
-pub const ASM_NAME_MVID: ASM_NAME = ASM_NAME(19i32);
-pub const ASM_NAME_NAME: ASM_NAME = ASM_NAME(3i32);
-pub const ASM_NAME_NULL_CUSTOM: ASM_NAME = ASM_NAME(18i32);
-pub const ASM_NAME_NULL_PUBLIC_KEY: ASM_NAME = ASM_NAME(15i32);
-pub const ASM_NAME_NULL_PUBLIC_KEY_TOKEN: ASM_NAME = ASM_NAME(16i32);
-pub const ASM_NAME_OSINFO_ARRAY: ASM_NAME = ASM_NAME(10i32);
-pub const ASM_NAME_PROCESSOR_ID_ARRAY: ASM_NAME = ASM_NAME(9i32);
-pub const ASM_NAME_PUBLIC_KEY: ASM_NAME = ASM_NAME(0i32);
-pub const ASM_NAME_PUBLIC_KEY_TOKEN: ASM_NAME = ASM_NAME(1i32);
-pub const ASM_NAME_REVISION_NUMBER: ASM_NAME = ASM_NAME(7i32);
-pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
-pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
+pub const ASM_NAME_ALIAS: ASM_NAME = ASM_NAME(12);
+pub const ASM_NAME_BUILD_NUMBER: ASM_NAME = ASM_NAME(6);
+pub const ASM_NAME_CODEBASE_LASTMOD: ASM_NAME = ASM_NAME(14);
+pub const ASM_NAME_CODEBASE_URL: ASM_NAME = ASM_NAME(13);
+pub const ASM_NAME_CULTURE: ASM_NAME = ASM_NAME(8);
+pub const ASM_NAME_CUSTOM: ASM_NAME = ASM_NAME(17);
+pub const ASM_NAME_HASH_ALGID: ASM_NAME = ASM_NAME(11);
+pub const ASM_NAME_HASH_VALUE: ASM_NAME = ASM_NAME(2);
+pub const ASM_NAME_MAJOR_VERSION: ASM_NAME = ASM_NAME(4);
+pub const ASM_NAME_MAX_PARAMS: ASM_NAME = ASM_NAME(20);
+pub const ASM_NAME_MINOR_VERSION: ASM_NAME = ASM_NAME(5);
+pub const ASM_NAME_MVID: ASM_NAME = ASM_NAME(19);
+pub const ASM_NAME_NAME: ASM_NAME = ASM_NAME(3);
+pub const ASM_NAME_NULL_CUSTOM: ASM_NAME = ASM_NAME(18);
+pub const ASM_NAME_NULL_PUBLIC_KEY: ASM_NAME = ASM_NAME(15);
+pub const ASM_NAME_NULL_PUBLIC_KEY_TOKEN: ASM_NAME = ASM_NAME(16);
+pub const ASM_NAME_OSINFO_ARRAY: ASM_NAME = ASM_NAME(10);
+pub const ASM_NAME_PROCESSOR_ID_ARRAY: ASM_NAME = ASM_NAME(9);
+pub const ASM_NAME_PUBLIC_KEY: ASM_NAME = ASM_NAME(0);
+pub const ASM_NAME_PUBLIC_KEY_TOKEN: ASM_NAME = ASM_NAME(1);
+pub const ASM_NAME_REVISION_NUMBER: ASM_NAME = ASM_NAME(7);
+pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1;
+pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
@@ -2869,8 +2832,8 @@ pub struct ASSEMBLY_INFO {
     pub pszCurrentAssemblyPathBuf: windows_core::PWSTR,
     pub cchBuf: u32,
 }
-pub const CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = CREATE_ASM_NAME_OBJ_FLAGS(1i32);
-pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = CREATE_ASM_NAME_OBJ_FLAGS(2i32);
+pub const CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = CREATE_ASM_NAME_OBJ_FLAGS(1);
+pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = CREATE_ASM_NAME_OBJ_FLAGS(2);
 pub const CLSID_EvalCom2: windows_core::GUID = windows_core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
 pub const CLSID_MsmMerge2: windows_core::GUID = windows_core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
 #[repr(C)]
@@ -2883,9 +2846,9 @@ pub struct COMPATIBILITY_CONTEXT_ELEMENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_ASM_NAME_OBJ_FLAGS(pub i32);
-pub const DEFAULT_DISK_ID: u32 = 2u32;
-pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
-pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
+pub const DEFAULT_DISK_ID: u32 = 2;
+pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2;
+pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELTA_HASH {
@@ -2932,7 +2895,7 @@ impl Default for DELTA_INPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
+pub const DELTA_MAX_HASH_SIZE: u32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELTA_OUTPUT {
@@ -2944,187 +2907,187 @@ impl Default for DELTA_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525u32;
-pub const ERROR_PATCH_CORRUPT: u32 = 3222159618u32;
-pub const ERROR_PATCH_DECODE_FAILURE: u32 = 3222159617u32;
-pub const ERROR_PATCH_ENCODE_FAILURE: u32 = 3222155521u32;
-pub const ERROR_PATCH_IMAGEHLP_FAILURE: u32 = 3222155526u32;
-pub const ERROR_PATCH_INVALID_OPTIONS: u32 = 3222155522u32;
-pub const ERROR_PATCH_NEWER_FORMAT: u32 = 3222159619u32;
-pub const ERROR_PATCH_NOT_AVAILABLE: u32 = 3222159622u32;
-pub const ERROR_PATCH_NOT_NECESSARY: u32 = 3222159621u32;
-pub const ERROR_PATCH_RETAIN_RANGES_DIFFER: u32 = 3222155524u32;
-pub const ERROR_PATCH_SAME_FILE: u32 = 3222155523u32;
-pub const ERROR_PATCH_WRONG_FILE: u32 = 3222159620u32;
-pub const ERROR_PCW_BAD_API_PATCHING_SYMBOL_FLAGS: u32 = 3222163725u32;
-pub const ERROR_PCW_BAD_FAMILY_RANGE_NAME: u32 = 3222163801u32;
-pub const ERROR_PCW_BAD_FILE_SEQUENCE_START: u32 = 3222163770u32;
-pub const ERROR_PCW_BAD_GUIDS_TO_REPLACE: u32 = 3222163721u32;
-pub const ERROR_PCW_BAD_IMAGE_FAMILY_DISKID: u32 = 3222163773u32;
-pub const ERROR_PCW_BAD_IMAGE_FAMILY_FILESEQSTART: u32 = 3222163774u32;
-pub const ERROR_PCW_BAD_IMAGE_FAMILY_NAME: u32 = 3222163748u32;
-pub const ERROR_PCW_BAD_IMAGE_FAMILY_SRC_PROP: u32 = 3222163750u32;
-pub const ERROR_PCW_BAD_MAJOR_VERSION: u32 = 3222163853u32;
-pub const ERROR_PCW_BAD_PATCH_GUID: u32 = 3222163720u32;
-pub const ERROR_PCW_BAD_PRODUCTVERSION_VALIDATION: u32 = 3222163844u32;
-pub const ERROR_PCW_BAD_SEQUENCE: u32 = 3222163848u32;
-pub const ERROR_PCW_BAD_SUPERCEDENCE: u32 = 3222163847u32;
-pub const ERROR_PCW_BAD_TARGET: u32 = 3222163849u32;
-pub const ERROR_PCW_BAD_TARGET_IMAGE_NAME: u32 = 3222163736u32;
-pub const ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_CODE: u32 = 3222163834u32;
-pub const ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_VERSION: u32 = 3222163835u32;
-pub const ERROR_PCW_BAD_TARGET_IMAGE_UPGRADED: u32 = 3222163776u32;
-pub const ERROR_PCW_BAD_TARGET_IMAGE_UPGRADE_CODE: u32 = 3222163836u32;
-pub const ERROR_PCW_BAD_TARGET_PRODUCT_CODE_LIST: u32 = 3222163722u32;
-pub const ERROR_PCW_BAD_TGT_UPD_IMAGES: u32 = 3222163846u32;
-pub const ERROR_PCW_BAD_TRANSFORMSET: u32 = 3222163845u32;
-pub const ERROR_PCW_BAD_UPGRADED_IMAGE_FAMILY: u32 = 3222163775u32;
-pub const ERROR_PCW_BAD_UPGRADED_IMAGE_NAME: u32 = 3222163728u32;
-pub const ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_CODE: u32 = 3222163831u32;
-pub const ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_VERSION: u32 = 3222163832u32;
-pub const ERROR_PCW_BAD_UPGRADED_IMAGE_UPGRADE_CODE: u32 = 3222163833u32;
-pub const ERROR_PCW_BAD_VERSION_STRING: u32 = 3222163852u32;
-pub const ERROR_PCW_BASE: u32 = 3222163713u32;
-pub const ERROR_PCW_CANNOT_CREATE_TABLE: u32 = 3222163841u32;
-pub const ERROR_PCW_CANNOT_RUN_MAKECAB: u32 = 3222163782u32;
-pub const ERROR_PCW_CANNOT_WRITE_DDF: u32 = 3222163781u32;
-pub const ERROR_PCW_CANT_COPY_FILE_TO_TEMP_FOLDER: u32 = 3222163771u32;
-pub const ERROR_PCW_CANT_CREATE_ONE_PATCH_FILE: u32 = 3222163772u32;
-pub const ERROR_PCW_CANT_CREATE_PATCH_FILE: u32 = 3222163718u32;
-pub const ERROR_PCW_CANT_CREATE_SUMMARY_INFO: u32 = 3222163828u32;
-pub const ERROR_PCW_CANT_CREATE_SUMMARY_INFO_POUND: u32 = 3222163830u32;
-pub const ERROR_PCW_CANT_CREATE_TEMP_FOLDER: u32 = 3222163715u32;
-pub const ERROR_PCW_CANT_DELETE_TEMP_FOLDER: u32 = 3222163974u32;
-pub const ERROR_PCW_CANT_GENERATE_SEQUENCEINFO_MAJORUPGD: u32 = 3222163842u32;
-pub const ERROR_PCW_CANT_GENERATE_TRANSFORM: u32 = 3222163827u32;
-pub const ERROR_PCW_CANT_GENERATE_TRANSFORM_POUND: u32 = 3222163829u32;
-pub const ERROR_PCW_CANT_OVERWRITE_PATCH: u32 = 3222163717u32;
-pub const ERROR_PCW_CANT_READ_FILE: u32 = 3222163978u32;
-pub const ERROR_PCW_CREATEFILE_LOG_FAILED: u32 = 3222163861u32;
-pub const ERROR_PCW_DUPLICATE_SEQUENCE_RECORD: u32 = 3222163858u32;
-pub const ERROR_PCW_DUP_IMAGE_FAMILY_NAME: u32 = 3222163749u32;
-pub const ERROR_PCW_DUP_TARGET_IMAGE_NAME: u32 = 3222163737u32;
-pub const ERROR_PCW_DUP_TARGET_IMAGE_PACKCODE: u32 = 3222163777u32;
-pub const ERROR_PCW_DUP_UPGRADED_IMAGE_NAME: u32 = 3222163729u32;
-pub const ERROR_PCW_DUP_UPGRADED_IMAGE_PACKCODE: u32 = 3222163795u32;
-pub const ERROR_PCW_ERROR_WRITING_TO_LOG: u32 = 3222163864u32;
-pub const ERROR_PCW_EXECUTE_VIEW: u32 = 3222163870u32;
-pub const ERROR_PCW_EXTFILE_BAD_FAMILY_FIELD: u32 = 3222163756u32;
-pub const ERROR_PCW_EXTFILE_BAD_IGNORE_LENGTHS: u32 = 3222163814u32;
-pub const ERROR_PCW_EXTFILE_BAD_IGNORE_OFFSETS: u32 = 3222163812u32;
-pub const ERROR_PCW_EXTFILE_BAD_RETAIN_OFFSETS: u32 = 3222163817u32;
-pub const ERROR_PCW_EXTFILE_BLANK_FILE_TABLE_KEY: u32 = 3222163755u32;
-pub const ERROR_PCW_EXTFILE_BLANK_PATH_TO_FILE: u32 = 3222163758u32;
-pub const ERROR_PCW_EXTFILE_IGNORE_COUNT_MISMATCH: u32 = 3222163815u32;
-pub const ERROR_PCW_EXTFILE_LONG_FILE_TABLE_KEY: u32 = 3222163754u32;
-pub const ERROR_PCW_EXTFILE_LONG_IGNORE_LENGTHS: u32 = 3222163813u32;
-pub const ERROR_PCW_EXTFILE_LONG_IGNORE_OFFSETS: u32 = 3222163811u32;
-pub const ERROR_PCW_EXTFILE_LONG_PATH_TO_FILE: u32 = 3222163757u32;
-pub const ERROR_PCW_EXTFILE_LONG_RETAIN_OFFSETS: u32 = 3222163816u32;
-pub const ERROR_PCW_EXTFILE_MISSING_FILE: u32 = 3222163759u32;
-pub const ERROR_PCW_FAILED_CREATE_TRANSFORM: u32 = 3222163973u32;
-pub const ERROR_PCW_FAILED_EXPAND_PATH: u32 = 3222163872u32;
-pub const ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_LENGTHS: u32 = 3222163809u32;
-pub const ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_OFFSETS: u32 = 3222163806u32;
-pub const ERROR_PCW_FAMILY_RANGE_BLANK_FILE_TABLE_KEY: u32 = 3222163803u32;
-pub const ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_LENGTHS: u32 = 3222163808u32;
-pub const ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_OFFSETS: u32 = 3222163805u32;
-pub const ERROR_PCW_FAMILY_RANGE_COUNT_MISMATCH: u32 = 3222163810u32;
-pub const ERROR_PCW_FAMILY_RANGE_LONG_FILE_TABLE_KEY: u32 = 3222163802u32;
-pub const ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_LENGTHS: u32 = 3222163807u32;
-pub const ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_OFFSETS: u32 = 3222163804u32;
-pub const ERROR_PCW_FAMILY_RANGE_NAME_TOO_LONG: u32 = 3222163800u32;
-pub const ERROR_PCW_IMAGE_FAMILY_NAME_TOO_LONG: u32 = 3222163747u32;
-pub const ERROR_PCW_IMAGE_PATH_NOT_EXIST: u32 = 3222163988u32;
-pub const ERROR_PCW_INTERNAL_ERROR: u32 = 3222163969u32;
-pub const ERROR_PCW_INVALID_LOG_LEVEL: u32 = 3222163862u32;
-pub const ERROR_PCW_INVALID_MAJOR_VERSION: u32 = 3222163990u32;
-pub const ERROR_PCW_INVALID_PARAMETER: u32 = 3222163860u32;
-pub const ERROR_PCW_INVALID_PATCHMETADATA_PROP: u32 = 3222163856u32;
-pub const ERROR_PCW_INVALID_PATCH_TYPE_SEQUENCING: u32 = 3222163977u32;
-pub const ERROR_PCW_INVALID_PCP_EXTERNALFILES: u32 = 3222163982u32;
-pub const ERROR_PCW_INVALID_PCP_FAMILYFILERANGES: u32 = 3222163992u32;
-pub const ERROR_PCW_INVALID_PCP_IMAGEFAMILIES: u32 = 3222163983u32;
-pub const ERROR_PCW_INVALID_PCP_PATCHSEQUENCE: u32 = 3222163984u32;
-pub const ERROR_PCW_INVALID_PCP_PROPERTIES: u32 = 3222163991u32;
-pub const ERROR_PCW_INVALID_PCP_PROPERTY: u32 = 3222163970u32;
-pub const ERROR_PCW_INVALID_PCP_TARGETFILES_OPTIONALDATA: u32 = 3222163985u32;
-pub const ERROR_PCW_INVALID_PCP_TARGETIMAGES: u32 = 3222163971u32;
-pub const ERROR_PCW_INVALID_PCP_UPGRADEDFILESTOIGNORE: u32 = 3222163980u32;
-pub const ERROR_PCW_INVALID_PCP_UPGRADEDFILES_OPTIONALDATA: u32 = 3222163986u32;
-pub const ERROR_PCW_INVALID_PCP_UPGRADEDIMAGES: u32 = 3222163981u32;
-pub const ERROR_PCW_INVALID_RANGE_ELEMENT: u32 = 3222163989u32;
-pub const ERROR_PCW_INVALID_SUPERCEDENCE: u32 = 3222163857u32;
-pub const ERROR_PCW_INVALID_SUPERSEDENCE_VALUE: u32 = 3222163976u32;
-pub const ERROR_PCW_INVALID_UI_LEVEL: u32 = 3222163863u32;
-pub const ERROR_PCW_LAX_VALIDATION_FLAGS: u32 = 3222163972u32;
-pub const ERROR_PCW_MAJOR_UPGD_WITHOUT_SEQUENCING: u32 = 3222163843u32;
-pub const ERROR_PCW_MATCHED_PRODUCT_VERSIONS: u32 = 3222163837u32;
-pub const ERROR_PCW_MISMATCHED_PRODUCT_CODES: u32 = 3222163779u32;
-pub const ERROR_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222163780u32;
-pub const ERROR_PCW_MISSING_DIRECTORY_TABLE: u32 = 3222163975u32;
-pub const ERROR_PCW_MISSING_PATCHMETADATA: u32 = 3222163987u32;
-pub const ERROR_PCW_MISSING_PATCH_GUID: u32 = 3222163719u32;
-pub const ERROR_PCW_MISSING_PATCH_PATH: u32 = 3222163716u32;
-pub const ERROR_PCW_NO_UPGRADED_IMAGES_TO_PATCH: u32 = 3222163723u32;
-pub const ERROR_PCW_NULL_PATCHFAMILY: u32 = 3222163850u32;
-pub const ERROR_PCW_NULL_SEQUENCE_NUMBER: u32 = 3222163851u32;
-pub const ERROR_PCW_OBSOLETION_WITH_MSI30: u32 = 3222163839u32;
-pub const ERROR_PCW_OBSOLETION_WITH_PATCHSEQUENCE: u32 = 3222163840u32;
-pub const ERROR_PCW_OBSOLETION_WITH_SEQUENCE_DATA: u32 = 3222163838u32;
-pub const ERROR_PCW_OODS_COPYING_MSI: u32 = 3222163726u32;
-pub const ERROR_PCW_OPEN_VIEW: u32 = 3222163869u32;
-pub const ERROR_PCW_OUT_OF_MEMORY: u32 = 3222163865u32;
-pub const ERROR_PCW_PATCHMETADATA_PROP_NOT_SET: u32 = 3222163855u32;
-pub const ERROR_PCW_PCP_BAD_FORMAT: u32 = 3222163714u32;
-pub const ERROR_PCW_PCP_DOESNT_EXIST: u32 = 3222163713u32;
-pub const ERROR_PCW_SEQUENCING_BAD_TARGET: u32 = 3222163854u32;
-pub const ERROR_PCW_TARGET_BAD_PROD_CODE_VAL: u32 = 3222163744u32;
-pub const ERROR_PCW_TARGET_BAD_PROD_VALIDATE: u32 = 3222163743u32;
-pub const ERROR_PCW_TARGET_IMAGE_COMPRESSED: u32 = 3222163742u32;
-pub const ERROR_PCW_TARGET_IMAGE_NAME_TOO_LONG: u32 = 3222163735u32;
-pub const ERROR_PCW_TARGET_IMAGE_PATH_EMPTY: u32 = 3222163739u32;
-pub const ERROR_PCW_TARGET_IMAGE_PATH_NOT_EXIST: u32 = 3222163740u32;
-pub const ERROR_PCW_TARGET_IMAGE_PATH_NOT_MSI: u32 = 3222163741u32;
-pub const ERROR_PCW_TARGET_IMAGE_PATH_TOO_LONG: u32 = 3222163738u32;
-pub const ERROR_PCW_TARGET_MISSING_SRC_FILES: u32 = 3222163746u32;
-pub const ERROR_PCW_TARGET_WRONG_PRODUCT_VERSION_COMP: u32 = 3222163979u32;
-pub const ERROR_PCW_TFILEDATA_BAD_IGNORE_LENGTHS: u32 = 3222163822u32;
-pub const ERROR_PCW_TFILEDATA_BAD_IGNORE_OFFSETS: u32 = 3222163820u32;
-pub const ERROR_PCW_TFILEDATA_BAD_RETAIN_OFFSETS: u32 = 3222163825u32;
-pub const ERROR_PCW_TFILEDATA_BAD_TARGET_FIELD: u32 = 3222163791u32;
-pub const ERROR_PCW_TFILEDATA_BLANK_FILE_TABLE_KEY: u32 = 3222163789u32;
-pub const ERROR_PCW_TFILEDATA_IGNORE_COUNT_MISMATCH: u32 = 3222163823u32;
-pub const ERROR_PCW_TFILEDATA_LONG_FILE_TABLE_KEY: u32 = 3222163788u32;
-pub const ERROR_PCW_TFILEDATA_LONG_IGNORE_LENGTHS: u32 = 3222163821u32;
-pub const ERROR_PCW_TFILEDATA_LONG_IGNORE_OFFSETS: u32 = 3222163819u32;
-pub const ERROR_PCW_TFILEDATA_LONG_RETAIN_OFFSETS: u32 = 3222163824u32;
-pub const ERROR_PCW_TFILEDATA_MISSING_FILE_TABLE_KEY: u32 = 3222163790u32;
-pub const ERROR_PCW_UFILEDATA_BAD_UPGRADED_FIELD: u32 = 3222163778u32;
-pub const ERROR_PCW_UFILEDATA_BLANK_FILE_TABLE_KEY: u32 = 3222163752u32;
-pub const ERROR_PCW_UFILEDATA_LONG_FILE_TABLE_KEY: u32 = 3222163751u32;
-pub const ERROR_PCW_UFILEDATA_MISSING_FILE_TABLE_KEY: u32 = 3222163753u32;
-pub const ERROR_PCW_UFILEIGNORE_BAD_FILE_TABLE_KEY: u32 = 3222163799u32;
-pub const ERROR_PCW_UFILEIGNORE_BAD_UPGRADED_FIELD: u32 = 3222163796u32;
-pub const ERROR_PCW_UFILEIGNORE_BLANK_FILE_TABLE_KEY: u32 = 3222163798u32;
-pub const ERROR_PCW_UFILEIGNORE_LONG_FILE_TABLE_KEY: u32 = 3222163797u32;
-pub const ERROR_PCW_UNKNOWN_ERROR: u32 = 3222163866u32;
-pub const ERROR_PCW_UNKNOWN_INFO: u32 = 3222163867u32;
-pub const ERROR_PCW_UNKNOWN_WARN: u32 = 3222163868u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_COMPRESSED: u32 = 3222163734u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_NAME_TOO_LONG: u32 = 3222163727u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_EXIST: u32 = 3222163793u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_MSI: u32 = 3222163794u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_TOO_LONG: u32 = 3222163792u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATH_EMPTY: u32 = 3222163731u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_EXIST: u32 = 3222163732u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_MSI: u32 = 3222163733u32;
-pub const ERROR_PCW_UPGRADED_IMAGE_PATH_TOO_LONG: u32 = 3222163730u32;
-pub const ERROR_PCW_UPGRADED_MISSING_SRC_FILES: u32 = 3222163745u32;
-pub const ERROR_PCW_VIEW_FETCH: u32 = 3222163871u32;
-pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787u32;
-pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859u32;
-pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
+pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525;
+pub const ERROR_PATCH_CORRUPT: u32 = 3222159618;
+pub const ERROR_PATCH_DECODE_FAILURE: u32 = 3222159617;
+pub const ERROR_PATCH_ENCODE_FAILURE: u32 = 3222155521;
+pub const ERROR_PATCH_IMAGEHLP_FAILURE: u32 = 3222155526;
+pub const ERROR_PATCH_INVALID_OPTIONS: u32 = 3222155522;
+pub const ERROR_PATCH_NEWER_FORMAT: u32 = 3222159619;
+pub const ERROR_PATCH_NOT_AVAILABLE: u32 = 3222159622;
+pub const ERROR_PATCH_NOT_NECESSARY: u32 = 3222159621;
+pub const ERROR_PATCH_RETAIN_RANGES_DIFFER: u32 = 3222155524;
+pub const ERROR_PATCH_SAME_FILE: u32 = 3222155523;
+pub const ERROR_PATCH_WRONG_FILE: u32 = 3222159620;
+pub const ERROR_PCW_BAD_API_PATCHING_SYMBOL_FLAGS: u32 = 3222163725;
+pub const ERROR_PCW_BAD_FAMILY_RANGE_NAME: u32 = 3222163801;
+pub const ERROR_PCW_BAD_FILE_SEQUENCE_START: u32 = 3222163770;
+pub const ERROR_PCW_BAD_GUIDS_TO_REPLACE: u32 = 3222163721;
+pub const ERROR_PCW_BAD_IMAGE_FAMILY_DISKID: u32 = 3222163773;
+pub const ERROR_PCW_BAD_IMAGE_FAMILY_FILESEQSTART: u32 = 3222163774;
+pub const ERROR_PCW_BAD_IMAGE_FAMILY_NAME: u32 = 3222163748;
+pub const ERROR_PCW_BAD_IMAGE_FAMILY_SRC_PROP: u32 = 3222163750;
+pub const ERROR_PCW_BAD_MAJOR_VERSION: u32 = 3222163853;
+pub const ERROR_PCW_BAD_PATCH_GUID: u32 = 3222163720;
+pub const ERROR_PCW_BAD_PRODUCTVERSION_VALIDATION: u32 = 3222163844;
+pub const ERROR_PCW_BAD_SEQUENCE: u32 = 3222163848;
+pub const ERROR_PCW_BAD_SUPERCEDENCE: u32 = 3222163847;
+pub const ERROR_PCW_BAD_TARGET: u32 = 3222163849;
+pub const ERROR_PCW_BAD_TARGET_IMAGE_NAME: u32 = 3222163736;
+pub const ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_CODE: u32 = 3222163834;
+pub const ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_VERSION: u32 = 3222163835;
+pub const ERROR_PCW_BAD_TARGET_IMAGE_UPGRADED: u32 = 3222163776;
+pub const ERROR_PCW_BAD_TARGET_IMAGE_UPGRADE_CODE: u32 = 3222163836;
+pub const ERROR_PCW_BAD_TARGET_PRODUCT_CODE_LIST: u32 = 3222163722;
+pub const ERROR_PCW_BAD_TGT_UPD_IMAGES: u32 = 3222163846;
+pub const ERROR_PCW_BAD_TRANSFORMSET: u32 = 3222163845;
+pub const ERROR_PCW_BAD_UPGRADED_IMAGE_FAMILY: u32 = 3222163775;
+pub const ERROR_PCW_BAD_UPGRADED_IMAGE_NAME: u32 = 3222163728;
+pub const ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_CODE: u32 = 3222163831;
+pub const ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_VERSION: u32 = 3222163832;
+pub const ERROR_PCW_BAD_UPGRADED_IMAGE_UPGRADE_CODE: u32 = 3222163833;
+pub const ERROR_PCW_BAD_VERSION_STRING: u32 = 3222163852;
+pub const ERROR_PCW_BASE: u32 = 3222163713;
+pub const ERROR_PCW_CANNOT_CREATE_TABLE: u32 = 3222163841;
+pub const ERROR_PCW_CANNOT_RUN_MAKECAB: u32 = 3222163782;
+pub const ERROR_PCW_CANNOT_WRITE_DDF: u32 = 3222163781;
+pub const ERROR_PCW_CANT_COPY_FILE_TO_TEMP_FOLDER: u32 = 3222163771;
+pub const ERROR_PCW_CANT_CREATE_ONE_PATCH_FILE: u32 = 3222163772;
+pub const ERROR_PCW_CANT_CREATE_PATCH_FILE: u32 = 3222163718;
+pub const ERROR_PCW_CANT_CREATE_SUMMARY_INFO: u32 = 3222163828;
+pub const ERROR_PCW_CANT_CREATE_SUMMARY_INFO_POUND: u32 = 3222163830;
+pub const ERROR_PCW_CANT_CREATE_TEMP_FOLDER: u32 = 3222163715;
+pub const ERROR_PCW_CANT_DELETE_TEMP_FOLDER: u32 = 3222163974;
+pub const ERROR_PCW_CANT_GENERATE_SEQUENCEINFO_MAJORUPGD: u32 = 3222163842;
+pub const ERROR_PCW_CANT_GENERATE_TRANSFORM: u32 = 3222163827;
+pub const ERROR_PCW_CANT_GENERATE_TRANSFORM_POUND: u32 = 3222163829;
+pub const ERROR_PCW_CANT_OVERWRITE_PATCH: u32 = 3222163717;
+pub const ERROR_PCW_CANT_READ_FILE: u32 = 3222163978;
+pub const ERROR_PCW_CREATEFILE_LOG_FAILED: u32 = 3222163861;
+pub const ERROR_PCW_DUPLICATE_SEQUENCE_RECORD: u32 = 3222163858;
+pub const ERROR_PCW_DUP_IMAGE_FAMILY_NAME: u32 = 3222163749;
+pub const ERROR_PCW_DUP_TARGET_IMAGE_NAME: u32 = 3222163737;
+pub const ERROR_PCW_DUP_TARGET_IMAGE_PACKCODE: u32 = 3222163777;
+pub const ERROR_PCW_DUP_UPGRADED_IMAGE_NAME: u32 = 3222163729;
+pub const ERROR_PCW_DUP_UPGRADED_IMAGE_PACKCODE: u32 = 3222163795;
+pub const ERROR_PCW_ERROR_WRITING_TO_LOG: u32 = 3222163864;
+pub const ERROR_PCW_EXECUTE_VIEW: u32 = 3222163870;
+pub const ERROR_PCW_EXTFILE_BAD_FAMILY_FIELD: u32 = 3222163756;
+pub const ERROR_PCW_EXTFILE_BAD_IGNORE_LENGTHS: u32 = 3222163814;
+pub const ERROR_PCW_EXTFILE_BAD_IGNORE_OFFSETS: u32 = 3222163812;
+pub const ERROR_PCW_EXTFILE_BAD_RETAIN_OFFSETS: u32 = 3222163817;
+pub const ERROR_PCW_EXTFILE_BLANK_FILE_TABLE_KEY: u32 = 3222163755;
+pub const ERROR_PCW_EXTFILE_BLANK_PATH_TO_FILE: u32 = 3222163758;
+pub const ERROR_PCW_EXTFILE_IGNORE_COUNT_MISMATCH: u32 = 3222163815;
+pub const ERROR_PCW_EXTFILE_LONG_FILE_TABLE_KEY: u32 = 3222163754;
+pub const ERROR_PCW_EXTFILE_LONG_IGNORE_LENGTHS: u32 = 3222163813;
+pub const ERROR_PCW_EXTFILE_LONG_IGNORE_OFFSETS: u32 = 3222163811;
+pub const ERROR_PCW_EXTFILE_LONG_PATH_TO_FILE: u32 = 3222163757;
+pub const ERROR_PCW_EXTFILE_LONG_RETAIN_OFFSETS: u32 = 3222163816;
+pub const ERROR_PCW_EXTFILE_MISSING_FILE: u32 = 3222163759;
+pub const ERROR_PCW_FAILED_CREATE_TRANSFORM: u32 = 3222163973;
+pub const ERROR_PCW_FAILED_EXPAND_PATH: u32 = 3222163872;
+pub const ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_LENGTHS: u32 = 3222163809;
+pub const ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_OFFSETS: u32 = 3222163806;
+pub const ERROR_PCW_FAMILY_RANGE_BLANK_FILE_TABLE_KEY: u32 = 3222163803;
+pub const ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_LENGTHS: u32 = 3222163808;
+pub const ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_OFFSETS: u32 = 3222163805;
+pub const ERROR_PCW_FAMILY_RANGE_COUNT_MISMATCH: u32 = 3222163810;
+pub const ERROR_PCW_FAMILY_RANGE_LONG_FILE_TABLE_KEY: u32 = 3222163802;
+pub const ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_LENGTHS: u32 = 3222163807;
+pub const ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_OFFSETS: u32 = 3222163804;
+pub const ERROR_PCW_FAMILY_RANGE_NAME_TOO_LONG: u32 = 3222163800;
+pub const ERROR_PCW_IMAGE_FAMILY_NAME_TOO_LONG: u32 = 3222163747;
+pub const ERROR_PCW_IMAGE_PATH_NOT_EXIST: u32 = 3222163988;
+pub const ERROR_PCW_INTERNAL_ERROR: u32 = 3222163969;
+pub const ERROR_PCW_INVALID_LOG_LEVEL: u32 = 3222163862;
+pub const ERROR_PCW_INVALID_MAJOR_VERSION: u32 = 3222163990;
+pub const ERROR_PCW_INVALID_PARAMETER: u32 = 3222163860;
+pub const ERROR_PCW_INVALID_PATCHMETADATA_PROP: u32 = 3222163856;
+pub const ERROR_PCW_INVALID_PATCH_TYPE_SEQUENCING: u32 = 3222163977;
+pub const ERROR_PCW_INVALID_PCP_EXTERNALFILES: u32 = 3222163982;
+pub const ERROR_PCW_INVALID_PCP_FAMILYFILERANGES: u32 = 3222163992;
+pub const ERROR_PCW_INVALID_PCP_IMAGEFAMILIES: u32 = 3222163983;
+pub const ERROR_PCW_INVALID_PCP_PATCHSEQUENCE: u32 = 3222163984;
+pub const ERROR_PCW_INVALID_PCP_PROPERTIES: u32 = 3222163991;
+pub const ERROR_PCW_INVALID_PCP_PROPERTY: u32 = 3222163970;
+pub const ERROR_PCW_INVALID_PCP_TARGETFILES_OPTIONALDATA: u32 = 3222163985;
+pub const ERROR_PCW_INVALID_PCP_TARGETIMAGES: u32 = 3222163971;
+pub const ERROR_PCW_INVALID_PCP_UPGRADEDFILESTOIGNORE: u32 = 3222163980;
+pub const ERROR_PCW_INVALID_PCP_UPGRADEDFILES_OPTIONALDATA: u32 = 3222163986;
+pub const ERROR_PCW_INVALID_PCP_UPGRADEDIMAGES: u32 = 3222163981;
+pub const ERROR_PCW_INVALID_RANGE_ELEMENT: u32 = 3222163989;
+pub const ERROR_PCW_INVALID_SUPERCEDENCE: u32 = 3222163857;
+pub const ERROR_PCW_INVALID_SUPERSEDENCE_VALUE: u32 = 3222163976;
+pub const ERROR_PCW_INVALID_UI_LEVEL: u32 = 3222163863;
+pub const ERROR_PCW_LAX_VALIDATION_FLAGS: u32 = 3222163972;
+pub const ERROR_PCW_MAJOR_UPGD_WITHOUT_SEQUENCING: u32 = 3222163843;
+pub const ERROR_PCW_MATCHED_PRODUCT_VERSIONS: u32 = 3222163837;
+pub const ERROR_PCW_MISMATCHED_PRODUCT_CODES: u32 = 3222163779;
+pub const ERROR_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222163780;
+pub const ERROR_PCW_MISSING_DIRECTORY_TABLE: u32 = 3222163975;
+pub const ERROR_PCW_MISSING_PATCHMETADATA: u32 = 3222163987;
+pub const ERROR_PCW_MISSING_PATCH_GUID: u32 = 3222163719;
+pub const ERROR_PCW_MISSING_PATCH_PATH: u32 = 3222163716;
+pub const ERROR_PCW_NO_UPGRADED_IMAGES_TO_PATCH: u32 = 3222163723;
+pub const ERROR_PCW_NULL_PATCHFAMILY: u32 = 3222163850;
+pub const ERROR_PCW_NULL_SEQUENCE_NUMBER: u32 = 3222163851;
+pub const ERROR_PCW_OBSOLETION_WITH_MSI30: u32 = 3222163839;
+pub const ERROR_PCW_OBSOLETION_WITH_PATCHSEQUENCE: u32 = 3222163840;
+pub const ERROR_PCW_OBSOLETION_WITH_SEQUENCE_DATA: u32 = 3222163838;
+pub const ERROR_PCW_OODS_COPYING_MSI: u32 = 3222163726;
+pub const ERROR_PCW_OPEN_VIEW: u32 = 3222163869;
+pub const ERROR_PCW_OUT_OF_MEMORY: u32 = 3222163865;
+pub const ERROR_PCW_PATCHMETADATA_PROP_NOT_SET: u32 = 3222163855;
+pub const ERROR_PCW_PCP_BAD_FORMAT: u32 = 3222163714;
+pub const ERROR_PCW_PCP_DOESNT_EXIST: u32 = 3222163713;
+pub const ERROR_PCW_SEQUENCING_BAD_TARGET: u32 = 3222163854;
+pub const ERROR_PCW_TARGET_BAD_PROD_CODE_VAL: u32 = 3222163744;
+pub const ERROR_PCW_TARGET_BAD_PROD_VALIDATE: u32 = 3222163743;
+pub const ERROR_PCW_TARGET_IMAGE_COMPRESSED: u32 = 3222163742;
+pub const ERROR_PCW_TARGET_IMAGE_NAME_TOO_LONG: u32 = 3222163735;
+pub const ERROR_PCW_TARGET_IMAGE_PATH_EMPTY: u32 = 3222163739;
+pub const ERROR_PCW_TARGET_IMAGE_PATH_NOT_EXIST: u32 = 3222163740;
+pub const ERROR_PCW_TARGET_IMAGE_PATH_NOT_MSI: u32 = 3222163741;
+pub const ERROR_PCW_TARGET_IMAGE_PATH_TOO_LONG: u32 = 3222163738;
+pub const ERROR_PCW_TARGET_MISSING_SRC_FILES: u32 = 3222163746;
+pub const ERROR_PCW_TARGET_WRONG_PRODUCT_VERSION_COMP: u32 = 3222163979;
+pub const ERROR_PCW_TFILEDATA_BAD_IGNORE_LENGTHS: u32 = 3222163822;
+pub const ERROR_PCW_TFILEDATA_BAD_IGNORE_OFFSETS: u32 = 3222163820;
+pub const ERROR_PCW_TFILEDATA_BAD_RETAIN_OFFSETS: u32 = 3222163825;
+pub const ERROR_PCW_TFILEDATA_BAD_TARGET_FIELD: u32 = 3222163791;
+pub const ERROR_PCW_TFILEDATA_BLANK_FILE_TABLE_KEY: u32 = 3222163789;
+pub const ERROR_PCW_TFILEDATA_IGNORE_COUNT_MISMATCH: u32 = 3222163823;
+pub const ERROR_PCW_TFILEDATA_LONG_FILE_TABLE_KEY: u32 = 3222163788;
+pub const ERROR_PCW_TFILEDATA_LONG_IGNORE_LENGTHS: u32 = 3222163821;
+pub const ERROR_PCW_TFILEDATA_LONG_IGNORE_OFFSETS: u32 = 3222163819;
+pub const ERROR_PCW_TFILEDATA_LONG_RETAIN_OFFSETS: u32 = 3222163824;
+pub const ERROR_PCW_TFILEDATA_MISSING_FILE_TABLE_KEY: u32 = 3222163790;
+pub const ERROR_PCW_UFILEDATA_BAD_UPGRADED_FIELD: u32 = 3222163778;
+pub const ERROR_PCW_UFILEDATA_BLANK_FILE_TABLE_KEY: u32 = 3222163752;
+pub const ERROR_PCW_UFILEDATA_LONG_FILE_TABLE_KEY: u32 = 3222163751;
+pub const ERROR_PCW_UFILEDATA_MISSING_FILE_TABLE_KEY: u32 = 3222163753;
+pub const ERROR_PCW_UFILEIGNORE_BAD_FILE_TABLE_KEY: u32 = 3222163799;
+pub const ERROR_PCW_UFILEIGNORE_BAD_UPGRADED_FIELD: u32 = 3222163796;
+pub const ERROR_PCW_UFILEIGNORE_BLANK_FILE_TABLE_KEY: u32 = 3222163798;
+pub const ERROR_PCW_UFILEIGNORE_LONG_FILE_TABLE_KEY: u32 = 3222163797;
+pub const ERROR_PCW_UNKNOWN_ERROR: u32 = 3222163866;
+pub const ERROR_PCW_UNKNOWN_INFO: u32 = 3222163867;
+pub const ERROR_PCW_UNKNOWN_WARN: u32 = 3222163868;
+pub const ERROR_PCW_UPGRADED_IMAGE_COMPRESSED: u32 = 3222163734;
+pub const ERROR_PCW_UPGRADED_IMAGE_NAME_TOO_LONG: u32 = 3222163727;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_EXIST: u32 = 3222163793;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_MSI: u32 = 3222163794;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_TOO_LONG: u32 = 3222163792;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATH_EMPTY: u32 = 3222163731;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_EXIST: u32 = 3222163732;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_MSI: u32 = 3222163733;
+pub const ERROR_PCW_UPGRADED_IMAGE_PATH_TOO_LONG: u32 = 3222163730;
+pub const ERROR_PCW_UPGRADED_MISSING_SRC_FILES: u32 = 3222163745;
+pub const ERROR_PCW_VIEW_FETCH: u32 = 3222163871;
+pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787;
+pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859;
+pub const ERROR_ROLLBACK_DISABLED: u32 = 1653;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FUSION_INSTALL_REFERENCE {
@@ -3143,17 +3106,17 @@ pub const IACTIONNAME_COLLECTUSERINFO: windows_core::PCWSTR = windows_core::w!("
 pub const IACTIONNAME_FIRSTRUN: windows_core::PCWSTR = windows_core::w!("FirstRun");
 pub const IACTIONNAME_INSTALL: windows_core::PCWSTR = windows_core::w!("INSTALL");
 pub const IACTIONNAME_SEQUENCE: windows_core::PCWSTR = windows_core::w!("SEQUENCE");
-pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: u32 = 3u32;
-pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: u32 = 1u32;
-pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
-pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1u32;
+pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: u32 = 3;
+pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: u32 = 1;
+pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2;
+pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASSEMBLYCACHE_UNINSTALL_DISPOSITION(pub u32);
-pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(3u32);
-pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(4u32);
-pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(2u32);
-pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(1u32);
+pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(3);
+pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(4);
+pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(2);
+pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(1);
 windows_core::imp::define_interface!(IAssemblyCache, IAssemblyCache_Vtbl, 0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
 windows_core::imp::interface_hierarchy!(IAssemblyCache, windows_core::IUnknown);
 impl IAssemblyCache {
@@ -4458,102 +4421,102 @@ impl IMsmStrings_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmStrings {}
-pub const INFO_BASE: u32 = 3222229249u32;
-pub const INFO_ENTERING_PHASE_I: u32 = 3222229251u32;
-pub const INFO_ENTERING_PHASE_II: u32 = 3222229256u32;
-pub const INFO_ENTERING_PHASE_III: u32 = 3222229257u32;
-pub const INFO_ENTERING_PHASE_IV: u32 = 3222229258u32;
-pub const INFO_ENTERING_PHASE_I_VALIDATION: u32 = 3222229250u32;
-pub const INFO_ENTERING_PHASE_V: u32 = 3222229259u32;
-pub const INFO_GENERATING_METADATA: u32 = 3222229265u32;
-pub const INFO_PASSED_MAIN_CONTROL: u32 = 3222229249u32;
-pub const INFO_PATCHCACHE_FILEINFO_FAILURE: u32 = 3222229267u32;
-pub const INFO_PATCHCACHE_PCI_READFAILURE: u32 = 3222229268u32;
-pub const INFO_PATCHCACHE_PCI_WRITEFAILURE: u32 = 3222229269u32;
-pub const INFO_PCP_PATH: u32 = 3222229252u32;
-pub const INFO_PROPERTY: u32 = 3222229255u32;
-pub const INFO_SET_OPTIONS: u32 = 3222229254u32;
-pub const INFO_SUCCESSFUL_PATCH_CREATION: u32 = 3222229271u32;
-pub const INFO_TEMP_DIR: u32 = 3222229253u32;
-pub const INFO_TEMP_DIR_CLEANUP: u32 = 3222229266u32;
-pub const INFO_USING_USER_MSI_FOR_PATCH_TABLES: u32 = 3222229270u32;
+pub const INFO_BASE: u32 = 3222229249;
+pub const INFO_ENTERING_PHASE_I: u32 = 3222229251;
+pub const INFO_ENTERING_PHASE_II: u32 = 3222229256;
+pub const INFO_ENTERING_PHASE_III: u32 = 3222229257;
+pub const INFO_ENTERING_PHASE_IV: u32 = 3222229258;
+pub const INFO_ENTERING_PHASE_I_VALIDATION: u32 = 3222229250;
+pub const INFO_ENTERING_PHASE_V: u32 = 3222229259;
+pub const INFO_GENERATING_METADATA: u32 = 3222229265;
+pub const INFO_PASSED_MAIN_CONTROL: u32 = 3222229249;
+pub const INFO_PATCHCACHE_FILEINFO_FAILURE: u32 = 3222229267;
+pub const INFO_PATCHCACHE_PCI_READFAILURE: u32 = 3222229268;
+pub const INFO_PATCHCACHE_PCI_WRITEFAILURE: u32 = 3222229269;
+pub const INFO_PCP_PATH: u32 = 3222229252;
+pub const INFO_PROPERTY: u32 = 3222229255;
+pub const INFO_SET_OPTIONS: u32 = 3222229254;
+pub const INFO_SUCCESSFUL_PATCH_CREATION: u32 = 3222229271;
+pub const INFO_TEMP_DIR: u32 = 3222229253;
+pub const INFO_TEMP_DIR_CLEANUP: u32 = 3222229266;
+pub const INFO_USING_USER_MSI_FOR_PATCH_TABLES: u32 = 3222229270;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLFEATUREATTRIBUTE(pub i32);
-pub const INSTALLFEATUREATTRIBUTE_DISALLOWADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(16i32);
-pub const INSTALLFEATUREATTRIBUTE_FAVORADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(8i32);
-pub const INSTALLFEATUREATTRIBUTE_FAVORLOCAL: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(1i32);
-pub const INSTALLFEATUREATTRIBUTE_FAVORSOURCE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(2i32);
-pub const INSTALLFEATUREATTRIBUTE_FOLLOWPARENT: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(4i32);
-pub const INSTALLFEATUREATTRIBUTE_NOUNSUPPORTEDADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(32i32);
+pub const INSTALLFEATUREATTRIBUTE_DISALLOWADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(16);
+pub const INSTALLFEATUREATTRIBUTE_FAVORADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(8);
+pub const INSTALLFEATUREATTRIBUTE_FAVORLOCAL: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(1);
+pub const INSTALLFEATUREATTRIBUTE_FAVORSOURCE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(2);
+pub const INSTALLFEATUREATTRIBUTE_FOLLOWPARENT: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(4);
+pub const INSTALLFEATUREATTRIBUTE_NOUNSUPPORTEDADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLLEVEL(pub i32);
-pub const INSTALLLEVEL_DEFAULT: INSTALLLEVEL = INSTALLLEVEL(0i32);
-pub const INSTALLLEVEL_MAXIMUM: INSTALLLEVEL = INSTALLLEVEL(65535i32);
-pub const INSTALLLEVEL_MINIMUM: INSTALLLEVEL = INSTALLLEVEL(1i32);
+pub const INSTALLLEVEL_DEFAULT: INSTALLLEVEL = INSTALLLEVEL(0);
+pub const INSTALLLEVEL_MAXIMUM: INSTALLLEVEL = INSTALLLEVEL(65535);
+pub const INSTALLLEVEL_MINIMUM: INSTALLLEVEL = INSTALLLEVEL(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLLOGATTRIBUTES(pub i32);
-pub const INSTALLLOGATTRIBUTES_APPEND: INSTALLLOGATTRIBUTES = INSTALLLOGATTRIBUTES(1i32);
-pub const INSTALLLOGATTRIBUTES_FLUSHEACHLINE: INSTALLLOGATTRIBUTES = INSTALLLOGATTRIBUTES(2i32);
+pub const INSTALLLOGATTRIBUTES_APPEND: INSTALLLOGATTRIBUTES = INSTALLLOGATTRIBUTES(1);
+pub const INSTALLLOGATTRIBUTES_FLUSHEACHLINE: INSTALLLOGATTRIBUTES = INSTALLLOGATTRIBUTES(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLLOGMODE(pub i32);
-pub const INSTALLLOGMODE_ACTIONDATA: INSTALLLOGMODE = INSTALLLOGMODE(512i32);
-pub const INSTALLLOGMODE_ACTIONSTART: INSTALLLOGMODE = INSTALLLOGMODE(256i32);
-pub const INSTALLLOGMODE_COMMONDATA: INSTALLLOGMODE = INSTALLLOGMODE(2048i32);
-pub const INSTALLLOGMODE_ERROR: INSTALLLOGMODE = INSTALLLOGMODE(2i32);
-pub const INSTALLLOGMODE_EXTRADEBUG: INSTALLLOGMODE = INSTALLLOGMODE(8192i32);
-pub const INSTALLLOGMODE_FATALEXIT: INSTALLLOGMODE = INSTALLLOGMODE(1i32);
-pub const INSTALLLOGMODE_FILESINUSE: INSTALLLOGMODE = INSTALLLOGMODE(32i32);
-pub const INSTALLLOGMODE_INFO: INSTALLLOGMODE = INSTALLLOGMODE(16i32);
-pub const INSTALLLOGMODE_INITIALIZE: INSTALLLOGMODE = INSTALLLOGMODE(4096i32);
-pub const INSTALLLOGMODE_INSTALLEND: INSTALLLOGMODE = INSTALLLOGMODE(134217728i32);
-pub const INSTALLLOGMODE_INSTALLSTART: INSTALLLOGMODE = INSTALLLOGMODE(67108864i32);
-pub const INSTALLLOGMODE_LOGONLYONERROR: INSTALLLOGMODE = INSTALLLOGMODE(16384i32);
-pub const INSTALLLOGMODE_LOGPERFORMANCE: INSTALLLOGMODE = INSTALLLOGMODE(32768i32);
-pub const INSTALLLOGMODE_OUTOFDISKSPACE: INSTALLLOGMODE = INSTALLLOGMODE(128i32);
-pub const INSTALLLOGMODE_PROGRESS: INSTALLLOGMODE = INSTALLLOGMODE(1024i32);
-pub const INSTALLLOGMODE_PROPERTYDUMP: INSTALLLOGMODE = INSTALLLOGMODE(1024i32);
-pub const INSTALLLOGMODE_RESOLVESOURCE: INSTALLLOGMODE = INSTALLLOGMODE(64i32);
-pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLLOGMODE = INSTALLLOGMODE(33554432i32);
-pub const INSTALLLOGMODE_SHOWDIALOG: INSTALLLOGMODE = INSTALLLOGMODE(16384i32);
-pub const INSTALLLOGMODE_TERMINATE: INSTALLLOGMODE = INSTALLLOGMODE(8192i32);
-pub const INSTALLLOGMODE_USER: INSTALLLOGMODE = INSTALLLOGMODE(8i32);
-pub const INSTALLLOGMODE_VERBOSE: INSTALLLOGMODE = INSTALLLOGMODE(4096i32);
-pub const INSTALLLOGMODE_WARNING: INSTALLLOGMODE = INSTALLLOGMODE(4i32);
+pub const INSTALLLOGMODE_ACTIONDATA: INSTALLLOGMODE = INSTALLLOGMODE(512);
+pub const INSTALLLOGMODE_ACTIONSTART: INSTALLLOGMODE = INSTALLLOGMODE(256);
+pub const INSTALLLOGMODE_COMMONDATA: INSTALLLOGMODE = INSTALLLOGMODE(2048);
+pub const INSTALLLOGMODE_ERROR: INSTALLLOGMODE = INSTALLLOGMODE(2);
+pub const INSTALLLOGMODE_EXTRADEBUG: INSTALLLOGMODE = INSTALLLOGMODE(8192);
+pub const INSTALLLOGMODE_FATALEXIT: INSTALLLOGMODE = INSTALLLOGMODE(1);
+pub const INSTALLLOGMODE_FILESINUSE: INSTALLLOGMODE = INSTALLLOGMODE(32);
+pub const INSTALLLOGMODE_INFO: INSTALLLOGMODE = INSTALLLOGMODE(16);
+pub const INSTALLLOGMODE_INITIALIZE: INSTALLLOGMODE = INSTALLLOGMODE(4096);
+pub const INSTALLLOGMODE_INSTALLEND: INSTALLLOGMODE = INSTALLLOGMODE(134217728);
+pub const INSTALLLOGMODE_INSTALLSTART: INSTALLLOGMODE = INSTALLLOGMODE(67108864);
+pub const INSTALLLOGMODE_LOGONLYONERROR: INSTALLLOGMODE = INSTALLLOGMODE(16384);
+pub const INSTALLLOGMODE_LOGPERFORMANCE: INSTALLLOGMODE = INSTALLLOGMODE(32768);
+pub const INSTALLLOGMODE_OUTOFDISKSPACE: INSTALLLOGMODE = INSTALLLOGMODE(128);
+pub const INSTALLLOGMODE_PROGRESS: INSTALLLOGMODE = INSTALLLOGMODE(1024);
+pub const INSTALLLOGMODE_PROPERTYDUMP: INSTALLLOGMODE = INSTALLLOGMODE(1024);
+pub const INSTALLLOGMODE_RESOLVESOURCE: INSTALLLOGMODE = INSTALLLOGMODE(64);
+pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLLOGMODE = INSTALLLOGMODE(33554432);
+pub const INSTALLLOGMODE_SHOWDIALOG: INSTALLLOGMODE = INSTALLLOGMODE(16384);
+pub const INSTALLLOGMODE_TERMINATE: INSTALLLOGMODE = INSTALLLOGMODE(8192);
+pub const INSTALLLOGMODE_USER: INSTALLLOGMODE = INSTALLLOGMODE(8);
+pub const INSTALLLOGMODE_VERBOSE: INSTALLLOGMODE = INSTALLLOGMODE(4096);
+pub const INSTALLLOGMODE_WARNING: INSTALLLOGMODE = INSTALLLOGMODE(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLMESSAGE(pub i32);
-pub const INSTALLMESSAGE_ACTIONDATA: INSTALLMESSAGE = INSTALLMESSAGE(150994944i32);
-pub const INSTALLMESSAGE_ACTIONSTART: INSTALLMESSAGE = INSTALLMESSAGE(134217728i32);
-pub const INSTALLMESSAGE_COMMONDATA: INSTALLMESSAGE = INSTALLMESSAGE(184549376i32);
-pub const INSTALLMESSAGE_ERROR: INSTALLMESSAGE = INSTALLMESSAGE(16777216i32);
-pub const INSTALLMESSAGE_FATALEXIT: INSTALLMESSAGE = INSTALLMESSAGE(0i32);
-pub const INSTALLMESSAGE_FILESINUSE: INSTALLMESSAGE = INSTALLMESSAGE(83886080i32);
-pub const INSTALLMESSAGE_INFO: INSTALLMESSAGE = INSTALLMESSAGE(67108864i32);
-pub const INSTALLMESSAGE_INITIALIZE: INSTALLMESSAGE = INSTALLMESSAGE(201326592i32);
-pub const INSTALLMESSAGE_INSTALLEND: INSTALLMESSAGE = INSTALLMESSAGE(452984832i32);
-pub const INSTALLMESSAGE_INSTALLSTART: INSTALLMESSAGE = INSTALLMESSAGE(436207616i32);
-pub const INSTALLMESSAGE_OUTOFDISKSPACE: INSTALLMESSAGE = INSTALLMESSAGE(117440512i32);
-pub const INSTALLMESSAGE_PERFORMANCE: INSTALLMESSAGE = INSTALLMESSAGE(251658240i32);
-pub const INSTALLMESSAGE_PROGRESS: INSTALLMESSAGE = INSTALLMESSAGE(167772160i32);
-pub const INSTALLMESSAGE_RESOLVESOURCE: INSTALLMESSAGE = INSTALLMESSAGE(100663296i32);
-pub const INSTALLMESSAGE_RMFILESINUSE: INSTALLMESSAGE = INSTALLMESSAGE(419430400i32);
-pub const INSTALLMESSAGE_SHOWDIALOG: INSTALLMESSAGE = INSTALLMESSAGE(234881024i32);
-pub const INSTALLMESSAGE_TERMINATE: INSTALLMESSAGE = INSTALLMESSAGE(218103808i32);
-pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216i32;
-pub const INSTALLMESSAGE_USER: INSTALLMESSAGE = INSTALLMESSAGE(50331648i32);
-pub const INSTALLMESSAGE_WARNING: INSTALLMESSAGE = INSTALLMESSAGE(33554432i32);
+pub const INSTALLMESSAGE_ACTIONDATA: INSTALLMESSAGE = INSTALLMESSAGE(150994944);
+pub const INSTALLMESSAGE_ACTIONSTART: INSTALLMESSAGE = INSTALLMESSAGE(134217728);
+pub const INSTALLMESSAGE_COMMONDATA: INSTALLMESSAGE = INSTALLMESSAGE(184549376);
+pub const INSTALLMESSAGE_ERROR: INSTALLMESSAGE = INSTALLMESSAGE(16777216);
+pub const INSTALLMESSAGE_FATALEXIT: INSTALLMESSAGE = INSTALLMESSAGE(0);
+pub const INSTALLMESSAGE_FILESINUSE: INSTALLMESSAGE = INSTALLMESSAGE(83886080);
+pub const INSTALLMESSAGE_INFO: INSTALLMESSAGE = INSTALLMESSAGE(67108864);
+pub const INSTALLMESSAGE_INITIALIZE: INSTALLMESSAGE = INSTALLMESSAGE(201326592);
+pub const INSTALLMESSAGE_INSTALLEND: INSTALLMESSAGE = INSTALLMESSAGE(452984832);
+pub const INSTALLMESSAGE_INSTALLSTART: INSTALLMESSAGE = INSTALLMESSAGE(436207616);
+pub const INSTALLMESSAGE_OUTOFDISKSPACE: INSTALLMESSAGE = INSTALLMESSAGE(117440512);
+pub const INSTALLMESSAGE_PERFORMANCE: INSTALLMESSAGE = INSTALLMESSAGE(251658240);
+pub const INSTALLMESSAGE_PROGRESS: INSTALLMESSAGE = INSTALLMESSAGE(167772160);
+pub const INSTALLMESSAGE_RESOLVESOURCE: INSTALLMESSAGE = INSTALLMESSAGE(100663296);
+pub const INSTALLMESSAGE_RMFILESINUSE: INSTALLMESSAGE = INSTALLMESSAGE(419430400);
+pub const INSTALLMESSAGE_SHOWDIALOG: INSTALLMESSAGE = INSTALLMESSAGE(234881024);
+pub const INSTALLMESSAGE_TERMINATE: INSTALLMESSAGE = INSTALLMESSAGE(218103808);
+pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216;
+pub const INSTALLMESSAGE_USER: INSTALLMESSAGE = INSTALLMESSAGE(50331648);
+pub const INSTALLMESSAGE_WARNING: INSTALLMESSAGE = INSTALLMESSAGE(33554432);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLMODE(pub i32);
-pub const INSTALLMODE_DEFAULT: INSTALLMODE = INSTALLMODE(0i32);
-pub const INSTALLMODE_EXISTING: INSTALLMODE = INSTALLMODE(-1i32);
-pub const INSTALLMODE_NODETECTION: INSTALLMODE = INSTALLMODE(-2i32);
-pub const INSTALLMODE_NODETECTION_ANY: INSTALLMODE = INSTALLMODE(-4i32);
-pub const INSTALLMODE_NOSOURCERESOLUTION: INSTALLMODE = INSTALLMODE(-3i32);
+pub const INSTALLMODE_DEFAULT: INSTALLMODE = INSTALLMODE(0);
+pub const INSTALLMODE_EXISTING: INSTALLMODE = INSTALLMODE(-1);
+pub const INSTALLMODE_NODETECTION: INSTALLMODE = INSTALLMODE(-2);
+pub const INSTALLMODE_NODETECTION_ANY: INSTALLMODE = INSTALLMODE(-4);
+pub const INSTALLMODE_NOSOURCERESOLUTION: INSTALLMODE = INSTALLMODE(-3);
 pub const INSTALLPROPERTY_ASSIGNMENTTYPE: windows_core::PCWSTR = windows_core::w!("AssignmentType");
 pub const INSTALLPROPERTY_AUTHORIZED_LUA_APP: windows_core::PCWSTR = windows_core::w!("AuthorizedLUAApp");
 pub const INSTALLPROPERTY_DISKPROMPT: windows_core::PCWSTR = windows_core::w!("DiskPrompt");
@@ -4595,40 +4558,40 @@ pub const INSTALLPROPERTY_VERSIONSTRING: windows_core::PCWSTR = windows_core::w!
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLSTATE(pub i32);
-pub const INSTALLSTATE_ABSENT: INSTALLSTATE = INSTALLSTATE(2i32);
-pub const INSTALLSTATE_ADVERTISED: INSTALLSTATE = INSTALLSTATE(1i32);
-pub const INSTALLSTATE_BADCONFIG: INSTALLSTATE = INSTALLSTATE(-6i32);
-pub const INSTALLSTATE_BROKEN: INSTALLSTATE = INSTALLSTATE(0i32);
-pub const INSTALLSTATE_DEFAULT: INSTALLSTATE = INSTALLSTATE(5i32);
-pub const INSTALLSTATE_INCOMPLETE: INSTALLSTATE = INSTALLSTATE(-5i32);
-pub const INSTALLSTATE_INVALIDARG: INSTALLSTATE = INSTALLSTATE(-2i32);
-pub const INSTALLSTATE_LOCAL: INSTALLSTATE = INSTALLSTATE(3i32);
-pub const INSTALLSTATE_MOREDATA: INSTALLSTATE = INSTALLSTATE(-3i32);
-pub const INSTALLSTATE_NOTUSED: INSTALLSTATE = INSTALLSTATE(-7i32);
-pub const INSTALLSTATE_REMOVED: INSTALLSTATE = INSTALLSTATE(1i32);
-pub const INSTALLSTATE_SOURCE: INSTALLSTATE = INSTALLSTATE(4i32);
-pub const INSTALLSTATE_SOURCEABSENT: INSTALLSTATE = INSTALLSTATE(-4i32);
-pub const INSTALLSTATE_UNKNOWN: INSTALLSTATE = INSTALLSTATE(-1i32);
+pub const INSTALLSTATE_ABSENT: INSTALLSTATE = INSTALLSTATE(2);
+pub const INSTALLSTATE_ADVERTISED: INSTALLSTATE = INSTALLSTATE(1);
+pub const INSTALLSTATE_BADCONFIG: INSTALLSTATE = INSTALLSTATE(-6);
+pub const INSTALLSTATE_BROKEN: INSTALLSTATE = INSTALLSTATE(0);
+pub const INSTALLSTATE_DEFAULT: INSTALLSTATE = INSTALLSTATE(5);
+pub const INSTALLSTATE_INCOMPLETE: INSTALLSTATE = INSTALLSTATE(-5);
+pub const INSTALLSTATE_INVALIDARG: INSTALLSTATE = INSTALLSTATE(-2);
+pub const INSTALLSTATE_LOCAL: INSTALLSTATE = INSTALLSTATE(3);
+pub const INSTALLSTATE_MOREDATA: INSTALLSTATE = INSTALLSTATE(-3);
+pub const INSTALLSTATE_NOTUSED: INSTALLSTATE = INSTALLSTATE(-7);
+pub const INSTALLSTATE_REMOVED: INSTALLSTATE = INSTALLSTATE(1);
+pub const INSTALLSTATE_SOURCE: INSTALLSTATE = INSTALLSTATE(4);
+pub const INSTALLSTATE_SOURCEABSENT: INSTALLSTATE = INSTALLSTATE(-4);
+pub const INSTALLSTATE_UNKNOWN: INSTALLSTATE = INSTALLSTATE(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLTYPE(pub i32);
-pub const INSTALLTYPE_DEFAULT: INSTALLTYPE = INSTALLTYPE(0i32);
-pub const INSTALLTYPE_NETWORK_IMAGE: INSTALLTYPE = INSTALLTYPE(1i32);
-pub const INSTALLTYPE_SINGLE_INSTANCE: INSTALLTYPE = INSTALLTYPE(2i32);
+pub const INSTALLTYPE_DEFAULT: INSTALLTYPE = INSTALLTYPE(0);
+pub const INSTALLTYPE_NETWORK_IMAGE: INSTALLTYPE = INSTALLTYPE(1);
+pub const INSTALLTYPE_SINGLE_INSTANCE: INSTALLTYPE = INSTALLTYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLUILEVEL(pub i32);
-pub const INSTALLUILEVEL_BASIC: INSTALLUILEVEL = INSTALLUILEVEL(3i32);
-pub const INSTALLUILEVEL_DEFAULT: INSTALLUILEVEL = INSTALLUILEVEL(1i32);
-pub const INSTALLUILEVEL_ENDDIALOG: INSTALLUILEVEL = INSTALLUILEVEL(128i32);
-pub const INSTALLUILEVEL_FULL: INSTALLUILEVEL = INSTALLUILEVEL(5i32);
-pub const INSTALLUILEVEL_HIDECANCEL: INSTALLUILEVEL = INSTALLUILEVEL(32i32);
-pub const INSTALLUILEVEL_NOCHANGE: INSTALLUILEVEL = INSTALLUILEVEL(0i32);
-pub const INSTALLUILEVEL_NONE: INSTALLUILEVEL = INSTALLUILEVEL(2i32);
-pub const INSTALLUILEVEL_PROGRESSONLY: INSTALLUILEVEL = INSTALLUILEVEL(64i32);
-pub const INSTALLUILEVEL_REDUCED: INSTALLUILEVEL = INSTALLUILEVEL(4i32);
-pub const INSTALLUILEVEL_SOURCERESONLY: INSTALLUILEVEL = INSTALLUILEVEL(256i32);
-pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = INSTALLUILEVEL(512i32);
+pub const INSTALLUILEVEL_BASIC: INSTALLUILEVEL = INSTALLUILEVEL(3);
+pub const INSTALLUILEVEL_DEFAULT: INSTALLUILEVEL = INSTALLUILEVEL(1);
+pub const INSTALLUILEVEL_ENDDIALOG: INSTALLUILEVEL = INSTALLUILEVEL(128);
+pub const INSTALLUILEVEL_FULL: INSTALLUILEVEL = INSTALLUILEVEL(5);
+pub const INSTALLUILEVEL_HIDECANCEL: INSTALLUILEVEL = INSTALLUILEVEL(32);
+pub const INSTALLUILEVEL_NOCHANGE: INSTALLUILEVEL = INSTALLUILEVEL(0);
+pub const INSTALLUILEVEL_NONE: INSTALLUILEVEL = INSTALLUILEVEL(2);
+pub const INSTALLUILEVEL_PROGRESSONLY: INSTALLUILEVEL = INSTALLUILEVEL(64);
+pub const INSTALLUILEVEL_REDUCED: INSTALLUILEVEL = INSTALLUILEVEL(4);
+pub const INSTALLUILEVEL_SOURCERESONLY: INSTALLUILEVEL = INSTALLUILEVEL(256);
+pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = INSTALLUILEVEL(512);
 pub type INSTALLUI_HANDLERA = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_core::PCSTR) -> i32>;
 pub type INSTALLUI_HANDLERW = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_core::PCWSTR) -> i32>;
 windows_core::imp::define_interface!(IPMApplicationInfo, IPMApplicationInfo_Vtbl, 0x50afb58a_438c_4088_9789_f8c4899829c7);
@@ -6271,7 +6234,7 @@ impl IPMDeploymentManager {
         unsafe { (windows_core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packagefamilyname)).ok() }
     }
     pub unsafe fn AddLicenseForAppx(&self, productid: windows_core::GUID, pblicense: &[u8], pbplayreadyheader: Option<&[u8]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddLicenseForAppx)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute(pblicense.as_ptr()), pblicense.len().try_into().unwrap(), core::mem::transmute(pbplayreadyheader.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbplayreadyheader.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddLicenseForAppx)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute(pblicense.as_ptr()), pblicense.len().try_into().unwrap(), core::mem::transmute(pbplayreadyheader.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbplayreadyheader.map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FixJunctionsForAppsOnSDCard)(windows_core::Interface::as_raw(self)).ok() }
@@ -9267,109 +9230,109 @@ impl IValidate_Vtbl {
 }
 impl windows_core::RuntimeName for IValidate {}
 pub const LIBID_MsmMergeTypeLib: windows_core::GUID = windows_core::GUID::from_u128(0x0adda82f_2c26_11d2_ad65_00a0c9af11a6);
-pub const LOGALL: u32 = 15u32;
-pub const LOGERR: u32 = 4u32;
-pub const LOGINFO: u32 = 1u32;
-pub const LOGNONE: u32 = 0u32;
-pub const LOGPERFMESSAGES: u32 = 8u32;
-pub const LOGTOKEN_NO_LOG: u32 = 1u32;
-pub const LOGTOKEN_SETUPAPI_APPLOG: u32 = 2u32;
-pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3u32;
-pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
-pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
-pub const LOGWARN: u32 = 2u32;
+pub const LOGALL: u32 = 15;
+pub const LOGERR: u32 = 4;
+pub const LOGINFO: u32 = 1;
+pub const LOGNONE: u32 = 0;
+pub const LOGPERFMESSAGES: u32 = 8;
+pub const LOGTOKEN_NO_LOG: u32 = 1;
+pub const LOGTOKEN_SETUPAPI_APPLOG: u32 = 2;
+pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3;
+pub const LOGTOKEN_TYPE_MASK: u32 = 3;
+pub const LOGTOKEN_UNSPECIFIED: u32 = 0;
+pub const LOGWARN: u32 = 2;
 pub type LPDISPLAYVAL = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, uitype: RESULTTYPES, szwval: windows_core::PCWSTR, szwdescription: windows_core::PCWSTR, szwlocation: windows_core::PCWSTR) -> windows_core::BOOL>;
 pub type LPEVALCOMCALLBACK = Option<unsafe extern "system" fn(istatus: STATUSTYPES, szdata: windows_core::PCWSTR, pcontext: *mut core::ffi::c_void) -> windows_core::BOOL>;
-pub const MAX_FEATURE_CHARS: u32 = 38u32;
-pub const MAX_GUID_CHARS: u32 = 38u32;
+pub const MAX_FEATURE_CHARS: u32 = 38;
+pub const MAX_GUID_CHARS: u32 = 38;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIADVERTISEOPTIONFLAGS(pub i32);
-pub const MSIADVERTISEOPTIONFLAGS_INSTANCE: MSIADVERTISEOPTIONFLAGS = MSIADVERTISEOPTIONFLAGS(1i32);
+pub const MSIADVERTISEOPTIONFLAGS_INSTANCE: MSIADVERTISEOPTIONFLAGS = MSIADVERTISEOPTIONFLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIARCHITECTUREFLAGS(pub i32);
-pub const MSIARCHITECTUREFLAGS_AMD64: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(4i32);
-pub const MSIARCHITECTUREFLAGS_ARM: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(8i32);
-pub const MSIARCHITECTUREFLAGS_IA64: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(2i32);
-pub const MSIARCHITECTUREFLAGS_X86: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(1i32);
+pub const MSIARCHITECTUREFLAGS_AMD64: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(4);
+pub const MSIARCHITECTUREFLAGS_ARM: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(8);
+pub const MSIARCHITECTUREFLAGS_IA64: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(2);
+pub const MSIARCHITECTUREFLAGS_X86: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIASSEMBLYINFO(pub u32);
-pub const MSIASSEMBLYINFO_NETASSEMBLY: MSIASSEMBLYINFO = MSIASSEMBLYINFO(0u32);
-pub const MSIASSEMBLYINFO_WIN32ASSEMBLY: MSIASSEMBLYINFO = MSIASSEMBLYINFO(1u32);
+pub const MSIASSEMBLYINFO_NETASSEMBLY: MSIASSEMBLYINFO = MSIASSEMBLYINFO(0);
+pub const MSIASSEMBLYINFO_WIN32ASSEMBLY: MSIASSEMBLYINFO = MSIASSEMBLYINFO(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSICODE(pub i32);
-pub const MSICODE_PATCH: MSICODE = MSICODE(1073741824i32);
-pub const MSICODE_PRODUCT: MSICODE = MSICODE(0i32);
+pub const MSICODE_PATCH: MSICODE = MSICODE(1073741824);
+pub const MSICODE_PRODUCT: MSICODE = MSICODE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSICOLINFO(pub i32);
-pub const MSICOLINFO_NAMES: MSICOLINFO = MSICOLINFO(0i32);
-pub const MSICOLINFO_TYPES: MSICOLINFO = MSICOLINFO(1i32);
+pub const MSICOLINFO_NAMES: MSICOLINFO = MSICOLINFO(0);
+pub const MSICOLINFO_TYPES: MSICOLINFO = MSICOLINFO(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSICONDITION(pub i32);
-pub const MSICONDITION_ERROR: MSICONDITION = MSICONDITION(3i32);
-pub const MSICONDITION_FALSE: MSICONDITION = MSICONDITION(0i32);
-pub const MSICONDITION_NONE: MSICONDITION = MSICONDITION(2i32);
-pub const MSICONDITION_TRUE: MSICONDITION = MSICONDITION(1i32);
+pub const MSICONDITION_ERROR: MSICONDITION = MSICONDITION(3);
+pub const MSICONDITION_FALSE: MSICONDITION = MSICONDITION(0);
+pub const MSICONDITION_NONE: MSICONDITION = MSICONDITION(2);
+pub const MSICONDITION_TRUE: MSICONDITION = MSICONDITION(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSICOSTTREE(pub i32);
-pub const MSICOSTTREE_CHILDREN: MSICOSTTREE = MSICOSTTREE(1i32);
-pub const MSICOSTTREE_PARENTS: MSICOSTTREE = MSICOSTTREE(2i32);
-pub const MSICOSTTREE_RESERVED: MSICOSTTREE = MSICOSTTREE(3i32);
-pub const MSICOSTTREE_SELFONLY: MSICOSTTREE = MSICOSTTREE(0i32);
+pub const MSICOSTTREE_CHILDREN: MSICOSTTREE = MSICOSTTREE(1);
+pub const MSICOSTTREE_PARENTS: MSICOSTTREE = MSICOSTTREE(2);
+pub const MSICOSTTREE_RESERVED: MSICOSTTREE = MSICOSTTREE(3);
+pub const MSICOSTTREE_SELFONLY: MSICOSTTREE = MSICOSTTREE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIDBERROR(pub i32);
-pub const MSIDBERROR_BADCABINET: MSIDBERROR = MSIDBERROR(26i32);
-pub const MSIDBERROR_BADCASE: MSIDBERROR = MSIDBERROR(8i32);
-pub const MSIDBERROR_BADCATEGORY: MSIDBERROR = MSIDBERROR(23i32);
-pub const MSIDBERROR_BADCONDITION: MSIDBERROR = MSIDBERROR(15i32);
-pub const MSIDBERROR_BADCUSTOMSOURCE: MSIDBERROR = MSIDBERROR(20i32);
-pub const MSIDBERROR_BADDEFAULTDIR: MSIDBERROR = MSIDBERROR(18i32);
-pub const MSIDBERROR_BADFILENAME: MSIDBERROR = MSIDBERROR(13i32);
-pub const MSIDBERROR_BADFORMATTED: MSIDBERROR = MSIDBERROR(16i32);
-pub const MSIDBERROR_BADGUID: MSIDBERROR = MSIDBERROR(9i32);
-pub const MSIDBERROR_BADIDENTIFIER: MSIDBERROR = MSIDBERROR(11i32);
-pub const MSIDBERROR_BADKEYTABLE: MSIDBERROR = MSIDBERROR(24i32);
-pub const MSIDBERROR_BADLANGUAGE: MSIDBERROR = MSIDBERROR(12i32);
-pub const MSIDBERROR_BADLINK: MSIDBERROR = MSIDBERROR(3i32);
-pub const MSIDBERROR_BADLOCALIZEATTRIB: MSIDBERROR = MSIDBERROR(29i32);
-pub const MSIDBERROR_BADMAXMINVALUES: MSIDBERROR = MSIDBERROR(25i32);
-pub const MSIDBERROR_BADPATH: MSIDBERROR = MSIDBERROR(14i32);
-pub const MSIDBERROR_BADPROPERTY: MSIDBERROR = MSIDBERROR(21i32);
-pub const MSIDBERROR_BADREGPATH: MSIDBERROR = MSIDBERROR(19i32);
-pub const MSIDBERROR_BADSHORTCUT: MSIDBERROR = MSIDBERROR(27i32);
-pub const MSIDBERROR_BADTEMPLATE: MSIDBERROR = MSIDBERROR(17i32);
-pub const MSIDBERROR_BADVERSION: MSIDBERROR = MSIDBERROR(7i32);
-pub const MSIDBERROR_BADWILDCARD: MSIDBERROR = MSIDBERROR(10i32);
-pub const MSIDBERROR_DUPLICATEKEY: MSIDBERROR = MSIDBERROR(1i32);
-pub const MSIDBERROR_FUNCTIONERROR: MSIDBERROR = MSIDBERROR(-1i32);
-pub const MSIDBERROR_INVALIDARG: MSIDBERROR = MSIDBERROR(-3i32);
-pub const MSIDBERROR_MISSINGDATA: MSIDBERROR = MSIDBERROR(22i32);
-pub const MSIDBERROR_MOREDATA: MSIDBERROR = MSIDBERROR(-2i32);
-pub const MSIDBERROR_NOERROR: MSIDBERROR = MSIDBERROR(0i32);
-pub const MSIDBERROR_NOTINSET: MSIDBERROR = MSIDBERROR(6i32);
-pub const MSIDBERROR_OVERFLOW: MSIDBERROR = MSIDBERROR(4i32);
-pub const MSIDBERROR_REQUIRED: MSIDBERROR = MSIDBERROR(2i32);
-pub const MSIDBERROR_STRINGOVERFLOW: MSIDBERROR = MSIDBERROR(28i32);
-pub const MSIDBERROR_UNDERFLOW: MSIDBERROR = MSIDBERROR(5i32);
-pub const MSIDBOPEN_CREATE: windows_core::PCWSTR = windows_core::PCWSTR(3i32 as _);
-pub const MSIDBOPEN_CREATEDIRECT: windows_core::PCWSTR = windows_core::PCWSTR(4i32 as _);
-pub const MSIDBOPEN_DIRECT: windows_core::PCWSTR = windows_core::PCWSTR(2i32 as _);
-pub const MSIDBOPEN_PATCHFILE: i32 = 16i32;
-pub const MSIDBOPEN_READONLY: windows_core::PCWSTR = windows_core::PCWSTR(0i32 as _);
-pub const MSIDBOPEN_TRANSACT: windows_core::PCWSTR = windows_core::PCWSTR(1i32 as _);
+pub const MSIDBERROR_BADCABINET: MSIDBERROR = MSIDBERROR(26);
+pub const MSIDBERROR_BADCASE: MSIDBERROR = MSIDBERROR(8);
+pub const MSIDBERROR_BADCATEGORY: MSIDBERROR = MSIDBERROR(23);
+pub const MSIDBERROR_BADCONDITION: MSIDBERROR = MSIDBERROR(15);
+pub const MSIDBERROR_BADCUSTOMSOURCE: MSIDBERROR = MSIDBERROR(20);
+pub const MSIDBERROR_BADDEFAULTDIR: MSIDBERROR = MSIDBERROR(18);
+pub const MSIDBERROR_BADFILENAME: MSIDBERROR = MSIDBERROR(13);
+pub const MSIDBERROR_BADFORMATTED: MSIDBERROR = MSIDBERROR(16);
+pub const MSIDBERROR_BADGUID: MSIDBERROR = MSIDBERROR(9);
+pub const MSIDBERROR_BADIDENTIFIER: MSIDBERROR = MSIDBERROR(11);
+pub const MSIDBERROR_BADKEYTABLE: MSIDBERROR = MSIDBERROR(24);
+pub const MSIDBERROR_BADLANGUAGE: MSIDBERROR = MSIDBERROR(12);
+pub const MSIDBERROR_BADLINK: MSIDBERROR = MSIDBERROR(3);
+pub const MSIDBERROR_BADLOCALIZEATTRIB: MSIDBERROR = MSIDBERROR(29);
+pub const MSIDBERROR_BADMAXMINVALUES: MSIDBERROR = MSIDBERROR(25);
+pub const MSIDBERROR_BADPATH: MSIDBERROR = MSIDBERROR(14);
+pub const MSIDBERROR_BADPROPERTY: MSIDBERROR = MSIDBERROR(21);
+pub const MSIDBERROR_BADREGPATH: MSIDBERROR = MSIDBERROR(19);
+pub const MSIDBERROR_BADSHORTCUT: MSIDBERROR = MSIDBERROR(27);
+pub const MSIDBERROR_BADTEMPLATE: MSIDBERROR = MSIDBERROR(17);
+pub const MSIDBERROR_BADVERSION: MSIDBERROR = MSIDBERROR(7);
+pub const MSIDBERROR_BADWILDCARD: MSIDBERROR = MSIDBERROR(10);
+pub const MSIDBERROR_DUPLICATEKEY: MSIDBERROR = MSIDBERROR(1);
+pub const MSIDBERROR_FUNCTIONERROR: MSIDBERROR = MSIDBERROR(-1);
+pub const MSIDBERROR_INVALIDARG: MSIDBERROR = MSIDBERROR(-3);
+pub const MSIDBERROR_MISSINGDATA: MSIDBERROR = MSIDBERROR(22);
+pub const MSIDBERROR_MOREDATA: MSIDBERROR = MSIDBERROR(-2);
+pub const MSIDBERROR_NOERROR: MSIDBERROR = MSIDBERROR(0);
+pub const MSIDBERROR_NOTINSET: MSIDBERROR = MSIDBERROR(6);
+pub const MSIDBERROR_OVERFLOW: MSIDBERROR = MSIDBERROR(4);
+pub const MSIDBERROR_REQUIRED: MSIDBERROR = MSIDBERROR(2);
+pub const MSIDBERROR_STRINGOVERFLOW: MSIDBERROR = MSIDBERROR(28);
+pub const MSIDBERROR_UNDERFLOW: MSIDBERROR = MSIDBERROR(5);
+pub const MSIDBOPEN_CREATE: windows_core::PCWSTR = windows_core::PCWSTR(3 as _);
+pub const MSIDBOPEN_CREATEDIRECT: windows_core::PCWSTR = windows_core::PCWSTR(4 as _);
+pub const MSIDBOPEN_DIRECT: windows_core::PCWSTR = windows_core::PCWSTR(2 as _);
+pub const MSIDBOPEN_PATCHFILE: i32 = 16;
+pub const MSIDBOPEN_READONLY: windows_core::PCWSTR = windows_core::PCWSTR(0 as _);
+pub const MSIDBOPEN_TRANSACT: windows_core::PCWSTR = windows_core::PCWSTR(1 as _);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIDBSTATE(pub i32);
-pub const MSIDBSTATE_ERROR: MSIDBSTATE = MSIDBSTATE(-1i32);
-pub const MSIDBSTATE_READ: MSIDBSTATE = MSIDBSTATE(0i32);
-pub const MSIDBSTATE_WRITE: MSIDBSTATE = MSIDBSTATE(1i32);
+pub const MSIDBSTATE_ERROR: MSIDBSTATE = MSIDBSTATE(-1);
+pub const MSIDBSTATE_READ: MSIDBSTATE = MSIDBSTATE(0);
+pub const MSIDBSTATE_WRITE: MSIDBSTATE = MSIDBSTATE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSIFILEHASHINFO {
@@ -9403,33 +9366,33 @@ impl windows_core::Free for MSIHANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIINSTALLCONTEXT(pub i32);
-pub const MSIINSTALLCONTEXT_ALL: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(7i32);
-pub const MSIINSTALLCONTEXT_ALLUSERMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(8i32);
-pub const MSIINSTALLCONTEXT_FIRSTVISIBLE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(0i32);
-pub const MSIINSTALLCONTEXT_MACHINE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(4i32);
-pub const MSIINSTALLCONTEXT_NONE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(0i32);
-pub const MSIINSTALLCONTEXT_USERMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(1i32);
-pub const MSIINSTALLCONTEXT_USERUNMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(2i32);
+pub const MSIINSTALLCONTEXT_ALL: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(7);
+pub const MSIINSTALLCONTEXT_ALLUSERMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(8);
+pub const MSIINSTALLCONTEXT_FIRSTVISIBLE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(0);
+pub const MSIINSTALLCONTEXT_MACHINE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(4);
+pub const MSIINSTALLCONTEXT_NONE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(0);
+pub const MSIINSTALLCONTEXT_USERMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(1);
+pub const MSIINSTALLCONTEXT_USERUNMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIMODIFY(pub i32);
-pub const MSIMODIFY_ASSIGN: MSIMODIFY = MSIMODIFY(3i32);
-pub const MSIMODIFY_DELETE: MSIMODIFY = MSIMODIFY(6i32);
-pub const MSIMODIFY_INSERT: MSIMODIFY = MSIMODIFY(1i32);
-pub const MSIMODIFY_INSERT_TEMPORARY: MSIMODIFY = MSIMODIFY(7i32);
-pub const MSIMODIFY_MERGE: MSIMODIFY = MSIMODIFY(5i32);
-pub const MSIMODIFY_REFRESH: MSIMODIFY = MSIMODIFY(0i32);
-pub const MSIMODIFY_REPLACE: MSIMODIFY = MSIMODIFY(4i32);
-pub const MSIMODIFY_SEEK: MSIMODIFY = MSIMODIFY(-1i32);
-pub const MSIMODIFY_UPDATE: MSIMODIFY = MSIMODIFY(2i32);
-pub const MSIMODIFY_VALIDATE: MSIMODIFY = MSIMODIFY(8i32);
-pub const MSIMODIFY_VALIDATE_DELETE: MSIMODIFY = MSIMODIFY(11i32);
-pub const MSIMODIFY_VALIDATE_FIELD: MSIMODIFY = MSIMODIFY(10i32);
-pub const MSIMODIFY_VALIDATE_NEW: MSIMODIFY = MSIMODIFY(9i32);
+pub const MSIMODIFY_ASSIGN: MSIMODIFY = MSIMODIFY(3);
+pub const MSIMODIFY_DELETE: MSIMODIFY = MSIMODIFY(6);
+pub const MSIMODIFY_INSERT: MSIMODIFY = MSIMODIFY(1);
+pub const MSIMODIFY_INSERT_TEMPORARY: MSIMODIFY = MSIMODIFY(7);
+pub const MSIMODIFY_MERGE: MSIMODIFY = MSIMODIFY(5);
+pub const MSIMODIFY_REFRESH: MSIMODIFY = MSIMODIFY(0);
+pub const MSIMODIFY_REPLACE: MSIMODIFY = MSIMODIFY(4);
+pub const MSIMODIFY_SEEK: MSIMODIFY = MSIMODIFY(-1);
+pub const MSIMODIFY_UPDATE: MSIMODIFY = MSIMODIFY(2);
+pub const MSIMODIFY_VALIDATE: MSIMODIFY = MSIMODIFY(8);
+pub const MSIMODIFY_VALIDATE_DELETE: MSIMODIFY = MSIMODIFY(11);
+pub const MSIMODIFY_VALIDATE_FIELD: MSIMODIFY = MSIMODIFY(10);
+pub const MSIMODIFY_VALIDATE_NEW: MSIMODIFY = MSIMODIFY(9);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIOPENPACKAGEFLAGS(pub i32);
-pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = MSIOPENPACKAGEFLAGS(1i32);
+pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = MSIOPENPACKAGEFLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIPATCHDATATYPE(pub i32);
@@ -9452,92 +9415,92 @@ pub struct MSIPATCHSEQUENCEINFOW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIPATCHSTATE(pub i32);
-pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = MSIPATCHSTATE(15i32);
-pub const MSIPATCHSTATE_APPLIED: MSIPATCHSTATE = MSIPATCHSTATE(1i32);
-pub const MSIPATCHSTATE_INVALID: MSIPATCHSTATE = MSIPATCHSTATE(0i32);
-pub const MSIPATCHSTATE_OBSOLETED: MSIPATCHSTATE = MSIPATCHSTATE(4i32);
-pub const MSIPATCHSTATE_REGISTERED: MSIPATCHSTATE = MSIPATCHSTATE(8i32);
-pub const MSIPATCHSTATE_SUPERSEDED: MSIPATCHSTATE = MSIPATCHSTATE(2i32);
-pub const MSIPATCH_DATATYPE_PATCHFILE: MSIPATCHDATATYPE = MSIPATCHDATATYPE(0i32);
-pub const MSIPATCH_DATATYPE_XMLBLOB: MSIPATCHDATATYPE = MSIPATCHDATATYPE(2i32);
-pub const MSIPATCH_DATATYPE_XMLPATH: MSIPATCHDATATYPE = MSIPATCHDATATYPE(1i32);
+pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = MSIPATCHSTATE(15);
+pub const MSIPATCHSTATE_APPLIED: MSIPATCHSTATE = MSIPATCHSTATE(1);
+pub const MSIPATCHSTATE_INVALID: MSIPATCHSTATE = MSIPATCHSTATE(0);
+pub const MSIPATCHSTATE_OBSOLETED: MSIPATCHSTATE = MSIPATCHSTATE(4);
+pub const MSIPATCHSTATE_REGISTERED: MSIPATCHSTATE = MSIPATCHSTATE(8);
+pub const MSIPATCHSTATE_SUPERSEDED: MSIPATCHSTATE = MSIPATCHSTATE(2);
+pub const MSIPATCH_DATATYPE_PATCHFILE: MSIPATCHDATATYPE = MSIPATCHDATATYPE(0);
+pub const MSIPATCH_DATATYPE_XMLBLOB: MSIPATCHDATATYPE = MSIPATCHDATATYPE(2);
+pub const MSIPATCH_DATATYPE_XMLPATH: MSIPATCHDATATYPE = MSIPATCHDATATYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIRUNMODE(pub i32);
-pub const MSIRUNMODE_ADMIN: MSIRUNMODE = MSIRUNMODE(0i32);
-pub const MSIRUNMODE_ADVERTISE: MSIRUNMODE = MSIRUNMODE(1i32);
-pub const MSIRUNMODE_CABINET: MSIRUNMODE = MSIRUNMODE(8i32);
-pub const MSIRUNMODE_COMMIT: MSIRUNMODE = MSIRUNMODE(18i32);
-pub const MSIRUNMODE_LOGENABLED: MSIRUNMODE = MSIRUNMODE(4i32);
-pub const MSIRUNMODE_MAINTENANCE: MSIRUNMODE = MSIRUNMODE(2i32);
-pub const MSIRUNMODE_OPERATIONS: MSIRUNMODE = MSIRUNMODE(5i32);
-pub const MSIRUNMODE_REBOOTATEND: MSIRUNMODE = MSIRUNMODE(6i32);
-pub const MSIRUNMODE_REBOOTNOW: MSIRUNMODE = MSIRUNMODE(7i32);
-pub const MSIRUNMODE_RESERVED11: MSIRUNMODE = MSIRUNMODE(11i32);
-pub const MSIRUNMODE_RESERVED14: MSIRUNMODE = MSIRUNMODE(14i32);
-pub const MSIRUNMODE_RESERVED15: MSIRUNMODE = MSIRUNMODE(15i32);
-pub const MSIRUNMODE_ROLLBACK: MSIRUNMODE = MSIRUNMODE(17i32);
-pub const MSIRUNMODE_ROLLBACKENABLED: MSIRUNMODE = MSIRUNMODE(3i32);
-pub const MSIRUNMODE_SCHEDULED: MSIRUNMODE = MSIRUNMODE(16i32);
-pub const MSIRUNMODE_SOURCESHORTNAMES: MSIRUNMODE = MSIRUNMODE(9i32);
-pub const MSIRUNMODE_TARGETSHORTNAMES: MSIRUNMODE = MSIRUNMODE(10i32);
-pub const MSIRUNMODE_WINDOWS9X: MSIRUNMODE = MSIRUNMODE(12i32);
-pub const MSIRUNMODE_ZAWENABLED: MSIRUNMODE = MSIRUNMODE(13i32);
+pub const MSIRUNMODE_ADMIN: MSIRUNMODE = MSIRUNMODE(0);
+pub const MSIRUNMODE_ADVERTISE: MSIRUNMODE = MSIRUNMODE(1);
+pub const MSIRUNMODE_CABINET: MSIRUNMODE = MSIRUNMODE(8);
+pub const MSIRUNMODE_COMMIT: MSIRUNMODE = MSIRUNMODE(18);
+pub const MSIRUNMODE_LOGENABLED: MSIRUNMODE = MSIRUNMODE(4);
+pub const MSIRUNMODE_MAINTENANCE: MSIRUNMODE = MSIRUNMODE(2);
+pub const MSIRUNMODE_OPERATIONS: MSIRUNMODE = MSIRUNMODE(5);
+pub const MSIRUNMODE_REBOOTATEND: MSIRUNMODE = MSIRUNMODE(6);
+pub const MSIRUNMODE_REBOOTNOW: MSIRUNMODE = MSIRUNMODE(7);
+pub const MSIRUNMODE_RESERVED11: MSIRUNMODE = MSIRUNMODE(11);
+pub const MSIRUNMODE_RESERVED14: MSIRUNMODE = MSIRUNMODE(14);
+pub const MSIRUNMODE_RESERVED15: MSIRUNMODE = MSIRUNMODE(15);
+pub const MSIRUNMODE_ROLLBACK: MSIRUNMODE = MSIRUNMODE(17);
+pub const MSIRUNMODE_ROLLBACKENABLED: MSIRUNMODE = MSIRUNMODE(3);
+pub const MSIRUNMODE_SCHEDULED: MSIRUNMODE = MSIRUNMODE(16);
+pub const MSIRUNMODE_SOURCESHORTNAMES: MSIRUNMODE = MSIRUNMODE(9);
+pub const MSIRUNMODE_TARGETSHORTNAMES: MSIRUNMODE = MSIRUNMODE(10);
+pub const MSIRUNMODE_WINDOWS9X: MSIRUNMODE = MSIRUNMODE(12);
+pub const MSIRUNMODE_ZAWENABLED: MSIRUNMODE = MSIRUNMODE(13);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSISOURCETYPE(pub i32);
-pub const MSISOURCETYPE_MEDIA: MSISOURCETYPE = MSISOURCETYPE(4i32);
-pub const MSISOURCETYPE_NETWORK: MSISOURCETYPE = MSISOURCETYPE(1i32);
-pub const MSISOURCETYPE_UNKNOWN: MSISOURCETYPE = MSISOURCETYPE(0i32);
-pub const MSISOURCETYPE_URL: MSISOURCETYPE = MSISOURCETYPE(2i32);
+pub const MSISOURCETYPE_MEDIA: MSISOURCETYPE = MSISOURCETYPE(4);
+pub const MSISOURCETYPE_NETWORK: MSISOURCETYPE = MSISOURCETYPE(1);
+pub const MSISOURCETYPE_UNKNOWN: MSISOURCETYPE = MSISOURCETYPE(0);
+pub const MSISOURCETYPE_URL: MSISOURCETYPE = MSISOURCETYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSITRANSACTION(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSITRANSACTIONSTATE(pub u32);
-pub const MSITRANSACTIONSTATE_COMMIT: MSITRANSACTIONSTATE = MSITRANSACTIONSTATE(1u32);
-pub const MSITRANSACTIONSTATE_ROLLBACK: MSITRANSACTIONSTATE = MSITRANSACTIONSTATE(0u32);
-pub const MSITRANSACTION_CHAIN_EMBEDDEDUI: MSITRANSACTION = MSITRANSACTION(1i32);
-pub const MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI: MSITRANSACTION = MSITRANSACTION(2i32);
+pub const MSITRANSACTIONSTATE_COMMIT: MSITRANSACTIONSTATE = MSITRANSACTIONSTATE(1);
+pub const MSITRANSACTIONSTATE_ROLLBACK: MSITRANSACTIONSTATE = MSITRANSACTIONSTATE(0);
+pub const MSITRANSACTION_CHAIN_EMBEDDEDUI: MSITRANSACTION = MSITRANSACTION(1);
+pub const MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI: MSITRANSACTION = MSITRANSACTION(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSITRANSFORM_ERROR(pub i32);
-pub const MSITRANSFORM_ERROR_ADDEXISTINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(1i32);
-pub const MSITRANSFORM_ERROR_ADDEXISTINGTABLE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(4i32);
-pub const MSITRANSFORM_ERROR_CHANGECODEPAGE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(32i32);
-pub const MSITRANSFORM_ERROR_DELMISSINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(2i32);
-pub const MSITRANSFORM_ERROR_DELMISSINGTABLE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(8i32);
-pub const MSITRANSFORM_ERROR_NONE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(0i32);
-pub const MSITRANSFORM_ERROR_UPDATEMISSINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(16i32);
-pub const MSITRANSFORM_ERROR_VIEWTRANSFORM: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(256i32);
+pub const MSITRANSFORM_ERROR_ADDEXISTINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(1);
+pub const MSITRANSFORM_ERROR_ADDEXISTINGTABLE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(4);
+pub const MSITRANSFORM_ERROR_CHANGECODEPAGE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(32);
+pub const MSITRANSFORM_ERROR_DELMISSINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(2);
+pub const MSITRANSFORM_ERROR_DELMISSINGTABLE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(8);
+pub const MSITRANSFORM_ERROR_NONE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(0);
+pub const MSITRANSFORM_ERROR_UPDATEMISSINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(16);
+pub const MSITRANSFORM_ERROR_VIEWTRANSFORM: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(256);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSITRANSFORM_VALIDATE(pub i32);
-pub const MSITRANSFORM_VALIDATE_LANGUAGE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(1i32);
-pub const MSITRANSFORM_VALIDATE_MAJORVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(8i32);
-pub const MSITRANSFORM_VALIDATE_MINORVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(16i32);
-pub const MSITRANSFORM_VALIDATE_NEWEQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(256i32);
-pub const MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(1024i32);
-pub const MSITRANSFORM_VALIDATE_NEWGREATEREQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(512i32);
-pub const MSITRANSFORM_VALIDATE_NEWLESSBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(64i32);
-pub const MSITRANSFORM_VALIDATE_NEWLESSEQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(128i32);
-pub const MSITRANSFORM_VALIDATE_PLATFORM: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(4i32);
-pub const MSITRANSFORM_VALIDATE_PRODUCT: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2i32);
-pub const MSITRANSFORM_VALIDATE_UPDATEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(32i32);
-pub const MSITRANSFORM_VALIDATE_UPGRADECODE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2048i32);
-pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
-pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
+pub const MSITRANSFORM_VALIDATE_LANGUAGE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(1);
+pub const MSITRANSFORM_VALIDATE_MAJORVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(8);
+pub const MSITRANSFORM_VALIDATE_MINORVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(16);
+pub const MSITRANSFORM_VALIDATE_NEWEQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(256);
+pub const MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(1024);
+pub const MSITRANSFORM_VALIDATE_NEWGREATEREQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(512);
+pub const MSITRANSFORM_VALIDATE_NEWLESSBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(64);
+pub const MSITRANSFORM_VALIDATE_NEWLESSEQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(128);
+pub const MSITRANSFORM_VALIDATE_PLATFORM: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(4);
+pub const MSITRANSFORM_VALIDATE_PRODUCT: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2);
+pub const MSITRANSFORM_VALIDATE_UPDATEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(32);
+pub const MSITRANSFORM_VALIDATE_UPGRADECODE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2048);
+pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1;
+pub const MSI_NULL_INTEGER: u32 = 2147483648;
 pub const MsmMerge: windows_core::GUID = windows_core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKMAN_RUNTIME(pub i32);
-pub const PACKMAN_RUNTIME_INVALID: PACKMAN_RUNTIME = PACKMAN_RUNTIME(6i32);
-pub const PACKMAN_RUNTIME_JUPITER: PACKMAN_RUNTIME = PACKMAN_RUNTIME(5i32);
-pub const PACKMAN_RUNTIME_MODERN_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(4i32);
-pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(1i32);
-pub const PACKMAN_RUNTIME_SILVERLIGHTMOBILE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(2i32);
-pub const PACKMAN_RUNTIME_XNA: PACKMAN_RUNTIME = PACKMAN_RUNTIME(3i32);
+pub const PACKMAN_RUNTIME_INVALID: PACKMAN_RUNTIME = PACKMAN_RUNTIME(6);
+pub const PACKMAN_RUNTIME_JUPITER: PACKMAN_RUNTIME = PACKMAN_RUNTIME(5);
+pub const PACKMAN_RUNTIME_MODERN_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(4);
+pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(1);
+pub const PACKMAN_RUNTIME_SILVERLIGHTMOBILE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(2);
+pub const PACKMAN_RUNTIME_XNA: PACKMAN_RUNTIME = PACKMAN_RUNTIME(3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATCH_IGNORE_RANGE {
@@ -9652,23 +9615,23 @@ impl Default for PATCH_OPTION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
-pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288u32;
-pub const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824u32;
-pub const PATCH_OPTION_NO_BINDFIX: u32 = 65536u32;
-pub const PATCH_OPTION_NO_CHECKSUM: u32 = 2097152u32;
-pub const PATCH_OPTION_NO_LOCKFIX: u32 = 131072u32;
-pub const PATCH_OPTION_NO_REBASE: u32 = 262144u32;
-pub const PATCH_OPTION_NO_RESTIMEFIX: u32 = 4194304u32;
-pub const PATCH_OPTION_NO_TIMESTAMP: u32 = 8388608u32;
-pub const PATCH_OPTION_RESERVED1: u32 = 2147483648u32;
-pub const PATCH_OPTION_SIGNATURE_MD5: u32 = 16777216u32;
-pub const PATCH_OPTION_USE_BEST: u32 = 0u32;
-pub const PATCH_OPTION_USE_LZX_A: u32 = 1u32;
-pub const PATCH_OPTION_USE_LZX_B: u32 = 2u32;
-pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3u32;
-pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4u32;
-pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159u32;
+pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576;
+pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288;
+pub const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824;
+pub const PATCH_OPTION_NO_BINDFIX: u32 = 65536;
+pub const PATCH_OPTION_NO_CHECKSUM: u32 = 2097152;
+pub const PATCH_OPTION_NO_LOCKFIX: u32 = 131072;
+pub const PATCH_OPTION_NO_REBASE: u32 = 262144;
+pub const PATCH_OPTION_NO_RESTIMEFIX: u32 = 4194304;
+pub const PATCH_OPTION_NO_TIMESTAMP: u32 = 8388608;
+pub const PATCH_OPTION_RESERVED1: u32 = 2147483648;
+pub const PATCH_OPTION_SIGNATURE_MD5: u32 = 16777216;
+pub const PATCH_OPTION_USE_BEST: u32 = 0;
+pub const PATCH_OPTION_USE_LZX_A: u32 = 1;
+pub const PATCH_OPTION_USE_LZX_B: u32 = 2;
+pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3;
+pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4;
+pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATCH_RETAIN_RANGE {
@@ -9676,32 +9639,32 @@ pub struct PATCH_RETAIN_RANGE {
     pub LengthInBytes: u32,
     pub OffsetInNewFile: u32,
 }
-pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2u32;
-pub const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1u32;
-pub const PATCH_SYMBOL_RESERVED1: u32 = 2147483648u32;
-pub const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4u32;
-pub const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512u32;
-pub const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256u32;
-pub const PID_APPNAME: u32 = 18u32;
-pub const PID_AUTHOR: u32 = 4u32;
-pub const PID_CHARCOUNT: u32 = 16u32;
-pub const PID_COMMENTS: u32 = 6u32;
-pub const PID_CREATE_DTM: u32 = 12u32;
-pub const PID_EDITTIME: u32 = 10u32;
-pub const PID_KEYWORDS: u32 = 5u32;
-pub const PID_LASTAUTHOR: u32 = 8u32;
-pub const PID_LASTPRINTED: u32 = 11u32;
-pub const PID_LASTSAVE_DTM: u32 = 13u32;
-pub const PID_MSIRESTRICT: u32 = 16u32;
-pub const PID_MSISOURCE: u32 = 15u32;
-pub const PID_MSIVERSION: u32 = 14u32;
-pub const PID_PAGECOUNT: u32 = 14u32;
-pub const PID_REVNUMBER: u32 = 9u32;
-pub const PID_SUBJECT: u32 = 3u32;
-pub const PID_TEMPLATE: u32 = 7u32;
-pub const PID_THUMBNAIL: u32 = 17u32;
-pub const PID_TITLE: u32 = 2u32;
-pub const PID_WORDCOUNT: u32 = 15u32;
+pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2;
+pub const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1;
+pub const PATCH_SYMBOL_RESERVED1: u32 = 2147483648;
+pub const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4;
+pub const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512;
+pub const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256;
+pub const PID_APPNAME: u32 = 18;
+pub const PID_AUTHOR: u32 = 4;
+pub const PID_CHARCOUNT: u32 = 16;
+pub const PID_COMMENTS: u32 = 6;
+pub const PID_CREATE_DTM: u32 = 12;
+pub const PID_EDITTIME: u32 = 10;
+pub const PID_KEYWORDS: u32 = 5;
+pub const PID_LASTAUTHOR: u32 = 8;
+pub const PID_LASTPRINTED: u32 = 11;
+pub const PID_LASTSAVE_DTM: u32 = 13;
+pub const PID_MSIRESTRICT: u32 = 16;
+pub const PID_MSISOURCE: u32 = 15;
+pub const PID_MSIVERSION: u32 = 14;
+pub const PID_PAGECOUNT: u32 = 14;
+pub const PID_REVNUMBER: u32 = 9;
+pub const PID_SUBJECT: u32 = 3;
+pub const PID_TEMPLATE: u32 = 7;
+pub const PID_THUMBNAIL: u32 = 17;
+pub const PID_TITLE: u32 = 2;
+pub const PID_WORDCOUNT: u32 = 15;
 pub type PINSTALLUI_HANDLER_RECORD = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -9712,66 +9675,66 @@ pub const PMSvc: windows_core::GUID = windows_core::GUID::from_u128(0xb9e511fc_e
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_ACTIVATION_POLICY(pub i32);
-pub const PM_ACTIVATION_POLICY_INVALID: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(7i32);
-pub const PM_ACTIVATION_POLICY_MULTISESSION: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(4i32);
-pub const PM_ACTIVATION_POLICY_REPLACE: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(2i32);
-pub const PM_ACTIVATION_POLICY_REPLACESAMEPARAMS: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(3i32);
-pub const PM_ACTIVATION_POLICY_REPLACE_IGNOREFOREGROUND: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(5i32);
-pub const PM_ACTIVATION_POLICY_RESUME: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(0i32);
-pub const PM_ACTIVATION_POLICY_RESUMESAMEPARAMS: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(1i32);
-pub const PM_ACTIVATION_POLICY_UNKNOWN: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(6i32);
+pub const PM_ACTIVATION_POLICY_INVALID: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(7);
+pub const PM_ACTIVATION_POLICY_MULTISESSION: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(4);
+pub const PM_ACTIVATION_POLICY_REPLACE: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(2);
+pub const PM_ACTIVATION_POLICY_REPLACESAMEPARAMS: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(3);
+pub const PM_ACTIVATION_POLICY_REPLACE_IGNOREFOREGROUND: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(5);
+pub const PM_ACTIVATION_POLICY_RESUME: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(0);
+pub const PM_ACTIVATION_POLICY_RESUMESAMEPARAMS: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(1);
+pub const PM_ACTIVATION_POLICY_UNKNOWN: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_APPLICATION_HUBTYPE(pub i32);
-pub const PM_APPLICATION_HUBTYPE_INVALID: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(2i32);
-pub const PM_APPLICATION_HUBTYPE_MUSIC: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(1i32);
-pub const PM_APPLICATION_HUBTYPE_NONMUSIC: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(0i32);
-pub const PM_APPLICATION_INSTALL_DEBUG: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(3i32);
-pub const PM_APPLICATION_INSTALL_ENTERPRISE: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(4i32);
-pub const PM_APPLICATION_INSTALL_INVALID: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(5i32);
-pub const PM_APPLICATION_INSTALL_IN_ROM: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(1i32);
-pub const PM_APPLICATION_INSTALL_NORMAL: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(0i32);
-pub const PM_APPLICATION_INSTALL_PA: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(2i32);
+pub const PM_APPLICATION_HUBTYPE_INVALID: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(2);
+pub const PM_APPLICATION_HUBTYPE_MUSIC: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(1);
+pub const PM_APPLICATION_HUBTYPE_NONMUSIC: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(0);
+pub const PM_APPLICATION_INSTALL_DEBUG: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(3);
+pub const PM_APPLICATION_INSTALL_ENTERPRISE: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(4);
+pub const PM_APPLICATION_INSTALL_INVALID: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(5);
+pub const PM_APPLICATION_INSTALL_IN_ROM: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(1);
+pub const PM_APPLICATION_INSTALL_NORMAL: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(0);
+pub const PM_APPLICATION_INSTALL_PA: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_APPLICATION_INSTALL_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_APPLICATION_STATE(pub i32);
-pub const PM_APPLICATION_STATE_DISABLED_BACKING_UP: PM_APPLICATION_STATE = PM_APPLICATION_STATE(9i32);
-pub const PM_APPLICATION_STATE_DISABLED_ENTERPRISE: PM_APPLICATION_STATE = PM_APPLICATION_STATE(8i32);
-pub const PM_APPLICATION_STATE_DISABLED_MDIL_BINDING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(10i32);
-pub const PM_APPLICATION_STATE_DISABLED_SD_CARD: PM_APPLICATION_STATE = PM_APPLICATION_STATE(7i32);
-pub const PM_APPLICATION_STATE_INSTALLED: PM_APPLICATION_STATE = PM_APPLICATION_STATE(1i32);
-pub const PM_APPLICATION_STATE_INSTALLING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(2i32);
-pub const PM_APPLICATION_STATE_INVALID: PM_APPLICATION_STATE = PM_APPLICATION_STATE(11i32);
-pub const PM_APPLICATION_STATE_LICENSE_UPDATING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(5i32);
-pub const PM_APPLICATION_STATE_MAX: PM_APPLICATION_STATE = PM_APPLICATION_STATE(10i32);
-pub const PM_APPLICATION_STATE_MIN: PM_APPLICATION_STATE = PM_APPLICATION_STATE(0i32);
-pub const PM_APPLICATION_STATE_MOVING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(6i32);
-pub const PM_APPLICATION_STATE_UNINSTALLING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(4i32);
-pub const PM_APPLICATION_STATE_UPDATING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(3i32);
+pub const PM_APPLICATION_STATE_DISABLED_BACKING_UP: PM_APPLICATION_STATE = PM_APPLICATION_STATE(9);
+pub const PM_APPLICATION_STATE_DISABLED_ENTERPRISE: PM_APPLICATION_STATE = PM_APPLICATION_STATE(8);
+pub const PM_APPLICATION_STATE_DISABLED_MDIL_BINDING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(10);
+pub const PM_APPLICATION_STATE_DISABLED_SD_CARD: PM_APPLICATION_STATE = PM_APPLICATION_STATE(7);
+pub const PM_APPLICATION_STATE_INSTALLED: PM_APPLICATION_STATE = PM_APPLICATION_STATE(1);
+pub const PM_APPLICATION_STATE_INSTALLING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(2);
+pub const PM_APPLICATION_STATE_INVALID: PM_APPLICATION_STATE = PM_APPLICATION_STATE(11);
+pub const PM_APPLICATION_STATE_LICENSE_UPDATING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(5);
+pub const PM_APPLICATION_STATE_MAX: PM_APPLICATION_STATE = PM_APPLICATION_STATE(10);
+pub const PM_APPLICATION_STATE_MIN: PM_APPLICATION_STATE = PM_APPLICATION_STATE(0);
+pub const PM_APPLICATION_STATE_MOVING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(6);
+pub const PM_APPLICATION_STATE_UNINSTALLING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(4);
+pub const PM_APPLICATION_STATE_UPDATING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PM_APPTASKTYPE {
     pub ProductID: windows_core::GUID,
     pub TaskType: PM_TASK_TYPE,
 }
-pub const PM_APP_FILTER_ALL: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(0i32);
-pub const PM_APP_FILTER_ALL_INCLUDE_MODERN: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(6i32);
-pub const PM_APP_FILTER_FRAMEWORK: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(7i32);
-pub const PM_APP_FILTER_GENRE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(2i32);
-pub const PM_APP_FILTER_HUBTYPE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(4i32);
-pub const PM_APP_FILTER_MAX: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(8i32);
-pub const PM_APP_FILTER_NONGAMES: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(3i32);
-pub const PM_APP_FILTER_PINABLEONKIDZONE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(5i32);
-pub const PM_APP_FILTER_VISIBLE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(1i32);
+pub const PM_APP_FILTER_ALL: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(0);
+pub const PM_APP_FILTER_ALL_INCLUDE_MODERN: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(6);
+pub const PM_APP_FILTER_FRAMEWORK: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(7);
+pub const PM_APP_FILTER_GENRE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(2);
+pub const PM_APP_FILTER_HUBTYPE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(4);
+pub const PM_APP_FILTER_MAX: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(8);
+pub const PM_APP_FILTER_NONGAMES: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(3);
+pub const PM_APP_FILTER_PINABLEONKIDZONE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(5);
+pub const PM_APP_FILTER_VISIBLE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_APP_GENRE(pub i32);
-pub const PM_APP_GENRE_GAMES: PM_APP_GENRE = PM_APP_GENRE(0i32);
-pub const PM_APP_GENRE_INVALID: PM_APP_GENRE = PM_APP_GENRE(2i32);
-pub const PM_APP_GENRE_OTHER: PM_APP_GENRE = PM_APP_GENRE(1i32);
+pub const PM_APP_GENRE_GAMES: PM_APP_GENRE = PM_APP_GENRE(0);
+pub const PM_APP_GENRE_INVALID: PM_APP_GENRE = PM_APP_GENRE(2);
+pub const PM_APP_GENRE_OTHER: PM_APP_GENRE = PM_APP_GENRE(1);
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct PM_BSATASKID {
@@ -9790,32 +9753,32 @@ pub struct PM_ENUM_APP_FILTER(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_ENUM_BSA_FILTER(pub i32);
-pub const PM_ENUM_BSA_FILTER_ALL: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(26i32);
-pub const PM_ENUM_BSA_FILTER_BY_ALL_LAUNCHONBOOT: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(30i32);
-pub const PM_ENUM_BSA_FILTER_BY_PERIODIC: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(29i32);
-pub const PM_ENUM_BSA_FILTER_BY_PRODUCTID: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(28i32);
-pub const PM_ENUM_BSA_FILTER_BY_TASKID: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(27i32);
-pub const PM_ENUM_BSA_FILTER_MAX: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(31i32);
+pub const PM_ENUM_BSA_FILTER_ALL: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(26);
+pub const PM_ENUM_BSA_FILTER_BY_ALL_LAUNCHONBOOT: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(30);
+pub const PM_ENUM_BSA_FILTER_BY_PERIODIC: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(29);
+pub const PM_ENUM_BSA_FILTER_BY_PRODUCTID: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(28);
+pub const PM_ENUM_BSA_FILTER_BY_TASKID: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(27);
+pub const PM_ENUM_BSA_FILTER_MAX: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(31);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_ENUM_BW_FILTER(pub i32);
-pub const PM_ENUM_BW_FILTER_BOOTWORKER_ALL: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(31i32);
-pub const PM_ENUM_BW_FILTER_BY_TASKID: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(32i32);
-pub const PM_ENUM_BW_FILTER_MAX: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(33i32);
+pub const PM_ENUM_BW_FILTER_BOOTWORKER_ALL: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(31);
+pub const PM_ENUM_BW_FILTER_BY_TASKID: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(32);
+pub const PM_ENUM_BW_FILTER_MAX: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(33);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_ENUM_EXTENSION_FILTER(pub i32);
-pub const PM_ENUM_EXTENSION_FILTER_APPCONNECT: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(17i32);
-pub const PM_ENUM_EXTENSION_FILTER_BY_CONSUMER: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(17i32);
-pub const PM_ENUM_EXTENSION_FILTER_CACHEDFILEUPDATER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(25i32);
-pub const PM_ENUM_EXTENSION_FILTER_FILEOPENPICKER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(23i32);
-pub const PM_ENUM_EXTENSION_FILTER_FILESAVEPICKER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(24i32);
-pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_APPLICATION_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(21i32);
-pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_CONTENTTYPE_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(20i32);
-pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_FILETYPE_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(19i32);
-pub const PM_ENUM_EXTENSION_FILTER_MAX: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(26i32);
-pub const PM_ENUM_EXTENSION_FILTER_PROTOCOL_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(18i32);
-pub const PM_ENUM_EXTENSION_FILTER_SHARETARGET_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(22i32);
+pub const PM_ENUM_EXTENSION_FILTER_APPCONNECT: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(17);
+pub const PM_ENUM_EXTENSION_FILTER_BY_CONSUMER: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(17);
+pub const PM_ENUM_EXTENSION_FILTER_CACHEDFILEUPDATER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(25);
+pub const PM_ENUM_EXTENSION_FILTER_FILEOPENPICKER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(23);
+pub const PM_ENUM_EXTENSION_FILTER_FILESAVEPICKER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(24);
+pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_APPLICATION_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(21);
+pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_CONTENTTYPE_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(20);
+pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_FILETYPE_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(19);
+pub const PM_ENUM_EXTENSION_FILTER_MAX: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(26);
+pub const PM_ENUM_EXTENSION_FILTER_PROTOCOL_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(18);
+pub const PM_ENUM_EXTENSION_FILTER_SHARETARGET_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(22);
 #[repr(C)]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
@@ -9900,17 +9863,17 @@ pub struct PM_INVOCATIONINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_LIVETILE_RECURRENCE_TYPE(pub i32);
-pub const PM_LIVETILE_RECURRENCE_TYPE_INSTANT: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(0i32);
-pub const PM_LIVETILE_RECURRENCE_TYPE_INTERVAL: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(2i32);
-pub const PM_LIVETILE_RECURRENCE_TYPE_MAX: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(2i32);
-pub const PM_LIVETILE_RECURRENCE_TYPE_ONETIME: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(1i32);
+pub const PM_LIVETILE_RECURRENCE_TYPE_INSTANT: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(0);
+pub const PM_LIVETILE_RECURRENCE_TYPE_INTERVAL: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(2);
+pub const PM_LIVETILE_RECURRENCE_TYPE_MAX: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(2);
+pub const PM_LIVETILE_RECURRENCE_TYPE_ONETIME: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_LOGO_SIZE(pub i32);
-pub const PM_LOGO_SIZE_INVALID: PM_LOGO_SIZE = PM_LOGO_SIZE(3i32);
-pub const PM_LOGO_SIZE_LARGE: PM_LOGO_SIZE = PM_LOGO_SIZE(2i32);
-pub const PM_LOGO_SIZE_MEDIUM: PM_LOGO_SIZE = PM_LOGO_SIZE(1i32);
-pub const PM_LOGO_SIZE_SMALL: PM_LOGO_SIZE = PM_LOGO_SIZE(0i32);
+pub const PM_LOGO_SIZE_INVALID: PM_LOGO_SIZE = PM_LOGO_SIZE(3);
+pub const PM_LOGO_SIZE_LARGE: PM_LOGO_SIZE = PM_LOGO_SIZE(2);
+pub const PM_LOGO_SIZE_MEDIUM: PM_LOGO_SIZE = PM_LOGO_SIZE(1);
+pub const PM_LOGO_SIZE_SMALL: PM_LOGO_SIZE = PM_LOGO_SIZE(0);
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct PM_STARTAPPBLOB {
@@ -9951,63 +9914,63 @@ impl Default for PM_STARTTILEBLOB {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_STARTTILE_TYPE(pub i32);
-pub const PM_STARTTILE_TYPE_APPLIST: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(3i32);
-pub const PM_STARTTILE_TYPE_APPLISTPRIMARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(4i32);
-pub const PM_STARTTILE_TYPE_INVALID: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(5i32);
-pub const PM_STARTTILE_TYPE_PRIMARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(1i32);
-pub const PM_STARTTILE_TYPE_SECONDARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(2i32);
-pub const PM_TASK_FILTER_APP_ALL: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(12i32);
-pub const PM_TASK_FILTER_APP_TASK_TYPE: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(15i32);
-pub const PM_TASK_FILTER_BGEXECUTION: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(16i32);
-pub const PM_TASK_FILTER_DEHYD_SUPRESSING: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(14i32);
-pub const PM_TASK_FILTER_MAX: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(17i32);
-pub const PM_TASK_FILTER_TASK_TYPE: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(13i32);
+pub const PM_STARTTILE_TYPE_APPLIST: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(3);
+pub const PM_STARTTILE_TYPE_APPLISTPRIMARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(4);
+pub const PM_STARTTILE_TYPE_INVALID: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(5);
+pub const PM_STARTTILE_TYPE_PRIMARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(1);
+pub const PM_STARTTILE_TYPE_SECONDARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(2);
+pub const PM_TASK_FILTER_APP_ALL: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(12);
+pub const PM_TASK_FILTER_APP_TASK_TYPE: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(15);
+pub const PM_TASK_FILTER_BGEXECUTION: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(16);
+pub const PM_TASK_FILTER_DEHYD_SUPRESSING: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(14);
+pub const PM_TASK_FILTER_MAX: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(17);
+pub const PM_TASK_FILTER_TASK_TYPE: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(13);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_TASK_TRANSITION(pub i32);
-pub const PM_TASK_TRANSITION_CUSTOM: PM_TASK_TRANSITION = PM_TASK_TRANSITION(6i32);
-pub const PM_TASK_TRANSITION_DEFAULT: PM_TASK_TRANSITION = PM_TASK_TRANSITION(0i32);
-pub const PM_TASK_TRANSITION_INVALID: PM_TASK_TRANSITION = PM_TASK_TRANSITION(7i32);
-pub const PM_TASK_TRANSITION_NONE: PM_TASK_TRANSITION = PM_TASK_TRANSITION(1i32);
-pub const PM_TASK_TRANSITION_READERBOARD: PM_TASK_TRANSITION = PM_TASK_TRANSITION(5i32);
-pub const PM_TASK_TRANSITION_SLIDE: PM_TASK_TRANSITION = PM_TASK_TRANSITION(3i32);
-pub const PM_TASK_TRANSITION_SWIVEL: PM_TASK_TRANSITION = PM_TASK_TRANSITION(4i32);
-pub const PM_TASK_TRANSITION_TURNSTILE: PM_TASK_TRANSITION = PM_TASK_TRANSITION(2i32);
+pub const PM_TASK_TRANSITION_CUSTOM: PM_TASK_TRANSITION = PM_TASK_TRANSITION(6);
+pub const PM_TASK_TRANSITION_DEFAULT: PM_TASK_TRANSITION = PM_TASK_TRANSITION(0);
+pub const PM_TASK_TRANSITION_INVALID: PM_TASK_TRANSITION = PM_TASK_TRANSITION(7);
+pub const PM_TASK_TRANSITION_NONE: PM_TASK_TRANSITION = PM_TASK_TRANSITION(1);
+pub const PM_TASK_TRANSITION_READERBOARD: PM_TASK_TRANSITION = PM_TASK_TRANSITION(5);
+pub const PM_TASK_TRANSITION_SLIDE: PM_TASK_TRANSITION = PM_TASK_TRANSITION(3);
+pub const PM_TASK_TRANSITION_SWIVEL: PM_TASK_TRANSITION = PM_TASK_TRANSITION(4);
+pub const PM_TASK_TRANSITION_TURNSTILE: PM_TASK_TRANSITION = PM_TASK_TRANSITION(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_TASK_TYPE(pub i32);
-pub const PM_TASK_TYPE_BACKGROUNDSERVICEAGENT: PM_TASK_TYPE = PM_TASK_TYPE(3i32);
-pub const PM_TASK_TYPE_BACKGROUNDWORKER: PM_TASK_TYPE = PM_TASK_TYPE(4i32);
-pub const PM_TASK_TYPE_DEFAULT: PM_TASK_TYPE = PM_TASK_TYPE(1i32);
-pub const PM_TASK_TYPE_INVALID: PM_TASK_TYPE = PM_TASK_TYPE(5i32);
-pub const PM_TASK_TYPE_NORMAL: PM_TASK_TYPE = PM_TASK_TYPE(0i32);
-pub const PM_TASK_TYPE_SETTINGS: PM_TASK_TYPE = PM_TASK_TYPE(2i32);
-pub const PM_TILE_FILTER_APPLIST: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(8i32);
-pub const PM_TILE_FILTER_APP_ALL: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(11i32);
-pub const PM_TILE_FILTER_HUBTYPE: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(10i32);
-pub const PM_TILE_FILTER_MAX: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(12i32);
-pub const PM_TILE_FILTER_PINNED: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(9i32);
+pub const PM_TASK_TYPE_BACKGROUNDSERVICEAGENT: PM_TASK_TYPE = PM_TASK_TYPE(3);
+pub const PM_TASK_TYPE_BACKGROUNDWORKER: PM_TASK_TYPE = PM_TASK_TYPE(4);
+pub const PM_TASK_TYPE_DEFAULT: PM_TASK_TYPE = PM_TASK_TYPE(1);
+pub const PM_TASK_TYPE_INVALID: PM_TASK_TYPE = PM_TASK_TYPE(5);
+pub const PM_TASK_TYPE_NORMAL: PM_TASK_TYPE = PM_TASK_TYPE(0);
+pub const PM_TASK_TYPE_SETTINGS: PM_TASK_TYPE = PM_TASK_TYPE(2);
+pub const PM_TILE_FILTER_APPLIST: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(8);
+pub const PM_TILE_FILTER_APP_ALL: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(11);
+pub const PM_TILE_FILTER_HUBTYPE: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(10);
+pub const PM_TILE_FILTER_MAX: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(12);
+pub const PM_TILE_FILTER_PINNED: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(9);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_TILE_HUBTYPE(pub i32);
-pub const PM_TILE_HUBTYPE_APPLIST: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(1073741824i32);
-pub const PM_TILE_HUBTYPE_CACHED: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(67108864i32);
-pub const PM_TILE_HUBTYPE_GAMES: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(536870912i32);
-pub const PM_TILE_HUBTYPE_INVALID: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(67108865i32);
-pub const PM_TILE_HUBTYPE_KIDZONE: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(33554432i32);
-pub const PM_TILE_HUBTYPE_LOCKSCREEN: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(16777216i32);
-pub const PM_TILE_HUBTYPE_MOSETTINGS: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(268435456i32);
-pub const PM_TILE_HUBTYPE_MUSIC: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(1i32);
-pub const PM_TILE_HUBTYPE_STARTMENU: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(-2147483648i32);
+pub const PM_TILE_HUBTYPE_APPLIST: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(1073741824);
+pub const PM_TILE_HUBTYPE_CACHED: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(67108864);
+pub const PM_TILE_HUBTYPE_GAMES: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(536870912);
+pub const PM_TILE_HUBTYPE_INVALID: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(67108865);
+pub const PM_TILE_HUBTYPE_KIDZONE: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(33554432);
+pub const PM_TILE_HUBTYPE_LOCKSCREEN: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(16777216);
+pub const PM_TILE_HUBTYPE_MOSETTINGS: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(268435456);
+pub const PM_TILE_HUBTYPE_MUSIC: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(1);
+pub const PM_TILE_HUBTYPE_STARTMENU: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(-2147483648);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PM_TILE_SIZE(pub i32);
-pub const PM_TILE_SIZE_INVALID: PM_TILE_SIZE = PM_TILE_SIZE(5i32);
-pub const PM_TILE_SIZE_LARGE: PM_TILE_SIZE = PM_TILE_SIZE(2i32);
-pub const PM_TILE_SIZE_MEDIUM: PM_TILE_SIZE = PM_TILE_SIZE(1i32);
-pub const PM_TILE_SIZE_SMALL: PM_TILE_SIZE = PM_TILE_SIZE(0i32);
-pub const PM_TILE_SIZE_SQUARE310X310: PM_TILE_SIZE = PM_TILE_SIZE(3i32);
-pub const PM_TILE_SIZE_TALL150X310: PM_TILE_SIZE = PM_TILE_SIZE(4i32);
+pub const PM_TILE_SIZE_INVALID: PM_TILE_SIZE = PM_TILE_SIZE(5);
+pub const PM_TILE_SIZE_LARGE: PM_TILE_SIZE = PM_TILE_SIZE(2);
+pub const PM_TILE_SIZE_MEDIUM: PM_TILE_SIZE = PM_TILE_SIZE(1);
+pub const PM_TILE_SIZE_SMALL: PM_TILE_SIZE = PM_TILE_SIZE(0);
+pub const PM_TILE_SIZE_SQUARE310X310: PM_TILE_SIZE = PM_TILE_SIZE(3);
+pub const PM_TILE_SIZE_TALL150X310: PM_TILE_SIZE = PM_TILE_SIZE(4);
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct PM_UPDATEINFO {
@@ -10088,441 +10051,441 @@ impl core::ops::Not for QUERYASMINFO_FLAGS {
         Self(self.0.not())
     }
 }
-pub const QUERYASMINFO_FLAG_VALIDATE: QUERYASMINFO_FLAGS = QUERYASMINFO_FLAGS(1u32);
+pub const QUERYASMINFO_FLAG_VALIDATE: QUERYASMINFO_FLAGS = QUERYASMINFO_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REINSTALLMODE(pub i32);
-pub const REINSTALLMODE_FILEEQUALVERSION: REINSTALLMODE = REINSTALLMODE(8i32);
-pub const REINSTALLMODE_FILEEXACT: REINSTALLMODE = REINSTALLMODE(16i32);
-pub const REINSTALLMODE_FILEMISSING: REINSTALLMODE = REINSTALLMODE(2i32);
-pub const REINSTALLMODE_FILEOLDERVERSION: REINSTALLMODE = REINSTALLMODE(4i32);
-pub const REINSTALLMODE_FILEREPLACE: REINSTALLMODE = REINSTALLMODE(64i32);
-pub const REINSTALLMODE_FILEVERIFY: REINSTALLMODE = REINSTALLMODE(32i32);
-pub const REINSTALLMODE_MACHINEDATA: REINSTALLMODE = REINSTALLMODE(128i32);
-pub const REINSTALLMODE_PACKAGE: REINSTALLMODE = REINSTALLMODE(1024i32);
-pub const REINSTALLMODE_REPAIR: REINSTALLMODE = REINSTALLMODE(1i32);
-pub const REINSTALLMODE_SHORTCUT: REINSTALLMODE = REINSTALLMODE(512i32);
-pub const REINSTALLMODE_USERDATA: REINSTALLMODE = REINSTALLMODE(256i32);
+pub const REINSTALLMODE_FILEEQUALVERSION: REINSTALLMODE = REINSTALLMODE(8);
+pub const REINSTALLMODE_FILEEXACT: REINSTALLMODE = REINSTALLMODE(16);
+pub const REINSTALLMODE_FILEMISSING: REINSTALLMODE = REINSTALLMODE(2);
+pub const REINSTALLMODE_FILEOLDERVERSION: REINSTALLMODE = REINSTALLMODE(4);
+pub const REINSTALLMODE_FILEREPLACE: REINSTALLMODE = REINSTALLMODE(64);
+pub const REINSTALLMODE_FILEVERIFY: REINSTALLMODE = REINSTALLMODE(32);
+pub const REINSTALLMODE_MACHINEDATA: REINSTALLMODE = REINSTALLMODE(128);
+pub const REINSTALLMODE_PACKAGE: REINSTALLMODE = REINSTALLMODE(1024);
+pub const REINSTALLMODE_REPAIR: REINSTALLMODE = REINSTALLMODE(1);
+pub const REINSTALLMODE_SHORTCUT: REINSTALLMODE = REINSTALLMODE(512);
+pub const REINSTALLMODE_USERDATA: REINSTALLMODE = REINSTALLMODE(256);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESULTTYPES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTFLAGS(pub i32);
-pub const SCRIPTFLAGS_CACHEINFO: SCRIPTFLAGS = SCRIPTFLAGS(1i32);
-pub const SCRIPTFLAGS_MACHINEASSIGN: SCRIPTFLAGS = SCRIPTFLAGS(8i32);
-pub const SCRIPTFLAGS_REGDATA: SCRIPTFLAGS = SCRIPTFLAGS(416i32);
-pub const SCRIPTFLAGS_REGDATA_APPINFO: SCRIPTFLAGS = SCRIPTFLAGS(384i32);
-pub const SCRIPTFLAGS_REGDATA_CLASSINFO: SCRIPTFLAGS = SCRIPTFLAGS(128i32);
-pub const SCRIPTFLAGS_REGDATA_CNFGINFO: SCRIPTFLAGS = SCRIPTFLAGS(32i32);
-pub const SCRIPTFLAGS_REGDATA_EXTENSIONINFO: SCRIPTFLAGS = SCRIPTFLAGS(256i32);
-pub const SCRIPTFLAGS_SHORTCUTS: SCRIPTFLAGS = SCRIPTFLAGS(4i32);
-pub const SCRIPTFLAGS_VALIDATE_TRANSFORMS_LIST: SCRIPTFLAGS = SCRIPTFLAGS(64i32);
-pub const SFC_DISABLE_ASK: u32 = 1u32;
-pub const SFC_DISABLE_NOPOPUPS: u32 = 4u32;
-pub const SFC_DISABLE_NORMAL: u32 = 0u32;
-pub const SFC_DISABLE_ONCE: u32 = 2u32;
-pub const SFC_DISABLE_SETUP: u32 = 3u32;
+pub const SCRIPTFLAGS_CACHEINFO: SCRIPTFLAGS = SCRIPTFLAGS(1);
+pub const SCRIPTFLAGS_MACHINEASSIGN: SCRIPTFLAGS = SCRIPTFLAGS(8);
+pub const SCRIPTFLAGS_REGDATA: SCRIPTFLAGS = SCRIPTFLAGS(416);
+pub const SCRIPTFLAGS_REGDATA_APPINFO: SCRIPTFLAGS = SCRIPTFLAGS(384);
+pub const SCRIPTFLAGS_REGDATA_CLASSINFO: SCRIPTFLAGS = SCRIPTFLAGS(128);
+pub const SCRIPTFLAGS_REGDATA_CNFGINFO: SCRIPTFLAGS = SCRIPTFLAGS(32);
+pub const SCRIPTFLAGS_REGDATA_EXTENSIONINFO: SCRIPTFLAGS = SCRIPTFLAGS(256);
+pub const SCRIPTFLAGS_SHORTCUTS: SCRIPTFLAGS = SCRIPTFLAGS(4);
+pub const SCRIPTFLAGS_VALIDATE_TRANSFORMS_LIST: SCRIPTFLAGS = SCRIPTFLAGS(64);
+pub const SFC_DISABLE_ASK: u32 = 1;
+pub const SFC_DISABLE_NOPOPUPS: u32 = 4;
+pub const SFC_DISABLE_NORMAL: u32 = 0;
+pub const SFC_DISABLE_ONCE: u32 = 2;
+pub const SFC_DISABLE_SETUP: u32 = 3;
 pub const SFC_IDLE_TRIGGER: windows_core::PCWSTR = windows_core::w!("WFP_IDLE_TRIGGER");
-pub const SFC_QUOTA_DEFAULT: u32 = 50u32;
-pub const SFC_SCAN_ALWAYS: u32 = 1u32;
-pub const SFC_SCAN_IMMEDIATE: u32 = 3u32;
-pub const SFC_SCAN_NORMAL: u32 = 0u32;
-pub const SFC_SCAN_ONCE: u32 = 2u32;
+pub const SFC_QUOTA_DEFAULT: u32 = 50;
+pub const SFC_SCAN_ALWAYS: u32 = 1;
+pub const SFC_SCAN_IMMEDIATE: u32 = 3;
+pub const SFC_SCAN_NORMAL: u32 = 0;
+pub const SFC_SCAN_ONCE: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATUSTYPES(pub i32);
-pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1u32;
-pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0u32;
-pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4u32;
-pub const STREAM_FORMAT_WIN32_MODULE: u32 = 2u32;
-pub const TILE_TEMPLATE_AGILESTORE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(2i32);
-pub const TILE_TEMPLATE_ALL: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(100i32);
-pub const TILE_TEMPLATE_BADGE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(16i32);
-pub const TILE_TEMPLATE_BLOCK: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(17i32);
-pub const TILE_TEMPLATE_BLOCKANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(33i32);
-pub const TILE_TEMPLATE_BLOCKANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(34i32);
-pub const TILE_TEMPLATE_CALENDAR: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(4i32);
-pub const TILE_TEMPLATE_CONTACT: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(11i32);
-pub const TILE_TEMPLATE_CYCLE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(14i32);
-pub const TILE_TEMPLATE_DEEPLINK: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(13i32);
-pub const TILE_TEMPLATE_DEFAULT: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(15i32);
-pub const TILE_TEMPLATE_FLIP: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(5i32);
-pub const TILE_TEMPLATE_FOLDER: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(59i32);
-pub const TILE_TEMPLATE_GAMES: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(3i32);
-pub const TILE_TEMPLATE_GROUP: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(12i32);
-pub const TILE_TEMPLATE_IMAGE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(29i32);
-pub const TILE_TEMPLATE_IMAGEANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(31i32);
-pub const TILE_TEMPLATE_IMAGEANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(32i32);
-pub const TILE_TEMPLATE_IMAGECOLLECTION: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(30i32);
-pub const TILE_TEMPLATE_INVALID: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(0i32);
-pub const TILE_TEMPLATE_METROCOUNT: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(1i32);
-pub const TILE_TEMPLATE_METROCOUNTQUEUE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(56i32);
-pub const TILE_TEMPLATE_MUSICVIDEO: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(7i32);
-pub const TILE_TEMPLATE_PEEKIMAGE01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(39i32);
-pub const TILE_TEMPLATE_PEEKIMAGE02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(40i32);
-pub const TILE_TEMPLATE_PEEKIMAGE03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(41i32);
-pub const TILE_TEMPLATE_PEEKIMAGE04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(42i32);
-pub const TILE_TEMPLATE_PEEKIMAGE05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(43i32);
-pub const TILE_TEMPLATE_PEEKIMAGE06: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(44i32);
-pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(35i32);
-pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(36i32);
-pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(37i32);
-pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(38i32);
-pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(45i32);
-pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(46i32);
-pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(47i32);
-pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(48i32);
-pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(49i32);
-pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION06: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(50i32);
-pub const TILE_TEMPLATE_PEOPLE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(10i32);
-pub const TILE_TEMPLATE_SEARCH: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(57i32);
-pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(51i32);
-pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(52i32);
-pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(53i32);
-pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(54i32);
-pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(55i32);
-pub const TILE_TEMPLATE_TEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(18i32);
-pub const TILE_TEMPLATE_TEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(19i32);
-pub const TILE_TEMPLATE_TEXT03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(20i32);
-pub const TILE_TEMPLATE_TEXT04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(21i32);
-pub const TILE_TEMPLATE_TEXT05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(22i32);
-pub const TILE_TEMPLATE_TEXT06: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(23i32);
-pub const TILE_TEMPLATE_TEXT07: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(24i32);
-pub const TILE_TEMPLATE_TEXT08: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(25i32);
-pub const TILE_TEMPLATE_TEXT09: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(26i32);
-pub const TILE_TEMPLATE_TEXT10: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(27i32);
-pub const TILE_TEMPLATE_TEXT11: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(28i32);
-pub const TILE_TEMPLATE_TILEFLYOUT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(58i32);
+pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1;
+pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0;
+pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4;
+pub const STREAM_FORMAT_WIN32_MODULE: u32 = 2;
+pub const TILE_TEMPLATE_AGILESTORE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(2);
+pub const TILE_TEMPLATE_ALL: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(100);
+pub const TILE_TEMPLATE_BADGE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(16);
+pub const TILE_TEMPLATE_BLOCK: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(17);
+pub const TILE_TEMPLATE_BLOCKANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(33);
+pub const TILE_TEMPLATE_BLOCKANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(34);
+pub const TILE_TEMPLATE_CALENDAR: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(4);
+pub const TILE_TEMPLATE_CONTACT: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(11);
+pub const TILE_TEMPLATE_CYCLE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(14);
+pub const TILE_TEMPLATE_DEEPLINK: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(13);
+pub const TILE_TEMPLATE_DEFAULT: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(15);
+pub const TILE_TEMPLATE_FLIP: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(5);
+pub const TILE_TEMPLATE_FOLDER: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(59);
+pub const TILE_TEMPLATE_GAMES: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(3);
+pub const TILE_TEMPLATE_GROUP: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(12);
+pub const TILE_TEMPLATE_IMAGE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(29);
+pub const TILE_TEMPLATE_IMAGEANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(31);
+pub const TILE_TEMPLATE_IMAGEANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(32);
+pub const TILE_TEMPLATE_IMAGECOLLECTION: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(30);
+pub const TILE_TEMPLATE_INVALID: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(0);
+pub const TILE_TEMPLATE_METROCOUNT: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(1);
+pub const TILE_TEMPLATE_METROCOUNTQUEUE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(56);
+pub const TILE_TEMPLATE_MUSICVIDEO: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(7);
+pub const TILE_TEMPLATE_PEEKIMAGE01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(39);
+pub const TILE_TEMPLATE_PEEKIMAGE02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(40);
+pub const TILE_TEMPLATE_PEEKIMAGE03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(41);
+pub const TILE_TEMPLATE_PEEKIMAGE04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(42);
+pub const TILE_TEMPLATE_PEEKIMAGE05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(43);
+pub const TILE_TEMPLATE_PEEKIMAGE06: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(44);
+pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(35);
+pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(36);
+pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(37);
+pub const TILE_TEMPLATE_PEEKIMAGEANDTEXT04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(38);
+pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(45);
+pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(46);
+pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(47);
+pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(48);
+pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(49);
+pub const TILE_TEMPLATE_PEEKIMAGECOLLECTION06: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(50);
+pub const TILE_TEMPLATE_PEOPLE: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(10);
+pub const TILE_TEMPLATE_SEARCH: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(57);
+pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(51);
+pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(52);
+pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(53);
+pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(54);
+pub const TILE_TEMPLATE_SMALLIMAGEANDTEXT05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(55);
+pub const TILE_TEMPLATE_TEXT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(18);
+pub const TILE_TEMPLATE_TEXT02: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(19);
+pub const TILE_TEMPLATE_TEXT03: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(20);
+pub const TILE_TEMPLATE_TEXT04: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(21);
+pub const TILE_TEMPLATE_TEXT05: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(22);
+pub const TILE_TEMPLATE_TEXT06: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(23);
+pub const TILE_TEMPLATE_TEXT07: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(24);
+pub const TILE_TEMPLATE_TEXT08: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(25);
+pub const TILE_TEMPLATE_TEXT09: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(26);
+pub const TILE_TEMPLATE_TEXT10: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(27);
+pub const TILE_TEMPLATE_TEXT11: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(28);
+pub const TILE_TEMPLATE_TILEFLYOUT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(58);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TILE_TEMPLATE_TYPE(pub i32);
-pub const TXTLOG_BACKUP: u32 = 128u32;
-pub const TXTLOG_CMI: u32 = 268435456u32;
-pub const TXTLOG_COPYFILES: u32 = 8u32;
-pub const TXTLOG_DEPTH_DECR: u32 = 262144u32;
-pub const TXTLOG_DEPTH_INCR: u32 = 131072u32;
-pub const TXTLOG_DETAILS: u32 = 5u32;
-pub const TXTLOG_DEVINST: u32 = 1u32;
-pub const TXTLOG_DEVMGR: u32 = 536870912u32;
-pub const TXTLOG_DRIVER_STORE: u32 = 67108864u32;
-pub const TXTLOG_DRVSETUP: u32 = 4194304u32;
-pub const TXTLOG_ERROR: u32 = 1u32;
-pub const TXTLOG_FILEQ: u32 = 4u32;
-pub const TXTLOG_FLUSH_FILE: u32 = 1048576u32;
-pub const TXTLOG_INF: u32 = 2u32;
-pub const TXTLOG_INFDB: u32 = 1024u32;
-pub const TXTLOG_INSTALLER: u32 = 1073741824u32;
-pub const TXTLOG_NEWDEV: u32 = 16777216u32;
-pub const TXTLOG_POLICY: u32 = 8388608u32;
-pub const TXTLOG_RESERVED_FLAGS: u32 = 65520u32;
-pub const TXTLOG_SETUP: u32 = 134217728u32;
-pub const TXTLOG_SETUPAPI_BITS: u32 = 3u32;
-pub const TXTLOG_SETUPAPI_CMDLINE: u32 = 2u32;
-pub const TXTLOG_SETUPAPI_DEVLOG: u32 = 1u32;
-pub const TXTLOG_SIGVERIF: u32 = 32u32;
-pub const TXTLOG_SUMMARY: u32 = 4u32;
-pub const TXTLOG_SYSTEM_STATE_CHANGE: u32 = 3u32;
-pub const TXTLOG_TAB_1: u32 = 524288u32;
-pub const TXTLOG_TIMESTAMP: u32 = 65536u32;
-pub const TXTLOG_UI: u32 = 256u32;
-pub const TXTLOG_UMPNPMGR: u32 = 33554432u32;
-pub const TXTLOG_UTIL: u32 = 512u32;
-pub const TXTLOG_VENDOR: u32 = 2147483648u32;
-pub const TXTLOG_VERBOSE: u32 = 6u32;
-pub const TXTLOG_VERY_VERBOSE: u32 = 7u32;
-pub const TXTLOG_WARNING: u32 = 2u32;
-pub const UIALL: u32 = 32768u32;
-pub const UILOGBITS: u32 = 15u32;
-pub const UINONE: u32 = 0u32;
+pub const TXTLOG_BACKUP: u32 = 128;
+pub const TXTLOG_CMI: u32 = 268435456;
+pub const TXTLOG_COPYFILES: u32 = 8;
+pub const TXTLOG_DEPTH_DECR: u32 = 262144;
+pub const TXTLOG_DEPTH_INCR: u32 = 131072;
+pub const TXTLOG_DETAILS: u32 = 5;
+pub const TXTLOG_DEVINST: u32 = 1;
+pub const TXTLOG_DEVMGR: u32 = 536870912;
+pub const TXTLOG_DRIVER_STORE: u32 = 67108864;
+pub const TXTLOG_DRVSETUP: u32 = 4194304;
+pub const TXTLOG_ERROR: u32 = 1;
+pub const TXTLOG_FILEQ: u32 = 4;
+pub const TXTLOG_FLUSH_FILE: u32 = 1048576;
+pub const TXTLOG_INF: u32 = 2;
+pub const TXTLOG_INFDB: u32 = 1024;
+pub const TXTLOG_INSTALLER: u32 = 1073741824;
+pub const TXTLOG_NEWDEV: u32 = 16777216;
+pub const TXTLOG_POLICY: u32 = 8388608;
+pub const TXTLOG_RESERVED_FLAGS: u32 = 65520;
+pub const TXTLOG_SETUP: u32 = 134217728;
+pub const TXTLOG_SETUPAPI_BITS: u32 = 3;
+pub const TXTLOG_SETUPAPI_CMDLINE: u32 = 2;
+pub const TXTLOG_SETUPAPI_DEVLOG: u32 = 1;
+pub const TXTLOG_SIGVERIF: u32 = 32;
+pub const TXTLOG_SUMMARY: u32 = 4;
+pub const TXTLOG_SYSTEM_STATE_CHANGE: u32 = 3;
+pub const TXTLOG_TAB_1: u32 = 524288;
+pub const TXTLOG_TIMESTAMP: u32 = 65536;
+pub const TXTLOG_UI: u32 = 256;
+pub const TXTLOG_UMPNPMGR: u32 = 33554432;
+pub const TXTLOG_UTIL: u32 = 512;
+pub const TXTLOG_VENDOR: u32 = 2147483648;
+pub const TXTLOG_VERBOSE: u32 = 6;
+pub const TXTLOG_VERY_VERBOSE: u32 = 7;
+pub const TXTLOG_WARNING: u32 = 2;
+pub const UIALL: u32 = 32768;
+pub const UILOGBITS: u32 = 15;
+pub const UINONE: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USERINFOSTATE(pub i32);
-pub const USERINFOSTATE_ABSENT: USERINFOSTATE = USERINFOSTATE(0i32);
-pub const USERINFOSTATE_INVALIDARG: USERINFOSTATE = USERINFOSTATE(-2i32);
-pub const USERINFOSTATE_MOREDATA: USERINFOSTATE = USERINFOSTATE(-3i32);
-pub const USERINFOSTATE_PRESENT: USERINFOSTATE = USERINFOSTATE(1i32);
-pub const USERINFOSTATE_UNKNOWN: USERINFOSTATE = USERINFOSTATE(-1i32);
-pub const WARN_BAD_MAJOR_VERSION: u32 = 3222294792u32;
-pub const WARN_BASE: u32 = 3222294785u32;
-pub const WARN_EQUAL_FILE_VERSION: u32 = 3222294794u32;
-pub const WARN_FILE_VERSION_DOWNREV: u32 = 3222294793u32;
-pub const WARN_IMPROPER_TRANSFORM_VALIDATION: u32 = 3222294788u32;
-pub const WARN_INVALID_TRANSFORM_VALIDATION: u32 = 3222294791u32;
-pub const WARN_MAJOR_UPGRADE_PATCH: u32 = 3222294785u32;
-pub const WARN_OBSOLETION_WITH_MSI30: u32 = 3222294801u32;
-pub const WARN_OBSOLETION_WITH_PATCHSEQUENCE: u32 = 3222294803u32;
-pub const WARN_OBSOLETION_WITH_SEQUENCE_DATA: u32 = 3222294802u32;
-pub const WARN_PATCHPROPERTYNOTSET: u32 = 3222294795u32;
-pub const WARN_PCW_MISMATCHED_PRODUCT_CODES: u32 = 3222294789u32;
-pub const WARN_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222294790u32;
-pub const WARN_SEQUENCE_DATA_GENERATION_DISABLED: u32 = 3222294786u32;
-pub const WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: u32 = 3222294787u32;
-pub const _WIN32_MSI: u32 = 500u32;
-pub const _WIN32_MSM: u32 = 100u32;
-pub const cchMaxInteger: i32 = 12i32;
-pub const ieError: RESULTTYPES = RESULTTYPES(1i32);
-pub const ieInfo: RESULTTYPES = RESULTTYPES(3i32);
-pub const ieStatusCancel: STATUSTYPES = STATUSTYPES(10i32);
-pub const ieStatusCreateEngine: STATUSTYPES = STATUSTYPES(4i32);
-pub const ieStatusFail: STATUSTYPES = STATUSTYPES(9i32);
-pub const ieStatusGetCUB: STATUSTYPES = STATUSTYPES(0i32);
-pub const ieStatusICECount: STATUSTYPES = STATUSTYPES(1i32);
-pub const ieStatusMerge: STATUSTYPES = STATUSTYPES(2i32);
-pub const ieStatusRunICE: STATUSTYPES = STATUSTYPES(6i32);
-pub const ieStatusShutdown: STATUSTYPES = STATUSTYPES(7i32);
-pub const ieStatusStarting: STATUSTYPES = STATUSTYPES(5i32);
-pub const ieStatusSuccess: STATUSTYPES = STATUSTYPES(8i32);
-pub const ieStatusSummaryInfo: STATUSTYPES = STATUSTYPES(3i32);
-pub const ieUnknown: RESULTTYPES = RESULTTYPES(0i32);
-pub const ieWarning: RESULTTYPES = RESULTTYPES(2i32);
+pub const USERINFOSTATE_ABSENT: USERINFOSTATE = USERINFOSTATE(0);
+pub const USERINFOSTATE_INVALIDARG: USERINFOSTATE = USERINFOSTATE(-2);
+pub const USERINFOSTATE_MOREDATA: USERINFOSTATE = USERINFOSTATE(-3);
+pub const USERINFOSTATE_PRESENT: USERINFOSTATE = USERINFOSTATE(1);
+pub const USERINFOSTATE_UNKNOWN: USERINFOSTATE = USERINFOSTATE(-1);
+pub const WARN_BAD_MAJOR_VERSION: u32 = 3222294792;
+pub const WARN_BASE: u32 = 3222294785;
+pub const WARN_EQUAL_FILE_VERSION: u32 = 3222294794;
+pub const WARN_FILE_VERSION_DOWNREV: u32 = 3222294793;
+pub const WARN_IMPROPER_TRANSFORM_VALIDATION: u32 = 3222294788;
+pub const WARN_INVALID_TRANSFORM_VALIDATION: u32 = 3222294791;
+pub const WARN_MAJOR_UPGRADE_PATCH: u32 = 3222294785;
+pub const WARN_OBSOLETION_WITH_MSI30: u32 = 3222294801;
+pub const WARN_OBSOLETION_WITH_PATCHSEQUENCE: u32 = 3222294803;
+pub const WARN_OBSOLETION_WITH_SEQUENCE_DATA: u32 = 3222294802;
+pub const WARN_PATCHPROPERTYNOTSET: u32 = 3222294795;
+pub const WARN_PCW_MISMATCHED_PRODUCT_CODES: u32 = 3222294789;
+pub const WARN_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222294790;
+pub const WARN_SEQUENCE_DATA_GENERATION_DISABLED: u32 = 3222294786;
+pub const WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: u32 = 3222294787;
+pub const _WIN32_MSI: u32 = 500;
+pub const _WIN32_MSM: u32 = 100;
+pub const cchMaxInteger: i32 = 12;
+pub const ieError: RESULTTYPES = RESULTTYPES(1);
+pub const ieInfo: RESULTTYPES = RESULTTYPES(3);
+pub const ieStatusCancel: STATUSTYPES = STATUSTYPES(10);
+pub const ieStatusCreateEngine: STATUSTYPES = STATUSTYPES(4);
+pub const ieStatusFail: STATUSTYPES = STATUSTYPES(9);
+pub const ieStatusGetCUB: STATUSTYPES = STATUSTYPES(0);
+pub const ieStatusICECount: STATUSTYPES = STATUSTYPES(1);
+pub const ieStatusMerge: STATUSTYPES = STATUSTYPES(2);
+pub const ieStatusRunICE: STATUSTYPES = STATUSTYPES(6);
+pub const ieStatusShutdown: STATUSTYPES = STATUSTYPES(7);
+pub const ieStatusStarting: STATUSTYPES = STATUSTYPES(5);
+pub const ieStatusSuccess: STATUSTYPES = STATUSTYPES(8);
+pub const ieStatusSummaryInfo: STATUSTYPES = STATUSTYPES(3);
+pub const ieUnknown: RESULTTYPES = RESULTTYPES(0);
+pub const ieWarning: RESULTTYPES = RESULTTYPES(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbAssemblyAttributes(pub i32);
-pub const msidbAssemblyAttributesURT: msidbAssemblyAttributes = msidbAssemblyAttributes(0i32);
-pub const msidbAssemblyAttributesWin32: msidbAssemblyAttributes = msidbAssemblyAttributes(1i32);
+pub const msidbAssemblyAttributesURT: msidbAssemblyAttributes = msidbAssemblyAttributes(0);
+pub const msidbAssemblyAttributesWin32: msidbAssemblyAttributes = msidbAssemblyAttributes(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbClassAttributes(pub i32);
-pub const msidbClassAttributesRelativePath: msidbClassAttributes = msidbClassAttributes(1i32);
+pub const msidbClassAttributesRelativePath: msidbClassAttributes = msidbClassAttributes(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbComponentAttributes(pub i32);
-pub const msidbComponentAttributes64bit: msidbComponentAttributes = msidbComponentAttributes(256i32);
-pub const msidbComponentAttributesDisableRegistryReflection: msidbComponentAttributes = msidbComponentAttributes(512i32);
-pub const msidbComponentAttributesLocalOnly: msidbComponentAttributes = msidbComponentAttributes(0i32);
-pub const msidbComponentAttributesNeverOverwrite: msidbComponentAttributes = msidbComponentAttributes(128i32);
-pub const msidbComponentAttributesODBCDataSource: msidbComponentAttributes = msidbComponentAttributes(32i32);
-pub const msidbComponentAttributesOptional: msidbComponentAttributes = msidbComponentAttributes(2i32);
-pub const msidbComponentAttributesPermanent: msidbComponentAttributes = msidbComponentAttributes(16i32);
-pub const msidbComponentAttributesRegistryKeyPath: msidbComponentAttributes = msidbComponentAttributes(4i32);
-pub const msidbComponentAttributesShared: msidbComponentAttributes = msidbComponentAttributes(2048i32);
-pub const msidbComponentAttributesSharedDllRefCount: msidbComponentAttributes = msidbComponentAttributes(8i32);
-pub const msidbComponentAttributesSourceOnly: msidbComponentAttributes = msidbComponentAttributes(1i32);
-pub const msidbComponentAttributesTransitive: msidbComponentAttributes = msidbComponentAttributes(64i32);
-pub const msidbComponentAttributesUninstallOnSupersedence: msidbComponentAttributes = msidbComponentAttributes(1024i32);
+pub const msidbComponentAttributes64bit: msidbComponentAttributes = msidbComponentAttributes(256);
+pub const msidbComponentAttributesDisableRegistryReflection: msidbComponentAttributes = msidbComponentAttributes(512);
+pub const msidbComponentAttributesLocalOnly: msidbComponentAttributes = msidbComponentAttributes(0);
+pub const msidbComponentAttributesNeverOverwrite: msidbComponentAttributes = msidbComponentAttributes(128);
+pub const msidbComponentAttributesODBCDataSource: msidbComponentAttributes = msidbComponentAttributes(32);
+pub const msidbComponentAttributesOptional: msidbComponentAttributes = msidbComponentAttributes(2);
+pub const msidbComponentAttributesPermanent: msidbComponentAttributes = msidbComponentAttributes(16);
+pub const msidbComponentAttributesRegistryKeyPath: msidbComponentAttributes = msidbComponentAttributes(4);
+pub const msidbComponentAttributesShared: msidbComponentAttributes = msidbComponentAttributes(2048);
+pub const msidbComponentAttributesSharedDllRefCount: msidbComponentAttributes = msidbComponentAttributes(8);
+pub const msidbComponentAttributesSourceOnly: msidbComponentAttributes = msidbComponentAttributes(1);
+pub const msidbComponentAttributesTransitive: msidbComponentAttributes = msidbComponentAttributes(64);
+pub const msidbComponentAttributesUninstallOnSupersedence: msidbComponentAttributes = msidbComponentAttributes(1024);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbControlAttributes(pub i32);
-pub const msidbControlAttributesBiDi: msidbControlAttributes = msidbControlAttributes(224i32);
-pub const msidbControlAttributesBitmap: msidbControlAttributes = msidbControlAttributes(262144i32);
-pub const msidbControlAttributesCDROMVolume: msidbControlAttributes = msidbControlAttributes(524288i32);
-pub const msidbControlAttributesComboList: msidbControlAttributes = msidbControlAttributes(131072i32);
-pub const msidbControlAttributesElevationShield: msidbControlAttributes = msidbControlAttributes(8388608i32);
-pub const msidbControlAttributesEnabled: msidbControlAttributes = msidbControlAttributes(2i32);
-pub const msidbControlAttributesFixedSize: msidbControlAttributes = msidbControlAttributes(1048576i32);
-pub const msidbControlAttributesFixedVolume: msidbControlAttributes = msidbControlAttributes(131072i32);
-pub const msidbControlAttributesFloppyVolume: msidbControlAttributes = msidbControlAttributes(2097152i32);
-pub const msidbControlAttributesFormatSize: msidbControlAttributes = msidbControlAttributes(524288i32);
-pub const msidbControlAttributesHasBorder: msidbControlAttributes = msidbControlAttributes(16777216i32);
-pub const msidbControlAttributesIcon: msidbControlAttributes = msidbControlAttributes(524288i32);
-pub const msidbControlAttributesIconSize16: msidbControlAttributes = msidbControlAttributes(2097152i32);
-pub const msidbControlAttributesIconSize32: msidbControlAttributes = msidbControlAttributes(4194304i32);
-pub const msidbControlAttributesIconSize48: msidbControlAttributes = msidbControlAttributes(6291456i32);
-pub const msidbControlAttributesImageHandle: msidbControlAttributes = msidbControlAttributes(65536i32);
-pub const msidbControlAttributesIndirect: msidbControlAttributes = msidbControlAttributes(8i32);
-pub const msidbControlAttributesInteger: msidbControlAttributes = msidbControlAttributes(16i32);
-pub const msidbControlAttributesLeftScroll: msidbControlAttributes = msidbControlAttributes(128i32);
-pub const msidbControlAttributesMultiline: msidbControlAttributes = msidbControlAttributes(65536i32);
-pub const msidbControlAttributesNoPrefix: msidbControlAttributes = msidbControlAttributes(131072i32);
-pub const msidbControlAttributesNoWrap: msidbControlAttributes = msidbControlAttributes(262144i32);
-pub const msidbControlAttributesPasswordInput: msidbControlAttributes = msidbControlAttributes(2097152i32);
-pub const msidbControlAttributesProgress95: msidbControlAttributes = msidbControlAttributes(65536i32);
-pub const msidbControlAttributesPushLike: msidbControlAttributes = msidbControlAttributes(131072i32);
-pub const msidbControlAttributesRAMDiskVolume: msidbControlAttributes = msidbControlAttributes(1048576i32);
-pub const msidbControlAttributesRTLRO: msidbControlAttributes = msidbControlAttributes(32i32);
-pub const msidbControlAttributesRemoteVolume: msidbControlAttributes = msidbControlAttributes(262144i32);
-pub const msidbControlAttributesRemovableVolume: msidbControlAttributes = msidbControlAttributes(65536i32);
-pub const msidbControlAttributesRightAligned: msidbControlAttributes = msidbControlAttributes(64i32);
-pub const msidbControlAttributesSorted: msidbControlAttributes = msidbControlAttributes(65536i32);
-pub const msidbControlAttributesSunken: msidbControlAttributes = msidbControlAttributes(4i32);
-pub const msidbControlAttributesTransparent: msidbControlAttributes = msidbControlAttributes(65536i32);
-pub const msidbControlAttributesUsersLanguage: msidbControlAttributes = msidbControlAttributes(1048576i32);
-pub const msidbControlAttributesVisible: msidbControlAttributes = msidbControlAttributes(1i32);
-pub const msidbControlShowRollbackCost: msidbControlAttributes = msidbControlAttributes(4194304i32);
+pub const msidbControlAttributesBiDi: msidbControlAttributes = msidbControlAttributes(224);
+pub const msidbControlAttributesBitmap: msidbControlAttributes = msidbControlAttributes(262144);
+pub const msidbControlAttributesCDROMVolume: msidbControlAttributes = msidbControlAttributes(524288);
+pub const msidbControlAttributesComboList: msidbControlAttributes = msidbControlAttributes(131072);
+pub const msidbControlAttributesElevationShield: msidbControlAttributes = msidbControlAttributes(8388608);
+pub const msidbControlAttributesEnabled: msidbControlAttributes = msidbControlAttributes(2);
+pub const msidbControlAttributesFixedSize: msidbControlAttributes = msidbControlAttributes(1048576);
+pub const msidbControlAttributesFixedVolume: msidbControlAttributes = msidbControlAttributes(131072);
+pub const msidbControlAttributesFloppyVolume: msidbControlAttributes = msidbControlAttributes(2097152);
+pub const msidbControlAttributesFormatSize: msidbControlAttributes = msidbControlAttributes(524288);
+pub const msidbControlAttributesHasBorder: msidbControlAttributes = msidbControlAttributes(16777216);
+pub const msidbControlAttributesIcon: msidbControlAttributes = msidbControlAttributes(524288);
+pub const msidbControlAttributesIconSize16: msidbControlAttributes = msidbControlAttributes(2097152);
+pub const msidbControlAttributesIconSize32: msidbControlAttributes = msidbControlAttributes(4194304);
+pub const msidbControlAttributesIconSize48: msidbControlAttributes = msidbControlAttributes(6291456);
+pub const msidbControlAttributesImageHandle: msidbControlAttributes = msidbControlAttributes(65536);
+pub const msidbControlAttributesIndirect: msidbControlAttributes = msidbControlAttributes(8);
+pub const msidbControlAttributesInteger: msidbControlAttributes = msidbControlAttributes(16);
+pub const msidbControlAttributesLeftScroll: msidbControlAttributes = msidbControlAttributes(128);
+pub const msidbControlAttributesMultiline: msidbControlAttributes = msidbControlAttributes(65536);
+pub const msidbControlAttributesNoPrefix: msidbControlAttributes = msidbControlAttributes(131072);
+pub const msidbControlAttributesNoWrap: msidbControlAttributes = msidbControlAttributes(262144);
+pub const msidbControlAttributesPasswordInput: msidbControlAttributes = msidbControlAttributes(2097152);
+pub const msidbControlAttributesProgress95: msidbControlAttributes = msidbControlAttributes(65536);
+pub const msidbControlAttributesPushLike: msidbControlAttributes = msidbControlAttributes(131072);
+pub const msidbControlAttributesRAMDiskVolume: msidbControlAttributes = msidbControlAttributes(1048576);
+pub const msidbControlAttributesRTLRO: msidbControlAttributes = msidbControlAttributes(32);
+pub const msidbControlAttributesRemoteVolume: msidbControlAttributes = msidbControlAttributes(262144);
+pub const msidbControlAttributesRemovableVolume: msidbControlAttributes = msidbControlAttributes(65536);
+pub const msidbControlAttributesRightAligned: msidbControlAttributes = msidbControlAttributes(64);
+pub const msidbControlAttributesSorted: msidbControlAttributes = msidbControlAttributes(65536);
+pub const msidbControlAttributesSunken: msidbControlAttributes = msidbControlAttributes(4);
+pub const msidbControlAttributesTransparent: msidbControlAttributes = msidbControlAttributes(65536);
+pub const msidbControlAttributesUsersLanguage: msidbControlAttributes = msidbControlAttributes(1048576);
+pub const msidbControlAttributesVisible: msidbControlAttributes = msidbControlAttributes(1);
+pub const msidbControlShowRollbackCost: msidbControlAttributes = msidbControlAttributes(4194304);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbCustomActionType(pub i32);
-pub const msidbCustomActionType64BitScript: msidbCustomActionType = msidbCustomActionType(4096i32);
-pub const msidbCustomActionTypeAsync: msidbCustomActionType = msidbCustomActionType(128i32);
-pub const msidbCustomActionTypeBinaryData: msidbCustomActionType = msidbCustomActionType(0i32);
-pub const msidbCustomActionTypeClientRepeat: msidbCustomActionType = msidbCustomActionType(768i32);
-pub const msidbCustomActionTypeCommit: msidbCustomActionType = msidbCustomActionType(512i32);
-pub const msidbCustomActionTypeContinue: msidbCustomActionType = msidbCustomActionType(64i32);
-pub const msidbCustomActionTypeDirectory: msidbCustomActionType = msidbCustomActionType(32i32);
-pub const msidbCustomActionTypeDll: msidbCustomActionType = msidbCustomActionType(1i32);
-pub const msidbCustomActionTypeExe: msidbCustomActionType = msidbCustomActionType(2i32);
-pub const msidbCustomActionTypeFirstSequence: msidbCustomActionType = msidbCustomActionType(256i32);
-pub const msidbCustomActionTypeHideTarget: msidbCustomActionType = msidbCustomActionType(8192i32);
-pub const msidbCustomActionTypeInScript: msidbCustomActionType = msidbCustomActionType(1024i32);
-pub const msidbCustomActionTypeInstall: msidbCustomActionType = msidbCustomActionType(7i32);
-pub const msidbCustomActionTypeJScript: msidbCustomActionType = msidbCustomActionType(5i32);
-pub const msidbCustomActionTypeNoImpersonate: msidbCustomActionType = msidbCustomActionType(2048i32);
-pub const msidbCustomActionTypeOncePerProcess: msidbCustomActionType = msidbCustomActionType(512i32);
-pub const msidbCustomActionTypePatchUninstall: msidbCustomActionType = msidbCustomActionType(32768i32);
-pub const msidbCustomActionTypeProperty: msidbCustomActionType = msidbCustomActionType(48i32);
-pub const msidbCustomActionTypeRollback: msidbCustomActionType = msidbCustomActionType(256i32);
-pub const msidbCustomActionTypeSourceFile: msidbCustomActionType = msidbCustomActionType(16i32);
-pub const msidbCustomActionTypeTSAware: msidbCustomActionType = msidbCustomActionType(16384i32);
-pub const msidbCustomActionTypeTextData: msidbCustomActionType = msidbCustomActionType(3i32);
-pub const msidbCustomActionTypeVBScript: msidbCustomActionType = msidbCustomActionType(6i32);
+pub const msidbCustomActionType64BitScript: msidbCustomActionType = msidbCustomActionType(4096);
+pub const msidbCustomActionTypeAsync: msidbCustomActionType = msidbCustomActionType(128);
+pub const msidbCustomActionTypeBinaryData: msidbCustomActionType = msidbCustomActionType(0);
+pub const msidbCustomActionTypeClientRepeat: msidbCustomActionType = msidbCustomActionType(768);
+pub const msidbCustomActionTypeCommit: msidbCustomActionType = msidbCustomActionType(512);
+pub const msidbCustomActionTypeContinue: msidbCustomActionType = msidbCustomActionType(64);
+pub const msidbCustomActionTypeDirectory: msidbCustomActionType = msidbCustomActionType(32);
+pub const msidbCustomActionTypeDll: msidbCustomActionType = msidbCustomActionType(1);
+pub const msidbCustomActionTypeExe: msidbCustomActionType = msidbCustomActionType(2);
+pub const msidbCustomActionTypeFirstSequence: msidbCustomActionType = msidbCustomActionType(256);
+pub const msidbCustomActionTypeHideTarget: msidbCustomActionType = msidbCustomActionType(8192);
+pub const msidbCustomActionTypeInScript: msidbCustomActionType = msidbCustomActionType(1024);
+pub const msidbCustomActionTypeInstall: msidbCustomActionType = msidbCustomActionType(7);
+pub const msidbCustomActionTypeJScript: msidbCustomActionType = msidbCustomActionType(5);
+pub const msidbCustomActionTypeNoImpersonate: msidbCustomActionType = msidbCustomActionType(2048);
+pub const msidbCustomActionTypeOncePerProcess: msidbCustomActionType = msidbCustomActionType(512);
+pub const msidbCustomActionTypePatchUninstall: msidbCustomActionType = msidbCustomActionType(32768);
+pub const msidbCustomActionTypeProperty: msidbCustomActionType = msidbCustomActionType(48);
+pub const msidbCustomActionTypeRollback: msidbCustomActionType = msidbCustomActionType(256);
+pub const msidbCustomActionTypeSourceFile: msidbCustomActionType = msidbCustomActionType(16);
+pub const msidbCustomActionTypeTSAware: msidbCustomActionType = msidbCustomActionType(16384);
+pub const msidbCustomActionTypeTextData: msidbCustomActionType = msidbCustomActionType(3);
+pub const msidbCustomActionTypeVBScript: msidbCustomActionType = msidbCustomActionType(6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbDialogAttributes(pub i32);
-pub const msidbDialogAttributesBiDi: msidbDialogAttributes = msidbDialogAttributes(896i32);
-pub const msidbDialogAttributesError: msidbDialogAttributes = msidbDialogAttributes(65536i32);
-pub const msidbDialogAttributesKeepModeless: msidbDialogAttributes = msidbDialogAttributes(16i32);
-pub const msidbDialogAttributesLeftScroll: msidbDialogAttributes = msidbDialogAttributes(512i32);
-pub const msidbDialogAttributesMinimize: msidbDialogAttributes = msidbDialogAttributes(4i32);
-pub const msidbDialogAttributesModal: msidbDialogAttributes = msidbDialogAttributes(2i32);
-pub const msidbDialogAttributesRTLRO: msidbDialogAttributes = msidbDialogAttributes(128i32);
-pub const msidbDialogAttributesRightAligned: msidbDialogAttributes = msidbDialogAttributes(256i32);
-pub const msidbDialogAttributesSysModal: msidbDialogAttributes = msidbDialogAttributes(8i32);
-pub const msidbDialogAttributesTrackDiskSpace: msidbDialogAttributes = msidbDialogAttributes(32i32);
-pub const msidbDialogAttributesUseCustomPalette: msidbDialogAttributes = msidbDialogAttributes(64i32);
-pub const msidbDialogAttributesVisible: msidbDialogAttributes = msidbDialogAttributes(1i32);
-pub const msidbEmbeddedHandlesBasic: msidbEmbeddedUIAttributes = msidbEmbeddedUIAttributes(2i32);
-pub const msidbEmbeddedUI: msidbEmbeddedUIAttributes = msidbEmbeddedUIAttributes(1i32);
+pub const msidbDialogAttributesBiDi: msidbDialogAttributes = msidbDialogAttributes(896);
+pub const msidbDialogAttributesError: msidbDialogAttributes = msidbDialogAttributes(65536);
+pub const msidbDialogAttributesKeepModeless: msidbDialogAttributes = msidbDialogAttributes(16);
+pub const msidbDialogAttributesLeftScroll: msidbDialogAttributes = msidbDialogAttributes(512);
+pub const msidbDialogAttributesMinimize: msidbDialogAttributes = msidbDialogAttributes(4);
+pub const msidbDialogAttributesModal: msidbDialogAttributes = msidbDialogAttributes(2);
+pub const msidbDialogAttributesRTLRO: msidbDialogAttributes = msidbDialogAttributes(128);
+pub const msidbDialogAttributesRightAligned: msidbDialogAttributes = msidbDialogAttributes(256);
+pub const msidbDialogAttributesSysModal: msidbDialogAttributes = msidbDialogAttributes(8);
+pub const msidbDialogAttributesTrackDiskSpace: msidbDialogAttributes = msidbDialogAttributes(32);
+pub const msidbDialogAttributesUseCustomPalette: msidbDialogAttributes = msidbDialogAttributes(64);
+pub const msidbDialogAttributesVisible: msidbDialogAttributes = msidbDialogAttributes(1);
+pub const msidbEmbeddedHandlesBasic: msidbEmbeddedUIAttributes = msidbEmbeddedUIAttributes(2);
+pub const msidbEmbeddedUI: msidbEmbeddedUIAttributes = msidbEmbeddedUIAttributes(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbEmbeddedUIAttributes(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbFeatureAttributes(pub i32);
-pub const msidbFeatureAttributesDisallowAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(8i32);
-pub const msidbFeatureAttributesFavorAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(4i32);
-pub const msidbFeatureAttributesFavorLocal: msidbFeatureAttributes = msidbFeatureAttributes(0i32);
-pub const msidbFeatureAttributesFavorSource: msidbFeatureAttributes = msidbFeatureAttributes(1i32);
-pub const msidbFeatureAttributesFollowParent: msidbFeatureAttributes = msidbFeatureAttributes(2i32);
-pub const msidbFeatureAttributesNoUnsupportedAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(32i32);
-pub const msidbFeatureAttributesUIDisallowAbsent: msidbFeatureAttributes = msidbFeatureAttributes(16i32);
+pub const msidbFeatureAttributesDisallowAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(8);
+pub const msidbFeatureAttributesFavorAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(4);
+pub const msidbFeatureAttributesFavorLocal: msidbFeatureAttributes = msidbFeatureAttributes(0);
+pub const msidbFeatureAttributesFavorSource: msidbFeatureAttributes = msidbFeatureAttributes(1);
+pub const msidbFeatureAttributesFollowParent: msidbFeatureAttributes = msidbFeatureAttributes(2);
+pub const msidbFeatureAttributesNoUnsupportedAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(32);
+pub const msidbFeatureAttributesUIDisallowAbsent: msidbFeatureAttributes = msidbFeatureAttributes(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbFileAttributes(pub i32);
-pub const msidbFileAttributesChecksum: msidbFileAttributes = msidbFileAttributes(1024i32);
-pub const msidbFileAttributesCompressed: msidbFileAttributes = msidbFileAttributes(16384i32);
-pub const msidbFileAttributesHidden: msidbFileAttributes = msidbFileAttributes(2i32);
-pub const msidbFileAttributesIsolatedComp: msidbFileAttributes = msidbFileAttributes(16i32);
-pub const msidbFileAttributesNoncompressed: msidbFileAttributes = msidbFileAttributes(8192i32);
-pub const msidbFileAttributesPatchAdded: msidbFileAttributes = msidbFileAttributes(4096i32);
-pub const msidbFileAttributesReadOnly: msidbFileAttributes = msidbFileAttributes(1i32);
-pub const msidbFileAttributesReserved0: msidbFileAttributes = msidbFileAttributes(8i32);
-pub const msidbFileAttributesReserved1: msidbFileAttributes = msidbFileAttributes(64i32);
-pub const msidbFileAttributesReserved2: msidbFileAttributes = msidbFileAttributes(128i32);
-pub const msidbFileAttributesReserved3: msidbFileAttributes = msidbFileAttributes(256i32);
-pub const msidbFileAttributesReserved4: msidbFileAttributes = msidbFileAttributes(32768i32);
-pub const msidbFileAttributesSystem: msidbFileAttributes = msidbFileAttributes(4i32);
-pub const msidbFileAttributesVital: msidbFileAttributes = msidbFileAttributes(512i32);
+pub const msidbFileAttributesChecksum: msidbFileAttributes = msidbFileAttributes(1024);
+pub const msidbFileAttributesCompressed: msidbFileAttributes = msidbFileAttributes(16384);
+pub const msidbFileAttributesHidden: msidbFileAttributes = msidbFileAttributes(2);
+pub const msidbFileAttributesIsolatedComp: msidbFileAttributes = msidbFileAttributes(16);
+pub const msidbFileAttributesNoncompressed: msidbFileAttributes = msidbFileAttributes(8192);
+pub const msidbFileAttributesPatchAdded: msidbFileAttributes = msidbFileAttributes(4096);
+pub const msidbFileAttributesReadOnly: msidbFileAttributes = msidbFileAttributes(1);
+pub const msidbFileAttributesReserved0: msidbFileAttributes = msidbFileAttributes(8);
+pub const msidbFileAttributesReserved1: msidbFileAttributes = msidbFileAttributes(64);
+pub const msidbFileAttributesReserved2: msidbFileAttributes = msidbFileAttributes(128);
+pub const msidbFileAttributesReserved3: msidbFileAttributes = msidbFileAttributes(256);
+pub const msidbFileAttributesReserved4: msidbFileAttributes = msidbFileAttributes(32768);
+pub const msidbFileAttributesSystem: msidbFileAttributes = msidbFileAttributes(4);
+pub const msidbFileAttributesVital: msidbFileAttributes = msidbFileAttributes(512);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbIniFileAction(pub i32);
-pub const msidbIniFileActionAddLine: msidbIniFileAction = msidbIniFileAction(0i32);
-pub const msidbIniFileActionAddTag: msidbIniFileAction = msidbIniFileAction(3i32);
-pub const msidbIniFileActionCreateLine: msidbIniFileAction = msidbIniFileAction(1i32);
-pub const msidbIniFileActionRemoveLine: msidbIniFileAction = msidbIniFileAction(2i32);
-pub const msidbIniFileActionRemoveTag: msidbIniFileAction = msidbIniFileAction(4i32);
+pub const msidbIniFileActionAddLine: msidbIniFileAction = msidbIniFileAction(0);
+pub const msidbIniFileActionAddTag: msidbIniFileAction = msidbIniFileAction(3);
+pub const msidbIniFileActionCreateLine: msidbIniFileAction = msidbIniFileAction(1);
+pub const msidbIniFileActionRemoveLine: msidbIniFileAction = msidbIniFileAction(2);
+pub const msidbIniFileActionRemoveTag: msidbIniFileAction = msidbIniFileAction(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbLocatorType(pub i32);
-pub const msidbLocatorType64bit: msidbLocatorType = msidbLocatorType(16i32);
-pub const msidbLocatorTypeDirectory: msidbLocatorType = msidbLocatorType(0i32);
-pub const msidbLocatorTypeFileName: msidbLocatorType = msidbLocatorType(1i32);
-pub const msidbLocatorTypeRawValue: msidbLocatorType = msidbLocatorType(2i32);
+pub const msidbLocatorType64bit: msidbLocatorType = msidbLocatorType(16);
+pub const msidbLocatorTypeDirectory: msidbLocatorType = msidbLocatorType(0);
+pub const msidbLocatorTypeFileName: msidbLocatorType = msidbLocatorType(1);
+pub const msidbLocatorTypeRawValue: msidbLocatorType = msidbLocatorType(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbMoveFileOptions(pub i32);
-pub const msidbMoveFileOptionsMove: msidbMoveFileOptions = msidbMoveFileOptions(1i32);
+pub const msidbMoveFileOptionsMove: msidbMoveFileOptions = msidbMoveFileOptions(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbODBCDataSourceRegistration(pub i32);
-pub const msidbODBCDataSourceRegistrationPerMachine: msidbODBCDataSourceRegistration = msidbODBCDataSourceRegistration(0i32);
-pub const msidbODBCDataSourceRegistrationPerUser: msidbODBCDataSourceRegistration = msidbODBCDataSourceRegistration(1i32);
+pub const msidbODBCDataSourceRegistrationPerMachine: msidbODBCDataSourceRegistration = msidbODBCDataSourceRegistration(0);
+pub const msidbODBCDataSourceRegistrationPerUser: msidbODBCDataSourceRegistration = msidbODBCDataSourceRegistration(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbPatchAttributes(pub i32);
-pub const msidbPatchAttributesNonVital: msidbPatchAttributes = msidbPatchAttributes(1i32);
+pub const msidbPatchAttributesNonVital: msidbPatchAttributes = msidbPatchAttributes(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbRegistryRoot(pub i32);
-pub const msidbRegistryRootClassesRoot: msidbRegistryRoot = msidbRegistryRoot(0i32);
-pub const msidbRegistryRootCurrentUser: msidbRegistryRoot = msidbRegistryRoot(1i32);
-pub const msidbRegistryRootLocalMachine: msidbRegistryRoot = msidbRegistryRoot(2i32);
-pub const msidbRegistryRootUsers: msidbRegistryRoot = msidbRegistryRoot(3i32);
+pub const msidbRegistryRootClassesRoot: msidbRegistryRoot = msidbRegistryRoot(0);
+pub const msidbRegistryRootCurrentUser: msidbRegistryRoot = msidbRegistryRoot(1);
+pub const msidbRegistryRootLocalMachine: msidbRegistryRoot = msidbRegistryRoot(2);
+pub const msidbRegistryRootUsers: msidbRegistryRoot = msidbRegistryRoot(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbRemoveFileInstallMode(pub i32);
-pub const msidbRemoveFileInstallModeOnBoth: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(3i32);
-pub const msidbRemoveFileInstallModeOnInstall: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(1i32);
-pub const msidbRemoveFileInstallModeOnRemove: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(2i32);
+pub const msidbRemoveFileInstallModeOnBoth: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(3);
+pub const msidbRemoveFileInstallModeOnInstall: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(1);
+pub const msidbRemoveFileInstallModeOnRemove: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbServiceConfigEvent(pub i32);
-pub const msidbServiceConfigEventInstall: msidbServiceConfigEvent = msidbServiceConfigEvent(1i32);
-pub const msidbServiceConfigEventReinstall: msidbServiceConfigEvent = msidbServiceConfigEvent(4i32);
-pub const msidbServiceConfigEventUninstall: msidbServiceConfigEvent = msidbServiceConfigEvent(2i32);
+pub const msidbServiceConfigEventInstall: msidbServiceConfigEvent = msidbServiceConfigEvent(1);
+pub const msidbServiceConfigEventReinstall: msidbServiceConfigEvent = msidbServiceConfigEvent(4);
+pub const msidbServiceConfigEventUninstall: msidbServiceConfigEvent = msidbServiceConfigEvent(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbServiceControlEvent(pub i32);
-pub const msidbServiceControlEventDelete: msidbServiceControlEvent = msidbServiceControlEvent(8i32);
-pub const msidbServiceControlEventStart: msidbServiceControlEvent = msidbServiceControlEvent(1i32);
-pub const msidbServiceControlEventStop: msidbServiceControlEvent = msidbServiceControlEvent(2i32);
-pub const msidbServiceControlEventUninstallDelete: msidbServiceControlEvent = msidbServiceControlEvent(128i32);
-pub const msidbServiceControlEventUninstallStart: msidbServiceControlEvent = msidbServiceControlEvent(16i32);
-pub const msidbServiceControlEventUninstallStop: msidbServiceControlEvent = msidbServiceControlEvent(32i32);
+pub const msidbServiceControlEventDelete: msidbServiceControlEvent = msidbServiceControlEvent(8);
+pub const msidbServiceControlEventStart: msidbServiceControlEvent = msidbServiceControlEvent(1);
+pub const msidbServiceControlEventStop: msidbServiceControlEvent = msidbServiceControlEvent(2);
+pub const msidbServiceControlEventUninstallDelete: msidbServiceControlEvent = msidbServiceControlEvent(128);
+pub const msidbServiceControlEventUninstallStart: msidbServiceControlEvent = msidbServiceControlEvent(16);
+pub const msidbServiceControlEventUninstallStop: msidbServiceControlEvent = msidbServiceControlEvent(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbServiceInstallErrorControl(pub i32);
-pub const msidbServiceInstallErrorControlVital: msidbServiceInstallErrorControl = msidbServiceInstallErrorControl(32768i32);
+pub const msidbServiceInstallErrorControlVital: msidbServiceInstallErrorControl = msidbServiceInstallErrorControl(32768);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbSumInfoSourceType(pub i32);
-pub const msidbSumInfoSourceTypeAdminImage: msidbSumInfoSourceType = msidbSumInfoSourceType(4i32);
-pub const msidbSumInfoSourceTypeCompressed: msidbSumInfoSourceType = msidbSumInfoSourceType(2i32);
-pub const msidbSumInfoSourceTypeLUAPackage: msidbSumInfoSourceType = msidbSumInfoSourceType(8i32);
-pub const msidbSumInfoSourceTypeSFN: msidbSumInfoSourceType = msidbSumInfoSourceType(1i32);
+pub const msidbSumInfoSourceTypeAdminImage: msidbSumInfoSourceType = msidbSumInfoSourceType(4);
+pub const msidbSumInfoSourceTypeCompressed: msidbSumInfoSourceType = msidbSumInfoSourceType(2);
+pub const msidbSumInfoSourceTypeLUAPackage: msidbSumInfoSourceType = msidbSumInfoSourceType(8);
+pub const msidbSumInfoSourceTypeSFN: msidbSumInfoSourceType = msidbSumInfoSourceType(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbTextStyleStyleBits(pub i32);
-pub const msidbTextStyleStyleBitsBold: msidbTextStyleStyleBits = msidbTextStyleStyleBits(1i32);
-pub const msidbTextStyleStyleBitsItalic: msidbTextStyleStyleBits = msidbTextStyleStyleBits(2i32);
-pub const msidbTextStyleStyleBitsStrike: msidbTextStyleStyleBits = msidbTextStyleStyleBits(8i32);
-pub const msidbTextStyleStyleBitsUnderline: msidbTextStyleStyleBits = msidbTextStyleStyleBits(4i32);
+pub const msidbTextStyleStyleBitsBold: msidbTextStyleStyleBits = msidbTextStyleStyleBits(1);
+pub const msidbTextStyleStyleBitsItalic: msidbTextStyleStyleBits = msidbTextStyleStyleBits(2);
+pub const msidbTextStyleStyleBitsStrike: msidbTextStyleStyleBits = msidbTextStyleStyleBits(8);
+pub const msidbTextStyleStyleBitsUnderline: msidbTextStyleStyleBits = msidbTextStyleStyleBits(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msidbUpgradeAttributes(pub i32);
-pub const msidbUpgradeAttributesIgnoreRemoveFailure: msidbUpgradeAttributes = msidbUpgradeAttributes(4i32);
-pub const msidbUpgradeAttributesLanguagesExclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(1024i32);
-pub const msidbUpgradeAttributesMigrateFeatures: msidbUpgradeAttributes = msidbUpgradeAttributes(1i32);
-pub const msidbUpgradeAttributesOnlyDetect: msidbUpgradeAttributes = msidbUpgradeAttributes(2i32);
-pub const msidbUpgradeAttributesVersionMaxInclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(512i32);
-pub const msidbUpgradeAttributesVersionMinInclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(256i32);
+pub const msidbUpgradeAttributesIgnoreRemoveFailure: msidbUpgradeAttributes = msidbUpgradeAttributes(4);
+pub const msidbUpgradeAttributesLanguagesExclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(1024);
+pub const msidbUpgradeAttributesMigrateFeatures: msidbUpgradeAttributes = msidbUpgradeAttributes(1);
+pub const msidbUpgradeAttributesOnlyDetect: msidbUpgradeAttributes = msidbUpgradeAttributes(2);
+pub const msidbUpgradeAttributesVersionMaxInclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(512);
+pub const msidbUpgradeAttributesVersionMinInclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(256);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msifiFastInstallBits(pub i32);
-pub const msifiFastInstallLessPrgMsg: msifiFastInstallBits = msifiFastInstallBits(4i32);
-pub const msifiFastInstallNoSR: msifiFastInstallBits = msifiFastInstallBits(1i32);
-pub const msifiFastInstallQuickCosting: msifiFastInstallBits = msifiFastInstallBits(2i32);
-pub const msirbRebootCustomActionReason: msirbRebootReason = msirbRebootReason(4i32);
-pub const msirbRebootDeferred: msirbRebootType = msirbRebootType(2i32);
-pub const msirbRebootForceRebootReason: msirbRebootReason = msirbRebootReason(3i32);
-pub const msirbRebootImmediate: msirbRebootType = msirbRebootType(1i32);
-pub const msirbRebootInUseFilesReason: msirbRebootReason = msirbRebootReason(1i32);
+pub const msifiFastInstallLessPrgMsg: msifiFastInstallBits = msifiFastInstallBits(4);
+pub const msifiFastInstallNoSR: msifiFastInstallBits = msifiFastInstallBits(1);
+pub const msifiFastInstallQuickCosting: msifiFastInstallBits = msifiFastInstallBits(2);
+pub const msirbRebootCustomActionReason: msirbRebootReason = msirbRebootReason(4);
+pub const msirbRebootDeferred: msirbRebootType = msirbRebootType(2);
+pub const msirbRebootForceRebootReason: msirbRebootReason = msirbRebootReason(3);
+pub const msirbRebootImmediate: msirbRebootType = msirbRebootType(1);
+pub const msirbRebootInUseFilesReason: msirbRebootReason = msirbRebootReason(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msirbRebootReason(pub i32);
-pub const msirbRebootScheduleRebootReason: msirbRebootReason = msirbRebootReason(2i32);
+pub const msirbRebootScheduleRebootReason: msirbRebootReason = msirbRebootReason(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msirbRebootType(pub i32);
-pub const msirbRebootUndeterminedReason: msirbRebootReason = msirbRebootReason(0i32);
-pub const msmErrorDirCreate: msmErrorType = msmErrorType(7i32);
-pub const msmErrorExclusion: msmErrorType = msmErrorType(3i32);
-pub const msmErrorFeatureRequired: msmErrorType = msmErrorType(8i32);
-pub const msmErrorFileCreate: msmErrorType = msmErrorType(6i32);
-pub const msmErrorLanguageFailed: msmErrorType = msmErrorType(2i32);
-pub const msmErrorLanguageUnsupported: msmErrorType = msmErrorType(1i32);
-pub const msmErrorResequenceMerge: msmErrorType = msmErrorType(5i32);
-pub const msmErrorTableMerge: msmErrorType = msmErrorType(4i32);
+pub const msirbRebootUndeterminedReason: msirbRebootReason = msirbRebootReason(0);
+pub const msmErrorDirCreate: msmErrorType = msmErrorType(7);
+pub const msmErrorExclusion: msmErrorType = msmErrorType(3);
+pub const msmErrorFeatureRequired: msmErrorType = msmErrorType(8);
+pub const msmErrorFileCreate: msmErrorType = msmErrorType(6);
+pub const msmErrorLanguageFailed: msmErrorType = msmErrorType(2);
+pub const msmErrorLanguageUnsupported: msmErrorType = msmErrorType(1);
+pub const msmErrorResequenceMerge: msmErrorType = msmErrorType(5);
+pub const msmErrorTableMerge: msmErrorType = msmErrorType(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct msmErrorType(pub i32);

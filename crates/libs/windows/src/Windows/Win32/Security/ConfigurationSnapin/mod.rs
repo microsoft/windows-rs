@@ -137,26 +137,26 @@ pub type PFSCE_QUERY_INFO = Option<unsafe extern "system" fn(scehandle: *mut cor
 pub type PFSCE_SET_INFO = Option<unsafe extern "system" fn(scehandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: windows_core::BOOL, pvinfo: *mut core::ffi::c_void) -> u32>;
 pub type PF_ConfigAnalyzeService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO) -> u32>;
 pub type PF_UpdateService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
-pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
-pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
-pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
-pub const SCESTATUS_BUFFER_TOO_SMALL: i32 = 5i32;
-pub const SCESTATUS_CANT_DELETE: i32 = 10i32;
-pub const SCESTATUS_EXCEPTION_IN_SERVER: i32 = 16i32;
-pub const SCESTATUS_INVALID_DATA: i32 = 3i32;
-pub const SCESTATUS_INVALID_PARAMETER: i32 = 1i32;
-pub const SCESTATUS_MOD_NOT_FOUND: i32 = 15i32;
-pub const SCESTATUS_NOT_ENOUGH_RESOURCE: i32 = 8i32;
-pub const SCESTATUS_NO_MAPPING: i32 = 18i32;
-pub const SCESTATUS_NO_TEMPLATE_GIVEN: i32 = 17i32;
-pub const SCESTATUS_OBJECT_EXIST: i32 = 4i32;
-pub const SCESTATUS_OTHER_ERROR: i32 = 12i32;
-pub const SCESTATUS_PREFIX_OVERFLOW: i32 = 11i32;
-pub const SCESTATUS_PROFILE_NOT_FOUND: i32 = 6i32;
-pub const SCESTATUS_RECORD_NOT_FOUND: i32 = 2i32;
-pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
-pub const SCESTATUS_SUCCESS: i32 = 0i32;
-pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
+pub const SCESTATUS_ACCESS_DENIED: i32 = 9;
+pub const SCESTATUS_ALREADY_RUNNING: i32 = 13;
+pub const SCESTATUS_BAD_FORMAT: i32 = 7;
+pub const SCESTATUS_BUFFER_TOO_SMALL: i32 = 5;
+pub const SCESTATUS_CANT_DELETE: i32 = 10;
+pub const SCESTATUS_EXCEPTION_IN_SERVER: i32 = 16;
+pub const SCESTATUS_INVALID_DATA: i32 = 3;
+pub const SCESTATUS_INVALID_PARAMETER: i32 = 1;
+pub const SCESTATUS_MOD_NOT_FOUND: i32 = 15;
+pub const SCESTATUS_NOT_ENOUGH_RESOURCE: i32 = 8;
+pub const SCESTATUS_NO_MAPPING: i32 = 18;
+pub const SCESTATUS_NO_TEMPLATE_GIVEN: i32 = 17;
+pub const SCESTATUS_OBJECT_EXIST: i32 = 4;
+pub const SCESTATUS_OTHER_ERROR: i32 = 12;
+pub const SCESTATUS_PREFIX_OVERFLOW: i32 = 11;
+pub const SCESTATUS_PROFILE_NOT_FOUND: i32 = 6;
+pub const SCESTATUS_RECORD_NOT_FOUND: i32 = 2;
+pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14;
+pub const SCESTATUS_SUCCESS: i32 = 0;
+pub const SCESTATUS_TRUST_FAIL: i32 = 19;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_ANALYSIS_INFO {
@@ -217,22 +217,22 @@ impl Default for SCESVC_CONFIGURATION_LINE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
+pub const SCESVC_ENUMERATION_MAX: i32 = 100;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCESVC_INFO_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCE_LOG_ERR_LEVEL(pub i32);
-pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0i32);
-pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3i32);
-pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2i32);
-pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1i32);
+pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0);
+pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3);
+pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2);
+pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1);
 pub const SCE_ROOT_PATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit");
-pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
-pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
-pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
-pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
+pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2);
+pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0);
+pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3);
+pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1);
 pub const cNodetypeSceAnalysisServices: windows_core::GUID = windows_core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 pub const cNodetypeSceEventLog: windows_core::GUID = windows_core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
 pub const cNodetypeSceTemplateServices: windows_core::GUID = windows_core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);

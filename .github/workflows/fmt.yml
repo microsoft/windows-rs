@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -33,5 +35,6 @@ jobs:
         run: rustup update --no-self-update stable && rustup default stable
       - name: Install rustfmt
         run: rustup component add rustfmt
+      - uses: Swatinem/rust-cache@v2
       - name: Check
         run: cargo fmt --all -- --check

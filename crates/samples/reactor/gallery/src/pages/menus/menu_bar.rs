@@ -39,7 +39,7 @@ pub fn menu_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                         ],
                     ),
                 ])
-                .on_item_click({
+                .on_item_clicked({
                     let set_status = set_status;
                     move |label| set_status.call(format!("Last clicked: {label}"))
                 }),
@@ -47,7 +47,7 @@ pub fn menu_bar_page(_: &(), cx: &mut RenderCx) -> Element {
             ))
             .spacing(8.0),
             r#"menu_bar(items)
-    .on_item_click(|label| set_status.call(format!(\"Last clicked: {label}\")))"#,
+    .on_item_clicked(|label| set_status.call(format!(\"Last clicked: {label}\")))"#,
         )],
     )
 }

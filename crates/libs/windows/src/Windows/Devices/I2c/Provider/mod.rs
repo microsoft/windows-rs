@@ -272,8 +272,8 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderI2cBusSpeed(pub i32);
 impl ProviderI2cBusSpeed {
-    pub const StandardMode: Self = Self(0i32);
-    pub const FastMode: Self = Self(1i32);
+    pub const StandardMode: Self = Self(0);
+    pub const FastMode: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderI2cBusSpeed {
     type TypeKind = windows_core::CopyType;
@@ -331,8 +331,8 @@ unsafe impl Sync for ProviderI2cConnectionSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const Shared: Self = Self(1i32);
+    pub const Exclusive: Self = Self(0);
+    pub const Shared: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderI2cSharingMode {
     type TypeKind = windows_core::CopyType;
@@ -358,9 +358,9 @@ impl windows_core::RuntimeType for ProviderI2cTransferResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderI2cTransferStatus(pub i32);
 impl ProviderI2cTransferStatus {
-    pub const FullTransfer: Self = Self(0i32);
-    pub const PartialTransfer: Self = Self(1i32);
-    pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
+    pub const FullTransfer: Self = Self(0);
+    pub const PartialTransfer: Self = Self(1);
+    pub const SlaveAddressNotAcknowledged: Self = Self(2);
 }
 impl windows_core::TypeKind for ProviderI2cTransferStatus {
     type TypeKind = windows_core::CopyType;

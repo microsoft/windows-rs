@@ -1,6 +1,4 @@
-//! Minimal sample for `error_boundary`.
-//!
-//! Wraps a subtree and renders a fallback if a descendant panics during render.
+//! Sample for `error_boundary`.
 
 #![windows_subsystem = "windows"]
 
@@ -53,7 +51,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("windows_reactor — error_boundary")
-        .render(app)
+    reactor_minimal::run("ErrorBoundary", app)
 }

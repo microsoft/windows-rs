@@ -18,92 +18,92 @@ pub struct CONNECTIONLIST {
     pub cbSize: u32,
     pub cConnections: u32,
 }
-pub const CONN_DST_ATTENUATION: u32 = 1u32;
-pub const CONN_DST_CENTER: u32 = 18u32;
-pub const CONN_DST_CHORUS: u32 = 128u32;
-pub const CONN_DST_EG1_ATTACKTIME: u32 = 518u32;
-pub const CONN_DST_EG1_DECAYTIME: u32 = 519u32;
-pub const CONN_DST_EG1_DELAYTIME: u32 = 523u32;
-pub const CONN_DST_EG1_HOLDTIME: u32 = 524u32;
-pub const CONN_DST_EG1_RELEASETIME: u32 = 521u32;
-pub const CONN_DST_EG1_SHUTDOWNTIME: u32 = 525u32;
-pub const CONN_DST_EG1_SUSTAINLEVEL: u32 = 522u32;
-pub const CONN_DST_EG2_ATTACKTIME: u32 = 778u32;
-pub const CONN_DST_EG2_DECAYTIME: u32 = 779u32;
-pub const CONN_DST_EG2_DELAYTIME: u32 = 783u32;
-pub const CONN_DST_EG2_HOLDTIME: u32 = 784u32;
-pub const CONN_DST_EG2_RELEASETIME: u32 = 781u32;
-pub const CONN_DST_EG2_SUSTAINLEVEL: u32 = 782u32;
-pub const CONN_DST_FILTER_CUTOFF: u32 = 1280u32;
-pub const CONN_DST_FILTER_Q: u32 = 1281u32;
-pub const CONN_DST_GAIN: u32 = 1u32;
-pub const CONN_DST_KEYNUMBER: u32 = 5u32;
-pub const CONN_DST_LEFT: u32 = 16u32;
-pub const CONN_DST_LEFTREAR: u32 = 19u32;
-pub const CONN_DST_LFE_CHANNEL: u32 = 21u32;
-pub const CONN_DST_LFO_FREQUENCY: u32 = 260u32;
-pub const CONN_DST_LFO_STARTDELAY: u32 = 261u32;
-pub const CONN_DST_NONE: u32 = 0u32;
-pub const CONN_DST_PAN: u32 = 4u32;
-pub const CONN_DST_PITCH: u32 = 3u32;
-pub const CONN_DST_REVERB: u32 = 129u32;
-pub const CONN_DST_RIGHT: u32 = 17u32;
-pub const CONN_DST_RIGHTREAR: u32 = 20u32;
-pub const CONN_DST_VIB_FREQUENCY: u32 = 276u32;
-pub const CONN_DST_VIB_STARTDELAY: u32 = 277u32;
-pub const CONN_SRC_CC1: u32 = 129u32;
-pub const CONN_SRC_CC10: u32 = 138u32;
-pub const CONN_SRC_CC11: u32 = 139u32;
-pub const CONN_SRC_CC7: u32 = 135u32;
-pub const CONN_SRC_CC91: u32 = 219u32;
-pub const CONN_SRC_CC93: u32 = 221u32;
-pub const CONN_SRC_CHANNELPRESSURE: u32 = 8u32;
-pub const CONN_SRC_EG1: u32 = 4u32;
-pub const CONN_SRC_EG2: u32 = 5u32;
-pub const CONN_SRC_KEYNUMBER: u32 = 3u32;
-pub const CONN_SRC_KEYONVELOCITY: u32 = 2u32;
-pub const CONN_SRC_LFO: u32 = 1u32;
-pub const CONN_SRC_MONOPRESSURE: u32 = 10u32;
-pub const CONN_SRC_NONE: u32 = 0u32;
-pub const CONN_SRC_PITCHWHEEL: u32 = 6u32;
-pub const CONN_SRC_POLYPRESSURE: u32 = 7u32;
-pub const CONN_SRC_VIBRATO: u32 = 9u32;
-pub const CONN_TRN_CONCAVE: u32 = 1u32;
-pub const CONN_TRN_CONVEX: u32 = 2u32;
-pub const CONN_TRN_NONE: u32 = 0u32;
-pub const CONN_TRN_SWITCH: u32 = 3u32;
-pub const DAUD_CHAN10_VOICE_PRIORITY_OFFSET: u32 = 15u32;
-pub const DAUD_CHAN11_VOICE_PRIORITY_OFFSET: u32 = 5u32;
-pub const DAUD_CHAN12_VOICE_PRIORITY_OFFSET: u32 = 4u32;
-pub const DAUD_CHAN13_VOICE_PRIORITY_OFFSET: u32 = 3u32;
-pub const DAUD_CHAN14_VOICE_PRIORITY_OFFSET: u32 = 2u32;
-pub const DAUD_CHAN15_VOICE_PRIORITY_OFFSET: u32 = 1u32;
-pub const DAUD_CHAN16_VOICE_PRIORITY_OFFSET: u32 = 0u32;
-pub const DAUD_CHAN1_VOICE_PRIORITY_OFFSET: u32 = 14u32;
-pub const DAUD_CHAN2_VOICE_PRIORITY_OFFSET: u32 = 13u32;
-pub const DAUD_CHAN3_VOICE_PRIORITY_OFFSET: u32 = 12u32;
-pub const DAUD_CHAN4_VOICE_PRIORITY_OFFSET: u32 = 11u32;
-pub const DAUD_CHAN5_VOICE_PRIORITY_OFFSET: u32 = 10u32;
-pub const DAUD_CHAN6_VOICE_PRIORITY_OFFSET: u32 = 9u32;
-pub const DAUD_CHAN7_VOICE_PRIORITY_OFFSET: u32 = 8u32;
-pub const DAUD_CHAN8_VOICE_PRIORITY_OFFSET: u32 = 7u32;
-pub const DAUD_CHAN9_VOICE_PRIORITY_OFFSET: u32 = 6u32;
-pub const DAUD_CRITICAL_VOICE_PRIORITY: u32 = 4026531840u32;
-pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
-pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
-pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
-pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
+pub const CONN_DST_ATTENUATION: u32 = 1;
+pub const CONN_DST_CENTER: u32 = 18;
+pub const CONN_DST_CHORUS: u32 = 128;
+pub const CONN_DST_EG1_ATTACKTIME: u32 = 518;
+pub const CONN_DST_EG1_DECAYTIME: u32 = 519;
+pub const CONN_DST_EG1_DELAYTIME: u32 = 523;
+pub const CONN_DST_EG1_HOLDTIME: u32 = 524;
+pub const CONN_DST_EG1_RELEASETIME: u32 = 521;
+pub const CONN_DST_EG1_SHUTDOWNTIME: u32 = 525;
+pub const CONN_DST_EG1_SUSTAINLEVEL: u32 = 522;
+pub const CONN_DST_EG2_ATTACKTIME: u32 = 778;
+pub const CONN_DST_EG2_DECAYTIME: u32 = 779;
+pub const CONN_DST_EG2_DELAYTIME: u32 = 783;
+pub const CONN_DST_EG2_HOLDTIME: u32 = 784;
+pub const CONN_DST_EG2_RELEASETIME: u32 = 781;
+pub const CONN_DST_EG2_SUSTAINLEVEL: u32 = 782;
+pub const CONN_DST_FILTER_CUTOFF: u32 = 1280;
+pub const CONN_DST_FILTER_Q: u32 = 1281;
+pub const CONN_DST_GAIN: u32 = 1;
+pub const CONN_DST_KEYNUMBER: u32 = 5;
+pub const CONN_DST_LEFT: u32 = 16;
+pub const CONN_DST_LEFTREAR: u32 = 19;
+pub const CONN_DST_LFE_CHANNEL: u32 = 21;
+pub const CONN_DST_LFO_FREQUENCY: u32 = 260;
+pub const CONN_DST_LFO_STARTDELAY: u32 = 261;
+pub const CONN_DST_NONE: u32 = 0;
+pub const CONN_DST_PAN: u32 = 4;
+pub const CONN_DST_PITCH: u32 = 3;
+pub const CONN_DST_REVERB: u32 = 129;
+pub const CONN_DST_RIGHT: u32 = 17;
+pub const CONN_DST_RIGHTREAR: u32 = 20;
+pub const CONN_DST_VIB_FREQUENCY: u32 = 276;
+pub const CONN_DST_VIB_STARTDELAY: u32 = 277;
+pub const CONN_SRC_CC1: u32 = 129;
+pub const CONN_SRC_CC10: u32 = 138;
+pub const CONN_SRC_CC11: u32 = 139;
+pub const CONN_SRC_CC7: u32 = 135;
+pub const CONN_SRC_CC91: u32 = 219;
+pub const CONN_SRC_CC93: u32 = 221;
+pub const CONN_SRC_CHANNELPRESSURE: u32 = 8;
+pub const CONN_SRC_EG1: u32 = 4;
+pub const CONN_SRC_EG2: u32 = 5;
+pub const CONN_SRC_KEYNUMBER: u32 = 3;
+pub const CONN_SRC_KEYONVELOCITY: u32 = 2;
+pub const CONN_SRC_LFO: u32 = 1;
+pub const CONN_SRC_MONOPRESSURE: u32 = 10;
+pub const CONN_SRC_NONE: u32 = 0;
+pub const CONN_SRC_PITCHWHEEL: u32 = 6;
+pub const CONN_SRC_POLYPRESSURE: u32 = 7;
+pub const CONN_SRC_VIBRATO: u32 = 9;
+pub const CONN_TRN_CONCAVE: u32 = 1;
+pub const CONN_TRN_CONVEX: u32 = 2;
+pub const CONN_TRN_NONE: u32 = 0;
+pub const CONN_TRN_SWITCH: u32 = 3;
+pub const DAUD_CHAN10_VOICE_PRIORITY_OFFSET: u32 = 15;
+pub const DAUD_CHAN11_VOICE_PRIORITY_OFFSET: u32 = 5;
+pub const DAUD_CHAN12_VOICE_PRIORITY_OFFSET: u32 = 4;
+pub const DAUD_CHAN13_VOICE_PRIORITY_OFFSET: u32 = 3;
+pub const DAUD_CHAN14_VOICE_PRIORITY_OFFSET: u32 = 2;
+pub const DAUD_CHAN15_VOICE_PRIORITY_OFFSET: u32 = 1;
+pub const DAUD_CHAN16_VOICE_PRIORITY_OFFSET: u32 = 0;
+pub const DAUD_CHAN1_VOICE_PRIORITY_OFFSET: u32 = 14;
+pub const DAUD_CHAN2_VOICE_PRIORITY_OFFSET: u32 = 13;
+pub const DAUD_CHAN3_VOICE_PRIORITY_OFFSET: u32 = 12;
+pub const DAUD_CHAN4_VOICE_PRIORITY_OFFSET: u32 = 11;
+pub const DAUD_CHAN5_VOICE_PRIORITY_OFFSET: u32 = 10;
+pub const DAUD_CHAN6_VOICE_PRIORITY_OFFSET: u32 = 9;
+pub const DAUD_CHAN7_VOICE_PRIORITY_OFFSET: u32 = 8;
+pub const DAUD_CHAN8_VOICE_PRIORITY_OFFSET: u32 = 7;
+pub const DAUD_CHAN9_VOICE_PRIORITY_OFFSET: u32 = 6;
+pub const DAUD_CRITICAL_VOICE_PRIORITY: u32 = 4026531840;
+pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472;
+pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824;
+pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456;
+pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
-pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
+pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1);
+pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
-pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
-pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1i32);
-pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2i32);
+pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0);
+pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1);
+pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DLSHEADER {
@@ -137,24 +137,24 @@ pub struct DLSVERSION {
     pub dwVersionMS: u32,
     pub dwVersionLS: u32,
 }
-pub const DLS_CDL_ADD: u32 = 4u32;
-pub const DLS_CDL_AND: u32 = 1u32;
-pub const DLS_CDL_CONST: u32 = 16u32;
-pub const DLS_CDL_DIVIDE: u32 = 7u32;
-pub const DLS_CDL_EQ: u32 = 14u32;
-pub const DLS_CDL_GE: u32 = 13u32;
-pub const DLS_CDL_GT: u32 = 12u32;
-pub const DLS_CDL_LE: u32 = 11u32;
-pub const DLS_CDL_LOGICAL_AND: u32 = 8u32;
-pub const DLS_CDL_LOGICAL_OR: u32 = 9u32;
-pub const DLS_CDL_LT: u32 = 10u32;
-pub const DLS_CDL_MULTIPLY: u32 = 6u32;
-pub const DLS_CDL_NOT: u32 = 15u32;
-pub const DLS_CDL_OR: u32 = 2u32;
-pub const DLS_CDL_QUERY: u32 = 17u32;
-pub const DLS_CDL_QUERYSUPPORTED: u32 = 18u32;
-pub const DLS_CDL_SUBTRACT: u32 = 5u32;
-pub const DLS_CDL_XOR: u32 = 3u32;
+pub const DLS_CDL_ADD: u32 = 4;
+pub const DLS_CDL_AND: u32 = 1;
+pub const DLS_CDL_CONST: u32 = 16;
+pub const DLS_CDL_DIVIDE: u32 = 7;
+pub const DLS_CDL_EQ: u32 = 14;
+pub const DLS_CDL_GE: u32 = 13;
+pub const DLS_CDL_GT: u32 = 12;
+pub const DLS_CDL_LE: u32 = 11;
+pub const DLS_CDL_LOGICAL_AND: u32 = 8;
+pub const DLS_CDL_LOGICAL_OR: u32 = 9;
+pub const DLS_CDL_LT: u32 = 10;
+pub const DLS_CDL_MULTIPLY: u32 = 6;
+pub const DLS_CDL_NOT: u32 = 15;
+pub const DLS_CDL_OR: u32 = 2;
+pub const DLS_CDL_QUERY: u32 = 17;
+pub const DLS_CDL_QUERYSUPPORTED: u32 = 18;
+pub const DLS_CDL_SUBTRACT: u32 = 5;
+pub const DLS_CDL_XOR: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMUS_ARTICPARAMS {
@@ -184,7 +184,7 @@ pub struct DMUS_BUFFERDESC {
     pub guidBufferFormat: windows_core::GUID,
     pub cbBuffer: u32,
 }
-pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
+pub const DMUS_CLOCKF_GLOBAL: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_CLOCKINFO7 {
@@ -215,8 +215,8 @@ impl Default for DMUS_CLOCKINFO8 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMUS_CLOCKTYPE(pub i32);
-pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
-pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1i32);
+pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0);
+pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_COPYRIGHT {
@@ -228,7 +228,7 @@ impl Default for DMUS_COPYRIGHT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
+pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMUS_DOWNLOADINFO {
@@ -237,16 +237,16 @@ pub struct DMUS_DOWNLOADINFO {
     pub dwNumOffsetTableEntries: u32,
     pub cbSize: u32,
 }
-pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
-pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3u32;
-pub const DMUS_DOWNLOADINFO_ONESHOTWAVE: u32 = 6u32;
-pub const DMUS_DOWNLOADINFO_STREAMINGWAVE: u32 = 5u32;
-pub const DMUS_DOWNLOADINFO_WAVE: u32 = 2u32;
-pub const DMUS_DOWNLOADINFO_WAVEARTICULATION: u32 = 4u32;
-pub const DMUS_EFFECT_CHORUS: u32 = 2u32;
-pub const DMUS_EFFECT_DELAY: u32 = 4u32;
-pub const DMUS_EFFECT_NONE: u32 = 0u32;
-pub const DMUS_EFFECT_REVERB: u32 = 1u32;
+pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1;
+pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3;
+pub const DMUS_DOWNLOADINFO_ONESHOTWAVE: u32 = 6;
+pub const DMUS_DOWNLOADINFO_STREAMINGWAVE: u32 = 5;
+pub const DMUS_DOWNLOADINFO_WAVE: u32 = 2;
+pub const DMUS_DOWNLOADINFO_WAVEARTICULATION: u32 = 4;
+pub const DMUS_EFFECT_CHORUS: u32 = 2;
+pub const DMUS_EFFECT_DELAY: u32 = 4;
+pub const DMUS_EFFECT_NONE: u32 = 0;
+pub const DMUS_EFFECT_REVERB: u32 = 1;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct DMUS_EVENTHEADER {
@@ -255,7 +255,7 @@ pub struct DMUS_EVENTHEADER {
     pub rtDelta: i64,
     pub dwFlags: u32,
 }
-pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
+pub const DMUS_EVENT_STRUCTURED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_EXTENSIONCHUNK {
@@ -279,7 +279,7 @@ pub struct DMUS_INSTRUMENT {
     pub ulCopyrightIdx: u32,
     pub ulFlags: u32,
 }
-pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
+pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMUS_LFOPARAMS {
@@ -290,9 +290,9 @@ pub struct DMUS_LFOPARAMS {
     pub gcMWToVolume: i32,
     pub pcMWToPitch: i32,
 }
-pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
-pub const DMUS_MAX_DRIVER: u32 = 128u32;
-pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
+pub const DMUS_MAX_DESCRIPTION: u32 = 128;
+pub const DMUS_MAX_DRIVER: u32 = 128;
+pub const DMUS_MIN_DATA_SIZE: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMUS_MSCPARAMS {
@@ -314,21 +314,21 @@ impl Default for DMUS_OFFSETTABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
-pub const DMUS_PC_DIRECTSOUND: u32 = 128u32;
-pub const DMUS_PC_DLS: u32 = 1u32;
-pub const DMUS_PC_DLS2: u32 = 512u32;
-pub const DMUS_PC_EXTERNAL: u32 = 2u32;
-pub const DMUS_PC_GMINHARDWARE: u32 = 16u32;
-pub const DMUS_PC_GSINHARDWARE: u32 = 32u32;
-pub const DMUS_PC_INPUTCLASS: u32 = 0u32;
-pub const DMUS_PC_MEMORYSIZEFIXED: u32 = 8u32;
-pub const DMUS_PC_OUTPUTCLASS: u32 = 1u32;
-pub const DMUS_PC_SHAREABLE: u32 = 256u32;
-pub const DMUS_PC_SOFTWARESYNTH: u32 = 4u32;
-pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647u32;
-pub const DMUS_PC_WAVE: u32 = 2048u32;
-pub const DMUS_PC_XGINHARDWARE: u32 = 64u32;
+pub const DMUS_PC_AUDIOPATH: u32 = 1024;
+pub const DMUS_PC_DIRECTSOUND: u32 = 128;
+pub const DMUS_PC_DLS: u32 = 1;
+pub const DMUS_PC_DLS2: u32 = 512;
+pub const DMUS_PC_EXTERNAL: u32 = 2;
+pub const DMUS_PC_GMINHARDWARE: u32 = 16;
+pub const DMUS_PC_GSINHARDWARE: u32 = 32;
+pub const DMUS_PC_INPUTCLASS: u32 = 0;
+pub const DMUS_PC_MEMORYSIZEFIXED: u32 = 8;
+pub const DMUS_PC_OUTPUTCLASS: u32 = 1;
+pub const DMUS_PC_SHAREABLE: u32 = 256;
+pub const DMUS_PC_SOFTWARESYNTH: u32 = 4;
+pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647;
+pub const DMUS_PC_WAVE: u32 = 2048;
+pub const DMUS_PC_XGINHARDWARE: u32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMUS_PEGPARAMS {
@@ -385,18 +385,18 @@ pub struct DMUS_PORTPARAMS8 {
     pub fShare: windows_core::BOOL,
     pub dwFeatures: u32,
 }
-pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
-pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2u32;
-pub const DMUS_PORTPARAMS_EFFECTS: u32 = 32u32;
-pub const DMUS_PORTPARAMS_FEATURES: u32 = 128u32;
-pub const DMUS_PORTPARAMS_SAMPLERATE: u32 = 8u32;
-pub const DMUS_PORTPARAMS_SHARE: u32 = 64u32;
-pub const DMUS_PORTPARAMS_VOICES: u32 = 1u32;
-pub const DMUS_PORT_FEATURE_AUDIOPATH: u32 = 1u32;
-pub const DMUS_PORT_FEATURE_STREAMING: u32 = 2u32;
-pub const DMUS_PORT_KERNEL_MODE: u32 = 2u32;
-pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1u32;
-pub const DMUS_PORT_WINMM_DRIVER: u32 = 0u32;
+pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4;
+pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2;
+pub const DMUS_PORTPARAMS_EFFECTS: u32 = 32;
+pub const DMUS_PORTPARAMS_FEATURES: u32 = 128;
+pub const DMUS_PORTPARAMS_SAMPLERATE: u32 = 8;
+pub const DMUS_PORTPARAMS_SHARE: u32 = 64;
+pub const DMUS_PORTPARAMS_VOICES: u32 = 1;
+pub const DMUS_PORT_FEATURE_AUDIOPATH: u32 = 1;
+pub const DMUS_PORT_FEATURE_STREAMING: u32 = 2;
+pub const DMUS_PORT_KERNEL_MODE: u32 = 2;
+pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1;
+pub const DMUS_PORT_WINMM_DRIVER: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMUS_REGION {
@@ -441,13 +441,13 @@ pub struct DMUS_SYNTHSTATS8 {
     pub lPeakVolume: i32,
     pub dwSynthMemUse: u32,
 }
-pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
-pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32u32;
-pub const DMUS_SYNTHSTATS_LOST_NOTES: u32 = 8u32;
-pub const DMUS_SYNTHSTATS_PEAK_VOLUME: u32 = 16u32;
-pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647u32;
-pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2u32;
-pub const DMUS_SYNTHSTATS_VOICES: u32 = 1u32;
+pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4;
+pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32;
+pub const DMUS_SYNTHSTATS_LOST_NOTES: u32 = 8;
+pub const DMUS_SYNTHSTATS_PEAK_VOLUME: u32 = 16;
+pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647;
+pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2;
+pub const DMUS_SYNTHSTATS_VOICES: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMUS_VEGPARAMS {
@@ -464,8 +464,8 @@ pub struct DMUS_VOICE_STATE {
     pub bExists: windows_core::BOOL,
     pub spPosition: u64,
 }
-pub const DMUS_VOLUME_MAX: u32 = 2000u32;
-pub const DMUS_VOLUME_MIN: i32 = -20000i32;
+pub const DMUS_VOLUME_MAX: u32 = 2000;
+pub const DMUS_VOLUME_MIN: i32 = -20000;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DMUS_WAVE {
@@ -507,36 +507,36 @@ pub struct DMUS_WAVES_REVERB_PARAMS {
     pub fReverbTime: f32,
     pub fHighFreqRTRatio: f32,
 }
-pub const DSBUSID_BACK_CENTER: u32 = 8u32;
-pub const DSBUSID_BACK_LEFT: u32 = 4u32;
-pub const DSBUSID_BACK_RIGHT: u32 = 5u32;
-pub const DSBUSID_CHORUS_SEND: u32 = 65u32;
-pub const DSBUSID_DYNAMIC_0: u32 = 512u32;
-pub const DSBUSID_FIRST_SPKR_LOC: u32 = 0u32;
-pub const DSBUSID_FRONT_CENTER: u32 = 2u32;
-pub const DSBUSID_FRONT_LEFT: u32 = 0u32;
-pub const DSBUSID_FRONT_LEFT_OF_CENTER: u32 = 6u32;
-pub const DSBUSID_FRONT_RIGHT: u32 = 1u32;
-pub const DSBUSID_FRONT_RIGHT_OF_CENTER: u32 = 7u32;
-pub const DSBUSID_LAST_SPKR_LOC: u32 = 17u32;
-pub const DSBUSID_LEFT: u32 = 0u32;
-pub const DSBUSID_LOW_FREQUENCY: u32 = 3u32;
-pub const DSBUSID_NULL: u32 = 4294967295u32;
-pub const DSBUSID_REVERB_SEND: u32 = 64u32;
-pub const DSBUSID_RIGHT: u32 = 1u32;
-pub const DSBUSID_SIDE_LEFT: u32 = 9u32;
-pub const DSBUSID_SIDE_RIGHT: u32 = 10u32;
-pub const DSBUSID_TOP_BACK_CENTER: u32 = 16u32;
-pub const DSBUSID_TOP_BACK_LEFT: u32 = 15u32;
-pub const DSBUSID_TOP_BACK_RIGHT: u32 = 17u32;
-pub const DSBUSID_TOP_CENTER: u32 = 11u32;
-pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
-pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
-pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
+pub const DSBUSID_BACK_CENTER: u32 = 8;
+pub const DSBUSID_BACK_LEFT: u32 = 4;
+pub const DSBUSID_BACK_RIGHT: u32 = 5;
+pub const DSBUSID_CHORUS_SEND: u32 = 65;
+pub const DSBUSID_DYNAMIC_0: u32 = 512;
+pub const DSBUSID_FIRST_SPKR_LOC: u32 = 0;
+pub const DSBUSID_FRONT_CENTER: u32 = 2;
+pub const DSBUSID_FRONT_LEFT: u32 = 0;
+pub const DSBUSID_FRONT_LEFT_OF_CENTER: u32 = 6;
+pub const DSBUSID_FRONT_RIGHT: u32 = 1;
+pub const DSBUSID_FRONT_RIGHT_OF_CENTER: u32 = 7;
+pub const DSBUSID_LAST_SPKR_LOC: u32 = 17;
+pub const DSBUSID_LEFT: u32 = 0;
+pub const DSBUSID_LOW_FREQUENCY: u32 = 3;
+pub const DSBUSID_NULL: u32 = 4294967295;
+pub const DSBUSID_REVERB_SEND: u32 = 64;
+pub const DSBUSID_RIGHT: u32 = 1;
+pub const DSBUSID_SIDE_LEFT: u32 = 9;
+pub const DSBUSID_SIDE_RIGHT: u32 = 10;
+pub const DSBUSID_TOP_BACK_CENTER: u32 = 16;
+pub const DSBUSID_TOP_BACK_LEFT: u32 = 15;
+pub const DSBUSID_TOP_BACK_RIGHT: u32 = 17;
+pub const DSBUSID_TOP_CENTER: u32 = 11;
+pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13;
+pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12;
+pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
@@ -555,7 +555,7 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
@@ -567,7 +567,7 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Interface: windows_core::PSTR,
     pub WaveDeviceId: u32,
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
@@ -579,7 +579,7 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Interface: windows_core::PWSTR,
     pub WaveDeviceId: u32,
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
@@ -591,7 +591,7 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7);
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
@@ -603,7 +603,7 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
@@ -615,7 +615,7 @@ impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
@@ -623,7 +623,7 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: windows_core::GUID,
 }
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
@@ -648,27 +648,27 @@ impl Default for DVAudInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DV_AUDIOMODE: u32 = 3840u32;
-pub const DV_AUDIOQU: u32 = 117440512u32;
-pub const DV_AUDIOSMP: u32 = 939524096u32;
-pub const DV_CAP_AUD12Bits: u32 = 1u32;
-pub const DV_CAP_AUD16Bits: u32 = 0u32;
-pub const DV_DVSD_NTSC_FRAMESIZE: i32 = 120000i32;
-pub const DV_DVSD_PAL_FRAMESIZE: i32 = 144000i32;
-pub const DV_HD: u32 = 1u32;
-pub const DV_NTSC: u32 = 0u32;
-pub const DV_NTSCPAL: u32 = 2097152u32;
-pub const DV_PAL: u32 = 1u32;
-pub const DV_SD: u32 = 0u32;
-pub const DV_SL: u32 = 2u32;
-pub const DV_SMCHN: u32 = 57344u32;
-pub const DV_STYPE: u32 = 2031616u32;
-pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
-pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1u32;
-pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
-pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
-pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
-pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
+pub const DV_AUDIOMODE: u32 = 3840;
+pub const DV_AUDIOQU: u32 = 117440512;
+pub const DV_AUDIOSMP: u32 = 939524096;
+pub const DV_CAP_AUD12Bits: u32 = 1;
+pub const DV_CAP_AUD16Bits: u32 = 0;
+pub const DV_DVSD_NTSC_FRAMESIZE: i32 = 120000;
+pub const DV_DVSD_PAL_FRAMESIZE: i32 = 144000;
+pub const DV_HD: u32 = 1;
+pub const DV_NTSC: u32 = 0;
+pub const DV_NTSCPAL: u32 = 2097152;
+pub const DV_PAL: u32 = 1;
+pub const DV_SD: u32 = 0;
+pub const DV_SL: u32 = 2;
+pub const DV_SMCHN: u32 = 57344;
+pub const DV_STYPE: u32 = 2031616;
+pub const F_INSTRUMENT_DRUMS: u32 = 2147483648;
+pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1;
+pub const F_WAVELINK_MULTICHANNEL: u32 = 2;
+pub const F_WAVELINK_PHASE_MASTER: u32 = 1;
+pub const F_WSMP_NO_COMPRESSION: i32 = 2;
+pub const F_WSMP_NO_TRUNCATION: i32 = 1;
 pub const GUID_DMUS_PROP_DLS1: windows_core::GUID = windows_core::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
 pub const GUID_DMUS_PROP_DLS2: windows_core::GUID = windows_core::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
 pub const GUID_DMUS_PROP_Effects: windows_core::GUID = windows_core::GUID::from_u128(0xcda8d611_684a_11d2_871e_00600893b1bd);
@@ -2146,8 +2146,8 @@ pub struct POOLTABLE {
     pub cbSize: u32,
     pub cCues: u32,
 }
-pub const POOL_CUE_NULL: i32 = -1i32;
-pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
+pub const POOL_CUE_NULL: i32 = -1;
+pub const REFRESH_F_LASTBUFFER: u32 = 1;
 pub const REGSTR_PATH_SOFTWARESYNTHS: windows_core::PCSTR = windows_core::s!("Software\\Microsoft\\DirectMusic\\SoftwareSynths");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2163,7 +2163,7 @@ pub struct RGNRANGE {
     pub usLow: u16,
     pub usHigh: u16,
 }
-pub const SIZE_DVINFO: u32 = 32u32;
+pub const SIZE_DVINFO: u32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WAVELINK {
@@ -2172,8 +2172,8 @@ pub struct WAVELINK {
     pub ulChannel: u32,
     pub ulTableIndex: u32,
 }
-pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
-pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
+pub const WAVELINK_CHANNEL_LEFT: i32 = 1;
+pub const WAVELINK_CHANNEL_RIGHT: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLOOP {
@@ -2182,8 +2182,8 @@ pub struct WLOOP {
     pub ulStart: u32,
     pub ulLength: u32,
 }
-pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
-pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
+pub const WLOOP_TYPE_FORWARD: u32 = 0;
+pub const WLOOP_TYPE_RELEASE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMPL {

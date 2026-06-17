@@ -1,6 +1,4 @@
-//! Demonstrates `App::render` — the simplest way to write an app.
-//!
-//! No struct, no impl block. Just a render function.
+//! Sample for `App::render` — just a render function.
 
 use windows_reactor::*;
 
@@ -23,5 +21,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Render Function Demo").render(app)
+    reactor_minimal::run("RenderFn", app)
 }

@@ -18,8 +18,8 @@ windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : HKEY, lpv
 windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : PCWSTR, lpnewkeyname : PCWSTR) -> WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
 pub type BOOL = i32;
-pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
-pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259u32;
+pub const ERROR_INVALID_DATA: WIN32_ERROR = 13;
+pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILETIME {
@@ -34,40 +34,30 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HEAP_FLAGS = u32;
 pub type HKEY = *mut core::ffi::c_void;
-pub const HKEY_CLASSES_ROOT: HKEY = -2147483648i32 as _;
-pub const HKEY_CURRENT_CONFIG: HKEY = -2147483643i32 as _;
-pub const HKEY_CURRENT_USER: HKEY = -2147483647i32 as _;
-pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646i32 as _;
-pub const HKEY_USERS: HKEY = -2147483645i32 as _;
-pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
-pub const KEY_READ: REG_SAM_FLAGS = 131097u32;
-pub const KEY_WRITE: REG_SAM_FLAGS = 131078u32;
+pub const HKEY_CLASSES_ROOT: HKEY = -2147483648 as _;
+pub const HKEY_CURRENT_CONFIG: HKEY = -2147483643 as _;
+pub const HKEY_CURRENT_USER: HKEY = -2147483647 as _;
+pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646 as _;
+pub const HKEY_USERS: HKEY = -2147483645 as _;
+pub const INVALID_HANDLE_VALUE: HANDLE = -1 as _;
+pub const KEY_READ: REG_SAM_FLAGS = 131097;
+pub const KEY_WRITE: REG_SAM_FLAGS = 131078;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
-pub const REG_BINARY: REG_VALUE_TYPE = 3u32;
+pub const REG_BINARY: REG_VALUE_TYPE = 3;
 pub type REG_CREATE_KEY_DISPOSITION = u32;
-pub const REG_DWORD: REG_VALUE_TYPE = 4u32;
-pub const REG_EXPAND_SZ: REG_VALUE_TYPE = 2u32;
-pub const REG_MULTI_SZ: REG_VALUE_TYPE = 7u32;
+pub const REG_DWORD: REG_VALUE_TYPE = 4;
+pub const REG_EXPAND_SZ: REG_VALUE_TYPE = 2;
+pub const REG_MULTI_SZ: REG_VALUE_TYPE = 7;
 pub type REG_OPEN_CREATE_OPTIONS = u32;
-pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = 0u32;
-pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = 1u32;
-pub const REG_QWORD: REG_VALUE_TYPE = 11u32;
+pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = 0;
+pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = 1;
+pub const REG_QWORD: REG_VALUE_TYPE = 11;
 pub type REG_SAM_FLAGS = u32;
-pub const REG_SZ: REG_VALUE_TYPE = 1u32;
+pub const REG_SZ: REG_VALUE_TYPE = 1;
 pub type REG_VALUE_TYPE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]

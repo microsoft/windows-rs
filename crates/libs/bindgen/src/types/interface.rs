@@ -82,7 +82,8 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            !method.dependencies.included(config) || !config.includes_method(type_name, def)
+            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+                || !config.includes_method(type_name, def)
         })
     }
 
@@ -108,7 +109,21 @@ impl Interface {
             let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
             let result = config.write_result();
 
-            let vtbl_methods = methods.iter().map(|method| match method {
+            // In minimal mode, drop trailing usize slots — nothing indexes
+            // past the last real method, so they waste space and compile time.
+            let methods_for_vtbl: &[MethodOrName] = if config.bindgen.style.is_minimal() {
+                let last_real = methods
+                    .iter()
+                    .rposition(|m| matches!(m, MethodOrName::Method(_)));
+                match last_real {
+                    Some(pos) => &methods[..=pos],
+                    None => &[],
+                }
+            } else {
+                &methods
+            };
+
+            let vtbl_methods = methods_for_vtbl.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let name = virtual_names.add(method.def);
                     let vtbl = method.write_abi(config, false);
@@ -137,7 +152,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.style.is_sys() {
+            let hide_vtbl = if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -332,6 +347,7 @@ impl Interface {
                             InterfaceKind::Default,
                             method_names,
                             virtual_names,
+                            true,
                         );
 
                         method_tokens.combine(quote! {
@@ -363,6 +379,7 @@ impl Interface {
                                 interface.kind,
                                 method_names,
                                 virtual_names,
+                                true,
                             );
 
                             method_tokens.combine(quote! {

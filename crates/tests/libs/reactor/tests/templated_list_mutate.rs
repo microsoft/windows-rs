@@ -1,9 +1,10 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, RecordingBackend};
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::templated_list::list_view;
+use windows_reactor::ControlKind;
+use windows_reactor::Reconciler;
+use windows_reactor::list_view;
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{Op, RecordingBackend};
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -20,7 +21,7 @@ fn mount_list(
 ) -> (
     Reconciler<RecordingBackend>,
     Element,
-    windows_reactor::core::backend::ControlId,
+    windows_reactor::ControlId,
 ) {
     let el = make_list(items);
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -193,8 +194,8 @@ fn updating_items_with_same_key_but_new_value_reconciles_realized_row() {
         .iter()
         .filter_map(|op| match op {
             Op::SetProp {
-                prop: windows_reactor::core::backend::Prop::Text,
-                value: windows_reactor::core::backend::PropValue::Str(s),
+                prop: windows_reactor::Prop::Text,
+                value: windows_reactor::PropValue::Str(s),
                 ..
             } => Some(s.clone()),
             _ => None,

@@ -30,7 +30,7 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
             &EventHandlerBox::<T, F>::VTABLE,
             invoke,
         );
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where

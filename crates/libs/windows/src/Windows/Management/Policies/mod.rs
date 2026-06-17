@@ -170,12 +170,12 @@ unsafe impl Sync for NamedPolicyData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
-    pub const Invalid: Self = Self(0i32);
-    pub const Binary: Self = Self(1i32);
-    pub const Boolean: Self = Self(2i32);
-    pub const Int32: Self = Self(3i32);
-    pub const Int64: Self = Self(4i32);
-    pub const String: Self = Self(5i32);
+    pub const Invalid: Self = Self(0);
+    pub const Binary: Self = Self(1);
+    pub const Boolean: Self = Self(2);
+    pub const Int32: Self = Self(3);
+    pub const Int64: Self = Self(4);
+    pub const String: Self = Self(5);
 }
 impl windows_core::TypeKind for NamedPolicyKind {
     type TypeKind = windows_core::CopyType;

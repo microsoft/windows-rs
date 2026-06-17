@@ -1,0 +1,19 @@
+[package]
+name = "canvas_minimal"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true, features = ["reactor"] }
+windows-reactor = { workspace = true }
+
+[dev-dependencies]
+windows-numerics = { workspace = true, features = ["std"] }
+windows-time = { workspace = true }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

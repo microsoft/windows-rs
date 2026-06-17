@@ -30,7 +30,7 @@ pub fn person_picture_page(_: &(), cx: &mut RenderCx) -> Element {
             vstack((
                 ToggleSwitch::new(show_display_names)
                     .header("Use display names")
-                    .on_changed(move |value: bool| set_show_display_names.call(value)),
+                    .on_toggled(move |value: bool| set_show_display_names.call(value)),
                 pictures,
                 text_block(if show_display_names {
                     "Initials are generated from the display names."
@@ -40,7 +40,7 @@ pub fn person_picture_page(_: &(), cx: &mut RenderCx) -> Element {
                 .opacity(0.6),
             ))
             .spacing(12.0),
-            r#"ToggleSwitch::new(mode).on_changed(...)
+            r#"ToggleSwitch::new(mode).on_toggled(...)
 PersonPicture::new().display_name("Alice Smith")
 PersonPicture::new().initials("AS")"#,
         )],

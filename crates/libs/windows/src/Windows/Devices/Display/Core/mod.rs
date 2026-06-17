@@ -94,13 +94,13 @@ unsafe impl Sync for DisplayAdapter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
-    pub const None: Self = Self(0u32);
-    pub const Bpc6: Self = Self(1u32);
-    pub const Bpc8: Self = Self(2u32);
-    pub const Bpc10: Self = Self(4u32);
-    pub const Bpc12: Self = Self(8u32);
-    pub const Bpc14: Self = Self(16u32);
-    pub const Bpc16: Self = Self(32u32);
+    pub const None: Self = Self(0);
+    pub const Bpc6: Self = Self(1);
+    pub const Bpc8: Self = Self(2);
+    pub const Bpc10: Self = Self(4);
+    pub const Bpc12: Self = Self(8);
+    pub const Bpc14: Self = Self(16);
+    pub const Bpc16: Self = Self(32);
 }
 impl windows_core::TypeKind for DisplayBitsPerChannel {
     type TypeKind = windows_core::CopyType;
@@ -241,7 +241,7 @@ unsafe impl Sync for DisplayDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
-    pub const FlipOverride: Self = Self(0i32);
+    pub const FlipOverride: Self = Self(0);
 }
 impl windows_core::TypeKind for DisplayDeviceCapability {
     type TypeKind = windows_core::CopyType;
@@ -254,7 +254,6 @@ impl windows_core::RuntimeType for DisplayDeviceCapability {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayFence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayFence, windows_core::IUnknown, windows_core::IInspectable);
-impl DisplayFence {}
 impl windows_core::RuntimeType for DisplayFence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayFence>();
 }
@@ -545,9 +544,9 @@ unsafe impl Sync for DisplayManagerEnabledEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
-    pub const None: Self = Self(0u32);
-    pub const EnforceSourceOwnership: Self = Self(1u32);
-    pub const VirtualRefreshRateAware: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const EnforceSourceOwnership: Self = Self(1);
+    pub const VirtualRefreshRateAware: Self = Self(2);
 }
 impl windows_core::TypeKind for DisplayManagerOptions {
     type TypeKind = windows_core::CopyType;
@@ -626,11 +625,11 @@ unsafe impl Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const TargetAccessDenied: Self = Self(2i32);
-    pub const TargetStale: Self = Self(3i32);
-    pub const RemoteSessionNotSupported: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const TargetAccessDenied: Self = Self(2);
+    pub const TargetStale: Self = Self(3);
+    pub const RemoteSessionNotSupported: Self = Self(4);
 }
 impl windows_core::TypeKind for DisplayManagerResult {
     type TypeKind = windows_core::CopyType;
@@ -766,8 +765,8 @@ unsafe impl Sync for DisplayModeInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
-    pub const None: Self = Self(0u32);
-    pub const OnlyPreferredResolution: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const OnlyPreferredResolution: Self = Self(1);
 }
 impl windows_core::TypeKind for DisplayModeQueryOptions {
     type TypeKind = windows_core::CopyType;
@@ -943,7 +942,7 @@ impl DisplayPath {
     }
     #[cfg(feature = "Graphics")]
     pub fn SetSourceResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSourceResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
@@ -975,7 +974,7 @@ impl DisplayPath {
     }
     #[cfg(feature = "Graphics")]
     pub fn SetTargetResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetTargetResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -987,7 +986,7 @@ impl DisplayPath {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPresentationRate(&self, value: Option<DisplayPresentationRate>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetPresentationRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsInterlaced(&self) -> windows_core::Result<bool> {
@@ -997,7 +996,7 @@ impl DisplayPath {
         }
     }
     pub fn SetIsInterlaced(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetIsInterlaced)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WireFormat(&self) -> windows_core::Result<DisplayWireFormat> {
@@ -1059,7 +1058,7 @@ impl DisplayPath {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPhysicalPresentationRate(&self, value: Option<DisplayPresentationRate>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -1079,12 +1078,12 @@ unsafe impl Sync for DisplayPath {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
-    pub const Identity: Self = Self(0i32);
-    pub const Centered: Self = Self(1i32);
-    pub const Stretched: Self = Self(2i32);
-    pub const AspectRatioStretched: Self = Self(3i32);
-    pub const Custom: Self = Self(4i32);
-    pub const DriverPreferred: Self = Self(5i32);
+    pub const Identity: Self = Self(0);
+    pub const Centered: Self = Self(1);
+    pub const Stretched: Self = Self(2);
+    pub const AspectRatioStretched: Self = Self(3);
+    pub const Custom: Self = Self(4);
+    pub const DriverPreferred: Self = Self(5);
 }
 impl windows_core::TypeKind for DisplayPathScaling {
     type TypeKind = windows_core::CopyType;
@@ -1097,12 +1096,12 @@ impl windows_core::RuntimeType for DisplayPathScaling {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const Succeeded: Self = Self(1i32);
-    pub const Pending: Self = Self(2i32);
-    pub const Failed: Self = Self(3i32);
-    pub const FailedAsync: Self = Self(4i32);
-    pub const InvalidatedAsync: Self = Self(5i32);
+    pub const Unknown: Self = Self(0);
+    pub const Succeeded: Self = Self(1);
+    pub const Pending: Self = Self(2);
+    pub const Failed: Self = Self(3);
+    pub const FailedAsync: Self = Self(4);
+    pub const InvalidatedAsync: Self = Self(5);
 }
 impl windows_core::TypeKind for DisplayPathStatus {
     type TypeKind = windows_core::CopyType;
@@ -1115,12 +1114,12 @@ impl windows_core::RuntimeType for DisplayPathStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SourceStatusPreventedPresent: Self = Self(1i32);
-    pub const ScanoutInvalid: Self = Self(2i32);
-    pub const SourceInvalid: Self = Self(3i32);
-    pub const DeviceInvalid: Self = Self(4i32);
-    pub const UnknownFailure: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const SourceStatusPreventedPresent: Self = Self(1);
+    pub const ScanoutInvalid: Self = Self(2);
+    pub const SourceInvalid: Self = Self(3);
+    pub const DeviceInvalid: Self = Self(4);
+    pub const UnknownFailure: Self = Self(5);
 }
 impl windows_core::TypeKind for DisplayPresentStatus {
     type TypeKind = windows_core::CopyType;
@@ -1234,10 +1233,10 @@ unsafe impl Sync for DisplayPrimaryDescription {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
-    pub const None: Self = Self(0i32);
-    pub const Clockwise90Degrees: Self = Self(1i32);
-    pub const Clockwise180Degrees: Self = Self(2i32);
-    pub const Clockwise270Degrees: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Clockwise90Degrees: Self = Self(1);
+    pub const Clockwise180Degrees: Self = Self(2);
+    pub const Clockwise270Degrees: Self = Self(3);
 }
 impl windows_core::TypeKind for DisplayRotation {
     type TypeKind = windows_core::CopyType;
@@ -1250,7 +1249,6 @@ impl windows_core::RuntimeType for DisplayRotation {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayScanout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
-impl DisplayScanout {}
 impl windows_core::RuntimeType for DisplayScanout {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayScanout>();
 }
@@ -1267,8 +1265,8 @@ unsafe impl Sync for DisplayScanout {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
-    pub const None: Self = Self(0u32);
-    pub const AllowTearing: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const AllowTearing: Self = Self(2);
 }
 impl windows_core::TypeKind for DisplayScanoutOptions {
     type TypeKind = windows_core::CopyType;
@@ -1373,11 +1371,11 @@ unsafe impl Sync for DisplaySource {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
-    pub const Active: Self = Self(0i32);
-    pub const PoweredOff: Self = Self(1i32);
-    pub const Invalid: Self = Self(2i32);
-    pub const OwnedByAnotherDevice: Self = Self(3i32);
-    pub const Unowned: Self = Self(4i32);
+    pub const Active: Self = Self(0);
+    pub const PoweredOff: Self = Self(1);
+    pub const Invalid: Self = Self(2);
+    pub const OwnedByAnotherDevice: Self = Self(3);
+    pub const Unowned: Self = Self(4);
 }
 impl windows_core::TypeKind for DisplaySourceStatus {
     type TypeKind = windows_core::CopyType;
@@ -1509,10 +1507,10 @@ unsafe impl Sync for DisplayState {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
-    pub const None: Self = Self(0u32);
-    pub const FailIfStateChanged: Self = Self(1u32);
-    pub const ForceReapply: Self = Self(2u32);
-    pub const ForceModeEnumeration: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const FailIfStateChanged: Self = Self(1);
+    pub const ForceReapply: Self = Self(2);
+    pub const ForceModeEnumeration: Self = Self(4);
 }
 impl windows_core::TypeKind for DisplayStateApplyOptions {
     type TypeKind = windows_core::CopyType;
@@ -1558,9 +1556,9 @@ impl core::ops::Not for DisplayStateApplyOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
-    pub const None: Self = Self(0u32);
-    pub const FailIfStateChanged: Self = Self(1u32);
-    pub const ValidateTopologyOnly: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const FailIfStateChanged: Self = Self(1);
+    pub const ValidateTopologyOnly: Self = Self(2);
 }
 impl windows_core::TypeKind for DisplayStateFunctionalizeOptions {
     type TypeKind = windows_core::CopyType;
@@ -1636,14 +1634,14 @@ unsafe impl Sync for DisplayStateOperationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const PartialFailure: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
-    pub const TargetOwnershipLost: Self = Self(3i32);
-    pub const SystemStateChanged: Self = Self(4i32);
-    pub const TooManyPathsForAdapter: Self = Self(5i32);
-    pub const ModesNotSupported: Self = Self(6i32);
-    pub const RemoteSessionNotSupported: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const PartialFailure: Self = Self(1);
+    pub const UnknownFailure: Self = Self(2);
+    pub const TargetOwnershipLost: Self = Self(3);
+    pub const SystemStateChanged: Self = Self(4);
+    pub const TooManyPathsForAdapter: Self = Self(5);
+    pub const ModesNotSupported: Self = Self(6);
+    pub const RemoteSessionNotSupported: Self = Self(7);
 }
 impl windows_core::TypeKind for DisplayStateOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1656,7 +1654,6 @@ impl windows_core::RuntimeType for DisplayStateOperationStatus {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplaySurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySurface, windows_core::IUnknown, windows_core::IInspectable);
-impl DisplaySurface {}
 impl windows_core::RuntimeType for DisplaySurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySurface>();
 }
@@ -1781,10 +1778,10 @@ unsafe impl Sync for DisplayTarget {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
-    pub const None: Self = Self(0i32);
-    pub const BootPersisted: Self = Self(1i32);
-    pub const TemporaryPersisted: Self = Self(2i32);
-    pub const PathPersisted: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const BootPersisted: Self = Self(1);
+    pub const TemporaryPersisted: Self = Self(2);
+    pub const PathPersisted: Self = Self(3);
 }
 impl windows_core::TypeKind for DisplayTargetPersistence {
     type TypeKind = windows_core::CopyType;
@@ -1910,8 +1907,8 @@ unsafe impl Sync for DisplayTaskResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
-    pub const OnPresentFlipAway: Self = Self(0i32);
-    pub const OnPresentFlipTo: Self = Self(1i32);
+    pub const OnPresentFlipAway: Self = Self(0);
+    pub const OnPresentFlipTo: Self = Self(1);
 }
 impl windows_core::TypeKind for DisplayTaskSignalKind {
     type TypeKind = windows_core::CopyType;
@@ -1940,7 +1937,7 @@ impl DisplayView {
     }
     #[cfg(feature = "Graphics")]
     pub fn SetContentResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetContentResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SetPrimaryPath<P0>(&self, path: P0) -> windows_core::Result<()>
@@ -2049,9 +2046,9 @@ unsafe impl Sync for DisplayWireFormat {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
-    pub const BT709: Self = Self(0i32);
-    pub const BT2020: Self = Self(1i32);
-    pub const ProfileDefinedWideColorGamut: Self = Self(2i32);
+    pub const BT709: Self = Self(0);
+    pub const BT2020: Self = Self(1);
+    pub const ProfileDefinedWideColorGamut: Self = Self(2);
 }
 impl windows_core::TypeKind for DisplayWireFormatColorSpace {
     type TypeKind = windows_core::CopyType;
@@ -2064,8 +2061,8 @@ impl windows_core::RuntimeType for DisplayWireFormatColorSpace {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
-    pub const Sdr: Self = Self(0i32);
-    pub const HdrSmpte2084: Self = Self(1i32);
+    pub const Sdr: Self = Self(0);
+    pub const HdrSmpte2084: Self = Self(1);
 }
 impl windows_core::TypeKind for DisplayWireFormatEotf {
     type TypeKind = windows_core::CopyType;
@@ -2078,10 +2075,10 @@ impl windows_core::RuntimeType for DisplayWireFormatEotf {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
-    pub const None: Self = Self(0i32);
-    pub const Hdr10: Self = Self(1i32);
-    pub const Hdr10Plus: Self = Self(2i32);
-    pub const DolbyVisionLowLatency: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Hdr10: Self = Self(1);
+    pub const Hdr10Plus: Self = Self(2);
+    pub const DolbyVisionLowLatency: Self = Self(3);
 }
 impl windows_core::TypeKind for DisplayWireFormatHdrMetadata {
     type TypeKind = windows_core::CopyType;
@@ -2094,11 +2091,11 @@ impl windows_core::RuntimeType for DisplayWireFormatHdrMetadata {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {
-    pub const Rgb444: Self = Self(0i32);
-    pub const Ycc444: Self = Self(1i32);
-    pub const Ycc422: Self = Self(2i32);
-    pub const Ycc420: Self = Self(3i32);
-    pub const Intensity: Self = Self(4i32);
+    pub const Rgb444: Self = Self(0);
+    pub const Ycc444: Self = Self(1);
+    pub const Ycc422: Self = Self(2);
+    pub const Ycc420: Self = Self(3);
+    pub const Intensity: Self = Self(4);
 }
 impl windows_core::TypeKind for DisplayWireFormatPixelEncoding {
     type TypeKind = windows_core::CopyType;

@@ -156,14 +156,14 @@ unsafe impl Sync for HidCollection {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
-    pub const Physical: Self = Self(0i32);
-    pub const Application: Self = Self(1i32);
-    pub const Logical: Self = Self(2i32);
-    pub const Report: Self = Self(3i32);
-    pub const NamedArray: Self = Self(4i32);
-    pub const UsageSwitch: Self = Self(5i32);
-    pub const UsageModifier: Self = Self(6i32);
-    pub const Other: Self = Self(7i32);
+    pub const Physical: Self = Self(0);
+    pub const Application: Self = Self(1);
+    pub const Logical: Self = Self(2);
+    pub const Report: Self = Self(3);
+    pub const NamedArray: Self = Self(4);
+    pub const UsageSwitch: Self = Self(5);
+    pub const UsageModifier: Self = Self(6);
+    pub const Other: Self = Self(7);
 }
 impl windows_core::TypeKind for HidCollectionType {
     type TypeKind = windows_core::CopyType;
@@ -755,9 +755,9 @@ unsafe impl Sync for HidOutputReport {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
-    pub const Input: Self = Self(0i32);
-    pub const Output: Self = Self(1i32);
-    pub const Feature: Self = Self(2i32);
+    pub const Input: Self = Self(0);
+    pub const Output: Self = Self(1);
+    pub const Feature: Self = Self(2);
 }
 impl windows_core::TypeKind for HidReportType {
     type TypeKind = windows_core::CopyType;

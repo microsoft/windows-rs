@@ -32,5 +32,6 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
+    bootstrap()?;
     App::new().title("Diagnostics Demo").render(app)
 }

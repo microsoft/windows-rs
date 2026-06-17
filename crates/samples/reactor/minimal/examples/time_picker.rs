@@ -1,4 +1,4 @@
-//! Minimal sample for the `TimePicker` element.
+//! Sample for the `TimePicker` element.
 
 use windows_reactor::*;
 
@@ -15,7 +15,7 @@ fn app(cx: &mut RenderCx) -> Element {
         time_picker()
             .header("Pick a time")
             .minute_increment(15)
-            .on_changed(on_time),
+            .on_selected_time_changed(on_time),
         text_block(&*label),
     ))
     .spacing(8.0)
@@ -23,5 +23,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("TimePicker", app)
 }

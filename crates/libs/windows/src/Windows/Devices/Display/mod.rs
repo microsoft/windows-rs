@@ -173,10 +173,10 @@ unsafe impl Sync for DisplayMonitor {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
-    pub const Internal: Self = Self(0i32);
-    pub const Wired: Self = Self(1i32);
-    pub const Wireless: Self = Self(2i32);
-    pub const Virtual: Self = Self(3i32);
+    pub const Internal: Self = Self(0);
+    pub const Wired: Self = Self(1);
+    pub const Wireless: Self = Self(2);
+    pub const Virtual: Self = Self(3);
 }
 impl windows_core::TypeKind for DisplayMonitorConnectionKind {
     type TypeKind = windows_core::CopyType;
@@ -189,8 +189,8 @@ impl windows_core::RuntimeType for DisplayMonitorConnectionKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
-    pub const Edid: Self = Self(0i32);
-    pub const DisplayId: Self = Self(1i32);
+    pub const Edid: Self = Self(0);
+    pub const DisplayId: Self = Self(1);
 }
 impl windows_core::TypeKind for DisplayMonitorDescriptorKind {
     type TypeKind = windows_core::CopyType;
@@ -203,14 +203,14 @@ impl windows_core::RuntimeType for DisplayMonitorDescriptorKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const HD15: Self = Self(1i32);
-    pub const AnalogTV: Self = Self(2i32);
-    pub const Dvi: Self = Self(3i32);
-    pub const Hdmi: Self = Self(4i32);
-    pub const Lvds: Self = Self(5i32);
-    pub const Sdi: Self = Self(6i32);
-    pub const DisplayPort: Self = Self(7i32);
+    pub const Unknown: Self = Self(0);
+    pub const HD15: Self = Self(1);
+    pub const AnalogTV: Self = Self(2);
+    pub const Dvi: Self = Self(3);
+    pub const Hdmi: Self = Self(4);
+    pub const Lvds: Self = Self(5);
+    pub const Sdi: Self = Self(6);
+    pub const DisplayPort: Self = Self(7);
 }
 impl windows_core::TypeKind for DisplayMonitorPhysicalConnectorKind {
     type TypeKind = windows_core::CopyType;
@@ -223,9 +223,9 @@ impl windows_core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {
-    pub const Standard: Self = Self(0i32);
-    pub const HeadMounted: Self = Self(1i32);
-    pub const SpecialPurpose: Self = Self(2i32);
+    pub const Standard: Self = Self(0);
+    pub const HeadMounted: Self = Self(1);
+    pub const SpecialPurpose: Self = Self(2);
 }
 impl windows_core::TypeKind for DisplayMonitorUsageKind {
     type TypeKind = windows_core::CopyType;

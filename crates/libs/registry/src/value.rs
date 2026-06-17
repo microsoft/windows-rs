@@ -24,7 +24,7 @@ impl Value {
     }
 }
 
-impl core::ops::Deref for Value {
+impl Deref for Value {
     type Target = [u8];
 
     fn deref(&self) -> &[u8] {
@@ -93,12 +93,24 @@ impl TryFrom<Value> for Vec<String> {
     type Error = Error;
     fn try_from(from: Value) -> Result<Self> {
         match from.ty {
-            Type::MultiString => Ok(from
-                .data
-                .as_wide()
-                .split(|c| *c == 0)
-                .map(String::from_utf16_lossy)
-                .collect()),
+            Type::MultiString => {
+                let wide = from.data.as_wide();
+                // REG_MULTI_SZ must end with a null terminator. A non-empty list
+                // requires a double-null (each string is null-terminated, plus
+                // the final list terminator). An empty list is just a single null.
+                if wide.is_empty() || wide[wide.len() - 1] != 0 {
+                    return Err(invalid_data());
+                }
+                // If there's content before the final null, the second-to-last
+                // must also be null (the double-null terminator).
+                if wide.len() >= 2 && wide[wide.len() - 2] != 0 {
+                    return Err(invalid_data());
+                }
+                wide.split(|c| *c == 0)
+                    .take_while(|s| !s.is_empty())
+                    .map(|s| String::from_utf16(s).map_err(|_| invalid_data()))
+                    .collect()
+            }
             _ => Ok(vec![String::try_from(from)?]),
         }
     }

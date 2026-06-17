@@ -1,6 +1,7 @@
 //! Unit tests for `windows_core::ComObject`
 
 use std::borrow::Borrow;
+use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use windows_core::{
@@ -98,8 +99,8 @@ impl Default for MyApp {
     }
 }
 
-impl std::hash::Hash for MyApp {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+impl Hash for MyApp {
+    fn hash<H: Hasher>(&self, state: &mut H) {
         self.x.hash(state);
     }
 }
@@ -497,7 +498,7 @@ static_assertions::assert_not_impl_all!(ComObject<UnsendableThing>: Send, Sync);
 
 #[implement(IBar)]
 struct SendableThing {
-    arc: std::sync::Arc<u32>,
+    arc: Arc<u32>,
 }
 
 impl IBar_Impl for SendableThing_Impl {

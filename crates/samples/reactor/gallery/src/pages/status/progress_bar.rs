@@ -16,12 +16,12 @@ pub fn progress_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                     text_block(format!("Progress: {value:.0}%")).opacity(0.6),
                     Slider::new(value)
                         .range(0.0, 100.0)
-                        .on_changed(move |v: f64| set_value.call(v))
+                        .on_value_changed(move |v: f64| set_value.call(v))
                         .width(300.0),
                 ))
                 .spacing(8.0),
                 r#"ProgressBar::new(value).width(300.0)
-Slider::new(value).range(0.0, 100.0).on_changed(handler)"#,
+Slider::new(value).range(0.0, 100.0).on_value_changed(handler)"#,
             ),
             sample_card(
                 "Indeterminate ProgressBar",
@@ -34,7 +34,7 @@ Slider::new(value).range(0.0, 100.0).on_changed(handler)"#,
                     ToggleSwitch::new(loading)
                         .on_content("Loading")
                         .off_content("Complete")
-                        .on_changed(move |v: bool| set_loading.call(v)),
+                        .on_toggled(move |v: bool| set_loading.call(v)),
                 ))
                 .spacing(8.0),
                 r#"if loading {

@@ -6,7 +6,7 @@ pub mod Preview;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
-    pub const Text: Self = Self(0i32);
+    pub const Text: Self = Self(0);
 }
 impl windows_core::TypeKind for AdaptiveNotificationContentKind {
     type TypeKind = windows_core::CopyType;
@@ -86,7 +86,7 @@ impl BadgeNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -126,8 +126,8 @@ unsafe impl Sync for BadgeNotification {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
-    pub const BadgeGlyph: Self = Self(0i32);
-    pub const BadgeNumber: Self = Self(1i32);
+    pub const BadgeGlyph: Self = Self(0);
+    pub const BadgeNumber: Self = Self(1);
 }
 impl windows_core::TypeKind for BadgeTemplateType {
     type TypeKind = windows_core::CopyType;
@@ -1514,7 +1514,7 @@ impl Notification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Visual(&self) -> windows_core::Result<NotificationVisual> {
@@ -1656,8 +1656,8 @@ unsafe impl Sync for NotificationData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
-    pub const Unknown: Self = Self(0u32);
-    pub const Toast: Self = Self(1u32);
+    pub const Unknown: Self = Self(0);
+    pub const Toast: Self = Self(1);
 }
 impl windows_core::TypeKind for NotificationKinds {
     type TypeKind = windows_core::CopyType;
@@ -1703,8 +1703,8 @@ impl core::ops::Not for NotificationKinds {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
-    pub const Allowed: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
+    pub const Allowed: Self = Self(0);
+    pub const Disabled: Self = Self(1);
 }
 impl windows_core::TypeKind for NotificationMirroring {
     type TypeKind = windows_core::CopyType;
@@ -1717,11 +1717,11 @@ impl windows_core::RuntimeType for NotificationMirroring {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
-    pub const Enabled: Self = Self(0i32);
-    pub const DisabledForApplication: Self = Self(1i32);
-    pub const DisabledForUser: Self = Self(2i32);
-    pub const DisabledByGroupPolicy: Self = Self(3i32);
-    pub const DisabledByManifest: Self = Self(4i32);
+    pub const Enabled: Self = Self(0);
+    pub const DisabledForApplication: Self = Self(1);
+    pub const DisabledForUser: Self = Self(2);
+    pub const DisabledByGroupPolicy: Self = Self(3);
+    pub const DisabledByManifest: Self = Self(4);
 }
 impl windows_core::TypeKind for NotificationSetting {
     type TypeKind = windows_core::CopyType;
@@ -1734,9 +1734,9 @@ impl windows_core::RuntimeType for NotificationSetting {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const NotificationNotFound: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Failed: Self = Self(1);
+    pub const NotificationNotFound: Self = Self(2);
 }
 impl windows_core::TypeKind for NotificationUpdateResult {
     type TypeKind = windows_core::CopyType;
@@ -1788,11 +1788,11 @@ unsafe impl Sync for NotificationVisual {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
-    pub const HalfHour: Self = Self(0i32);
-    pub const Hour: Self = Self(1i32);
-    pub const SixHours: Self = Self(2i32);
-    pub const TwelveHours: Self = Self(3i32);
-    pub const Daily: Self = Self(4i32);
+    pub const HalfHour: Self = Self(0);
+    pub const Hour: Self = Self(1);
+    pub const SixHours: Self = Self(2);
+    pub const TwelveHours: Self = Self(3);
+    pub const Daily: Self = Self(4);
 }
 impl windows_core::TypeKind for PeriodicUpdateRecurrence {
     type TypeKind = windows_core::CopyType;
@@ -1820,7 +1820,7 @@ impl ScheduledTileNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1977,7 +1977,7 @@ impl ScheduledToastNotification {
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -2093,7 +2093,7 @@ impl TileFlyoutNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -2133,7 +2133,7 @@ unsafe impl Sync for TileFlyoutNotification {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
-    pub const TileFlyoutTemplate01: Self = Self(0i32);
+    pub const TileFlyoutTemplate01: Self = Self(0);
 }
 impl windows_core::TypeKind for TileFlyoutTemplateType {
     type TypeKind = windows_core::CopyType;
@@ -2236,7 +2236,7 @@ impl TileNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -2285,132 +2285,132 @@ unsafe impl Sync for TileNotification {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
-    pub const TileSquareImage: Self = Self(0i32);
-    pub const TileSquareBlock: Self = Self(1i32);
-    pub const TileSquareText01: Self = Self(2i32);
-    pub const TileSquareText02: Self = Self(3i32);
-    pub const TileSquareText03: Self = Self(4i32);
-    pub const TileSquareText04: Self = Self(5i32);
-    pub const TileSquarePeekImageAndText01: Self = Self(6i32);
-    pub const TileSquarePeekImageAndText02: Self = Self(7i32);
-    pub const TileSquarePeekImageAndText03: Self = Self(8i32);
-    pub const TileSquarePeekImageAndText04: Self = Self(9i32);
-    pub const TileWideImage: Self = Self(10i32);
-    pub const TileWideImageCollection: Self = Self(11i32);
-    pub const TileWideImageAndText01: Self = Self(12i32);
-    pub const TileWideImageAndText02: Self = Self(13i32);
-    pub const TileWideBlockAndText01: Self = Self(14i32);
-    pub const TileWideBlockAndText02: Self = Self(15i32);
-    pub const TileWidePeekImageCollection01: Self = Self(16i32);
-    pub const TileWidePeekImageCollection02: Self = Self(17i32);
-    pub const TileWidePeekImageCollection03: Self = Self(18i32);
-    pub const TileWidePeekImageCollection04: Self = Self(19i32);
-    pub const TileWidePeekImageCollection05: Self = Self(20i32);
-    pub const TileWidePeekImageCollection06: Self = Self(21i32);
-    pub const TileWidePeekImageAndText01: Self = Self(22i32);
-    pub const TileWidePeekImageAndText02: Self = Self(23i32);
-    pub const TileWidePeekImage01: Self = Self(24i32);
-    pub const TileWidePeekImage02: Self = Self(25i32);
-    pub const TileWidePeekImage03: Self = Self(26i32);
-    pub const TileWidePeekImage04: Self = Self(27i32);
-    pub const TileWidePeekImage05: Self = Self(28i32);
-    pub const TileWidePeekImage06: Self = Self(29i32);
-    pub const TileWideSmallImageAndText01: Self = Self(30i32);
-    pub const TileWideSmallImageAndText02: Self = Self(31i32);
-    pub const TileWideSmallImageAndText03: Self = Self(32i32);
-    pub const TileWideSmallImageAndText04: Self = Self(33i32);
-    pub const TileWideSmallImageAndText05: Self = Self(34i32);
-    pub const TileWideText01: Self = Self(35i32);
-    pub const TileWideText02: Self = Self(36i32);
-    pub const TileWideText03: Self = Self(37i32);
-    pub const TileWideText04: Self = Self(38i32);
-    pub const TileWideText05: Self = Self(39i32);
-    pub const TileWideText06: Self = Self(40i32);
-    pub const TileWideText07: Self = Self(41i32);
-    pub const TileWideText08: Self = Self(42i32);
-    pub const TileWideText09: Self = Self(43i32);
-    pub const TileWideText10: Self = Self(44i32);
-    pub const TileWideText11: Self = Self(45i32);
-    pub const TileSquare150x150Image: Self = Self(0i32);
-    pub const TileSquare150x150Block: Self = Self(1i32);
-    pub const TileSquare150x150Text01: Self = Self(2i32);
-    pub const TileSquare150x150Text02: Self = Self(3i32);
-    pub const TileSquare150x150Text03: Self = Self(4i32);
-    pub const TileSquare150x150Text04: Self = Self(5i32);
-    pub const TileSquare150x150PeekImageAndText01: Self = Self(6i32);
-    pub const TileSquare150x150PeekImageAndText02: Self = Self(7i32);
-    pub const TileSquare150x150PeekImageAndText03: Self = Self(8i32);
-    pub const TileSquare150x150PeekImageAndText04: Self = Self(9i32);
-    pub const TileWide310x150Image: Self = Self(10i32);
-    pub const TileWide310x150ImageCollection: Self = Self(11i32);
-    pub const TileWide310x150ImageAndText01: Self = Self(12i32);
-    pub const TileWide310x150ImageAndText02: Self = Self(13i32);
-    pub const TileWide310x150BlockAndText01: Self = Self(14i32);
-    pub const TileWide310x150BlockAndText02: Self = Self(15i32);
-    pub const TileWide310x150PeekImageCollection01: Self = Self(16i32);
-    pub const TileWide310x150PeekImageCollection02: Self = Self(17i32);
-    pub const TileWide310x150PeekImageCollection03: Self = Self(18i32);
-    pub const TileWide310x150PeekImageCollection04: Self = Self(19i32);
-    pub const TileWide310x150PeekImageCollection05: Self = Self(20i32);
-    pub const TileWide310x150PeekImageCollection06: Self = Self(21i32);
-    pub const TileWide310x150PeekImageAndText01: Self = Self(22i32);
-    pub const TileWide310x150PeekImageAndText02: Self = Self(23i32);
-    pub const TileWide310x150PeekImage01: Self = Self(24i32);
-    pub const TileWide310x150PeekImage02: Self = Self(25i32);
-    pub const TileWide310x150PeekImage03: Self = Self(26i32);
-    pub const TileWide310x150PeekImage04: Self = Self(27i32);
-    pub const TileWide310x150PeekImage05: Self = Self(28i32);
-    pub const TileWide310x150PeekImage06: Self = Self(29i32);
-    pub const TileWide310x150SmallImageAndText01: Self = Self(30i32);
-    pub const TileWide310x150SmallImageAndText02: Self = Self(31i32);
-    pub const TileWide310x150SmallImageAndText03: Self = Self(32i32);
-    pub const TileWide310x150SmallImageAndText04: Self = Self(33i32);
-    pub const TileWide310x150SmallImageAndText05: Self = Self(34i32);
-    pub const TileWide310x150Text01: Self = Self(35i32);
-    pub const TileWide310x150Text02: Self = Self(36i32);
-    pub const TileWide310x150Text03: Self = Self(37i32);
-    pub const TileWide310x150Text04: Self = Self(38i32);
-    pub const TileWide310x150Text05: Self = Self(39i32);
-    pub const TileWide310x150Text06: Self = Self(40i32);
-    pub const TileWide310x150Text07: Self = Self(41i32);
-    pub const TileWide310x150Text08: Self = Self(42i32);
-    pub const TileWide310x150Text09: Self = Self(43i32);
-    pub const TileWide310x150Text10: Self = Self(44i32);
-    pub const TileWide310x150Text11: Self = Self(45i32);
-    pub const TileSquare310x310BlockAndText01: Self = Self(46i32);
-    pub const TileSquare310x310BlockAndText02: Self = Self(47i32);
-    pub const TileSquare310x310Image: Self = Self(48i32);
-    pub const TileSquare310x310ImageAndText01: Self = Self(49i32);
-    pub const TileSquare310x310ImageAndText02: Self = Self(50i32);
-    pub const TileSquare310x310ImageAndTextOverlay01: Self = Self(51i32);
-    pub const TileSquare310x310ImageAndTextOverlay02: Self = Self(52i32);
-    pub const TileSquare310x310ImageAndTextOverlay03: Self = Self(53i32);
-    pub const TileSquare310x310ImageCollectionAndText01: Self = Self(54i32);
-    pub const TileSquare310x310ImageCollectionAndText02: Self = Self(55i32);
-    pub const TileSquare310x310ImageCollection: Self = Self(56i32);
-    pub const TileSquare310x310SmallImagesAndTextList01: Self = Self(57i32);
-    pub const TileSquare310x310SmallImagesAndTextList02: Self = Self(58i32);
-    pub const TileSquare310x310SmallImagesAndTextList03: Self = Self(59i32);
-    pub const TileSquare310x310SmallImagesAndTextList04: Self = Self(60i32);
-    pub const TileSquare310x310Text01: Self = Self(61i32);
-    pub const TileSquare310x310Text02: Self = Self(62i32);
-    pub const TileSquare310x310Text03: Self = Self(63i32);
-    pub const TileSquare310x310Text04: Self = Self(64i32);
-    pub const TileSquare310x310Text05: Self = Self(65i32);
-    pub const TileSquare310x310Text06: Self = Self(66i32);
-    pub const TileSquare310x310Text07: Self = Self(67i32);
-    pub const TileSquare310x310Text08: Self = Self(68i32);
-    pub const TileSquare310x310TextList01: Self = Self(69i32);
-    pub const TileSquare310x310TextList02: Self = Self(70i32);
-    pub const TileSquare310x310TextList03: Self = Self(71i32);
-    pub const TileSquare310x310SmallImageAndText01: Self = Self(72i32);
-    pub const TileSquare310x310SmallImagesAndTextList05: Self = Self(73i32);
-    pub const TileSquare310x310Text09: Self = Self(74i32);
-    pub const TileSquare71x71IconWithBadge: Self = Self(75i32);
-    pub const TileSquare150x150IconWithBadge: Self = Self(76i32);
-    pub const TileWide310x150IconWithBadgeAndText: Self = Self(77i32);
-    pub const TileSquare71x71Image: Self = Self(78i32);
-    pub const TileTall150x310Image: Self = Self(79i32);
+    pub const TileSquareImage: Self = Self(0);
+    pub const TileSquareBlock: Self = Self(1);
+    pub const TileSquareText01: Self = Self(2);
+    pub const TileSquareText02: Self = Self(3);
+    pub const TileSquareText03: Self = Self(4);
+    pub const TileSquareText04: Self = Self(5);
+    pub const TileSquarePeekImageAndText01: Self = Self(6);
+    pub const TileSquarePeekImageAndText02: Self = Self(7);
+    pub const TileSquarePeekImageAndText03: Self = Self(8);
+    pub const TileSquarePeekImageAndText04: Self = Self(9);
+    pub const TileWideImage: Self = Self(10);
+    pub const TileWideImageCollection: Self = Self(11);
+    pub const TileWideImageAndText01: Self = Self(12);
+    pub const TileWideImageAndText02: Self = Self(13);
+    pub const TileWideBlockAndText01: Self = Self(14);
+    pub const TileWideBlockAndText02: Self = Self(15);
+    pub const TileWidePeekImageCollection01: Self = Self(16);
+    pub const TileWidePeekImageCollection02: Self = Self(17);
+    pub const TileWidePeekImageCollection03: Self = Self(18);
+    pub const TileWidePeekImageCollection04: Self = Self(19);
+    pub const TileWidePeekImageCollection05: Self = Self(20);
+    pub const TileWidePeekImageCollection06: Self = Self(21);
+    pub const TileWidePeekImageAndText01: Self = Self(22);
+    pub const TileWidePeekImageAndText02: Self = Self(23);
+    pub const TileWidePeekImage01: Self = Self(24);
+    pub const TileWidePeekImage02: Self = Self(25);
+    pub const TileWidePeekImage03: Self = Self(26);
+    pub const TileWidePeekImage04: Self = Self(27);
+    pub const TileWidePeekImage05: Self = Self(28);
+    pub const TileWidePeekImage06: Self = Self(29);
+    pub const TileWideSmallImageAndText01: Self = Self(30);
+    pub const TileWideSmallImageAndText02: Self = Self(31);
+    pub const TileWideSmallImageAndText03: Self = Self(32);
+    pub const TileWideSmallImageAndText04: Self = Self(33);
+    pub const TileWideSmallImageAndText05: Self = Self(34);
+    pub const TileWideText01: Self = Self(35);
+    pub const TileWideText02: Self = Self(36);
+    pub const TileWideText03: Self = Self(37);
+    pub const TileWideText04: Self = Self(38);
+    pub const TileWideText05: Self = Self(39);
+    pub const TileWideText06: Self = Self(40);
+    pub const TileWideText07: Self = Self(41);
+    pub const TileWideText08: Self = Self(42);
+    pub const TileWideText09: Self = Self(43);
+    pub const TileWideText10: Self = Self(44);
+    pub const TileWideText11: Self = Self(45);
+    pub const TileSquare150x150Image: Self = Self(0);
+    pub const TileSquare150x150Block: Self = Self(1);
+    pub const TileSquare150x150Text01: Self = Self(2);
+    pub const TileSquare150x150Text02: Self = Self(3);
+    pub const TileSquare150x150Text03: Self = Self(4);
+    pub const TileSquare150x150Text04: Self = Self(5);
+    pub const TileSquare150x150PeekImageAndText01: Self = Self(6);
+    pub const TileSquare150x150PeekImageAndText02: Self = Self(7);
+    pub const TileSquare150x150PeekImageAndText03: Self = Self(8);
+    pub const TileSquare150x150PeekImageAndText04: Self = Self(9);
+    pub const TileWide310x150Image: Self = Self(10);
+    pub const TileWide310x150ImageCollection: Self = Self(11);
+    pub const TileWide310x150ImageAndText01: Self = Self(12);
+    pub const TileWide310x150ImageAndText02: Self = Self(13);
+    pub const TileWide310x150BlockAndText01: Self = Self(14);
+    pub const TileWide310x150BlockAndText02: Self = Self(15);
+    pub const TileWide310x150PeekImageCollection01: Self = Self(16);
+    pub const TileWide310x150PeekImageCollection02: Self = Self(17);
+    pub const TileWide310x150PeekImageCollection03: Self = Self(18);
+    pub const TileWide310x150PeekImageCollection04: Self = Self(19);
+    pub const TileWide310x150PeekImageCollection05: Self = Self(20);
+    pub const TileWide310x150PeekImageCollection06: Self = Self(21);
+    pub const TileWide310x150PeekImageAndText01: Self = Self(22);
+    pub const TileWide310x150PeekImageAndText02: Self = Self(23);
+    pub const TileWide310x150PeekImage01: Self = Self(24);
+    pub const TileWide310x150PeekImage02: Self = Self(25);
+    pub const TileWide310x150PeekImage03: Self = Self(26);
+    pub const TileWide310x150PeekImage04: Self = Self(27);
+    pub const TileWide310x150PeekImage05: Self = Self(28);
+    pub const TileWide310x150PeekImage06: Self = Self(29);
+    pub const TileWide310x150SmallImageAndText01: Self = Self(30);
+    pub const TileWide310x150SmallImageAndText02: Self = Self(31);
+    pub const TileWide310x150SmallImageAndText03: Self = Self(32);
+    pub const TileWide310x150SmallImageAndText04: Self = Self(33);
+    pub const TileWide310x150SmallImageAndText05: Self = Self(34);
+    pub const TileWide310x150Text01: Self = Self(35);
+    pub const TileWide310x150Text02: Self = Self(36);
+    pub const TileWide310x150Text03: Self = Self(37);
+    pub const TileWide310x150Text04: Self = Self(38);
+    pub const TileWide310x150Text05: Self = Self(39);
+    pub const TileWide310x150Text06: Self = Self(40);
+    pub const TileWide310x150Text07: Self = Self(41);
+    pub const TileWide310x150Text08: Self = Self(42);
+    pub const TileWide310x150Text09: Self = Self(43);
+    pub const TileWide310x150Text10: Self = Self(44);
+    pub const TileWide310x150Text11: Self = Self(45);
+    pub const TileSquare310x310BlockAndText01: Self = Self(46);
+    pub const TileSquare310x310BlockAndText02: Self = Self(47);
+    pub const TileSquare310x310Image: Self = Self(48);
+    pub const TileSquare310x310ImageAndText01: Self = Self(49);
+    pub const TileSquare310x310ImageAndText02: Self = Self(50);
+    pub const TileSquare310x310ImageAndTextOverlay01: Self = Self(51);
+    pub const TileSquare310x310ImageAndTextOverlay02: Self = Self(52);
+    pub const TileSquare310x310ImageAndTextOverlay03: Self = Self(53);
+    pub const TileSquare310x310ImageCollectionAndText01: Self = Self(54);
+    pub const TileSquare310x310ImageCollectionAndText02: Self = Self(55);
+    pub const TileSquare310x310ImageCollection: Self = Self(56);
+    pub const TileSquare310x310SmallImagesAndTextList01: Self = Self(57);
+    pub const TileSquare310x310SmallImagesAndTextList02: Self = Self(58);
+    pub const TileSquare310x310SmallImagesAndTextList03: Self = Self(59);
+    pub const TileSquare310x310SmallImagesAndTextList04: Self = Self(60);
+    pub const TileSquare310x310Text01: Self = Self(61);
+    pub const TileSquare310x310Text02: Self = Self(62);
+    pub const TileSquare310x310Text03: Self = Self(63);
+    pub const TileSquare310x310Text04: Self = Self(64);
+    pub const TileSquare310x310Text05: Self = Self(65);
+    pub const TileSquare310x310Text06: Self = Self(66);
+    pub const TileSquare310x310Text07: Self = Self(67);
+    pub const TileSquare310x310Text08: Self = Self(68);
+    pub const TileSquare310x310TextList01: Self = Self(69);
+    pub const TileSquare310x310TextList02: Self = Self(70);
+    pub const TileSquare310x310TextList03: Self = Self(71);
+    pub const TileSquare310x310SmallImageAndText01: Self = Self(72);
+    pub const TileSquare310x310SmallImagesAndTextList05: Self = Self(73);
+    pub const TileSquare310x310Text09: Self = Self(74);
+    pub const TileSquare71x71IconWithBadge: Self = Self(75);
+    pub const TileSquare150x150IconWithBadge: Self = Self(76);
+    pub const TileWide310x150IconWithBadgeAndText: Self = Self(77);
+    pub const TileSquare71x71Image: Self = Self(78);
+    pub const TileTall150x310Image: Self = Self(79);
 }
 impl windows_core::TypeKind for TileTemplateType {
     type TypeKind = windows_core::CopyType;
@@ -2769,9 +2769,9 @@ unsafe impl Sync for ToastCollectionManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
-    pub const UserCanceled: Self = Self(0i32);
-    pub const ApplicationHidden: Self = Self(1i32);
-    pub const TimedOut: Self = Self(2i32);
+    pub const UserCanceled: Self = Self(0);
+    pub const ApplicationHidden: Self = Self(1);
+    pub const TimedOut: Self = Self(2);
 }
 impl windows_core::TypeKind for ToastDismissalReason {
     type TypeKind = windows_core::CopyType;
@@ -2832,10 +2832,10 @@ unsafe impl Sync for ToastFailedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
-    pub const Cleared: Self = Self(0i32);
-    pub const Removed: Self = Self(1i32);
-    pub const Expired: Self = Self(2i32);
-    pub const Added: Self = Self(3i32);
+    pub const Cleared: Self = Self(0);
+    pub const Removed: Self = Self(1);
+    pub const Expired: Self = Self(2);
+    pub const Added: Self = Self(3);
 }
 impl windows_core::TypeKind for ToastHistoryChangedType {
     type TypeKind = windows_core::CopyType;
@@ -2857,7 +2857,7 @@ impl ToastNotification {
         }
     }
     pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -3291,9 +3291,9 @@ unsafe impl Sync for ToastNotificationManagerForUser {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ToastNotificationMode(pub i32);
 impl ToastNotificationMode {
-    pub const Unrestricted: Self = Self(0i32);
-    pub const PriorityOnly: Self = Self(1i32);
-    pub const AlarmsOnly: Self = Self(2i32);
+    pub const Unrestricted: Self = Self(0);
+    pub const PriorityOnly: Self = Self(1);
+    pub const AlarmsOnly: Self = Self(2);
 }
 impl windows_core::TypeKind for ToastNotificationMode {
     type TypeKind = windows_core::CopyType;
@@ -3306,8 +3306,8 @@ impl windows_core::RuntimeType for ToastNotificationMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
-    pub const Default: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const High: Self = Self(1);
 }
 impl windows_core::TypeKind for ToastNotificationPriority {
     type TypeKind = windows_core::CopyType;
@@ -3408,14 +3408,14 @@ unsafe impl Sync for ToastNotifier {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
-    pub const ToastImageAndText01: Self = Self(0i32);
-    pub const ToastImageAndText02: Self = Self(1i32);
-    pub const ToastImageAndText03: Self = Self(2i32);
-    pub const ToastImageAndText04: Self = Self(3i32);
-    pub const ToastText01: Self = Self(4i32);
-    pub const ToastText02: Self = Self(5i32);
-    pub const ToastText03: Self = Self(6i32);
-    pub const ToastText04: Self = Self(7i32);
+    pub const ToastImageAndText01: Self = Self(0);
+    pub const ToastImageAndText02: Self = Self(1);
+    pub const ToastImageAndText03: Self = Self(2);
+    pub const ToastImageAndText04: Self = Self(3);
+    pub const ToastText01: Self = Self(4);
+    pub const ToastText02: Self = Self(5);
+    pub const ToastText03: Self = Self(6);
+    pub const ToastText04: Self = Self(7);
 }
 impl windows_core::TypeKind for ToastTemplateType {
     type TypeKind = windows_core::CopyType;
@@ -3501,8 +3501,8 @@ unsafe impl Sync for UserNotificationChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {
-    pub const Added: Self = Self(0i32);
-    pub const Removed: Self = Self(1i32);
+    pub const Added: Self = Self(0);
+    pub const Removed: Self = Self(1);
 }
 impl windows_core::TypeKind for UserNotificationChangedKind {
     type TypeKind = windows_core::CopyType;

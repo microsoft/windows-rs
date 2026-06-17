@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
 impl GuidanceAudioMeasurementSystem {
-    pub const Meters: Self = Self(0i32);
-    pub const MilesAndYards: Self = Self(1i32);
-    pub const MilesAndFeet: Self = Self(2i32);
+    pub const Meters: Self = Self(0);
+    pub const MilesAndYards: Self = Self(1);
+    pub const MilesAndFeet: Self = Self(2);
 }
 impl windows_core::TypeKind for GuidanceAudioMeasurementSystem {
     type TypeKind = windows_core::CopyType;
@@ -17,12 +17,12 @@ impl windows_core::RuntimeType for GuidanceAudioMeasurementSystem {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
-    pub const Maneuver: Self = Self(0i32);
-    pub const Route: Self = Self(1i32);
-    pub const Gps: Self = Self(2i32);
-    pub const SpeedLimit: Self = Self(3i32);
-    pub const Traffic: Self = Self(4i32);
-    pub const TrafficCamera: Self = Self(5i32);
+    pub const Maneuver: Self = Self(0);
+    pub const Route: Self = Self(1);
+    pub const Gps: Self = Self(2);
+    pub const SpeedLimit: Self = Self(3);
+    pub const Traffic: Self = Self(4);
+    pub const TrafficCamera: Self = Self(5);
 }
 impl windows_core::TypeKind for GuidanceAudioNotificationKind {
     type TypeKind = windows_core::CopyType;
@@ -71,13 +71,13 @@ unsafe impl Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
-    pub const None: Self = Self(0u32);
-    pub const Maneuver: Self = Self(1u32);
-    pub const Route: Self = Self(2u32);
-    pub const Gps: Self = Self(4u32);
-    pub const SpeedLimit: Self = Self(8u32);
-    pub const Traffic: Self = Self(16u32);
-    pub const TrafficCamera: Self = Self(32u32);
+    pub const None: Self = Self(0);
+    pub const Maneuver: Self = Self(1);
+    pub const Route: Self = Self(2);
+    pub const Gps: Self = Self(4);
+    pub const SpeedLimit: Self = Self(8);
+    pub const Traffic: Self = Self(16);
+    pub const TrafficCamera: Self = Self(32);
 }
 impl windows_core::TypeKind for GuidanceAudioNotifications {
     type TypeKind = windows_core::CopyType;
@@ -153,17 +153,17 @@ unsafe impl Sync for GuidanceLaneInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
-    pub const None: Self = Self(0u32);
-    pub const LightRight: Self = Self(1u32);
-    pub const Right: Self = Self(2u32);
-    pub const HardRight: Self = Self(4u32);
-    pub const Straight: Self = Self(8u32);
-    pub const UTurnLeft: Self = Self(16u32);
-    pub const HardLeft: Self = Self(32u32);
-    pub const Left: Self = Self(64u32);
-    pub const LightLeft: Self = Self(128u32);
-    pub const UTurnRight: Self = Self(256u32);
-    pub const Unknown: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const LightRight: Self = Self(1);
+    pub const Right: Self = Self(2);
+    pub const HardRight: Self = Self(4);
+    pub const Straight: Self = Self(8);
+    pub const UTurnLeft: Self = Self(16);
+    pub const HardLeft: Self = Self(32);
+    pub const Left: Self = Self(64);
+    pub const LightLeft: Self = Self(128);
+    pub const UTurnRight: Self = Self(256);
+    pub const Unknown: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for GuidanceLaneMarkers {
     type TypeKind = windows_core::CopyType;
@@ -300,54 +300,54 @@ unsafe impl Sync for GuidanceManeuver {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
-    pub const None: Self = Self(0i32);
-    pub const GoStraight: Self = Self(1i32);
-    pub const UTurnRight: Self = Self(2i32);
-    pub const UTurnLeft: Self = Self(3i32);
-    pub const TurnKeepRight: Self = Self(4i32);
-    pub const TurnLightRight: Self = Self(5i32);
-    pub const TurnRight: Self = Self(6i32);
-    pub const TurnHardRight: Self = Self(7i32);
-    pub const KeepMiddle: Self = Self(8i32);
-    pub const TurnKeepLeft: Self = Self(9i32);
-    pub const TurnLightLeft: Self = Self(10i32);
-    pub const TurnLeft: Self = Self(11i32);
-    pub const TurnHardLeft: Self = Self(12i32);
-    pub const FreewayEnterRight: Self = Self(13i32);
-    pub const FreewayEnterLeft: Self = Self(14i32);
-    pub const FreewayLeaveRight: Self = Self(15i32);
-    pub const FreewayLeaveLeft: Self = Self(16i32);
-    pub const FreewayKeepRight: Self = Self(17i32);
-    pub const FreewayKeepLeft: Self = Self(18i32);
-    pub const TrafficCircleRight1: Self = Self(19i32);
-    pub const TrafficCircleRight2: Self = Self(20i32);
-    pub const TrafficCircleRight3: Self = Self(21i32);
-    pub const TrafficCircleRight4: Self = Self(22i32);
-    pub const TrafficCircleRight5: Self = Self(23i32);
-    pub const TrafficCircleRight6: Self = Self(24i32);
-    pub const TrafficCircleRight7: Self = Self(25i32);
-    pub const TrafficCircleRight8: Self = Self(26i32);
-    pub const TrafficCircleRight9: Self = Self(27i32);
-    pub const TrafficCircleRight10: Self = Self(28i32);
-    pub const TrafficCircleRight11: Self = Self(29i32);
-    pub const TrafficCircleRight12: Self = Self(30i32);
-    pub const TrafficCircleLeft1: Self = Self(31i32);
-    pub const TrafficCircleLeft2: Self = Self(32i32);
-    pub const TrafficCircleLeft3: Self = Self(33i32);
-    pub const TrafficCircleLeft4: Self = Self(34i32);
-    pub const TrafficCircleLeft5: Self = Self(35i32);
-    pub const TrafficCircleLeft6: Self = Self(36i32);
-    pub const TrafficCircleLeft7: Self = Self(37i32);
-    pub const TrafficCircleLeft8: Self = Self(38i32);
-    pub const TrafficCircleLeft9: Self = Self(39i32);
-    pub const TrafficCircleLeft10: Self = Self(40i32);
-    pub const TrafficCircleLeft11: Self = Self(41i32);
-    pub const TrafficCircleLeft12: Self = Self(42i32);
-    pub const Start: Self = Self(43i32);
-    pub const End: Self = Self(44i32);
-    pub const TakeFerry: Self = Self(45i32);
-    pub const PassTransitStation: Self = Self(46i32);
-    pub const LeaveTransitStation: Self = Self(47i32);
+    pub const None: Self = Self(0);
+    pub const GoStraight: Self = Self(1);
+    pub const UTurnRight: Self = Self(2);
+    pub const UTurnLeft: Self = Self(3);
+    pub const TurnKeepRight: Self = Self(4);
+    pub const TurnLightRight: Self = Self(5);
+    pub const TurnRight: Self = Self(6);
+    pub const TurnHardRight: Self = Self(7);
+    pub const KeepMiddle: Self = Self(8);
+    pub const TurnKeepLeft: Self = Self(9);
+    pub const TurnLightLeft: Self = Self(10);
+    pub const TurnLeft: Self = Self(11);
+    pub const TurnHardLeft: Self = Self(12);
+    pub const FreewayEnterRight: Self = Self(13);
+    pub const FreewayEnterLeft: Self = Self(14);
+    pub const FreewayLeaveRight: Self = Self(15);
+    pub const FreewayLeaveLeft: Self = Self(16);
+    pub const FreewayKeepRight: Self = Self(17);
+    pub const FreewayKeepLeft: Self = Self(18);
+    pub const TrafficCircleRight1: Self = Self(19);
+    pub const TrafficCircleRight2: Self = Self(20);
+    pub const TrafficCircleRight3: Self = Self(21);
+    pub const TrafficCircleRight4: Self = Self(22);
+    pub const TrafficCircleRight5: Self = Self(23);
+    pub const TrafficCircleRight6: Self = Self(24);
+    pub const TrafficCircleRight7: Self = Self(25);
+    pub const TrafficCircleRight8: Self = Self(26);
+    pub const TrafficCircleRight9: Self = Self(27);
+    pub const TrafficCircleRight10: Self = Self(28);
+    pub const TrafficCircleRight11: Self = Self(29);
+    pub const TrafficCircleRight12: Self = Self(30);
+    pub const TrafficCircleLeft1: Self = Self(31);
+    pub const TrafficCircleLeft2: Self = Self(32);
+    pub const TrafficCircleLeft3: Self = Self(33);
+    pub const TrafficCircleLeft4: Self = Self(34);
+    pub const TrafficCircleLeft5: Self = Self(35);
+    pub const TrafficCircleLeft6: Self = Self(36);
+    pub const TrafficCircleLeft7: Self = Self(37);
+    pub const TrafficCircleLeft8: Self = Self(38);
+    pub const TrafficCircleLeft9: Self = Self(39);
+    pub const TrafficCircleLeft10: Self = Self(40);
+    pub const TrafficCircleLeft11: Self = Self(41);
+    pub const TrafficCircleLeft12: Self = Self(42);
+    pub const Start: Self = Self(43);
+    pub const End: Self = Self(44);
+    pub const TakeFerry: Self = Self(45);
+    pub const PassTransitStation: Self = Self(46);
+    pub const LeaveTransitStation: Self = Self(47);
 }
 impl windows_core::TypeKind for GuidanceManeuverKind {
     type TypeKind = windows_core::CopyType;
@@ -409,10 +409,10 @@ unsafe impl Sync for GuidanceMapMatchedCoordinate {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
-    pub const None: Self = Self(0i32);
-    pub const Simulation: Self = Self(1i32);
-    pub const Navigation: Self = Self(2i32);
-    pub const Tracking: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Simulation: Self = Self(1);
+    pub const Navigation: Self = Self(2);
+    pub const Tracking: Self = Self(3);
 }
 impl windows_core::TypeKind for GuidanceMode {
     type TypeKind = windows_core::CopyType;

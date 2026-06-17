@@ -2,12 +2,12 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
-    pub const DefaultQuery: Self = Self(0i32);
-    pub const OrderByName: Self = Self(1i32);
-    pub const OrderByTitle: Self = Self(2i32);
-    pub const OrderByMusicProperties: Self = Self(3i32);
-    pub const OrderBySearchRank: Self = Self(4i32);
-    pub const OrderByDate: Self = Self(5i32);
+    pub const DefaultQuery: Self = Self(0);
+    pub const OrderByName: Self = Self(1);
+    pub const OrderByTitle: Self = Self(2);
+    pub const OrderByMusicProperties: Self = Self(3);
+    pub const OrderBySearchRank: Self = Self(4);
+    pub const OrderByDate: Self = Self(5);
 }
 impl windows_core::TypeKind for CommonFileQuery {
     type TypeKind = windows_core::CopyType;
@@ -20,19 +20,19 @@ impl windows_core::RuntimeType for CommonFileQuery {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
-    pub const DefaultQuery: Self = Self(0i32);
-    pub const GroupByYear: Self = Self(100i32);
-    pub const GroupByMonth: Self = Self(101i32);
-    pub const GroupByArtist: Self = Self(102i32);
-    pub const GroupByAlbum: Self = Self(103i32);
-    pub const GroupByAlbumArtist: Self = Self(104i32);
-    pub const GroupByComposer: Self = Self(105i32);
-    pub const GroupByGenre: Self = Self(106i32);
-    pub const GroupByPublishedYear: Self = Self(107i32);
-    pub const GroupByRating: Self = Self(108i32);
-    pub const GroupByTag: Self = Self(109i32);
-    pub const GroupByAuthor: Self = Self(110i32);
-    pub const GroupByType: Self = Self(111i32);
+    pub const DefaultQuery: Self = Self(0);
+    pub const GroupByYear: Self = Self(100);
+    pub const GroupByMonth: Self = Self(101);
+    pub const GroupByArtist: Self = Self(102);
+    pub const GroupByAlbum: Self = Self(103);
+    pub const GroupByAlbumArtist: Self = Self(104);
+    pub const GroupByComposer: Self = Self(105);
+    pub const GroupByGenre: Self = Self(106);
+    pub const GroupByPublishedYear: Self = Self(107);
+    pub const GroupByRating: Self = Self(108);
+    pub const GroupByTag: Self = Self(109);
+    pub const GroupByAuthor: Self = Self(110);
+    pub const GroupByType: Self = Self(111);
 }
 impl windows_core::TypeKind for CommonFolderQuery {
     type TypeKind = windows_core::CopyType;
@@ -219,9 +219,9 @@ unsafe impl Sync for ContentIndexerQuery {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
-    pub const None: Self = Self(0i32);
-    pub const Year: Self = Self(1i32);
-    pub const Month: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Year: Self = Self(1);
+    pub const Month: Self = Self(2);
 }
 impl windows_core::TypeKind for DateStackOption {
     type TypeKind = windows_core::CopyType;
@@ -234,8 +234,8 @@ impl windows_core::RuntimeType for DateStackOption {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
-    pub const Shallow: Self = Self(0i32);
-    pub const Deep: Self = Self(1i32);
+    pub const Shallow: Self = Self(0);
+    pub const Deep: Self = Self(1);
 }
 impl windows_core::TypeKind for FolderDepth {
     type TypeKind = windows_core::CopyType;
@@ -1314,10 +1314,10 @@ unsafe impl Sync for IndexableContent {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
-    pub const Unknown: Self = Self(0i32);
-    pub const NotIndexed: Self = Self(1i32);
-    pub const PartiallyIndexed: Self = Self(2i32);
-    pub const FullyIndexed: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const NotIndexed: Self = Self(1);
+    pub const PartiallyIndexed: Self = Self(2);
+    pub const FullyIndexed: Self = Self(3);
 }
 impl windows_core::TypeKind for IndexedState {
     type TypeKind = windows_core::CopyType;
@@ -1330,10 +1330,10 @@ impl windows_core::RuntimeType for IndexedState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
-    pub const UseIndexerWhenAvailable: Self = Self(0i32);
-    pub const OnlyUseIndexer: Self = Self(1i32);
-    pub const DoNotUseIndexer: Self = Self(2i32);
-    pub const OnlyUseIndexerAndOptimizeForIndexedProperties: Self = Self(3i32);
+    pub const UseIndexerWhenAvailable: Self = Self(0);
+    pub const OnlyUseIndexer: Self = Self(1);
+    pub const DoNotUseIndexer: Self = Self(2);
+    pub const OnlyUseIndexerAndOptimizeForIndexedProperties: Self = Self(3);
 }
 impl windows_core::TypeKind for IndexerOption {
     type TypeKind = windows_core::CopyType;

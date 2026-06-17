@@ -34,8 +34,8 @@ pub type PWLX_SWITCH_DESKTOP_TO_USER = Option<unsafe extern "system" fn(hwlx: su
 pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
 pub type PWLX_USE_CTRL_ALT_DEL = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
 pub type PWLX_WIN31_MIGRATE = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
-pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
-pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
+pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1;
+pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
@@ -55,7 +55,7 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub fPromptForPassword: windows_core::BOOL,
     pub fDisconnectOnLogonFailure: windows_core::BOOL,
 }
-pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
+pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
@@ -92,11 +92,11 @@ impl Default for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1u32;
-pub const WLX_CREATE_USER: u32 = 2u32;
-pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1u32;
-pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
-pub const WLX_CURRENT_VERSION: u32 = 65540u32;
+pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1;
+pub const WLX_CREATE_USER: u32 = 2;
+pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1;
+pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2;
+pub const WLX_CURRENT_VERSION: u32 = 65540;
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -106,9 +106,9 @@ pub struct WLX_DESKTOP {
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pszDesktopName: windows_core::PWSTR,
 }
-pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
-pub const WLX_DESKTOP_NAME: u32 = 1u32;
-pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
+pub const WLX_DESKTOP_HANDLE: u32 = 2;
+pub const WLX_DESKTOP_NAME: u32 = 1;
+pub const WLX_DIRECTORY_LENGTH: u32 = 256;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, Default)]
@@ -234,11 +234,11 @@ pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
     pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
 }
-pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
-pub const WLX_DLG_SAS: u32 = 101u32;
-pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
-pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
-pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
+pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102;
+pub const WLX_DLG_SAS: u32 = 101;
+pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103;
+pub const WLX_DLG_USER_LOGOFF: u32 = 104;
+pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_MPR_NOTIFY_INFO {
@@ -260,17 +260,17 @@ pub struct WLX_NOTIFICATION_INFO {
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pStatusCallback: PFNMSGECALLBACK,
 }
-pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
-pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539u32;
-pub const WLX_OPTION_FORCE_LOGOFF_TIME: u32 = 4u32;
-pub const WLX_OPTION_IGNORE_AUTO_LOGON: u32 = 8u32;
-pub const WLX_OPTION_NO_SWITCH_ON_SAS: u32 = 9u32;
-pub const WLX_OPTION_SMART_CARD_INFO: u32 = 65538u32;
-pub const WLX_OPTION_SMART_CARD_PRESENT: u32 = 65537u32;
-pub const WLX_OPTION_USE_CTRL_ALT_DEL: u32 = 1u32;
-pub const WLX_OPTION_USE_SMART_CARD: u32 = 3u32;
-pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
-pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
+pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2;
+pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539;
+pub const WLX_OPTION_FORCE_LOGOFF_TIME: u32 = 4;
+pub const WLX_OPTION_IGNORE_AUTO_LOGON: u32 = 8;
+pub const WLX_OPTION_NO_SWITCH_ON_SAS: u32 = 9;
+pub const WLX_OPTION_SMART_CARD_INFO: u32 = 65538;
+pub const WLX_OPTION_SMART_CARD_PRESENT: u32 = 65537;
+pub const WLX_OPTION_USE_CTRL_ALT_DEL: u32 = 1;
+pub const WLX_OPTION_USE_SMART_CARD: u32 = 3;
+pub const WLX_PROFILE_TYPE_V1_0: u32 = 1;
+pub const WLX_PROFILE_TYPE_V2_0: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_PROFILE_V1_0 {
@@ -287,35 +287,35 @@ pub struct WLX_PROFILE_V2_0 {
     pub pszServerName: windows_core::PWSTR,
     pub pszEnvironment: windows_core::PWSTR,
 }
-pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16u32;
-pub const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9u32;
-pub const WLX_SAS_ACTION_LOCK_WKSTA: u32 = 3u32;
-pub const WLX_SAS_ACTION_LOGOFF: u32 = 4u32;
-pub const WLX_SAS_ACTION_LOGON: u32 = 1u32;
-pub const WLX_SAS_ACTION_NONE: u32 = 2u32;
-pub const WLX_SAS_ACTION_PWD_CHANGED: u32 = 6u32;
-pub const WLX_SAS_ACTION_RECONNECTED: u32 = 15u32;
-pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
-pub const WLX_SAS_ACTION_SHUTDOWN_HIBERNATE: u32 = 14u32;
-pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
-pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
-pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP: u32 = 12u32;
-pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP2: u32 = 13u32;
-pub const WLX_SAS_ACTION_SWITCH_CONSOLE: u32 = 17u32;
-pub const WLX_SAS_ACTION_TASKLIST: u32 = 7u32;
-pub const WLX_SAS_ACTION_UNLOCK_WKSTA: u32 = 8u32;
-pub const WLX_SAS_TYPE_AUTHENTICATED: u32 = 7u32;
-pub const WLX_SAS_TYPE_CTRL_ALT_DEL: u32 = 1u32;
-pub const WLX_SAS_TYPE_MAX_MSFT_VALUE: u32 = 127u32;
-pub const WLX_SAS_TYPE_SCRNSVR_ACTIVITY: u32 = 3u32;
-pub const WLX_SAS_TYPE_SCRNSVR_TIMEOUT: u32 = 2u32;
-pub const WLX_SAS_TYPE_SC_FIRST_READER_ARRIVED: u32 = 8u32;
-pub const WLX_SAS_TYPE_SC_INSERT: u32 = 5u32;
-pub const WLX_SAS_TYPE_SC_LAST_READER_REMOVED: u32 = 9u32;
-pub const WLX_SAS_TYPE_SC_REMOVE: u32 = 6u32;
-pub const WLX_SAS_TYPE_SWITCHUSER: u32 = 10u32;
-pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0u32;
-pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
+pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16;
+pub const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9;
+pub const WLX_SAS_ACTION_LOCK_WKSTA: u32 = 3;
+pub const WLX_SAS_ACTION_LOGOFF: u32 = 4;
+pub const WLX_SAS_ACTION_LOGON: u32 = 1;
+pub const WLX_SAS_ACTION_NONE: u32 = 2;
+pub const WLX_SAS_ACTION_PWD_CHANGED: u32 = 6;
+pub const WLX_SAS_ACTION_RECONNECTED: u32 = 15;
+pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5);
+pub const WLX_SAS_ACTION_SHUTDOWN_HIBERNATE: u32 = 14;
+pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10);
+pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11);
+pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP: u32 = 12;
+pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP2: u32 = 13;
+pub const WLX_SAS_ACTION_SWITCH_CONSOLE: u32 = 17;
+pub const WLX_SAS_ACTION_TASKLIST: u32 = 7;
+pub const WLX_SAS_ACTION_UNLOCK_WKSTA: u32 = 8;
+pub const WLX_SAS_TYPE_AUTHENTICATED: u32 = 7;
+pub const WLX_SAS_TYPE_CTRL_ALT_DEL: u32 = 1;
+pub const WLX_SAS_TYPE_MAX_MSFT_VALUE: u32 = 127;
+pub const WLX_SAS_TYPE_SCRNSVR_ACTIVITY: u32 = 3;
+pub const WLX_SAS_TYPE_SCRNSVR_TIMEOUT: u32 = 2;
+pub const WLX_SAS_TYPE_SC_FIRST_READER_ARRIVED: u32 = 8;
+pub const WLX_SAS_TYPE_SC_INSERT: u32 = 5;
+pub const WLX_SAS_TYPE_SC_LAST_READER_REMOVED: u32 = 9;
+pub const WLX_SAS_TYPE_SC_REMOVE: u32 = 6;
+pub const WLX_SAS_TYPE_SWITCHUSER: u32 = 10;
+pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0;
+pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLX_SC_NOTIFICATION_INFO {
@@ -339,9 +339,9 @@ impl Default for WLX_TERMINAL_SERVICES_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WLX_VERSION_1_0: u32 = 65536u32;
-pub const WLX_VERSION_1_1: u32 = 65537u32;
-pub const WLX_VERSION_1_2: u32 = 65538u32;
-pub const WLX_VERSION_1_3: u32 = 65539u32;
-pub const WLX_VERSION_1_4: u32 = 65540u32;
-pub const WLX_WM_SAS: u32 = 1625u32;
+pub const WLX_VERSION_1_0: u32 = 65536;
+pub const WLX_VERSION_1_1: u32 = 65537;
+pub const WLX_VERSION_1_2: u32 = 65538;
+pub const WLX_VERSION_1_3: u32 = 65539;
+pub const WLX_VERSION_1_4: u32 = 65540;
+pub const WLX_WM_SAS: u32 = 1625;

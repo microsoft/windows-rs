@@ -1,4 +1,4 @@
-//! Minimal sample for the `RichEditBox` widget.
+//! Sample for the `RichEditBox` widget.
 
 use windows_reactor::*;
 
@@ -10,8 +10,8 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         rich_edit_box(String::new())
             .header("Rich Editor")
-            .placeholder("Type rich text here…")
-            .on_changed(on_changed)
+            .placeholder_text("Type rich text here…")
+            .on_text_changed(on_changed)
             .height(200.0),
         text_block(format!("Plain text: {text}")),
         rich_edit_box("Read-only content.".to_string())
@@ -24,5 +24,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("RichEditBox", app)
 }

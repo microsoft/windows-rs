@@ -1,12 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
-#![expect(
-    non_camel_case_types,
-    non_snake_case,
-    clippy::upper_case_acronyms,
-    clippy::type_complexity
-)]
 
+#[expect(non_camel_case_types, non_snake_case, clippy::upper_case_acronyms)]
 mod bindings;
 use bindings::*;
 use std::boxed::Box;
@@ -211,7 +206,7 @@ impl<'a> Service<'a> {
     }
 
     /// The raw handle representing the service.
-    pub fn handle(&self) -> *mut core::ffi::c_void {
+    pub fn handle(&self) -> *mut c_void {
         *self.handle.read().unwrap()
     }
 

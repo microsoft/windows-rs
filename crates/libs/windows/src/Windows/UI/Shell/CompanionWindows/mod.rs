@@ -151,11 +151,11 @@ unsafe impl Sync for CompanionWindowRequestResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompanionWindowRequestResultStatus(pub i32);
 impl CompanionWindowRequestResultStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const RegistrationNotFound: Self = Self(2i32);
-    pub const ActivationTimedOut: Self = Self(3i32);
-    pub const RejectedByCompanionApp: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const RegistrationNotFound: Self = Self(2);
+    pub const ActivationTimedOut: Self = Self(3);
+    pub const RejectedByCompanionApp: Self = Self(4);
 }
 impl windows_core::TypeKind for CompanionWindowRequestResultStatus {
     type TypeKind = windows_core::CopyType;

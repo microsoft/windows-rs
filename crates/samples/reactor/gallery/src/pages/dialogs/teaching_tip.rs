@@ -34,7 +34,7 @@ pub fn teaching_tip_page(_: &(), cx: &mut RenderCx) -> Element {
                         .is_open(show_action)
                         .action_button("Got it!")
                         .close_button("Dismiss")
-                        .on_action_click({
+                        .on_action_button_click({
                             let set_count = set_count;
                             move || set_count.call(action_count + 1)
                         })
@@ -42,7 +42,7 @@ pub fn teaching_tip_page(_: &(), cx: &mut RenderCx) -> Element {
                     text_block(format!("Action clicked: {action_count} times")).opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"teaching_tip("Title").action_button("Got it!").on_action_click(handler)"#,
+                r#"teaching_tip("Title").action_button("Got it!").on_action_button_click(handler)"#,
             ),
         ],
     )

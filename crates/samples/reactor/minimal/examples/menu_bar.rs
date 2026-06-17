@@ -1,4 +1,4 @@
-//! Minimal sample for the `MenuBar` and `DropDownButton` menu flyout.
+//! Sample for the `MenuBar` and `DropDownButton` menu flyout.
 
 use windows_reactor::*;
 
@@ -29,7 +29,7 @@ fn app(cx: &mut RenderCx) -> Element {
             ),
             menu_bar_item("Help", vec![menu_item("About")]),
         ])
-        .on_item_click(on_item.clone()),
+        .on_item_clicked(on_item.clone()),
         drop_down_button("Actions")
             .menu_flyout(vec![
                 menu_item("Action A"),
@@ -37,7 +37,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 menu_separator(),
                 menu_sub_item("More", vec![menu_item("Action C"), menu_item("Action D")]),
             ])
-            .on_flyout_item_click(on_item),
+            .on_item_clicked(on_item),
         text_block(format!("Last clicked: {last_click}")),
     ))
     .spacing(12.0)
@@ -45,5 +45,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("MenuBar Sample").render(app)
+    reactor_minimal::run("MenuBar", app)
 }

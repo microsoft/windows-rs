@@ -14,22 +14,22 @@ pub fn text_box_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     text_box(&text)
                         .header("Name")
-                        .placeholder("Type here...")
-                        .on_changed({
+                        .placeholder_text("Type here...")
+                        .on_text_changed({
                             let set_text = set_text;
                             move |s: String| set_text.call(s)
                         }),
                     text_block(format!("Characters: {}", text.len())).opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"text_box(&text).header("Name").placeholder("Type here...").on_changed(handler)"#,
+                r#"text_box(&text).header("Name").placeholder_text("Type here...").on_text_changed(handler)"#,
             ),
             sample_card(
                 "Multi-line TextBox",
                 text_box(&multi_text)
                     .header("Notes")
                     .multiline()
-                    .on_changed(move |s: String| set_multi.call(s))
+                    .on_text_changed(move |s: String| set_multi.call(s))
                     .height(120.0),
                 r#"text_box(&text).header("Notes").multiline()"#,
             ),

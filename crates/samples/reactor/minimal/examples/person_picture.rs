@@ -1,4 +1,4 @@
-//! Minimal sample for the `PersonPicture` element.
+//! Sample for the `PersonPicture` element.
 
 use windows_reactor::*;
 
@@ -21,5 +21,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("PersonPicture", app)
 }

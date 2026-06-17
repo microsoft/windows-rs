@@ -54,9 +54,9 @@ pub mod Wallet;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
-    pub const None: Self = Self(0u32);
-    pub const ForceTargetAppShutdown: Self = Self(1u32);
-    pub const ApplyUpdateIfAvailable: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const ForceTargetAppShutdown: Self = Self(1);
+    pub const ApplyUpdateIfAvailable: Self = Self(2);
 }
 impl windows_core::TypeKind for AddResourcePackageOptions {
     type TypeKind = windows_core::CopyType;
@@ -139,9 +139,9 @@ unsafe impl Sync for AppDisplayInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
-    pub const Unknown: Self = Self(0i32);
-    pub const Host: Self = Self(1i32);
-    pub const Guest: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Host: Self = Self(1);
+    pub const Guest: Self = Self(2);
 }
 impl windows_core::TypeKind for AppExecutionContext {
     type TypeKind = windows_core::CopyType;
@@ -372,8 +372,8 @@ unsafe impl Sync for AppInstallerInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
-    pub const Default: Self = Self(0i32);
-    pub const System: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const System: Self = Self(1);
 }
 impl windows_core::TypeKind for AppInstallerPolicySource {
     type TypeKind = windows_core::CopyType;
@@ -574,10 +574,10 @@ unsafe impl Sync for FindRelatedPackagesOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
-    pub const Success: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const FileNotFound: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const AccessDenied: Self = Self(1);
+    pub const FileNotFound: Self = Self(2);
+    pub const Unknown: Self = Self(3);
 }
 impl windows_core::TypeKind for FullTrustLaunchResult {
     type TypeKind = windows_core::CopyType;
@@ -1809,10 +1809,10 @@ unsafe impl Sync for LimitedAccessFeatureRequestResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
-    pub const Unavailable: Self = Self(0i32);
-    pub const Available: Self = Self(1i32);
-    pub const AvailableWithoutToken: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
+    pub const Unavailable: Self = Self(0);
+    pub const Available: Self = Self(1);
+    pub const AvailableWithoutToken: Self = Self(2);
+    pub const Unknown: Self = Self(3);
 }
 impl windows_core::TypeKind for LimitedAccessFeatureStatus {
     type TypeKind = windows_core::CopyType;
@@ -2569,10 +2569,10 @@ unsafe impl Sync for PackageContentGroupStagingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
-    pub const NotStaged: Self = Self(0i32);
-    pub const Queued: Self = Self(1i32);
-    pub const Staging: Self = Self(2i32);
-    pub const Staged: Self = Self(3i32);
+    pub const NotStaged: Self = Self(0);
+    pub const Queued: Self = Self(1);
+    pub const Staging: Self = Self(2);
+    pub const Staged: Self = Self(3);
 }
 impl windows_core::TypeKind for PackageContentGroupState {
     type TypeKind = windows_core::CopyType;
@@ -2726,9 +2726,9 @@ unsafe impl Sync for PackageInstallingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageRelationship(pub i32);
 impl PackageRelationship {
-    pub const Dependencies: Self = Self(0i32);
-    pub const Dependents: Self = Self(1i32);
-    pub const All: Self = Self(2i32);
+    pub const Dependencies: Self = Self(0);
+    pub const Dependents: Self = Self(1);
+    pub const All: Self = Self(2);
 }
 impl windows_core::TypeKind for PackageRelationship {
     type TypeKind = windows_core::CopyType;
@@ -2741,11 +2741,11 @@ impl windows_core::RuntimeType for PackageRelationship {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
-    pub const None: Self = Self(0i32);
-    pub const Developer: Self = Self(1i32);
-    pub const Enterprise: Self = Self(2i32);
-    pub const Store: Self = Self(3i32);
-    pub const System: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Developer: Self = Self(1);
+    pub const Enterprise: Self = Self(2);
+    pub const Store: Self = Self(3);
+    pub const System: Self = Self(4);
 }
 impl windows_core::TypeKind for PackageSignatureKind {
     type TypeKind = windows_core::CopyType;
@@ -2975,11 +2975,11 @@ unsafe impl Sync for PackageUninstallingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
-    pub const Unknown: Self = Self(0i32);
-    pub const NoUpdates: Self = Self(1i32);
-    pub const Available: Self = Self(2i32);
-    pub const Required: Self = Self(3i32);
-    pub const Error: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const NoUpdates: Self = Self(1);
+    pub const Available: Self = Self(2);
+    pub const Required: Self = Self(3);
+    pub const Error: Self = Self(4);
 }
 impl windows_core::TypeKind for PackageUpdateAvailability {
     type TypeKind = windows_core::CopyType;
@@ -3146,11 +3146,11 @@ unsafe impl Sync for StartupTask {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
-    pub const Disabled: Self = Self(0i32);
-    pub const DisabledByUser: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
-    pub const DisabledByPolicy: Self = Self(3i32);
-    pub const EnabledByPolicy: Self = Self(4i32);
+    pub const Disabled: Self = Self(0);
+    pub const DisabledByUser: Self = Self(1);
+    pub const Enabled: Self = Self(2);
+    pub const DisabledByPolicy: Self = Self(3);
+    pub const EnabledByPolicy: Self = Self(4);
 }
 impl windows_core::TypeKind for StartupTaskState {
     type TypeKind = windows_core::CopyType;

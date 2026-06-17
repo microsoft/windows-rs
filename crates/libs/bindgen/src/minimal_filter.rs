@@ -1,5 +1,5 @@
 use super::*;
-use std::collections::{BTreeSet, HashMap};
+use std::collections::{BTreeSet, HashMap, HashSet};
 
 /// Returns true if `method_name` matches either the raw metadata name or the
 /// overload-disambiguated name of `m`.
@@ -33,6 +33,15 @@ pub struct MinimalFilter {
 
     /// Types directly included (no `::` — free functions, structs, enums, etc.).
     pub types: Vec<(&'static str, &'static str)>,
+
+    /// Enums with specific variants requested.
+    /// Key: (namespace, type_name), Value: requested variant names (or `All`).
+    pub enum_variants: HashMap<(&'static str, &'static str), MethodSet>,
+
+    /// Classes that explicitly requested `CreateInstance` in the filter.
+    /// Used to decide whether to emit the `IActivationFactory` default
+    /// constructor (`new()`).
+    pub activatable: HashSet<(&'static str, &'static str)>,
 }
 
 /// Which methods are requested on an interface.
@@ -109,13 +118,8 @@ impl MinimalFilter {
                                 if !filter.types.contains(&(resolved_ns, resolved_name)) {
                                     filter.types.push((resolved_ns, resolved_name));
                                 }
+                                filter.activatable.insert((resolved_ns, resolved_name));
                                 for iface in c.required_interfaces(reader) {
-                                    // Skip statics — they only need expansion when specific
-                                    // static methods are explicitly listed in the filter.
-                                    // Keep composable interfaces (needed for new()/compose()).
-                                    if matches!(iface.kind, InterfaceKind::Static) {
-                                        continue;
-                                    }
                                     let iface_ns = iface.def.namespace();
                                     let iface_name = iface.def.name();
                                     let Some(r_ns) = reader.keys().find(|ns| *ns == &iface_ns)
@@ -132,6 +136,14 @@ impl MinimalFilter {
                                         .interfaces
                                         .entry((r_ns, r_name))
                                         .or_insert(MethodSet::All);
+                                }
+                            }
+                            Type::Enum(_) | Type::CppEnum(_) => {
+                                filter
+                                    .enum_variants
+                                    .insert((resolved_ns, resolved_name), MethodSet::All);
+                                if !filter.types.contains(&(resolved_ns, resolved_name)) {
+                                    filter.types.push((resolved_ns, resolved_name));
                                 }
                             }
                             _ => {
@@ -187,7 +199,6 @@ impl MinimalFilter {
 
     /// Returns true if the given method on the given type should be emitted as
     /// a live vtable slot (not demoted to `Slot: usize`).
-    #[allow(dead_code)]
     pub fn includes_method(&self, type_name: TypeName, method_name: &str) -> bool {
         let key = (type_name.namespace(), type_name.name());
         match self.interfaces.get(&key) {
@@ -208,11 +219,14 @@ impl MinimalFilter {
         }
     }
 
-    /// Returns true if the given interface was explicitly requested (has any
-    /// method entries or ::*).
-    #[allow(dead_code)]
-    pub fn has_interface(&self, namespace: &str, name: &str) -> bool {
-        self.interfaces.contains_key(&(namespace, name))
+    /// Returns the variant filter for a given enum, if one was specified.
+    /// Returns `None` if the enum was included as a plain type (all variants).
+    pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&MethodSet> {
+        // The keys are &'static str but we need to look up by &str.
+        self.enum_variants
+            .iter()
+            .find(|((ns, n), _)| *ns == namespace && *n == name)
+            .map(|(_, v)| v)
     }
 
     fn insert_method(&mut self, key: (&'static str, &'static str), name: String) {
@@ -229,6 +243,20 @@ impl MinimalFilter {
                 names.insert(name);
                 *set = MethodSet::Names(names);
             }
+            MethodSet::Names(names) => {
+                names.insert(name);
+            }
+        }
+    }
+
+    fn insert_enum_variant(&mut self, key: (&'static str, &'static str), name: String) {
+        let set = self
+            .enum_variants
+            .entry(key)
+            .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+
+        match set {
+            MethodSet::All => {}
             MethodSet::Names(names) => {
                 names.insert(name);
             }
@@ -281,6 +309,7 @@ impl MinimalFilter {
                     if !self.types.contains(&(resolved_ns, resolved_name)) {
                         self.types.push((resolved_ns, resolved_name));
                     }
+                    self.activatable.insert((resolved_ns, resolved_name));
                     found = true;
                 }
                 if !found {
@@ -315,7 +344,9 @@ impl MinimalFilter {
                     "method `{method_name}` not found on \
                      class `{type_part}` (in filter entry `{entry}`)"
                 );
-                // Include composable factory interfaces so new()/compose() work.
+                // Include composable factory interfaces so new() works.
+                // The compose() variant is controlled separately by emit_compose
+                // in class.rs based on the --implement option.
                 for iface in &required {
                     if matches!(iface.kind, InterfaceKind::Composable) {
                         let iface_ns = iface.def.namespace();
@@ -332,9 +363,37 @@ impl MinimalFilter {
                     }
                 }
             }
+            Type::Enum(e) => {
+                assert!(
+                    e.def
+                        .fields()
+                        .any(|f| f.flags().contains(FieldAttributes::Literal)
+                            && f.name() == method_name),
+                    "variant `{method_name}` not found on enum `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
+                self.insert_enum_variant((resolved_ns, resolved_name), method_name.to_string());
+                if !self.types.contains(&(resolved_ns, resolved_name)) {
+                    self.types.push((resolved_ns, resolved_name));
+                }
+            }
+            Type::CppEnum(e) => {
+                assert!(
+                    e.def
+                        .fields()
+                        .any(|f| f.flags().contains(FieldAttributes::Literal)
+                            && f.name() == method_name),
+                    "variant `{method_name}` not found on enum `{type_part}` \
+                     (in filter entry `{entry}`)"
+                );
+                self.insert_enum_variant((resolved_ns, resolved_name), method_name.to_string());
+                if !self.types.contains(&(resolved_ns, resolved_name)) {
+                    self.types.push((resolved_ns, resolved_name));
+                }
+            }
             _ => panic!(
                 "type `{type_part}` is not an interface, delegate, \
-                 or class (in filter entry `{entry}`)"
+                 enum, or class (in filter entry `{entry}`)"
             ),
         }
     }

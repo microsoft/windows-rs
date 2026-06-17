@@ -109,9 +109,9 @@ impl windows_core::RuntimeName for Playlist {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlaylistFormat(pub i32);
 impl PlaylistFormat {
-    pub const WindowsMedia: Self = Self(0i32);
-    pub const Zune: Self = Self(1i32);
-    pub const M3u: Self = Self(2i32);
+    pub const WindowsMedia: Self = Self(0);
+    pub const Zune: Self = Self(1);
+    pub const M3u: Self = Self(2);
 }
 impl windows_core::TypeKind for PlaylistFormat {
     type TypeKind = windows_core::CopyType;

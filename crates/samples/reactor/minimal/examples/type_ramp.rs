@@ -1,4 +1,4 @@
-//! Minimal sample demonstrating type-ramp factory functions.
+//! Sample demonstrating type-ramp factory functions.
 
 use windows_reactor::*;
 
@@ -17,5 +17,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Type Ramp").render(app)
+    reactor_minimal::run("TypeRamp", app)
 }

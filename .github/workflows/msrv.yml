@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -32,6 +34,7 @@ jobs:
 # generated - run `cargo run -p tool_yml` to update
       - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
+      - uses: Swatinem/rust-cache@v2
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --all-features
       - name: Rust version
@@ -39,9 +42,17 @@ jobs:
       - name: Check riddle
         run:  cargo check -p riddle --all-features
       - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-animation
+        run:  cargo check -p windows-animation --all-features
+      - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-bindgen
         run:  cargo check -p windows-bindgen --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-canvas
+        run:  cargo check -p windows-canvas --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-collections
@@ -82,6 +93,10 @@ jobs:
         run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-reactor
         run:  cargo check -p windows-reactor --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-reactor-setup
+        run:  cargo check -p windows-reactor-setup --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-reference

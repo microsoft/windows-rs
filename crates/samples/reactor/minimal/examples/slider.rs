@@ -1,4 +1,4 @@
-//! Minimal sample for the `Slider` element.
+//! Sample for the `Slider` element.
 
 use windows_reactor::*;
 
@@ -12,7 +12,7 @@ fn app(cx: &mut RenderCx) -> Element {
             .range(0.0, 100.0)
             .step(1.0)
             .header("Volume")
-            .on_changed(update_volume),
+            .on_value_changed(update_volume),
         text_block(format!("Volume = {volume:.0}")),
         Slider::new(50.0)
             .range(0.0, 100.0)
@@ -30,5 +30,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Slider", app)
 }

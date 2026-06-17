@@ -41,7 +41,7 @@ pub unsafe fn EnclaveEncryptDataForTrustlet(datatoencrypt: *const core::ffi::c_v
 #[inline]
 pub unsafe fn EnclaveGetAttestationReport(enclavedata: Option<&[u8; 64]>, report: Option<*mut core::ffi::c_void>, buffersize: u32, outputsize: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *const u8, report : *mut core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { EnclaveGetAttestationReport(core::mem::transmute(enclavedata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), report.unwrap_or(core::mem::zeroed()) as _, buffersize, outputsize as _).ok() }
+    unsafe { EnclaveGetAttestationReport(core::mem::transmute(enclavedata.map_or(core::ptr::null(), |slice| slice.as_ptr())), report.unwrap_or(core::mem::zeroed()) as _, buffersize, outputsize as _).ok() }
 }
 #[inline]
 pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> windows_core::Result<()> {
@@ -261,9 +261,9 @@ pub unsafe fn TerminateEnclave(lpaddress: *const core::ffi::c_void, fwait: bool)
     windows_core::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { TerminateEnclave(lpaddress, fwait.into()).ok() }
 }
-pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
-pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
-pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
+pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4;
+pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2;
+pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_IDENTITY {
@@ -284,12 +284,12 @@ impl Default for ENCLAVE_IDENTITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1);
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0);
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5);
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4);
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3);
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_INFORMATION {
@@ -304,17 +304,17 @@ impl Default for ENCLAVE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
-pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
-pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
+pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64;
+pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2;
+pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
-pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
+pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
@@ -471,14 +471,14 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub SignatureSize: u32,
     pub Reserved: u32,
 }
-pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
-pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
+pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1;
+pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,
 }
-pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
-pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
-pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
+pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1;
+pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0;
+pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1;

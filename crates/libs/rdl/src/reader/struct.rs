@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, Clone)]
 pub struct Struct {
     pub attrs: Vec<syn::Attribute>,
-    pub span: proc_macro2::Span,
+    pub span: Span,
     pub name: syn::Ident,
     pub fields: Vec<Field>,
     pub winrt: bool,

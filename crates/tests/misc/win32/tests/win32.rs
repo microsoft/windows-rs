@@ -81,21 +81,21 @@ fn dxgi_mode_desc() {
 #[cfg(target_pointer_width = "64")]
 #[test]
 fn size64() {
-    assert!(core::mem::size_of::<ACCESS_MODE>() == 4);
-    assert!(core::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
-    assert!(core::mem::size_of::<RECT>() == 16);
-    assert!(core::mem::size_of::<DXGI_MODE_DESC>() == 28);
-    assert_eq!(core::mem::size_of::<CHOOSECOLORW>(), 72);
+    assert!(size_of::<ACCESS_MODE>() == 4);
+    assert!(size_of::<DXGI_ADAPTER_FLAG>() == 4);
+    assert!(size_of::<RECT>() == 16);
+    assert!(size_of::<DXGI_MODE_DESC>() == 28);
+    assert_eq!(size_of::<CHOOSECOLORW>(), 72);
 }
 
 #[cfg(target_pointer_width = "32")]
 #[test]
 fn size32() {
-    assert!(core::mem::size_of::<ACCESS_MODE>() == 4);
-    assert!(core::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
-    assert!(core::mem::size_of::<RECT>() == 16);
-    assert!(core::mem::size_of::<DXGI_MODE_DESC>() == 28);
-    assert!(core::mem::size_of::<CHOOSECOLORW>() == 36);
+    assert!(size_of::<ACCESS_MODE>() == 4);
+    assert!(size_of::<DXGI_ADAPTER_FLAG>() == 4);
+    assert!(size_of::<RECT>() == 16);
+    assert!(size_of::<DXGI_MODE_DESC>() == 28);
+    assert!(size_of::<CHOOSECOLORW>() == 36);
 }
 
 #[test]
@@ -118,7 +118,7 @@ fn constant() {
 }
 
 #[test]
-fn function() -> windows::core::Result<()> {
+fn function() -> Result<()> {
     unsafe {
         let event = CreateEventW(None, true, false, None)?;
         SetEvent(event)?;
@@ -136,14 +136,14 @@ fn bool_as_error() {
         helpers::set_thread_ui_language();
         let error = SetEvent(HANDLE(0 as _)).unwrap_err();
 
-        assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
+        assert_eq!(error.code(), HRESULT(-2147024890));
         let message: String = error.message();
         assert_eq!(message, "The handle is invalid.");
     }
 }
 
 #[test]
-fn com() -> windows::core::Result<()> {
+fn com() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
         let values = [1u8, 2u8, 3u8, 4u8];
@@ -208,7 +208,7 @@ fn com_inheritance() {
 
 // Tests for https://github.com/microsoft/windows-rs/issues/463
 #[test]
-fn onecore_imports() -> windows::core::Result<()> {
+fn onecore_imports() -> Result<()> {
     unsafe {
         _ = HasExpandedResources()?;
 
@@ -235,7 +235,7 @@ fn onecore_imports() -> windows::core::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::core::Result<()> {
+fn interface() -> Result<()> {
     unsafe {
         let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 
@@ -278,7 +278,7 @@ extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> B
 fn empty_struct() {
     let ldap = PLDAPSearch(123);
     assert!(ldap.0 == 123);
-    assert!(core::mem::size_of::<PLDAPSearch>() == core::mem::size_of::<usize>());
+    assert!(size_of::<PLDAPSearch>() == size_of::<usize>());
 
     assert!(UIAnimationManager == GUID::try_from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8").unwrap());
 }

@@ -851,11 +851,11 @@ unsafe impl Sync for StoreCanAcquireLicenseResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreCanLicenseStatus(pub i32);
 impl StoreCanLicenseStatus {
-    pub const NotLicensableToUser: Self = Self(0i32);
-    pub const Licensable: Self = Self(1i32);
-    pub const LicenseActionNotApplicableToProduct: Self = Self(2i32);
-    pub const NetworkError: Self = Self(3i32);
-    pub const ServerError: Self = Self(4i32);
+    pub const NotLicensableToUser: Self = Self(0);
+    pub const Licensable: Self = Self(1);
+    pub const LicenseActionNotApplicableToProduct: Self = Self(2);
+    pub const NetworkError: Self = Self(3);
+    pub const ServerError: Self = Self(4);
 }
 impl windows_core::TypeKind for StoreCanLicenseStatus {
     type TypeKind = windows_core::CopyType;
@@ -976,10 +976,10 @@ unsafe impl Sync for StoreConsumableResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreConsumableStatus(pub i32);
 impl StoreConsumableStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const InsufficentQuantity: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const ServerError: Self = Self(3i32);
+    pub const Succeeded: Self = Self(0);
+    pub const InsufficentQuantity: Self = Self(1);
+    pub const NetworkError: Self = Self(2);
+    pub const ServerError: Self = Self(3);
 }
 impl windows_core::TypeKind for StoreConsumableStatus {
     type TypeKind = windows_core::CopyType;
@@ -1376,12 +1376,12 @@ unsafe impl Sync for StoreContext {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {
-    pub const Minute: Self = Self(0i32);
-    pub const Hour: Self = Self(1i32);
-    pub const Day: Self = Self(2i32);
-    pub const Week: Self = Self(3i32);
-    pub const Month: Self = Self(4i32);
-    pub const Year: Self = Self(5i32);
+    pub const Minute: Self = Self(0);
+    pub const Hour: Self = Self(1);
+    pub const Day: Self = Self(2);
+    pub const Week: Self = Self(3);
+    pub const Month: Self = Self(4);
+    pub const Year: Self = Self(5);
 }
 impl windows_core::TypeKind for StoreDurationUnit {
     type TypeKind = windows_core::CopyType;
@@ -1643,15 +1643,15 @@ unsafe impl Sync for StorePackageUpdateResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorePackageUpdateState(pub i32);
 impl StorePackageUpdateState {
-    pub const Pending: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const Deploying: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const OtherError: Self = Self(5i32);
-    pub const ErrorLowBattery: Self = Self(6i32);
-    pub const ErrorWiFiRecommended: Self = Self(7i32);
-    pub const ErrorWiFiRequired: Self = Self(8i32);
+    pub const Pending: Self = Self(0);
+    pub const Downloading: Self = Self(1);
+    pub const Deploying: Self = Self(2);
+    pub const Completed: Self = Self(3);
+    pub const Canceled: Self = Self(4);
+    pub const OtherError: Self = Self(5);
+    pub const ErrorLowBattery: Self = Self(6);
+    pub const ErrorWiFiRecommended: Self = Self(7);
+    pub const ErrorWiFiRequired: Self = Self(8);
 }
 impl windows_core::TypeKind for StorePackageUpdateState {
     type TypeKind = windows_core::CopyType;
@@ -2101,11 +2101,11 @@ unsafe impl Sync for StorePurchaseResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorePurchaseStatus(pub i32);
 impl StorePurchaseStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const AlreadyPurchased: Self = Self(1i32);
-    pub const NotPurchased: Self = Self(2i32);
-    pub const NetworkError: Self = Self(3i32);
-    pub const ServerError: Self = Self(4i32);
+    pub const Succeeded: Self = Self(0);
+    pub const AlreadyPurchased: Self = Self(1);
+    pub const NotPurchased: Self = Self(2);
+    pub const NetworkError: Self = Self(3);
+    pub const ServerError: Self = Self(4);
 }
 impl windows_core::TypeKind for StorePurchaseStatus {
     type TypeKind = windows_core::CopyType;
@@ -2229,21 +2229,21 @@ unsafe impl Sync for StoreQueueItemCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreQueueItemExtendedState(pub i32);
 impl StoreQueueItemExtendedState {
-    pub const ActivePending: Self = Self(0i32);
-    pub const ActiveStarting: Self = Self(1i32);
-    pub const ActiveAcquiringLicense: Self = Self(2i32);
-    pub const ActiveDownloading: Self = Self(3i32);
-    pub const ActiveRestoringData: Self = Self(4i32);
-    pub const ActiveInstalling: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
-    pub const Canceled: Self = Self(7i32);
-    pub const Paused: Self = Self(8i32);
-    pub const Error: Self = Self(9i32);
-    pub const PausedPackagesInUse: Self = Self(10i32);
-    pub const PausedLowBattery: Self = Self(11i32);
-    pub const PausedWiFiRecommended: Self = Self(12i32);
-    pub const PausedWiFiRequired: Self = Self(13i32);
-    pub const PausedReadyToInstall: Self = Self(14i32);
+    pub const ActivePending: Self = Self(0);
+    pub const ActiveStarting: Self = Self(1);
+    pub const ActiveAcquiringLicense: Self = Self(2);
+    pub const ActiveDownloading: Self = Self(3);
+    pub const ActiveRestoringData: Self = Self(4);
+    pub const ActiveInstalling: Self = Self(5);
+    pub const Completed: Self = Self(6);
+    pub const Canceled: Self = Self(7);
+    pub const Paused: Self = Self(8);
+    pub const Error: Self = Self(9);
+    pub const PausedPackagesInUse: Self = Self(10);
+    pub const PausedLowBattery: Self = Self(11);
+    pub const PausedWiFiRecommended: Self = Self(12);
+    pub const PausedWiFiRequired: Self = Self(13);
+    pub const PausedReadyToInstall: Self = Self(14);
 }
 impl windows_core::TypeKind for StoreQueueItemExtendedState {
     type TypeKind = windows_core::CopyType;
@@ -2256,9 +2256,9 @@ impl windows_core::RuntimeType for StoreQueueItemExtendedState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreQueueItemKind(pub i32);
 impl StoreQueueItemKind {
-    pub const Install: Self = Self(0i32);
-    pub const Update: Self = Self(1i32);
-    pub const Repair: Self = Self(2i32);
+    pub const Install: Self = Self(0);
+    pub const Update: Self = Self(1);
+    pub const Repair: Self = Self(2);
 }
 impl windows_core::TypeKind for StoreQueueItemKind {
     type TypeKind = windows_core::CopyType;
@@ -2271,11 +2271,11 @@ impl windows_core::RuntimeType for StoreQueueItemKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreQueueItemState(pub i32);
 impl StoreQueueItemState {
-    pub const Active: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
+    pub const Active: Self = Self(0);
+    pub const Completed: Self = Self(1);
+    pub const Canceled: Self = Self(2);
+    pub const Error: Self = Self(3);
+    pub const Paused: Self = Self(4);
 }
 impl windows_core::TypeKind for StoreQueueItemState {
     type TypeKind = windows_core::CopyType;
@@ -2372,10 +2372,10 @@ unsafe impl Sync for StoreRateAndReviewResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreRateAndReviewStatus(pub i32);
 impl StoreRateAndReviewStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const CanceledByUser: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
+    pub const Succeeded: Self = Self(0);
+    pub const CanceledByUser: Self = Self(1);
+    pub const NetworkError: Self = Self(2);
+    pub const Error: Self = Self(3);
 }
 impl windows_core::TypeKind for StoreRateAndReviewStatus {
     type TypeKind = windows_core::CopyType;
@@ -2658,11 +2658,11 @@ unsafe impl Sync for StoreUninstallStorePackageResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
 impl StoreUninstallStorePackageStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const CanceledByUser: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const UninstallNotApplicable: Self = Self(3i32);
-    pub const Error: Self = Self(4i32);
+    pub const Succeeded: Self = Self(0);
+    pub const CanceledByUser: Self = Self(1);
+    pub const NetworkError: Self = Self(2);
+    pub const UninstallNotApplicable: Self = Self(3);
+    pub const Error: Self = Self(4);
 }
 impl windows_core::TypeKind for StoreUninstallStorePackageStatus {
     type TypeKind = windows_core::CopyType;

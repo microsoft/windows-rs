@@ -21,13 +21,13 @@ impl Default for CMD_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
-pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
-pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
-pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8i32;
-pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16i32;
-pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648i32;
-pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1i32;
+pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32;
+pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2;
+pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535;
+pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8;
+pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16;
+pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648;
+pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CMD_GROUP_ENTRY {
@@ -43,42 +43,42 @@ impl Default for CMD_GROUP_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
-pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
-pub const ERROR_CONTEXT_ALREADY_REGISTERED: u32 = 15019u32;
-pub const ERROR_CONTINUE_IN_PARENT_CONTEXT: u32 = 15016u32;
-pub const ERROR_DLL_LOAD_FAILED: u32 = 15006u32;
-pub const ERROR_ENTRY_PT_NOT_FOUND: u32 = 15005u32;
-pub const ERROR_HELPER_ALREADY_REGISTERED: u32 = 15018u32;
-pub const ERROR_INIT_DISPLAY: u32 = 15007u32;
-pub const ERROR_INVALID_OPTION_TAG: u32 = 15009u32;
-pub const ERROR_INVALID_OPTION_VALUE: u32 = 15014u32;
-pub const ERROR_INVALID_SYNTAX: u32 = 15001u32;
-pub const ERROR_MISSING_OPTION: u32 = 15011u32;
-pub const ERROR_NO_CHANGE: u32 = 15003u32;
-pub const ERROR_NO_ENTRIES: u32 = 15000u32;
-pub const ERROR_NO_TAG: u32 = 15010u32;
-pub const ERROR_OKAY: u32 = 15015u32;
-pub const ERROR_PARSING_FAILURE: u32 = 15020u32;
-pub const ERROR_PROTOCOL_NOT_IN_TRANSPORT: u32 = 15002u32;
-pub const ERROR_SHOW_USAGE: u32 = 15013u32;
-pub const ERROR_SUPPRESS_OUTPUT: u32 = 15017u32;
-pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
-pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
+pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100;
+pub const ERROR_CMD_NOT_FOUND: u32 = 15004;
+pub const ERROR_CONTEXT_ALREADY_REGISTERED: u32 = 15019;
+pub const ERROR_CONTINUE_IN_PARENT_CONTEXT: u32 = 15016;
+pub const ERROR_DLL_LOAD_FAILED: u32 = 15006;
+pub const ERROR_ENTRY_PT_NOT_FOUND: u32 = 15005;
+pub const ERROR_HELPER_ALREADY_REGISTERED: u32 = 15018;
+pub const ERROR_INIT_DISPLAY: u32 = 15007;
+pub const ERROR_INVALID_OPTION_TAG: u32 = 15009;
+pub const ERROR_INVALID_OPTION_VALUE: u32 = 15014;
+pub const ERROR_INVALID_SYNTAX: u32 = 15001;
+pub const ERROR_MISSING_OPTION: u32 = 15011;
+pub const ERROR_NO_CHANGE: u32 = 15003;
+pub const ERROR_NO_ENTRIES: u32 = 15000;
+pub const ERROR_NO_TAG: u32 = 15010;
+pub const ERROR_OKAY: u32 = 15015;
+pub const ERROR_PARSING_FAILURE: u32 = 15020;
+pub const ERROR_PROTOCOL_NOT_IN_TRANSPORT: u32 = 15002;
+pub const ERROR_SHOW_USAGE: u32 = 15013;
+pub const ERROR_SUPPRESS_OUTPUT: u32 = 15017;
+pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008;
+pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012;
 pub const GET_RESOURCE_STRING_FN_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("GetResourceString");
-pub const MAX_NAME_LEN: u32 = 48u32;
+pub const MAX_NAME_LEN: u32 = 48;
 pub const NETSH_ARG_DELIMITER: windows_sys::core::PCWSTR = windows_sys::core::w!("=");
 pub const NETSH_CMD_DELIMITER: windows_sys::core::PCWSTR = windows_sys::core::w!(" ");
-pub const NETSH_COMMIT: NS_MODE_CHANGE = 0i32;
-pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3i32;
-pub const NETSH_ERROR_BASE: u32 = 15000u32;
-pub const NETSH_ERROR_END: u32 = 15019u32;
-pub const NETSH_FLUSH: NS_MODE_CHANGE = 2i32;
-pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
-pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
-pub const NETSH_SAVE: NS_MODE_CHANGE = 4i32;
-pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1i32;
-pub const NETSH_VERSION_50: u32 = 20480u32;
+pub const NETSH_COMMIT: NS_MODE_CHANGE = 0;
+pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3;
+pub const NETSH_ERROR_BASE: u32 = 15000;
+pub const NETSH_ERROR_END: u32 = 15019;
+pub const NETSH_FLUSH: NS_MODE_CHANGE = 2;
+pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128;
+pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64;
+pub const NETSH_SAVE: NS_MODE_CHANGE = 4;
+pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1;
+pub const NETSH_VERSION_50: u32 = 20480;
 pub type NS_CMD_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -121,11 +121,11 @@ pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwReserved: u32,
 }
 pub type NS_EVENTS = i32;
-pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
-pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
-pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
-pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
-pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
+pub const NS_EVENT_FROM_N: NS_EVENTS = 4;
+pub const NS_EVENT_FROM_START: NS_EVENTS = 8;
+pub const NS_EVENT_LAST_N: NS_EVENTS = 1;
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2;
+pub const NS_EVENT_LOOP: NS_EVENTS = 65536;
 pub const NS_GET_EVENT_IDS_FN_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("GetEventIds");
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -159,10 +159,10 @@ pub struct NS_HELPER_ATTRIBUTES_0_0 {
 }
 pub type NS_MODE_CHANGE = i32;
 pub type NS_REQS = i32;
-pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
-pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
-pub const NS_REQ_PRESENT: NS_REQS = 1i32;
-pub const NS_REQ_ZERO: NS_REQS = 0i32;
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2;
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3;
+pub const NS_REQ_PRESENT: NS_REQS = 1;
+pub const NS_REQ_ZERO: NS_REQS = 0;
 pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR, ppwcarguments: *mut windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut windows_sys::core::BOOL) -> u32>;
 pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_sys::core::PCWSTR, nbuffermax: u32) -> u32>;
 pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;

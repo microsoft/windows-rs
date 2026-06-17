@@ -14,7 +14,7 @@ where
             .and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AgileReferenceOptions(pub i32);

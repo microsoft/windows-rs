@@ -1,10 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{
-    Color, Element, HorizontalAlignment, Modifiers, TextBlock, Thickness,
-};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Color, Element, HorizontalAlignment, Modifiers, TextBlock, Thickness};
+use windows_reactor::{ControlKind, Prop, PropValue};
+use windows_reactor::{Op, RecordingBackend};
 
 fn rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -12,7 +11,7 @@ fn rr() -> Rc<dyn Fn()> {
 
 fn mount_text_with_modifiers(mods: Modifiers) -> (Reconciler<RecordingBackend>, Vec<Op>) {
     let el = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: mods,
         ..TextBlock::default()
     });
@@ -96,7 +95,7 @@ fn diff_modifiers_identical_emits_no_ops() {
         ..Modifiers::default()
     };
     let el = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: mods,
         ..TextBlock::default()
     });
@@ -106,7 +105,7 @@ fn diff_modifiers_identical_emits_no_ops() {
 
     let old = el.clone();
     let new = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(5.0)),
             width: Some(200.0),
@@ -131,7 +130,7 @@ fn diff_modifiers_identical_emits_no_ops() {
 fn mount_emits_modifiers_after_create() {
     let mods = Modifiers {
         opacity: Some(0.5),
-        background: Some(Color::rgb(255, 0, 0).into()),
+        background: Some(Color::rgb(255, 0, 0)),
         horizontal_alignment: Some(HorizontalAlignment::Center),
         ..Modifiers::default()
     };

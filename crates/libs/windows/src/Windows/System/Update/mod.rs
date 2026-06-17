@@ -67,11 +67,11 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
-    pub const None: Self = Self(0i32);
-    pub const NetworkRequired: Self = Self(1i32);
-    pub const InsufficientDiskSpace: Self = Self(2i32);
-    pub const InsufficientBattery: Self = Self(3i32);
-    pub const UpdateBlocked: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const NetworkRequired: Self = Self(1);
+    pub const InsufficientDiskSpace: Self = Self(2);
+    pub const InsufficientBattery: Self = Self(3);
+    pub const UpdateBlocked: Self = Self(4);
 }
 impl windows_core::TypeKind for SystemUpdateAttentionRequiredReason {
     type TypeKind = windows_core::CopyType;
@@ -150,15 +150,15 @@ unsafe impl Sync for SystemUpdateItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
-    pub const NotStarted: Self = Self(0i32);
-    pub const Initializing: Self = Self(1i32);
-    pub const Preparing: Self = Self(2i32);
-    pub const Calculating: Self = Self(3i32);
-    pub const Downloading: Self = Self(4i32);
-    pub const Installing: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
-    pub const RebootRequired: Self = Self(7i32);
-    pub const Error: Self = Self(8i32);
+    pub const NotStarted: Self = Self(0);
+    pub const Initializing: Self = Self(1);
+    pub const Preparing: Self = Self(2);
+    pub const Calculating: Self = Self(3);
+    pub const Downloading: Self = Self(4);
+    pub const Installing: Self = Self(5);
+    pub const Completed: Self = Self(6);
+    pub const RebootRequired: Self = Self(7);
+    pub const Error: Self = Self(8);
 }
 impl windows_core::TypeKind for SystemUpdateItemState {
     type TypeKind = windows_core::CopyType;
@@ -352,18 +352,18 @@ impl windows_core::RuntimeName for SystemUpdateManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
-    pub const Idle: Self = Self(0i32);
-    pub const Detecting: Self = Self(1i32);
-    pub const ReadyToDownload: Self = Self(2i32);
-    pub const Downloading: Self = Self(3i32);
-    pub const ReadyToInstall: Self = Self(4i32);
-    pub const Installing: Self = Self(5i32);
-    pub const RebootRequired: Self = Self(6i32);
-    pub const ReadyToFinalize: Self = Self(7i32);
-    pub const Finalizing: Self = Self(8i32);
-    pub const Completed: Self = Self(9i32);
-    pub const AttentionRequired: Self = Self(10i32);
-    pub const Error: Self = Self(11i32);
+    pub const Idle: Self = Self(0);
+    pub const Detecting: Self = Self(1);
+    pub const ReadyToDownload: Self = Self(2);
+    pub const Downloading: Self = Self(3);
+    pub const ReadyToInstall: Self = Self(4);
+    pub const Installing: Self = Self(5);
+    pub const RebootRequired: Self = Self(6);
+    pub const ReadyToFinalize: Self = Self(7);
+    pub const Finalizing: Self = Self(8);
+    pub const Completed: Self = Self(9);
+    pub const AttentionRequired: Self = Self(10);
+    pub const Error: Self = Self(11);
 }
 impl windows_core::TypeKind for SystemUpdateManagerState {
     type TypeKind = windows_core::CopyType;
@@ -376,8 +376,8 @@ impl windows_core::RuntimeType for SystemUpdateManagerState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {
-    pub const UpToReboot: Self = Self(0i32);
-    pub const AllowReboot: Self = Self(1i32);
+    pub const UpToReboot: Self = Self(0);
+    pub const AllowReboot: Self = Self(1);
 }
 impl windows_core::TypeKind for SystemUpdateStartInstallAction {
     type TypeKind = windows_core::CopyType;

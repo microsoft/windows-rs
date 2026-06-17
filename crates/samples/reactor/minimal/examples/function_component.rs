@@ -1,7 +1,4 @@
-//! Minimal sample demonstrating function components.
-//!
-//! Define a function with signature `fn(&P, &mut RenderCx) -> Element`
-//! and compose with `component(f, props)`.
+//! Sample for function components via `component(f, props)`.
 
 use windows_reactor::*;
 
@@ -42,8 +39,8 @@ fn app(cx: &mut RenderCx) -> Element {
         component(greeting, GreetingProps { name: name.clone() }),
         text_box(name)
             .header("Your name")
-            .placeholder("Type a name…")
-            .on_changed(set_name),
+            .placeholder_text("Type a name…")
+            .on_text_changed(set_name),
         component(counter, ()),
     ))
     .spacing(12.0)
@@ -51,5 +48,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("function_component").render(app)
+    reactor_minimal::run("FunctionComponent", app)
 }

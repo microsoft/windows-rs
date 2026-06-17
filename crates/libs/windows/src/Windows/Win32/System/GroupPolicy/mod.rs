@@ -180,7 +180,7 @@ pub unsafe fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, b
 #[inline]
 pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::super::Security::PSID>, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Security::PSID, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security::GENERIC_MAPPING, pprivilegeset : *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, core::mem::transmute(pobjecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _).ok() }
+    unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, core::mem::transmute(pobjecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _).ok() }
 }
 #[inline]
 pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut windows_core::BOOL) -> windows_core::Result<()>
@@ -223,40 +223,40 @@ pub unsafe fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE)
     windows_core::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { UnregisterGPNotification(hevent).ok() }
 }
-pub const ABSENT: APPSTATE = APPSTATE(0i32);
+pub const ABSENT: APPSTATE = APPSTATE(0);
 pub const ADMXCOMMENTS_EXTENSION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
-pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
+pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPSTATE(pub i32);
-pub const ASSIGNED: APPSTATE = APPSTATE(1i32);
+pub const ASSIGNED: APPSTATE = APPSTATE(1);
 pub const CLSID_GPESnapIn: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
 pub const CLSID_GroupPolicyObject: windows_core::GUID = windows_core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
 pub const CLSID_RSOPSnapIn: windows_core::GUID = windows_core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
-pub const COMCLASS: INSTALLSPECTYPE = INSTALLSPECTYPE(4i32);
-pub const FILEEXT: INSTALLSPECTYPE = INSTALLSPECTYPE(2i32);
-pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
-pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
-pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;
-pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4u32;
-pub const FLAG_LOOPBACK_MERGE: u32 = 268435456u32;
-pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728u32;
-pub const FLAG_NO_COMPUTER: u32 = 2u32;
-pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824u32;
-pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
-pub const FLAG_NO_USER: u32 = 1u32;
-pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
-pub const GPC_BLOCK_POLICY: u32 = 1u32;
-pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(3i32);
-pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(1i32);
-pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(4i32);
-pub const GPHintSite: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(2i32);
-pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(0i32);
-pub const GPLinkDomain: GPO_LINK = GPO_LINK(3i32);
-pub const GPLinkMachine: GPO_LINK = GPO_LINK(1i32);
-pub const GPLinkOrganizationalUnit: GPO_LINK = GPO_LINK(4i32);
-pub const GPLinkSite: GPO_LINK = GPO_LINK(2i32);
-pub const GPLinkUnknown: GPO_LINK = GPO_LINK(0i32);
+pub const COMCLASS: INSTALLSPECTYPE = INSTALLSPECTYPE(4);
+pub const FILEEXT: INSTALLSPECTYPE = INSTALLSPECTYPE(2);
+pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432;
+pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912;
+pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864;
+pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4;
+pub const FLAG_LOOPBACK_MERGE: u32 = 268435456;
+pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728;
+pub const FLAG_NO_COMPUTER: u32 = 2;
+pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824;
+pub const FLAG_NO_GPO_FILTER: u32 = 2147483648;
+pub const FLAG_NO_USER: u32 = 1;
+pub const FLAG_PLANNING_MODE: u32 = 16777216;
+pub const GPC_BLOCK_POLICY: u32 = 1;
+pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(3);
+pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(1);
+pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(4);
+pub const GPHintSite: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(2);
+pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(0);
+pub const GPLinkDomain: GPO_LINK = GPO_LINK(3);
+pub const GPLinkMachine: GPO_LINK = GPO_LINK(1);
+pub const GPLinkOrganizationalUnit: GPO_LINK = GPO_LINK(4);
+pub const GPLinkSite: GPO_LINK = GPO_LINK(2);
+pub const GPLinkUnknown: GPO_LINK = GPO_LINK(0);
 pub const GPM: windows_core::GUID = windows_core::GUID::from_u128(0xf5694708_88fe_4b35_babf_e56162d5fbc8);
 pub const GPMAsyncCancel: windows_core::GUID = windows_core::GUID::from_u128(0x372796a9_76ec_479d_ad6c_556318ed5f9d);
 pub const GPMBackup: windows_core::GUID = windows_core::GUID::from_u128(0xed1a54b8_5efa_482a_93c0_8ad86f0d68c3);
@@ -324,12 +324,12 @@ pub const GPMTemplate: windows_core::GUID = windows_core::GUID::from_u128(0xecf1
 pub const GPMTrustee: windows_core::GUID = windows_core::GUID::from_u128(0xc54a700d_19b6_4211_bcb0_e8e2475e471e);
 pub const GPMWMIFilter: windows_core::GUID = windows_core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
 pub const GPMWMIFilterCollection: windows_core::GUID = windows_core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
-pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
-pub const GPM_DONOT_VALIDATEDC: u32 = 1u32;
-pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1u32;
-pub const GPM_PROCESS_SECURITY: u32 = 2u32;
-pub const GPM_USE_ANYDC: u32 = 1u32;
-pub const GPM_USE_PDC: u32 = 0u32;
+pub const GPM_DONOTUSE_W2KDC: u32 = 2;
+pub const GPM_DONOT_VALIDATEDC: u32 = 1;
+pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1;
+pub const GPM_PROCESS_SECURITY: u32 = 2;
+pub const GPM_USE_ANYDC: u32 = 1;
+pub const GPM_USE_PDC: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GPOBROWSEINFO {
@@ -345,42 +345,42 @@ pub struct GPOBROWSEINFO {
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
-pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2i32);
-pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
-pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(4i32);
-pub const GPOTypeLocalUser: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(3i32);
-pub const GPOTypeRemote: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(1i32);
-pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
-pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
-pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2u32;
-pub const GPO_BROWSE_NODSGPOS: u32 = 4u32;
-pub const GPO_BROWSE_NOUSERGPOS: u32 = 32u32;
-pub const GPO_BROWSE_OPENBUTTON: u32 = 8u32;
-pub const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64u32;
-pub const GPO_FLAG_DISABLE: u32 = 1u32;
-pub const GPO_FLAG_FORCE: u32 = 2u32;
-pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096u32;
-pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16u32;
-pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024u32;
-pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256u32;
-pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512u32;
-pub const GPO_INFO_FLAG_MACHINE: u32 = 1u32;
-pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
-pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
-pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
-pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
+pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2);
+pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0);
+pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(4);
+pub const GPOTypeLocalUser: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(3);
+pub const GPOTypeRemote: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(1);
+pub const GPO_BROWSE_DISABLENEW: u32 = 1;
+pub const GPO_BROWSE_INITTOALL: u32 = 16;
+pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2;
+pub const GPO_BROWSE_NODSGPOS: u32 = 4;
+pub const GPO_BROWSE_NOUSERGPOS: u32 = 32;
+pub const GPO_BROWSE_OPENBUTTON: u32 = 8;
+pub const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64;
+pub const GPO_FLAG_DISABLE: u32 = 1;
+pub const GPO_FLAG_FORCE: u32 = 2;
+pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096;
+pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16;
+pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024;
+pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256;
+pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512;
+pub const GPO_INFO_FLAG_MACHINE: u32 = 1;
+pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128;
+pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048;
+pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32;
+pub const GPO_INFO_FLAG_VERBOSE: u32 = 64;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_LINK(pub i32);
-pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
-pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
-pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
-pub const GPO_LIST_FLAG_SITEONLY: u32 = 2u32;
+pub const GPO_LIST_FLAG_MACHINE: u32 = 1;
+pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8;
+pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4;
+pub const GPO_LIST_FLAG_SITEONLY: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_OPEN_FLAGS(pub u32);
-pub const GPO_OPEN_LOAD_REGISTRY: GPO_OPEN_FLAGS = GPO_OPEN_FLAGS(1u32);
-pub const GPO_OPEN_READ_ONLY: GPO_OPEN_FLAGS = GPO_OPEN_FLAGS(2u32);
+pub const GPO_OPEN_LOAD_REGISTRY: GPO_OPEN_FLAGS = GPO_OPEN_FLAGS(1);
+pub const GPO_OPEN_READ_ONLY: GPO_OPEN_FLAGS = GPO_OPEN_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_OPTIONS(pub u32);
@@ -417,14 +417,14 @@ impl core::ops::Not for GPO_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const GPO_OPTION_DISABLE_MACHINE: GPO_OPTIONS = GPO_OPTIONS(2u32);
-pub const GPO_OPTION_DISABLE_USER: GPO_OPTIONS = GPO_OPTIONS(1u32);
+pub const GPO_OPTION_DISABLE_MACHINE: GPO_OPTIONS = GPO_OPTIONS(2);
+pub const GPO_OPTION_DISABLE_USER: GPO_OPTIONS = GPO_OPTIONS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_SECTION(pub u32);
-pub const GPO_SECTION_MACHINE: GPO_SECTION = GPO_SECTION(2u32);
-pub const GPO_SECTION_ROOT: GPO_SECTION = GPO_SECTION(0u32);
-pub const GPO_SECTION_USER: GPO_SECTION = GPO_SECTION(1u32);
+pub const GPO_SECTION_MACHINE: GPO_SECTION = GPO_SECTION(2);
+pub const GPO_SECTION_ROOT: GPO_SECTION = GPO_SECTION(0);
+pub const GPO_SECTION_USER: GPO_SECTION = GPO_SECTION(1);
 pub const GP_DLLNAME: windows_core::PCWSTR = windows_core::w!("DllName");
 pub const GP_ENABLEASYNCHRONOUSPROCESSING: windows_core::PCWSTR = windows_core::w!("EnableAsynchronousProcessing");
 pub const GP_MAXNOGPOLISTCHANGESINTERVAL: windows_core::PCWSTR = windows_core::w!("MaxNoGPOListChangesInterval");
@@ -9239,13 +9239,13 @@ pub struct LOCALMANAGEDAPPLICATION {
     pub pszProductId: windows_core::PWSTR,
     pub dwState: u32,
 }
-pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
-pub const LOCALSTATE_ORPHANED: u32 = 32u32;
-pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
-pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
-pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
-pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
-pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
+pub const LOCALSTATE_ASSIGNED: u32 = 1;
+pub const LOCALSTATE_ORPHANED: u32 = 32;
+pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8;
+pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16;
+pub const LOCALSTATE_PUBLISHED: u32 = 2;
+pub const LOCALSTATE_UNINSTALLED: u32 = 64;
+pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4;
 pub const MACHINE_POLICY_PRESENT_TRIGGER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -9267,12 +9267,12 @@ pub struct MANAGEDAPPLICATION {
     pub dwPathType: u32,
     pub bInstalled: windows_core::BOOL,
 }
-pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
-pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
-pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
-pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
-pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
-pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
+pub const MANAGED_APPS_FROMCATEGORY: u32 = 2;
+pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536;
+pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1;
+pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2;
+pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3;
+pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1;
 pub const NODEID_Machine: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_MachineSWSettings: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_RSOPMachine: windows_core::GUID = windows_core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
@@ -9288,8 +9288,8 @@ pub type PFNPROCESSGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32, 
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
 pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: windows_core::Ref<super::Wmi::IWbemServices>, prsopstatus: *mut windows_core::HRESULT) -> u32>;
 pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "system" fn(bverbose: windows_core::BOOL, lpmessage: windows_core::PCWSTR) -> u32>;
-pub const PI_APPLYPOLICY: u32 = 2u32;
-pub const PI_NOUI: u32 = 1u32;
+pub const PI_APPLYPOLICY: u32 = 2;
+pub const PI_NOUI: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
@@ -9301,29 +9301,29 @@ pub struct POLICYSETTINGSTATUSINFO {
     pub status: SETTINGSTATUS,
     pub timeLogged: super::super::Foundation::SYSTEMTIME,
 }
-pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
-pub const PT_MANDATORY: u32 = 4u32;
-pub const PT_ROAMING: u32 = 2u32;
-pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
-pub const PT_TEMPORARY: u32 = 1u32;
-pub const PUBLISHED: APPSTATE = APPSTATE(2i32);
+pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3);
+pub const PT_MANDATORY: u32 = 4;
+pub const PT_ROAMING: u32 = 2;
+pub const PT_ROAMING_PREEXISTING: u32 = 8;
+pub const PT_TEMPORARY: u32 = 1;
+pub const PUBLISHED: APPSTATE = APPSTATE(2);
 pub const REGISTRY_EXTENSION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x35378eac_683f_11d2_a89a_00c04fbbcfa2);
-pub const RP_FORCE: u32 = 1u32;
-pub const RP_SYNC: u32 = 2u32;
-pub const RSOPApplied: SETTINGSTATUS = SETTINGSTATUS(1i32);
-pub const RSOPFailed: SETTINGSTATUS = SETTINGSTATUS(3i32);
-pub const RSOPIgnored: SETTINGSTATUS = SETTINGSTATUS(2i32);
-pub const RSOPSubsettingFailed: SETTINGSTATUS = SETTINGSTATUS(4i32);
-pub const RSOPUnspecified: SETTINGSTATUS = SETTINGSTATUS(0i32);
-pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2u32;
-pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1u32;
-pub const RSOP_NO_COMPUTER: u32 = 65536u32;
-pub const RSOP_NO_USER: u32 = 131072u32;
-pub const RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE: u32 = 16u32;
-pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2u32;
-pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
-pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
-pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
+pub const RP_FORCE: u32 = 1;
+pub const RP_SYNC: u32 = 2;
+pub const RSOPApplied: SETTINGSTATUS = SETTINGSTATUS(1);
+pub const RSOPFailed: SETTINGSTATUS = SETTINGSTATUS(3);
+pub const RSOPIgnored: SETTINGSTATUS = SETTINGSTATUS(2);
+pub const RSOPSubsettingFailed: SETTINGSTATUS = SETTINGSTATUS(4);
+pub const RSOPUnspecified: SETTINGSTATUS = SETTINGSTATUS(0);
+pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2;
+pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1;
+pub const RSOP_NO_COMPUTER: u32 = 65536;
+pub const RSOP_NO_USER: u32 = 131072;
+pub const RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE: u32 = 16;
+pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2;
+pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4;
+pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1;
+pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -9341,76 +9341,76 @@ impl Default for RSOP_TARGET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
-pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
+pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4;
+pub const RSOP_USER_ACCESS_DENIED: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETTINGSTATUS(pub i32);
 pub const USER_POLICY_PRESENT_TRIGGER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
-pub const backupMostRecent: GPMSearchProperty = GPMSearchProperty(9i32);
-pub const gpoComputerExtensions: GPMSearchProperty = GPMSearchProperty(5i32);
-pub const gpoDisplayName: GPMSearchProperty = GPMSearchProperty(2i32);
-pub const gpoDomain: GPMSearchProperty = GPMSearchProperty(8i32);
-pub const gpoEffectivePermissions: GPMSearchProperty = GPMSearchProperty(1i32);
-pub const gpoID: GPMSearchProperty = GPMSearchProperty(4i32);
-pub const gpoPermissions: GPMSearchProperty = GPMSearchProperty(0i32);
-pub const gpoUserExtensions: GPMSearchProperty = GPMSearchProperty(6i32);
-pub const gpoWMIFilter: GPMSearchProperty = GPMSearchProperty(3i32);
-pub const opContains: GPMSearchOperation = GPMSearchOperation(1i32);
-pub const opDestinationByRelativeName: GPMDestinationOption = GPMDestinationOption(2i32);
-pub const opDestinationNone: GPMDestinationOption = GPMDestinationOption(1i32);
-pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption(0i32);
-pub const opDestinationSet: GPMDestinationOption = GPMDestinationOption(3i32);
-pub const opEquals: GPMSearchOperation = GPMSearchOperation(0i32);
-pub const opNotContains: GPMSearchOperation = GPMSearchOperation(2i32);
-pub const opNotEquals: GPMSearchOperation = GPMSearchOperation(3i32);
-pub const opReportComments: GPMReportingOptions = GPMReportingOptions(1i32);
-pub const opReportLegacy: GPMReportingOptions = GPMReportingOptions(0i32);
-pub const permGPOApply: GPMPermissionType = GPMPermissionType(65536i32);
-pub const permGPOCustom: GPMPermissionType = GPMPermissionType(65795i32);
-pub const permGPOEdit: GPMPermissionType = GPMPermissionType(65793i32);
-pub const permGPOEditSecurityAndDelete: GPMPermissionType = GPMPermissionType(65794i32);
-pub const permGPORead: GPMPermissionType = GPMPermissionType(65792i32);
-pub const permSOMGPOCreate: GPMPermissionType = GPMPermissionType(1049600i32);
-pub const permSOMLink: GPMPermissionType = GPMPermissionType(1835008i32);
-pub const permSOMLogging: GPMPermissionType = GPMPermissionType(1573120i32);
-pub const permSOMPlanning: GPMPermissionType = GPMPermissionType(1573376i32);
-pub const permSOMStarterGPOCreate: GPMPermissionType = GPMPermissionType(1049856i32);
-pub const permSOMWMICreate: GPMPermissionType = GPMPermissionType(1049344i32);
-pub const permSOMWMIFullControl: GPMPermissionType = GPMPermissionType(1049345i32);
-pub const permStarterGPOCustom: GPMPermissionType = GPMPermissionType(197891i32);
-pub const permStarterGPOEdit: GPMPermissionType = GPMPermissionType(197889i32);
-pub const permStarterGPOFullControl: GPMPermissionType = GPMPermissionType(197890i32);
-pub const permStarterGPORead: GPMPermissionType = GPMPermissionType(197888i32);
-pub const permWMIFilterCustom: GPMPermissionType = GPMPermissionType(131074i32);
-pub const permWMIFilterEdit: GPMPermissionType = GPMPermissionType(131072i32);
-pub const permWMIFilterFullControl: GPMPermissionType = GPMPermissionType(131073i32);
-pub const repClientHealthRefreshXML: GPMReportType = GPMReportType(5i32);
-pub const repClientHealthXML: GPMReportType = GPMReportType(4i32);
-pub const repHTML: GPMReportType = GPMReportType(1i32);
-pub const repInfraRefreshXML: GPMReportType = GPMReportType(3i32);
-pub const repInfraXML: GPMReportType = GPMReportType(2i32);
-pub const repXML: GPMReportType = GPMReportType(0i32);
-pub const rsopLogging: GPMRSOPMode = GPMRSOPMode(2i32);
-pub const rsopPlanning: GPMRSOPMode = GPMRSOPMode(1i32);
-pub const rsopUnknown: GPMRSOPMode = GPMRSOPMode(0i32);
-pub const somDomain: GPMSOMType = GPMSOMType(1i32);
-pub const somLinks: GPMSearchProperty = GPMSearchProperty(7i32);
-pub const somOU: GPMSOMType = GPMSOMType(2i32);
-pub const somSite: GPMSOMType = GPMSOMType(0i32);
-pub const starterGPODisplayName: GPMSearchProperty = GPMSearchProperty(12i32);
-pub const starterGPODomain: GPMSearchProperty = GPMSearchProperty(14i32);
-pub const starterGPOEffectivePermissions: GPMSearchProperty = GPMSearchProperty(11i32);
-pub const starterGPOID: GPMSearchProperty = GPMSearchProperty(13i32);
-pub const starterGPOPermissions: GPMSearchProperty = GPMSearchProperty(10i32);
-pub const typeComputer: GPMEntryType = GPMEntryType(1i32);
-pub const typeCustom: GPMStarterGPOType = GPMStarterGPOType(1i32);
-pub const typeGPO: GPMBackupType = GPMBackupType(0i32);
-pub const typeGlobalGroup: GPMEntryType = GPMEntryType(3i32);
-pub const typeLocalGroup: GPMEntryType = GPMEntryType(2i32);
-pub const typeStarterGPO: GPMBackupType = GPMBackupType(1i32);
-pub const typeSystem: GPMStarterGPOType = GPMStarterGPOType(0i32);
-pub const typeUNCPath: GPMEntryType = GPMEntryType(5i32);
-pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4i32);
-pub const typeUnknown: GPMEntryType = GPMEntryType(6i32);
-pub const typeUser: GPMEntryType = GPMEntryType(0i32);
+pub const backupMostRecent: GPMSearchProperty = GPMSearchProperty(9);
+pub const gpoComputerExtensions: GPMSearchProperty = GPMSearchProperty(5);
+pub const gpoDisplayName: GPMSearchProperty = GPMSearchProperty(2);
+pub const gpoDomain: GPMSearchProperty = GPMSearchProperty(8);
+pub const gpoEffectivePermissions: GPMSearchProperty = GPMSearchProperty(1);
+pub const gpoID: GPMSearchProperty = GPMSearchProperty(4);
+pub const gpoPermissions: GPMSearchProperty = GPMSearchProperty(0);
+pub const gpoUserExtensions: GPMSearchProperty = GPMSearchProperty(6);
+pub const gpoWMIFilter: GPMSearchProperty = GPMSearchProperty(3);
+pub const opContains: GPMSearchOperation = GPMSearchOperation(1);
+pub const opDestinationByRelativeName: GPMDestinationOption = GPMDestinationOption(2);
+pub const opDestinationNone: GPMDestinationOption = GPMDestinationOption(1);
+pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption(0);
+pub const opDestinationSet: GPMDestinationOption = GPMDestinationOption(3);
+pub const opEquals: GPMSearchOperation = GPMSearchOperation(0);
+pub const opNotContains: GPMSearchOperation = GPMSearchOperation(2);
+pub const opNotEquals: GPMSearchOperation = GPMSearchOperation(3);
+pub const opReportComments: GPMReportingOptions = GPMReportingOptions(1);
+pub const opReportLegacy: GPMReportingOptions = GPMReportingOptions(0);
+pub const permGPOApply: GPMPermissionType = GPMPermissionType(65536);
+pub const permGPOCustom: GPMPermissionType = GPMPermissionType(65795);
+pub const permGPOEdit: GPMPermissionType = GPMPermissionType(65793);
+pub const permGPOEditSecurityAndDelete: GPMPermissionType = GPMPermissionType(65794);
+pub const permGPORead: GPMPermissionType = GPMPermissionType(65792);
+pub const permSOMGPOCreate: GPMPermissionType = GPMPermissionType(1049600);
+pub const permSOMLink: GPMPermissionType = GPMPermissionType(1835008);
+pub const permSOMLogging: GPMPermissionType = GPMPermissionType(1573120);
+pub const permSOMPlanning: GPMPermissionType = GPMPermissionType(1573376);
+pub const permSOMStarterGPOCreate: GPMPermissionType = GPMPermissionType(1049856);
+pub const permSOMWMICreate: GPMPermissionType = GPMPermissionType(1049344);
+pub const permSOMWMIFullControl: GPMPermissionType = GPMPermissionType(1049345);
+pub const permStarterGPOCustom: GPMPermissionType = GPMPermissionType(197891);
+pub const permStarterGPOEdit: GPMPermissionType = GPMPermissionType(197889);
+pub const permStarterGPOFullControl: GPMPermissionType = GPMPermissionType(197890);
+pub const permStarterGPORead: GPMPermissionType = GPMPermissionType(197888);
+pub const permWMIFilterCustom: GPMPermissionType = GPMPermissionType(131074);
+pub const permWMIFilterEdit: GPMPermissionType = GPMPermissionType(131072);
+pub const permWMIFilterFullControl: GPMPermissionType = GPMPermissionType(131073);
+pub const repClientHealthRefreshXML: GPMReportType = GPMReportType(5);
+pub const repClientHealthXML: GPMReportType = GPMReportType(4);
+pub const repHTML: GPMReportType = GPMReportType(1);
+pub const repInfraRefreshXML: GPMReportType = GPMReportType(3);
+pub const repInfraXML: GPMReportType = GPMReportType(2);
+pub const repXML: GPMReportType = GPMReportType(0);
+pub const rsopLogging: GPMRSOPMode = GPMRSOPMode(2);
+pub const rsopPlanning: GPMRSOPMode = GPMRSOPMode(1);
+pub const rsopUnknown: GPMRSOPMode = GPMRSOPMode(0);
+pub const somDomain: GPMSOMType = GPMSOMType(1);
+pub const somLinks: GPMSearchProperty = GPMSearchProperty(7);
+pub const somOU: GPMSOMType = GPMSOMType(2);
+pub const somSite: GPMSOMType = GPMSOMType(0);
+pub const starterGPODisplayName: GPMSearchProperty = GPMSearchProperty(12);
+pub const starterGPODomain: GPMSearchProperty = GPMSearchProperty(14);
+pub const starterGPOEffectivePermissions: GPMSearchProperty = GPMSearchProperty(11);
+pub const starterGPOID: GPMSearchProperty = GPMSearchProperty(13);
+pub const starterGPOPermissions: GPMSearchProperty = GPMSearchProperty(10);
+pub const typeComputer: GPMEntryType = GPMEntryType(1);
+pub const typeCustom: GPMStarterGPOType = GPMStarterGPOType(1);
+pub const typeGPO: GPMBackupType = GPMBackupType(0);
+pub const typeGlobalGroup: GPMEntryType = GPMEntryType(3);
+pub const typeLocalGroup: GPMEntryType = GPMEntryType(2);
+pub const typeStarterGPO: GPMBackupType = GPMBackupType(1);
+pub const typeSystem: GPMStarterGPOType = GPMStarterGPOType(0);
+pub const typeUNCPath: GPMEntryType = GPMEntryType(5);
+pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4);
+pub const typeUnknown: GPMEntryType = GPMEntryType(6);
+pub const typeUser: GPMEntryType = GPMEntryType(0);

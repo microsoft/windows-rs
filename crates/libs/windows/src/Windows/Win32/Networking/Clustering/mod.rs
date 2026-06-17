@@ -1447,7 +1447,7 @@ pub unsafe fn MoveClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) 
 #[inline]
 pub unsafe fn MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1455,7 +1455,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroup(hgroup: HGROUP) -> u32 {
@@ -1465,7 +1465,7 @@ pub unsafe fn OfflineClusterGroup(hgroup: HGROUP) -> u32 {
 #[inline]
 pub unsafe fn OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx(hgroup : HGROUP, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroupEx2<P4>(hgroup: HGROUP, dwofflineflags: u32, lpinbuffer: Option<*const u8>, cbinbuffersize: u32, lpszreason: P4) -> u32
@@ -1483,7 +1483,7 @@ pub unsafe fn OfflineClusterResource(hresource: HRESOURCE) -> u32 {
 #[inline]
 pub unsafe fn OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx(hresource : HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
@@ -1491,7 +1491,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>) -> u32 {
@@ -1501,7 +1501,7 @@ pub unsafe fn OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: Option<HNODE>
 #[inline]
 pub unsafe fn OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: HGROUP, hdestinationnode: Option<HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1509,7 +1509,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResource(hresource: HRESOURCE) -> u32 {
@@ -1519,7 +1519,7 @@ pub unsafe fn OnlineClusterResource(hresource: HRESOURCE) -> u32 {
 #[inline]
 pub unsafe fn OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx(hresource : HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
@@ -1527,7 +1527,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OpenCluster<P0>(lpszclustername: P0) -> HCLUSTER
@@ -1989,7 +1989,7 @@ pub unsafe fn ResUtilGetAllProperties(hkeyclusterkey: super::super::System::Regi
 #[inline]
 pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: Option<&[u8]>, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     windows_core::link!("resutils.dll" "system" fn ResUtilGetBinaryProperty(ppboutvalue : *mut *mut u8, pcboutvaluesize : *mut u32, pvaluestruct : *const CLUSPROP_BINARY, pboldvalue : *const u8, cboldvaluesize : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
-    unsafe { ResUtilGetBinaryProperty(ppboutvalue as _, pcboutvaluesize as _, pvaluestruct, core::mem::transmute(pboldvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboldvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pppropertylist as _, pcbpropertylistsize as _) }
+    unsafe { ResUtilGetBinaryProperty(ppboutvalue as _, pcboutvaluesize as _, pvaluestruct, core::mem::transmute(pboldvalue.map_or(core::ptr::null(), |slice| slice.as_ptr())), pboldvalue.map_or(0, |slice| slice.len().try_into().unwrap()), pppropertylist as _, pcbpropertylistsize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2526,7 +2526,7 @@ where
 #[inline]
 pub unsafe fn SetClusterGroupNodeList(hgroup: HGROUP, nodelist: Option<&[HNODE]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeList(hgroup : HGROUP, nodecount : u32, nodelist : *const HNODE) -> u32);
-    unsafe { SetClusterGroupNodeList(hgroup, nodelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(nodelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: HGROUP, nodelist: &[HNODE], lpszreason: P3) -> u32
@@ -2660,215 +2660,215 @@ where
     windows_core::link!("clusapi.dll" "system" fn SetGroupDependencyExpressionEx(hgroup : HGROUP, lpszdependencyexpression : windows_core::PCWSTR, lpszreason : windows_core::PCWSTR) -> u32);
     unsafe { SetGroupDependencyExpressionEx(hgroup, lpszdependencyexpression.param().abi(), lpszreason.param().abi()) }
 }
-pub const BitLockerDecrypted: i32 = 4i32;
-pub const BitLockerDecrypting: i32 = 16i32;
-pub const BitLockerEnabled: i32 = 1i32;
-pub const BitLockerPaused: i32 = 64i32;
-pub const BitLockerStopped: i32 = 128i32;
-pub const BitlockerEncrypted: i32 = 8i32;
-pub const BitlockerEncrypting: i32 = 32i32;
-pub const CA_UPGRADE_VERSION: u32 = 1u32;
-pub const CLCTL_ADD_CRYPTO_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194478i32);
-pub const CLCTL_ADD_CRYPTO_CHECKPOINT_EX: CLCTL_CODES = CLCTL_CODES(4195030i32);
-pub const CLCTL_ADD_DEPENDENCY: CLCTL_CODES = CLCTL_CODES(5242898i32);
-pub const CLCTL_ADD_OWNER: CLCTL_CODES = CLCTL_CODES(5242906i32);
-pub const CLCTL_ADD_REGISTRY_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194466i32);
-pub const CLCTL_ADD_REGISTRY_CHECKPOINT_32BIT: CLCTL_CODES = CLCTL_CODES(4194498i32);
-pub const CLCTL_ADD_REGISTRY_CHECKPOINT_64BIT: CLCTL_CODES = CLCTL_CODES(4194494i32);
-pub const CLCTL_BATCH_BLOCK_KEY: CLCTL_CODES = CLCTL_CODES(574i32);
-pub const CLCTL_BATCH_UNBLOCK_KEY: CLCTL_CODES = CLCTL_CODES(577i32);
-pub const CLCTL_BLOCK_GEM_SEND_RECV: CLCTL_CODES = CLCTL_CODES(717i32);
-pub const CLCTL_CHECK_DRAIN_VETO: CLCTL_CODES = CLCTL_CODES(1057069i32);
-pub const CLCTL_CHECK_VOTER_DOWN: CLCTL_CODES = CLCTL_CODES(73i32);
-pub const CLCTL_CHECK_VOTER_DOWN_WITNESS: CLCTL_CODES = CLCTL_CODES(113i32);
-pub const CLCTL_CHECK_VOTER_EVICT: CLCTL_CODES = CLCTL_CODES(69i32);
-pub const CLCTL_CHECK_VOTER_EVICT_WITNESS: CLCTL_CODES = CLCTL_CODES(109i32);
-pub const CLCTL_CLEAR_NODE_CONNECTION_INFO: CLCTL_CODES = CLCTL_CODES(4195078i32);
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLCTL_CODES = CLCTL_CODES(8417i32);
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLCTL_CODES = CLCTL_CODES(8433i32);
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLCTL_CODES = CLCTL_CODES(4202742i32);
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLCTL_CODES = CLCTL_CODES(4202726i32);
-pub const CLCTL_CLUSTER_BASE: u32 = 0u32;
-pub const CLCTL_CLUSTER_NAME_CHANGED: CLCTL_CODES = CLCTL_CODES(5242922i32);
-pub const CLCTL_CLUSTER_VERSION_CHANGED: CLCTL_CODES = CLCTL_CODES(5242926i32);
+pub const BitLockerDecrypted: i32 = 4;
+pub const BitLockerDecrypting: i32 = 16;
+pub const BitLockerEnabled: i32 = 1;
+pub const BitLockerPaused: i32 = 64;
+pub const BitLockerStopped: i32 = 128;
+pub const BitlockerEncrypted: i32 = 8;
+pub const BitlockerEncrypting: i32 = 32;
+pub const CA_UPGRADE_VERSION: u32 = 1;
+pub const CLCTL_ADD_CRYPTO_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194478);
+pub const CLCTL_ADD_CRYPTO_CHECKPOINT_EX: CLCTL_CODES = CLCTL_CODES(4195030);
+pub const CLCTL_ADD_DEPENDENCY: CLCTL_CODES = CLCTL_CODES(5242898);
+pub const CLCTL_ADD_OWNER: CLCTL_CODES = CLCTL_CODES(5242906);
+pub const CLCTL_ADD_REGISTRY_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194466);
+pub const CLCTL_ADD_REGISTRY_CHECKPOINT_32BIT: CLCTL_CODES = CLCTL_CODES(4194498);
+pub const CLCTL_ADD_REGISTRY_CHECKPOINT_64BIT: CLCTL_CODES = CLCTL_CODES(4194494);
+pub const CLCTL_BATCH_BLOCK_KEY: CLCTL_CODES = CLCTL_CODES(574);
+pub const CLCTL_BATCH_UNBLOCK_KEY: CLCTL_CODES = CLCTL_CODES(577);
+pub const CLCTL_BLOCK_GEM_SEND_RECV: CLCTL_CODES = CLCTL_CODES(717);
+pub const CLCTL_CHECK_DRAIN_VETO: CLCTL_CODES = CLCTL_CODES(1057069);
+pub const CLCTL_CHECK_VOTER_DOWN: CLCTL_CODES = CLCTL_CODES(73);
+pub const CLCTL_CHECK_VOTER_DOWN_WITNESS: CLCTL_CODES = CLCTL_CODES(113);
+pub const CLCTL_CHECK_VOTER_EVICT: CLCTL_CODES = CLCTL_CODES(69);
+pub const CLCTL_CHECK_VOTER_EVICT_WITNESS: CLCTL_CODES = CLCTL_CODES(109);
+pub const CLCTL_CLEAR_NODE_CONNECTION_INFO: CLCTL_CODES = CLCTL_CODES(4195078);
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLCTL_CODES = CLCTL_CODES(8417);
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLCTL_CODES = CLCTL_CODES(8433);
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLCTL_CODES = CLCTL_CODES(4202742);
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLCTL_CODES = CLCTL_CODES(4202726);
+pub const CLCTL_CLUSTER_BASE: u32 = 0;
+pub const CLCTL_CLUSTER_NAME_CHANGED: CLCTL_CODES = CLCTL_CODES(5242922);
+pub const CLCTL_CLUSTER_VERSION_CHANGED: CLCTL_CODES = CLCTL_CODES(5242926);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLCTL_CODES(pub i32);
-pub const CLCTL_DELETE: CLCTL_CODES = CLCTL_CODES(5242886i32);
-pub const CLCTL_DELETE_CRYPTO_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194482i32);
-pub const CLCTL_DELETE_REGISTRY_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194470i32);
-pub const CLCTL_DISABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = CLCTL_CODES(4194958i32);
-pub const CLCTL_ENABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = CLCTL_CODES(4194954i32);
-pub const CLCTL_ENUM_AFFINITY_RULE_NAMES: CLCTL_CODES = CLCTL_CODES(11741i32);
-pub const CLCTL_ENUM_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(81i32);
-pub const CLCTL_ENUM_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(121i32);
-pub const CLCTL_EVICT_NODE: CLCTL_CODES = CLCTL_CODES(5242894i32);
-pub const CLCTL_FILESERVER_SHARE_ADD: CLCTL_CODES = CLCTL_CODES(4194886i32);
-pub const CLCTL_FILESERVER_SHARE_DEL: CLCTL_CODES = CLCTL_CODES(4194890i32);
-pub const CLCTL_FILESERVER_SHARE_MODIFY: CLCTL_CODES = CLCTL_CODES(4194894i32);
-pub const CLCTL_FILESERVER_SHARE_REPORT: CLCTL_CODES = CLCTL_CODES(593i32);
-pub const CLCTL_FIXUP_ON_UPGRADE: CLCTL_CODES = CLCTL_CODES(5242930i32);
-pub const CLCTL_FORCE_DB_FLUSH: CLCTL_CODES = CLCTL_CODES(4206054i32);
-pub const CLCTL_FORCE_QUORUM: CLCTL_CODES = CLCTL_CODES(5242950i32);
-pub const CLCTL_FSWITNESS_GET_EPOCH_INFO: CLCTL_CODES = CLCTL_CODES(1048669i32);
-pub const CLCTL_FSWITNESS_RELEASE_LOCK: CLCTL_CODES = CLCTL_CODES(5242982i32);
-pub const CLCTL_FSWITNESS_SET_EPOCH_INFO: CLCTL_CODES = CLCTL_CODES(5242978i32);
-pub const CLCTL_GET_ARB_TIMEOUT: CLCTL_CODES = CLCTL_CODES(21i32);
-pub const CLCTL_GET_CHARACTERISTICS: CLCTL_CODES = CLCTL_CODES(5i32);
-pub const CLCTL_GET_CLASS_INFO: CLCTL_CODES = CLCTL_CODES(13i32);
-pub const CLCTL_GET_CLUSDB_TIMESTAMP: CLCTL_CODES = CLCTL_CODES(681i32);
-pub const CLCTL_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLCTL_CODES = CLCTL_CODES(65i32);
-pub const CLCTL_GET_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(89i32);
-pub const CLCTL_GET_COMMON_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(101i32);
-pub const CLCTL_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(105i32);
-pub const CLCTL_GET_CRYPTO_CHECKPOINTS: CLCTL_CODES = CLCTL_CODES(181i32);
-pub const CLCTL_GET_DNS_NAME: CLCTL_CODES = CLCTL_CODES(373i32);
-pub const CLCTL_GET_FAILURE_INFO: CLCTL_CODES = CLCTL_CODES(25i32);
-pub const CLCTL_GET_FLAGS: CLCTL_CODES = CLCTL_CODES(9i32);
-pub const CLCTL_GET_FQDN: CLCTL_CODES = CLCTL_CODES(61i32);
-pub const CLCTL_GET_GEMID_VECTOR: CLCTL_CODES = CLCTL_CODES(721i32);
-pub const CLCTL_GET_GUM_LOCK_OWNER: CLCTL_CODES = CLCTL_CODES(697i32);
-pub const CLCTL_GET_ID: CLCTL_CODES = CLCTL_CODES(57i32);
-pub const CLCTL_GET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = CLCTL_CODES(11657i32);
-pub const CLCTL_GET_LOADBAL_PROCESS_LIST: CLCTL_CODES = CLCTL_CODES(201i32);
-pub const CLCTL_GET_NAME: CLCTL_CODES = CLCTL_CODES(41i32);
-pub const CLCTL_GET_NETWORK: CLCTL_CODES = CLCTL_CODES(53i32);
-pub const CLCTL_GET_NETWORK_NAME: CLCTL_CODES = CLCTL_CODES(361i32);
-pub const CLCTL_GET_NODE: CLCTL_CODES = CLCTL_CODES(49i32);
-pub const CLCTL_GET_NODES_IN_FD: CLCTL_CODES = CLCTL_CODES(11745i32);
-pub const CLCTL_GET_NODE_NETWORK_CONNECTIVITY: CLCTL_CODES = CLCTL_CODES(797i32);
-pub const CLCTL_GET_OPERATION_CONTEXT: CLCTL_CODES = CLCTL_CODES(1057001i32);
-pub const CLCTL_GET_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(129i32);
-pub const CLCTL_GET_PRIVATE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(141i32);
-pub const CLCTL_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(145i32);
-pub const CLCTL_GET_REGISTRY_CHECKPOINTS: CLCTL_CODES = CLCTL_CODES(169i32);
-pub const CLCTL_GET_REQUIRED_DEPENDENCIES: CLCTL_CODES = CLCTL_CODES(17i32);
-pub const CLCTL_GET_RESOURCE_TYPE: CLCTL_CODES = CLCTL_CODES(45i32);
-pub const CLCTL_GET_RO_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(85i32);
-pub const CLCTL_GET_RO_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(125i32);
-pub const CLCTL_GET_SHARED_VOLUME_ID: CLCTL_CODES = CLCTL_CODES(657i32);
-pub const CLCTL_GET_STATE_CHANGE_TIME: CLCTL_CODES = CLCTL_CODES(11613i32);
-pub const CLCTL_GET_STORAGE_CONFIGURATION: CLCTL_CODES = CLCTL_CODES(741i32);
-pub const CLCTL_GET_STORAGE_CONFIG_ATTRIBUTES: CLCTL_CODES = CLCTL_CODES(745i32);
-pub const CLCTL_GET_STUCK_NODES: CLCTL_CODES = CLCTL_CODES(701i32);
-pub const CLCTL_GLOBAL_SHIFT: u32 = 23u32;
-pub const CLCTL_GROUPSET_GET_GROUPS: CLCTL_CODES = CLCTL_CODES(11633i32);
-pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPS: CLCTL_CODES = CLCTL_CODES(11637i32);
-pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLCTL_CODES = CLCTL_CODES(11641i32);
-pub const CLCTL_GROUP_GET_LAST_MOVE_TIME: CLCTL_CODES = CLCTL_CODES(729i32);
-pub const CLCTL_GROUP_GET_PROVIDER_GROUPS: CLCTL_CODES = CLCTL_CODES(11645i32);
-pub const CLCTL_GROUP_GET_PROVIDER_GROUPSETS: CLCTL_CODES = CLCTL_CODES(11649i32);
-pub const CLCTL_GROUP_SET_CCF_FROM_MASTER: CLCTL_CODES = CLCTL_CODES(4205958i32);
-pub const CLCTL_HOLD_IO: CLCTL_CODES = CLCTL_CODES(5242942i32);
-pub const CLCTL_INITIALIZE: CLCTL_CODES = CLCTL_CODES(5242954i32);
-pub const CLCTL_INJECT_GEM_FAULT: CLCTL_CODES = CLCTL_CODES(705i32);
-pub const CLCTL_INSTALL_NODE: CLCTL_CODES = CLCTL_CODES(5242890i32);
-pub const CLCTL_INTERNAL_SHIFT: u32 = 20u32;
-pub const CLCTL_INTRODUCE_GEM_REPAIR_DELAY: CLCTL_CODES = CLCTL_CODES(709i32);
-pub const CLCTL_IPADDRESS_RELEASE_LEASE: CLCTL_CODES = CLCTL_CODES(4194754i32);
-pub const CLCTL_IPADDRESS_RENEW_LEASE: CLCTL_CODES = CLCTL_CODES(4194750i32);
-pub const CLCTL_IS_FEATURE_INSTALLED: CLCTL_CODES = CLCTL_CODES(753i32);
-pub const CLCTL_IS_QUORUM_BLOCKED: CLCTL_CODES = CLCTL_CODES(689i32);
-pub const CLCTL_IS_S2D_FEATURE_SUPPORTED: CLCTL_CODES = CLCTL_CODES(757i32);
-pub const CLCTL_JOINING_GROUP: CLCTL_CODES = CLCTL_CODES(5242970i32);
-pub const CLCTL_LEAVING_GROUP: CLCTL_CODES = CLCTL_CODES(5242966i32);
-pub const CLCTL_MODIFY_SHIFT: u32 = 22u32;
-pub const CLCTL_NETNAME_CREDS_NOTIFYCAM: CLCTL_CODES = CLCTL_CODES(5242986i32);
-pub const CLCTL_NETNAME_DELETE_CO: CLCTL_CODES = CLCTL_CODES(382i32);
-pub const CLCTL_NETNAME_GET_OU_FOR_VCO: CLCTL_CODES = CLCTL_CODES(4194926i32);
-pub const CLCTL_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLCTL_CODES = CLCTL_CODES(365i32);
-pub const CLCTL_NETNAME_REGISTER_DNS_RECORDS: CLCTL_CODES = CLCTL_CODES(370i32);
-pub const CLCTL_NETNAME_REPAIR_VCO: CLCTL_CODES = CLCTL_CODES(397i32);
-pub const CLCTL_NETNAME_RESET_VCO: CLCTL_CODES = CLCTL_CODES(389i32);
-pub const CLCTL_NETNAME_SET_PWD_INFO: CLCTL_CODES = CLCTL_CODES(378i32);
-pub const CLCTL_NETNAME_SET_PWD_INFOEX: CLCTL_CODES = CLCTL_CODES(794i32);
-pub const CLCTL_NETNAME_VALIDATE_VCO: CLCTL_CODES = CLCTL_CODES(385i32);
-pub const CLCTL_NOTIFY_DRAIN_COMPLETE: CLCTL_CODES = CLCTL_CODES(1057073i32);
-pub const CLCTL_NOTIFY_INFRASTRUCTURE_SOFS_CHANGED: CLCTL_CODES = CLCTL_CODES(4205970i32);
-pub const CLCTL_NOTIFY_MONITOR_SHUTTING_DOWN: CLCTL_CODES = CLCTL_CODES(1048705i32);
-pub const CLCTL_NOTIFY_OWNER_CHANGE: CLCTL_CODES = CLCTL_CODES(5251362i32);
-pub const CLCTL_NOTIFY_QUORUM_STATUS: CLCTL_CODES = CLCTL_CODES(5243006i32);
-pub const CLCTL_POOL_GET_DRIVE_INFO: CLCTL_CODES = CLCTL_CODES(693i32);
-pub const CLCTL_PROVIDER_STATE_CHANGE: CLCTL_CODES = CLCTL_CODES(5242962i32);
-pub const CLCTL_QUERY_DELETE: CLCTL_CODES = CLCTL_CODES(441i32);
-pub const CLCTL_QUERY_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(481i32);
-pub const CLCTL_RELOAD_AUTOLOGGER_CONFIG: CLCTL_CODES = CLCTL_CODES(11730i32);
-pub const CLCTL_REMOVE_DEPENDENCY: CLCTL_CODES = CLCTL_CODES(5242902i32);
-pub const CLCTL_REMOVE_NODE: CLCTL_CODES = CLCTL_CODES(4195054i32);
-pub const CLCTL_REMOVE_OWNER: CLCTL_CODES = CLCTL_CODES(5242910i32);
-pub const CLCTL_REPLICATION_ADD_REPLICATION_GROUP: CLCTL_CODES = CLCTL_CODES(8514i32);
-pub const CLCTL_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLCTL_CODES = CLCTL_CODES(8521i32);
-pub const CLCTL_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLCTL_CODES = CLCTL_CODES(8529i32);
-pub const CLCTL_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLCTL_CODES = CLCTL_CODES(8525i32);
-pub const CLCTL_REPLICATION_GET_LOG_INFO: CLCTL_CODES = CLCTL_CODES(8517i32);
-pub const CLCTL_REPLICATION_GET_LOG_VOLUME: CLCTL_CODES = CLCTL_CODES(8541i32);
-pub const CLCTL_REPLICATION_GET_REPLICATED_DISKS: CLCTL_CODES = CLCTL_CODES(8533i32);
-pub const CLCTL_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLCTL_CODES = CLCTL_CODES(8549i32);
-pub const CLCTL_REPLICATION_GET_REPLICA_VOLUMES: CLCTL_CODES = CLCTL_CODES(8537i32);
-pub const CLCTL_REPLICATION_GET_RESOURCE_GROUP: CLCTL_CODES = CLCTL_CODES(8545i32);
-pub const CLCTL_RESOURCE_PREPARE_UPGRADE: CLCTL_CODES = CLCTL_CODES(4202730i32);
-pub const CLCTL_RESOURCE_UPGRADE_COMPLETED: CLCTL_CODES = CLCTL_CODES(4202734i32);
-pub const CLCTL_RESOURCE_UPGRADE_DLL: CLCTL_CODES = CLCTL_CODES(4194490i32);
-pub const CLCTL_RESUME_IO: CLCTL_CODES = CLCTL_CODES(5242946i32);
-pub const CLCTL_RW_MODIFY_NOOP: CLCTL_CODES = CLCTL_CODES(4194990i32);
-pub const CLCTL_SCALEOUT_COMMAND: CLCTL_CODES = CLCTL_CODES(4205974i32);
-pub const CLCTL_SCALEOUT_CONTROL: CLCTL_CODES = CLCTL_CODES(4205978i32);
-pub const CLCTL_SCALEOUT_GET_CLUSTERS: CLCTL_CODES = CLCTL_CODES(4205981i32);
-pub const CLCTL_SEND_DUMMY_GEM_MESSAGES: CLCTL_CODES = CLCTL_CODES(713i32);
-pub const CLCTL_SET_ACCOUNT_ACCESS: CLCTL_CODES = CLCTL_CODES(4194546i32);
-pub const CLCTL_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLCTL_CODES = CLCTL_CODES(4205934i32);
-pub const CLCTL_SET_CLUSTER_S2D_ENABLED: CLCTL_CODES = CLCTL_CODES(4205922i32);
-pub const CLCTL_SET_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(4194398i32);
-pub const CLCTL_SET_CSV_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(4194966i32);
-pub const CLCTL_SET_DNS_DOMAIN: CLCTL_CODES = CLCTL_CODES(4195082i32);
-pub const CLCTL_SET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = CLCTL_CODES(4205966i32);
-pub const CLCTL_SET_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(4194790i32);
-pub const CLCTL_SET_NAME: CLCTL_CODES = CLCTL_CODES(5242918i32);
-pub const CLCTL_SET_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(4194438i32);
-pub const CLCTL_SET_SHARED_VOLUME_BACKUP_MODE: CLCTL_CODES = CLCTL_CODES(4194970i32);
-pub const CLCTL_SET_STORAGE_CONFIGURATION: CLCTL_CODES = CLCTL_CODES(4195042i32);
-pub const CLCTL_SHUTDOWN: CLCTL_CODES = CLCTL_CODES(77i32);
-pub const CLCTL_STARTING_PHASE1: CLCTL_CODES = CLCTL_CODES(5242934i32);
-pub const CLCTL_STARTING_PHASE2: CLCTL_CODES = CLCTL_CODES(5242938i32);
-pub const CLCTL_STATE_CHANGE_REASON: CLCTL_CODES = CLCTL_CODES(5242958i32);
-pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS: CLCTL_CODES = CLCTL_CODES(405i32);
-pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX: CLCTL_CODES = CLCTL_CODES(501i32);
-pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLCTL_CODES = CLCTL_CODES(8161i32);
-pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHINFO: CLCTL_CODES = CLCTL_CODES(769i32);
-pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHS: CLCTL_CODES = CLCTL_CODES(765i32);
-pub const CLCTL_STORAGE_GET_CLUSPORT_DISK_COUNT: CLCTL_CODES = CLCTL_CODES(509i32);
-pub const CLCTL_STORAGE_GET_DIRTY: CLCTL_CODES = CLCTL_CODES(537i32);
-pub const CLCTL_STORAGE_GET_DISKID: CLCTL_CODES = CLCTL_CODES(517i32);
-pub const CLCTL_STORAGE_GET_DISK_INFO: CLCTL_CODES = CLCTL_CODES(401i32);
-pub const CLCTL_STORAGE_GET_DISK_INFO_EX: CLCTL_CODES = CLCTL_CODES(497i32);
-pub const CLCTL_STORAGE_GET_DISK_INFO_EX2: CLCTL_CODES = CLCTL_CODES(505i32);
-pub const CLCTL_STORAGE_GET_DISK_NUMBER_INFO: CLCTL_CODES = CLCTL_CODES(417i32);
-pub const CLCTL_STORAGE_GET_DRIVELETTERS: CLCTL_CODES = CLCTL_CODES(493i32);
-pub const CLCTL_STORAGE_GET_MOUNTPOINTS: CLCTL_CODES = CLCTL_CODES(529i32);
-pub const CLCTL_STORAGE_GET_PHYSICAL_DISK_INFO: CLCTL_CODES = CLCTL_CODES(761i32);
-pub const CLCTL_STORAGE_GET_RESOURCEID: CLCTL_CODES = CLCTL_CODES(557i32);
-pub const CLCTL_STORAGE_GET_SHARED_VOLUME_INFO: CLCTL_CODES = CLCTL_CODES(549i32);
-pub const CLCTL_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLCTL_CODES = CLCTL_CODES(669i32);
-pub const CLCTL_STORAGE_GET_SHARED_VOLUME_STATES: CLCTL_CODES = CLCTL_CODES(4194978i32);
-pub const CLCTL_STORAGE_IS_CLUSTERABLE: CLCTL_CODES = CLCTL_CODES(521i32);
-pub const CLCTL_STORAGE_IS_CSV_FILE: CLCTL_CODES = CLCTL_CODES(553i32);
-pub const CLCTL_STORAGE_IS_PATH_VALID: CLCTL_CODES = CLCTL_CODES(409i32);
-pub const CLCTL_STORAGE_IS_SHARED_VOLUME: CLCTL_CODES = CLCTL_CODES(677i32);
-pub const CLCTL_STORAGE_REMAP_DRIVELETTER: CLCTL_CODES = CLCTL_CODES(513i32);
-pub const CLCTL_STORAGE_REMOVE_VM_OWNERSHIP: CLCTL_CODES = CLCTL_CODES(4194830i32);
-pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME: CLCTL_CODES = CLCTL_CODES(11734i32);
-pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME_GUID: CLCTL_CODES = CLCTL_CODES(11738i32);
-pub const CLCTL_STORAGE_SET_DRIVELETTER: CLCTL_CODES = CLCTL_CODES(4194794i32);
-pub const CLCTL_STORAGE_SYNC_CLUSDISK_DB: CLCTL_CODES = CLCTL_CODES(4194718i32);
-pub const CLCTL_UNDELETE: CLCTL_CODES = CLCTL_CODES(5243014i32);
-pub const CLCTL_UNKNOWN: CLCTL_CODES = CLCTL_CODES(0i32);
-pub const CLCTL_USER_SHIFT: u32 = 21u32;
-pub const CLCTL_VALIDATE_CHANGE_GROUP: CLCTL_CODES = CLCTL_CODES(1057061i32);
-pub const CLCTL_VALIDATE_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(97i32);
-pub const CLCTL_VALIDATE_DIRECTORY: CLCTL_CODES = CLCTL_CODES(569i32);
-pub const CLCTL_VALIDATE_NETNAME: CLCTL_CODES = CLCTL_CODES(565i32);
-pub const CLCTL_VALIDATE_PATH: CLCTL_CODES = CLCTL_CODES(561i32);
-pub const CLCTL_VALIDATE_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(137i32);
+pub const CLCTL_DELETE: CLCTL_CODES = CLCTL_CODES(5242886);
+pub const CLCTL_DELETE_CRYPTO_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194482);
+pub const CLCTL_DELETE_REGISTRY_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194470);
+pub const CLCTL_DISABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = CLCTL_CODES(4194958);
+pub const CLCTL_ENABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = CLCTL_CODES(4194954);
+pub const CLCTL_ENUM_AFFINITY_RULE_NAMES: CLCTL_CODES = CLCTL_CODES(11741);
+pub const CLCTL_ENUM_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(81);
+pub const CLCTL_ENUM_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(121);
+pub const CLCTL_EVICT_NODE: CLCTL_CODES = CLCTL_CODES(5242894);
+pub const CLCTL_FILESERVER_SHARE_ADD: CLCTL_CODES = CLCTL_CODES(4194886);
+pub const CLCTL_FILESERVER_SHARE_DEL: CLCTL_CODES = CLCTL_CODES(4194890);
+pub const CLCTL_FILESERVER_SHARE_MODIFY: CLCTL_CODES = CLCTL_CODES(4194894);
+pub const CLCTL_FILESERVER_SHARE_REPORT: CLCTL_CODES = CLCTL_CODES(593);
+pub const CLCTL_FIXUP_ON_UPGRADE: CLCTL_CODES = CLCTL_CODES(5242930);
+pub const CLCTL_FORCE_DB_FLUSH: CLCTL_CODES = CLCTL_CODES(4206054);
+pub const CLCTL_FORCE_QUORUM: CLCTL_CODES = CLCTL_CODES(5242950);
+pub const CLCTL_FSWITNESS_GET_EPOCH_INFO: CLCTL_CODES = CLCTL_CODES(1048669);
+pub const CLCTL_FSWITNESS_RELEASE_LOCK: CLCTL_CODES = CLCTL_CODES(5242982);
+pub const CLCTL_FSWITNESS_SET_EPOCH_INFO: CLCTL_CODES = CLCTL_CODES(5242978);
+pub const CLCTL_GET_ARB_TIMEOUT: CLCTL_CODES = CLCTL_CODES(21);
+pub const CLCTL_GET_CHARACTERISTICS: CLCTL_CODES = CLCTL_CODES(5);
+pub const CLCTL_GET_CLASS_INFO: CLCTL_CODES = CLCTL_CODES(13);
+pub const CLCTL_GET_CLUSDB_TIMESTAMP: CLCTL_CODES = CLCTL_CODES(681);
+pub const CLCTL_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLCTL_CODES = CLCTL_CODES(65);
+pub const CLCTL_GET_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(89);
+pub const CLCTL_GET_COMMON_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(101);
+pub const CLCTL_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(105);
+pub const CLCTL_GET_CRYPTO_CHECKPOINTS: CLCTL_CODES = CLCTL_CODES(181);
+pub const CLCTL_GET_DNS_NAME: CLCTL_CODES = CLCTL_CODES(373);
+pub const CLCTL_GET_FAILURE_INFO: CLCTL_CODES = CLCTL_CODES(25);
+pub const CLCTL_GET_FLAGS: CLCTL_CODES = CLCTL_CODES(9);
+pub const CLCTL_GET_FQDN: CLCTL_CODES = CLCTL_CODES(61);
+pub const CLCTL_GET_GEMID_VECTOR: CLCTL_CODES = CLCTL_CODES(721);
+pub const CLCTL_GET_GUM_LOCK_OWNER: CLCTL_CODES = CLCTL_CODES(697);
+pub const CLCTL_GET_ID: CLCTL_CODES = CLCTL_CODES(57);
+pub const CLCTL_GET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = CLCTL_CODES(11657);
+pub const CLCTL_GET_LOADBAL_PROCESS_LIST: CLCTL_CODES = CLCTL_CODES(201);
+pub const CLCTL_GET_NAME: CLCTL_CODES = CLCTL_CODES(41);
+pub const CLCTL_GET_NETWORK: CLCTL_CODES = CLCTL_CODES(53);
+pub const CLCTL_GET_NETWORK_NAME: CLCTL_CODES = CLCTL_CODES(361);
+pub const CLCTL_GET_NODE: CLCTL_CODES = CLCTL_CODES(49);
+pub const CLCTL_GET_NODES_IN_FD: CLCTL_CODES = CLCTL_CODES(11745);
+pub const CLCTL_GET_NODE_NETWORK_CONNECTIVITY: CLCTL_CODES = CLCTL_CODES(797);
+pub const CLCTL_GET_OPERATION_CONTEXT: CLCTL_CODES = CLCTL_CODES(1057001);
+pub const CLCTL_GET_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(129);
+pub const CLCTL_GET_PRIVATE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(141);
+pub const CLCTL_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(145);
+pub const CLCTL_GET_REGISTRY_CHECKPOINTS: CLCTL_CODES = CLCTL_CODES(169);
+pub const CLCTL_GET_REQUIRED_DEPENDENCIES: CLCTL_CODES = CLCTL_CODES(17);
+pub const CLCTL_GET_RESOURCE_TYPE: CLCTL_CODES = CLCTL_CODES(45);
+pub const CLCTL_GET_RO_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(85);
+pub const CLCTL_GET_RO_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(125);
+pub const CLCTL_GET_SHARED_VOLUME_ID: CLCTL_CODES = CLCTL_CODES(657);
+pub const CLCTL_GET_STATE_CHANGE_TIME: CLCTL_CODES = CLCTL_CODES(11613);
+pub const CLCTL_GET_STORAGE_CONFIGURATION: CLCTL_CODES = CLCTL_CODES(741);
+pub const CLCTL_GET_STORAGE_CONFIG_ATTRIBUTES: CLCTL_CODES = CLCTL_CODES(745);
+pub const CLCTL_GET_STUCK_NODES: CLCTL_CODES = CLCTL_CODES(701);
+pub const CLCTL_GLOBAL_SHIFT: u32 = 23;
+pub const CLCTL_GROUPSET_GET_GROUPS: CLCTL_CODES = CLCTL_CODES(11633);
+pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPS: CLCTL_CODES = CLCTL_CODES(11637);
+pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLCTL_CODES = CLCTL_CODES(11641);
+pub const CLCTL_GROUP_GET_LAST_MOVE_TIME: CLCTL_CODES = CLCTL_CODES(729);
+pub const CLCTL_GROUP_GET_PROVIDER_GROUPS: CLCTL_CODES = CLCTL_CODES(11645);
+pub const CLCTL_GROUP_GET_PROVIDER_GROUPSETS: CLCTL_CODES = CLCTL_CODES(11649);
+pub const CLCTL_GROUP_SET_CCF_FROM_MASTER: CLCTL_CODES = CLCTL_CODES(4205958);
+pub const CLCTL_HOLD_IO: CLCTL_CODES = CLCTL_CODES(5242942);
+pub const CLCTL_INITIALIZE: CLCTL_CODES = CLCTL_CODES(5242954);
+pub const CLCTL_INJECT_GEM_FAULT: CLCTL_CODES = CLCTL_CODES(705);
+pub const CLCTL_INSTALL_NODE: CLCTL_CODES = CLCTL_CODES(5242890);
+pub const CLCTL_INTERNAL_SHIFT: u32 = 20;
+pub const CLCTL_INTRODUCE_GEM_REPAIR_DELAY: CLCTL_CODES = CLCTL_CODES(709);
+pub const CLCTL_IPADDRESS_RELEASE_LEASE: CLCTL_CODES = CLCTL_CODES(4194754);
+pub const CLCTL_IPADDRESS_RENEW_LEASE: CLCTL_CODES = CLCTL_CODES(4194750);
+pub const CLCTL_IS_FEATURE_INSTALLED: CLCTL_CODES = CLCTL_CODES(753);
+pub const CLCTL_IS_QUORUM_BLOCKED: CLCTL_CODES = CLCTL_CODES(689);
+pub const CLCTL_IS_S2D_FEATURE_SUPPORTED: CLCTL_CODES = CLCTL_CODES(757);
+pub const CLCTL_JOINING_GROUP: CLCTL_CODES = CLCTL_CODES(5242970);
+pub const CLCTL_LEAVING_GROUP: CLCTL_CODES = CLCTL_CODES(5242966);
+pub const CLCTL_MODIFY_SHIFT: u32 = 22;
+pub const CLCTL_NETNAME_CREDS_NOTIFYCAM: CLCTL_CODES = CLCTL_CODES(5242986);
+pub const CLCTL_NETNAME_DELETE_CO: CLCTL_CODES = CLCTL_CODES(382);
+pub const CLCTL_NETNAME_GET_OU_FOR_VCO: CLCTL_CODES = CLCTL_CODES(4194926);
+pub const CLCTL_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLCTL_CODES = CLCTL_CODES(365);
+pub const CLCTL_NETNAME_REGISTER_DNS_RECORDS: CLCTL_CODES = CLCTL_CODES(370);
+pub const CLCTL_NETNAME_REPAIR_VCO: CLCTL_CODES = CLCTL_CODES(397);
+pub const CLCTL_NETNAME_RESET_VCO: CLCTL_CODES = CLCTL_CODES(389);
+pub const CLCTL_NETNAME_SET_PWD_INFO: CLCTL_CODES = CLCTL_CODES(378);
+pub const CLCTL_NETNAME_SET_PWD_INFOEX: CLCTL_CODES = CLCTL_CODES(794);
+pub const CLCTL_NETNAME_VALIDATE_VCO: CLCTL_CODES = CLCTL_CODES(385);
+pub const CLCTL_NOTIFY_DRAIN_COMPLETE: CLCTL_CODES = CLCTL_CODES(1057073);
+pub const CLCTL_NOTIFY_INFRASTRUCTURE_SOFS_CHANGED: CLCTL_CODES = CLCTL_CODES(4205970);
+pub const CLCTL_NOTIFY_MONITOR_SHUTTING_DOWN: CLCTL_CODES = CLCTL_CODES(1048705);
+pub const CLCTL_NOTIFY_OWNER_CHANGE: CLCTL_CODES = CLCTL_CODES(5251362);
+pub const CLCTL_NOTIFY_QUORUM_STATUS: CLCTL_CODES = CLCTL_CODES(5243006);
+pub const CLCTL_POOL_GET_DRIVE_INFO: CLCTL_CODES = CLCTL_CODES(693);
+pub const CLCTL_PROVIDER_STATE_CHANGE: CLCTL_CODES = CLCTL_CODES(5242962);
+pub const CLCTL_QUERY_DELETE: CLCTL_CODES = CLCTL_CODES(441);
+pub const CLCTL_QUERY_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(481);
+pub const CLCTL_RELOAD_AUTOLOGGER_CONFIG: CLCTL_CODES = CLCTL_CODES(11730);
+pub const CLCTL_REMOVE_DEPENDENCY: CLCTL_CODES = CLCTL_CODES(5242902);
+pub const CLCTL_REMOVE_NODE: CLCTL_CODES = CLCTL_CODES(4195054);
+pub const CLCTL_REMOVE_OWNER: CLCTL_CODES = CLCTL_CODES(5242910);
+pub const CLCTL_REPLICATION_ADD_REPLICATION_GROUP: CLCTL_CODES = CLCTL_CODES(8514);
+pub const CLCTL_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLCTL_CODES = CLCTL_CODES(8521);
+pub const CLCTL_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLCTL_CODES = CLCTL_CODES(8529);
+pub const CLCTL_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLCTL_CODES = CLCTL_CODES(8525);
+pub const CLCTL_REPLICATION_GET_LOG_INFO: CLCTL_CODES = CLCTL_CODES(8517);
+pub const CLCTL_REPLICATION_GET_LOG_VOLUME: CLCTL_CODES = CLCTL_CODES(8541);
+pub const CLCTL_REPLICATION_GET_REPLICATED_DISKS: CLCTL_CODES = CLCTL_CODES(8533);
+pub const CLCTL_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLCTL_CODES = CLCTL_CODES(8549);
+pub const CLCTL_REPLICATION_GET_REPLICA_VOLUMES: CLCTL_CODES = CLCTL_CODES(8537);
+pub const CLCTL_REPLICATION_GET_RESOURCE_GROUP: CLCTL_CODES = CLCTL_CODES(8545);
+pub const CLCTL_RESOURCE_PREPARE_UPGRADE: CLCTL_CODES = CLCTL_CODES(4202730);
+pub const CLCTL_RESOURCE_UPGRADE_COMPLETED: CLCTL_CODES = CLCTL_CODES(4202734);
+pub const CLCTL_RESOURCE_UPGRADE_DLL: CLCTL_CODES = CLCTL_CODES(4194490);
+pub const CLCTL_RESUME_IO: CLCTL_CODES = CLCTL_CODES(5242946);
+pub const CLCTL_RW_MODIFY_NOOP: CLCTL_CODES = CLCTL_CODES(4194990);
+pub const CLCTL_SCALEOUT_COMMAND: CLCTL_CODES = CLCTL_CODES(4205974);
+pub const CLCTL_SCALEOUT_CONTROL: CLCTL_CODES = CLCTL_CODES(4205978);
+pub const CLCTL_SCALEOUT_GET_CLUSTERS: CLCTL_CODES = CLCTL_CODES(4205981);
+pub const CLCTL_SEND_DUMMY_GEM_MESSAGES: CLCTL_CODES = CLCTL_CODES(713);
+pub const CLCTL_SET_ACCOUNT_ACCESS: CLCTL_CODES = CLCTL_CODES(4194546);
+pub const CLCTL_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLCTL_CODES = CLCTL_CODES(4205934);
+pub const CLCTL_SET_CLUSTER_S2D_ENABLED: CLCTL_CODES = CLCTL_CODES(4205922);
+pub const CLCTL_SET_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(4194398);
+pub const CLCTL_SET_CSV_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(4194966);
+pub const CLCTL_SET_DNS_DOMAIN: CLCTL_CODES = CLCTL_CODES(4195082);
+pub const CLCTL_SET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = CLCTL_CODES(4205966);
+pub const CLCTL_SET_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(4194790);
+pub const CLCTL_SET_NAME: CLCTL_CODES = CLCTL_CODES(5242918);
+pub const CLCTL_SET_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(4194438);
+pub const CLCTL_SET_SHARED_VOLUME_BACKUP_MODE: CLCTL_CODES = CLCTL_CODES(4194970);
+pub const CLCTL_SET_STORAGE_CONFIGURATION: CLCTL_CODES = CLCTL_CODES(4195042);
+pub const CLCTL_SHUTDOWN: CLCTL_CODES = CLCTL_CODES(77);
+pub const CLCTL_STARTING_PHASE1: CLCTL_CODES = CLCTL_CODES(5242934);
+pub const CLCTL_STARTING_PHASE2: CLCTL_CODES = CLCTL_CODES(5242938);
+pub const CLCTL_STATE_CHANGE_REASON: CLCTL_CODES = CLCTL_CODES(5242958);
+pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS: CLCTL_CODES = CLCTL_CODES(405);
+pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX: CLCTL_CODES = CLCTL_CODES(501);
+pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLCTL_CODES = CLCTL_CODES(8161);
+pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHINFO: CLCTL_CODES = CLCTL_CODES(769);
+pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHS: CLCTL_CODES = CLCTL_CODES(765);
+pub const CLCTL_STORAGE_GET_CLUSPORT_DISK_COUNT: CLCTL_CODES = CLCTL_CODES(509);
+pub const CLCTL_STORAGE_GET_DIRTY: CLCTL_CODES = CLCTL_CODES(537);
+pub const CLCTL_STORAGE_GET_DISKID: CLCTL_CODES = CLCTL_CODES(517);
+pub const CLCTL_STORAGE_GET_DISK_INFO: CLCTL_CODES = CLCTL_CODES(401);
+pub const CLCTL_STORAGE_GET_DISK_INFO_EX: CLCTL_CODES = CLCTL_CODES(497);
+pub const CLCTL_STORAGE_GET_DISK_INFO_EX2: CLCTL_CODES = CLCTL_CODES(505);
+pub const CLCTL_STORAGE_GET_DISK_NUMBER_INFO: CLCTL_CODES = CLCTL_CODES(417);
+pub const CLCTL_STORAGE_GET_DRIVELETTERS: CLCTL_CODES = CLCTL_CODES(493);
+pub const CLCTL_STORAGE_GET_MOUNTPOINTS: CLCTL_CODES = CLCTL_CODES(529);
+pub const CLCTL_STORAGE_GET_PHYSICAL_DISK_INFO: CLCTL_CODES = CLCTL_CODES(761);
+pub const CLCTL_STORAGE_GET_RESOURCEID: CLCTL_CODES = CLCTL_CODES(557);
+pub const CLCTL_STORAGE_GET_SHARED_VOLUME_INFO: CLCTL_CODES = CLCTL_CODES(549);
+pub const CLCTL_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLCTL_CODES = CLCTL_CODES(669);
+pub const CLCTL_STORAGE_GET_SHARED_VOLUME_STATES: CLCTL_CODES = CLCTL_CODES(4194978);
+pub const CLCTL_STORAGE_IS_CLUSTERABLE: CLCTL_CODES = CLCTL_CODES(521);
+pub const CLCTL_STORAGE_IS_CSV_FILE: CLCTL_CODES = CLCTL_CODES(553);
+pub const CLCTL_STORAGE_IS_PATH_VALID: CLCTL_CODES = CLCTL_CODES(409);
+pub const CLCTL_STORAGE_IS_SHARED_VOLUME: CLCTL_CODES = CLCTL_CODES(677);
+pub const CLCTL_STORAGE_REMAP_DRIVELETTER: CLCTL_CODES = CLCTL_CODES(513);
+pub const CLCTL_STORAGE_REMOVE_VM_OWNERSHIP: CLCTL_CODES = CLCTL_CODES(4194830);
+pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME: CLCTL_CODES = CLCTL_CODES(11734);
+pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME_GUID: CLCTL_CODES = CLCTL_CODES(11738);
+pub const CLCTL_STORAGE_SET_DRIVELETTER: CLCTL_CODES = CLCTL_CODES(4194794);
+pub const CLCTL_STORAGE_SYNC_CLUSDISK_DB: CLCTL_CODES = CLCTL_CODES(4194718);
+pub const CLCTL_UNDELETE: CLCTL_CODES = CLCTL_CODES(5243014);
+pub const CLCTL_UNKNOWN: CLCTL_CODES = CLCTL_CODES(0);
+pub const CLCTL_USER_SHIFT: u32 = 21;
+pub const CLCTL_VALIDATE_CHANGE_GROUP: CLCTL_CODES = CLCTL_CODES(1057061);
+pub const CLCTL_VALIDATE_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(97);
+pub const CLCTL_VALIDATE_DIRECTORY: CLCTL_CODES = CLCTL_CODES(569);
+pub const CLCTL_VALIDATE_NETNAME: CLCTL_CODES = CLCTL_CODES(565);
+pub const CLCTL_VALIDATE_PATH: CLCTL_CODES = CLCTL_CODES(561);
+pub const CLCTL_VALIDATE_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(137);
 pub const CLOUD_WITNESS_CONTAINER_NAME: windows_core::PCWSTR = windows_core::w!("msft-cloud-witness");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -2989,43 +2989,43 @@ pub struct CLRES_V4_FUNCTIONS {
     pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
     pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
-pub const CLRES_VERSION_V1_00: u32 = 256u32;
-pub const CLRES_VERSION_V2_00: u32 = 512u32;
-pub const CLRES_VERSION_V3_00: u32 = 768u32;
-pub const CLRES_VERSION_V4_00: u32 = 1024u32;
+pub const CLRES_VERSION_V1_00: u32 = 256;
+pub const CLRES_VERSION_V2_00: u32 = 512;
+pub const CLRES_VERSION_V3_00: u32 = 768;
+pub const CLRES_VERSION_V4_00: u32 = 1024;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUADMEX_OBJECT_TYPE(pub i32);
-pub const CLUADMEX_OT_CLUSTER: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(1i32);
-pub const CLUADMEX_OT_GROUP: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(3i32);
-pub const CLUADMEX_OT_NETINTERFACE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(7i32);
-pub const CLUADMEX_OT_NETWORK: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(6i32);
-pub const CLUADMEX_OT_NODE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(2i32);
-pub const CLUADMEX_OT_NONE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(0i32);
-pub const CLUADMEX_OT_RESOURCE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(4i32);
-pub const CLUADMEX_OT_RESOURCETYPE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(5i32);
-pub const CLUSAPI_CHANGE_ACCESS: i32 = 2i32;
-pub const CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV: u64 = 1u64;
-pub const CLUSAPI_GROUP_MOVE_FAILBACK: u32 = 16u32;
-pub const CLUSAPI_GROUP_MOVE_HIGH_PRIORITY_START: u32 = 8u32;
-pub const CLUSAPI_GROUP_MOVE_IGNORE_AFFINITY_RULE: u32 = 32u32;
-pub const CLUSAPI_GROUP_MOVE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
-pub const CLUSAPI_GROUP_MOVE_QUEUE_ENABLED: u32 = 4u32;
-pub const CLUSAPI_GROUP_MOVE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2u32;
-pub const CLUSAPI_GROUP_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
-pub const CLUSAPI_GROUP_ONLINE_BEST_POSSIBLE_NODE: u32 = 4u32;
-pub const CLUSAPI_GROUP_ONLINE_IGNORE_AFFINITY_RULE: u32 = 8u32;
-pub const CLUSAPI_GROUP_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
-pub const CLUSAPI_GROUP_ONLINE_SYNCHRONOUS: u32 = 2u32;
-pub const CLUSAPI_NODE_AVOID_PLACEMENT: u32 = 2u32;
-pub const CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR: u32 = 1u32;
-pub const CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE: u32 = 4u32;
-pub const CLUSAPI_NODE_RESUME_FAILBACK_PINNED_VMS_ONLY: u32 = 4u32;
-pub const CLUSAPI_NODE_RESUME_FAILBACK_STORAGE: u32 = 1u32;
-pub const CLUSAPI_NODE_RESUME_FAILBACK_VMS: u32 = 2u32;
-pub const CLUSAPI_NODE_RESUME_FAILBACK_VMS_FORCEFULLY: u32 = 8u32;
-pub const CLUSAPI_NO_ACCESS: i32 = 4i32;
-pub const CLUSAPI_READ_ACCESS: i32 = 1i32;
+pub const CLUADMEX_OT_CLUSTER: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(1);
+pub const CLUADMEX_OT_GROUP: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(3);
+pub const CLUADMEX_OT_NETINTERFACE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(7);
+pub const CLUADMEX_OT_NETWORK: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(6);
+pub const CLUADMEX_OT_NODE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(2);
+pub const CLUADMEX_OT_NONE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(0);
+pub const CLUADMEX_OT_RESOURCE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(4);
+pub const CLUADMEX_OT_RESOURCETYPE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(5);
+pub const CLUSAPI_CHANGE_ACCESS: i32 = 2;
+pub const CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV: u64 = 1;
+pub const CLUSAPI_GROUP_MOVE_FAILBACK: u32 = 16;
+pub const CLUSAPI_GROUP_MOVE_HIGH_PRIORITY_START: u32 = 8;
+pub const CLUSAPI_GROUP_MOVE_IGNORE_AFFINITY_RULE: u32 = 32;
+pub const CLUSAPI_GROUP_MOVE_IGNORE_RESOURCE_STATUS: u32 = 1;
+pub const CLUSAPI_GROUP_MOVE_QUEUE_ENABLED: u32 = 4;
+pub const CLUSAPI_GROUP_MOVE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2;
+pub const CLUSAPI_GROUP_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
+pub const CLUSAPI_GROUP_ONLINE_BEST_POSSIBLE_NODE: u32 = 4;
+pub const CLUSAPI_GROUP_ONLINE_IGNORE_AFFINITY_RULE: u32 = 8;
+pub const CLUSAPI_GROUP_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
+pub const CLUSAPI_GROUP_ONLINE_SYNCHRONOUS: u32 = 2;
+pub const CLUSAPI_NODE_AVOID_PLACEMENT: u32 = 2;
+pub const CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR: u32 = 1;
+pub const CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE: u32 = 4;
+pub const CLUSAPI_NODE_RESUME_FAILBACK_PINNED_VMS_ONLY: u32 = 4;
+pub const CLUSAPI_NODE_RESUME_FAILBACK_STORAGE: u32 = 1;
+pub const CLUSAPI_NODE_RESUME_FAILBACK_VMS: u32 = 2;
+pub const CLUSAPI_NODE_RESUME_FAILBACK_VMS_FORCEFULLY: u32 = 8;
+pub const CLUSAPI_NO_ACCESS: i32 = 4;
+pub const CLUSAPI_READ_ACCESS: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct CLUSAPI_REASON_HANDLER {
@@ -3037,116 +3037,116 @@ impl Default for CLUSAPI_REASON_HANDLER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 4u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: u32 = 2u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_DELETED: u32 = 8u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_RESTARTED: u32 = 16u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_MOVING: u32 = 2u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_NONE: u32 = 0u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_PREEMPTED: u32 = 32u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_SHUTTING_DOWN: u32 = 64u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_UNKNOWN: u32 = 1u32;
-pub const CLUSAPI_RESOURCE_OFFLINE_REASON_USER_REQUESTED: u32 = 4u32;
-pub const CLUSAPI_RESOURCE_ONLINE_BEST_POSSIBLE_NODE: u32 = 8u32;
-pub const CLUSAPI_RESOURCE_ONLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 2u32;
-pub const CLUSAPI_RESOURCE_ONLINE_IGNORE_AFFINITY_RULE: u32 = 32u32;
-pub const CLUSAPI_RESOURCE_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
-pub const CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM: u32 = 4u32;
-pub const CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS: u64 = 1u64;
-pub const CLUSAPI_VERSION: u32 = 3077u32;
-pub const CLUSAPI_VERSION_CU: u32 = 3075u32;
-pub const CLUSAPI_VERSION_GA: u32 = 3077u32;
-pub const CLUSAPI_VERSION_NI: u32 = 2572u32;
-pub const CLUSAPI_VERSION_RS3: u32 = 2560u32;
-pub const CLUSAPI_VERSION_SERVER2008: u32 = 1536u32;
-pub const CLUSAPI_VERSION_SERVER2008R2: u32 = 1792u32;
-pub const CLUSAPI_VERSION_WINDOWS8: u32 = 1793u32;
-pub const CLUSAPI_VERSION_WINDOWSBLUE: u32 = 1794u32;
-pub const CLUSAPI_VERSION_WINTHRESHOLD: u32 = 1795u32;
-pub const CLUSAPI_VERSION_ZN: u32 = 3076u32;
-pub const CLUSCTL_ACCESS_MODE_MASK: u32 = 3u32;
-pub const CLUSCTL_ACCESS_SHIFT: u32 = 0u32;
+pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 4;
+pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: u32 = 2;
+pub const CLUSAPI_RESOURCE_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_DELETED: u32 = 8;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_RESTARTED: u32 = 16;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_MOVING: u32 = 2;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_NONE: u32 = 0;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_PREEMPTED: u32 = 32;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_SHUTTING_DOWN: u32 = 64;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_UNKNOWN: u32 = 1;
+pub const CLUSAPI_RESOURCE_OFFLINE_REASON_USER_REQUESTED: u32 = 4;
+pub const CLUSAPI_RESOURCE_ONLINE_BEST_POSSIBLE_NODE: u32 = 8;
+pub const CLUSAPI_RESOURCE_ONLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 2;
+pub const CLUSAPI_RESOURCE_ONLINE_IGNORE_AFFINITY_RULE: u32 = 32;
+pub const CLUSAPI_RESOURCE_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
+pub const CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM: u32 = 4;
+pub const CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS: u64 = 1;
+pub const CLUSAPI_VERSION: u32 = 3077;
+pub const CLUSAPI_VERSION_CU: u32 = 3075;
+pub const CLUSAPI_VERSION_GA: u32 = 3077;
+pub const CLUSAPI_VERSION_NI: u32 = 2572;
+pub const CLUSAPI_VERSION_RS3: u32 = 2560;
+pub const CLUSAPI_VERSION_SERVER2008: u32 = 1536;
+pub const CLUSAPI_VERSION_SERVER2008R2: u32 = 1792;
+pub const CLUSAPI_VERSION_WINDOWS8: u32 = 1793;
+pub const CLUSAPI_VERSION_WINDOWSBLUE: u32 = 1794;
+pub const CLUSAPI_VERSION_WINTHRESHOLD: u32 = 1795;
+pub const CLUSAPI_VERSION_ZN: u32 = 3076;
+pub const CLUSCTL_ACCESS_MODE_MASK: u32 = 3;
+pub const CLUSCTL_ACCESS_SHIFT: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_AFFINITYRULE_CODES(pub i32);
-pub const CLUSCTL_AFFINITYRULE_GET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995033i32);
-pub const CLUSCTL_AFFINITYRULE_GET_GROUPNAMES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(151006577i32);
-pub const CLUSCTL_AFFINITYRULE_GET_ID: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995001i32);
-pub const CLUSCTL_AFFINITYRULE_GET_RO_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995029i32);
-pub const CLUSCTL_AFFINITYRULE_SET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(155189342i32);
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562849i32);
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562865i32);
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979958i32);
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979942i32);
-pub const CLUSCTL_CLUSTER_BATCH_BLOCK_KEY: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441086i32);
-pub const CLUSCTL_CLUSTER_BATCH_UNBLOCK_KEY: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441089i32);
-pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440585i32);
-pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN_WITNESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440625i32);
-pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440581i32);
-pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT_WITNESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440621i32);
-pub const CLUSCTL_CLUSTER_CLEAR_NODE_CONNECTION_INFO: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635590i32);
+pub const CLUSCTL_AFFINITYRULE_GET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995033);
+pub const CLUSCTL_AFFINITYRULE_GET_GROUPNAMES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(151006577);
+pub const CLUSCTL_AFFINITYRULE_GET_ID: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995001);
+pub const CLUSCTL_AFFINITYRULE_GET_RO_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995029);
+pub const CLUSCTL_AFFINITYRULE_SET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(155189342);
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562849);
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562865);
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979958);
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979942);
+pub const CLUSCTL_CLUSTER_BATCH_BLOCK_KEY: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441086);
+pub const CLUSCTL_CLUSTER_BATCH_UNBLOCK_KEY: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441089);
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440585);
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN_WITNESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440625);
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440581);
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT_WITNESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440621);
+pub const CLUSCTL_CLUSTER_CLEAR_NODE_CONNECTION_INFO: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635590);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_CLUSTER_CODES(pub i32);
-pub const CLUSCTL_CLUSTER_ENUM_AFFINITY_RULE_NAMES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452253i32);
-pub const CLUSCTL_CLUSTER_ENUM_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440593i32);
-pub const CLUSCTL_CLUSTER_ENUM_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440633i32);
-pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646566i32);
-pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440877i32);
-pub const CLUSCTL_CLUSTER_GET_CLUSDB_TIMESTAMP: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441193i32);
-pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440601i32);
-pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440613i32);
-pub const CLUSCTL_CLUSTER_GET_FQDN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440573i32);
-pub const CLUSCTL_CLUSTER_GET_GUM_LOCK_OWNER: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441209i32);
-pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452257i32);
-pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440641i32);
-pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440653i32);
-pub const CLUSCTL_CLUSTER_GET_RO_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440597i32);
-pub const CLUSCTL_CLUSTER_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440637i32);
-pub const CLUSCTL_CLUSTER_GET_SHARED_VOLUME_ID: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441169i32);
-pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441253i32);
-pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIG_ATTRIBUTES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441257i32);
-pub const CLUSCTL_CLUSTER_RELOAD_AUTOLOGGER_CONFIG: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452242i32);
-pub const CLUSCTL_CLUSTER_REMOVE_NODE: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635566i32);
-pub const CLUSCTL_CLUSTER_SET_ACCOUNT_ACCESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635058i32);
-pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646446i32);
-pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_ENABLED: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646434i32);
-pub const CLUSCTL_CLUSTER_SET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121634910i32);
-pub const CLUSCTL_CLUSTER_SET_DNS_DOMAIN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635594i32);
-pub const CLUSCTL_CLUSTER_SET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121634950i32);
-pub const CLUSCTL_CLUSTER_SET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635554i32);
-pub const CLUSCTL_CLUSTER_SHUTDOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440589i32);
-pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452246i32);
-pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452250i32);
-pub const CLUSCTL_CLUSTER_UNKNOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440512i32);
-pub const CLUSCTL_CLUSTER_VALIDATE_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440609i32);
-pub const CLUSCTL_CLUSTER_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440649i32);
-pub const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303u32;
-pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2u32;
-pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1u32;
+pub const CLUSCTL_CLUSTER_ENUM_AFFINITY_RULE_NAMES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452253);
+pub const CLUSCTL_CLUSTER_ENUM_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440593);
+pub const CLUSCTL_CLUSTER_ENUM_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440633);
+pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646566);
+pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440877);
+pub const CLUSCTL_CLUSTER_GET_CLUSDB_TIMESTAMP: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441193);
+pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440601);
+pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440613);
+pub const CLUSCTL_CLUSTER_GET_FQDN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440573);
+pub const CLUSCTL_CLUSTER_GET_GUM_LOCK_OWNER: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441209);
+pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452257);
+pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440641);
+pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440653);
+pub const CLUSCTL_CLUSTER_GET_RO_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440597);
+pub const CLUSCTL_CLUSTER_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440637);
+pub const CLUSCTL_CLUSTER_GET_SHARED_VOLUME_ID: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441169);
+pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441253);
+pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIG_ATTRIBUTES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441257);
+pub const CLUSCTL_CLUSTER_RELOAD_AUTOLOGGER_CONFIG: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452242);
+pub const CLUSCTL_CLUSTER_REMOVE_NODE: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635566);
+pub const CLUSCTL_CLUSTER_SET_ACCOUNT_ACCESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635058);
+pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646446);
+pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_ENABLED: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646434);
+pub const CLUSCTL_CLUSTER_SET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121634910);
+pub const CLUSCTL_CLUSTER_SET_DNS_DOMAIN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635594);
+pub const CLUSCTL_CLUSTER_SET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121634950);
+pub const CLUSCTL_CLUSTER_SET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635554);
+pub const CLUSCTL_CLUSTER_SHUTDOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440589);
+pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452246);
+pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452250);
+pub const CLUSCTL_CLUSTER_UNKNOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440512);
+pub const CLUSCTL_CLUSTER_VALIDATE_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440609);
+pub const CLUSCTL_CLUSTER_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440649);
+pub const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303;
+pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2;
+pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_GROUPSET_CODES(pub i32);
-pub const CLUSCTL_GROUPSET_GET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217817i32);
-pub const CLUSCTL_GROUPSET_GET_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229361i32);
-pub const CLUSCTL_GROUPSET_GET_ID: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217785i32);
-pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229365i32);
-pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229369i32);
-pub const CLUSCTL_GROUPSET_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217813i32);
-pub const CLUSCTL_GROUPSET_SET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(138412126i32);
+pub const CLUSCTL_GROUPSET_GET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217817);
+pub const CLUSCTL_GROUPSET_GET_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229361);
+pub const CLUSCTL_GROUPSET_GET_ID: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217785);
+pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229365);
+pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229369);
+pub const CLUSCTL_GROUPSET_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217813);
+pub const CLUSCTL_GROUPSET_SET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(138412126);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_GROUP_CODES(pub i32);
-pub const CLUSCTL_GROUP_ENUM_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331729i32);
-pub const CLUSCTL_GROUP_ENUM_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331769i32);
-pub const CLUSCTL_GROUP_GET_CHARACTERISTICS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331653i32);
-pub const CLUSCTL_GROUP_GET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331737i32);
-pub const CLUSCTL_GROUP_GET_COMMON_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331749i32);
-pub const CLUSCTL_GROUP_GET_FAILURE_INFO: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331673i32);
-pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331657i32);
-pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331705i32);
-pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332377i32);
+pub const CLUSCTL_GROUP_ENUM_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331729);
+pub const CLUSCTL_GROUP_ENUM_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331769);
+pub const CLUSCTL_GROUP_GET_CHARACTERISTICS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331653);
+pub const CLUSCTL_GROUP_GET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331737);
+pub const CLUSCTL_GROUP_GET_COMMON_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331749);
+pub const CLUSCTL_GROUP_GET_FAILURE_INFO: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331673);
+pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331657);
+pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331705);
+pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332377);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
@@ -3154,180 +3154,180 @@ pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
     pub NodeId: u32,
 }
-pub const CLUSCTL_GROUP_GET_NAME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331689i32);
-pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331777i32);
-pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331789i32);
-pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229373i32);
-pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229377i32);
-pub const CLUSCTL_GROUP_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331733i32);
-pub const CLUSCTL_GROUP_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331773i32);
-pub const CLUSCTL_GROUP_QUERY_DELETE: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332089i32);
-pub const CLUSCTL_GROUP_SET_CCF_FROM_MASTER: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54537606i32);
-pub const CLUSCTL_GROUP_SET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54526046i32);
-pub const CLUSCTL_GROUP_SET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54526086i32);
-pub const CLUSCTL_GROUP_UNKNOWN: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331648i32);
-pub const CLUSCTL_GROUP_VALIDATE_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331745i32);
-pub const CLUSCTL_GROUP_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331785i32);
+pub const CLUSCTL_GROUP_GET_NAME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331689);
+pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331777);
+pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331789);
+pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229373);
+pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229377);
+pub const CLUSCTL_GROUP_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331733);
+pub const CLUSCTL_GROUP_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331773);
+pub const CLUSCTL_GROUP_QUERY_DELETE: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332089);
+pub const CLUSCTL_GROUP_SET_CCF_FROM_MASTER: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54537606);
+pub const CLUSCTL_GROUP_SET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54526046);
+pub const CLUSCTL_GROUP_SET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54526086);
+pub const CLUSCTL_GROUP_UNKNOWN: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331648);
+pub const CLUSCTL_GROUP_VALIDATE_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331745);
+pub const CLUSCTL_GROUP_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331785);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_NETINTERFACE_CODES(pub i32);
-pub const CLUSCTL_NETINTERFACE_ENUM_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663377i32);
-pub const CLUSCTL_NETINTERFACE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663417i32);
-pub const CLUSCTL_NETINTERFACE_GET_CHARACTERISTICS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663301i32);
-pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663385i32);
-pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663397i32);
-pub const CLUSCTL_NETINTERFACE_GET_FLAGS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663305i32);
-pub const CLUSCTL_NETINTERFACE_GET_ID: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663353i32);
-pub const CLUSCTL_NETINTERFACE_GET_NAME: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663337i32);
-pub const CLUSCTL_NETINTERFACE_GET_NETWORK: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663349i32);
-pub const CLUSCTL_NETINTERFACE_GET_NODE: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663345i32);
-pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663425i32);
-pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663437i32);
-pub const CLUSCTL_NETINTERFACE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663381i32);
-pub const CLUSCTL_NETINTERFACE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663421i32);
-pub const CLUSCTL_NETINTERFACE_SET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(104857694i32);
-pub const CLUSCTL_NETINTERFACE_SET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(104857734i32);
-pub const CLUSCTL_NETINTERFACE_UNKNOWN: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663296i32);
-pub const CLUSCTL_NETINTERFACE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663393i32);
-pub const CLUSCTL_NETINTERFACE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663433i32);
+pub const CLUSCTL_NETINTERFACE_ENUM_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663377);
+pub const CLUSCTL_NETINTERFACE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663417);
+pub const CLUSCTL_NETINTERFACE_GET_CHARACTERISTICS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663301);
+pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663385);
+pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663397);
+pub const CLUSCTL_NETINTERFACE_GET_FLAGS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663305);
+pub const CLUSCTL_NETINTERFACE_GET_ID: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663353);
+pub const CLUSCTL_NETINTERFACE_GET_NAME: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663337);
+pub const CLUSCTL_NETINTERFACE_GET_NETWORK: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663349);
+pub const CLUSCTL_NETINTERFACE_GET_NODE: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663345);
+pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663425);
+pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663437);
+pub const CLUSCTL_NETINTERFACE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663381);
+pub const CLUSCTL_NETINTERFACE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663421);
+pub const CLUSCTL_NETINTERFACE_SET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(104857694);
+pub const CLUSCTL_NETINTERFACE_SET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(104857734);
+pub const CLUSCTL_NETINTERFACE_UNKNOWN: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663296);
+pub const CLUSCTL_NETINTERFACE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663393);
+pub const CLUSCTL_NETINTERFACE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663433);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_NETWORK_CODES(pub i32);
-pub const CLUSCTL_NETWORK_ENUM_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886161i32);
-pub const CLUSCTL_NETWORK_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886201i32);
-pub const CLUSCTL_NETWORK_GET_CHARACTERISTICS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886085i32);
-pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886169i32);
-pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886181i32);
-pub const CLUSCTL_NETWORK_GET_FLAGS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886089i32);
-pub const CLUSCTL_NETWORK_GET_ID: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886137i32);
-pub const CLUSCTL_NETWORK_GET_NAME: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886121i32);
-pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886209i32);
-pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886221i32);
-pub const CLUSCTL_NETWORK_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886165i32);
-pub const CLUSCTL_NETWORK_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886205i32);
-pub const CLUSCTL_NETWORK_SET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(88080478i32);
-pub const CLUSCTL_NETWORK_SET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(88080518i32);
-pub const CLUSCTL_NETWORK_UNKNOWN: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886080i32);
-pub const CLUSCTL_NETWORK_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886177i32);
-pub const CLUSCTL_NETWORK_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886217i32);
-pub const CLUSCTL_NODE_BLOCK_GEM_SEND_RECV: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109581i32);
+pub const CLUSCTL_NETWORK_ENUM_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886161);
+pub const CLUSCTL_NETWORK_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886201);
+pub const CLUSCTL_NETWORK_GET_CHARACTERISTICS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886085);
+pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886169);
+pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886181);
+pub const CLUSCTL_NETWORK_GET_FLAGS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886089);
+pub const CLUSCTL_NETWORK_GET_ID: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886137);
+pub const CLUSCTL_NETWORK_GET_NAME: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886121);
+pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886209);
+pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886221);
+pub const CLUSCTL_NETWORK_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886165);
+pub const CLUSCTL_NETWORK_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886205);
+pub const CLUSCTL_NETWORK_SET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(88080478);
+pub const CLUSCTL_NETWORK_SET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(88080518);
+pub const CLUSCTL_NETWORK_UNKNOWN: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886080);
+pub const CLUSCTL_NETWORK_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886177);
+pub const CLUSCTL_NETWORK_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886217);
+pub const CLUSCTL_NODE_BLOCK_GEM_SEND_RECV: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109581);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_NODE_CODES(pub i32);
-pub const CLUSCTL_NODE_ENUM_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108945i32);
-pub const CLUSCTL_NODE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108985i32);
-pub const CLUSCTL_NODE_GET_CHARACTERISTICS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108869i32);
-pub const CLUSCTL_NODE_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108929i32);
-pub const CLUSCTL_NODE_GET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108953i32);
-pub const CLUSCTL_NODE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108965i32);
-pub const CLUSCTL_NODE_GET_FLAGS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108873i32);
-pub const CLUSCTL_NODE_GET_GEMID_VECTOR: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109585i32);
-pub const CLUSCTL_NODE_GET_ID: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108921i32);
-pub const CLUSCTL_NODE_GET_NAME: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108905i32);
-pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108993i32);
-pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109005i32);
-pub const CLUSCTL_NODE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108949i32);
-pub const CLUSCTL_NODE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108989i32);
-pub const CLUSCTL_NODE_GET_STUCK_NODES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109565i32);
-pub const CLUSCTL_NODE_INJECT_GEM_FAULT: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109569i32);
-pub const CLUSCTL_NODE_INTRODUCE_GEM_REPAIR_DELAY: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109573i32);
-pub const CLUSCTL_NODE_SEND_DUMMY_GEM_MESSAGES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109577i32);
-pub const CLUSCTL_NODE_SET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(71303262i32);
-pub const CLUSCTL_NODE_SET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(71303302i32);
-pub const CLUSCTL_NODE_UNKNOWN: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108864i32);
-pub const CLUSCTL_NODE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108961i32);
-pub const CLUSCTL_NODE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109001i32);
-pub const CLUSCTL_OBJECT_MASK: u32 = 255u32;
-pub const CLUSCTL_OBJECT_SHIFT: u32 = 24u32;
-pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971694i32);
-pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT_EX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972246i32);
-pub const CLUSCTL_RESOURCE_ADD_DEPENDENCY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020114i32);
-pub const CLUSCTL_RESOURCE_ADD_OWNER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020122i32);
-pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971682i32);
-pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_32BIT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971714i32);
-pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_64BIT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971710i32);
-pub const CLUSCTL_RESOURCE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834285i32);
-pub const CLUSCTL_RESOURCE_CLUSTER_NAME_CHANGED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020138i32);
-pub const CLUSCTL_RESOURCE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020142i32);
+pub const CLUSCTL_NODE_ENUM_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108945);
+pub const CLUSCTL_NODE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108985);
+pub const CLUSCTL_NODE_GET_CHARACTERISTICS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108869);
+pub const CLUSCTL_NODE_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108929);
+pub const CLUSCTL_NODE_GET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108953);
+pub const CLUSCTL_NODE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108965);
+pub const CLUSCTL_NODE_GET_FLAGS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108873);
+pub const CLUSCTL_NODE_GET_GEMID_VECTOR: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109585);
+pub const CLUSCTL_NODE_GET_ID: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108921);
+pub const CLUSCTL_NODE_GET_NAME: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108905);
+pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108993);
+pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109005);
+pub const CLUSCTL_NODE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108949);
+pub const CLUSCTL_NODE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108989);
+pub const CLUSCTL_NODE_GET_STUCK_NODES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109565);
+pub const CLUSCTL_NODE_INJECT_GEM_FAULT: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109569);
+pub const CLUSCTL_NODE_INTRODUCE_GEM_REPAIR_DELAY: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109573);
+pub const CLUSCTL_NODE_SEND_DUMMY_GEM_MESSAGES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109577);
+pub const CLUSCTL_NODE_SET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(71303262);
+pub const CLUSCTL_NODE_SET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(71303302);
+pub const CLUSCTL_NODE_UNKNOWN: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108864);
+pub const CLUSCTL_NODE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108961);
+pub const CLUSCTL_NODE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109001);
+pub const CLUSCTL_OBJECT_MASK: u32 = 255;
+pub const CLUSCTL_OBJECT_SHIFT: u32 = 24;
+pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971694);
+pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT_EX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972246);
+pub const CLUSCTL_RESOURCE_ADD_DEPENDENCY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020114);
+pub const CLUSCTL_RESOURCE_ADD_OWNER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020122);
+pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971682);
+pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_32BIT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971714);
+pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_64BIT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971710);
+pub const CLUSCTL_RESOURCE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834285);
+pub const CLUSCTL_RESOURCE_CLUSTER_NAME_CHANGED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020138);
+pub const CLUSCTL_RESOURCE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020142);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_CODES(pub i32);
-pub const CLUSCTL_RESOURCE_DELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020102i32);
-pub const CLUSCTL_RESOURCE_DELETE_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971698i32);
-pub const CLUSCTL_RESOURCE_DELETE_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971686i32);
-pub const CLUSCTL_RESOURCE_DISABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972174i32);
-pub const CLUSCTL_RESOURCE_ENABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972170i32);
-pub const CLUSCTL_RESOURCE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777297i32);
-pub const CLUSCTL_RESOURCE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777337i32);
-pub const CLUSCTL_RESOURCE_EVICT_NODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020110i32);
-pub const CLUSCTL_RESOURCE_FORCE_QUORUM: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020166i32);
-pub const CLUSCTL_RESOURCE_FSWITNESS_GET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17825885i32);
-pub const CLUSCTL_RESOURCE_FSWITNESS_RELEASE_LOCK: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020198i32);
-pub const CLUSCTL_RESOURCE_FSWITNESS_SET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020194i32);
-pub const CLUSCTL_RESOURCE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777221i32);
-pub const CLUSCTL_RESOURCE_GET_CLASS_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777229i32);
-pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777305i32);
-pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777317i32);
-pub const CLUSCTL_RESOURCE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777397i32);
-pub const CLUSCTL_RESOURCE_GET_DNS_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777589i32);
-pub const CLUSCTL_RESOURCE_GET_FAILURE_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777241i32);
-pub const CLUSCTL_RESOURCE_GET_FLAGS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777225i32);
-pub const CLUSCTL_RESOURCE_GET_ID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777273i32);
-pub const CLUSCTL_RESOURCE_GET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788873i32);
-pub const CLUSCTL_RESOURCE_GET_LOADBAL_PROCESS_LIST: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777417i32);
-pub const CLUSCTL_RESOURCE_GET_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777257i32);
-pub const CLUSCTL_RESOURCE_GET_NETWORK_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777577i32);
-pub const CLUSCTL_RESOURCE_GET_NODES_IN_FD: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788961i32);
-pub const CLUSCTL_RESOURCE_GET_OPERATION_CONTEXT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834217i32);
-pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777345i32);
-pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777357i32);
-pub const CLUSCTL_RESOURCE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777385i32);
-pub const CLUSCTL_RESOURCE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777233i32);
-pub const CLUSCTL_RESOURCE_GET_RESOURCE_TYPE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777261i32);
-pub const CLUSCTL_RESOURCE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777301i32);
-pub const CLUSCTL_RESOURCE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777341i32);
-pub const CLUSCTL_RESOURCE_GET_STATE_CHANGE_TIME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788829i32);
-pub const CLUSCTL_RESOURCE_INITIALIZE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020170i32);
-pub const CLUSCTL_RESOURCE_INSTALL_NODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020106i32);
-pub const CLUSCTL_RESOURCE_IPADDRESS_RELEASE_LEASE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971970i32);
-pub const CLUSCTL_RESOURCE_IPADDRESS_RENEW_LEASE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971966i32);
-pub const CLUSCTL_RESOURCE_IS_QUORUM_BLOCKED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777905i32);
-pub const CLUSCTL_RESOURCE_JOINING_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020186i32);
-pub const CLUSCTL_RESOURCE_LEAVING_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020182i32);
-pub const CLUSCTL_RESOURCE_NETNAME_CREDS_NOTIFYCAM: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020202i32);
-pub const CLUSCTL_RESOURCE_NETNAME_DELETE_CO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777598i32);
-pub const CLUSCTL_RESOURCE_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777581i32);
-pub const CLUSCTL_RESOURCE_NETNAME_REGISTER_DNS_RECORDS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777586i32);
-pub const CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777613i32);
-pub const CLUSCTL_RESOURCE_NETNAME_RESET_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777605i32);
-pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777594i32);
-pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16778010i32);
-pub const CLUSCTL_RESOURCE_NETNAME_VALIDATE_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777601i32);
-pub const CLUSCTL_RESOURCE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834289i32);
-pub const CLUSCTL_RESOURCE_NOTIFY_OWNER_CHANGE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22028578i32);
-pub const CLUSCTL_RESOURCE_NOTIFY_QUORUM_STATUS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020222i32);
-pub const CLUSCTL_RESOURCE_POOL_GET_DRIVE_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777909i32);
-pub const CLUSCTL_RESOURCE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979946i32);
-pub const CLUSCTL_RESOURCE_PROVIDER_STATE_CHANGE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020178i32);
-pub const CLUSCTL_RESOURCE_QUERY_DELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777657i32);
-pub const CLUSCTL_RESOURCE_QUERY_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777697i32);
-pub const CLUSCTL_RESOURCE_REMOVE_DEPENDENCY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020118i32);
-pub const CLUSCTL_RESOURCE_REMOVE_OWNER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020126i32);
-pub const CLUSCTL_RESOURCE_RLUA_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777581i32);
-pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777594i32);
-pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16778010i32);
-pub const CLUSCTL_RESOURCE_RW_MODIFY_NOOP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972206i32);
-pub const CLUSCTL_RESOURCE_SCALEOUT_COMMAND: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983190i32);
-pub const CLUSCTL_RESOURCE_SCALEOUT_CONTROL: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983194i32);
-pub const CLUSCTL_RESOURCE_SCALEOUT_GET_CLUSTERS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983197i32);
-pub const CLUSCTL_RESOURCE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971614i32);
-pub const CLUSCTL_RESOURCE_SET_CSV_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972182i32);
-pub const CLUSCTL_RESOURCE_SET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983182i32);
-pub const CLUSCTL_RESOURCE_SET_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972006i32);
-pub const CLUSCTL_RESOURCE_SET_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020134i32);
-pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971654i32);
-pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972186i32);
-pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020174i32);
+pub const CLUSCTL_RESOURCE_DELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020102);
+pub const CLUSCTL_RESOURCE_DELETE_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971698);
+pub const CLUSCTL_RESOURCE_DELETE_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971686);
+pub const CLUSCTL_RESOURCE_DISABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972174);
+pub const CLUSCTL_RESOURCE_ENABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972170);
+pub const CLUSCTL_RESOURCE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777297);
+pub const CLUSCTL_RESOURCE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777337);
+pub const CLUSCTL_RESOURCE_EVICT_NODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020110);
+pub const CLUSCTL_RESOURCE_FORCE_QUORUM: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020166);
+pub const CLUSCTL_RESOURCE_FSWITNESS_GET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17825885);
+pub const CLUSCTL_RESOURCE_FSWITNESS_RELEASE_LOCK: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020198);
+pub const CLUSCTL_RESOURCE_FSWITNESS_SET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020194);
+pub const CLUSCTL_RESOURCE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777221);
+pub const CLUSCTL_RESOURCE_GET_CLASS_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777229);
+pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777305);
+pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777317);
+pub const CLUSCTL_RESOURCE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777397);
+pub const CLUSCTL_RESOURCE_GET_DNS_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777589);
+pub const CLUSCTL_RESOURCE_GET_FAILURE_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777241);
+pub const CLUSCTL_RESOURCE_GET_FLAGS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777225);
+pub const CLUSCTL_RESOURCE_GET_ID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777273);
+pub const CLUSCTL_RESOURCE_GET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788873);
+pub const CLUSCTL_RESOURCE_GET_LOADBAL_PROCESS_LIST: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777417);
+pub const CLUSCTL_RESOURCE_GET_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777257);
+pub const CLUSCTL_RESOURCE_GET_NETWORK_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777577);
+pub const CLUSCTL_RESOURCE_GET_NODES_IN_FD: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788961);
+pub const CLUSCTL_RESOURCE_GET_OPERATION_CONTEXT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834217);
+pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777345);
+pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777357);
+pub const CLUSCTL_RESOURCE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777385);
+pub const CLUSCTL_RESOURCE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777233);
+pub const CLUSCTL_RESOURCE_GET_RESOURCE_TYPE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777261);
+pub const CLUSCTL_RESOURCE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777301);
+pub const CLUSCTL_RESOURCE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777341);
+pub const CLUSCTL_RESOURCE_GET_STATE_CHANGE_TIME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788829);
+pub const CLUSCTL_RESOURCE_INITIALIZE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020170);
+pub const CLUSCTL_RESOURCE_INSTALL_NODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020106);
+pub const CLUSCTL_RESOURCE_IPADDRESS_RELEASE_LEASE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971970);
+pub const CLUSCTL_RESOURCE_IPADDRESS_RENEW_LEASE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971966);
+pub const CLUSCTL_RESOURCE_IS_QUORUM_BLOCKED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777905);
+pub const CLUSCTL_RESOURCE_JOINING_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020186);
+pub const CLUSCTL_RESOURCE_LEAVING_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020182);
+pub const CLUSCTL_RESOURCE_NETNAME_CREDS_NOTIFYCAM: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020202);
+pub const CLUSCTL_RESOURCE_NETNAME_DELETE_CO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777598);
+pub const CLUSCTL_RESOURCE_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777581);
+pub const CLUSCTL_RESOURCE_NETNAME_REGISTER_DNS_RECORDS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777586);
+pub const CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777613);
+pub const CLUSCTL_RESOURCE_NETNAME_RESET_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777605);
+pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777594);
+pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16778010);
+pub const CLUSCTL_RESOURCE_NETNAME_VALIDATE_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777601);
+pub const CLUSCTL_RESOURCE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834289);
+pub const CLUSCTL_RESOURCE_NOTIFY_OWNER_CHANGE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22028578);
+pub const CLUSCTL_RESOURCE_NOTIFY_QUORUM_STATUS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020222);
+pub const CLUSCTL_RESOURCE_POOL_GET_DRIVE_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777909);
+pub const CLUSCTL_RESOURCE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979946);
+pub const CLUSCTL_RESOURCE_PROVIDER_STATE_CHANGE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020178);
+pub const CLUSCTL_RESOURCE_QUERY_DELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777657);
+pub const CLUSCTL_RESOURCE_QUERY_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777697);
+pub const CLUSCTL_RESOURCE_REMOVE_DEPENDENCY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020118);
+pub const CLUSCTL_RESOURCE_REMOVE_OWNER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020126);
+pub const CLUSCTL_RESOURCE_RLUA_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777581);
+pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777594);
+pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16778010);
+pub const CLUSCTL_RESOURCE_RW_MODIFY_NOOP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972206);
+pub const CLUSCTL_RESOURCE_SCALEOUT_COMMAND: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983190);
+pub const CLUSCTL_RESOURCE_SCALEOUT_CONTROL: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983194);
+pub const CLUSCTL_RESOURCE_SCALEOUT_GET_CLUSTERS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983197);
+pub const CLUSCTL_RESOURCE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971614);
+pub const CLUSCTL_RESOURCE_SET_CSV_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972182);
+pub const CLUSCTL_RESOURCE_SET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983182);
+pub const CLUSCTL_RESOURCE_SET_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972006);
+pub const CLUSCTL_RESOURCE_SET_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020134);
+pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971654);
+pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972186);
+pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020174);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
@@ -3335,124 +3335,124 @@ pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     pub dwVersion: u32,
     pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
 }
-pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DIRTY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777753i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777733i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777617i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777713i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX2: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777721i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_NUMBER_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777633i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_MOUNTPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777745i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777765i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777885i32);
-pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_STATES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972194i32);
-pub const CLUSCTL_RESOURCE_STORAGE_IS_PATH_VALID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777625i32);
-pub const CLUSCTL_RESOURCE_STORAGE_IS_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777893i32);
-pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788950i32);
-pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788954i32);
-pub const CLUSCTL_RESOURCE_STORAGE_SET_DRIVELETTER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972010i32);
-pub const CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611501i32);
-pub const CLUSCTL_RESOURCE_TYPE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797358i32);
+pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DIRTY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777753);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777733);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777617);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777713);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX2: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777721);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_NUMBER_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777633);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_MOUNTPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777745);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777765);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777885);
+pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_STATES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972194);
+pub const CLUSCTL_RESOURCE_STORAGE_IS_PATH_VALID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777625);
+pub const CLUSCTL_RESOURCE_STORAGE_IS_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777893);
+pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788950);
+pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788954);
+pub const CLUSCTL_RESOURCE_STORAGE_SET_DRIVELETTER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972010);
+pub const CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611501);
+pub const CLUSCTL_RESOURCE_TYPE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797358);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_TYPE_CODES(pub i32);
-pub const CLUSCTL_RESOURCE_TYPE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554513i32);
-pub const CLUSCTL_RESOURCE_TYPE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554553i32);
-pub const CLUSCTL_RESOURCE_TYPE_EVICT_NODE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797326i32);
-pub const CLUSCTL_RESOURCE_TYPE_FIXUP_ON_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797362i32);
-pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_DIRECTORY: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33555001i32);
-pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993i32);
-pub const CLUSCTL_RESOURCE_TYPE_GEN_SCRIPT_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_ARB_TIMEOUT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554453i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554437i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_CLASS_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554445i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554521i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554533i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554537i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554613i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_FLAGS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554441i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554561i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554573i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554577i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554601i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554449i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554517i32);
-pub const CLUSCTL_RESOURCE_TYPE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554557i32);
-pub const CLUSCTL_RESOURCE_TYPE_HOLD_IO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797374i32);
-pub const CLUSCTL_RESOURCE_TYPE_INSTALL_NODE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797322i32);
-pub const CLUSCTL_RESOURCE_TYPE_NETNAME_GET_OU_FOR_VCO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749358i32);
-pub const CLUSCTL_RESOURCE_TYPE_NETNAME_VALIDATE_NETNAME: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554997i32);
-pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611505i32);
-pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_MONITOR_SHUTTING_DOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34603137i32);
-pub const CLUSCTL_RESOURCE_TYPE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37757162i32);
-pub const CLUSCTL_RESOURCE_TYPE_QUERY_DELETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554873i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_ADD_REPLICATION_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562946i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562953i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562961i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562957i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562949i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_VOLUME: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562973i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562965i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562981i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICA_VOLUMES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562969i32);
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_RESOURCE_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562977i32);
-pub const CLUSCTL_RESOURCE_TYPE_RESUME_IO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797378i32);
-pub const CLUSCTL_RESOURCE_TYPE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37748830i32);
-pub const CLUSCTL_RESOURCE_TYPE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37748870i32);
-pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE1: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797366i32);
-pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE2: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797370i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554837i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554933i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1u32;
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2u32;
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4u32;
+pub const CLUSCTL_RESOURCE_TYPE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554513);
+pub const CLUSCTL_RESOURCE_TYPE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554553);
+pub const CLUSCTL_RESOURCE_TYPE_EVICT_NODE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797326);
+pub const CLUSCTL_RESOURCE_TYPE_FIXUP_ON_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797362);
+pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_DIRECTORY: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33555001);
+pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993);
+pub const CLUSCTL_RESOURCE_TYPE_GEN_SCRIPT_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993);
+pub const CLUSCTL_RESOURCE_TYPE_GET_ARB_TIMEOUT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554453);
+pub const CLUSCTL_RESOURCE_TYPE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554437);
+pub const CLUSCTL_RESOURCE_TYPE_GET_CLASS_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554445);
+pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554521);
+pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554533);
+pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554537);
+pub const CLUSCTL_RESOURCE_TYPE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554613);
+pub const CLUSCTL_RESOURCE_TYPE_GET_FLAGS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554441);
+pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554561);
+pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554573);
+pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554577);
+pub const CLUSCTL_RESOURCE_TYPE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554601);
+pub const CLUSCTL_RESOURCE_TYPE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554449);
+pub const CLUSCTL_RESOURCE_TYPE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554517);
+pub const CLUSCTL_RESOURCE_TYPE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554557);
+pub const CLUSCTL_RESOURCE_TYPE_HOLD_IO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797374);
+pub const CLUSCTL_RESOURCE_TYPE_INSTALL_NODE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797322);
+pub const CLUSCTL_RESOURCE_TYPE_NETNAME_GET_OU_FOR_VCO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749358);
+pub const CLUSCTL_RESOURCE_TYPE_NETNAME_VALIDATE_NETNAME: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554997);
+pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611505);
+pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_MONITOR_SHUTTING_DOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34603137);
+pub const CLUSCTL_RESOURCE_TYPE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37757162);
+pub const CLUSCTL_RESOURCE_TYPE_QUERY_DELETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554873);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_ADD_REPLICATION_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562946);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562953);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562961);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562957);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562949);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_VOLUME: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562973);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562965);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562981);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICA_VOLUMES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562969);
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_RESOURCE_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562977);
+pub const CLUSCTL_RESOURCE_TYPE_RESUME_IO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797378);
+pub const CLUSCTL_RESOURCE_TYPE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37748830);
+pub const CLUSCTL_RESOURCE_TYPE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37748870);
+pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE1: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797366);
+pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE2: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797370);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554837);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554933);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     pub dwFlags: u32,
     pub guidPoolFilter: windows_core::GUID,
 }
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562593i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554949i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DRIVELETTERS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554925i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_RESOURCEID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554989i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CLUSTERABLE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554953i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CSV_FILE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(16777769i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMAP_DRIVELETTER: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554945i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMOVE_VM_OWNERSHIP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749262i32);
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_SYNC_CLUSDISK_DB: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749150i32);
-pub const CLUSCTL_RESOURCE_TYPE_UNKNOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554432i32);
-pub const CLUSCTL_RESOURCE_TYPE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37757166i32);
-pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554529i32);
-pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554569i32);
-pub const CLUSCTL_RESOURCE_TYPE_WITNESS_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993i32);
-pub const CLUSCTL_RESOURCE_UNDELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020230i32);
-pub const CLUSCTL_RESOURCE_UNKNOWN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777216i32);
-pub const CLUSCTL_RESOURCE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979950i32);
-pub const CLUSCTL_RESOURCE_UPGRADE_DLL: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971706i32);
-pub const CLUSCTL_RESOURCE_VALIDATE_CHANGE_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834277i32);
-pub const CLUSCTL_RESOURCE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777313i32);
-pub const CLUSCTL_RESOURCE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777353i32);
-pub const CLUSGROUPSET_STATUS_APPLICATION_READY: u64 = 8u64;
-pub const CLUSGROUPSET_STATUS_GROUPS_ONLINE: u64 = 2u64;
-pub const CLUSGROUPSET_STATUS_GROUPS_PENDING: u64 = 1u64;
-pub const CLUSGROUPSET_STATUS_OS_HEARTBEAT: u64 = 4u64;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562593);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554949);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DRIVELETTERS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554925);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_RESOURCEID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554989);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CLUSTERABLE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554953);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CSV_FILE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(16777769);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMAP_DRIVELETTER: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554945);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMOVE_VM_OWNERSHIP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749262);
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_SYNC_CLUSDISK_DB: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749150);
+pub const CLUSCTL_RESOURCE_TYPE_UNKNOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554432);
+pub const CLUSCTL_RESOURCE_TYPE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37757166);
+pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554529);
+pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554569);
+pub const CLUSCTL_RESOURCE_TYPE_WITNESS_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993);
+pub const CLUSCTL_RESOURCE_UNDELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020230);
+pub const CLUSCTL_RESOURCE_UNKNOWN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777216);
+pub const CLUSCTL_RESOURCE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979950);
+pub const CLUSCTL_RESOURCE_UPGRADE_DLL: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971706);
+pub const CLUSCTL_RESOURCE_VALIDATE_CHANGE_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834277);
+pub const CLUSCTL_RESOURCE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777313);
+pub const CLUSCTL_RESOURCE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777353);
+pub const CLUSGROUPSET_STATUS_APPLICATION_READY: u64 = 8;
+pub const CLUSGROUPSET_STATUS_GROUPS_ONLINE: u64 = 2;
+pub const CLUSGROUPSET_STATUS_GROUPS_PENDING: u64 = 1;
+pub const CLUSGROUPSET_STATUS_OS_HEARTBEAT: u64 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSGROUP_TYPE(pub i32);
-pub const CLUSGRP_STATUS_APPLICATION_READY: u64 = 1024u64;
-pub const CLUSGRP_STATUS_EMBEDDED_FAILURE: u64 = 32u64;
-pub const CLUSGRP_STATUS_LOCKED_MODE: u64 = 1u64;
-pub const CLUSGRP_STATUS_NETWORK_FAILURE: u64 = 128u64;
-pub const CLUSGRP_STATUS_OFFLINE_DUE_TO_ANTIAFFINITY_CONFLICT: u64 = 64u64;
-pub const CLUSGRP_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u64 = 2048u64;
-pub const CLUSGRP_STATUS_OS_HEARTBEAT: u64 = 512u64;
-pub const CLUSGRP_STATUS_PHYSICAL_RESOURCES_LACKING: u64 = 8u64;
-pub const CLUSGRP_STATUS_PREEMPTED: u64 = 2u64;
-pub const CLUSGRP_STATUS_UNMONITORED: u64 = 256u64;
-pub const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: u64 = 4096u64;
-pub const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: u64 = 4u64;
-pub const CLUSGRP_STATUS_WAITING_TO_START: u64 = 16u64;
+pub const CLUSGRP_STATUS_APPLICATION_READY: u64 = 1024;
+pub const CLUSGRP_STATUS_EMBEDDED_FAILURE: u64 = 32;
+pub const CLUSGRP_STATUS_LOCKED_MODE: u64 = 1;
+pub const CLUSGRP_STATUS_NETWORK_FAILURE: u64 = 128;
+pub const CLUSGRP_STATUS_OFFLINE_DUE_TO_ANTIAFFINITY_CONFLICT: u64 = 64;
+pub const CLUSGRP_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u64 = 2048;
+pub const CLUSGRP_STATUS_OS_HEARTBEAT: u64 = 512;
+pub const CLUSGRP_STATUS_PHYSICAL_RESOURCES_LACKING: u64 = 8;
+pub const CLUSGRP_STATUS_PREEMPTED: u64 = 2;
+pub const CLUSGRP_STATUS_UNMONITORED: u64 = 256;
+pub const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: u64 = 4096;
+pub const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: u64 = 4;
+pub const CLUSGRP_STATUS_WAITING_TO_START: u64 = 16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_BINARY {
@@ -3525,22 +3525,22 @@ impl Default for CLUSPROP_FILETIME {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSPROP_FORMAT_BINARY: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(1i32);
-pub const CLUSPROP_FORMAT_DWORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(2i32);
-pub const CLUSPROP_FORMAT_EXPANDED_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(8i32);
-pub const CLUSPROP_FORMAT_EXPAND_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(4i32);
-pub const CLUSPROP_FORMAT_FILETIME: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(12i32);
-pub const CLUSPROP_FORMAT_LARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(10i32);
-pub const CLUSPROP_FORMAT_LONG: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(7i32);
-pub const CLUSPROP_FORMAT_MULTI_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(5i32);
-pub const CLUSPROP_FORMAT_PROPERTY_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(14i32);
-pub const CLUSPROP_FORMAT_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(9i32);
-pub const CLUSPROP_FORMAT_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(3i32);
-pub const CLUSPROP_FORMAT_ULARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(6i32);
-pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(0i32);
-pub const CLUSPROP_FORMAT_USER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(32768i32);
-pub const CLUSPROP_FORMAT_VALUE_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(13i32);
-pub const CLUSPROP_FORMAT_WORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(11i32);
+pub const CLUSPROP_FORMAT_BINARY: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(1);
+pub const CLUSPROP_FORMAT_DWORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(2);
+pub const CLUSPROP_FORMAT_EXPANDED_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(8);
+pub const CLUSPROP_FORMAT_EXPAND_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(4);
+pub const CLUSPROP_FORMAT_FILETIME: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(12);
+pub const CLUSPROP_FORMAT_LARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(10);
+pub const CLUSPROP_FORMAT_LONG: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(7);
+pub const CLUSPROP_FORMAT_MULTI_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(5);
+pub const CLUSPROP_FORMAT_PROPERTY_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(14);
+pub const CLUSPROP_FORMAT_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(9);
+pub const CLUSPROP_FORMAT_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(3);
+pub const CLUSPROP_FORMAT_ULARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(6);
+pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(0);
+pub const CLUSPROP_FORMAT_USER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(32768);
+pub const CLUSPROP_FORMAT_VALUE_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(13);
+pub const CLUSPROP_FORMAT_WORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(11);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_FTSET_INFO {
@@ -3555,9 +3555,9 @@ impl Default for CLUSPROP_FTSET_INFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
-pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(0i32);
-pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(1i32);
-pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(2i32);
+pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(0);
+pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(1);
+pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(2);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_LARGE_INTEGER {
@@ -3627,14 +3627,14 @@ impl Default for CLUSPROP_PARTITION_INFO_EX2 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSPROP_PIFLAGS(pub i32);
-pub const CLUSPROP_PIFLAG_DEFAULT_QUORUM: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(8i32);
-pub const CLUSPROP_PIFLAG_ENCRYPTION_ENABLED: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(32i32);
-pub const CLUSPROP_PIFLAG_RAW: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(64i32);
-pub const CLUSPROP_PIFLAG_REMOVABLE: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(2i32);
-pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(1i32);
-pub const CLUSPROP_PIFLAG_UNKNOWN: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(-2147483648i32);
-pub const CLUSPROP_PIFLAG_USABLE: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(4i32);
-pub const CLUSPROP_PIFLAG_USABLE_FOR_CSV: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(16i32);
+pub const CLUSPROP_PIFLAG_DEFAULT_QUORUM: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(8);
+pub const CLUSPROP_PIFLAG_ENCRYPTION_ENABLED: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(32);
+pub const CLUSPROP_PIFLAG_RAW: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(64);
+pub const CLUSPROP_PIFLAG_REMOVABLE: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(2);
+pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(1);
+pub const CLUSPROP_PIFLAG_UNKNOWN: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(-2147483648);
+pub const CLUSPROP_PIFLAG_USABLE: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(4);
+pub const CLUSPROP_PIFLAG_USABLE_FOR_CSV: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(16);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLUSPROP_REQUIRED_DEPENDENCY {
@@ -3723,33 +3723,33 @@ pub struct CLUSPROP_SYNTAX_0 {
     pub wFormat: u16,
     pub wType: u16,
 }
-pub const CLUSPROP_SYNTAX_DISK_GUID: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(720899u32);
-pub const CLUSPROP_SYNTAX_DISK_NUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(458754u32);
-pub const CLUSPROP_SYNTAX_DISK_SERIALNUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(655363u32);
-pub const CLUSPROP_SYNTAX_DISK_SIGNATURE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(327682u32);
-pub const CLUSPROP_SYNTAX_DISK_SIZE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(786438u32);
-pub const CLUSPROP_SYNTAX_ENDMARK: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(0u32);
-pub const CLUSPROP_SYNTAX_FTSET_INFO: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(589825u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_BINARY: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65537u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_DWORD: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65538u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPANDED_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65544u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPAND_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65540u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_FILETIME: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65548u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_LARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65546u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_LONG: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65543u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_MULTI_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65541u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_PROPERTY_LIST: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65550u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65545u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65539u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_ULARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65542u32);
-pub const CLUSPROP_SYNTAX_LIST_VALUE_WORD: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65547u32);
-pub const CLUSPROP_SYNTAX_NAME: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(262147u32);
-pub const CLUSPROP_SYNTAX_PARTITION_INFO: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(524289u32);
-pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(851969u32);
-pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX2: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(917505u32);
-pub const CLUSPROP_SYNTAX_RESCLASS: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(131074u32);
-pub const CLUSPROP_SYNTAX_SCSI_ADDRESS: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(393218u32);
-pub const CLUSPROP_SYNTAX_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(983041u32);
+pub const CLUSPROP_SYNTAX_DISK_GUID: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(720899);
+pub const CLUSPROP_SYNTAX_DISK_NUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(458754);
+pub const CLUSPROP_SYNTAX_DISK_SERIALNUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(655363);
+pub const CLUSPROP_SYNTAX_DISK_SIGNATURE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(327682);
+pub const CLUSPROP_SYNTAX_DISK_SIZE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(786438);
+pub const CLUSPROP_SYNTAX_ENDMARK: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(0);
+pub const CLUSPROP_SYNTAX_FTSET_INFO: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(589825);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_BINARY: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65537);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_DWORD: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65538);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPANDED_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65544);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPAND_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65540);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_FILETIME: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65548);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_LARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65546);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_LONG: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65543);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_MULTI_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65541);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_PROPERTY_LIST: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65550);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65545);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65539);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_ULARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65542);
+pub const CLUSPROP_SYNTAX_LIST_VALUE_WORD: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65547);
+pub const CLUSPROP_SYNTAX_NAME: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(262147);
+pub const CLUSPROP_SYNTAX_PARTITION_INFO: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(524289);
+pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(851969);
+pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX2: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(917505);
+pub const CLUSPROP_SYNTAX_RESCLASS: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(131074);
+pub const CLUSPROP_SYNTAX_SCSI_ADDRESS: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(393218);
+pub const CLUSPROP_SYNTAX_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(983041);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_SZ {
@@ -3761,24 +3761,24 @@ impl Default for CLUSPROP_SZ {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(11i32);
-pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(7i32);
-pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(10i32);
-pub const CLUSPROP_TYPE_DISK_SIZE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(12i32);
-pub const CLUSPROP_TYPE_ENDMARK: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(0i32);
-pub const CLUSPROP_TYPE_FTSET_INFO: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(9i32);
-pub const CLUSPROP_TYPE_LIST_VALUE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(1i32);
-pub const CLUSPROP_TYPE_NAME: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(4i32);
-pub const CLUSPROP_TYPE_PARTITION_INFO: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(8i32);
-pub const CLUSPROP_TYPE_PARTITION_INFO_EX: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(13i32);
-pub const CLUSPROP_TYPE_PARTITION_INFO_EX2: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(14i32);
-pub const CLUSPROP_TYPE_RESCLASS: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(2i32);
-pub const CLUSPROP_TYPE_RESERVED1: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(3i32);
-pub const CLUSPROP_TYPE_SCSI_ADDRESS: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(6i32);
-pub const CLUSPROP_TYPE_SIGNATURE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(5i32);
-pub const CLUSPROP_TYPE_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(15i32);
-pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(-1i32);
-pub const CLUSPROP_TYPE_USER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(32768i32);
+pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(11);
+pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(7);
+pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(10);
+pub const CLUSPROP_TYPE_DISK_SIZE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(12);
+pub const CLUSPROP_TYPE_ENDMARK: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(0);
+pub const CLUSPROP_TYPE_FTSET_INFO: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(9);
+pub const CLUSPROP_TYPE_LIST_VALUE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(1);
+pub const CLUSPROP_TYPE_NAME: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(4);
+pub const CLUSPROP_TYPE_PARTITION_INFO: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(8);
+pub const CLUSPROP_TYPE_PARTITION_INFO_EX: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(13);
+pub const CLUSPROP_TYPE_PARTITION_INFO_EX2: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(14);
+pub const CLUSPROP_TYPE_RESCLASS: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(2);
+pub const CLUSPROP_TYPE_RESERVED1: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(3);
+pub const CLUSPROP_TYPE_SCSI_ADDRESS: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(6);
+pub const CLUSPROP_TYPE_SIGNATURE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(5);
+pub const CLUSPROP_TYPE_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(15);
+pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(-1);
+pub const CLUSPROP_TYPE_USER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(32768);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUSPROP_ULARGE_INTEGER {
@@ -3812,23 +3812,23 @@ impl Default for CLUSPROP_WORD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(0i32);
-pub const CLUSREG_CONDITION_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(11i32);
-pub const CLUSREG_CONDITION_IS_EQUAL: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(13i32);
-pub const CLUSREG_CONDITION_IS_GREATER_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(15i32);
-pub const CLUSREG_CONDITION_IS_LESS_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(16i32);
-pub const CLUSREG_CONDITION_IS_NOT_EQUAL: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(14i32);
-pub const CLUSREG_CONDITION_KEY_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(17i32);
-pub const CLUSREG_CONDITION_KEY_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(18i32);
-pub const CLUSREG_CONDITION_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(12i32);
-pub const CLUSREG_CONTROL_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(10i32);
-pub const CLUSREG_CREATE_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(2i32);
-pub const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2u32;
-pub const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: u32 = 1u32;
-pub const CLUSREG_DELETE_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(3i32);
-pub const CLUSREG_DELETE_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(4i32);
+pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(0);
+pub const CLUSREG_CONDITION_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(11);
+pub const CLUSREG_CONDITION_IS_EQUAL: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(13);
+pub const CLUSREG_CONDITION_IS_GREATER_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(15);
+pub const CLUSREG_CONDITION_IS_LESS_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(16);
+pub const CLUSREG_CONDITION_IS_NOT_EQUAL: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(14);
+pub const CLUSREG_CONDITION_KEY_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(17);
+pub const CLUSREG_CONDITION_KEY_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(18);
+pub const CLUSREG_CONDITION_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(12);
+pub const CLUSREG_CONTROL_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(10);
+pub const CLUSREG_CREATE_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(2);
+pub const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2;
+pub const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: u32 = 1;
+pub const CLUSREG_DELETE_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(3);
+pub const CLUSREG_DELETE_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(4);
 pub const CLUSREG_KEYNAME_OBJECTGUIDS: windows_core::PCWSTR = windows_core::w!("ObjectGUIDs");
-pub const CLUSREG_LAST_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(19i32);
+pub const CLUSREG_LAST_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(19);
 pub const CLUSREG_NAME_ACCELERATED_NETWORKING_ENABLED: windows_core::PCWSTR = windows_core::w!("AcceleratedNetworkingEnabled");
 pub const CLUSREG_NAME_ACCELERATED_NETWORKING_NODE_RESERVE: windows_core::PCWSTR = windows_core::w!("AcceleratedNetworkingNodeReserve");
 pub const CLUSREG_NAME_AFFINITYRULE_ENABLED: windows_core::PCWSTR = windows_core::w!("Enabled");
@@ -4129,43 +4129,43 @@ pub const CLUSREG_NAME_VSSTASK_TRIGGERARRAY: windows_core::PCWSTR = windows_core
 pub const CLUSREG_NAME_WINS_BACKUP_PATH: windows_core::PCWSTR = windows_core::w!("BackupPath");
 pub const CLUSREG_NAME_WINS_DATABASE_PATH: windows_core::PCWSTR = windows_core::w!("DatabasePath");
 pub const CLUSREG_NAME_WITNESS_DYNAMIC_WEIGHT: windows_core::PCWSTR = windows_core::w!("WitnessDynamicWeight");
-pub const CLUSREG_READ_ERROR: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(9i32);
-pub const CLUSREG_READ_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(7i32);
-pub const CLUSREG_READ_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(8i32);
-pub const CLUSREG_SET_KEY_SECURITY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(5i32);
-pub const CLUSREG_SET_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(1i32);
-pub const CLUSREG_VALUE_DELETED: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(6i32);
-pub const CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT: u32 = 1073741824u32;
-pub const CLUSRESDLL_STATUS_DUMP_NOW: u32 = 2147483648u32;
-pub const CLUSRESDLL_STATUS_INSUFFICIENT_MEMORY: u32 = 16u32;
-pub const CLUSRESDLL_STATUS_INSUFFICIENT_OTHER_RESOURCES: u32 = 64u32;
-pub const CLUSRESDLL_STATUS_INSUFFICIENT_PROCESSOR: u32 = 32u32;
-pub const CLUSRESDLL_STATUS_INVALID_PARAMETERS: u32 = 128u32;
-pub const CLUSRESDLL_STATUS_NETWORK_NOT_AVAILABLE: u32 = 256u32;
-pub const CLUSRESDLL_STATUS_OFFLINE_BUSY: u32 = 1u32;
-pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_REJECTED: u32 = 8u32;
-pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_THROTTLED: u32 = 4u32;
-pub const CLUSRESDLL_STATUS_OFFLINE_SOURCE_THROTTLED: u32 = 2u32;
-pub const CLUSRES_DISABLE_WPR_WATCHDOG_FOR_OFFLINE_CALLS: u32 = 2u32;
-pub const CLUSRES_DISABLE_WPR_WATCHDOG_FOR_ONLINE_CALLS: u32 = 1u32;
+pub const CLUSREG_READ_ERROR: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(9);
+pub const CLUSREG_READ_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(7);
+pub const CLUSREG_READ_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(8);
+pub const CLUSREG_SET_KEY_SECURITY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(5);
+pub const CLUSREG_SET_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(1);
+pub const CLUSREG_VALUE_DELETED: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(6);
+pub const CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT: u32 = 1073741824;
+pub const CLUSRESDLL_STATUS_DUMP_NOW: u32 = 2147483648;
+pub const CLUSRESDLL_STATUS_INSUFFICIENT_MEMORY: u32 = 16;
+pub const CLUSRESDLL_STATUS_INSUFFICIENT_OTHER_RESOURCES: u32 = 64;
+pub const CLUSRESDLL_STATUS_INSUFFICIENT_PROCESSOR: u32 = 32;
+pub const CLUSRESDLL_STATUS_INVALID_PARAMETERS: u32 = 128;
+pub const CLUSRESDLL_STATUS_NETWORK_NOT_AVAILABLE: u32 = 256;
+pub const CLUSRESDLL_STATUS_OFFLINE_BUSY: u32 = 1;
+pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_REJECTED: u32 = 8;
+pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_THROTTLED: u32 = 4;
+pub const CLUSRESDLL_STATUS_OFFLINE_SOURCE_THROTTLED: u32 = 2;
+pub const CLUSRES_DISABLE_WPR_WATCHDOG_FOR_OFFLINE_CALLS: u32 = 2;
+pub const CLUSRES_DISABLE_WPR_WATCHDOG_FOR_ONLINE_CALLS: u32 = 1;
 pub const CLUSRES_NAME_GET_OPERATION_CONTEXT_FLAGS: windows_core::PCWSTR = windows_core::w!("Flags");
-pub const CLUSRES_STATUS_APPLICATION_READY: u64 = 256u64;
-pub const CLUSRES_STATUS_EMBEDDED_FAILURE: u64 = 2u64;
-pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_CPU: u64 = 4u64;
-pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_GENERIC_RESOURCES: u64 = 16u64;
-pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_MEMORY: u64 = 8u64;
-pub const CLUSRES_STATUS_LOCKED_MODE: u64 = 1u64;
-pub const CLUSRES_STATUS_NETWORK_FAILURE: u64 = 32u64;
-pub const CLUSRES_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u64 = 512u64;
-pub const CLUSRES_STATUS_OS_HEARTBEAT: u64 = 128u64;
-pub const CLUSRES_STATUS_UNMONITORED: u64 = 64u64;
+pub const CLUSRES_STATUS_APPLICATION_READY: u64 = 256;
+pub const CLUSRES_STATUS_EMBEDDED_FAILURE: u64 = 2;
+pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_CPU: u64 = 4;
+pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_GENERIC_RESOURCES: u64 = 16;
+pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_MEMORY: u64 = 8;
+pub const CLUSRES_STATUS_LOCKED_MODE: u64 = 1;
+pub const CLUSRES_STATUS_NETWORK_FAILURE: u64 = 32;
+pub const CLUSRES_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u64 = 512;
+pub const CLUSRES_STATUS_OS_HEARTBEAT: u64 = 128;
+pub const CLUSRES_STATUS_UNMONITORED: u64 = 64;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTERSET_OBJECT_TYPE(pub i32);
-pub const CLUSTERSET_OBJECT_TYPE_DATABASE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(3i32);
-pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(1i32);
-pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(0i32);
-pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(2i32);
+pub const CLUSTERSET_OBJECT_TYPE_DATABASE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(3);
+pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(1);
+pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(0);
+pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTERVERSIONINFO {
@@ -4209,7 +4209,7 @@ pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
     pub dwFaultDomains: u32,
     pub bReserveSpareNode: windows_core::BOOL,
 }
-pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
+pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_BATCH_COMMAND {
@@ -4227,177 +4227,177 @@ impl Default for CLUSTER_BATCH_COMMAND {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE(pub i32);
-pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = CLUSTER_CHANGE(-1i32);
-pub const CLUSTER_CHANGE_CLUSTER_ALL_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8191i32);
-pub const CLUSTER_CHANGE_CLUSTER_COMMON_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(128i32);
-pub const CLUSTER_CHANGE_CLUSTER_GROUP_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4i32);
-pub const CLUSTER_CHANGE_CLUSTER_HANDLE_CLOSE_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8i32);
-pub const CLUSTER_CHANGE_CLUSTER_LOST_NOTIFICATIONS_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(512i32);
-pub const CLUSTER_CHANGE_CLUSTER_MEMBERSHIP_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2048i32);
-pub const CLUSTER_CHANGE_CLUSTER_NETWORK_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(16i32);
-pub const CLUSTER_CHANGE_CLUSTER_NODE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(32i32);
-pub const CLUSTER_CHANGE_CLUSTER_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(256i32);
-pub const CLUSTER_CHANGE_CLUSTER_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(1073741824i32);
-pub const CLUSTER_CHANGE_CLUSTER_RECONNECT: CLUSTER_CHANGE = CLUSTER_CHANGE(524288i32);
-pub const CLUSTER_CHANGE_CLUSTER_RECONNECT_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1i32);
-pub const CLUSTER_CHANGE_CLUSTER_RENAME_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1024i32);
-pub const CLUSTER_CHANGE_CLUSTER_RESOURCE_TYPE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(64i32);
-pub const CLUSTER_CHANGE_CLUSTER_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(536870912i32);
-pub const CLUSTER_CHANGE_CLUSTER_STATE_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2i32);
-pub const CLUSTER_CHANGE_CLUSTER_UPGRADED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4096i32);
+pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = CLUSTER_CHANGE(-1);
+pub const CLUSTER_CHANGE_CLUSTER_ALL_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8191);
+pub const CLUSTER_CHANGE_CLUSTER_COMMON_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(128);
+pub const CLUSTER_CHANGE_CLUSTER_GROUP_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4);
+pub const CLUSTER_CHANGE_CLUSTER_HANDLE_CLOSE_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8);
+pub const CLUSTER_CHANGE_CLUSTER_LOST_NOTIFICATIONS_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(512);
+pub const CLUSTER_CHANGE_CLUSTER_MEMBERSHIP_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2048);
+pub const CLUSTER_CHANGE_CLUSTER_NETWORK_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(16);
+pub const CLUSTER_CHANGE_CLUSTER_NODE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(32);
+pub const CLUSTER_CHANGE_CLUSTER_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(256);
+pub const CLUSTER_CHANGE_CLUSTER_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(1073741824);
+pub const CLUSTER_CHANGE_CLUSTER_RECONNECT: CLUSTER_CHANGE = CLUSTER_CHANGE(524288);
+pub const CLUSTER_CHANGE_CLUSTER_RECONNECT_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1);
+pub const CLUSTER_CHANGE_CLUSTER_RENAME_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1024);
+pub const CLUSTER_CHANGE_CLUSTER_RESOURCE_TYPE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(64);
+pub const CLUSTER_CHANGE_CLUSTER_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(536870912);
+pub const CLUSTER_CHANGE_CLUSTER_STATE_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2);
+pub const CLUSTER_CHANGE_CLUSTER_UPGRADED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4096);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_CLUSTER_V2(pub i32);
-pub const CLUSTER_CHANGE_GROUPSET_ALL_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(511i32);
-pub const CLUSTER_CHANGE_GROUPSET_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(2i32);
-pub const CLUSTER_CHANGE_GROUPSET_DELETED_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(1i32);
-pub const CLUSTER_CHANGE_GROUPSET_DEPENDENCIES_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(64i32);
-pub const CLUSTER_CHANGE_GROUPSET_DEPENDENTS_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(128i32);
-pub const CLUSTER_CHANGE_GROUPSET_GROUP_ADDED: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(16i32);
-pub const CLUSTER_CHANGE_GROUPSET_GROUP_REMOVED: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(32i32);
-pub const CLUSTER_CHANGE_GROUPSET_HANDLE_CLOSE_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(256i32);
-pub const CLUSTER_CHANGE_GROUPSET_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(4i32);
-pub const CLUSTER_CHANGE_GROUPSET_STATE_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(8i32);
+pub const CLUSTER_CHANGE_GROUPSET_ALL_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(511);
+pub const CLUSTER_CHANGE_GROUPSET_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(2);
+pub const CLUSTER_CHANGE_GROUPSET_DELETED_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(1);
+pub const CLUSTER_CHANGE_GROUPSET_DEPENDENCIES_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(64);
+pub const CLUSTER_CHANGE_GROUPSET_DEPENDENTS_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(128);
+pub const CLUSTER_CHANGE_GROUPSET_GROUP_ADDED: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(16);
+pub const CLUSTER_CHANGE_GROUPSET_GROUP_REMOVED: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(32);
+pub const CLUSTER_CHANGE_GROUPSET_HANDLE_CLOSE_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(256);
+pub const CLUSTER_CHANGE_GROUPSET_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(4);
+pub const CLUSTER_CHANGE_GROUPSET_STATE_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_GROUPSET_V2(pub i32);
-pub const CLUSTER_CHANGE_GROUP_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(16384i32);
-pub const CLUSTER_CHANGE_GROUP_ALL_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1023i32);
-pub const CLUSTER_CHANGE_GROUP_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(2i32);
-pub const CLUSTER_CHANGE_GROUP_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(8192i32);
-pub const CLUSTER_CHANGE_GROUP_DELETED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1i32);
-pub const CLUSTER_CHANGE_GROUP_HANDLE_CLOSE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(512i32);
-pub const CLUSTER_CHANGE_GROUP_OWNER_NODE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(16i32);
-pub const CLUSTER_CHANGE_GROUP_PREFERRED_OWNERS_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(32i32);
-pub const CLUSTER_CHANGE_GROUP_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(4i32);
-pub const CLUSTER_CHANGE_GROUP_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(32768i32);
-pub const CLUSTER_CHANGE_GROUP_RESOURCE_ADDED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(64i32);
-pub const CLUSTER_CHANGE_GROUP_RESOURCE_GAINED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(128i32);
-pub const CLUSTER_CHANGE_GROUP_RESOURCE_LOST_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(256i32);
-pub const CLUSTER_CHANGE_GROUP_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(4096i32);
-pub const CLUSTER_CHANGE_GROUP_STATE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(8i32);
+pub const CLUSTER_CHANGE_GROUP_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(16384);
+pub const CLUSTER_CHANGE_GROUP_ALL_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1023);
+pub const CLUSTER_CHANGE_GROUP_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(2);
+pub const CLUSTER_CHANGE_GROUP_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(8192);
+pub const CLUSTER_CHANGE_GROUP_DELETED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1);
+pub const CLUSTER_CHANGE_GROUP_HANDLE_CLOSE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(512);
+pub const CLUSTER_CHANGE_GROUP_OWNER_NODE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(16);
+pub const CLUSTER_CHANGE_GROUP_PREFERRED_OWNERS_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(32);
+pub const CLUSTER_CHANGE_GROUP_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(4);
+pub const CLUSTER_CHANGE_GROUP_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(32768);
+pub const CLUSTER_CHANGE_GROUP_RESOURCE_ADDED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(64);
+pub const CLUSTER_CHANGE_GROUP_RESOURCE_GAINED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(128);
+pub const CLUSTER_CHANGE_GROUP_RESOURCE_LOST_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(256);
+pub const CLUSTER_CHANGE_GROUP_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(4096);
+pub const CLUSTER_CHANGE_GROUP_STATE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_GROUP_V2(pub i32);
-pub const CLUSTER_CHANGE_HANDLE_CLOSE: CLUSTER_CHANGE = CLUSTER_CHANGE(-2147483648i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(67108864i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_ALL_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(31i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(2i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(33554432i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_DELETED_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(1i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(16i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(4i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(134217728i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(16777216i32);
-pub const CLUSTER_CHANGE_NETINTERFACE_STATE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(8i32);
+pub const CLUSTER_CHANGE_HANDLE_CLOSE: CLUSTER_CHANGE = CLUSTER_CHANGE(-2147483648);
+pub const CLUSTER_CHANGE_NETINTERFACE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(67108864);
+pub const CLUSTER_CHANGE_NETINTERFACE_ALL_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(31);
+pub const CLUSTER_CHANGE_NETINTERFACE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(2);
+pub const CLUSTER_CHANGE_NETINTERFACE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(33554432);
+pub const CLUSTER_CHANGE_NETINTERFACE_DELETED_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(1);
+pub const CLUSTER_CHANGE_NETINTERFACE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(16);
+pub const CLUSTER_CHANGE_NETINTERFACE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(4);
+pub const CLUSTER_CHANGE_NETINTERFACE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(134217728);
+pub const CLUSTER_CHANGE_NETINTERFACE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(16777216);
+pub const CLUSTER_CHANGE_NETINTERFACE_STATE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_NETINTERFACE_V2(pub i32);
-pub const CLUSTER_CHANGE_NETWORK_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(4194304i32);
-pub const CLUSTER_CHANGE_NETWORK_ALL_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(31i32);
-pub const CLUSTER_CHANGE_NETWORK_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(2i32);
-pub const CLUSTER_CHANGE_NETWORK_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(2097152i32);
-pub const CLUSTER_CHANGE_NETWORK_DELETED_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(1i32);
-pub const CLUSTER_CHANGE_NETWORK_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(16i32);
-pub const CLUSTER_CHANGE_NETWORK_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(4i32);
-pub const CLUSTER_CHANGE_NETWORK_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(8388608i32);
-pub const CLUSTER_CHANGE_NETWORK_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1048576i32);
-pub const CLUSTER_CHANGE_NETWORK_STATE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(8i32);
+pub const CLUSTER_CHANGE_NETWORK_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(4194304);
+pub const CLUSTER_CHANGE_NETWORK_ALL_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(31);
+pub const CLUSTER_CHANGE_NETWORK_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(2);
+pub const CLUSTER_CHANGE_NETWORK_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(2097152);
+pub const CLUSTER_CHANGE_NETWORK_DELETED_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(1);
+pub const CLUSTER_CHANGE_NETWORK_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(16);
+pub const CLUSTER_CHANGE_NETWORK_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(4);
+pub const CLUSTER_CHANGE_NETWORK_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(8388608);
+pub const CLUSTER_CHANGE_NETWORK_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1048576);
+pub const CLUSTER_CHANGE_NETWORK_STATE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_NETWORK_V2(pub i32);
-pub const CLUSTER_CHANGE_NODE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(4i32);
-pub const CLUSTER_CHANGE_NODE_ALL_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(255i32);
-pub const CLUSTER_CHANGE_NODE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(4i32);
-pub const CLUSTER_CHANGE_NODE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(2i32);
-pub const CLUSTER_CHANGE_NODE_DELETED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(2i32);
-pub const CLUSTER_CHANGE_NODE_GROUP_GAINED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(32i32);
-pub const CLUSTER_CHANGE_NODE_GROUP_LOST_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(64i32);
-pub const CLUSTER_CHANGE_NODE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(128i32);
-pub const CLUSTER_CHANGE_NODE_NETINTERFACE_ADDED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(1i32);
-pub const CLUSTER_CHANGE_NODE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(8i32);
-pub const CLUSTER_CHANGE_NODE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(8i32);
-pub const CLUSTER_CHANGE_NODE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1i32);
-pub const CLUSTER_CHANGE_NODE_STATE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(16i32);
+pub const CLUSTER_CHANGE_NODE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(4);
+pub const CLUSTER_CHANGE_NODE_ALL_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(255);
+pub const CLUSTER_CHANGE_NODE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(4);
+pub const CLUSTER_CHANGE_NODE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(2);
+pub const CLUSTER_CHANGE_NODE_DELETED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(2);
+pub const CLUSTER_CHANGE_NODE_GROUP_GAINED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(32);
+pub const CLUSTER_CHANGE_NODE_GROUP_LOST_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(64);
+pub const CLUSTER_CHANGE_NODE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(128);
+pub const CLUSTER_CHANGE_NODE_NETINTERFACE_ADDED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(1);
+pub const CLUSTER_CHANGE_NODE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(8);
+pub const CLUSTER_CHANGE_NODE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(8);
+pub const CLUSTER_CHANGE_NODE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1);
+pub const CLUSTER_CHANGE_NODE_STATE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_NODE_V2(pub i32);
-pub const CLUSTER_CHANGE_QUORUM_ALL_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
-pub const CLUSTER_CHANGE_QUORUM_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(268435456i32);
-pub const CLUSTER_CHANGE_QUORUM_STATE_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
+pub const CLUSTER_CHANGE_QUORUM_ALL_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1);
+pub const CLUSTER_CHANGE_QUORUM_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(268435456);
+pub const CLUSTER_CHANGE_QUORUM_STATE_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_QUORUM_V2(pub i32);
-pub const CLUSTER_CHANGE_REGISTRY_ALL_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(31i32);
-pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES: CLUSTER_CHANGE = CLUSTER_CHANGE(32i32);
-pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(1i32);
-pub const CLUSTER_CHANGE_REGISTRY_HANDLE_CLOSE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(16i32);
-pub const CLUSTER_CHANGE_REGISTRY_NAME: CLUSTER_CHANGE = CLUSTER_CHANGE(16i32);
-pub const CLUSTER_CHANGE_REGISTRY_NAME_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(2i32);
-pub const CLUSTER_CHANGE_REGISTRY_SUBTREE: CLUSTER_CHANGE = CLUSTER_CHANGE(128i32);
-pub const CLUSTER_CHANGE_REGISTRY_SUBTREE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(4i32);
+pub const CLUSTER_CHANGE_REGISTRY_ALL_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(31);
+pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES: CLUSTER_CHANGE = CLUSTER_CHANGE(32);
+pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(1);
+pub const CLUSTER_CHANGE_REGISTRY_HANDLE_CLOSE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(16);
+pub const CLUSTER_CHANGE_REGISTRY_NAME: CLUSTER_CHANGE = CLUSTER_CHANGE(16);
+pub const CLUSTER_CHANGE_REGISTRY_NAME_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(2);
+pub const CLUSTER_CHANGE_REGISTRY_SUBTREE: CLUSTER_CHANGE = CLUSTER_CHANGE(128);
+pub const CLUSTER_CHANGE_REGISTRY_SUBTREE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_REGISTRY_V2(pub i32);
-pub const CLUSTER_CHANGE_REGISTRY_VALUE: CLUSTER_CHANGE = CLUSTER_CHANGE(64i32);
-pub const CLUSTER_CHANGE_REGISTRY_VALUE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(8i32);
-pub const CLUSTER_CHANGE_RESOURCE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(1024i32);
-pub const CLUSTER_CHANGE_RESOURCE_ALL_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2047i32);
-pub const CLUSTER_CHANGE_RESOURCE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1i32);
-pub const CLUSTER_CHANGE_RESOURCE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(512i32);
-pub const CLUSTER_CHANGE_RESOURCE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(128i32);
-pub const CLUSTER_CHANGE_RESOURCE_DEPENDENCIES_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(16i32);
-pub const CLUSTER_CHANGE_RESOURCE_DEPENDENTS_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(32i32);
-pub const CLUSTER_CHANGE_RESOURCE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(256i32);
-pub const CLUSTER_CHANGE_RESOURCE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(512i32);
-pub const CLUSTER_CHANGE_RESOURCE_OWNER_GROUP_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(8i32);
-pub const CLUSTER_CHANGE_RESOURCE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(64i32);
-pub const CLUSTER_CHANGE_RESOURCE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2i32);
-pub const CLUSTER_CHANGE_RESOURCE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(2048i32);
-pub const CLUSTER_CHANGE_RESOURCE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(256i32);
-pub const CLUSTER_CHANGE_RESOURCE_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(4i32);
-pub const CLUSTER_CHANGE_RESOURCE_TERMINAL_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1024i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(131072i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_ALL_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(63i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(2i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(65536i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(1i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(16i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(8i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(4i32);
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(262144i32);
+pub const CLUSTER_CHANGE_REGISTRY_VALUE: CLUSTER_CHANGE = CLUSTER_CHANGE(64);
+pub const CLUSTER_CHANGE_REGISTRY_VALUE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(8);
+pub const CLUSTER_CHANGE_RESOURCE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(1024);
+pub const CLUSTER_CHANGE_RESOURCE_ALL_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2047);
+pub const CLUSTER_CHANGE_RESOURCE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1);
+pub const CLUSTER_CHANGE_RESOURCE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(512);
+pub const CLUSTER_CHANGE_RESOURCE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(128);
+pub const CLUSTER_CHANGE_RESOURCE_DEPENDENCIES_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(16);
+pub const CLUSTER_CHANGE_RESOURCE_DEPENDENTS_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(32);
+pub const CLUSTER_CHANGE_RESOURCE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(256);
+pub const CLUSTER_CHANGE_RESOURCE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(512);
+pub const CLUSTER_CHANGE_RESOURCE_OWNER_GROUP_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(8);
+pub const CLUSTER_CHANGE_RESOURCE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(64);
+pub const CLUSTER_CHANGE_RESOURCE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2);
+pub const CLUSTER_CHANGE_RESOURCE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(2048);
+pub const CLUSTER_CHANGE_RESOURCE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(256);
+pub const CLUSTER_CHANGE_RESOURCE_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(4);
+pub const CLUSTER_CHANGE_RESOURCE_TERMINAL_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1024);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(131072);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_ALL_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(63);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(2);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(65536);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(1);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(16);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(8);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(4);
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(262144);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_RESOURCE_TYPE_V2(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_RESOURCE_V2(pub i32);
-pub const CLUSTER_CHANGE_SHARED_VOLUME_ADDED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(2i32);
-pub const CLUSTER_CHANGE_SHARED_VOLUME_ALL_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(7i32);
-pub const CLUSTER_CHANGE_SHARED_VOLUME_REMOVED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(4i32);
-pub const CLUSTER_CHANGE_SHARED_VOLUME_STATE_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(1i32);
+pub const CLUSTER_CHANGE_SHARED_VOLUME_ADDED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(2);
+pub const CLUSTER_CHANGE_SHARED_VOLUME_ALL_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(7);
+pub const CLUSTER_CHANGE_SHARED_VOLUME_REMOVED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(4);
+pub const CLUSTER_CHANGE_SHARED_VOLUME_STATE_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_SHARED_VOLUME_V2(pub i32);
-pub const CLUSTER_CHANGE_SPACEPORT_CUSTOM_PNP_V2: CLUSTER_CHANGE_SPACEPORT_V2 = CLUSTER_CHANGE_SPACEPORT_V2(1i32);
+pub const CLUSTER_CHANGE_SPACEPORT_CUSTOM_PNP_V2: CLUSTER_CHANGE_SPACEPORT_V2 = CLUSTER_CHANGE_SPACEPORT_V2(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CHANGE_SPACEPORT_V2(pub i32);
-pub const CLUSTER_CHANGE_UPGRADE_ALL: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(7i32);
-pub const CLUSTER_CHANGE_UPGRADE_NODE_COMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(2i32);
-pub const CLUSTER_CHANGE_UPGRADE_NODE_POSTCOMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(4i32);
-pub const CLUSTER_CHANGE_UPGRADE_NODE_PREPARE: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(1i32);
+pub const CLUSTER_CHANGE_UPGRADE_ALL: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(7);
+pub const CLUSTER_CHANGE_UPGRADE_NODE_COMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(2);
+pub const CLUSTER_CHANGE_UPGRADE_NODE_POSTCOMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(4);
+pub const CLUSTER_CHANGE_UPGRADE_NODE_PREPARE: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CLOUD_TYPE(pub i32);
-pub const CLUSTER_CLOUD_TYPE_AZURE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(1i32);
-pub const CLUSTER_CLOUD_TYPE_MIXED: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(128i32);
-pub const CLUSTER_CLOUD_TYPE_NONE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(0i32);
-pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(-1i32);
-pub const CLUSTER_CONFIGURED: u32 = 2u32;
+pub const CLUSTER_CLOUD_TYPE_AZURE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(1);
+pub const CLUSTER_CLOUD_TYPE_MIXED: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(128);
+pub const CLUSTER_CLOUD_TYPE_NONE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(0);
+pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(-1);
+pub const CLUSTER_CONFIGURED: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CONTROL_OBJECT(pub i32);
@@ -4407,23 +4407,23 @@ pub struct CLUSTER_CREATE_GROUP_INFO {
     pub dwVersion: u32,
     pub groupType: CLUSGROUP_TYPE,
 }
-pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
-pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1u32;
+pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1;
+pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1;
 pub const CLUSTER_CSA_VSS_STATE: windows_core::PCWSTR = windows_core::w!("BackupInProgress");
 pub const CLUSTER_CSV_COMPATIBLE_FILTERS: windows_core::PCWSTR = windows_core::w!("SharedVolumeCompatibleFilters");
 pub const CLUSTER_CSV_INCOMPATIBLE_FILTERS: windows_core::PCWSTR = windows_core::w!("SharedVolumeIncompatibleFilters");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CSV_VOLUME_FAULT_STATE(pub i32);
-pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
+pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2;
 pub const CLUSTER_ENFORCED_ANTIAFFINITY: windows_core::PCWSTR = windows_core::w!("ClusterEnforcedAntiaffinity");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_ENUM(pub i32);
-pub const CLUSTER_ENUM_ALL: CLUSTER_ENUM = CLUSTER_ENUM(63i32);
-pub const CLUSTER_ENUM_CAPACITY_NODE: CLUSTER_ENUM = CLUSTER_ENUM(268435456i32);
-pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(8i32);
-pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(-2147483648i32);
+pub const CLUSTER_ENUM_ALL: CLUSTER_ENUM = CLUSTER_ENUM(63);
+pub const CLUSTER_ENUM_CAPACITY_NODE: CLUSTER_ENUM = CLUSTER_ENUM(268435456);
+pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(8);
+pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(-2147483648);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUSTER_ENUM_ITEM {
@@ -4434,23 +4434,23 @@ pub struct CLUSTER_ENUM_ITEM {
     pub cbName: u32,
     pub lpszName: windows_core::PWSTR,
 }
-pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
-pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
-pub const CLUSTER_ENUM_NETINTERFACE: CLUSTER_ENUM = CLUSTER_ENUM(32i32);
-pub const CLUSTER_ENUM_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(16i32);
-pub const CLUSTER_ENUM_NODE: CLUSTER_ENUM = CLUSTER_ENUM(1i32);
-pub const CLUSTER_ENUM_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(4i32);
-pub const CLUSTER_ENUM_RESTYPE: CLUSTER_ENUM = CLUSTER_ENUM(2i32);
-pub const CLUSTER_ENUM_SHARED_VOLUME_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(536870912i32);
-pub const CLUSTER_ENUM_SHARED_VOLUME_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(1073741824i32);
+pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1;
+pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1;
+pub const CLUSTER_ENUM_NETINTERFACE: CLUSTER_ENUM = CLUSTER_ENUM(32);
+pub const CLUSTER_ENUM_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(16);
+pub const CLUSTER_ENUM_NODE: CLUSTER_ENUM = CLUSTER_ENUM(1);
+pub const CLUSTER_ENUM_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(4);
+pub const CLUSTER_ENUM_RESTYPE: CLUSTER_ENUM = CLUSTER_ENUM(2);
+pub const CLUSTER_ENUM_SHARED_VOLUME_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(536870912);
+pub const CLUSTER_ENUM_SHARED_VOLUME_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(1073741824);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM(pub i32);
-pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(3i32);
-pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(1i32);
+pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(3);
+pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
@@ -4473,9 +4473,9 @@ impl Default for CLUSTER_GROUP_ENUM_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
-pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
-pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(2i32);
+pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1;
+pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1;
+pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_PRIORITY(pub i32);
@@ -4496,7 +4496,7 @@ pub struct CLUSTER_HEALTH_FAULT {
     pub Flags: u32,
     pub Reserved: u32,
 }
-pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
+pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_HEALTH_FAULT_ARRAY {
@@ -4508,22 +4508,22 @@ impl Default for CLUSTER_HEALTH_FAULT_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
+pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3;
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION_LABEL: windows_core::PCWSTR = windows_core::w!("Description");
-pub const CLUSTER_HEALTH_FAULT_ERRORCODE: u32 = 2u32;
+pub const CLUSTER_HEALTH_FAULT_ERRORCODE: u32 = 2;
 pub const CLUSTER_HEALTH_FAULT_ERRORCODE_LABEL: windows_core::PCWSTR = windows_core::w!("ErrorCode");
-pub const CLUSTER_HEALTH_FAULT_ERRORTYPE: u32 = 1u32;
+pub const CLUSTER_HEALTH_FAULT_ERRORTYPE: u32 = 1;
 pub const CLUSTER_HEALTH_FAULT_ERRORTYPE_LABEL: windows_core::PCWSTR = windows_core::w!("ErrorType");
-pub const CLUSTER_HEALTH_FAULT_FLAGS: u32 = 5u32;
+pub const CLUSTER_HEALTH_FAULT_FLAGS: u32 = 5;
 pub const CLUSTER_HEALTH_FAULT_FLAGS_LABEL: windows_core::PCWSTR = windows_core::w!("Flags");
-pub const CLUSTER_HEALTH_FAULT_ID: u32 = 0u32;
+pub const CLUSTER_HEALTH_FAULT_ID: u32 = 0;
 pub const CLUSTER_HEALTH_FAULT_ID_LABEL: windows_core::PCWSTR = windows_core::w!("Id");
 pub const CLUSTER_HEALTH_FAULT_PROPERTY_NAME: windows_core::PCWSTR = windows_core::w!("ClusterHealth");
-pub const CLUSTER_HEALTH_FAULT_PROVIDER: u32 = 4u32;
+pub const CLUSTER_HEALTH_FAULT_PROVIDER: u32 = 4;
 pub const CLUSTER_HEALTH_FAULT_PROVIDER_LABEL: windows_core::PCWSTR = windows_core::w!("Provider");
-pub const CLUSTER_HEALTH_FAULT_RESERVED: u32 = 6u32;
+pub const CLUSTER_HEALTH_FAULT_RESERVED: u32 = 6;
 pub const CLUSTER_HEALTH_FAULT_RESERVED_LABEL: windows_core::PCWSTR = windows_core::w!("Reserved");
-pub const CLUSTER_INSTALLED: u32 = 1u32;
+pub const CLUSTER_INSTALLED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUSTER_IP_ENTRY {
@@ -4545,16 +4545,16 @@ impl Default for CLUSTER_MEMBERSHIP_INFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_MGMT_POINT_RESTYPE(pub i32);
-pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(0i32);
-pub const CLUSTER_MGMT_POINT_RESTYPE_DNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(2i32);
-pub const CLUSTER_MGMT_POINT_RESTYPE_SNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(1i32);
+pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(0);
+pub const CLUSTER_MGMT_POINT_RESTYPE_DNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(2);
+pub const CLUSTER_MGMT_POINT_RESTYPE_SNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_MGMT_POINT_TYPE(pub i32);
-pub const CLUSTER_MGMT_POINT_TYPE_CNO: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(1i32);
-pub const CLUSTER_MGMT_POINT_TYPE_CNO_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(3i32);
-pub const CLUSTER_MGMT_POINT_TYPE_DNS_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(2i32);
-pub const CLUSTER_MGMT_POINT_TYPE_NONE: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(0i32);
+pub const CLUSTER_MGMT_POINT_TYPE_CNO: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(1);
+pub const CLUSTER_MGMT_POINT_TYPE_CNO_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(3);
+pub const CLUSTER_MGMT_POINT_TYPE_DNS_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(2);
+pub const CLUSTER_MGMT_POINT_TYPE_NONE: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(0);
 pub const CLUSTER_NAME_AUTO_BALANCER_LEVEL: windows_core::PCWSTR = windows_core::w!("AutoBalancerLevel");
 pub const CLUSTER_NAME_AUTO_BALANCER_MODE: windows_core::PCWSTR = windows_core::w!("AutoBalancerMode");
 pub const CLUSTER_NAME_PREFERRED_SITE: windows_core::PCWSTR = windows_core::w!("PreferredSite");
@@ -4564,8 +4564,8 @@ pub struct CLUSTER_NETINTERFACE_STATE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_NETWORK_ENUM(pub i32);
-pub const CLUSTER_NETWORK_ENUM_ALL: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
-pub const CLUSTER_NETWORK_ENUM_NETINTERFACES: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
+pub const CLUSTER_NETWORK_ENUM_ALL: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1);
+pub const CLUSTER_NETWORK_ENUM_NETINTERFACES: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_NETWORK_ROLE(pub i32);
@@ -4578,10 +4578,10 @@ pub struct CLUSTER_NODE_DRAIN_STATUS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_NODE_ENUM(pub i32);
-pub const CLUSTER_NODE_ENUM_ALL: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(3i32);
-pub const CLUSTER_NODE_ENUM_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(2i32);
-pub const CLUSTER_NODE_ENUM_NETINTERFACES: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(1i32);
-pub const CLUSTER_NODE_ENUM_PREFERRED_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(4i32);
+pub const CLUSTER_NODE_ENUM_ALL: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(3);
+pub const CLUSTER_NODE_ENUM_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(2);
+pub const CLUSTER_NODE_ENUM_NETINTERFACES: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(1);
+pub const CLUSTER_NODE_ENUM_PREFERRED_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_NODE_FAILBACK_STATUS(pub i32);
@@ -4594,28 +4594,28 @@ pub struct CLUSTER_NODE_STATE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_NODE_STATUS(pub i32);
-pub const CLUSTER_NOTIFICATIONS_V1: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(1i32);
-pub const CLUSTER_NOTIFICATIONS_V2: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(2i32);
+pub const CLUSTER_NOTIFICATIONS_V1: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(1);
+pub const CLUSTER_NOTIFICATIONS_V2: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_NOTIFICATIONS_VERSION(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_OBJECT_TYPE(pub i32);
-pub const CLUSTER_OBJECT_TYPE_AFFINITYRULE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(16i32);
-pub const CLUSTER_OBJECT_TYPE_CLUSTER: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(1i32);
-pub const CLUSTER_OBJECT_TYPE_FAULTDOMAIN: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(17i32);
-pub const CLUSTER_OBJECT_TYPE_GROUP: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(2i32);
-pub const CLUSTER_OBJECT_TYPE_GROUPSET: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(13i32);
-pub const CLUSTER_OBJECT_TYPE_NETWORK: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(6i32);
-pub const CLUSTER_OBJECT_TYPE_NETWORK_INTERFACE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(5i32);
-pub const CLUSTER_OBJECT_TYPE_NODE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(7i32);
-pub const CLUSTER_OBJECT_TYPE_NONE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(0i32);
-pub const CLUSTER_OBJECT_TYPE_QUORUM: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(9i32);
-pub const CLUSTER_OBJECT_TYPE_REGISTRY: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(8i32);
-pub const CLUSTER_OBJECT_TYPE_RESOURCE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(3i32);
-pub const CLUSTER_OBJECT_TYPE_RESOURCE_TYPE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(4i32);
-pub const CLUSTER_OBJECT_TYPE_SHARED_VOLUME: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(10i32);
+pub const CLUSTER_OBJECT_TYPE_AFFINITYRULE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(16);
+pub const CLUSTER_OBJECT_TYPE_CLUSTER: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(1);
+pub const CLUSTER_OBJECT_TYPE_FAULTDOMAIN: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(17);
+pub const CLUSTER_OBJECT_TYPE_GROUP: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(2);
+pub const CLUSTER_OBJECT_TYPE_GROUPSET: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(13);
+pub const CLUSTER_OBJECT_TYPE_NETWORK: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(6);
+pub const CLUSTER_OBJECT_TYPE_NETWORK_INTERFACE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(5);
+pub const CLUSTER_OBJECT_TYPE_NODE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(7);
+pub const CLUSTER_OBJECT_TYPE_NONE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(0);
+pub const CLUSTER_OBJECT_TYPE_QUORUM: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(9);
+pub const CLUSTER_OBJECT_TYPE_REGISTRY: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(8);
+pub const CLUSTER_OBJECT_TYPE_RESOURCE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(3);
+pub const CLUSTER_OBJECT_TYPE_RESOURCE_TYPE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(4);
+pub const CLUSTER_OBJECT_TYPE_SHARED_VOLUME: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(10);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_PROPERTY_FORMAT(pub i32);
@@ -4625,8 +4625,8 @@ pub struct CLUSTER_PROPERTY_SYNTAX(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_PROPERTY_TYPE(pub i32);
-pub const CLUSTER_QUORUM_LOST: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(1i32);
-pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(0i32);
+pub const CLUSTER_QUORUM_LOST: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(1);
+pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_QUORUM_TYPE(pub i32);
@@ -4661,15 +4661,15 @@ pub struct CLUSTER_RESOURCE_CLASS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_CREATE_FLAGS(pub i32);
-pub const CLUSTER_RESOURCE_DEFAULT_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(0i32);
+pub const CLUSTER_RESOURCE_DEFAULT_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM(pub i32);
-pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(7i32);
-pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(1i32);
+pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(7);
+pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
@@ -4692,14 +4692,14 @@ impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
-pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
-pub const CLUSTER_RESOURCE_ENUM_NODES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(4i32);
-pub const CLUSTER_RESOURCE_ENUM_PROVIDES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(2i32);
+pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1;
+pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1;
+pub const CLUSTER_RESOURCE_ENUM_NODES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(4);
+pub const CLUSTER_RESOURCE_ENUM_PROVIDES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_RESTART_ACTION(pub i32);
-pub const CLUSTER_RESOURCE_SEPARATE_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1i32);
+pub const CLUSTER_RESOURCE_SEPARATE_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_STATE(pub i32);
@@ -4709,18 +4709,18 @@ pub struct CLUSTER_RESOURCE_STATE_CHANGE_REASON(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_TYPE_ENUM(pub i32);
-pub const CLUSTER_RESOURCE_TYPE_ENUM_ALL: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(3i32);
-pub const CLUSTER_RESOURCE_TYPE_ENUM_NODES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(1i32);
-pub const CLUSTER_RESOURCE_TYPE_ENUM_RESOURCES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(2i32);
-pub const CLUSTER_RESOURCE_TYPE_SPECIFIC_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(32i32);
-pub const CLUSTER_RESOURCE_VALID_FLAGS: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1i32);
+pub const CLUSTER_RESOURCE_TYPE_ENUM_ALL: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(3);
+pub const CLUSTER_RESOURCE_TYPE_ENUM_NODES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(1);
+pub const CLUSTER_RESOURCE_TYPE_ENUM_RESOURCES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(2);
+pub const CLUSTER_RESOURCE_TYPE_SPECIFIC_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(32);
+pub const CLUSTER_RESOURCE_VALID_FLAGS: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_ROLE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_ROLE_STATE(pub i32);
-pub const CLUSTER_RUNNING: u32 = 16u32;
+pub const CLUSTER_RUNNING: u32 = 16;
 pub const CLUSTER_S2D_BUS_TYPES: windows_core::PCWSTR = windows_core::w!("S2DBusTypes");
 pub const CLUSTER_S2D_CACHE_BEHAVIOR_FLAGS: windows_core::PCWSTR = windows_core::w!("S2DCacheBehavior");
 pub const CLUSTER_S2D_CACHE_DESIRED_STATE: windows_core::PCWSTR = windows_core::w!("S2DCacheDesiredState");
@@ -4739,8 +4739,8 @@ pub struct CLUSTER_SETUP_PHASE_SEVERITY(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_SETUP_PHASE_TYPE(pub i32);
-pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
-pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
+pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0;
+pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
@@ -4902,53 +4902,53 @@ impl Default for CLUSTER_VALIDATE_PATH {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
-pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295u32;
+pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1;
+pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295;
 pub const CLUSTER_WITNESS_DATABASE_WRITE_TIMEOUT: windows_core::PCWSTR = windows_core::w!("WitnessDatabaseWriteTimeout");
 pub const CLUSTER_WITNESS_FAILED_RESTART_INTERVAL: windows_core::PCWSTR = windows_core::w!("WitnessRestartInterval");
-pub const CLUS_ACCESS_ANY: u32 = 0u32;
-pub const CLUS_ACCESS_READ: u32 = 1u32;
-pub const CLUS_ACCESS_WRITE: u32 = 2u32;
+pub const CLUS_ACCESS_ANY: u32 = 0;
+pub const CLUS_ACCESS_READ: u32 = 1;
+pub const CLUS_ACCESS_WRITE: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_ADAPTER_EXCLUSION_TYPE(pub i32);
-pub const CLUS_ADAPTER_EXCLUSION_TYPE_DESCRIPTION: CLUS_ADAPTER_EXCLUSION_TYPE = CLUS_ADAPTER_EXCLUSION_TYPE(1i32);
-pub const CLUS_ADAPTER_EXCLUSION_TYPE_FRIENDLYNAME: CLUS_ADAPTER_EXCLUSION_TYPE = CLUS_ADAPTER_EXCLUSION_TYPE(2i32);
-pub const CLUS_ADAPTER_EXCLUSION_TYPE_IPPREFIX: CLUS_ADAPTER_EXCLUSION_TYPE = CLUS_ADAPTER_EXCLUSION_TYPE(0i32);
-pub const CLUS_AFFINITY_RULE_DIFFERENT_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(3i32);
-pub const CLUS_AFFINITY_RULE_DIFFERENT_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4i32);
-pub const CLUS_AFFINITY_RULE_MAX: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4i32);
-pub const CLUS_AFFINITY_RULE_MIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0i32);
-pub const CLUS_AFFINITY_RULE_NONE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0i32);
-pub const CLUS_AFFINITY_RULE_SAME_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(1i32);
-pub const CLUS_AFFINITY_RULE_SAME_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(2i32);
+pub const CLUS_ADAPTER_EXCLUSION_TYPE_DESCRIPTION: CLUS_ADAPTER_EXCLUSION_TYPE = CLUS_ADAPTER_EXCLUSION_TYPE(1);
+pub const CLUS_ADAPTER_EXCLUSION_TYPE_FRIENDLYNAME: CLUS_ADAPTER_EXCLUSION_TYPE = CLUS_ADAPTER_EXCLUSION_TYPE(2);
+pub const CLUS_ADAPTER_EXCLUSION_TYPE_IPPREFIX: CLUS_ADAPTER_EXCLUSION_TYPE = CLUS_ADAPTER_EXCLUSION_TYPE(0);
+pub const CLUS_AFFINITY_RULE_DIFFERENT_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(3);
+pub const CLUS_AFFINITY_RULE_DIFFERENT_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4);
+pub const CLUS_AFFINITY_RULE_MAX: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4);
+pub const CLUS_AFFINITY_RULE_MIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0);
+pub const CLUS_AFFINITY_RULE_NONE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0);
+pub const CLUS_AFFINITY_RULE_SAME_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(1);
+pub const CLUS_AFFINITY_RULE_SAME_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_AFFINITY_RULE_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_CHARACTERISTICS(pub i32);
-pub const CLUS_CHAR_BROADCAST_DELETE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(32i32);
-pub const CLUS_CHAR_CLONES: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(8192i32);
-pub const CLUS_CHAR_COEXIST_IN_SHARED_VOLUME_GROUP: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(256i32);
-pub const CLUS_CHAR_DELETE_REQUIRES_ALL_NODES: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(2i32);
-pub const CLUS_CHAR_DRAIN_LOCAL_OFFLINE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(524288i32);
-pub const CLUS_CHAR_INFRASTRUCTURE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(131072i32);
-pub const CLUS_CHAR_LOCAL_QUORUM: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(4i32);
-pub const CLUS_CHAR_LOCAL_QUORUM_DEBUG: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(8i32);
-pub const CLUS_CHAR_MONITOR_DETACH: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(1024i32);
-pub const CLUS_CHAR_MONITOR_REATTACH: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(2048i32);
-pub const CLUS_CHAR_NOTIFY_NEW_OWNER: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(32768i32);
-pub const CLUS_CHAR_NOT_PREEMPTABLE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(16384i32);
-pub const CLUS_CHAR_OPERATION_CONTEXT: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(4096i32);
-pub const CLUS_CHAR_PLACEMENT_DATA: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(512i32);
-pub const CLUS_CHAR_QUORUM: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(1i32);
-pub const CLUS_CHAR_REQUIRES_STATE_CHANGE_REASON: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(16i32);
-pub const CLUS_CHAR_SINGLE_CLUSTER_INSTANCE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(64i32);
-pub const CLUS_CHAR_SINGLE_GROUP_INSTANCE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(128i32);
-pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(65536i32);
-pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(0i32);
-pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(262144i32);
+pub const CLUS_CHAR_BROADCAST_DELETE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(32);
+pub const CLUS_CHAR_CLONES: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(8192);
+pub const CLUS_CHAR_COEXIST_IN_SHARED_VOLUME_GROUP: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(256);
+pub const CLUS_CHAR_DELETE_REQUIRES_ALL_NODES: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(2);
+pub const CLUS_CHAR_DRAIN_LOCAL_OFFLINE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(524288);
+pub const CLUS_CHAR_INFRASTRUCTURE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(131072);
+pub const CLUS_CHAR_LOCAL_QUORUM: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(4);
+pub const CLUS_CHAR_LOCAL_QUORUM_DEBUG: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(8);
+pub const CLUS_CHAR_MONITOR_DETACH: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(1024);
+pub const CLUS_CHAR_MONITOR_REATTACH: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(2048);
+pub const CLUS_CHAR_NOTIFY_NEW_OWNER: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(32768);
+pub const CLUS_CHAR_NOT_PREEMPTABLE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(16384);
+pub const CLUS_CHAR_OPERATION_CONTEXT: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(4096);
+pub const CLUS_CHAR_PLACEMENT_DATA: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(512);
+pub const CLUS_CHAR_QUORUM: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(1);
+pub const CLUS_CHAR_REQUIRES_STATE_CHANGE_REASON: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(16);
+pub const CLUS_CHAR_SINGLE_CLUSTER_INSTANCE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(64);
+pub const CLUS_CHAR_SINGLE_GROUP_INSTANCE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(128);
+pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(65536);
+pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(0);
+pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(262144);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_CHKDSK_INFO {
@@ -4962,7 +4962,7 @@ impl Default for CLUS_CHKDSK_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
+pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
@@ -5042,7 +5042,7 @@ pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_FLAGS(pub i32);
-pub const CLUS_FLAG_CORE: CLUS_FLAGS = CLUS_FLAGS(1i32);
+pub const CLUS_FLAG_CORE: CLUS_FLAGS = CLUS_FLAGS(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_FORCE_QUORUM_INFO {
@@ -5062,16 +5062,16 @@ pub struct CLUS_FTSET_INFO {
     pub dwRootSignature: u32,
     pub dwFtType: u32,
 }
-pub const CLUS_GLOBAL: u32 = 1u32;
-pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(1i32);
-pub const CLUS_GROUP_START_ALLOWED: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(2i32);
-pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(0i32);
+pub const CLUS_GLOBAL: u32 = 1;
+pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(1);
+pub const CLUS_GROUP_START_ALLOWED: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(2);
+pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_GROUP_START_SETTING(pub i32);
-pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
-pub const CLUS_GRP_MOVE_LOCKED: u32 = 1u32;
-pub const CLUS_HYBRID_QUORUM: u32 = 1024u32;
+pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0;
+pub const CLUS_GRP_MOVE_LOCKED: u32 = 1;
+pub const CLUS_HYBRID_QUORUM: u32 = 1024;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFO {
@@ -5085,7 +5085,7 @@ pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InternalState: CLUSTER_RESOURCE_STATE,
     pub Signature: u32,
 }
-pub const CLUS_MODIFY: u32 = 1u32;
+pub const CLUS_MODIFY: u32 = 1;
 pub const CLUS_NAME_RES_TYPE_CLUSTER_GROUPID: windows_core::PCWSTR = windows_core::w!("ClusterGroupId");
 pub const CLUS_NAME_RES_TYPE_DATA_RESID: windows_core::PCWSTR = windows_core::w!("DataResourceId");
 pub const CLUS_NAME_RES_TYPE_LOG_MULTIPLE: windows_core::PCWSTR = windows_core::w!("LogSizeMultiple");
@@ -5156,20 +5156,20 @@ pub struct CLUS_NETNAME_VS_TOKEN_INFO {
     pub DesiredAccess: u32,
     pub InheritHandle: windows_core::BOOL,
 }
-pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
-pub const CLUS_NOT_GLOBAL: u32 = 0u32;
-pub const CLUS_NO_MODIFY: u32 = 0u32;
-pub const CLUS_OBJECT_AFFINITYRULE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(9i32);
-pub const CLUS_OBJECT_CLUSTER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(7i32);
-pub const CLUS_OBJECT_GROUP: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(3i32);
-pub const CLUS_OBJECT_GROUPSET: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(8i32);
-pub const CLUS_OBJECT_INVALID: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(0i32);
-pub const CLUS_OBJECT_NETINTERFACE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(6i32);
-pub const CLUS_OBJECT_NETWORK: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(5i32);
-pub const CLUS_OBJECT_NODE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(4i32);
-pub const CLUS_OBJECT_RESOURCE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(1i32);
-pub const CLUS_OBJECT_RESOURCE_TYPE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(2i32);
-pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(128i32);
+pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0;
+pub const CLUS_NOT_GLOBAL: u32 = 0;
+pub const CLUS_NO_MODIFY: u32 = 0;
+pub const CLUS_OBJECT_AFFINITYRULE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(9);
+pub const CLUS_OBJECT_CLUSTER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(7);
+pub const CLUS_OBJECT_GROUP: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(3);
+pub const CLUS_OBJECT_GROUPSET: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(8);
+pub const CLUS_OBJECT_INVALID: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(0);
+pub const CLUS_OBJECT_NETINTERFACE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(6);
+pub const CLUS_OBJECT_NETWORK: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(5);
+pub const CLUS_OBJECT_NODE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(4);
+pub const CLUS_OBJECT_RESOURCE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(1);
+pub const CLUS_OBJECT_RESOURCE_TYPE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(2);
+pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(128);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUS_PARTITION_INFO {
@@ -5231,24 +5231,24 @@ impl Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(2i32);
-pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(1i32);
-pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(0i32);
-pub const CLUS_RESCLASS_USER: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(32768i32);
-pub const CLUS_RESDLL_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 64u32;
-pub const CLUS_RESDLL_OFFLINE_DUE_TO_EMBEDDED_FAILURE: u32 = 16u32;
-pub const CLUS_RESDLL_OFFLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 32u32;
-pub const CLUS_RESDLL_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
-pub const CLUS_RESDLL_OFFLINE_QUEUE_ENABLED: u32 = 4u32;
-pub const CLUS_RESDLL_OFFLINE_RETURNING_TO_SOURCE_NODE_BECAUSE_OF_ERROR: u32 = 8u32;
-pub const CLUS_RESDLL_OFFLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2u32;
-pub const CLUS_RESDLL_ONLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 16u32;
-pub const CLUS_RESDLL_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 2u32;
-pub const CLUS_RESDLL_ONLINE_RECOVER_MONITOR_STATE: u32 = 1u32;
-pub const CLUS_RESDLL_ONLINE_RESTORE_ONLINE_STATE: u32 = 8u32;
-pub const CLUS_RESDLL_ONLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 4u32;
-pub const CLUS_RESDLL_OPEN_DONT_DELETE_TEMP_DISK: u32 = 2u32;
-pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1u32;
+pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(2);
+pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(1);
+pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(0);
+pub const CLUS_RESCLASS_USER: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(32768);
+pub const CLUS_RESDLL_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 64;
+pub const CLUS_RESDLL_OFFLINE_DUE_TO_EMBEDDED_FAILURE: u32 = 16;
+pub const CLUS_RESDLL_OFFLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 32;
+pub const CLUS_RESDLL_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
+pub const CLUS_RESDLL_OFFLINE_QUEUE_ENABLED: u32 = 4;
+pub const CLUS_RESDLL_OFFLINE_RETURNING_TO_SOURCE_NODE_BECAUSE_OF_ERROR: u32 = 8;
+pub const CLUS_RESDLL_OFFLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2;
+pub const CLUS_RESDLL_ONLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 16;
+pub const CLUS_RESDLL_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 2;
+pub const CLUS_RESDLL_ONLINE_RECOVER_MONITOR_STATE: u32 = 1;
+pub const CLUS_RESDLL_ONLINE_RESTORE_ONLINE_STATE: u32 = 8;
+pub const CLUS_RESDLL_ONLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 4;
+pub const CLUS_RESDLL_OPEN_DONT_DELETE_TEMP_DISK: u32 = 2;
+pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO {
@@ -5298,14 +5298,14 @@ pub struct CLUS_RESSUBCLASS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_RESSUBCLASS_NETWORK(pub i32);
-pub const CLUS_RESSUBCLASS_NETWORK_INTERNET_PROTOCOL: CLUS_RESSUBCLASS_NETWORK = CLUS_RESSUBCLASS_NETWORK(-2147483648i32);
-pub const CLUS_RESSUBCLASS_SHARED: CLUS_RESSUBCLASS = CLUS_RESSUBCLASS(-2147483648i32);
+pub const CLUS_RESSUBCLASS_NETWORK_INTERNET_PROTOCOL: CLUS_RESSUBCLASS_NETWORK = CLUS_RESSUBCLASS_NETWORK(-2147483648);
+pub const CLUS_RESSUBCLASS_SHARED: CLUS_RESSUBCLASS = CLUS_RESSUBCLASS(-2147483648);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_RESSUBCLASS_STORAGE(pub i32);
-pub const CLUS_RESSUBCLASS_STORAGE_DISK: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(1073741824i32);
-pub const CLUS_RESSUBCLASS_STORAGE_REPLICATION: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(268435456i32);
-pub const CLUS_RESSUBCLASS_STORAGE_SHARED_BUS: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(-2147483648i32);
+pub const CLUS_RESSUBCLASS_STORAGE_DISK: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(1073741824);
+pub const CLUS_RESSUBCLASS_STORAGE_REPLICATION: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(268435456);
+pub const CLUS_RESSUBCLASS_STORAGE_SHARED_BUS: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(-2147483648);
 pub const CLUS_RESTYPE_NAME_CAU: windows_core::PCWSTR = windows_core::w!("ClusterAwareUpdatingResource");
 pub const CLUS_RESTYPE_NAME_CLOUD_WITNESS: windows_core::PCWSTR = windows_core::w!("Cloud Witness");
 pub const CLUS_RESTYPE_NAME_CONTAINER: windows_core::PCWSTR = windows_core::w!("Container");
@@ -5445,7 +5445,7 @@ pub struct CLUS_WORKER {
     pub hThread: super::super::Foundation::HANDLE,
     pub Terminate: windows_core::BOOL,
 }
-pub const CREATEDC_PRESENT: u32 = 2u32;
+pub const CREATEDC_PRESENT: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_CLUSTER_CONFIG {
@@ -5467,7 +5467,7 @@ impl Default for CREATE_CLUSTER_CONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
+pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
@@ -5481,49 +5481,49 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
     pub bUpgradeVCOs: bool,
 }
-pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
-pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = CLCTL_CODES(789i32);
-pub const CTCTL_GET_ROUTESTATUS_BASIC: CLCTL_CODES = CLCTL_CODES(781i32);
-pub const CTCTL_GET_ROUTESTATUS_EXTENDED: CLCTL_CODES = CLCTL_CODES(785i32);
-pub const CU_UPGRADE_VERSION: u32 = 3u32;
+pub const CREATE_CLUSTER_VERSION: u32 = 1536;
+pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = CLCTL_CODES(789);
+pub const CTCTL_GET_ROUTESTATUS_BASIC: CLCTL_CODES = CLCTL_CODES(781);
+pub const CTCTL_GET_ROUTESTATUS_EXTENDED: CLCTL_CODES = CLCTL_CODES(785);
+pub const CU_UPGRADE_VERSION: u32 = 3;
 pub const ClusApplication: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e5_2631_11d1_89f1_00a0c90d061e);
 pub const ClusCryptoKeys: windows_core::GUID = windows_core::GUID::from_u128(0xf2e6072b_2631_11d1_89f1_00a0c90d061e);
 pub const ClusDisk: windows_core::GUID = windows_core::GUID::from_u128(0xf2e60723_2631_11d1_89f1_00a0c90d061e);
 pub const ClusDisks: windows_core::GUID = windows_core::GUID::from_u128(0xf2e60725_2631_11d1_89f1_00a0c90d061e);
-pub const ClusGroupTypeAvailableStorage: CLUSGROUP_TYPE = CLUSGROUP_TYPE(2i32);
-pub const ClusGroupTypeClusterUpdateAgent: CLUSGROUP_TYPE = CLUSGROUP_TYPE(117i32);
-pub const ClusGroupTypeCoreCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(1i32);
-pub const ClusGroupTypeCoreSddc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(123i32);
-pub const ClusGroupTypeCrossClusterOrchestrator: CLUSGROUP_TYPE = CLUSGROUP_TYPE(121i32);
-pub const ClusGroupTypeDhcpServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(102i32);
-pub const ClusGroupTypeDtc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(103i32);
-pub const ClusGroupTypeFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(100i32);
-pub const ClusGroupTypeGenericApplication: CLUSGROUP_TYPE = CLUSGROUP_TYPE(107i32);
-pub const ClusGroupTypeGenericScript: CLUSGROUP_TYPE = CLUSGROUP_TYPE(109i32);
-pub const ClusGroupTypeGenericService: CLUSGROUP_TYPE = CLUSGROUP_TYPE(108i32);
-pub const ClusGroupTypeHcsVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(126i32);
-pub const ClusGroupTypeIScsiNameService: CLUSGROUP_TYPE = CLUSGROUP_TYPE(110i32);
-pub const ClusGroupTypeIScsiTarget: CLUSGROUP_TYPE = CLUSGROUP_TYPE(113i32);
-pub const ClusGroupTypeInfrastructureFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(122i32);
-pub const ClusGroupTypeKeyValueStoreManager: CLUSGROUP_TYPE = CLUSGROUP_TYPE(125i32);
-pub const ClusGroupTypeMetaVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(127i32);
-pub const ClusGroupTypeMsmq: CLUSGROUP_TYPE = CLUSGROUP_TYPE(104i32);
-pub const ClusGroupTypePrintServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(101i32);
-pub const ClusGroupTypeScaleoutCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(118i32);
-pub const ClusGroupTypeScaleoutFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(114i32);
-pub const ClusGroupTypeSharedVolume: CLUSGROUP_TYPE = CLUSGROUP_TYPE(4i32);
-pub const ClusGroupTypeStandAloneDfs: CLUSGROUP_TYPE = CLUSGROUP_TYPE(106i32);
-pub const ClusGroupTypeStoragePool: CLUSGROUP_TYPE = CLUSGROUP_TYPE(5i32);
-pub const ClusGroupTypeStorageReplica: CLUSGROUP_TYPE = CLUSGROUP_TYPE(119i32);
-pub const ClusGroupTypeTaskScheduler: CLUSGROUP_TYPE = CLUSGROUP_TYPE(116i32);
-pub const ClusGroupTypeTemporary: CLUSGROUP_TYPE = CLUSGROUP_TYPE(3i32);
-pub const ClusGroupTypeTsSessionBroker: CLUSGROUP_TYPE = CLUSGROUP_TYPE(112i32);
-pub const ClusGroupTypeUnknown: CLUSGROUP_TYPE = CLUSGROUP_TYPE(9999i32);
-pub const ClusGroupTypeUserManager: CLUSGROUP_TYPE = CLUSGROUP_TYPE(124i32);
-pub const ClusGroupTypeVMReplicaBroker: CLUSGROUP_TYPE = CLUSGROUP_TYPE(115i32);
-pub const ClusGroupTypeVMReplicaCoordinator: CLUSGROUP_TYPE = CLUSGROUP_TYPE(120i32);
-pub const ClusGroupTypeVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(111i32);
-pub const ClusGroupTypeWins: CLUSGROUP_TYPE = CLUSGROUP_TYPE(105i32);
+pub const ClusGroupTypeAvailableStorage: CLUSGROUP_TYPE = CLUSGROUP_TYPE(2);
+pub const ClusGroupTypeClusterUpdateAgent: CLUSGROUP_TYPE = CLUSGROUP_TYPE(117);
+pub const ClusGroupTypeCoreCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(1);
+pub const ClusGroupTypeCoreSddc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(123);
+pub const ClusGroupTypeCrossClusterOrchestrator: CLUSGROUP_TYPE = CLUSGROUP_TYPE(121);
+pub const ClusGroupTypeDhcpServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(102);
+pub const ClusGroupTypeDtc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(103);
+pub const ClusGroupTypeFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(100);
+pub const ClusGroupTypeGenericApplication: CLUSGROUP_TYPE = CLUSGROUP_TYPE(107);
+pub const ClusGroupTypeGenericScript: CLUSGROUP_TYPE = CLUSGROUP_TYPE(109);
+pub const ClusGroupTypeGenericService: CLUSGROUP_TYPE = CLUSGROUP_TYPE(108);
+pub const ClusGroupTypeHcsVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(126);
+pub const ClusGroupTypeIScsiNameService: CLUSGROUP_TYPE = CLUSGROUP_TYPE(110);
+pub const ClusGroupTypeIScsiTarget: CLUSGROUP_TYPE = CLUSGROUP_TYPE(113);
+pub const ClusGroupTypeInfrastructureFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(122);
+pub const ClusGroupTypeKeyValueStoreManager: CLUSGROUP_TYPE = CLUSGROUP_TYPE(125);
+pub const ClusGroupTypeMetaVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(127);
+pub const ClusGroupTypeMsmq: CLUSGROUP_TYPE = CLUSGROUP_TYPE(104);
+pub const ClusGroupTypePrintServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(101);
+pub const ClusGroupTypeScaleoutCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(118);
+pub const ClusGroupTypeScaleoutFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(114);
+pub const ClusGroupTypeSharedVolume: CLUSGROUP_TYPE = CLUSGROUP_TYPE(4);
+pub const ClusGroupTypeStandAloneDfs: CLUSGROUP_TYPE = CLUSGROUP_TYPE(106);
+pub const ClusGroupTypeStoragePool: CLUSGROUP_TYPE = CLUSGROUP_TYPE(5);
+pub const ClusGroupTypeStorageReplica: CLUSGROUP_TYPE = CLUSGROUP_TYPE(119);
+pub const ClusGroupTypeTaskScheduler: CLUSGROUP_TYPE = CLUSGROUP_TYPE(116);
+pub const ClusGroupTypeTemporary: CLUSGROUP_TYPE = CLUSGROUP_TYPE(3);
+pub const ClusGroupTypeTsSessionBroker: CLUSGROUP_TYPE = CLUSGROUP_TYPE(112);
+pub const ClusGroupTypeUnknown: CLUSGROUP_TYPE = CLUSGROUP_TYPE(9999);
+pub const ClusGroupTypeUserManager: CLUSGROUP_TYPE = CLUSGROUP_TYPE(124);
+pub const ClusGroupTypeVMReplicaBroker: CLUSGROUP_TYPE = CLUSGROUP_TYPE(115);
+pub const ClusGroupTypeVMReplicaCoordinator: CLUSGROUP_TYPE = CLUSGROUP_TYPE(120);
+pub const ClusGroupTypeVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(111);
+pub const ClusGroupTypeWins: CLUSGROUP_TYPE = CLUSGROUP_TYPE(105);
 pub const ClusNetInterface: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606ed_2631_11d1_89f1_00a0c90d061e);
 pub const ClusNetInterfaces: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606ef_2631_11d1_89f1_00a0c90d061e);
 pub const ClusNetwork: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606f1_2631_11d1_89f1_00a0c90d061e);
@@ -5558,167 +5558,167 @@ pub const ClusResources: windows_core::GUID = windows_core::GUID::from_u128(0xf2
 pub const ClusScsiAddress: windows_core::GUID = windows_core::GUID::from_u128(0xf2e60727_2631_11d1_89f1_00a0c90d061e);
 pub const ClusVersion: windows_core::GUID = windows_core::GUID::from_u128(0xf2e60715_2631_11d1_89f1_00a0c90d061e);
 pub const Cluster: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e3_2631_11d1_89f1_00a0c90d061e);
-pub const ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(1i32);
-pub const ClusterGroupFailbackTypeCount: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(2i32);
-pub const ClusterGroupFailed: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(2i32);
-pub const ClusterGroupOffline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(1i32);
-pub const ClusterGroupOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(0i32);
-pub const ClusterGroupPartialOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(3i32);
-pub const ClusterGroupPending: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(4i32);
-pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(0i32);
-pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(-1i32);
+pub const ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(1);
+pub const ClusterGroupFailbackTypeCount: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(2);
+pub const ClusterGroupFailed: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(2);
+pub const ClusterGroupOffline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(1);
+pub const ClusterGroupOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(0);
+pub const ClusterGroupPartialOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(3);
+pub const ClusterGroupPending: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(4);
+pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(0);
+pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(-1);
 pub const ClusterNames: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
-pub const ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(1i32);
-pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(-1i32);
-pub const ClusterNetInterfaceUnavailable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(0i32);
-pub const ClusterNetInterfaceUnreachable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(2i32);
-pub const ClusterNetInterfaceUp: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(3i32);
-pub const ClusterNetworkDown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(1i32);
-pub const ClusterNetworkPartitioned: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(2i32);
-pub const ClusterNetworkRoleClientAccess: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(2i32);
-pub const ClusterNetworkRoleInternalAndClient: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(3i32);
-pub const ClusterNetworkRoleInternalUse: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(1i32);
-pub const ClusterNetworkRoleNone: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(0i32);
-pub const ClusterNetworkStateUnknown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(-1i32);
-pub const ClusterNetworkUnavailable: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(0i32);
-pub const ClusterNetworkUp: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(3i32);
-pub const ClusterNodeDown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(1i32);
-pub const ClusterNodeDrainStatusCount: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(4i32);
-pub const ClusterNodeFailbackStatusCount: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(4i32);
-pub const ClusterNodeJoining: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(3i32);
-pub const ClusterNodePaused: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(2i32);
-pub const ClusterNodeResumeFailbackTypeCount: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(3i32);
-pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(-1i32);
-pub const ClusterNodeUp: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(0i32);
-pub const ClusterResourceApplicationOSHeartBeat: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(2i32);
-pub const ClusterResourceApplicationReady: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(3i32);
-pub const ClusterResourceApplicationStateUnknown: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(1i32);
-pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(0i32);
-pub const ClusterResourceEmbeddedFailureActionLogOnly: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(1i32);
-pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(0i32);
-pub const ClusterResourceEmbeddedFailureActionRecover: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(2i32);
-pub const ClusterResourceFailed: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(4i32);
-pub const ClusterResourceInherited: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(0i32);
-pub const ClusterResourceInitializing: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(1i32);
-pub const ClusterResourceOffline: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(3i32);
-pub const ClusterResourceOfflinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(130i32);
-pub const ClusterResourceOnline: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(2i32);
-pub const ClusterResourceOnlinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(129i32);
-pub const ClusterResourcePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(128i32);
-pub const ClusterResourceRestartActionCount: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(3i32);
-pub const ClusterResourceRestartNoNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(1i32);
-pub const ClusterResourceRestartNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(2i32);
-pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(-1i32);
-pub const ClusterRoleClustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(0i32);
-pub const ClusterRoleDFSReplicatedFolder: CLUSTER_ROLE = CLUSTER_ROLE(15i32);
-pub const ClusterRoleDHCP: CLUSTER_ROLE = CLUSTER_ROLE(0i32);
-pub const ClusterRoleDTC: CLUSTER_ROLE = CLUSTER_ROLE(1i32);
-pub const ClusterRoleDistributedFileSystem: CLUSTER_ROLE = CLUSTER_ROLE(16i32);
-pub const ClusterRoleDistributedNetworkName: CLUSTER_ROLE = CLUSTER_ROLE(17i32);
-pub const ClusterRoleFileServer: CLUSTER_ROLE = CLUSTER_ROLE(2i32);
-pub const ClusterRoleFileShare: CLUSTER_ROLE = CLUSTER_ROLE(18i32);
-pub const ClusterRoleFileShareWitness: CLUSTER_ROLE = CLUSTER_ROLE(19i32);
-pub const ClusterRoleGenericApplication: CLUSTER_ROLE = CLUSTER_ROLE(3i32);
-pub const ClusterRoleGenericScript: CLUSTER_ROLE = CLUSTER_ROLE(4i32);
-pub const ClusterRoleGenericService: CLUSTER_ROLE = CLUSTER_ROLE(5i32);
-pub const ClusterRoleHardDisk: CLUSTER_ROLE = CLUSTER_ROLE(20i32);
-pub const ClusterRoleIPAddress: CLUSTER_ROLE = CLUSTER_ROLE(21i32);
-pub const ClusterRoleIPV6Address: CLUSTER_ROLE = CLUSTER_ROLE(22i32);
-pub const ClusterRoleIPV6TunnelAddress: CLUSTER_ROLE = CLUSTER_ROLE(23i32);
-pub const ClusterRoleISCSINameServer: CLUSTER_ROLE = CLUSTER_ROLE(6i32);
-pub const ClusterRoleISCSITargetServer: CLUSTER_ROLE = CLUSTER_ROLE(24i32);
-pub const ClusterRoleKeyValueStore: CLUSTER_ROLE = CLUSTER_ROLE(32i32);
-pub const ClusterRoleMSMQ: CLUSTER_ROLE = CLUSTER_ROLE(7i32);
-pub const ClusterRoleNFS: CLUSTER_ROLE = CLUSTER_ROLE(8i32);
-pub const ClusterRoleNetworkFileSystem: CLUSTER_ROLE = CLUSTER_ROLE(14i32);
-pub const ClusterRoleNetworkName: CLUSTER_ROLE = CLUSTER_ROLE(25i32);
-pub const ClusterRolePhysicalDisk: CLUSTER_ROLE = CLUSTER_ROLE(26i32);
-pub const ClusterRolePrintServer: CLUSTER_ROLE = CLUSTER_ROLE(9i32);
-pub const ClusterRoleSODAFileServer: CLUSTER_ROLE = CLUSTER_ROLE(27i32);
-pub const ClusterRoleStandAloneNamespaceServer: CLUSTER_ROLE = CLUSTER_ROLE(10i32);
-pub const ClusterRoleStoragePool: CLUSTER_ROLE = CLUSTER_ROLE(28i32);
-pub const ClusterRoleTaskScheduler: CLUSTER_ROLE = CLUSTER_ROLE(13i32);
-pub const ClusterRoleUnclustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(1i32);
-pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(-1i32);
-pub const ClusterRoleVirtualMachine: CLUSTER_ROLE = CLUSTER_ROLE(29i32);
-pub const ClusterRoleVirtualMachineConfiguration: CLUSTER_ROLE = CLUSTER_ROLE(30i32);
-pub const ClusterRoleVirtualMachineReplicaBroker: CLUSTER_ROLE = CLUSTER_ROLE(31i32);
-pub const ClusterRoleVolumeShadowCopyServiceTask: CLUSTER_ROLE = CLUSTER_ROLE(11i32);
-pub const ClusterRoleWINS: CLUSTER_ROLE = CLUSTER_ROLE(12i32);
-pub const ClusterSetupPhaseAddClusterProperties: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(201i32);
-pub const ClusterSetupPhaseAddNodeToCluster: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(301i32);
-pub const ClusterSetupPhaseApplyNetworkATCIntents: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(303i32);
-pub const ClusterSetupPhaseCleanupCOs: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(402i32);
-pub const ClusterSetupPhaseCleanupNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(405i32);
-pub const ClusterSetupPhaseClusterGroupOnline: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(206i32);
-pub const ClusterSetupPhaseConfigureClusSvc: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(104i32);
-pub const ClusterSetupPhaseConfigureClusterAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(109i32);
-pub const ClusterSetupPhaseContinue: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(2i32);
-pub const ClusterSetupPhaseCoreGroupCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(406i32);
-pub const ClusterSetupPhaseCreateClusterAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(108i32);
-pub const ClusterSetupPhaseCreateGroups: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(203i32);
-pub const ClusterSetupPhaseCreateIPAddressResources: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(204i32);
-pub const ClusterSetupPhaseCreateNetworkName: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(205i32);
-pub const ClusterSetupPhaseCreateResourceTypes: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(202i32);
-pub const ClusterSetupPhaseDeleteGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(401i32);
-pub const ClusterSetupPhaseEnd: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(3i32);
-pub const ClusterSetupPhaseEvictNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(404i32);
-pub const ClusterSetupPhaseFailureCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(999i32);
-pub const ClusterSetupPhaseFatal: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(3i32);
-pub const ClusterSetupPhaseFormingCluster: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(200i32);
-pub const ClusterSetupPhaseGettingCurrentMembership: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(300i32);
-pub const ClusterSetupPhaseInformational: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(1i32);
-pub const ClusterSetupPhaseInitialize: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(1i32);
-pub const ClusterSetupPhaseMoveGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(400i32);
-pub const ClusterSetupPhaseNodeUp: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(302i32);
-pub const ClusterSetupPhaseOfflineGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(403i32);
-pub const ClusterSetupPhaseQueryClusterNameAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(106i32);
-pub const ClusterSetupPhaseRepairCNOAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(500i32);
-pub const ClusterSetupPhaseRepairDNSPermissions: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(501i32);
-pub const ClusterSetupPhaseReport: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(4i32);
-pub const ClusterSetupPhaseStart: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(1i32);
-pub const ClusterSetupPhaseStartingClusSvc: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(105i32);
-pub const ClusterSetupPhaseValidateClusDisk: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(103i32);
-pub const ClusterSetupPhaseValidateClusterNameAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(107i32);
-pub const ClusterSetupPhaseValidateNetft: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(102i32);
-pub const ClusterSetupPhaseValidateNodeState: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(100i32);
-pub const ClusterSetupPhaseWarning: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(2i32);
-pub const ClusterSharedVolumeHWSnapshotCompleted: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(2i32);
-pub const ClusterSharedVolumePrepareForFreeze: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(3i32);
-pub const ClusterSharedVolumePrepareForHWSnapshot: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(1i32);
-pub const ClusterSharedVolumeRenameInputTypeNone: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(0i32);
-pub const ClusterSharedVolumeRenameInputTypeVolumeGuid: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(4i32);
-pub const ClusterSharedVolumeRenameInputTypeVolumeId: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(2i32);
-pub const ClusterSharedVolumeRenameInputTypeVolumeName: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(3i32);
-pub const ClusterSharedVolumeRenameInputTypeVolumeOffset: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(1i32);
-pub const ClusterSharedVolumeSnapshotStateUnknown: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(0i32);
-pub const ClusterStateNotConfigured: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(1i32);
-pub const ClusterStateNotInstalled: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(0i32);
-pub const ClusterStateNotRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(3i32);
-pub const ClusterStateRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(19i32);
-pub const ClusterStorageNodeDown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(2i32);
-pub const ClusterStorageNodePaused: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(3i32);
-pub const ClusterStorageNodeStarting: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(4i32);
-pub const ClusterStorageNodeStateUnknown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(0i32);
-pub const ClusterStorageNodeStopping: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(5i32);
-pub const ClusterStorageNodeUp: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(1i32);
-pub const ClusterUpgradePhaseInitialize: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(1i32);
-pub const ClusterUpgradePhaseInstallingNewComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(4i32);
-pub const ClusterUpgradePhaseUpgradeComplete: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(5i32);
-pub const ClusterUpgradePhaseUpgradingComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(3i32);
-pub const ClusterUpgradePhaseValidatingUpgrade: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(2i32);
-pub const DNS_LENGTH: u32 = 64u32;
-pub const DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(0i32);
+pub const ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(1);
+pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(-1);
+pub const ClusterNetInterfaceUnavailable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(0);
+pub const ClusterNetInterfaceUnreachable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(2);
+pub const ClusterNetInterfaceUp: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(3);
+pub const ClusterNetworkDown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(1);
+pub const ClusterNetworkPartitioned: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(2);
+pub const ClusterNetworkRoleClientAccess: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(2);
+pub const ClusterNetworkRoleInternalAndClient: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(3);
+pub const ClusterNetworkRoleInternalUse: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(1);
+pub const ClusterNetworkRoleNone: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(0);
+pub const ClusterNetworkStateUnknown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(-1);
+pub const ClusterNetworkUnavailable: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(0);
+pub const ClusterNetworkUp: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(3);
+pub const ClusterNodeDown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(1);
+pub const ClusterNodeDrainStatusCount: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(4);
+pub const ClusterNodeFailbackStatusCount: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(4);
+pub const ClusterNodeJoining: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(3);
+pub const ClusterNodePaused: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(2);
+pub const ClusterNodeResumeFailbackTypeCount: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(3);
+pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(-1);
+pub const ClusterNodeUp: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(0);
+pub const ClusterResourceApplicationOSHeartBeat: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(2);
+pub const ClusterResourceApplicationReady: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(3);
+pub const ClusterResourceApplicationStateUnknown: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(1);
+pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(0);
+pub const ClusterResourceEmbeddedFailureActionLogOnly: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(1);
+pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(0);
+pub const ClusterResourceEmbeddedFailureActionRecover: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(2);
+pub const ClusterResourceFailed: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(4);
+pub const ClusterResourceInherited: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(0);
+pub const ClusterResourceInitializing: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(1);
+pub const ClusterResourceOffline: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(3);
+pub const ClusterResourceOfflinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(130);
+pub const ClusterResourceOnline: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(2);
+pub const ClusterResourceOnlinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(129);
+pub const ClusterResourcePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(128);
+pub const ClusterResourceRestartActionCount: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(3);
+pub const ClusterResourceRestartNoNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(1);
+pub const ClusterResourceRestartNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(2);
+pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(-1);
+pub const ClusterRoleClustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(0);
+pub const ClusterRoleDFSReplicatedFolder: CLUSTER_ROLE = CLUSTER_ROLE(15);
+pub const ClusterRoleDHCP: CLUSTER_ROLE = CLUSTER_ROLE(0);
+pub const ClusterRoleDTC: CLUSTER_ROLE = CLUSTER_ROLE(1);
+pub const ClusterRoleDistributedFileSystem: CLUSTER_ROLE = CLUSTER_ROLE(16);
+pub const ClusterRoleDistributedNetworkName: CLUSTER_ROLE = CLUSTER_ROLE(17);
+pub const ClusterRoleFileServer: CLUSTER_ROLE = CLUSTER_ROLE(2);
+pub const ClusterRoleFileShare: CLUSTER_ROLE = CLUSTER_ROLE(18);
+pub const ClusterRoleFileShareWitness: CLUSTER_ROLE = CLUSTER_ROLE(19);
+pub const ClusterRoleGenericApplication: CLUSTER_ROLE = CLUSTER_ROLE(3);
+pub const ClusterRoleGenericScript: CLUSTER_ROLE = CLUSTER_ROLE(4);
+pub const ClusterRoleGenericService: CLUSTER_ROLE = CLUSTER_ROLE(5);
+pub const ClusterRoleHardDisk: CLUSTER_ROLE = CLUSTER_ROLE(20);
+pub const ClusterRoleIPAddress: CLUSTER_ROLE = CLUSTER_ROLE(21);
+pub const ClusterRoleIPV6Address: CLUSTER_ROLE = CLUSTER_ROLE(22);
+pub const ClusterRoleIPV6TunnelAddress: CLUSTER_ROLE = CLUSTER_ROLE(23);
+pub const ClusterRoleISCSINameServer: CLUSTER_ROLE = CLUSTER_ROLE(6);
+pub const ClusterRoleISCSITargetServer: CLUSTER_ROLE = CLUSTER_ROLE(24);
+pub const ClusterRoleKeyValueStore: CLUSTER_ROLE = CLUSTER_ROLE(32);
+pub const ClusterRoleMSMQ: CLUSTER_ROLE = CLUSTER_ROLE(7);
+pub const ClusterRoleNFS: CLUSTER_ROLE = CLUSTER_ROLE(8);
+pub const ClusterRoleNetworkFileSystem: CLUSTER_ROLE = CLUSTER_ROLE(14);
+pub const ClusterRoleNetworkName: CLUSTER_ROLE = CLUSTER_ROLE(25);
+pub const ClusterRolePhysicalDisk: CLUSTER_ROLE = CLUSTER_ROLE(26);
+pub const ClusterRolePrintServer: CLUSTER_ROLE = CLUSTER_ROLE(9);
+pub const ClusterRoleSODAFileServer: CLUSTER_ROLE = CLUSTER_ROLE(27);
+pub const ClusterRoleStandAloneNamespaceServer: CLUSTER_ROLE = CLUSTER_ROLE(10);
+pub const ClusterRoleStoragePool: CLUSTER_ROLE = CLUSTER_ROLE(28);
+pub const ClusterRoleTaskScheduler: CLUSTER_ROLE = CLUSTER_ROLE(13);
+pub const ClusterRoleUnclustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(1);
+pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(-1);
+pub const ClusterRoleVirtualMachine: CLUSTER_ROLE = CLUSTER_ROLE(29);
+pub const ClusterRoleVirtualMachineConfiguration: CLUSTER_ROLE = CLUSTER_ROLE(30);
+pub const ClusterRoleVirtualMachineReplicaBroker: CLUSTER_ROLE = CLUSTER_ROLE(31);
+pub const ClusterRoleVolumeShadowCopyServiceTask: CLUSTER_ROLE = CLUSTER_ROLE(11);
+pub const ClusterRoleWINS: CLUSTER_ROLE = CLUSTER_ROLE(12);
+pub const ClusterSetupPhaseAddClusterProperties: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(201);
+pub const ClusterSetupPhaseAddNodeToCluster: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(301);
+pub const ClusterSetupPhaseApplyNetworkATCIntents: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(303);
+pub const ClusterSetupPhaseCleanupCOs: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(402);
+pub const ClusterSetupPhaseCleanupNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(405);
+pub const ClusterSetupPhaseClusterGroupOnline: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(206);
+pub const ClusterSetupPhaseConfigureClusSvc: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(104);
+pub const ClusterSetupPhaseConfigureClusterAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(109);
+pub const ClusterSetupPhaseContinue: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(2);
+pub const ClusterSetupPhaseCoreGroupCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(406);
+pub const ClusterSetupPhaseCreateClusterAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(108);
+pub const ClusterSetupPhaseCreateGroups: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(203);
+pub const ClusterSetupPhaseCreateIPAddressResources: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(204);
+pub const ClusterSetupPhaseCreateNetworkName: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(205);
+pub const ClusterSetupPhaseCreateResourceTypes: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(202);
+pub const ClusterSetupPhaseDeleteGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(401);
+pub const ClusterSetupPhaseEnd: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(3);
+pub const ClusterSetupPhaseEvictNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(404);
+pub const ClusterSetupPhaseFailureCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(999);
+pub const ClusterSetupPhaseFatal: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(3);
+pub const ClusterSetupPhaseFormingCluster: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(200);
+pub const ClusterSetupPhaseGettingCurrentMembership: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(300);
+pub const ClusterSetupPhaseInformational: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(1);
+pub const ClusterSetupPhaseInitialize: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(1);
+pub const ClusterSetupPhaseMoveGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(400);
+pub const ClusterSetupPhaseNodeUp: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(302);
+pub const ClusterSetupPhaseOfflineGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(403);
+pub const ClusterSetupPhaseQueryClusterNameAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(106);
+pub const ClusterSetupPhaseRepairCNOAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(500);
+pub const ClusterSetupPhaseRepairDNSPermissions: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(501);
+pub const ClusterSetupPhaseReport: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(4);
+pub const ClusterSetupPhaseStart: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(1);
+pub const ClusterSetupPhaseStartingClusSvc: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(105);
+pub const ClusterSetupPhaseValidateClusDisk: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(103);
+pub const ClusterSetupPhaseValidateClusterNameAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(107);
+pub const ClusterSetupPhaseValidateNetft: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(102);
+pub const ClusterSetupPhaseValidateNodeState: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(100);
+pub const ClusterSetupPhaseWarning: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(2);
+pub const ClusterSharedVolumeHWSnapshotCompleted: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(2);
+pub const ClusterSharedVolumePrepareForFreeze: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(3);
+pub const ClusterSharedVolumePrepareForHWSnapshot: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(1);
+pub const ClusterSharedVolumeRenameInputTypeNone: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(0);
+pub const ClusterSharedVolumeRenameInputTypeVolumeGuid: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(4);
+pub const ClusterSharedVolumeRenameInputTypeVolumeId: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(2);
+pub const ClusterSharedVolumeRenameInputTypeVolumeName: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(3);
+pub const ClusterSharedVolumeRenameInputTypeVolumeOffset: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(1);
+pub const ClusterSharedVolumeSnapshotStateUnknown: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(0);
+pub const ClusterStateNotConfigured: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(1);
+pub const ClusterStateNotInstalled: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(0);
+pub const ClusterStateNotRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(3);
+pub const ClusterStateRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(19);
+pub const ClusterStorageNodeDown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(2);
+pub const ClusterStorageNodePaused: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(3);
+pub const ClusterStorageNodeStarting: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(4);
+pub const ClusterStorageNodeStateUnknown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(0);
+pub const ClusterStorageNodeStopping: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(5);
+pub const ClusterStorageNodeUp: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(1);
+pub const ClusterUpgradePhaseInitialize: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(1);
+pub const ClusterUpgradePhaseInstallingNewComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(4);
+pub const ClusterUpgradePhaseUpgradeComplete: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(5);
+pub const ClusterUpgradePhaseUpgradingComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(3);
+pub const ClusterUpgradePhaseValidatingUpgrade: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(2);
+pub const DNS_LENGTH: u32 = 64;
+pub const DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(0);
 pub const DomainNames: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
 pub const ENABLE_CLUSTER_SHARED_VOLUMES: windows_core::PCWSTR = windows_core::w!("EnableSharedVolumes");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAILURE_TYPE(pub i32);
-pub const FAILURE_TYPE_EMBEDDED: FAILURE_TYPE = FAILURE_TYPE(1i32);
-pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0i32);
-pub const FAILURE_TYPE_NETWORK_LOSS: FAILURE_TYPE = FAILURE_TYPE(2i32);
-pub const FE_22H2_UPGRADE_VERSION: u32 = 5u32;
-pub const FE_UPGRADE_VERSION: u32 = 4u32;
+pub const FAILURE_TYPE_EMBEDDED: FAILURE_TYPE = FAILURE_TYPE(1);
+pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0);
+pub const FAILURE_TYPE_NETWORK_LOSS: FAILURE_TYPE = FAILURE_TYPE(2);
+pub const FE_22H2_UPGRADE_VERSION: u32 = 5;
+pub const FE_UPGRADE_VERSION: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILESHARE_CHANGE {
@@ -5730,8 +5730,8 @@ impl Default for FILESHARE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(1i32);
-pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(2i32);
+pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(1);
+pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE_ENUM(pub i32);
@@ -5746,11 +5746,11 @@ impl Default for FILESHARE_CHANGE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(3i32);
-pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(0i32);
-pub const FailbackGroupsImmediately: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(1i32);
-pub const FailbackGroupsPerPolicy: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(2i32);
-pub const GA_UPGRADE_VERSION: u32 = 5u32;
+pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(3);
+pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(0);
+pub const FailbackGroupsImmediately: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(1);
+pub const FailbackGroupsPerPolicy: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(2);
+pub const GA_UPGRADE_VERSION: u32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_OPERATION_CONTEXT_PARAMS {
@@ -5759,11 +5759,11 @@ pub struct GET_OPERATION_CONTEXT_PARAMS {
     pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
     pub Priority: u32,
 }
-pub const GE_UPGRADE_VERSION: u32 = 6u32;
-pub const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4u32;
-pub const GROUPSET_READY_SETTING_DELAY: u32 = 1u32;
-pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2u32;
-pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3u32;
+pub const GE_UPGRADE_VERSION: u32 = 6;
+pub const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4;
+pub const GROUPSET_READY_SETTING_DELAY: u32 = 1;
+pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2;
+pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GROUP_FAILURE_INFO {
@@ -5776,19 +5776,19 @@ pub struct GROUP_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: GROUP_FAILURE_INFO,
 }
-pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
+pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRP_PLACEMENT_OPTIONS(pub i32);
-pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1i32);
-pub const GRP_PLACEMENT_OPTIONS_DEFAULT: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0i32);
-pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1i32);
-pub const GRP_PLACEMENT_OPTIONS_MIN_VALUE: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0i32);
-pub const GUID_PRESENT: u32 = 1u32;
+pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1);
+pub const GRP_PLACEMENT_OPTIONS_DEFAULT: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0);
+pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1);
+pub const GRP_PLACEMENT_OPTIONS_MIN_VALUE: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0);
+pub const GUID_PRESENT: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCHANGE(pub isize);
-pub const HCI_UPGRADE_BIT: u32 = 32768u32;
+pub const HCI_UPGRADE_BIT: u32 = 32768;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSCRYPTPROVIDER(pub isize);
@@ -14047,14 +14047,14 @@ impl IWEInvokeCommand_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWEInvokeCommand {}
-pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;
-pub const LOG_ERROR: LOG_LEVEL = LOG_LEVEL(2i32);
-pub const LOG_INFORMATION: LOG_LEVEL = LOG_LEVEL(0i32);
+pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1;
+pub const LOG_ERROR: LOG_LEVEL = LOG_LEVEL(2);
+pub const LOG_INFORMATION: LOG_LEVEL = LOG_LEVEL(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOG_LEVEL(pub i32);
-pub const LOG_SEVERE: LOG_LEVEL = LOG_LEVEL(3i32);
-pub const LOG_WARNING: LOG_LEVEL = LOG_LEVEL(1i32);
+pub const LOG_SEVERE: LOG_LEVEL = LOG_LEVEL(3);
+pub const LOG_WARNING: LOG_LEVEL = LOG_LEVEL(1);
 pub type LPGROUP_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HGROUP, param2: HGROUP, param3: *mut core::ffi::c_void) -> u32>;
 pub type LPNODE_CALLBACK = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HNODE, param2: CLUSTER_NODE_STATE, param3: *mut core::ffi::c_void) -> u32>;
 pub type LPRESOURCE_CALLBACK = Option<unsafe extern "system" fn(param0: HRESOURCE, param1: HRESOURCE, param2: *mut core::ffi::c_void) -> u32>;
@@ -14062,16 +14062,16 @@ pub type LPRESOURCE_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUS
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
-pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087u32;
-pub const MAX_CLUSTERNAME_LENGTH: u32 = 63u32;
-pub const MAX_CO_PASSWORD_LENGTH: u32 = 16u32;
-pub const MAX_CO_PASSWORD_LENGTHEX: u32 = 127u32;
-pub const MAX_CO_PASSWORD_STORAGEEX: u32 = 128u32;
-pub const MAX_CREATINGDC_LENGTH: u32 = 256u32;
-pub const MAX_OBJECTID: u32 = 64u32;
+pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087;
+pub const MAX_CLUSTERNAME_LENGTH: u32 = 63;
+pub const MAX_CO_PASSWORD_LENGTH: u32 = 16;
+pub const MAX_CO_PASSWORD_LENGTHEX: u32 = 127;
+pub const MAX_CO_PASSWORD_STORAGEEX: u32 = 128;
+pub const MAX_CREATINGDC_LENGTH: u32 = 256;
+pub const MAX_OBJECTID: u32 = 64;
 pub const MINIMUM_NEVER_PREEMPT_PRIORITY: windows_core::PCWSTR = windows_core::w!("MinimumNeverPreemptPriority");
 pub const MINIMUM_PREEMPTOR_PRIORITY: windows_core::PCWSTR = windows_core::w!("MinimumPreemptorPriority");
-pub const MN_UPGRADE_VERSION: u32 = 3u32;
+pub const MN_UPGRADE_VERSION: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MONITOR_STATE {
@@ -14080,14 +14080,14 @@ pub struct MONITOR_STATE {
     pub ActiveResource: super::super::Foundation::HANDLE,
     pub ResmonStop: windows_core::BOOL,
 }
-pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1i32);
-pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(2i32);
-pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(3i32);
-pub const ModifyQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(1i32);
-pub const NINETEEN_H1_UPGRADE_VERSION: u32 = 1u32;
-pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2u32;
-pub const NI_UPGRADE_VERSION: u32 = 2u32;
-pub const NNLEN: u32 = 80u32;
+pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1);
+pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(2);
+pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(3);
+pub const ModifyQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(1);
+pub const NINETEEN_H1_UPGRADE_VERSION: u32 = 1;
+pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2;
+pub const NI_UPGRADE_VERSION: u32 = 2;
+pub const NNLEN: u32 = 80;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NODE_CLUSTER_STATE(pub i32);
@@ -14097,26 +14097,26 @@ pub struct NOTIFY_FILTER_AND_TYPE {
     pub dwObjectType: u32,
     pub FilterFlags: i64,
 }
-pub const NT10_MAJOR_VERSION: u32 = 9u32;
-pub const NT11_MAJOR_VERSION: u32 = 10u32;
-pub const NT12_MAJOR_VERSION: u32 = 11u32;
-pub const NT13_MAJOR_VERSION: u32 = 12u32;
-pub const NT4SP4_MAJOR_VERSION: u32 = 2u32;
-pub const NT4_MAJOR_VERSION: u32 = 1u32;
-pub const NT51_MAJOR_VERSION: u32 = 4u32;
-pub const NT5_MAJOR_VERSION: u32 = 3u32;
-pub const NT6_MAJOR_VERSION: u32 = 5u32;
-pub const NT7_MAJOR_VERSION: u32 = 6u32;
-pub const NT8_MAJOR_VERSION: u32 = 7u32;
-pub const NT9_MAJOR_VERSION: u32 = 8u32;
-pub const NodeDrainStatusCompleted: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(2i32);
-pub const NodeDrainStatusFailed: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(3i32);
-pub const NodeDrainStatusInProgress: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(1i32);
-pub const NodeDrainStatusNotInitiated: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(0i32);
-pub const NodeFailbackStatusCompleted: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(2i32);
-pub const NodeFailbackStatusFailed: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(3i32);
-pub const NodeFailbackStatusInProgress: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(1i32);
-pub const NodeFailbackStatusNotInitiated: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(0i32);
+pub const NT10_MAJOR_VERSION: u32 = 9;
+pub const NT11_MAJOR_VERSION: u32 = 10;
+pub const NT12_MAJOR_VERSION: u32 = 11;
+pub const NT13_MAJOR_VERSION: u32 = 12;
+pub const NT4SP4_MAJOR_VERSION: u32 = 2;
+pub const NT4_MAJOR_VERSION: u32 = 1;
+pub const NT51_MAJOR_VERSION: u32 = 4;
+pub const NT5_MAJOR_VERSION: u32 = 3;
+pub const NT6_MAJOR_VERSION: u32 = 5;
+pub const NT7_MAJOR_VERSION: u32 = 6;
+pub const NT8_MAJOR_VERSION: u32 = 7;
+pub const NT9_MAJOR_VERSION: u32 = 8;
+pub const NodeDrainStatusCompleted: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(2);
+pub const NodeDrainStatusFailed: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(3);
+pub const NodeDrainStatusInProgress: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(1);
+pub const NodeDrainStatusNotInitiated: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(0);
+pub const NodeFailbackStatusCompleted: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(2);
+pub const NodeFailbackStatusFailed: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(3);
+pub const NodeFailbackStatusInProgress: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(1);
+pub const NodeFailbackStatusNotInitiated: CLUSTER_NODE_FAILBACK_STATUS = CLUSTER_NODE_FAILBACK_STATUS(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NodeSriovInfo {
@@ -14125,14 +14125,14 @@ pub struct NodeSriovInfo {
     pub QPTotal: u32,
     pub QPUsed: u32,
 }
-pub const NodeStatusAvoidPlacement: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(32i32);
-pub const NodeStatusDrainCompleted: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(8i32);
-pub const NodeStatusDrainFailed: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(16i32);
-pub const NodeStatusDrainInProgress: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(4i32);
-pub const NodeStatusIsolated: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(1i32);
-pub const NodeStatusMax: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(51i32);
-pub const NodeStatusNormal: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(0i32);
-pub const NodeStatusQuarantined: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(2i32);
+pub const NodeStatusAvoidPlacement: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(32);
+pub const NodeStatusDrainCompleted: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(8);
+pub const NodeStatusDrainFailed: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(16);
+pub const NodeStatusDrainInProgress: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(4);
+pub const NodeStatusIsolated: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(1);
+pub const NodeStatusMax: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(51);
+pub const NodeStatusNormal: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(0);
+pub const NodeStatusQuarantined: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NodeUtilizationInfoElement {
@@ -14140,7 +14140,7 @@ pub struct NodeUtilizationInfoElement {
     pub AvailableMemory: u64,
     pub AvailableMemoryAfterReclamation: u64,
 }
-pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(0i32);
+pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(0);
 pub type PARBITRATE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32>;
 pub type PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE = Option<unsafe extern "system" fn(resourcehandle: isize, timeoutinms: u64) -> u32>;
 pub type PBEGIN_RESCALL_AS_USER_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut windows_core::BOOL) -> u32>;
@@ -14453,19 +14453,19 @@ pub type PIS_ALIVE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut cor
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PLACEMENT_OPTIONS(pub i32);
-pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1023i32);
-pub const PLACEMENT_OPTIONS_AVAILABILITY_SET_DOMAIN_AFFINITY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(512i32);
-pub const PLACEMENT_OPTIONS_CONSIDER_OFFLINE_VMS: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(2i32);
-pub const PLACEMENT_OPTIONS_DEFAULT_PLACEMENT_OPTIONS: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0i32);
-pub const PLACEMENT_OPTIONS_DISABLE_CSV_VM_DEPENDENCY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1i32);
-pub const PLACEMENT_OPTIONS_DONT_RESUME_AVAILABILTY_SET_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(128i32);
-pub const PLACEMENT_OPTIONS_DONT_RESUME_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(32i32);
-pub const PLACEMENT_OPTIONS_DONT_USE_CPU: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(8i32);
-pub const PLACEMENT_OPTIONS_DONT_USE_LOCAL_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(16i32);
-pub const PLACEMENT_OPTIONS_DONT_USE_MEMORY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(4i32);
-pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0i32);
-pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(256i32);
-pub const PLACEMENT_OPTIONS_SAVE_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(64i32);
+pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1023);
+pub const PLACEMENT_OPTIONS_AVAILABILITY_SET_DOMAIN_AFFINITY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(512);
+pub const PLACEMENT_OPTIONS_CONSIDER_OFFLINE_VMS: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(2);
+pub const PLACEMENT_OPTIONS_DEFAULT_PLACEMENT_OPTIONS: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0);
+pub const PLACEMENT_OPTIONS_DISABLE_CSV_VM_DEPENDENCY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1);
+pub const PLACEMENT_OPTIONS_DONT_RESUME_AVAILABILTY_SET_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(128);
+pub const PLACEMENT_OPTIONS_DONT_RESUME_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(32);
+pub const PLACEMENT_OPTIONS_DONT_USE_CPU: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(8);
+pub const PLACEMENT_OPTIONS_DONT_USE_LOCAL_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(16);
+pub const PLACEMENT_OPTIONS_DONT_USE_MEMORY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(4);
+pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0);
+pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(256);
+pub const PLACEMENT_OPTIONS_SAVE_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(64);
 pub type PLOG_EVENT_ROUTINE = Option<unsafe extern "C" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: windows_core::PCWSTR)>;
 pub type PLOOKS_ALIVE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type POFFLINE_ROUTINE = Option<unsafe extern "system" fn(resource: *mut core::ffi::c_void) -> u32>;
@@ -14641,10 +14641,10 @@ pub struct PaxosTagCStruct {
     pub Sequence: i32,
     pub __padding__BoundrySequence: u32,
 }
-pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(0i32);
-pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(3000i32);
-pub const PriorityLow: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(1000i32);
-pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(2000i32);
+pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(0);
+pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(3000);
+pub const PriorityLow: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(1000);
+pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(2000);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
@@ -14672,7 +14672,7 @@ pub struct RESOURCE_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: RESOURCE_FAILURE_INFO,
 }
-pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
+pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_MONITOR_STATE(pub i32);
@@ -14700,8 +14700,8 @@ pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: windows_core::BOOL,
     pub restartPeriodRemaining: u32,
 }
-pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
-pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1u32;
+pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2;
+pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESUTIL_FILETIME_DATA {
@@ -14748,10 +14748,10 @@ impl Default for RESUTIL_PROPERTY_ITEM_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
-pub const RESUTIL_PROPITEM_READ_ONLY: u32 = 1u32;
-pub const RESUTIL_PROPITEM_REQUIRED: u32 = 2u32;
-pub const RESUTIL_PROPITEM_SIGNED: u32 = 4u32;
+pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8;
+pub const RESUTIL_PROPITEM_READ_ONLY: u32 = 1;
+pub const RESUTIL_PROPITEM_REQUIRED: u32 = 2;
+pub const RESUTIL_PROPITEM_SIGNED: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESUTIL_ULARGEINT_DATA {
@@ -14759,49 +14759,49 @@ pub struct RESUTIL_ULARGEINT_DATA {
     pub Minimum: u64,
     pub Maximum: u64,
 }
-pub const RS3_UPGRADE_VERSION: u32 = 1u32;
-pub const RS4_UPGRADE_VERSION: u32 = 2u32;
-pub const RS5_UPGRADE_VERSION: u32 = 3u32;
-pub const RedirectedIOReasonBitLockerInitializing: u64 = 16u64;
-pub const RedirectedIOReasonFileSystemTiering: u64 = 8u64;
-pub const RedirectedIOReasonMax: u64 = 9223372036854775808u64;
-pub const RedirectedIOReasonReFs: u64 = 32u64;
-pub const RedirectedIOReasonUnsafeFileSystemFilter: u64 = 2u64;
-pub const RedirectedIOReasonUnsafeVolumeFilter: u64 = 4u64;
-pub const RedirectedIOReasonUserRequest: u64 = 1u64;
-pub const ResdllContextOperationTypeDrain: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(1i32);
-pub const ResdllContextOperationTypeDrainFailure: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(2i32);
-pub const ResdllContextOperationTypeEmbeddedFailure: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(3i32);
-pub const ResdllContextOperationTypeFailback: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(0i32);
-pub const ResdllContextOperationTypeNetworkDisconnect: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(5i32);
-pub const ResdllContextOperationTypeNetworkDisconnectMoveRetry: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(6i32);
-pub const ResdllContextOperationTypePreemption: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(4i32);
-pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(0i32);
-pub const ResourceExitStateMax: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(2i32);
-pub const ResourceExitStateTerminate: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(1i32);
+pub const RS3_UPGRADE_VERSION: u32 = 1;
+pub const RS4_UPGRADE_VERSION: u32 = 2;
+pub const RS5_UPGRADE_VERSION: u32 = 3;
+pub const RedirectedIOReasonBitLockerInitializing: u64 = 16;
+pub const RedirectedIOReasonFileSystemTiering: u64 = 8;
+pub const RedirectedIOReasonMax: u64 = 9223372036854775808;
+pub const RedirectedIOReasonReFs: u64 = 32;
+pub const RedirectedIOReasonUnsafeFileSystemFilter: u64 = 2;
+pub const RedirectedIOReasonUnsafeVolumeFilter: u64 = 4;
+pub const RedirectedIOReasonUserRequest: u64 = 1;
+pub const ResdllContextOperationTypeDrain: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(1);
+pub const ResdllContextOperationTypeDrainFailure: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(2);
+pub const ResdllContextOperationTypeEmbeddedFailure: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(3);
+pub const ResdllContextOperationTypeFailback: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(0);
+pub const ResdllContextOperationTypeNetworkDisconnect: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(5);
+pub const ResdllContextOperationTypeNetworkDisconnectMoveRetry: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(6);
+pub const ResdllContextOperationTypePreemption: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(4);
+pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(0);
+pub const ResourceExitStateMax: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(2);
+pub const ResourceExitStateTerminate: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ResourceUtilizationInfoElement {
     pub PhysicalNumaId: u64,
     pub CurrentMemory: u64,
 }
-pub const RmonArbitrateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(10i32);
-pub const RmonDeadlocked: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(15i32);
-pub const RmonDeletingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(7i32);
-pub const RmonIdle: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(1i32);
-pub const RmonInitializing: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(0i32);
-pub const RmonInitializingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(3i32);
-pub const RmonIsAlivePoll: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(8i32);
-pub const RmonLooksAlivePoll: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(9i32);
-pub const RmonOfflineResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(5i32);
-pub const RmonOnlineResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(4i32);
-pub const RmonReleaseResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(11i32);
-pub const RmonResourceControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(12i32);
-pub const RmonResourceTypeControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(13i32);
-pub const RmonShutdownResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(6i32);
-pub const RmonStartingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(2i32);
-pub const RmonTerminateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(14i32);
-pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
+pub const RmonArbitrateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(10);
+pub const RmonDeadlocked: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(15);
+pub const RmonDeletingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(7);
+pub const RmonIdle: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(1);
+pub const RmonInitializing: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(0);
+pub const RmonInitializingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(3);
+pub const RmonIsAlivePoll: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(8);
+pub const RmonLooksAlivePoll: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(9);
+pub const RmonOfflineResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(5);
+pub const RmonOnlineResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(4);
+pub const RmonReleaseResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(11);
+pub const RmonResourceControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(12);
+pub const RmonResourceTypeControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(13);
+pub const RmonShutdownResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(6);
+pub const RmonStartingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(2);
+pub const RmonTerminateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(14);
+pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1;
 pub type SET_APP_INSTANCE_CSV_FLAGS = Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14809,7 +14809,7 @@ pub struct SR_DISK_REPLICATION_ELIGIBLE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_REPLICATED_DISK_TYPE(pub i32);
-pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
+pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
@@ -14923,54 +14923,54 @@ pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
 }
 pub const STARTUP_EX_ROUTINE: windows_core::PCSTR = windows_core::s!("StartupEx");
 pub const STARTUP_ROUTINE: windows_core::PCSTR = windows_core::s!("Startup");
-pub const SharedVolumeStateActive: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(2i32);
-pub const SharedVolumeStateActiveRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(3i32);
-pub const SharedVolumeStateActiveVolumeRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(4i32);
-pub const SharedVolumeStatePaused: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(1i32);
-pub const SharedVolumeStateUnavailable: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(0i32);
-pub const SrDiskReplicationEligibleAlreadyInReplication: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9i32);
-pub const SrDiskReplicationEligibleFileSystemNotSupported: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(8i32);
-pub const SrDiskReplicationEligibleInSameSite: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(7i32);
-pub const SrDiskReplicationEligibleInsufficientFreeSpace: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(5i32);
-pub const SrDiskReplicationEligibleNone: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(0i32);
-pub const SrDiskReplicationEligibleNotGpt: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(3i32);
-pub const SrDiskReplicationEligibleNotInSameSite: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(6i32);
-pub const SrDiskReplicationEligibleOffline: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(2i32);
-pub const SrDiskReplicationEligibleOther: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9999i32);
-pub const SrDiskReplicationEligiblePartitionLayoutMismatch: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(4i32);
-pub const SrDiskReplicationEligibleSameAsSpecifiedDisk: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(10i32);
-pub const SrDiskReplicationEligibleYes: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(1i32);
-pub const SrReplicatedDiskTypeDestination: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(3i32);
-pub const SrReplicatedDiskTypeLogDestination: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(4i32);
-pub const SrReplicatedDiskTypeLogNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(6i32);
-pub const SrReplicatedDiskTypeLogSource: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(2i32);
-pub const SrReplicatedDiskTypeNone: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(0i32);
-pub const SrReplicatedDiskTypeNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(5i32);
-pub const SrReplicatedDiskTypeOther: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(7i32);
-pub const SrReplicatedDiskTypeSource: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(1i32);
+pub const SharedVolumeStateActive: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(2);
+pub const SharedVolumeStateActiveRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(3);
+pub const SharedVolumeStateActiveVolumeRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(4);
+pub const SharedVolumeStatePaused: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(1);
+pub const SharedVolumeStateUnavailable: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(0);
+pub const SrDiskReplicationEligibleAlreadyInReplication: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9);
+pub const SrDiskReplicationEligibleFileSystemNotSupported: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(8);
+pub const SrDiskReplicationEligibleInSameSite: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(7);
+pub const SrDiskReplicationEligibleInsufficientFreeSpace: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(5);
+pub const SrDiskReplicationEligibleNone: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(0);
+pub const SrDiskReplicationEligibleNotGpt: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(3);
+pub const SrDiskReplicationEligibleNotInSameSite: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(6);
+pub const SrDiskReplicationEligibleOffline: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(2);
+pub const SrDiskReplicationEligibleOther: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9999);
+pub const SrDiskReplicationEligiblePartitionLayoutMismatch: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(4);
+pub const SrDiskReplicationEligibleSameAsSpecifiedDisk: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(10);
+pub const SrDiskReplicationEligibleYes: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(1);
+pub const SrReplicatedDiskTypeDestination: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(3);
+pub const SrReplicatedDiskTypeLogDestination: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(4);
+pub const SrReplicatedDiskTypeLogNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(6);
+pub const SrReplicatedDiskTypeLogSource: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(2);
+pub const SrReplicatedDiskTypeNone: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(0);
+pub const SrReplicatedDiskTypeNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(5);
+pub const SrReplicatedDiskTypeOther: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(7);
+pub const SrReplicatedDiskTypeSource: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(1);
 pub const USE_CLIENT_ACCESS_NETWORKS_FOR_CSV: windows_core::PCWSTR = windows_core::w!("UseClientAccessNetworksForSharedVolumes");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VM_RESDLL_CONTEXT(pub i32);
-pub const VmResdllContextLiveMigration: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(4i32);
-pub const VmResdllContextSave: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(1i32);
-pub const VmResdllContextShutdown: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(2i32);
-pub const VmResdllContextShutdownForce: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(3i32);
-pub const VmResdllContextTurnOff: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(0i32);
-pub const VolumeBackupInProgress: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(1i32);
-pub const VolumeBackupNone: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(0i32);
-pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808u64;
-pub const VolumeRedirectedIOReasonNoDiskConnectivity: u64 = 1u64;
-pub const VolumeRedirectedIOReasonStorageSpaceNotAttached: u64 = 2u64;
-pub const VolumeRedirectedIOReasonVolumeReplicationEnabled: u64 = 4u64;
-pub const VolumeStateDismounted: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(8i32);
-pub const VolumeStateInMaintenance: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(4i32);
-pub const VolumeStateNoAccess: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(2i32);
-pub const VolumeStateNoDirectIO: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(1i32);
-pub const VolumeStateNoFaults: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(0i32);
-pub const WS2016_RTM_UPGRADE_VERSION: u32 = 8u32;
-pub const WS2016_TP4_UPGRADE_VERSION: u32 = 6u32;
-pub const WS2016_TP5_UPGRADE_VERSION: u32 = 7u32;
+pub const VmResdllContextLiveMigration: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(4);
+pub const VmResdllContextSave: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(1);
+pub const VmResdllContextShutdown: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(2);
+pub const VmResdllContextShutdownForce: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(3);
+pub const VmResdllContextTurnOff: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(0);
+pub const VolumeBackupInProgress: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(1);
+pub const VolumeBackupNone: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(0);
+pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808;
+pub const VolumeRedirectedIOReasonNoDiskConnectivity: u64 = 1;
+pub const VolumeRedirectedIOReasonStorageSpaceNotAttached: u64 = 2;
+pub const VolumeRedirectedIOReasonVolumeReplicationEnabled: u64 = 4;
+pub const VolumeStateDismounted: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(8);
+pub const VolumeStateInMaintenance: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(4);
+pub const VolumeStateNoAccess: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(2);
+pub const VolumeStateNoDirectIO: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(1);
+pub const VolumeStateNoFaults: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(0);
+pub const WS2016_RTM_UPGRADE_VERSION: u32 = 8;
+pub const WS2016_TP4_UPGRADE_VERSION: u32 = 6;
+pub const WS2016_TP5_UPGRADE_VERSION: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WitnessTagHelper {
@@ -14984,10 +14984,10 @@ pub struct WitnessTagUpdateHelper {
     pub paxosToSet: PaxosTagCStruct,
     pub paxosToValidate: PaxosTagCStruct,
 }
-pub const ZN_UPGRADE_VERSION: u32 = 4u32;
-pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(3i32);
-pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(2i32);
-pub const eResourceStateChangeReasonMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(1i32);
-pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(5i32);
-pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(4i32);
-pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0i32);
+pub const ZN_UPGRADE_VERSION: u32 = 4;
+pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(3);
+pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(2);
+pub const eResourceStateChangeReasonMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(1);
+pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(5);
+pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(4);
+pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0);

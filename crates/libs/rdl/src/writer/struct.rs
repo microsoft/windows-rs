@@ -226,7 +226,7 @@ fn write_packed_attr(item: &metadata::reader::TypeDef) -> TokenStream {
 /// token stream when `packing` is `None`.
 fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
     if let Some(size) = packing {
-        let size_literal = proc_macro2::Literal::u16_unsuffixed(size);
+        let size_literal = Literal::u16_unsuffixed(size);
         return quote! { #[packed(#size_literal)] };
     }
     quote! {}

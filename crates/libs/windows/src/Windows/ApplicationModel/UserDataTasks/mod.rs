@@ -263,7 +263,7 @@ impl UserDataTask {
         }
     }
     pub fn SetCompletedDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetCompletedDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Details(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -291,7 +291,7 @@ impl UserDataTask {
         }
     }
     pub fn SetDueDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDueDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<UserDataTaskKind> {
@@ -340,7 +340,7 @@ impl UserDataTask {
         }
     }
     pub fn SetReminder(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetReminder)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Sensitivity(&self) -> windows_core::Result<UserDataTaskSensitivity> {
@@ -368,7 +368,7 @@ impl UserDataTask {
         }
     }
     pub fn SetStartDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -412,14 +412,14 @@ unsafe impl Sync for UserDataTaskBatch {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
-    pub const None: Self = Self(0u32);
-    pub const Sunday: Self = Self(1u32);
-    pub const Monday: Self = Self(2u32);
-    pub const Tuesday: Self = Self(4u32);
-    pub const Wednesday: Self = Self(8u32);
-    pub const Thursday: Self = Self(16u32);
-    pub const Friday: Self = Self(32u32);
-    pub const Saturday: Self = Self(64u32);
+    pub const None: Self = Self(0);
+    pub const Sunday: Self = Self(1);
+    pub const Monday: Self = Self(2);
+    pub const Tuesday: Self = Self(4);
+    pub const Wednesday: Self = Self(8);
+    pub const Thursday: Self = Self(16);
+    pub const Friday: Self = Self(32);
+    pub const Saturday: Self = Self(64);
 }
 impl windows_core::TypeKind for UserDataTaskDaysOfWeek {
     type TypeKind = windows_core::CopyType;
@@ -465,8 +465,8 @@ impl core::ops::Not for UserDataTaskDaysOfWeek {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskDetailsKind(pub i32);
 impl UserDataTaskDetailsKind {
-    pub const PlainText: Self = Self(0i32);
-    pub const Html: Self = Self(1i32);
+    pub const PlainText: Self = Self(0);
+    pub const Html: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataTaskDetailsKind {
     type TypeKind = windows_core::CopyType;
@@ -479,9 +479,9 @@ impl windows_core::RuntimeType for UserDataTaskDetailsKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskKind(pub i32);
 impl UserDataTaskKind {
-    pub const Single: Self = Self(0i32);
-    pub const Recurring: Self = Self(1i32);
-    pub const Regenerating: Self = Self(2i32);
+    pub const Single: Self = Self(0);
+    pub const Recurring: Self = Self(1);
+    pub const Regenerating: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataTaskKind {
     type TypeKind = windows_core::CopyType;
@@ -668,9 +668,9 @@ unsafe impl Sync for UserDataTaskListLimitedWriteOperations {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
-    pub const Full: Self = Self(0i32);
-    pub const SystemOnly: Self = Self(1i32);
-    pub const None: Self = Self(2i32);
+    pub const Full: Self = Self(0);
+    pub const SystemOnly: Self = Self(1);
+    pub const None: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataTaskListOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
@@ -683,8 +683,8 @@ impl windows_core::RuntimeType for UserDataTaskListOtherAppReadAccess {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
 impl UserDataTaskListOtherAppWriteAccess {
-    pub const Limited: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
+    pub const Limited: Self = Self(0);
+    pub const None: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataTaskListOtherAppWriteAccess {
     type TypeKind = windows_core::CopyType;
@@ -760,12 +760,12 @@ unsafe impl Sync for UserDataTaskListSyncManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
-    pub const Idle: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const UpToDate: Self = Self(2i32);
-    pub const AuthenticationError: Self = Self(3i32);
-    pub const PolicyError: Self = Self(4i32);
-    pub const UnknownError: Self = Self(5i32);
+    pub const Idle: Self = Self(0);
+    pub const Syncing: Self = Self(1);
+    pub const UpToDate: Self = Self(2);
+    pub const AuthenticationError: Self = Self(3);
+    pub const PolicyError: Self = Self(4);
+    pub const UnknownError: Self = Self(5);
 }
 impl windows_core::TypeKind for UserDataTaskListSyncStatus {
     type TypeKind = windows_core::CopyType;
@@ -829,9 +829,9 @@ unsafe impl Sync for UserDataTaskManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
-    pub const Normal: Self = Self(0i32);
-    pub const Low: Self = Self(-1i32);
-    pub const High: Self = Self(1i32);
+    pub const Normal: Self = Self(0);
+    pub const Low: Self = Self(-1);
+    pub const High: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataTaskPriority {
     type TypeKind = windows_core::CopyType;
@@ -844,9 +844,9 @@ impl windows_core::RuntimeType for UserDataTaskPriority {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskQueryKind(pub i32);
 impl UserDataTaskQueryKind {
-    pub const All: Self = Self(0i32);
-    pub const Incomplete: Self = Self(1i32);
-    pub const Complete: Self = Self(2i32);
+    pub const All: Self = Self(0);
+    pub const Incomplete: Self = Self(1);
+    pub const Complete: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataTaskQueryKind {
     type TypeKind = windows_core::CopyType;
@@ -902,7 +902,7 @@ unsafe impl Sync for UserDataTaskQueryOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
-    pub const DueDate: Self = Self(0i32);
+    pub const DueDate: Self = Self(0);
 }
 impl windows_core::TypeKind for UserDataTaskQuerySortProperty {
     type TypeKind = windows_core::CopyType;
@@ -963,7 +963,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetOccurrences(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOccurrences)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Until(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -973,7 +973,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetUntil(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetUntil)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Interval(&self) -> windows_core::Result<i32> {
@@ -992,7 +992,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetDaysOfWeek(&self, value: Option<UserDataTaskDaysOfWeek>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<UserDataTaskDaysOfWeek> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<UserDataTaskDaysOfWeek> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDaysOfWeek)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WeekOfMonth(&self) -> windows_core::Result<UserDataTaskWeekOfMonth> {
@@ -1002,7 +1002,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetWeekOfMonth(&self, value: Option<UserDataTaskWeekOfMonth>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<UserDataTaskWeekOfMonth> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<UserDataTaskWeekOfMonth> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetWeekOfMonth)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Month(&self) -> windows_core::Result<i32> {
@@ -1012,7 +1012,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetMonth(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMonth)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Day(&self) -> windows_core::Result<i32> {
@@ -1022,7 +1022,7 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     pub fn SetDay(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDay)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -1042,12 +1042,12 @@ unsafe impl Sync for UserDataTaskRecurrenceProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
-    pub const Daily: Self = Self(0i32);
-    pub const Weekly: Self = Self(1i32);
-    pub const Monthly: Self = Self(2i32);
-    pub const MonthlyOnDay: Self = Self(3i32);
-    pub const Yearly: Self = Self(4i32);
-    pub const YearlyOnDay: Self = Self(5i32);
+    pub const Daily: Self = Self(0);
+    pub const Weekly: Self = Self(1);
+    pub const Monthly: Self = Self(2);
+    pub const MonthlyOnDay: Self = Self(3);
+    pub const Yearly: Self = Self(4);
+    pub const YearlyOnDay: Self = Self(5);
 }
 impl windows_core::TypeKind for UserDataTaskRecurrenceUnit {
     type TypeKind = windows_core::CopyType;
@@ -1084,7 +1084,7 @@ impl UserDataTaskRegenerationProperties {
         }
     }
     pub fn SetOccurrences(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetOccurrences)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Until(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1094,7 +1094,7 @@ impl UserDataTaskRegenerationProperties {
         }
     }
     pub fn SetUntil(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetUntil)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Interval(&self) -> windows_core::Result<i32> {
@@ -1123,10 +1123,10 @@ unsafe impl Sync for UserDataTaskRegenerationProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
-    pub const Daily: Self = Self(0i32);
-    pub const Weekly: Self = Self(1i32);
-    pub const Monthly: Self = Self(2i32);
-    pub const Yearly: Self = Self(4i32);
+    pub const Daily: Self = Self(0);
+    pub const Weekly: Self = Self(1);
+    pub const Monthly: Self = Self(2);
+    pub const Yearly: Self = Self(4);
 }
 impl windows_core::TypeKind for UserDataTaskRegenerationUnit {
     type TypeKind = windows_core::CopyType;
@@ -1139,8 +1139,8 @@ impl windows_core::RuntimeType for UserDataTaskRegenerationUnit {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskSensitivity(pub i32);
 impl UserDataTaskSensitivity {
-    pub const Public: Self = Self(0i32);
-    pub const Private: Self = Self(1i32);
+    pub const Public: Self = Self(0);
+    pub const Private: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataTaskSensitivity {
     type TypeKind = windows_core::CopyType;
@@ -1195,8 +1195,8 @@ unsafe impl Sync for UserDataTaskStore {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {
-    pub const AppTasksReadWrite: Self = Self(0i32);
-    pub const AllTasksLimitedReadWrite: Self = Self(1i32);
+    pub const AppTasksReadWrite: Self = Self(0);
+    pub const AllTasksLimitedReadWrite: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataTaskStoreAccessType {
     type TypeKind = windows_core::CopyType;
@@ -1209,11 +1209,11 @@ impl windows_core::RuntimeType for UserDataTaskStoreAccessType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataTaskWeekOfMonth(pub i32);
 impl UserDataTaskWeekOfMonth {
-    pub const First: Self = Self(0i32);
-    pub const Second: Self = Self(1i32);
-    pub const Third: Self = Self(2i32);
-    pub const Fourth: Self = Self(3i32);
-    pub const Last: Self = Self(4i32);
+    pub const First: Self = Self(0);
+    pub const Second: Self = Self(1);
+    pub const Third: Self = Self(2);
+    pub const Fourth: Self = Self(3);
+    pub const Last: Self = Self(4);
 }
 impl windows_core::TypeKind for UserDataTaskWeekOfMonth {
     type TypeKind = windows_core::CopyType;

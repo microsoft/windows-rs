@@ -47,11 +47,11 @@ impl Default for ADAPTER_STATUS {
     }
 }
 pub const ALL_TRANSPORTS: windows_core::PCSTR = windows_core::s!("M\u{0}\u{0}\u{0}");
-pub const ASYNCH: u32 = 128u32;
-pub const CALL_PENDING: u32 = 2u32;
-pub const DEREGISTERED: u32 = 5u32;
-pub const DUPLICATE: u32 = 6u32;
-pub const DUPLICATE_DEREG: u32 = 7u32;
+pub const ASYNCH: u32 = 128;
+pub const CALL_PENDING: u32 = 2;
+pub const DEREGISTERED: u32 = 5;
+pub const DUPLICATE: u32 = 6;
+pub const DUPLICATE_DEREG: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIND_NAME_BUFFER {
@@ -74,9 +74,9 @@ pub struct FIND_NAME_HEADER {
     pub reserved: u8,
     pub unique_group: u8,
 }
-pub const GROUP_NAME: u32 = 128u32;
-pub const HANGUP_COMPLETE: u32 = 5u32;
-pub const HANGUP_PENDING: u32 = 4u32;
+pub const GROUP_NAME: u32 = 128;
+pub const HANGUP_COMPLETE: u32 = 5;
+pub const HANGUP_PENDING: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LANA_ENUM {
@@ -88,8 +88,8 @@ impl Default for LANA_ENUM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const LISTEN_OUTSTANDING: u32 = 1u32;
-pub const MAX_LANA: u32 = 254u32;
+pub const LISTEN_OUTSTANDING: u32 = 1;
+pub const MAX_LANA: u32 = 254;
 pub const MS_NBF: windows_core::PCSTR = windows_core::s!("MNBF");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -103,7 +103,7 @@ impl Default for NAME_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NAME_FLAGS_MASK: u32 = 135u32;
+pub const NAME_FLAGS_MASK: u32 = 135;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -156,75 +156,75 @@ impl Default for NCB {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NCBACTION: u32 = 119u32;
-pub const NCBADDGRNAME: u32 = 54u32;
-pub const NCBADDNAME: u32 = 48u32;
-pub const NCBASTAT: u32 = 51u32;
-pub const NCBCALL: u32 = 16u32;
-pub const NCBCANCEL: u32 = 53u32;
-pub const NCBCHAINSEND: u32 = 23u32;
-pub const NCBCHAINSENDNA: u32 = 114u32;
-pub const NCBDELNAME: u32 = 49u32;
-pub const NCBDGRECV: u32 = 33u32;
-pub const NCBDGRECVBC: u32 = 35u32;
-pub const NCBDGSEND: u32 = 32u32;
-pub const NCBDGSENDBC: u32 = 34u32;
-pub const NCBENUM: u32 = 55u32;
-pub const NCBFINDNAME: u32 = 120u32;
-pub const NCBHANGUP: u32 = 18u32;
-pub const NCBLANSTALERT: u32 = 115u32;
-pub const NCBLISTEN: u32 = 17u32;
-pub const NCBNAMSZ: u32 = 16u32;
-pub const NCBRECV: u32 = 21u32;
-pub const NCBRECVANY: u32 = 22u32;
-pub const NCBRESET: u32 = 50u32;
-pub const NCBSEND: u32 = 20u32;
-pub const NCBSENDNA: u32 = 113u32;
-pub const NCBSSTAT: u32 = 52u32;
-pub const NCBTRACE: u32 = 121u32;
-pub const NCBUNLINK: u32 = 112u32;
-pub const NRC_ACTSES: u32 = 15u32;
-pub const NRC_BADDR: u32 = 7u32;
-pub const NRC_BRIDGE: u32 = 35u32;
-pub const NRC_BUFLEN: u32 = 1u32;
-pub const NRC_CANCEL: u32 = 38u32;
-pub const NRC_CANOCCR: u32 = 36u32;
-pub const NRC_CMDCAN: u32 = 11u32;
-pub const NRC_CMDTMO: u32 = 5u32;
-pub const NRC_DUPENV: u32 = 48u32;
-pub const NRC_DUPNAME: u32 = 13u32;
-pub const NRC_ENVNOTDEF: u32 = 52u32;
-pub const NRC_GOODRET: u32 = 0u32;
-pub const NRC_IFBUSY: u32 = 33u32;
-pub const NRC_ILLCMD: u32 = 3u32;
-pub const NRC_ILLNN: u32 = 19u32;
-pub const NRC_INCOMP: u32 = 6u32;
-pub const NRC_INUSE: u32 = 22u32;
-pub const NRC_INVADDRESS: u32 = 57u32;
-pub const NRC_INVDDID: u32 = 59u32;
-pub const NRC_LOCKFAIL: u32 = 60u32;
-pub const NRC_LOCTFUL: u32 = 17u32;
-pub const NRC_MAXAPPS: u32 = 54u32;
-pub const NRC_NAMCONF: u32 = 25u32;
-pub const NRC_NAMERR: u32 = 23u32;
-pub const NRC_NAMTFUL: u32 = 14u32;
-pub const NRC_NOCALL: u32 = 20u32;
-pub const NRC_NORES: u32 = 9u32;
-pub const NRC_NORESOURCES: u32 = 56u32;
-pub const NRC_NOSAPS: u32 = 55u32;
-pub const NRC_NOWILD: u32 = 21u32;
-pub const NRC_OPENERR: u32 = 63u32;
-pub const NRC_OSRESNOTAV: u32 = 53u32;
-pub const NRC_PENDING: u32 = 255u32;
-pub const NRC_REMTFUL: u32 = 18u32;
-pub const NRC_SABORT: u32 = 24u32;
-pub const NRC_SCLOSED: u32 = 10u32;
-pub const NRC_SNUMOUT: u32 = 8u32;
-pub const NRC_SYSTEM: u32 = 64u32;
-pub const NRC_TOOMANY: u32 = 34u32;
-pub const REGISTERED: u32 = 4u32;
-pub const REGISTERING: u32 = 0u32;
-pub const SESSION_ABORTED: u32 = 6u32;
+pub const NCBACTION: u32 = 119;
+pub const NCBADDGRNAME: u32 = 54;
+pub const NCBADDNAME: u32 = 48;
+pub const NCBASTAT: u32 = 51;
+pub const NCBCALL: u32 = 16;
+pub const NCBCANCEL: u32 = 53;
+pub const NCBCHAINSEND: u32 = 23;
+pub const NCBCHAINSENDNA: u32 = 114;
+pub const NCBDELNAME: u32 = 49;
+pub const NCBDGRECV: u32 = 33;
+pub const NCBDGRECVBC: u32 = 35;
+pub const NCBDGSEND: u32 = 32;
+pub const NCBDGSENDBC: u32 = 34;
+pub const NCBENUM: u32 = 55;
+pub const NCBFINDNAME: u32 = 120;
+pub const NCBHANGUP: u32 = 18;
+pub const NCBLANSTALERT: u32 = 115;
+pub const NCBLISTEN: u32 = 17;
+pub const NCBNAMSZ: u32 = 16;
+pub const NCBRECV: u32 = 21;
+pub const NCBRECVANY: u32 = 22;
+pub const NCBRESET: u32 = 50;
+pub const NCBSEND: u32 = 20;
+pub const NCBSENDNA: u32 = 113;
+pub const NCBSSTAT: u32 = 52;
+pub const NCBTRACE: u32 = 121;
+pub const NCBUNLINK: u32 = 112;
+pub const NRC_ACTSES: u32 = 15;
+pub const NRC_BADDR: u32 = 7;
+pub const NRC_BRIDGE: u32 = 35;
+pub const NRC_BUFLEN: u32 = 1;
+pub const NRC_CANCEL: u32 = 38;
+pub const NRC_CANOCCR: u32 = 36;
+pub const NRC_CMDCAN: u32 = 11;
+pub const NRC_CMDTMO: u32 = 5;
+pub const NRC_DUPENV: u32 = 48;
+pub const NRC_DUPNAME: u32 = 13;
+pub const NRC_ENVNOTDEF: u32 = 52;
+pub const NRC_GOODRET: u32 = 0;
+pub const NRC_IFBUSY: u32 = 33;
+pub const NRC_ILLCMD: u32 = 3;
+pub const NRC_ILLNN: u32 = 19;
+pub const NRC_INCOMP: u32 = 6;
+pub const NRC_INUSE: u32 = 22;
+pub const NRC_INVADDRESS: u32 = 57;
+pub const NRC_INVDDID: u32 = 59;
+pub const NRC_LOCKFAIL: u32 = 60;
+pub const NRC_LOCTFUL: u32 = 17;
+pub const NRC_MAXAPPS: u32 = 54;
+pub const NRC_NAMCONF: u32 = 25;
+pub const NRC_NAMERR: u32 = 23;
+pub const NRC_NAMTFUL: u32 = 14;
+pub const NRC_NOCALL: u32 = 20;
+pub const NRC_NORES: u32 = 9;
+pub const NRC_NORESOURCES: u32 = 56;
+pub const NRC_NOSAPS: u32 = 55;
+pub const NRC_NOWILD: u32 = 21;
+pub const NRC_OPENERR: u32 = 63;
+pub const NRC_OSRESNOTAV: u32 = 53;
+pub const NRC_PENDING: u32 = 255;
+pub const NRC_REMTFUL: u32 = 18;
+pub const NRC_SABORT: u32 = 24;
+pub const NRC_SCLOSED: u32 = 10;
+pub const NRC_SNUMOUT: u32 = 8;
+pub const NRC_SYSTEM: u32 = 64;
+pub const NRC_TOOMANY: u32 = 34;
+pub const REGISTERED: u32 = 4;
+pub const REGISTERING: u32 = 0;
+pub const SESSION_ABORTED: u32 = 6;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_BUFFER {
@@ -240,7 +240,7 @@ impl Default for SESSION_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SESSION_ESTABLISHED: u32 = 3u32;
+pub const SESSION_ESTABLISHED: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SESSION_HEADER {
@@ -249,4 +249,4 @@ pub struct SESSION_HEADER {
     pub rcv_dg_outstanding: u8,
     pub rcv_any_outstanding: u8,
 }
-pub const UNIQUE_NAME: u32 = 0u32;
+pub const UNIQUE_NAME: u32 = 0;

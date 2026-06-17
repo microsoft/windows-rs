@@ -63,3 +63,22 @@ pub fn to_ident(name: &str) -> TokenStream {
         other => proc_macro2::Ident::new(other, proc_macro2::Span::call_site()).into_token_stream(),
     }
 }
+
+/// Convert a PascalCase or camelCase name to snake_case.
+///
+/// Used in minimal mode to emit struct field names that conform to Rust
+/// naming conventions (e.g. `TopLeft` → `top_left`, `A` → `a`).
+pub fn to_snake_case(name: &str) -> String {
+    let mut result = String::with_capacity(name.len() + 4);
+    for (i, c) in name.chars().enumerate() {
+        if c.is_uppercase() {
+            if i > 0 {
+                result.push('_');
+            }
+            result.push(c.to_lowercase().next().unwrap());
+        } else {
+            result.push(c);
+        }
+    }
+    result
+}

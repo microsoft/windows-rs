@@ -108,7 +108,6 @@ unsafe impl Sync for AppCapability {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl AppCapabilityAccessChangedEventArgs {}
 impl windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapabilityAccessChangedEventArgs>();
 }
@@ -125,11 +124,11 @@ unsafe impl Sync for AppCapabilityAccessChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {
-    pub const DeniedBySystem: Self = Self(0i32);
-    pub const NotDeclaredByApp: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const UserPromptRequired: Self = Self(3i32);
-    pub const Allowed: Self = Self(4i32);
+    pub const DeniedBySystem: Self = Self(0);
+    pub const NotDeclaredByApp: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const UserPromptRequired: Self = Self(3);
+    pub const Allowed: Self = Self(4);
 }
 impl windows_core::TypeKind for AppCapabilityAccessStatus {
     type TypeKind = windows_core::CopyType;

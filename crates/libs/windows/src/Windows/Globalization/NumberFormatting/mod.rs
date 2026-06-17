@@ -246,8 +246,8 @@ unsafe impl Sync for CurrencyFormatter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
-    pub const UseSymbol: Self = Self(0i32);
-    pub const UseCurrencyCode: Self = Self(1i32);
+    pub const UseSymbol: Self = Self(0);
+    pub const UseCurrencyCode: Self = Self(1);
 }
 impl windows_core::TypeKind for CurrencyFormatterMode {
     type TypeKind = windows_core::CopyType;
@@ -2091,17 +2091,17 @@ unsafe impl Sync for PermilleFormatter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
-    pub const None: Self = Self(0i32);
-    pub const RoundDown: Self = Self(1i32);
-    pub const RoundUp: Self = Self(2i32);
-    pub const RoundTowardsZero: Self = Self(3i32);
-    pub const RoundAwayFromZero: Self = Self(4i32);
-    pub const RoundHalfDown: Self = Self(5i32);
-    pub const RoundHalfUp: Self = Self(6i32);
-    pub const RoundHalfTowardsZero: Self = Self(7i32);
-    pub const RoundHalfAwayFromZero: Self = Self(8i32);
-    pub const RoundHalfToEven: Self = Self(9i32);
-    pub const RoundHalfToOdd: Self = Self(10i32);
+    pub const None: Self = Self(0);
+    pub const RoundDown: Self = Self(1);
+    pub const RoundUp: Self = Self(2);
+    pub const RoundTowardsZero: Self = Self(3);
+    pub const RoundAwayFromZero: Self = Self(4);
+    pub const RoundHalfDown: Self = Self(5);
+    pub const RoundHalfUp: Self = Self(6);
+    pub const RoundHalfTowardsZero: Self = Self(7);
+    pub const RoundHalfAwayFromZero: Self = Self(8);
+    pub const RoundHalfToEven: Self = Self(9);
+    pub const RoundHalfToOdd: Self = Self(10);
 }
 impl windows_core::TypeKind for RoundingAlgorithm {
     type TypeKind = windows_core::CopyType;

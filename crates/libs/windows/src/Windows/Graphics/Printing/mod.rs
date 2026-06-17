@@ -866,23 +866,23 @@ pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-    pub const Bale: Self = Self(4i32);
-    pub const BindBottom: Self = Self(5i32);
-    pub const BindLeft: Self = Self(6i32);
-    pub const BindRight: Self = Self(7i32);
-    pub const BindTop: Self = Self(8i32);
-    pub const Booklet: Self = Self(9i32);
-    pub const EdgeStitchBottom: Self = Self(10i32);
-    pub const EdgeStitchLeft: Self = Self(11i32);
-    pub const EdgeStitchRight: Self = Self(12i32);
-    pub const EdgeStitchTop: Self = Self(13i32);
-    pub const Fold: Self = Self(14i32);
-    pub const JogOffset: Self = Self(15i32);
-    pub const Trim: Self = Self(16i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const None: Self = Self(3);
+    pub const Bale: Self = Self(4);
+    pub const BindBottom: Self = Self(5);
+    pub const BindLeft: Self = Self(6);
+    pub const BindRight: Self = Self(7);
+    pub const BindTop: Self = Self(8);
+    pub const Booklet: Self = Self(9);
+    pub const EdgeStitchBottom: Self = Self(10);
+    pub const EdgeStitchLeft: Self = Self(11);
+    pub const EdgeStitchRight: Self = Self(12);
+    pub const EdgeStitchTop: Self = Self(13);
+    pub const Fold: Self = Self(14);
+    pub const JogOffset: Self = Self(15);
+    pub const Trim: Self = Self(16);
 }
 impl windows_core::TypeKind for PrintBinding {
     type TypeKind = windows_core::CopyType;
@@ -895,11 +895,11 @@ impl windows_core::RuntimeType for PrintBinding {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Bordered: Self = Self(3i32);
-    pub const Borderless: Self = Self(4i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const Bordered: Self = Self(3);
+    pub const Borderless: Self = Self(4);
 }
 impl windows_core::TypeKind for PrintBordering {
     type TypeKind = windows_core::CopyType;
@@ -912,11 +912,11 @@ impl windows_core::RuntimeType for PrintBordering {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Collated: Self = Self(3i32);
-    pub const Uncollated: Self = Self(4i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const Collated: Self = Self(3);
+    pub const Uncollated: Self = Self(4);
 }
 impl windows_core::TypeKind for PrintCollation {
     type TypeKind = windows_core::CopyType;
@@ -929,13 +929,13 @@ impl windows_core::RuntimeType for PrintCollation {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Color: Self = Self(3i32);
-    pub const Grayscale: Self = Self(4i32);
-    pub const Monochrome: Self = Self(5i32);
-    pub const AutoSelect: Self = Self(6i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const Color: Self = Self(3);
+    pub const Grayscale: Self = Self(4);
+    pub const Monochrome: Self = Self(5);
+    pub const AutoSelect: Self = Self(6);
 }
 impl windows_core::TypeKind for PrintColorMode {
     type TypeKind = windows_core::CopyType;
@@ -948,12 +948,12 @@ impl windows_core::RuntimeType for PrintColorMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const OneSided: Self = Self(3i32);
-    pub const TwoSidedShortEdge: Self = Self(4i32);
-    pub const TwoSidedLongEdge: Self = Self(5i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const OneSided: Self = Self(3);
+    pub const TwoSidedShortEdge: Self = Self(4);
+    pub const TwoSidedLongEdge: Self = Self(5);
 }
 impl windows_core::TypeKind for PrintDuplex {
     type TypeKind = windows_core::CopyType;
@@ -966,14 +966,14 @@ impl windows_core::RuntimeType for PrintDuplex {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-    pub const LeftEdge: Self = Self(4i32);
-    pub const RightEdge: Self = Self(5i32);
-    pub const TopEdge: Self = Self(6i32);
-    pub const BottomEdge: Self = Self(7i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const None: Self = Self(3);
+    pub const LeftEdge: Self = Self(4);
+    pub const RightEdge: Self = Self(5);
+    pub const TopEdge: Self = Self(6);
+    pub const BottomEdge: Self = Self(7);
 }
 impl windows_core::TypeKind for PrintHolePunch {
     type TypeKind = windows_core::CopyType;
@@ -1042,179 +1042,179 @@ unsafe impl Sync for PrintManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const BusinessCard: Self = Self(3i32);
-    pub const CreditCard: Self = Self(4i32);
-    pub const IsoA0: Self = Self(5i32);
-    pub const IsoA1: Self = Self(6i32);
-    pub const IsoA10: Self = Self(7i32);
-    pub const IsoA2: Self = Self(8i32);
-    pub const IsoA3: Self = Self(9i32);
-    pub const IsoA3Extra: Self = Self(10i32);
-    pub const IsoA3Rotated: Self = Self(11i32);
-    pub const IsoA4: Self = Self(12i32);
-    pub const IsoA4Extra: Self = Self(13i32);
-    pub const IsoA4Rotated: Self = Self(14i32);
-    pub const IsoA5: Self = Self(15i32);
-    pub const IsoA5Extra: Self = Self(16i32);
-    pub const IsoA5Rotated: Self = Self(17i32);
-    pub const IsoA6: Self = Self(18i32);
-    pub const IsoA6Rotated: Self = Self(19i32);
-    pub const IsoA7: Self = Self(20i32);
-    pub const IsoA8: Self = Self(21i32);
-    pub const IsoA9: Self = Self(22i32);
-    pub const IsoB0: Self = Self(23i32);
-    pub const IsoB1: Self = Self(24i32);
-    pub const IsoB10: Self = Self(25i32);
-    pub const IsoB2: Self = Self(26i32);
-    pub const IsoB3: Self = Self(27i32);
-    pub const IsoB4: Self = Self(28i32);
-    pub const IsoB4Envelope: Self = Self(29i32);
-    pub const IsoB5Envelope: Self = Self(30i32);
-    pub const IsoB5Extra: Self = Self(31i32);
-    pub const IsoB7: Self = Self(32i32);
-    pub const IsoB8: Self = Self(33i32);
-    pub const IsoB9: Self = Self(34i32);
-    pub const IsoC0: Self = Self(35i32);
-    pub const IsoC1: Self = Self(36i32);
-    pub const IsoC10: Self = Self(37i32);
-    pub const IsoC2: Self = Self(38i32);
-    pub const IsoC3: Self = Self(39i32);
-    pub const IsoC3Envelope: Self = Self(40i32);
-    pub const IsoC4: Self = Self(41i32);
-    pub const IsoC4Envelope: Self = Self(42i32);
-    pub const IsoC5: Self = Self(43i32);
-    pub const IsoC5Envelope: Self = Self(44i32);
-    pub const IsoC6: Self = Self(45i32);
-    pub const IsoC6C5Envelope: Self = Self(46i32);
-    pub const IsoC6Envelope: Self = Self(47i32);
-    pub const IsoC7: Self = Self(48i32);
-    pub const IsoC8: Self = Self(49i32);
-    pub const IsoC9: Self = Self(50i32);
-    pub const IsoDLEnvelope: Self = Self(51i32);
-    pub const IsoDLEnvelopeRotated: Self = Self(52i32);
-    pub const IsoSRA3: Self = Self(53i32);
-    pub const Japan2LPhoto: Self = Self(54i32);
-    pub const JapanChou3Envelope: Self = Self(55i32);
-    pub const JapanChou3EnvelopeRotated: Self = Self(56i32);
-    pub const JapanChou4Envelope: Self = Self(57i32);
-    pub const JapanChou4EnvelopeRotated: Self = Self(58i32);
-    pub const JapanDoubleHagakiPostcard: Self = Self(59i32);
-    pub const JapanDoubleHagakiPostcardRotated: Self = Self(60i32);
-    pub const JapanHagakiPostcard: Self = Self(61i32);
-    pub const JapanHagakiPostcardRotated: Self = Self(62i32);
-    pub const JapanKaku2Envelope: Self = Self(63i32);
-    pub const JapanKaku2EnvelopeRotated: Self = Self(64i32);
-    pub const JapanKaku3Envelope: Self = Self(65i32);
-    pub const JapanKaku3EnvelopeRotated: Self = Self(66i32);
-    pub const JapanLPhoto: Self = Self(67i32);
-    pub const JapanQuadrupleHagakiPostcard: Self = Self(68i32);
-    pub const JapanYou1Envelope: Self = Self(69i32);
-    pub const JapanYou2Envelope: Self = Self(70i32);
-    pub const JapanYou3Envelope: Self = Self(71i32);
-    pub const JapanYou4Envelope: Self = Self(72i32);
-    pub const JapanYou4EnvelopeRotated: Self = Self(73i32);
-    pub const JapanYou6Envelope: Self = Self(74i32);
-    pub const JapanYou6EnvelopeRotated: Self = Self(75i32);
-    pub const JisB0: Self = Self(76i32);
-    pub const JisB1: Self = Self(77i32);
-    pub const JisB10: Self = Self(78i32);
-    pub const JisB2: Self = Self(79i32);
-    pub const JisB3: Self = Self(80i32);
-    pub const JisB4: Self = Self(81i32);
-    pub const JisB4Rotated: Self = Self(82i32);
-    pub const JisB5: Self = Self(83i32);
-    pub const JisB5Rotated: Self = Self(84i32);
-    pub const JisB6: Self = Self(85i32);
-    pub const JisB6Rotated: Self = Self(86i32);
-    pub const JisB7: Self = Self(87i32);
-    pub const JisB8: Self = Self(88i32);
-    pub const JisB9: Self = Self(89i32);
-    pub const NorthAmerica10x11: Self = Self(90i32);
-    pub const NorthAmerica10x12: Self = Self(91i32);
-    pub const NorthAmerica10x14: Self = Self(92i32);
-    pub const NorthAmerica11x17: Self = Self(93i32);
-    pub const NorthAmerica14x17: Self = Self(94i32);
-    pub const NorthAmerica4x6: Self = Self(95i32);
-    pub const NorthAmerica4x8: Self = Self(96i32);
-    pub const NorthAmerica5x7: Self = Self(97i32);
-    pub const NorthAmerica8x10: Self = Self(98i32);
-    pub const NorthAmerica9x11: Self = Self(99i32);
-    pub const NorthAmericaArchitectureASheet: Self = Self(100i32);
-    pub const NorthAmericaArchitectureBSheet: Self = Self(101i32);
-    pub const NorthAmericaArchitectureCSheet: Self = Self(102i32);
-    pub const NorthAmericaArchitectureDSheet: Self = Self(103i32);
-    pub const NorthAmericaArchitectureESheet: Self = Self(104i32);
-    pub const NorthAmericaCSheet: Self = Self(105i32);
-    pub const NorthAmericaDSheet: Self = Self(106i32);
-    pub const NorthAmericaESheet: Self = Self(107i32);
-    pub const NorthAmericaExecutive: Self = Self(108i32);
-    pub const NorthAmericaGermanLegalFanfold: Self = Self(109i32);
-    pub const NorthAmericaGermanStandardFanfold: Self = Self(110i32);
-    pub const NorthAmericaLegal: Self = Self(111i32);
-    pub const NorthAmericaLegalExtra: Self = Self(112i32);
-    pub const NorthAmericaLetter: Self = Self(113i32);
-    pub const NorthAmericaLetterExtra: Self = Self(114i32);
-    pub const NorthAmericaLetterPlus: Self = Self(115i32);
-    pub const NorthAmericaLetterRotated: Self = Self(116i32);
-    pub const NorthAmericaMonarchEnvelope: Self = Self(117i32);
-    pub const NorthAmericaNote: Self = Self(118i32);
-    pub const NorthAmericaNumber10Envelope: Self = Self(119i32);
-    pub const NorthAmericaNumber10EnvelopeRotated: Self = Self(120i32);
-    pub const NorthAmericaNumber11Envelope: Self = Self(121i32);
-    pub const NorthAmericaNumber12Envelope: Self = Self(122i32);
-    pub const NorthAmericaNumber14Envelope: Self = Self(123i32);
-    pub const NorthAmericaNumber9Envelope: Self = Self(124i32);
-    pub const NorthAmericaPersonalEnvelope: Self = Self(125i32);
-    pub const NorthAmericaQuarto: Self = Self(126i32);
-    pub const NorthAmericaStatement: Self = Self(127i32);
-    pub const NorthAmericaSuperA: Self = Self(128i32);
-    pub const NorthAmericaSuperB: Self = Self(129i32);
-    pub const NorthAmericaTabloid: Self = Self(130i32);
-    pub const NorthAmericaTabloidExtra: Self = Self(131i32);
-    pub const OtherMetricA3Plus: Self = Self(132i32);
-    pub const OtherMetricA4Plus: Self = Self(133i32);
-    pub const OtherMetricFolio: Self = Self(134i32);
-    pub const OtherMetricInviteEnvelope: Self = Self(135i32);
-    pub const OtherMetricItalianEnvelope: Self = Self(136i32);
-    pub const Prc10Envelope: Self = Self(137i32);
-    pub const Prc10EnvelopeRotated: Self = Self(138i32);
-    pub const Prc16K: Self = Self(139i32);
-    pub const Prc16KRotated: Self = Self(140i32);
-    pub const Prc1Envelope: Self = Self(141i32);
-    pub const Prc1EnvelopeRotated: Self = Self(142i32);
-    pub const Prc2Envelope: Self = Self(143i32);
-    pub const Prc2EnvelopeRotated: Self = Self(144i32);
-    pub const Prc32K: Self = Self(145i32);
-    pub const Prc32KBig: Self = Self(146i32);
-    pub const Prc32KRotated: Self = Self(147i32);
-    pub const Prc3Envelope: Self = Self(148i32);
-    pub const Prc3EnvelopeRotated: Self = Self(149i32);
-    pub const Prc4Envelope: Self = Self(150i32);
-    pub const Prc4EnvelopeRotated: Self = Self(151i32);
-    pub const Prc5Envelope: Self = Self(152i32);
-    pub const Prc5EnvelopeRotated: Self = Self(153i32);
-    pub const Prc6Envelope: Self = Self(154i32);
-    pub const Prc6EnvelopeRotated: Self = Self(155i32);
-    pub const Prc7Envelope: Self = Self(156i32);
-    pub const Prc7EnvelopeRotated: Self = Self(157i32);
-    pub const Prc8Envelope: Self = Self(158i32);
-    pub const Prc8EnvelopeRotated: Self = Self(159i32);
-    pub const Prc9Envelope: Self = Self(160i32);
-    pub const Prc9EnvelopeRotated: Self = Self(161i32);
-    pub const Roll04Inch: Self = Self(162i32);
-    pub const Roll06Inch: Self = Self(163i32);
-    pub const Roll08Inch: Self = Self(164i32);
-    pub const Roll12Inch: Self = Self(165i32);
-    pub const Roll15Inch: Self = Self(166i32);
-    pub const Roll18Inch: Self = Self(167i32);
-    pub const Roll22Inch: Self = Self(168i32);
-    pub const Roll24Inch: Self = Self(169i32);
-    pub const Roll30Inch: Self = Self(170i32);
-    pub const Roll36Inch: Self = Self(171i32);
-    pub const Roll54Inch: Self = Self(172i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const BusinessCard: Self = Self(3);
+    pub const CreditCard: Self = Self(4);
+    pub const IsoA0: Self = Self(5);
+    pub const IsoA1: Self = Self(6);
+    pub const IsoA10: Self = Self(7);
+    pub const IsoA2: Self = Self(8);
+    pub const IsoA3: Self = Self(9);
+    pub const IsoA3Extra: Self = Self(10);
+    pub const IsoA3Rotated: Self = Self(11);
+    pub const IsoA4: Self = Self(12);
+    pub const IsoA4Extra: Self = Self(13);
+    pub const IsoA4Rotated: Self = Self(14);
+    pub const IsoA5: Self = Self(15);
+    pub const IsoA5Extra: Self = Self(16);
+    pub const IsoA5Rotated: Self = Self(17);
+    pub const IsoA6: Self = Self(18);
+    pub const IsoA6Rotated: Self = Self(19);
+    pub const IsoA7: Self = Self(20);
+    pub const IsoA8: Self = Self(21);
+    pub const IsoA9: Self = Self(22);
+    pub const IsoB0: Self = Self(23);
+    pub const IsoB1: Self = Self(24);
+    pub const IsoB10: Self = Self(25);
+    pub const IsoB2: Self = Self(26);
+    pub const IsoB3: Self = Self(27);
+    pub const IsoB4: Self = Self(28);
+    pub const IsoB4Envelope: Self = Self(29);
+    pub const IsoB5Envelope: Self = Self(30);
+    pub const IsoB5Extra: Self = Self(31);
+    pub const IsoB7: Self = Self(32);
+    pub const IsoB8: Self = Self(33);
+    pub const IsoB9: Self = Self(34);
+    pub const IsoC0: Self = Self(35);
+    pub const IsoC1: Self = Self(36);
+    pub const IsoC10: Self = Self(37);
+    pub const IsoC2: Self = Self(38);
+    pub const IsoC3: Self = Self(39);
+    pub const IsoC3Envelope: Self = Self(40);
+    pub const IsoC4: Self = Self(41);
+    pub const IsoC4Envelope: Self = Self(42);
+    pub const IsoC5: Self = Self(43);
+    pub const IsoC5Envelope: Self = Self(44);
+    pub const IsoC6: Self = Self(45);
+    pub const IsoC6C5Envelope: Self = Self(46);
+    pub const IsoC6Envelope: Self = Self(47);
+    pub const IsoC7: Self = Self(48);
+    pub const IsoC8: Self = Self(49);
+    pub const IsoC9: Self = Self(50);
+    pub const IsoDLEnvelope: Self = Self(51);
+    pub const IsoDLEnvelopeRotated: Self = Self(52);
+    pub const IsoSRA3: Self = Self(53);
+    pub const Japan2LPhoto: Self = Self(54);
+    pub const JapanChou3Envelope: Self = Self(55);
+    pub const JapanChou3EnvelopeRotated: Self = Self(56);
+    pub const JapanChou4Envelope: Self = Self(57);
+    pub const JapanChou4EnvelopeRotated: Self = Self(58);
+    pub const JapanDoubleHagakiPostcard: Self = Self(59);
+    pub const JapanDoubleHagakiPostcardRotated: Self = Self(60);
+    pub const JapanHagakiPostcard: Self = Self(61);
+    pub const JapanHagakiPostcardRotated: Self = Self(62);
+    pub const JapanKaku2Envelope: Self = Self(63);
+    pub const JapanKaku2EnvelopeRotated: Self = Self(64);
+    pub const JapanKaku3Envelope: Self = Self(65);
+    pub const JapanKaku3EnvelopeRotated: Self = Self(66);
+    pub const JapanLPhoto: Self = Self(67);
+    pub const JapanQuadrupleHagakiPostcard: Self = Self(68);
+    pub const JapanYou1Envelope: Self = Self(69);
+    pub const JapanYou2Envelope: Self = Self(70);
+    pub const JapanYou3Envelope: Self = Self(71);
+    pub const JapanYou4Envelope: Self = Self(72);
+    pub const JapanYou4EnvelopeRotated: Self = Self(73);
+    pub const JapanYou6Envelope: Self = Self(74);
+    pub const JapanYou6EnvelopeRotated: Self = Self(75);
+    pub const JisB0: Self = Self(76);
+    pub const JisB1: Self = Self(77);
+    pub const JisB10: Self = Self(78);
+    pub const JisB2: Self = Self(79);
+    pub const JisB3: Self = Self(80);
+    pub const JisB4: Self = Self(81);
+    pub const JisB4Rotated: Self = Self(82);
+    pub const JisB5: Self = Self(83);
+    pub const JisB5Rotated: Self = Self(84);
+    pub const JisB6: Self = Self(85);
+    pub const JisB6Rotated: Self = Self(86);
+    pub const JisB7: Self = Self(87);
+    pub const JisB8: Self = Self(88);
+    pub const JisB9: Self = Self(89);
+    pub const NorthAmerica10x11: Self = Self(90);
+    pub const NorthAmerica10x12: Self = Self(91);
+    pub const NorthAmerica10x14: Self = Self(92);
+    pub const NorthAmerica11x17: Self = Self(93);
+    pub const NorthAmerica14x17: Self = Self(94);
+    pub const NorthAmerica4x6: Self = Self(95);
+    pub const NorthAmerica4x8: Self = Self(96);
+    pub const NorthAmerica5x7: Self = Self(97);
+    pub const NorthAmerica8x10: Self = Self(98);
+    pub const NorthAmerica9x11: Self = Self(99);
+    pub const NorthAmericaArchitectureASheet: Self = Self(100);
+    pub const NorthAmericaArchitectureBSheet: Self = Self(101);
+    pub const NorthAmericaArchitectureCSheet: Self = Self(102);
+    pub const NorthAmericaArchitectureDSheet: Self = Self(103);
+    pub const NorthAmericaArchitectureESheet: Self = Self(104);
+    pub const NorthAmericaCSheet: Self = Self(105);
+    pub const NorthAmericaDSheet: Self = Self(106);
+    pub const NorthAmericaESheet: Self = Self(107);
+    pub const NorthAmericaExecutive: Self = Self(108);
+    pub const NorthAmericaGermanLegalFanfold: Self = Self(109);
+    pub const NorthAmericaGermanStandardFanfold: Self = Self(110);
+    pub const NorthAmericaLegal: Self = Self(111);
+    pub const NorthAmericaLegalExtra: Self = Self(112);
+    pub const NorthAmericaLetter: Self = Self(113);
+    pub const NorthAmericaLetterExtra: Self = Self(114);
+    pub const NorthAmericaLetterPlus: Self = Self(115);
+    pub const NorthAmericaLetterRotated: Self = Self(116);
+    pub const NorthAmericaMonarchEnvelope: Self = Self(117);
+    pub const NorthAmericaNote: Self = Self(118);
+    pub const NorthAmericaNumber10Envelope: Self = Self(119);
+    pub const NorthAmericaNumber10EnvelopeRotated: Self = Self(120);
+    pub const NorthAmericaNumber11Envelope: Self = Self(121);
+    pub const NorthAmericaNumber12Envelope: Self = Self(122);
+    pub const NorthAmericaNumber14Envelope: Self = Self(123);
+    pub const NorthAmericaNumber9Envelope: Self = Self(124);
+    pub const NorthAmericaPersonalEnvelope: Self = Self(125);
+    pub const NorthAmericaQuarto: Self = Self(126);
+    pub const NorthAmericaStatement: Self = Self(127);
+    pub const NorthAmericaSuperA: Self = Self(128);
+    pub const NorthAmericaSuperB: Self = Self(129);
+    pub const NorthAmericaTabloid: Self = Self(130);
+    pub const NorthAmericaTabloidExtra: Self = Self(131);
+    pub const OtherMetricA3Plus: Self = Self(132);
+    pub const OtherMetricA4Plus: Self = Self(133);
+    pub const OtherMetricFolio: Self = Self(134);
+    pub const OtherMetricInviteEnvelope: Self = Self(135);
+    pub const OtherMetricItalianEnvelope: Self = Self(136);
+    pub const Prc10Envelope: Self = Self(137);
+    pub const Prc10EnvelopeRotated: Self = Self(138);
+    pub const Prc16K: Self = Self(139);
+    pub const Prc16KRotated: Self = Self(140);
+    pub const Prc1Envelope: Self = Self(141);
+    pub const Prc1EnvelopeRotated: Self = Self(142);
+    pub const Prc2Envelope: Self = Self(143);
+    pub const Prc2EnvelopeRotated: Self = Self(144);
+    pub const Prc32K: Self = Self(145);
+    pub const Prc32KBig: Self = Self(146);
+    pub const Prc32KRotated: Self = Self(147);
+    pub const Prc3Envelope: Self = Self(148);
+    pub const Prc3EnvelopeRotated: Self = Self(149);
+    pub const Prc4Envelope: Self = Self(150);
+    pub const Prc4EnvelopeRotated: Self = Self(151);
+    pub const Prc5Envelope: Self = Self(152);
+    pub const Prc5EnvelopeRotated: Self = Self(153);
+    pub const Prc6Envelope: Self = Self(154);
+    pub const Prc6EnvelopeRotated: Self = Self(155);
+    pub const Prc7Envelope: Self = Self(156);
+    pub const Prc7EnvelopeRotated: Self = Self(157);
+    pub const Prc8Envelope: Self = Self(158);
+    pub const Prc8EnvelopeRotated: Self = Self(159);
+    pub const Prc9Envelope: Self = Self(160);
+    pub const Prc9EnvelopeRotated: Self = Self(161);
+    pub const Roll04Inch: Self = Self(162);
+    pub const Roll06Inch: Self = Self(163);
+    pub const Roll08Inch: Self = Self(164);
+    pub const Roll12Inch: Self = Self(165);
+    pub const Roll15Inch: Self = Self(166);
+    pub const Roll18Inch: Self = Self(167);
+    pub const Roll22Inch: Self = Self(168);
+    pub const Roll24Inch: Self = Self(169);
+    pub const Roll30Inch: Self = Self(170);
+    pub const Roll36Inch: Self = Self(171);
+    pub const Roll54Inch: Self = Self(172);
 }
 impl windows_core::TypeKind for PrintMediaSize {
     type TypeKind = windows_core::CopyType;
@@ -1227,38 +1227,38 @@ impl windows_core::RuntimeType for PrintMediaSize {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const AutoSelect: Self = Self(3i32);
-    pub const Archival: Self = Self(4i32);
-    pub const BackPrintFilm: Self = Self(5i32);
-    pub const Bond: Self = Self(6i32);
-    pub const CardStock: Self = Self(7i32);
-    pub const Continuous: Self = Self(8i32);
-    pub const EnvelopePlain: Self = Self(9i32);
-    pub const EnvelopeWindow: Self = Self(10i32);
-    pub const Fabric: Self = Self(11i32);
-    pub const HighResolution: Self = Self(12i32);
-    pub const Label: Self = Self(13i32);
-    pub const MultiLayerForm: Self = Self(14i32);
-    pub const MultiPartForm: Self = Self(15i32);
-    pub const Photographic: Self = Self(16i32);
-    pub const PhotographicFilm: Self = Self(17i32);
-    pub const PhotographicGlossy: Self = Self(18i32);
-    pub const PhotographicHighGloss: Self = Self(19i32);
-    pub const PhotographicMatte: Self = Self(20i32);
-    pub const PhotographicSatin: Self = Self(21i32);
-    pub const PhotographicSemiGloss: Self = Self(22i32);
-    pub const Plain: Self = Self(23i32);
-    pub const Screen: Self = Self(24i32);
-    pub const ScreenPaged: Self = Self(25i32);
-    pub const Stationery: Self = Self(26i32);
-    pub const TabStockFull: Self = Self(27i32);
-    pub const TabStockPreCut: Self = Self(28i32);
-    pub const Transparency: Self = Self(29i32);
-    pub const TShirtTransfer: Self = Self(30i32);
-    pub const None: Self = Self(31i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const AutoSelect: Self = Self(3);
+    pub const Archival: Self = Self(4);
+    pub const BackPrintFilm: Self = Self(5);
+    pub const Bond: Self = Self(6);
+    pub const CardStock: Self = Self(7);
+    pub const Continuous: Self = Self(8);
+    pub const EnvelopePlain: Self = Self(9);
+    pub const EnvelopeWindow: Self = Self(10);
+    pub const Fabric: Self = Self(11);
+    pub const HighResolution: Self = Self(12);
+    pub const Label: Self = Self(13);
+    pub const MultiLayerForm: Self = Self(14);
+    pub const MultiPartForm: Self = Self(15);
+    pub const Photographic: Self = Self(16);
+    pub const PhotographicFilm: Self = Self(17);
+    pub const PhotographicGlossy: Self = Self(18);
+    pub const PhotographicHighGloss: Self = Self(19);
+    pub const PhotographicMatte: Self = Self(20);
+    pub const PhotographicSatin: Self = Self(21);
+    pub const PhotographicSemiGloss: Self = Self(22);
+    pub const Plain: Self = Self(23);
+    pub const Screen: Self = Self(24);
+    pub const ScreenPaged: Self = Self(25);
+    pub const Stationery: Self = Self(26);
+    pub const TabStockFull: Self = Self(27);
+    pub const TabStockPreCut: Self = Self(28);
+    pub const Transparency: Self = Self(29);
+    pub const TShirtTransfer: Self = Self(30);
+    pub const None: Self = Self(31);
 }
 impl windows_core::TypeKind for PrintMediaType {
     type TypeKind = windows_core::CopyType;
@@ -1271,13 +1271,13 @@ impl windows_core::RuntimeType for PrintMediaType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Portrait: Self = Self(3i32);
-    pub const PortraitFlipped: Self = Self(4i32);
-    pub const Landscape: Self = Self(5i32);
-    pub const LandscapeFlipped: Self = Self(6i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const Portrait: Self = Self(3);
+    pub const PortraitFlipped: Self = Self(4);
+    pub const Landscape: Self = Self(5);
+    pub const LandscapeFlipped: Self = Self(6);
 }
 impl windows_core::TypeKind for PrintOrientation {
     type TypeKind = windows_core::CopyType;
@@ -1466,16 +1466,16 @@ unsafe impl Sync for PrintPageRangeOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Automatic: Self = Self(3i32);
-    pub const Draft: Self = Self(4i32);
-    pub const Fax: Self = Self(5i32);
-    pub const High: Self = Self(6i32);
-    pub const Normal: Self = Self(7i32);
-    pub const Photographic: Self = Self(8i32);
-    pub const Text: Self = Self(9i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const Automatic: Self = Self(3);
+    pub const Draft: Self = Self(4);
+    pub const Fax: Self = Self(5);
+    pub const High: Self = Self(6);
+    pub const Normal: Self = Self(7);
+    pub const Photographic: Self = Self(8);
+    pub const Text: Self = Self(9);
 }
 impl windows_core::TypeKind for PrintQuality {
     type TypeKind = windows_core::CopyType;
@@ -1488,19 +1488,19 @@ impl windows_core::RuntimeType for PrintQuality {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-    pub const StapleTopLeft: Self = Self(4i32);
-    pub const StapleTopRight: Self = Self(5i32);
-    pub const StapleBottomLeft: Self = Self(6i32);
-    pub const StapleBottomRight: Self = Self(7i32);
-    pub const StapleDualLeft: Self = Self(8i32);
-    pub const StapleDualRight: Self = Self(9i32);
-    pub const StapleDualTop: Self = Self(10i32);
-    pub const StapleDualBottom: Self = Self(11i32);
-    pub const SaddleStitch: Self = Self(12i32);
+    pub const Default: Self = Self(0);
+    pub const NotAvailable: Self = Self(1);
+    pub const PrinterCustom: Self = Self(2);
+    pub const None: Self = Self(3);
+    pub const StapleTopLeft: Self = Self(4);
+    pub const StapleTopRight: Self = Self(5);
+    pub const StapleBottomLeft: Self = Self(6);
+    pub const StapleBottomRight: Self = Self(7);
+    pub const StapleDualLeft: Self = Self(8);
+    pub const StapleDualRight: Self = Self(9);
+    pub const StapleDualTop: Self = Self(10);
+    pub const StapleDualBottom: Self = Self(11);
+    pub const SaddleStitch: Self = Self(12);
 }
 impl windows_core::TypeKind for PrintStaple {
     type TypeKind = windows_core::CopyType;
@@ -1655,10 +1655,10 @@ unsafe impl Sync for PrintTaskCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
-    pub const Abandoned: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Submitted: Self = Self(3i32);
+    pub const Abandoned: Self = Self(0);
+    pub const Canceled: Self = Self(1);
+    pub const Failed: Self = Self(2);
+    pub const Submitted: Self = Self(3);
 }
 impl windows_core::TypeKind for PrintTaskCompletion {
     type TypeKind = windows_core::CopyType;
@@ -2042,7 +2042,7 @@ impl windows_core::RuntimeType for PrintTaskSourceRequestedHandler {
 impl PrintTaskSourceRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<PrintTaskSourceRequestedHandler, F>::new(&PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where

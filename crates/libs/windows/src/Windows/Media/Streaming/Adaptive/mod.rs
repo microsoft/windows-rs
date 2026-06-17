@@ -57,7 +57,7 @@ impl AdaptiveMediaSource {
         }
     }
     pub fn SetDesiredMinBitrate(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDesiredMinBitrate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn DesiredMaxBitrate(&self) -> windows_core::Result<u32> {
@@ -67,7 +67,7 @@ impl AdaptiveMediaSource {
         }
     }
     pub fn SetDesiredMaxBitrate(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDesiredMaxBitrate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn AudioOnlyPlayback(&self) -> windows_core::Result<bool> {
@@ -181,7 +181,7 @@ impl AdaptiveMediaSource {
     }
     pub fn SetDesiredSeekableWindowSize(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Diagnostics(&self) -> windows_core::Result<AdaptiveMediaSourceDiagnostics> {
@@ -294,7 +294,7 @@ impl AdaptiveMediaSourceAdvancedSettings {
         }
     }
     pub fn SetDesiredBitrateHeadroomRatio(&self, value: Option<f64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn BitrateDowngradeTriggerRatio(&self) -> windows_core::Result<f64> {
@@ -304,7 +304,7 @@ impl AdaptiveMediaSourceAdvancedSettings {
         }
     }
     pub fn SetBitrateDowngradeTriggerRatio(&self, value: Option<f64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetBitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -405,13 +405,13 @@ unsafe impl Sync for AdaptiveMediaSourceCreationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ManifestDownloadFailure: Self = Self(1i32);
-    pub const ManifestParseFailure: Self = Self(2i32);
-    pub const UnsupportedManifestContentType: Self = Self(3i32);
-    pub const UnsupportedManifestVersion: Self = Self(4i32);
-    pub const UnsupportedManifestProfile: Self = Self(5i32);
-    pub const UnknownFailure: Self = Self(6i32);
+    pub const Success: Self = Self(0);
+    pub const ManifestDownloadFailure: Self = Self(1);
+    pub const ManifestParseFailure: Self = Self(2);
+    pub const UnsupportedManifestContentType: Self = Self(3);
+    pub const UnsupportedManifestVersion: Self = Self(4);
+    pub const UnsupportedManifestProfile: Self = Self(5);
+    pub const UnknownFailure: Self = Self(6);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -517,15 +517,15 @@ unsafe impl Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
-    pub const ManifestUnchangedUponReload: Self = Self(0i32);
-    pub const ManifestMismatchUponReload: Self = Self(1i32);
-    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2i32);
-    pub const MediaSegmentSkipped: Self = Self(3i32);
-    pub const ResourceNotFound: Self = Self(4i32);
-    pub const ResourceTimedOut: Self = Self(5i32);
-    pub const ResourceParsingError: Self = Self(6i32);
-    pub const BitrateDisabled: Self = Self(7i32);
-    pub const FatalMediaSourceError: Self = Self(8i32);
+    pub const ManifestUnchangedUponReload: Self = Self(0);
+    pub const ManifestMismatchUponReload: Self = Self(1);
+    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2);
+    pub const MediaSegmentSkipped: Self = Self(3);
+    pub const ResourceNotFound: Self = Self(4);
+    pub const ResourceTimedOut: Self = Self(5);
+    pub const ResourceParsingError: Self = Self(6);
+    pub const BitrateDisabled: Self = Self(7);
+    pub const FatalMediaSourceError: Self = Self(8);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceDiagnosticType {
     type TypeKind = windows_core::CopyType;
@@ -605,13 +605,13 @@ unsafe impl Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
-    pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
-    pub const InsufficientInboundBitsPerSecond: Self = Self(1i32);
-    pub const LowBufferLevel: Self = Self(2i32);
-    pub const PositionChanged: Self = Self(3i32);
-    pub const TrackSelectionChanged: Self = Self(4i32);
-    pub const DesiredBitratesChanged: Self = Self(5i32);
-    pub const ErrorInPreviousBitrate: Self = Self(6i32);
+    pub const SufficientInboundBitsPerSecond: Self = Self(0);
+    pub const InsufficientInboundBitsPerSecond: Self = Self(1);
+    pub const LowBufferLevel: Self = Self(2);
+    pub const PositionChanged: Self = Self(3);
+    pub const TrackSelectionChanged: Self = Self(4);
+    pub const DesiredBitratesChanged: Self = Self(5);
+    pub const ErrorInPreviousBitrate: Self = Self(6);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceDownloadBitrateChangedReason {
     type TypeKind = windows_core::CopyType;
@@ -970,7 +970,7 @@ impl AdaptiveMediaSourceDownloadResult {
     }
     pub fn SetResourceByteRangeOffset(&self, value: Option<u64>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeOffset)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ResourceByteRangeLength(&self) -> windows_core::Result<u64> {
@@ -982,7 +982,7 @@ impl AdaptiveMediaSourceDownloadResult {
     }
     pub fn SetResourceByteRangeLength(&self, value: Option<u64>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeLength)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -1080,12 +1080,12 @@ unsafe impl Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {
-    pub const Manifest: Self = Self(0i32);
-    pub const InitializationSegment: Self = Self(1i32);
-    pub const MediaSegment: Self = Self(2i32);
-    pub const Key: Self = Self(3i32);
-    pub const InitializationVector: Self = Self(4i32);
-    pub const MediaSegmentIndex: Self = Self(5i32);
+    pub const Manifest: Self = Self(0);
+    pub const InitializationSegment: Self = Self(1);
+    pub const MediaSegment: Self = Self(2);
+    pub const Key: Self = Self(3);
+    pub const InitializationVector: Self = Self(4);
+    pub const MediaSegmentIndex: Self = Self(5);
 }
 impl windows_core::TypeKind for AdaptiveMediaSourceResourceType {
     type TypeKind = windows_core::CopyType;

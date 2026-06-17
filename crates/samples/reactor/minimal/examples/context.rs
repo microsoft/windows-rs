@@ -1,8 +1,4 @@
-//! Minimal sample for the context API.
-//!
-//! A parent provides a value via `Element::provide(&CTX, value)`. A
-//! nested component reads it via `cx.use_context(&CTX)` without
-//! prop-drilling through ancestors.
+//! Sample for the context API.
 
 use std::sync::LazyLock;
 
@@ -47,5 +43,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Context", app)
 }

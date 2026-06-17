@@ -202,7 +202,7 @@ where
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
         let map = self.owner.map.read().unwrap();
         if let Some((key, value)) = map.iter().nth(current) {
-            Ok(ComObject::new(super::key_value_pair::StockKeyValuePair {
+            Ok(ComObject::new(key_value_pair::StockKeyValuePair {
                 key: key.clone(),
                 value: value.clone(),
             })
@@ -245,7 +245,7 @@ where
 
         for (item, (key, value)) in items.iter_mut().zip(map.iter().skip(current)) {
             *item = Some(
-                ComObject::new(super::key_value_pair::StockKeyValuePair {
+                ComObject::new(key_value_pair::StockKeyValuePair {
                     key: key.clone(),
                     value: value.clone(),
                 })

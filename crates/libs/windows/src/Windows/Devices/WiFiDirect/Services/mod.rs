@@ -350,10 +350,10 @@ unsafe impl Sync for WiFiDirectService {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const Stopped: Self = Self(2i32);
-    pub const Aborted: Self = Self(3i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const Stopped: Self = Self(2);
+    pub const Aborted: Self = Self(3);
 }
 impl windows_core::TypeKind for WiFiDirectServiceAdvertisementStatus {
     type TypeKind = windows_core::CopyType;
@@ -581,9 +581,9 @@ unsafe impl Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
-    pub const Default: Self = Self(0i32);
-    pub const PinDisplay: Self = Self(1i32);
-    pub const PinEntry: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const PinDisplay: Self = Self(1);
+    pub const PinEntry: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiDirectServiceConfigurationMethod {
     type TypeKind = windows_core::CopyType;
@@ -596,11 +596,11 @@ impl windows_core::RuntimeType for WiFiDirectServiceConfigurationMethod {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
-    pub const Success: Self = Self(0i32);
-    pub const RadioNotAvailable: Self = Self(1i32);
-    pub const ResourceInUse: Self = Self(2i32);
-    pub const UnsupportedHardware: Self = Self(3i32);
-    pub const NoHardware: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const RadioNotAvailable: Self = Self(1);
+    pub const ResourceInUse: Self = Self(2);
+    pub const UnsupportedHardware: Self = Self(3);
+    pub const NoHardware: Self = Self(4);
 }
 impl windows_core::TypeKind for WiFiDirectServiceError {
     type TypeKind = windows_core::CopyType;
@@ -613,8 +613,8 @@ impl windows_core::RuntimeType for WiFiDirectServiceError {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
-    pub const Tcp: Self = Self(6i32);
-    pub const Udp: Self = Self(17i32);
+    pub const Tcp: Self = Self(6);
+    pub const Udp: Self = Self(17);
 }
 impl windows_core::TypeKind for WiFiDirectServiceIPProtocol {
     type TypeKind = windows_core::CopyType;
@@ -829,12 +829,12 @@ unsafe impl Sync for WiFiDirectServiceSessionDeferredEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const Disassociated: Self = Self(1i32);
-    pub const LocalClose: Self = Self(2i32);
-    pub const RemoteClose: Self = Self(3i32);
-    pub const SystemFailure: Self = Self(4i32);
-    pub const NoResponseFromRemote: Self = Self(5i32);
+    pub const Ok: Self = Self(0);
+    pub const Disassociated: Self = Self(1);
+    pub const LocalClose: Self = Self(2);
+    pub const RemoteClose: Self = Self(3);
+    pub const SystemFailure: Self = Self(4);
+    pub const NoResponseFromRemote: Self = Self(5);
 }
 impl windows_core::TypeKind for WiFiDirectServiceSessionErrorStatus {
     type TypeKind = windows_core::CopyType;
@@ -914,10 +914,10 @@ unsafe impl Sync for WiFiDirectServiceSessionRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Initiated: Self = Self(1i32);
-    pub const Requested: Self = Self(2i32);
-    pub const Open: Self = Self(3i32);
+    pub const Closed: Self = Self(0);
+    pub const Initiated: Self = Self(1);
+    pub const Requested: Self = Self(2);
+    pub const Open: Self = Self(3);
 }
 impl windows_core::TypeKind for WiFiDirectServiceSessionStatus {
     type TypeKind = windows_core::CopyType;
@@ -930,9 +930,9 @@ impl windows_core::RuntimeType for WiFiDirectServiceSessionStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {
-    pub const Available: Self = Self(0i32);
-    pub const Busy: Self = Self(1i32);
-    pub const Custom: Self = Self(2i32);
+    pub const Available: Self = Self(0);
+    pub const Busy: Self = Self(1);
+    pub const Custom: Self = Self(2);
 }
 impl windows_core::TypeKind for WiFiDirectServiceStatus {
     type TypeKind = windows_core::CopyType;
