@@ -38,16 +38,7 @@ impl TypeDefOrRefExt for TypeDefOrRef {
     }
 }
 
-// Extension trait for MemberRefParent: adds type_name helper.
-pub trait MemberRefParentExt {
-    fn type_name(&self) -> TypeName;
-}
 
-impl MemberRefParentExt for MemberRefParent {
-    fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
-    }
-}
 
 // Extension trait for guid_attribute(), which uses our Value type rather than metadata's.
 pub trait GuidAttributeExt {

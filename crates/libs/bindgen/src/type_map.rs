@@ -72,10 +72,6 @@ impl TypeMap {
         self.0.entry(ty.type_name()).or_default().insert(ty)
     }
 
-    pub fn remove(&mut self, tn: &TypeName) {
-        self.0.remove(tn);
-    }
-
     pub fn combine_references(&mut self, other: &Self, references: &References) {
         for (tn, types) in &other.0 {
             if references.contains(*tn).is_none() {
